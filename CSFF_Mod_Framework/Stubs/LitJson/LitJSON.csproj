@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <RootNamespace>LitJson</RootNamespace>
+        <AssemblyName>LitJSON</AssemblyName>
+        <LangVersion>latest</LangVersion>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <Nullable>disable</Nullable>
+        <IsPackable>false</IsPackable>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <TargetFramework>net48</TargetFramework>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <GenerateDependencyFile>false</GenerateDependencyFile>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <DebugType>none</DebugType>
+    </PropertyGroup>
+    <!--
+        Pinned AssemblyVersion to 0.18.0.0 to preserve CLR binding compatibility
+        with third-party CSFF mods that reference LitJSON as an external
+        assembly. The implementation in LitJsonStub.cs is a minimal
+        mock of the LitJSON public API, sufficient for the framework's own
+        internal use and for resolving CLR imports of mods built against the
+        upstream library. The upstream LitJSON project (Leonardo Taglialegne,
+        Lupus, et al.) is public-domain, so neither the API surface nor any
+        residual style influence creates a redistribution restriction.
+    -->
+</Project>

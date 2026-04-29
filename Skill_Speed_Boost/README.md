@@ -33,7 +33,7 @@ Skill Speed Boost provides comprehensive control over skill progression mechanic
 
 ### Requirements
 - [BepInEx 5.4.23.4+](https://github.com/BepInEx/BepInEx/releases)
-- Card Survival: Fantasy Forest (EA 0.62d)
+- Card Survival: Fantasy Forest (EA 0.62e)
 
 ### Steps
 1. Download the latest release (v1.7.1+)
@@ -137,7 +137,7 @@ See **FEATURES.md** for full per-skill configuration details.
 ## Version History
 
 ### v1.7.1 (Latest)
-- Verified compatible with EA 0.62d (8-file delta from 0.62b — no API changes affecting this mod)
+- Verified compatible with EA 0.62e (8-file delta from 0.62b — no API changes affecting this mod)
 
 ### v1.7.0
 - **Area Familiarity** — Per-location XP bonus that scales with how often you work that tile
@@ -152,7 +152,7 @@ See **FEATURES.md** for full per-skill configuration details.
   - `MorningStartHour` / `MorningEndHour` in game-hours 0–23 (default 5–9)
   - Stacks with global and per-skill multipliers; applied as a real-time bonus on XP gains
 
-### v2.0.0
+### v1.6.0
 - **Per-skill XP multipliers** — Set different learning rates for each skill
 - **Difficulty profiles** — VanillaPlus, Casual, Hardcore, Grinder, Balanced, Legacy
 - **SkillConfigManager** — Intelligent per-skill configuration system
@@ -183,4 +183,8 @@ For more help, see **FEATURES.md** or check BepInEx LogOutput.log.
 ## Credits
 
 Created by Jared (CrispyWhips)  
-Framework: BepInEx, HarmonyLib, CSFFModFramework
+Framework: BepInEx, HarmonyLib
+
+## License
+
+MIT License - Feel free to modify and redistribute.
