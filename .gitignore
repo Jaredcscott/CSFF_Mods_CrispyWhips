@@ -23,3 +23,9 @@ Thumbs.db
 *.bak
 *~
 backup/
+
+# Repo-management scripts and tool state
+_materialize.py
+_strip_libs.py
+_fix_libignore.py
+.claude/
