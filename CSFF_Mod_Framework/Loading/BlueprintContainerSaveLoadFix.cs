@@ -159,12 +159,24 @@ internal static class BlueprintContainerSaveLoadFix
             return;
         }
 
+        // Resolve SetBpAvailable once — used to force BlueprintModelStates[card] = Available
+        // for every contained blueprint of every placed container. The Recipes tab on a
+        // placed container is gated by `BlueprintModelStates[bp] == Available` (igcb.cs
+        // ShouldHideContainedBlueprints / GetSelectedContainedBlueprint, line 1861). After
+        // a save load, contained blueprints can end up in the dictionary as Locked even
+        // when the cards are physically present in CardsInInventory, leaving the visible
+        // tab hidden.
+        var setBpAvailable = AccessTools.Method(gmType, "SetBpAvailable");
+        if (setBpAvailable == null)
+            Log.Warn("[BlueprintContainerSaveLoadFix] GameManager.SetBpAvailable not found — Recipes-tab unlock unavailable");
+
         var cards = CollectCards(gmInstance, gmType);
         Log.Info($"[BlueprintContainerSaveLoadFix] enumerating {cards.Count} card(s)");
 
         int containers = 0;
         int candidates = 0;
         int refreshed = 0;
+        int unlocked = 0;
 
         foreach (var card in cards)
         {
@@ -173,22 +185,107 @@ internal static class BlueprintContainerSaveLoadFix
             if (!IsBlueprintContainer(card)) continue;
             containers++;
 
-            if (!IsStaleContainer(card)) continue;
-            candidates++;
-
-            var iter = spawnMethod.Invoke(gmInstance, new[] { card }) as IEnumerator;
-            if (iter == null)
+            // 1) Ensure inventory slots are populated. Identity check: which expected
+            //    blueprint cards are actually present? The count-only heuristic missed
+            //    the case where Init sized CardsInInventory correctly but each slot's
+            //    MainCard is null.
+            var missing = GetMissingBlueprintCards(card);
+            if (missing != null && missing.Count > 0)
             {
-                Log.Warn($"[BlueprintContainerSaveLoadFix] SpawnDefault returned null IEnumerator for card {DescribeCard(card)}");
-                continue;
+                candidates++;
+                Log.Info($"[BlueprintContainerSaveLoadFix] {DescribeCard(card)}: {missing.Count} blueprint card(s) missing from inventory — re-spawning");
+
+                var iter = spawnMethod.Invoke(gmInstance, new[] { card }) as IEnumerator;
+                if (iter != null)
+                {
+                    startCoroutineMethod.Invoke(gmInstance, new object[] { iter });
+                    refreshed++;
+                    Log.Info($"[BlueprintContainerSaveLoadFix] re-spawned blueprints for {DescribeCard(card)}");
+                }
+                else
+                {
+                    Log.Warn($"[BlueprintContainerSaveLoadFix] SpawnDefault returned null IEnumerator for card {DescribeCard(card)}");
+                }
             }
 
-            startCoroutineMethod.Invoke(gmInstance, new object[] { iter });
-            refreshed++;
-            Log.Info($"[BlueprintContainerSaveLoadFix] re-spawned blueprints for {DescribeCard(card)}");
+            // 2) Ensure each contained blueprint is unlocked (Available state). This is
+            //    the critical fix for the Recipes-tab-missing case: cards can be in the
+            //    inventory while BlueprintModelStates[card] is still Locked, which
+            //    silently hides the tab.
+            if (setBpAvailable != null && !ContainerStartsBlueprintsLocked(card))
+            {
+                unlocked += UnlockContainedBlueprints(card, gmInstance, setBpAvailable);
+            }
         }
 
-        Log.Info($"[BlueprintContainerSaveLoadFix] done: {containers} blueprint container(s) seen, {candidates} stale, {refreshed} refresh coroutines started");
+        Log.Info($"[BlueprintContainerSaveLoadFix] done: {containers} blueprint container(s) seen, {candidates} stale, {refreshed} refresh coroutines started, {unlocked} blueprint(s) marked Available");
+    }
+
+    /// <summary>
+    /// Mirrors the gate used by <c>GameManager.SpawnDefaultContainedBlueprints</c> —
+    /// only auto-unlock contained blueprints when the container's
+    /// <c>ContainedBlueprintsDontStartUnlocked</c> flag is false (the vanilla default).
+    /// </summary>
+    private static bool ContainerStartsBlueprintsLocked(object card)
+    {
+        try
+        {
+            var cardModelProp = card.GetType().GetProperty("CardModel", BindingFlags.Instance | BindingFlags.Public);
+            var cardModel = cardModelProp?.GetValue(card, null);
+            if (cardModel == null) return true; // safe default
+            var flagField = AccessTools.Field(cardModel.GetType(), "ContainedBlueprintsDontStartUnlocked");
+            if (flagField == null) return false;
+            return (bool)flagField.GetValue(cardModel);
+        }
+        catch { return false; }
+    }
+
+    /// <summary>
+    /// For every entry in the container's <c>ContainedBlueprintCards</c>, invoke
+    /// <c>GameManager.SetBpAvailable</c>. The game function is idempotent — it returns
+    /// immediately if the blueprint is already Available or not in the dictionary.
+    /// Returns the count of cards we attempted to unlock (regardless of whether they
+    /// were already Available).
+    /// </summary>
+    private static int UnlockContainedBlueprints(object card, object gmInstance, MethodInfo setBpAvailable)
+    {
+        try
+        {
+            var cardModelProp = card.GetType().GetProperty("CardModel", BindingFlags.Instance | BindingFlags.Public);
+            var cardModel = cardModelProp?.GetValue(card, null);
+            if (cardModel == null) return 0;
+
+            var containedField = AccessTools.Field(cardModel.GetType(), "ContainedBlueprintCards");
+            var containedArr = containedField?.GetValue(cardModel) as Array;
+            if (containedArr == null || containedArr.Length == 0) return 0;
+
+            int count = 0;
+            foreach (var bp in containedArr)
+            {
+                if (bp == null) continue;
+                try
+                {
+                    setBpAvailable.Invoke(gmInstance, new[] { bp });
+                    count++;
+                }
+                catch (Exception ex)
+                {
+                    Log.Warn($"[BlueprintContainerSaveLoadFix] SetBpAvailable threw for {DescribeBlueprint(bp)}: {ex.InnerException?.Message ?? ex.Message}");
+                }
+            }
+            return count;
+        }
+        catch { return 0; }
+    }
+
+    private static string DescribeBlueprint(object bp)
+    {
+        try
+        {
+            var uidField = AccessTools.Field(bp.GetType(), "UniqueID");
+            return uidField?.GetValue(bp) as string ?? bp.ToString();
+        }
+        catch { return "<unknown>"; }
     }
 
     private static List<object> CollectCards(object gmInstance, Type gmType)
@@ -307,7 +404,21 @@ internal static class BlueprintContainerSaveLoadFix
         catch { return false; }
     }
 
-    private static bool IsStaleContainer(object card)
+    /// <summary>
+    /// Returns the list of expected blueprint <c>CardData</c> entries that are NOT
+    /// currently present in the container's inventory, using the same identity check
+    /// (<c>HasCardInInventory</c>) the game's own <c>SpawnDefaultContainedBlueprints</c>
+    /// uses internally. Returns <c>null</c> if the card cannot be inspected (no CardModel,
+    /// missing reflection target, etc.). An empty list means the container is fully
+    /// populated and no refresh is needed.
+    ///
+    /// Why this and not <c>CardsInInventory.Count &lt; ContainedBlueprintCards.Length</c>:
+    /// after a save load, <c>InGameCardBase.Init</c> sizes <c>CardsInInventory</c> from
+    /// the (now-populated) template, so counts match — but each <c>InventorySlot</c>
+    /// can have <c>MainCard == null</c>, leaving the visible Recipes tab empty.
+    /// Identity-based detection catches that case.
+    /// </summary>
+    private static List<object> GetMissingBlueprintCards(object card)
     {
         try
         {
@@ -315,19 +426,40 @@ internal static class BlueprintContainerSaveLoadFix
 
             var cardModelProp = cardType.GetProperty("CardModel", BindingFlags.Instance | BindingFlags.Public);
             var cardModel = cardModelProp?.GetValue(card, null);
-            if (cardModel == null) return false;
+            if (cardModel == null) return null;
 
             var containedField = AccessTools.Field(cardModel.GetType(), "ContainedBlueprintCards");
             var containedArr = containedField?.GetValue(cardModel) as Array;
-            if (containedArr == null || containedArr.Length == 0) return false;
+            if (containedArr == null || containedArr.Length == 0) return new List<object>();
 
-            var inventoryField = AccessTools.Field(cardType, "CardsInInventory");
-            var inventoryList = inventoryField?.GetValue(card) as IList;
-            int currentCount = inventoryList?.Count ?? 0;
+            // Resolve InGameCardBase.HasCardInInventory(CardData) once.
+            // Signature: public bool HasCardInInventory(CardData _Card, List<InGameCardBase> _Results = null)
+            var hasMethod = cardType.GetMethods(BindingFlags.Instance | BindingFlags.Public)
+                .FirstOrDefault(m => m.Name == "HasCardInInventory");
+            if (hasMethod == null) return null;
 
-            return currentCount < containedArr.Length;
+            var hasParams = hasMethod.GetParameters();
+            var missing = new List<object>();
+
+            foreach (var entry in containedArr)
+            {
+                if (entry == null) { missing.Add(null); continue; }
+
+                object[] args;
+                if (hasParams.Length == 1)      args = new[] { entry };
+                else if (hasParams.Length == 2) args = new[] { entry, null };
+                else return null;
+
+                bool present;
+                try { present = (bool)hasMethod.Invoke(card, args); }
+                catch { present = false; }
+
+                if (!present) missing.Add(entry);
+            }
+
+            return missing;
         }
-        catch { return false; }
+        catch { return null; }
     }
 
     private static string DescribeCard(object card)

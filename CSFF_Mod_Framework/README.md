@@ -4,9 +4,9 @@ Standalone modding framework for Card Survival: Fantasy Forest. Provides mod dis
 
 ## Status
 
-- **Framework Version**: 2.0.1
+- **Framework Version**: 2.0.2
 - **Game Version**: EA 0.62d
-- All in-house mods verified working in-game on EA 0.62b; 2.0.1 is a compatibility bump for EA 0.62d (delta of 8 JSON files vs. 0.62b — micro-patch, no API changes).
+- All in-house mods verified working in-game on EA 0.62b; 2.0.2 keeps the EA 0.62d compatibility bump and adds a save-load fix for placed blueprint containers (e.g. Oil Press) whose Recipes tab was missing after reload — the framework now re-spawns missing inventory blueprints and forces `BlueprintModelStates` to `Available` for every contained recipe of every placed container.
 
 ## What Changed in 2.0.0 (2026-04-26)
 

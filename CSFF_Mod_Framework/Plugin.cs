@@ -5,7 +5,7 @@ public class Plugin : BaseUnityPlugin
 {
     public const string PluginGuid = "crispywhips.CSFFModFramework";
     public const string PluginName = "CSFF Mod Framework";
-    public const string PluginVersion = "2.0.1";
+    public const string PluginVersion = "2.0.2";
 
     public static Plugin Instance { get; private set; }
     internal static Harmony Harmony { get; private set; }
