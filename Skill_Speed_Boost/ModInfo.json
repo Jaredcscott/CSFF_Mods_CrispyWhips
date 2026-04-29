@@ -1,0 +1,6 @@
+{
+	"Name": "Skill Speed Boost",
+	"Author": "Jared",
+	"Version": "1.7.1",
+	"Description": "Skill progression control with per-skill XP multipliers (0-10x), difficulty profiles (VanillaPlus/Casual/Hardcore/Grinder/Balanced/Legacy), natural staleness decay (3 in-game hours), morning XP bonus window, and area familiarity (per-location XP bonus that grows the more you forage there). Configure each skill's learning rate independently."
+}
