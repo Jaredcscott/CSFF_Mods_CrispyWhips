@@ -29,3 +29,6 @@ _materialize.py
 _strip_libs.py
 _fix_libignore.py
 .claude/
+Mod_Update_Manager/lib/
+Repeat_Action/lib/
+Skill_Speed_Boost/lib/
