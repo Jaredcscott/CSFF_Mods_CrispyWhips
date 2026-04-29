@@ -1,0 +1,6 @@
+{
+	"Name": "Mod_Update_Manager",
+	"Author": "Jared",
+	"Version": "2.0.0",
+	"Description": "Checks installed mods against Nexus Mods, tracks versions and backups, detects potential conflicts, and provides an in-game update dashboard."
+}

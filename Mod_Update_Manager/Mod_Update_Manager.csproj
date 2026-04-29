@@ -1,0 +1,101 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <RootNamespace>mod_update_manager</RootNamespace>
+        <AssemblyName>mod_update_manager</AssemblyName>
+        <LangVersion>latest</LangVersion>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <Nullable>disable</Nullable>
+        <IsPackable>false</IsPackable>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <TargetFramework>net48</TargetFramework>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <GenerateDependencyFile>false</GenerateDependencyFile>
+        <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <OutputPath>C:\Program Files (x86)\Steam\steamapps\common\Card Survival Fantasy Forest\BepInEx\plugins\Mod_Update_Manager\</OutputPath>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <DebugType>none</DebugType>
+        <DebugSymbols>false</DebugSymbols>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Content Include="ModInfo.json">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <Content Include="LICENSE" CopyToOutputDirectory="PreserveNewest" Condition="Exists('LICENSE')" />
+        <Content Include="ASSET_CREDITS.md" CopyToOutputDirectory="PreserveNewest" Condition="Exists('ASSET_CREDITS.md')" />
+        <Content Include="Localization\**\*.*">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+    <ItemGroup>
+        <Reference Include="0Harmony">
+            <HintPath>lib\0Harmony.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Assembly-CSharp">
+            <HintPath>lib\Assembly-CSharp-nstrip.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="BepInEx">
+            <HintPath>lib\BepInEx.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="DOTween">
+            <HintPath>lib\DOTween.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <!-- UnityEngine DLLs -->
+        <Reference Include="UnityEngine" HintPath="lib\UnityEngine.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Unity.TextMeshPro" HintPath="lib\Unity.TextMeshPro.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule" HintPath="lib\UnityEngine.CoreModule.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.AnimationModule" HintPath="lib\UnityEngine.AnimationModule.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.AssetBundleModule" HintPath="lib\UnityEngine.AssetBundleModule.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.AudioModule" HintPath="lib\UnityEngine.AudioModule.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.ImageConversionModule" HintPath="lib\UnityEngine.ImageConversionModule.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.IMGUIModule" HintPath="lib\UnityEngine.IMGUIModule.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.InputLegacyModule" HintPath="lib\UnityEngine.InputLegacyModule.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.InputModule" HintPath="lib\UnityEngine.InputModule.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.JSONSerializeModule" HintPath="lib\UnityEngine.JSONSerializeModule.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.TextRenderingModule" HintPath="lib\UnityEngine.TextRenderingModule.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.UI" HintPath="lib\UnityEngine.UI.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.UIModule" HintPath="lib\UnityEngine.UIModule.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.VideoModule" HintPath="lib\UnityEngine.VideoModule.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.UnityWebRequestModule" HintPath="lib\UnityEngine.UnityWebRequestModule.dll">
+            <Private>False</Private>
+        </Reference>
+    </ItemGroup>
+</Project>

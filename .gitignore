@@ -1,0 +1,25 @@
+# Build output
+bin/
+obj/
+*.pdb
+*.dll.config
+
+# IDE
+.vs/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Audit artifacts
+.audit/
+
+# Backups
+*.bak
+*~
+backup/
