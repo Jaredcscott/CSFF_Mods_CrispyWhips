@@ -1,0 +1,159 @@
+{
+  "UniqueID": "water_sawmill_water_mill",
+  "CardName": {
+    "ParentObjectID": "water_sawmill_water_mill",
+    "LocalizationKey": "Water_Sawmill_WaterMill_CardName",
+    "DefaultText": "Water Mill"
+  },
+  "CardDescription": {
+    "ParentObjectID": "water_sawmill_water_mill",
+    "LocalizationKey": "Water_Sawmill_WaterMill_CardDescription",
+    "DefaultText": "A water-driven bulk mill that continuously grinds millable materials."
+  },
+  "CanBeRenamed": false,
+  "CardHelpSection": {
+    "ParentObjectID": "water_sawmill_water_mill",
+    "LocalizationKey": "Water_Sawmill_WaterMill_CardHelpSection",
+    "DefaultText": "<b>Subcomponent:</b> A crafting component used in the construction of water-powered mills, forges, and sawmills. Not a standalone structure."
+  },    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+
+  "CardImageWarpData": "WaterMill",
+  "CardImageWarpType": 3,
+  "CardType": 0,
+  "AlwaysUpdate": false,
+  "ObjectWeight": 520.0,
+  "TradingValue": 360.0,
+  "CardTags": [],
+  "CardTagsWarpData": ["tag_Wood", "tag_Bag"],
+  "CardTagsWarpType": 3,
+  "DoesNotPile": true,
+  "WhenCreatedSounds": [],
+  "WhenCreatedSoundsWarpData": ["Wood"],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {"Active": false},
+  "UsageDurability": {"Active": false},
+  "FuelCapacity": {"Active": false},
+  "Progress": {"Active": false},
+  "SpecialDurability1": {"Active": false},
+  "SpecialDurability2": {"Active": false},
+  "SpecialDurability3": {"Active": false},
+  "SpecialDurability4": {"Active": false},
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_water_mill",
+        "LocalizationKey": "Water_Sawmill_WaterMill_Dismantle_ActionName",
+        "DefaultText": "Dismantle"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_water_mill",
+        "LocalizationKey": "Water_Sawmill_WaterMill_Dismantle_ActionDescription",
+        "DefaultText": "Break down the water mill into its wheel, race, and drive gear."
+      },
+      "DaytimeCost": 4,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Wood"],
+      "ActionSoundsWarpType": 3,
+      "RequiredReceivingDurabilities": {},
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "water_sawmill_water_wheel",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "water_sawmill_mill_race",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "water_sawmill_copper_gear_large",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1}
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [],
+  "MaxLiquidCapacity": 0.0,
+  "InventoryIsHidden": false,
+  "IsMiniInventory": false,
+  "CannotPutItemsIn": false,
+  "CannotTakeItemsOut": false,
+  "PreventsDismantleActions": false,
+  "PreventsCardInteractions": false,
+  "IsWeaponSheath": false,
+  "OpenOnTab": 0,
+  "DontRememberLastOpenTab": false,
+  "MaxWeightCapacity": 0.0,
+  "ContentWeightReduction": 0.0,
+  "InventorySlots": [],
+  "InventorySlotsWarpData": [],
+  "InventorySlotsWarpType": 3,
+  "InventoryFilter": {
+    "AcceptedCards": [],
+    "AcceptedCardsWarpData": [],
+    "AcceptedCardsWarpType": 3,
+    "AcceptedTypes": [],
+    "AcceptedTags": [],
+    "AcceptedTagsWarpData": [],
+    "AcceptedTagsWarpType": 3,
+    "NOTAcceptedCards": [],
+    "NOTAcceptedTypes": [],
+    "NOTAcceptedTags": [],
+    "CardFilters": [],
+    "TagFilters": []
+  },
+  "SpillsInventoryOnDestroy": false,
+  "InventorySlotsText": {
+    "ParentObjectID": "",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "GroupInventoryActions": [],
+  "CookingConditions": {
+    "NeedsSpoilage": false,
+    "NeedsUsage": false,
+    "NeedsFuel": false,
+    "NeedsProgress": false,
+    "NeedsSpecial1": false,
+    "NeedsSpecial2": false,
+    "NeedsSpecial3": false,
+    "NeedsSpecial4": false,
+    "ExtraSpoilageRate": 0.0,
+    "ExtraUsageRate": 0.0,
+    "ExtraFuelRate": 0.0,
+    "ExtraProgressRate": 0.0,
+    "ExtraSpecial1Rate": 0.0,
+    "ExtraSpecial2Rate": 0.0,
+    "ExtraSpecial3Rate": 0.0,
+    "ExtraSpecial4Rate": 0.0
+  },
+  "CookingRecipes": [],
+  "EffectsToInventoryContent": [],
+  "BlueprintStages": [],
+  "BlueprintResult": [],
+  "IsWeapon": false,
+  "IsArmor": false
+}

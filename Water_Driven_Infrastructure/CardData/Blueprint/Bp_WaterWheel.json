@@ -1,0 +1,126 @@
+{
+    "UniqueID": "water_sawmill_bp_water_wheel",
+    "CardName": {
+        "ParentObjectID": "water_sawmill_bp_water_wheel",
+        "LocalizationKey": "Water_Sawmill_Bp_WaterWheel_CardName",
+        "DefaultText": "Water Wheel"
+    },
+    "CardDescription": {
+        "ParentObjectID": "water_sawmill_bp_water_wheel",
+        "LocalizationKey": "Water_Sawmill_Bp_WaterWheel_CardDescription",
+        "DefaultText": "Assemble a large water wheel for power generation."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "water_sawmill_bp_water_wheel",
+        "LocalizationKey": "Water_Sawmill_Bp_WaterWheel_UnlockConditionsDesc",
+        "DefaultText": "Mill Race"
+    },
+    "StartUnlocked": false,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "WaterWheel",
+    "CardImageWarpType": 3,
+    "BuildingStatConditions": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 25,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 20,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "a7384e5147b23a642809451cc4ef24fb",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 5,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "8695a7aa22521aa45be582d3c1558f78",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "water_sawmill_copper_gear_large",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 6,
+    "BlueprintActionTags": [],
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction",
+        "LegAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "DroppedCardWarpData": "water_sawmill_water_wheel",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": [
+        "Wood"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasMillRace",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "CardWarpData": "water_sawmill_mill_race",
+            "CardWarpType": 3
+        }
+    ],
+    "BlueprintUnlockTicksCost": 12.0,
+    "ResearchedNotification": 0
+}

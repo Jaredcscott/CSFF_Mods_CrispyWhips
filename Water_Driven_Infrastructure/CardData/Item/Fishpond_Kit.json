@@ -1,0 +1,147 @@
+{
+  "UniqueID": "water_sawmill_fishpond_kit",
+  "CardName": {
+    "ParentObjectID": "water_sawmill_fishpond_kit",
+    "LocalizationKey": "Water_Sawmill_FishpondKit_CardName",
+    "DefaultText": "Fishpond Kit"
+  },
+  "CardDescription": {
+    "ParentObjectID": "water_sawmill_fishpond_kit",
+    "LocalizationKey": "Water_Sawmill_FishpondKit_CardDescription",
+    "DefaultText": "A pre-stocked fishpond kit ready for placement near a river. Fish mature in 7 days after placement."
+  },
+  "CanBeRenamed": false,
+  "CardHelpSection": {
+    "ParentObjectID": "water_sawmill_fishpond_kit",
+    "LocalizationKey": "Water_Sawmill_FishpondKit_CardHelpSection",
+    "DefaultText": "<b>Use:</b> Place near a river. Fish mature in 7 days. After harvest, drag 6 fish (pike, perch, or minnow) into the empty pit to restock."
+  },
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "FishpondKit",
+  "CardImageWarpType": 3,
+  "CardType": 0,
+  "ObjectWeight": 350.0,
+  "TradingValue": 250.0,
+  "CardTags": [],
+  "CardTagsWarpData": ["tag_Wood"],
+  "CardTagsWarpType": 3,
+  "DoesNotPile": true,
+  "WhenCreatedSounds": [],
+  "WhenCreatedSoundsWarpData": ["Wood"],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {"Active": false},
+  "UsageDurability": {"Active": false},
+  "FuelCapacity": {"Active": false},
+  "Progress": {"Active": false},
+  "SpecialDurability1": {"Active": false},
+  "SpecialDurability2": {"Active": false},
+  "SpecialDurability3": {"Active": false},
+  "SpecialDurability4": {"Active": false},
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_fishpond_kit",
+        "LocalizationKey": "Water_Sawmill_FishpondKit_Place_ActionName",
+        "DefaultText": "Place"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_fishpond_kit",
+        "LocalizationKey": "Water_Sawmill_FishpondKit_Place_ActionDescription",
+        "DefaultText": "Place the pre-stocked fishpond at the river. Fish will mature in 7 days."
+      },
+      "DaytimeCost": 4,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Dirt"],
+      "ActionSoundsWarpType": 3,
+      "RequiredCardsOnBoard": [],
+      "RequiredTagsOnBoard": [],
+      "HideIfConditionsNotMet": false,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {"m_FileID": 0, "m_PathID": 0},
+        "TransformIntoWarpData": "water_sawmill_fishpond_filled",
+        "TransformIntoWarpType": 3,
+        "TransferInventory": false,
+        "SpawnTransformAtSource": true
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_fishpond_kit",
+        "LocalizationKey": "Water_Sawmill_FishpondKit_Disassemble_ActionName",
+        "DefaultText": "Disassemble"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_fishpond_kit",
+        "LocalizationKey": "Water_Sawmill_FishpondKit_Disassemble_ActionDescription",
+        "DefaultText": "Break down the kit and recover most of the planks and rope."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Wood"],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 3, "y": 3}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1}
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [],
+  "MaxLiquidCapacity": 0.0,
+  "InventorySlots": [],
+  "CookingConditions": {
+    "NeedsSpoilage": false,
+    "NeedsUsage": false,
+    "NeedsFuel": false,
+    "NeedsProgress": false,
+    "NeedsSpecial1": false,
+    "NeedsSpecial2": false,
+    "NeedsSpecial3": false,
+    "NeedsSpecial4": false,
+    "ExtraSpoilageRate": 0.0,
+    "ExtraUsageRate": 0.0,
+    "ExtraFuelRate": 0.0,
+    "ExtraProgressRate": 0.0,
+    "ExtraSpecial1Rate": 0.0,
+    "ExtraSpecial2Rate": 0.0,
+    "ExtraSpecial3Rate": 0.0,
+    "ExtraSpecial4Rate": 0.0
+  },
+  "CookingRecipes": [],
+  "BlueprintStages": [],
+  "BlueprintResult": [],
+  "IsWeapon": false,
+  "IsArmor": false
+}

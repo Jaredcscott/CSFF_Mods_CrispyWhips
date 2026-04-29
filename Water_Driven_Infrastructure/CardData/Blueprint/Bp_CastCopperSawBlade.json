@@ -1,0 +1,155 @@
+{
+    "UniqueID": "water_sawmill_bp_cast_copper_saw_blade",
+    "CardName": {
+        "ParentObjectID": "water_sawmill_bp_cast_copper_saw_blade",
+        "LocalizationKey": "Water_Sawmill_Bp_CastCopperSawBlade_CardName",
+        "DefaultText": "Cast Copper Saw Blade"
+    },
+    "CardDescription": {
+        "ParentObjectID": "water_sawmill_bp_cast_copper_saw_blade",
+        "LocalizationKey": "Water_Sawmill_Bp_CastCopperSawBlade_CardDescription",
+        "DefaultText": "Cast a dull copper saw blade in a clay mold and break it open with a hammer."
+    },
+    "CanBeRenamed": false,
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "water_sawmill_bp_cast_copper_saw_blade",
+        "LocalizationKey": "Water_Sawmill_Bp_CastCopperSawBlade_UnlockConditionsDesc",
+        "DefaultText": "Large Crucible of Molten Copper Needed"
+    },
+    "StartUnlocked": false,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "CastingMold",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 8.0,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasLargeMoltenCrucible",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "CardWarpData": "14f4a076fe54c98429e5a10de627eb95",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BuildingStatConditions": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 2,
+                    "DontSpend": true,
+                    "RequiredCardWarpData": "14f4a076fe54c98429e5a10de627eb95",
+                    "RequiredCardWarpType": 3,
+                    "EffectOnIngredient": {
+                        "ModType": 2,
+                        "TransformIntoWarpData": "993a01ccd112f2e4ab1b3157039cac8a",
+                        "TransformIntoWarpType": 3
+                    }
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 10,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "6c2001f42a960db4583cdd65a47ecf3c",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 10,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "68c14d265ea6c874ba79444d2e1ef7b3",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroupWarpData": "GpTag_HammeringToolGeneral",
+                    "RequiredTabGroupWarpType": 3,
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "UsageChange": {
+                            "x": -20.0,
+                            "y": -20.0
+                        }
+                    }
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [
+                "HammeringActionSoftSpecial5Drops"
+            ],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildSounds": [],
+    "DeconstructSounds": [],
+    "BuildingDaytimeCost": 3,
+    "BuildingMiniTicks": 0,
+    "DeconstructDaytimeCost": 0,
+    "DeconstructMiniTicks": 0,
+    "BlueprintActionTags": [],
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction",
+        "LegAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "BlueprintDoesntCountForEnvWeight": false,
+    "BPRandomSingleDrop": false,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "DroppedCardWarpData": "water_sawmill_copper_saw_blade_dull",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintContainerCardChanges": {
+        "ModType": 0
+    },
+    "WhenCreatedSoundsWarpData": [
+        "Metal"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "ResearchedNotification": 0
+}

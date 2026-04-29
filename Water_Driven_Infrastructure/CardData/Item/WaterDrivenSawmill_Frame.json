@@ -1,0 +1,194 @@
+{
+  "UniqueID": "water_sawmill_frame",
+  "CardName": {
+    "ParentObjectID": "water_sawmill_frame",
+    "LocalizationKey": "Water_Sawmill_Frame_CardName",
+    "DefaultText": "Water-Driven Sawmill Kit"
+  },
+  "CardDescription": {
+    "ParentObjectID": "water_sawmill_frame",
+    "LocalizationKey": "Water_Sawmill_Frame_CardDescription",
+    "DefaultText": "A complete sawmill kit with all components for a large river-powered sawmill."
+  },
+  "CanBeRenamed": false,
+  "CardHelpSection": {
+    "ParentObjectID": "water_sawmill_frame",
+    "LocalizationKey": "Water_Sawmill_Frame_CardHelpSection",
+    "DefaultText": "<b>Use:</b> Place near a river to set up the full sawmill structure.\n\n<b>Scale:</b> This is a large construction project."
+  },    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+
+  "CardImageWarpData": "SawmillKit",
+  "CardImageWarpType": 3,
+  "CardType": 0,
+  "ObjectWeight": 450.0,
+  "TradingValue": 350.0,
+  "CardTags": [],
+  "CardTagsWarpData": ["tag_Wood"],
+  "CardTagsWarpType": 3,
+  "DoesNotPile": true,
+  "WhenCreatedSounds": [],
+  "WhenCreatedSoundsWarpData": ["Wood"],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {"Active": false},
+  "UsageDurability": {"Active": false},
+  "FuelCapacity": {"Active": false},
+  "Progress": {"Active": false},
+  "SpecialDurability1": {"Active": false},
+  "SpecialDurability2": {"Active": false},
+  "SpecialDurability3": {"Active": false},
+  "SpecialDurability4": {"Active": false},
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_frame",
+        "LocalizationKey": "Water_Sawmill_Frame_Place_ActionName",
+        "DefaultText": "Place"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_frame",
+        "LocalizationKey": "Water_Sawmill_Frame_Place_ActionDescription",
+        "DefaultText": "Place the sawmill kit into the environment."
+      },
+      "DaytimeCost": 3,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Wood"],
+      "ActionSoundsWarpType": 3,
+      "RequiredCardsOnBoard": [],
+      "RequiredTagsOnBoard": [
+        {
+          "TriggerTag": { "m_FileID": 0, "m_PathID": 0 },
+          "TriggerTagWarpData": "tag_River",
+          "TriggerTagWarpType": 3,
+          "Inverted": false,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ],
+      "HideIfConditionsNotMet": true,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {"m_FileID": 0, "m_PathID": 0},
+        "TransformIntoWarpData": "water_sawmill_placed",
+        "TransformIntoWarpType": 3,
+        "TransferInventory": true,
+        "SpawnTransformAtSource": true
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_frame",
+        "LocalizationKey": "Water_Sawmill_Frame_Disassemble_ActionName",
+        "DefaultText": "Disassemble"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_frame",
+        "LocalizationKey": "Water_Sawmill_Frame_Disassemble_ActionDescription",
+        "DefaultText": "Break down the kit into its component parts."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Wood"],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "8695a7aa22521aa45be582d3c1558f78",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 25, "y": 25}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "c8de2fee0c31ea64583a2f833a6d0a22",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 10, "y": 10}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 8, "y": 8}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 20, "y": 20}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "water_sawmill_water_wheel",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "water_sawmill_copper_gear_large",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 2, "y": 2}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "water_sawmill_copper_gear_small",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 4, "y": 4}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "water_sawmill_copper_saw_blade",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1}
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [],
+  "MaxLiquidCapacity": 0.0,
+  "InventorySlots": [],
+  "CookingConditions": {
+    "NeedsSpoilage": false,
+    "NeedsUsage": false,
+    "NeedsFuel": false,
+    "NeedsProgress": false,
+    "NeedsSpecial1": false,
+    "NeedsSpecial2": false,
+    "NeedsSpecial3": false,
+    "NeedsSpecial4": false,
+    "ExtraSpoilageRate": 0.0,
+    "ExtraUsageRate": 0.0,
+    "ExtraFuelRate": 0.0,
+    "ExtraProgressRate": 0.0,
+    "ExtraSpecial1Rate": 0.0,
+    "ExtraSpecial2Rate": 0.0,
+    "ExtraSpecial3Rate": 0.0,
+    "ExtraSpecial4Rate": 0.0
+  },
+  "CookingRecipes": [],
+  "BlueprintStages": [],
+  "BlueprintResult": [],
+  "IsWeapon": false,
+  "IsArmor": false
+}

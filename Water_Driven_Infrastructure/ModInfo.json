@@ -1,0 +1,8 @@
+{
+	"Name": "WaterDrivenInfrastructure",
+	"Author": "Jared",
+	"Version": "1.2.2",
+	"ModLoaderVerison": "1.3.0",
+	"ModEditorVersion": "0.6.2",
+	"Description": "Adds water-powered sawmills, forges, grinding mills, ore sluices, and fishponds. Build large-scale infrastructure near rivers using water wheels and mill races. Tested with EA 0.62d."
+}

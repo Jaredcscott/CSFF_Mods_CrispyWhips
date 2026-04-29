@@ -1,0 +1,133 @@
+{
+  "UniqueID": "water_sawmill_mill_race_local_placed",
+  "CardName": {
+    "ParentObjectID": "water_sawmill_mill_race_local_placed",
+    "LocalizationKey": "Water_Sawmill_MillRaceLocalPlaced_CardName",
+    "DefaultText": "Mill Race (Local)"
+  },
+  "CardDescription": {
+    "ParentObjectID": "water_sawmill_mill_race_local_placed",
+    "LocalizationKey": "Water_Sawmill_MillRaceLocalPlaced_CardDescription",
+    "DefaultText": "A fixed local mill-race channel installed in this location to feed water-powered machinery."
+  },
+  "CardHelpSection": {
+    "ParentObjectID": "water_sawmill_mill_race_local_placed",
+    "LocalizationKey": "Water_Sawmill_MillRaceLocalPlaced_CardHelpSection",
+    "DefaultText": "<b>Water Flow:</b> Required for local water-powered machinery operation.\n\n<b>Setup:</b> Must be paired with a directional mill race between locations."
+  },
+  "CardType": 10,
+  "ObjectWeight": 0.0,
+  "TradingValue": 180.0,
+  "AlwaysUpdate": false,
+  "CardTags": [],
+  "CardTagsWarpData": ["tag_Wood", "tag_Structure"],
+  "CardTagsWarpType": 3,
+  "DoesNotPile": true,
+  "CannotBeTrashed": true,
+  "WhenCreatedSounds": [],
+  "WhenCreatedSoundsWarpData": ["Wood"],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {"Active": false},
+  "UsageDurability": {"Active": false},
+  "FuelCapacity": {"Active": false},
+  "Progress": {"Active": false},
+  "SpecialDurability1": {"Active": false},
+  "SpecialDurability2": {"Active": false},
+  "SpecialDurability3": {"Active": false},
+  "SpecialDurability4": {"Active": false},
+  "DurabilitySorting": {
+    "SortingList": []
+  },
+  "InventoryIsHidden": true,
+  "IsMiniInventory": false,
+  "CannotPutItemsIn": true,
+  "CannotTakeItemsOut": true,
+  "PreventsDismantleActions": false,
+  "PreventsCardInteractions": false,
+  "IsWeaponSheath": false,
+  "OpenOnTab": 0,
+  "DontRememberLastOpenTab": false,
+  "MaxWeightCapacity": 0.0,
+  "ContentWeightReduction": 0.0,
+  "InventorySlots": [],
+  "InventorySlotsWarpData": [],
+  "InventorySlotsWarpType": 3,
+  "InventoryFilter": {
+    "AcceptedCards": [],
+    "AcceptedCardsWarpData": [],
+    "AcceptedCardsWarpType": 3,
+    "AcceptedTypes": [],
+    "AcceptedTags": [],
+    "AcceptedTagsWarpData": [],
+    "AcceptedTagsWarpType": 3,
+    "NOTAcceptedCards": [],
+    "NOTAcceptedTypes": [],
+    "NOTAcceptedTags": [],
+    "CardFilters": [],
+    "TagFilters": []
+  },
+  "SpillsInventoryOnDestroy": false,
+  "InventorySlotsText": {
+    "ParentObjectID": "",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "GroupInventoryActions": [],
+  "EffectsToInventoryContent": [],
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_mill_race_local_placed",
+        "LocalizationKey": "Water_Sawmill_MillRaceLocalPlaced_Pack_ActionName",
+        "DefaultText": "Pack Up"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_mill_race_local_placed",
+        "LocalizationKey": "Water_Sawmill_MillRaceLocalPlaced_Pack_ActionDescription",
+        "DefaultText": "Pack up the local mill race back into a transportable race segment."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {"m_FileID": 0, "m_PathID": 0},
+        "TransformIntoWarpData": "water_sawmill_mill_race",
+        "TransformIntoWarpType": 3,
+        "TransferInventory": false,
+        "SpawnTransformAtSource": true
+      }
+    }
+  ],
+  "BlueprintCardConditions": [],
+  "BlueprintTagConditions": [],
+  "BlueprintStatConditions": [],
+  "BuildingCardConditions": [],
+  "BuildingTagConditions": [],
+  "BuildingStatConditions": [],
+  "BuildSounds": [],
+  "DeconstructSounds": [],
+  "BuildingDaytimeCost": 0,
+  "BuildingMiniTicks": 0,
+  "DeconstructDaytimeCost": 0,
+  "DeconstructMiniTicks": 0,
+  "BlueprintActionTags": [],
+  "BlueprintDoesntCountForEnvWeight": false,
+  "BPRandomSingleDrop": false,
+  "BlueprintResult": [],
+  "BlueprintBuiltImmediates": [],
+  "BlueprintStatModifications": [],
+  "BlueprintCardModifications": [],
+  "CookingRecipes": [],
+  "EquipSlotType": 0,    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+
+  "CardImageWarpData": "MillRace",
+  "CardImageWarpType": 3
+}

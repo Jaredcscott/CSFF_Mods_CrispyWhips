@@ -1,0 +1,364 @@
+{
+  "UniqueID": "water_sawmill_grinding_mill_placed",
+  "CardName": {
+    "ParentObjectID": "water_sawmill_grinding_mill_placed",
+    "LocalizationKey": "Water_Sawmill_GrindingMillPlaced_CardName",
+    "DefaultText": "Water-Driven Grinding Mill"
+  },
+  "CardDescription": {
+    "ParentObjectID": "water_sawmill_grinding_mill_placed",
+    "LocalizationKey": "Water_Sawmill_GrindingMillPlaced_CardDescription",
+    "DefaultText": "A large water-powered grinding mill for batch processing millable materials."
+  },
+  "CardHelpSection": {
+    "ParentObjectID": "water_sawmill_grinding_mill_placed",
+    "LocalizationKey": "Water_Sawmill_GrindingMillPlaced_CardHelpSection",
+    "DefaultText": "<b>Requirements:</b> Requires a local mill race for water power.\n\n<b>Operation:</b> Load millable items, then press Grind All to process the full batch on demand, like a larger rotary quern."
+  },
+  "CardType": 2,
+  "ObjectWeight": 1100.0,
+  "TradingValue": 450.0,
+  "AlwaysUpdate": false,
+  "CardTags": [],
+  "CardTagsWarpData": ["tag_Wood", "tag_Stone", "tag_Bag"],
+  "CardTagsWarpType": 3,
+  "DoesNotPile": true,
+  "CannotBeTrashed": false,
+  "WhenCreatedSounds": [],
+  "WhenCreatedSoundsWarpData": ["Stone"],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {"Active": false},
+  "UsageDurability": {"Active": false},
+  "FuelCapacity": {"Active": false},
+  "Progress": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 2.0,
+    "RatePerDaytimePoint": 0.0,
+    "HasActionOnFull": false,
+    "ShowPopupOnFull": false,
+    "OnFullNotification": 0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0
+  },
+  "SpecialDurability1": {"Active": false},
+  "SpecialDurability2": {"Active": false},
+  "SpecialDurability3": {"Active": false},
+  "SpecialDurability4": {"Active": false},
+  "DurabilitySorting": {"SortingList": []},
+  "InventoryIsHidden": false,
+  "IsMiniInventory": false,
+  "CannotPutItemsIn": false,
+  "CannotTakeItemsOut": false,
+  "PreventsDismantleActions": false,
+  "PreventsCardInteractions": false,
+  "IsWeaponSheath": false,
+  "OpenOnTab": 0,
+  "DontRememberLastOpenTab": false,
+  "MaxWeightCapacity": 8000.0,
+  "ContentWeightReduction": 0.0,
+  "InventorySlots": [
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0}
+  ],
+  "InventorySlotsWarpData": [],
+  "InventorySlotsWarpType": 3,
+  "InventoryFilter": {
+    "AcceptedCards": [],
+    "AcceptedCardsWarpData": [],
+    "AcceptedCardsWarpType": 3,
+    "AcceptedTypes": [],
+    "AcceptedTags": [],
+    "AcceptedTagsWarpData": [
+      "tag_Millable"
+    ],
+    "AcceptedTagsWarpType": 3,
+    "NOTAcceptedCards": [],
+    "NOTAcceptedTypes": [],
+    "NOTAcceptedTags": [],
+    "CardFilters": [],
+    "TagFilters": []
+  },
+  "SpillsInventoryOnDestroy": false,
+  "InventorySlotsText": {
+    "ParentObjectID": "",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "GroupInventoryActions": [],
+  "EffectsToInventoryContent": [
+    {
+      "EffectName": "Mill",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTEquipped": false,
+      "OnlyWhenInHand": false,
+      "OnlyOnBaseActions": false,
+      "OnlyOnNOTBaseActions": false,
+      "OnlyWhenNOTInBG": false,
+      "Conditions": {
+        "NotInBackground": false,
+        "InBackground": false,
+        "PlayerUsesCard": 0,
+        "RequiredEnvironment": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "InvertEnvironmentRequirement": false,
+        "RequiredEnvironmentTags": [],
+        "RequiredNOTEnvironmentTags": [],
+        "RequiredContainer": [],
+        "RequiredNOTContainer": [],
+        "RequiredContainerTags": [],
+        "RequiredNOTContainerTags": [],
+        "RequiredCardsOnBoard": [],
+        "RequiredTagsOnBoard": [],
+        "RequiredCardsNOTOnBoard": [],
+        "RequiredTagsNOTOnBoard": [],
+        "RequiredLiquidContainers": [],
+        "RequiredCardsInInventory": [],
+        "RequiredTagsInInventory": [],
+        "CardWasBuiltWith": [],
+        "CardWasNOTBuiltWith": [],
+        "RequiredPlayerOwnedCards": [],
+        "RequiredPlayerNOTOwnedCards": [],
+        "ReceivingRequiredDurabilityRanges": {
+          "SpoilageRange": {"x": 0.0, "y": 0.0},
+          "UsageRange": {"x": 0.0, "y": 0.0},
+          "FuelRange": {"x": 0.0, "y": 0.0},
+          "ProgressRange": {"x": 0.0, "y": 0.0},
+          "Special1Range": {"x": 0.0, "y": 0.0},
+          "Special2Range": {"x": 0.0, "y": 0.0},
+          "Special3Range": {"x": 0.0, "y": 0.0},
+          "Special4Range": {"x": 0.0, "y": 0.0},
+          "LiquidQuantityRange": {"x": 0.0, "y": 0.0}
+        },
+        "GivenRequiredDurabilityRanges": {
+          "SpoilageRange": {"x": 0.0, "y": 0.0},
+          "UsageRange": {"x": 0.0, "y": 0.0},
+          "FuelRange": {"x": 0.0, "y": 0.0},
+          "ProgressRange": {"x": 0.0, "y": 0.0},
+          "Special1Range": {"x": 0.0, "y": 0.0},
+          "Special2Range": {"x": 0.0, "y": 0.0},
+          "Special3Range": {"x": 0.0, "y": 0.0},
+          "Special4Range": {"x": 0.0, "y": 0.0},
+          "LiquidQuantityRange": {"x": 0.0, "y": 0.0}
+        },
+        "ReceivingContainerRequiredDurabilityRanges": {
+          "SpoilageRange": {"x": 0.0, "y": 0.0},
+          "UsageRange": {"x": 0.0, "y": 0.0},
+          "FuelRange": {"x": 0.0, "y": 0.0},
+          "ProgressRange": {"x": 1.0, "y": 1.0},
+          "Special1Range": {"x": 0.0, "y": 0.0},
+          "Special2Range": {"x": 0.0, "y": 0.0},
+          "Special3Range": {"x": 0.0, "y": 0.0},
+          "Special4Range": {"x": 0.0, "y": 0.0},
+          "LiquidQuantityRange": {"x": 0.0, "y": 0.0}
+        },
+        "GivenContainerRequiredDurabilityRanges": {
+          "SpoilageRange": {"x": 0.0, "y": 0.0},
+          "UsageRange": {"x": 0.0, "y": 0.0},
+          "FuelRange": {"x": 0.0, "y": 0.0},
+          "ProgressRange": {"x": 0.0, "y": 0.0},
+          "Special1Range": {"x": 0.0, "y": 0.0},
+          "Special2Range": {"x": 0.0, "y": 0.0},
+          "Special3Range": {"x": 0.0, "y": 0.0},
+          "Special4Range": {"x": 0.0, "y": 0.0},
+          "LiquidQuantityRange": {"x": 0.0, "y": 0.0}
+        },
+        "ReceivingCardTags": [],
+        "GivenCardTags": [],
+        "ReceivingCardSpices": [],
+        "GivenCardSpices": [],
+        "RequiredEnvironmentWeight": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredStatValues": [],
+        "RequiredNPCStatValues": [],
+        "RequiredInGameTimes": [],
+        "RequiredAlreadyVisitedEnvironments": []
+      },
+      "StatModifiers": [],
+      "EffectStacksWithRequiredCards": false,
+      "OnBoardEffectCap": 0,
+      "EffectScalesWithDurabilities": {
+        "Active": false,
+        "Inputs": [],
+        "EffectScalingOutput": {"x": 0.0, "y": 0.0}
+      },
+      "SpoilageRateModifier": {
+        "Active": false,
+        "FloatValue": 0.0
+      },
+      "MultiplySpoilageRate": false,
+      "UsageRateModifier": {
+        "Active": false,
+        "FloatValue": 0.0
+      },
+      "MultiplyUsageRate": false,
+      "FuelRateModifier": {
+        "Active": false,
+        "FloatValue": 0.0
+      },
+      "MultiplyFuelRate": false,
+      "ConsumableChargesModifier": {
+        "Active": false,
+        "FloatValue": 1.0
+      },
+      "MultiplyConsumableChargesRate": false,
+      "Special1RateModifier": {
+        "Active": false,
+        "FloatValue": 0.0
+      },
+      "MultiplySpecial1Rate": false,
+      "Special2RateModifier": {
+        "Active": false,
+        "FloatValue": 0.0
+      },
+      "MultiplySpecial2Rate": false,
+      "Special3RateModifier": {
+        "Active": true,
+        "FloatValue": 1.0
+      },
+      "MultiplySpecial3Rate": false,
+      "Special4RateModifier": {
+        "Active": false,
+        "FloatValue": 0.0
+      },
+      "MultiplySpecial4Rate": false,
+      "LiquidRateModifier": 0.0,
+      "UpdateDurabilityConcentrations": {
+        "MaskValue": 0
+      },
+      "GeneratedLiquid": {
+        "LiquidCard": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "Quantity": {"x": 0.0, "y": 0.0},
+        "Durabilities": {
+          "Spoilage": 0,
+          "Usage": 0,
+          "Fuel": 0,
+          "Progress": 0,
+          "Special1": 0,
+          "Special2": 0,
+          "Special3": 0,
+          "Special4": 0,
+          "SpoilageValue": 0.0,
+          "UsageValue": 0.0,
+          "FuelValue": 0.0,
+          "ProgressValue": 0.0,
+          "Special1Value": 0.0,
+          "Special2Value": 0.0,
+          "Special3Value": 0.0,
+          "Special4Value": 0.0,
+          "SpoilageFrom": 0,
+          "UsageFrom": 0,
+          "FuelFrom": 0,
+          "ProgressFrom": 0,
+          "Special1From": 0,
+          "Special2From": 0,
+          "Special3From": 0,
+          "Special4From": 0
+        }
+      },
+      "WeightCapacityModifier": 0.0,
+      "DroppedCards": []
+    }
+  ],
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_grinding_mill_placed",
+        "LocalizationKey": "Water_Sawmill_GrindingMillPlaced_GrindAll_ActionName",
+        "DefaultText": "Grind All"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_grinding_mill_placed",
+        "LocalizationKey": "Water_Sawmill_GrindingMillPlaced_GrindAll_ActionDescription",
+        "DefaultText": "Engage the mill wheel and process all millable contents in one batch."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Stone"],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "ChargesChange": {"x": 2.0, "y": 2.0}
+      },
+      "ProducedCards": [],
+      "StatModifications": []
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_grinding_mill_placed",
+        "LocalizationKey": "Water_Sawmill_GrindingMillPlaced_PickUp_ActionName",
+        "DefaultText": "Pack Up"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_grinding_mill_placed",
+        "LocalizationKey": "Water_Sawmill_GrindingMillPlaced_PickUp_ActionDescription",
+        "DefaultText": "Pack up the grinding mill back into a transportable kit."
+      },
+      "DaytimeCost": 4,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Stone"],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {"m_FileID": 0, "m_PathID": 0},
+        "TransformIntoWarpData": "water_sawmill_grinding_mill_kit",
+        "TransformIntoWarpType": 3,
+        "TransferInventory": false,
+        "SpawnTransformAtSource": true
+      }
+    }
+  ],
+  "PassiveEffects": [],
+  "PassiveStatEffects": [],
+  "MaxLiquidCapacity": 0.0,
+  "IsEnvironment": false,
+  "IsAttachedToEnvironment": true,
+  "PreventInteractionsInContainer": false,
+  "IsIndoors": false,
+  "BlueprintStatModifications": [],
+  "BlueprintCardModifications": [],
+  "CookingRecipes": [],
+  "EquipSlots": [],
+  "EquipSlotType": 0,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "GrindingFullyBuilt",
+  "CardImageWarpType": 3
+}

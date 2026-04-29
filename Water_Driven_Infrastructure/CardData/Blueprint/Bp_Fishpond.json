@@ -1,0 +1,277 @@
+{
+    "UniqueID": "water_sawmill_bp_fishpond",
+    "CardName": {
+        "ParentObjectID": "water_sawmill_bp_fishpond",
+        "LocalizationKey": "Water_Sawmill_Bp_Fishpond_CardName",
+        "DefaultText": "Fishpond"
+    },
+    "CardDescription": {
+        "ParentObjectID": "water_sawmill_bp_fishpond",
+        "LocalizationKey": "Water_Sawmill_Bp_Fishpond_CardDescription",
+        "DefaultText": "Dig a fishpond near a river in 3 stages using a shovel (3 hours each). Populate it with live pike, perch, and minnow which will grow over time. When the total fish count exceeds 10, the pond becomes stocked and frogs can be caught. The pond freezes in winter."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "water_sawmill_bp_fishpond",
+        "LocalizationKey": "Water_Sawmill_Bp_Fishpond_UnlockConditionsDesc",
+        "DefaultText": "Mill Race Needed"
+    },
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasMillRace",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "CardWarpData": "water_sawmill_mill_race",
+            "CardWarpType": 3
+        }
+    ],
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "FishpondKit",
+    "CardImageWarpType": 3,
+    "BuildingTagConditions": [
+        {
+            "TriggerTag": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyInHand": false,
+            "NotInHand": false,
+            "ExcludeInventories": false,
+            "Inverted": false,
+            "OnlyEquipped": false,
+            "TriggerTagWarpData": "tag_River",
+            "TriggerTagWarpType": 3
+        },
+        {
+            "TriggerTag": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyInHand": false,
+            "NotInHand": false,
+            "ExcludeInventories": false,
+            "Inverted": true,
+            "OnlyEquipped": false,
+            "TriggerTagWarpData": "tag_EnvIndoors",
+            "TriggerTagWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BuildingStatConditions": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "UsageChange": { "x": -25.0, "y": -25.0 }
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroupWarpData": "GpTag_Shovel",
+                    "RequiredTabGroupWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        },
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "UsageChange": { "x": -25.0, "y": -25.0 }
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroupWarpData": "GpTag_Shovel",
+                    "RequiredTabGroupWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        },
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "UsageChange": { "x": -25.0, "y": -25.0 }
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroupWarpData": "GpTag_Shovel",
+                    "RequiredTabGroupWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        },
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 10,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 3,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "64c4dd2e834526541935792cbbdd7f87",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 15,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "8695a7aa22521aa45be582d3c1558f78",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 30,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "a7384e5147b23a642809451cc4ef24fb",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        },
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "70df5b800c3fd56499fd412bb9ce7523",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "e64237c9a44ea3945bc75b8b9f4735c0",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "992cc6a7e92f4c5438c766327a3cbfcb",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 12,
+    "BlueprintActionTags": [],
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction",
+        "LegAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "DroppedCardWarpData": "water_sawmill_fishpond_kit",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": [
+        "Wood"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintUnlockTicksCost": 32.0,
+    "ResearchedNotification": 0
+}

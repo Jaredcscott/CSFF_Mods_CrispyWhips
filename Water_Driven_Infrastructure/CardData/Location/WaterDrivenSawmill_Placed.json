@@ -1,0 +1,195 @@
+{
+  "UniqueID": "water_sawmill_placed",
+  "CardName": {
+    "ParentObjectID": "water_sawmill_placed",
+    "LocalizationKey": "Water_Sawmill_Placed_CardName",
+    "DefaultText": "Water-Driven Sawmill"
+  },
+  "CardDescription": {
+    "ParentObjectID": "water_sawmill_placed",
+    "LocalizationKey": "Water_Sawmill_Placed_CardDescription",
+    "DefaultText": "A large, fixed river-powered sawmill built on the riverbank."
+  },
+  "CardHelpSection": {
+    "ParentObjectID": "water_sawmill_placed",
+    "LocalizationKey": "Water_Sawmill_Placed_CardHelpSection",
+    "DefaultText": "<b>Placement:</b> River environments only via blueprint conditions.\n\n<b>Operation:</b> Drag a log onto the sawmill to cut it into planks with water power."
+  },
+  "CardType": 2,
+  "ObjectWeight": 1000.0,
+  "TradingValue": 450.0,
+  "AlwaysUpdate": false,
+  "CardTags": [],
+  "CardTagsWarpData": ["tag_Wood", "tag_Bag"],
+  "CardTagsWarpType": 3,
+  "DoesNotPile": true,
+  "CannotBeTrashed": false,
+  "WhenCreatedSounds": [],
+  "WhenCreatedSoundsWarpData": ["Wood"],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {"Active": false},
+  "UsageDurability": {"Active": false},
+  "FuelCapacity": {"Active": false},
+  "Progress": {"Active": false},
+  "SpecialDurability1": {"Active": false},
+  "SpecialDurability2": {"Active": false},
+  "SpecialDurability3": {"Active": false},
+  "SpecialDurability4": {"Active": false},
+  "DurabilitySorting": {
+    "SortingList": []
+  },
+  "InventoryIsHidden": false,
+  "IsMiniInventory": false,
+  "CannotPutItemsIn": false,
+  "CannotTakeItemsOut": false,
+  "PreventsDismantleActions": false,
+  "PreventsCardInteractions": false,
+  "IsWeaponSheath": false,
+  "OpenOnTab": 0,
+  "DontRememberLastOpenTab": false,
+  "MaxWeightCapacity": 5000.0,
+  "ContentWeightReduction": 0.0,
+  "InventorySlots": [
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0}
+  ],
+  "InventorySlotsWarpData": [],
+  "InventorySlotsWarpType": 3,
+  "InventoryFilter": {
+    "AcceptedCards": [],
+    "AcceptedCardsWarpData": ["0ab556ab6af1efc47a2cba5cdf4ace04"],
+    "AcceptedCardsWarpType": 3,
+    "AcceptedTypes": [],
+    "AcceptedTags": [],
+    "AcceptedTagsWarpData": ["tag_Wood"],
+    "AcceptedTagsWarpType": 3,
+    "NOTAcceptedCards": [],
+    "NOTAcceptedTypes": [],
+    "NOTAcceptedTags": [],
+    "CardFilters": [],
+    "TagFilters": []
+  },
+  "SpillsInventoryOnDestroy": false,
+  "InventorySlotsText": {
+    "ParentObjectID": "",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "GroupInventoryActions": [],
+  "EffectsToInventoryContent": [],
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_placed",
+        "LocalizationKey": "Water_Sawmill_Placed_Cut_ActionName",
+        "DefaultText": "Cut"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_placed",
+        "LocalizationKey": "Water_Sawmill_Placed_Cut_ActionDescription",
+        "DefaultText": "Drag a log onto the sawmill to cut it into planks."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Wood"],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerCardsWarpData": ["0ab556ab6af1efc47a2cba5cdf4ace04"],
+        "TriggerCardsWarpType": 3,
+        "TriggerTags": []
+      },
+      "NOTCompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": []
+      },
+      "StackCompatible": false,
+      "DontCloseInspectionWindow": false,
+      "AppearsOnCardsInInventory": false,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 8.0, "y": 8.0}
+            }
+          ]
+        }
+      ],
+      "StatModifications": []
+    }
+  ],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_placed",
+        "LocalizationKey": "Water_Sawmill_Placed_PickUp_ActionName",
+        "DefaultText": "Pack Up"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_placed",
+        "LocalizationKey": "Water_Sawmill_Placed_PickUp_ActionDescription",
+        "DefaultText": "Pack up the sawmill back into a transportable frame."
+      },
+      "DaytimeCost": 4,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {"m_FileID": 0, "m_PathID": 0},
+        "TransformIntoWarpData": "water_sawmill_frame",
+        "TransformIntoWarpType": 3,
+        "TransferInventory": true,
+        "SpawnTransformAtSource": true
+      }
+    }
+  ],
+  "BlueprintCardConditions": [],
+  "BlueprintTagConditions": [],
+  "BlueprintStatConditions": [],
+  "BuildingCardConditions": [],
+  "BuildingTagConditions": [],
+  "BuildingStatConditions": [],
+  "BuildSounds": [],
+  "DeconstructSounds": [],
+  "BuildingDaytimeCost": 0,
+  "BuildingMiniTicks": 0,
+  "DeconstructDaytimeCost": 0,
+  "DeconstructMiniTicks": 0,
+  "BlueprintActionTags": [],
+  "BlueprintDoesntCountForEnvWeight": false,
+  "BPRandomSingleDrop": false,
+  "BlueprintResult": [],
+  "BlueprintBuiltImprovements": [],
+  "BlueprintStatModifications": [],
+  "BlueprintCardModifications": [],
+  "CookingRecipes": [],
+  "EquipSlotType": 0,    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+
+  "CardImageWarpData": "SawmillFullyBuilt",
+  "CardImageWarpType": 3
+}

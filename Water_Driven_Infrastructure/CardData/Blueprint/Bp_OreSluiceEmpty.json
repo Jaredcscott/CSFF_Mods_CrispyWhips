@@ -1,0 +1,147 @@
+{
+    "UniqueID": "water_sawmill_bp_ore_sluice_empty",
+    "CardName": {
+        "ParentObjectID": "water_sawmill_bp_ore_sluice_empty",
+        "LocalizationKey": "Water_Sawmill_Bp_OreSluiceEmpty_CardName",
+        "DefaultText": "Ore Sluice Frame"
+    },
+    "CardDescription": {
+        "ParentObjectID": "water_sawmill_bp_ore_sluice_empty",
+        "LocalizationKey": "Water_Sawmill_Bp_OreSluiceEmpty_CardDescription",
+        "DefaultText": "Hammer together a basic sluice box frame from planks."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "water_sawmill_bp_ore_sluice_empty",
+        "LocalizationKey": "Water_Sawmill_Bp_OreSluiceEmpty_UnlockConditionsDesc",
+        "DefaultText": "Mill Race"
+    },
+    "StartUnlocked": false,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "OreSluiceFrame",
+    "CardImageWarpType": 3,
+    "BuildingStatConditions": [],
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasMillRace",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "CardWarpData": "water_sawmill_mill_race",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BuildingTagConditions": [
+        {
+            "TriggerTag": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyInHand": false,
+            "NotInHand": false,
+            "ExcludeInventories": false,
+            "Inverted": false,
+            "OnlyEquipped": false,
+            "TriggerTagWarpData": "tag_River",
+            "TriggerTagWarpType": 3
+        },
+        {
+            "TriggerTag": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyInHand": false,
+            "NotInHand": false,
+            "ExcludeInventories": false,
+            "Inverted": true,
+            "OnlyEquipped": false,
+            "TriggerTagWarpData": "tag_EnvIndoors",
+            "TriggerTagWarpType": 3
+        }
+    ],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 12,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroupWarpData": "GpTag_HammeringToolGeneral",
+                    "RequiredTabGroupWarpType": 3,
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "UsageChange": {
+                            "x": -15.0,
+                            "y": -15.0
+                        }
+                    }
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [
+                "HammeringActionSoftSpecial5Drops"
+            ],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 4,
+    "BlueprintActionTags": [],
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction",
+        "LegAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "DroppedCardWarpData": "water_sawmill_ore_sluice_empty",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": [
+        "Wood"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintUnlockTicksCost": 8.0,
+    "ResearchedNotification": 0
+}

@@ -1,0 +1,150 @@
+{
+    "UniqueID": "water_sawmill_bp_ore_sluice",
+    "CardName": {
+        "ParentObjectID": "water_sawmill_bp_ore_sluice",
+        "LocalizationKey": "Water_Sawmill_Bp_OreSluice_CardName",
+        "DefaultText": "Ore Sluice"
+    },
+    "CardDescription": {
+        "ParentObjectID": "water_sawmill_bp_ore_sluice",
+        "LocalizationKey": "Water_Sawmill_Bp_OreSluice_CardDescription",
+        "DefaultText": "Build a water-powered ore sluice for washing soil and extracting greenstone. Must be built near a river."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "water_sawmill_bp_ore_sluice",
+        "LocalizationKey": "Water_Sawmill_Bp_OreSluice_UnlockConditionsDesc",
+        "DefaultText": "Mill Race"
+    },
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasMillRace",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "CardWarpData": "water_sawmill_mill_race",
+            "CardWarpType": 3
+        }
+    ],
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "OreSluiceKit",
+    "CardImageWarpType": 3,
+    "BuildingTagConditions": [
+        {
+            "TriggerTag": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyInHand": false,
+            "NotInHand": false,
+            "ExcludeInventories": false,
+            "Inverted": false,
+            "OnlyEquipped": false,
+            "TriggerTagWarpData": "tag_River",
+            "TriggerTagWarpType": 3
+        },
+        {
+            "TriggerTag": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyInHand": false,
+            "NotInHand": false,
+            "ExcludeInventories": false,
+            "Inverted": true,
+            "OnlyEquipped": false,
+            "TriggerTagWarpData": "tag_EnvIndoors",
+            "TriggerTagWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BuildingStatConditions": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 10,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 4,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "water_sawmill_ore_sluice_empty",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 6,
+    "BlueprintActionTags": [],
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "DroppedCardWarpData": "water_sawmill_ore_sluice_kit",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": [
+        "Wood"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintUnlockTicksCost": 8.0,
+    "ResearchedNotification": 0
+}

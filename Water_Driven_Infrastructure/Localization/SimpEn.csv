@@ -1,0 +1,350 @@
+Water_Sawmill_Bp_WaterDrivenSawmill_CardName,Water-Driven Sawmill
+Water_Sawmill_Bp_WaterDrivenSawmill_CardDescription,Construct a large sawmill powered by river flow. This project can only be built near a river.
+Water_Sawmill_Bp_WaterDrivenSawmill_UnlockConditionsDesc,Water-Driven Mill
+Water_Sawmill_Frame_CardName,Water-Driven Sawmill Kit
+Water_Sawmill_Frame_CardDescription,A complete sawmill kit with all components for a large river-powered sawmill.
+Water_Sawmill_Frame_CardHelpSection,"<b>Use:</b> Place near a river to set up the full sawmill structure.
+
+<b>Scale:</b> This is a large construction project."
+Water_Sawmill_Frame_Place_ActionName,Place
+Water_Sawmill_Frame_Place_ActionDescription,Place the sawmill kit into the environment.
+Water_Sawmill_Placed_CardName,Water-Driven Sawmill
+Water_Sawmill_Placed_CardDescription,"A large, fixed river-powered sawmill built on the riverbank."
+Water_Sawmill_Placed_CardHelpSection,"<b>Placement:</b> River environments only via blueprint conditions.
+
+<b>Operation:</b> Load a log into the sawmill, then press Cut to saw it into planks."
+Water_Sawmill_Placed_PickUp_ActionName,Pack Up
+Water_Sawmill_Placed_PickUp_ActionDescription,Pack up the sawmill back into a transportable kit.
+Water_Sawmill_Placed_Cut_ActionName,Cut
+Water_Sawmill_Placed_Cut_ActionDescription,Saw one log from the inventory into planks using water power.
+Water_Sawmill_MillRace_CardName,Mill Race
+Water_Sawmill_MillRace_CardDescription,A channel segment used to carry and direct water flow to river-powered machines.
+Water_Sawmill_MillRace_CardHelpSection,<b>Use:</b> Build directional between-location races and install local mill race structures.
+Water_Sawmill_WaterWheel_CardName,Water Wheel
+Water_Sawmill_WaterWheel_CardDescription,A river-driven wheel assembly. Built with a mill race as a required subcomponent.
+Water_Sawmill_WaterWheel_CardHelpSection,<b>Subcomponent:</b> The mill race is required to build this wheel.
+Water_Sawmill_WaterMill_CardName,Water-Driven Mill
+Water_Sawmill_WaterMill_CardDescription,A water-driven mill that grinds millable materials on demand with 4x the capacity of a rotary quern.
+Water_Sawmill_WaterMill_CardHelpSection,"<b>Subcomponent:</b> Requires a mill race to construct.
+
+<b>Capacity:</b> Can grind 4x the throughput of a manual rotary quern.
+
+<b>Operation:</b> Load millable items and press <b>Grind All</b> to process the batch on demand."
+Water_Sawmill_WaterDrivenForge_CardName,Water-Driven Forge
+Water_Sawmill_WaterDrivenForge_CardDescription,"A large forge powered by a water wheel driving a blower system that maintains high temperatures using fire. The water wheel drives the blower, which keeps the forge at optimal temperature for metalworking."
+Water_Sawmill_WaterDrivenForge_CardHelpSection,"<b>Construction:</b> 4-phase build requiring water mill, stones, mud bricks, planks, clay, leather bellows, and plaster.
+
+<b>Power:</b> Water-driven blower maintains forge temperature.
+
+<b>Purpose:</b> High-temperature metalworking and smelting."
+Water_Sawmill_CopperGearLarge_CardName,Large Copper Gear
+Water_Sawmill_CopperGearLarge_CardDescription,A large precision-cut copper gear for power transmission in the sawmill.
+Water_Sawmill_CopperGearSmall_CardName,Small Copper Gear
+Water_Sawmill_CopperGearSmall_CardDescription,A smaller copper gear for fine power adjustment in the sawmill mechanism.
+Water_Sawmill_CopperSawBlade_CardName,Copper Saw Blade
+Water_Sawmill_CopperSawBlade_CardDescription,A precision copper saw blade mounted on the sawmill frame to cut logs.
+Water_Sawmill_CopperSawBladeDull_CardName,Dull Copper Saw Blade
+Water_Sawmill_CopperSawBladeDull_CardDescription,A cast saw blade that still needs careful whetstone sharpening.
+Water_Sawmill_Bp_CastCopperGearLarge_CardName,Cast Large Copper Gear
+Water_Sawmill_Bp_CastCopperGearLarge_CardDescription,Cast a large copper gear in a mud-brick and clay mold using a large crucible of molten copper, then break it open with a hammer.
+Water_Sawmill_Bp_CastCopperGearLarge_UnlockConditionsDesc,Large Crucible of Molten Copper Needed
+Water_Sawmill_Bp_CastCopperGearSmall_CardName,Cast Small Copper Gear
+Water_Sawmill_Bp_CastCopperGearSmall_CardDescription,Cast a small copper gear in a mud-brick and clay mold using a small crucible of molten copper, then break it open with a hammer.
+Water_Sawmill_Bp_CastCopperGearSmall_UnlockConditionsDesc,Small Crucible of Molten Copper Needed
+Water_Sawmill_Bp_CastCopperSawBlade_CardName,Cast Copper Saw Blade
+Water_Sawmill_Bp_CastCopperSawBlade_CardDescription,Cast a dull copper saw blade in a clay mold and break it open with a hammer.
+Water_Sawmill_Bp_CastCopperSawBlade_UnlockConditionsDesc,Large Crucible of Molten Copper Needed
+Water_Sawmill_Bp_MillRace_CardName,Mill Race
+Water_Sawmill_Bp_MillRace_CardDescription,Build a wooden mill race segment used for water channels.
+Water_Sawmill_Bp_MillRace_UnlockConditionsDesc,Requires 1 vanilla plank
+Water_Sawmill_Bp_WaterWheel_CardName,Water Wheel
+Water_Sawmill_Bp_WaterWheel_CardDescription,Assemble a large water wheel for power generation.
+Water_Sawmill_Bp_WaterWheel_UnlockConditionsDesc,Mill Race
+Water_Sawmill_Bp_WaterMill_CardName,Water-Driven Mill
+Water_Sawmill_Bp_WaterMill_CardDescription,Assemble a compact water mill. Requires a mill race as a core subcomponent.
+Water_Sawmill_Bp_WaterMill_UnlockConditionsDesc,Water Wheel
+Water_Sawmill_Bp_WaterDrivenForge_CardName,Water-Driven Forge
+Water_Sawmill_Bp_WaterDrivenForge_CardDescription,"Build a large forge in 4 phases: (1) Water mill and excavation, (2) Stone foundation and mud brick structure, (3) Fire chamber with leather bellows, (4) Final plaster finish. Total construction time: 3 hours."
+Water_Sawmill_Bp_WaterDrivenForge_UnlockConditionsDesc,Water-Driven Mill
+Water_Sawmill_Perk_SawmillStart_PerkName,Sawmill Start
+Water_Sawmill_Perk_SawmillStart_PerkDescription,Start with a water-driven sawmill kit ready to place near a river.
+
+Water_Sawmill_Frame_Disassemble_ActionName,Disassemble
+Water_Sawmill_Frame_Disassemble_ActionDescription,Break down the kit into its component parts.
+Water_Sawmill_ForgeKit_CardName,Water-Driven Forge Kit
+Water_Sawmill_ForgeKit_CardDescription,A complete forge kit with all components for a large water-powered metalworking forge.
+Water_Sawmill_ForgeKit_CardHelpSection,"<b>Use:</b> Place near a river with a local mill race to set up the forge.
+
+<b>Scale:</b> This is a large construction project requiring water power."
+Water_Sawmill_ForgeKit_Place_ActionName,Place
+Water_Sawmill_ForgeKit_Place_ActionDescription,Place the forge kit into the environment.
+Water_Sawmill_ForgeKit_Disassemble_ActionName,Disassemble
+Water_Sawmill_ForgeKit_Disassemble_ActionDescription,Break down the kit into its component parts.
+Water_Sawmill_ForgePlaced_CardName,Water-Driven Forge
+Water_Sawmill_ForgePlaced_CardDescription,A large water-powered forge for high-temperature metalworking.
+Water_Sawmill_ForgePlaced_CardHelpSection,"<b>Requirements:</b> Requires local mill race for water power.
+
+<b>Operation:</b> Drag firewood or charcoal onto the forge to feed fuel. Light with embers, press Blast to raise temperature, then drag copper ore onto the hot forge to smelt. You can also place metal nuggets and clay items in the inventory."
+Water_Sawmill_ForgePlaced_FeedFirewood_ActionName,Feed Firewood
+Water_Sawmill_ForgePlaced_FeedFirewood_ActionDescription,Feed wood or firewood into the forge firebox.
+Water_Sawmill_ForgePlaced_FeedFuel_ActionName,Feed Fuel
+Water_Sawmill_ForgePlaced_FeedFuel_ActionDescription,Feed firewood or other fuel into the forge firebox.
+Water_Sawmill_ForgePlaced_FeedCharcoal_ActionName,Feed Charcoal
+Water_Sawmill_ForgePlaced_FeedCharcoal_ActionDescription,Feed charcoal or embers into the forge firebox.
+Water_Sawmill_ForgePlaced_PickUp_ActionName,Pack Up
+Water_Sawmill_ForgePlaced_PickUp_ActionDescription,Pack up the forge back into a transportable kit.
+Water_Sawmill_ForgePlaced_Temperature_StatName,Temperature
+Water_Sawmill_ForgePlaced_Windflow_StatName,Windflow
+Water_Sawmill_ForgePlaced_LightTinder_ActionName,Light Forge
+Water_Sawmill_ForgePlaced_LightTinder_ActionDescription,Use lit tinder to light the forge fire.
+Water_Sawmill_ForgePlaced_LightTorch_ActionName,Light Forge
+Water_Sawmill_ForgePlaced_Light_FailMessage,The forge needs fuel first.
+Water_Sawmill_ForgePlaced_FeedEmbers_ActionName,Feed Embers
+Water_Sawmill_ForgePlaced_FeedEmbers_ActionDescription,Feed hot embers into the forge firebox.
+Water_Sawmill_ForgePlaced_Blast_ActionName,Blast
+Water_Sawmill_ForgePlaced_Blast_ActionDescription,Drive the water-powered bellows to push the forge to smelting heat. Requires fuel and a lit fire.
+Water_Sawmill_ForgePlaced_Blast_FailMessage,Light the forge first.
+Water_Sawmill_ForgePlaced_HammerAll_ActionName,Hammer All
+Water_Sawmill_ForgePlaced_HammerAll_ActionDescription,Apply one hammer strike to all items in the forge using the water-driven hammer.
+Water_Sawmill_ForgePlaced_HammerAll_FailMessage,Forge must be at working heat. Use Blast first.
+Water_Sawmill_ForgePlaced_SmeltOre_FailMessage,The forge is not hot enough. Use Blast first.
+Water_Sawmill_ForgePlaced_SmeltOre_ActionName,Smelt Ore
+Water_Sawmill_ForgePlaced_SmeltOre_ActionDescription,Drag copper ore onto the hot forge to smelt it into an ingot.
+Water_Sawmill_GrindingMillKit_CardName,Water-Driven Grinding Mill Kit
+Water_Sawmill_GrindingMillKit_CardDescription,A complete grinding mill kit with all components for a large water-powered grain mill.
+Water_Sawmill_GrindingMillKit_CardHelpSection,"<b>Use:</b> Place near a river with a local mill race to set up the grinding mill.
+
+<b>Scale:</b> This is a large construction project requiring water power."
+Water_Sawmill_GrindingMillKit_Place_ActionName,Place
+Water_Sawmill_GrindingMillKit_Place_ActionDescription,Place the grinding mill kit into the environment.
+Water_Sawmill_GrindingMillKit_Disassemble_ActionName,Disassemble
+Water_Sawmill_GrindingMillKit_Disassemble_ActionDescription,Break down the kit into its component parts.
+Water_Sawmill_GrindingMillPlaced_CardName,Water-Driven Grinding Mill
+Water_Sawmill_GrindingMillPlaced_CardDescription,A large water-powered grinding mill for batch processing millable materials.
+Water_Sawmill_GrindingMillPlaced_CardHelpSection,"<b>Requirements:</b> Requires local mill race for water power.
+
+<b>Operation:</b> Load millable items, then press Grind All to process the full batch on demand, like a larger rotary quern."
+Water_Sawmill_GrindingMillPlaced_PickUp_ActionName,Pack Up
+Water_Sawmill_GrindingMillPlaced_PickUp_ActionDescription,Pack up the grinding mill back into a transportable kit.
+Water_Sawmill_GrindingMillPlaced_GrindAll_ActionName,Grind All
+Water_Sawmill_GrindingMillPlaced_GrindAll_ActionDescription,Engage the mill wheel and process all millable contents in one batch.
+Water_Sawmill_Bp_GrindingMill_CardName,Water-Driven Grinding Mill
+Water_Sawmill_Bp_GrindingMill_CardDescription,Assemble a water-driven grinding mill. Requires a water mill as a core subcomponent.
+Water_Sawmill_Bp_GrindingMill_UnlockConditionsDesc,Water-Driven Mill
+Water_Sawmill_Perk_ForgeStart_PerkName,Forge Start
+Water_Sawmill_Perk_ForgeStart_PerkDescription,Start with a water-driven forge kit and mill race component. Place near a river to build a water-powered metalworking station.
+Water_Sawmill_Perk_GrindingMillStart_PerkName,Grinding Mill Start
+Water_Sawmill_Perk_GrindingMillStart_PerkDescription,Start with a grinding mill kit and mill race component. Place near a river to build a water-powered grain mill.
+Water_Sawmill_OreSluiceKit_CardName,Ore Sluice Kit
+Water_Sawmill_OreSluiceKit_CardDescription,A complete ore sluice kit ready to be placed near a river for mineral prospecting.
+Water_Sawmill_OreSluiceKit_CardHelpSection,"<b>Use:</b> Place near a river with a local mill race to set up the ore sluice.
+
+<b>Purpose:</b> Wash soil to extract greenstone nuggets."
+Water_Sawmill_OreSluiceKit_Place_ActionName,Place
+Water_Sawmill_OreSluiceKit_Place_ActionDescription,Place the ore sluice kit into the environment.
+Water_Sawmill_OreSluiceKit_Disassemble_ActionName,Disassemble
+Water_Sawmill_OreSluiceKit_Disassemble_ActionDescription,Break down the sluice kit into its component parts.
+Water_Sawmill_OreSluicePlaced_CardName,Ore Sluice
+Water_Sawmill_OreSluicePlaced_CardDescription,"A water-powered sluice box for washing soil and separating mineral deposits. Load mud or dirt, then run the sluice to pan for greenstone."
+Water_Sawmill_OreSluicePlaced_CardHelpSection,"<b>Requirements:</b> Requires a local mill race for water power.
+
+<b>Operation:</b> Load mud piles, dirt piles, or fine dirt into the sluice, then press Sluice All. Each item has a chance to yield greenstone:
+- Mud Pile: 5%
+- Dirt Pile: 8%
+- Fine Dirt: 10%"
+Water_Sawmill_OreSluicePlaced_SluiceAll_ActionName,Sluice All
+Water_Sawmill_OreSluicePlaced_SluiceAll_ActionDescription,Run water through the sluice to wash all loaded soil. Each item has a chance to yield greenstone.
+Water_Sawmill_OreSluicePlaced_PickUp_ActionName,Pack Up
+Water_Sawmill_OreSluicePlaced_PickUp_ActionDescription,Pack up the ore sluice back into a transportable kit.
+Water_Sawmill_Bp_OreSluice_CardName,Ore Sluice
+Water_Sawmill_Bp_OreSluice_CardDescription,Build a water-powered ore sluice for washing soil and extracting greenstone. Must be built near a river.
+Water_Sawmill_Bp_OreSluice_UnlockConditionsDesc,Mill Race
+Water_Sawmill_CopperGearLarge_CardHelpSection,"<b>Purpose:</b> Component for water-driven forge machinery.
+
+<b>Used in:</b> Water-driven forge leather bellows mechanism."
+Water_Sawmill_CopperGearLarge_FuelCapacity_CardStatName,Temperature
+Water_Sawmill_CopperGearSmall_CardHelpSection,"<b>Purpose:</b> Component for water-driven machinery.
+
+<b>Used in:</b> Grinding mills, sawmills, and other water-powered devices."
+Water_Sawmill_CopperGearSmall_FuelCapacity_CardStatName,Temperature
+Water_Sawmill_CopperSawBlade_CardHelpSection,"<b>Purpose:</b> Cutting component for water-driven sawmill.
+
+<b>Condition:</b> Sharp and ready for use. Will dull over time."
+Water_Sawmill_CopperSawBladeDull_CardHelpSection,"<b>Purpose:</b> Worn cutting component.
+
+<b>Condition:</b> Dull. Must be sharpened at a grinding stone before reuse."
+Water_Sawmill_MillRaceLocalPlaced_CardName,Mill Race (Local)
+Water_Sawmill_MillRaceLocalPlaced_CardDescription,A fixed local mill-race channel installed in this location to feed water-powered machinery.
+Water_Sawmill_MillRaceLocalPlaced_CardHelpSection,"<b>Water Flow:</b> Required for local water-powered machinery operation.
+
+<b>Setup:</b> Must be paired with a directional mill race between locations."
+Water_Sawmill_MillRaceLocalPlaced_Pack_ActionName,Pack Up
+Water_Sawmill_MillRaceLocalPlaced_Pack_ActionDescription,Pack up the local mill race back into a transportable race segment.
+Water_Sawmill_MillRace_Dismantle_ActionName,Dismantle
+Water_Sawmill_MillRace_Dismantle_ActionDescription,Break down the mill race and recover the planks.
+Water_Sawmill_WaterWheel_Dismantle_ActionName,Dismantle
+Water_Sawmill_WaterWheel_Dismantle_ActionDescription,Disassemble the water wheel into its wooden frame, stonework, and gear.
+Water_Sawmill_WaterMill_Dismantle_ActionName,Dismantle
+Water_Sawmill_WaterMill_Dismantle_ActionDescription,Break down the water mill into its wheel, race, and drive gear.
+Water_Sawmill_OreSluiceEmpty_CardName,Ore Sluice Frame
+Water_Sawmill_OreSluiceEmpty_CardDescription,An unfinished sluice box frame. Needs rope and a mill race connection to become a working ore sluice.
+Water_Sawmill_OreSluiceEmpty_CardHelpSection,<b>Use:</b> Combine with rope and a mill race in the Ore Sluice blueprint to finish construction.
+Water_Sawmill_OreSluiceEmpty_Dismantle_ActionName,Dismantle
+Water_Sawmill_OreSluiceEmpty_Dismantle_ActionDescription,Break down the sluice frame and recover planks.
+Water_Sawmill_Bp_OreSluiceEmpty_CardName,Ore Sluice Frame
+Water_Sawmill_Bp_OreSluiceEmpty_CardDescription,Hammer together a basic sluice box frame from planks.
+Water_Sawmill_Bp_OreSluiceEmpty_UnlockConditionsDesc,Mill Race
+Water_Sawmill_CopperSawBlade_FuelCapacity_CardStatName,Temperature
+Water_Sawmill_CopperSawBladeDull_FuelCapacity_CardStatName,Temperature
+Water_Sawmill_ForgePlaced_Fuel_StatName,Fuel
+Water_Sawmill_Bp_Fishpond_CardName,Fishpond
+Water_Sawmill_Bp_Fishpond_CardDescription,"Dig a fishpond near a river in 3 stages using a shovel (3 hours each). Populate it with live pike, perch, and minnow which will grow over time. When the total fish count exceeds 10, the pond becomes stocked and frogs can be caught. The pond freezes in winter."
+Water_Sawmill_Bp_Fishpond_UnlockConditionsDesc,Mill Race Needed
+Water_Sawmill_FishpondKit_CardName,Fishpond Kit
+Water_Sawmill_FishpondKit_CardDescription,A pre-stocked fishpond kit ready for placement near a river. Fish populations grow slowly over time.
+Water_Sawmill_FishpondKit_CardHelpSection,"<b>Use:</b> Place near a river. Fish grow over time. The pond becomes stocked when the total fish count exceeds 10. Fish are caught with a spear."
+Water_Sawmill_FishpondKit_Place_ActionName,Place
+Water_Sawmill_FishpondKit_Place_ActionDescription,Place the fishpond near the river.
+Water_Sawmill_FishpondKit_Disassemble_ActionName,Disassemble
+Water_Sawmill_FishpondKit_Disassemble_ActionDescription,Break down the kit and recover most of the planks and rope.
+Water_Sawmill_FishpondFilled_CardName,Fishpond
+Water_Sawmill_FishpondFilled_CardDescription,"A working fishpond with a small population of pike, perch, and minnow. Only those three breed; trout, char, and sturgeon can be stocked separately but do not breed. Once the breeding population exceeds 10 the pond becomes a fully Stocked Fishpond."
+Water_Sawmill_FishpondFilled_CardHelpSection,"<b>Populations:</b> Pike, perch, and minnow each grow at the same slow rate (~2 days per fish per species).
+
+<b>Trout / Char / Sturgeon:</b> Each tracked separately (cap 10 each). They do not breed.
+
+<b>Catch:</b> Use a spear to catch one fish at a time. Each catch reduces that species' population by 1.
+
+<b>Stocked Threshold:</b> When the breeding population (pike+perch+minnow) exceeds 10, the pond transitions to Stocked and frogs can be caught.
+
+<b>Water Draw:</b> Drag a water container in to fill it with unsafe water (boil before drinking).
+
+<b>Winter:</b> The pond freezes when winter sets in and only ice fishing is available."
+Water_Sawmill_FishpondFilled_SpecialDurability1_CardStatName,Pike
+Water_Sawmill_FishpondFilled_SpecialDurability2_CardStatName,Perch
+Water_Sawmill_FishpondFilled_SpecialDurability3_CardStatName,Minnow
+Water_Sawmill_FishpondFilled_CatchPike_ActionName,Catch Pike
+Water_Sawmill_FishpondFilled_CatchPike_ActionDescription,Spear a pike from the pond.
+Water_Sawmill_FishpondFilled_CatchPerch_ActionName,Catch Perch
+Water_Sawmill_FishpondFilled_CatchPerch_ActionDescription,Spear a perch from the pond.
+Water_Sawmill_FishpondFilled_CatchMinnow_ActionName,Catch Minnow
+Water_Sawmill_FishpondFilled_CatchMinnow_ActionDescription,Spear a minnow from the pond.
+Water_Sawmill_FishpondFilled_Fill_ActionName,Fill with Unsafe Water
+Water_Sawmill_FishpondFilled_Fill_ActionDescription,Draw unsafe water from the pond into a container. Boil before drinking.
+Water_Sawmill_FishpondFilled_Drain_ActionName,Drain
+Water_Sawmill_FishpondFilled_Drain_ActionDescription,Abandon the fish and drain the pond back to a fishpond kit.
+Water_Sawmill_FishpondFilled_Freeze_ActionName,Freeze Over
+Water_Sawmill_FishpondStocked_CardName,Fishpond (Stocked)
+Water_Sawmill_FishpondStocked_CardDescription,"A mature fishpond rich with pike, perch, and minnow. Trout, char, and sturgeon can also be stocked but do not breed. The thriving ecosystem also attracts frogs to the water's edge."
+Water_Sawmill_FishpondStocked_CardHelpSection,"<b>Populations:</b> Pike, perch, and minnow continue to grow at the same slow rate.
+
+<b>Trout / Char / Sturgeon:</b> Each tracked separately (cap 10 each). They do not breed.
+
+<b>Catch:</b> Use a spear to catch one fish at a time. Each catch reduces that species' population by 1.
+
+<b>Frogs:</b> The Catch Frog action is available while the pond is Stocked (no spear required).
+
+<b>Reverts:</b> If the breeding population (pike+perch+minnow) drops below 10 the pond reverts to its working Fishpond state and the frogs depart.
+
+<b>Water Draw:</b> Drag a water container in to fill it with unsafe water (boil before drinking).
+
+<b>Winter:</b> The pond freezes when winter sets in and only ice fishing is available."
+Water_Sawmill_FishpondStocked_SpecialDurability1_CardStatName,Pike
+Water_Sawmill_FishpondStocked_SpecialDurability2_CardStatName,Perch
+Water_Sawmill_FishpondStocked_SpecialDurability3_CardStatName,Minnow
+Water_Sawmill_FishpondStocked_CatchPike_ActionName,Catch Pike
+Water_Sawmill_FishpondStocked_CatchPike_ActionDescription,Spear a pike from the pond.
+Water_Sawmill_FishpondStocked_CatchPerch_ActionName,Catch Perch
+Water_Sawmill_FishpondStocked_CatchPerch_ActionDescription,Spear a perch from the pond.
+Water_Sawmill_FishpondStocked_CatchMinnow_ActionName,Catch Minnow
+Water_Sawmill_FishpondStocked_CatchMinnow_ActionDescription,Spear a minnow from the pond.
+Water_Sawmill_FishpondStocked_CatchFrog_ActionName,Catch Frog
+Water_Sawmill_FishpondStocked_CatchFrog_ActionDescription,Catch a frog by hand from the pond's edge.
+Water_Sawmill_FishpondStocked_Fill_ActionName,Fill with Unsafe Water
+Water_Sawmill_FishpondStocked_Fill_ActionDescription,Draw unsafe water from the pond into a container. Boil before drinking.
+Water_Sawmill_FishpondStocked_Drain_ActionName,Drain
+Water_Sawmill_FishpondStocked_Drain_ActionDescription,Abandon the fish and drain the pond back to a fishpond kit.
+Water_Sawmill_FishpondStocked_Freeze_ActionName,Freeze Over
+Water_Sawmill_FishpondWinter_CardName,Fishpond (Frozen)
+Water_Sawmill_FishpondWinter_CardDescription,"The fishpond is frozen over. The fish remain under the ice but no longer grow until spring. Only ice fishing is possible."
+Water_Sawmill_FishpondWinter_CardHelpSection,"<b>Populations:</b> Pike, perch, and minnow are preserved beneath the ice (no growth until thaw). Trout, char, and sturgeon are tracked separately and preserved across the freeze.
+
+<b>Ice Fish:</b> Each ice fishing action takes longer than open water and requires a spear.
+
+<b>Water Draw:</b> Disabled while frozen.
+
+<b>Thaw:</b> The pond returns to its working state automatically when winter ends. Population is preserved across the freeze."
+Water_Sawmill_FishpondWinter_SpecialDurability1_CardStatName,Pike
+Water_Sawmill_FishpondWinter_SpecialDurability2_CardStatName,Perch
+Water_Sawmill_FishpondWinter_SpecialDurability3_CardStatName,Minnow
+Water_Sawmill_FishpondWinter_IceFishPike_ActionName,Ice Fish Pike
+Water_Sawmill_FishpondWinter_IceFishPike_ActionDescription,Spear a pike through the ice.
+Water_Sawmill_FishpondWinter_IceFishPerch_ActionName,Ice Fish Perch
+Water_Sawmill_FishpondWinter_IceFishPerch_ActionDescription,Spear a perch through the ice.
+Water_Sawmill_FishpondWinter_IceFishMinnow_ActionName,Ice Fish Minnow
+Water_Sawmill_FishpondWinter_IceFishMinnow_ActionDescription,Spear a minnow through the ice.
+Water_Sawmill_FishpondWinter_Thaw_ActionName,Thaw
+Water_Sawmill_FishpondFilled_Progress_CardStatName,Crayfish
+Water_Sawmill_FishpondFilled_StockPike_ActionName,Stock Pike
+Water_Sawmill_FishpondFilled_StockPike_ActionDescription,Release a live pike into the pond. Increases pike population by 1.
+Water_Sawmill_FishpondFilled_StockPerch_ActionName,Stock Perch
+Water_Sawmill_FishpondFilled_StockPerch_ActionDescription,Release a live perch into the pond. Increases perch population by 1.
+Water_Sawmill_FishpondFilled_StockMinnow_ActionName,Stock Minnow
+Water_Sawmill_FishpondFilled_StockMinnow_ActionDescription,Release a live minnow into the pond. Increases minnow population by 1.
+Water_Sawmill_FishpondFilled_StockSturgeon_ActionName,Stock Sturgeon
+Water_Sawmill_FishpondFilled_StockSturgeon_ActionDescription,Release a live sturgeon into the pond. Increases the sturgeon population by 1 (cap 10). Sturgeon do not breed.
+Water_Sawmill_FishpondFilled_StockCrayfish_ActionName,Stock Crayfish
+Water_Sawmill_FishpondFilled_StockCrayfish_ActionDescription,Release a live crayfish into the pond. Crayfish do not breed but can be stored up to 10.
+Water_Sawmill_FishpondFilled_CatchCrayfish_ActionName,Catch Crayfish
+Water_Sawmill_FishpondFilled_CatchCrayfish_ActionDescription,Catch a crayfish from the pond by hand.
+Water_Sawmill_FishpondStocked_Progress_CardStatName,Crayfish
+Water_Sawmill_FishpondStocked_StockPike_ActionName,Stock Pike
+Water_Sawmill_FishpondStocked_StockPike_ActionDescription,Release a live pike into the pond. Increases pike population by 1.
+Water_Sawmill_FishpondStocked_StockPerch_ActionName,Stock Perch
+Water_Sawmill_FishpondStocked_StockPerch_ActionDescription,Release a live perch into the pond. Increases perch population by 1.
+Water_Sawmill_FishpondStocked_StockMinnow_ActionName,Stock Minnow
+Water_Sawmill_FishpondStocked_StockMinnow_ActionDescription,Release a live minnow into the pond. Increases minnow population by 1.
+Water_Sawmill_FishpondStocked_StockSturgeon_ActionName,Stock Sturgeon
+Water_Sawmill_FishpondStocked_StockSturgeon_ActionDescription,Release a live sturgeon into the pond. Increases the sturgeon population by 1 (cap 10). Sturgeon do not breed.
+Water_Sawmill_FishpondStocked_StockCrayfish_ActionName,Stock Crayfish
+Water_Sawmill_FishpondStocked_StockCrayfish_ActionDescription,Release a live crayfish into the pond. Crayfish do not breed but can be stored up to 10.
+Water_Sawmill_FishpondStocked_CatchCrayfish_ActionName,Catch Crayfish
+Water_Sawmill_FishpondStocked_CatchCrayfish_ActionDescription,Catch a crayfish from the pond by hand.
+Water_Sawmill_FishpondWinter_Progress_CardStatName,Crayfish
+Water_Sawmill_FishpondWinter_IceFishSturgeon_ActionName,Ice Fish Sturgeon
+Water_Sawmill_FishpondWinter_IceFishSturgeon_ActionDescription,Chop a hole and spear a sturgeon beneath the ice. Reduces the pond's sturgeon population by one.
+Water_Sawmill_FishpondWinter_IceFishCrayfish_ActionName,Ice Fish Crayfish
+Water_Sawmill_FishpondWinter_IceFishCrayfish_ActionDescription,Pull a crayfish through a hole chopped in the ice.
+Water_Sawmill_FishpondFilled_StockTrout_ActionName,Stock Trout
+Water_Sawmill_FishpondFilled_StockTrout_ActionDescription,Release a live trout into the pond. Increases the trout population by 1 (cap 10). Trout do not breed.
+Water_Sawmill_FishpondFilled_StockChar_ActionName,Stock Char
+Water_Sawmill_FishpondFilled_StockChar_ActionDescription,Release a live char into the pond. Increases the char population by 1 (cap 10). Char do not breed.
+Water_Sawmill_FishpondStocked_StockTrout_ActionName,Stock Trout
+Water_Sawmill_FishpondStocked_StockTrout_ActionDescription,Release a live trout into the pond. Increases the trout population by 1 (cap 10). Trout do not breed.
+Water_Sawmill_FishpondStocked_StockChar_ActionName,Stock Char
+Water_Sawmill_FishpondStocked_StockChar_ActionDescription,Release a live char into the pond. Increases the char population by 1 (cap 10). Char do not breed.
+Water_Sawmill_FishpondWinter_IceFishTrout_ActionName,Ice Fish Trout
+Water_Sawmill_FishpondWinter_IceFishTrout_ActionDescription,Chop a hole and spear a trout beneath the ice. Reduces the pond's trout population by one.
+Water_Sawmill_FishpondWinter_IceFishChar_ActionName,Ice Fish Char
+Water_Sawmill_FishpondWinter_IceFishChar_ActionDescription,Chop a hole and spear a char beneath the ice. Reduces the pond's char population by one.
+Water_Sawmill_FishpondFilled_SpoilageTime_CardStatName,Sturgeon
+Water_Sawmill_FishpondFilled_UsageDurability_CardStatName,Trout
+Water_Sawmill_FishpondFilled_FuelCapacity_CardStatName,Char
+Water_Sawmill_FishpondStocked_SpoilageTime_CardStatName,Sturgeon
+Water_Sawmill_FishpondStocked_UsageDurability_CardStatName,Trout
+Water_Sawmill_FishpondStocked_FuelCapacity_CardStatName,Char
+Water_Sawmill_FishpondWinter_SpoilageTime_CardStatName,Sturgeon
+Water_Sawmill_FishpondWinter_UsageDurability_CardStatName,Trout
+Water_Sawmill_FishpondWinter_FuelCapacity_CardStatName,Char
+Water_Sawmill_FishpondFilled_CatchSturgeon_ActionName,Catch Sturgeon
+Water_Sawmill_FishpondFilled_CatchSturgeon_ActionDescription,Spear a sturgeon from the pond.
+Water_Sawmill_FishpondFilled_CatchTrout_ActionName,Catch Trout
+Water_Sawmill_FishpondFilled_CatchTrout_ActionDescription,Spear a trout from the pond.
+Water_Sawmill_FishpondFilled_CatchChar_ActionName,Catch Char
+Water_Sawmill_FishpondFilled_CatchChar_ActionDescription,Spear a char from the pond.
+Water_Sawmill_FishpondStocked_CatchSturgeon_ActionName,Catch Sturgeon
+Water_Sawmill_FishpondStocked_CatchSturgeon_ActionDescription,Spear a sturgeon from the pond.
+Water_Sawmill_FishpondStocked_CatchTrout_ActionName,Catch Trout
+Water_Sawmill_FishpondStocked_CatchTrout_ActionDescription,Spear a trout from the pond.
+Water_Sawmill_FishpondStocked_CatchChar_ActionName,Catch Char
+Water_Sawmill_FishpondStocked_CatchChar_ActionDescription,Spear a char from the pond.

@@ -1,0 +1,116 @@
+{
+    "UniqueID": "water_sawmill_bp_water_mill",
+    "CardName": {
+        "ParentObjectID": "water_sawmill_bp_water_mill",
+        "LocalizationKey": "Water_Sawmill_Bp_WaterMill_CardName",
+        "DefaultText": "Water Mill"
+    },
+    "CardDescription": {
+        "ParentObjectID": "water_sawmill_bp_water_mill",
+        "LocalizationKey": "Water_Sawmill_Bp_WaterMill_CardDescription",
+        "DefaultText": "Assemble a compact water mill. A subcomponent for sawmills, grinding mills, and forges."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "water_sawmill_bp_water_mill",
+        "LocalizationKey": "Water_Sawmill_Bp_WaterMill_UnlockConditionsDesc",
+        "DefaultText": "Water Wheel"
+    },
+    "StartUnlocked": false,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "WaterMill",
+    "CardImageWarpType": 3,
+    "BuildingStatConditions": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "water_sawmill_water_wheel",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "water_sawmill_mill_race",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "water_sawmill_copper_gear_large",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 12,
+    "BlueprintActionTags": [],
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction",
+        "LegAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "DroppedCardWarpData": "water_sawmill_water_mill",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": [
+        "Wood"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasWaterWheel",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "CardWarpData": "water_sawmill_water_wheel",
+            "CardWarpType": 3
+        }
+    ],
+    "BlueprintUnlockTicksCost": 12.0,
+    "ResearchedNotification": 0
+}

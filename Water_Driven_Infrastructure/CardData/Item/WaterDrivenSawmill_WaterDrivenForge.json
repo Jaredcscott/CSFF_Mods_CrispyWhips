@@ -1,0 +1,72 @@
+{
+  "UniqueID": "water_sawmill_water_driven_forge",
+  "CardName": {
+    "ParentObjectID": "water_sawmill_water_driven_forge",
+    "LocalizationKey": "Water_Sawmill_WaterDrivenForge_CardName",
+    "DefaultText": "Water-Driven Forge"
+  },
+  "CardDescription": {
+    "ParentObjectID": "water_sawmill_water_driven_forge",
+    "LocalizationKey": "Water_Sawmill_WaterDrivenForge_CardDescription",
+    "DefaultText": "A forge drive assembly powered from river flow through a mill race and wheel train."
+  },
+  "CanBeRenamed": false,
+  "CardHelpSection": {
+    "ParentObjectID": "water_sawmill_water_driven_forge",
+    "LocalizationKey": "Water_Sawmill_WaterDrivenForge_CardHelpSection",
+    "DefaultText": "<b>Subcomponent:</b> Requires a mill race to construct.\n\n<b>Purpose:</b> High-power water-driven metalworking assembly."
+  },    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+
+  "CardImageWarpData": "ForgeFullyBuilt",
+  "CardImageWarpType": 3,
+  "CardType": 0,
+  "ObjectWeight": 700.0,
+  "TradingValue": 500.0,
+  "CardTags": [],
+  "CardTagsWarpData": ["tag_Copper", "tag_Wood"],
+  "CardTagsWarpType": 3,
+  "DoesNotPile": true,
+  "WhenCreatedSounds": [],
+  "WhenCreatedSoundsWarpData": ["Metal"],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {"Active": false},
+  "UsageDurability": {"Active": false},
+  "FuelCapacity": {"Active": false},
+  "Progress": {"Active": false},
+  "SpecialDurability1": {"Active": false},
+  "SpecialDurability2": {"Active": false},
+  "SpecialDurability3": {"Active": false},
+  "SpecialDurability4": {"Active": false},
+  "CardInteractions": [],
+  "DismantleActions": [],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [],
+  "MaxLiquidCapacity": 0.0,
+  "InventorySlots": [],
+  "CookingConditions": {
+    "NeedsSpoilage": false,
+    "NeedsUsage": false,
+    "NeedsFuel": false,
+    "NeedsProgress": false,
+    "NeedsSpecial1": false,
+    "NeedsSpecial2": false,
+    "NeedsSpecial3": false,
+    "NeedsSpecial4": false,
+    "ExtraSpoilageRate": 0.0,
+    "ExtraUsageRate": 0.0,
+    "ExtraFuelRate": 0.0,
+    "ExtraProgressRate": 0.0,
+    "ExtraSpecial1Rate": 0.0,
+    "ExtraSpecial2Rate": 0.0,
+    "ExtraSpecial3Rate": 0.0,
+    "ExtraSpecial4Rate": 0.0
+  },
+  "CookingRecipes": [],
+  "BlueprintStages": [],
+  "BlueprintResult": [],
+  "IsWeapon": false,
+  "IsArmor": false
+}

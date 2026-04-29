@@ -1,0 +1,23 @@
+{
+    "Tab_2_Construction_Subtab_2_AdvancedTools_TabName": [
+        "water_sawmill_bp_mill_race",
+        "water_sawmill_bp_water_wheel",
+        "water_sawmill_bp_water_mill",
+        "water_sawmill_bp_ore_sluice_empty"
+    ],
+    "Tab_5_MetalAndClay_Subtab_3_MetalCrafts_TabName": [
+        "water_sawmill_bp_cast_copper_gear_large",
+        "water_sawmill_bp_cast_copper_gear_small",
+        "water_sawmill_bp_cast_copper_saw_blade"
+    ],
+    "Tab_2_Construction_Subtab_4_Furniture_TabName": [
+        "water_sawmill_bp_ore_sluice",
+        "water_sawmill_bp_grinding_mill",
+        "water_sawmill_bp_water_driven_sawmill",
+        "water_sawmill_bp_water_driven_forge"
+    ],
+    "Tab_6_Farming_Subtab_1_Agriculture_TabName": [
+        "water_sawmill_bp_fishpond"
+    ]
+            
+}

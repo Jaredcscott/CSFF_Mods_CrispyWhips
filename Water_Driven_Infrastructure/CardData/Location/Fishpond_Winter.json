@@ -1,0 +1,783 @@
+{
+  "UniqueID": "water_sawmill_fishpond_winter",
+  "CardName": {
+    "ParentObjectID": "water_sawmill_fishpond_winter",
+    "LocalizationKey": "Water_Sawmill_FishpondWinter_CardName",
+    "DefaultText": "Fishpond (Frozen)"
+  },
+  "CardDescription": {
+    "ParentObjectID": "water_sawmill_fishpond_winter",
+    "LocalizationKey": "Water_Sawmill_FishpondWinter_CardDescription",
+    "DefaultText": "The pond's surface is locked under thick ice. Fish hibernate below and breeding is paused. Frogs are absent. Only ice fishing through a chopped hole reaches the fish until the thaw."
+  },
+  "CardHelpSection": {
+    "ParentObjectID": "water_sawmill_fishpond_winter",
+    "LocalizationKey": "Water_Sawmill_FishpondWinter_CardHelpSection",
+    "DefaultText": "<b>Ice fish:</b> Use Ice Fish Pike / Ice Fish Perch / Ice Fish Minnow / Ice Fish Trout / Ice Fish Char / Ice Fish Sturgeon with a spear nearby. Each catch costs more time than open-water fishing.\n\n<b>No frogs:</b> Frogs are dormant beneath the ice.\n\n<b>No water draw:</b> The pond is frozen — wait for the thaw.\n\n<b>Spring thaw:</b> When winter ends the pond reopens and pike, perch, and minnow populations resume growing. Trout, char, and sturgeon are tracked separately and do not breed."
+  },
+  "CardType": 2,
+  "ObjectWeight": 1500.0,
+  "TradingValue": 250.0,
+  "AlwaysUpdate": true,
+  "CardTags": [],
+  "CardTagsWarpData": ["tag_Wood", "tag_Structure", "tag_FrozenWater"],
+  "CardTagsWarpType": 3,
+  "DoesNotPile": true,
+  "CannotBeTrashed": false,
+  "WhenCreatedSounds": [],
+  "WhenCreatedSoundsWarpData": ["Ice"],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "water_sawmill_fishpond_winter",
+      "LocalizationKey": "Water_Sawmill_FishpondWinter_SpoilageTime_CardStatName",
+      "DefaultText": "Sturgeon"
+    },
+    "RandomStartingOffset": 0.0,
+    "MaxValue": 10.0,
+    "RestrictToSpecificValues": false,
+    "ValidValues": [],
+    "RatePerDaytimePoint": 0.0,
+    "ExtraRateWhenEquipped": 0.0,
+    "PauseRateWhenEnvWeightIsFull": false,
+    "PauseRateWhenInventoryIsFull": false,
+    "MinRate": {"Active": false, "FloatValue": 0.0},
+    "MaxRate": {"Active": false, "FloatValue": 0.0},
+    "HidingOptions": 0,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "OverrideIcon": {"m_FileID": 0, "m_PathID": 0},
+    "OverrideIconWarpData": "Sturgeon",
+    "OverrideIconWarpType": 3,
+    "SortInverted": false,
+    "ResetWhenLoadedAtZero": false,
+    "HasActionOnZero": false,
+    "RepeatActionOnZero": false,
+    "ShowPopupOnZero": false,
+    "OnZeroNotification": 0,
+    "OnZero": {},
+    "HasActionOnFull": false,
+    "RepeatActionOnFull": false,
+    "ShowPopupOnFull": false,
+    "OnFullNotification": 0,
+    "OnFull": {},
+    "CountsForTradingValue": false,
+    "TradingValueCustomRanges": []
+  },
+  "UsageDurability": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "water_sawmill_fishpond_winter",
+      "LocalizationKey": "Water_Sawmill_FishpondWinter_UsageDurability_CardStatName",
+      "DefaultText": "Trout"
+    },
+    "RandomStartingOffset": 0.0,
+    "MaxValue": 10.0,
+    "RestrictToSpecificValues": false,
+    "ValidValues": [],
+    "RatePerDaytimePoint": 0.0,
+    "ExtraRateWhenEquipped": 0.0,
+    "PauseRateWhenEnvWeightIsFull": false,
+    "PauseRateWhenInventoryIsFull": false,
+    "MinRate": {"Active": false, "FloatValue": 0.0},
+    "MaxRate": {"Active": false, "FloatValue": 0.0},
+    "HidingOptions": 0,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "OverrideIcon": {"m_FileID": 0, "m_PathID": 0},
+    "OverrideIconWarpData": "Trout",
+    "OverrideIconWarpType": 3,
+    "SortInverted": false,
+    "ResetWhenLoadedAtZero": false,
+    "HasActionOnZero": false,
+    "RepeatActionOnZero": false,
+    "ShowPopupOnZero": false,
+    "OnZeroNotification": 0,
+    "OnZero": {},
+    "HasActionOnFull": false,
+    "RepeatActionOnFull": false,
+    "ShowPopupOnFull": false,
+    "OnFullNotification": 0,
+    "OnFull": {},
+    "CountsForTradingValue": false,
+    "TradingValueCustomRanges": []
+  },
+  "FuelCapacity": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "water_sawmill_fishpond_winter",
+      "LocalizationKey": "Water_Sawmill_FishpondWinter_FuelCapacity_CardStatName",
+      "DefaultText": "Char"
+    },
+    "RandomStartingOffset": 0.0,
+    "MaxValue": 10.0,
+    "RestrictToSpecificValues": false,
+    "ValidValues": [],
+    "RatePerDaytimePoint": 0.0,
+    "ExtraRateWhenEquipped": 0.0,
+    "PauseRateWhenEnvWeightIsFull": false,
+    "PauseRateWhenInventoryIsFull": false,
+    "MinRate": {"Active": false, "FloatValue": 0.0},
+    "MaxRate": {"Active": false, "FloatValue": 0.0},
+    "HidingOptions": 0,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "OverrideIcon": {"m_FileID": 0, "m_PathID": 0},
+    "OverrideIconWarpData": "Char",
+    "OverrideIconWarpType": 3,
+    "SortInverted": false,
+    "ResetWhenLoadedAtZero": false,
+    "HasActionOnZero": false,
+    "RepeatActionOnZero": false,
+    "ShowPopupOnZero": false,
+    "OnZeroNotification": 0,
+    "OnZero": {},
+    "HasActionOnFull": false,
+    "RepeatActionOnFull": false,
+    "ShowPopupOnFull": false,
+    "OnFullNotification": 0,
+    "OnFull": {},
+    "CountsForTradingValue": false,
+    "TradingValueCustomRanges": []
+  },
+  "Progress": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "water_sawmill_fishpond_winter",
+      "LocalizationKey": "Water_Sawmill_FishpondWinter_Progress_CardStatName",
+      "DefaultText": "Crayfish"
+    },
+    "RandomStartingOffset": 0.0,
+    "MaxValue": 10.0,
+    "RestrictToSpecificValues": false,
+    "ValidValues": [],
+    "RatePerDaytimePoint": 0.0,
+    "ExtraRateWhenEquipped": 0.0,
+    "PauseRateWhenEnvWeightIsFull": false,
+    "PauseRateWhenInventoryIsFull": false,
+    "MinRate": {"Active": false, "FloatValue": 0.0},
+    "MaxRate": {"Active": false, "FloatValue": 0.0},
+    "HidingOptions": 0,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "OverrideIcon": {"m_FileID": 0, "m_PathID": 0},
+    "OverrideIconWarpData": "Crayfish",
+    "OverrideIconWarpType": 3,
+    "SortInverted": false,
+    "ResetWhenLoadedAtZero": false,
+    "HasActionOnZero": false,
+    "RepeatActionOnZero": false,
+    "ShowPopupOnZero": false,
+    "OnZeroNotification": 0,
+    "OnZero": {},
+    "HasActionOnFull": false,
+    "RepeatActionOnFull": false,
+    "ShowPopupOnFull": false,
+    "OnFullNotification": 0,
+    "OnFull": {},
+    "CountsForTradingValue": false,
+    "TradingValueCustomRanges": []
+  },
+  "SpecialDurability1": {
+    "Active": true,
+    "FloatValue": 2.0,
+    "CardStatName": {
+      "ParentObjectID": "water_sawmill_fishpond_winter",
+      "LocalizationKey": "Water_Sawmill_FishpondWinter_SpecialDurability1_CardStatName",
+      "DefaultText": "Pike"
+    },
+    "RandomStartingOffset": 0.0,
+    "MaxValue": 10.0,
+    "RestrictToSpecificValues": false,
+    "ValidValues": [],
+    "RatePerDaytimePoint": 0.0,
+    "ExtraRateWhenEquipped": 0.0,
+    "PauseRateWhenEnvWeightIsFull": false,
+    "PauseRateWhenInventoryIsFull": false,
+    "MinRate": {"Active": false, "FloatValue": 0.0},
+    "MaxRate": {"Active": false, "FloatValue": 0.0},
+    "HidingOptions": 0,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "OverrideIcon": {"m_FileID": 0, "m_PathID": 0},
+    "OverrideIconWarpData": "Pike",
+    "OverrideIconWarpType": 3,
+    "SortInverted": false,
+    "ResetWhenLoadedAtZero": false,
+    "HasActionOnZero": false,
+    "RepeatActionOnZero": false,
+    "ShowPopupOnZero": false,
+    "OnZeroNotification": 0,
+    "OnZero": {},
+    "HasActionOnFull": false,
+    "RepeatActionOnFull": false,
+    "ShowPopupOnFull": false,
+    "OnFullNotification": 0,
+    "OnFull": {},
+    "CountsForTradingValue": false,
+    "TradingValueCustomRanges": []
+  },
+  "SpecialDurability2": {
+    "Active": true,
+    "FloatValue": 2.0,
+    "CardStatName": {
+      "ParentObjectID": "water_sawmill_fishpond_winter",
+      "LocalizationKey": "Water_Sawmill_FishpondWinter_SpecialDurability2_CardStatName",
+      "DefaultText": "Perch"
+    },
+    "RandomStartingOffset": 0.0,
+    "MaxValue": 10.0,
+    "RestrictToSpecificValues": false,
+    "ValidValues": [],
+    "RatePerDaytimePoint": 0.0,
+    "ExtraRateWhenEquipped": 0.0,
+    "PauseRateWhenEnvWeightIsFull": false,
+    "PauseRateWhenInventoryIsFull": false,
+    "MinRate": {"Active": false, "FloatValue": 0.0},
+    "MaxRate": {"Active": false, "FloatValue": 0.0},
+    "HidingOptions": 0,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "OverrideIcon": {"m_FileID": 0, "m_PathID": 0},
+    "OverrideIconWarpData": "Perch",
+    "OverrideIconWarpType": 3,
+    "SortInverted": false,
+    "ResetWhenLoadedAtZero": false,
+    "HasActionOnZero": false,
+    "RepeatActionOnZero": false,
+    "ShowPopupOnZero": false,
+    "OnZeroNotification": 0,
+    "OnZero": {},
+    "HasActionOnFull": false,
+    "RepeatActionOnFull": false,
+    "ShowPopupOnFull": false,
+    "OnFullNotification": 0,
+    "OnFull": {},
+    "CountsForTradingValue": false,
+    "TradingValueCustomRanges": []
+  },
+  "SpecialDurability3": {
+    "Active": true,
+    "FloatValue": 2.0,
+    "CardStatName": {
+      "ParentObjectID": "water_sawmill_fishpond_winter",
+      "LocalizationKey": "Water_Sawmill_FishpondWinter_SpecialDurability3_CardStatName",
+      "DefaultText": "Minnow"
+    },
+    "RandomStartingOffset": 0.0,
+    "MaxValue": 10.0,
+    "RestrictToSpecificValues": false,
+    "ValidValues": [],
+    "RatePerDaytimePoint": 0.0,
+    "ExtraRateWhenEquipped": 0.0,
+    "PauseRateWhenEnvWeightIsFull": false,
+    "PauseRateWhenInventoryIsFull": false,
+    "MinRate": {"Active": false, "FloatValue": 0.0},
+    "MaxRate": {"Active": false, "FloatValue": 0.0},
+    "HidingOptions": 0,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "OverrideIcon": {"m_FileID": 0, "m_PathID": 0},
+    "OverrideIconWarpData": "Minnow",
+    "OverrideIconWarpType": 3,
+    "SortInverted": false,
+    "ResetWhenLoadedAtZero": false,
+    "HasActionOnZero": false,
+    "RepeatActionOnZero": false,
+    "ShowPopupOnZero": false,
+    "OnZeroNotification": 0,
+    "OnZero": {},
+    "HasActionOnFull": false,
+    "RepeatActionOnFull": false,
+    "ShowPopupOnFull": false,
+    "OnFullNotification": 0,
+    "OnFull": {},
+    "CountsForTradingValue": false,
+    "TradingValueCustomRanges": []
+  },
+  "SpecialDurability4": {"Active": false},
+  "DurabilitySorting": {"SortingList": []},
+  "InventoryIsHidden": true,
+  "IsMiniInventory": false,
+  "CannotPutItemsIn": true,
+  "CannotTakeItemsOut": true,
+  "PreventsDismantleActions": false,
+  "PreventsCardInteractions": false,
+  "IsWeaponSheath": false,
+  "OpenOnTab": 0,
+  "DontRememberLastOpenTab": false,
+  "MaxWeightCapacity": 0.0,
+  "ContentWeightReduction": 0.0,
+  "InventorySlots": [],
+  "InventorySlotsWarpData": [],
+  "InventorySlotsWarpType": 3,
+  "InventoryFilter": {
+    "AcceptedCards": [],
+    "AcceptedCardsWarpData": [],
+    "AcceptedCardsWarpType": 3,
+    "AcceptedTypes": [],
+    "AcceptedTags": [],
+    "AcceptedTagsWarpData": [],
+    "AcceptedTagsWarpType": 3,
+    "NOTAcceptedCards": [],
+    "NOTAcceptedTypes": [],
+    "NOTAcceptedTags": [],
+    "CardFilters": [],
+    "TagFilters": []
+  },
+  "SpillsInventoryOnDestroy": false,
+  "InventorySlotsText": {
+    "ParentObjectID": "",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "GroupInventoryActions": [],
+  "EffectsToInventoryContent": [],
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_fishpond_winter",
+        "LocalizationKey": "Water_Sawmill_FishpondWinter_IceFishPike_ActionName",
+        "DefaultText": "Ice Fish Pike"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_fishpond_winter",
+        "LocalizationKey": "Water_Sawmill_FishpondWinter_IceFishPike_ActionDescription",
+        "DefaultText": "Chop a hole and spear a pike beneath the ice. Requires a spear nearby. Reduces the pond's pike population by one."
+      },
+      "DaytimeCost": 3,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": ["HandAction"],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Ice"],
+      "ActionSoundsWarpType": 3,
+      "RequiredTagsOnBoard": [
+        {
+          "TriggerTag": {"m_FileID": 0, "m_PathID": 0},
+          "TriggerTagWarpData": "tag_Spear",
+          "TriggerTagWarpType": 3,
+          "Inverted": false,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ],
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {"Active": true, "FloatValue": 0.001, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
+        "HideActionIfNotMet": true
+      },
+      "HideIfConditionsNotMet": true,
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {"x": -1.0, "y": -1.0}
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "70df5b800c3fd56499fd412bb9ce7523",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_fishpond_winter",
+        "LocalizationKey": "Water_Sawmill_FishpondWinter_IceFishPerch_ActionName",
+        "DefaultText": "Ice Fish Perch"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_fishpond_winter",
+        "LocalizationKey": "Water_Sawmill_FishpondWinter_IceFishPerch_ActionDescription",
+        "DefaultText": "Chop a hole and spear a perch beneath the ice. Requires a spear nearby. Reduces the pond's perch population by one."
+      },
+      "DaytimeCost": 3,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": ["HandAction"],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Ice"],
+      "ActionSoundsWarpType": 3,
+      "RequiredTagsOnBoard": [
+        {
+          "TriggerTag": {"m_FileID": 0, "m_PathID": 0},
+          "TriggerTagWarpData": "tag_Spear",
+          "TriggerTagWarpType": 3,
+          "Inverted": false,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ],
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial2Percent": {"Active": true, "FloatValue": 0.001, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
+        "HideActionIfNotMet": true
+      },
+      "HideIfConditionsNotMet": true,
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special2Change": {"x": -1.0, "y": -1.0}
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "e64237c9a44ea3945bc75b8b9f4735c0",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_fishpond_winter",
+        "LocalizationKey": "Water_Sawmill_FishpondWinter_IceFishMinnow_ActionName",
+        "DefaultText": "Ice Fish Minnow"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_fishpond_winter",
+        "LocalizationKey": "Water_Sawmill_FishpondWinter_IceFishMinnow_ActionDescription",
+        "DefaultText": "Chop a hole and spear a minnow beneath the ice. Requires a spear nearby. Reduces the pond's minnow population by one."
+      },
+      "DaytimeCost": 3,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": ["HandAction"],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Ice"],
+      "ActionSoundsWarpType": 3,
+      "RequiredTagsOnBoard": [
+        {
+          "TriggerTag": {"m_FileID": 0, "m_PathID": 0},
+          "TriggerTagWarpData": "tag_Spear",
+          "TriggerTagWarpType": 3,
+          "Inverted": false,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ],
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial3Percent": {"Active": true, "FloatValue": 0.001, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
+        "HideActionIfNotMet": true
+      },
+      "HideIfConditionsNotMet": true,
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special3Change": {"x": -1.0, "y": -1.0}
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "992cc6a7e92f4c5438c766327a3cbfcb",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_fishpond_winter",
+        "LocalizationKey": "Water_Sawmill_FishpondWinter_IceFishSturgeon_ActionName",
+        "DefaultText": "Ice Fish Sturgeon"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_fishpond_winter",
+        "LocalizationKey": "Water_Sawmill_FishpondWinter_IceFishSturgeon_ActionDescription",
+        "DefaultText": "Chop a hole and spear a sturgeon beneath the ice. Requires a spear nearby. Reduces the pond's sturgeon population by one."
+      },
+      "DaytimeCost": 3,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": ["HandAction"],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Ice"],
+      "ActionSoundsWarpType": 3,
+      "RequiredTagsOnBoard": [
+        {
+          "TriggerTag": {"m_FileID": 0, "m_PathID": 0},
+          "TriggerTagWarpData": "tag_Spear",
+          "TriggerTagWarpType": 3,
+          "Inverted": false,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ],
+      "RequiredReceivingDurabilities": {
+        "RequiredSpoilagePercent": {"Active": true, "FloatValue": 0.001, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
+        "HideActionIfNotMet": true
+      },
+      "HideIfConditionsNotMet": true,
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "SpoilageChange": {"x": -1.0, "y": -1.0}
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "de00abf9d0d186b42bed6807ba49a4cb",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_fishpond_winter",
+        "LocalizationKey": "Water_Sawmill_FishpondWinter_IceFishTrout_ActionName",
+        "DefaultText": "Ice Fish Trout"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_fishpond_winter",
+        "LocalizationKey": "Water_Sawmill_FishpondWinter_IceFishTrout_ActionDescription",
+        "DefaultText": "Chop a hole and spear a trout beneath the ice. Requires a spear nearby. Reduces the pond's trout population by one."
+      },
+      "DaytimeCost": 3,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": ["HandAction"],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Ice"],
+      "ActionSoundsWarpType": 3,
+      "RequiredTagsOnBoard": [
+        {
+          "TriggerTag": {"m_FileID": 0, "m_PathID": 0},
+          "TriggerTagWarpData": "tag_Spear",
+          "TriggerTagWarpType": 3,
+          "Inverted": false,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ],
+      "RequiredReceivingDurabilities": {
+        "RequiredUsagePercent": {"Active": true, "FloatValue": 0.001, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
+        "HideActionIfNotMet": true
+      },
+      "HideIfConditionsNotMet": true,
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "UsageChange": {"x": -1.0, "y": -1.0}
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "f4972170adc8b3d4f9d4bc09c6e7f760",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_fishpond_winter",
+        "LocalizationKey": "Water_Sawmill_FishpondWinter_IceFishChar_ActionName",
+        "DefaultText": "Ice Fish Char"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_fishpond_winter",
+        "LocalizationKey": "Water_Sawmill_FishpondWinter_IceFishChar_ActionDescription",
+        "DefaultText": "Chop a hole and spear a char beneath the ice. Requires a spear nearby. Reduces the pond's char population by one."
+      },
+      "DaytimeCost": 3,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": ["HandAction"],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Ice"],
+      "ActionSoundsWarpType": 3,
+      "RequiredTagsOnBoard": [
+        {
+          "TriggerTag": {"m_FileID": 0, "m_PathID": 0},
+          "TriggerTagWarpData": "tag_Spear",
+          "TriggerTagWarpType": 3,
+          "Inverted": false,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ],
+      "RequiredReceivingDurabilities": {
+        "RequiredFuelPercent": {"Active": true, "FloatValue": 0.001, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
+        "HideActionIfNotMet": true
+      },
+      "HideIfConditionsNotMet": true,
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "FuelChange": {"x": -1.0, "y": -1.0}
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "a966c94277465f741857b994202791f3",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_fishpond_winter",
+        "LocalizationKey": "Water_Sawmill_FishpondWinter_IceFishCrayfish_ActionName",
+        "DefaultText": "Ice Fish Crayfish"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_fishpond_winter",
+        "LocalizationKey": "Water_Sawmill_FishpondWinter_IceFishCrayfish_ActionDescription",
+        "DefaultText": "Chop a hole and pull a crayfish from beneath the ice. Reduces the pond's crayfish population by one."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": ["HandAction"],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Ice"],
+      "ActionSoundsWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredProgressPercent": {"Active": true, "FloatValue": 0.001, "MaxValue": 1.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
+        "HideActionIfNotMet": true
+      },
+      "HideIfConditionsNotMet": true,
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "ChargesChange": {"x": -1.0, "y": -1.0}
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "4d29495d7467aec4b87ac424b72a3d4b",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1}
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "OnStatsChangeActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_fishpond_winter",
+        "LocalizationKey": "Water_Sawmill_FishpondWinter_Thaw_ActionName",
+        "DefaultText": "Thaw"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RepeatOptions": 2,
+      "RequiredStatValues": [],
+      "RequiredCardsOnBoard": [],
+      "RequiredTagsOnBoard": [],
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {"m_FileID": 0, "m_PathID": 0},
+        "TransformIntoWarpData": "water_sawmill_fishpond_filled",
+        "TransformIntoWarpType": 3,
+        "TransferSpecial1": true,
+        "TransferSpecial2": true,
+        "TransferSpecial3": true,
+        "TransferSpoilage": true,
+        "TransferUsage": true,
+        "TransferFuel": true,
+        "TransferProgress": true,
+        "TransferInventory": false
+      },
+      "StatChangeTrigger": [
+        {
+          "Stat": {"m_FileID": 0, "m_PathID": 0},
+          "StatWarpData": "12168210f9aa7cd4e971d1679155d4f6",
+          "StatWarpType": 3,
+          "TriggerRange": {"x": 0.0, "y": 672.0},
+          "NotifyWhenNotMet": false,
+          "HideAllWhenNotMet": false
+        }
+      ]
+    }
+  ],
+  "PassiveEffects": [],
+  "PassiveStatEffects": [],
+  "MaxLiquidCapacity": 0.0,
+  "IsEnvironment": false,
+  "IsAttachedToEnvironment": true,
+  "PreventInteractionsInContainer": false,
+  "IsIndoors": false,
+  "BlueprintStatModifications": [],
+  "BlueprintCardModifications": [],
+  "CookingRecipes": [],
+  "EquipSlots": [],
+  "EquipSlotType": 0,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "FishpondWinter",
+  "CardImageWarpType": 3
+}

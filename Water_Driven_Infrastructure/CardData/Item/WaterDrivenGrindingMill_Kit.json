@@ -1,0 +1,170 @@
+{
+  "UniqueID": "water_sawmill_grinding_mill_kit",
+  "CardName": {
+    "ParentObjectID": "water_sawmill_grinding_mill_kit",
+    "LocalizationKey": "Water_Sawmill_GrindingMillKit_CardName",
+    "DefaultText": "Water-Driven Grinding Mill Kit"
+  },
+  "CardDescription": {
+    "ParentObjectID": "water_sawmill_grinding_mill_kit",
+    "LocalizationKey": "Water_Sawmill_GrindingMillKit_CardDescription",
+    "DefaultText": "A complete grinding mill kit with all components for a large water-powered grain mill."
+  },
+  "CanBeRenamed": false,
+  "CardHelpSection": {
+    "ParentObjectID": "water_sawmill_grinding_mill_kit",
+    "LocalizationKey": "Water_Sawmill_GrindingMillKit_CardHelpSection",
+    "DefaultText": "<b>Use:</b> Place near a river with a local mill race to set up the grinding mill.\n\n<b>Scale:</b> This is a large construction project requiring water power."
+  },    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+
+  "CardImageWarpData": "GrindingKit",
+  "CardImageWarpType": 3,
+  "CardType": 0,
+  "ObjectWeight": 550.0,
+  "TradingValue": 400.0,
+  "CardTags": [],
+  "CardTagsWarpData": ["tag_Wood", "tag_Stone"],
+  "CardTagsWarpType": 3,
+  "DoesNotPile": true,
+  "WhenCreatedSounds": [],
+  "WhenCreatedSoundsWarpData": ["Stone"],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {"Active": false},
+  "UsageDurability": {"Active": false},
+  "FuelCapacity": {"Active": false},
+  "Progress": {"Active": false},
+  "SpecialDurability1": {"Active": false},
+  "SpecialDurability2": {"Active": false},
+  "SpecialDurability3": {"Active": false},
+  "SpecialDurability4": {"Active": false},
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_grinding_mill_kit",
+        "LocalizationKey": "Water_Sawmill_GrindingMillKit_Place_ActionName",
+        "DefaultText": "Place"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_grinding_mill_kit",
+        "LocalizationKey": "Water_Sawmill_GrindingMillKit_Place_ActionDescription",
+        "DefaultText": "Place the grinding mill kit into the environment."
+      },
+      "DaytimeCost": 3,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Stone"],
+      "ActionSoundsWarpType": 3,
+      "RequiredCardsOnBoard": [],
+      "RequiredTagsOnBoard": [
+        {
+          "TriggerTag": { "m_FileID": 0, "m_PathID": 0 },
+          "TriggerTagWarpData": "tag_River",
+          "TriggerTagWarpType": 3,
+          "Inverted": false,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ],
+      "HideIfConditionsNotMet": true,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {"m_FileID": 0, "m_PathID": 0},
+        "TransformIntoWarpData": "water_sawmill_grinding_mill_placed",
+        "TransformIntoWarpType": 3,
+        "TransferInventory": true,
+        "SpawnTransformAtSource": true
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_grinding_mill_kit",
+        "LocalizationKey": "Water_Sawmill_GrindingMillKit_Disassemble_ActionName",
+        "DefaultText": "Disassemble"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_grinding_mill_kit",
+        "LocalizationKey": "Water_Sawmill_GrindingMillKit_Disassemble_ActionDescription",
+        "DefaultText": "Break down the kit into its component parts."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Stone"],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "water_sawmill_water_mill",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "555bacff1fadd9a418c7324a8fdc568d",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 20, "y": 20}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "a7384e5147b23a642809451cc4ef24fb",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 10, "y": 10}
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [],
+  "MaxLiquidCapacity": 0.0,
+  "InventorySlots": [],
+  "CookingConditions": {
+    "NeedsSpoilage": false,
+    "NeedsUsage": false,
+    "NeedsFuel": false,
+    "NeedsProgress": false,
+    "NeedsSpecial1": false,
+    "NeedsSpecial2": false,
+    "NeedsSpecial3": false,
+    "NeedsSpecial4": false,
+    "ExtraSpoilageRate": 0.0,
+    "ExtraUsageRate": 0.0,
+    "ExtraFuelRate": 0.0,
+    "ExtraProgressRate": 0.0,
+    "ExtraSpecial1Rate": 0.0,
+    "ExtraSpecial2Rate": 0.0,
+    "ExtraSpecial3Rate": 0.0,
+    "ExtraSpecial4Rate": 0.0
+  },
+  "CookingRecipes": [],
+  "BlueprintStages": [],
+  "BlueprintResult": [],
+  "IsWeapon": false,
+  "IsArmor": false
+}

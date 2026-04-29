@@ -1,0 +1,134 @@
+{
+  "UniqueID": "water_sawmill_copper_saw_blade",
+  "CardName": {
+    "ParentObjectID": "water_sawmill_copper_saw_blade",
+    "LocalizationKey": "Water_Sawmill_CopperSawBlade_CardName",
+    "DefaultText": "Copper Saw Blade"
+  },
+  "CardDescription": {
+    "ParentObjectID": "water_sawmill_copper_saw_blade",
+    "LocalizationKey": "Water_Sawmill_CopperSawBlade_CardDescription",
+    "DefaultText": "A sharpened copper saw blade for water-driven sawmill operations."
+  },
+  "CardHelpSection": {
+    "ParentObjectID": "water_sawmill_copper_saw_blade",
+    "LocalizationKey": "Water_Sawmill_CopperSawBlade_CardHelpSection",
+    "DefaultText": "<b>Purpose:</b> Cutting component for water-driven sawmill.\n\n<b>Condition:</b> Sharp and ready for use. Will dull over time."
+  },
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "CircularSawBlade",
+  "CardImageWarpType": 3,
+  "CardType": 0,
+  "ObjectWeight": 80.0,
+  "TradingValue": 150.0,
+  "CardTags": [],
+  "CardTagsWarpData": [
+    "tag_Metal",
+    "tag_SmeltsAt1100",
+    "tag_CopperBig"
+  ],
+  "CardTagsWarpType": 3,
+  "DoesNotPile": false,
+  "CannotBeTrashed": false,
+  "WhenCreatedSounds": [],
+  "WhenCreatedSoundsWarpData": [
+    "Metal"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": false
+  },
+  "FuelCapacity": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "water_sawmill_copper_saw_blade",
+      "LocalizationKey": "Water_Sawmill_CopperSawBlade_FuelCapacity_CardStatName",
+      "DefaultText": "Temperature"
+    },
+    "MaxValue": 1300.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 2,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "Drops",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 20,
+                "y": 20
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Hot",
+    "OverrideIconWarpType": 3
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": false
+  },
+  "SpecialDurability2": {
+    "Active": false
+  },
+  "SpecialDurability3": {
+    "Active": false
+  },
+  "SpecialDurability4": {
+    "Active": false
+  },
+  "CardInteractions": [],
+  "DismantleActions": [],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [],
+  "MaxLiquidCapacity": 0.0,
+  "DroppedOnDestroy": [],
+  "InventorySlots": [],
+  "CookingConditions": {
+    "NeedsSpoilage": false,
+    "NeedsUsage": false,
+    "NeedsFuel": false,
+    "NeedsProgress": false,
+    "NeedsSpecial1": false,
+    "NeedsSpecial2": false,
+    "NeedsSpecial3": false,
+    "NeedsSpecial4": false,
+    "ExtraSpoilageRate": 0.0,
+    "ExtraUsageRate": 0.0,
+    "ExtraFuelRate": 0.0,
+    "ExtraProgressRate": 0.0,
+    "ExtraSpecial1Rate": 0.0,
+    "ExtraSpecial2Rate": 0.0,
+    "ExtraSpecial3Rate": 0.0,
+    "ExtraSpecial4Rate": 0.0
+  },
+  "CookingRecipes": [],
+  "EquipSlots": [],
+  "EquipSlotType": 0
+}
