@@ -1,0 +1,200 @@
+{
+    "UniqueID": "herbs_fungi_ginseng",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_ginseng",
+        "LocalizationKey": "herbs_fungi_ginseng_CardName",
+        "DefaultText": "Wild Ginseng"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_ginseng",
+        "LocalizationKey": "herbs_fungi_ginseng_CardDescription",
+        "DefaultText": "A rare and prized root found deep in ancient forests. Known for its powerful energy-boosting properties."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Vegetable",
+        "tag_Foraged",
+        "tag_Root",
+        "tag_Dryable",
+        "tag_Plateable",
+        "tag_Fermentable"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "GinsengFresh",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "ParentObjectID": "herbs_fungi_ginseng",
+        "LocalizationKey": "herbs_fungi_ginseng_SpoilageTime_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_ginseng",
+            "LocalizationKey": "herbs_fungi_ginseng_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 7200.0,
+        "RatePerDaytimePoint": 1.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_ginseng",
+                "LocalizationKey": "herbs_fungi_ginseng_SpoilageTime_Spoiled",
+                "DefaultText": "The ginseng root has withered."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "UsageDurability": {
+        "ParentObjectID": "herbs_fungi_ginseng",
+        "LocalizationKey": "herbs_fungi_ginseng_UsageDurability_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_ginseng",
+            "LocalizationKey": "herbs_fungi_ginseng_UsageDurability_StatName",
+            "DefaultText": "Dry"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 16.0,
+        "RatePerDaytimePoint": 0.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_ginseng",
+                "LocalizationKey": "herbs_fungi_ginseng_UsageDurability_Dried",
+                "DefaultText": "The ginseng root has dried properly."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_dried_ginseng",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_ginseng",
+                "LocalizationKey": "herbs_fungi_ginseng_EatRaw",
+                "DefaultText": "Eat Raw"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_ginseng",
+                "LocalizationKey": "herbs_fungi_ginseng_EatRaw_Desc",
+                "DefaultText": "Eat the fresh ginseng root raw. Provides a powerful burst of energy."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 10.0,
+                        "y": 10.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": -40.0,
+                        "y": -40.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": -20.0,
+                        "y": -20.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "547f09c7ea6d11d4bbf6714255b0dfd5",
+                    "StatWarpType": 3
+                }
+            ]
+        }
+    ],
+    "ObjectWeight": 0.1,
+    "MaxStack": 10,
+    "DroppedCardShadow": 1
+}

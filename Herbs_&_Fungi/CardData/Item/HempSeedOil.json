@@ -1,0 +1,124 @@
+{
+    "UniqueID": "herbs_fungi_hemp_seed_oil",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_hemp_seed_oil",
+        "LocalizationKey": "Herbs_And_Fungi_HempSeedOil_CardName",
+        "DefaultText": "Hemp Seed Oil"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_hemp_seed_oil",
+        "LocalizationKey": "Herbs_And_Fungi_HempSeedOil_CardDescription",
+        "DefaultText": "Cold-pressed oil extracted from hemp seeds, served in a clay bowl. Nutty and rich. Eat it, season food with it, or render it into lamp oil."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_hemp_seed_oil",
+        "LocalizationKey": "Herbs_And_Fungi_HempSeedOil_CardHelpSection",
+        "DefaultText": "<b>Crafted:</b> By pressing 3 Hemp Seeds + Clay Bowl on a placed Oil Press.\n\n<b>Uses:</b> Eat directly (returns empty clay bowl), drag onto food to season, or render over a fire into lamp oil."
+    },
+    "CardType": 0,
+    "ObjectWeight": 300.0,
+    "TradingValue": 40.0,
+    "MaxStack": 4,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Bowl_Clay",
+    "CardImageWarpType": 3,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Oil",
+        "tag_HumanFood",
+        "tag_Heatable",
+        "tag_Plateable"
+    ],
+    "CardTagsWarpType": 3,
+    "SpiceTagsWarpData": [
+        "herbs_fungi_spice_hemp_oil"
+    ],
+    "SpiceTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "Clay"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": { "Active": false },
+    "UsageDurability": { "Active": false },
+    "FuelCapacity": { "Active": false },
+    "Progress": { "Active": false },
+    "SpecialDurability1": { "Active": false },
+    "SpecialDurability2": { "Active": false },
+    "SpecialDurability3": { "Active": false },
+    "SpecialDurability4": { "Active": false },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_hemp_seed_oil",
+                "LocalizationKey": "Herbs_And_Fungi_HempSeedOil_Eat_ActionName",
+                "DefaultText": "Eat"
+            },
+            "ActionSounds": [],
+            "ActionTags": [],
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [
+                "Drink"
+            ],
+            "ActionSoundsWarpType": 3,
+            "StatModifications": [
+                {
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 14.0, "y": 14.0 }
+                },
+                {
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 12.0, "y": 12.0 }
+                },
+                {
+                    "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 22.0, "y": 22.0 }
+                },
+                {
+                    "StatWarpData": "9824a150f7bc85f4384a0ed026a69f0a",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 8.0, "y": 8.0 }
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1},
+                            "FinishUnlocking": false,
+                            "DropChance": {"Active": false, "BaseDropChance": 0.0}
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "PassiveStatEffects": [],
+    "PassiveEffects": [],
+    "MaxLiquidCapacity": 0.0,
+    "InventorySlots": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "BlueprintStages": [],
+    "BlueprintResult": []
+}

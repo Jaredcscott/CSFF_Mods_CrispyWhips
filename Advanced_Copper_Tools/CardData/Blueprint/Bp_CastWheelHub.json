@@ -1,0 +1,151 @@
+{
+    "UniqueID": "advanced_copper_tools_bp_cast_wheel_hub",
+    "CardName": {
+        "ParentObjectID": "advanced_copper_tools_bp_cast_wheel_hub",
+        "LocalizationKey": "Advanced_Copper_Tools_Bp_CastWheelHub_CardName",
+        "DefaultText": "Cast Wheel Hub"
+    },
+    "CardDescription": {
+        "ParentObjectID": "advanced_copper_tools_bp_cast_wheel_hub",
+        "LocalizationKey": "Advanced_Copper_Tools_Bp_CastWheelHub_CardDescription",
+        "DefaultText": "Cast a wheel hub using a small molten crucible."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "advanced_copper_tools_bp_cast_wheel_hub",
+        "LocalizationKey": "Advanced_Copper_Tools_Bp_CastWheelHub_UnlockConditionsDesc",
+        "DefaultText": "Metal Sheet Needed"
+    },
+    "BuildingStatConditions": [],
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasCopper",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "CardWarpData": "advanced_copper_tools_metal_sheet",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "LiquidBecomesResult": false,
+                    "AffectResultDurabilities": {
+                        "MaskValue": 448
+                    },
+                    "EffectOnIngredient": {
+                        "ModType": 2,
+                        "TransformIntoWarpData": "99c97a08d8af8a5459c1f73b0182c80d",
+                        "TransformIntoWarpType": 3,
+                        "TransferUsage": true
+                    },
+                    "RequiredCardWarpData": "4cb80c78b279e264e87ade173462b461",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "UsageChange": {
+                            "x": -1.0,
+                            "y": -1.0
+                        }
+                    },
+                    "RequiredCardWarpData": "6c2001f42a960db4583cdd65a47ecf3c",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "UsageChange": {
+                            "x": -1.0,
+                            "y": -1.0
+                        }
+                    },
+                    "RequiredCardWarpData": "68c14d265ea6c874ba79444d2e1ef7b3",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 3,
+    "DeconstructDaytimeCost": 1,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "TransferRules": {
+                "TransferFromSpecial2": true,
+                "TransferFromSpecial3": true,
+                "TransferFromSpecial4": true
+            },
+            "DroppedCardWarpData": "advanced_copper_tools_wheel_hub",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": [
+        "Metal"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "CastingMold",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 16.0,
+    "ResearchedNotification": 0
+}

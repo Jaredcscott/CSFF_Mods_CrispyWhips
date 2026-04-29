@@ -1,0 +1,1386 @@
+{
+  "UniqueID": "advanced_copper_tools_wearable_metal_pan",
+  "CardName": {
+    "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
+    "LocalizationKey": "Advanced_Copper_Tools_WearableMetalPan_CardName",
+    "DefaultText": "Wearable Metal Pan"
+  },
+  "CardDescription": {
+    "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
+    "LocalizationKey": "Advanced_Copper_Tools_WearableMetalPan_CardDescription",
+    "DefaultText": "A sturdy metal cooking pan with leather and rope straps. Can be worn like a quiver."
+  },
+  "AlternateNames": [
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_WearableMetalPan_AlternateNames[0].Name",
+        "DefaultText": "Copper Pan"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "WearableMetalPan",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 110.0,
+          "y": 110.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_WearableMetalPan_AlternateNames[1].Name",
+        "DefaultText": "Ghost Bronze Pan"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "WearableMetalPan",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 120.0,
+          "y": 120.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_WearableMetalPan_AlternateNames[2].Name",
+        "DefaultText": "Tin Pan"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "WearableMetalPan",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 130.0,
+          "y": 130.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_WearableMetalPan_AlternateNames[3].Name",
+        "DefaultText": "Tin Bronze Pan"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "WearableMetalPan",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 140.0,
+          "y": 140.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_WearableMetalPan_AlternateNames[4].Name",
+        "DefaultText": "White Bronze Pan"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "WearableMetalPan",
+        "CardImageWarpType": 3
+      }
+    }
+  ],
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "WearableMetalPan",
+  "CardImageWarpType": 3,
+  "CardType": 0,
+  "ObjectWeight": 30.0,
+  "TradingValue": 120.0,
+  "CardTagsWarpData": [
+    "tag_CookingPot",
+    "tag_CookingContainer",
+    "tag_WaterContainer",
+    "tag_Metal",
+    "tag_SmeltsAt1100",
+    "tag_CopperSmall"
+  ],
+  "CardTagsWarpType": 3,
+  "EquipmentTags": [],
+  "EquipmentTagsWarpData": [],
+  "EquipmentTagsWarpType": 3,
+  "AlwaysUpdate": true,
+  "DoesNotPile": false,
+  "WhenCreatedSoundsWarpData": [
+    "SmallObject_A"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
+      "LocalizationKey": "Advanced_Copper_Tools_WearableMetalPan_UsageDurability.CardStatName",
+      "DefaultText": "Durability"
+    },
+    "MaxValue": 100.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 1,
+    "NumberPrecision": 0,
+    "HasActionOnZero": true,
+    "OnZero": {
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
+        "LocalizationKey": "Advanced_Copper_Tools_WearableMetalPan_UsageDurability.OnZero.ActionDescription",
+        "DefaultText": "Pan Broken!"
+      },
+      "OnZeroNotification": 1,
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    },
+    "CountsForTradingValue": true
+  },
+  "FuelCapacity": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
+      "LocalizationKey": "Advanced_Copper_Tools_WearableMetalPan_FuelCapacity.CardStatName",
+      "DefaultText": "Temperature"
+    },
+    "MaxValue": 200.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 3,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Hot",
+    "OverrideIconWarpType": 3
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": false
+  },
+  "SpecialDurability2": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
+      "LocalizationKey": "Advanced_Copper_Tools_WearableMetalPan_SpecialDurability2.CardStatName",
+      "DefaultText": "Metal Quality"
+    },
+    "MaxValue": 100.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Quality",
+    "OverrideIconWarpType": 3
+  },
+  "SpecialDurability3": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
+      "LocalizationKey": "Advanced_Copper_Tools_WearableMetalPan_SpecialDurability3.CardStatName",
+      "DefaultText": "Quality"
+    },
+    "MaxValue": 100.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "CountsForTradingValue": true,
+    "OverrideIconWarpData": "Quality",
+    "OverrideIconWarpType": 3
+  },
+  "SpecialDurability4": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
+      "LocalizationKey": "Advanced_Copper_Tools_WearableMetalPan_SpecialDurability4.CardStatName",
+      "DefaultText": "Metal Type"
+    },
+    "MaxValue": 1000.0,
+    "RestrictToSpecificValues": true,
+    "ValidValues": [
+      100.0,
+      110.0,
+      120.0,
+      130.0,
+      140.0
+    ],
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "CountsForTradingValue": true
+  },
+  "DurabilitySorting": {
+    "SortingList": []
+  },
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
+        "LocalizationKey": "Advanced_Copper_Tools_WearableMetalPan_Dismantle_ActionName",
+        "DefaultText": "Dismantle"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
+        "LocalizationKey": "Advanced_Copper_Tools_WearableMetalPan_Dismantle_ActionDescription",
+        "DefaultText": "Take apart the wearable pan to recover the shaped metal pan."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Leather"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "advanced_copper_tools_shape_metal_pan",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              },
+              "TransferRules": {
+                "Special2": 1,
+                "Special3": 1,
+                "Special4": 1
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "692afc638c39e32428629da58f56136a",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "669497ecaa30b634c86bea6b61f31e63",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "advanced_copper_tools_copper_nails",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [
+    {
+      "EffectName": "Cool Down",
+      "FuelRateModifier": {
+        "Active": true,
+        "FloatValue": -100.0
+      }
+    }
+  ],
+  "MaxLiquidCapacity": 1200.0,
+  "CanContainLiquidAndSolidsTogether": true,
+  "IsMiniInventory": false,
+  "MiniInventoryHideDurabilities": {
+    "MaskValue": 1
+  },
+  "MaxWeightCapacity": 1500.0,
+  "SpillsInventoryOnDestroy": true,
+  "ToggleablePiling": true,
+  "CannotHaveFlavoursOrSpices": true,
+  "InventoryFilter": {
+    "AcceptedCards": [],
+    "AcceptedTypes": [],
+    "AcceptedTags": [],
+    "NOTAcceptedCards": [],
+    "NOTAcceptedTypes": [],
+    "NOTAcceptedTags": [],
+    "CardFilters": [],
+    "TagFilters": [
+      {
+        "Tag": { "m_FileID": 0, "m_PathID": 0 },
+        "TagWarpData": "tag_Cookable",
+        "TagWarpType": 3,
+        "NOT": false,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Tag": { "m_FileID": 0, "m_PathID": 0 },
+        "TagWarpData": "tag_Boilable",
+        "TagWarpType": 3,
+        "NOT": false,
+        "OnlyWithLiquid": false
+      }
+    ]
+  },
+  "InventorySlots": [
+    { "m_FileID": 0, "m_PathID": 0 },
+    { "m_FileID": 0, "m_PathID": 0 },
+    { "m_FileID": 0, "m_PathID": 0 },
+    { "m_FileID": 0, "m_PathID": 0 }
+  ],
+  "InventorySlotsWarpData": [],
+  "InventorySlotsWarpType": 3,
+  "CookingConditions": {
+    "NeedsSpoilage": false,
+    "NeedsUsage": false,
+    "NeedsFuel": false,
+    "NeedsProgress": false,
+    "NeedsSpecial1": false,
+    "NeedsSpecial2": false,
+    "NeedsSpecial3": false,
+    "NeedsSpecial4": false,
+    "ExtraSpoilageRate": 0.0,
+    "ExtraUsageRate": 0.0,
+    "ExtraFuelRate": 0.0,
+    "ExtraProgressRate": 0.0,
+    "ExtraSpecial1Rate": 0.0,
+    "ExtraSpecial2Rate": 0.0,
+    "ExtraSpecial3Rate": 0.0,
+    "ExtraSpecial4Rate": 0.0
+  },
+  "CookingRecipes": [
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
+        "LocalizationKey": "Advanced_Copper_Tools_WearableMetalPan_CookingRecipes_Burn_ActionName",
+        "DefaultText": "Slowly Overcook (Burn)"
+      },
+      "CustomCookingText": {
+        "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "CannotCookText": {
+        "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "CompatibleCards": [],
+      "CompatibleTags": [],
+      "ConditionsCard": 0,
+      "Conditions": {
+        "NotInBackground": false,
+        "InBackground": false,
+        "PlayerUsesCard": 0,
+        "RequiredEnvironment": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "InvertEnvironmentRequirement": false,
+        "RequiredEnvironmentTags": [],
+        "RequiredNOTEnvironmentTags": [],
+        "RequiredContainer": [],
+        "RequiredNOTContainer": [],
+        "RequiredContainerTags": [],
+        "RequiredNOTContainerTags": [],
+        "RequiredCardsOnBoard": [],
+        "RequiredTagsOnBoard": [],
+        "RequiredCardsNOTOnBoard": [],
+        "RequiredTagsNOTOnBoard": [],
+        "RequiredLiquidContainers": [],
+        "RequiredCardsInInventory": [],
+        "RequiredTagsInInventory": [],
+        "CardWasBuiltWith": [],
+        "CardWasNOTBuiltWith": [],
+        "RequiredPlayerOwnedCards": [],
+        "RequiredPlayerNOTOwnedCards": [],
+        "ReceivingRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 100.0,
+            "y": 300.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 1.0
+          }
+        },
+        "GivenRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "ReceivingContainerRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "GivenContainerRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "ReceivingCardTags": [],
+        "GivenCardTags": [],
+        "RequiredEnvironmentWeight": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredStatValues": [],
+        "RequiredNPCStatValues": [],
+        "RequiredInGameTimes": []
+      },
+      "Duration": 1,
+      "DurationRdmVariation": 0,
+      "CookerChanges": {
+        "ModType": 0
+      },
+      "IngredientChanges": {
+        "ModType": 1,
+        "SpoilageChange": {
+          "x": -1.625,
+          "y": -1.625
+        },
+        "FuelChange": {
+          "x": 200.0,
+          "y": 200.0
+        },
+        "Special1Change": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "Special2Change": {
+          "x": -5.0,
+          "y": -5.0
+        }
+      },
+      "FeedbackMode": 0,
+      "ProgressBar": 2,
+      "ProgressTowardsZero": false,
+      "HideCookingProgress": true,
+      "HideDurabilities": {
+        "MaskValue": 0
+      },
+      "HideResultNotification": false,
+      "RandomSingleDrop": false,
+      "CustomCompleteSound": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "Notification": 0,
+      "CustomNotification": {
+        "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "ScaleDropsPerLiquidQuantity": {
+        "Active": false,
+        "FloatValue": 0.0
+      },
+      "Drops": [],
+      "StatModifications": [],
+      "UseCookerForCardDrops": false,
+      "DropsAsCollection": [],
+      "CompatibleTagsWarpData": [
+        "tag_FastlyCharsOnHighHeat"
+      ],
+      "CompatibleTagsWarpType": 3
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
+        "LocalizationKey": "Advanced_Copper_Tools_WearableMetalPan_CookingRecipes_Cook_ActionName",
+        "DefaultText": "Cook"
+      },
+      "CustomCookingText": {
+        "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "CannotCookText": {
+        "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
+        "LocalizationKey": "Advanced_Copper_Tools_WearableMetalPan_CookingRecipes_Cook_CannotCookText",
+        "DefaultText": "Not hot enough"
+      },
+      "CompatibleCards": [],
+      "CompatibleTags": [],
+      "ConditionsCard": 0,
+      "Conditions": {
+        "NotInBackground": false,
+        "InBackground": false,
+        "PlayerUsesCard": 0,
+        "RequiredEnvironment": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "InvertEnvironmentRequirement": false,
+        "RequiredEnvironmentTags": [],
+        "RequiredNOTEnvironmentTags": [],
+        "RequiredContainer": [],
+        "RequiredNOTContainer": [],
+        "RequiredContainerTags": [],
+        "RequiredNOTContainerTags": [],
+        "RequiredCardsOnBoard": [],
+        "RequiredTagsOnBoard": [],
+        "RequiredCardsNOTOnBoard": [],
+        "RequiredTagsNOTOnBoard": [],
+        "RequiredLiquidContainers": [],
+        "RequiredCardsInInventory": [],
+        "RequiredTagsInInventory": [],
+        "CardWasBuiltWith": [],
+        "CardWasNOTBuiltWith": [],
+        "RequiredPlayerOwnedCards": [],
+        "RequiredPlayerNOTOwnedCards": [],
+        "ReceivingRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 100.0,
+            "y": 300.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 1.0
+          }
+        },
+        "GivenRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "ReceivingContainerRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "GivenContainerRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "ReceivingCardTags": [],
+        "GivenCardTags": [],
+        "RequiredEnvironmentWeight": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredStatValues": [],
+        "RequiredNPCStatValues": [],
+        "RequiredInGameTimes": []
+      },
+      "Duration": 1,
+      "DurationRdmVariation": 0,
+      "CookerChanges": {
+        "ModType": 0
+      },
+      "IngredientChanges": {
+        "ModType": 1,
+        "SpoilageChange": {
+          "x": -1.625,
+          "y": -1.625
+        },
+        "FuelChange": {
+          "x": 200.0,
+          "y": 200.0
+        },
+        "Special1Change": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "Special2Change": {
+          "x": 2.0,
+          "y": 2.0
+        }
+      },
+      "FeedbackMode": 1,
+      "ProgressBar": 5,
+      "ProgressTowardsZero": false,
+      "HideCookingProgress": false,
+      "HideDurabilities": {
+        "MaskValue": 479
+      },
+      "HideResultNotification": false,
+      "RandomSingleDrop": false,
+      "CustomCompleteSound": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "Notification": 0,
+      "CustomNotification": {
+        "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "ScaleDropsPerLiquidQuantity": {
+        "Active": false,
+        "FloatValue": 0.0
+      },
+      "Drops": [],
+      "StatModifications": [],
+      "UseCookerForCardDrops": false,
+      "DropsAsCollection": [],
+      "CompatibleTagsWarpData": [
+        "tag_Cookable"
+      ],
+      "CompatibleTagsWarpType": 3
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
+        "LocalizationKey": "Advanced_Copper_Tools_WearableMetalPan_CookingRecipes_Boil_ActionName",
+        "DefaultText": "Boil"
+      },
+      "CustomCookingText": {
+        "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "CannotCookText": {
+        "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "CompatibleCards": [],
+      "CompatibleTags": [],
+      "ConditionsCard": 0,
+      "Conditions": {
+        "NotInBackground": false,
+        "InBackground": false,
+        "PlayerUsesCard": 0,
+        "RequiredEnvironment": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "InvertEnvironmentRequirement": false,
+        "RequiredEnvironmentTags": [],
+        "RequiredNOTEnvironmentTags": [],
+        "RequiredContainer": [],
+        "RequiredNOTContainer": [],
+        "RequiredContainerTags": [],
+        "RequiredNOTContainerTags": [],
+        "RequiredCardsOnBoard": [],
+        "RequiredTagsOnBoard": [],
+        "RequiredCardsNOTOnBoard": [],
+        "RequiredTagsNOTOnBoard": [],
+        "RequiredLiquidContainers": [],
+        "RequiredCardsInInventory": [],
+        "RequiredTagsInInventory": [],
+        "CardWasBuiltWith": [],
+        "CardWasNOTBuiltWith": [],
+        "RequiredPlayerOwnedCards": [],
+        "RequiredPlayerNOTOwnedCards": [],
+        "ReceivingRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 100.0,
+            "y": 300.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 140.0,
+            "y": 10000.0
+          }
+        },
+        "GivenRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "ReceivingContainerRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "GivenContainerRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "ReceivingCardTags": [],
+        "GivenCardTags": [],
+        "RequiredEnvironmentWeight": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredStatValues": [],
+        "RequiredNPCStatValues": [],
+        "RequiredInGameTimes": []
+      },
+      "Duration": 1,
+      "DurationRdmVariation": 0,
+      "CookerChanges": {
+        "ModType": 0
+      },
+      "IngredientChanges": {
+        "ModType": 1,
+        "SpoilageChange": {
+          "x": -1.625,
+          "y": -1.625
+        },
+        "FuelChange": {
+          "x": 200.0,
+          "y": 200.0
+        },
+        "Special2Change": {
+          "x": 2.0,
+          "y": 2.0
+        },
+        "Special4Change": {
+          "x": 1.0,
+          "y": 1.0
+        }
+      },
+      "FeedbackMode": 1,
+      "ProgressBar": 8,
+      "ProgressTowardsZero": false,
+      "HideCookingProgress": false,
+      "HideDurabilities": {
+        "MaskValue": 69
+      },
+      "HideResultNotification": false,
+      "RandomSingleDrop": false,
+      "CustomCompleteSound": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "Notification": 0,
+      "CustomNotification": {
+        "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "ScaleDropsPerLiquidQuantity": {
+        "Active": false,
+        "FloatValue": 0.0
+      },
+      "Drops": [],
+      "StatModifications": [],
+      "UseCookerForCardDrops": false,
+      "DropsAsCollection": [],
+      "CompatibleTagsWarpData": [
+        "tag_Boilable"
+      ],
+      "CompatibleTagsWarpType": 3
+    }
+  ]
+}

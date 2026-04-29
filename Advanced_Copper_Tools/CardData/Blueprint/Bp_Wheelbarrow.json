@@ -1,0 +1,135 @@
+{
+    "UniqueID": "advanced_copper_tools_bp_wheelbarrow",
+    "CardName": {
+        "ParentObjectID": "advanced_copper_tools_bp_wheelbarrow",
+        "LocalizationKey": "Advanced_Copper_Tools_Bp_Wheelbarrow_CardName",
+        "DefaultText": "Wheelbarrow"
+    },
+    "CardDescription": {
+        "ParentObjectID": "advanced_copper_tools_bp_wheelbarrow",
+        "LocalizationKey": "Advanced_Copper_Tools_Bp_Wheelbarrow_CardDescription",
+        "DefaultText": "Construct a wheelbarrow for hauling heavy loads. Requires a bucket, handles, and wheel assembly."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "advanced_copper_tools_bp_wheelbarrow",
+        "LocalizationKey": "Advanced_Copper_Tools_Bp_Wheelbarrow_UnlockConditionsDesc",
+        "DefaultText": "Wheelbarrow Bucket Needed"
+    },
+    "BlueprintUnlockTicksCost": 48.0,
+    "BuildingStatConditions": [],
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasCopper",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "CardWarpData": "advanced_copper_tools_bucket",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "advanced_copper_tools_bucket",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "advanced_copper_tools_handles",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "advanced_copper_tools_wheel_assembly",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 8,
+    "DeconstructDaytimeCost": 4,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "DroppedCardWarpData": "advanced_copper_tools_wheelbarrow",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "ValueModifier": {
+                "x": 2.0,
+                "y": 2.0
+            },
+            "StatWarpData": "d4b67ed3a92b283488db1554bb23270a",
+            "StatWarpType": 3
+        }
+    ],
+    "WhenCreatedSoundsWarpData": [
+        "Metal"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "WheelBarrowCP",
+    "CardImageWarpType": 3,
+    "ResearchedNotification": 0
+}

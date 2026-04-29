@@ -1,0 +1,115 @@
+{
+    "UniqueID": "herbs_fungi_herbal_oil_fairyweed",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_herbal_oil_fairyweed",
+        "LocalizationKey": "Herbs_And_Fungi_HerbalOilFairyweed_CardName",
+        "DefaultText": "Fairyweed Herbal Oil"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_herbal_oil_fairyweed",
+        "LocalizationKey": "Herbs_And_Fungi_HerbalOilFairyweed_CardDescription",
+        "DefaultText": "A clay bowl of oil infused with fairyweed essence. Apply it for mystical, uplifting effects — the same as smoking the pipe, without the smoke."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_herbal_oil_fairyweed",
+        "LocalizationKey": "Herbs_And_Fungi_HerbalOilFairyweed_CardHelpSection",
+        "DefaultText": "<b>Crafted:</b> By pressing 1 Fresh Fairyweed + Clay Bowl at the Oil Press.\n\n<b>Uses:</b> Apply directly for uplifting, mood-enhancing effects. Returns an empty clay bowl."
+    },
+    "CardType": 0,
+    "ObjectWeight": 300.0,
+    "TradingValue": 80.0,
+    "MaxStack": 4,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Bowl_Clay",
+    "CardImageWarpType": 3,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Oil",
+        "tag_HumanFood",
+        "tag_Heatable",
+        "tag_Plateable"
+    ],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "Clay"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": { "Active": false },
+    "UsageDurability": { "Active": false },
+    "FuelCapacity": { "Active": false },
+    "Progress": { "Active": false },
+    "SpecialDurability1": { "Active": false },
+    "SpecialDurability2": { "Active": false },
+    "SpecialDurability3": { "Active": false },
+    "SpecialDurability4": { "Active": false },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_herbal_oil_fairyweed",
+                "LocalizationKey": "Herbs_And_Fungi_HerbalOilFairyweed_Apply_ActionName",
+                "DefaultText": "Apply"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_herbal_oil_fairyweed",
+                "LocalizationKey": "Herbs_And_Fungi_HerbalOilFairyweed_Apply_ActionDescription",
+                "DefaultText": "Apply the fairyweed oil. Mystical and uplifting effects."
+            },
+            "ActionSounds": [],
+            "ActionTags": [],
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [
+                "Drink"
+            ],
+            "ActionSoundsWarpType": 3,
+            "StatModifications": [
+                {
+                    "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 35.0, "y": 50.0 }
+                },
+                {
+                    "StatWarpData": "dd178fd8d77a4cf4da8a5311fbc7c912",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 25.0, "y": 35.0 }
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 1, "y": 1 },
+                            "FinishUnlocking": false,
+                            "DropChance": { "Active": false, "BaseDropChance": 0.0 }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "PassiveStatEffects": [],
+    "PassiveEffects": [],
+    "MaxLiquidCapacity": 0.0,
+    "InventorySlots": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "BlueprintStages": [],
+    "BlueprintResult": []
+}

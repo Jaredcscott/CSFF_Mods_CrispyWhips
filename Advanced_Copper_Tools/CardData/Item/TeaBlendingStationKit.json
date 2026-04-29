@@ -1,0 +1,137 @@
+{
+  "UniqueID": "advanced_copper_tools_tea_station_kit",
+  "CardName": {
+    "ParentObjectID": "advanced_copper_tools_tea_station_kit",
+    "LocalizationKey": "Advanced_Copper_Tools_TeaStationKit_CardName",
+    "DefaultText": "Tea Station Kit"
+  },
+  "CardDescription": {
+    "ParentObjectID": "advanced_copper_tools_tea_station_kit",
+    "LocalizationKey": "Advanced_Copper_Tools_TeaStationKit_CardDescription",
+    "DefaultText": "A disassembled tea station packed for transport. Place it in the environment to set it up — six herb slots, an integrated water tank, and a copper stove."
+  },
+  "CanBeRenamed": false,
+  "AlternateNames": [],
+  "LiquidSuffixName": {
+    "ParentObjectID": "advanced_copper_tools_tea_station_kit",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "CardHelpSection": {
+    "ParentObjectID": "advanced_copper_tools_tea_station_kit",
+    "LocalizationKey": "Advanced_Copper_Tools_TeaStationKit_CardHelpSection",
+    "DefaultText": "<b>Usage:</b> Use the Place action to set up the tea station. Fill the water tank by dragging full water bowls onto it, fuel the stove, and light it to heat the water."
+  },
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardBackground": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "Tea_Station_Kit",
+  "CardImageWarpType": 3,
+  "ShowImageAboveTitle": false,
+  "CardType": 0,
+  "CannotBeTransferred": false,
+  "NotAutoSolvableEvent": false,
+  "ObjectWeight": 1200.0,
+  "TradingValue": 1000.0,
+  "CardTags": [],
+  "CardTagsWarpData": [
+    "tag_Preservable"
+  ],
+  "CardTagsWarpType": 3,
+  "EquipmentTags": [],
+  "MapStructureType": 0,
+  "FlavourTags": [],
+  "SpiceTags": [],
+  "AlwaysUpdate": false,
+  "CannotBeTrashed": false,
+  "DoesNotPile": true,
+  "ToggleablePiling": false,
+  "DoesNotPinAutomatically": false,
+  "NeedsRoomInLocationToSpawn": false,
+  "WhenCreatedSounds": [],
+  "WhenCreatedSoundsWarpData": [
+    "Wood"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": false
+  },
+  "FuelCapacity": {
+    "Active": false
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": false
+  },
+  "SpecialDurability2": {
+    "Active": false
+  },
+  "SpecialDurability3": {
+    "Active": false
+  },
+  "SpecialDurability4": {
+    "Active": false
+  },
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_tea_station_kit",
+        "LocalizationKey": "Advanced_Copper_Tools_TeaStationKit_Place_ActionName",
+        "DefaultText": "Place"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_tea_station_kit",
+        "LocalizationKey": "Advanced_Copper_Tools_TeaStationKit_Place_ActionDescription",
+        "DefaultText": "Set up the tea station in your environment."
+      },
+      "DaytimeCost": 3,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Wood"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "advanced_copper_tools_tea_blending_station",
+        "TransformIntoWarpType": 3,
+        "TransferFuel": true,
+        "TransferSpecial1": true,
+        "TransferSpecial2": true,
+        "TransferSpecial4": true,
+        "SpawnTransformAtSource": true
+      }
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [],
+  "MaxLiquidCapacity": 0.0,
+  "InventorySlots": [],
+  "InventorySlotsWarpData": [],
+  "InventorySlotsWarpType": 3,
+  "SpillsInventoryOnDestroy": false,
+  "BlueprintStages": [],
+  "BlueprintResult": [],
+  "IsWeapon": false,
+  "IsArmor": false,
+  "MaxStack": 1,
+  "DroppedCardShadow": 2
+}

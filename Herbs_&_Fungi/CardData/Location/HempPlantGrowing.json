@@ -1,0 +1,119 @@
+{
+    "UniqueID": "herbs_fungi_hemp_plant_growing",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_hemp_plant_growing",
+        "LocalizationKey": "Herbs_And_Fungus_HempPlantGrowing_CardName",
+        "DefaultText": "Growing Hemp Plant"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_hemp_plant_growing",
+        "LocalizationKey": "Herbs_And_Fungus_HempPlantGrowing_CardDescription",
+        "DefaultText": "A young hemp plant growing in a garden. Needs time to mature before harvesting fibers and seeds."
+    },
+    "CanBeRenamed": false,
+    "AlternateNames": [],
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_hemp_plant_growing",
+        "LocalizationKey": "Herbs_And_Fungus_HempPlantGrowing_CardHelpSection",
+        "DefaultText": "<b>Growth Time:</b> 4 days. \n\n<b>Produces:</b> Hemp fibers and seeds when mature."
+    },
+    "CardType": 2,
+    "ObjectWeight": 200.0,
+    "TradingValue": 0.0,
+    "CardTags": [],
+    "EquipmentTags": [],
+    "MapStructureType": 0,
+    "AlwaysUpdate": false,
+    "CannotBeTrashed": false,
+    "DoesNotPile": true,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_hemp_plant_growing",
+            "LocalizationKey": "Herbs_And_Fungus_HempPlantGrowing_Progress_CardStatName",
+            "DefaultText": "Growth"
+        },
+        "RandomStartingOffset": 0.0,
+        "MaxValue": 672.0,
+        "RatePerDaytimePoint": 1.0,
+        "ExtraRateWhenEquipped": 0.0,
+        "PauseRateWhenEnvWeightIsFull": false,
+        "PauseRateWhenInventoryIsFull": false,
+        "HidingOptions": 3,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "ResetWhenLoadedAtZero": false,
+        "HasActionOnZero": false,
+        "ShowPopupOnZero": false,
+        "OnZeroNotification": 0,
+        "HasActionOnFull": true,
+        "ShowPopupOnFull": false,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_hemp_plant_growing",
+                "LocalizationKey": "Herbs_And_Fungus_HempPlantGrowing_Progress_OnFull_ActionDescription",
+                "DefaultText": "Hemp Plant is Mature!"
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "herbs_fungi_hemp_plant_mature",
+                "TransformIntoWarpType": 3
+            }
+        },
+        "CountsForTradingValue": false,
+        "TradingValueCustomRanges": [],
+        "OverrideIconWarpData": "Growth",
+        "OverrideIconWarpType": 3
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "DurabilitySorting": {
+        "SortingList": []
+    },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_hemp_plant_growing",
+                "LocalizationKey": "Herbs_And_Fungus_HempPlantGrowing_DismantleActions_ActionName",
+                "DefaultText": "Uproot"
+            },
+            "DaytimeCost": 1,
+            "ConfirmPopup": true,
+            "ReceivingCardChanges": {
+                "ModType": 1
+            }
+        }
+    ],    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+
+    "CardImageWarpData": "HempGrowing",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": ["tag_Gardenable", "tag_GardenPlantGrowing"],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": ["GrassAppear"],
+    "WhenCreatedSoundsWarpType": 3
+}

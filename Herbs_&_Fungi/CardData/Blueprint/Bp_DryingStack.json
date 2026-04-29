@@ -1,0 +1,110 @@
+{
+    "UniqueID": "herbs_fungi_bp_drying_stack",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_bp_drying_stack",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_DryingStack_CardName",
+        "DefaultText": "Drying Stack"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_bp_drying_stack",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_DryingStack_CardDescription",
+        "DefaultText": "A vertical wooden rack for storing multiple drying trays. Requires 4 planks and a hammer."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "herbs_fungi_bp_drying_stack",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_DryingStack_UnlockConditionsDesc",
+        "DefaultText": "Unlocked after crafting or obtaining a Drying Tray"
+    },
+    "BlueprintUnlockTicksCost": 16.0,
+    "BuildingStatConditions": [],
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "CardWarpData": "herbs_fungi_drying_tray",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 4,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "UsageChange": {
+                            "x": -8.0,
+                            "y": -8.0
+                        }
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroupWarpData": "GpTag_HammeringToolGeneral",
+                    "RequiredTabGroupWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [
+                "ToolAction"
+            ],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 4,
+    "DeconstructDaytimeCost": 1,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "DroppedCardWarpData": "herbs_fungi_drying_stack",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": [
+        "Wood"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "DryingStack",
+    "CardImageWarpType": 3,
+    "ResearchedNotification": 0
+}

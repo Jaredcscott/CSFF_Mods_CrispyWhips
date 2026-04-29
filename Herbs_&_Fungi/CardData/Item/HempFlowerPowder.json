@@ -1,0 +1,267 @@
+{
+    "UniqueID": "herbs_fungi_hemp_flower_powder",
+    "CardType": 0,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_hemp_flower_powder",
+        "LocalizationKey": "Herbs_And_Fungus_HempFlowerPowder_CardName",
+        "DefaultText": "Hemp Flower Powder"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_hemp_flower_powder",
+        "LocalizationKey": "Herbs_And_Fungus_HempFlowerPowder_CardDescription",
+        "DefaultText": "Finely ground hemp flower powder with enhanced properties. The highest quality form of processed hemp flowers."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_hemp_flower_powder",
+        "LocalizationKey": "Herbs_And_Fungus_HempFlowerPowder_CardHelpSection",
+        "DefaultText": "<b>Quality:</b> Premium product with strongest effects.\n\n<b>Storage:</b> Excellent preservation properties."
+    },
+    "ObjectWeight": 50.0,
+    "TradingValue": 50.0,
+    "AlwaysUpdate": true,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HempPowder",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [
+        "tag_Preservable",
+        "tag_Powder",
+        "tag_PowderLiquid",
+        "tag_Quality"
+    ],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "GrassAppear"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_hemp_flower_powder",
+            "LocalizationKey": "Herbs_And_Fungus_HempFlowerPowder_SpoilageTime_CardStatName",
+            "DefaultText": "Spoilage"
+        },
+        "MaxValue": 3600.0,
+        "RatePerDaytimePoint": 1.0,
+        "HidingOptions": 0,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "HasActionOnFull": true,
+        "ShowPopupOnFull": false,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_hemp_flower_powder",
+                "LocalizationKey": "Herbs_And_Fungus_HempFlowerPowder_SpoilageTime_OnFull_ActionDescription",
+                "DefaultText": "Hemp Flower Powder Spoiled!"
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransferInventory": true,
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3
+            }
+        },
+        "CountsForTradingValue": false,
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_hemp_flower_powder",
+            "LocalizationKey": "Herbs_And_Fungus_HempFlowerPowder_SpecialDurability2_CardStatName",
+            "DefaultText": "Quality"
+        },
+        "MaxValue": 192.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 0,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "CountsForTradingValue": true,
+        "OverrideIconWarpData": "Quality",
+        "OverrideIconWarpType": 3
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "PassiveEffects": [
+        {
+            "EffectName": "Cool Down",
+            "FuelRateModifier": {
+                "Active": true,
+                "FloatValue": -100.0
+            }
+        },
+        {
+            "EffectName": "Winter Preservation",
+            "Conditions": {
+                "RequiredStatValues": [
+                    {
+                        "StatWarpData": "20042dca062d34a4b8e2968f9dc11f9f",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 1.0,
+                            "y": 2880.0
+                        }
+                    }
+                ]
+            },
+            "SpoilageRateModifier": {
+                "Active": true,
+                "FloatValue": -0.125
+            }
+        },
+        {
+            "EffectName": "Summer Spoilage",
+            "Conditions": {
+                "RequiredStatValues": [
+                    {
+                        "StatWarpData": "4a9284146ffc28242b1f591ac7f7541f",
+                        "StatWarpType": 3,
+                        "TriggerRange": {
+                            "x": 1.0,
+                            "y": 2880.0
+                        }
+                    }
+                ]
+            },
+            "SpoilageRateModifier": {
+                "Active": true,
+                "FloatValue": 0.5
+            }
+        }
+    ],
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_hemp_flower_powder",
+                "LocalizationKey": "Herbs_And_Fungus_HempFlowerPowder_CardInteractions0_ActionName",
+                "DefaultText": "Mix with Fat"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_hemp_flower_powder",
+                "LocalizationKey": "Herbs_And_Fungus_HempFlowerPowder_CardInteractions0_ActionDescription",
+                "DefaultText": "Combine with fat to create inactive hemp butter. Must be heated for 60-90 minutes to activate."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "RequiredGivenContainer": [],
+            "RequiredGivenContainerTag": [],
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "0eb3634f696991b4d97b91626270e035"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "WorksInverted": false,
+            "WorksBothWays": true,
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransferSpoilage": true,
+                "TransferSpecial2": true,
+                "AverageGivenAndReceivingCards": true,
+                "TransformIntoWarpData": "herbs_fungi_hemp_butter_inactive",
+                "TransformIntoWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_hemp_flower_powder",
+                "LocalizationKey": "Herbs_And_Fungus_HempFlowerPowder_CardInteractions1_ActionName",
+                "DefaultText": "Burn"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_hemp_flower_powder",
+                "LocalizationKey": "Herbs_And_Fungus_HempFlowerPowder_CardInteractions1_ActionDescription",
+                "DefaultText": "Burn with fire to create aromatic smoke. Improves mood and reduces anxiety."
+            },
+            "DaytimeCost": 1,
+            "HungerCost": 0,
+            "RequiredStatValues": [
+                {
+                    "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 70.0
+                    },
+                    "NotifyWhenNotMet": true,
+                    "HideAllWhenNotMet": false
+                }
+            ],
+            "StatModifications": [
+                {
+                    "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 20.0,
+                        "y": 25.0
+                    },
+                    "InstantModifier": true
+                },
+                {
+                    "StatWarpData": "dd178fd8d77a4cf4da8a5311fbc7c912",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 12.0,
+                        "y": 18.0
+                    },
+                    "InstantModifier": true
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [
+                    "tag_FireSource"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": false,
+            "WorksBothWays": true,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3
+        }
+    ],
+    "DismantleActions": [],
+    "OnInteractActions": []
+}

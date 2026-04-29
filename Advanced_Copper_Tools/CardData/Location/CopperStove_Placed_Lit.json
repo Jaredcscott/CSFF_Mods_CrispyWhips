@@ -1,0 +1,1127 @@
+{
+  "UniqueID": "advanced_copper_tools_copper_stove_placed_lit",
+  "CardName": {
+    "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+    "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Lit_CardName",
+    "DefaultText": "Small Copper Stove (Lit)"
+  },
+  "CardDescription": {
+    "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+    "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Lit_CardDescription",
+    "DefaultText": "A lit copper stove. Burns fuel and provides heat for cooking."
+  },
+  "CanBeRenamed": false,
+  "AlternateNames": [],
+  "LiquidSuffixName": {
+    "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "CardHelpSection": {
+    "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+    "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Lit_CardHelpSection",
+    "DefaultText": "<b>Usage:</b> A lit copper stove with 2 cooking slots. Consumes fuel over time. Goes out when fuel is empty."
+  },
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardBackground": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "CopperStove_Placed_Lit",
+  "CardImageWarpType": 3,
+  "ShowImageAboveTitle": false,
+  "CardType": 2,
+  "CannotBeTransferred": false,
+  "NotAutoSolvableEvent": false,
+  "ObjectWeight": 300.0,
+  "TradingValue": 250.0,
+  "CardTags": [],
+  "CardTagsWarpData": [
+    "tag_Preservable",
+    "tag_Fire",
+    "tag_FireSource",
+    "tag_FuelCapacity",
+    "tag_Structure"
+  ],
+  "CardTagsWarpType": 3,
+  "EquipmentTags": [],
+  "MapStructureType": 0,
+  "FlavourTags": [],
+  "SpiceTags": [],
+  "AlwaysUpdate": true,
+  "CannotBeTrashed": false,
+  "DoesNotPile": true,
+  "ToggleablePiling": false,
+  "DoesNotPinAutomatically": false,
+  "NeedsRoomInLocationToSpawn": false,
+  "WhenCreatedSounds": [],
+  "WhenCreatedSoundsWarpData": [
+    "FireIgnite"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": false
+  },
+  "FuelCapacity": {
+    "Active": true,
+    "MaxValue": 300.0,
+    "RatePerDaytimePoint": -1.0,
+    "HidingOptions": 0,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "NotificationWhenFuelLow": true,
+    "LowFuelThreshold": 4.0,
+    "HasActionOnZero": true,
+    "ShowPopupOnZero": false,
+    "OnZero": {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Extinguish_ActionName",
+        "DefaultText": "Fire Goes Out"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Extinguish_ActionDescription",
+        "DefaultText": "The fire goes out."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionSoundsWarpData": [],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "advanced_copper_tools_copper_stove_placed",
+        "TransformIntoWarpType": 3,
+        "TransferFuel": true,
+        "TransferInventory": true,
+        "TransferSpecial1": true,
+        "TransferSpecial2": true
+      }
+    }
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+      "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Special1_CardStatName",
+      "DefaultText": "Ash Amount"
+    },
+    "MaxValue": 48.0,
+    "RatePerDaytimePoint": 1.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": true,
+    "ShowPopupOnFull": false,
+    "OnFullNotification": 0,
+    "OnFull": {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_GenerateAsh_ActionName",
+        "DefaultText": "Generate Ash"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionSoundsWarpData": [],
+      "ActionSoundsWarpType": 3,
+      "ProducedCards": [
+        {
+          "CollectionName": "Ash",
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "65f9b26c048cd474d9fb14d1c9e46754",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": -48.0,
+          "y": -48.0
+        }
+      }
+    },
+    "CountsForTradingValue": false
+  },
+  "SpecialDurability2": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+      "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Progress_CardStatName",
+      "DefaultText": "Charcoal"
+    },
+    "MaxValue": 16.0,
+    "RatePerDaytimePoint": 1.0,
+    "HidingOptions": 0,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": false,
+    "OverrideIcon": {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    "OverrideIconWarpData": "Hot",
+    "OverrideIconWarpType": 3
+  },
+  "SpecialDurability3": {
+    "Active": false
+  },
+  "SpecialDurability4": {
+    "Active": false
+  },
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_LightFire_ActionName",
+        "DefaultText": "Light Fire"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_LightFire_ActionDescription",
+        "DefaultText": "Use the stove's flame to light tinder or a campfire."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "FireIgnite"
+      ],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerTagsWarpData": [
+          "tag_Lightable"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "DontCloseInspectionWindow": false,
+      "AppearsOnCardsInInventory": false,
+      "StatModifications": [],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "GivenCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Feed_Wood_ActionName",
+        "DefaultText": "Feed Oak Wood"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Feed_Wood_ActionDescription",
+        "DefaultText": "Add oak wood as fuel"
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Wood"
+      ],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "692afc638c39e32428629da58f56136a"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "StackCompatible": true,
+      "DontCloseInspectionWindow": false,
+      "AppearsOnCardsInInventory": false,
+      "StatModifications": [],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "FuelChange": {
+          "x": 96.0,
+          "y": 96.0
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Feed_Twigs_ActionName",
+        "DefaultText": "Feed Twigs"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Feed_Twigs_ActionDescription",
+        "DefaultText": "Add twigs as fuel"
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Wood"
+      ],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "fa8834c3111a71f47bdd23d66b33cf61"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "StackCompatible": true,
+      "DontCloseInspectionWindow": false,
+      "AppearsOnCardsInInventory": false,
+      "StatModifications": [],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "FuelChange": {
+          "x": 24.0,
+          "y": 24.0
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 1,
+        "UsageChange": {
+          "x": -3.0,
+          "y": -3.0
+        }
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_FeedCharcoal_ActionName",
+        "DefaultText": "Feed Charcoal"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Wood"
+      ],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "51c751469bd15ce46804e399479d1764"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "StackCompatible": true,
+      "DontCloseInspectionWindow": false,
+      "AppearsOnCardsInInventory": false,
+      "StatModifications": [],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "FuelChange": {
+          "x": 8.0,
+          "y": 8.0
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      }
+    }
+  ],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_WarmUp_ActionName",
+        "DefaultText": "Warm Up"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_WarmUp_ActionDescription",
+        "DefaultText": "Warm yourself by the stove."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [],
+      "ActionSoundsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "888d2d2a99e3f044291c6748a0fa8d78",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -100.0,
+            "y": 105.0
+          }
+        }
+      ],
+      "StackCompatible": false,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "888d2d2a99e3f044291c6748a0fa8d78",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 85.0,
+            "y": 85.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": true,
+            "FloatValue": -100.0,
+            "MaxValue": 114.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -12.0,
+            "y": -12.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 5.0,
+            "y": 5.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_WaitByFire_ActionName",
+        "DefaultText": "Wait by Fire"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_WaitByFire_ActionDescription",
+        "DefaultText": "Pass time warming yourself by the stove."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [],
+      "ActionSoundsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "888d2d2a99e3f044291c6748a0fa8d78",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 96.0,
+            "y": 200.0
+          },
+          "NotifyWhenNotMet": false,
+          "HideAllWhenNotMet": false
+        }
+      ],
+      "RequiredReceivingDurabilities": {
+        "HideActionIfNotMet": true
+      },
+      "DontCloseInspectionWindow": true,
+      "StackCompatible": false,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "08d242ad068c51b4fbef44d546645ac7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -100.0,
+            "y": -100.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 15.0,
+            "y": 15.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -12.0,
+            "y": -12.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "f3be519dc5a6bc341b482cd6b36e596f",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 2.0,
+            "y": 2.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "81b4c304d6711a14e883fa2fa7cd0c19",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -24.0,
+            "y": -24.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 16.0,
+            "y": 16.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Extinguish_Manual_ActionName",
+        "DefaultText": "Extinguish"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Extinguish_Manual_ActionDescription",
+        "DefaultText": "Put out the fire."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "FireExtinguish"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "advanced_copper_tools_copper_stove_placed",
+        "TransformIntoWarpType": 3,
+        "TransferFuel": true,
+        "TransferInventory": true,
+        "TransferSpecial1": true,
+        "TransferSpecial2": true,
+        "SpawnTransformAtSource": true
+      }
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [
+    {
+      "EffectName": "Outdoor Warming",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTEquipped": false,
+      "OnlyWhenInHand": false,
+      "OnlyOnBaseActions": true,
+      "OnlyOnNOTBaseActions": false,
+      "OnlyWhenNOTInBG": true,
+      "Conditions": {
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "888d2d2a99e3f044291c6748a0fa8d78",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": -100.0,
+              "y": 85.0
+            }
+          }
+        ]
+      },
+      "StatModifiers": [
+        {
+          "StatWarpData": "0d5ec8f104b2ba149b4bb2b536bc21a4",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 12.0,
+            "y": 12.0
+          }
+        }
+      ]
+    },
+    {
+      "EffectName": "Indoor Warming",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTEquipped": false,
+      "OnlyWhenInHand": false,
+      "OnlyOnBaseActions": true,
+      "OnlyOnNOTBaseActions": false,
+      "OnlyWhenNOTInBG": true,
+      "Conditions": {
+        "RequiredStatValues": [
+          {
+            "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+            "StatWarpType": 3,
+            "TriggerRange": {
+              "x": 1.0,
+              "y": 1.0
+            }
+          }
+        ]
+      },
+      "StatModifiers": [
+        {
+          "StatWarpData": "0d5ec8f104b2ba149b4bb2b536bc21a4",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 6.0,
+            "y": 6.0
+          }
+        }
+      ]
+    },
+    {
+      "EffectName": "Fire Ambience",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTEquipped": false,
+      "OnlyWhenInHand": false,
+      "OnlyOnBaseActions": false,
+      "OnlyOnNOTBaseActions": false,
+      "OnlyWhenNOTInBG": true,
+      "StatModifiers": [],
+      "SpoilageRateModifier": {
+        "Active": false
+      },
+      "UsageRateModifier": {
+        "Active": false
+      }
+    }
+  ],
+  "EffectsToInventoryContent": [],
+  "MaxLiquidCapacity": 0.0,
+  "InventorySlots": [
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    }
+  ],
+  "InventoryFilter": {
+    "AcceptedCards": [],
+    "AcceptedCardsWarpData": [],
+    "AcceptedCardsWarpType": 3,
+    "AcceptedTypes": [],
+    "AcceptedTags": [],
+    "AcceptedTagsWarpData": [
+      "tag_Cookable",
+      "tag_CookingContainer",
+      "tag_WaterContainer",
+      "tag_Heatable",
+      "tag_SlowlyCharsOnMediumHeat",
+      "tag_HeatAbleAndBoilableLiquid"
+    ],
+    "AcceptedTagsWarpType": 3,
+    "NOTAcceptedCards": [],
+    "NOTAcceptedTypes": [],
+    "NOTAcceptedTags": [],
+    "CardFilters": [],
+    "TagFilters": [
+      {
+        "Tag": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TagWarpData": "tag_WaterContainerLarge",
+        "TagWarpType": 3,
+        "NOT": true,
+        "OnlyWithLiquid": false
+      }
+    ]
+  },
+  "SpillsInventoryOnDestroy": true,
+  "CookingConditions": {
+    "NeedsSpoilage": false,
+    "NeedsUsage": false,
+    "NeedsFuel": false,
+    "NeedsProgress": false,
+    "NeedsSpecial1": false,
+    "NeedsSpecial2": false,
+    "NeedsSpecial3": false,
+    "NeedsSpecial4": false,
+    "ExtraSpoilageRate": 0.0,
+    "ExtraUsageRate": 0.0,
+    "ExtraFuelRate": 0.0,
+    "ExtraProgressRate": 0.0,
+    "ExtraSpecial1Rate": 0.0,
+    "ExtraSpecial2Rate": 0.0,
+    "ExtraSpecial3Rate": 0.0,
+    "ExtraSpecial4Rate": 0.0,
+    "CookingPausedSound": {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    "CookingPausedNotification": {
+      "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+      "LocalizationKey": "",
+      "DefaultText": ""
+    }
+  },
+  "CookingRecipes": [
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_BurnMediumHeat_ActionName",
+        "DefaultText": "Burn things which burn on medium heat"
+      },
+      "CustomCookingText": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "CannotCookText": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "CompatibleCards": [],
+      "CompatibleTags": [],
+      "ConditionsCard": 0,
+      "Duration": 2,
+      "DurationRdmVariation": 0,
+      "CookerChanges": {
+        "ModType": 0
+      },
+      "IngredientChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "274b94170226fcd479d2e73891000c9a",
+        "TransformIntoWarpType": 3,
+        "FuelChange": {
+          "x": 200.0,
+          "y": 200.0
+        }
+      },
+      "FeedbackMode": 0,
+      "ProgressBar": 3,
+      "ProgressTowardsZero": false,
+      "HideCookingProgress": false,
+      "HideDurabilities": {
+        "MaskValue": 0
+      },
+      "HideResultNotification": false,
+      "RandomSingleDrop": false,
+      "CustomCompleteSound": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "Notification": 0,
+      "CustomNotification": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "ScaleDropsPerLiquidQuantity": {
+        "Active": false,
+        "FloatValue": 0.0
+      },
+      "Drops": [],
+      "StatModifications": [],
+      "UseCookerForCardDrops": false,
+      "DropsAsCollection": [],
+      "CompatibleTagsWarpData": [
+        "tag_SlowlyCharsOnMediumHeat"
+      ],
+      "CompatibleTagsWarpType": 3
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_CookCookables_ActionName",
+        "DefaultText": "Cook Cookables"
+      },
+      "CustomCookingText": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "CannotCookText": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "CompatibleCards": [],
+      "CompatibleTags": [],
+      "ConditionsCard": 0,
+      "Duration": 1,
+      "DurationRdmVariation": 0,
+      "CookerChanges": {
+        "ModType": 0
+      },
+      "IngredientChanges": {
+        "ModType": 1,
+        "SpoilageChange": {
+          "x": -1.625,
+          "y": -1.625
+        },
+        "FuelChange": {
+          "x": 200.0,
+          "y": 200.0
+        },
+        "Special1Change": {
+          "x": 1.0,
+          "y": 1.0
+        }
+      },
+      "FeedbackMode": 1,
+      "ProgressBar": 3,
+      "ProgressTowardsZero": false,
+      "HideCookingProgress": false,
+      "HideDurabilities": {
+        "MaskValue": 0
+      },
+      "HideResultNotification": false,
+      "RandomSingleDrop": false,
+      "CustomCompleteSound": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "Notification": 0,
+      "CustomNotification": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "ScaleDropsPerLiquidQuantity": {
+        "Active": false,
+        "FloatValue": 0.0
+      },
+      "Drops": [],
+      "StatModifications": [],
+      "UseCookerForCardDrops": false,
+      "DropsAsCollection": [],
+      "CompatibleTagsWarpData": [
+        "tag_Cookable"
+      ],
+      "CompatibleTagsWarpType": 3
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_HeatContainers_ActionName",
+        "DefaultText": "Heat up Cooking and Water Containers and Heatables"
+      },
+      "CustomCookingText": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "CannotCookText": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "CompatibleCards": [],
+      "CompatibleTags": [],
+      "ConditionsCard": 0,
+      "Duration": 1,
+      "DurationRdmVariation": 0,
+      "CookerChanges": {
+        "ModType": 0
+      },
+      "IngredientChanges": {
+        "ModType": 1,
+        "FuelChange": {
+          "x": 200.0,
+          "y": 200.0
+        }
+      },
+      "FeedbackMode": 0,
+      "ProgressBar": 3,
+      "ProgressTowardsZero": false,
+      "HideCookingProgress": true,
+      "HideDurabilities": {
+        "MaskValue": 0
+      },
+      "HideResultNotification": true,
+      "RandomSingleDrop": false,
+      "CustomCompleteSound": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "Notification": 0,
+      "CustomNotification": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "ScaleDropsPerLiquidQuantity": {
+        "Active": false,
+        "FloatValue": 0.0
+      },
+      "Drops": [],
+      "StatModifications": [],
+      "UseCookerForCardDrops": false,
+      "DropsAsCollection": [],
+      "CompatibleTagsWarpData": [
+        "tag_Heatable",
+        "tag_CookingContainer",
+        "tag_WaterContainer"
+      ],
+      "CompatibleTagsWarpType": 3
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperStove_BoilLiquids_ActionName",
+        "DefaultText": "Heats up and Boils Liquids"
+      },
+      "CustomCookingText": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "CannotCookText": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "CompatibleCards": [],
+      "CompatibleTags": [],
+      "ConditionsCard": 0,
+      "Duration": 1,
+      "DurationRdmVariation": 0,
+      "CookerChanges": {
+        "ModType": 0
+      },
+      "IngredientChanges": {
+        "ModType": 1,
+        "FuelChange": {
+          "x": 200.0,
+          "y": 200.0
+        },
+        "Special4Change": {
+          "x": 1.0,
+          "y": 1.0
+        }
+      },
+      "FeedbackMode": 1,
+      "ProgressBar": 3,
+      "ProgressTowardsZero": false,
+      "HideCookingProgress": false,
+      "HideDurabilities": {
+        "MaskValue": 0
+      },
+      "HideResultNotification": false,
+      "RandomSingleDrop": false,
+      "CustomCompleteSound": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "Notification": 0,
+      "CustomNotification": {
+        "ParentObjectID": "advanced_copper_tools_copper_stove_placed_lit",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "ScaleDropsPerLiquidQuantity": {
+        "Active": false,
+        "FloatValue": 0.0
+      },
+      "Drops": [],
+      "StatModifications": [],
+      "UseCookerForCardDrops": false,
+      "DropsAsCollection": [],
+      "CompatibleTagsWarpData": [
+        "tag_HeatAbleAndBoilableLiquid"
+      ],
+      "CompatibleTagsWarpType": 3
+    }
+  ],
+  "BlueprintStages": [],
+  "BlueprintResult": [],
+  "IsWeapon": false,
+  "IsArmor": false
+}

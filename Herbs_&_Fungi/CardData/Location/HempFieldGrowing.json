@@ -1,0 +1,71 @@
+{
+  "UniqueID": "herbs_fungi_hemp_field_growing",
+  "CardName": {
+    "ParentObjectID": "herbs_fungi_hemp_field_growing",
+    "LocalizationKey": "herbs_fungi_hemp_field_growing_CardName",
+    "DefaultText": "Growing Hemp Field"
+  },
+  "CardDescription": {
+    "ParentObjectID": "herbs_fungi_hemp_field_growing",
+    "LocalizationKey": "herbs_fungi_hemp_field_growing_CardDescription",
+    "DefaultText": "A field of hemp plants growing steadily. Will be ready to harvest when mature."
+  },
+  "CardHelpSection": {
+    "ParentObjectID": "herbs_fungi_hemp_field_growing",
+    "LocalizationKey": "herbs_fungi_hemp_field_growing_CardHelpSection",
+    "DefaultText": "<b>Growth:</b> Takes 11 days to mature.\n\n<b>Harvest:</b> Once mature, harvest for hemp flowers and seeds."
+  },
+  "CardType": 2,
+  "ObjectWeight": 100.0,
+  "AlwaysUpdate": true,
+  "CardTags": [],
+  "Progress": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "herbs_fungi_hemp_field_growing",
+      "LocalizationKey": "herbs_fungi_hemp_field_growing_Progress.CardStatName",
+      "DefaultText": "Growth"
+    },
+    "MaxValue": 1008.0,
+    "RatePerDaytimePoint": 1.0,
+    "HidingOptions": 0,
+    "HasActionOnFull": true,
+    "ShowPopupOnFull": false,
+    "OnFullNotification": 1,
+    "OnFull": {
+      "ActionDescription": {
+        "ParentObjectID": "herbs_fungi_hemp_field_growing",
+        "LocalizationKey": "herbs_fungi_hemp_field_growing_OnFull_ActionDescription",
+        "DefaultText": "Hemp field is ready to harvest!"
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "herbs_fungi_hemp_field_mature",
+        "TransformIntoWarpType": 3
+      }
+    }
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "herbs_fungi_hemp_field_growing",
+        "LocalizationKey": "herbs_fungi_hemp_field_growing_DismantleActions[0].ActionName",
+        "DefaultText": "Destroy"
+      },
+      "ConfirmPopup": true,
+      "DaytimeCost": 1,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ],    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+
+  "CardImageWarpData": "HempGrowing",
+  "CardImageWarpType": 3,
+  "CardTagsWarpData": ["tag_Gardenable", "tag_GardenPlantGrowing"],
+  "CardTagsWarpType": 3
+}

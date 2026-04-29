@@ -1,0 +1,374 @@
+{
+    "UniqueID": "advanced_copper_tools_copper_bathtub_full",
+    "CardName": {
+        "ParentObjectID": "advanced_copper_tools_copper_bathtub_full",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Full_CardName",
+        "DefaultText": "Copper Bathtub (Full)"
+    },
+    "CardDescription": {
+        "ParentObjectID": "advanced_copper_tools_copper_bathtub_full",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Full_CardDescription",
+        "DefaultText": "A copper bathtub filled with cold water. Add firewood and light it to heat the water."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "advanced_copper_tools_copper_bathtub_full",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Full_CardHelpSection",
+        "DefaultText": "<b>Usage:</b> Add firewood to the bathtub, then light it with a fire source to heat the water for a warm bath."
+    },
+    "CardType": 0,
+    "ObjectWeight": 900.0,
+    "TradingValue": 800.0,
+    "DoesNotPile": true,
+    "CannotBeTrashed": false,    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+
+    "CardImageWarpData": "CopperBathtub_Full_Unlit",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": ["tag_Preservable"],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": ["Water"],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "advanced_copper_tools_copper_bathtub_full",
+            "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Full_FuelCapacity_CardStatName",
+            "DefaultText": "Firewood"
+        },
+        "MaxValue": 24.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 0,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "HasActionOnZero": false,
+        "ShowPopupOnZero": false,
+        "HasActionOnFull": false,
+        "ShowPopupOnFull": false,
+        "CountsForTradingValue": false,
+        "OverrideIconWarpData": "Hot",
+        "OverrideIconWarpType": 3
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "advanced_copper_tools_copper_bathtub_full",
+                "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Full_AddFirewood_ActionName",
+                "DefaultText": "Add Firewood"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "advanced_copper_tools_copper_bathtub_full",
+                "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Full_AddFirewood_ActionDescription",
+                "DefaultText": "Add firewood to heat the bath water."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionSoundsWarpData": ["WoodAppear"],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": ["758be01db25eb4649a288d64b7600b9b"],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": false,
+            "WorksBothWays": true,
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "FuelChange": {
+                    "x": 8.0,
+                    "y": 8.0
+                }
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "advanced_copper_tools_copper_bathtub_full",
+                "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Full_AddFuel_ActionName",
+                "DefaultText": "Add Fuel"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "advanced_copper_tools_copper_bathtub_full",
+                "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Full_AddFuel_ActionDescription",
+                "DefaultText": "Add fuel to heat the bath water."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionSoundsWarpData": ["WoodAppear"],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": ["tag_Fuel"],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": false,
+            "WorksBothWays": true,
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "FuelChange": {
+                    "x": 8.0,
+                    "y": 8.0
+                }
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "advanced_copper_tools_copper_bathtub_full",
+                "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Full_Light_ActionName",
+                "DefaultText": "Light Fire"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "advanced_copper_tools_copper_bathtub_full",
+                "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Full_Light_ActionDescription",
+                "DefaultText": "Light the firewood to heat the bath water."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionSoundsWarpData": ["FireIgniting"],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": ["tag_FireSource"],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": false,
+            "WorksBothWays": true,
+            "RequiredReceivingDurabilities": {
+                "RequiredFuelPercent": {
+                    "Active": true,
+                    "FloatValue": 1.0,
+                    "MaxValue": 100.0
+                },
+                "HideActionIfNotMet": true,
+                "FailMessage": {
+                    "ParentObjectID": "advanced_copper_tools_copper_bathtub_full",
+                    "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Full_Light_FailMessage",
+                    "DefaultText": "Need firewood to light."
+                }
+            },
+            "GivenCardChanges": {
+                "ModType": 0
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "advanced_copper_tools_copper_bathtub_warm",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": true,
+                "TransferFuel": true
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "advanced_copper_tools_copper_bathtub_full",
+                "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Full_ColdBath_ActionName",
+                "DefaultText": "Take Cold Bath"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "advanced_copper_tools_copper_bathtub_full",
+                "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Full_ColdBath_ActionDescription",
+                "DefaultText": "Soak in the cold water. Refreshing but chilly."
+            },
+            "DaytimeCost": 16,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": ["Water"],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "GivenCardChanges": {
+                "ModType": 0
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -100.0,
+                        "y": -100.0
+                    },
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                },
+                {
+                    "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 10.0,
+                        "y": 15.0
+                    },
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "advanced_copper_tools_copper_bathtub_empty",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": true
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "advanced_copper_tools_copper_bathtub_full",
+                "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Full_Empty_ActionName",
+                "DefaultText": "Empty Water"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "advanced_copper_tools_copper_bathtub_full",
+                "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Full_Empty_ActionDescription",
+                "DefaultText": "Dump out all the water."
+            },
+            "DaytimeCost": 2,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionSoundsWarpData": ["Water"],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "GivenCardChanges": {
+                "ModType": 0
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "advanced_copper_tools_copper_bathtub_empty",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": true
+            }
+        }
+    ],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "advanced_copper_tools_copper_bathtub_full",
+                "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Full_Place_ActionName",
+                "DefaultText": "Place"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "advanced_copper_tools_copper_bathtub_full",
+                "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Full_Place_ActionDescription",
+                "DefaultText": "Place the bathtub in the environment."
+            },
+            "DaytimeCost": 3,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": ["Metal"],
+            "ActionSoundsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "advanced_copper_tools_copper_bathtub_full_placed",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": true
+            }
+        }
+    ],
+    "PassiveStatEffects": [],
+    "PassiveEffects": [],
+    "MaxLiquidCapacity": 0.0,
+    "InventorySlots": [],
+    "BlueprintStages": [],
+    "BlueprintResult": [],
+    "IsWeapon": false,
+    "IsArmor": false
+}

@@ -1,0 +1,119 @@
+{
+    "UniqueID": "herbs_fungi_bp_oil_press_herbal_fairyweed",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_bp_oil_press_herbal_fairyweed",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_OilPressHerbalFairyweed_CardName",
+        "DefaultText": "Press Fairyweed Oil"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_bp_oil_press_herbal_fairyweed",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_OilPressHerbalFairyweed_CardDescription",
+        "DefaultText": "Press 1 fresh fairyweed into an empty clay bowl to extract an uplifting herbal oil."
+    },
+    "CardType": 7,
+    "StartUnlocked": true,
+    "BlueprintUnlockTicksCost": 4.0,
+    "BuildingStatConditions": [],
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasOilPress",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "CardWarpData": "herbs_fungi_oil_press",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "a1da115fe6aad774683492f7317850aa",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 2,
+    "DeconstructDaytimeCost": 0,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "DroppedCardWarpData": "herbs_fungi_herbal_oil_fairyweed",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "WhenCreatedSoundsWarpData": [
+        "Wood"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Fairyweed_Item",
+    "CardImageWarpType": 3,
+    "ResearchedNotification": 0,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "herbs_fungi_bp_oil_press_herbal_fairyweed",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_OilPress_HerbalOil_Fairyweed_UnlockConditionsDesc",
+        "DefaultText": "Oil Press Needed"
+    }
+}

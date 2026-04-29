@@ -1,0 +1,16 @@
+[
+  { "Item": "advanced_copper_tools_copper_nails",      "NuggetReturn": 1,  "Duration": 8 },
+  { "Item": "advanced_copper_tools_wheel_hub",         "NuggetReturn": 3,  "Duration": 8 },
+  { "Item": "advanced_copper_tools_shape_metal_pan",   "NuggetReturn": 4,  "Duration": 8 },
+  { "Item": "advanced_copper_tools_blank_metal_pan",   "NuggetReturn": 4,  "Duration": 8 },
+  { "Item": "advanced_copper_tools_metal_sheet",       "NuggetReturn": 6,  "Duration": 8 },
+  { "Item": "advanced_copper_tools_wheel_rim",         "NuggetReturn": 6,  "Duration": 8 },
+  { "Item": "advanced_copper_tools_stove_top_mold",    "NuggetReturn": 5,  "Duration": 8 },
+  { "Item": "advanced_copper_tools_cast_stove_top",    "NuggetReturn": 5,  "Duration": 8 },
+  { "Item": "advanced_copper_tools_large_saw",         "NuggetReturn": 16, "Duration": 8 },
+  { "Item": "advanced_copper_tools_bucket",            "NuggetReturn": 48, "Duration": 8 },
+  { "Item": "advanced_copper_tools_wearable_metal_pan", "NuggetReturn": 4,  "Duration": 8 },
+  { "Item": "advanced_copper_tools_lantern_oilwell",   "NuggetReturn": 6,  "Duration": 8 },
+  { "Item": "advanced_copper_tools_copper_tea_kettle", "NuggetReturn": 18, "Duration": 8 },
+  { "Item": "advanced_copper_tools_copper_pantry",     "NuggetReturn": 24, "Duration": 8 }
+]

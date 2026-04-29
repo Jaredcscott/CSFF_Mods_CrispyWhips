@@ -1,0 +1,263 @@
+{
+    "UniqueID": "advanced_copper_tools_copper_bathtub_empty",
+    "CardName": {
+        "ParentObjectID": "advanced_copper_tools_copper_bathtub_empty",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Empty_CardName",
+        "DefaultText": "Copper Bathtub Kit"
+    },
+    "CardDescription": {
+        "ParentObjectID": "advanced_copper_tools_copper_bathtub_empty",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Empty_CardDescription",
+        "DefaultText": "An assembled copper bathtub kit. Place it in your camp to set it up, then fill with water."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "advanced_copper_tools_copper_bathtub_empty",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Empty_CardHelpSection",
+        "DefaultText": "<b>Usage:</b> Use the Place action to set up the bathtub. Once placed, fill it with water from a container or river."
+    },
+    "CardType": 0,
+    "ObjectWeight": 700.0,
+    "TradingValue": 800.0,
+    "DoesNotPile": true,
+    "CannotBeTrashed": false,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+
+    "CardImageWarpData": "CopperBathtub_Kit",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": ["tag_Preservable"],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": ["Metal"],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "advanced_copper_tools_copper_bathtub_empty",
+                "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Empty_FillRiver_ActionName",
+                "DefaultText": "Fill from River"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "advanced_copper_tools_copper_bathtub_empty",
+                "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Empty_FillRiver_ActionDescription",
+                "DefaultText": "Haul water from the river to fill the bathtub."
+            },
+            "DaytimeCost": 6,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionSoundsWarpData": ["Water"],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": ["tag_ShallowWater"],
+                "TriggerTagsWarpType": 3
+            },
+            "WorksBothWays": true,
+            "GivenCardChanges": {
+                "ModType": 0
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "advanced_copper_tools_copper_bathtub_full",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": true
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "advanced_copper_tools_copper_bathtub_empty",
+                "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Empty_FillWater_ActionName",
+                "DefaultText": "Fill with Water"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "advanced_copper_tools_copper_bathtub_empty",
+                "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Empty_FillWater_ActionDescription",
+                "DefaultText": "Fill the bathtub with water from a container."
+            },
+            "DaytimeCost": 4,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionSoundsWarpData": ["Water"],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": ["tag_WaterContainer"],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": false,
+            "WorksBothWays": true,
+            "GivenCardChanges": {
+                "ModType": 1,
+                "ModifyDurability": true,
+                "ModifyLiquid": true,
+                "LiquidQuantityChange": {
+                    "x": -300.0,
+                    "y": -300.0
+                }
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "advanced_copper_tools_copper_bathtub_full",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": true
+            }
+        }
+    ],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "advanced_copper_tools_copper_bathtub_empty",
+                "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Empty_Place_ActionName",
+                "DefaultText": "Place"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "advanced_copper_tools_copper_bathtub_empty",
+                "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Empty_Place_ActionDescription",
+                "DefaultText": "Place the empty bathtub on the ground."
+            },
+            "DaytimeCost": 3,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": ["Metal"],
+            "ActionSoundsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "advanced_copper_tools_copper_bathtub_empty_placed",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": true
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "advanced_copper_tools_copper_bathtub_empty",
+                "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Empty_Dismantle_ActionName",
+                "DefaultText": "Dismantle"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "advanced_copper_tools_copper_bathtub_empty",
+                "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Empty_Dismantle_ActionDescription",
+                "DefaultText": "Take apart the bathtub to recover all crafting materials."
+            },
+            "DaytimeCost": 5,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": ["Metal"],
+            "ActionSoundsWarpType": 3,
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "advanced_copper_tools_bucket",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        },
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "advanced_copper_tools_copper_stove",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        },
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 4, "y": 4}
+                        },
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "6c2001f42a960db4583cdd65a47ecf3c",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 8, "y": 8}
+                        },
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "3e94716876eae304787efa2ae0b43711",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        },
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "3db4c94184af274409f0d3eb16870f64",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 4, "y": 4}
+                        },
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "669497ecaa30b634c86bea6b61f31e63",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 3, "y": 3}
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
+    "PassiveStatEffects": [],
+    "PassiveEffects": [],
+    "MaxLiquidCapacity": 0.0,
+    "InventorySlots": [],
+    "BlueprintStages": [],
+    "BlueprintResult": [],
+    "IsWeapon": false,
+    "IsArmor": false
+}

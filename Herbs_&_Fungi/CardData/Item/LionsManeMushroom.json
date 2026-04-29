@@ -1,0 +1,316 @@
+{
+    "UniqueID": "herbs_fungi_lions_mane",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_lions_mane",
+        "LocalizationKey": "Herbs_And_Fungi_LionsMane_CardName",
+        "DefaultText": "Lion's Mane Mushroom"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_lions_mane",
+        "LocalizationKey": "Herbs_And_Fungi_LionsMane_CardDescription",
+        "DefaultText": "A distinctive white shaggy mushroom resembling a lion's mane. Prized for both culinary and medicinal properties, known to boost the immune system."
+    },
+    "CanBeRenamed": false,
+    "AlternateNames": [],
+    "LiquidSuffixName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_lions_mane",
+        "LocalizationKey": "Herbs_And_Fungi_LionsMane_CardHelpSection",
+        "DefaultText": "<b>Season:</b> Late Summer to Fall\n\n<b>Medicinal:</b> Boosts immune system when eaten.\n\n<b>Flavor:</b> Mild seafood-like taste, similar to crab or lobster."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "LionsMane",
+    "CardImageWarpType": 3,
+    "CardBackground": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "ShowImageAboveTitle": false,
+    "CardType": 0,
+    "CannotBeTransferred": false,
+    "NotAutoSolvableEvent": false,
+    "ObjectWeight": 60.0,
+    "TradingValue": 75.0,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Vegetable",
+        "tag_Foraged",
+        "tag_Fungus",
+        "tag_Heatable",
+        "tag_Cookable",
+        "tag_Dryable",
+        "tag_HumanFood",
+        "tag_Fermentable",
+        "tag_Plateable"
+    ],
+    "CardTagsWarpType": 3,
+    "EquipmentTags": [],
+    "MapStructureType": 0,
+    "FlavourTags": [],
+    "SpiceTags": [],
+    "AlwaysUpdate": false,
+    "CannotBeTrashed": false,
+    "DoesNotPile": false,
+    "ToggleablePiling": false,
+    "DoesNotPinAutomatically": false,
+    "WhenCreatedSounds": [],
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_lions_mane",
+            "LocalizationKey": "Herbs_And_Fungi_LionsMane_SpoilageTime_CardStatName",
+            "DefaultText": "Freshness"
+        },
+        "RandomStartingOffset": 0.0,
+        "MaxValue": 2880.0,
+        "RatePerDaytimePoint": 1.0,
+        "ExtraRateWhenEquipped": 0.0,
+        "PauseRateWhenEnvWeightIsFull": false,
+        "PauseRateWhenInventoryIsFull": false,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "OverrideIcon": {
+            "m_FileID": 0,
+            "m_PathID": 0
+        },
+        "ResetWhenLoadedAtZero": false,
+        "HasActionOnZero": false,
+        "ShowPopupOnZero": false,
+        "OnZeroNotification": 0,
+        "HasActionOnFull": true,
+        "ShowPopupOnFull": false,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_lions_mane",
+                "LocalizationKey": "Herbs_And_Fungi_LionsMane_SpoilageTime_OnFull_ActionDescription",
+                "DefaultText": "Lion's Mane Mushroom Spoiled!"
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3
+            }
+        },
+        "CountsForTradingValue": false,
+        "TradingValueCustomRanges": [],
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3
+    },
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "MaxValue": 8.0,
+        "RatePerDaytimePoint": 0.042,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_lions_mane",
+            "LocalizationKey": "Herbs_And_Fungi_LionsMane_UsageDurability_CardStatName",
+            "DefaultText": "Dryness"
+        },
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_lions_mane",
+                "LocalizationKey": "Herbs_And_Fungi_LionsMane_UsageDurability_OnFull_ActionName",
+                "DefaultText": "Dried"
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_lions_mane_dried",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": true
+            }
+        }
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_lions_mane",
+            "LocalizationKey": "Herbs_And_Fungi_LionsMane_SpecialDurability1_CardStatName",
+            "DefaultText": "Cook"
+        },
+        "MaxValue": 1.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 3,
+        "OverrideIcon": {
+            "m_FileID": 0,
+            "m_PathID": 0
+        },
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_lions_mane",
+                "LocalizationKey": "Herbs_And_Fungi_LionsMane_SpecialDurability1_OnFull_ActionDescription",
+                "DefaultText": "Lion's Mane Cooked!"
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "herbs_fungi_lions_mane_cooked",
+                "TransformIntoWarpType": 3
+            }
+        },
+        "OverrideIconWarpData": "Cooking",
+        "OverrideIconWarpType": 3
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "DurabilitySorting": {
+        "SortingList": []
+    },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_lions_mane",
+                "LocalizationKey": "Herbs_And_Fungi_LionsMane_DismantleActions_Chew_ActionName",
+                "DefaultText": "Chew"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_lions_mane",
+                "LocalizationKey": "Herbs_And_Fungi_LionsMane_DismantleActions_Chew_ActionDescription",
+                "DefaultText": "Chew the lion's mane mushroom. Less effective than dried/ground, but provides weak immune boost. Can chew 3 times."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "UsageDurabilityConsumed": 2.67,
+            "StackCompatible": false,
+            "ReceivingCardFlavourBonus": true,
+            "ProducedCards": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 6.0,
+                        "y": 6.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 7.0,
+                        "y": 7.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 3.0,
+                        "y": 3.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 5.0,
+                        "y": 5.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "3d050c79732f42d4a95ffa8e672ddb7a",
+                    "StatWarpType": 3
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
+    "EquipSlotType": 0
+}

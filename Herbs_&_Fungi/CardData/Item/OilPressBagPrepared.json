@@ -1,0 +1,28 @@
+{
+    "UniqueID": "herbs_fungi_oil_press_bag_prepared",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_oil_press_bag_prepared",
+        "LocalizationKey": "herbs_fungi_oil_press_bag_prepared_CardName",
+        "DefaultText": "Prepared Press Bag"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_oil_press_bag_prepared",
+        "LocalizationKey": "herbs_fungi_oil_press_bag_prepared_CardDescription",
+        "DefaultText": "A pressing bag assembled with its pressure plate. Place it in the oil press and load it with seeds to extract oil."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "OilPress_Bag_Prepared",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 1.0,
+    "MaxStack": 1,
+    "DroppedCardShadow": 1
+}

@@ -1,0 +1,93 @@
+{
+    "UniqueID": "herbs_fungi_bp_wooden_pantry",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_bp_wooden_pantry",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_WoodenPantry_CardName",
+        "DefaultText": "Wooden Pantry"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_bp_wooden_pantry",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_WoodenPantry_CardDescription",
+        "DefaultText": "A simple plank pantry with woven shelves. Slows food spoilage, but animals can raid it. Requires 6 planks, 3 rope, and a hammer."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "herbs_fungi_bp_wooden_pantry",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_WoodenPantry_UnlockConditionsDesc",
+        "DefaultText": "Plank Needed"
+    },
+    "BlueprintUnlockTicksCost": 16.0,
+    "BuildingStatConditions": [],
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasPlank",
+            "CompletionWeight": 1,
+            "Card": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": { "m_FileID": 0, "m_PathID": 0 },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": { "Target": { "m_FileID": 0, "m_PathID": 0 } },
+            "CardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 6,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 3,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "UsageChange": { "x": -8.0, "y": -8.0 }
+                    },
+                    "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredTabGroupWarpData": "GpTag_HammeringToolGeneral",
+                    "RequiredTabGroupWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": ["ToolAction"],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 6,
+    "DeconstructDaytimeCost": 2,
+    "BlueprintResult": [
+        {
+            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": { "x": 1, "y": 1 },
+            "DroppedCardWarpData": "herbs_fungi_wooden_pantry",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": ["Wood"],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+    "CardImageWarpData": "Pantry_Wooden",
+    "CardImageWarpType": 3,
+    "ResearchedNotification": 0
+}

@@ -1,0 +1,78 @@
+{
+    "ActionModifiers": [],
+    "ActionObjectives": [],
+    "AddedCards": [],
+    "AddedStartingHours": 0,
+    "CardsOnBoardObjectives": [],
+    "CheckingNotificationDetails": 0,
+    "CompleteOnLose": false,
+    "CompleteOnWin": false,
+    "DebugCompletion": false,
+    "DifficultyRating": -600,
+    "DisplayPriority": 2050.0,
+    "EditorOnly": false,
+    "EquippedCards": [],
+    "EquippedCardsWarpData": [
+        "herbs_fungi_lions_mane",
+        "herbs_fungi_lions_mane",
+        "herbs_fungi_lions_mane",
+        "herbs_fungi_shiitake",
+        "herbs_fungi_shiitake",
+        "herbs_fungi_shiitake",
+        "herbs_fungi_reishi",
+        "herbs_fungi_reishi",
+        "e41ab416339b3c9459a37b4942f8f57b",
+        "e41ab416339b3c9459a37b4942f8f57b"
+    ],
+    "EquippedCardsWarpType": 3,
+    "HiddenUntilUnlocked": false,
+    "MoonsCost": 1,
+    "NestedObjectives": [],
+    "NoSafetyMode": false,
+    "NotifyWhenNotChecked": false,
+    "OverrideEnvironment": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "OverrideEquipment": false,
+    "OverrideWeather": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "PassiveStatModifiers": [],
+    "StartingStatModifiers": [],
+    "PerkDescription": {
+        "DefaultText": "Start with medicinal mushrooms: Lion's Mane (cognitive boost, chewable 3x or grindable), Shiitake (immune system support), Reishi (longevity and wellness, chewable or grindable), and Spirit Mushrooms (vanilla rare medicinal). Dry and grind for powerful medicinal powders or teas.",
+        "LocalizationKey": "Herbs_And_Fungi_Perk_MedicalMushrooms_PerkDescription",
+        "ParentObjectID": "herbs_fungi_perk_medical_mushrooms"
+    },
+    "PerkIcon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "PerkIconWarpData": "ReishiFresh",
+    "PerkIconWarpType": 3,
+    "PerkName": {
+        "DefaultText": "Medical Mushrooms",
+        "LocalizationKey": "Herbs_And_Fungi_Perk_MedicalMushrooms_PerkName",
+        "ParentObjectID": "herbs_fungi_perk_medical_mushrooms"
+    },
+    "PerkUnlockConditions": {
+        "DefaultText": "",
+        "LocalizationKey": "",
+        "ParentObjectID": ""
+    },
+    "PlayedCharacter": [],
+    "RequiredDifficultyScore": {
+        "x": 0,
+        "y": 0
+    },
+    "ResetLockInEditor": false,
+    "StartUnlocked": false,
+    "StatsObjectives": [],
+    "SunsCost": 0,
+    "TagsOnBoardObjectives": [],
+    "TimeObjectives": [],
+    "UniqueID": "herbs_fungi_perk_medical_mushrooms",
+    "CharacterPerkPerkGroup": "72120cda8e1cef540b1b25118dd7edaa"
+}

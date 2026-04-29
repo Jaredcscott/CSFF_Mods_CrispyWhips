@@ -1,0 +1,85 @@
+{
+    "ActionModifiers": [],
+    "ActionObjectives": [],
+    "AddedCards": [],
+    "AddedStartingHours": 0,
+    "CardsOnBoardObjectives": [],
+    "CheckingNotificationDetails": 0,
+    "CompleteOnLose": false,
+    "CompleteOnWin": false,
+    "DebugCompletion": false,
+    "DifficultyRating": -600,
+    "DisplayPriority": 2210.0,
+    "EditorOnly": false,
+    "EquippedCards": [],
+    "EquippedCardsWarpData": [
+        "ae80b3304fa930748941abc6edc5c884",
+        "herbs_fungi_morel_mushroom",
+        "herbs_fungi_morel_mushroom",
+        "herbs_fungi_golden_oyster",
+        "herbs_fungi_golden_oyster",
+        "herbs_fungi_king_oyster",
+        "herbs_fungi_king_oyster",
+        "herbs_fungi_black_trumpet",
+        "herbs_fungi_black_trumpet",
+        "herbs_fungi_shiitake",
+        "herbs_fungi_shiitake",
+        "herbs_fungi_lions_mane",
+        "herbs_fungi_lions_mane",
+        "a07b58829bd83d441ab96b4d33197aa6",
+        "a07b58829bd83d441ab96b4d33197aa6",
+        "e41ab416339b3c9459a37b4942f8f57b",
+        "e41ab416339b3c9459a37b4942f8f57b"
+    ],
+    "EquippedCardsWarpType": 3,
+    "HiddenUntilUnlocked": false,
+    "MoonsCost": 3,
+    "NestedObjectives": [],
+    "NoSafetyMode": false,
+    "NotifyWhenNotChecked": false,
+    "OverrideEnvironment": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "OverrideEquipment": false,
+    "OverrideWeather": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "PassiveStatModifiers": [],
+    "PerkDescription": {
+        "DefaultText": "Start with a hand basket filled with a bountiful mushroom harvest: Morels (gourmet), Golden & King Oysters (meaty), Black Trumpets (earthy), Shiitake (immune boost), Lion's Mane (cognitive), Forest Caps, and Spirit Mushrooms. All can be dried or cooked.",
+        "LocalizationKey": "Herbs_And_Fungi_Perk_MushroomBasket_PerkDescription",
+        "ParentObjectID": "herbs_fungi_perk_mushroom_basket"
+    },
+    "PerkIcon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "PerkIconWarpData": "KingOyster",
+    "PerkIconWarpType": 3,
+    "PerkName": {
+        "DefaultText": "Mushroom Basket",
+        "LocalizationKey": "Herbs_And_Fungi_Perk_MushroomBasket_PerkName",
+        "ParentObjectID": "herbs_fungi_perk_mushroom_basket"
+    },
+    "PerkUnlockConditions": {
+        "DefaultText": "",
+        "LocalizationKey": "",
+        "ParentObjectID": ""
+    },
+    "PlayedCharacter": [],
+    "RequiredDifficultyScore": {
+        "x": 0,
+        "y": 0
+    },
+    "ResetLockInEditor": false,
+    "StartUnlocked": false,
+    "StartingStatModifiers": [],
+    "StatsObjectives": [],
+    "SunsCost": 0,
+    "TagsOnBoardObjectives": [],
+    "TimeObjectives": [],
+    "UniqueID": "herbs_fungi_perk_mushroom_basket",
+    "CharacterPerkPerkGroup": "72120cda8e1cef540b1b25118dd7edaa"
+}

@@ -1,0 +1,28 @@
+{
+    "UniqueID": "herbs_fungi_oil_press_legs",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_oil_press_legs",
+        "LocalizationKey": "herbs_fungi_oil_press_legs_CardName",
+        "DefaultText": "Oil Press Legs"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_oil_press_legs",
+        "LocalizationKey": "herbs_fungi_oil_press_legs_CardDescription",
+        "DefaultText": "Sturdy wooden legs for an oil press. Part of a larger assembly."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "OilPress_Wooden_Legs",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 2.0,
+    "MaxStack": 1,
+    "DroppedCardShadow": 1
+}

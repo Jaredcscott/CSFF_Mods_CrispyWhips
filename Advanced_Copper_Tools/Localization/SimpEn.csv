@@ -1,0 +1,455 @@
+Advanced_Copper_Tools_CopperNails_CardName,Copper Nail
+Advanced_Copper_Tools_CopperNails_CardDescription,"A small copper nail, perfect for joining wood."
+Advanced_Copper_Tools_Oil_CardName,Oil
+Advanced_Copper_Tools_Oil_CardDescription,Rendered animal fat collected in a clay bowl. A rich food source that also burns as clean lamp fuel.
+Advanced_Copper_Tools_Oil_CardHelpSection,"<b>Crafted:</b> By rendering 2 animal fat in a clay bowl over any fire.
+
+<b>Uses:</b> Drink for nutrition (returns empty clay bowl), or pour into a lantern or oil flask as lamp fuel."
+Advanced_Copper_Tools_Oil_Drink_ActionName,Drink
+Advanced_Copper_Tools_Bp_Oil_CardName,Rendered Oil
+Advanced_Copper_Tools_Bp_Oil_CardDescription,Render 2 animal fat in a clay bowl over a fire to produce cooking oil and lamp fuel.
+Advanced_Copper_Tools_Bp_Oil_UnlockConditionsDesc,Animal Fat Needed
+Advanced_Copper_Tools_MetalLantern_Refuel_ActionName,Refuel with Oil
+Advanced_Copper_Tools_MetalLantern_Refuel_ActionDescription,Poured oil into the lantern.
+Advanced_Copper_Tools_MetalLantern_Light_ActionName,Light Lantern
+Advanced_Copper_Tools_MetalLantern_Light_ActionDescription,Light the lantern with a flame.
+Advanced_Copper_Tools_MetalLantern_NeedsFuel,The lantern needs oil first.
+Advanced_Copper_Tools_MetalLantern_FuelCapacity_CardStatName,Oil
+Advanced_Copper_Tools_MetalLantern_Lit_CardName,Lit Metal Lantern
+Advanced_Copper_Tools_MetalLantern_Lit_CardDescription,A lit copper lantern burning oil for portable light. Extinguish it before refueling.
+Advanced_Copper_Tools_MetalLantern_Lit_FuelCapacity_CardStatName,Oil
+Advanced_Copper_Tools_MetalLantern_Lit_FuelOut_ActionName,Lantern Burns Out
+Advanced_Copper_Tools_MetalLantern_Lit_FuelOut_ActionDescription,The lantern runs out of oil.
+Advanced_Copper_Tools_MetalLantern_Extinguish_ActionName,Extinguish
+Advanced_Copper_Tools_MetalLantern_Extinguish_ActionDescription,Put out the lantern.
+Advanced_Copper_Tools_MetalLantern_Place_ActionName,Place
+Advanced_Copper_Tools_MetalLantern_Place_ActionDescription,Set the lantern down in your environment.
+Advanced_Copper_Tools_MetalLantern_Lit_Place_ActionName,Place
+Advanced_Copper_Tools_MetalLantern_Lit_Place_ActionDescription,Set the lit lantern down to light the area.
+Advanced_Copper_Tools_MetalLantern_PickUp_ActionName,Pick Up
+Advanced_Copper_Tools_MetalLantern_PickUp_ActionDescription,Pick up the lantern and carry it.
+Advanced_Copper_Tools_MetalLantern_PickUpLit_ActionDescription,Pick up the lit lantern and carry it.
+Advanced_Copper_Tools_MetalLantern_CardHelpSection,"<b>Usage:</b> Add oil, then light from any fire source to illuminate the area."
+Advanced_Copper_Tools_MetalLantern_Placed_Lit_CardDescription,A lit copper lantern burning oil to illuminate the area. Extinguish before refueling.
+Advanced_Copper_Tools_MetalLantern_Placed_Lit_CardHelpSection,<b>Usage:</b> Provides light to the surrounding area while lit. Extinguish to refuel.
+Advanced_Copper_Tools_Bucket_CardName,Wheelbarrow Bucket
+Advanced_Copper_Tools_Bucket_CardDescription,A sturdy metal bucket formed from metal lumps. The main cargo area of a wheelbarrow.
+Advanced_Copper_Tools_Handles_CardName,Wheelbarrow Handles
+Advanced_Copper_Tools_Handles_CardDescription,Two sturdy wooden handles for gripping and lifting a wheelbarrow.
+Advanced_Copper_Tools_WheelAssembly_CardName,Wheel Assembly
+Advanced_Copper_Tools_WheelAssembly_CardDescription,A complete wheel with metal hub attached. Ready to be mounted on a wheelbarrow.
+Advanced_Copper_Tools_Wheelbarrow_CardName,Wheelbarrow
+Advanced_Copper_Tools_Wheelbarrow_CardDescription,A sturdy wheelbarrow for hauling heavy loads.
+Advanced_Copper_Tools_Bp_Wheelbarrow_CardName,Wheelbarrow
+Advanced_Copper_Tools_Bp_Wheelbarrow_CardDescription,"Construct a wheelbarrow for hauling heavy loads. Requires a bucket, handles, and wheel assembly."
+Advanced_Copper_Tools_Bp_CopperNails_CardName,Forged Copper Nail
+Advanced_Copper_Tools_Bp_CopperNails_CardDescription,Hammer a heated copper nugget into a copper nail.
+Advanced_Copper_Tools_Bp_WheelbarrowBucket_CardName,Wheelbarrow Bucket
+Advanced_Copper_Tools_Bp_WheelbarrowBucket_CardDescription,Combine 8 metal sheets into a wheelbarrow bucket.
+Advanced_Copper_Tools_Bp_Handles_CardName,Wheelbarrow Handles
+Advanced_Copper_Tools_Bp_Handles_CardDescription,"Craft wheelbarrow handles from planks, small leather, and long sticks."
+Advanced_Copper_Tools_Bp_WheelHub_CardName,Forged Wheel Hub
+Advanced_Copper_Tools_Bp_WheelHub_CardDescription,Shape a heated copper nugget into a wheel hub at an anvil.
+Advanced_Copper_Tools_Bp_WheelAssembly_CardName,Wheel Assembly
+Advanced_Copper_Tools_Bp_WheelAssembly_CardDescription,Attach a metal hub to a wooden wheel to create a complete wheel assembly.
+Advanced_Copper_Tools_CopperStove_CardName,Small Copper Stove
+Advanced_Copper_Tools_CopperStove_CardDescription,A small copper stove. Can be placed as a fireplace with 2 cooking slots.
+Advanced_Copper_Tools_CopperStove_CardHelpSection,"<b>Crafted:</b> From 4 metal sheets and a cast stove top.\n\n<b>Uses:</b> Place in environment as a fireplace with 2 cooking slots. Accepts oak wood, twigs, or charcoal as fuel. Also a component for the copper bathtub blueprint."
+Advanced_Copper_Tools_Bp_CopperStove_CardName,Small Copper Stove
+Advanced_Copper_Tools_Bp_CopperStove_CardDescription,Assemble a small stove from 4 metal sheets and a cast stove top.
+Advanced_Copper_Tools_Bp_CopperStove_UnlockConditionsDesc,Copper Nugget Needed
+Advanced_Copper_Tools_Bp_CopperBathtub_CardName,Copper Bathtub
+Advanced_Copper_Tools_Bp_CopperBathtub_CardDescription,"Assemble a copper bathtub from a bucket, stove, planks, mud bricks, large cloth, sticks, and leather. Requires a hammer."
+Advanced_Copper_Tools_Bp_CopperBathtub_UnlockConditionsDesc,Wheelbarrow Bucket and Copper Stove Needed
+Advanced_Copper_Tools_CopperBathtub_Empty_CardName,Copper Bathtub Kit
+Advanced_Copper_Tools_CopperBathtub_Empty_CardDescription,An assembled copper bathtub kit. Place it in your camp to set it up then fill with water.
+Advanced_Copper_Tools_CopperBathtub_Empty_Place_ActionName,Place
+Advanced_Copper_Tools_CopperBathtub_Empty_Place_ActionDescription,Place the empty bathtub on the ground.
+Advanced_Copper_Tools_CopperBathtub_Empty_FillRiver_ActionName,Fill from River
+Advanced_Copper_Tools_CopperBathtub_Empty_FillRiver_ActionDescription,Haul water from the river to fill the bathtub.
+Advanced_Copper_Tools_CopperBathtub_Empty_FillWater_ActionName,Fill with Water
+Advanced_Copper_Tools_CopperBathtub_Empty_FillWater_ActionDescription,Fill the bathtub with water from a container.
+Advanced_Copper_Tools_CopperBathtub_Full_CardName,Copper Bathtub (Full)
+Advanced_Copper_Tools_CopperBathtub_Full_CardDescription,A copper bathtub filled with cold water. Add firewood and light it to heat the water.
+Advanced_Copper_Tools_CopperBathtub_Full_FuelCapacity_CardStatName,Fuel
+Advanced_Copper_Tools_CopperBathtub_Full_AddFuel_ActionName,Add Firewood
+Advanced_Copper_Tools_CopperBathtub_Full_AddFuel_ActionDescription,Add fuel to the stove.
+Advanced_Copper_Tools_CopperBathtub_Full_Light_ActionName,Light Fire
+Advanced_Copper_Tools_CopperBathtub_Full_Light_ActionDescription,Light the stove to heat the water.
+Advanced_Copper_Tools_CopperBathtub_Full_ColdBath_ActionName,Take Cold Bath
+Advanced_Copper_Tools_CopperBathtub_Full_ColdBath_ActionDescription,Wash in the cold water. Cleansing but not very comfortable.
+Advanced_Copper_Tools_CopperBathtub_Full_Empty_ActionName,Empty Water
+Advanced_Copper_Tools_CopperBathtub_Full_Empty_ActionDescription,Dump out all the water.
+Advanced_Copper_Tools_CopperBathtub_Warm_CardName,Copper Bathtub (Warm)
+Advanced_Copper_Tools_CopperBathtub_Warm_CardDescription,"A copper bathtub with warm, steaming water. Perfect for a relaxing bath."
+Advanced_Copper_Tools_CopperBathtub_Warm_FuelCapacity_CardStatName,Fuel
+Advanced_Copper_Tools_CopperBathtub_Warm_AddFuel_ActionName,Add Firewood
+Advanced_Copper_Tools_CopperBathtub_Warm_AddFuel_ActionDescription,Add more fuel to keep the water warm.
+Advanced_Copper_Tools_CopperBathtub_Warm_WarmBath_ActionName,Warm Bath
+Advanced_Copper_Tools_CopperBathtub_Warm_WarmBath_ActionDescription,"Soak in the warm water. Very relaxing, cleansing, and warming."
+Advanced_Copper_Tools_CopperBathtub_Warm_Empty_ActionName,Empty Water
+Advanced_Copper_Tools_CopperBathtub_Warm_Empty_ActionDescription,Dump out all the water and extinguish the fire.
+Advanced_Copper_Tools_CopperBathtub_Warm_AddKindling_ActionName,Add Kindling
+Advanced_Copper_Tools_CopperBathtub_Full_AddKindling_ActionName,Add Kindling
+Advanced_Copper_Tools_CopperBathtub_PickUp_ActionName,Pick Up
+Advanced_Copper_Tools_CopperBathtub_PickUp_ActionDescription,Pick up the bathtub to carry it in your inventory.
+Advanced_Copper_Tools_WheelRim_CardName,Wheel Rim
+Advanced_Copper_Tools_WheelRim_CardDescription,A metal outer ring that provides strength and durability to a wheel. Essential for heavy-duty use.
+Advanced_Copper_Tools_WheelRim_CardHelpSection,<b>Crafted:</b> Forged from 3 heated copper nuggets. \n\n<b>Uses:</b> Reinforces wooden wheels for durability.
+Advanced_Copper_Tools_Bp_WheelRim_CardName,Forged Wheel Rim
+Advanced_Copper_Tools_Bp_WheelRim_CardDescription,Hammer a heated lump of metal into a wheel rim.
+Advanced_Copper_Tools_Bp_CastWheelHub_CardName,Cast Wheel Hub
+Advanced_Copper_Tools_Bp_CastWheelHub_CardDescription,Cast a wheel hub using a small molten crucible.
+Advanced_Copper_Tools_Bp_CastWheelHub_UnlockConditionsDesc,Metal Sheet Needed
+Advanced_Copper_Tools_Bp_WheelHub_CardName,Forged Wheel Hub
+Advanced_Copper_Tools_Bp_WheelHub_CardDescription,Hammer 3 heated copper nuggets into a wheel hub.
+Advanced_Copper_Tools_CopperStove_Lit_CardName,Small Copper Stove (Lit)
+Advanced_Copper_Tools_CopperStove_Lit_CardDescription,A lit copper stove. Burns fuel and provides heat for cooking and warming nearby.
+Advanced_Copper_Tools_CopperStove_Lit_CardHelpSection,<b>Usage:</b> A lit stove with 2 cooking slots. Warms you in cold weather. Consumes fuel over time. Goes out when fuel is empty or when manually extinguished.
+Advanced_Copper_Tools_CopperStove_Extinguish_ActionName,Fire Goes Out
+Advanced_Copper_Tools_CopperStove_Extinguish_ActionDescription,The fire goes out.
+Advanced_Copper_Tools_CopperStove_Extinguish_Manual_ActionName,Extinguish
+Advanced_Copper_Tools_CopperStove_Extinguish_Manual_ActionDescription,Put out the fire.
+Advanced_Copper_Tools_CopperStove_WarmUp_ActionName,Warm Up
+Advanced_Copper_Tools_CopperStove_WarmUp_ActionDescription,Warm yourself by the stove.
+Advanced_Copper_Tools_CopperStove_WaitByFire_ActionName,Wait by Fire
+Advanced_Copper_Tools_CopperStove_WaitByFire_ActionDescription,Pass time warming yourself by the stove.
+Advanced_Copper_Tools_CopperStove_LightFire_ActionName,Light Fire
+Advanced_Copper_Tools_CopperStove_LightFire_ActionDescription,Use the stove's flame to light tinder or a campfire.
+Advanced_Copper_Tools_CopperStove_BurnMediumHeat_ActionName,Burn things which burn on medium heat
+Advanced_Copper_Tools_CopperStove_CookCookables_ActionName,Cook Cookables
+Advanced_Copper_Tools_CopperStove_HeatContainers_ActionName,Heat up Cooking and Water Containers and Heatables
+Advanced_Copper_Tools_CopperStove_BoilLiquids_ActionName,Heats up and Boils Liquids
+Advanced_Copper_Tools_CopperStove_Progress_CardStatName,Charcoal
+Advanced_Copper_Tools_CopperStove_Special1_CardStatName,Ash Amount
+Advanced_Copper_Tools_CopperStove_GenerateAsh_ActionName,Generate Ash
+Advanced_Copper_Tools_CopperStove_FeedCharcoal_ActionName,Feed Charcoal
+Advanced_Copper_Tools_CopperStove_TakeCharcoalAsh_ActionName,Take Charcoal and Ash
+Advanced_Copper_Tools_CopperStove_TakeCharcoalAsh_ActionDescription,Collect charcoal and ash from the stove.
+Advanced_Copper_Tools_CopperStove_TakeCharcoalAsh_FailMessage,Charcoal not ready yet.
+Advanced_Copper_Tools_CopperStove_HasItems,Remove items from the stove first.
+Advanced_Copper_Tools_Bp_CopperNails_UnlockConditionsDesc,Copper Nugget Needed
+Advanced_Copper_Tools_Bp_Handles_UnlockConditionsDesc,Metal Sheet Needed
+Advanced_Copper_Tools_Bp_PanBlank_CardDescription,Hammer 4 heated copper nuggets into a pan blank.
+Advanced_Copper_Tools_Bp_PanBlank_CardName,Forged Pan Blank
+Advanced_Copper_Tools_Bp_PanBlank_UnlockConditionsDesc,Copper Nugget Needed
+Advanced_Copper_Tools_Bp_WheelAssembly_UnlockConditionsDesc,Wheel Hub Needed
+Advanced_Copper_Tools_Bp_Wheelbarrow_UnlockConditionsDesc,Wheelbarrow Bucket Needed
+Advanced_Copper_Tools_Bp_WheelbarrowBucket_UnlockConditionsDesc,Metal Sheet Needed
+Advanced_Copper_Tools_Bp_WheelHub_UnlockConditionsDesc,Copper Nugget Needed
+Advanced_Copper_Tools_Bp_WheelRim_UnlockConditionsDesc,Heated Lump of Metal Needed
+Advanced_Copper_Tools_Bucket_CardHelpSection,<b>Crafted:</b> Hammered from 8 metal sheets.\n\n<b>Uses:</b> Component for wheelbarrow or bathtub construction.
+Advanced_Copper_Tools_CastStoveTop_CardDescription,A heavy metal stove top freed from its casting mold.
+Advanced_Copper_Tools_CastStoveTop_CardName,Stove Top
+Advanced_Copper_Tools_CopperBathtub_CollectCharcoal_ActionDescription,Collect charcoal from the bathtub fire.
+Advanced_Copper_Tools_CopperBathtub_CollectCharcoal_ActionName,Collect Charcoal
+Advanced_Copper_Tools_CopperBathtub_CollectCharcoal_FailMessage,Charcoal not ready yet.
+Advanced_Copper_Tools_CopperBathtub_Empty_CardHelpSection,<b>Usage:</b> Use the Place action to set up the bathtub. Once placed fill it with water from a container or river.
+Advanced_Copper_Tools_CopperBathtub_Empty_Placed_CardHelpSection,<b>Usage:</b> Add water from a container to fill the bathtub. You can also pre-load fuel before filling.
+Advanced_Copper_Tools_CopperBathtub_Empty_Dismantle_ActionDescription,Take apart the bathtub to recover all crafting materials.
+Advanced_Copper_Tools_CopperBathtub_Empty_Dismantle_ActionName,Dismantle
+Advanced_Copper_Tools_CopperBathtub_Empty_FeedCharcoal_ActionName,Feed Charcoal
+Advanced_Copper_Tools_CopperBathtub_Empty_FeedFirewood_ActionName,Feed Firewood
+Advanced_Copper_Tools_CopperBathtub_Empty_FeedFuel_ActionName,Feed Fuel
+Advanced_Copper_Tools_CopperBathtub_Empty_FeedFuelWeak_ActionName,Feed Fuel
+Advanced_Copper_Tools_CopperBathtub_Empty_FuelCapacity_CardStatName,Firewood
+Advanced_Copper_Tools_CopperBathtub_Empty_Progress_CardStatName,Charcoal
+Advanced_Copper_Tools_CopperBathtub_Empty_Special1_CardStatName,Ash Amount
+Advanced_Copper_Tools_CopperBathtub_FeedCharcoal_ActionName,Feed Charcoal
+Advanced_Copper_Tools_CopperBathtub_Full_AddFirewood_ActionDescription,Add firewood to heat the bath water.
+Advanced_Copper_Tools_CopperBathtub_Full_AddFirewood_ActionName,Feed Fuel
+Advanced_Copper_Tools_CopperBathtub_Full_CardHelpSection,"<b>Usage:</b> Add firewood to the bathtub, then light it with a fire source to heat the water for a warm bath."
+Advanced_Copper_Tools_CopperBathtub_Full_Placed_CardHelpSection,"<b>Usage:</b> Add firewood to the bathtub, then light it with a fire source to heat the water for a warm bath."
+Advanced_Copper_Tools_CopperBathtub_Full_FeedFirewood_ActionName,Feed Firewood
+Advanced_Copper_Tools_CopperBathtub_Full_Light_FailMessage,Need firewood to light.
+Advanced_Copper_Tools_CopperBathtub_Full_LightTorch_ActionName,Light Fire
+Advanced_Copper_Tools_CopperBathtub_Full_Place_ActionDescription,Place the bathtub in the environment.
+Advanced_Copper_Tools_CopperBathtub_Full_Place_ActionName,Place
+Advanced_Copper_Tools_CopperBathtub_GenerateAsh_ActionName,Generate Ash
+Advanced_Copper_Tools_CopperBathtub_Progress_CardStatName,Charcoal
+Advanced_Copper_Tools_CopperBathtub_Special1_CardStatName,Ash Amount
+Advanced_Copper_Tools_CopperBathtub_Warm_Bath_ActionDescription,"Soak in the warm water. Very relaxing, cleansing, and warming."
+Advanced_Copper_Tools_CopperBathtub_Warm_Bath_ActionName,Warm Bath
+Advanced_Copper_Tools_CopperBathtub_Warm_CardHelpSection,<b>Usage:</b> Take a warm bath to reduce dirtiness and greatly improve mood. Add more firewood to keep it warm longer.
+Advanced_Copper_Tools_CopperBathtub_Warm_Placed_CardHelpSection,<b>Usage:</b> Take a warm bath to reduce dirtiness and greatly improve mood. Add more firewood to keep it warm longer.
+Advanced_Copper_Tools_CopperBathtub_Warm_FeedFirewood_ActionName,Feed Firewood
+Advanced_Copper_Tools_CopperBathtub_Warm_OnZero_ActionDescription,The bath water has cooled down.
+Advanced_Copper_Tools_CopperBathtub_Warm_Place_ActionDescription,Place the bathtub in the environment.
+Advanced_Copper_Tools_CopperBathtub_Warm_Place_ActionName,Place
+Advanced_Copper_Tools_CopperNails_CardHelpSection,<b>Crafted:</b> From a lump of metal using a hammer. \n\n<b>Uses:</b> Construction and crafting materials.
+Advanced_Copper_Tools_CopperStove_Dismantle_ActionDescription,Take apart the stove to recover the metal sheets and cast stove top.
+Advanced_Copper_Tools_CopperStove_Dismantle_ActionName,Dismantle
+Advanced_Copper_Tools_CopperStove_Feed_Twigs_ActionDescription,Add 3 twigs as fuel (24h)
+Advanced_Copper_Tools_CopperStove_Feed_Twigs_ActionName,Feed Twigs
+Advanced_Copper_Tools_CopperStove_Feed_Wood_ActionDescription,Add oak wood as fuel (96h)
+Advanced_Copper_Tools_CopperStove_Feed_Wood_ActionName,Feed Oak Wood
+Advanced_Copper_Tools_CopperStove_Light_ActionDescription,Light the stove with any fire source.
+Advanced_Copper_Tools_CopperStove_Light_ActionName,Light Fire
+Advanced_Copper_Tools_CopperStove_NeedsFuel,The stove needs fuel first.
+Advanced_Copper_Tools_CopperStove_PickUp_ActionDescription,Pick up the stove and carry it.
+Advanced_Copper_Tools_CopperStove_PickUp_ActionName,Pick Up
+Advanced_Copper_Tools_CopperStove_Place_ActionDescription,Place the stove in your environment.
+Advanced_Copper_Tools_CopperStove_Place_ActionName,Place
+Advanced_Copper_Tools_CopperStove_Placed_CardHelpSection,<b>Usage:</b> A placed copper stove functioning as a fireplace with 2 cooking slots. Accepts oak wood, twigs, or charcoal as fuel. Pick up to move.
+Advanced_Copper_Tools_Handles_CardHelpSection,"<b>Crafted:</b> From 3 planks, 2 leather, and 2 long sticks with a knife.\n\n<b>Uses:</b> Component for wheelbarrow construction."
+Advanced_Copper_Tools_Handles_Dismantle_ActionDescription,Take apart the handles to recover the long sticks.
+Advanced_Copper_Tools_Handles_Dismantle_ActionName,Dismantle
+Advanced_Copper_Tools_MetalSheet_CardDescription,"A flat metal sheet, hammered thin."
+Advanced_Copper_Tools_MetalSheet_CardName,Copper Sheet
+Advanced_Copper_Tools_Pan_Shaped_CardDescription,A hammered copper pan. Needs rope and leather to become wearable.
+Advanced_Copper_Tools_Pan_Shaped_CardHelpSection,<b>Needs:</b> Combine with rope and leather to create a wearable cooking pan.
+Advanced_Copper_Tools_Pan_Shaped_CardName,Shaped Copper Pan
+Advanced_Copper_Tools_WheelAssembly_CardHelpSection,<b>Crafted:</b> From metal hub and wooden wheel. \n\n<b>Uses:</b> Component for wheelbarrow construction.
+Advanced_Copper_Tools_WheelAssembly_Dismantle_ActionDescription,Take apart the wheel assembly to recover the rim and hub.
+Advanced_Copper_Tools_WheelAssembly_Dismantle_ActionName,Dismantle
+Advanced_Copper_Tools_WheelAssembly_UsageDurability_CardStatName,Wheel Condition
+Advanced_Copper_Tools_Wheelbarrow_CardHelpSection,"<b>Crafted:</b> From bucket, handles, and wheel assembly.\n\n<b>Uses:</b> Transport heavy loads. Can be dismantled to recover components."
+Advanced_Copper_Tools_Wheelbarrow_Dismantle_ActionDescription,"Take apart the wheelbarrow to recover the bucket, handles, and wheel assembly."
+Advanced_Copper_Tools_Wheelbarrow_Dismantle_ActionName,Dismantle
+Advanced_Copper_Tools_WheelHub_CardDescription,A metal center piece that connects the wooden wheel to the axle. Essential for smooth rotation.
+Advanced_Copper_Tools_WheelHub_CardHelpSection,<b>Crafted:</b> Forged from 3 heated copper nuggets, or cast from a molten crucible. \n\n<b>Uses:</b> Component for wheel assembly.
+Advanced_Copper_Tools_WheelHub_CardName,Wheel Hub
+Advanced_Copper_Tools_Blank_MetalPan_AlternateNames[0].Name,Copper Pan Blank
+Advanced_Copper_Tools_Blank_MetalPan_AlternateNames[1].Name,Ghost Bronze Pan Blank
+Advanced_Copper_Tools_Blank_MetalPan_AlternateNames[2].Name,Tin Pan Blank
+Advanced_Copper_Tools_Blank_MetalPan_AlternateNames[3].Name,Tin Bronze Pan Blank
+Advanced_Copper_Tools_Blank_MetalPan_AlternateNames[4].Name,White Bronze Pan Blank
+Advanced_Copper_Tools_Blank_MetalPan_AlternateNames[5].Name,Heated Copper Pan Blank
+Advanced_Copper_Tools_Blank_MetalPan_AlternateNames[6].Name,Heated Ghost Bronze Pan Blank
+Advanced_Copper_Tools_Blank_MetalPan_AlternateNames[7].Name,Heated Tin Pan Blank
+Advanced_Copper_Tools_Blank_MetalPan_AlternateNames[8].Name,Heated Tin Bronze Pan Blank
+Advanced_Copper_Tools_Blank_MetalPan_AlternateNames[9].Name,Heated White Bronze Pan Blank
+Advanced_Copper_Tools_Blank_MetalPan_CardDescription,Must be struck into shape.
+Advanced_Copper_Tools_Blank_MetalPan_CardInteractions[0].ActionName,Smith
+Advanced_Copper_Tools_Blank_MetalPan_CardName,Heated Metal Pan Blank
+Advanced_Copper_Tools_Blank_MetalPan_FuelCapacity.CardStatName,Temperature
+Advanced_Copper_Tools_Blank_MetalPan_Progress.CardStatName,Smelted
+Advanced_Copper_Tools_Blank_MetalPan_Progress.OnFull.ActionDescription,Pan Blank smelted!
+Advanced_Copper_Tools_Blank_MetalPan_SpecialDurability1.CardStatName,Strikes
+Advanced_Copper_Tools_Blank_MetalPan_SpecialDurability1.OnZero.ActionDescription,Pan Blank Finished!
+Advanced_Copper_Tools_Blank_MetalPan_SpecialDurability2.CardStatName,Metal Quality
+Advanced_Copper_Tools_Blank_MetalPan_SpecialDurability3.CardStatName,Quality
+Advanced_Copper_Tools_Blank_MetalPan_SpecialDurability4.CardStatName,Metal Type
+Bp_CastStoveTop_CardDescription,Cast a stove top mold using a small molten crucible.
+Bp_CastStoveTop_CardName,Cast Stove Top Mold
+Bp_CastStoveTop_UnlockConditionsDesc,Metal Sheet Needed
+Bp_MetalSheet_CardDescription,Hammer a heated lump of metal flat into a copper sheet.
+Bp_MetalSheet_CardName,Metal Sheet
+Bp_MetalSheet_UnlockConditionsDesc,Heated Lump of Metal Needed
+Bp_WearableMetalPan_CardDescription,Attach rope and leather to a shaped pan to make it wearable.
+Bp_WearableMetalPan_CardName,Wearable Metal Pan
+Bp_WearableMetalPan_UnlockConditionsDesc,Shaped Metal Pan Needed
+Advanced_Copper_Tools_Bucket_FuelCapacity.CardStatName,Temperature
+Advanced_Copper_Tools_CastStoveTop_AlternateNames[0].Name,Copper Stove Top
+Advanced_Copper_Tools_CastStoveTop_AlternateNames[1].Name,Ghost Bronze Stove Top
+Advanced_Copper_Tools_CastStoveTop_AlternateNames[2].Name,Tin Stove Top
+Advanced_Copper_Tools_CastStoveTop_AlternateNames[3].Name,Tin Bronze Stove Top
+Advanced_Copper_Tools_CastStoveTop_AlternateNames[4].Name,White Bronze Stove Top
+Advanced_Copper_Tools_CastStoveTop_FuelCapacity.CardStatName,Temperature
+Advanced_Copper_Tools_CastStoveTop_SpecialDurability2.CardStatName,Metal Quality
+Advanced_Copper_Tools_CastStoveTop_SpecialDurability3.CardStatName,Quality
+Advanced_Copper_Tools_CastStoveTop_SpecialDurability4.CardStatName,Metal Type
+Advanced_Copper_Tools_StoveTopMold_CardName,Stove Top Mold
+Advanced_Copper_Tools_StoveTopMold_CardDescription,A cast metal stove top still in its clay mold. Break with a hammer to free the casting.
+Advanced_Copper_Tools_StoveTopMold_AlternateNames[0].Name,Copper Stove Top Mold
+Advanced_Copper_Tools_StoveTopMold_AlternateNames[1].Name,Ghost Bronze Stove Top Mold
+Advanced_Copper_Tools_StoveTopMold_AlternateNames[2].Name,Tin Stove Top Mold
+Advanced_Copper_Tools_StoveTopMold_AlternateNames[3].Name,Tin Bronze Stove Top Mold
+Advanced_Copper_Tools_StoveTopMold_AlternateNames[4].Name,White Bronze Stove Top Mold
+Advanced_Copper_Tools_StoveTopMold_FuelCapacity.CardStatName,Temperature
+Advanced_Copper_Tools_StoveTopMold_SpecialDurability2.CardStatName,Metal Quality
+Advanced_Copper_Tools_StoveTopMold_SpecialDurability3.CardStatName,Quality
+Advanced_Copper_Tools_StoveTopMold_SpecialDurability4.CardStatName,Metal Type
+Advanced_Copper_Tools_StoveTopMold_Break_ActionName,Break Mold
+Advanced_Copper_Tools_StoveTopMold_Break_ActionDescription,Break the clay mold to free the stove top casting.
+Advanced_Copper_Tools_CopperNails_FuelCapacity.CardStatName,Temperature
+GpTag_ClothAny_TabName,Cloth
+Advanced_Copper_Tools_MetalSheet_AlternateNames[0].Name,Copper Sheet
+Advanced_Copper_Tools_MetalSheet_AlternateNames[1].Name,Ghost Bronze Sheet
+Advanced_Copper_Tools_MetalSheet_AlternateNames[2].Name,Tin Sheet
+Advanced_Copper_Tools_MetalSheet_AlternateNames[3].Name,Tin Bronze Sheet
+Advanced_Copper_Tools_MetalSheet_AlternateNames[4].Name,White Bronze Sheet
+Advanced_Copper_Tools_MetalSheet_FuelCapacity.CardStatName,Temperature
+Advanced_Copper_Tools_Shape_MetalPan_AlternateNames[0].Name,Copper Pan Head
+Advanced_Copper_Tools_Shape_MetalPan_AlternateNames[1].Name,Ghost Bronze Pan Head
+Advanced_Copper_Tools_Shape_MetalPan_AlternateNames[2].Name,Tin Pan Head
+Advanced_Copper_Tools_Shape_MetalPan_AlternateNames[3].Name,Tin Bronze Pan Head
+Advanced_Copper_Tools_Shape_MetalPan_AlternateNames[4].Name,White Bronze Pan Head
+Advanced_Copper_Tools_Shape_MetalPan_CardDescription,Ready to be assembled into a wearable pan.
+Advanced_Copper_Tools_Shape_MetalPan_CardName,Shaped Metal Pan Head
+Advanced_Copper_Tools_Shape_MetalPan_FuelCapacity.CardStatName,Temperature
+Advanced_Copper_Tools_Shape_MetalPan_Progress.CardStatName,Smelted
+Advanced_Copper_Tools_Shape_MetalPan_SpecialDurability1.CardStatName,Strikes
+Advanced_Copper_Tools_Shape_MetalPan_SpecialDurability2.CardStatName,Metal Quality
+Advanced_Copper_Tools_Shape_MetalPan_SpecialDurability3.CardStatName,Quality
+Advanced_Copper_Tools_Shape_MetalPan_SpecialDurability4.CardStatName,Metal Type
+Tab_1_Survival_Subtab_2_Support_TabName,Support
+Tab_2_Construction_Subtab_4_Furniture_TabName,Furniture
+Tab_5_MetalAndClay_Subtab_3_MetalCrafts_TabName,Metal Crafts
+Advanced_Copper_Tools_WearableMetalPan_AlternateNames[0].Name,Copper Pan
+Advanced_Copper_Tools_WearableMetalPan_AlternateNames[1].Name,Ghost Bronze Pan
+Advanced_Copper_Tools_WearableMetalPan_AlternateNames[2].Name,Tin Pan
+Advanced_Copper_Tools_WearableMetalPan_AlternateNames[3].Name,Tin Bronze Pan
+Advanced_Copper_Tools_WearableMetalPan_AlternateNames[4].Name,White Bronze Pan
+Advanced_Copper_Tools_WearableMetalPan_CardDescription,A sturdy metal cooking pan with leather and rope straps. Can be worn like a quiver.
+Advanced_Copper_Tools_WearableMetalPan_CardName,Wearable Metal Pan
+Advanced_Copper_Tools_WearableMetalPan_CookingRecipes_Boil_ActionName,Boil
+Advanced_Copper_Tools_WearableMetalPan_CookingRecipes_Burn_ActionName,Slowly Overcook (Burn)
+Advanced_Copper_Tools_WearableMetalPan_CookingRecipes_Cook_ActionName,Cook
+Advanced_Copper_Tools_WearableMetalPan_CookingRecipes_Cook_CannotCookText,Not hot enough
+Advanced_Copper_Tools_WearableMetalPan_Dismantle_ActionDescription,Take apart the wearable pan to recover the shaped metal pan.
+Advanced_Copper_Tools_WearableMetalPan_Dismantle_ActionName,Dismantle
+Advanced_Copper_Tools_WearableMetalPan_FuelCapacity.CardStatName,Temperature
+Advanced_Copper_Tools_WearableMetalPan_SpecialDurability2.CardStatName,Metal Quality
+Advanced_Copper_Tools_WearableMetalPan_SpecialDurability3.CardStatName,Quality
+Advanced_Copper_Tools_WearableMetalPan_SpecialDurability4.CardStatName,Metal Type
+Advanced_Copper_Tools_WearableMetalPan_UsageDurability.CardStatName,Durability
+Advanced_Copper_Tools_WearableMetalPan_UsageDurability.OnZero.ActionDescription,Pan Broken!
+Advanced_Copper_Tools_WheelHub_FuelCapacity.CardStatName,Temperature
+Advanced_Copper_Tools_WheelRim_FuelCapacity.CardStatName,Temperature
+Advanced_Copper_Tools_Perk_BathtubKit_PerkDescription,"Start with all materials needed to build a copper bathtub: bucket, copper stove, 4 planks, 8 mud bricks, 1 large cloth, 4 long sticks, and 3 leather. Also unlocks bathtub blueprint."
+Advanced_Copper_Tools_Perk_BathtubKit_PerkName,Bathtub Kit
+Advanced_Copper_Tools_Perk_BuildingMaterials_PerkDescription,"Start with essential building materials: 10 planks, 10 leather, 10 long sticks, 20 mud bricks, a large cloth, and a spoon auger."
+Advanced_Copper_Tools_Perk_BuildingMaterials_PerkName,Building Materials
+Advanced_Copper_Tools_Perk_CopperBathtub_PerkDescription,Start with a copper bathtub. A luxurious way to stay clean and relax.
+Advanced_Copper_Tools_Perk_CopperBathtub_PerkName,Copper Bathtub
+Advanced_Copper_Tools_Perk_Wheelbarrow_PerkDescription,Start with a sturdy wheelbarrow for hauling heavy loads. Reduces weight of stored items when traveling.
+Advanced_Copper_Tools_Perk_Wheelbarrow_PerkName,Wheelbarrow
+Advanced_Copper_Tools_Perk_WheelbarrowKit_PerkDescription,"Start with all the components needed to assemble a wheelbarrow: bucket, handles, and wheel assembly. Also unlocks all wheelbarrow blueprints."
+Advanced_Copper_Tools_Perk_WheelbarrowKit_PerkName,Wheelbarrow Kit
+eTag_WearablePan_InGameName,Pan
+Advanced_Copper_Tools_Perk_MetalPanTester_PerkDescription,"Start with metal pan crafting materials and completed pans. Includes copper lumps, hammer, wood, rope, leather, and one of each metal type pan."
+Advanced_Copper_Tools_Perk_MetalPanTester_PerkName,Metal Pan
+Advanced_Copper_Tools_CopperBathtub_WaterLevel_CardStatName,Water Level
+Advanced_Copper_Tools_CopperBathtub_Full_RefillRiver_ActionName,Refill from River
+Advanced_Copper_Tools_CopperBathtub_Full_RefillRiver_ActionDescription,Haul more water from the river to refill the bathtub.
+Advanced_Copper_Tools_CopperBathtub_Warm_RefillRiver_ActionName,Refill from River
+Advanced_Copper_Tools_CopperBathtub_Warm_RefillRiver_ActionDescription,Haul more water from the river to refill the warm bathtub.
+Advanced_Copper_Tools_LargeSaw_CardName,Large Copper Saw
+Advanced_Copper_Tools_LargeSaw_CardDescription,A large two-handled saw with a copper blade. Cuts trees much faster than an axe.
+Advanced_Copper_Tools_LargeSaw_CardHelpSection,<b>Crafted:</b> From 2 copper sheets and 2 wood using a hammer.\n\n<b>Uses:</b> Cuts trees faster than an axe. Use as a cutting tool.
+Advanced_Copper_Tools_LargeSaw_UsageDurability.CardStatName,Durability
+Advanced_Copper_Tools_LargeSaw_UsageDurability.OnZero.ActionDescription,Saw Broken!
+Advanced_Copper_Tools_LargeSaw_FuelCapacity.CardStatName,Temperature
+Advanced_Copper_Tools_Bp_LargeSaw_CardName,Large Copper Saw
+Advanced_Copper_Tools_Bp_LargeSaw_CardDescription,Assemble a large saw from copper sheets and wood.
+Advanced_Copper_Tools_Bp_LargeSaw_UnlockConditionsDesc,Metal Sheet Needed
+Advanced_Copper_Tools_Perk_LargeSaw_PerkName,Large Saw
+Advanced_Copper_Tools_Perk_LargeSaw_PerkDescription,Start with a large copper saw for cutting trees quickly.
+Advanced_Copper_Tools_MetalLantern_CardName,Metal Lantern
+Advanced_Copper_Tools_MetalLantern_CardDescription,A durable copper lantern crafted from metal sheets and glass. Burns fuel to provide light.
+Advanced_Copper_Tools_MetalLantern_CardHelpSection,<b>Usage:</b> Add oil or other fuel to keep the lantern lit.
+Advanced_Copper_Tools_MetalLantern_FuelCapacity_CardStatName,Oil
+Advanced_Copper_Tools_Bp_MetalLantern_CardName,Metal Lantern
+Advanced_Copper_Tools_Bp_MetalLantern_CardDescription,Assemble a sturdy copper lantern from a metal sheet and a hammered oilwell reservoir.
+Advanced_Copper_Tools_Bp_MetalLantern_UnlockConditionsDesc,Lantern Oilwell Needed
+Advanced_Copper_Tools_LanternOilwell_CardName,Lantern Oilwell
+Advanced_Copper_Tools_LanternOilwell_CardDescription,A small copper reservoir hammered into a cup shape to hold lamp oil. The fount component of a metal lantern.
+Advanced_Copper_Tools_LanternOilwell_CardHelpSection,"<b>Crafted:</b> Hammered from a single copper sheet.
+
+<b>Uses:</b> Sub-component for crafting a Metal Lantern."
+Advanced_Copper_Tools_LanternOilwell_FuelCapacity.CardStatName,Temperature
+Advanced_Copper_Tools_Bp_LanternOilwell_CardName,Lantern Oilwell
+Advanced_Copper_Tools_Bp_LanternOilwell_CardDescription,"Hammer a copper sheet into a small cup-shaped oil reservoir, wrapped with twine for a wick."
+Advanced_Copper_Tools_Bp_LanternOilwell_UnlockConditionsDesc,Metal Sheet Needed
+Advanced_Copper_Tools_CopperTeaKettle_CardName,Copper Tea Kettle
+Advanced_Copper_Tools_CopperTeaKettle_CardDescription,"A copper kettle for holding and boiling water. Fill with water, then place on a fire or stove to boil it clean for tea."
+Advanced_Copper_Tools_CopperTeaKettle_CardHelpSection,"<b>Usage:</b> Fill with water (clean or dirty), place on fire or stove to heat. Boiling cleans dirty water and prepares it for brewing tea."
+Advanced_Copper_Tools_CopperTeaKettle_FuelCapacity_CardStatName,Temperature
+Advanced_Copper_Tools_Bp_CopperTeaKettle_CardName,Forged Copper Tea Kettle
+Advanced_Copper_Tools_Bp_CopperTeaKettle_CardDescription,Hammer 3 metal sheets into a copper tea kettle for boiling water.
+Advanced_Copper_Tools_Bp_CopperTeaKettle_UnlockConditionsDesc,Metal Sheet Needed
+Advanced_Copper_Tools_TeaBlendingStation_CardName,Tea Station
+Advanced_Copper_Tools_TeaBlendingStation_CardDescription,"A dedicated workbench with six herb-and-grinding slots, a built-in water tank (8 bowls capacity, tracked as Water Charges), and a copper stove. Drag a water container or shallow water source (river, pond) to add a charge. Light the stove to heat the water and speed up herb drying."
+Advanced_Copper_Tools_Bp_TeaBlendingStation_CardName,Tea Station
+Advanced_Copper_Tools_Bp_TeaBlendingStation_CardDescription,"Build a tea station with an integrated copper tea kettle, copper stove, and rotary quern for grinding tea leaves. Requires 2 planks, 4 twine, 1 copper tea kettle, 1 copper stove, 1 rotary quern, and 15 large stones."
+Advanced_Copper_Tools_Bp_TeaBlendingStation_UnlockConditionsDesc,Copper Tea Kettle Needed
+Advanced_Copper_Tools_TeaBlendingStation_CardHelpSection,"<b>Slots (×6):</b> Place fresh herbs — they dry passively over time. Use 'Grind All' to mill every dried or millable item at once. <b>Water Tank:</b> Drag a water container to add a Water Charge (up to 8), or drag a river, pond, or stream card directly (1 charge, 15 min). Drag an empty clay bowl to draw cold water back out. Light the stove to heat the water for tea brewing."
+Advanced_Copper_Tools_TeaBlendingStation_Special1_CardStatName,Ash Amount
+Advanced_Copper_Tools_TeaBlendingStation_Progress_CardStatName,Charcoal
+Advanced_Copper_Tools_TeaBlendingStation_WaterTemp_CardStatName,Water Temp
+Advanced_Copper_Tools_TeaBlendingStation_WaterHot_ActionName,Water is Hot
+Advanced_Copper_Tools_TeaBlendingStation_Feed_Wood_ActionName,Feed Oak Wood
+Advanced_Copper_Tools_TeaBlendingStation_Feed_Wood_ActionDescription,Add oak wood as fuel (96h)
+Advanced_Copper_Tools_TeaBlendingStation_Feed_Twigs_ActionName,Feed Twigs
+Advanced_Copper_Tools_TeaBlendingStation_Feed_Twigs_ActionDescription,Add 3 twigs as fuel (24h)
+Advanced_Copper_Tools_TeaBlendingStation_FeedCharcoal_ActionName,Feed Charcoal
+Advanced_Copper_Tools_TeaBlendingStation_Light_ActionName,Light Fire
+Advanced_Copper_Tools_TeaBlendingStation_Light_ActionDescription,Light the stove with any fire source.
+Advanced_Copper_Tools_TeaBlendingStation_NeedsFuel,The stove needs fuel first.
+Advanced_Copper_Tools_TeaBlendingStation_GrindAll_ActionName,Grind All
+Advanced_Copper_Tools_TeaBlendingStation_GrindAll_ActionDescription,Turn the rotary quern to grind every dried herb or millable root placed on the station.
+Advanced_Copper_Tools_TeaBlendingStation_DryHerbs_ActionName,Dry Herbs (Accelerated, Quality +0.3)
+Advanced_Copper_Tools_TeaBlendingStation_DryHerbsLit_ActionName,Dry Herbs with Heat (Accelerated, Quality +0.3)
+Advanced_Copper_Tools_TeaBlendingStation_PourWaterIn_ActionName,Pour Water In
+Advanced_Copper_Tools_TeaBlendingStation_PourWaterIn_ActionDescription,Pour water from any container into the tank.
+Advanced_Copper_Tools_TeaBlendingStation_FetchShallowWater_ActionName,Fetch from Shallow Water
+Advanced_Copper_Tools_TeaBlendingStation_FetchShallowWater_ActionDescription,"Collect water from a river, pond, or stream to fill the tank (1 charge per action)."
+Advanced_Copper_Tools_TeaBlendingStation_DrawColdWater_ActionName,Draw Cold Water
+Advanced_Copper_Tools_TeaBlendingStation_DrawColdWater_ActionDescription,Fill an empty clay bowl with cold water from the tank.
+Advanced_Copper_Tools_TeaBlendingStation_DrawHotWater_ActionName,Draw Boiled Water
+Advanced_Copper_Tools_TeaBlendingStation_DrawHotWater_ActionDescription,Fill an empty clay bowl with boiled water from the heated tank.
+Advanced_Copper_Tools_TeaBlendingStation_NeedsWater,The water tank is empty — pour some water in first.
+Advanced_Copper_Tools_TeaBlendingStation_NotHotEnough,Either the tank is empty or the water is not hot enough yet.
+Advanced_Copper_Tools_TeaBlendingStation_Dismantle_ActionName,Dismantle
+Advanced_Copper_Tools_TeaBlendingStation_Dismantle_ActionDescription,Break the station down into its main components.
+Advanced_Copper_Tools_TeaBlendingStation_HasItems,Remove items from the station first.
+Advanced_Copper_Tools_TeaBlendingStation_TakeCharcoalAsh_ActionName,Take Charcoal and Ash
+Advanced_Copper_Tools_TeaBlendingStation_TakeCharcoalAsh_ActionDescription,Collect charcoal and ash from the stove.
+Advanced_Copper_Tools_TeaBlendingStation_TakeCharcoalAsh_FailMessage,Charcoal not ready yet.
+Advanced_Copper_Tools_TeaBlendingStation_Lit_CardName,Tea Station (Lit)
+Advanced_Copper_Tools_TeaBlendingStation_Lit_CardDescription,"A lit tea station. The stove burns steadily, heating the built-in water tank. Fresh herbs in the six slots dry rapidly. Drag a water container or shallow water source to add a Water Charge; drag an empty clay bowl to draw boiled water once Water Temp reaches 50%. Fire will go out when fuel runs empty."
+Advanced_Copper_Tools_TeaBlendingStation_Lit_CardHelpSection,"<b>Slots (×6):</b> Herbs dry faster while lit. Use 'Grind All' to mill dried or millable items. <b>Water Tank:</b> Drag a water container or river/pond card to add a Water Charge (max 8). Drag an empty clay bowl to draw boiled water — requires at least 1 Water Charge AND Water Temp ≥ 50%. Consumes fuel over time."
+Advanced_Copper_Tools_TeaBlendingStation_Extinguish_ActionName,Fire Goes Out
+Advanced_Copper_Tools_TeaBlendingStation_Extinguish_ActionDescription,The fire goes out.
+Advanced_Copper_Tools_TeaBlendingStation_GenerateAsh_ActionName,Generate Ash
+Advanced_Copper_Tools_TeaBlendingStation_LightFire_ActionName,Light Fire
+Advanced_Copper_Tools_TeaBlendingStation_LightFire_ActionDescription,Use the stove's flame to light tinder or a campfire.
+Advanced_Copper_Tools_TeaBlendingStation_Extinguish_Manual_ActionName,Extinguish
+Advanced_Copper_Tools_TeaBlendingStation_Extinguish_Manual_ActionDescription,Put out the fire.
+Advanced_Copper_Tools_TeaBlendingStation_PickUp_ActionName,Pick Up
+Advanced_Copper_Tools_TeaBlendingStation_PickUp_ActionDescription,Pack up the station and carry it.
+Advanced_Copper_Tools_TeaBlendingStation_PickUp_FailMessage,Remove items from the station first.
+Advanced_Copper_Tools_TeaStationKit_CardName,Tea Station Kit
+Advanced_Copper_Tools_TeaStationKit_CardDescription,A disassembled tea station packed for transport. Place it in the environment to set it up — six herb slots, an integrated water tank, and a copper stove.
+Advanced_Copper_Tools_TeaStationKit_CardHelpSection,"<b>Usage:</b> Use the Place action to set up the tea station. Fill the water tank by dragging full water bowls onto it, fuel the stove, and light it to heat the water."
+Advanced_Copper_Tools_TeaStationKit_Place_ActionName,Place
+Advanced_Copper_Tools_TeaStationKit_Place_ActionDescription,Set up the tea station in your environment.
+Advanced_Copper_Tools_CopperPantry_CardName,Copper Chest
+Advanced_Copper_Tools_CopperPantry_CardDescription,A sealed copper chest with thick insulated walls. Keeps food dramatically colder, greatly slowing spoilage and keeping animals out.
+Advanced_Copper_Tools_CopperPantry_CardHelpSection,"<b>Spoilage:</b> Slows to 20% of normal rate.
+
+<b>Animal-safe:</b> Yes. Wildlife cannot raid this chest."
+Advanced_Copper_Tools_CopperPantry_Placed_CardHelpSection,"<b>Spoilage:</b> Slows to 20% of normal rate.
+
+<b>Animal-safe:</b> Yes. Wildlife cannot raid this chest."
+Advanced_Copper_Tools_CopperPantry_DismantleActions_Place_ActionName,Place
+Advanced_Copper_Tools_CopperPantry_DismantleActions_Place_ActionDescription,Set the copper chest down in your environment.
+Advanced_Copper_Tools_CopperPantry_DismantleActions_Dismantle_ActionName,Dismantle
+Advanced_Copper_Tools_CopperPantry_DismantleActions_Dismantle_ActionDescription,Take the copper chest apart to recover some of the sheets.
+Advanced_Copper_Tools_CopperPantry_DismantleActions_Dismantle_FailMessage,Empty the chest first.
+Advanced_Copper_Tools_CopperPantryPlaced_DismantleActions_PickUp_ActionName,Pick Up
+Advanced_Copper_Tools_CopperPantryPlaced_DismantleActions_PickUp_ActionDescription,Pick up the copper chest to carry it.
+Advanced_Copper_Tools_CopperPantryPlaced_DismantleActions_PickUp_FailMessage,Empty the chest before picking it up.
+Advanced_Copper_Tools_Bp_CopperPantry_CardName,Copper Chest
+Advanced_Copper_Tools_Bp_CopperPantry_CardDescription,"Build a sealed copper chest with thick insulated walls. Dramatically slows food spoilage and keeps animals out. Requires 4 metal sheets, 4 planks, 6 copper nails, and a hammer."
+Advanced_Copper_Tools_Bp_CopperPantry_UnlockConditionsDesc,Metal Sheet Needed
+Advanced_Copper_Tools_Bp_RenderHempOil_CardName,Render Hemp Seed Oil
+Advanced_Copper_Tools_Bp_RenderHempOil_CardDescription,Cook down hemp seed oil over a fire to produce clean lamp oil.
+Advanced_Copper_Tools_Bp_RenderHempOil_UnlockConditionsDesc,Hemp Seed Oil Needed
+Advanced_Copper_Tools_CopperOilFlask_CardName,Copper Oil Flask
+Advanced_Copper_Tools_CopperOilFlask_CardDescription,A hammered copper flask for storing lamp oil. Holds 6 charges of oil — enough to fully refuel a lantern twice. Drag onto a lantern to pour in one charge.
+Advanced_Copper_Tools_CopperOilFlask_CardHelpSection,"<b>Fill:</b> Drag Oil items onto the flask (4 items = full).
+
+<b>Use:</b> Drag the flask onto a Metal Lantern to pour in one full charge of oil."
+Advanced_Copper_Tools_CopperOilFlask_FuelCapacity_CardStatName,Oil
+Advanced_Copper_Tools_CopperOilFlask_FillOil_ActionName,Fill with Oil
+Advanced_Copper_Tools_CopperOilFlask_FillOil_ActionDescription,Poured oil into the flask.
+Advanced_Copper_Tools_MetalLantern_RefuelFlask_ActionName,Refuel from Flask
+Advanced_Copper_Tools_MetalLantern_RefuelFlask_ActionDescription,Poured oil from the copper flask into the lantern.
+Advanced_Copper_Tools_Bp_CopperOilFlask_CardName,Copper Oil Flask
+Advanced_Copper_Tools_Bp_CopperOilFlask_CardDescription,"Hammer two copper sheets into a sealed flask for storing lamp oil, wrapped with a leather carry strap. Holds enough for two full lantern refills. Requires 2 copper sheets, 1 medium leather, and a hammer."
+Advanced_Copper_Tools_Bp_CopperOilFlask_UnlockConditionsDesc,Metal Sheet Needed
+Advanced_Copper_Tools_Perk_TeaBlendingStation_PerkName,Tea Blending Station
+Advanced_Copper_Tools_Perk_TeaBlendingStation_PerkDescription,"Start with a Tea Blending Station Kit. Place it to set up a 5-slot workstation that passively dries herbs and, once lit, cooks, heats, and boils — perfect for crafting teas and tinctures."
+Advanced_Copper_Tools_TeaBlendingStation_WaterCharges_CardStatName,Water Charges

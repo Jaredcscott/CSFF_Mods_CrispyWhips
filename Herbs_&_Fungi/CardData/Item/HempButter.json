@@ -1,0 +1,375 @@
+{
+    "UniqueID": "herbs_fungi_hemp_butter",
+    "CardType": 0,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_hemp_butter",
+        "LocalizationKey": "Herbs_And_Fungus_HempButter_CardName",
+        "DefaultText": "Hemp Butter"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_hemp_butter",
+        "LocalizationKey": "Herbs_And_Fungus_HempButter_CardDescription",
+        "DefaultText": "Solid hemp-infused fat with activated psychoactive properties. Can be consumed in small, medium, or large doses. Effects are 3x stronger than burning hemp flowers. High doses may trigger anxiety."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_hemp_butter",
+        "LocalizationKey": "Herbs_And_Fungus_HempButter_CardHelpSection",
+        "DefaultText": "<b>Dosing:</b> Choose your dose carefully.\n<b>Mild:</b> Pleasant effects.\n<b>Medium:</b> Strong effects, small anxiety risk.\n<b>High:</b> Very strong effects, high anxiety risk.\n\n<b>Warning:</b> Does not repel mosquitoes like burning does."
+    },
+    "ObjectWeight": 70.0,
+    "TradingValue": 100.0,
+    "AlwaysUpdate": true,
+    "DoesNotPile": false,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HempButter",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [
+        "tag_Preservable",
+        "tag_Quality",
+        "tag_Plateable"
+    ],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "Wax"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_hemp_butter",
+            "LocalizationKey": "Herbs_And_Fungus_HempButter_SpoilageTime_CardStatName",
+            "DefaultText": "Spoilage"
+        },
+        "MaxValue": 3600.0,
+        "RatePerDaytimePoint": 1.0,
+        "HidingOptions": 0,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "HasActionOnFull": true,
+        "ShowPopupOnFull": false,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_hemp_butter",
+                "LocalizationKey": "Herbs_And_Fungus_HempButter_SpoilageTime_OnFull_ActionDescription",
+                "DefaultText": "Hemp Butter Spoiled!"
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransferInventory": true,
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3
+            }
+        },
+        "CountsForTradingValue": false,
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3
+    },
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 3.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_hemp_butter",
+            "LocalizationKey": "Herbs_And_Fungus_HempButter_UsageDurability_CardStatName",
+            "DefaultText": "Doses"
+        },
+        "MaxValue": 3.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 0,
+        "TextDisplay": 2,
+        "NumberPrecision": 0,
+        "HasActionOnZero": true,
+        "ShowPopupOnZero": false,
+        "OnZeroNotification": 1,
+        "OnZero": {
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        },
+        "CountsForTradingValue": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_hemp_butter",
+            "LocalizationKey": "Herbs_And_Fungus_HempButter_SpecialDurability2_CardStatName",
+            "DefaultText": "Quality"
+        },
+        "MaxValue": 192.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 0,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "CountsForTradingValue": true,
+        "OverrideIconWarpData": "Quality",
+        "OverrideIconWarpType": 3
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "PassiveEffects": [
+        {
+            "EffectName": "Cool Down",
+            "FuelRateModifier": {
+                "Active": true,
+                "FloatValue": -100.0
+            }
+        }
+    ],
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_hemp_butter",
+                "LocalizationKey": "Herbs_And_Fungus_HempButter_DismantleActions0_ActionName",
+                "DefaultText": "Consume Mild Dose"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_hemp_butter",
+                "LocalizationKey": "Herbs_And_Fungus_HempButter_DismantleActions0_ActionDescription",
+                "DefaultText": "Eat a small amount. Gentle effects, pleasant experience."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [
+                {
+                    "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 90.0,
+                        "y": 90.0
+                    },
+                    "InstantModifier": true
+                },
+                {
+                    "StatWarpData": "dd178fd8d77a4cf4da8a5311fbc7c912",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 60.0,
+                        "y": 60.0
+                    },
+                    "InstantModifier": true
+                }
+            ],
+            "TemporaryStatModifications": [
+                {
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "RateModifier": {
+                        "x": 1.5,
+                        "y": 1.5
+                    }
+                },
+                {
+                    "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e",
+                    "StatWarpType": 3,
+                    "RateModifier": {
+                        "x": -0.9,
+                        "y": -0.9
+                    }
+                },
+                {
+                    "StatWarpData": "c672b35248e9f2349a084e1514d6c9f8",
+                    "StatWarpType": 3,
+                    "RateModifier": {
+                        "x": 3.0,
+                        "y": 3.0
+                    }
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "ModifyDurability": true,
+                "UsageChange": {
+                    "x": -1.0,
+                    "y": -1.0
+                }
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_hemp_butter",
+                "LocalizationKey": "Herbs_And_Fungus_HempButter_DismantleActions1_ActionName",
+                "DefaultText": "Consume Medium Dose"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_hemp_butter",
+                "LocalizationKey": "Herbs_And_Fungus_HempButter_DismantleActions1_ActionDescription",
+                "DefaultText": "Eat a moderate amount. Strong effects with small risk of anxiety."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [
+                {
+                    "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 180.0,
+                        "y": 180.0
+                    },
+                    "InstantModifier": true
+                },
+                {
+                    "StatWarpData": "dd178fd8d77a4cf4da8a5311fbc7c912",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 120.0,
+                        "y": 120.0
+                    },
+                    "InstantModifier": true
+                },
+                {
+                    "StatWarpData": "dc669e68721974f489b65e30538d0559",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 20.0,
+                        "y": 20.0
+                    },
+                    "InstantModifier": true
+                }
+            ],
+            "TemporaryStatModifications": [
+                {
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "RateModifier": {
+                        "x": 3.0,
+                        "y": 3.0
+                    }
+                },
+                {
+                    "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e",
+                    "StatWarpType": 3,
+                    "RateModifier": {
+                        "x": -1.8,
+                        "y": -1.8
+                    }
+                },
+                {
+                    "StatWarpData": "c672b35248e9f2349a084e1514d6c9f8",
+                    "StatWarpType": 3,
+                    "RateModifier": {
+                        "x": 6.0,
+                        "y": 6.0
+                    }
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "ModifyDurability": true,
+                "UsageChange": {
+                    "x": -2.0,
+                    "y": -2.0
+                }
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_hemp_butter",
+                "LocalizationKey": "Herbs_And_Fungus_HempButter_DismantleActions2_ActionName",
+                "DefaultText": "Consume High Dose"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_hemp_butter",
+                "LocalizationKey": "Herbs_And_Fungus_HempButter_DismantleActions2_ActionDescription",
+                "DefaultText": "Eat the entire portion. Extremely strong effects with HIGH risk of anxiety attack!"
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [
+                {
+                    "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 270.0,
+                        "y": 270.0
+                    },
+                    "InstantModifier": true
+                },
+                {
+                    "StatWarpData": "dd178fd8d77a4cf4da8a5311fbc7c912",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 180.0,
+                        "y": 180.0
+                    },
+                    "InstantModifier": true
+                },
+                {
+                    "StatWarpData": "dc669e68721974f489b65e30538d0559",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 50.0,
+                        "y": 50.0
+                    },
+                    "InstantModifier": true
+                }
+            ],
+            "TemporaryStatModifications": [
+                {
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "RateModifier": {
+                        "x": 4.5,
+                        "y": 4.5
+                    }
+                },
+                {
+                    "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e",
+                    "StatWarpType": 3,
+                    "RateModifier": {
+                        "x": -2.7,
+                        "y": -2.7
+                    }
+                },
+                {
+                    "StatWarpData": "c672b35248e9f2349a084e1514d6c9f8",
+                    "StatWarpType": 3,
+                    "RateModifier": {
+                        "x": 9.0,
+                        "y": 9.0
+                    }
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
+    "OnInteractActions": []
+}

@@ -1,0 +1,141 @@
+{
+    "UniqueID": "herbs_fungi_hemp_stalks",
+    "CardType": 0,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_hemp_stalks",
+        "LocalizationKey": "Herbs_And_Fungus_HempStalks_CardName",
+        "DefaultText": "Hemp Stalks"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_hemp_stalks",
+        "LocalizationKey": "Herbs_And_Fungus_HempStalks_CardDescription",
+        "DefaultText": "Can be processed to extract fibers for crafting."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_hemp_stalks",
+        "LocalizationKey": "Herbs_And_Fungus_HempStalks_CardHelpSection",
+        "DefaultText": "Hemp stalks contain strong fibers that can be extracted and used for making twine, rope, and fabric."
+    },
+    "ObjectWeight": 75.0,
+    "TradingValue": 0.0,
+    "DoesNotPile": false,
+    "DoesNotPinAutomatically": true,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Nettle_Stems",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [
+        "tag_Preservable",
+        "tag_FibersMedium"
+    ],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "GrassAppear"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpecialDurability2": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_hemp_stalks",
+            "LocalizationKey": "Herbs_And_Fungus_HempStalks_SpecialDurability2.CardStatName",
+            "DefaultText": "Quality"
+        },
+        "MaxValue": 96.0,
+        "HidingOptions": 1,
+        "OverrideIconWarpData": "Quality",
+        "OverrideIconWarpType": 3
+    },
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_hemp_stalks",
+                "LocalizationKey": "Herbs_And_Fungus_HempStalks_DismantleActions_Extract.ActionName",
+                "DefaultText": "Extract Fibers"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_hemp_stalks",
+                "LocalizationKey": "Herbs_And_Fungus_HempStalks_DismantleActions_Extract.ActionDescription",
+                "DefaultText": "Separate the fibers from the stalks."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "b8885e78517570b4293c573871625e11",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 4,
+                                "y": 4
+                            },
+                            "FinishUnlocking": false,
+                            "TransferRules": {
+                                "Spoilage": 0,
+                                "Usage": 0,
+                                "Fuel": 0,
+                                "Progress": 0,
+                                "Special1": 0,
+                                "Special2": 1,
+                                "Special3": 0,
+                                "Special4": 0
+                            },
+                            "DropChance": {
+                                "Active": false,
+                                "BaseDropChance": 0.0
+                            }
+                        }
+                    ]
+                }
+            ],
+            "StatModifications": [
+                {
+                    "ValueModifier": {
+                        "x": 2.0,
+                        "y": 2.0
+                    },
+                    "ApplyEachTick": true,
+                    "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+                    "StatWarpType": 3
+                },
+                {
+                    "ValueModifier": {
+                        "x": 5.0,
+                        "y": 5.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+                    "StatWarpType": 3
+                },
+                {
+                    "ValueModifier": {
+                        "x": -2.0,
+                        "y": -2.0
+                    },
+                    "ApplyEachTick": true,
+                    "StatWarpData": "16af37a364285d14586629e3e0700e55",
+                    "StatWarpType": 3
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3
+        }
+    ]
+}

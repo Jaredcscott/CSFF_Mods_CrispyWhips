@@ -1,0 +1,474 @@
+{
+    "UniqueID": "herbs_fungi_lions_mane_dried",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_lions_mane_dried",
+        "LocalizationKey": "Herbs_And_Fungi_LionsManeDried_CardName",
+        "DefaultText": "Dried Lion's Mane"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_lions_mane_dried",
+        "LocalizationKey": "Herbs_And_Fungi_LionsManeDried_CardDescription",
+        "DefaultText": "Carefully dried lion's mane mushroom. The drying process concentrates its medicinal compounds, significantly boosting its immune-enhancing properties."
+    },
+    "CanBeRenamed": false,
+    "AlternateNames": [],
+    "LiquidSuffixName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_lions_mane_dried",
+        "LocalizationKey": "Herbs_And_Fungi_LionsManeDried_CardHelpSection",
+        "DefaultText": "<b>Preservation:</b> Dried for extended shelf life.\n\n<b>Medicinal:</b> Concentrated immune-boosting properties - much stronger than fresh.\n\n<b>Use:</b> Add to soups or grind into powder for maximum benefit."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "LionsManeDried",
+    "CardImageWarpType": 3,
+    "CardBackground": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "ShowImageAboveTitle": false,
+    "CardType": 0,
+    "CannotBeTransferred": false,
+    "NotAutoSolvableEvent": false,
+    "ObjectWeight": 12.0,
+    "TradingValue": 110.0,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Grindable",
+        "tag_Vegetable",
+        "tag_Foraged",
+        "tag_Fungus",
+        "tag_Preservable",
+        "tag_Millable",
+        "tag_Plateable"
+    ],
+    "CardTagsWarpType": 3,
+    "EquipmentTags": [],
+    "MapStructureType": 0,
+    "FlavourTags": [],
+    "SpiceTags": [],
+    "AlwaysUpdate": false,
+    "CannotBeTrashed": false,
+    "DoesNotPile": false,
+    "ToggleablePiling": false,
+    "DoesNotPinAutomatically": false,
+    "WhenCreatedSounds": [],
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_lions_mane_dried",
+            "LocalizationKey": "Herbs_And_Fungi_LionsManeDried_SpoilageTime_CardStatName",
+            "DefaultText": "Freshness"
+        },
+        "RandomStartingOffset": 0.0,
+        "MaxValue": 5760.0,
+        "RatePerDaytimePoint": 1.0,
+        "ExtraRateWhenEquipped": 0.0,
+        "PauseRateWhenEnvWeightIsFull": false,
+        "PauseRateWhenInventoryIsFull": false,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "OverrideIcon": {
+            "m_FileID": 0,
+            "m_PathID": 0
+        },
+        "ResetWhenLoadedAtZero": false,
+        "HasActionOnZero": false,
+        "ShowPopupOnZero": false,
+        "OnZeroNotification": 0,
+        "HasActionOnFull": true,
+        "ShowPopupOnFull": false,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_lions_mane_dried",
+                "LocalizationKey": "Herbs_And_Fungi_LionsManeDried_SpoilageTime_OnFull_ActionDescription",
+                "DefaultText": "Dried Lion's Mane Spoiled!"
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3
+            }
+        },
+        "CountsForTradingValue": false,
+        "TradingValueCustomRanges": [],
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_lions_mane_dried",
+            "LocalizationKey": "Herbs_And_Fungi_LionsManeDried_SpecialDurability3_CardStatName",
+            "DefaultText": "Mill"
+        },
+        "MaxValue": 1.0,
+        "HidingOptions": 2,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "CountsForTradingValue": false,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransferSpoilage": true,
+                "TransformIntoWarpData": "herbs_fungi_lions_mane_ground",
+                "TransformIntoWarpType": 3
+            }
+        }
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "DurabilitySorting": {
+        "SortingList": []
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_lions_mane_dried",
+                "LocalizationKey": "Herbs_And_Fungi_LionsManeDried_Grind",
+                "DefaultText": "Grind"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_lions_mane_dried",
+                "LocalizationKey": "Herbs_And_Fungi_LionsManeDried_Grind_Desc",
+                "DefaultText": "Grind the dried lion's mane into powder using stones or grinding tools."
+            },
+            "DaytimeCost": 1,
+            "StatModifications": [
+                {
+                    "StatWarpData": "85559650c938ef843af92c18f5b0c6c7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 1.0,
+                        "y": 1.0
+                    }
+                },
+                {
+                    "StatWarpData": "16af37a364285d14586629e3e0700e55",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -3.0,
+                        "y": -3.0
+                    },
+                    "ApplyEachTick": true
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransferSpoilage": true,
+                "TransformIntoWarpData": "herbs_fungi_lions_mane_ground",
+                "TransformIntoWarpType": 3
+            },
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "9f657b781d6e789479bcf3e01f7b61d5"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [
+                    "tag_HammeringToolGeneral",
+                    "tag_GrindingTool"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksBothWays": true,
+            "WorksInverted": false,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3
+        }
+    ],
+    "OnStatsChangeActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_lions_mane_dried",
+                "LocalizationKey": "Herbs_And_Fungi_LionsManeDried_OnStatsChangeActions[0]_ActionName",
+                "DefaultText": "Finish Rotary Quern Grinding"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "DaytimeCost": 0,
+            "RequiredReceivingDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "RequiredFuelPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "RequiredProgressPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "RequiredLiquidQuantity": 0.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": true,
+                    "FloatValue": 1.0,
+                    "MaxValue": 1.0
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": []
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransferSpoilage": true,
+                "TransformIntoWarpData": "herbs_fungi_lions_mane_ground",
+                "TransformIntoWarpType": 3
+            },
+            "StatChangeTrigger": [
+                {
+                    "StatWarpData": "a1a2efb9e793dbb4294f48220ff8f11b",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 1000000000.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ]
+        }
+    ],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_lions_mane_dried",
+                "LocalizationKey": "Herbs_And_Fungi_LionsManeDried_DismantleActions_Eat_ActionName",
+                "DefaultText": "Eat Dried"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_lions_mane_dried",
+                "LocalizationKey": "Herbs_And_Fungi_LionsManeDried_DismantleActions_Eat_ActionDescription",
+                "DefaultText": "Eat the dried lion's mane. Chewy but packed with concentrated immune-boosting compounds."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "StackCompatible": false,
+            "ReceivingCardFlavourBonus": true,
+            "ProducedCards": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 18.0,
+                        "y": 18.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 18.0,
+                        "y": 18.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 9.0,
+                        "y": 9.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 48.0,
+                        "y": 48.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "5e303712abfb8134c9cdcc3a15ef563e",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 10.0,
+                        "y": 10.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "322eaed3c37a4cd4b8b088495db6a8ed",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 30.0,
+                        "y": 30.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "3d050c79732f42d4a95ffa8e672ddb7a",
+                    "StatWarpType": 3
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
+    "EquipSlotType": 0
+}

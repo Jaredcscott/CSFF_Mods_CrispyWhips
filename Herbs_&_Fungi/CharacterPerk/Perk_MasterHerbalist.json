@@ -1,0 +1,80 @@
+{
+    "ActionModifiers": [],
+    "ActionObjectives": [],
+    "AddedCards": [],
+    "AddedStartingHours": 0,
+    "CardsOnBoardObjectives": [],
+    "CheckingNotificationDetails": 0,
+    "CompleteOnLose": false,
+    "CompleteOnWin": false,
+    "DebugCompletion": false,
+    "DifficultyRating": -700,
+    "DisplayPriority": 2220.0,
+    "EditorOnly": false,
+    "EquippedCards": [],
+    "EquippedCardsWarpData": [
+        "herbs_fungi_ginseng",
+        "herbs_fungi_ginseng",
+        "herbs_fungi_reishi",
+        "herbs_fungi_reishi",
+        "herbs_fungi_yarrow",
+        "herbs_fungi_yarrow",
+        "herbs_fungi_dried_ginseng",
+        "herbs_fungi_dried_ginseng",
+        "herbs_fungi_dried_reishi",
+        "herbs_fungi_dried_reishi",
+        "herbs_fungi_yarrow_dried",
+        "herbs_fungi_yarrow_dried"
+    ],
+    "EquippedCardsWarpType": 3,
+    "HiddenUntilUnlocked": false,
+    "MoonsCost": 4,
+    "NestedObjectives": [],
+    "NoSafetyMode": false,
+    "NotifyWhenNotChecked": false,
+    "OverrideEnvironment": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "OverrideEquipment": false,
+    "OverrideWeather": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "PassiveStatModifiers": [],
+    "PerkDescription": {
+        "DefaultText": "Start as an experienced herbalist with a full collection of medicinal herbs and roots: Ginseng, Reishi, and Yarrow in both fresh and dried forms. Perfect for tea brewing and potion crafting.",
+        "LocalizationKey": "Herbs_And_Fungi_Perk_MasterHerbalist_PerkDescription",
+        "ParentObjectID": "herbs_fungi_perk_master_herbalist"
+    },
+    "PerkIcon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "PerkIconWarpData": "GinsengFresh",
+    "PerkIconWarpType": 3,
+    "PerkName": {
+        "DefaultText": "Master Herbalist",
+        "LocalizationKey": "Herbs_And_Fungi_Perk_MasterHerbalist_PerkName",
+        "ParentObjectID": "herbs_fungi_perk_master_herbalist"
+    },
+    "PerkUnlockConditions": {
+        "DefaultText": "",
+        "LocalizationKey": "",
+        "ParentObjectID": ""
+    },
+    "PlayedCharacter": [],
+    "RequiredDifficultyScore": {
+        "x": 0,
+        "y": 0
+    },
+    "ResetLockInEditor": false,
+    "StartUnlocked": false,
+    "StartingStatModifiers": [],
+    "StatsObjectives": [],
+    "SunsCost": 0,
+    "TagsOnBoardObjectives": [],
+    "TimeObjectives": [],
+    "UniqueID": "herbs_fungi_perk_master_herbalist",
+    "CharacterPerkPerkGroup": "72120cda8e1cef540b1b25118dd7edaa"
+}

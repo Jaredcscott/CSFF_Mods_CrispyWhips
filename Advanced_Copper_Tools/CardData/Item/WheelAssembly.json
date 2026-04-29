@@ -1,0 +1,191 @@
+{
+  "UniqueID": "advanced_copper_tools_wheel_assembly",
+  "CardName": {
+    "ParentObjectID": "advanced_copper_tools_wheel_assembly",
+    "LocalizationKey": "Advanced_Copper_Tools_WheelAssembly_CardName",
+    "DefaultText": "Wheel Assembly"
+  },
+  "CardDescription": {
+    "ParentObjectID": "advanced_copper_tools_wheel_assembly",
+    "LocalizationKey": "Advanced_Copper_Tools_WheelAssembly_CardDescription",
+    "DefaultText": "A complete wheel with metal hub and wooden wheel. Ready to be attached to a wheelbarrow frame."
+  },
+  "CanBeRenamed": false,
+  "AlternateNames": [],
+  "LiquidSuffixName": {
+    "ParentObjectID": "advanced_copper_tools_wheel_assembly",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "CardHelpSection": {
+    "ParentObjectID": "advanced_copper_tools_wheel_assembly",
+    "LocalizationKey": "Advanced_Copper_Tools_WheelAssembly_CardHelpSection",
+    "DefaultText": "<b>Crafted:</b> From metal hub and wooden wheel. \n\n<b>Uses:</b> Component for wheelbarrow construction."
+  },
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardBackground": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "WheelBarrowWheelAssy",
+  "CardImageWarpType": 3,
+  "ShowImageAboveTitle": false,
+  "CardType": 0,
+  "CannotBeTransferred": false,
+  "NotAutoSolvableEvent": false,
+  "ObjectWeight": 75.0,
+  "TradingValue": 150.0,
+  "CardTags": [],
+  "CardTagsWarpData": [],
+  "CardTagsWarpType": 3,
+  "EquipmentTags": [],
+  "MapStructureType": 0,
+  "FlavourTags": [],
+  "SpiceTags": [],
+  "AlwaysUpdate": false,
+  "CannotBeTrashed": false,
+  "DoesNotPile": false,
+  "ToggleablePiling": false,
+  "DoesNotPinAutomatically": false,
+  "WhenCreatedSounds": [],
+  "WhenCreatedSoundsWarpData": [
+    "Metal"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": true,
+    "FloatValue": 1.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_wheel_assembly",
+      "LocalizationKey": "Advanced_Copper_Tools_WheelAssembly_UsageDurability_CardStatName",
+      "DefaultText": "Wheel Condition"
+    },
+    "RandomStartingOffset": 0.0,
+    "MaxValue": 1000.0,
+    "RatePerDaytimePoint": 0.0,
+    "ExtraRateWhenEquipped": 0.0,
+    "PauseRateWhenEnvWeightIsFull": false,
+    "PauseRateWhenInventoryIsFull": false,
+    "HidingOptions": 1,
+    "TextDisplay": 2,
+    "NumberPrecision": 0,
+    "OverrideIcon": {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    "ResetWhenLoadedAtZero": false,
+    "HasActionOnZero": false,
+    "ShowPopupOnZero": false,
+    "OnZeroNotification": 0,
+    "HasActionOnFull": false,
+    "ShowPopupOnFull": false,
+    "OnFullNotification": 0,
+    "CountsForTradingValue": true,
+    "TradingValueCustomRanges": [],
+    "OverrideIconWarpData": "Shield",
+    "OverrideIconWarpType": 3
+  },
+  "FuelCapacity": {
+    "Active": false
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": false
+  },
+  "SpecialDurability2": {
+    "Active": false
+  },
+  "SpecialDurability3": {
+    "Active": false
+  },
+  "SpecialDurability4": {
+    "Active": false
+  },
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_wheel_assembly",
+        "LocalizationKey": "Advanced_Copper_Tools_WheelAssembly_Dismantle_ActionName",
+        "DefaultText": "Dismantle"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_wheel_assembly",
+        "LocalizationKey": "Advanced_Copper_Tools_WheelAssembly_Dismantle_ActionDescription",
+        "DefaultText": "Take apart the wheel assembly to recover the rim, hub, and wood."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Metal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "advanced_copper_tools_wheel_rim",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "advanced_copper_tools_wheel_hub",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "692afc638c39e32428629da58f56136a",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [],
+  "MaxLiquidCapacity": 0.0,
+  "InventorySlots": [],
+  "BlueprintStages": [],
+  "BlueprintResult": [],
+  "IsWeapon": false,
+  "IsArmor": false
+}

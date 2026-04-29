@@ -1,0 +1,175 @@
+{
+    "UniqueID": "herbs_fungi_bp_hemp_field",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_bp_hemp_field",
+        "LocalizationKey": "Herbs_Fungi_Bp_HempField_CardName",
+        "DefaultText": "Hemp Field"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_bp_hemp_field",
+        "LocalizationKey": "Herbs_Fungi_Bp_HempField_CardDescription",
+        "DefaultText": "Plant hemp seeds to create a field that produces hemp flowers and seeds after 11 days."
+    },
+    "CanBeRenamed": false,
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "herbs_fungi_bp_hemp_field",
+        "LocalizationKey": "Herbs_Fungi_Bp_HempField_UnlockConditionsDesc",
+        "DefaultText": "Unlocked after obtaining a Hemp Seed"
+    },
+    "StartUnlocked": false,
+    "BlueprintUnlockTicksCost": 16.0,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "1",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "CardWarpData": "herbs_fungi_hemp_seeds",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintTagConditions": [
+        {
+            "TriggerTag": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyInHand": false,
+            "NotInHand": false,
+            "ExcludeInventories": false,
+            "Inverted": true,
+            "OnlyEquipped": false,
+            "TriggerTagWarpData": "tag_EnvInfertile",
+            "TriggerTagWarpType": 3
+        }
+    ],
+    "BuildingStatConditions": [
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "TriggerRange": {
+                "x": 10.0,
+                "y": 100.0
+            },
+            "NotifyWhenNotMet": true,
+            "HideAllWhenNotMet": false,
+            "StatWarpData": "79290cafb08e48f4d871704c20e69b1c",
+            "StatWarpType": 3
+        },
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "TriggerRange": {
+                "x": 12.0,
+                "y": 100.0
+            },
+            "NotifyWhenNotMet": true,
+            "HideAllWhenNotMet": false,
+            "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+            "StatWarpType": 3
+        }
+    ],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredCardWarpData": "herbs_fungi_hemp_seeds",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 6,
+                    "DontSpend": false,
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "TransferLiquid": true,
+                        "UsageChange": {
+                            "x": -1.0,
+                            "y": -1.0
+                        }
+                    }
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroupWarpData": "GpTag_Hoe",
+                    "RequiredTabGroupWarpType": 3,
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "UsageChange": {
+                            "x": -3.0,
+                            "y": -3.0
+                        }
+                    }
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "WhenCreatedSoundsWarpData": [
+        "Farming"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BuildSounds": [],
+    "DeconstructSounds": [],
+    "BuildingDaytimeCost": 3,
+    "BuildingMiniTicks": 0,
+    "DeconstructDaytimeCost": 1,
+    "DeconstructMiniTicks": 0,
+    "BlueprintActionTags": [],
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "LegAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "BlueprintDoesntCountForEnvWeight": false,
+    "BPRandomSingleDrop": false,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "DroppedCardWarpData": "herbs_fungi_hemp_field_growing",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintContainerCardChanges": {
+        "ModType": 0
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HempPlant",
+    "CardImageWarpType": 3,
+    "ResearchedNotification": 0
+}

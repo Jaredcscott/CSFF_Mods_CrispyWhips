@@ -1,0 +1,339 @@
+{
+    "UniqueID": "herbs_fungi_dried_reishi",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_dried_reishi",
+        "LocalizationKey": "herbs_fungi_dried_reishi_CardName",
+        "DefaultText": "Dried Reishi"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_dried_reishi",
+        "LocalizationKey": "herbs_fungi_dried_reishi_CardDescription",
+        "DefaultText": "Properly dried reishi mushroom. Can be brewed into medicinal tea or ground into powder."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Grindable",
+        "tag_Vegetable",
+        "tag_Foraged",
+        "tag_Fungus",
+        "tag_Dried",
+        "tag_Millable",
+        "tag_Plateable"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "ReishiDried",
+    "CardImageWarpType": 3,
+    "SpecialDurability3": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_dried_reishi",
+            "LocalizationKey": "herbs_fungi_dried_reishi_SpecialDurability3_CardStatName",
+            "DefaultText": "Mill"
+        },
+        "MaxValue": 1.0,
+        "HidingOptions": 2,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "CountsForTradingValue": false,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransferSpoilage": true,
+                "TransformIntoWarpData": "herbs_fungi_reishi_ground",
+                "TransformIntoWarpType": 3
+            }
+        }
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_dried_reishi",
+                "LocalizationKey": "herbs_fungi_dried_reishi_Grind",
+                "DefaultText": "Grind"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_dried_reishi",
+                "LocalizationKey": "herbs_fungi_dried_reishi_Grind_Desc",
+                "DefaultText": "Grind the dried reishi into powder using stones or grinding tools."
+            },
+            "DaytimeCost": 1,
+            "StatModifications": [
+                {
+                    "StatWarpData": "85559650c938ef843af92c18f5b0c6c7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 1.0,
+                        "y": 1.0
+                    }
+                },
+                {
+                    "StatWarpData": "16af37a364285d14586629e3e0700e55",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -3.0,
+                        "y": -3.0
+                    },
+                    "ApplyEachTick": true
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransferSpoilage": true,
+                "TransformIntoWarpData": "herbs_fungi_reishi_ground",
+                "TransformIntoWarpType": 3
+            },
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "9f657b781d6e789479bcf3e01f7b61d5"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [
+                    "tag_HammeringToolGeneral",
+                    "tag_GrindingTool"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksBothWays": true,
+            "WorksInverted": false,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3
+        }
+    ],
+    "OnStatsChangeActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_dried_reishi",
+                "LocalizationKey": "herbs_fungi_dried_reishi_OnStatsChangeActions[0]_ActionName",
+                "DefaultText": "Finish Rotary Quern Grinding"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "DaytimeCost": 0,
+            "RequiredReceivingDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "RequiredFuelPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "RequiredProgressPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "RequiredLiquidQuantity": 0.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": true,
+                    "FloatValue": 1.0,
+                    "MaxValue": 1.0
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": []
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransferSpoilage": true,
+                "TransformIntoWarpData": "herbs_fungi_reishi_ground",
+                "TransformIntoWarpType": 3
+            },
+            "StatChangeTrigger": [
+                {
+                    "StatWarpData": "a1a2efb9e793dbb4294f48220ff8f11b",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 1000000000.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ]
+        }
+    ],
+    "SpoilageTime": {
+        "ParentObjectID": "herbs_fungi_dried_reishi",
+        "LocalizationKey": "herbs_fungi_dried_reishi_SpoilageTime_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_dried_reishi",
+            "LocalizationKey": "herbs_fungi_dried_reishi_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 86400.0,
+        "RatePerDaytimePoint": 1.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_dried_reishi",
+                "LocalizationKey": "herbs_fungi_dried_reishi_SpoilageTime_Spoiled",
+                "DefaultText": "The dried reishi has crumbled to dust."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_dried_reishi",
+                "LocalizationKey": "herbs_fungi_dried_reishi_Eat",
+                "DefaultText": "Eat"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_dried_reishi",
+                "LocalizationKey": "herbs_fungi_dried_reishi_Eat_Desc",
+                "DefaultText": "Eat the dried reishi. Concentrated medicinal effect."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 3.0,
+                        "y": 3.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": -15.0,
+                        "y": -15.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 45.0,
+                        "y": 45.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "04194353fd841a94ebff8b69af66c8d0",
+                    "StatWarpType": 3
+                }
+            ]
+        }
+    ],
+    "ObjectWeight": 0.1,
+    "MaxStack": 20,
+    "DroppedCardShadow": 1
+}

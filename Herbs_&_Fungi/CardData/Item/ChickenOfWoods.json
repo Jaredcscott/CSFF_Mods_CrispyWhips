@@ -1,0 +1,237 @@
+{
+    "UniqueID": "herbs_fungi_chicken_of_woods",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_chicken_of_woods",
+        "LocalizationKey": "herbs_fungi_chicken_of_woods_CardName",
+        "DefaultText": "Chicken of the Woods"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_chicken_of_woods",
+        "LocalizationKey": "herbs_fungi_chicken_of_woods_CardDescription",
+        "DefaultText": "A bright orange shelf fungus with a texture remarkably similar to chicken. A prized find for any forager."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Vegetable",
+        "tag_Foraged",
+        "tag_Fungus",
+        "tag_Heatable",
+        "tag_Cookable",
+        "tag_Dryable",
+        "tag_HumanFood",
+        "tag_Fermentable",
+        "tag_Plateable"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "ChickenFresh",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "ParentObjectID": "herbs_fungi_chicken_of_woods",
+        "LocalizationKey": "herbs_fungi_chicken_of_woods_SpoilageTime_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_chicken_of_woods",
+            "LocalizationKey": "herbs_fungi_chicken_of_woods_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 2160.0,
+        "RatePerDaytimePoint": 1.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_chicken_of_woods",
+                "LocalizationKey": "herbs_fungi_chicken_of_woods_SpoilageTime_Spoiled",
+                "DefaultText": "The chicken of the woods has spoiled."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "UsageDurability": {
+        "ParentObjectID": "herbs_fungi_chicken_of_woods",
+        "LocalizationKey": "herbs_fungi_chicken_of_woods_UsageDurability_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_chicken_of_woods",
+            "LocalizationKey": "herbs_fungi_chicken_of_woods_UsageDurability_StatName",
+            "DefaultText": "Dry"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 8.0,
+        "RatePerDaytimePoint": 0.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_chicken_of_woods",
+                "LocalizationKey": "herbs_fungi_chicken_of_woods_UsageDurability_Dried",
+                "DefaultText": "The chicken of the woods has dried out."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_dried_chicken_of_woods",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": true
+            }
+        }
+    },
+    "SpecialDurability1": {
+        "ParentObjectID": "herbs_fungi_chicken_of_woods",
+        "LocalizationKey": "herbs_fungi_chicken_of_woods_SpecialDurability1_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_chicken_of_woods",
+            "LocalizationKey": "herbs_fungi_chicken_of_woods_SpecialDurability1_StatName",
+            "DefaultText": "Cook"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 1.5,
+        "RatePerDaytimePoint": 0.0,
+        "RateMultiplier": 1.0,
+        "HidingOptions": 1,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_chicken_of_woods",
+                "LocalizationKey": "herbs_fungi_chicken_of_woods_SpecialDurability1_Cooked",
+                "DefaultText": "The chicken of the woods is perfectly cooked."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_cooked_chicken_of_woods",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_chicken_of_woods",
+                "LocalizationKey": "herbs_fungi_chicken_of_woods_EatRaw",
+                "DefaultText": "Eat Raw"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_chicken_of_woods",
+                "LocalizationKey": "herbs_fungi_chicken_of_woods_EatRaw_Desc",
+                "DefaultText": "Eat raw. Should really be cooked first."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 18.0,
+                        "y": 18.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 18.0,
+                        "y": 18.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 12.0,
+                        "y": 12.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "StatWarpType": 3
+                }
+            ]
+        }
+    ],
+    "ObjectWeight": 0.5,
+    "MaxStack": 5,
+    "DroppedCardShadow": 1
+}

@@ -1,0 +1,72 @@
+{
+    "ActionModifiers": [],
+    "ActionObjectives": [],
+    "AddedCards": [],
+    "AddedStartingHours": 0,
+    "CardsOnBoardObjectives": [],
+    "CheckingNotificationDetails": 0,
+    "CompleteOnLose": false,
+    "CompleteOnWin": false,
+    "DebugCompletion": false,
+    "DifficultyRating": -800,
+    "DisplayPriority": 1900.0,
+    "EditorOnly": false,
+    "EquippedCards": [],
+    "EquippedCardsWarpData": [
+        "herbs_fungi_drying_stack",
+        "herbs_fungi_drying_tray",
+        "herbs_fungi_drying_tray",
+        "herbs_fungi_drying_tray"
+    ],
+    "EquippedCardsWarpType": 3,
+    "HiddenUntilUnlocked": false,
+    "MoonsCost": 0,
+    "NestedObjectives": [],
+    "NoSafetyMode": false,
+    "NotifyWhenNotChecked": false,
+    "OverrideEnvironment": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "OverrideEquipment": false,
+    "OverrideWeather": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "PassiveStatModifiers": [],
+    "PerkDescription": {
+        "DefaultText": "Start with a wooden drying stack (6 slots) and 3 woven drying trays (1 slot each) for preserving herbs, mushrooms, flowers, and meats. Dried items have extended shelf life.",
+        "LocalizationKey": "Herbs_And_Fungi_Perk_DryingKit_PerkDescription",
+        "ParentObjectID": "herbs_fungi_perk_drying_kit"
+    },
+    "PerkIcon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "PerkIconWarpData": "DryingStack",
+    "PerkIconWarpType": 3,
+    "PerkName": {
+        "DefaultText": "Drying Kit",
+        "LocalizationKey": "Herbs_And_Fungi_Perk_DryingKit_PerkName",
+        "ParentObjectID": "herbs_fungi_perk_drying_kit"
+    },
+    "PerkUnlockConditions": {
+        "DefaultText": "",
+        "LocalizationKey": "",
+        "ParentObjectID": ""
+    },
+    "PlayedCharacter": [],
+    "RequiredDifficultyScore": {
+        "x": 0,
+        "y": 0
+    },
+    "ResetLockInEditor": false,
+    "StartUnlocked": false,
+    "StartingStatModifiers": [],
+    "StatsObjectives": [],
+    "SunsCost": 5,
+    "TagsOnBoardObjectives": [],
+    "TimeObjectives": [],
+    "UniqueID": "herbs_fungi_perk_drying_kit",
+    "CharacterPerkPerkGroup": "72120cda8e1cef540b1b25118dd7edaa"
+}

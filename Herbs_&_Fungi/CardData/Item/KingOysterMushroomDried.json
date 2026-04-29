@@ -1,0 +1,282 @@
+{
+    "UniqueID": "herbs_fungi_king_oyster_dried",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_king_oyster_dried",
+        "LocalizationKey": "Herbs_And_Fungi_KingOysterDried_CardName",
+        "DefaultText": "Dried King Oyster"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_king_oyster_dried",
+        "LocalizationKey": "Herbs_And_Fungi_KingOysterDried_CardDescription",
+        "DefaultText": "Dried king oyster mushrooms. The thick stems become dense and chewy when dried, perfect for long-term storage."
+    },
+    "CanBeRenamed": false,
+    "AlternateNames": [],
+    "LiquidSuffixName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_king_oyster_dried",
+        "LocalizationKey": "Herbs_And_Fungi_KingOysterDried_CardHelpSection",
+        "DefaultText": "<b>Preservation:</b> Dried for extended shelf life.\n\n<b>Use:</b> Add to soups and stews for meaty texture, or eat as a chewy snack.\n\n<b>Benefits:</b> Concentrated nutrients and umami flavor."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "DriedKingOyster",
+    "CardImageWarpType": 3,
+    "CardBackground": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "ShowImageAboveTitle": false,
+    "CardType": 0,
+    "CannotBeTransferred": false,
+    "NotAutoSolvableEvent": false,
+    "ObjectWeight": 18.0,
+    "TradingValue": 70.0,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Grindable",
+        "tag_Vegetable",
+        "tag_Foraged",
+        "tag_Fungus",
+        "tag_Preservable",
+        "tag_Plateable"
+    ],
+    "CardTagsWarpType": 3,
+    "EquipmentTags": [],
+    "MapStructureType": 0,
+    "FlavourTags": [],
+    "SpiceTags": [],
+    "AlwaysUpdate": false,
+    "CannotBeTrashed": false,
+    "DoesNotPile": false,
+    "ToggleablePiling": false,
+    "DoesNotPinAutomatically": false,
+    "WhenCreatedSounds": [],
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_king_oyster_dried",
+            "LocalizationKey": "Herbs_And_Fungi_KingOysterDried_SpoilageTime_CardStatName",
+            "DefaultText": "Freshness"
+        },
+        "RandomStartingOffset": 0.0,
+        "MaxValue": 17280.0,
+        "RatePerDaytimePoint": 1.0,
+        "ExtraRateWhenEquipped": 0.0,
+        "PauseRateWhenEnvWeightIsFull": false,
+        "PauseRateWhenInventoryIsFull": false,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "OverrideIcon": {
+            "m_FileID": 0,
+            "m_PathID": 0
+        },
+        "ResetWhenLoadedAtZero": false,
+        "HasActionOnZero": false,
+        "ShowPopupOnZero": false,
+        "OnZeroNotification": 0,
+        "HasActionOnFull": true,
+        "ShowPopupOnFull": false,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_king_oyster_dried",
+                "LocalizationKey": "Herbs_And_Fungi_KingOysterDried_SpoilageTime_OnFull_ActionDescription",
+                "DefaultText": "Dried King Oyster Spoiled!"
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3
+            }
+        },
+        "CountsForTradingValue": false,
+        "TradingValueCustomRanges": [],
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "DurabilitySorting": {
+        "SortingList": []
+    },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_king_oyster_dried",
+                "LocalizationKey": "Herbs_And_Fungi_KingOysterDried_DismantleActions_Eat_ActionName",
+                "DefaultText": "Eat Dried"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_king_oyster_dried",
+                "LocalizationKey": "Herbs_And_Fungi_KingOysterDried_DismantleActions_Eat_ActionDescription",
+                "DefaultText": "Eat the dried king oyster mushroom. Very chewy with intense umami flavor."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "StackCompatible": false,
+            "ReceivingCardFlavourBonus": true,
+            "ProducedCards": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 18.0,
+                        "y": 18.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 18.0,
+                        "y": 18.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 9.0,
+                        "y": 9.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 48.0,
+                        "y": 48.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "5e303712abfb8134c9cdcc3a15ef563e",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 30.0,
+                        "y": 30.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "3d050c79732f42d4a95ffa8e672ddb7a",
+                    "StatWarpType": 3
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
+    "EquipSlotType": 0
+}

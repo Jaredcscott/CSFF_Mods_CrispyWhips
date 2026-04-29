@@ -1,0 +1,30 @@
+{
+    "Tab_1_Survival_Subtab_2_Support_TabName": [
+        "herbs_fungi_bp_herb_pipe",
+        "herbs_fungi_bp_drying_tray",
+        "herbs_fungi_bp_death_cap_ward"
+    ],
+    "Tab_5_MetalAndClay_Subtab_1_Utensils_TabName": [
+        "herbs_fungi_bp_pickling_vat",
+        "herbs_fungi_bp_death_cap_tincture"
+    ],
+    "Tab_2_Construction_Subtab_3_Materials_TabName": [
+        "herbs_fungi_bp_oil_press_legs",
+        "herbs_fungi_bp_oil_press_frame",
+        "herbs_fungi_bp_press_bed_frame",
+        "herbs_fungi_bp_oil_press_screw",
+        "herbs_fungi_bp_oil_press_bag",
+        "herbs_fungi_bp_oil_press_bag_plate",
+        "herbs_fungi_bp_oil_press_utensils",
+        "herbs_fungi_bp_oil_press_bag_prepared"
+    ],
+    "Tab_6_Farming_Subtab_1_Agriculture_TabName": [
+        "herbs_fungi_bp_hemp_field",
+        "herbs_fungi_bp_hemp_plant"
+    ],
+    "Tab_2_Construction_Subtab_4_Furniture_TabName": [
+        "herbs_fungi_bp_wooden_pantry",
+        "herbs_fungi_bp_drying_stack",
+        "herbs_fungi_bp_oil_press_kit"
+    ]
+}

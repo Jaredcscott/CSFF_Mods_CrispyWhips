@@ -1,0 +1,302 @@
+{
+    "UniqueID": "herbs_fungi_hemp_seeds",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_hemp_seeds",
+        "LocalizationKey": "Herbs_And_Fungus_HempSeeds_CardName",
+        "DefaultText": "Hemp Seeds"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_hemp_seeds",
+        "LocalizationKey": "Herbs_And_Fungus_HempSeeds_CardDescription",
+        "DefaultText": "Nutritious seeds from hemp plants. Can be eaten raw, pressed for oil, or planted to grow hemp fiber."
+    },
+    "CanBeRenamed": false,
+    "AlternateNames": [],
+    "LiquidSuffixName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_hemp_seeds",
+        "LocalizationKey": "Herbs_And_Fungus_HempSeeds_CardHelpSection",
+        "DefaultText": "<b>Found:</b> Character creation perk. \n\n<b>Uses:</b> Food source, oil production, fiber cultivation."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardBackground": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "hempSeed",
+    "CardImageWarpType": 3,
+    "ShowImageAboveTitle": false,
+    "CardType": 0,
+    "CannotBeTransferred": false,
+    "NotAutoSolvableEvent": false,
+    "ObjectWeight": 20.0,
+    "TradingValue": 30.0,
+    "CardTags": [],
+    "EquipmentTags": [],
+    "MapStructureType": 0,
+    "FlavourTags": [],
+    "SpiceTags": [],
+    "AlwaysUpdate": true,
+    "CannotBeTrashed": false,
+    "DoesNotPile": false,
+    "ToggleablePiling": false,
+    "DoesNotPinAutomatically": false,
+    "WhenCreatedSounds": [],
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_hemp_seeds",
+            "LocalizationKey": "Herbs_And_Fungus_HempSeeds_SpoilageTime_CardStatName",
+            "DefaultText": "Spoilage"
+        },
+        "RandomStartingOffset": 0.0,
+        "MaxValue": 20160.0,
+        "RatePerDaytimePoint": 1.0,
+        "ExtraRateWhenEquipped": 0.0,
+        "PauseRateWhenEnvWeightIsFull": false,
+        "PauseRateWhenInventoryIsFull": false,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "OverrideIcon": {
+            "m_FileID": 0,
+            "m_PathID": 0
+        },
+        "ResetWhenLoadedAtZero": false,
+        "HasActionOnZero": false,
+        "ShowPopupOnZero": false,
+        "OnZeroNotification": 0,
+        "HasActionOnFull": true,
+        "ShowPopupOnFull": false,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_hemp_seeds",
+                "LocalizationKey": "Herbs_And_Fungus_HempSeeds_SpoilageTime_OnFull_ActionDescription",
+                "DefaultText": "Hemp Seeds Spoiled!"
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3
+            }
+        },
+        "CountsForTradingValue": false,
+        "TradingValueCustomRanges": [],
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "DurabilitySorting": {
+        "SortingList": []
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_hemp_seeds",
+                "LocalizationKey": "Herbs_And_Fungus_HempSeeds_CardInteractions_Add_ActionName",
+                "DefaultText": "Add"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_hemp_seeds",
+                "LocalizationKey": "Herbs_And_Fungus_HempSeeds_CardInteractions_Add_ActionDescription",
+                "DefaultText": "Plant a single hemp seed in a garden plot to grow an individual plant."
+            },
+            "DaytimeCost": 1,
+            "StackCompatible": false,
+            "RequiredCardsOnBoard": [],
+            "RequiredReceivingContainer": [],
+            "RequiredReceivingContainerWarpData": [
+                "f853a0a8ad6c64c4b81eabb8367c0c5c"
+            ],
+            "RequiredReceivingContainerWarpType": 3,
+            "RequiredReceivingContainerTag": [],
+            "RequiredReceivingContainerDurabilities": {
+                "HideActionIfNotMet": false
+            },
+            "RequiredReceivingDurabilities": {
+                "HideActionIfNotMet": false
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 1
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_hemp_seeds",
+                "LocalizationKey": "Herbs_And_Fungus_HempSeeds_CardInteractions_Plant_ActionName",
+                "DefaultText": "Plant"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_hemp_seeds",
+                "LocalizationKey": "Herbs_And_Fungus_HempSeeds_CardInteractions_Plant_ActionDescription",
+                "DefaultText": "Plant 4 hemp seeds in a tilled field to start growing a hemp crop."
+            },
+            "DaytimeCost": 2,
+            "StackCompatible": true,
+            "RequiredCardsOnBoard": [],
+            "RequiredReceivingContainer": [],
+            "RequiredReceivingContainerWarpData": [
+                "9068f2758996ba84c858e5936a6c2a27"
+            ],
+            "RequiredReceivingContainerWarpType": 3,
+            "RequiredReceivingContainerTag": [],
+            "RequiredReceivingContainerDurabilities": {
+                "HideActionIfNotMet": false
+            },
+            "RequiredReceivingDurabilities": {
+                "HideActionIfNotMet": false
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "herbs_fungi_hemp_field_growing",
+                "TransformIntoWarpType": 3
+            }
+        }
+    ],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_hemp_seeds",
+                "LocalizationKey": "Herbs_And_Fungus_HempSeeds_DismantleActions_Eat_ActionName",
+                "DefaultText": "Eat"
+            },
+            "ActionSounds": [],
+            "ActionTags": [],
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [
+                {
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 18.0,
+                        "y": 18.0
+                    }
+                },
+                {
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 30.0,
+                        "y": 30.0
+                    }
+                },
+                {
+                    "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 14.0,
+                        "y": 14.0
+                    }
+                },
+                {
+                    "StatWarpData": "9824a150f7bc85f4384a0ed026a69f0a",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 12.0,
+                        "y": 12.0
+                    }
+                }
+            ],
+            "InterpolatedStatModifications": [
+                {
+                    "InputDurability": 1,
+                    "OutputStatWarpData": "1a8d37787d69c9b4aa05d332921f3763",
+                    "OutputStatWarpType": 3,
+                    "Value": {
+                        "Active": true,
+                        "InputValueRange": {
+                            "x": 0.0,
+                            "y": 120.0
+                        },
+                        "OutputValueRange": {
+                            "x": 0.0,
+                            "y": 20.0
+                        },
+                        "WhenOutOfRange": 1
+                    }
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_hemp_seeds",
+                "LocalizationKey": "Herbs_And_Fungus_HempSeeds_DismantleActions_Roast_ActionName",
+                "DefaultText": "Roast"
+            },
+            "ActionSounds": [],
+            "ActionTags": [],
+            "DaytimeCost": 12,
+            "RequiredCardsOnBoard": [],
+            "RequiredReceivingContainerTag": [],
+            "RequiredReceivingContainerTagWarpData": [
+                "tag_Fire"
+            ],
+            "RequiredReceivingContainerTagWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransferSpoilage": true,
+                "SpoilageTransferScale": {
+                    "Active": true,
+                    "FloatValue": 0.5
+                },
+                "TransformIntoWarpData": "herbs_fungi_hemp_seeds_roasted",
+                "TransformIntoWarpType": 3
+            }
+        }
+    ],
+    "CardTagsWarpData": [
+        "tag_Preservable",
+        "tag_Feed",
+        "tag_Gardenable",
+        "tag_Plantable",
+        "tag_Seed",
+        "tag_Plateable",
+        "tag_Fermentable"
+    ],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "GrassAppear"
+    ],
+    "WhenCreatedSoundsWarpType": 3
+}

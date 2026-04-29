@@ -1,0 +1,181 @@
+{
+  "UniqueID": "advanced_copper_tools_wheelbarrow",
+  "CardName": {
+    "ParentObjectID": "advanced_copper_tools_wheelbarrow",
+    "LocalizationKey": "Advanced_Copper_Tools_Wheelbarrow_CardName",
+    "DefaultText": "Wheelbarrow"
+  },
+  "CardDescription": {
+    "ParentObjectID": "advanced_copper_tools_wheelbarrow",
+    "LocalizationKey": "Advanced_Copper_Tools_Wheelbarrow_CardDescription",
+    "DefaultText": "A sturdy wheelbarrow for hauling heavy loads."
+  },
+  "CanBeRenamed": false,
+  "AlternateNames": [],
+  "LiquidSuffixName": {
+    "ParentObjectID": "advanced_copper_tools_wheelbarrow",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "CardHelpSection": {
+    "ParentObjectID": "advanced_copper_tools_wheelbarrow",
+    "LocalizationKey": "Advanced_Copper_Tools_Wheelbarrow_CardHelpSection",
+    "DefaultText": "<b>Crafted:</b> From bucket, handles, and wheel assembly.\n\n<b>Uses:</b> Transport heavy loads. Can be dismantled to recover components."
+  },
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardBackground": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "WheelBarrowCP",
+  "CardImageWarpType": 3,
+  "ShowImageAboveTitle": false,
+  "CardType": 0,
+  "CannotBeTransferred": false,
+  "NotAutoSolvableEvent": false,
+  "ObjectWeight": 200.0,
+  "TradingValue": 800.0,
+  "CardTags": [],
+  "CardTagsWarpData": [],
+  "CardTagsWarpType": 3,
+  "EquipmentTags": [],
+  "EquipmentTagsWarpData": [],
+  "EquipmentTagsWarpType": 3,
+  "MapStructureType": 0,
+  "FlavourTags": [],
+  "SpiceTags": [],
+  "AlwaysUpdate": false,
+  "CannotBeTrashed": false,
+  "DoesNotPile": true,
+  "ToggleablePiling": false,
+  "DoesNotPinAutomatically": false,
+  "CanDragItemsToTravel": true,
+  "WhenCreatedSounds": [],
+  "WhenCreatedSoundsWarpData": [
+    "Metal"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": false
+  },
+  "FuelCapacity": {
+    "Active": false
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": false
+  },
+  "SpecialDurability2": {
+    "Active": false
+  },
+  "SpecialDurability3": {
+    "Active": false
+  },
+  "SpecialDurability4": {
+    "Active": false
+  },
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_wheelbarrow",
+        "LocalizationKey": "Advanced_Copper_Tools_Wheelbarrow_Dismantle_ActionName",
+        "DefaultText": "Dismantle"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_wheelbarrow",
+        "LocalizationKey": "Advanced_Copper_Tools_Wheelbarrow_Dismantle_ActionDescription",
+        "DefaultText": "Take apart the wheelbarrow to recover the bucket, handles, and wheel assembly."
+      },
+      "DaytimeCost": 4,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Metal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "advanced_copper_tools_bucket",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "advanced_copper_tools_handles",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "advanced_copper_tools_wheel_assembly",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [],
+  "MaxLiquidCapacity": 0.0,
+  "InventoryIsHidden": false,
+  "IsMiniInventory": false,
+  "CannotPutItemsIn": false,
+  "CannotTakeItemsOut": false,
+  "MaxWeightCapacity": 13500.0,
+  "ContentWeightReduction": -13500.0,
+  "InventorySlots": [],
+  "InventoryFilter": {
+    "AcceptedCards": [],
+    "AcceptedTypes": [],
+    "AcceptedTags": [],
+    "NOTAcceptedCards": [],
+    "NOTAcceptedTypes": [],
+    "NOTAcceptedTags": [],
+    "CardFilters": [],
+    "TagFilters": []
+  },
+  "SpillsInventoryOnDestroy": true,
+  "BlueprintStages": [],
+  "BlueprintResult": [],
+  "IsWeapon": false,
+  "IsArmor": false
+}

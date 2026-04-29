@@ -1,0 +1,151 @@
+{
+    "UniqueID": "advanced_copper_tools_bp_metal_sheet",
+    "CardName": {
+        "ParentObjectID": "advanced_copper_tools_bp_metal_sheet",
+        "LocalizationKey": "Bp_MetalSheet_CardName",
+        "DefaultText": "Metal Sheet"
+    },
+    "CardDescription": {
+        "ParentObjectID": "advanced_copper_tools_bp_metal_sheet",
+        "LocalizationKey": "Bp_MetalSheet_CardDescription",
+        "DefaultText": "Hammer a heated lump of metal flat into a copper sheet."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "advanced_copper_tools_bp_metal_sheet",
+        "LocalizationKey": "Bp_MetalSheet_UnlockConditionsDesc",
+        "DefaultText": "Heated Lump of Metal Needed"
+    },
+    "BuildingStatConditions": [],
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasMetalLump",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "CardWarpData": "14f7ddfe60496b54881d5a25de8abb20",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "Fuel": {
+                        "Active": true,
+                        "FloatValue": 150.0,
+                        "MaxValue": 300.0
+                    },
+                    "DontSpend": false,
+                    "LiquidBecomesResult": false,
+                    "AffectResultDurabilities": {
+                        "MaskValue": 448
+                    },
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "TransferLiquid": true,
+                        "ModifyLiquid": true
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredCardWarpData": "14f7ddfe60496b54881d5a25de8abb20",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "UsageChange": {
+                            "x": -8.0,
+                            "y": -8.0
+                        }
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroupWarpData": "GpTag_HammeringToolGeneral",
+                    "RequiredTabGroupWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 2,
+    "DeconstructDaytimeCost": 0,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "TransferRules": {
+                "TransferSpoilage": false,
+                "TransferUsage": false,
+                "TransferFuel": false,
+                "TransferCharges": false,
+                "TransferSpecial1": false,
+                "TransferSpecial2": true,
+                "TransferSpecial3": true,
+                "TransferSpecial4": true
+            },
+            "DroppedCardWarpData": "advanced_copper_tools_metal_sheet",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": [
+        "Metal"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "MetalSheet_Copper",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 8.0,
+    "ResearchedNotification": 0
+}

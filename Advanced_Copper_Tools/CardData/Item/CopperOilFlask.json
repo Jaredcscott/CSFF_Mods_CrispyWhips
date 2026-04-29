@@ -1,0 +1,181 @@
+{
+  "UniqueID": "advanced_copper_tools_copper_oil_flask",
+  "CardName": {
+    "ParentObjectID": "advanced_copper_tools_copper_oil_flask",
+    "LocalizationKey": "Advanced_Copper_Tools_CopperOilFlask_CardName",
+    "DefaultText": "Copper Oil Flask"
+  },
+  "CardDescription": {
+    "ParentObjectID": "advanced_copper_tools_copper_oil_flask",
+    "LocalizationKey": "Advanced_Copper_Tools_CopperOilFlask_CardDescription",
+    "DefaultText": "A hammered copper flask for storing lamp oil. Holds 6 charges of oil — enough to fully refuel a lantern twice. Drag onto a lantern to pour in one charge."
+  },
+  "CanBeRenamed": false,
+  "AlternateNames": [],
+  "LiquidSuffixName": {
+    "ParentObjectID": "advanced_copper_tools_copper_oil_flask",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "CardHelpSection": {
+    "ParentObjectID": "advanced_copper_tools_copper_oil_flask",
+    "LocalizationKey": "Advanced_Copper_Tools_CopperOilFlask_CardHelpSection",
+    "DefaultText": "<b>Fill:</b> Drag Oil items onto the flask (6 items = full).\n\n<b>Use:</b> Drag the flask onto a Metal Lantern to transfer one charge of oil per drag."
+  },
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardBackground": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "Copper_Oil_Flask",
+  "CardImageWarpType": 3,
+  "ShowImageAboveTitle": false,
+  "CardType": 0,
+  "CannotBeTransferred": false,
+  "NotAutoSolvableEvent": false,
+  "ObjectWeight": 150.0,
+  "TradingValue": 120.0,
+  "CardTags": [],
+  "CardTagsWarpData": [
+    "tag_Metal",
+    "tag_CopperSmall",
+    "tag_Preservable"
+  ],
+  "CardTagsWarpType": 3,
+  "EquipmentTags": [],
+  "EquipmentTagsWarpData": [],
+  "EquipmentTagsWarpType": 3,
+  "MapStructureType": 0,
+  "FlavourTags": [],
+  "SpiceTags": [],
+  "AlwaysUpdate": false,
+  "CannotBeTrashed": false,
+  "DoesNotPile": true,
+  "ToggleablePiling": false,
+  "DoesNotPinAutomatically": false,
+  "WhenCreatedSounds": [],
+  "WhenCreatedSoundsWarpData": [
+    "Metal"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": false
+  },
+  "FuelCapacity": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_copper_oil_flask",
+      "LocalizationKey": "Advanced_Copper_Tools_CopperOilFlask_FuelCapacity_CardStatName",
+      "DefaultText": "Oil"
+    },
+    "MaxValue": 144.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 0,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "ShowPopupOnZero": false,
+    "HasActionOnFull": false,
+    "ShowPopupOnFull": false,
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Hot",
+    "OverrideIconWarpType": 3
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": false
+  },
+  "SpecialDurability2": {
+    "Active": false
+  },
+  "SpecialDurability3": {
+    "Active": false
+  },
+  "SpecialDurability4": {
+    "Active": false
+  },
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_copper_oil_flask",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperOilFlask_FillOil_ActionName",
+        "DefaultText": "Fill with Oil"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_copper_oil_flask",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperOilFlask_FillOil_ActionDescription",
+        "DefaultText": "Poured oil into the flask."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Drink"
+      ],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "advanced_copper_tools_oil"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "StackCompatible": true,
+      "DontCloseInspectionWindow": false,
+      "AppearsOnCardsInInventory": false,
+      "StatModifications": [],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "FuelChange": {
+          "x": 24.0,
+          "y": 24.0
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1},
+              "FinishUnlocking": false,
+              "DropChance": {"Active": false, "BaseDropChance": 0.0}
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "DismantleActions": [],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [],
+  "MaxLiquidCapacity": 0.0,
+  "InventorySlots": [],
+  "InventorySlotsWarpData": [],
+  "InventorySlotsWarpType": 3,
+  "BlueprintStages": [],
+  "BlueprintResult": [],
+  "IsWeapon": false,
+  "IsArmor": false,
+  "MaxStack": 1,
+  "DroppedCardShadow": 1
+}

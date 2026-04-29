@@ -1,0 +1,112 @@
+{
+    "UniqueID": "advanced_copper_tools_bp_oil",
+    "CardName": {
+        "ParentObjectID": "advanced_copper_tools_bp_oil",
+        "LocalizationKey": "Advanced_Copper_Tools_Bp_Oil_CardName",
+        "DefaultText": "Rendered Oil"
+    },
+    "CardDescription": {
+        "ParentObjectID": "advanced_copper_tools_bp_oil",
+        "LocalizationKey": "Advanced_Copper_Tools_Bp_Oil_CardDescription",
+        "DefaultText": "Render 2 animal fat in a clay bowl over a fire to produce cooking oil and lamp fuel."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "advanced_copper_tools_bp_oil",
+        "LocalizationKey": "Advanced_Copper_Tools_Bp_Oil_UnlockConditionsDesc",
+        "DefaultText": "Animal Fat Needed"
+    },
+    "BuildingStatConditions": [],
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasFat",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "CardWarpData": "0eb3634f696991b4d97b91626270e035",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "0eb3634f696991b4d97b91626270e035",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 4,
+    "DeconstructDaytimeCost": 0,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "DroppedCardWarpData": "advanced_copper_tools_oil",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": [
+        "SmallObject_A"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Fat",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 8.0,
+    "ResearchedNotification": 0
+}

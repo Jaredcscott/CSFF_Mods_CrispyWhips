@@ -1,0 +1,205 @@
+{
+    "UniqueID": "herbs_fungi_herb_pipe_frostleaf",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_herb_pipe_frostleaf",
+        "LocalizationKey": "Herbs_And_Fungus_HerbPipeFrostleaf_CardName",
+        "DefaultText": "Herb Pipe (Frostleaf)"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_herb_pipe_frostleaf",
+        "LocalizationKey": "Herbs_And_Fungus_HerbPipeFrostleaf_CardDescription",
+        "DefaultText": "A carved wooden pipe loaded with frostleaf powder. Ready to smoke."
+    },
+    "CardType": 0,
+    "ObjectWeight": 50.0,
+    "TradingValue": 105.0,
+    "DoesNotPile": false,    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+
+    "CardImageWarpData": "HerbPipe",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": ["tag_Preservable"],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": ["Wood"],
+    "WhenCreatedSoundsWarpType": 3,
+    "UsageDurability": {"Active": false},
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": true,
+        "FloatValue": 99.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_herb_pipe_frostleaf",
+            "LocalizationKey": "Herbs_And_Fungus_HerbPipeFrostleaf_SpecialDurability2_CardStatName",
+            "DefaultText": "Quality"
+        },
+        "MaxValue": 99.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 0,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "CountsForTradingValue": true,
+        "OverrideIconWarpData": "Quality",
+        "OverrideIconWarpType": 3,
+        "HasActionOnZero": true,
+        "OnZero": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_herb_pipe_frostleaf",
+                "LocalizationKey": "Herbs_And_Fungus_HerbPipeFrostleaf_OnZero",
+                "DefaultText": "Pipe Empty!"
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "herbs_fungi_herb_pipe",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1},
+                            "FinishUnlocking": false,
+                            "DropChance": {"Active": false, "BaseDropChance": 0.0}
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_herb_pipe_frostleaf",
+                "LocalizationKey": "Herbs_And_Fungus_HerbPipeFrostleaf_CardInteractions0_ActionName",
+                "DefaultText": "Smoke Frostleaf"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_herb_pipe_frostleaf",
+                "LocalizationKey": "Herbs_And_Fungus_HerbPipeFrostleaf_CardInteractions0_ActionDescription",
+                "DefaultText": "Light and smoke the frostleaf. Cool and refreshing effects."
+            },
+            "DaytimeCost": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": ["tag_FireSource"],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": false,
+            "WorksBothWays": true,
+            "GivenCardChanges": {
+                "ModType": 0
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "Special2Change": {
+                    "x": -33.0,
+                    "y": -33.0
+                }
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 20.0,
+                        "y": 30.0
+                    },
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                },
+                {
+                    "StatWarpData": "dd178fd8d77a4cf4da8a5311fbc7c912",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 35.0,
+                        "y": 45.0
+                    },
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ],
+            "InterpolatedStatModifications": [
+                {
+                    "InputDurability": 1,
+                    "OutputStatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
+                    "OutputStatWarpType": 3,
+                    "Value": {
+                        "Active": true,
+                        "InputValueRange": {
+                            "x": 0.0,
+                            "y": 96.0
+                        },
+                        "OutputValueRange": {
+                            "x": 0.0,
+                            "y": 15.0
+                        },
+                        "WhenOutOfRange": 1
+                    }
+                }
+            ]
+        }
+    ],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_herb_pipe_frostleaf",
+                "LocalizationKey": "Herbs_And_Fungus_HerbPipeFrostleaf_DismantleActions0_ActionName",
+                "DefaultText": "Empty Pipe"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_herb_pipe_frostleaf",
+                "LocalizationKey": "Herbs_And_Fungus_HerbPipeFrostleaf_DismantleActions0_ActionDescription",
+                "DefaultText": "Dump out the frostleaf powder without smoking it."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_herb_pipe",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": true,
+                "TransferDurability": true,
+                "TransferSpecial2": true
+            }
+        }
+    ],
+    "PassiveStatEffects": [],
+    "PassiveEffects": []
+}

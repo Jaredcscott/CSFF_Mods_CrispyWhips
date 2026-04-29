@@ -1,0 +1,82 @@
+{
+    "UniqueID": "herbs_fungi_oil_press",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_oil_press",
+        "LocalizationKey": "Herbs_And_Fungi_OilPress_CardName",
+        "DefaultText": "Oil Press"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_oil_press",
+        "LocalizationKey": "Herbs_And_Fungi_OilPress_CardDescription",
+        "DefaultText": "A mechanical oil press for extracting oil. Open the Recipes tab to press hemp seeds, a truffle, or fresh herbs into oil."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_oil_press",
+        "LocalizationKey": "Herbs_And_Fungi_OilPress_CardHelpSection",
+        "DefaultText": "<b>How to Use:</b>\n• Open the <b>Recipes</b> tab on the press\n• Press Hemp Seeds (3 seeds + bowl), Press Truffle (1 truffle + bowl), or press fresh herbs (fairyweed, hemp flower, appleweed, frostleaf + bowl)\n• Each recipe consumes the ingredients and produces 1 bowl of oil\n\n<b>Herbal oils</b> give the same calming/mood effects as smoking the corresponding herb in a pipe."
+    },
+    "CardType": 2,
+    "CardTagsWarpData": [
+        "tag_Structure",
+        "tag_Furniture",
+        "tag_Craftable"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "OilPress_Placed",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 8.0,
+    "MaxStack": 1,
+    "DroppedCardShadow": 2,
+    "ContainedBlueprintCardsWarpData": [
+        "herbs_fungi_bp_oil_press_seeds",
+        "herbs_fungi_bp_oil_press_truffle",
+        "herbs_fungi_bp_oil_press_herbal_hemp",
+        "herbs_fungi_bp_oil_press_herbal_fairyweed",
+        "herbs_fungi_bp_oil_press_herbal_appleweed",
+        "herbs_fungi_bp_oil_press_herbal_frostleaf"
+    ],
+    "ContainedBlueprintCardsWarpType": 3,
+    "ContainedBlueprintsDontStartUnlocked": false,
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_oil_press",
+                "LocalizationKey": "Herbs_And_Fungi_OilPress_PickUp_ActionName",
+                "DefaultText": "Pick Up"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_oil_press",
+                "LocalizationKey": "Herbs_And_Fungi_OilPress_PickUp_ActionDescription",
+                "DefaultText": "Disassemble the oil press back into its portable kit form."
+            },
+            "DaytimeCost": 3,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [
+                "Wood"
+            ],
+            "ActionSoundsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_oil_press_kit",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": true
+            }
+        }
+    ]
+}

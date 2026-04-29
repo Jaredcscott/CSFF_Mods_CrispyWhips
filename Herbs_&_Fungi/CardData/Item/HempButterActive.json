@@ -1,0 +1,181 @@
+{
+    "UniqueID": "herbs_fungi_hemp_butter_active",
+    "CardType": 0,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_hemp_butter_active",
+        "LocalizationKey": "Herbs_And_Fungus_HempButterActive_CardName",
+        "DefaultText": "Active Hemp Butter"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_hemp_butter_active",
+        "LocalizationKey": "Herbs_And_Fungus_HempButterActive_CardDescription",
+        "DefaultText": "Aromatic liquid hemp butter with activated psychoactive compounds. Needs to cool and solidify before use."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_hemp_butter_active",
+        "LocalizationKey": "Herbs_And_Fungus_HempButterActive_CardHelpSection",
+        "DefaultText": "<b>State:</b> Liquid when hot.\n\n<b>Usage:</b> Let it dry to create solid hemp butter that can be added to foods."
+    },
+    "ObjectWeight": 70.0,
+    "TradingValue": 0.0,
+    "AlwaysUpdate": true,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HempButter",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [
+        "tag_Plateable",
+        "tag_HumanFood",
+        "tag_Preservable"
+    ],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "Wax",
+        "PourWater"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_hemp_butter_active",
+            "LocalizationKey": "Herbs_And_Fungus_HempButterActive_SpoilageTime_CardStatName",
+            "DefaultText": "Spoilage"
+        },
+        "MaxValue": 1800.0,
+        "RatePerDaytimePoint": 1.0,
+        "HidingOptions": 0,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "HasActionOnFull": true,
+        "ShowPopupOnFull": false,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_hemp_butter_active",
+                "LocalizationKey": "Herbs_And_Fungus_HempButterActive_SpoilageTime_OnFull_ActionDescription",
+                "DefaultText": "Active Hemp Butter Spoiled!"
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransferInventory": true,
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3
+            }
+        },
+        "CountsForTradingValue": false,
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_hemp_butter_active",
+            "LocalizationKey": "Herbs_And_Fungus_HempButterActive_FuelCapacity_CardStatName",
+            "DefaultText": "Temperature"
+        },
+        "MaxValue": 200.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 3,
+        "TextDisplay": 2,
+        "NumberPrecision": 0,
+        "CountsForTradingValue": false,
+        "OverrideIconWarpData": "Hot",
+        "OverrideIconWarpType": 3
+    },
+    "Progress": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_hemp_butter_active",
+            "LocalizationKey": "Herbs_And_Fungus_HempButterActive_Progress_CardStatName",
+            "DefaultText": "Wetness"
+        },
+        "MaxValue": 480.0,
+        "RatePerDaytimePoint": -1.0,
+        "HidingOptions": 0,
+        "TextDisplay": 1,
+        "NumberPrecision": 0,
+        "HasActionOnZero": true,
+        "ShowPopupOnZero": true,
+        "OnZeroNotification": 1,
+        "OnZero": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_hemp_butter_active",
+                "LocalizationKey": "Herbs_And_Fungus_HempButterActive_Progress_OnZero_ActionDescription",
+                "DefaultText": "The hemp butter has solidified. It's now ready to be added to foods."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransferSpoilage": true,
+                "TransferSpecial2": true,
+                "SpoilageTransferScale": {
+                    "Active": true,
+                    "FloatValue": 1.0
+                },
+                "TransformIntoWarpData": "herbs_fungi_hemp_butter",
+                "TransformIntoWarpType": 3
+            }
+        },
+        "CountsForTradingValue": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_hemp_butter_active",
+            "LocalizationKey": "Herbs_And_Fungus_HempButterActive_SpecialDurability2_CardStatName",
+            "DefaultText": "Quality"
+        },
+        "MaxValue": 192.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 0,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "CountsForTradingValue": true,
+        "OverrideIconWarpData": "Quality",
+        "OverrideIconWarpType": 3
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "PassiveEffects": [
+        {
+            "EffectName": "Cool Down",
+            "FuelRateModifier": {
+                "Active": true,
+                "FloatValue": -100.0
+            }
+        },
+        {
+            "EffectName": "Slow Drying When Hot",
+            "Conditions": {
+                "ReceivingRequiredDurabilityRanges": {
+                    "FuelRange": {
+                        "x": 20.0,
+                        "y": 200.0
+                    }
+                }
+            },
+            "ConsumableChargesModifier": {
+                "Active": true,
+                "FloatValue": -0.5
+            }
+        }
+    ],
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "OnInteractActions": []
+}

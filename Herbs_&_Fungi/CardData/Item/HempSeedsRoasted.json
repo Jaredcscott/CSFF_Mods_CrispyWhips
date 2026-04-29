@@ -1,0 +1,259 @@
+{
+    "UniqueID": "herbs_fungi_hemp_seeds_roasted",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_hemp_seeds_roasted",
+        "LocalizationKey": "Herbs_And_Fungus_HempSeedsRoasted_CardName",
+        "DefaultText": "Roasted Hemp Seeds"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_hemp_seeds_roasted",
+        "LocalizationKey": "Herbs_And_Fungus_HempSeedsRoasted_CardDescription",
+        "DefaultText": "Nutritious roasted seeds. Can be eaten or used as seasoning."
+    },
+    "CanBeRenamed": false,
+    "AlternateNames": [],
+    "LiquidSuffixName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_hemp_seeds_roasted",
+        "LocalizationKey": "Herbs_And_Fungus_HempSeedsRoasted_CardHelpSection",
+        "DefaultText": "<b>Found:</b> Roast raw hemp seeds on a fire. \n\n<b>Uses:</b> Food source, seasoning."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardBackground": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "ShowImageAboveTitle": false,
+    "CardType": 0,
+    "CannotBeTransferred": false,
+    "NotAutoSolvableEvent": false,
+    "ObjectWeight": 20.0,
+    "TradingValue": 40.0,
+    "CardTags": [],
+    "EquipmentTags": [],
+    "MapStructureType": 0,
+    "FlavourTags": [],
+    "SpiceTags": [],
+    "AlwaysUpdate": false,
+    "CannotBeTrashed": false,
+    "DoesNotPile": false,
+    "ToggleablePiling": false,
+    "DoesNotPinAutomatically": false,
+    "WhenCreatedSounds": [],
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_hemp_seeds_roasted",
+            "LocalizationKey": "Herbs_And_Fungus_HempSeedsRoasted_SpoilageTime_CardStatName",
+            "DefaultText": "Spoilage"
+        },
+        "RandomStartingOffset": 0.0,
+        "MaxValue": 7200.0,
+        "RatePerDaytimePoint": 1.0,
+        "ExtraRateWhenEquipped": 0.0,
+        "PauseRateWhenEnvWeightIsFull": false,
+        "PauseRateWhenInventoryIsFull": false,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "OverrideIcon": {
+            "m_FileID": 0,
+            "m_PathID": 0
+        },
+        "ResetWhenLoadedAtZero": false,
+        "HasActionOnZero": false,
+        "ShowPopupOnZero": false,
+        "OnZeroNotification": 0,
+        "HasActionOnFull": true,
+        "ShowPopupOnFull": false,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_hemp_seeds_roasted",
+                "LocalizationKey": "Herbs_And_Fungus_HempSeedsRoasted_SpoilageTime_OnFull_ActionDescription",
+                "DefaultText": "Roasted Hemp Seeds Spoiled!"
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3
+            }
+        },
+        "CountsForTradingValue": false,
+        "TradingValueCustomRanges": [],
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": true,
+        "FloatValue": 100.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_hemp_seeds_roasted",
+            "LocalizationKey": "Herbs_And_Fungus_HempSeedsRoasted_FuelCapacity_CardStatName",
+            "DefaultText": "Temperature"
+        },
+        "RandomStartingOffset": 0.0,
+        "MaxValue": 200.0,
+        "RatePerDaytimePoint": 0.0,
+        "ExtraRateWhenEquipped": 0.0,
+        "PauseRateWhenEnvWeightIsFull": false,
+        "PauseRateWhenInventoryIsFull": false,
+        "HidingOptions": 3,
+        "TextDisplay": 2,
+        "NumberPrecision": 0,
+        "OverrideIcon": {
+            "m_FileID": 0,
+            "m_PathID": 0
+        },
+        "ResetWhenLoadedAtZero": false,
+        "HasActionOnZero": false,
+        "ShowPopupOnZero": false,
+        "OnZeroNotification": 0,
+        "HasActionOnFull": false,
+        "ShowPopupOnFull": false,
+        "OnFullNotification": 0,
+        "CountsForTradingValue": false,
+        "TradingValueCustomRanges": []
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "DurabilitySorting": {
+        "SortingList": []
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_hemp_seeds_roasted",
+                "LocalizationKey": "Herbs_And_Fungus_HempSeedsRoasted_CardInteractions_Add_ActionName",
+                "DefaultText": "Add"
+            },
+            "DaytimeCost": 0,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [
+                    "tag_Plateable"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "WorksInverted": true,
+            "WorksBothWays": false,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 1,
+                "AddedSpiceTags": [],
+                "AddedSpiceTagsWarpData": [
+                    "herbs_fungi_spice_hemp_seeds_roasted"
+                ],
+                "AddedSpiceTagsWarpType": 3
+            }
+        }
+    ],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_hemp_seeds_roasted",
+                "LocalizationKey": "Herbs_And_Fungus_HempSeedsRoasted_DismantleActions_Eat_ActionName",
+                "DefaultText": "Eat"
+            },
+            "ActionSounds": [],
+            "ActionTags": [],
+            "DaytimeCost": 0,
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [
+                {
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 22.0,
+                        "y": 22.0
+                    }
+                },
+                {
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 38.0,
+                        "y": 38.0
+                    }
+                },
+                {
+                    "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 18.0,
+                        "y": 18.0
+                    }
+                },
+                {
+                    "StatWarpData": "9824a150f7bc85f4384a0ed026a69f0a",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 15.0,
+                        "y": 15.0
+                    }
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
+    "PassiveEffects": [
+        {
+            "EffectName": "Cool Down",
+            "FuelRateModifier": {
+                "Active": true,
+                "FloatValue": -100.0
+            }
+        }
+    ],
+    "CardImageWarpData": "hempSeedRoasted",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [
+        "tag_Preservable",
+        "tag_Feed",
+        "tag_Plateable"
+    ],
+    "CardTagsWarpType": 3,
+    "SpiceTagsWarpData": [
+        "herbs_fungi_spice_hemp_seeds_roasted"
+    ],
+    "SpiceTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "GrassAppear"
+    ],
+    "WhenCreatedSoundsWarpType": 3
+}

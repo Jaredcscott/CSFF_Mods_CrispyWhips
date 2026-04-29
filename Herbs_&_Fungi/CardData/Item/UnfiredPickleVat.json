@@ -1,0 +1,105 @@
+{
+    "UniqueID": "herbs_fungi_unfired_pickle_vat",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_unfired_pickle_vat",
+        "LocalizationKey": "Herbs_And_Fungi_UnfiredPickleVat_CardName",
+        "DefaultText": "Unfired Pickle Vat"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_unfired_pickle_vat",
+        "LocalizationKey": "Herbs_And_Fungi_UnfiredPickleVat_CardDescription",
+        "DefaultText": "A shaped clay vat, soft and fragile. Fire it in a kiln to harden the ceramic."
+    },
+    "CardType": 0,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_FiresMedium"
+    ],
+    "CardTagsWarpType": 3,
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Pickling_Jar_Unfired",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 200.0,
+    "MaxStack": 1,
+    "DroppedCardShadow": 1,
+    "WhenCreatedSoundsWarpData": [
+        "Fiber"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_unfired_pickle_vat",
+            "LocalizationKey": "Herbs_And_Fungi_UnfiredPickleVat_SpecialDurability1.CardStatName",
+            "DefaultText": "Fired"
+        },
+        "MaxValue": 12.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 3,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "HasActionOnZero": false,
+        "HasActionOnFull": true,
+        "OverrideIconWarpData": "Cooking",
+        "OverrideIconWarpType": 3,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_unfired_pickle_vat",
+                "LocalizationKey": "Herbs_And_Fungi_UnfiredPickleVat_SpecialDurability1_OnFull_ActionDescription",
+                "DefaultText": "Pickle Vat fired."
+            },
+            "OnFullNotification": 1,
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_pickling_vat",
+                "TransformIntoWarpType": 3,
+                "TransferSpecial2": true,
+                "SpawnTransformAtSource": true
+            }
+        }
+    },
+    "SpecialDurability2": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_unfired_pickle_vat",
+            "LocalizationKey": "Herbs_And_Fungi_UnfiredPickleVat_SpecialDurability2.CardStatName",
+            "DefaultText": "Quality"
+        },
+        "MaxValue": 100.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "HasActionOnZero": false,
+        "CountsForTradingValue": true,
+        "OverrideIconWarpData": "Quality",
+        "OverrideIconWarpType": 3
+    },
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "PassiveStatEffects": [],
+    "PassiveEffects": []
+}

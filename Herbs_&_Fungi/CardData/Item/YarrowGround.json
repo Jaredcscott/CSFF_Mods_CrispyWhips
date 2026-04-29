@@ -1,0 +1,464 @@
+{
+    "UniqueID": "herbs_fungi_yarrow_ground",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_yarrow_ground",
+        "LocalizationKey": "herbs_fungi_yarrow_ground_CardName",
+        "DefaultText": "Ground Yarrow"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_yarrow_ground",
+        "LocalizationKey": "herbs_fungi_yarrow_ground_CardDescription",
+        "DefaultText": "Finely ground dried yarrow powder. Can be mixed with hot water to make healing tea, or applied directly to wounds for potent hemostatic effects."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Vegetable",
+        "tag_Foraged",
+        "tag_Herb",
+        "tag_Powder",
+        "tag_PowderLiquid",
+        "tag_Plateable"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "YarrowGround",
+    "CardImageWarpType": 3,
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_yarrow_ground",
+                "LocalizationKey": "herbs_fungi_yarrow_ground_Eat",
+                "DefaultText": "Eat"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_yarrow_ground",
+                "LocalizationKey": "herbs_fungi_yarrow_ground_Eat_Desc",
+                "DefaultText": "Eat the concentrated yarrow powder. Very effective at stopping bleeding and fighting infection."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 2.0,
+                        "y": 2.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": -18.0,
+                        "y": -18.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": -5.0,
+                        "y": -5.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "7f4598bd0e82e7b499da3848e452c39f",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 20.0,
+                        "y": 20.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "04194353fd841a94ebff8b69af66c8d0",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": -40.0,
+                        "y": -40.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "dc3cae53109fd5945b5279ec6291caae",
+                    "StatWarpType": 3
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_yarrow_ground",
+                "LocalizationKey": "herbs_fungi_yarrow_ground_ApplyWound",
+                "DefaultText": "Apply to Wound"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_yarrow_ground",
+                "LocalizationKey": "herbs_fungi_yarrow_ground_ApplyWound_Desc",
+                "DefaultText": "Apply the concentrated yarrow powder directly to wounds. Excellent hemostatic and antiseptic properties."
+            },
+            "DaytimeCost": 3,
+            "UseMiniTicks": 6,
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": -25.0,
+                        "y": -25.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": -8.0,
+                        "y": -8.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "7f4598bd0e82e7b499da3848e452c39f",
+                    "StatWarpType": 3
+                }
+            ]
+        }
+    ],
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_yarrow_ground",
+                "LocalizationKey": "herbs_fungi_yarrow_ground_ApplyWound",
+                "DefaultText": "Apply to Wound"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_yarrow_ground",
+                "LocalizationKey": "herbs_fungi_yarrow_ground_ApplyWound_Desc",
+                "DefaultText": "Apply the concentrated yarrow powder directly to wounds. Excellent hemostatic and antiseptic properties."
+            },
+            "DaytimeCost": 3,
+            "UseMiniTicks": 6,
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [
+                    "tag_CleanableWound"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "WorksInverted": true,
+            "WorksBothWays": false,
+            "GivenCardChanges": {
+                "ModType": 1,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransferSpoilage": false,
+                "TransferUsage": false,
+                "TransferFuel": false,
+                "TransferCharges": false,
+                "TransferSpecial1": false,
+                "TransferSpecial2": false,
+                "TransferSpecial3": false,
+                "TransferSpecial4": false,
+                "TransferInventory": false,
+                "TransferSavedIngredients": false,
+                "AverageGivenAndReceivingCards": false,
+                "TransferLiquid": false,
+                "ModifyDurability": false,
+                "ModifyLiquid": false,
+                "DropOnDestroyList": false,
+                "LiquidEffectScaling": 0,
+                "SpoilageChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "UsageChange": {
+                    "x": -360.0,
+                    "y": -360.0
+                },
+                "FuelChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "ChargesChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "LiquidQuantityChange": {
+                    "x": 0.0,
+                    "y": 0.0
+                },
+                "Special1Change": {
+                    "x": -120.0,
+                    "y": -120.0
+                },
+                "Special2Change": {
+                    "x": -120.0,
+                    "y": -120.0
+                },
+                "Special3Change": {
+                    "x": -120.0,
+                    "y": -120.0
+                },
+                "Special4Change": {
+                    "x": -120.0,
+                    "y": -120.0
+                }
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_yarrow_ground",
+                "LocalizationKey": "herbs_fungi_yarrow_ground_MixTea",
+                "DefaultText": "Mix into Hot Water"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_yarrow_ground",
+                "LocalizationKey": "herbs_fungi_yarrow_ground_MixTea_Desc",
+                "DefaultText": "Mix yarrow powder into hot water to create healing tea."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 2,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [
+                    "425259cb06b869d45be2e7f1b5b54aff"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "RequiredGivenContainerTag": [],
+            "RequiredGivenContainerTagWarpData": [
+                "tag_ContainerBowl"
+            ],
+            "RequiredGivenContainerTagWarpType": 3,
+            "RequiredGivenDurabilities": {
+                "RequiredFuelPercent": {
+                    "Active": true,
+                    "FloatValue": 0.5,
+                    "MaxValue": 1.0
+                }
+            },
+            "WorksBothWays": true,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_yarrow_tea",
+                "TransformIntoWarpType": 3,
+                "TransferFuel": true
+            },
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": -18.0,
+                        "y": -18.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": -5.0,
+                        "y": -5.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "7f4598bd0e82e7b499da3848e452c39f",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 20.0,
+                        "y": 20.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "04194353fd841a94ebff8b69af66c8d0",
+                    "StatWarpType": 3
+                }
+            ]
+        }
+    ],
+    "ObjectWeight": 0.02,
+    "MaxStack": 20,
+    "DroppedCardShadow": 1
+}

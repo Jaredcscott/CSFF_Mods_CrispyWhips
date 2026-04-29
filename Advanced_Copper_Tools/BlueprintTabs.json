@@ -1,0 +1,33 @@
+{
+    "Tab_1_Survival_Subtab_2_Support_TabName": [
+        "advanced_copper_tools_bp_oil",
+        "advanced_copper_tools_bp_render_hemp_oil"
+    ],
+    "Tab_5_MetalAndClay_Subtab_3_MetalCrafts_TabName": [
+        "advanced_copper_tools_bp_cast_stove_top",
+        "advanced_copper_tools_bp_metal_sheet",
+        "advanced_copper_tools_bp_wheel_rim",
+        "advanced_copper_tools_bp_wheel_hub",
+        "advanced_copper_tools_bp_pan_blank",
+        "advanced_copper_tools_bp_cast_wheel_hub",
+        "advanced_copper_tools_bp_copper_nails"
+    ],
+    "Tab_2_Construction_Subtab_2_AdvancedTools_TabName": [
+        "advanced_copper_tools_bp_wearable_metal_pan",
+        "advanced_copper_tools_bp_large_saw",
+        "advanced_copper_tools_bp_lantern_oilwell",
+        "advanced_copper_tools_bp_metal_lantern",
+        "advanced_copper_tools_bp_copper_tea_kettle",
+        "advanced_copper_tools_bp_copper_oil_flask",
+        "advanced_copper_tools_bp_wheelbarrow",
+        "advanced_copper_tools_bp_bucket",
+        "advanced_copper_tools_bp_handles",
+        "advanced_copper_tools_bp_wheel_assembly"
+    ],
+    "Tab_2_Construction_Subtab_4_Furniture_TabName": [
+        "advanced_copper_tools_bp_copper_bathtub",
+        "advanced_copper_tools_bp_copper_stove",
+        "advanced_copper_tools_bp_tea_blending_station",
+        "advanced_copper_tools_bp_copper_pantry"
+    ]
+}

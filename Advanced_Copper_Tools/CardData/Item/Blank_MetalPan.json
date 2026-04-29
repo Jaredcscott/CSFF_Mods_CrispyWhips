@@ -1,0 +1,789 @@
+{
+  "UniqueID": "advanced_copper_tools_blank_metal_pan",
+  "CardName": {
+    "ParentObjectID": "advanced_copper_tools_blank_metal_pan",
+    "LocalizationKey": "Advanced_Copper_Tools_Blank_MetalPan_CardName",
+    "DefaultText": "Heated Metal Pan Blank"
+  },
+  "CardDescription": {
+    "ParentObjectID": "advanced_copper_tools_blank_metal_pan",
+    "LocalizationKey": "Advanced_Copper_Tools_Blank_MetalPan_CardDescription",
+    "DefaultText": "Must be struck into shape."
+  },
+  "AlternateNames": [
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 150.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "ParentObjectID": "advanced_copper_tools_blank_metal_pan",
+        "LocalizationKey": "Advanced_Copper_Tools_Blank_MetalPan_AlternateNames[0].Name",
+        "DefaultText": "Copper Pan Blank"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "CastingMold",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 150.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 110.0,
+          "y": 110.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_Blank_MetalPan_AlternateNames[1].Name",
+        "DefaultText": "Ghost Bronze Pan Blank"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "CastingMold",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 150.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 120.0,
+          "y": 120.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_Blank_MetalPan_AlternateNames[2].Name",
+        "DefaultText": "Tin Pan Blank"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "CastingMold",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 150.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 130.0,
+          "y": 130.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_Blank_MetalPan_AlternateNames[3].Name",
+        "DefaultText": "Tin Bronze Pan Blank"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "CastingMold",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 150.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 140.0,
+          "y": 140.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_Blank_MetalPan_AlternateNames[4].Name",
+        "DefaultText": "White Bronze Pan Blank"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "CastingMold",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 151.0,
+          "y": 300.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_Blank_MetalPan_AlternateNames[5].Name",
+        "DefaultText": "Heated Copper Pan Blank"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "CastingMold",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 151.0,
+          "y": 300.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 110.0,
+          "y": 110.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_Blank_MetalPan_AlternateNames[6].Name",
+        "DefaultText": "Heated Ghost Bronze Pan Blank"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "CastingMold",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 151.0,
+          "y": 300.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 120.0,
+          "y": 120.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_Blank_MetalPan_AlternateNames[7].Name",
+        "DefaultText": "Heated Tin Pan Blank"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "CastingMold",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 151.0,
+          "y": 300.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 130.0,
+          "y": 130.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_Blank_MetalPan_AlternateNames[8].Name",
+        "DefaultText": "Heated Tin Bronze Pan Blank"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "CastingMold",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 151.0,
+          "y": 300.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 140.0,
+          "y": 140.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_Blank_MetalPan_AlternateNames[9].Name",
+        "DefaultText": "Heated White Bronze Pan Blank"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "CastingMold",
+        "CardImageWarpType": 3
+      }
+    }
+  ],
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "CastingMold",
+  "CardImageWarpType": 3,
+  "CardType": 0,
+  "ObjectWeight": 40.0,
+  "TradingValue": 80.0,
+  "CardTagsWarpData": [
+    "tag_ToolBlank",
+    "tag_SmeltsAt1100",
+    "tag_Metal",
+    "tag_CopperSmall"
+  ],
+  "CardTagsWarpType": 3,
+  "WhenCreatedSoundsWarpData": [
+    "MetalAppear"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": false
+  },
+  "FuelCapacity": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_blank_metal_pan",
+      "LocalizationKey": "Advanced_Copper_Tools_Blank_MetalPan_FuelCapacity.CardStatName",
+      "DefaultText": "Temperature"
+    },
+    "MaxValue": 1300.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 2,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Hot",
+    "OverrideIconWarpType": 3
+  },
+  "Progress": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_blank_metal_pan",
+      "LocalizationKey": "Advanced_Copper_Tools_Blank_MetalPan_Progress.CardStatName",
+      "DefaultText": "Smelted"
+    },
+    "MaxValue": 8.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_blank_metal_pan",
+        "LocalizationKey": "Advanced_Copper_Tools_Blank_MetalPan_Progress.OnFull.ActionDescription",
+        "DefaultText": "Pan Blank smelted!"
+      },
+      "OnFullNotification": 1,
+      "ProducedCards": [
+        {
+          "CollectionName": "Smithed",
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "advanced_copper_tools_shape_metal_pan",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    },
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Cooking",
+    "OverrideIconWarpType": 3
+  },
+  "SpecialDurability1": {
+    "Active": true,
+    "FloatValue": 6.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_blank_metal_pan",
+      "LocalizationKey": "Advanced_Copper_Tools_Blank_MetalPan_SpecialDurability1.CardStatName",
+      "DefaultText": "Strikes"
+    },
+    "MaxValue": 100.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 2,
+    "NumberPrecision": 0,
+    "HasActionOnZero": true,
+    "OnZero": {
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_blank_metal_pan",
+        "LocalizationKey": "Advanced_Copper_Tools_Blank_MetalPan_SpecialDurability1.OnZero.ActionDescription",
+        "DefaultText": "Pan Blank Finished!"
+      },
+      "OnZeroNotification": 0,
+      "ProducedCards": [
+        {
+          "CollectionName": "Smithed",
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "advanced_copper_tools_shape_metal_pan",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 3,
+        "TransferSpecial2": true,
+        "TransferSpecial3": true,
+        "TransferSpecial4": true
+      }
+    },
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Hammer",
+    "OverrideIconWarpType": 3
+  },
+  "SpecialDurability2": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_blank_metal_pan",
+      "LocalizationKey": "Advanced_Copper_Tools_Blank_MetalPan_SpecialDurability2.CardStatName",
+      "DefaultText": "Metal Quality"
+    },
+    "MaxValue": 100.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Quality",
+    "OverrideIconWarpType": 3
+  },
+  "SpecialDurability3": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_blank_metal_pan",
+      "LocalizationKey": "Advanced_Copper_Tools_Blank_MetalPan_SpecialDurability3.CardStatName",
+      "DefaultText": "Quality"
+    },
+    "MaxValue": 100.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "CountsForTradingValue": true,
+    "OverrideIconWarpData": "Quality",
+    "OverrideIconWarpType": 3
+  },
+  "SpecialDurability4": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_blank_metal_pan",
+      "LocalizationKey": "Advanced_Copper_Tools_Blank_MetalPan_SpecialDurability4.CardStatName",
+      "DefaultText": "Metal Type"
+    },
+    "MaxValue": 1000.0,
+    "RestrictToSpecificValues": true,
+    "ValidValues": [
+      0.0,
+      100.0,
+      110.0,
+      120.0,
+      130.0,
+      140.0
+    ],
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "CountsForTradingValue": true
+  },
+  "DurabilitySorting": {
+    "SortingList": []
+  },
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_blank_metal_pan",
+        "LocalizationKey": "Advanced_Copper_Tools_Blank_MetalPan_CardInteractions[0].ActionName",
+        "DefaultText": "Smith"
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 1,
+      "ActionSounds": [],
+      "RequiredStatValues": [],
+      "CompatibleCards": {
+        "TriggerTags": [],
+        "TriggerTagsWarpData": [
+          "tag_Hammer"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "WorksBothWays": false,
+      "ActionTags": [],
+      "ActionTagsWarpData": [
+        "HammeringActionSoftSpecial1DropsFull",
+        "TemperatureDropAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "GivenCardChanges": {
+        "ModType": 1,
+        "UsageChange": {
+          "x": -1.0,
+          "y": -1.0
+        }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "FuelChange": {
+          "x": -25.0,
+          "y": -25.0
+        },
+        "Special1Change": {
+          "x": -1.0,
+          "y": -1.0
+        }
+      }
+    }
+  ]
+}

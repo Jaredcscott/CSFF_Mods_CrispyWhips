@@ -1,0 +1,122 @@
+{
+  "UniqueID": "advanced_copper_tools_bp_metal_lantern",
+  "CardName": {
+    "ParentObjectID": "advanced_copper_tools_bp_metal_lantern",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_MetalLantern_CardName",
+    "DefaultText": "Metal Lantern"
+  },
+  "CardDescription": {
+    "ParentObjectID": "advanced_copper_tools_bp_metal_lantern",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_MetalLantern_CardDescription",
+    "DefaultText": "Assemble a sturdy copper lantern from a metal sheet and a hammered oilwell reservoir."
+  },
+  "CardType": 7,
+  "UnlockConditionsDesc": {
+    "ParentObjectID": "advanced_copper_tools_bp_metal_lantern",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_MetalLantern_UnlockConditionsDesc",
+    "DefaultText": "Lantern Oilwell Needed"
+  },
+  "BuildingStatConditions": [],
+  "StartUnlocked": false,
+  "CardsOnBoard": [
+    {
+      "ObjectiveName": "HasLanternOilwell",
+      "CompletionWeight": 1,
+      "Card": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "Quantity": 1,
+      "ConstantlyChecking": false,
+      "OnlyInEnvironment": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "OnlyIfEquipped": false,
+      "OnlyInContainer": {
+        "Target": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        }
+      },
+      "CardWarpData": "advanced_copper_tools_lantern_oilwell",
+      "CardWarpType": 3
+    }
+  ],
+  "TagsOnBoard": [],
+  "StatValues": [],
+  "BlueprintStages": [
+    {
+      "CannotRevertToThisStage": false,
+      "RequiredElements": [
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 2,
+          "DontSpend": false,
+          "RequiredCardWarpData": "advanced_copper_tools_metal_sheet",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "advanced_copper_tools_lantern_oilwell",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "a7384e5147b23a642809451cc4ef24fb",
+          "RequiredCardWarpType": 3
+        }
+      ],
+      "StepActionTags": [],
+      "StepActionTagsWarpData": [],
+      "StepActionTagsWarpType": 3
+    }
+  ],
+  "BuildingDaytimeCost": 2,
+  "DeconstructDaytimeCost": 1,
+  "BlueprintResult": [
+    {
+      "DroppedCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      },
+      "DroppedCardWarpData": "advanced_copper_tools_metal_lantern",
+      "DroppedCardWarpType": 3
+    }
+  ],
+  "BlueprintStatModifications": [],
+  "WhenCreatedSoundsWarpData": [
+    "Metal"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "BlueprintActionTagsWarpData": [
+    "HandAction",
+    "CraftAction"
+  ],
+  "BlueprintActionTagsWarpType": 3,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "Copper_Lantern_Unlit",
+  "CardImageWarpType": 3,
+  "BlueprintUnlockTicksCost": 6.0,
+  "ResearchedNotification": 0
+}

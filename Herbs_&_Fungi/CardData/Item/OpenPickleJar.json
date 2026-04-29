@@ -1,0 +1,68 @@
+{
+    "UniqueID": "herbs_fungi_open_pickle_jar",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_open_pickle_jar",
+        "LocalizationKey": "Herbs_And_Fungi_OpenPickleJar_CardName",
+        "DefaultText": "Open Pickle Jar"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_open_pickle_jar",
+        "LocalizationKey": "Herbs_And_Fungi_OpenPickleJar_CardDescription",
+        "DefaultText": "An empty ceramic pickle jar. Return it to reclaim the clay bowl lid."
+    },
+    "CardType": 0,
+    "CardTags": [],
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {"m_FileID": 0, "m_PathID": 0},
+    "CardImageWarpData": "Pickling_Jar",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 50.0,
+    "MaxStack": 3,
+    "DroppedCardShadow": 1,
+    "SpoilageTime": {"Active": false},
+    "UsageDurability": {"Active": false},
+    "FuelCapacity": {"Active": false},
+    "Progress": {"Active": false},
+    "SpecialDurability1": {"Active": false},
+    "SpecialDurability2": {"Active": false},
+    "SpecialDurability3": {"Active": false},
+    "SpecialDurability4": {"Active": false},
+    "DroppedOnDestroy": [
+        {
+            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+            "Quantity": {"x": 1, "y": 1},
+            "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_open_pickle_jar",
+                "LocalizationKey": "Herbs_And_Fungi_OpenPickleJar_ReturnBowl_ActionName",
+                "DefaultText": "Return Bowl"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_open_pickle_jar",
+                "LocalizationKey": "Herbs_And_Fungi_OpenPickleJar_ReturnBowl_ActionDescription",
+                "DefaultText": "Discard the empty jar and reclaim the clay bowl lid."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
+    "PassiveStatEffects": [],
+    "PassiveEffects": []
+}

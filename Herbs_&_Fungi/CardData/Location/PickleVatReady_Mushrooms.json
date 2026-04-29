@@ -1,0 +1,157 @@
+{
+    "UniqueID": "herbs_fungi_pickle_vat_ready_mushrooms",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_pickle_vat_ready_mushrooms",
+        "LocalizationKey": "Herbs_And_Fungi_PickleVatReadyMushrooms_CardName",
+        "DefaultText": "Pickled Mushrooms"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_pickle_vat_ready_mushrooms",
+        "LocalizationKey": "Herbs_And_Fungi_PickleVatReadyMushrooms_CardDescription",
+        "DefaultText": "Mushrooms cured in salt brine. Eat 5 servings straight from the vat. Keeps for about 3 months. When emptied, the vat returns ready for refilling and the clay bowl is reclaimed."
+    },
+    "CardType": 2,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Structure",
+        "tag_Craftable",
+        "tag_HumanFood"
+    ],
+    "CardTagsWarpType": 3,
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "InventoryFilter": {
+        "AcceptedCards": [],
+        "AcceptedTypes": [],
+        "AcceptedTags": [],
+        "NOTAcceptedCards": [],
+        "NOTAcceptedTypes": [],
+        "NOTAcceptedTags": [],
+        "CardFilters": [],
+        "TagFilters": []
+    },
+    "MaxLiquidCapacity": 500.0,
+    "CannotReceiveLiquidWithDragNDrop": true,
+    "CannotGiveLiquidWithDragNDrop": true,
+    "CannotPutItemsIn": true,
+    "CannotTakeItemsOut": true,
+    "CardImage": {"m_FileID": 0, "m_PathID": 0},
+    "CardImageWarpData": "Pickling_Jar_Closed",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 240.0,
+    "MaxStack": 1,
+    "DroppedCardShadow": 2,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_pickle_vat_ready_mushrooms",
+            "LocalizationKey": "Herbs_And_Fungi_PickleVatReadyMushrooms_SpoilageTime_CardStatName",
+            "DefaultText": "Spoilage"
+        },
+        "MaxValue": 8640.0,
+        "RatePerDaytimePoint": 1.0,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "HasActionOnZero": false,
+        "HasActionOnFull": true,
+        "ShowPopupOnFull": false,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_pickle_vat_ready_mushrooms",
+                "LocalizationKey": "Herbs_And_Fungi_PickleVatReadyMushrooms_SpoilageTime_OnFull_ActionDescription",
+                "DefaultText": "Pickled Mushrooms Spoiled!"
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    },
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 5.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_pickle_vat_ready_mushrooms",
+            "LocalizationKey": "Herbs_And_Fungi_PickleVatReadyMushrooms_UsageDurability_CardStatName",
+            "DefaultText": "Servings"
+        },
+        "MaxValue": 5.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "HasActionOnZero": true,
+        "HasActionOnFull": false,
+        "OnZero": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_pickle_vat_ready_mushrooms",
+                "LocalizationKey": "Herbs_And_Fungi_PickleVatReadyMushrooms_UsageDurability_OnZero_ActionDescription",
+                "DefaultText": "Vat emptied."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    },
+    "FuelCapacity": {"Active": false},
+    "Progress": {"Active": false},
+    "SpecialDurability1": {"Active": false},
+    "SpecialDurability2": {"Active": false},
+    "SpecialDurability3": {"Active": false},
+    "SpecialDurability4": {"Active": false},
+    "DroppedOnDestroy": [
+        {
+            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+            "Quantity": {"x": 1, "y": 1},
+            "DroppedCardWarpData": "herbs_fungi_pickling_vat",
+            "DroppedCardWarpType": 3
+        },
+        {
+            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+            "Quantity": {"x": 1, "y": 1},
+            "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_pickle_vat_ready_mushrooms",
+                "LocalizationKey": "Herbs_And_Fungi_PickleVatReadyMushrooms_Eat_ActionName",
+                "DefaultText": "Eat"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_pickle_vat_ready_mushrooms",
+                "LocalizationKey": "Herbs_And_Fungi_PickleVatReadyMushrooms_Eat_ActionDescription",
+                "DefaultText": "Eat a serving of pickled mushrooms straight from the vat."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": ["EatingAction"],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [
+                {"Stat": {"m_FileID": 0, "m_PathID": 0}, "ValueModifier": {"x": 20.7,  "y": 20.7},  "RateModifier": {"x": 0.0, "y": 0.0}, "MinValueModifier": {"x": 0.0, "y": 0.0}, "MaxValueModifier": {"x": 0.0, "y": 0.0}, "StatWarpData": "930cf914322e9f145af1315d96f85a28", "StatWarpType": 3},
+                {"Stat": {"m_FileID": 0, "m_PathID": 0}, "ValueModifier": {"x": 28.75, "y": 28.75}, "RateModifier": {"x": 0.0, "y": 0.0}, "MinValueModifier": {"x": 0.0, "y": 0.0}, "MaxValueModifier": {"x": 0.0, "y": 0.0}, "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9", "StatWarpType": 3},
+                {"Stat": {"m_FileID": 0, "m_PathID": 0}, "ValueModifier": {"x": 11.5,  "y": 11.5},  "RateModifier": {"x": 0.0, "y": 0.0}, "MinValueModifier": {"x": 0.0, "y": 0.0}, "MaxValueModifier": {"x": 0.0, "y": 0.0}, "StatWarpData": "278d5a1a68f65cb4883b775e8492464f", "StatWarpType": 3},
+                {"Stat": {"m_FileID": 0, "m_PathID": 0}, "ValueModifier": {"x": 27.6,  "y": 27.6},  "RateModifier": {"x": 0.0, "y": 0.0}, "MinValueModifier": {"x": 0.0, "y": 0.0}, "MaxValueModifier": {"x": 0.0, "y": 0.0}, "StatWarpData": "9824a150f7bc85f4384a0ed026a69f0a", "StatWarpType": 3},
+                {"Stat": {"m_FileID": 0, "m_PathID": 0}, "ValueModifier": {"x": 55.2,  "y": 55.2},  "RateModifier": {"x": 0.0, "y": 0.0}, "MinValueModifier": {"x": 0.0, "y": 0.0}, "MaxValueModifier": {"x": 0.0, "y": 0.0}, "StatWarpData": "5e303712abfb8134c9cdcc3a15ef563e", "StatWarpType": 3},
+                {"Stat": {"m_FileID": 0, "m_PathID": 0}, "ValueModifier": {"x": 2.3,   "y": 2.3},   "RateModifier": {"x": 0.0, "y": 0.0}, "MinValueModifier": {"x": 0.0, "y": 0.0}, "MaxValueModifier": {"x": 0.0, "y": 0.0}, "StatWarpData": "c589f92d8a479a24c937ea90fa2d1a82", "StatWarpType": 3},
+                {"Stat": {"m_FileID": 0, "m_PathID": 0}, "ValueModifier": {"x": 34.5,  "y": 34.5},  "RateModifier": {"x": 0.0, "y": 0.0}, "MinValueModifier": {"x": 0.0, "y": 0.0}, "MaxValueModifier": {"x": 0.0, "y": 0.0}, "StatWarpData": "3d050c79732f42d4a95ffa8e672ddb7a", "StatWarpType": 3},
+                {"Stat": {"m_FileID": 0, "m_PathID": 0}, "ValueModifier": {"x": 2.3,   "y": 2.3},   "RateModifier": {"x": 0.0, "y": 0.0}, "MinValueModifier": {"x": 0.0, "y": 0.0}, "MaxValueModifier": {"x": 0.0, "y": 0.0}, "StatWarpData": "4c5ed70723dc40e439720acab06e6af7", "StatWarpType": 3},
+                {"Stat": {"m_FileID": 0, "m_PathID": 0}, "ValueModifier": {"x": 2.3,   "y": 2.3},   "RateModifier": {"x": 0.0, "y": 0.0}, "MinValueModifier": {"x": 0.0, "y": 0.0}, "MaxValueModifier": {"x": 0.0, "y": 0.0}, "StatWarpData": "111606ba528c30e4f8e38494f41b92c7", "StatWarpType": 3},
+                {"Stat": {"m_FileID": 0, "m_PathID": 0}, "ValueModifier": {"x": 0.0,   "y": 0.0},   "RateModifier": {"x": 0.0, "y": 0.0}, "MinValueModifier": {"x": 0.0, "y": 0.0}, "MaxValueModifier": {"x": 0.0, "y": 0.0}, "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2", "StatWarpType": 3},
+                {"Stat": {"m_FileID": 0, "m_PathID": 0}, "ValueModifier": {"x": 2.3,   "y": 2.3},   "RateModifier": {"x": 0.0, "y": 0.0}, "MinValueModifier": {"x": 0.0, "y": 0.0}, "MaxValueModifier": {"x": 0.0, "y": 0.0}, "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503", "StatWarpType": 3}
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "UsageChange": {"x": -1.0, "y": -1.0}
+            }
+        }
+    ],
+    "PassiveStatEffects": [],
+    "PassiveEffects": []
+}

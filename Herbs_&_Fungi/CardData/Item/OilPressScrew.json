@@ -1,0 +1,28 @@
+{
+    "UniqueID": "herbs_fungi_oil_press_screw",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_oil_press_screw",
+        "LocalizationKey": "herbs_fungi_oil_press_screw_CardName",
+        "DefaultText": "Pressing Screw"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_oil_press_screw",
+        "LocalizationKey": "herbs_fungi_oil_press_screw_CardDescription",
+        "DefaultText": "A wooden screw mechanism for applying pressure in an oil press. Part of a larger assembly."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "OilPress_Screw",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 1.5,
+    "MaxStack": 1,
+    "DroppedCardShadow": 1
+}

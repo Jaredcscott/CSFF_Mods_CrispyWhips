@@ -1,0 +1,199 @@
+{
+    "UniqueID": "herbs_fungi_wooden_pantry",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_wooden_pantry",
+        "LocalizationKey": "Herbs_And_Fungi_WoodenPantry_CardName",
+        "DefaultText": "Wooden Pantry"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_wooden_pantry",
+        "LocalizationKey": "Herbs_And_Fungi_WoodenPantry_CardDescription",
+        "DefaultText": "A plank-built food pantry. Slows food spoilage, but wild animals can break in and eat what's inside."
+    },
+    "CanBeRenamed": true,
+    "AlternateNames": [],
+    "LiquidSuffixName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_wooden_pantry",
+        "LocalizationKey": "Herbs_And_Fungi_WoodenPantry_CardHelpSection",
+        "DefaultText": "<b>Spoilage:</b> Slows to 75% of normal rate.\n\n<b>Animal-safe:</b> No. Passing wildlife (foxes, hares, badgers, and larger beasts) can raid this pantry."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardBackground": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Pantry_Wooden",
+    "CardImageWarpType": 3,
+    "ShowImageAboveTitle": false,
+    "CardType": 0,
+    "CannotBeTransferred": false,
+    "NotAutoSolvableEvent": false,
+    "ObjectWeight": 600.0,
+    "TradingValue": 80.0,
+    "CardTags": [],
+    "CardTagsWarpData": ["tag_Wood"],
+    "CardTagsWarpType": 3,
+    "EquipmentTags": [],
+    "MapStructureType": 0,
+    "FlavourTags": [],
+    "SpiceTags": [],
+    "AlwaysUpdate": false,
+    "CannotBeTrashed": false,
+    "DoesNotPile": true,
+    "ToggleablePiling": false,
+    "DoesNotPinAutomatically": false,
+    "CanDragItemsToTravel": true,
+    "WhenCreatedSounds": [],
+    "WhenCreatedSoundsWarpData": ["Wood"],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": { "Active": false },
+    "UsageDurability": { "Active": false },
+    "FuelCapacity": { "Active": false },
+    "Progress": { "Active": false },
+    "SpecialDurability1": { "Active": false },
+    "SpecialDurability2": { "Active": false },
+    "SpecialDurability3": { "Active": false },
+    "SpecialDurability4": { "Active": false },
+    "DurabilitySorting": { "SortingList": [] },
+    "InventoryIsHidden": false,
+    "IsMiniInventory": false,
+    "CannotPutItemsIn": false,
+    "CannotTakeItemsOut": false,
+    "PreventsDismantleActions": false,
+    "PreventsCardInteractions": false,
+    "IsWeaponSheath": false,
+    "OpenOnTab": 0,
+    "DontRememberLastOpenTab": false,
+    "MaxWeightCapacity": 2500.0,
+    "ContentWeightReduction": 0.0,
+    "InventorySlots": [],
+    "InventoryFilter": {
+        "AcceptedCards": [],
+        "AcceptedTypes": [],
+        "AcceptedTags": [],
+        "NOTAcceptedCards": [],
+        "NOTAcceptedTypes": [],
+        "NOTAcceptedTags": [],
+        "CardFilters": [],
+        "TagFilters": [
+            {
+                "Tag": { "m_FileID": 0, "m_PathID": 0 },
+                "TagWarpData": "tag_Preservable",
+                "TagWarpType": 3,
+                "NOT": false
+            }
+        ]
+    },
+    "SpillsInventoryOnDestroy": true,
+    "InventorySlotsText": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "GroupInventoryActions": [],
+    "EffectsToInventoryContent": [],
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_wooden_pantry",
+                "LocalizationKey": "Herbs_And_Fungi_WoodenPantry_DismantleActions_Place_ActionName",
+                "DefaultText": "Place"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_wooden_pantry",
+                "LocalizationKey": "Herbs_And_Fungi_WoodenPantry_DismantleActions_Place_ActionDescription",
+                "DefaultText": "Set the pantry down in your environment."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": ["Wood"],
+            "ActionSoundsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": { "m_FileID": 0, "m_PathID": 0 },
+                "TransformIntoWarpData": "herbs_fungi_wooden_pantry_placed",
+                "TransformIntoWarpType": 3,
+                "TransferInventory": true,
+                "SpawnTransformAtSource": true
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_wooden_pantry",
+                "LocalizationKey": "Herbs_And_Fungi_WoodenPantry_DismantleActions_Dismantle_ActionName",
+                "DefaultText": "Dismantle"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_wooden_pantry",
+                "LocalizationKey": "Herbs_And_Fungi_WoodenPantry_DismantleActions_Dismantle_ActionDescription",
+                "DefaultText": "Take the pantry apart to recover the planks."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": ["Wood"],
+            "ActionSoundsWarpType": 3,
+            "RequiredReceivingDurabilities": {
+                "RequiredInventoryEmpty": true,
+                "HideActionIfNotMet": true,
+                "FailMessage": {
+                    "ParentObjectID": "herbs_fungi_wooden_pantry",
+                    "LocalizationKey": "Herbs_And_Fungi_WoodenPantry_DismantleActions_Dismantle_FailMessage",
+                    "DefaultText": "Empty the pantry first."
+                }
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 4, "y": 4 }
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": { "ModType": 3 }
+        }
+    ],
+    "BlueprintCardConditions": [],
+    "BlueprintTagConditions": [],
+    "BlueprintStatConditions": [],
+    "BuildingCardConditions": [],
+    "BuildingTagConditions": [],
+    "BuildingStatConditions": [],
+    "BlueprintStages": [],
+    "BuildSounds": [],
+    "DeconstructSounds": [],
+    "BuildingDaytimeCost": 0,
+    "BuildingMiniTicks": 0,
+    "DeconstructDaytimeCost": 0,
+    "DeconstructMiniTicks": 0,
+    "BlueprintActionTags": [],
+    "BlueprintDoesntCountForEnvWeight": false,
+    "BPRandomSingleDrop": false,
+    "BlueprintResult": [],
+    "BlueprintBuiltImprovements": [],
+    "BlueprintStatModifications": [],
+    "BlueprintCardModifications": [],
+    "EquipSlotType": 0
+}

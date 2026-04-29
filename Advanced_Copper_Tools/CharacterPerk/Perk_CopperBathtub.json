@@ -1,0 +1,71 @@
+{
+  "ActionModifiers": [],
+  "ActionObjectives": [],
+  "AddedCards": [],
+  "AddedCardsWarpData": [
+    "advanced_copper_tools_copper_bathtub_empty"
+  ],
+  "AddedCardsWarpType": 3,
+  "AddedStartingHours": 0,
+  "CardsOnBoardObjectives": [],
+  "CheckingNotificationDetails": 0,
+  "CompleteOnLose": false,
+  "CompleteOnWin": false,
+  "DebugCompletion": false,
+  "DifficultyRating": -300,
+  "DisplayPriority": 2403.0,
+  "EditorOnly": false,
+  "EquippedCards": [],
+  "EquippedCardsWarpData": [],
+  "EquippedCardsWarpType": 3,
+  "HiddenUntilUnlocked": false,
+  "MoonsCost": 3,
+  "NestedObjectives": [],
+  "NoSafetyMode": false,
+  "NotifyWhenNotChecked": false,
+  "OverrideEnvironment": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "OverrideEquipment": false,
+  "OverrideWeather": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "PassiveStatModifiers": [],
+  "PerkDescription": {
+    "DefaultText": "Start with a copper bathtub. A luxurious way to stay clean and relax.",
+    "LocalizationKey": "Advanced_Copper_Tools_Perk_CopperBathtub_PerkDescription",
+    "ParentObjectID": "advanced_copper_tools_perk_copper_bathtub"
+  },
+  "PerkIcon": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "PerkIconWarpData": "CopperBathtub_Full_Unlit",
+  "PerkIconWarpType": 3,
+  "PerkName": {
+    "DefaultText": "Copper Bathtub",
+    "LocalizationKey": "Advanced_Copper_Tools_Perk_CopperBathtub_PerkName",
+    "ParentObjectID": "advanced_copper_tools_perk_copper_bathtub"
+  },
+  "PerkUnlockConditions": {
+    "DefaultText": "",
+    "LocalizationKey": "",
+    "ParentObjectID": "advanced_copper_tools_perk_copper_bathtub"
+  },
+  "PlayedCharacter": [],
+  "RequiredDifficultyScore": {
+    "x": 0,
+    "y": 0
+  },
+  "ResetLockInEditor": false,
+  "StartUnlocked": false,
+  "StartingStatModifiers": [],
+  "StatsObjectives": [],
+  "SunsCost": 0,
+  "TagsOnBoardObjectives": [],
+  "TimeObjectives": [],
+  "UniqueID": "advanced_copper_tools_perk_copper_bathtub",
+  "CharacterPerkPerkGroup": "72120cda8e1cef540b1b25118dd7edaa"
+}

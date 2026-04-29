@@ -1,0 +1,470 @@
+{
+  "UniqueID": "advanced_copper_tools_stove_top_mold",
+  "CardName": {
+    "ParentObjectID": "advanced_copper_tools_stove_top_mold",
+    "LocalizationKey": "Advanced_Copper_Tools_StoveTopMold_CardName",
+    "DefaultText": "Stove Top Mold"
+  },
+  "CardDescription": {
+    "ParentObjectID": "advanced_copper_tools_stove_top_mold",
+    "LocalizationKey": "Advanced_Copper_Tools_StoveTopMold_CardDescription",
+    "DefaultText": "A cast metal stove top still in its clay mold. Break with a hammer to free the casting."
+  },
+  "CardType": 0,
+  "ObjectWeight": 400.0,
+  "TradingValue": 600.0,
+  "CardTags": [],
+  "CardTagsWarpData": [
+    "tag_ToolCast",
+    "tag_SmeltsAt1100",
+    "tag_Metal",
+    "tag_CopperBig"
+  ],
+  "CardTagsWarpType": 3,
+  "AlternateNames": [
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_StoveTopMold_AlternateNames[0].Name",
+        "DefaultText": "Copper Stove Top Mold"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "CastingMold",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 110.0,
+          "y": 110.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_StoveTopMold_AlternateNames[1].Name",
+        "DefaultText": "Ghost Bronze Stove Top Mold"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "CastingMold",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 120.0,
+          "y": 120.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_StoveTopMold_AlternateNames[2].Name",
+        "DefaultText": "Tin Stove Top Mold"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "CastingMold",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 130.0,
+          "y": 130.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_StoveTopMold_AlternateNames[3].Name",
+        "DefaultText": "Tin Bronze Stove Top Mold"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "CastingMold",
+        "CardImageWarpType": 3
+      }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "UsageRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "FuelRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "ProgressRange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special2Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special3Range": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special4Range": {
+          "x": 140.0,
+          "y": 140.0
+        },
+        "LiquidQuantityRange": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "Name": {
+        "LocalizationKey": "Advanced_Copper_Tools_StoveTopMold_AlternateNames[4].Name",
+        "DefaultText": "White Bronze Stove Top Mold"
+      },
+      "Art": {
+        "CardImage": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "CardImageWarpData": "CastingMold",
+        "CardImageWarpType": 3
+      }
+    }
+  ],
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "CastingMold",
+  "CardImageWarpType": 3,
+  "WhenCreatedSoundsWarpData": [
+    "MetalAppear"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": false
+  },
+  "FuelCapacity": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_stove_top_mold",
+      "LocalizationKey": "Advanced_Copper_Tools_StoveTopMold_FuelCapacity.CardStatName",
+      "DefaultText": "Temperature"
+    },
+    "MaxValue": 1300.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 2,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Hot",
+    "OverrideIconWarpType": 3
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": false
+  },
+  "SpecialDurability2": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_stove_top_mold",
+      "LocalizationKey": "Advanced_Copper_Tools_StoveTopMold_SpecialDurability2.CardStatName",
+      "DefaultText": "Metal Quality"
+    },
+    "MaxValue": 100.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Quality",
+    "OverrideIconWarpType": 3
+  },
+  "SpecialDurability3": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_stove_top_mold",
+      "LocalizationKey": "Advanced_Copper_Tools_StoveTopMold_SpecialDurability3.CardStatName",
+      "DefaultText": "Quality"
+    },
+    "MaxValue": 100.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "CountsForTradingValue": true,
+    "OverrideIconWarpData": "Quality",
+    "OverrideIconWarpType": 3
+  },
+  "SpecialDurability4": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_stove_top_mold",
+      "LocalizationKey": "Advanced_Copper_Tools_StoveTopMold_SpecialDurability4.CardStatName",
+      "DefaultText": "Metal Type"
+    },
+    "MaxValue": 1000.0,
+    "RestrictToSpecificValues": true,
+    "ValidValues": [
+      0.0,
+      100.0,
+      110.0,
+      120.0,
+      130.0,
+      140.0
+    ],
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "CountsForTradingValue": true
+  },
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_stove_top_mold",
+        "LocalizationKey": "Advanced_Copper_Tools_StoveTopMold_Break_ActionName",
+        "DefaultText": "Break Mold"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_stove_top_mold",
+        "LocalizationKey": "Advanced_Copper_Tools_StoveTopMold_Break_ActionDescription",
+        "DefaultText": "Break the clay mold to free the stove top casting."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 1,
+      "ActionSounds": [],
+      "ActionSoundsWarpData": [
+        "Smithing"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ActionTags": [],
+      "ActionTagsWarpData": [
+        "ScreenshotBG"
+      ],
+      "ActionTagsWarpType": 3,
+      "ProducedCards": [
+        {
+          "CollectionName": "Debris",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "6d47888db6018d04ea562476cde60440",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "advanced_copper_tools_cast_stove_top",
+        "TransformIntoWarpType": 3,
+        "TransferSpecial2": true,
+        "TransferSpecial3": true,
+        "TransferSpecial4": true,
+        "SpawnTransformAtSource": true
+      },
+      "GivenCardChanges": {
+        "ModType": 1,
+        "UsageChange": {
+          "x": -4.0,
+          "y": -4.0
+        }
+      },
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerTagsWarpData": [
+          "tag_HammeringToolGeneral"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "NOTCompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": []
+      },
+      "WorksBothWays": false
+    }
+  ],
+  "DismantleActions": [],
+  "PassiveStatEffects": [],
+  "PassiveEffects": []
+}

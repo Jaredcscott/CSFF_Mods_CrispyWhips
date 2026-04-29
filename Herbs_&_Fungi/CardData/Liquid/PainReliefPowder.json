@@ -1,0 +1,115 @@
+{
+    "UniqueID": "herbs_fungi_pain_relief_powder",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_pain_relief_powder",
+        "LocalizationKey": "herbs_fungi_pain_relief_powder_CardName",
+        "DefaultText": "Pain Relief Powder"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_pain_relief_powder",
+        "LocalizationKey": "herbs_fungi_pain_relief_powder_CardDescription",
+        "DefaultText": "A finely ground herbal powder that reduces pain when ingested. More efficient than raw herbs."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Consumable",
+        "tag_Medicine"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Bowl_Clay",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "ParentObjectID": "herbs_fungi_pain_relief_powder",
+        "LocalizationKey": "herbs_fungi_pain_relief_powder_SpoilageTime_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_pain_relief_powder",
+            "LocalizationKey": "herbs_fungi_pain_relief_powder_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 2880.0,
+        "RatePerDaytimePoint": 1.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_pain_relief_powder",
+                "LocalizationKey": "herbs_fungi_pain_relief_powder_SpoilageTime_Spoiled",
+                "DefaultText": "The pain relief powder has spoiled."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_pain_relief_powder",
+                "LocalizationKey": "herbs_fungi_pain_relief_powder_Take",
+                "DefaultText": "Take Powder"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_pain_relief_powder",
+                "LocalizationKey": "herbs_fungi_pain_relief_powder_Take_Desc",
+                "DefaultText": "Ingest the pain-relieving powder."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "EatingAction",
+                "MedicineAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": -20.0,
+                        "y": -20.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
+                    "StatWarpType": 3
+                }
+            ]
+        }
+    ],
+    "ObjectWeight": 0.1,
+    "MaxStack": 10,
+    "DroppedCardShadow": 1
+}

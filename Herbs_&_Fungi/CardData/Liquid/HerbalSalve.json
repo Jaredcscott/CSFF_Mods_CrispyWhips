@@ -1,0 +1,114 @@
+{
+    "UniqueID": "herbs_fungi_herbal_salve",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_herbal_salve",
+        "LocalizationKey": "herbs_fungi_herbal_salve_CardName",
+        "DefaultText": "Herbal Salve"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_herbal_salve",
+        "LocalizationKey": "herbs_fungi_herbal_salve_CardDescription",
+        "DefaultText": "A topical healing salve made from medicinal herbs and fat. Apply directly to wounds for faster healing."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Consumable",
+        "tag_Medicine"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Bowl_Clay",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "ParentObjectID": "herbs_fungi_herbal_salve",
+        "LocalizationKey": "herbs_fungi_herbal_salve_SpoilageTime_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_herbal_salve",
+            "LocalizationKey": "herbs_fungi_herbal_salve_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 2880.0,
+        "RatePerDaytimePoint": 1.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_herbal_salve",
+                "LocalizationKey": "herbs_fungi_herbal_salve_SpoilageTime_Spoiled",
+                "DefaultText": "The herbal salve has spoiled."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_herbal_salve",
+                "LocalizationKey": "herbs_fungi_herbal_salve_Apply",
+                "DefaultText": "Apply Salve"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_herbal_salve",
+                "LocalizationKey": "herbs_fungi_herbal_salve_Apply_Desc",
+                "DefaultText": "Apply the healing salve to your wounds."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "MedicineAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": -15.0,
+                        "y": -15.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
+                    "StatWarpType": 3
+                }
+            ]
+        }
+    ],
+    "ObjectWeight": 0.2,
+    "MaxStack": 5,
+    "DroppedCardShadow": 1
+}

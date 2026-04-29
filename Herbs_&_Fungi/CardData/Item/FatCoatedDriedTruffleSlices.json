@@ -1,0 +1,155 @@
+{
+    "UniqueID": "herbs_fungi_dried_truffle_cut_fat_coated",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_dried_truffle_cut_fat_coated",
+        "LocalizationKey": "herbs_fungi_dried_truffle_cut_fat_coated_CardName",
+        "DefaultText": "Fat-Coated Dried Truffle Slices"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_dried_truffle_cut_fat_coated",
+        "LocalizationKey": "herbs_fungi_dried_truffle_cut_fat_coated_CardDescription",
+        "DefaultText": "Dried truffle slices coated in fat. Heat them in a hot bowl to render a luxurious cooked truffle. They will char if left on heat too long, but the fat protects them long enough to cook properly."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Grindable",
+        "tag_Vegetable",
+        "tag_Fungus",
+        "tag_DriedFood",
+        "tag_Plateable",
+        "tag_Cookable",
+        "tag_Heatable",
+        "tag_FastlyCharsOnHighHeat"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Truffle_Dried_Cut",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "ParentObjectID": "herbs_fungi_dried_truffle_cut_fat_coated",
+        "LocalizationKey": "herbs_fungi_dried_truffle_cut_fat_coated_SpoilageTime_StatName",
+        "Active": false,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_dried_truffle_cut_fat_coated",
+            "LocalizationKey": "herbs_fungi_dried_truffle_cut_fat_coated_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 100.0,
+        "RatePerDaytimePoint": 0.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": false
+    },
+    "SpecialDurability1": {
+        "ParentObjectID": "herbs_fungi_dried_truffle_cut_fat_coated",
+        "LocalizationKey": "herbs_fungi_dried_truffle_cut_fat_coated_SpecialDurability1_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_dried_truffle_cut_fat_coated",
+            "LocalizationKey": "herbs_fungi_dried_truffle_cut_fat_coated_SpecialDurability1_StatName",
+            "DefaultText": "Cook"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 3.0,
+        "RatePerDaytimePoint": 0.0,
+        "RateMultiplier": 1.0,
+        "HidingOptions": 1,
+        "OverrideIcon": {
+            "m_FileID": 0,
+            "m_PathID": 0
+        },
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_dried_truffle_cut_fat_coated",
+                "LocalizationKey": "herbs_fungi_dried_truffle_cut_fat_coated_SpecialDurability1_Cooked",
+                "DefaultText": "The fat-coated truffle slices cooked into a perfect dish."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_cooked_truffle",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        },
+        "OverrideIconWarpData": "Cooking",
+        "OverrideIconWarpType": 3
+    },
+    "SpecialDurability4": {
+        "ParentObjectID": "herbs_fungi_dried_truffle_cut_fat_coated",
+        "LocalizationKey": "herbs_fungi_dried_truffle_cut_fat_coated_SpecialDurability4_StatName",
+        "Active": true,
+        "FloatValue": 1.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_dried_truffle_cut_fat_coated",
+            "LocalizationKey": "herbs_fungi_dried_truffle_cut_fat_coated_SpecialDurability4_StatName",
+            "DefaultText": "Fat"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 1.0,
+        "RatePerDaytimePoint": 0.0,
+        "RateMultiplier": 1.0,
+        "HidingOptions": 0,
+        "OverrideIcon": {
+            "m_FileID": 0,
+            "m_PathID": 0
+        },
+        "HasActionOnFull": false,
+        "OverrideIconWarpData": "Fuel",
+        "OverrideIconWarpType": 3
+    },
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_dried_truffle_cut_fat_coated",
+                "LocalizationKey": "herbs_fungi_dried_truffle_cut_fat_coated_Eat",
+                "DefaultText": "Eat"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_dried_truffle_cut_fat_coated",
+                "LocalizationKey": "herbs_fungi_dried_truffle_cut_fat_coated_Eat_Desc",
+                "DefaultText": "Nibble the fat-coated dried truffle slices raw. Rich and oily, but not as good as cooked."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 25.0,
+                        "y": 25.0
+                    },
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3
+                }
+            ]
+        }
+    ],
+    "ObjectWeight": 0.03,
+    "MaxStack": 10,
+    "DroppedCardShadow": 1
+}

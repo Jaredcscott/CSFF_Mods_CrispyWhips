@@ -1,0 +1,145 @@
+{
+  "UniqueID": "advanced_copper_tools_large_saw",
+  "CardName": {
+    "ParentObjectID": "advanced_copper_tools_large_saw",
+    "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_CardName",
+    "DefaultText": "Large Copper Saw"
+  },
+  "CardDescription": {
+    "ParentObjectID": "advanced_copper_tools_large_saw",
+    "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_CardDescription",
+    "DefaultText": "A large two-handled saw with a copper blade. Cuts trees much faster than an axe."
+  },
+  "CanBeRenamed": false,
+  "AlternateNames": [],
+  "LiquidSuffixName": {
+    "ParentObjectID": "advanced_copper_tools_large_saw",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "CardHelpSection": {
+    "ParentObjectID": "advanced_copper_tools_large_saw",
+    "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_CardHelpSection",
+    "DefaultText": "<b>Crafted:</b> From 2 metal sheets and 2 planks using a hammer.\n\n<b>Uses:</b> Cuts trees faster than an axe. Use as a cutting tool."
+  },
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardBackground": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "LargeSaw",
+  "CardImageWarpType": 3,
+  "ShowImageAboveTitle": false,
+  "CardType": 0,
+  "CannotBeTransferred": false,
+  "NotAutoSolvableEvent": false,
+  "ObjectWeight": 200.0,
+  "TradingValue": 300.0,
+  "CardTags": [],
+  "CardTagsWarpData": [
+    "tag_SmeltsAt1100",
+    "tag_Axe",
+    "tag_AdvancedAxe",
+    "tag_Metal",
+    "tag_CopperBig"
+  ],
+  "CardTagsWarpType": 3,
+  "EquipmentTags": [],
+  "EquipmentTagsWarpData": [
+    "tag_Back"
+  ],
+  "EquipmentTagsWarpType": 3,
+  "MapStructureType": 0,
+  "FlavourTags": [],
+  "SpiceTags": [],
+  "AlwaysUpdate": false,
+  "CannotBeTrashed": false,
+  "DoesNotPile": false,
+  "ToggleablePiling": false,
+  "DoesNotPinAutomatically": false,
+  "WhenCreatedSounds": [],
+  "WhenCreatedSoundsWarpData": [
+    "Metal"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": true,
+    "FloatValue": 100.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_large_saw",
+      "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_UsageDurability.CardStatName",
+      "DefaultText": "Durability"
+    },
+    "MaxValue": 100.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 0,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": true,
+    "OnZero": {
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_large_saw",
+        "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_UsageDurability.OnZero.ActionDescription",
+        "DefaultText": "Saw Broken!"
+      },
+      "OnZeroNotification": 1,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    },
+    "HasActionOnFull": false,
+    "CountsForTradingValue": true
+  },
+  "FuelCapacity": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_large_saw",
+      "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_FuelCapacity.CardStatName",
+      "DefaultText": "Temperature"
+    },
+    "MaxValue": 1300.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 2,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Hot",
+    "OverrideIconWarpType": 3
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": false
+  },
+  "SpecialDurability2": {
+    "Active": false
+  },
+  "SpecialDurability3": {
+    "Active": false
+  },
+  "SpecialDurability4": {
+    "Active": false
+  },
+  "CardInteractions": [],
+  "DismantleActions": [],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [],
+  "MaxLiquidCapacity": 0.0,
+  "InventorySlots": [],
+  "InventorySlotsWarpData": [],
+  "InventorySlotsWarpType": 3,
+  "BlueprintStages": [],
+  "BlueprintResult": [],
+  "IsWeapon": false,
+  "IsArmor": false
+}

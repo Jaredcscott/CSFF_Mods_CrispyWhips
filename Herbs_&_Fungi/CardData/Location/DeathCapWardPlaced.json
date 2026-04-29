@@ -1,0 +1,117 @@
+{
+    "UniqueID": "herbs_fungi_death_cap_ward_placed",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_death_cap_ward_placed",
+        "LocalizationKey": "Herbs_And_Fungi_DeathCapWard_CardName",
+        "DefaultText": "Death Cap Ward"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_death_cap_ward_placed",
+        "LocalizationKey": "Herbs_And_Fungi_DeathCapWard_CardDescription",
+        "DefaultText": "A grim totem of stakes strung with death cap mushrooms. The miasma of toxins keeps curious predators at a wary distance when placed at a location."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_death_cap_ward_placed",
+        "LocalizationKey": "Herbs_And_Fungi_DeathCapWardPlaced_CardHelpSection",
+        "DefaultText": "<b>Effect:</b> While this ward is on this location, wild-animal encounters have a chance to be averted.\n\n<b>Pick Up:</b> Retrieve the ward if you want to relocate it."
+    },
+    "CardType": 2,
+    "CardTagsWarpData": [
+        "tag_Structure",
+        "tag_Wood",
+        "tag_Repellent"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "DeathCap_Fresh",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 2.0,
+    "MaxStack": 1,
+    "DroppedCardShadow": 2,
+    "DoesNotPile": true,
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_death_cap_ward_placed",
+                "LocalizationKey": "Herbs_And_Fungi_DeathCapWard_PickUp_ActionName",
+                "DefaultText": "Pick Up"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_death_cap_ward_placed",
+                "LocalizationKey": "Herbs_And_Fungi_DeathCapWard_PickUp_ActionDescription",
+                "DefaultText": "Pull the ward out of the ground."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [
+                "Wood"
+            ],
+            "ActionSoundsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_death_cap_ward",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_death_cap_ward_placed",
+                "LocalizationKey": "Herbs_And_Fungi_DeathCapWard_Dismantle_ActionName",
+                "DefaultText": "Dismantle"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_death_cap_ward_placed",
+                "LocalizationKey": "Herbs_And_Fungi_DeathCapWard_Dismantle_ActionDescription",
+                "DefaultText": "Break down the ward. Recovers the sticks but the mushrooms are lost."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [
+                "Wood"
+            ],
+            "ActionSoundsWarpType": 3,
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "3db4c94184af274409f0d3eb16870f64",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 2,
+                                "y": 2
+                            }
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ]
+}

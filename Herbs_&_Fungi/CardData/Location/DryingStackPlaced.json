@@ -1,0 +1,249 @@
+{
+    "UniqueID": "herbs_fungi_drying_stack_placed",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_drying_stack_placed",
+        "LocalizationKey": "Herbs_And_Fungi_DryingStack_CardName",
+        "DefaultText": "Drying Stack"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_drying_stack_placed",
+        "LocalizationKey": "Herbs_And_Fungi_DryingStack_CardDescription",
+        "DefaultText": "A portable wooden rack that holds up to 3 drying trays in separate slots for efficient herb preservation."
+    },
+    "CanBeRenamed": true,
+    "AlternateNames": [],
+    "LiquidSuffixName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_drying_stack_placed",
+        "LocalizationKey": "Herbs_And_Fungi_DryingStack_Placed_CardHelpSection",
+        "DefaultText": "<b>Capacity:</b> Holds 3 drying trays\n\n<b>Use:</b> Add drying trays to the rack, then fill each tray with herbs, flowers, or fungi.\n\n<b>Benefits:</b> Organized vertical storage for efficient drying."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardBackground": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "DryingStack",
+    "CardImageWarpType": 3,
+    "ShowImageAboveTitle": false,
+    "CardType": 2,
+    "CannotBeTransferred": false,
+    "NotAutoSolvableEvent": false,
+    "ObjectWeight": 100.0,
+    "TradingValue": 50.0,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Structure",
+        "tag_Wood",
+        "tag_Bag"
+    ],
+    "CardTagsWarpType": 3,
+    "EquipmentTags": [],
+    "MapStructureType": 0,
+    "FlavourTags": [],
+    "SpiceTags": [],
+    "AlwaysUpdate": true,
+    "CannotBeTrashed": false,
+    "DoesNotPile": true,
+    "ToggleablePiling": false,
+    "DoesNotPinAutomatically": false,
+    "WhenCreatedSounds": [],
+    "WhenCreatedSoundsWarpData": [
+        "Wood"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "DurabilitySorting": {
+        "SortingList": []
+    },
+    "InventoryIsHidden": false,
+    "IsMiniInventory": false,
+    "CannotPutItemsIn": false,
+    "CannotTakeItemsOut": false,
+    "PreventsDismantleActions": false,
+    "PreventsCardInteractions": false,
+    "IsWeaponSheath": false,
+    "OpenOnTab": 0,
+    "DontRememberLastOpenTab": false,
+    "MaxWeightCapacity": 2400.0,
+    "ContentWeightReduction": 0.0,
+    "InventorySlots": [
+        {
+            "m_FileID": 0,
+            "m_PathID": 0
+        },
+        {
+            "m_FileID": 0,
+            "m_PathID": 0
+        },
+        {
+            "m_FileID": 0,
+            "m_PathID": 0
+        }
+    ],
+    "InventoryFilter": {
+        "AcceptedCards": [],
+        "AcceptedTypes": [],
+        "AcceptedTags": [],
+        "NOTAcceptedCards": [],
+        "NOTAcceptedTypes": [],
+        "NOTAcceptedTags": [],
+        "CardFilters": [
+            {
+                "Card": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "CardWarpData": "herbs_fungi_drying_tray",
+                "CardWarpType": 3,
+                "NOT": false
+            }
+        ],
+        "TagFilters": []
+    },
+    "SpillsInventoryOnDestroy": false,
+    "InventorySlotsText": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "GroupInventoryActions": [],
+    "EffectsToInventoryContent": [],
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_drying_stack_placed",
+                "LocalizationKey": "Herbs_And_Fungi_DryingStackPlaced_DismantleActions_PickUp_ActionName",
+                "DefaultText": "Pick Up"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_drying_stack_placed",
+                "LocalizationKey": "Herbs_And_Fungi_DryingStackPlaced_DismantleActions_PickUp_ActionDescription",
+                "DefaultText": "Pick up the drying stack and carry it."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_drying_stack",
+                "TransformIntoWarpType": 3,
+                "TransferInventory": true,
+                "SpawnTransformAtSource": true
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_drying_stack_placed",
+                "LocalizationKey": "Herbs_And_Fungi_DryingStack_DismantleActions_Dismantle_ActionName",
+                "DefaultText": "Dismantle"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_drying_stack_placed",
+                "LocalizationKey": "Herbs_And_Fungi_DryingStack_DismantleActions_Dismantle_ActionDescription",
+                "DefaultText": "Take apart the drying stack to recover the planks."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [
+                "Wood"
+            ],
+            "ActionSoundsWarpType": 3,
+            "RequiredReceivingDurabilities": {
+                "RequiredInventoryEmpty": true,
+                "HideActionIfNotMet": true,
+                "FailMessage": {
+                    "ParentObjectID": "herbs_fungi_drying_stack_placed",
+                    "LocalizationKey": "Herbs_And_Fungi_DryingStack_DismantleActions_Dismantle_FailMessage",
+                    "DefaultText": "Remove drying trays from the stack first."
+                }
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 4,
+                                "y": 4
+                            }
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
+    "BlueprintCardConditions": [],
+    "BlueprintTagConditions": [],
+    "BlueprintStatConditions": [],
+    "BuildingCardConditions": [],
+    "BuildingTagConditions": [],
+    "BuildingStatConditions": [],
+    "BlueprintStages": [],
+    "BuildSounds": [],
+    "DeconstructSounds": [],
+    "BuildingDaytimeCost": 0,
+    "BuildingMiniTicks": 0,
+    "DeconstructDaytimeCost": 0,
+    "DeconstructMiniTicks": 0,
+    "BlueprintActionTags": [],
+    "BlueprintDoesntCountForEnvWeight": false,
+    "BPRandomSingleDrop": false,
+    "BlueprintResult": [],
+    "BlueprintBuiltImprovements": [],
+    "BlueprintStatModifications": [],
+    "BlueprintCardModifications": [],
+    "EquipSlotType": 0
+}

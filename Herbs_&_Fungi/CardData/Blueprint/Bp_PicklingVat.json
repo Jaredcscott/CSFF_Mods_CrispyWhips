@@ -1,0 +1,106 @@
+{
+    "UniqueID": "herbs_fungi_bp_pickling_vat",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_bp_pickling_vat",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_PicklingVat_CardName",
+        "DefaultText": "Unfired Pickle Vat"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_bp_pickling_vat",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_PicklingVat_CardDescription",
+        "DefaultText": "Shape a soft clay pickling vat. Fire it in a kiln to harden it before use. Requires 6 clay."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "herbs_fungi_bp_pickling_vat",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_PicklingVat_UnlockConditionsDesc",
+        "DefaultText": "Unlocked after obtaining clay"
+    },
+    "BlueprintUnlockTicksCost": 16.0,
+    "BuildingStatConditions": [],
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasClay",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "CardWarpData": "68c14d265ea6c874ba79444d2e1ef7b3",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 6,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "68c14d265ea6c874ba79444d2e1ef7b3",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 2,
+    "DeconstructDaytimeCost": 1,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "DroppedCardWarpData": "herbs_fungi_unfired_pickle_vat",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": [
+        "Fiber"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Pickling_Jar_Fired",
+    "CardImageWarpType": 3,
+    "ResearchedNotification": 0
+}

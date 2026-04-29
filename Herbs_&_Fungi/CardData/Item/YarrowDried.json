@@ -1,0 +1,353 @@
+{
+    "UniqueID": "herbs_fungi_yarrow_dried",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_yarrow_dried",
+        "LocalizationKey": "herbs_fungi_yarrow_dried_CardName",
+        "DefaultText": "Dried Yarrow"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_yarrow_dried",
+        "LocalizationKey": "herbs_fungi_yarrow_dried_CardDescription",
+        "DefaultText": "Properly dried yarrow with preserved healing properties. Can be ground into powder or brewed into medicinal tea. Excellent for treating wounds and bleeding."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Grindable",
+        "tag_Vegetable",
+        "tag_Foraged",
+        "tag_Herb",
+        "tag_Millable",
+        "tag_Plateable"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "YarrowDried",
+    "CardImageWarpType": 3,
+    "SpecialDurability3": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_yarrow_dried",
+            "LocalizationKey": "herbs_fungi_yarrow_dried_SpecialDurability3_CardStatName",
+            "DefaultText": "Mill"
+        },
+        "MaxValue": 1.0,
+        "HidingOptions": 2,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "CountsForTradingValue": false,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransferSpoilage": true,
+                "TransformIntoWarpData": "herbs_fungi_yarrow_ground",
+                "TransformIntoWarpType": 3
+            }
+        }
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_yarrow_dried",
+                "LocalizationKey": "herbs_fungi_yarrow_dried_Grind",
+                "DefaultText": "Grind"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_yarrow_dried",
+                "LocalizationKey": "herbs_fungi_yarrow_dried_Grind_Desc",
+                "DefaultText": "Grind the dried yarrow into powder using stones or grinding tools."
+            },
+            "DaytimeCost": 1,
+            "StatModifications": [
+                {
+                    "StatWarpData": "85559650c938ef843af92c18f5b0c6c7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 1.0,
+                        "y": 1.0
+                    }
+                },
+                {
+                    "StatWarpData": "16af37a364285d14586629e3e0700e55",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -3.0,
+                        "y": -3.0
+                    },
+                    "ApplyEachTick": true
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransferSpoilage": true,
+                "TransformIntoWarpData": "herbs_fungi_yarrow_ground",
+                "TransformIntoWarpType": 3
+            },
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "9f657b781d6e789479bcf3e01f7b61d5"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [
+                    "tag_HammeringToolGeneral",
+                    "tag_GrindingTool"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksBothWays": true,
+            "WorksInverted": false,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3
+        }
+    ],
+    "OnStatsChangeActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_yarrow_dried",
+                "LocalizationKey": "herbs_fungi_yarrow_dried_OnStatsChangeActions[0]_ActionName",
+                "DefaultText": "Finish Rotary Quern Grinding"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "DaytimeCost": 0,
+            "RequiredReceivingDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "RequiredFuelPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "RequiredProgressPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "RequiredLiquidQuantity": 0.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": true,
+                    "FloatValue": 1.0,
+                    "MaxValue": 1.0
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": []
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransferSpoilage": true,
+                "TransformIntoWarpData": "herbs_fungi_yarrow_ground",
+                "TransformIntoWarpType": 3
+            },
+            "StatChangeTrigger": [
+                {
+                    "StatWarpData": "a1a2efb9e793dbb4294f48220ff8f11b",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.0,
+                        "y": 1000000000.0
+                    },
+                    "NotifyWhenNotMet": false,
+                    "HideAllWhenNotMet": false
+                }
+            ]
+        }
+    ],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_yarrow_dried",
+                "LocalizationKey": "herbs_fungi_yarrow_dried_Eat",
+                "DefaultText": "Eat"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_yarrow_dried",
+                "LocalizationKey": "herbs_fungi_yarrow_dried_Eat_Desc",
+                "DefaultText": "Eat the dried yarrow leaves. Concentrated healing properties help stop bleeding and fight infection."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": -12.0,
+                        "y": -12.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": -3.0,
+                        "y": -3.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "7f4598bd0e82e7b499da3848e452c39f",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 15.0,
+                        "y": 15.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "04194353fd841a94ebff8b69af66c8d0",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": -30.0,
+                        "y": -30.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "dc3cae53109fd5945b5279ec6291caae",
+                    "StatWarpType": 3
+                }
+            ]
+        }
+    ],
+    "ObjectWeight": 0.03,
+    "MaxStack": 20,
+    "DroppedCardShadow": 1
+}

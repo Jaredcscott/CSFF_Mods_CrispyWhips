@@ -1,0 +1,168 @@
+{
+    "UniqueID": "herbs_fungi_pickle_vat_closed_mushrooms",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_pickle_vat_closed_mushrooms",
+        "LocalizationKey": "Herbs_And_Fungi_PickleVatClosedMushrooms_CardName",
+        "DefaultText": "Pickled Mushrooms (Closed)"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_pickle_vat_closed_mushrooms",
+        "LocalizationKey": "Herbs_And_Fungi_PickleVatClosedMushrooms_CardDescription",
+        "DefaultText": "A pickle vat capped with a clay bowl, packed with mushrooms for fermenting. Pour water over the lid to water-seal it and begin the 7-day cycle."
+    },
+    "CardType": 0,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Craftable"
+    ],
+    "CardTagsWarpType": 3,
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "InventoryFilter": {
+        "AcceptedCards": [],
+        "AcceptedTypes": [],
+        "AcceptedTags": [],
+        "NOTAcceptedCards": [],
+        "NOTAcceptedTypes": [],
+        "NOTAcceptedTags": [],
+        "CardFilters": [],
+        "TagFilters": []
+    },
+    "MaxLiquidCapacity": 500.0,
+    "CannotReceiveLiquidWithDragNDrop": true,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Pickling_Jar_Closed",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 220.0,
+    "MaxStack": 1,
+    "DroppedCardShadow": 1,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_pickle_vat_closed_mushrooms",
+            "LocalizationKey": "Herbs_And_Fungi_PickleVatClosedMushrooms_SpecialDurability2.CardStatName",
+            "DefaultText": "Quality"
+        },
+        "MaxValue": 100.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "HasActionOnZero": false,
+        "CountsForTradingValue": true,
+        "OverrideIconWarpData": "Quality",
+        "OverrideIconWarpType": 3
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_pickle_vat_closed_mushrooms",
+                "LocalizationKey": "Herbs_And_Fungi_PickleVatClosedMushrooms_Seal_ActionName",
+                "DefaultText": "Seal"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_pickle_vat_closed_mushrooms",
+                "LocalizationKey": "Herbs_And_Fungi_PickleVatClosedMushrooms_Seal_ActionDescription",
+                "DefaultText": "Pour water over the lid to seal the vat. Begin the mushrooms pickling cycle."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "425259cb06b869d45be2e7f1b5b54aff"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_pickle_vat_sealed_mushrooms",
+                "TransformIntoWarpType": 3,
+                "TransferInventory": true,
+                "TransferLiquid": true,
+                "SpawnTransformAtSource": true
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "WorksBothWays": false
+        }
+    ],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_pickle_vat_closed_mushrooms",
+                "LocalizationKey": "Herbs_And_Fungi_PickleVatClosedMushrooms_Uncap_ActionName",
+                "DefaultText": "Uncap"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_pickle_vat_closed_mushrooms",
+                "LocalizationKey": "Herbs_And_Fungi_PickleVatClosedMushrooms_Uncap_ActionDescription",
+                "DefaultText": "Remove the clay bowl and reopen the vat. The packed mushrooms are lost."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_pickling_vat",
+                "TransformIntoWarpType": 3,
+                "TransferInventory": true,
+                "TransferLiquid": true,
+                "SpawnTransformAtSource": true
+            }
+        }
+    ],
+    "PassiveStatEffects": [],
+    "PassiveEffects": []
+}

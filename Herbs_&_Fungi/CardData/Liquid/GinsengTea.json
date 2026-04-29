@@ -1,0 +1,170 @@
+{
+    "UniqueID": "herbs_fungi_ginseng_tea",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_ginseng_tea",
+        "LocalizationKey": "herbs_fungi_ginseng_tea_CardName",
+        "DefaultText": "Ginseng Tea"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_ginseng_tea",
+        "LocalizationKey": "herbs_fungi_ginseng_tea_CardDescription",
+        "DefaultText": "A revitalizing herbal tea brewed from ground ginseng root. Reduces fatigue and boosts mental clarity."
+    },
+    "CanBeRenamed": false,
+    "AlternateNames": [],
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_ginseng_tea",
+        "LocalizationKey": "herbs_fungi_ginseng_tea_CardHelpSection",
+        "DefaultText": "<b>Preparation:</b> Mix ground ginseng with hot water in a bowl.\n\n<b>Benefits:</b> Reduces fatigue, improves focus, boosts immunity."
+    },
+    "CardImage": {"m_FileID": 0, "m_PathID": 0},
+    "CardImageWarpData": "Thirst_Old",
+    "CardImageWarpType": 3,
+    "CardBackground": {"m_FileID": 0, "m_PathID": 0},
+    "ShowImageAboveTitle": false,
+    "CardType": 9,
+    "CannotBeTransferred": false,
+    "NotAutoSolvableEvent": false,
+    "ObjectWeight": 0.33,
+    "TradingValue": 0.0,
+    "CardTags": [],
+    "CardTagsWarpData": ["tag_Heatable", "tag_Quality"],
+    "CardTagsWarpType": 3,
+    "EquipmentTags": [],
+    "AlwaysUpdate": true,
+    "CannotBeTrashed": false,
+    "DoesNotPile": false,
+    "ToggleablePiling": true,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_ginseng_tea",
+            "LocalizationKey": "herbs_fungi_ginseng_tea_SpoilageTime_CardStatName",
+            "DefaultText": "Bacteria"
+        },
+        "MaxValue": 4800.0,
+        "RatePerDaytimePoint": 1.0,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "HasActionOnZero": false,
+        "HasActionOnFull": true,
+        "ShowPopupOnFull": false,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_ginseng_tea",
+                "LocalizationKey": "herbs_fungi_ginseng_tea_SpoilageTime_OnFull_ActionDescription",
+                "DefaultText": "Ginseng Tea Spoiled!"
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "aa33d3104cc682c4e9a163e7df9a7e13",
+                "TransformIntoWarpType": 3
+            }
+        },
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3
+    },
+    "UsageDurability": {"Active": false},
+    "FuelCapacity": {
+        "Active": true,
+        "FloatValue": 100.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_ginseng_tea",
+            "LocalizationKey": "herbs_fungi_ginseng_tea_FuelCapacity_CardStatName",
+            "DefaultText": "Liquid Temperature"
+        },
+        "MaxValue": 200.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 3,
+        "TextDisplay": 2,
+        "HasActionOnZero": false,
+        "HasActionOnFull": false,
+        "OverrideIconWarpData": "Hot",
+        "OverrideIconWarpType": 3
+    },
+    "Progress": {"Active": false},
+    "SpecialDurability1": {"Active": false},
+    "SpecialDurability2": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_ginseng_tea",
+            "LocalizationKey": "herbs_fungi_ginseng_tea_SpecialDurability2_CardStatName",
+            "DefaultText": "Quality"
+        },
+        "MaxValue": 96.0,
+        "RatePerDaytimePoint": -0.25,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "HasActionOnZero": false,
+        "HasActionOnFull": false,
+        "OverrideIconWarpData": "Quality",
+        "OverrideIconWarpType": 3
+    },
+    "SpecialDurability3": {"Active": false},
+    "SpecialDurability4": {"Active": false},
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_ginseng_tea",
+                "LocalizationKey": "herbs_fungi_ginseng_tea_DismantleActions_Drink_ActionName",
+                "DefaultText": "Drink"
+            },
+            "ActionDescription": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": ["DrinkingAction"],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "ValueModifier": {"x": 80.0, "y": 80.0},
+                    "StatWarpData": "c589f92d8a479a24c937ea90fa2d1a82",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "ValueModifier": {"x": 10.0, "y": 10.0},
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "ValueModifier": {"x": -30.0, "y": -30.0},
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "ValueModifier": {"x": 40.0, "y": 40.0},
+                    "StatWarpData": "04194353fd841a94ebff8b69af66c8d0",
+                    "StatWarpType": 3
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 0,
+                "ModifyLiquid": true,
+                "LiquidEffectScaling": 2,
+                "SpoilageChange": {"x": -250.0, "y": -250.0},
+                "LiquidQuantityChange": {"x": -300.0, "y": -300.0},
+                "TransformIntoWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+                "TransformIntoWarpType": 3
+            }
+        }
+    ],
+    "PassiveEffects": [
+        {
+            "EffectName": "Cool Down",
+            "FuelRateModifier": {"Active": true, "FloatValue": -100.0}
+        }
+    ],
+    "MaxLiquidCapacity": 0.0,
+    "ObjectWeight": 0.33,
+    "MaxStack": 1,
+    "DroppedCardShadow": 1
+}

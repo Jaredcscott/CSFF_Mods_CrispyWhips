@@ -1,0 +1,77 @@
+{
+    "ActionModifiers": [],
+    "ActionObjectives": [],
+    "AddedCards": [],
+    "AddedStartingHours": 0,
+    "CardsOnBoardObjectives": [],
+    "CheckingNotificationDetails": 0,
+    "CompleteOnLose": false,
+    "CompleteOnWin": false,
+    "DebugCompletion": false,
+    "DifficultyRating": -600,
+    "DisplayPriority": 2400.0,
+    "EditorOnly": false,
+    "EquippedCards": [],
+    "EquippedCardsWarpData": [
+        "0eb3634f696991b4d97b91626270e035",
+        "0eb3634f696991b4d97b91626270e035",
+        "0eb3634f696991b4d97b91626270e035",
+        "herbs_fungi_hemp_flower_dried",
+        "herbs_fungi_hemp_flower_dried",
+        "herbs_fungi_hemp_flower_dried",
+        "herbs_fungi_hemp_flower_dried",
+        "fe07d4d800bcc8646a0ff2513c78d5df",
+        "fe07d4d800bcc8646a0ff2513c78d5df",
+        "fe07d4d800bcc8646a0ff2513c78d5df",
+        "a968f3eaffc6b9743b82982b5af2ab8c"
+    ],
+    "EquippedCardsWarpType": 3,
+    "HiddenUntilUnlocked": false,
+    "MoonsCost": 3,
+    "NestedObjectives": [],
+    "NoSafetyMode": false,
+    "NotifyWhenNotChecked": false,
+    "OverrideEnvironment": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "OverrideEquipment": false,
+    "OverrideWeather": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "PassiveStatModifiers": [],
+    "PerkDescription": {
+        "DefaultText": "Hemp cooking kit: 3 Fat, 4 Dried Hemp Flowers, 3 Raw Meat, 1 Clay Bowl. Craft hemp butter with 3x stronger effects than smoking. Dose carefully!",
+        "LocalizationKey": "Herbs_And_Fungi_Perk_EdiblesKit_PerkDescription",
+        "ParentObjectID": "herbs_fungi_perk_edibles_kit"
+    },
+    "PerkIcon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "PerkIconWarpData": "HempButter",
+    "PerkIconWarpType": 3,
+    "PerkName": {
+        "DefaultText": "Edibles Kit",
+        "LocalizationKey": "Herbs_And_Fungi_Perk_EdiblesKit_PerkName",
+        "ParentObjectID": "herbs_fungi_perk_edibles_kit"
+    },
+    "PerkUnlockConditions": {
+        "DefaultText": "",
+        "LocalizationKey": "",
+        "ParentObjectID": ""
+    },
+    "PlayedCharacter": [],
+    "RequiredDifficultyScore": {
+        "x": 0,
+        "y": 0
+    },
+    "ResetLockInEditor": false,
+    "StartUnlocked": false,
+    "StartingStatModifiers": [],
+    "StatsObjectives": [],
+    "SunsCost": 0,
+    "UniqueID": "herbs_fungi_perk_edibles_kit",
+    "CharacterPerkPerkGroup": "72120cda8e1cef540b1b25118dd7edaa"
+}

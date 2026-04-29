@@ -1,0 +1,143 @@
+{
+    "UniqueID": "herbs_fungi_oil_press_kit",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_oil_press_kit",
+        "LocalizationKey": "herbs_fungi_oil_press_kit_CardName",
+        "DefaultText": "Oil Press Kit"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_oil_press_kit",
+        "LocalizationKey": "herbs_fungi_oil_press_kit_CardDescription",
+        "DefaultText": "The portable kit form of the oil press. Use the Place action to set it up in your environment."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "OilPress_Kit",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 1.5,
+    "MaxStack": 1,
+    "DroppedCardShadow": 1,
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_oil_press_kit",
+                "LocalizationKey": "Herbs_And_Fungi_OilPressKit_Place_ActionName",
+                "DefaultText": "Place"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_oil_press_kit",
+                "LocalizationKey": "Herbs_And_Fungi_OilPressKit_Place_ActionDescription",
+                "DefaultText": "Set up the oil press in your environment."
+            },
+            "DaytimeCost": 3,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [
+                "Wood"
+            ],
+            "ActionSoundsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_oil_press",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": true
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_oil_press_kit",
+                "LocalizationKey": "Herbs_And_Fungi_OilPressKit_Dismantle_ActionName",
+                "DefaultText": "Dismantle"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_oil_press_kit",
+                "LocalizationKey": "Herbs_And_Fungi_OilPressKit_Dismantle_ActionDescription",
+                "DefaultText": "Break down the oil press kit and recover all components."
+            },
+            "DaytimeCost": 4,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [
+                "Wood"
+            ],
+            "ActionSoundsWarpType": 3,
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "herbs_fungi_oil_press_frame",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        },
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "herbs_fungi_oil_press_utensils",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        },
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "herbs_fungi_oil_press_bag_prepared",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        },
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "a7384e5147b23a642809451cc4ef24fb",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 15,
+                                "y": 15
+                            }
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ]
+}

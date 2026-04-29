@@ -1,0 +1,100 @@
+{
+    "UniqueID": "herbs_fungi_dried_ginger",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_dried_ginger",
+        "LocalizationKey": "herbs_fungi_dried_ginger_CardName",
+        "DefaultText": "Dried Ginger"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_dried_ginger",
+        "LocalizationKey": "herbs_fungi_dried_ginger_CardDescription",
+        "DefaultText": "Dried ginger root. More concentrated flavor and medicinal properties. Keeps indefinitely."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Grindable",
+        "tag_Vegetable",
+        "tag_DriedFood",
+        "tag_Plateable"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Ginger_Dried",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "ParentObjectID": "herbs_fungi_dried_ginger",
+        "LocalizationKey": "herbs_fungi_dried_ginger_SpoilageTime_StatName",
+        "Active": false,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_dried_ginger",
+            "LocalizationKey": "herbs_fungi_dried_ginger_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 100.0,
+        "RatePerDaytimePoint": 0.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": false
+    },
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_dried_ginger",
+                "LocalizationKey": "herbs_fungi_dried_ginger_Eat",
+                "DefaultText": "Eat"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_dried_ginger",
+                "LocalizationKey": "herbs_fungi_dried_ginger_Eat_Desc",
+                "DefaultText": "Chew the dried ginger. Concentrated flavor and warmth."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 15.0,
+                        "y": 15.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3
+                }
+            ]
+        }
+    ],
+    "ObjectWeight": 0.05,
+    "MaxStack": 20,
+    "DroppedCardShadow": 1
+}

@@ -1,0 +1,28 @@
+{
+    "UniqueID": "herbs_fungi_oil_press_frame",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_oil_press_frame",
+        "LocalizationKey": "herbs_fungi_oil_press_frame_CardName",
+        "DefaultText": "Oil Press Frame"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_oil_press_frame",
+        "LocalizationKey": "herbs_fungi_oil_press_frame_CardDescription",
+        "DefaultText": "A wooden frame that holds the press mechanism. Part of a larger assembly."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "OilPress_Wooden_Frame",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 3.0,
+    "MaxStack": 1,
+    "DroppedCardShadow": 1
+}

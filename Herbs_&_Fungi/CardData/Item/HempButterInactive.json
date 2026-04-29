@@ -1,0 +1,247 @@
+{
+    "UniqueID": "herbs_fungi_hemp_butter_inactive",
+    "CardType": 0,
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_hemp_butter_inactive",
+        "LocalizationKey": "Herbs_And_Fungus_HempButterInactive_CardName",
+        "DefaultText": "Inactive Hemp Butter"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_hemp_butter_inactive",
+        "LocalizationKey": "Herbs_And_Fungus_HempButterInactive_CardDescription",
+        "DefaultText": "Raw mixture of fat and ground hemp flower. Must be heated at cooking temperature for 60-90 minutes to activate the compounds."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_hemp_butter_inactive",
+        "LocalizationKey": "Herbs_And_Fungus_HempButterInactive_CardHelpSection",
+        "DefaultText": "<b>Usage:</b> Place in a container on a fire and heat slowly.\n\n<b>Activation:</b> Requires sustained heat to activate psychoactive properties."
+    },
+    "ObjectWeight": 70.0,
+    "TradingValue": 0.0,
+    "AlwaysUpdate": true,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HempButter",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [
+        "tag_Cookable"
+    ],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "PourWater"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_hemp_butter_inactive",
+            "LocalizationKey": "Herbs_And_Fungus_HempButterInactive_SpoilageTime_CardStatName",
+            "DefaultText": "Spoilage"
+        },
+        "MaxValue": 1800.0,
+        "RatePerDaytimePoint": 1.0,
+        "HidingOptions": 0,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "HasActionOnFull": true,
+        "ShowPopupOnFull": false,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_hemp_butter_inactive",
+                "LocalizationKey": "Herbs_And_Fungus_HempButterInactive_SpoilageTime_OnFull_ActionDescription",
+                "DefaultText": "Inactive Hemp Butter Spoiled!"
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransferInventory": true,
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3
+            }
+        },
+        "CountsForTradingValue": false,
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_hemp_butter_inactive",
+            "LocalizationKey": "Herbs_And_Fungus_HempButterInactive_FuelCapacity_CardStatName",
+            "DefaultText": "Temperature"
+        },
+        "MaxValue": 200.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 3,
+        "TextDisplay": 2,
+        "NumberPrecision": 0,
+        "CountsForTradingValue": false,
+        "OverrideIconWarpData": "Hot",
+        "OverrideIconWarpType": 3
+    },
+    "Progress": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_hemp_butter_inactive",
+            "LocalizationKey": "Herbs_And_Fungus_HempButterInactive_Progress_CardStatName",
+            "DefaultText": "Activation Progress"
+        },
+        "MaxValue": 6.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 0,
+        "TextDisplay": 1,
+        "NumberPrecision": 0,
+        "HasActionOnFull": true,
+        "ShowPopupOnFull": true,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_hemp_butter_inactive",
+                "LocalizationKey": "Herbs_And_Fungus_HempButterInactive_Progress_OnFull_ActionDescription",
+                "DefaultText": "Hemp butter has been activated! The aromatic liquid contains powerful psychoactive compounds."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransferSpoilage": true,
+                "TransferFuel": true,
+                "TransferSpecial2": true,
+                "SpoilageTransferScale": {
+                    "Active": true,
+                    "FloatValue": 1.0
+                },
+                "TransformIntoWarpData": "herbs_fungi_hemp_butter_active",
+                "TransformIntoWarpType": 3
+            }
+        },
+        "CountsForTradingValue": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_hemp_butter_inactive",
+            "LocalizationKey": "Herbs_And_Fungus_HempButterInactive_SpecialDurability2_CardStatName",
+            "DefaultText": "Quality"
+        },
+        "MaxValue": 192.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 0,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "CountsForTradingValue": true,
+        "OverrideIconWarpData": "Quality",
+        "OverrideIconWarpType": 3
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "PassiveEffects": [
+        {
+            "EffectName": "Cool Down",
+            "FuelRateModifier": {
+                "Active": true,
+                "FloatValue": -100.0
+            }
+        },
+        {
+            "EffectName": "Activate When Hot",
+            "Conditions": {
+                "ReceivingRequiredDurabilityRanges": {
+                    "SpoilageRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "UsageRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "FuelRange": {
+                        "x": 40.0,
+                        "y": 200.0
+                    },
+                    "ProgressRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special1Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special2Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special3Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "Special4Range": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "LiquidQuantityRange": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                }
+            },
+            "ConsumableChargesModifier": {
+                "Active": true,
+                "FloatValue": 1.0
+            }
+        }
+    ],
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_hemp_butter_inactive",
+                "LocalizationKey": "Herbs_And_Fungus_HempButterInactive_CardInteractions0_ActionName",
+                "DefaultText": "Melt"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_hemp_butter_inactive",
+                "LocalizationKey": "Herbs_And_Fungus_HempButterInactive_CardInteractions0_ActionDescription",
+                "DefaultText": "The butter melts quickly in the flames! You need to cook it in a bowl or pot, not directly on fire."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [
+                    "tag_FireSource"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": false,
+            "WorksBothWays": true,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
+    "DismantleActions": [],
+    "OnInteractActions": []
+}

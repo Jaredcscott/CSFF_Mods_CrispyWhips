@@ -1,0 +1,191 @@
+{
+  "UniqueID": "advanced_copper_tools_metal_lantern_placed_lit",
+  "CardName": {
+    "ParentObjectID": "advanced_copper_tools_metal_lantern_placed_lit",
+    "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_Lit_CardName",
+    "DefaultText": "Lit Metal Lantern"
+  },
+  "CardDescription": {
+    "ParentObjectID": "advanced_copper_tools_metal_lantern_placed_lit",
+    "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_Placed_Lit_CardDescription",
+    "DefaultText": "A lit copper lantern burning oil to illuminate the area. Extinguish before refueling."
+  },
+  "CardHelpSection": {
+    "ParentObjectID": "advanced_copper_tools_metal_lantern_placed_lit",
+    "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_Placed_Lit_CardHelpSection",
+    "DefaultText": "<b>Usage:</b> Provides light to the surrounding area while lit. Extinguish to refuel."
+  },
+  "CardType": 2,
+  "MapStructureType": 0,
+  "ObjectWeight": 120.0,
+  "TradingValue": 250.0,
+  "DoesNotPile": true,
+  "CardTags": [],
+  "CardTagsWarpData": ["tag_Preservable", "tag_Structure", "tag_Light"],
+  "CardTagsWarpType": 3,
+  "PassiveStatEffects": [
+    {
+      "StatWarpData": "79290cafb08e48f4d871704c20e69b1c",
+      "StatWarpType": 3,
+      "ValueModifier": { "x": 20.0, "y": 20.0 }
+    }
+  ],
+  "LightSource": {
+    "IsSourceOfLight": true,
+    "Priority": 60.0,
+    "LightPos": { "x": 0.5, "y": 0.5 },
+    "LightSize": { "x": 0.35, "y": 0.45 },
+    "LightColor": { "r": 1.0, "g": 0.87220645, "b": 0.7783019, "a": 1.0 },
+    "LightFlickerFreq": 2.0,
+    "LightFlickerStrength": 0.01
+  },
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "Copper_Lantern_Lit",
+  "CardImageWarpType": 3,
+  "WhenCreatedSoundsWarpData": ["FireIgnite"],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": false
+  },
+  "FuelCapacity": {
+    "Active": true,
+    "FloatValue": 72.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_metal_lantern_placed_lit",
+      "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_Lit_FuelCapacity_CardStatName",
+      "DefaultText": "Oil"
+    },
+    "MaxValue": 72.0,
+    "RatePerDaytimePoint": -1.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": true,
+    "ShowPopupOnZero": true,
+    "HasActionOnFull": false,
+    "ShowPopupOnFull": false,
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Flame",
+    "OverrideIconWarpType": 3,
+    "OnZero": {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_metal_lantern_placed_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_Lit_FuelOut_ActionName",
+        "DefaultText": "Lantern Burns Out"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_metal_lantern_placed_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_Lit_FuelOut_ActionDescription",
+        "DefaultText": "The lantern runs out of oil."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionSoundsWarpData": [
+        "FireExtinguish"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "advanced_copper_tools_metal_lantern_placed",
+        "TransformIntoWarpType": 3,
+        "TransferFuel": true,
+        "SpawnTransformAtSource": true
+      }
+    }
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": false
+  },
+  "SpecialDurability2": {
+    "Active": false
+  },
+  "SpecialDurability3": {
+    "Active": false
+  },
+  "SpecialDurability4": {
+    "Active": false
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_metal_lantern_placed_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_Extinguish_ActionName",
+        "DefaultText": "Extinguish"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_metal_lantern_placed_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_Extinguish_ActionDescription",
+        "DefaultText": "Put out the lantern."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "FireExtinguish"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "advanced_copper_tools_metal_lantern_placed",
+        "TransformIntoWarpType": 3,
+        "TransferFuel": true,
+        "SpawnTransformAtSource": true
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_metal_lantern_placed_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_PickUp_ActionName",
+        "DefaultText": "Pick Up"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_metal_lantern_placed_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_PickUpLit_ActionDescription",
+        "DefaultText": "Pick up the lit lantern and carry it."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Metal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "advanced_copper_tools_metal_lantern_lit",
+        "TransformIntoWarpType": 3,
+        "TransferFuel": true,
+        "SpawnTransformAtSource": true
+      }
+    }
+  ]
+}

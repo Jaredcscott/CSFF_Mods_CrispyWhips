@@ -1,0 +1,132 @@
+{
+    "UniqueID": "advanced_copper_tools_bp_wheel_hub",
+    "CardName": {
+        "ParentObjectID": "advanced_copper_tools_bp_wheel_hub",
+        "LocalizationKey": "Advanced_Copper_Tools_Bp_WheelHub_CardName",
+        "DefaultText": "Forged Wheel Hub"
+    },
+    "CardDescription": {
+        "ParentObjectID": "advanced_copper_tools_bp_wheel_hub",
+        "LocalizationKey": "Advanced_Copper_Tools_Bp_WheelHub_CardDescription",
+        "DefaultText": "Hammer 3 copper nuggets into a wheel hub."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "advanced_copper_tools_bp_wheel_hub",
+        "LocalizationKey": "Advanced_Copper_Tools_Bp_WheelHub_UnlockConditionsDesc",
+        "DefaultText": "Copper Nugget Needed"
+    },
+    "BuildingStatConditions": [],
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasCopper",
+            "CompletionWeight": 4,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "CardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 3,
+                    "DontSpend": false,
+                    "Fuel": {
+                        "Active": false,
+                        "FloatValue": 150.0,
+                        "MaxValue": 300.0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroupWarpData": "GpTag_CopperNugget",
+                    "RequiredTabGroupWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "UsageChange": {
+                            "x": -8.0,
+                            "y": -8.0
+                        }
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroupWarpData": "GpTag_HammeringToolGeneral",
+                    "RequiredTabGroupWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 3,
+    "DeconstructDaytimeCost": 1,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "DroppedCardWarpData": "advanced_copper_tools_wheel_hub",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": [
+        "Metal"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "WheelBarrowWheelHub",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 16.0,
+    "ResearchedNotification": 0
+}

@@ -1,0 +1,149 @@
+{
+    "UniqueID": "herbs_fungi_ginger_cut",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_ginger_cut",
+        "LocalizationKey": "herbs_fungi_ginger_cut_CardName",
+        "DefaultText": "Cut Ginger"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_ginger_cut",
+        "LocalizationKey": "herbs_fungi_ginger_cut_CardDescription",
+        "DefaultText": "Fresh ginger that has been sliced into thin pieces. Ready to be dried for long-term preservation."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Vegetable",
+        "tag_Dryable",
+        "tag_Plateable"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Ginger_Fresh_Cut",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "ParentObjectID": "herbs_fungi_ginger_cut",
+        "LocalizationKey": "herbs_fungi_ginger_cut_SpoilageTime_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_ginger_cut",
+            "LocalizationKey": "herbs_fungi_ginger_cut_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 720.0,
+        "RatePerDaytimePoint": 1.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_ginger_cut",
+                "LocalizationKey": "herbs_fungi_ginger_cut_SpoilageTime_Spoiled",
+                "DefaultText": "The cut ginger has spoiled."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "UsageDurability": {
+        "ParentObjectID": "herbs_fungi_ginger_cut",
+        "LocalizationKey": "herbs_fungi_ginger_cut_UsageDurability_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_ginger_cut",
+            "LocalizationKey": "herbs_fungi_ginger_cut_UsageDurability_StatName",
+            "DefaultText": "Dry"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 8.0,
+        "RatePerDaytimePoint": 0.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_ginger_cut",
+                "LocalizationKey": "herbs_fungi_ginger_cut_UsageDurability_Dried",
+                "DefaultText": "The cut ginger has dried properly."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_dried_ginger",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": true
+            }
+        }
+    },
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_ginger_cut",
+                "LocalizationKey": "herbs_fungi_ginger_cut_Eat",
+                "DefaultText": "Eat"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_ginger_cut",
+                "LocalizationKey": "herbs_fungi_ginger_cut_Eat_Desc",
+                "DefaultText": "Chew the cut ginger pieces. Spicy and warming."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": 13.0,
+                        "y": 13.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3
+                }
+            ]
+        }
+    ],
+    "ObjectWeight": 0.1,
+    "MaxStack": 15,
+    "DroppedCardShadow": 1
+}

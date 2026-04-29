@@ -1,0 +1,93 @@
+{
+    "ActionModifiers": [],
+    "ActionObjectives": [],
+    "AddedCards": [],
+    "AddedStartingHours": 0,
+    "CardsOnBoardObjectives": [],
+    "CheckingNotificationDetails": 0,
+    "CompleteOnLose": false,
+    "CompleteOnWin": false,
+    "DebugCompletion": false,
+    "DifficultyRating": -800,
+    "DisplayPriority": 2300.0,
+    "EditorOnly": false,
+    "EquippedCards": [],
+    "EquippedCardsWarpData": [
+        "herbs_fungi_herb_pipe",
+        "herbs_fungi_hemp_flower_powder",
+        "herbs_fungi_hemp_flower_powder",
+        "herbs_fungi_hemp_flower_powder",
+        "herbs_fungi_hemp_flower_powder",
+        "2098f8c3ecb5b5e46bb55403244a8713",
+        "2098f8c3ecb5b5e46bb55403244a8713",
+        "2098f8c3ecb5b5e46bb55403244a8713",
+        "2098f8c3ecb5b5e46bb55403244a8713",
+        "ee8238285f4e2d84fa6777ee64d35b17",
+        "ee8238285f4e2d84fa6777ee64d35b17",
+        "ee8238285f4e2d84fa6777ee64d35b17",
+        "ee8238285f4e2d84fa6777ee64d35b17",
+        "29bd2a2312e1acb428d25481352186bc",
+        "29bd2a2312e1acb428d25481352186bc",
+        "29bd2a2312e1acb428d25481352186bc",
+        "29bd2a2312e1acb428d25481352186bc",
+        "b8885e78517570b4293c573871625e11",
+        "b8885e78517570b4293c573871625e11",
+        "b8885e78517570b4293c573871625e11",
+        "b8885e78517570b4293c573871625e11",
+        "b8885e78517570b4293c573871625e11",
+        "b8885e78517570b4293c573871625e11",
+        "b8885e78517570b4293c573871625e11",
+        "b8885e78517570b4293c573871625e11",
+        "b8885e78517570b4293c573871625e11",
+        "b8885e78517570b4293c573871625e11"
+    ],
+    "EquippedCardsWarpType": 3,
+    "HiddenUntilUnlocked": false,
+    "MoonsCost": 4,
+    "NestedObjectives": [],
+    "NoSafetyMode": false,
+    "NotifyWhenNotChecked": false,
+    "OverrideEnvironment": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "OverrideEquipment": false,
+    "OverrideWeather": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "PassiveStatModifiers": [],
+    "PerkDescription": {
+        "DefaultText": "Herbal medicine kit: Reusable Herb Pipe + 4 powders each (Hemp: calming, Fairyweed: pain relief, Appleweed: energy, Frostleaf: anti-inflammatory) + 10 Fiber.",
+        "LocalizationKey": "Herbs_And_Fungi_Perk_SmokeKit_PerkDescription",
+        "ParentObjectID": "herbs_fungi_perk_smoke_kit"
+    },
+    "PerkIcon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "PerkIconWarpData": "HerbPipe",
+    "PerkIconWarpType": 3,
+    "PerkName": {
+        "DefaultText": "Smoke Kit",
+        "LocalizationKey": "Herbs_And_Fungi_Perk_SmokeKit_PerkName",
+        "ParentObjectID": "herbs_fungi_perk_smoke_kit"
+    },
+    "PerkUnlockConditions": {
+        "DefaultText": "",
+        "LocalizationKey": "",
+        "ParentObjectID": ""
+    },
+    "PlayedCharacter": [],
+    "RequiredDifficultyScore": {
+        "x": 0,
+        "y": 0
+    },
+    "ResetLockInEditor": false,
+    "StartUnlocked": false,
+    "StartingStatModifiers": [],
+    "StatsObjectives": [],
+    "SunsCost": 0,
+    "UniqueID": "herbs_fungi_perk_smoke_kit",
+    "CharacterPerkPerkGroup": "72120cda8e1cef540b1b25118dd7edaa"
+}

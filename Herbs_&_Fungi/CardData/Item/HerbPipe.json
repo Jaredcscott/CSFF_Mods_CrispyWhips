@@ -1,0 +1,254 @@
+{
+    "UniqueID": "herbs_fungi_herb_pipe",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_herb_pipe",
+        "LocalizationKey": "Herbs_And_Fungus_HerbPipe_CardName",
+        "DefaultText": "Herb Pipe"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_herb_pipe",
+        "LocalizationKey": "Herbs_And_Fungus_HerbPipe_CardDescription",
+        "DefaultText": "A carved wooden pipe for smoking herbal powders. Provides relaxing effects without filling the room with smoke."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_herb_pipe",
+        "LocalizationKey": "Herbs_And_Fungus_HerbPipe_CardHelpSection",
+        "DefaultText": "<b>Loading:</b> Add herbal powders (hemp, fairyweed, appleweed, frostleaf) to load the pipe.\n\n<b>Smoking:</b> Drag lit tinder or candle onto pipe to smoke. Reusable.\n\n<b>Benefits:</b> Discreet, no room smoke, portable relaxation."
+    },
+    "CardType": 0,
+    "ObjectWeight": 50.0,
+    "TradingValue": 80.0,
+    "DoesNotPile": false,    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+
+    "CardImageWarpData": "HerbPipe",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": ["tag_Preservable"],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": ["Wood"],
+    "WhenCreatedSoundsWarpType": 3,
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_herb_pipe",
+            "LocalizationKey": "Herbs_And_Fungus_HerbPipe_SpecialDurability2_CardStatName",
+            "DefaultText": "Quality"
+        },
+        "MaxValue": 96.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 0,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "CountsForTradingValue": true,
+        "OverrideIconWarpData": "Quality",
+        "OverrideIconWarpType": 3
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_herb_pipe",
+                "LocalizationKey": "Herbs_And_Fungus_HerbPipe_CardInteractions0_ActionName",
+                "DefaultText": "Load: Hemp"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_herb_pipe",
+                "LocalizationKey": "Herbs_And_Fungus_HerbPipe_CardInteractions0_ActionDescription",
+                "DefaultText": "Pack the pipe with hemp flower powder."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": ["herbs_fungi_hemp_flower_powder"],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_herb_pipe_hemp",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": true,
+                "Special2Change": {
+                    "x": 99.0,
+                    "y": 99.0
+                }
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_herb_pipe",
+                "LocalizationKey": "Herbs_And_Fungus_HerbPipe_CardInteractions1_ActionName",
+                "DefaultText": "Load: Fairyweed"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_herb_pipe",
+                "LocalizationKey": "Herbs_And_Fungus_HerbPipe_CardInteractions1_ActionDescription",
+                "DefaultText": "Pack the pipe with fairyweed powder."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": ["2098f8c3ecb5b5e46bb55403244a8713"],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_herb_pipe_fairyweed",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": true,
+                "Special2Change": {
+                    "x": 99.0,
+                    "y": 99.0
+                }
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_herb_pipe",
+                "LocalizationKey": "Herbs_And_Fungus_HerbPipe_CardInteractions2_ActionName",
+                "DefaultText": "Load: Appleweed"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_herb_pipe",
+                "LocalizationKey": "Herbs_And_Fungus_HerbPipe_CardInteractions2_ActionDescription",
+                "DefaultText": "Pack the pipe with appleweed powder."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": ["ee8238285f4e2d84fa6777ee64d35b17"],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_herb_pipe_appleweed",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": true,
+                "Special2Change": {
+                    "x": 99.0,
+                    "y": 99.0
+                }
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_herb_pipe",
+                "LocalizationKey": "Herbs_And_Fungus_HerbPipe_CardInteractions3_ActionName",
+                "DefaultText": "Load: Frostleaf"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_herb_pipe",
+                "LocalizationKey": "Herbs_And_Fungus_HerbPipe_CardInteractions3_ActionDescription",
+                "DefaultText": "Pack the pipe with frostleaf powder."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": ["29bd2a2312e1acb428d25481352186bc"],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_herb_pipe_frostleaf",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": true,
+                "Special2Change": {
+                    "x": 99.0,
+                    "y": 99.0
+                }
+            }
+        }
+    ],
+    "DismantleActions": []
+}

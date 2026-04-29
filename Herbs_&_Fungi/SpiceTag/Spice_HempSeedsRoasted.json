@@ -1,0 +1,98 @@
+{
+    "UniqueID": "herbs_fungi_spice_hemp_seeds_roasted",
+    "SpiceName": {
+        "ParentObjectID": "herbs_fungi_spice_hemp_seeds_roasted",
+        "LocalizationKey": "Herbs_And_Fungus_Spice_HempSeedsRoasted_SpiceName",
+        "DefaultText": "Roasted Hemp Seeds"
+    },
+    "UseNameAsSuffix": false,
+    "DontShowSpiceIconOnCard": false,
+    "TagGroupID": {
+        "Active": false,
+        "Text": ""
+    },
+    "CustomSpiceIcon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "MaxStack": 0,
+    "CustomFadingDuration": {
+        "Active": false,
+        "FloatValue": 0.0
+    },
+    "CustomFadingRate": {
+        "Active": false,
+        "FloatValue": 0.0
+    },
+    "ScaleStatModifiersWithFading": false,
+    "AddedFlavours": [
+        {
+            "FlavourWarpData": "a20b2d50b9a50e44f90231e3b3f8bcaf",
+            "FlavourWarpType": 3,
+            "Intensity": 0
+        },
+        {
+            "FlavourWarpData": "79e30fba7cf532345b483833c449a3ae",
+            "FlavourWarpType": 3,
+            "Intensity": 2
+        }
+    ],
+    "AddedStatModifiers": [
+        {
+            "Stat": {"m_FileID": 0, "m_PathID": 0},
+            "ValueModifier": {"x": 10.0, "y": 10.0},
+            "RateModifier": {"x": 0.0, "y": 0.0},
+            "MinValueModifier": {"x": 0.0, "y": 0.0},
+            "MaxValueModifier": {"x": 0.0, "y": 0.0},
+            "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false,
+            "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+            "StatWarpType": 3
+        },
+        {
+            "Stat": {"m_FileID": 0, "m_PathID": 0},
+            "ValueModifier": {"x": 8.0, "y": 8.0},
+            "RateModifier": {"x": 0.0, "y": 0.0},
+            "MinValueModifier": {"x": 0.0, "y": 0.0},
+            "MaxValueModifier": {"x": 0.0, "y": 0.0},
+            "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false,
+            "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+            "StatWarpType": 3
+        },
+        {
+            "Stat": {"m_FileID": 0, "m_PathID": 0},
+            "ValueModifier": {"x": 7.0, "y": 7.0},
+            "RateModifier": {"x": 0.0, "y": 0.0},
+            "MinValueModifier": {"x": 0.0, "y": 0.0},
+            "MaxValueModifier": {"x": 0.0, "y": 0.0},
+            "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false,
+            "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+            "StatWarpType": 3
+        },
+        {
+            "Stat": {"m_FileID": 0, "m_PathID": 0},
+            "ValueModifier": {"x": 5.0, "y": 5.0},
+            "RateModifier": {"x": 0.0, "y": 0.0},
+            "MinValueModifier": {"x": 0.0, "y": 0.0},
+            "MaxValueModifier": {"x": 0.0, "y": 0.0},
+            "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false,
+            "StatWarpData": "9824a150f7bc85f4384a0ed026a69f0a",
+            "StatWarpType": 3
+        }
+    ]
+}

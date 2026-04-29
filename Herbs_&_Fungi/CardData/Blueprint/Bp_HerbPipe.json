@@ -1,0 +1,161 @@
+{
+    "UniqueID": "herbs_fungi_bp_herb_pipe",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_bp_herb_pipe",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_HerbPipe_CardName",
+        "DefaultText": "Herb Pipe"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_bp_herb_pipe",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_HerbPipe_CardDescription",
+        "DefaultText": "A carved wooden pipe for smoking herbal powders. Requires 1 unfinished wood carving, spoon bit, and knife."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "herbs_fungi_bp_herb_pipe",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_HerbPipe_UnlockConditionsDesc",
+        "DefaultText": "Requires Unfinished Wood Carving"
+    },
+    "BlueprintUnlockTicksCost": 8.0,
+    "BuildingStatConditions": [],
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasUnfinishedWoodCarving",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "CardWarpData": "95e088824df715b439f1d6b3973d46b6",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "95e088824df715b439f1d6b3973d46b6",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "UsageChange": {
+                            "x": -1.0,
+                            "y": -1.0
+                        }
+                    },
+                    "RequiredCardWarpData": "d324975282dbe87448ab07c28d6c62ea",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "UsageChange": {
+                            "x": -1.0,
+                            "y": -1.0
+                        }
+                    },
+                    "RequiredTabGroupWarpData": "GpTag_SharpKnife",
+                    "RequiredTabGroupWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 6,
+    "DeconstructDaytimeCost": 1,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "DroppedCardWarpData": "herbs_fungi_herb_pipe",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "ValueModifier": {
+                "x": 1.0,
+                "y": 1.0
+            },
+            "StatWarpData": "d4b67ed3a92b283488db1554bb23270a",
+            "StatWarpType": 3
+        }
+    ],
+    "WhenCreatedSoundsWarpData": [
+        "Wood"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HerbPipe",
+    "CardImageWarpType": 3,
+    "ResearchedNotification": 0
+}

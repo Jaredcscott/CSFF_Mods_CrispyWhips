@@ -1,0 +1,901 @@
+{
+  "UniqueID": "advanced_copper_tools_tea_blending_station",
+  "CardName": {
+    "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+    "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_CardName",
+    "DefaultText": "Tea Station"
+  },
+  "CardDescription": {
+    "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+    "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_CardDescription",
+    "DefaultText": "A dedicated workbench with six herb-and-grinding slots, a built-in water tank (8 bowls capacity, tracked as Water Charges), and a copper stove. Drag a water container or shallow water source (river, pond) to add a charge. Light the stove to heat the water and speed up herb drying."
+  },
+  "CanBeRenamed": false,
+  "AlternateNames": [],
+  "LiquidSuffixName": {
+    "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "CardHelpSection": {
+    "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+    "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_CardHelpSection",
+    "DefaultText": "<b>Slots (×6):</b> Place fresh herbs — they dry passively over time. Use 'Grind All' to mill every dried or millable item at once. <b>Water Tank:</b> Drag any container with water to add a Water Charge (up to 8). Drag an empty clay bowl to draw cold water back out. Light the stove to heat the water for tea brewing."
+  },
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardBackground": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "Tea_Station_Placed",
+  "CardImageWarpType": 3,
+  "ShowImageAboveTitle": false,
+  "CardType": 2,
+  "CannotBeTransferred": false,
+  "NotAutoSolvableEvent": false,
+  "ObjectWeight": 1400.0,
+  "TradingValue": 1200.0,
+  "CardTags": [],
+  "CardTagsWarpData": [
+    "tag_Preservable",
+    "tag_Structure",
+    "tag_Furniture"
+  ],
+  "CardTagsWarpType": 3,
+  "EquipmentTags": [],
+  "MapStructureType": 0,
+  "FlavourTags": [],
+  "SpiceTags": [],
+  "AlwaysUpdate": true,
+  "CannotBeTrashed": false,
+  "DoesNotPile": true,
+  "ToggleablePiling": false,
+  "DoesNotPinAutomatically": false,
+  "NeedsRoomInLocationToSpawn": false,
+  "WhenCreatedSounds": [],
+  "WhenCreatedSoundsWarpData": [
+    "Wood"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": false
+  },
+  "FuelCapacity": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 300.0
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+      "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_Special1_CardStatName",
+      "DefaultText": "Ash Amount"
+    },
+    "MaxValue": 48.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": false
+  },
+  "SpecialDurability2": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+      "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_Progress_CardStatName",
+      "DefaultText": "Charcoal"
+    },
+    "MaxValue": 16.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 0,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": false,
+    "OverrideIcon": {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    "OverrideIconWarpData": "Hot",
+    "OverrideIconWarpType": 3
+  },
+  "SpecialDurability3": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+      "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_WaterTemp_CardStatName",
+      "DefaultText": "Water Temp"
+    },
+    "MaxValue": 12.0,
+    "RatePerDaytimePoint": -0.25,
+    "HidingOptions": 0,
+    "OverrideIcon": { "m_FileID": 0, "m_PathID": 0 },
+    "OverrideIconWarpData": "Hot",
+    "OverrideIconWarpType": 3,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": false
+  },
+  "SpecialDurability4": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+      "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_WaterCharges_CardStatName",
+      "DefaultText": "Water Charges"
+    },
+    "MaxValue": 8.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 0,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": false,
+    "OverrideIcon": { "m_FileID": 0, "m_PathID": 0 },
+    "OverrideIconWarpData": "Water",
+    "OverrideIconWarpType": 3
+  },
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+        "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_PourWaterIn_ActionName",
+        "DefaultText": "Pour Water In"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+        "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_PourWaterIn_ActionDescription",
+        "DefaultText": "Pour water from any container into the tank."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerTagsWarpData": [
+          "tag_WaterContainer",
+          "tag_WaterContainerLarge",
+          "tag_ContainerOpenLarge"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "StackCompatible": true,
+      "RequiredGivenDurabilities": {
+        "RequiredLiquidQuantity": 1.0,
+        "HideActionIfNotMet": true
+      },
+      "GivenCardChanges": {
+        "ModType": 1,
+        "ModifyLiquid": true,
+        "LiquidQuantityChange": {
+          "x": -300.0,
+          "y": -300.0
+        }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special4Change": {
+          "x": 1.0,
+          "y": 1.0
+        }
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+        "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_FetchShallowWater_ActionName",
+        "DefaultText": "Fetch from Shallow Water"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+        "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_FetchShallowWater_ActionDescription",
+        "DefaultText": "Collect water from a river, pond, or stream to fill the tank (1 charge per action)."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Water"
+      ],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerTagsWarpData": [
+          "tag_ShallowWater"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "WorksBothWays": true,
+      "GivenCardChanges": {
+        "ModType": 0
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special4Change": {
+          "x": 1.0,
+          "y": 1.0
+        }
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+        "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_DrawColdWater_ActionName",
+        "DefaultText": "Draw Cold Water"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+        "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_DrawColdWater_ActionDescription",
+        "DefaultText": "Fill an empty clay bowl with cold water from the tank."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [],
+      "ActionSoundsWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial4Percent": {
+          "Active": true,
+          "FloatValue": 0.125,
+          "MaxValue": 0.0
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+          "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_NeedsWater",
+          "DefaultText": "The water tank is empty — pour some water in first."
+        }
+      },
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "a968f3eaffc6b9743b82982b5af2ab8c"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "RequiredGivenLiquidContent": {
+        "IsActive": true,
+        "RequiredGroup": { "m_FileID": 0, "m_PathID": 0 },
+        "RequiredLiquid": { "m_FileID": 0, "m_PathID": 0 },
+        "RequiredQuantity": { "x": 0.0, "y": 0.0 }
+      },
+      "GivenCardChanges": {
+        "ModType": 0
+      },
+      "CreatedLiquidInGivenCard": {
+        "LiquidCard": { "m_FileID": 0, "m_PathID": 0 },
+        "LiquidCardWarpData": "425259cb06b869d45be2e7f1b5b54aff",
+        "LiquidCardWarpType": 3,
+        "Quantity": { "x": 300.0, "y": 300.0 },
+        "Durabilities": {
+          "Spoilage": 0, "Usage": 0, "Fuel": 0, "Progress": 0,
+          "Special1": 0, "Special2": 0, "Special3": 0, "Special4": 0,
+          "SpoilageValue": 0.0, "UsageValue": 0.0, "FuelValue": 0.0, "ProgressValue": 0.0,
+          "Special1Value": 0.0, "Special2Value": 0.0, "Special3Value": 0.0, "Special4Value": 0.0,
+          "SpoilageFrom": 0, "UsageFrom": 0, "FuelFrom": 0, "ProgressFrom": 0,
+          "Special1From": 0, "Special2From": 0, "Special3From": 0, "Special4From": 0
+        }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special4Change": {
+          "x": -1.0,
+          "y": -1.0
+        }
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+        "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_Feed_Wood_ActionName",
+        "DefaultText": "Feed Oak Wood"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+        "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_Feed_Wood_ActionDescription",
+        "DefaultText": "Add oak wood as fuel (96h)"
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [],
+      "ActionSoundsWarpType": 3,
+      "RequiredStatValues": [],
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "692afc638c39e32428629da58f56136a"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "FuelChange": {
+          "x": 96.0,
+          "y": 96.0
+        }
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+        "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_Feed_Twigs_ActionName",
+        "DefaultText": "Feed Twigs"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+        "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_Feed_Twigs_ActionDescription",
+        "DefaultText": "Add 3 twigs as fuel (24h)"
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [],
+      "ActionSoundsWarpType": 3,
+      "RequiredStatValues": [],
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "fa8834c3111a71f47bdd23d66b33cf61"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "GivenCardChanges": {
+        "ModType": 1,
+        "UsageChange": {
+          "x": -3.0,
+          "y": -3.0
+        }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "FuelChange": {
+          "x": 24.0,
+          "y": 24.0
+        }
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+        "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_FeedCharcoal_ActionName",
+        "DefaultText": "Feed Charcoal"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Wood"
+      ],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "51c751469bd15ce46804e399479d1764"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "StackCompatible": true,
+      "DontCloseInspectionWindow": false,
+      "AppearsOnCardsInInventory": false,
+      "StatModifications": [],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "FuelChange": {
+          "x": 8.0,
+          "y": 8.0
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+        "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_Light_ActionName",
+        "DefaultText": "Light Fire"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+        "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_Light_ActionDescription",
+        "DefaultText": "Light the stove with any fire source."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "FireIgnite"
+      ],
+      "ActionSoundsWarpType": 3,
+      "RequiredStatValues": [],
+      "RequiredReceivingDurabilities": {
+        "RequiredFuelPercent": {
+          "Active": true,
+          "FloatValue": 0.1,
+          "MaxValue": 100.0
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+          "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_NeedsFuel",
+          "DefaultText": "The stove needs fuel first."
+        }
+      },
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerTagsWarpData": [
+          "tag_Fire",
+          "tag_FireSource"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "GivenCardChanges": {
+        "ModType": 0
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "advanced_copper_tools_tea_blending_station_lit",
+        "TransformIntoWarpType": 3,
+        "TransferFuel": true,
+        "TransferInventory": true,
+        "TransferSpecial1": true,
+        "TransferSpecial2": true,
+        "TransferSpecial3": true,
+        "TransferSpecial4": true,
+        "SpawnTransformAtSource": true
+      }
+    }
+  ],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+        "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_PickUp_ActionName",
+        "DefaultText": "Pick Up"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+        "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_PickUp_ActionDescription",
+        "DefaultText": "Pack up the station and carry it."
+      },
+      "DaytimeCost": 3,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Wood"
+      ],
+      "ActionSoundsWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredInventoryEmpty": true,
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+          "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_PickUp_FailMessage",
+          "DefaultText": "Remove items from the station first."
+        }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "advanced_copper_tools_tea_station_kit",
+        "TransformIntoWarpType": 3,
+        "TransferFuel": true,
+        "TransferSpecial1": true,
+        "TransferSpecial2": true,
+        "TransferSpecial4": true,
+        "SpawnTransformAtSource": true
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+        "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_GrindAll_ActionName",
+        "DefaultText": "Grind All"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+        "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_GrindAll_ActionDescription",
+        "DefaultText": "Turn the rotary quern to grind every dried herb or millable root placed on the station."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [
+        "Grind",
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Stone"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+        "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_Dismantle_ActionName",
+        "DefaultText": "Dismantle"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+        "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_Dismantle_ActionDescription",
+        "DefaultText": "Break the station down into its main components."
+      },
+      "DaytimeCost": 4,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Wood"
+      ],
+      "ActionSoundsWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredInventoryEmpty": true,
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+          "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_HasItems",
+          "DefaultText": "Remove items from the station first."
+        }
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 2,
+                "y": 2
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "advanced_copper_tools_copper_tea_kettle",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "advanced_copper_tools_copper_stove",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "555bacff1fadd9a418c7324a8fdc568d",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+        "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_TakeCharcoalAsh_ActionName",
+        "DefaultText": "Take Charcoal and Ash"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+        "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_TakeCharcoalAsh_ActionDescription",
+        "DefaultText": "Collect charcoal and ash from the stove."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Charcoal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial2Percent": {
+          "Active": true,
+          "FloatValue": 1.0,
+          "MaxValue": 0.0
+        },
+        "HideActionIfNotMet": false,
+        "FailMessage": {
+          "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+          "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_TakeCharcoalAsh_FailMessage",
+          "DefaultText": "Charcoal not ready yet."
+        }
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "Charcoal",
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "51c751469bd15ce46804e399479d1764",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "65f9b26c048cd474d9fb14d1c9e46754",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 2,
+                "y": 2
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "FuelChange": {
+          "x": -16.0,
+          "y": -16.0
+        },
+        "Special2Change": {
+          "x": -16.0,
+          "y": -16.0
+        }
+      }
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [],
+  "MaxLiquidCapacity": 0.0,
+  "MaxWeightCapacity": 8000.0,
+  "InventorySlots": [
+    { "m_FileID": 0, "m_PathID": 0 },
+    { "m_FileID": 0, "m_PathID": 0 },
+    { "m_FileID": 0, "m_PathID": 0 },
+    { "m_FileID": 0, "m_PathID": 0 },
+    { "m_FileID": 0, "m_PathID": 0 },
+    { "m_FileID": 0, "m_PathID": 0 }
+  ],
+  "InventorySlotsWarpData": [],
+  "InventorySlotsWarpType": 3,
+  "InventoryFilter": {
+    "AcceptedCards": [],
+    "AcceptedCardsWarpData": [],
+    "AcceptedCardsWarpType": 3,
+    "AcceptedTypes": [],
+    "AcceptedTags": [],
+    "AcceptedTagsWarpData": [
+      "tag_Grindable",
+      "tag_Dryable",
+      "tag_DryableFastSpoilable",
+      "tag_QuickDryable",
+      "tag_Millable",
+      "tag_Herb",
+      "tag_DryingRackSanctuary"
+    ],
+    "AcceptedTagsWarpType": 3,
+    "NOTAcceptedCards": [],
+    "NOTAcceptedTypes": [],
+    "NOTAcceptedTags": [],
+    "CardFilters": [],
+    "TagFilters": []
+  },
+  "SpillsInventoryOnDestroy": true,
+  "CookingConditions": {
+    "NeedsSpoilage": false,
+    "NeedsUsage": false,
+    "NeedsFuel": false,
+    "NeedsProgress": false,
+    "NeedsSpecial1": false,
+    "NeedsSpecial2": false,
+    "NeedsSpecial3": false,
+    "NeedsSpecial4": false,
+    "ExtraSpoilageRate": 0.0,
+    "ExtraUsageRate": 0.0,
+    "ExtraFuelRate": 0.0,
+    "ExtraProgressRate": 0.0,
+    "ExtraSpecial1Rate": 0.0,
+    "ExtraSpecial2Rate": 0.0,
+    "ExtraSpecial3Rate": 0.0,
+    "ExtraSpecial4Rate": 0.0
+  },
+  "CookingRecipes": [
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+        "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_DryHerbs_ActionName",
+        "DefaultText": "Dry Herbs (Accelerated, Quality +0.3)"
+      },
+      "CustomCookingText": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "CannotCookText": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "CompatibleCards": [],
+      "CompatibleTags": [],
+      "ConditionsCard": 0,
+      "Duration": 1,
+      "DurationRdmVariation": 0,
+      "CookerChanges": {
+        "ModType": 0
+      },
+      "IngredientChanges": {
+        "ModType": 1,
+        "UsageChange": {
+          "x": 2.0,
+          "y": 2.0
+        },
+        "SpoilageChange": {
+          "x": -2.0,
+          "y": -2.0
+        },
+        "Special2Change": {
+          "x": 0.3,
+          "y": 0.3
+        }
+      },
+      "FeedbackMode": 0,
+      "ProgressBar": 3,
+      "ProgressTowardsZero": false,
+      "HideCookingProgress": false,
+      "HideDurabilities": {
+        "MaskValue": 0
+      },
+      "HideResultNotification": false,
+      "RandomSingleDrop": false,
+      "CustomCompleteSound": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "Notification": 0,
+      "CustomNotification": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "ScaleDropsPerLiquidQuantity": {
+        "Active": false,
+        "FloatValue": 0.0
+      },
+      "Drops": [],
+      "StatModifications": [],
+      "UseCookerForCardDrops": false,
+      "DropsAsCollection": [],
+      "CompatibleTagsWarpData": [
+        "tag_Dryable",
+        "tag_DryableFastSpoilable",
+        "tag_QuickDryable",
+        "tag_DryingRackSanctuary"
+      ],
+      "CompatibleTagsWarpType": 3
+    }
+  ],
+  "BlueprintStages": [],
+  "BlueprintResult": [],
+  "IsWeapon": false,
+  "IsArmor": false,
+  "MaxStack": 1,
+  "DroppedCardShadow": 2
+}

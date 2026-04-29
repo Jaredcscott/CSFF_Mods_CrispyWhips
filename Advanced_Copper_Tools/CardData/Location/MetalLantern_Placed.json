@@ -1,0 +1,282 @@
+{
+  "UniqueID": "advanced_copper_tools_metal_lantern_placed",
+  "CardName": {
+    "ParentObjectID": "advanced_copper_tools_metal_lantern_placed",
+    "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_CardName",
+    "DefaultText": "Metal Lantern"
+  },
+  "CardDescription": {
+    "ParentObjectID": "advanced_copper_tools_metal_lantern_placed",
+    "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_CardDescription",
+    "DefaultText": "A placed copper lantern, currently unlit. Fill with oil and light it to illuminate the area."
+  },
+  "CardHelpSection": {
+    "ParentObjectID": "advanced_copper_tools_metal_lantern_placed",
+    "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_CardHelpSection",
+    "DefaultText": "<b>Usage:</b> Add oil, then light from any fire source to illuminate the area."
+  },
+  "CardType": 2,
+  "MapStructureType": 0,
+  "ObjectWeight": 120.0,
+  "TradingValue": 250.0,
+  "DoesNotPile": true,
+  "CardTags": [],
+  "CardTagsWarpData": ["tag_Preservable", "tag_Structure"],
+  "CardTagsWarpType": 3,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "Copper_Lantern_Unlit",
+  "CardImageWarpType": 3,
+  "WhenCreatedSoundsWarpData": ["Metal"],
+  "WhenCreatedSoundsWarpType": 3,
+  "FuelCapacity": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_metal_lantern_placed",
+      "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_FuelCapacity_CardStatName",
+      "DefaultText": "Oil"
+    },
+    "MaxValue": 72.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "ShowPopupOnZero": false,
+    "HasActionOnFull": false,
+    "ShowPopupOnFull": false,
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Flame",
+    "OverrideIconWarpType": 3
+  },
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": false
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": false
+  },
+  "SpecialDurability2": {
+    "Active": false
+  },
+  "SpecialDurability3": {
+    "Active": false
+  },
+  "SpecialDurability4": {
+    "Active": false
+  },
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_metal_lantern_placed",
+        "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_Refuel_ActionName",
+        "DefaultText": "Refuel with Oil"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_metal_lantern_placed",
+        "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_Refuel_ActionDescription",
+        "DefaultText": "Poured oil into the lantern."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Drink"
+      ],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "advanced_copper_tools_oil"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "StackCompatible": true,
+      "DontCloseInspectionWindow": false,
+      "AppearsOnCardsInInventory": false,
+      "StatModifications": [],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "FuelChange": {
+          "x": 24.0,
+          "y": 24.0
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1},
+              "FinishUnlocking": false,
+              "DropChance": {"Active": false, "BaseDropChance": 0.0}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_metal_lantern_placed",
+        "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_RefuelFlask_ActionName",
+        "DefaultText": "Refuel from Flask"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_metal_lantern_placed",
+        "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_RefuelFlask_ActionDescription",
+        "DefaultText": "Poured oil from the copper flask into the lantern."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Drink"
+      ],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "advanced_copper_tools_copper_oil_flask"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "StackCompatible": false,
+      "DontCloseInspectionWindow": false,
+      "AppearsOnCardsInInventory": false,
+      "StatModifications": [],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "FuelChange": {
+          "x": 24.0,
+          "y": 24.0
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 1,
+        "FuelChange": {
+          "x": -24.0,
+          "y": -24.0
+        }
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_metal_lantern_placed",
+        "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_Light_ActionName",
+        "DefaultText": "Light Lantern"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_metal_lantern_placed",
+        "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_Light_ActionDescription",
+        "DefaultText": "Light the lantern with a flame."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "FireIgnite"
+      ],
+      "ActionSoundsWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredFuelPercent": {
+          "Active": true,
+          "FloatValue": 0.1,
+          "MaxValue": 100.0
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "ParentObjectID": "advanced_copper_tools_metal_lantern_placed",
+          "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_NeedsFuel",
+          "DefaultText": "The lantern needs oil first."
+        }
+      },
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerTagsWarpData": [
+          "tag_Fire",
+          "tag_FireSource"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "StackCompatible": false,
+      "DontCloseInspectionWindow": false,
+      "AppearsOnCardsInInventory": false,
+      "GivenCardChanges": {
+        "ModType": 0
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "advanced_copper_tools_metal_lantern_placed_lit",
+        "TransformIntoWarpType": 3,
+        "TransferFuel": true,
+        "SpawnTransformAtSource": true
+      }
+    }
+  ],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_metal_lantern_placed",
+        "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_PickUp_ActionName",
+        "DefaultText": "Pick Up"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_metal_lantern_placed",
+        "LocalizationKey": "Advanced_Copper_Tools_MetalLantern_PickUp_ActionDescription",
+        "DefaultText": "Pick up the lantern and carry it."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Metal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "advanced_copper_tools_metal_lantern",
+        "TransformIntoWarpType": 3,
+        "TransferFuel": true,
+        "SpawnTransformAtSource": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "UniqueID": "advanced_copper_tools_bp_lantern_oilwell",
+  "CardName": {
+    "ParentObjectID": "advanced_copper_tools_bp_lantern_oilwell",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_LanternOilwell_CardName",
+    "DefaultText": "Lantern Oilwell"
+  },
+  "CardDescription": {
+    "ParentObjectID": "advanced_copper_tools_bp_lantern_oilwell",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_LanternOilwell_CardDescription",
+    "DefaultText": "Hammer a copper sheet into a small cup-shaped oil reservoir, wrapped with twine for a wick."
+  },
+  "CardType": 7,
+  "UnlockConditionsDesc": {
+    "ParentObjectID": "advanced_copper_tools_bp_lantern_oilwell",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_LanternOilwell_UnlockConditionsDesc",
+    "DefaultText": "Metal Sheet Needed"
+  },
+  "BuildingStatConditions": [],
+  "StartUnlocked": false,
+  "CardsOnBoard": [
+    {
+      "ObjectiveName": "HasMetalSheet",
+      "CompletionWeight": 1,
+      "Card": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "Quantity": 1,
+      "ConstantlyChecking": false,
+      "OnlyInEnvironment": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "OnlyIfEquipped": false,
+      "OnlyInContainer": {
+        "Target": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        }
+      },
+      "CardWarpData": "advanced_copper_tools_metal_sheet",
+      "CardWarpType": 3
+    }
+  ],
+  "TagsOnBoard": [],
+  "StatValues": [],
+  "BlueprintStages": [
+    {
+      "CannotRevertToThisStage": false,
+      "RequiredElements": [
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "advanced_copper_tools_metal_sheet",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 1,
+          "DontSpend": true,
+          "EffectOnIngredient": {
+            "ModType": 1,
+            "UsageChange": {
+              "x": -8.0,
+              "y": -8.0
+            }
+          },
+          "RequiredTabGroup": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredTabGroupWarpData": "GpTag_HammeringToolGeneral",
+          "RequiredTabGroupWarpType": 3
+        }
+      ],
+      "StepActionTags": [],
+      "StepActionTagsWarpData": [],
+      "StepActionTagsWarpType": 3
+    }
+  ],
+  "BuildingDaytimeCost": 2,
+  "DeconstructDaytimeCost": 1,
+  "BlueprintResult": [
+    {
+      "DroppedCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      },
+      "DroppedCardWarpData": "advanced_copper_tools_lantern_oilwell",
+      "DroppedCardWarpType": 3
+    }
+  ],
+  "BlueprintStatModifications": [],
+  "WhenCreatedSoundsWarpData": [
+    "Metal"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "BlueprintActionTagsWarpData": [
+    "HandAction",
+    "CraftAction"
+  ],
+  "BlueprintActionTagsWarpType": 3,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "Lantern_Oilwell",
+  "CardImageWarpType": 3,
+  "BlueprintUnlockTicksCost": 8.0,
+  "ResearchedNotification": 0
+}

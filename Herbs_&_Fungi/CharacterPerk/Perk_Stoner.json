@@ -1,0 +1,90 @@
+{
+    "ActionModifiers": [],
+    "ActionObjectives": [],
+    "AddedCards": [],
+    "AddedStartingHours": 0,
+    "CardsOnBoardObjectives": [],
+    "CheckingNotificationDetails": 0,
+    "CompleteOnLose": false,
+    "CompleteOnWin": false,
+    "DebugCompletion": false,
+    "DifficultyRating": -800,
+    "DisplayPriority": 2200.0,
+    "EditorOnly": false,
+    "EquippedCards": [],
+    "EquippedCardsWarpData": [
+        "herbs_fungi_herb_pipe",
+        "herbs_fungi_hemp_flower_powder",
+        "herbs_fungi_hemp_flower_powder",
+        "herbs_fungi_hemp_flower_powder",
+        "herbs_fungi_hemp_flower_powder",
+        "herbs_fungi_hemp_seeds",
+        "herbs_fungi_hemp_seeds",
+        "herbs_fungi_hemp_seeds",
+        "herbs_fungi_hemp_seeds",
+        "herbs_fungi_hemp_seeds",
+        "herbs_fungi_hemp_seeds",
+        "herbs_fungi_hemp_seeds",
+        "herbs_fungi_hemp_seeds",
+        "herbs_fungi_hemp_flower",
+        "herbs_fungi_hemp_flower",
+        "herbs_fungi_hemp_flower",
+        "herbs_fungi_hemp_flower",
+        "herbs_fungi_hemp_flower_dried",
+        "herbs_fungi_hemp_flower_dried",
+        "herbs_fungi_hemp_flower_dried",
+        "herbs_fungi_hemp_flower_dried",
+        "herbs_fungi_hemp_stalks"
+    ],
+    "EquippedCardsWarpType": 3,
+    "HiddenUntilUnlocked": false,
+    "MoonsCost": 4,
+    "NestedObjectives": [],
+    "NoSafetyMode": false,
+    "NotifyWhenNotChecked": false,
+    "OverrideEnvironment": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "OverrideEquipment": false,
+    "OverrideWeather": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "PassiveStatModifiers": [],
+    "PerkDescription": {
+        "DefaultText": "Complete hemp testing kit: 1 Herb Pipe with 4 hemp powder, 8 seeds (edible/plantable), 4 raw flowers, 4 dried flowers, and stalks for fiber crafting.",
+        "LocalizationKey": "Herbs_And_Fungi_Perk_Stoner_PerkDescription",
+        "ParentObjectID": "herbs_fungi_perk_stoner"
+    },
+    "PerkIcon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "PerkIconWarpData": "HempFlower",
+    "PerkIconWarpType": 3,
+    "PerkName": {
+        "DefaultText": "Hemp Farmer",
+        "LocalizationKey": "Herbs_And_Fungi_Perk_Stoner_PerkName",
+        "ParentObjectID": "herbs_fungi_perk_stoner"
+    },
+    "PerkUnlockConditions": {
+        "DefaultText": "",
+        "LocalizationKey": "",
+        "ParentObjectID": ""
+    },
+    "PlayedCharacter": [],
+    "RequiredDifficultyScore": {
+        "x": 0,
+        "y": 0
+    },
+    "ResetLockInEditor": false,
+    "StartUnlocked": false,
+    "StartingStatModifiers": [],
+    "StatsObjectives": [],
+    "SunsCost": 0,
+    "TagsOnBoardObjectives": [],
+    "TimeObjectives": [],
+    "UniqueID": "herbs_fungi_perk_stoner",
+    "CharacterPerkPerkGroup": "72120cda8e1cef540b1b25118dd7edaa"
+}

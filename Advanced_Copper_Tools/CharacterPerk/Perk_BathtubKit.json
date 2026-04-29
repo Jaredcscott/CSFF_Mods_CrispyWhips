@@ -1,0 +1,92 @@
+{
+  "ActionModifiers": [],
+  "ActionObjectives": [],
+  "AddedCards": [],
+  "AddedCardsWarpData": [
+    "advanced_copper_tools_bucket",
+    "advanced_copper_tools_copper_stove",
+    "57460207bbf77fa4fb6720aed5d84851",
+    "57460207bbf77fa4fb6720aed5d84851",
+    "57460207bbf77fa4fb6720aed5d84851",
+    "57460207bbf77fa4fb6720aed5d84851",
+    "6c2001f42a960db4583cdd65a47ecf3c",
+    "6c2001f42a960db4583cdd65a47ecf3c",
+    "6c2001f42a960db4583cdd65a47ecf3c",
+    "6c2001f42a960db4583cdd65a47ecf3c",
+    "6c2001f42a960db4583cdd65a47ecf3c",
+    "6c2001f42a960db4583cdd65a47ecf3c",
+    "6c2001f42a960db4583cdd65a47ecf3c",
+    "6c2001f42a960db4583cdd65a47ecf3c",
+    "3e94716876eae304787efa2ae0b43711",
+    "3db4c94184af274409f0d3eb16870f64",
+    "3db4c94184af274409f0d3eb16870f64",
+    "3db4c94184af274409f0d3eb16870f64",
+    "3db4c94184af274409f0d3eb16870f64",
+    "669497ecaa30b634c86bea6b61f31e63",
+    "669497ecaa30b634c86bea6b61f31e63",
+    "669497ecaa30b634c86bea6b61f31e63"
+  ],
+  "AddedCardsWarpType": 3,
+  "AddedStartingHours": 0,
+  "CardsOnBoardObjectives": [],
+  "CheckingNotificationDetails": 0,
+  "CompleteOnLose": false,
+  "CompleteOnWin": false,
+  "DebugCompletion": false,
+  "DifficultyRating": -350,
+  "DisplayPriority": 2402.0,
+  "EditorOnly": false,
+  "EquippedCards": [],
+  "EquippedCardsWarpData": [],
+  "EquippedCardsWarpType": 3,
+  "HiddenUntilUnlocked": false,
+  "MoonsCost": 2,
+  "NestedObjectives": [],
+  "NoSafetyMode": false,
+  "NotifyWhenNotChecked": false,
+  "OverrideEnvironment": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "OverrideEquipment": false,
+  "OverrideWeather": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "PassiveStatModifiers": [],
+  "PerkDescription": {
+    "DefaultText": "Start with all materials needed to build a copper bathtub: bucket, copper stove, 4 planks, 8 mud bricks, 1 large cloth, 4 long sticks, and 3 leather. Also unlocks bathtub blueprint.",
+    "LocalizationKey": "Advanced_Copper_Tools_Perk_BathtubKit_PerkDescription",
+    "ParentObjectID": "advanced_copper_tools_perk_bathtub_kit"
+  },
+  "PerkIcon": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "PerkIconWarpData": "CopperBathtub_Full_Unlit",
+  "PerkIconWarpType": 3,
+  "PerkName": {
+    "DefaultText": "Bathtub Kit",
+    "LocalizationKey": "Advanced_Copper_Tools_Perk_BathtubKit_PerkName",
+    "ParentObjectID": "advanced_copper_tools_perk_bathtub_kit"
+  },
+  "PerkUnlockConditions": {
+    "DefaultText": "",
+    "LocalizationKey": "",
+    "ParentObjectID": "advanced_copper_tools_perk_bathtub_kit"
+  },
+  "PlayedCharacter": [],
+  "RequiredDifficultyScore": {
+    "x": 0,
+    "y": 0
+  },
+  "ResetLockInEditor": false,
+  "StartUnlocked": false,
+  "StartingStatModifiers": [],
+  "StatsObjectives": [],
+  "SunsCost": 0,
+  "TagsOnBoardObjectives": [],
+  "TimeObjectives": [],
+  "UniqueID": "advanced_copper_tools_perk_bathtub_kit",
+  "CharacterPerkPerkGroup": "72120cda8e1cef540b1b25118dd7edaa"
+}

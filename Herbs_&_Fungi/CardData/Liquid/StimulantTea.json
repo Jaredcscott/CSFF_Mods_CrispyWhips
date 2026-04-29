@@ -1,0 +1,114 @@
+{
+    "UniqueID": "herbs_fungi_stimulant_tea",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_stimulant_tea",
+        "LocalizationKey": "herbs_fungi_stimulant_tea_CardName",
+        "DefaultText": "Stimulant Tea"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_stimulant_tea",
+        "LocalizationKey": "herbs_fungi_stimulant_tea_CardDescription",
+        "DefaultText": "An energizing herbal tea blend that boosts focus and energy. Effects are temporary."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Consumable",
+        "tag_Drinkable"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Bowl_Clay",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "ParentObjectID": "herbs_fungi_stimulant_tea",
+        "LocalizationKey": "herbs_fungi_stimulant_tea_SpoilageTime_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_stimulant_tea",
+            "LocalizationKey": "herbs_fungi_stimulant_tea_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 1440.0,
+        "RatePerDaytimePoint": 1.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_stimulant_tea",
+                "LocalizationKey": "herbs_fungi_stimulant_tea_SpoilageTime_Spoiled",
+                "DefaultText": "The stimulant tea has spoiled."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_stimulant_tea",
+                "LocalizationKey": "herbs_fungi_stimulant_tea_Drink",
+                "DefaultText": "Drink"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_stimulant_tea",
+                "LocalizationKey": "herbs_fungi_stimulant_tea_Drink_Desc",
+                "DefaultText": "Drink the energizing tea to boost your focus."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "DrinkingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "ValueModifier": {
+                        "x": -12.0,
+                        "y": -12.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3
+                }
+            ]
+        }
+    ],
+    "ObjectWeight": 0.15,
+    "MaxStack": 10,
+    "DroppedCardShadow": 1
+}

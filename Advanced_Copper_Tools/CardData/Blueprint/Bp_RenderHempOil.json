@@ -1,0 +1,102 @@
+{
+    "UniqueID": "advanced_copper_tools_bp_render_hemp_oil",
+    "CardName": {
+        "ParentObjectID": "advanced_copper_tools_bp_render_hemp_oil",
+        "LocalizationKey": "Advanced_Copper_Tools_Bp_RenderHempOil_CardName",
+        "DefaultText": "Render Hemp Seed Oil"
+    },
+    "CardDescription": {
+        "ParentObjectID": "advanced_copper_tools_bp_render_hemp_oil",
+        "LocalizationKey": "Advanced_Copper_Tools_Bp_RenderHempOil_CardDescription",
+        "DefaultText": "Cook down hemp seed oil over a fire to produce clean lamp oil."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "advanced_copper_tools_bp_render_hemp_oil",
+        "LocalizationKey": "Advanced_Copper_Tools_Bp_RenderHempOil_UnlockConditionsDesc",
+        "DefaultText": "Hemp Seed Oil Needed"
+    },
+    "BuildingStatConditions": [],
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasHempSeedOil",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "CardWarpData": "herbs_fungi_hemp_seed_oil",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "herbs_fungi_hemp_seed_oil",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 4,
+    "DeconstructDaytimeCost": 0,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "DroppedCardWarpData": "advanced_copper_tools_oil",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": [
+        "SmallObject_A"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Fat",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 8.0,
+    "ResearchedNotification": 0
+}
