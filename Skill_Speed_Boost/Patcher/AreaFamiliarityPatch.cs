@@ -29,6 +29,7 @@ internal static class AreaFamiliarityPatch
     private static FieldInfo _uniqueIdField;
     private static FieldInfo _cardTypeField;
     private static bool _reflectedCard;
+    private static int _receivingCardArgIndex = 1;
 
     public static void ApplyPatch(Harmony harmony)
     {
@@ -41,7 +42,7 @@ internal static class AreaFamiliarityPatch
                 return;
             }
 
-            var method = AccessTools.Method(gmType, "ActionRoutine");
+            var method = FindActionRoutine(gmType);
             if (method == null)
             {
                 Logger.LogWarning("[AreaFamiliarity] GameManager.ActionRoutine not found — area familiarity disabled.");
@@ -58,8 +59,7 @@ internal static class AreaFamiliarityPatch
     }
 
     // Iterator postfix: wrap original coroutine, set/clear context around it.
-    // Param name `_ReceivingCard` matches the game's ActionRoutine parameter.
-    static IEnumerator ActionRoutine_Post(IEnumerator enumerator, object _ReceivingCard)
+    static IEnumerator ActionRoutine_Post(IEnumerator enumerator, object[] __args)
     {
         if (!Plugin.AreaFamiliarityEnabled)
         {
@@ -72,24 +72,59 @@ internal static class AreaFamiliarityPatch
         bool priorXpFlag = _skillXpGainedThisAction;
         _depth++;
 
-        var newUid = TryGetLocationUid(_ReceivingCard);
+        var receivingCard = __args != null && _receivingCardArgIndex >= 0 && _receivingCardArgIndex < __args.Length
+            ? __args[_receivingCardArgIndex]
+            : null;
+        var newUid = TryGetLocationUid(receivingCard);
         if (!string.IsNullOrEmpty(newUid))
         {
             _currentLocationUid = newUid;
             _skillXpGainedThisAction = false;
         }
 
-        yield return enumerator;
-
-        // Record visit only at the action that introduced this UID, and only if XP was gained
-        if (!string.IsNullOrEmpty(newUid) && _skillXpGainedThisAction)
+        try
         {
-            AreaFamiliarityService.RecordVisit(newUid);
+            yield return enumerator;
+        }
+        finally
+        {
+            // Record visit only at the action that introduced this UID, and only if XP was gained.
+            if (!string.IsNullOrEmpty(newUid) && _skillXpGainedThisAction)
+            {
+                AreaFamiliarityService.RecordVisit(newUid);
+            }
+
+            _currentLocationUid = priorUid;
+            _skillXpGainedThisAction = priorXpFlag;
+            _depth--;
+        }
+    }
+
+    private static MethodInfo FindActionRoutine(Type gmType)
+    {
+        foreach (var method in gmType.GetMethods(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic))
+        {
+            if (method.Name != "ActionRoutine" || !typeof(IEnumerator).IsAssignableFrom(method.ReturnType))
+                continue;
+
+            var parameters = method.GetParameters();
+            if (parameters.Length < 2) continue;
+
+            _receivingCardArgIndex = 1;
+            for (int i = 0; i < parameters.Length; i++)
+            {
+                var name = parameters[i].Name ?? string.Empty;
+                if (name.IndexOf("receiving", StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    _receivingCardArgIndex = i;
+                    break;
+                }
+            }
+
+            return method;
         }
 
-        _currentLocationUid = priorUid;
-        _skillXpGainedThisAction = priorXpFlag;
-        _depth--;
+        return null;
     }
 
     private static string TryGetLocationUid(object receivingCard)

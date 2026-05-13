@@ -1,16 +1,15 @@
 ## Overview
 
-**Version:** 1.7.1 — EA 0.62d compatibility
+**Version:** 1.7.4 — EA 0.63 compatibility
 
-Skill Speed Boost provides comprehensive control over skill progression mechanics in Card Survival: Fantasy Forest. The mod enables natural staleness decay (like Fishing), customizable XP multipliers per skill, and difficulty profiles.
+Skill Speed Boost provides comprehensive control over skill progression mechanics in Card Survival: Fantasy Forest. The mod enables natural staleness decay (like Fishing), customizable XP multipliers per skill, and per-location area familiarity bonuses.
 
 ### Key Features
 
 1. **Staleness Management** — Skills decay naturally after 3 in-game hours (vs. vanilla permanent decay)
 2. **Per-Skill XP Multipliers** — Set different learning rates for each skill (0-10x)
-3. **Difficulty Profiles** — Switch between presets: VanillaPlus, Casual, Hardcore, Grinder, Balanced, Legacy
-4. **Morning Study Bonus** — Optional XP multiplier during configurable morning hours (off by default)
-5. **Area Familiarity** — XP bonus that grows the more you forage/work at a given location, capped per location and configurable
+3. **Morning Study Bonus** — Optional XP multiplier during configurable morning hours (off by default)
+4. **Area Familiarity** — XP bonus that grows the more you forage/work at a given location, capped per location and configurable
 
 ### Before vs After (Vanilla)
 
@@ -26,25 +25,24 @@ Skill Speed Boost provides comprehensive control over skill progression mechanic
 
 **With Custom Settings:**
 - Set Smithing multiplier to 5x → Learn 5x faster
-- Use Casual profile → 3x XP, no staleness penalties
 - Disable Tracking entirely by setting its multiplier to 0
 
 ## Installation
 
 ### Requirements
 - [BepInEx 5.4.23.4+](https://github.com/BepInEx/BepInEx/releases)
-- Card Survival: Fantasy Forest (EA 0.62e)
+- Card Survival: Fantasy Forest (EA 0.63)
 
 ### Steps
-1. Download the latest release (v1.7.1+)
-2. Copy the `SkillSpeedBoost` folder into `BepInEx/plugins/`
+1. Download the latest release (v1.7.4+)
+2. Copy the `Skill_Speed_Boost` folder into `BepInEx/plugins/`
 3. Launch the game
 
 Your plugins folder should look like:
 ```
 BepInEx/
   plugins/
-    SkillSpeedBoost/
+    Skill_Speed_Boost/
       Skill_Speed_Boost.dll
 ```
 
@@ -52,7 +50,7 @@ BepInEx/
 
 ### Default (Recommended)
 The mod ships with these defaults:
-- `ActiveProfile = Balanced` (2x XP, manageable staleness)
+- `SkillExpMultiplier = 1` (no XP boost)
 - Staleness decay enabled (3 in-game hours)
 - Per-skill customization enabled
 
@@ -60,22 +58,21 @@ Just install and play — no config needed.
 
 ### Common Configurations
 
-**Casual Mode (No Grind)**
+**No Staleness (Relaxed)**
 ```ini
-ActiveProfile = Casual          ; 3x XP, no staleness
 EnableSkillStaleness = false
+SkillExpMultiplier = 3          ; 3x XP
 ```
 
-**Hardcore Mode (Vanilla+)**
+**Vanilla+ (Slight Boost)**
 ```ini
-ActiveProfile = Hardcore        ; Vanilla difficulty
 EnableSkillStaleness = true
-SkillExpMultiplier = 1
+SkillExpMultiplier = 2          ; 2x XP
 ```
 
 **Fast Leveling (Smithing Focus)**
 ```ini
-ActiveProfile = Balanced
+SkillExpMultiplier = 2
 Smithing_Multiplier = 5         ; 5x XP for smithing only
 Archery_Multiplier = 2          ; 2x for other skills
 Tracking_Multiplier = 0         ; Disabled
@@ -90,7 +87,6 @@ In vanilla CSFF, staleness penalties are permanent. This mod enables natural dec
 - Skills decay staleness after **3 in-game hours** (12 game ticks) of non-use
 - Mimics Fishing skill behavior (only vanilla skill with natural decay)
 - Encourages skill variety without permanent penalties
-- Customizable per-skill with `_StalenessMultiplier` settings
 
 ### XP Multipliers
 Control learning speed with global or per-skill multipliers:
@@ -98,15 +94,6 @@ Control learning speed with global or per-skill multipliers:
 - **Per-skill multipliers:** Override global for specific skills (0-10x each)
 - Setting to `0` disables XP for that skill entirely
 - Changes apply after reloading a save
-
-### Difficulty Profiles
-Pre-configured settings for different playstyles:
-- **VanillaPlus** — 2x XP + staleness (slight boost)
-- **Casual** — 3x XP, no staleness (relaxed)
-- **Hardcore** — 1x XP + staleness (vanilla)
-- **Grinder** — 10x XP, no staleness (testing)
-- **Balanced** — 2x XP + staleness (recommended)
-- **Legacy** — 1x XP + staleness (original)
 
 ## Affected Skills
 
@@ -122,22 +109,33 @@ See **FEATURES.md** for full per-skill configuration details.
 
 ## Technical Details
 
-- **Method:** Harmony runtime patching on `GameLoad.LoadMainGameData`
+- **Load-time:** `GameLoad.LoadMainGameData` postfix configures staleness on all skill stats
+- **Runtime:** `GameManager.ChangeStatValue` coroutine postfix applies XP multipliers (global, per-skill, morning bonus, area familiarity) on every skill XP gain
+- **Area tracking:** `GameManager.ActionRoutine` coroutine postfix tracks current location for familiarity scoring
 - **Staleness:** Sets `NoveltyCooldownDuration = 12` (12 ticks × 15 min = 3 hours)
-- **XP Scaling:** Applies per-skill multipliers to all stat modifier types
 - **Safe:** No permanent changes to save files; fully reversible
 
 ## Compatibility
 
 - **Existing saves:** Safe to add/remove anytime
 - **Other mods:** Compatible with all CSFF mods
-- **Performance:** Minimal overhead (load-time patches only, no runtime cost)
+- **Performance:** Minimal overhead — load-time scan of ~30 skill stats + lightweight coroutine postfix on XP gains
 - **Save format:** No save file modifications
 
 ## Version History
 
-### v1.7.1 (Latest)
-- Verified compatible with EA 0.62e (8-file delta from 0.62b — no API changes affecting this mod)
+### v1.7.3
+- Fixed advertised dead code in docs (DEVELOPER_API.md, FEATURES.md)
+- Added `GetAllSkillMultipliers()` to SkillConfigManager
+- Dynamic skills discovered at load now auto-register per-skill config entries
+- Startup log normalized to single Info line
+
+### v1.7.2
+- Runtime-hook rewrite: `SkillExpMultiplier` now applies via a `ChangeStatValue` postfix instead of a load-time ScriptableObject graph walk
+- Drops ~17–25s of load-time tax to ~0s; multiple bonus sources (morning, area familiarity, global, per-skill) now compose in a single postfix
+
+### v1.7.1
+- Verified compatible with EA 0.62d (8-file delta from 0.62b — no API changes affecting this mod)
 
 ### v1.7.0
 - **Area Familiarity** — Per-location XP bonus that scales with how often you work that tile
@@ -152,14 +150,10 @@ See **FEATURES.md** for full per-skill configuration details.
   - `MorningStartHour` / `MorningEndHour` in game-hours 0–23 (default 5–9)
   - Stacks with global and per-skill multipliers; applied as a real-time bonus on XP gains
 
-### v1.6.0
+### v2.0.0 / v1.5.x
 - **Per-skill XP multipliers** — Set different learning rates for each skill
-- **Difficulty profiles** — VanillaPlus, Casual, Hardcore, Grinder, Balanced, Legacy
-- **SkillConfigManager** — Intelligent per-skill configuration system
-
-### v1.5.0
+- **SkillConfigManager** — Per-skill configuration system
 - Renamed to "Skill Speed Boost" (from "Remove Skill Staleness")
-- Unified naming conventions
 
 ### v1.4.0
 - Added no-staleness mode toggle
@@ -184,7 +178,3 @@ For more help, see **FEATURES.md** or check BepInEx LogOutput.log.
 
 Created by Jared (CrispyWhips)  
 Framework: BepInEx, HarmonyLib
-
-## License
-
-MIT License - Feel free to modify and redistribute.

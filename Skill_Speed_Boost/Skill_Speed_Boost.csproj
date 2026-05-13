@@ -26,6 +26,7 @@
         <Content Include="ModInfo.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('ModInfo.json')" />
         <Content Include="LICENSE" CopyToOutputDirectory="PreserveNewest" Condition="Exists('LICENSE')" />
         <Content Include="ASSET_CREDITS.md" CopyToOutputDirectory="PreserveNewest" Condition="Exists('ASSET_CREDITS.md')" />
+        <Content Include="FEATURES.md" CopyToOutputDirectory="PreserveNewest" Condition="Exists('FEATURES.md')" />
     </ItemGroup>
 
     <ItemGroup>

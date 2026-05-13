@@ -10,7 +10,7 @@ internal class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.skill_speed_boost";
     public const string PluginName = "Skill Speed Boost";
-    public const string PluginVersion = "1.7.1";
+    public const string PluginVersion = "1.7.4";
 
     internal static Plugin Instance { get; private set; }
     internal new static ManualLogSource Logger;
@@ -139,16 +139,24 @@ internal class Plugin : BaseUnityPlugin
         // Runtime hot-reload of deep stat graph proved unstable; apply on next load.
         _skillExpMultiplier.SettingChanged += (sender, args) =>
         {
-            Logger.LogInfo($"[SkillSpeedBoost] Global SkillExpMultiplier changed to {SkillExpMultiplier}x. New value applies after loading a save or restarting the game.");
+            Logger.LogInfo($"Global SkillExpMultiplier changed to {SkillExpMultiplier}x. New value applies after loading a save or restarting the game.");
         };
 
-        Logger.LogInfo(
-            $"[SkillSpeedBoost] Initialized v{PluginVersion}: " +
+        Logger.LogDebug(
+            $"{PluginName} v{PluginVersion}: " +
             $"Staleness={EnableSkillStaleness}, " +
             $"GlobalExpMultiplier={SkillExpMultiplier}x, " +
-            $"PerSkillMultipliers={EnablePerSkillMultipliers}, " +
-            $"Profile={SkillConfigManager.GetActiveProfile()}"
+            $"PerSkillMultipliers={EnablePerSkillMultipliers}"
         );
+
+        if (EnablePerSkillMultipliers)
+        {
+            foreach (var (skillName, multiplier) in SkillConfigManager.GetAllSkillMultipliers())
+            {
+                if (multiplier != 1)
+                    Logger.LogDebug($"[PerSkill] {skillName} = {multiplier}x");
+            }
+        }
 
         _harmony = new Harmony(PluginGuid);
         try
@@ -159,8 +167,10 @@ internal class Plugin : BaseUnityPlugin
         }
         catch (System.Exception ex)
         {
-            Logger.LogError($"[SkillSpeedBoost] Failed to apply patches: {ex}");
+            Logger.LogError($"Failed to apply patches: {ex}");
         }
+
+        Logger.LogInfo($"{PluginName} v{PluginVersion} loaded.");
     }
 
     private void OnApplicationQuit()

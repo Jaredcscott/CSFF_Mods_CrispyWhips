@@ -1,29 +1,21 @@
-# Skill Speed Boost v2.0 — Feature Guide
+# Skill Speed Boost — Feature Guide
 
 Complete documentation of all features, configuration options, and systems.
 
-**Current Features:** Staleness control, global XP multiplier, per-skill multipliers, difficulty profiles.
+**Current Features:** Staleness control, global XP multiplier, per-skill multipliers, morning bonus, area familiarity.
 
 ## Core Features
 
 ### 1. Skill Staleness Control
-**What:** Toggle skill novelty penalties on/off and customize staleness behavior per-skill.
+**What:** Toggle skill novelty penalties on/off globally.
 
 **Settings:**
 - `EnableSkillStaleness` (default: `true`) — Enable/disable all staleness penalties
-- Per-skill staleness toggles — Each skill can have staleness enabled/disabled independently
-- Per-skill staleness multipliers — Customize how fast each skill's novelty decays
 
 **How It Works:**
 - When enabled, skills decay over 3 in-game hours (12 game ticks) of non-use
 - The staleness penalty reduces XP gain from that skill while it's "stale"
-- Use per-skill multipliers to make certain skills decay faster (e.g., combat slower, crafting faster)
-
-**Example:** Make Smithing decay 2x faster while Archery decays 0.5x slower:
-```
-Set Smithing_StalenessMultiplier = 2.0
-Set Archery_StalenessMultiplier = 0.5
-```
+- When disabled, `UsesNovelty` is cleared on all skill stats so staleness never accrues
 
 ---
 
@@ -34,8 +26,8 @@ Set Archery_StalenessMultiplier = 0.5
 - `SkillExpMultiplier` (default: `1`, allowed: `1-10`) — Global XP multiplier
 
 **How It Works:**
-- Applied to all skill stat modifiers that grant XP
-- Changes take effect after reloading a save or restarting the game
+- Applied to all skill XP gains at runtime
+- Changes take effect immediately — multipliers are applied at runtime via the `ChangeStatValue` postfix
 - Overridden by per-skill multipliers if per-skill customization is enabled
 
 **Example:** Double all XP gains:
@@ -45,7 +37,7 @@ Set SkillExpMultiplier = 2
 
 ---
 
-### 3. Per-Skill XP Multipliers (NEW in v2.0)
+### 3. Per-Skill XP Multipliers
 **What:** Set individual XP multipliers for each skill — grind fast or slow by choice.
 
 **Settings:**
@@ -67,25 +59,35 @@ Set Blade_Multiplier = 3     (fast melee)
 
 ---
 
-### 4. Difficulty Profiles (NEW in v2.0)
-**What:** Pre-configured settings for different playstyles — switch with one setting.
+### 4. Morning Study Bonus
+**What:** Optional XP multiplier applied during configurable morning hours.
 
-**Available Profiles:**
-- **VanillaPlus** — 2x XP, vanilla staleness (slight boost, maintain feel)
-- **Casual** — 3x XP, no staleness (relaxed grinding)
-- **Hardcore** — 1x XP, full staleness (vanilla difficulty)
-- **Grinder** — 10x XP, no staleness (testing/sandbox)
-- **Balanced** — 2x XP, manageable staleness (recommended)
-- **Legacy** — 1x XP, full staleness (original vanilla behavior)
+**Settings:**
+- `MorningBonusEnabled` (default: `false`) — Enable morning XP bonus
+- `MorningBonusMultiplier` (default: `1.5`) — Extra multiplier during morning window
+- `MorningStartHour` (default: `5`) — Start of morning window (game-hours, 0–23)
+- `MorningEndHour` (default: `9`) — End of morning window (exclusive)
 
 **How It Works:**
-- Set `ActiveProfile` to switch all settings at once
-- Profiles override individual settings on game load
+- Applies an extra multiplier to all skill XP gains during the configured window
+- Stacks multiplicatively with global and per-skill multipliers
+- Wrap-around windows supported (e.g. start=22, end=4 = late night through early morning)
 
-**Example:** Switch to Casual mode:
-```
-Set ActiveProfile = Casual
-```
+---
+
+### 5. Area Familiarity
+**What:** XP bonus that grows the more you work at a specific location.
+
+**Settings:**
+- `AreaFamiliarityEnabled` (default: `true`) — Enable area familiarity bonus
+- `AreaFamiliarityMaxBonus` (default: `0.30`) — Max extra XP at full familiarity (+30%)
+- `AreaFamiliarityVisitsForMaxBonus` (default: `80`) — Actions to reach max bonus
+
+**How It Works:**
+- Each location (pond, forest clearing, etc.) tracks how many XP-granting actions you've done there
+- Bonus scales linearly from 0% to `AreaFamiliarityMaxBonus` as you accumulate visits
+- Persists across sessions in `BepInEx/config/SkillSpeedBoost/AreaFamiliarity.tsv`
+- Stacks multiplicatively with global, per-skill, and morning bonuses
 
 ---
 
@@ -99,89 +101,41 @@ EnableSkillStaleness = true
 SkillExpMultiplier = 1
 EnablePerSkillMultipliers = true
 
-[Profiles]
-ActiveProfile = Balanced
-
 [Per-Skill Multipliers]
 Smithing_Multiplier = 5
 Archery_Multiplier = 2
 Blade_Multiplier = 3
 Tracking_Multiplier = 0
 
-[Per-Skill Staleness]
-Smithing_UseStaleness = true
-Archery_UseStaleness = false
-Blade_UseStaleness = true
+[MorningBonus]
+MorningBonusEnabled = false
+MorningBonusMultiplier = 1.5
+MorningStartHour = 5
+MorningEndHour = 9
 
-[Per-Skill Staleness Multipliers]
-Smithing_StalenessMultiplier = 2.0
-Archery_StalenessMultiplier = 0.5
-Blade_StalenessMultiplier = 1.0
+[AreaFamiliarity]
+AreaFamiliarityEnabled = true
+AreaFamiliarityMaxBonus = 0.30
+AreaFamiliarityVisitsForMaxBonus = 80
 ```
-
----
-
-## Advanced Usage
-
-### Dynamic Skill Registration
-Register skills not in core list:
-```csharp
-SkillConfigManager.RegisterDynamicSkill(config, "CustomSkill");
-```
-
----
-
-## Frequently Asked Questions
-
-**Q: Will per-skill multipliers break balance?**
-A: No. The game's challenge comes from learning speed and resource management. Multipliers only affect XP gain, not actual gameplay difficulty. Use what feels right for your playstyle.
-
-**Q: How do I disable XP grinding for a specific skill?**
-A: Set that skill's multiplier to `0` in the `[Per-Skill Multipliers]` section.
-
-**Q: Do profiles reset my per-skill settings?**
-A: Profiles only apply their preset multipliers on game load. Manual per-skill settings override profiles.
 
 ---
 
 ## Performance Impact
 
-- **Per-skill multipliers:** No runtime cost (applied at load time)
-
-All features are applied once at game-load time and incur zero per-frame overhead.
-
----
-
-## Version History
-
-### v2.0.0 (Current)
-- Added per-skill XP multipliers
-- Added difficulty profiles (VanillaPlus, Casual, Hardcore, Grinder, Balanced, Legacy)
-- Updated to support all configuration systems
-
-### v1.5.0
-- Global XP multiplier (1-10x)
-- Staleness enable/disable
-- Fixed novelty cooldown to 12 ticks (3 in-game hours)
+- **Staleness configuration:** applied once at load-time (`GameLoad.LoadMainGameData` postfix), zero per-frame cost
+- **Per-skill multipliers, global XP multiplier, morning bonus, area familiarity:** applied at runtime via a single `ChangeStatValue` coroutine postfix — fires only on skill XP gains (negligible per-event cost, ~0s load impact)
+- **Area familiarity persistence:** saved every 8 XP-granting actions, flushed on quit
 
 ---
 
 ## Troubleshooting
 
 **Issue:** "SkillExpMultiplier changed but didn't apply"
-- *Solution:* Changes require reloading a save or restarting the game. Hot-reload is disabled for stability.
+- *Solution:* Config values are live-bound — changes to the `.cfg` file take effect on the next skill XP gain without restarting. Ensure you saved the config file and check the spelling matches exactly (e.g. `SkillExpMultiplier`, not `SkillXpMultiplier`).
 
 **Issue:** Per-skill settings not applying
-- *Solution:* Ensure `EnablePerSkillMultipliers = true`. Check config file spelling matches `CoreSkills` names.
+- *Solution:* Ensure `EnablePerSkillMultipliers = true`. Check config file spelling matches skill names exactly (e.g. `Smithing`, not `smithing`).
 
----
-
-For detailed implementation info, see the code comments in:
-- `SkillConfigManager.cs` — Per-skill and profile management
-- `Patcher/GameLoadPatch.cs` — Runtime Harmony patch applying multipliers and staleness settings
-- `Plugin.cs` — Configuration registration
-
-## Planned Features (not yet implemented)
-
-See [`Documentation/Ideas/SkillSpeedBoost/`](../Documentation/Ideas/SkillSpeedBoost/) at the repo root for specs on future work:
-- **Skill Synergies** — combo XP bonuses for chaining related skills
+**Issue:** Area familiarity bonus not showing
+- *Solution:* Ensure `AreaFamiliarityEnabled = true`. The bonus starts at 0 and grows with repeated visits — check `AreaFamiliarity.tsv` in the config folder to see accumulated counts.
