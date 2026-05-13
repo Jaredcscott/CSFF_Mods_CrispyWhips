@@ -11,7 +11,7 @@ public class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.quick_transfer";
     public const string PluginName = "Quick_Transfer";
-    public const string PluginVersion = "1.5.2";
+    public const string PluginVersion = "1.5.5";
 
     internal new static ManualLogSource Logger;
     private static Harmony _harmony;
@@ -78,10 +78,10 @@ public class Plugin : BaseUnityPlugin
         // Sync CurrentTransferAmount when config changes
         TransferAmount.SettingChanged += (sender, args) => {
             CurrentTransferAmount = TransferAmount.Value;
-            Logger.LogInfo($"Transfer amount updated from config: {CurrentTransferAmount}");
+            Logger.LogDebug($"Transfer amount updated from config: {CurrentTransferAmount}");
         };
 
-        Logger.LogInfo($"{PluginName} v{PluginVersion} loaded! Transfer amount: {CurrentTransferAmount}");
+        Logger.LogInfo($"{PluginName} v{PluginVersion} loaded.");
 
         // Initialize and apply Harmony patches
 

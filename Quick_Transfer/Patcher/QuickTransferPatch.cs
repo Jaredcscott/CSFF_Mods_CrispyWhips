@@ -61,8 +61,7 @@ namespace Quick_Transfer.Patcher
             }
             catch (Exception ex)
             {
-                Logger.LogError($"Failed to apply QuickTransfer patches: {ex.Message}");
-                Logger.LogError($"Stack trace: {ex.StackTrace}");
+                Logger.LogError($"Failed to apply QuickTransfer patches: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
         }
 
@@ -122,7 +121,7 @@ namespace Quick_Transfer.Patcher
             }
             catch (Exception ex)
             {
-                Logger.LogError($"Error in prefix: {ex.Message}");
+                Logger.LogError($"Error in prefix: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
         }
 
@@ -150,8 +149,7 @@ namespace Quick_Transfer.Patcher
             }
             catch (Exception ex)
             {
-                Logger.LogError($"Error in postfix: {ex.Message}");
-                Logger.LogError($"Stack trace: {ex.StackTrace}");
+                Logger.LogError($"Error in postfix: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
             finally
             {
@@ -186,7 +184,7 @@ namespace Quick_Transfer.Patcher
                     consecutiveFailures++;
                     if (consecutiveFailures >= MaxConsecutiveFailures)
                     {
-                        Logger.LogInfo($"Transferred {1 + transferred} cards (no more matching cards)");
+                        Logger.LogDebug($"Transferred {1 + transferred} cards (no more matching cards)");
                         yield break;
                     }
                     continue;
@@ -205,8 +203,8 @@ namespace Quick_Transfer.Patcher
                 }
                 catch (Exception ex)
                 {
-                    Logger.LogError($"Transfer failed: {ex.Message}");
-                    Logger.LogInfo($"Transferred {1 + transferred} cards");
+                    Logger.LogError($"Transfer failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                    Logger.LogDebug($"Transferred {1 + transferred} cards");
                     yield break;
                 }
                 finally
@@ -215,7 +213,7 @@ namespace Quick_Transfer.Patcher
                 }
             }
 
-            Logger.LogInfo($"Transferred {1 + transferred} cards");
+            Logger.LogDebug($"Transferred {1 + transferred} cards");
         }
 
         /// <summary>
@@ -310,8 +308,8 @@ namespace Quick_Transfer.Patcher
                     continue;
                 }
                 
-                // Not in cache - look it up (use Field first to avoid HarmonyX property warnings)
-                var field = AccessTools.Field(type, name);
+                // Not in cache - look it up
+                var field = type.GetField(name, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
                 if (field != null)
                 {
                     memberCache[key] = field;

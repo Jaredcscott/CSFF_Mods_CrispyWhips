@@ -1,6 +1,6 @@
 # Quick Transfer
 
-**Version:** 1.5.2
+**Version:** 1.5.5
 
 A **Card Survival: Fantasy Forest** mod that lets you transfer multiple cards at once using a modifier key + Right-Click (configurable).
 
@@ -23,14 +23,14 @@ A **Card Survival: Fantasy Forest** mod that lets you transfer multiple cards at
 
 ### Steps
 1. Download the latest release.
-2. Copy the `QuickTransfer` folder into your `BepInEx/plugins/` directory.
+2. Copy the `Quick_Transfer` folder into your `BepInEx/plugins/` directory.
 3. Launch the game.
 
 Your plugins folder should look like:
 ```
 BepInEx/
   plugins/
-    QuickTransfer/
+    Quick_Transfer/
       Quick_Transfer.dll
       ModInfo.json
 ```

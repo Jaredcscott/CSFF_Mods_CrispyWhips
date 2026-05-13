@@ -1,6 +1,6 @@
 {
 	"Name": "QuickTransfer",
 	"Author": "Jared",
-	"Version": "1.5.2",
+	"Version": "1.5.5",
 	"Description": "Allows transferring multiple cards at once using CTRL+Right-Click. Configure stack size with CTRL+Plus/Minus."
 }
