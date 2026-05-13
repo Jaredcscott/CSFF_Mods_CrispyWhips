@@ -1,6 +1,6 @@
 # Repeat Action
 
-**Version:** 1.3.2
+**Version:** 1.3.7
 
 A quality-of-life mod that lets you automatically repeat your last action multiple times with a single keypress.
 
@@ -91,10 +91,20 @@ Actions are matched by keyword — any in-game action whose name contains a supp
 | **Resource Extraction** | Extract Fibers, Harvest | Popup button | Reeds, nettles, crops, meadow grass |
 | **Mining** | Mine | Popup button | Flint veins, witchstone veins |
 | **Crafting (drag-drop)** | Make Twine, Soak Reeds, Craft Tourniquet | Drag card onto card | Drag one card onto another |
-| **Crafting (popup)** | Make Clay, Grind, Dig | Popup button | Mud, clay, grinding actions |
+| **Crafting (popup)** | Make Clay, Grind, Dig, Carve, Press, Mill, Mash, Thresh, Mince, Crush, Mix, Stir, Knead, Peel, Scrape | Popup button | Mud, clay, grinding, food processing actions |
 | **Travel** | North, South, East, West | Popup button | Rest → Travel → Rest → Travel; stops when no path available or stat event triggers |
 | **Pick Up** | Pick up (soaking reeds/flax/nettle) | Popup button | Location cards that transform back to items |
 | **Rest & Recovery** | Meditate, Rest, Relax, Sharpen | Popup button | Cardless actions executed directly |
+| **Leatherworking** | Tan, Skin, Sew | Popup / Drag-drop | Leather tanning and sewing |
+| **Butchery** | Butcher, Bleed, Disembowel, Gut, Flesh | Popup button | Carcass processing actions |
+| **Smithing & Tools** | Smith, Dismantle, Repair, Trim, Apply | Popup button | Forging, repair, and dismantling |
+| **Liquid Handling** | Fill, Pour, Wash, Brew, Ferment | Popup / Drag-drop | Containers, liquids, fermentation |
+| **Farming** | Water, Till, Wet | Popup button | Garden plot maintenance |
+| **Combat Training** | Train, Practice | Popup button | Weapon training and throwing practice |
+| **Feeding & Fuel** | Feed, Add, Shovel | Drag-drop | Fire fuel, ingredient additions, snow shoveling |
+| **Cleaning** | Clean | Popup button | Clean structures |
+| **Spirit Rituals** | Bless, Curse, Enchant, Invoke, Summon, Commune, Perform, Bind, Call | Popup button | Grove rituals and spirit actions (EA 0.61+) |
+| **Thread & Stitching** | Thread, Stitch | Popup button | Needle threading, wound stitching |
 
 ### Not Supported
 
@@ -102,12 +112,11 @@ These action types are intentionally excluded to prevent unintended side effects
 
 | Action Type | Reason |
 |-------------|--------|
-| Build, Dismantle | Multi-step construction; risky to auto-repeat |
+| Build | Multi-step construction; risky to auto-repeat |
 | Cook, Boil, Roast, Fry, Bake, Smoke, Dry | Cooking on fire; complex card state |
-| Fill, Pour, Empty | Liquid transfer; quantity tracking unreliable |
-| Plant, Water, Fertilize | Farming setup; usually done once per card |
-| Fish, Hunt, Butcher, Skin, Tan | Combat/encounter triggers; event popups |
-| Place, Move | Inventory management; not a timed action |
+| Plant, Fertilize | Farming setup; usually done once per card |
+| Fish, Hunt | Combat/encounter triggers; event popups |
+| Place, Move, Empty | Inventory management; not a timed action |
 
 > **Tip:** If you try to repeat an unsupported action, a notification will show the action name with "is not supported".
 

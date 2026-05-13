@@ -35,7 +35,20 @@ namespace Repeat_Action.Patcher
 
         private static PropertyInfo gmInstanceProp;
         private static FieldInfo gmCurrentGameStateField;
+        private static PropertyInfo gmRootActionProp;
+        private static PropertyInfo gmCurrentOutOfBaseActionProp;
+        private static PropertyInfo gmPerformingActionProp;
+        private static PropertyInfo gmIsTravellingProp;
+        private static PropertyInfo gmLeavingEnvironmentProp;
+        private static PropertyInfo gmEnvironmentTransitionProp;
+        private static PropertyInfo gmIsInitializingProp;
+        private static PropertyInfo gmIsCatchingUpProp;
+        private static FieldInfo gmActionReceivingCardsField;
+        private static FieldInfo gmActionGivenCardsField;
+        private static FieldInfo gmQueuedCardActionsField;
+        private static FieldInfo gmCardToInspectField;
         private static FieldInfo npcOrPlayerPlayerField;       // InGameNPCOrPlayer.Player (bool)
+        private static FieldInfo igcbIsPerformingActionField;
         private static PropertyInfo ipCurrentCardProp;
         private static MethodInfo ipOnButtonClickedMethod;
         private static MethodInfo ipOnGroupInventoryActionClickedMethod; // Cached OnGroupInventoryActionClicked method
@@ -44,6 +57,19 @@ namespace Repeat_Action.Patcher
         private static MethodInfo gameManagerCocMethod;             // Cached CardOnCardActionRoutine method
         private static MethodInfo cardActionSimpleConditionsCheck;  // Cached SimpleConditionsCheck method
         private static MethodInfo cardActionQuickRequirementsCheck; // Cached QuickRequirementsCheck method
+
+        // ===== Cached helper-method reflection lookups =====
+        private static PropertyInfo gmAnyActionBlockersProp;        // HasActionBlockers
+        private static PropertyInfo gmDayTimePointsProp;            // GetGameTick
+        private static PropertyInfo igcbCardModelProp;              // GetCardUniqueId / GetCardDisplayName / RefreshTravelContext / TryPerformRestAction
+        private static readonly Dictionary<Type, PropertyInfo> _destroyedPropByType = new Dictionary<Type, PropertyInfo>();  // IsCardDestroyed
+        private static readonly Dictionary<Type, FieldInfo> _dismantleFieldByType = new Dictionary<Type, FieldInfo>();       // RefreshTravelContext / TryPerformRestAction
+        private static readonly Dictionary<Type, FieldInfo> _cardNameFieldByType = new Dictionary<Type, FieldInfo>();        // GetCardDisplayName
+        private static readonly Dictionary<Type, FieldInfo> _uniqueIdFieldByType = new Dictionary<Type, FieldInfo>();        // GetCardDisplayName
+        private static readonly Dictionary<Type, object> _defaultTextMemberByType = new Dictionary<Type, object>();          // GetCardDisplayName (FieldInfo or PropertyInfo)
+        private static readonly Dictionary<Type, object> _slotMemberByType = new Dictionary<Type, object>();                 // GetCardSlot (first hit wins; stores PropertyInfo or FieldInfo)
+        private static readonly Dictionary<Type, object> _cardLogicMemberByType = new Dictionary<Type, object>();            // GetCardSlot
+        private static readonly Dictionary<Type, object> _slotOwnerMemberByType = new Dictionary<Type, object>();            // GetCardSlot
 
         // ===== Gate 1 state: set by InspectionPopup.OnButtonClicked =====
         private static bool playerClickedAction = false;
@@ -88,9 +114,18 @@ namespace Repeat_Action.Patcher
         // ===== Repeat state =====
         private static bool isRepeating = false;
         private static bool cancelRequested = false;
+        private const int ReplayReadyStableFrames = 4;
 
         // ===== Cached Rest action (from SpecialActionSet / TimeSkipOptions) =====
         private static object cachedRestAction = null;
+
+        private sealed class ReplayReadyWait
+        {
+            public bool Ready;
+            public bool Cancelled;
+            public float Waited;
+            public string Reason;
+        }
 
         public static bool HasLastAction => lastAction != null;
         public static string LastActionName => lastActionName ?? "Unknown";
@@ -130,6 +165,18 @@ namespace Repeat_Action.Patcher
                         BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy);
 
                 gmCurrentGameStateField = AccessTools.Field(gameManagerType, "CurrentGameState");
+                gmRootActionProp = AccessTools.Property(gameManagerType, "RootAction");
+                gmCurrentOutOfBaseActionProp = AccessTools.Property(gameManagerType, "CurrentOutOfBaseAction");
+                gmPerformingActionProp = AccessTools.Property(gameManagerType, "PerformingAction");
+                gmIsTravellingProp = AccessTools.Property(gameManagerType, "IsTravelling");
+                gmLeavingEnvironmentProp = AccessTools.Property(gameManagerType, "LeavingEnvironment");
+                gmEnvironmentTransitionProp = AccessTools.Property(gameManagerType, "EnvironmentTransition");
+                gmIsInitializingProp = AccessTools.Property(gameManagerType, "IsInitializing");
+                gmIsCatchingUpProp = AccessTools.Property(gameManagerType, "IsCatchingUp");
+                gmActionReceivingCardsField = AccessTools.Field(gameManagerType, "ActionReceivingCards");
+                gmActionGivenCardsField = AccessTools.Field(gameManagerType, "ActionGivenCards");
+                gmQueuedCardActionsField = AccessTools.Field(gameManagerType, "QueuedCardActions");
+                gmCardToInspectField = AccessTools.Field(gameManagerType, "CardToInspect");
 
                 Logger.Log(BepInEx.Logging.LogLevel.Debug, $"GameManager.Instance: {(gmInstanceProp != null ? "found" : "NOT FOUND")}");
                 Logger.Log(BepInEx.Logging.LogLevel.Debug, $"GameManager.CurrentGameState: {(gmCurrentGameStateField != null ? "found" : "NOT FOUND")}");
@@ -137,6 +184,15 @@ namespace Repeat_Action.Patcher
                 // ----- Cache InGameNPCOrPlayer.Player field -----
                 if (npcOrPlayerType != null)
                     npcOrPlayerPlayerField = AccessTools.Field(npcOrPlayerType, "Player");
+
+                if (inGameCardBaseType != null)
+                {
+                    igcbIsPerformingActionField = AccessTools.Field(inGameCardBaseType, "IsPerformingAction");
+                    igcbCardModelProp = AccessTools.Property(inGameCardBaseType, "CardModel");
+                }
+
+                gmAnyActionBlockersProp = AccessTools.Property(gameManagerType, "AnyActionBlockers");
+                gmDayTimePointsProp = AccessTools.Property(gameManagerType, "DayTimePoints");
 
                 // ----- Cache InspectionPopup accessors -----
                 ipCurrentCardProp = AccessTools.Property(inspectionPopupType, "CurrentCard");
@@ -289,7 +345,7 @@ namespace Repeat_Action.Patcher
             }
             catch (Exception ex)
             {
-                Logger.LogError($"[Gate1] Error: {ex.Message}");
+                Logger.LogError($"[Gate1] Error: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
         }
 
@@ -326,7 +382,7 @@ namespace Repeat_Action.Patcher
             }
             catch (Exception ex)
             {
-                Logger.LogError($"[Gate1b] Error: {ex.Message}");
+                Logger.LogError($"[Gate1b] Error: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
         }
 
@@ -460,7 +516,7 @@ namespace Repeat_Action.Patcher
             }
             catch (Exception ex)
             {
-                Logger.LogError($"[Capture] PerformGroupInventoryAction error: {ex.Message}");
+                Logger.LogError($"[Capture] PerformGroupInventoryAction error: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
         }
 
@@ -622,7 +678,7 @@ namespace Repeat_Action.Patcher
             }
             catch (Exception ex)
             {
-                Logger.LogError($"[Capture] Error: {ex.Message}");
+                Logger.LogError($"[Capture] Error: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
         }
 
@@ -736,7 +792,7 @@ namespace Repeat_Action.Patcher
             }
             catch (Exception ex)
             {
-                Logger.LogError($"[Capture] CardOnCard error: {ex.Message}");
+                Logger.LogError($"[Capture] CardOnCard error: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
         }
 
@@ -797,14 +853,9 @@ namespace Repeat_Action.Patcher
                     break;
                 }
 
-                // --- Wait for game idle (SELECT state) ---
-                float waitTime = 0f;
-                while (!IsGameIdle() && waitTime < Plugin.ActionCompletionTimeout.Value)
-                {
-                    yield return new WaitForSeconds(0.1f);
-                    waitTime += 0.1f;
-                    if (cancelRequested) break;
-                }
+                // --- Wait for game/action lock to settle before replaying ---
+                var readyWait = new ReplayReadyWait();
+                yield return WaitForReplayReady(readyWait, Plugin.ActionCompletionTimeout.Value, "pre-execution");
 
                 if (cancelRequested)
                 {
@@ -812,10 +863,10 @@ namespace Repeat_Action.Patcher
                     break;
                 }
 
-                if (waitTime >= Plugin.ActionCompletionTimeout.Value)
+                if (!readyWait.Ready)
                 {
                     Plugin.ShowNotification("Timed out waiting");
-                    Logger.Log(BepInEx.Logging.LogLevel.Debug, "[Repeat] Timed out waiting for idle");
+                    Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] Timed out waiting for replay-ready state ({readyWait.Reason})");
                     break;
                 }
 
@@ -1080,6 +1131,36 @@ namespace Repeat_Action.Patcher
                 if (!lastIsGroupInventoryAction)
                 {
                     bool canPerform = CheckActionAvailable();
+                    if (!canPerform && IsChopAction())
+                    {
+                        // Chop conditions failed — likely stamina depleted. Rest to recover before giving up.
+                        Logger.Log(BepInEx.Logging.LogLevel.Debug, "[Repeat] Chop conditions not met, attempting stamina recovery...");
+                        for (int staminaRest = 0; staminaRest < 3 && !cancelRequested; staminaRest++)
+                        {
+                            bool rested = TryPerformRestAction(gm as MonoBehaviour);
+                            if (rested)
+                            {
+                                float rw = 0f;
+                                while (!IsGameIdle() && rw < 10f)
+                                {
+                                    yield return new WaitForSeconds(0.1f);
+                                    rw += 0.1f;
+                                    if (cancelRequested) break;
+                                }
+                                yield return new WaitForSeconds(0.2f);
+                            }
+                            else
+                            {
+                                yield return new WaitForSeconds(2f);
+                            }
+                            canPerform = CheckActionAvailable();
+                            if (canPerform)
+                            {
+                                Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] Chop available after stamina recovery (attempt {staminaRest + 1})");
+                                break;
+                            }
+                        }
+                    }
                     if (!canPerform)
                     {
                         Plugin.ShowNotification($"Action unavailable ({completed}/{count})");
@@ -1387,7 +1468,7 @@ namespace Repeat_Action.Patcher
                 if (!executed)
                 {
                     Plugin.ShowNotification($"Execution failed ({completed}/{count})");
-                    Logger.LogInfo($"[Repeat] All execution methods failed at {i + 1}/{count}");
+                    Logger.LogDebug($"[Repeat] All execution methods failed at {i + 1}/{count}");
                     break;
                 }
 
@@ -1603,7 +1684,7 @@ namespace Repeat_Action.Patcher
                     {
                         completed++;
                         Plugin.ShowNotification($"Done - source exhausted ({completed}/{count})");
-                        Logger.LogInfo($"[Repeat] STOP: given card exhausted ({completed}/{count})");
+                        Logger.LogDebug($"[Repeat] STOP: given card exhausted ({completed}/{count})");
                         break;
                     }
 
@@ -1744,7 +1825,7 @@ namespace Repeat_Action.Patcher
                     if (!genericTickAdvanced && !cardConsumed && !cardlessAction)
                     {
                         Plugin.ShowNotification($"Stopped - no effect ({completed}/{count})");
-                        Logger.LogInfo($"[Repeat] STOP: no effect at {i + 1}/{count} (tickBefore={tickBefore}, tickAfter={genericTickAfter}, consumed={cardConsumed}, cardless={cardlessAction})");
+                        Logger.LogDebug($"[Repeat] STOP: no effect at {i + 1}/{count} (tickBefore={tickBefore}, tickAfter={genericTickAfter}, consumed={cardConsumed}, cardless={cardlessAction})");
                         break;
                     }
 
@@ -1761,17 +1842,36 @@ namespace Repeat_Action.Patcher
                             if (!TryRefreshReceivingCardByOriginalId(receivingUniqueId))
                             {
                                 Plugin.ShowNotification($"Done - no more cards ({completed}/{count})");
-                                Logger.LogInfo($"[Repeat] STOP: no more cards after transform (original='{receivingUniqueId}')");
+                                Logger.LogDebug($"[Repeat] STOP: no more cards after transform (original='{receivingUniqueId}')");
                                 break;
                             }
                         }
                         else if (!TryRefreshReceivingCard())
                         {
                             Plugin.ShowNotification($"Done - no more cards ({completed}/{count})");
-                            Logger.LogInfo("[Repeat] STOP: no replacement card after consumption");
+                            Logger.LogDebug("[Repeat] STOP: no replacement card after consumption");
                             break;
                         }
                         Logger.Log(BepInEx.Logging.LogLevel.Debug, "[Repeat] Found replacement card, continuing");
+                    }
+
+                    // For chop/cut/fell popup actions: rest between iterations to recover stamina
+                    if (i < count - 1 && IsChopAction())
+                    {
+                        Logger.Log(BepInEx.Logging.LogLevel.Debug, "[Repeat] Resting between chops (popup)...");
+                        bool rested = TryPerformRestAction(gm as MonoBehaviour);
+                        if (rested)
+                        {
+                            float restWait = 0f;
+                            while (!IsGameIdle() && restWait < 10f)
+                            {
+                                yield return new WaitForSeconds(0.1f);
+                                restWait += 0.1f;
+                                if (cancelRequested) break;
+                            }
+                            Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] Rest between chops completed after {restWait:F1}s");
+                            yield return new WaitForSeconds(0.2f);
+                        }
                     }
                 }
 
@@ -1780,7 +1880,7 @@ namespace Repeat_Action.Patcher
                 if (Plugin.StopOnLowStats.Value && !blockerBeforeExecution && HasActionBlockers())
                 {
                     Plugin.ShowNotification($"Stopped - Event triggered! ({completed}/{count})");
-                    Logger.LogInfo($"[Repeat] STOP: blocker triggered at {completed}/{count}");
+                    Logger.LogDebug($"[Repeat] STOP: blocker triggered at {completed}/{count}");
                     break;
                 }
             }
@@ -1844,7 +1944,7 @@ namespace Repeat_Action.Patcher
             }
             catch (Exception ex)
             {
-                Logger.LogError($"[Repeat] EnsurePopupHasCard error: {ex.Message}");
+                Logger.LogError($"[Repeat] EnsurePopupHasCard error: {ex.InnerException?.ToString() ?? ex.ToString()}");
                 return false;
             }
         }
@@ -1866,7 +1966,7 @@ namespace Repeat_Action.Patcher
             }
             catch (Exception ex)
             {
-                Logger.LogError($"[Repeat] ClickPopupButton error: {ex.Message}");
+                Logger.LogError($"[Repeat] ClickPopupButton error: {ex.InnerException?.ToString() ?? ex.ToString()}");
                 return false;
             }
         }
@@ -1945,7 +2045,7 @@ namespace Repeat_Action.Patcher
             }
             catch (Exception ex)
             {
-                Logger.LogError($"[Repeat] TryPopupReplay error: {ex.Message}");
+                Logger.LogError($"[Repeat] TryPopupReplay error: {ex.InnerException?.ToString() ?? ex.ToString()}");
                 return false;
             }
         }
@@ -2048,10 +2148,16 @@ namespace Repeat_Action.Patcher
                         var card = GetCardFromGraphics(graphics);
                         if (card == null || IsCardDestroyed(card)) continue;
 
-                        var cardModel = AccessTools.Property(card.GetType(), "CardModel")?.GetValue(card);
+                        var cardT2 = card.GetType();
+                        var cardModelPropT = igcbCardModelProp
+                            ?? (igcbCardModelProp = AccessTools.Property(cardT2, "CardModel"));
+                        var cardModel = cardModelPropT?.GetValue(card);
                         if (cardModel == null) continue;
 
-                        var dismantleActions = AccessTools.Field(cardModel.GetType(), "DismantleActions")?.GetValue(cardModel);
+                        var cmType2 = cardModel.GetType();
+                        if (!_dismantleFieldByType.TryGetValue(cmType2, out var daField2))
+                            _dismantleFieldByType[cmType2] = daField2 = AccessTools.Field(cmType2, "DismantleActions");
+                        var dismantleActions = daField2?.GetValue(cardModel);
                         if (!(dismantleActions is System.Collections.IList actionList) || actionList.Count == 0)
                             continue;
 
@@ -2091,6 +2197,7 @@ namespace Repeat_Action.Patcher
 
                 if (coroutine is IEnumerator enumerator)
                 {
+                    MarkGameStatePlaying(gmMono);
                     gmMono.StartCoroutine(enumerator);
                     return true;
                 }
@@ -2100,7 +2207,7 @@ namespace Repeat_Action.Patcher
             }
             catch (Exception ex)
             {
-                Logger.LogError($"[Repeat] TryPerformRestAction error: {ex.Message}");
+                Logger.LogError($"[Repeat] TryPerformRestAction error: {ex.InnerException?.ToString() ?? ex.ToString()}");
                 return false;
             }
         }
@@ -2128,6 +2235,7 @@ namespace Repeat_Action.Patcher
                     var coroutine = lastActionRoutineMethod.Invoke(gmMono, args);
                     if (coroutine is IEnumerator enumerator)
                     {
+                        MarkGameStatePlaying(gmMono);
                         gmMono.StartCoroutine(enumerator);
                         return true;
                     }
@@ -2152,6 +2260,7 @@ namespace Repeat_Action.Patcher
 
                 if (fallbackCoroutine is IEnumerator fallbackEnum)
                 {
+                    MarkGameStatePlaying(gmMono);
                     gmMono.StartCoroutine(fallbackEnum);
                     return true;
                 }
@@ -2160,7 +2269,7 @@ namespace Repeat_Action.Patcher
             }
             catch (Exception ex)
             {
-                Logger.LogError($"[Repeat] TryDirectExecution error: {ex.Message}");
+                Logger.LogError($"[Repeat] TryDirectExecution error: {ex.InnerException?.ToString() ?? ex.ToString()}");
                 return false;
             }
         }
@@ -2196,6 +2305,7 @@ namespace Repeat_Action.Patcher
                     var coroutine = lastCocMethod.Invoke(gmMono, args);
                     if (coroutine is IEnumerator enumerator)
                     {
+                        MarkGameStatePlaying(gmMono);
                         gmMono.StartCoroutine(enumerator);
                         return true;
                     }
@@ -2222,6 +2332,7 @@ namespace Repeat_Action.Patcher
 
                         if (coroutine is IEnumerator enumerator)
                         {
+                            MarkGameStatePlaying(gmMono);
                             gmMono.StartCoroutine(enumerator);
                             return true;
                         }
@@ -2237,7 +2348,7 @@ namespace Repeat_Action.Patcher
             }
             catch (Exception ex)
             {
-                Logger.LogError($"[Repeat] TryDragDropExecution error: {ex.Message}");
+                Logger.LogError($"[Repeat] TryDragDropExecution error: {ex.InnerException?.ToString() ?? ex.ToString()}");
                 return false;
             }
         }
@@ -2247,24 +2358,239 @@ namespace Repeat_Action.Patcher
         // =====================================================================
 
         /// <summary>
-        /// Check if the game is idle (SELECT state = 0) and ready for another action.
+        /// Check if the game has fully settled and is ready for another action.
         /// </summary>
         private static bool IsGameIdle()
+        {
+            string reason;
+            return IsReplayReady(out reason);
+        }
+
+        private static IEnumerator WaitForReplayReady(ReplayReadyWait result, float timeout, string context)
+        {
+            if (result == null)
+                yield break;
+
+            result.Ready = false;
+            result.Cancelled = false;
+            result.Waited = 0f;
+            result.Reason = string.Empty;
+
+            int stableFrames = 0;
+            string lastReason = string.Empty;
+
+            while (result.Waited < timeout)
+            {
+                if (cancelRequested)
+                {
+                    result.Cancelled = true;
+                    result.Reason = "cancelled";
+                    yield break;
+                }
+
+                string reason;
+                if (IsReplayReady(out reason))
+                {
+                    stableFrames++;
+                    if (stableFrames >= ReplayReadyStableFrames)
+                    {
+                        result.Ready = true;
+                        result.Reason = string.Empty;
+                        yield break;
+                    }
+                }
+                else
+                {
+                    stableFrames = 0;
+                    lastReason = reason;
+                }
+
+                yield return null;
+                float delta = Time.unscaledDeltaTime > 0f ? Time.unscaledDeltaTime : 0.016f;
+                result.Waited += delta;
+            }
+
+            result.Reason = string.IsNullOrEmpty(lastReason) ? context : lastReason;
+            Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] Replay-ready wait timed out during {context}; last busy state: {result.Reason}");
+        }
+
+        private static bool IsReplayReady(out string reason)
         {
             try
             {
                 var gm = GetGameManager();
-                if (gm == null) return false;
+                if (gm == null)
+                {
+                    reason = "GameManager missing";
+                    return false;
+                }
 
                 if (gmCurrentGameStateField != null)
                 {
                     var state = gmCurrentGameStateField.GetValue(gm);
-                    return Convert.ToInt32(state) == 0; // GameStates.SELECT
+                    if (Convert.ToInt32(state) != 0) // GameStates.SELECT
+                    {
+                        reason = $"state={state}";
+                        return false;
+                    }
                 }
 
+                if (GetBoolProperty(gmPerformingActionProp, null))
+                {
+                    reason = "PerformingAction";
+                    return false;
+                }
+
+                if (GetBoolProperty(gmIsTravellingProp, null))
+                {
+                    reason = "IsTravelling";
+                    return false;
+                }
+
+                if (GetBoolProperty(gmLeavingEnvironmentProp, gm))
+                {
+                    reason = "LeavingEnvironment";
+                    return false;
+                }
+
+                if (GetBoolProperty(gmEnvironmentTransitionProp, gm))
+                {
+                    reason = "EnvironmentTransition";
+                    return false;
+                }
+
+                if (GetBoolProperty(gmIsInitializingProp, gm))
+                {
+                    reason = "IsInitializing";
+                    return false;
+                }
+
+                if (GetBoolProperty(gmIsCatchingUpProp, gm))
+                {
+                    reason = "IsCatchingUp";
+                    return false;
+                }
+
+                if (gmRootActionProp != null && gmRootActionProp.GetValue(gm) != null)
+                {
+                    reason = "RootAction";
+                    return false;
+                }
+
+                if (gmCurrentOutOfBaseActionProp != null && gmCurrentOutOfBaseActionProp.GetValue(gm) != null)
+                {
+                    reason = "CurrentOutOfBaseAction";
+                    return false;
+                }
+
+                int receivingCount = GetListCount(gmActionReceivingCardsField, gm);
+                if (receivingCount > 0)
+                {
+                    reason = $"ActionReceivingCards={receivingCount}";
+                    return false;
+                }
+
+                int givenCount = GetListCount(gmActionGivenCardsField, gm);
+                if (givenCount > 0)
+                {
+                    reason = $"ActionGivenCards={givenCount}";
+                    return false;
+                }
+
+                int queuedCount = GetListCount(gmQueuedCardActionsField, gm);
+                if (queuedCount > 0)
+                {
+                    reason = $"QueuedCardActions={queuedCount}";
+                    return false;
+                }
+
+                if (gmCardToInspectField != null && gmCardToInspectField.GetValue(gm) != null)
+                {
+                    reason = "CardToInspect";
+                    return false;
+                }
+
+                if (IsCardPerformingAction(lastReceivingCard))
+                {
+                    reason = "ReceivingCard.IsPerformingAction";
+                    return false;
+                }
+
+                if (IsCardPerformingAction(lastGivenCard))
+                {
+                    reason = "GivenCard.IsPerformingAction";
+                    return false;
+                }
+
+                reason = string.Empty;
                 return true;
             }
-            catch { return true; }
+            catch (Exception ex)
+            {
+                reason = $"readiness check failed: {ex.InnerException?.ToString() ?? ex.ToString()}";
+                return false;
+            }
+        }
+
+        private static bool GetBoolProperty(PropertyInfo prop, object instance)
+        {
+            if (prop == null) return false;
+            try
+            {
+                object value = prop.GetValue(instance);
+                return value is bool b && b;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private static int GetListCount(FieldInfo field, object instance)
+        {
+            if (field == null || instance == null) return 0;
+            try
+            {
+                if (field.GetValue(instance) is System.Collections.ICollection collection)
+                    return collection.Count;
+            }
+            catch
+            {
+                return 0;
+            }
+
+            return 0;
+        }
+
+        private static bool IsCardPerformingAction(object card)
+        {
+            if (card == null || igcbIsPerformingActionField == null) return false;
+            try
+            {
+                var unity = card as UnityEngine.Object;
+                if (unity == null || !unity) return false;
+                object value = igcbIsPerformingActionField.GetValue(card);
+                return value is bool b && b;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private static void MarkGameStatePlaying(object gm)
+        {
+            if (gm == null || gmCurrentGameStateField == null) return;
+            try
+            {
+                Type stateType = gmCurrentGameStateField.FieldType;
+                object playingState = Enum.Parse(stateType, "PLAYINGCARD");
+                gmCurrentGameStateField.SetValue(gm, playingState);
+            }
+            catch (Exception ex)
+            {
+                Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] Could not mark game state PLAYINGCARD: {ex.InnerException?.ToString() ?? ex.ToString()}");
+            }
         }
 
         /// <summary>
@@ -2277,7 +2603,8 @@ namespace Repeat_Action.Patcher
                 var gm = GetGameManager();
                 if (gm == null) return false;
 
-                var anyBlockers = AccessTools.Property(gameManagerType, "AnyActionBlockers");
+                var anyBlockers = gmAnyActionBlockersProp
+                    ?? (gmAnyActionBlockersProp = AccessTools.Property(gameManagerType, "AnyActionBlockers"));
                 if (anyBlockers != null)
                 {
                     var blocked = anyBlockers.GetValue(gm);
@@ -2339,7 +2666,7 @@ namespace Repeat_Action.Patcher
             }
             catch (Exception ex)
             {
-                Logger.LogError($"[Validate] Error: {ex.Message}");
+                Logger.LogError($"[Validate] Error: {ex.InnerException?.ToString() ?? ex.ToString()}");
                 return true; // On error, try anyway - game will block invalid actions
             }
         }
@@ -2449,17 +2776,6 @@ namespace Repeat_Action.Patcher
                 || actionName.IndexOf("drink", StringComparison.OrdinalIgnoreCase) >= 0;
         }
 
-        /// <summary>
-        /// Checks if a consumable action (Eat/Drink) is likely consuming cards by name.
-        /// These actions typically destroy the receiving card entirely.
-        /// </summary>
-        private static bool IsConsumableAction()
-        {
-            var actionName = lastActionName ?? string.Empty;
-            return actionName.IndexOf("eat", StringComparison.OrdinalIgnoreCase) >= 0
-                || actionName.IndexOf("drink", StringComparison.OrdinalIgnoreCase) >= 0;
-        }
-
         private static bool IsLikelyCardlessAction()
         {
             var actionName = lastActionName ?? string.Empty;
@@ -2533,10 +2849,15 @@ namespace Repeat_Action.Patcher
                     if (IsCardDestroyed(card)) continue;
 
                     // Get CardModel.DismantleActions
-                    var cardModel = AccessTools.Property(card.GetType(), "CardModel")?.GetValue(card);
+                    var cardT = card.GetType();
+                    var cardModelPropR = igcbCardModelProp
+                        ?? (igcbCardModelProp = AccessTools.Property(cardT, "CardModel"));
+                    var cardModel = cardModelPropR?.GetValue(card);
                     if (cardModel == null) continue;
 
-                    var dismantleField = AccessTools.Field(cardModel.GetType(), "DismantleActions");
+                    var cmType = cardModel.GetType();
+                    if (!_dismantleFieldByType.TryGetValue(cmType, out var dismantleField))
+                        _dismantleFieldByType[cmType] = dismantleField = AccessTools.Field(cmType, "DismantleActions");
                     var dismantleActions = dismantleField?.GetValue(cardModel);
                     if (!(dismantleActions is System.Collections.IList actionList) || actionList.Count == 0)
                         continue;
@@ -2576,7 +2897,7 @@ namespace Repeat_Action.Patcher
             }
             catch (Exception ex)
             {
-                Logger.LogError($"[Repeat] RefreshTravelContext error: {ex.Message}");
+                Logger.LogError($"[Repeat] RefreshTravelContext error: {ex.InnerException?.ToString() ?? ex.ToString()}");
                 return false;
             }
         }
@@ -2592,7 +2913,8 @@ namespace Repeat_Action.Patcher
                 if (gmInstanceProp == null) return -1;
                 var gm = gmInstanceProp.GetValue(null);
                 if (gm == null) return -1;
-                var prop = AccessTools.Property(gameManagerType, "DayTimePoints");
+                var prop = gmDayTimePointsProp
+                    ?? (gmDayTimePointsProp = AccessTools.Property(gameManagerType, "DayTimePoints"));
                 if (prop == null) return -1;
                 return (int)prop.GetValue(gm);
             }
@@ -2612,7 +2934,9 @@ namespace Repeat_Action.Patcher
                 if (asUnity == null || !asUnity) return true;
 
                 // Check the game's own Destroyed property
-                var prop = AccessTools.Property(card.GetType(), "Destroyed");
+                var t = card.GetType();
+                if (!_destroyedPropByType.TryGetValue(t, out var prop))
+                    _destroyedPropByType[t] = prop = AccessTools.Property(t, "Destroyed");
                 if (prop != null)
                     return (bool)prop.GetValue(card);
                 return false;
@@ -2733,7 +3057,7 @@ namespace Repeat_Action.Patcher
             }
             catch (Exception ex)
             {
-                Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] TryRefreshReceivingCard error: {ex.Message}");
+                Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] TryRefreshReceivingCard error: {ex.InnerException?.ToString() ?? ex.ToString()}");
                 return false;
             }
         }
@@ -2772,35 +3096,9 @@ namespace Repeat_Action.Patcher
             }
             catch (Exception ex)
             {
-                Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] TryRefreshReceivingCardByOriginalId error: {ex.Message}");
+                Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] TryRefreshReceivingCardByOriginalId error: {ex.InnerException?.ToString() ?? ex.ToString()}");
                 return false;
             }
-        }
-
-        /// <summary>
-        /// Count how many cards with the given UniqueID exist in the scene.
-        /// Used to detect consumption of stacked items (e.g., eating fish reduces count from 3?2).
-        /// </summary>
-        private static int CountCardsInScene(string uniqueId)
-        {
-            if (string.IsNullOrEmpty(uniqueId) || cardGraphicsType == null) return 0;
-
-            int count = 0;
-            try
-            {
-                var allGraphics = UnityEngine.Object.FindObjectsOfType(cardGraphicsType);
-                foreach (var graphics in allGraphics)
-                {
-                    if (graphics == null) continue;
-                    var card = GetCardFromGraphics(graphics);
-                    if (card == null) continue;
-                    string cardId = GetCardUniqueId(card);
-                    if (string.Equals(cardId, uniqueId, StringComparison.Ordinal))
-                        count++;
-                }
-            }
-            catch { }
-            return count;
         }
 
         private static bool TryRefreshGivenCard()
@@ -2849,7 +3147,7 @@ namespace Repeat_Action.Patcher
             }
             catch (Exception ex)
             {
-                Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] TryRefreshGivenCard error: {ex.Message}");
+                Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] TryRefreshGivenCard error: {ex.InnerException?.ToString() ?? ex.ToString()}");
                 return false;
             }
         }
@@ -2894,7 +3192,7 @@ namespace Repeat_Action.Patcher
             }
             catch (Exception ex)
             {
-                Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] TryOpenTargetCardPopup error: {ex.Message}");
+                Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] TryOpenTargetCardPopup error: {ex.InnerException?.ToString() ?? ex.ToString()}");
                 return false;
             }
         }
@@ -2962,7 +3260,7 @@ namespace Repeat_Action.Patcher
             }
             catch (Exception ex)
             {
-                Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] FindMatchingCardGraphics error: {ex.Message}");
+                Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] FindMatchingCardGraphics error: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
 
             return null;
@@ -3010,11 +3308,13 @@ namespace Repeat_Action.Patcher
             {
                 if (card == null) return null;
 
-                var cardModel = AccessTools.Property(card.GetType(), "CardModel")?.GetValue(card);
+                var t = card.GetType();
+                var cardModelProp = igcbCardModelProp
+                    ?? (igcbCardModelProp = AccessTools.Property(t, "CardModel"));
+                var cardModel = cardModelProp?.GetValue(card);
                 if (cardModel == null) return null;
 
-                var uniqueIDField = AccessTools.Field(cardModel.GetType(), "UniqueID");
-                return uniqueIDField?.GetValue(cardModel) as string;
+                return GetMemberValueSilent(cardModel, "UniqueID") as string;
             }
             catch
             {
@@ -3029,21 +3329,64 @@ namespace Repeat_Action.Patcher
                 if (card == null) return null;
 
                 var cardType = card.GetType();
-                var slot = AccessTools.Property(cardType, "CurrentSlot")?.GetValue(card)
-                        ?? AccessTools.Property(cardType, "ContainerSlot")?.GetValue(card)
-                        ?? AccessTools.Property(cardType, "ParentSlot")?.GetValue(card)
-                        ?? AccessTools.Field(cardType, "CurrentSlot")?.GetValue(card)
-                        ?? AccessTools.Field(cardType, "ContainerSlot")?.GetValue(card)
-                        ?? AccessTools.Field(cardType, "ParentSlot")?.GetValue(card);
+
+                // Slot member: cache the first hit (PropertyInfo or FieldInfo) per card type
+                object slot = null;
+                if (_slotMemberByType.TryGetValue(cardType, out var cachedSlotMember))
+                {
+                    if (cachedSlotMember is PropertyInfo slotProp) slot = slotProp.GetValue(card);
+                    else if (cachedSlotMember is FieldInfo slotField) slot = slotField.GetValue(card);
+                }
+                else
+                {
+                    // Walk slot name candidates to find and cache the first valid member
+                    foreach (var name in new[] { "CurrentSlot", "ContainerSlot", "ParentSlot" })
+                    {
+                        var p = AccessTools.Property(cardType, name);
+                        if (p != null) { _slotMemberByType[cardType] = p; slot = p.GetValue(card); break; }
+                        var f = AccessTools.Field(cardType, name);
+                        if (f != null) { _slotMemberByType[cardType] = f; slot = f.GetValue(card); break; }
+                    }
+                    if (slot == null) _slotMemberByType[cardType] = null; // cache miss
+                }
 
                 if (slot != null) return slot;
 
-                var cardLogic = AccessTools.Property(cardType, "CardLogic")?.GetValue(card)
-                             ?? AccessTools.Field(cardType, "CardLogic")?.GetValue(card);
+                // CardLogic → SlotOwner fallback
+                object cardLogic = null;
+                if (_cardLogicMemberByType.TryGetValue(cardType, out var cachedLogicMember))
+                {
+                    if (cachedLogicMember is PropertyInfo logicProp) cardLogic = logicProp.GetValue(card);
+                    else if (cachedLogicMember is FieldInfo logicField) cardLogic = logicField.GetValue(card);
+                }
+                else
+                {
+                    var p = AccessTools.Property(cardType, "CardLogic");
+                    if (p != null) { _cardLogicMemberByType[cardType] = p; cardLogic = p.GetValue(card); }
+                    else
+                    {
+                        var f = AccessTools.Field(cardType, "CardLogic");
+                        _cardLogicMemberByType[cardType] = f; // may be null
+                        if (f != null) cardLogic = f.GetValue(card);
+                    }
+                }
+
                 if (cardLogic != null)
                 {
-                    return AccessTools.Property(cardLogic.GetType(), "SlotOwner")?.GetValue(cardLogic)
-                        ?? AccessTools.Field(cardLogic.GetType(), "SlotOwner")?.GetValue(cardLogic);
+                    var logicType = cardLogic.GetType();
+                    if (_slotOwnerMemberByType.TryGetValue(logicType, out var cachedOwnerMember))
+                    {
+                        if (cachedOwnerMember is PropertyInfo ownerProp) return ownerProp.GetValue(cardLogic);
+                        if (cachedOwnerMember is FieldInfo ownerField) return ownerField.GetValue(cardLogic);
+                    }
+                    else
+                    {
+                        var p = AccessTools.Property(logicType, "SlotOwner");
+                        if (p != null) { _slotOwnerMemberByType[logicType] = p; return p.GetValue(cardLogic); }
+                        var f = AccessTools.Field(logicType, "SlotOwner");
+                        _slotOwnerMemberByType[logicType] = f; // may be null
+                        if (f != null) return f.GetValue(cardLogic);
+                    }
                 }
             }
             catch { }
@@ -3187,7 +3530,7 @@ namespace Repeat_Action.Patcher
             }
             catch (Exception ex)
             {
-                Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[FindActionIndex] Error: {ex.Message}");
+                Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[FindActionIndex] Error: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
             return -1;
         }
@@ -3201,20 +3544,13 @@ namespace Repeat_Action.Patcher
 
             try
             {
-                // Try ActionName.DefaultText (LocalizedString)
-                var actionNameField = AccessTools.Field(action.GetType(), "ActionName");
-                if (actionNameField != null)
+                // Try ActionName.DefaultText (LocalizedString) — handles both field and property
+                var locString = GetMemberValueSilent(action, "ActionName");
+                if (locString != null)
                 {
-                    var locString = actionNameField.GetValue(action);
-                    if (locString != null)
-                    {
-                        var dtField = AccessTools.Field(locString.GetType(), "DefaultText");
-                        var defaultText = dtField != null
-                            ? dtField.GetValue(locString)
-                            : AccessTools.Property(locString.GetType(), "DefaultText")?.GetValue(locString);
-                        if (defaultText is string s && !string.IsNullOrEmpty(s))
-                            return s;
-                    }
+                    var defaultText = GetMemberValueSilent(locString, "DefaultText");
+                    if (defaultText is string s && !string.IsNullOrEmpty(s))
+                        return s;
                 }
 
                 // Try name property
@@ -3239,26 +3575,38 @@ namespace Repeat_Action.Patcher
 
             try
             {
-                var cardModel = AccessTools.Property(card.GetType(), "CardModel");
-                var data = cardModel?.GetValue(card);
+                var t = card.GetType();
+                var cardModelProp = igcbCardModelProp
+                    ?? (igcbCardModelProp = AccessTools.Property(t, "CardModel"));
+                var data = cardModelProp?.GetValue(card);
                 if (data != null)
                 {
-                    var cardNameField = AccessTools.Field(data.GetType(), "CardName");
+                    var dataType = data.GetType();
+
+                    if (!_cardNameFieldByType.TryGetValue(dataType, out var cardNameField))
+                        _cardNameFieldByType[dataType] = cardNameField = AccessTools.Field(dataType, "CardName");
                     if (cardNameField != null)
                     {
                         var locString = cardNameField.GetValue(data);
                         if (locString != null)
                         {
-                            var dtField2 = AccessTools.Field(locString.GetType(), "DefaultText");
-                            var defaultText = dtField2 != null
-                                ? dtField2.GetValue(locString)
-                                : AccessTools.Property(locString.GetType(), "DefaultText")?.GetValue(locString);
+                            var lsType = locString.GetType();
+                            if (!_defaultTextMemberByType.TryGetValue(lsType, out var dtMember))
+                            {
+                                var fi = AccessTools.Field(lsType, "DefaultText");
+                                _defaultTextMemberByType[lsType] = dtMember = (object)fi
+                                    ?? AccessTools.Property(lsType, "DefaultText");
+                            }
+                            object defaultText = dtMember is FieldInfo dtFi
+                                ? dtFi.GetValue(locString)
+                                : (dtMember as PropertyInfo)?.GetValue(locString);
                             if (defaultText is string s && !string.IsNullOrEmpty(s))
                                 return s;
                         }
                     }
 
-                    var uniqueIDField = AccessTools.Field(data.GetType(), "UniqueID");
+                    if (!_uniqueIdFieldByType.TryGetValue(dataType, out var uniqueIDField))
+                        _uniqueIdFieldByType[dataType] = uniqueIDField = AccessTools.Field(dataType, "UniqueID");
                     if (uniqueIDField != null)
                     {
                         var uid = uniqueIDField.GetValue(data) as string;
