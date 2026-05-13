@@ -132,31 +132,5 @@ namespace mod_update_manager
 
             return parts.ToArray();
         }
-
-        /// <summary>
-        /// Formats a version comparison result as a readable string
-        /// </summary>
-        public static string GetComparisonText(string installed, string latest)
-        {
-            if (string.IsNullOrEmpty(latest) || latest == "Unknown")
-            {
-                return "Unable to check";
-            }
-
-            var comparison = Compare(installed, latest);
-            
-            if (comparison < 0)
-            {
-                return $"UPDATE AVAILABLE: {installed} → {latest}";
-            }
-            else if (comparison > 0)
-            {
-                return $"Newer than Nexus: {installed} > {latest}";
-            }
-            else
-            {
-                return $"Up to date: {installed}";
-            }
-        }
     }
 }

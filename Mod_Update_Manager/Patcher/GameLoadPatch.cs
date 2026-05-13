@@ -24,8 +24,7 @@ namespace mod_update_manager.Patcher
             }
             catch (Exception ex)
             {
-                Logger.LogError($"Failed to patch GameLoad.LoadMainGameData: {ex.Message}");
-                Logger.LogError($"Stack trace: {ex.StackTrace}");
+                Logger.LogError($"Failed to patch GameLoad.LoadMainGameData: {ex}");
             }
         }
 
@@ -33,7 +32,7 @@ namespace mod_update_manager.Patcher
         {
             try
             {
-                Logger.LogInfo("Mod_Update_Manager: Game data loaded successfully!");
+                Logger.LogDebug("Mod_Update_Manager: Game data loaded successfully");
                 
                 // Notify the plugin that game data has loaded
                 if (Plugin.Instance != null)
@@ -43,8 +42,7 @@ namespace mod_update_manager.Patcher
             }
             catch (Exception ex)
             {
-                Logger.LogError($"Error in LoadMainGameData_Postfix: {ex.Message}");
-                Logger.LogError($"Stack trace: {ex.StackTrace}");
+                Logger.LogError($"Error in LoadMainGameData_Postfix: {ex}");
             }
         }
     }

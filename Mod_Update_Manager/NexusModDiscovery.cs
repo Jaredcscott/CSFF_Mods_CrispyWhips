@@ -15,23 +15,28 @@ namespace mod_update_manager
     {
         private const string DISCOVERY_CACHE_FILE = "nexus_discovery_cache.json";
         private const int DISCOVERY_START_ID = 1;
-        private const int DISCOVERY_BATCH_SIZE = 10;  // Scan 10 IDs per background pass
-        private const float DISCOVERY_INTERVAL = 5f;   // Seconds between batches
+        private const int DISCOVERY_BATCH_SIZE = 1;
+        private const float DISCOVERY_INTERVAL = 90f;
 
         private NexusApiClient _apiClient;
         private Dictionary<string, (string ModId, string Name, DateTime DiscoveryTime)> _discoveredMods;
         private int _lastScannedId;
+        private int _consecutiveMisses;
         private bool _isDiscovering;
         private string _cacheFilePath;
+        private int _maxScanId;
+        private int _maxConsecutiveMisses;
 
         public event Action<string, string> OnModDiscovered;  // ModName, ModId
 
-        public NexusModDiscovery(NexusApiClient apiClient, string cacheDirectory)
+        public NexusModDiscovery(NexusApiClient apiClient, string cacheDirectory, int maxScanId = 2000, int maxConsecutiveMisses = 500)
         {
             _apiClient = apiClient;
             _discoveredMods = new Dictionary<string, (string, string, DateTime)>(StringComparer.OrdinalIgnoreCase);
             _cacheFilePath = Path.Combine(cacheDirectory, DISCOVERY_CACHE_FILE);
             _lastScannedId = DISCOVERY_START_ID;
+            _maxScanId = maxScanId;
+            _maxConsecutiveMisses = maxConsecutiveMisses;
 
             LoadDiscoveryCache();
         }
@@ -74,11 +79,11 @@ namespace mod_update_manager
                     }
                 }
 
-                Plugin.Logger.LogInfo($"Loaded {_discoveredMods.Count} discovered mods from cache (last scanned ID: {_lastScannedId})");
+                Plugin.Logger.LogDebug($"Loaded {_discoveredMods.Count} discovered mods from cache (last scanned ID: {_lastScannedId})");
             }
             catch (Exception ex)
             {
-                Plugin.Logger.LogError($"Failed to load discovery cache: {ex.Message}");
+                Plugin.Logger.LogError($"Failed to load discovery cache: {ex}");
             }
         }
 
@@ -109,7 +114,7 @@ namespace mod_update_manager
             }
             catch (Exception ex)
             {
-                Plugin.Logger.LogError($"Failed to save discovery cache: {ex.Message}");
+                Plugin.Logger.LogError($"Failed to save discovery cache: {ex}");
             }
         }
 
@@ -146,13 +151,28 @@ namespace mod_update_manager
         }
 
         /// <summary>
-        /// Starts background discovery of Nexus mods
+        /// Starts background discovery of Nexus mods. No-op if already running, if the
+        /// scan ceiling has been reached (<see cref="_maxScanId"/>), or if discovery is
+        /// disabled (<see cref="_maxScanId"/> &lt;= 0).
         /// </summary>
         public void StartDiscovery(MonoBehaviour runner)
         {
             if (_isDiscovering)
                 return;
 
+            if (_maxScanId <= 0)
+            {
+                Plugin.Logger.LogDebug("Nexus mod discovery disabled (Performance.DiscoveryMaxScanId <= 0)");
+                return;
+            }
+
+            if (_lastScannedId > _maxScanId)
+            {
+                Plugin.Logger.LogDebug($"Nexus mod discovery already past ceiling (lastScannedId={_lastScannedId}, max={_maxScanId}) - skipping background scan");
+                return;
+            }
+
+            _consecutiveMisses = 0;
             _isDiscovering = true;
             runner.StartCoroutine(DiscoveryCoroutine());
         }
@@ -162,26 +182,42 @@ namespace mod_update_manager
         /// </summary>
         private IEnumerator DiscoveryCoroutine()
         {
+            string stopReason = null;
+
             while (_isDiscovering && _apiClient.HasApiKey)
             {
+                if (_lastScannedId > _maxScanId)
+                {
+                    stopReason = $"reached scan ceiling (max={_maxScanId})";
+                    break;
+                }
+
+                if (_maxConsecutiveMisses > 0 && _consecutiveMisses >= _maxConsecutiveMisses)
+                {
+                    stopReason = $"{_consecutiveMisses} consecutive misses (max={_maxConsecutiveMisses}) - assuming end of catalog";
+                    break;
+                }
+
                 for (int i = 0; i < DISCOVERY_BATCH_SIZE && _isDiscovering; i++)
                 {
+                    if (_lastScannedId > _maxScanId) break;
+
                     int modId = _lastScannedId;
                     _lastScannedId++;
 
                     bool discoveryComplete = false;
-                    string foundModName = null;
+                    bool found = false;
 
                     _apiClient.GetModInfo(modId.ToString(), (response, error) =>
                     {
                         if (response != null && !string.IsNullOrEmpty(response.Name))
                         {
-                            foundModName = response.Name;
+                            found = true;
                             if (!_discoveredMods.ContainsKey(response.Name))
                             {
                                 _discoveredMods[response.Name] = (modId.ToString(), response.Name, DateTime.UtcNow);
                                 OnModDiscovered?.Invoke(response.Name, modId.ToString());
-                                Plugin.Logger.LogInfo($"[Discovery] Found mod: {response.Name} (ID: {modId})");
+                                Plugin.Logger.LogDebug($"[Discovery] Found mod: {response.Name} (ID: {modId})");
                             }
                         }
                         discoveryComplete = true;
@@ -190,6 +226,9 @@ namespace mod_update_manager
                     // Wait for this request to complete
                     while (!discoveryComplete)
                         yield return null;
+
+                    if (found) _consecutiveMisses = 0;
+                    else _consecutiveMisses++;
 
                     // Small delay between requests
                     yield return new WaitForSeconds(0.2f);
@@ -204,7 +243,11 @@ namespace mod_update_manager
 
             _isDiscovering = false;
             SaveDiscoveryCache();
-            Plugin.Logger.LogInfo($"Discovery scan complete. Scanned up to ID {_lastScannedId - 1}");
+
+            if (stopReason != null)
+                Plugin.Logger.LogDebug($"Discovery scan stopped: {stopReason}. Scanned up to ID {_lastScannedId - 1}, found {_discoveredMods.Count} mod(s).");
+            else
+                Plugin.Logger.LogDebug($"Discovery scan complete. Scanned up to ID {_lastScannedId - 1}");
         }
 
         /// <summary>

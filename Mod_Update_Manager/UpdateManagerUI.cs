@@ -15,9 +15,6 @@ namespace mod_update_manager
         private ModMappingManager _mappingManager;
         private NexusApiClient _nexusClient;
         private NexusModDiscovery _modDiscovery;
-        private BackupManager _backupManager;
-        private VersionHistoryManager _versionHistoryManager;
-        private IgnoreFavoriteManager _ignoreFavoriteManager;
         private ConflictDetector _conflictDetector;
         private UpdateScheduler _updateScheduler;
 
@@ -49,18 +46,14 @@ namespace mod_update_manager
         private Dictionary<string, string> _inlineNexusIds = new Dictionary<string, string>();
 
         public void Initialize(ModUpdateConfig config, UpdateChecker updateChecker, ModMappingManager mappingManager,
-            BackupManager backupManager, VersionHistoryManager versionHistoryManager,
-            IgnoreFavoriteManager ignoreFavoriteManager, ConflictDetector conflictDetector,
-            UpdateScheduler updateScheduler, NexusApiClient nexusClient, NexusModDiscovery modDiscovery = null)
+            ConflictDetector conflictDetector, UpdateScheduler updateScheduler, NexusApiClient nexusClient,
+            NexusModDiscovery modDiscovery = null)
         {
             _config = config;
             _updateChecker = updateChecker;
             _mappingManager = mappingManager;
             _nexusClient = nexusClient;
             _modDiscovery = modDiscovery;
-            _backupManager = backupManager;
-            _versionHistoryManager = versionHistoryManager;
-            _ignoreFavoriteManager = ignoreFavoriteManager;
             _conflictDetector = conflictDetector;
             _updateScheduler = updateScheduler;
             
@@ -432,21 +425,6 @@ namespace mod_update_manager
             }
 
             GUILayout.Space(20);
-            GUILayout.Label("Backup & Safety", _headerStyle);
-            GUILayout.Space(5);
-
-            _config.AutomaticBackups.Value = GUILayout.Toggle(_config.AutomaticBackups.Value, "Automatically backup mods before updating");
-
-            GUILayout.BeginHorizontal();
-            GUILayout.Label("Max Backups Per Mod:", GUILayout.Width(150));
-            var backupCountStr = GUILayout.TextField(_config.MaxBackupsPerMod.Value.ToString(), GUILayout.Width(50));
-            if (int.TryParse(backupCountStr, out int backupCount) && backupCount > 0)
-            {
-                _config.MaxBackupsPerMod.Value = backupCount;
-            }
-            GUILayout.EndHorizontal();
-
-            GUILayout.Space(20);
             GUILayout.Label("Background Checking", _headerStyle);
             GUILayout.Space(5);
 
@@ -486,10 +464,23 @@ namespace mod_update_manager
                 var cacheSize = _nexusClient.GetCacheSize();
                 GUILayout.Label($"Cached responses: {cacheSize}", _upToDateStyle);
             }
+
+            _config.EnableNexusDiscovery.Value = GUILayout.Toggle(_config.EnableNexusDiscovery.Value, "Enable slow Nexus ID discovery");
+            if (_config.EnableNexusDiscovery.Value)
+            {
+                var progress = _modDiscovery?.GetProgressInfo() ?? (0, 0);
+                GUILayout.Label($"Discovery progress: scanned through #{progress.LastScannedId}, found {progress.TotalDiscovered}", _errorStyle);
+            }
         }
 
         private void DrawConflicts()
         {
+            if (!_config.ShowConflictWarnings.Value)
+            {
+                GUILayout.Label("Conflict warnings are disabled in Settings.", _errorStyle);
+                return;
+            }
+
             if (_updateChecker.InstalledMods.Count == 0)
             {
                 GUILayout.Label("No mods installed.");
@@ -575,12 +566,7 @@ namespace mod_update_manager
             GUILayout.Label("Update Summary", _headerStyle);
             GUILayout.Space(5);
 
-            if (stats.ModsNeedingUpdate > 0)
-            {
-                GUILayout.Label($"Estimated download: ~{stats.TotalDownloadSizeMb:F1} MB", _modNameStyle);
-                GUILayout.Label($"Estimated time: ~{stats.EstimatedUpdateTime:F0} seconds", _modNameStyle);
-            }
-            else
+            if (stats.ModsNeedingUpdate == 0)
             {
                 GUILayout.Label("All mods are up to date!", _upToDateStyle);
             }

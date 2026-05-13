@@ -1,6 +1,6 @@
 {
 	"Name": "Mod_Update_Manager",
 	"Author": "Jared",
-	"Version": "2.0.0",
-	"Description": "Checks installed mods against Nexus Mods, tracks versions and backups, detects potential conflicts, and provides an in-game update dashboard."
+	"Version": "2.0.3",
+	"Description": "Checks installed mods against Nexus Mods, maps local mods to Nexus IDs, and provides an in-game update dashboard with optional caching, scheduling, discovery, conflict hints, and basic analytics. Beta compatibility details should be published in each mod's release notes."
 }

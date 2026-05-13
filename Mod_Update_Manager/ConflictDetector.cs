@@ -58,9 +58,6 @@ namespace mod_update_manager
             // Check for known conflicts
             conflicts.AddRange(DetectKnownConflicts(mods));
 
-            // Check for API version mismatches
-            conflicts.AddRange(DetectApiMismatches(mods));
-
             return conflicts;
         }
 
@@ -194,31 +191,6 @@ namespace mod_update_manager
             return conflicts;
         }
 
-        private List<ConflictInfo> DetectApiMismatches(List<InstalledModInfo> mods)
-        {
-            var conflicts = new List<ConflictInfo>();
-            // For now, just check if mods are very outdated compared to others
-            var newestVersion = mods.Max(m => m.LatestVersion ?? "");
-            var oldMods = mods.Where(m => VersionComparer.NeedsUpdate(m.Version, newestVersion) && m.Version != "Unknown").ToList();
-
-            if (oldMods.Count > 1)
-            {
-                for (int i = 0; i < oldMods.Count - 1; i++)
-                {
-                    conflicts.Add(new ConflictInfo
-                    {
-                        ModA = oldMods[i].Name,
-                        ModB = oldMods[i + 1].Name,
-                        Type = ConflictType.ApiVersionMismatch,
-                        Description = $"Potential API version mismatch - both are outdated",
-                        Severity = ConflictSeverity.Info
-                    });
-                }
-            }
-
-            return conflicts;
-        }
-
         private string GetModFunctionality(string modName)
         {
             var lower = modName.ToLowerInvariant();
@@ -234,15 +206,15 @@ namespace mod_update_manager
 
         private void InitializeFunctionalities()
         {
-            // Map mod name patterns to functionalities
+            // Map mod name patterns to functionalities.
+            // Patterns must be specific enough to avoid false positives — generic material
+            // words like "copper", "metal", "water", "stone", "wood" are intentionally
+            // excluded because many complementary mods share those words without conflicting.
             _functionalities.Add(("autosort", "inventory management"));
             _functionalities.Add(("smartinventory", "inventory management"));
             _functionalities.Add(("betterinventory", "inventory management"));
-            _functionalities.Add(("copper", "metalworking"));
-            _functionalities.Add(("metal", "metalworking"));
             _functionalities.Add(("herbs", "herbalism"));
             _functionalities.Add(("fungi", "herbalism"));
-            _functionalities.Add(("water", "water mechanics"));
             _functionalities.Add(("irrigation", "water mechanics"));
         }
     }

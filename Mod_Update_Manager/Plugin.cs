@@ -11,7 +11,7 @@ internal class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.mod_update_manager";
     public const string PluginName = "Mod_Update_Manager";
-    public const string PluginVersion = "2.0.0";
+    public const string PluginVersion = "2.0.3";
 
     internal new static ManualLogSource Logger;
     public static Plugin Instance { get; private set; }
@@ -25,10 +25,6 @@ internal class Plugin : BaseUnityPlugin
     private UpdateManagerUI _ui;
     private NexusModDiscovery _modDiscovery;
 
-    // New feature managers
-    private BackupManager _backupManager;
-    private VersionHistoryManager _versionHistoryManager;
-    private IgnoreFavoriteManager _ignoreFavoriteManager;
     private ConflictDetector _conflictDetector;
     private UpdateScheduler _updateScheduler;
 
@@ -45,27 +41,52 @@ internal class Plugin : BaseUnityPlugin
 
         // Initialize core components
         _mappingManager = new ModMappingManager(_config.ModMappingsPath);
-        _nexusClient = new NexusApiClient(_config.NexusApiKey.Value, this, _config.ResponseCachePath);
-        _modDiscovery = new NexusModDiscovery(_nexusClient, Path.GetDirectoryName(_config.ModMappingsPath));
+        _nexusClient = new NexusApiClient(_config.NexusApiKey.Value, this, _config.ResponseCachePath, _config.CachingEnabled.Value);
+        _modDiscovery = new NexusModDiscovery(
+            _nexusClient,
+            Path.GetDirectoryName(_config.ModMappingsPath),
+            _config.DiscoveryMaxScanId.Value,
+            _config.DiscoveryMaxConsecutiveMisses.Value);
         _updateChecker = new UpdateChecker(_nexusClient, _mappingManager, _modDiscovery);
 
-        // Initialize new feature managers
-        _backupManager = new BackupManager(_config.BackupPath);
-        _versionHistoryManager = new VersionHistoryManager(_config.VersionHistoryPath);
-        _ignoreFavoriteManager = new IgnoreFavoriteManager(_config.IgnoreFavoritePath);
         _conflictDetector = new ConflictDetector();
         _updateScheduler = new UpdateScheduler(_updateChecker, this);
 
         // Create UI component
         _ui = gameObject.AddComponent<UpdateManagerUI>();
-        _ui.Initialize(_config, _updateChecker, _mappingManager, _backupManager,
-            _versionHistoryManager, _ignoreFavoriteManager, _conflictDetector, _updateScheduler, _nexusClient, _modDiscovery);
+        _ui.Initialize(_config, _updateChecker, _mappingManager, _conflictDetector, _updateScheduler, _nexusClient, _modDiscovery);
 
         // Subscribe to config changes
         _config.NexusApiKey.SettingChanged += (sender, args) =>
         {
             _nexusClient.SetApiKey(_config.NexusApiKey.Value);
-            Logger.LogInfo("API key updated");
+            if (!_config.HasApiKey)
+            {
+                _modDiscovery.StopDiscovery();
+            }
+            else if (_config.EnableNexusDiscovery.Value)
+            {
+                _modDiscovery.StartDiscovery(this);
+            }
+            Logger.LogDebug("API key updated");
+        };
+
+        _config.CachingEnabled.SettingChanged += (sender, args) =>
+        {
+            _nexusClient.SetCachingEnabled(_config.CachingEnabled.Value, _config.ResponseCachePath);
+            Logger.LogDebug($"Nexus response caching {(_config.CachingEnabled.Value ? "enabled" : "disabled")}");
+        };
+
+        _config.EnableNexusDiscovery.SettingChanged += (sender, args) =>
+        {
+            if (_config.EnableNexusDiscovery.Value && _config.HasApiKey)
+            {
+                _modDiscovery.StartDiscovery(this);
+            }
+            else
+            {
+                _modDiscovery.StopDiscovery();
+            }
         };
 
         _config.EnableBackgroundChecking.SettingChanged += (sender, args) =>
@@ -97,7 +118,7 @@ internal class Plugin : BaseUnityPlugin
 
     private void Start()
     {
-        Logger.LogInfo( $"Press {_config.ToggleUIKey.Value} to open the Mod Update Manager");
+        Logger.LogDebug($"Press {_config.ToggleUIKey.Value} to open the Mod Update Manager");
     }
 
     private void Update()
@@ -121,35 +142,35 @@ internal class Plugin : BaseUnityPlugin
     /// </summary>
     public void OnGameDataLoaded()
     {
-        Logger.LogInfo("Game data loaded - initializing mod update check");
+        Logger.LogDebug("Game data loaded - initializing mod update check");
 
         // Scan installed mods
         _updateChecker.ScanMods();
 
-        // Start Nexus mod discovery in background (runs continuously, discovers mods by ID)
-        if (_config.HasApiKey)
+        // Optional Nexus mod discovery walks IDs slowly and can use API quota.
+        if (_config.HasApiKey && _config.EnableNexusDiscovery.Value)
         {
             _modDiscovery.StartDiscovery(this);
-            Logger.LogInfo("Started Nexus mod discovery service");
+            Logger.LogDebug("Started Nexus mod discovery service");
         }
 
         // Start background checking if enabled
         if (_config.EnableBackgroundChecking.Value && _config.HasApiKey)
         {
             _updateScheduler.Start(_config.CheckIntervalMinutes.Value);
-            Logger.LogInfo($"Background update checking enabled (interval: {_config.CheckIntervalMinutes.Value} minutes)");
+            Logger.LogDebug($"Background update checking enabled (interval: {_config.CheckIntervalMinutes.Value} minutes)");
         }
 
         // If configured, automatically check for updates
         if (_config.CheckOnStartup.Value && _config.HasApiKey && !_initialCheckDone)
         {
             _initialCheckDone = true;
-            Logger.LogInfo("Starting automatic update check...");
+            Logger.LogDebug("Starting automatic update check...");
             _updateChecker.CheckAllMods(this);
         }
         else if (!_config.HasApiKey)
         {
-            Logger.LogInfo("No Nexus API key configured. Press F8 to open settings and configure your API key.");
+            Logger.LogDebug("No Nexus API key configured. Press F8 to open settings and configure your API key.");
         }
     }
 
@@ -158,7 +179,7 @@ internal class Plugin : BaseUnityPlugin
         var updateCount = mods.FindAll(m => m.NeedsUpdate).Count;
         if (updateCount > 0)
         {
-            Logger.LogInfo($"Found {updateCount} mod(s) with updates available!");
+            Logger.LogDebug($"Found {updateCount} mod(s) with updates available!");
             _ui.Show();
         }
     }

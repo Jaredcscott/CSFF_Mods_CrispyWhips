@@ -44,7 +44,7 @@ namespace mod_update_manager
             _checkIntervalSeconds = intervalMinutes * 60f;
             _isEnabled = true;
             _timeSinceLastCheck = 0;
-            Plugin.Logger.LogInfo($"Scheduled update checking started (interval: {intervalMinutes} minutes)");
+            Plugin.Logger.LogDebug($"Scheduled update checking started (interval: {intervalMinutes} minutes)");
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace mod_update_manager
         public void Stop()
         {
             _isEnabled = false;
-            Plugin.Logger.LogInfo("Scheduled update checking stopped");
+            Plugin.Logger.LogDebug("Scheduled update checking stopped");
         }
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace mod_update_manager
             {
                 _isChecking = true;
                 OnScheduledCheckStarted?.Invoke("Scheduled update check starting...");
-                Plugin.Logger.LogInfo("Executing scheduled update check");
+                Plugin.Logger.LogDebug("Executing scheduled update check");
 
                 // Subscribe to completion event
                 _updateChecker.OnAllChecksComplete += OnCheckCompleted;
@@ -131,7 +131,7 @@ namespace mod_update_manager
             var message = $"Scheduled check completed. {updatesFound} update(s) available.";
 
             OnScheduledCheckCompleted?.Invoke(message);
-            Plugin.Logger.LogInfo(message);
+            Plugin.Logger.LogDebug(message);
         }
     }
 }

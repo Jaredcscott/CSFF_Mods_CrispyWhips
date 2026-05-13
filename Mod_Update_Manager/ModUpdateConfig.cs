@@ -21,27 +21,22 @@ namespace mod_update_manager
         public ConfigEntry<float> WindowHeight { get; private set; }
 
         // New features
-        public ConfigEntry<bool> AutomaticBackups { get; private set; }
         public ConfigEntry<int> CheckIntervalMinutes { get; private set; }
         public ConfigEntry<bool> EnableBackgroundChecking { get; private set; }
-        public ConfigEntry<int> MaxBackupsPerMod { get; private set; }
         public ConfigEntry<bool> ShowConflictWarnings { get; private set; }
         public ConfigEntry<bool> CachingEnabled { get; private set; }
+        public ConfigEntry<bool> EnableNexusDiscovery { get; private set; }
+        public ConfigEntry<int> DiscoveryMaxScanId { get; private set; }
+        public ConfigEntry<int> DiscoveryMaxConsecutiveMisses { get; private set; }
 
         // Mod ID mappings file path
         public string ModMappingsPath { get; private set; }
-        public string BackupPath { get; private set; }
-        public string VersionHistoryPath { get; private set; }
-        public string IgnoreFavoritePath { get; private set; }
         public string ResponseCachePath { get; private set; }
 
         public ModUpdateConfig(ConfigFile config)
         {
             _config = config;
             ModMappingsPath = Path.Combine(Paths.ConfigPath, "ModUpdateManager_Mappings.json");
-            BackupPath = Path.Combine(Paths.ConfigPath, "ModUpdateManager_Backups");
-            VersionHistoryPath = Path.Combine(Paths.ConfigPath, "ModUpdateManager_History");
-            IgnoreFavoritePath = Path.Combine(Paths.ConfigPath, "ModUpdateManager_Lists");
             ResponseCachePath = Path.Combine(Paths.ConfigPath, "ModUpdateManager_Cache.json");
             InitializeConfig();
         }
@@ -93,21 +88,6 @@ namespace mod_update_manager
                 "Height of the update manager window"
             );
 
-            // Backup & Safety
-            AutomaticBackups = _config.Bind(
-                "Backup",
-                "AutomaticBackups",
-                true,
-                "Automatically backup mods before updating"
-            );
-
-            MaxBackupsPerMod = _config.Bind(
-                "Backup",
-                "MaxBackupsPerMod",
-                3,
-                "Maximum number of backups to keep per mod"
-            );
-
             // Scheduling
             EnableBackgroundChecking = _config.Bind(
                 "Scheduling",
@@ -137,6 +117,27 @@ namespace mod_update_manager
                 "CachingEnabled",
                 true,
                 "Cache Nexus API responses to reduce network requests"
+            );
+
+            EnableNexusDiscovery = _config.Bind(
+                "Performance",
+                "EnableNexusDiscovery",
+                false,
+                "Opt in to a slow background scan of Nexus mod IDs to discover mappings for mods that do not declare NexusModId. Leave disabled unless you specifically need automatic discovery."
+            );
+
+            DiscoveryMaxScanId = _config.Bind(
+                "Performance",
+                "DiscoveryMaxScanId",
+                2000,
+                "Hard ceiling for the optional background Nexus mod-ID scan. The scan walks Nexus mod IDs sequentially to build a name->ID index for installed mods that don't declare NexusModId in their ModInfo.json."
+            );
+
+            DiscoveryMaxConsecutiveMisses = _config.Bind(
+                "Performance",
+                "DiscoveryMaxConsecutiveMisses",
+                500,
+                "Stop background discovery once this many consecutive Nexus IDs return 'mod not found'. Prevents the scan from running forever when there are no more new mods to find. Set to 0 to disable this stop condition."
             );
         }
 

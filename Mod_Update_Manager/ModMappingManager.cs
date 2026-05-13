@@ -63,7 +63,7 @@ namespace mod_update_manager
             }
             catch (Exception ex)
             {
-                Plugin.Logger.LogError($"Failed to load mod mappings: {ex.Message}");
+                Plugin.Logger.LogError($"Failed to load mod mappings: {ex}");
             }
         }
 
@@ -81,7 +81,7 @@ namespace mod_update_manager
             }
             catch (Exception ex)
             {
-                Plugin.Logger.LogError($"Failed to save mod mappings: {ex.Message}");
+                Plugin.Logger.LogError($"Failed to save mod mappings: {ex}");
             }
         }
 
@@ -115,7 +115,7 @@ namespace mod_update_manager
             }
             catch (Exception ex)
             {
-                Plugin.Logger.LogError($"Failed to create default mappings: {ex.Message}");
+                Plugin.Logger.LogError($"Failed to create default mappings: {ex}");
             }
         }
 

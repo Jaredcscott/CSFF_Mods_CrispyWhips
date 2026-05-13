@@ -49,17 +49,35 @@ namespace mod_update_manager
         private MonoBehaviour _coroutineRunner;
         private string _diskCachePath;
         private Dictionary<string, (NexusModResponse response, System.DateTime timestamp)> _responseCache;
-        private Dictionary<string, (string changelog, System.DateTime timestamp)> _changelogCache;
+        private bool _cachingEnabled;
+        private bool _diskCacheDirty;
 
-        public NexusApiClient(string apiKey, MonoBehaviour coroutineRunner, string diskCachePath = null)
+        public NexusApiClient(string apiKey, MonoBehaviour coroutineRunner, string diskCachePath = null, bool cachingEnabled = true)
         {
             _apiKey = apiKey;
             _coroutineRunner = coroutineRunner;
-            _diskCachePath = diskCachePath;
+            _cachingEnabled = cachingEnabled;
+            _diskCachePath = cachingEnabled ? diskCachePath : null;
             _responseCache = new Dictionary<string, (NexusModResponse, System.DateTime)>();
-            _changelogCache = new Dictionary<string, (string, System.DateTime)>();
 
-            if (!string.IsNullOrEmpty(_diskCachePath))
+            if (_cachingEnabled && !string.IsNullOrEmpty(_diskCachePath))
+                LoadDiskCache();
+        }
+
+        public void SetCachingEnabled(bool enabled, string diskCachePath)
+        {
+            if (_cachingEnabled == enabled && string.Equals(_diskCachePath, enabled ? diskCachePath : null, StringComparison.OrdinalIgnoreCase))
+                return;
+
+            if (_cachingEnabled)
+                FlushDiskCache();
+
+            _cachingEnabled = enabled;
+            _diskCachePath = enabled ? diskCachePath : null;
+            _diskCacheDirty = false;
+            _responseCache.Clear();
+
+            if (_cachingEnabled && !string.IsNullOrEmpty(_diskCachePath))
                 LoadDiskCache();
         }
 
@@ -68,34 +86,61 @@ namespace mod_update_manager
         {
             try
             {
+                if (!_cachingEnabled || string.IsNullOrEmpty(_diskCachePath)) return;
                 if (!System.IO.File.Exists(_diskCachePath)) return;
                 var json = System.IO.File.ReadAllText(_diskCachePath);
-                var entries = SimpleJson.ParseJsonObject(json);
-                foreach (var kvp in entries)
+                foreach (System.Text.RegularExpressions.Match match in System.Text.RegularExpressions.Regex.Matches(json, "\\\"((?:\\\\.|[^\\\"])*)\\\"\\s*:\\s*\\{([^{}]*)\\}"))
                 {
-                    var entry = SimpleJson.ParseJsonObject(kvp.Value);
-                    if (!entry.ContainsKey("version") || !entry.ContainsKey("cachedAt")) continue;
-                    if (!System.DateTime.TryParse(entry["cachedAt"], out var ts)) continue;
+                    var modId = Unescape(match.Groups[1].Value);
+                    var body = match.Groups[2].Value;
+                    var version = ReadJsonString(body, "version");
+                    var cachedAt = ReadJsonString(body, "cachedAt");
+
+                    if (string.IsNullOrEmpty(modId) || string.IsNullOrEmpty(version) || string.IsNullOrEmpty(cachedAt)) continue;
+                    if (!System.DateTime.TryParse(cachedAt, null, System.Globalization.DateTimeStyles.RoundtripKind, out var ts)) continue;
                     if ((System.DateTime.UtcNow - ts).TotalHours >= CACHE_EXPIRY_HOURS) continue;
-                    _responseCache[kvp.Key] = (new NexusModResponse
+
+                    _responseCache[modId] = (new NexusModResponse
                     {
-                        Version = entry["version"],
-                        Name = entry.ContainsKey("name") ? entry["name"] : null,
-                        Author = entry.ContainsKey("author") ? entry["author"] : null,
+                        Version = version,
+                        Name = ReadJsonString(body, "name"),
+                        Author = ReadJsonString(body, "author"),
                     }, ts);
                 }
             }
             catch (Exception ex)
             {
-                Plugin.Logger.LogWarning($"Could not load Nexus cache from disk: {ex.Message}");
+                Plugin.Logger.LogWarning($"Could not load Nexus cache from disk: {ex}");
             }
+        }
+
+        /// <summary>
+        /// Flushes the in-memory response cache to disk if anything changed since the
+        /// last flush. Replaces the per-callback writes that fired ~once per Nexus
+        /// response — those caused dozens of synchronous disk writes during a startup
+        /// update check, hitching frames while the main scene was still spinning up.
+        /// Callers that mutate <see cref="_responseCache"/> set <see cref="_diskCacheDirty"/>
+        /// and either explicitly call this, or rely on <see cref="FlushDiskCache"/>
+        /// from the update-check coroutine.
+        /// </summary>
+        public void FlushDiskCache()
+        {
+            if (!_cachingEnabled) return;
+            if (!_diskCacheDirty) return;
+            _diskCacheDirty = false;
+            SaveDiskCache();
         }
 
         private void SaveDiskCache()
         {
+            if (!_cachingEnabled) return;
             if (string.IsNullOrEmpty(_diskCachePath)) return;
             try
             {
+                var cacheDir = System.IO.Path.GetDirectoryName(_diskCachePath);
+                if (!string.IsNullOrEmpty(cacheDir) && !System.IO.Directory.Exists(cacheDir))
+                    System.IO.Directory.CreateDirectory(cacheDir);
+
                 var sb = new StringBuilder("{");
                 bool first = true;
                 foreach (var kvp in _responseCache)
@@ -116,12 +161,29 @@ namespace mod_update_manager
             }
             catch (Exception ex)
             {
-                Plugin.Logger.LogWarning($"Could not save Nexus cache to disk: {ex.Message}");
+                Plugin.Logger.LogWarning($"Could not save Nexus cache to disk: {ex}");
             }
         }
 
         private static string Escape(string s) =>
             s.Replace("\\", "\\\\").Replace("\"", "\\\"");
+
+        private static string ReadJsonString(string json, string key)
+        {
+            var pattern = $"\\\"{System.Text.RegularExpressions.Regex.Escape(key)}\\\"\\s*:\\s*\\\"((?:\\\\.|[^\\\"])*)\\\"";
+            var match = System.Text.RegularExpressions.Regex.Match(json, pattern);
+            return match.Success ? Unescape(match.Groups[1].Value) : null;
+        }
+
+        private static string Unescape(string s)
+        {
+            if (s == null) return null;
+            return s.Replace("\\\\", "\\")
+                    .Replace("\\\"", "\"")
+                    .Replace("\\n", "\n")
+                    .Replace("\\r", "\r")
+                    .Replace("\\t", "\t");
+        }
 
         /// <summary>
         /// Updates the API key
@@ -177,7 +239,6 @@ namespace mod_update_manager
         /// </summary>
         public void ClearExpiredCache()
         {
-            var now = System.DateTime.UtcNow;
             var expiredKeys = new List<string>();
 
             foreach (var kvp in _responseCache)
@@ -188,16 +249,6 @@ namespace mod_update_manager
 
             foreach (var key in expiredKeys)
                 _responseCache.Remove(key);
-
-            expiredKeys.Clear();
-            foreach (var kvp in _changelogCache)
-            {
-                if (!IsCacheValid(kvp.Value.timestamp))
-                    expiredKeys.Add(kvp.Key);
-            }
-
-            foreach (var key in expiredKeys)
-                _changelogCache.Remove(key);
         }
 
         /// <summary>
@@ -212,7 +263,7 @@ namespace mod_update_manager
             }
 
             // Check cache first
-            if (_responseCache.ContainsKey(modId))
+            if (_cachingEnabled && _responseCache.ContainsKey(modId))
             {
                 var cached = _responseCache[modId];
                 if (IsCacheValid(cached.timestamp))
@@ -237,7 +288,7 @@ namespace mod_update_manager
             {
                 request.SetRequestHeader("apikey", _apiKey);
                 request.SetRequestHeader("Accept", "application/json");
-                request.SetRequestHeader("User-Agent", "Mod_Update_Manager/1.0.0");
+                request.SetRequestHeader("User-Agent", $"Mod_Update_Manager/{Plugin.PluginVersion}");
 
                 yield return request.SendWebRequest();
 
@@ -246,13 +297,16 @@ namespace mod_update_manager
                     try
                     {
                         var response = ParseNexusModResponse(request.downloadHandler.text);
-                        _responseCache[modId] = (response, System.DateTime.UtcNow);
-                        SaveDiskCache();
+                        if (_cachingEnabled)
+                        {
+                            _responseCache[modId] = (response, System.DateTime.UtcNow);
+                            _diskCacheDirty = true;
+                        }
                         callback(response, null);
                     }
                     catch (Exception ex)
                     {
-                        callback(null, $"Failed to parse response: {ex.Message}");
+                        callback(null, $"Failed to parse response: {ex}");
                     }
                 }
                 else
@@ -312,104 +366,12 @@ namespace mod_update_manager
         }
 
         /// <summary>
-        /// Searches for mods by name on Nexus Mods
-        /// </summary>
-        public void SearchMods(string searchTerm, Action<List<NexusModResponse>, string> callback)
-        {
-            if (!HasApiKey)
-            {
-                callback(null, "No API key configured");
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(searchTerm))
-            {
-                callback(null, "Search term is empty");
-                return;
-            }
-
-            _coroutineRunner.StartCoroutine(SearchModsCoroutine(searchTerm, callback));
-        }
-
-        private IEnumerator SearchModsCoroutine(string searchTerm, Action<List<NexusModResponse>, string> callback)
-        {
-            // Nexus API v1 doesn't have a direct search endpoint, so we use the collections endpoint as fallback
-            // For now, we'll return a not-implemented message
-            callback(null, "Nexus Mods API v1 does not support mod search. Use manual mapping instead.");
-            yield return null;
-        }
-
-        /// <summary>
-        /// Fetches changelog for a specific mod version
-        /// </summary>
-        public void GetChangelog(string modId, Action<string, string> callback)
-        {
-            if (!HasApiKey)
-            {
-                callback(null, "No API key configured");
-                return;
-            }
-
-            // Check cache first
-            if (_changelogCache.ContainsKey(modId))
-            {
-                var cached = _changelogCache[modId];
-                if (IsCacheValid(cached.timestamp))
-                {
-                    callback(cached.changelog, null);
-                    return;
-                }
-                else
-                {
-                    _changelogCache.Remove(modId);
-                }
-            }
-
-            _coroutineRunner.StartCoroutine(GetChangelogCoroutine(modId, callback));
-        }
-
-        private IEnumerator GetChangelogCoroutine(string modId, Action<string, string> callback)
-        {
-            var url = $"{BASE_URL}/games/{GAME_DOMAIN}/mods/{modId}/changelogs.json";
-
-            using (var request = UnityWebRequest.Get(url))
-            {
-                request.SetRequestHeader("apikey", _apiKey);
-                request.SetRequestHeader("Accept", "application/json");
-                request.SetRequestHeader("User-Agent", "Mod_Update_Manager/1.0.0");
-
-                yield return request.SendWebRequest();
-
-                if (!request.isNetworkError && !request.isHttpError)
-                {
-                    try
-                    {
-                        var responseText = request.downloadHandler.text;
-                        // Cache the response
-                        _changelogCache[modId] = (responseText, System.DateTime.UtcNow);
-                        callback(responseText, null);
-                    }
-                    catch (Exception ex)
-                    {
-                        callback(null, $"Failed to parse changelog: {ex.Message}");
-                    }
-                }
-                else
-                {
-                    var errorMsg = $"Failed to fetch changelog: {request.error}";
-                    if (request.responseCode == 404)
-                        errorMsg = "No changelog available for this mod";
-                    callback(null, errorMsg);
-                }
-            }
-        }
-
-        /// <summary>
         /// Gets the number of cached responses
         /// </summary>
         public int GetCacheSize()
         {
-            return _responseCache.Count + _changelogCache.Count;
+            if (!_cachingEnabled) return 0;
+            return _responseCache.Count;
         }
     }
 }

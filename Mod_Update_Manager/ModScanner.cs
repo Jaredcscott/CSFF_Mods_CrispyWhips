@@ -65,11 +65,7 @@ namespace mod_update_manager
 
                 foreach (var dir in directories)
                 {
-                    var modInfo = ScanModFolder(dir);
-                    if (modInfo != null)
-                    {
-                        mods.Add(modInfo);
-                    }
+                    mods.AddRange(ScanModDirectory(dir));
                 }
 
                 // Also scan for loose DLLs in the plugins root (mods without a subfolder)
@@ -83,7 +79,7 @@ namespace mod_update_manager
                         continue;
 
                     // Skip if we already found this mod in a subfolder
-                    if (mods.Exists(m => m.Name.Equals(dllName, StringComparison.OrdinalIgnoreCase)))
+                    if (mods.Exists(m => m.Name.Equals(dllName, StringComparison.OrdinalIgnoreCase) || m.FolderName.Equals(dllName, StringComparison.OrdinalIgnoreCase)))
                         continue;
 
                     mods.Add(new InstalledModInfo
@@ -103,14 +99,39 @@ namespace mod_update_manager
             }
             catch (Exception ex)
             {
-                Plugin.Logger.LogError($"Error scanning mods: {ex.Message}");
+                Plugin.Logger.LogError($"Error scanning mods: {ex}");
             }
 
             return mods;
         }
 
         /// <summary>
-        /// Scans a single mod folder for ModInfo.json
+        /// Scans a plugin folder, including one nested ModInfo.json level used by some third-party mods.
+        /// </summary>
+        private static List<InstalledModInfo> ScanModDirectory(string folderPath)
+        {
+            var rootModInfo = Path.Combine(folderPath, "ModInfo.json");
+            if (File.Exists(rootModInfo))
+            {
+                var rootMod = ScanModFolder(folderPath);
+                return rootMod != null ? new List<InstalledModInfo> { rootMod } : new List<InstalledModInfo>();
+            }
+
+            var nestedMods = Directory.GetDirectories(folderPath)
+                .Where(subDir => File.Exists(Path.Combine(subDir, "ModInfo.json")))
+                .Select(ScanModFolder)
+                .Where(mod => mod != null)
+                .ToList();
+
+            if (nestedMods.Count > 0)
+                return nestedMods;
+
+            var fallbackMod = ScanModFolder(folderPath);
+            return fallbackMod != null ? new List<InstalledModInfo> { fallbackMod } : new List<InstalledModInfo>();
+        }
+
+        /// <summary>
+        /// Scans a single concrete mod folder for ModInfo.json or DLL evidence.
         /// </summary>
         private static InstalledModInfo ScanModFolder(string folderPath)
         {
@@ -145,7 +166,7 @@ namespace mod_update_manager
                 }
                 catch (Exception ex)
                 {
-                    Plugin.Logger.LogWarning($"Failed to parse ModInfo.json in {folderName}: {ex.Message}");
+                    Plugin.Logger.LogWarning($"Failed to parse ModInfo.json in {folderName}: {ex}");
                     modInfo.Name = folderName;
                     modInfo.Version = "Parse Error";
                 }
@@ -187,7 +208,7 @@ namespace mod_update_manager
             }
             catch (Exception ex)
             {
-                Plugin.Logger.LogWarning($"Could not get game version: {ex.Message}");
+                Plugin.Logger.LogWarning($"Could not get game version: {ex}");
             }
 
             return "Unknown";

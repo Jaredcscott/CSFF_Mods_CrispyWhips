@@ -52,7 +52,7 @@ namespace mod_update_manager
         {
             if (_isChecking)
             {
-                Plugin.Logger.LogInfo( "Update check already in progress");
+                Plugin.Logger.LogDebug("Update check already in progress");
                 return;
             }
 
@@ -107,13 +107,13 @@ namespace mod_update_manager
                         if (!string.IsNullOrEmpty(response.Name))
                             _mappingManager.SetMapping(mod.FolderName, nexusId, response.Name);
 
-                        Plugin.Logger.LogInfo($"{mod.Name}: {mod.Version} -> {response.Version} (Needs update: {mod.NeedsUpdate})");
+                        Plugin.Logger.LogDebug($"{mod.Name}: {mod.Version} -> {response.Version} (Needs update: {mod.NeedsUpdate})");
                     }
                     else
                     {
                         mod.CheckFailed = true;
                         mod.CheckError = error;
-                        Plugin.Logger.LogInfo($"Failed to check {mod.Name}: {error}");
+                        Plugin.Logger.LogDebug($"Failed to check {mod.Name}: {error}");
                     }
 
                     _checksCompleted++;
@@ -136,6 +136,11 @@ namespace mod_update_manager
             }
 
             _isChecking = false;
+
+            // Single coalesced disk write at the end of the pass — replaces the
+            // per-response SaveDiskCache that used to hitch the main thread
+            // dozens of times during a fresh startup update check.
+            _apiClient.FlushDiskCache();
 
             var updatesAvailable = _installedMods.Count(m => m.NeedsUpdate);
             OnStatusUpdate?.Invoke($"Check complete! {updatesAvailable} updates available.");
