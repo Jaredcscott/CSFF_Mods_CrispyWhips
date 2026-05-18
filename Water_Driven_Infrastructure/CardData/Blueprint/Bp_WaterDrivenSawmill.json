@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "water_sawmill_bp_water_driven_sawmill",
         "LocalizationKey": "Water_Sawmill_Bp_WaterDrivenSawmill_CardDescription",
-        "DefaultText": "Construct a large sawmill powered by river flow. This project can only be built near a river."
+        "DefaultText": "Construct a large sawmill powered by river flow or a connected mill race outlet."
     },
     "CanBeRenamed": false,
     "CardType": 7,
@@ -49,23 +49,10 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "CardImageWarpData": "SawmillFullyBuilt",
+    "CardImageWarpData": "SawmillKit",
     "CardImageWarpType": 3,
-    "BlueprintUnlockTicksCost": 12.0,
+    "BlueprintUnlockTicksCost": 96.0,
     "BuildingTagConditions": [
-        {
-            "TriggerTag": {
-                "m_FileID": 0,
-                "m_PathID": 0
-            },
-            "OnlyInHand": false,
-            "NotInHand": false,
-            "ExcludeInventories": false,
-            "Inverted": false,
-            "OnlyEquipped": false,
-            "TriggerTagWarpData": "tag_River",
-            "TriggerTagWarpType": 3
-        },
         {
             "TriggerTag": {
                 "m_FileID": 0,

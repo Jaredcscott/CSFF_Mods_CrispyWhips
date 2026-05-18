@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Reflection.Emit;
+using BepInEx.Configuration;
 using HarmonyLib;
 
 namespace CSFFModFramework.Patching.Performance;
@@ -19,8 +20,18 @@ internal static class AmbienceArrayReuse
 {
     internal static readonly float[] Cached = new float[3];
 
-    public static void ApplyPatch(Harmony harmony)
+    public static void ApplyPatch(Harmony harmony, ConfigFile config)
     {
+        var enabledCfg = config.Bind(
+            "Performance", "AmbienceArrayReuseEnabled", true,
+            "Reuse a cached float[3] inside AmbienceImageEffect.Update instead of allocating per frame. "
+            + "Set false to disable for diagnostic isolation.");
+        if (!enabledCfg.Value)
+        {
+            Util.Log.Debug("AmbienceArrayReuse: disabled via config.");
+            return;
+        }
+
         var target = AccessTools.Method("AmbienceImageEffect:Update");
         if (target == null)
         {
@@ -36,7 +47,7 @@ internal static class AmbienceArrayReuse
         }
         catch (System.Exception ex)
         {
-            Util.Log.Error($"AmbienceArrayReuse: failed to patch: {ex.Message}");
+            Util.Log.Error($"AmbienceArrayReuse: failed to patch: {ex.InnerException?.ToString() ?? ex.ToString()}");
         }
     }
 
@@ -63,7 +74,7 @@ internal static class AmbienceArrayReuse
         }
 
         if (swaps > 0)
-            Util.Log.Info($"AmbienceArrayReuse: replaced {swaps} per-frame float[3] allocation(s) in AmbienceImageEffect.Update.");
+            Util.Log.Debug($"AmbienceArrayReuse: replaced {swaps} per-frame float[3] allocation(s) in AmbienceImageEffect.Update.");
         else
             Util.Log.Debug("AmbienceArrayReuse: no `ldc.i4.3; newarr System.Single` pattern matched — IL shape may have changed.");
 

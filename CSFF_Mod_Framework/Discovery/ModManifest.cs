@@ -16,13 +16,15 @@ internal class AssetsManifest
     public List<string> Audio;
     public List<string> AssetBundles;
     public List<string> Gifs;
+    public List<string> MapCaches;
 #pragma warning restore 0649
 
     public bool HasAny =>
         (Sprites != null && Sprites.Count > 0) ||
         (Audio != null && Audio.Count > 0) ||
         (AssetBundles != null && AssetBundles.Count > 0) ||
-        (Gifs != null && Gifs.Count > 0);
+        (Gifs != null && Gifs.Count > 0) ||
+        (MapCaches != null && MapCaches.Count > 0);
 }
 
 internal class ModManifest
@@ -46,6 +48,7 @@ internal class ModManifest
     [NonSerialized] public bool HasBlueprintTabs;      // BlueprintTabs.json
     [NonSerialized] public bool HasSmeltingRecipes;    // SmeltingRecipes.json
     [NonSerialized] public bool HasAudio;              // Resource/Audio/ (any file)
+    [NonSerialized] public bool HasMapCaches;          // Data/MapCaches/*.json, Data/*Map*.json, or Assets.MapCaches
 
     public static ModManifest FromJson(string json, string directoryPath)
     {

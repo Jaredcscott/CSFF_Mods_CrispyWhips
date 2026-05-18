@@ -1,6 +1,14 @@
+# Skill Speed Boost
+
+**Version:** 1.7.6
+**Author:** Jared (crispywhips)
+**For:** Card Survival: Fantasy Forest (EA 0.63)
+
+---
+
 ## Overview
 
-**Version:** 1.7.4 — EA 0.63 compatibility
+**Version:** 1.7.6 — EA 0.63 compatibility
 
 Skill Speed Boost provides comprehensive control over skill progression mechanics in Card Survival: Fantasy Forest. The mod enables natural staleness decay (like Fishing), customizable XP multipliers per skill, and per-location area familiarity bonuses.
 
@@ -34,7 +42,7 @@ Skill Speed Boost provides comprehensive control over skill progression mechanic
 - Card Survival: Fantasy Forest (EA 0.63)
 
 ### Steps
-1. Download the latest release (v1.7.4+)
+1. Download the latest release (v1.7.6+)
 2. Copy the `Skill_Speed_Boost` folder into `BepInEx/plugins/`
 3. Launch the game
 
@@ -123,6 +131,16 @@ See **FEATURES.md** for full per-skill configuration details.
 - **Save format:** No save file modifications
 
 ## Version History
+
+### v1.7.6 (current)
+- EA 0.63f compatibility pass; no logic changes
+
+### v1.7.5
+- Minor fixes to area familiarity TSV persistence path
+
+### v1.7.4
+- EA 0.63 compatibility pass
+- Startup log normalized to single Info line per CSFF mod logging norms
 
 ### v1.7.3
 - Fixed advertised dead code in docs (DEVELOPER_API.md, FEATURES.md)

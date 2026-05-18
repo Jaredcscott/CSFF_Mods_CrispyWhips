@@ -127,6 +127,6 @@
     },
     "CardImageWarpData": "WheelBarrowWheelHub",
     "CardImageWarpType": 3,
-    "BlueprintUnlockTicksCost": 16.0,
+    "BlueprintUnlockTicksCost": 32.0,
     "ResearchedNotification": 0
 }

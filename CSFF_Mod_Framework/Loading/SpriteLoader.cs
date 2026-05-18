@@ -56,7 +56,7 @@ internal static class SpriteLoader
                 }
                 catch (Exception ex)
                 {
-                    Log.Warn($"Failed to load sprite {file}: {ex.Message}");
+                    Log.Warn($"Failed to load sprite {file}: {Log.ExceptionText(ex)}");
                 }
             }
 
@@ -67,7 +67,24 @@ internal static class SpriteLoader
 
         var rescues = SpriteTextureCache.HashRescues;
         var rescueSuffix = rescues > 0 ? $", {rescues} rescued via hash" : string.Empty;
-        Log.Info($"SpriteLoader: {totalLoaded} sprites loaded " +
-                 $"({SpriteTextureCache.CacheHits} from cache, {SpriteTextureCache.CacheMisses} decoded, {skippedVanilla} skipped vanilla{rescueSuffix})");
+        var bundleSuffix = SpriteTextureCache.BundleHits > 0
+            ? $" [{SpriteTextureCache.BundleHits} via bundle, {SpriteTextureCache.CacheHits - SpriteTextureCache.BundleHits} via per-file]"
+            : string.Empty;
+        Log.Debug($"SpriteLoader: {totalLoaded} sprites loaded " +
+                 $"({SpriteTextureCache.CacheHits} from cache, {SpriteTextureCache.CacheMisses} decoded, {skippedVanilla} skipped vanilla{rescueSuffix}){bundleSuffix}");
+
+        // Warm-cache phase breakdown — surfaces where the per-sprite cost lands so we
+        // can target the actual bottleneck (bundle read vs per-file vs GPU upload).
+        if (SpriteTextureCache.CacheHits > 0)
+        {
+            var freq = (double)System.Diagnostics.Stopwatch.Frequency;
+            long ToMs(long ticks) => (long)(ticks * 1000.0 / freq);
+            Log.Debug($"SpriteLoader: warm-cache breakdown - " +
+                     $"bundle load {ToMs(SpriteTextureCache.BundleLoadTicks)}ms, " +
+                     $"PNG stat {ToMs(SpriteTextureCache.PngStatTicks)}ms, " +
+                     $"per-file read {ToMs(SpriteTextureCache.CacheReadTicks)}ms, " +
+                     $"Texture2D create+upload {ToMs(SpriteTextureCache.TextureCreateTicks)}ms, " +
+                     $"GPU Apply {ToMs(SpriteTextureCache.GpuApplyTicks)}ms");
+        }
     }
 }

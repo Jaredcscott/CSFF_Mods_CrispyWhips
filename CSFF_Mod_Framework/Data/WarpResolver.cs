@@ -15,7 +15,10 @@ internal static class WarpResolver
     // Cache FieldInfo lookups by (Type, fieldName). Walk() calls GetField repeatedly
     // on the same runtime types (CardData, CharacterPerk, etc.) across hundreds of JSON
     // files — caching eliminates thousands of redundant reflection lookups per load.
-    // Stores nulls so absent-field lookups don't keep paying either.
+    // Nulls ARE cached: WarpData fields either exist on a type or they don't; there is
+    // no game-version variability here, so a null entry correctly means "field not present"
+    // and retrying it on every Walk() call is wasted work. Contrast with ReflectionCache.GetField,
+    // which does NOT cache nulls because it's used for optional probes across game versions.
     private static readonly Dictionary<(Type, string), FieldInfo> _fieldCache = new();
 
     private static FieldInfo CachedField(Type type, string name)
@@ -46,13 +49,17 @@ internal static class WarpResolver
         _unresolvedByMod.Clear();
         _unresolvedAudioClips.Clear();
         _currentUid = "";
+        // Invalidate alias caches so a Database.Clear() between runs doesn't leave stale refs.
+        _soNameCache = null;
+        _spriteCache = null;
+        _audioClipCache = null;
 
         // Reuse JSON content cached by JsonDataLoader (avoids redundant filesystem reads)
         var jsonByUid = Loading.JsonDataLoader.JsonByUniqueId;
 
         if (jsonByUid.Count == 0)
         {
-            Log.Info("WarpResolver: no JSON files found across mods");
+            Log.Debug("WarpResolver: no JSON files found across mods");
             return;
         }
 
@@ -75,8 +82,10 @@ internal static class WarpResolver
             _currentUid = kvp.Key;
             try
             {
-                var tree = MiniJson.Parse(kvp.Value);
-                if (tree is Dictionary<string, object> root)
+                // Use pre-parsed tree from JsonDataLoader cache; fall back to parsing if missing.
+                if (!Loading.JsonDataLoader.ParsedJsonByUniqueId.TryGetValue(kvp.Key, out var root) || root == null)
+                    root = MiniJson.Parse(kvp.Value) as Dictionary<string, object>;
+                if (root != null)
                 {
                     int n = Walk(runtimeObj, root);
                     if (n > 0) totalResolved += n;
@@ -85,7 +94,7 @@ internal static class WarpResolver
             }
             catch (Exception ex)
             {
-                Log.Warn($"WarpResolver: error processing {kvp.Key}: {ex.Message}");
+                Log.Warn($"WarpResolver: error processing {kvp.Key}: {Log.ExceptionText(ex)}");
             }
         }
         _currentUid = "";
@@ -100,7 +109,7 @@ internal static class WarpResolver
             Log.Debug($"WarpResolver: [{kv.Key}] unresolved: {string.Join(", ", kv.Value)}");
         }
 
-        Log.Info($"WarpResolver: processed {filesProcessed} files, resolved {totalResolved} references, created {_runtimeCreatedCount} runtime tags, {_triggerResolveCount} trigger refs, {totalUnresolved} unresolved");
+        Log.Debug($"WarpResolver: processed {filesProcessed} files, resolved {totalResolved} references, created {_runtimeCreatedCount} runtime tags, {_triggerResolveCount} trigger refs, {totalUnresolved} unresolved");
         _runtimeCreatedCount = 0;
         _triggerResolveCount = 0;
         _unresolvedByMod.Clear();
@@ -120,7 +129,8 @@ internal static class WarpResolver
         var rtType = rtObj.GetType();
 
         // --- Pass 1: resolve *WarpData fields at this level ---
-        foreach (var key in json.Keys.ToArray())
+        // Iterate Keys directly (no .ToArray() allocation — json is not modified during this pass)
+        foreach (var key in json.Keys)
         {
             if (!key.EndsWith("WarpData", StringComparison.Ordinal)) continue;
 
@@ -182,7 +192,7 @@ internal static class WarpResolver
                         ? field.FieldType.GetGenericArguments()[0]
                         : typeof(UniqueIDScriptable);
 
-                var items = new List<object>();
+                var items = new List<object>(idList.Count);
                 foreach (var item in idList)
                 {
                     if (item is string id)
@@ -277,7 +287,10 @@ internal static class WarpResolver
                             Walk(newElem, elemDict);
                             newElems.Add(newElem);
                         }
-                        catch { }
+                        catch (Exception ex)
+                        {
+                            Log.Debug($"WarpResolver: failed to create {elemType.Name} for {_currentUid}: {Log.ExceptionText(ex)}");
+                        }
                     }
                     if (newElems.Count > 0)
                         resolved += AppendToField(rtObj, field, elemType, newElems);
@@ -285,10 +298,8 @@ internal static class WarpResolver
             }
         }
 
-        // --- Pass 1.5: apply simple scalar/vector values from JSON ---
-        // JsonUtility.FromJsonOverwrite may fail to populate fields in deeply nested
-        // struct arrays (e.g., CardDrop.Quantity inside ProducedCards). This pass
-        // explicitly applies int, float, bool, string, and Vector2Int values from JSON.
+        // --- Pass 2: scalars + nested structures (single pass — merges former Pass 1.5 and Pass 2) ---
+        // Each json key is visited once; CachedField is called once per key instead of twice.
         foreach (var kvp in json)
         {
             if (kvp.Key.EndsWith("WarpData", StringComparison.Ordinal)
@@ -298,94 +309,55 @@ internal static class WarpResolver
             var field = CachedField(rtType, kvp.Key);
             if (field == null) continue;
 
-            // Vector2Int from JSON dict {"x": N, "y": M}
-            if (field.FieldType == typeof(Vector2Int) && kvp.Value is Dictionary<string, object> vecDict)
+            // Dictionary value — Vector2Int, Vector2, or nested serializable object
+            if (kvp.Value is Dictionary<string, object> dictVal)
             {
-                int vx = 0, vy = 0;
-                if (vecDict.TryGetValue("x", out var xv)) { if (xv is double dx) vx = (int)dx; else if (xv is long lx) vx = (int)lx; }
-                if (vecDict.TryGetValue("y", out var yv)) { if (yv is double dy) vy = (int)dy; else if (yv is long ly) vy = (int)ly; }
-                var cur = (Vector2Int)field.GetValue(rtObj);
-                if (cur.x != vx || cur.y != vy)
+                if (field.FieldType == typeof(Vector2Int))
                 {
-                    field.SetValue(rtObj, new Vector2Int(vx, vy));
-                    resolved++;
+                    int vx = 0, vy = 0;
+                    if (dictVal.TryGetValue("x", out var xv)) { if (xv is double dx) vx = (int)dx; else if (xv is long lx) vx = (int)lx; }
+                    if (dictVal.TryGetValue("y", out var yv)) { if (yv is double dy) vy = (int)dy; else if (yv is long ly) vy = (int)ly; }
+                    var cur = (Vector2Int)field.GetValue(rtObj);
+                    if (cur.x != vx || cur.y != vy)
+                    {
+                        field.SetValue(rtObj, new Vector2Int(vx, vy));
+                        resolved++;
+                    }
+                    continue;
+                }
+                if (field.FieldType == typeof(Vector2))
+                {
+                    float fx = 0f, fy = 0f;
+                    if (dictVal.TryGetValue("x", out var xv2)) { if (xv2 is double dx2) fx = (float)dx2; }
+                    if (dictVal.TryGetValue("y", out var yv2)) { if (yv2 is double dy2) fy = (float)dy2; }
+                    var cur2 = (Vector2)field.GetValue(rtObj);
+                    if (cur2.x != fx || cur2.y != fy)
+                    {
+                        field.SetValue(rtObj, new Vector2(fx, fy));
+                        resolved++;
+                    }
+                    continue;
+                }
+                // Nested serializable object
+                if (typeof(UnityEngine.Object).IsAssignableFrom(field.FieldType))
+                    continue;
+                var rtNested = field.GetValue(rtObj);
+                if (rtNested == null && IsSerializableType(field.FieldType))
+                {
+                    try { rtNested = Activator.CreateInstance(field.FieldType); field.SetValue(rtObj, rtNested); resolved++; }
+                    catch { continue; }
+                }
+                if (rtNested != null)
+                {
+                    int r = Walk(rtNested, dictVal);
+                    resolved += r;
+                    if (field.FieldType.IsValueType)
+                        field.SetValue(rtObj, rtNested);
                 }
                 continue;
             }
 
-            // Vector2 from JSON dict {"x": N, "y": M}
-            if (field.FieldType == typeof(Vector2) && kvp.Value is Dictionary<string, object> vec2Dict)
-            {
-                float fx = 0f, fy = 0f;
-                if (vec2Dict.TryGetValue("x", out var xv2)) { if (xv2 is double dx2) fx = (float)dx2; }
-                if (vec2Dict.TryGetValue("y", out var yv2)) { if (yv2 is double dy2) fy = (float)dy2; }
-                var cur2 = (Vector2)field.GetValue(rtObj);
-                if (cur2.x != fx || cur2.y != fy)
-                {
-                    field.SetValue(rtObj, new Vector2(fx, fy));
-                    resolved++;
-                }
-                continue;
-            }
-
-            // int
-            if (field.FieldType == typeof(int) && (kvp.Value is double dv || kvp.Value is long))
-            {
-                int iv = kvp.Value is double d2 ? (int)d2 : (int)(long)kvp.Value;
-                if ((int)field.GetValue(rtObj) != iv)
-                {
-                    field.SetValue(rtObj, iv);
-                    resolved++;
-                }
-                continue;
-            }
-
-            // float
-            if (field.FieldType == typeof(float) && kvp.Value is double fd)
-            {
-                float fv = (float)fd;
-                if ((float)field.GetValue(rtObj) != fv)
-                {
-                    field.SetValue(rtObj, fv);
-                    resolved++;
-                }
-                continue;
-            }
-
-            // bool
-            if (field.FieldType == typeof(bool) && kvp.Value is bool bv)
-            {
-                if ((bool)field.GetValue(rtObj) != bv)
-                {
-                    field.SetValue(rtObj, bv);
-                    resolved++;
-                }
-                continue;
-            }
-
-            // string
-            if (field.FieldType == typeof(string) && kvp.Value is string sv)
-            {
-                if ((string)field.GetValue(rtObj) != sv)
-                {
-                    field.SetValue(rtObj, sv);
-                    resolved++;
-                }
-                continue;
-            }
-        }
-
-        // --- Pass 2: recurse into nested arrays and serializable objects ---
-        foreach (var kvp in json)
-        {
-            if (kvp.Key.EndsWith("WarpData", StringComparison.Ordinal)
-                || kvp.Key.EndsWith("WarpType", StringComparison.Ordinal))
-                continue;
-
-            var field = CachedField(rtType, kvp.Key);
-            if (field == null) continue;
-
-            // Array field -> walk elements in parallel
+            // Array / list value
             if (kvp.Value is List<object> jsonArr)
             {
                 var rtVal = field.GetValue(rtObj);
@@ -396,7 +368,6 @@ internal static class WarpResolver
                     if (eType == null) continue;
                     bool isValueType = eType.IsValueType;
 
-                    // Expand array if JSON has more elements than runtime
                     if (jsonArr.Count > rtArr.Length && IsSerializableType(eType))
                     {
                         rtArr = ExpandArray(rtArr, eType, jsonArr.Count);
@@ -410,7 +381,6 @@ internal static class WarpResolver
                         if (jsonArr[i] is Dictionary<string, object> elemDict)
                         {
                             var elem = rtArr.GetValue(i);
-                            // Create null elements if JSON has data for them
                             if (elem == null && IsSerializableType(eType))
                             {
                                 try { elem = Activator.CreateInstance(eType); rtArr.SetValue(elem, i); resolved++; }
@@ -428,7 +398,6 @@ internal static class WarpResolver
                 {
                     var listElemType = GetFieldElementType(field.FieldType);
 
-                    // Expand list if JSON has more elements than runtime
                     if (listElemType != null && jsonArr.Count > rtList.Count && IsSerializableType(listElemType))
                     {
                         for (int i = rtList.Count; i < jsonArr.Count; i++)
@@ -457,7 +426,6 @@ internal static class WarpResolver
                         }
                     }
                 }
-                // Null/missing runtime value — create the array from scratch if JSON has data
                 else if (rtVal == null && field.FieldType.IsArray)
                 {
                     var eType = field.FieldType.GetElementType();
@@ -472,7 +440,6 @@ internal static class WarpResolver
                         field.SetValue(rtObj, newArr);
                         resolved++;
 
-                        // Walk the newly created array
                         for (int i = 0; i < jsonArr.Count; i++)
                         {
                             if (jsonArr[i] is Dictionary<string, object> elemDict)
@@ -487,29 +454,47 @@ internal static class WarpResolver
                         }
                     }
                 }
+                continue;
             }
-            // Nested object -> recurse into serializable (non-Unity.Object) fields
-            else if (kvp.Value is Dictionary<string, object> nested)
+
+            // Scalar values: int, float, bool, string
+            if (field.FieldType == typeof(int) && (kvp.Value is double dv || kvp.Value is long))
             {
-                if (typeof(UnityEngine.Object).IsAssignableFrom(field.FieldType))
-                    continue;
-
-                var rtVal = field.GetValue(rtObj);
-
-                // Create null serializable objects if JSON has data for them
-                if (rtVal == null && IsSerializableType(field.FieldType))
+                int iv = kvp.Value is double d2 ? (int)d2 : (int)(long)kvp.Value;
+                if ((int)field.GetValue(rtObj) != iv)
                 {
-                    try { rtVal = Activator.CreateInstance(field.FieldType); field.SetValue(rtObj, rtVal); resolved++; }
-                    catch { continue; }
+                    field.SetValue(rtObj, iv);
+                    resolved++;
                 }
-
-                if (rtVal != null)
+                continue;
+            }
+            if (field.FieldType == typeof(float) && kvp.Value is double fd)
+            {
+                float fv = (float)fd;
+                if ((float)field.GetValue(rtObj) != fv)
                 {
-                    int r = Walk(rtVal, nested);
-                    resolved += r;
-                    if (field.FieldType.IsValueType)
-                        field.SetValue(rtObj, rtVal);
+                    field.SetValue(rtObj, fv);
+                    resolved++;
                 }
+                continue;
+            }
+            if (field.FieldType == typeof(bool) && kvp.Value is bool bv)
+            {
+                if ((bool)field.GetValue(rtObj) != bv)
+                {
+                    field.SetValue(rtObj, bv);
+                    resolved++;
+                }
+                continue;
+            }
+            if (field.FieldType == typeof(string) && kvp.Value is string sv)
+            {
+                if ((string)field.GetValue(rtObj) != sv)
+                {
+                    field.SetValue(rtObj, sv);
+                    resolved++;
+                }
+                continue;
             }
         }
 

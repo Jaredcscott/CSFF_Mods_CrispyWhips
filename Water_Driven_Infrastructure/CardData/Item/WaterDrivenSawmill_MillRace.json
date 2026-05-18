@@ -51,7 +51,7 @@
       "ActionDescription": {
         "ParentObjectID": "water_sawmill_mill_race",
         "LocalizationKey": "Water_Sawmill_MillRace_Dismantle_ActionDescription",
-        "DefaultText": "Break down the mill race and recover the plank."
+        "DefaultText": "Break down the mill race and recover the planks."
       },
       "DaytimeCost": 2,
       "UseMiniTicks": 0,

@@ -12,7 +12,7 @@
     },
     "CardType": 7,
     "StartUnlocked": true,
-    "BlueprintUnlockTicksCost": 4.0,
+    "BlueprintUnlockTicksCost": 8.0,
     "BuildingStatConditions": [],
     "CardsOnBoard": [
         {
@@ -95,6 +95,7 @@
             "DroppedCardWarpType": 3
         }
     ],
+    "BlueprintStatModifications": [],
     "WhenCreatedSoundsWarpData": [
         "Wood"
     ],

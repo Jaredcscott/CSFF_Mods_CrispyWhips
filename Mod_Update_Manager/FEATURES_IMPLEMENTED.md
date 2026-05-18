@@ -16,10 +16,6 @@ This document describes what is actually wired in the shipped mod. Planned featu
 - Lightweight conflict hints based on known names and broad functionality patterns.
 - Basic update analytics derived from the current checked mod list.
 
-## API Present But Not Exposed In UI
-
-- `NexusApiClient.GetChangelog()` exists, but the dashboard does not display changelogs or beta-compatibility release notes yet.
-
 ## Not Shipped
 
 - Automatic downloads or installs.

@@ -48,7 +48,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_unfired_pickle_vat",
-            "LocalizationKey": "Herbs_And_Fungi_UnfiredPickleVat_SpecialDurability1.CardStatName",
+            "LocalizationKey": "Herbs_And_Fungi_UnfiredPickleVat_SpecialDurability1_CardStatName",
             "DefaultText": "Fired"
         },
         "MaxValue": 12.0,
@@ -85,7 +85,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_unfired_pickle_vat",
-            "LocalizationKey": "Herbs_And_Fungi_UnfiredPickleVat_SpecialDurability2.CardStatName",
+            "LocalizationKey": "Herbs_And_Fungi_UnfiredPickleVat_SpecialDurability2_CardStatName",
             "DefaultText": "Quality"
         },
         "MaxValue": 100.0,

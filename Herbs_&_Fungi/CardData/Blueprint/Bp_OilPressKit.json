@@ -16,7 +16,7 @@
         "LocalizationKey": "herbs_fungi_bp_oil_press_kit_UnlockConditionsDesc",
         "DefaultText": "Unlocked after crafting Oil Press Utensils"
     },
-    "BlueprintUnlockTicksCost": 8.0,
+    "BlueprintUnlockTicksCost": 16.0,
     "BuildingStatConditions": [],
     "StartUnlocked": false,
     "CardsOnBoard": [

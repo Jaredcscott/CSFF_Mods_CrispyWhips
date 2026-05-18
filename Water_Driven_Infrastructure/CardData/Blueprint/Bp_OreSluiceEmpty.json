@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "water_sawmill_bp_ore_sluice_empty",
         "LocalizationKey": "Water_Sawmill_Bp_OreSluiceEmpty_CardDescription",
-        "DefaultText": "Hammer together a basic sluice box frame from planks."
+        "DefaultText": "Hammer together a basic sluice box frame from planks and copper nails."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {
@@ -53,19 +53,6 @@
             "OnlyInHand": false,
             "NotInHand": false,
             "ExcludeInventories": false,
-            "Inverted": false,
-            "OnlyEquipped": false,
-            "TriggerTagWarpData": "tag_River",
-            "TriggerTagWarpType": 3
-        },
-        {
-            "TriggerTag": {
-                "m_FileID": 0,
-                "m_PathID": 0
-            },
-            "OnlyInHand": false,
-            "NotInHand": false,
-            "ExcludeInventories": false,
             "Inverted": true,
             "OnlyEquipped": false,
             "TriggerTagWarpData": "tag_EnvIndoors",
@@ -84,6 +71,16 @@
                     "RequiredQuantity": 12,
                     "DontSpend": false,
                     "RequiredCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 6,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "advanced_copper_tools_copper_nails",
                     "RequiredCardWarpType": 3
                 },
                 {
@@ -142,6 +139,6 @@
         "Wood"
     ],
     "WhenCreatedSoundsWarpType": 3,
-    "BlueprintUnlockTicksCost": 8.0,
+    "BlueprintUnlockTicksCost": 16.0,
     "ResearchedNotification": 0
 }

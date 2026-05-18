@@ -14,7 +14,7 @@
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_grinding_mill_kit",
     "LocalizationKey": "Water_Sawmill_GrindingMillKit_CardHelpSection",
-    "DefaultText": "<b>Use:</b> Place near a river with a local mill race to set up the grinding mill.\n\n<b>Scale:</b> This is a large construction project requiring water power."
+    "DefaultText": "<b>Use:</b> Place near water or a connected mill race outlet to set up the grinding mill.\n\n<b>Scale:</b> This is a large construction project requiring water power."
   },    "CardImage": {
         "m_FileID": 0,
         "m_PathID": 0
@@ -62,18 +62,7 @@
       "ActionSoundsWarpData": ["Stone"],
       "ActionSoundsWarpType": 3,
       "RequiredCardsOnBoard": [],
-      "RequiredTagsOnBoard": [
-        {
-          "TriggerTag": { "m_FileID": 0, "m_PathID": 0 },
-          "TriggerTagWarpData": "tag_River",
-          "TriggerTagWarpType": 3,
-          "Inverted": false,
-          "OnlyInHand": false,
-          "NotInHand": false,
-          "ExcludeInventories": false,
-          "OnlyEquipped": false
-        }
-      ],
+      "RequiredTagsOnBoard": [],
       "HideIfConditionsNotMet": true,
       "ReceivingCardChanges": {
         "ModType": 2,

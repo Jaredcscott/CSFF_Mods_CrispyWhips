@@ -39,7 +39,7 @@
   "ObjectWeight": 200.0,
   "TradingValue": 800.0,
   "CardTags": [],
-  "CardTagsWarpData": [],
+  "CardTagsWarpData": ["tag_Metal", "tag_CopperBig"],
   "CardTagsWarpType": 3,
   "EquipmentTags": [],
   "EquipmentTagsWarpData": [],
@@ -171,7 +171,36 @@
     "NOTAcceptedTypes": [],
     "NOTAcceptedTags": [],
     "CardFilters": [],
-    "TagFilters": []
+    "TagFilters": [
+      {
+        "Tag": { "m_FileID": 0, "m_PathID": 0 },
+        "TagWarpData": "tag_LargeAnimal",
+        "TagWarpType": 3,
+        "NOT": true,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Tag": { "m_FileID": 0, "m_PathID": 0 },
+        "TagWarpData": "tag_MediumAnimal",
+        "TagWarpType": 3,
+        "NOT": true,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Tag": { "m_FileID": 0, "m_PathID": 0 },
+        "TagWarpData": "tag_SmallAnimal",
+        "TagWarpType": 3,
+        "NOT": true,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Tag": { "m_FileID": 0, "m_PathID": 0 },
+        "TagWarpData": "tag_TinyAnimal",
+        "TagWarpType": 3,
+        "NOT": true,
+        "OnlyWithLiquid": false
+      }
+    ]
   },
   "SpillsInventoryOnDestroy": true,
   "BlueprintStages": [],

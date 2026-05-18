@@ -28,7 +28,7 @@
   "PerkDescription": {
     "ParentObjectID": "water_sawmill_perk_sawmill_start",
     "LocalizationKey": "Water_Sawmill_Perk_SawmillStart_PerkDescription",
-    "DefaultText": "Start with a water-driven sawmill frame ready to be placed and constructed near a river."
+    "DefaultText": "Start with a water-driven sawmill kit ready to place near water or a connected mill race outlet."
   },
   "PerkUnlockConditions": {
     "ParentObjectID": "",

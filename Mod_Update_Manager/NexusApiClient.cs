@@ -21,7 +21,7 @@ namespace mod_update_manager
         public string Status { get; set; }
         public string Changelog { get; set; }
         public List<NexusModFile> Files { get; set; }
-        public int DownloadCount { get; set; }
+        public int EndorsementCount { get; set; }
     }
 
     /// <summary>
@@ -213,15 +213,15 @@ namespace mod_update_manager
                 Status = dict.ContainsKey("status") ? dict["status"] : null,
                 Changelog = dict.ContainsKey("changelog") ? dict["changelog"] : null,
                 Files = new List<NexusModFile>(),
-                DownloadCount = 0
+                EndorsementCount = 0
             };
 
             if (dict.ContainsKey("mod_id") && int.TryParse(dict["mod_id"], out int modId))
                 response.ModId = modId;
             if (dict.ContainsKey("game_id") && int.TryParse(dict["game_id"], out int gameId))
                 response.GameId = gameId;
-            if (dict.ContainsKey("endorsement_count") && int.TryParse(dict["endorsement_count"], out int downloads))
-                response.DownloadCount = downloads;
+            if (dict.ContainsKey("endorsement_count") && int.TryParse(dict["endorsement_count"], out int endorsements))
+                response.EndorsementCount = endorsements;
 
             return response;
         }

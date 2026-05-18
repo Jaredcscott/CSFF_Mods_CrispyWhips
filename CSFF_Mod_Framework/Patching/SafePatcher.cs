@@ -17,7 +17,7 @@ internal static class SafePatcher
         }
         catch (Exception ex)
         {
-            Util.Log.Error($"Failed to patch {typeName}.{methodName}: {ex.Message}");
+            Util.Log.Error($"Failed to patch {typeName}.{methodName}: {FullException(ex)}");
             return false;
         }
     }
@@ -36,8 +36,12 @@ internal static class SafePatcher
         }
         catch (Exception ex)
         {
-            Util.Log.Error($"Failed to patch {type.Name}.{methodName}: {ex.Message}");
+            var typeLabel = type?.Name ?? "<null>";
+            Util.Log.Error($"Failed to patch {typeLabel}.{methodName}: {FullException(ex)}");
             return false;
         }
     }
+
+    private static string FullException(Exception ex)
+        => ex.InnerException?.ToString() ?? ex.ToString();
 }

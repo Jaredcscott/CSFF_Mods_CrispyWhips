@@ -25,17 +25,33 @@ namespace Herbs_And_Fungi.Patcher
             try
             {
                 var gameLoadType = AccessTools.TypeByName("GameLoad");
+                if (gameLoadType == null)
+                {
+                    Logger.LogError("GameLoad type not found; Herbs and Fungi load patches were not applied.");
+                    return;
+                }
+
                 var loadMainGameDataMethod = AccessTools.Method(gameLoadType, "LoadMainGameData");
+                if (loadMainGameDataMethod == null)
+                {
+                    Logger.LogError("GameLoad.LoadMainGameData not found; Herbs and Fungi load patches were not applied.");
+                    return;
+                }
 
                 var postfixMethod = AccessTools.Method(typeof(GameLoadPatch), nameof(LoadMainGameData_Postfix));
+                if (postfixMethod == null)
+                {
+                    Logger.LogError("GameLoadPatch.LoadMainGameData_Postfix not found; Herbs and Fungi load patches were not applied.");
+                    return;
+                }
+
                 harmony.Patch(loadMainGameDataMethod, postfix: new HarmonyMethod(postfixMethod));
 
                 // Blueprint tab injection is now handled by CSFFModFramework's BlueprintInjector
             }
             catch (Exception ex)
             {
-                Logger.LogError($"Failed to patch GameLoad.LoadMainGameData: {ex.Message}");
-                Logger.LogError($"Stack trace: {ex.StackTrace}");
+                Logger.LogError($"Failed to patch GameLoad.LoadMainGameData: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
         }
 
@@ -147,27 +163,12 @@ namespace Herbs_And_Fungi.Patcher
                     var plantationCardsField = item.GetType().GetField("PlantationCards", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
                     if (plantationCardsField == null) continue;
 
-                    var plantationCards = plantationCardsField.GetValue(item) as IList;
-                    if (plantationCards == null)
-                    {
-                        plantationCards = new List<object>();
-                        plantationCardsField.SetValue(item, plantationCards);
-                    }
+                    var plantationCards = plantationCardsField.GetValue(item);
+                    if (ContainsPlantationCard(plantationCards, hempSeeds, hempPlantGrowing)) continue;
 
-                    // Check if hemp already present
-                    bool hempAlreadyPresent = false;
-                    foreach (var card in plantationCards)
+                    if (!TryAddPlantationCard(item, plantationCardsField, plantationCards, hempSeeds))
                     {
-                        if (card == hempSeeds || card == hempPlantGrowing)
-                        {
-                            hempAlreadyPresent = true;
-                            break;
-                        }
-                    }
-
-                    if (!hempAlreadyPresent)
-                    {
-                        plantationCards.Add(hempSeeds);
+                        Logger?.LogDebug($"[HempSeeds] Could not append hemp seed to {localizationKey} PlantationCards ({plantationCardsField.FieldType.Name})");
                     }
                 }
             }
@@ -175,6 +176,94 @@ namespace Herbs_And_Fungi.Patcher
             {
                 Logger?.LogError($"[HempSeeds] Error adding hemp plantation support: {ex.Message}");
             }
+        }
+
+        private static bool ContainsPlantationCard(object plantationCards, object hempSeeds, object hempPlantGrowing)
+        {
+            if (plantationCards is not IEnumerable cards) return false;
+
+            foreach (var card in cards)
+            {
+                if (card == hempSeeds || card == hempPlantGrowing) return true;
+            }
+
+            return false;
+        }
+
+        private static bool TryAddPlantationCard(object item, FieldInfo plantationCardsField, object plantationCards, object hempSeeds)
+        {
+            try
+            {
+                if (plantationCards is Array array)
+                {
+                    var elementType = plantationCardsField.FieldType.GetElementType() ?? hempSeeds.GetType();
+                    var expandedArray = Array.CreateInstance(elementType, array.Length + 1);
+                    Array.Copy(array, expandedArray, array.Length);
+                    expandedArray.SetValue(hempSeeds, array.Length);
+                    plantationCardsField.SetValue(item, expandedArray);
+                    return true;
+                }
+
+                if (plantationCards is IList list && !list.IsFixedSize && !list.IsReadOnly)
+                {
+                    list.Add(hempSeeds);
+                    return true;
+                }
+
+                if (plantationCards == null)
+                {
+                    return TryCreatePlantationCards(item, plantationCardsField, hempSeeds);
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger?.LogDebug($"[HempSeeds] PlantationCards append failed: {ex.Message}");
+            }
+
+            return false;
+        }
+
+        private static bool TryCreatePlantationCards(object item, FieldInfo plantationCardsField, object hempSeeds)
+        {
+            var fieldType = plantationCardsField.FieldType;
+
+            if (fieldType.IsArray)
+            {
+                var elementType = fieldType.GetElementType() ?? hempSeeds.GetType();
+                var array = Array.CreateInstance(elementType, 1);
+                array.SetValue(hempSeeds, 0);
+                plantationCardsField.SetValue(item, array);
+                return true;
+            }
+
+            if (typeof(IList).IsAssignableFrom(fieldType) && !fieldType.IsAbstract && !fieldType.IsInterface)
+            {
+                var list = Activator.CreateInstance(fieldType) as IList;
+                if (list != null)
+                {
+                    list.Add(hempSeeds);
+                    plantationCardsField.SetValue(item, list);
+                    return true;
+                }
+            }
+
+            if (fieldType.IsGenericType)
+            {
+                var genericArguments = fieldType.GetGenericArguments();
+                if (genericArguments.Length == 1)
+                {
+                    var listType = typeof(List<>).MakeGenericType(genericArguments[0]);
+                    if (fieldType.IsAssignableFrom(listType))
+                    {
+                        var list = Activator.CreateInstance(listType) as IList;
+                        list?.Add(hempSeeds);
+                        plantationCardsField.SetValue(item, list);
+                        return list != null;
+                    }
+                }
+            }
+
+            return false;
         }
 
         /// <summary>
@@ -203,6 +292,7 @@ namespace Herbs_And_Fungi.Patcher
 
                 // New herbs
                 object ginseng = null;
+                object ginger = null;
 
                 // Newest additions - Black Trumpet, Shiitake, Yarrow
                 object blackTrumpet = null;
@@ -232,6 +322,7 @@ namespace Herbs_And_Fungi.Patcher
                     else if (uniqueId == "herbs_fungi_truffle") truffle = item;
                     // New herbs
                     else if (uniqueId == "herbs_fungi_ginseng") ginseng = item;
+                    else if (uniqueId == "herbs_fungi_ginger") ginger = item;
                     // Newest additions
                     else if (uniqueId == "herbs_fungi_black_trumpet") blackTrumpet = item;
                     else if (uniqueId == "herbs_fungi_shiitake") shiitake = item;
@@ -415,6 +506,12 @@ namespace Herbs_And_Fungi.Patcher
                             else if (isClearing && !isPineMeadow && yarrow != null)
                             {
                                 AddMushroomDropToAction(producedCards, yarrow, 6.0f, false, false, true);
+                            }
+
+                            // Wild Ginger in river banks and willow areas (6% chance) - Spring/Summer/Fall only
+                            if ((isRiverBank || isWillowArea) && ginger != null)
+                            {
+                                AddMushroomDropToAction(producedCards, ginger, 6.0f, false, false, true);
                             }
 
                             // === NEWEST MUSHROOMS ===
@@ -737,8 +834,8 @@ namespace Herbs_And_Fungi.Patcher
         }
 
         /// <summary>
-        /// Injects a Tendon-specific CookingRecipe onto the vanilla DryingRack and (if loaded)
-        /// both ACT Tea Blending Station variants. Tendon's "Wetness" countdown lives on
+        /// Injects a Tendon-specific CookingRecipe onto the vanilla DryingRack, H&F Drying Tray,
+        /// and (if loaded) both ACT Tea Blending Station variants. Tendon's "Wetness" countdown lives on
         /// FuelCapacity (-1/dtp passive). The drying rack's built-in recipes only drive
         /// UsageChange, so without this injection the rack has no effect on Tendon.
         /// The injected recipe drives FuelChange: -2/dtp, tripling the dry rate on any
@@ -748,10 +845,11 @@ namespace Herbs_And_Fungi.Patcher
         {
             const string TendonGuid      = "6d9b61e72f4d5334d91da54dcd939a8a";
             const string DryingRackGuid  = "4e2b3e00c88f8d14cb52a614584a66d5";
+            const string DryingTrayId    = "herbs_fungi_drying_tray";
             const string TeaStationId    = "advanced_copper_tools_tea_blending_station";
             const string TeaStationLitId = "advanced_copper_tools_tea_blending_station_lit";
 
-            object tendon = null, dryingRack = null, teaStation = null, teaStationLit = null;
+            object tendon = null, dryingRack = null, dryingTray = null, teaStation = null, teaStationLit = null;
 
             foreach (var item in allDataEnumerable)
             {
@@ -759,6 +857,7 @@ namespace Herbs_And_Fungi.Patcher
                 var uid = AccessTools.Field(item.GetType(), "UniqueID")?.GetValue(item) as string;
                 if      (uid == TendonGuid)       tendon       = item;
                 else if (uid == DryingRackGuid)   dryingRack   = item;
+                else if (uid == DryingTrayId)     dryingTray   = item;
                 else if (uid == TeaStationId)     teaStation   = item;
                 else if (uid == TeaStationLitId)  teaStationLit = item;
             }
@@ -767,6 +866,7 @@ namespace Herbs_And_Fungi.Patcher
             if (dryingRack == null){ Logger?.LogError("[TendonDry] DryingRack not found in AllData."); return; }
 
             InjectTendonDryingRecipe(dryingRack,    tendon, "DryingRack");
+            if (dryingTray   != null) InjectTendonDryingRecipe(dryingTray,   tendon, "DryingTray");
             if (teaStation    != null) InjectTendonDryingRecipe(teaStation,    tendon, "TeaBlendingStation");
             if (teaStationLit != null) InjectTendonDryingRecipe(teaStationLit, tendon, "TeaBlendingStationLit");
         }

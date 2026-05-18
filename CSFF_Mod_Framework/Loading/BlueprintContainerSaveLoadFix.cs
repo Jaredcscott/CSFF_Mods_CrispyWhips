@@ -24,15 +24,14 @@ namespace CSFFModFramework.Loading;
 /// Fix: schedule a coroutine after WarpResolver to:
 ///   1. Yield one frame to let any in-flight Init coroutines complete and
 ///      ensure <c>GameManager.AllCards</c> is fully populated.
-///   2. Iterate every <c>InGameCardBase</c> in the scene (via the master
-///      AllCards list, with <c>FindObjectsOfTypeAll</c> fallback if AllCards
-///      is empty for any reason).
+///   2. Iterate every <c>InGameCardBase</c> tracked by the master
+///      <c>GameManager.AllCards</c> list.
 ///   3. For each blueprint container with stale <c>CardsInInventory</c>,
 ///      reflect-invoke the game's own <c>SpawnDefaultContainedBlueprints</c>
 ///      so behavior matches a fresh placement exactly.
 ///
-/// Logs every step at Info so the trace is visible in <c>LogOutput.log</c>
-/// without needing VerboseLogging enabled.
+/// Logs normal no-op details at Debug and only surfaces actual repairs or
+/// exceptional fallback paths at Info/Warning.
 ///
 /// Pattern is generic — applies to any modded blueprint container, not
 /// just OilPress.
@@ -42,24 +41,131 @@ internal static class BlueprintContainerSaveLoadFix
     private static bool _subscribedToGmInitialized;
     private static Action _gmInitializedHandler;
 
+    // True once OnGMInitialized has fired at least once this session.
+    // The fresh-placement patch must NOT run during save loading — the synchronous
+    // coroutine drain was causing the game to freeze before FinishInitializing
+    // completed when ModCore is present. DeferredRun handles the save-load path.
+    private static bool _isInGameplay;
+
+    // --- Fresh-placement patch state ---
+    // Prefix captures the container card; postfix uses it to wrap the IEnumerator.
+    // Single-threaded Unity game loop — no concurrent placements possible.
+    private static object _pendingCard;
+    private static MethodInfo _freshSetBpAvailable;
+
     public static void Schedule()
     {
-        // The boot-time call subscribes to GameManager.OnGMInitialized so the fix
-        // re-fires after every save load, when GameManager exists and AllCards is
-        // populated. The boot pass itself is a no-op (no save loaded).
-        TrySubscribeToGameManagerInitialized();
+        // Reset gameplay flag — save loading is starting and we are not yet in gameplay.
+        // SpawnDefault_Postfix must not run its fresh-placement logic until after
+        // OnGMInitialized fires (which sets _isInGameplay = true).
+        _isInGameplay = false;
 
-        // Plugin.Instance is a MonoBehaviour — used to host the deferred coroutine
-        // so we can yield one frame after WarpResolver before walking AllCards.
-        var host = Plugin.Instance;
-        if (host == null)
-        {
-            Log.Warn("[BlueprintContainerSaveLoadFix] Plugin.Instance unavailable — running synchronously (timing may miss late Init coroutines)");
-            try { RunNow(); } catch (Exception ex) { Log.Warn($"[BlueprintContainerSaveLoadFix] sync run failed: {ex}"); }
-            return;
-        }
-        host.StartCoroutine(DeferredRun());
+        // Subscribe to GameManager.OnGMInitialized so the refresh pass fires after every
+        // save load, when GameManager exists and AllCards is populated. No boot-time pass —
+        // it would always be a no-op (no save loaded yet) and just adds log noise.
+        TrySubscribeToGameManagerInitialized();
     }
+
+    /// <summary>
+    /// Patches <c>GameManager.SpawnDefaultContainedBlueprints</c> so that freshly placed
+    /// blueprint containers (e.g. Water-Driven Workshop placed via blueprint during gameplay)
+    /// have their contained blueprints marked Available immediately after spawning.
+    ///
+    /// Without this, <c>SetBpAvailable</c> is only called by the save/load fix on
+    /// <c>OnGMInitialized</c> — a freshly placed station must be saved and reloaded before
+    /// its Recipes tab becomes functional.
+    /// </summary>
+    public static void ApplyFreshPlacementPatch(Harmony harmony)
+    {
+        try
+        {
+            var gmType = AccessTools.TypeByName("GameManager");
+            if (gmType == null)
+            {
+                Log.Warn("[BlueprintContainerSaveLoadFix] GameManager type not found — fresh-placement patch unavailable");
+                return;
+            }
+
+            var method = AccessTools.Method(gmType, "SpawnDefaultContainedBlueprints");
+            if (method == null)
+            {
+                Log.Warn("[BlueprintContainerSaveLoadFix] SpawnDefaultContainedBlueprints not found — fresh-placement patch unavailable");
+                return;
+            }
+
+            _freshSetBpAvailable = AccessTools.Method(gmType, "SetBpAvailable");
+            if (_freshSetBpAvailable == null)
+                Log.Warn("[BlueprintContainerSaveLoadFix] SetBpAvailable not found — fresh-placement unlock degraded");
+
+            harmony.Patch(method,
+                prefix:  new HarmonyMethod(typeof(BlueprintContainerSaveLoadFix), nameof(SpawnDefault_Prefix)),
+                postfix: new HarmonyMethod(typeof(BlueprintContainerSaveLoadFix), nameof(SpawnDefault_Postfix)));
+
+            Log.Debug("[BlueprintContainerSaveLoadFix] SpawnDefaultContainedBlueprints patched for fresh-placement unlock");
+        }
+        catch (Exception ex)
+        {
+            Log.Warn($"[BlueprintContainerSaveLoadFix] fresh-placement patch setup failed: {Log.ExceptionText(ex)}");
+        }
+    }
+
+    // Captures the container card before SpawnDefaultContainedBlueprints runs.
+    // __0 is the first parameter (the blueprint container InGameCardBase).
+    private static bool SpawnDefault_Prefix(object __0)
+    {
+        _pendingCard = __0;
+        ResetStaleContainedBlueprintSlots(__0);
+        return true;
+    }
+
+    // Fresh-placement postfix: wraps the spawned IEnumerator so blueprint unlock
+    // fires asynchronously after the original coroutine completes.
+    //
+    // IMPORTANT: only active during gameplay (_isInGameplay == true). During save
+    // loading, SpawnDefaultContainedBlueprints fires for every placed card before
+    // FinishInitializing completes. A synchronous coroutine drain in that path
+    // causes a reproducible freeze when ModCore is installed alongside the framework.
+    // The save-load path is handled by DeferredRun (via OnGMInitialized).
+    private static void SpawnDefault_Postfix(object __instance, ref IEnumerator __result)
+    {
+        var card = _pendingCard;
+        _pendingCard = null;
+
+        if (!_isInGameplay) return;
+        if (card == null || _freshSetBpAvailable == null) return;
+        if (ContainerStartsBlueprintsLocked(card)) return;
+
+        __result = FreshPlacementWrapper(__result, card, __instance, _freshSetBpAvailable);
+    }
+
+    // Yields through the original spawn coroutine frame-by-frame, then unlocks
+    // contained blueprints. Async so it never blocks the main thread.
+    private static IEnumerator FreshPlacementWrapper(
+        IEnumerator original, object card, object gmInstance, MethodInfo setBpAvailable)
+    {
+        while (true)
+        {
+            bool hasNext;
+            try { hasNext = original.MoveNext(); }
+            catch { yield break; }
+            if (!hasNext) break;
+            yield return original.Current;
+        }
+
+        try
+        {
+            EnsureContainedBlueprintStates(card, gmInstance);
+            int count = UnlockContainedBlueprints(card, gmInstance, setBpAvailable);
+            if (count > 0)
+                Log.Debug($"[BlueprintContainerSaveLoadFix] fresh placement: marked {count} blueprint(s) Available for {DescribeCard(card)}");
+        }
+        catch (Exception ex)
+        {
+            Log.Warn($"[BlueprintContainerSaveLoadFix] fresh-placement unlock failed: {Log.ExceptionText(ex)}");
+        }
+    }
+
+    private static IEnumerator EmptyCoroutine() { yield break; }
 
     /// <summary>
     /// Subscribes to <c>GameManager.OnGMInitialized</c> (a public static Action field
@@ -92,7 +198,7 @@ internal static class BlueprintContainerSaveLoadFix
             field.SetValue(null, combined);
 
             _subscribedToGmInitialized = true;
-            Log.Info("[BlueprintContainerSaveLoadFix] subscribed to GameManager.OnGMInitialized");
+            Log.Debug("[BlueprintContainerSaveLoadFix] subscribed to GameManager.OnGMInitialized");
         }
         catch (Exception ex)
         {
@@ -102,11 +208,12 @@ internal static class BlueprintContainerSaveLoadFix
 
     private static void OnGameManagerInitialized()
     {
-        Log.Info("[BlueprintContainerSaveLoadFix] GameManager.OnGMInitialized fired — scheduling save-load refresh");
+        _isInGameplay = true;
+        Log.Debug("[BlueprintContainerSaveLoadFix] GameManager.OnGMInitialized fired — scheduling save-load refresh");
         var host = Plugin.Instance;
         if (host == null)
         {
-            try { RunNow(); } catch (Exception ex) { Log.Warn($"[BlueprintContainerSaveLoadFix] post-init sync run failed: {ex}"); }
+            try { RunSync(); } catch (Exception ex) { Log.Warn($"[BlueprintContainerSaveLoadFix] post-init sync run failed: {ex}"); }
             return;
         }
         host.StartCoroutine(DeferredRun());
@@ -117,25 +224,62 @@ internal static class BlueprintContainerSaveLoadFix
         // Yield once so any Init coroutines started during save load can complete
         // and AllCards is fully populated.
         yield return null;
+
+        // Setup is wrapped in try/catch (yield not allowed inside try). The heavy
+        // per-card loop runs in a separate coroutine that yields every 100 cards
+        // so the loading screen stays responsive on saves with many cards.
+        RunContext ctx;
         try
         {
-            RunNow();
+            ctx = PrepareRunContext();
         }
         catch (Exception ex)
         {
-            Log.Warn($"[BlueprintContainerSaveLoadFix] coroutine run failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
+            Log.Warn($"[BlueprintContainerSaveLoadFix] setup failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
+            yield break;
+        }
+        if (ctx == null) yield break;
+
+        // Yielded loop: the main thread can paint frames between batches.
+        var enumerator = RunNowCoroutine(ctx);
+        while (true)
+        {
+            object next;
+            try
+            {
+                if (!enumerator.MoveNext()) break;
+                next = enumerator.Current;
+            }
+            catch (Exception ex)
+            {
+                Log.Warn($"[BlueprintContainerSaveLoadFix] loop failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                yield break;
+            }
+            yield return next;
         }
     }
 
-    private static void RunNow()
+    private sealed class RunContext
     {
-        Log.Info("[BlueprintContainerSaveLoadFix] starting refresh pass");
+        public object GmInstance;
+        public Type GmType;
+        public MethodInfo SpawnMethod;
+        public MethodInfo StartCoroutineMethod;
+        public MethodInfo SetBpAvailable;
+        public List<object> Cards;
+    }
+
+    private static RunContext PrepareRunContext()
+    {
+        Log.Debug("[BlueprintContainerSaveLoadFix] starting refresh pass");
 
         var gmInstance = GetGameManagerInstance();
         if (gmInstance == null)
         {
-            Log.Info("[BlueprintContainerSaveLoadFix] GameManager.Instance == null (likely first launch, no save loaded) → skip");
-            return;
+            // Should not happen — we only run via OnGMInitialized, which fires after the
+            // singleton is set. If we hit this, there's a load-order regression to investigate.
+            Log.Warn("[BlueprintContainerSaveLoadFix] GameManager.Instance == null after OnGMInitialized — skipping");
+            return null;
         }
 
         var gmType = gmInstance.GetType();
@@ -144,7 +288,7 @@ internal static class BlueprintContainerSaveLoadFix
         if (spawnMethod == null)
         {
             Log.Warn("[BlueprintContainerSaveLoadFix] GameManager.SpawnDefaultContainedBlueprints not found — fix unavailable");
-            return;
+            return null;
         }
 
         var startCoroutineMethod = gmType.GetMethod(
@@ -156,69 +300,121 @@ internal static class BlueprintContainerSaveLoadFix
         if (startCoroutineMethod == null)
         {
             Log.Warn("[BlueprintContainerSaveLoadFix] StartCoroutine(IEnumerator) not found on GameManager");
-            return;
+            return null;
         }
 
         // Resolve SetBpAvailable once — used to force BlueprintModelStates[card] = Available
-        // for every contained blueprint of every placed container. The Recipes tab on a
-        // placed container is gated by `BlueprintModelStates[bp] == Available` (igcb.cs
-        // ShouldHideContainedBlueprints / GetSelectedContainedBlueprint, line 1861). After
-        // a save load, contained blueprints can end up in the dictionary as Locked even
-        // when the cards are physically present in CardsInInventory, leaving the visible
-        // tab hidden.
+        // for every contained blueprint of every placed container.
         var setBpAvailable = AccessTools.Method(gmType, "SetBpAvailable");
         if (setBpAvailable == null)
             Log.Warn("[BlueprintContainerSaveLoadFix] GameManager.SetBpAvailable not found — Recipes-tab unlock unavailable");
 
         var cards = CollectCards(gmInstance, gmType);
-        Log.Info($"[BlueprintContainerSaveLoadFix] enumerating {cards.Count} card(s)");
+        Log.Debug($"[BlueprintContainerSaveLoadFix] enumerating {cards.Count} card(s)");
 
+        return new RunContext
+        {
+            GmInstance = gmInstance,
+            GmType = gmType,
+            SpawnMethod = spawnMethod,
+            StartCoroutineMethod = startCoroutineMethod,
+            SetBpAvailable = setBpAvailable,
+            Cards = cards,
+        };
+    }
+
+    /// <summary>
+    /// Synchronous runner for the rare case where <c>Plugin.Instance</c> is unavailable
+    /// to host the coroutine (boot ordering, postfix re-entry). Drains the same loop in
+    /// one go — no yields, so the main thread blocks for the full duration. Should not
+    /// be the normal path; <see cref="DeferredRun"/> is preferred.
+    /// </summary>
+    private static void RunSync()
+    {
+        var ctx = PrepareRunContext();
+        if (ctx == null) return;
+
+        var enumerator = RunNowCoroutine(ctx);
+        while (enumerator.MoveNext()) { /* drain */ }
+    }
+
+    private static IEnumerator RunNowCoroutine(RunContext ctx)
+    {
+        const int YieldEvery = 100;
+        int processed = 0;
         int containers = 0;
-        int candidates = 0;
         int refreshed = 0;
         int unlocked = 0;
 
-        foreach (var card in cards)
+        foreach (var card in ctx.Cards)
         {
-            if (card == null) continue;
+            processed++;
 
-            if (!IsBlueprintContainer(card)) continue;
-            containers++;
-
-            // 1) Ensure inventory slots are populated. Identity check: which expected
-            //    blueprint cards are actually present? The count-only heuristic missed
-            //    the case where Init sized CardsInInventory correctly but each slot's
-            //    MainCard is null.
-            var missing = GetMissingBlueprintCards(card);
-            if (missing != null && missing.Count > 0)
+            if (card != null && IsBlueprintContainer(card))
             {
-                candidates++;
-                Log.Info($"[BlueprintContainerSaveLoadFix] {DescribeCard(card)}: {missing.Count} blueprint card(s) missing from inventory — re-spawning");
-
-                var iter = spawnMethod.Invoke(gmInstance, new[] { card }) as IEnumerator;
-                if (iter != null)
-                {
-                    startCoroutineMethod.Invoke(gmInstance, new object[] { iter });
-                    refreshed++;
-                    Log.Info($"[BlueprintContainerSaveLoadFix] re-spawned blueprints for {DescribeCard(card)}");
-                }
-                else
-                {
-                    Log.Warn($"[BlueprintContainerSaveLoadFix] SpawnDefault returned null IEnumerator for card {DescribeCard(card)}");
-                }
+                containers++;
+                ProcessOneCard(ctx, card, ref refreshed, ref unlocked);
             }
 
-            // 2) Ensure each contained blueprint is unlocked (Available state). This is
-            //    the critical fix for the Recipes-tab-missing case: cards can be in the
-            //    inventory while BlueprintModelStates[card] is still Locked, which
-            //    silently hides the tab.
-            if (setBpAvailable != null && !ContainerStartsBlueprintsLocked(card))
-            {
-                unlocked += UnlockContainedBlueprints(card, gmInstance, setBpAvailable);
-            }
+            if (processed % YieldEvery == 0)
+                yield return null;
         }
 
-        Log.Info($"[BlueprintContainerSaveLoadFix] done: {containers} blueprint container(s) seen, {candidates} stale, {refreshed} refresh coroutines started, {unlocked} blueprint(s) marked Available");
+        var summary = $"[BlueprintContainerSaveLoadFix] done: {containers} blueprint container(s) seen, {refreshed} re-spawned, {unlocked} blueprint(s) marked Available";
+        Log.Debug(summary);
+    }
+
+    private static void ProcessOneCard(RunContext ctx, object card,
+        ref int refreshed, ref int unlocked)
+    {
+        try
+        {
+            // 1) Re-invoke SpawnDefaultContainedBlueprints for every blueprint container.
+            //
+            // HasCardInInventory has a false-positive: after Init re-runs (post-WarpResolver),
+            // CardsInInventory gets N slots sized from the template but each slot has
+            // MainCard == null. HasCardInInventory checks slot existence, not whether
+            // MainCard is populated, so it returns true for empty slots.
+            //
+            // SpawnDefaultContainedBlueprints is idempotent — it calls HasCardInInventory
+            // internally and only spawns cards not already present. We drain the returned
+            // coroutine synchronously here because we are inside a coroutine (DeferredRun)
+            // and the drain is bounded (at most a few blueprint cards per container).
+            // Note: _isInGameplay is true at this point (set in OnGameManagerInitialized
+            // before DeferredRun is scheduled), so the Harmony postfix wraps the coroutine
+            // in FreshPlacementWrapper. Draining the wrapper is equivalent to draining
+            // the original — small bounded work, safe inside a yielding coroutine.
+            ResetStaleContainedBlueprintSlots(card);
+            EnsureContainedBlueprintStates(card, ctx.GmInstance);
+            var iter = ctx.SpawnMethod.Invoke(ctx.GmInstance, new[] { card }) as IEnumerator;
+            if (iter != null)
+            {
+                try
+                {
+                    while (iter.MoveNext()) { }
+                    refreshed++;
+                    Log.Debug($"[BlueprintContainerSaveLoadFix] re-spawned blueprints for {DescribeCard(card)}");
+                }
+                catch (Exception ex)
+                {
+                    Log.Warn($"[BlueprintContainerSaveLoadFix] SpawnDefault threw for {DescribeCard(card)}: {Log.ExceptionText(ex)}");
+                }
+            }
+            else
+            {
+                Log.Warn($"[BlueprintContainerSaveLoadFix] SpawnDefault returned null IEnumerator for card {DescribeCard(card)}");
+            }
+
+            // 2) Ensure each contained blueprint is unlocked (Available state).
+            if (ctx.SetBpAvailable != null && !ContainerStartsBlueprintsLocked(card))
+            {
+                unlocked += UnlockContainedBlueprints(card, ctx.GmInstance, ctx.SetBpAvailable);
+            }
+        }
+        catch (Exception ex)
+        {
+            Log.Warn($"[BlueprintContainerSaveLoadFix] processing card failed: {Log.ExceptionText(ex)}");
+        }
     }
 
     /// <summary>
@@ -270,12 +466,244 @@ internal static class BlueprintContainerSaveLoadFix
                 }
                 catch (Exception ex)
                 {
-                    Log.Warn($"[BlueprintContainerSaveLoadFix] SetBpAvailable threw for {DescribeBlueprint(bp)}: {ex.InnerException?.Message ?? ex.Message}");
+                    Log.Warn($"[BlueprintContainerSaveLoadFix] SetBpAvailable threw for {DescribeBlueprint(bp)}: {Log.ExceptionText(ex)}");
                 }
             }
             return count;
         }
         catch { return 0; }
+    }
+
+    /// <summary>
+    /// The inspector reads GM.BlueprintModelStates[containedBlueprint] directly when
+    /// selecting a recipe. If a modded contained blueprint was loaded after the game's
+    /// initial blueprint-state pass, SetBpAvailable is a no-op and the direct indexer
+    /// can keep the Recipes tab unusable. Seed missing states as Available for the
+    /// container's own recipes; the container itself remains the visibility gate.
+    /// </summary>
+    private static int EnsureContainedBlueprintStates(object card, object gmInstance)
+    {
+        try
+        {
+            if (card == null || gmInstance == null) return 0;
+
+            var contained = GetContainedBlueprints(card);
+            if (contained == null || contained.Length == 0) return 0;
+
+            var gmType = gmInstance.GetType();
+            var states = AccessTools.Field(gmType, "BlueprintModelStates")?.GetValue(gmInstance) as IDictionary;
+            if (states == null) return 0;
+
+            var stateType = states.GetType().GetGenericArguments().Length >= 2
+                ? states.GetType().GetGenericArguments()[1]
+                : null;
+            if (stateType == null || !stateType.IsEnum) return 0;
+
+            var available = Enum.Parse(stateType, "Available");
+            var allBlueprintModels = AccessTools.Field(gmType, "AllBlueprintModels")?.GetValue(gmInstance) as IList;
+
+            int added = 0;
+            foreach (var bp in contained)
+            {
+                if (bp == null) continue;
+
+                if (!states.Contains(bp))
+                {
+                    states.Add(bp, available);
+                    added++;
+                }
+
+                if (allBlueprintModels != null && !allBlueprintModels.Contains(bp))
+                    allBlueprintModels.Add(bp);
+            }
+
+            if (added > 0)
+                Log.Debug($"[BlueprintContainerSaveLoadFix] seeded {added} missing blueprint state(s) for {DescribeCard(card)}");
+
+            return added;
+        }
+        catch (Exception ex)
+        {
+            Log.Warn($"[BlueprintContainerSaveLoadFix] blueprint-state seeding failed for {DescribeCard(card)}: {Log.ExceptionText(ex)}");
+            return 0;
+        }
+    }
+
+    /// <summary>
+    /// Repairs the stale-slot shape created when a blueprint container is initialized
+    /// before WarpResolver has populated ContainedBlueprintCards. The game allocates
+    /// placeholder InventorySlot entries, and HasCardInInventory can then report that
+    /// contained blueprints already exist even when MainCard is null. Hybrid stations
+    /// can also declare normal InventorySlots; those must live after the hidden
+    /// contained-blueprint slots or the station has recipes but no usable storage.
+    /// </summary>
+    private static int ResetStaleContainedBlueprintSlots(object card)
+    {
+        try
+        {
+            if (card == null || !IsBlueprintContainer(card)) return 0;
+
+            var contained = GetContainedBlueprints(card);
+            if (contained == null || contained.Length == 0) return 0;
+
+            var slots = GetInventorySlots(card);
+            if (slots == null) return 0;
+
+            var liveSlotsByBlueprint = new Dictionary<object, object>();
+            var storageSlots = new List<object>();
+            var slotType = default(Type);
+            var containedCount = contained.Length;
+
+            for (var i = 0; i < slots.Count; i++)
+            {
+                var slot = slots[i];
+                if (slot == null) continue;
+                slotType ??= slot.GetType();
+
+                var mainCard = GetMemberValue(slot, "MainCard");
+                if (mainCard == null)
+                {
+                    if (i >= containedCount)
+                        storageSlots.Add(slot);
+                    continue;
+                }
+
+                var model = GetMemberValue(mainCard, "CardModel");
+                if (model != null && ContainsReference(contained, model) && !liveSlotsByBlueprint.ContainsKey(model))
+                {
+                    liveSlotsByBlueprint.Add(model, slot);
+                    continue;
+                }
+
+                storageSlots.Add(slot);
+            }
+
+            var missing = 0;
+            foreach (var bp in contained)
+            {
+                if (bp != null && !liveSlotsByBlueprint.ContainsKey(bp))
+                    missing++;
+            }
+
+            var desiredStorageSlots = GetHybridStorageSlotCount(card, containedCount);
+            var neededStorageSlots = Math.Max(0, desiredStorageSlots - storageSlots.Count);
+
+            if (missing == 0 && neededStorageSlots == 0 && slots.Count == containedCount + storageSlots.Count) return 0;
+
+            slotType ??= AccessTools.TypeByName("InventorySlot");
+            if (slotType == null)
+            {
+                Log.Warn($"[BlueprintContainerSaveLoadFix] InventorySlot type not found while repairing {DescribeCard(card)}");
+                return 0;
+            }
+
+            slots.Clear();
+            foreach (var bp in contained)
+            {
+                if (bp != null && liveSlotsByBlueprint.TryGetValue(bp, out var liveSlot))
+                    slots.Add(liveSlot);
+                else
+                    slots.Add(Activator.CreateInstance(slotType));
+            }
+
+            foreach (var storageSlot in storageSlots)
+                slots.Add(storageSlot);
+
+            for (var i = 0; i < neededStorageSlots; i++)
+                slots.Add(Activator.CreateInstance(slotType));
+
+            RefreshInventoryInfo(card);
+
+            if (missing > 0)
+                Log.Debug($"[BlueprintContainerSaveLoadFix] reset {missing} stale contained-blueprint slot(s) for {DescribeCard(card)}");
+
+            if (neededStorageSlots > 0)
+                Log.Debug($"[BlueprintContainerSaveLoadFix] added {neededStorageSlots} hybrid storage slot(s) for {DescribeCard(card)}");
+
+            return missing + neededStorageSlots;
+        }
+        catch (Exception ex)
+        {
+            Log.Warn($"[BlueprintContainerSaveLoadFix] contained-blueprint slot repair failed for {DescribeCard(card)}: {Log.ExceptionText(ex)}");
+            return 0;
+        }
+    }
+
+    private static int GetHybridStorageSlotCount(object card, int containedBlueprintCount)
+    {
+        try
+        {
+            var cardModel = GetMemberValue(card, "CardModel");
+            if (cardModel == null) return 0;
+
+            var inventorySlots = AccessTools.Field(cardModel.GetType(), "InventorySlots")?.GetValue(cardModel) as Array;
+            if (inventorySlots == null || inventorySlots.Length == 0) return 0;
+
+            // InGameCardBase.UpdateInventorySlots compares CardsInInventory.Count
+            // against CardModel.InventorySlots.Length for legacy inventories. For
+            // blueprint-container hybrids, the template count therefore represents
+            // total runtime slots: hidden recipe slots + normal storage slots.
+            return Math.Max(0, inventorySlots.Length - containedBlueprintCount);
+        }
+        catch { return 0; }
+    }
+
+    private static Array GetContainedBlueprints(object card)
+    {
+        var cardModelProp = card.GetType().GetProperty("CardModel", BindingFlags.Instance | BindingFlags.Public);
+        var cardModel = cardModelProp?.GetValue(card, null);
+        if (cardModel == null) return null;
+
+        var containedField = AccessTools.Field(cardModel.GetType(), "ContainedBlueprintCards");
+        return containedField?.GetValue(cardModel) as Array;
+    }
+
+    private static IList GetInventorySlots(object card)
+    {
+        var slotsField = AccessTools.Field(card.GetType(), "CardsInInventory");
+        return slotsField?.GetValue(card) as IList;
+    }
+
+    private static object GetMemberValue(object owner, string name)
+    {
+        if (owner == null) return null;
+
+        var type = owner.GetType();
+        var prop = type.GetProperty(name, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+        if (prop != null)
+            return prop.GetValue(owner, null);
+
+        var field = type.GetField(name, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+        return field?.GetValue(owner);
+    }
+
+    private static bool ContainsReference(Array values, object target)
+    {
+        if (values == null || target == null) return false;
+
+        foreach (var value in values)
+        {
+            if (ReferenceEquals(value, target))
+                return true;
+        }
+
+        return false;
+    }
+
+    private static void RefreshInventoryInfo(object card)
+    {
+        try
+        {
+            var visuals = GetMemberValue(card, "CardVisuals");
+            var update = visuals?.GetType().GetMethod(
+                "UpdateInventoryInfo",
+                BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic,
+                null,
+                Type.EmptyTypes,
+                null);
+            update?.Invoke(visuals, null);
+        }
+        catch { }
     }
 
     private static string DescribeBlueprint(object bp)
@@ -304,41 +732,21 @@ internal static class BlueprintContainerSaveLoadFix
                     if (c == null) continue;
                     if (seen.Add(c)) result.Add(c);
                 }
-                Log.Info($"[BlueprintContainerSaveLoadFix] GameManager.AllCards: {list.Count} cards");
+                Log.Debug($"[BlueprintContainerSaveLoadFix] GameManager.AllCards: {list.Count} cards");
             }
             else
             {
-                Log.Info("[BlueprintContainerSaveLoadFix] GameManager.AllCards unavailable");
+                Log.Debug("[BlueprintContainerSaveLoadFix] GameManager.AllCards unavailable");
             }
         }
         catch (Exception ex)
         {
-            Log.Warn($"[BlueprintContainerSaveLoadFix] reading AllCards failed: {ex.Message}");
+            Log.Warn($"[BlueprintContainerSaveLoadFix] reading AllCards failed: {Log.ExceptionText(ex)}");
         }
 
-        // Fallback: scan all InGameCardBase scene objects in case AllCards is empty
-        // or a card hasn't been added to it yet.
-        try
+        if (result.Count == 0)
         {
-            var igcbType = AccessTools.TypeByName("InGameCardBase");
-            if (igcbType != null)
-            {
-                var found = Resources.FindObjectsOfTypeAll(igcbType);
-                int added = 0;
-                foreach (var obj in found)
-                {
-                    if (obj == null) continue;
-                    // Skip prefabs (no scene) — only refresh placed instances
-                    if (obj is Component comp && comp.gameObject.scene.IsValid() == false) continue;
-                    if (seen.Add(obj)) { result.Add(obj); added++; }
-                }
-                if (added > 0)
-                    Log.Info($"[BlueprintContainerSaveLoadFix] FindObjectsOfTypeAll added {added} additional card(s) not in AllCards");
-            }
-        }
-        catch (Exception ex)
-        {
-            Log.Warn($"[BlueprintContainerSaveLoadFix] scene scan failed: {ex.Message}");
+            Log.Warn("[BlueprintContainerSaveLoadFix] GameManager.AllCards returned no cards; skipped refresh to avoid a broad Resources.FindObjectsOfTypeAll scene scan");
         }
 
         return result;
@@ -402,64 +810,6 @@ internal static class BlueprintContainerSaveLoadFix
             return (bool)prop.GetValue(card, null);
         }
         catch { return false; }
-    }
-
-    /// <summary>
-    /// Returns the list of expected blueprint <c>CardData</c> entries that are NOT
-    /// currently present in the container's inventory, using the same identity check
-    /// (<c>HasCardInInventory</c>) the game's own <c>SpawnDefaultContainedBlueprints</c>
-    /// uses internally. Returns <c>null</c> if the card cannot be inspected (no CardModel,
-    /// missing reflection target, etc.). An empty list means the container is fully
-    /// populated and no refresh is needed.
-    ///
-    /// Why this and not <c>CardsInInventory.Count &lt; ContainedBlueprintCards.Length</c>:
-    /// after a save load, <c>InGameCardBase.Init</c> sizes <c>CardsInInventory</c> from
-    /// the (now-populated) template, so counts match — but each <c>InventorySlot</c>
-    /// can have <c>MainCard == null</c>, leaving the visible Recipes tab empty.
-    /// Identity-based detection catches that case.
-    /// </summary>
-    private static List<object> GetMissingBlueprintCards(object card)
-    {
-        try
-        {
-            var cardType = card.GetType();
-
-            var cardModelProp = cardType.GetProperty("CardModel", BindingFlags.Instance | BindingFlags.Public);
-            var cardModel = cardModelProp?.GetValue(card, null);
-            if (cardModel == null) return null;
-
-            var containedField = AccessTools.Field(cardModel.GetType(), "ContainedBlueprintCards");
-            var containedArr = containedField?.GetValue(cardModel) as Array;
-            if (containedArr == null || containedArr.Length == 0) return new List<object>();
-
-            // Resolve InGameCardBase.HasCardInInventory(CardData) once.
-            // Signature: public bool HasCardInInventory(CardData _Card, List<InGameCardBase> _Results = null)
-            var hasMethod = cardType.GetMethods(BindingFlags.Instance | BindingFlags.Public)
-                .FirstOrDefault(m => m.Name == "HasCardInInventory");
-            if (hasMethod == null) return null;
-
-            var hasParams = hasMethod.GetParameters();
-            var missing = new List<object>();
-
-            foreach (var entry in containedArr)
-            {
-                if (entry == null) { missing.Add(null); continue; }
-
-                object[] args;
-                if (hasParams.Length == 1)      args = new[] { entry };
-                else if (hasParams.Length == 2) args = new[] { entry, null };
-                else return null;
-
-                bool present;
-                try { present = (bool)hasMethod.Invoke(card, args); }
-                catch { present = false; }
-
-                if (!present) missing.Add(entry);
-            }
-
-            return missing;
-        }
-        catch { return null; }
     }
 
     private static string DescribeCard(object card)

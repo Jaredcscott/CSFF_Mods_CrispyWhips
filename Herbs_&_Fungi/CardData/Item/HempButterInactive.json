@@ -3,20 +3,20 @@
     "CardType": 0,
     "CardName": {
         "ParentObjectID": "herbs_fungi_hemp_butter_inactive",
-        "LocalizationKey": "Herbs_And_Fungus_HempButterInactive_CardName",
+        "LocalizationKey": "Herbs_And_Fungi_HempButterInactive_CardName",
         "DefaultText": "Inactive Hemp Butter"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_hemp_butter_inactive",
-        "LocalizationKey": "Herbs_And_Fungus_HempButterInactive_CardDescription",
+        "LocalizationKey": "Herbs_And_Fungi_HempButterInactive_CardDescription",
         "DefaultText": "Raw mixture of fat and ground hemp flower. Must be heated at cooking temperature for 60-90 minutes to activate the compounds."
     },
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_hemp_butter_inactive",
-        "LocalizationKey": "Herbs_And_Fungus_HempButterInactive_CardHelpSection",
+        "LocalizationKey": "Herbs_And_Fungi_HempButterInactive_CardHelpSection",
         "DefaultText": "<b>Usage:</b> Place in a container on a fire and heat slowly.\n\n<b>Activation:</b> Requires sustained heat to activate psychoactive properties."
     },
-    "ObjectWeight": 70.0,
+    "ObjectWeight": 75,
     "TradingValue": 0.0,
     "AlwaysUpdate": true,
     "CardImage": {
@@ -38,7 +38,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_hemp_butter_inactive",
-            "LocalizationKey": "Herbs_And_Fungus_HempButterInactive_SpoilageTime_CardStatName",
+            "LocalizationKey": "Herbs_And_Fungi_HempButterInactive_SpoilageTime_CardStatName",
             "DefaultText": "Spoilage"
         },
         "MaxValue": 1800.0,
@@ -52,7 +52,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_hemp_butter_inactive",
-                "LocalizationKey": "Herbs_And_Fungus_HempButterInactive_SpoilageTime_OnFull_ActionDescription",
+                "LocalizationKey": "Herbs_And_Fungi_HempButterInactive_SpoilageTime_OnFull_ActionDescription",
                 "DefaultText": "Inactive Hemp Butter Spoiled!"
             },
             "ReceivingCardChanges": {
@@ -74,7 +74,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_hemp_butter_inactive",
-            "LocalizationKey": "Herbs_And_Fungus_HempButterInactive_FuelCapacity_CardStatName",
+            "LocalizationKey": "Herbs_And_Fungi_HempButterInactive_FuelCapacity_CardStatName",
             "DefaultText": "Temperature"
         },
         "MaxValue": 200.0,
@@ -91,7 +91,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_hemp_butter_inactive",
-            "LocalizationKey": "Herbs_And_Fungus_HempButterInactive_Progress_CardStatName",
+            "LocalizationKey": "Herbs_And_Fungi_HempButterInactive_Progress_CardStatName",
             "DefaultText": "Activation Progress"
         },
         "MaxValue": 6.0,
@@ -105,7 +105,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_hemp_butter_inactive",
-                "LocalizationKey": "Herbs_And_Fungus_HempButterInactive_Progress_OnFull_ActionDescription",
+                "LocalizationKey": "Herbs_And_Fungi_HempButterInactive_Progress_OnFull_ActionDescription",
                 "DefaultText": "Hemp butter has been activated! The aromatic liquid contains powerful psychoactive compounds."
             },
             "ReceivingCardChanges": {
@@ -131,7 +131,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_hemp_butter_inactive",
-            "LocalizationKey": "Herbs_And_Fungus_HempButterInactive_SpecialDurability2_CardStatName",
+            "LocalizationKey": "Herbs_And_Fungi_HempButterInactive_SpecialDurability2_CardStatName",
             "DefaultText": "Quality"
         },
         "MaxValue": 192.0,
@@ -209,12 +209,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_hemp_butter_inactive",
-                "LocalizationKey": "Herbs_And_Fungus_HempButterInactive_CardInteractions0_ActionName",
+                "LocalizationKey": "Herbs_And_Fungi_HempButterInactive_CardInteractions0_ActionName",
                 "DefaultText": "Melt"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_hemp_butter_inactive",
-                "LocalizationKey": "Herbs_And_Fungus_HempButterInactive_CardInteractions0_ActionDescription",
+                "LocalizationKey": "Herbs_And_Fungi_HempButterInactive_CardInteractions0_ActionDescription",
                 "DefaultText": "The butter melts quickly in the flames! You need to cook it in a bowl or pot, not directly on fire."
             },
             "DaytimeCost": 0,

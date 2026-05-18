@@ -14,7 +14,7 @@
   "UnlockConditionsDesc": {
     "ParentObjectID": "advanced_copper_tools_bp_copper_oil_flask",
     "LocalizationKey": "Advanced_Copper_Tools_Bp_CopperOilFlask_UnlockConditionsDesc",
-    "DefaultText": "Metal Sheet Needed"
+    "DefaultText": "Copper Sheet Needed"
   },
   "BuildingStatConditions": [],
   "StartUnlocked": false,
@@ -128,6 +128,6 @@
   },
   "CardImageWarpData": "Copper_Oil_Flask",
   "CardImageWarpType": 3,
-  "BlueprintUnlockTicksCost": 8.0,
+  "BlueprintUnlockTicksCost": 16.0,
   "ResearchedNotification": 0
 }

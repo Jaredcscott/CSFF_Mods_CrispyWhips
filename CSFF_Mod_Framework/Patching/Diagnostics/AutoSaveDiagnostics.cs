@@ -3,11 +3,10 @@ using System.Diagnostics;
 namespace CSFFModFramework.Patching.Diagnostics;
 
 /// <summary>
-/// Opt-in diagnostic for investigating why CSFFStopAutoSave's prefix lets the
-/// 4 AM autosave through. Logs the CheckpointTypes value passed to
-/// GameLoad.AutoSaveGame and the top stack frames so we can see whether the
-/// mod's `_Checkpoint != 0` early-out fires, or whether `frames[2]` no longer
-/// reaches ActionRoutine in EA 0.62b. Throttled to first 8 invocations so the
+/// Opt-in diagnostic for investigating third-party autosave blockers. Logs the
+/// CheckpointTypes value passed to GameLoad.AutoSaveGame and the top stack
+/// frames so beta checkpoint behavior can be compared without installing a
+/// behavior-changing checkpoint patch. Throttled to first 8 invocations so the
 /// log doesn't grow unbounded.
 /// </summary>
 internal static class AutoSaveDiagnostics
@@ -30,32 +29,47 @@ internal static class AutoSaveDiagnostics
 
     static void Prefix(object[] __args)
     {
-        if (_logCount >= MaxLogs) return;
-        _logCount++;
-
-        string ckptDesc = "<no args>";
-        if (__args != null && __args.Length > 0 && __args[0] != null)
+        try
         {
-            var v = __args[0];
-            ckptDesc = $"{v.GetType().Name}.{v} (int={(int)v})";
-        }
+            if (_logCount >= MaxLogs) return;
+            _logCount++;
 
-        var trace = new StackTrace(false);
-        var frames = trace.GetFrames();
-        var sb = new System.Text.StringBuilder();
-        sb.Append($"AutoSaveDiagnostics #{_logCount}: _Checkpoint={ckptDesc} | stack: ");
-        if (frames != null)
-        {
-            int max = System.Math.Min(frames.Length, 8);
-            for (int i = 0; i < max; i++)
+            string ckptDesc = DescribeCheckpoint(__args);
+
+            var trace = new StackTrace(false);
+            var frames = trace.GetFrames();
+            var sb = new System.Text.StringBuilder();
+            sb.Append($"AutoSaveDiagnostics #{_logCount}: _Checkpoint={ckptDesc} | stack: ");
+            if (frames != null)
             {
-                var m = frames[i]?.GetMethod();
-                var dt = m?.DeclaringType?.Name ?? "?";
-                var name = m?.Name ?? "?";
-                if (i > 0) sb.Append(" -> ");
-                sb.Append($"[{i}]{dt}.{name}");
+                int max = System.Math.Min(frames.Length, 8);
+                for (int i = 0; i < max; i++)
+                {
+                    var m = frames[i]?.GetMethod();
+                    var dt = m?.DeclaringType?.Name ?? "?";
+                    var name = m?.Name ?? "?";
+                    if (i > 0) sb.Append(" -> ");
+                    sb.Append($"[{i}]{dt}.{name}");
+                }
             }
+            Util.Log.Info(sb.ToString());
         }
-        Util.Log.Info(sb.ToString());
+        catch (System.Exception ex)
+        {
+            Util.Log.Warn($"AutoSaveDiagnostics: diagnostic logging failed: {Util.Log.ExceptionText(ex)}");
+        }
+    }
+
+    private static string DescribeCheckpoint(object[] args)
+    {
+        if (args == null || args.Length == 0) return "<no args>";
+        var value = args[0];
+        if (value == null) return "<null>";
+
+        string intValue;
+        try { intValue = System.Convert.ToInt64(value).ToString(); }
+        catch { intValue = "?"; }
+
+        return $"{value.GetType().Name}.{value} (int={intValue})";
     }
 }

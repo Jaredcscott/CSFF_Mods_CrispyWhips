@@ -40,7 +40,7 @@ namespace mod_update_manager
         public ConflictDetector()
         {
             _functionalities = new List<(string, string)>();
-            _knownConflicts = new Dictionary<string, List<string>>();
+            _knownConflicts = new Dictionary<string, List<string>>(StringComparer.OrdinalIgnoreCase);
             InitializeKnownConflicts();
             InitializeFunctionalities();
         }

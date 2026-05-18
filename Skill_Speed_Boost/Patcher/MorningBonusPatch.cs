@@ -76,7 +76,7 @@ internal static class MorningBonusPatch
         }
         catch (Exception ex)
         {
-            Logger.LogError($"[MorningBonus] Patch error: {ex.Message}");
+            Logger.LogError($"[MorningBonus] Patch error: {ex.InnerException?.ToString() ?? ex.ToString()}");
         }
     }
 

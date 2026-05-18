@@ -77,4 +77,19 @@
         <Content Include="ASSET_CREDITS.md" CopyToOutputDirectory="PreserveNewest" Condition="Exists('ASSET_CREDITS.md')" />
         <Content Include="THIRD_PARTY_LICENSES.md" CopyToOutputDirectory="PreserveNewest" Condition="Exists('THIRD_PARTY_LICENSES.md')" />
     </ItemGroup>
+
+    <ItemGroup Condition=" '$(Configuration)' == 'Release' ">
+        <Content Include="Stubs\LitJson\bin\Release\LitJSON.dll">
+            <Link>LitJSON.dll</Link>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Include="lib\UnityGifDecoder.dll">
+            <Link>UnityGifDecoder.dll</Link>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+    <Target Name="BuildLitJsonStub" BeforeTargets="ResolveReferences" Condition=" '$(Configuration)' == 'Release' ">
+        <MSBuild Projects="Stubs\LitJson\LitJSON.csproj" Targets="Build" Properties="Configuration=$(Configuration)" />
+    </Target>
 </Project>

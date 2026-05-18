@@ -48,22 +48,9 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "CardImageWarpData": "GrindingFullyBuilt",
+    "CardImageWarpData": "GrindingKit",
     "CardImageWarpType": 3,
     "BuildingTagConditions": [
-        {
-            "TriggerTag": {
-                "m_FileID": 0,
-                "m_PathID": 0
-            },
-            "OnlyInHand": false,
-            "NotInHand": false,
-            "ExcludeInventories": false,
-            "Inverted": false,
-            "OnlyEquipped": false,
-            "TriggerTagWarpData": "tag_River",
-            "TriggerTagWarpType": 3
-        },
         {
             "TriggerTag": {
                 "m_FileID": 0,
@@ -156,6 +143,6 @@
         "Wood"
     ],
     "WhenCreatedSoundsWarpType": 3,
-    "BlueprintUnlockTicksCost": 12.0,
+    "BlueprintUnlockTicksCost": 96.0,
     "ResearchedNotification": 0
 }

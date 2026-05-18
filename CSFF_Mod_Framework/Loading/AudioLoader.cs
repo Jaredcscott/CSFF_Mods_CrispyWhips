@@ -47,17 +47,17 @@ internal static class AudioLoader
                 }
                 catch (Exception ex)
                 {
-                    Log.Warn($"AudioLoader: failed to load {file}: {ex.Message}");
+                    Log.Warn($"AudioLoader: failed to load {file}: {Log.ExceptionText(ex)}");
                 }
             }
 
             if (modCount > 0)
-                Log.Info($"AudioLoader: loaded {modCount} audio clips from {mod.Name}");
+                Log.Debug($"AudioLoader: loaded {modCount} audio clips from {mod.Name}");
             totalLoaded += modCount;
         }
 
         if (totalLoaded > 0)
-            Log.Info($"AudioLoader: {totalLoaded} total audio clips loaded");
+            Log.Debug($"AudioLoader: {totalLoaded} total audio clips loaded");
     }
 
     private static AudioClip LoadWav(string filePath, string clipName)

@@ -76,7 +76,7 @@ internal static class GifAnimationService
         }
         catch (Exception ex)
         {
-            Log.Debug($"GifAnimationService.OnCardSetup: {ex.Message}");
+            Log.Debug($"GifAnimationService.OnCardSetup: {Log.ExceptionText(ex)}");
         }
     }
 
@@ -107,7 +107,7 @@ internal static class GifAnimationService
         }
         catch (Exception ex)
         {
-            Log.Debug($"GifAnimationService.OnRefreshCookingStatus: {ex.Message}");
+            Log.Debug($"GifAnimationService.OnRefreshCookingStatus: {Log.ExceptionText(ex)}");
         }
     }
 

@@ -291,7 +291,7 @@
   ],
   "CardTagsWarpType": 3,
   "EquipmentTags": [],
-  "EquipmentTagsWarpData": [],
+  "EquipmentTagsWarpData": ["eTag_Shoulder"],
   "EquipmentTagsWarpType": 3,
   "AlwaysUpdate": true,
   "DoesNotPile": false,
@@ -339,7 +339,7 @@
       "DefaultText": "Temperature"
     },
     "MaxValue": 200.0,
-    "RatePerDaytimePoint": 0.0,
+    "RatePerDaytimePoint": -25.0,
     "HidingOptions": 3,
     "TextDisplay": 0,
     "NumberPrecision": 0,
@@ -350,7 +350,86 @@
     "OverrideIconWarpType": 3
   },
   "Progress": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
+      "LocalizationKey": "",
+      "DefaultText": "Smelted"
+    },
+    "MaxValue": 8.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnFull": true,
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Cooking",
+    "OverrideIconWarpType": 3,
+    "OnFull": {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
+        "LocalizationKey": "",
+        "DefaultText": "Metal melted!"
+      },
+      "NoveltyShared": false,
+      "UnavailableInDemo": false,
+      "SaveGame": false,
+      "ConfirmPopup": false,
+      "StackCompatible": false,
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "RequiredStatValues": [],
+      "RequiredCardsOnBoard": [],
+      "RequiredTagsOnBoard": [],
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+        "TransformIntoWarpType": 3,
+        "TransformToLiquidQuantity": 0.0,
+        "TransferSpoilage": false,
+        "TransferUsage": false,
+        "TransferFuel": false,
+        "TransferCharges": false,
+        "TransferSpecial1": false,
+        "TransferSpecial2": false,
+        "TransferSpecial3": false,
+        "TransferSpecial4": false,
+        "TransferInventory": false
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "1",
+          "CollectionWeight": 0,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 4,
+                "y": 4
+              },
+              "FinishUnlocking": false
+            }
+          ]
+        }
+      ]
+    }
   },
   "SpecialDurability1": {
     "Active": false
@@ -418,7 +497,77 @@
   "DurabilitySorting": {
     "SortingList": []
   },
-  "CardInteractions": [],
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
+        "LocalizationKey": "Advanced_Copper_Tools_WearableMetalPan_MeltFat_ActionName",
+        "DefaultText": "Melt Fat"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
+        "LocalizationKey": "Advanced_Copper_Tools_WearableMetalPan_MeltFat_ActionDescription",
+        "DefaultText": "Render fat in the hot pan to produce cooking oil."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Fire_Generic_Large"
+      ],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "0eb3634f696991b4d97b91626270e035",
+          "39ec586d846bac14e96e7f8c2431945d"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredFuelPercent": {
+          "Active": true,
+          "FloatValue": 50.0,
+          "MaxValue": 100.0
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
+          "LocalizationKey": "",
+          "DefaultText": "The pan needs to be hot first."
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "advanced_copper_tools_oil",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "DismantleActions": [
     {
       "ActionName": {
@@ -521,10 +670,89 @@
   "PassiveStatEffects": [],
   "PassiveEffects": [
     {
-      "EffectName": "Cool Down",
-      "FuelRateModifier": {
+      "EffectName": "Lose Smelting if not in smelting container",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTEquipped": false,
+      "OnlyWhenInHand": false,
+      "OnlyOnBaseActions": false,
+      "OnlyOnNOTBaseActions": false,
+      "OnlyWhenNOTInBG": false,
+      "Conditions": {
+        "NotInBackground": false,
+        "InBackground": false,
+        "PlayerUsesCard": 0,
+        "RequiredNOTContainerTagsWarpData": [
+          "tag_SmeltingContainer"
+        ],
+        "RequiredNOTContainerTagsWarpType": 3
+      },
+      "StatChanges": [],
+      "ConsumableChargesModifier": {
         "Active": true,
-        "FloatValue": -100.0
+        "FloatValue": -1.0
+      }
+    },
+    {
+      "EffectName": "Lose Smelting if smelting container is not hot enough",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTEquipped": false,
+      "OnlyWhenInHand": false,
+      "OnlyOnBaseActions": false,
+      "OnlyOnNOTBaseActions": false,
+      "OnlyWhenNOTInBG": false,
+      "Conditions": {
+        "NotInBackground": false,
+        "InBackground": false,
+        "PlayerUsesCard": 0,
+        "RequiredContainerTagsWarpData": [
+          "tag_SmeltingContainer"
+        ],
+        "RequiredContainerTagsWarpType": 3,
+        "ReceivingContainerRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 1099.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        }
+      },
+      "StatChanges": [],
+      "ConsumableChargesModifier": {
+        "Active": true,
+        "FloatValue": -1.0
       }
     }
   ],
@@ -540,34 +768,38 @@
   "CannotHaveFlavoursOrSpices": true,
   "InventoryFilter": {
     "AcceptedCards": [],
+    "AcceptedCardsWarpData": [],
+    "AcceptedCardsWarpType": 3,
     "AcceptedTypes": [],
     "AcceptedTags": [],
+    "AcceptedTagsWarpData": [
+      "tag_Cookable",
+      "tag_Boilable"
+    ],
+    "AcceptedTagsWarpType": 3,
     "NOTAcceptedCards": [],
     "NOTAcceptedTypes": [],
     "NOTAcceptedTags": [],
     "CardFilters": [],
-    "TagFilters": [
-      {
-        "Tag": { "m_FileID": 0, "m_PathID": 0 },
-        "TagWarpData": "tag_Cookable",
-        "TagWarpType": 3,
-        "NOT": false,
-        "OnlyWithLiquid": false
-      },
-      {
-        "Tag": { "m_FileID": 0, "m_PathID": 0 },
-        "TagWarpData": "tag_Boilable",
-        "TagWarpType": 3,
-        "NOT": false,
-        "OnlyWithLiquid": false
-      }
-    ]
+    "TagFilters": []
   },
   "InventorySlots": [
-    { "m_FileID": 0, "m_PathID": 0 },
-    { "m_FileID": 0, "m_PathID": 0 },
-    { "m_FileID": 0, "m_PathID": 0 },
-    { "m_FileID": 0, "m_PathID": 0 }
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    }
   ],
   "InventorySlotsWarpData": [],
   "InventorySlotsWarpType": 3,

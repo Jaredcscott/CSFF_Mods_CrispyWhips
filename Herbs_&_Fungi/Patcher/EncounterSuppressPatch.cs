@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using BepInEx.Logging;
@@ -18,6 +20,8 @@ namespace Herbs_And_Fungi.Patcher
 
         private const BindingFlags Flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
         private static Type _inGameCardBaseType;
+        private static Type _gameManagerType;
+        private static PropertyInfo _gameManagerInstanceProp;
         private static bool _reflectionInit;
 
         private static ManualLogSource Logger => Plugin.Logger;
@@ -44,7 +48,7 @@ namespace Herbs_And_Fungi.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"[EncounterSuppress] ApplyPatch failed: {ex.Message}");
+                Logger?.LogError($"[EncounterSuppress] ApplyPatch failed: {ex}");
             }
         }
 
@@ -56,12 +60,12 @@ namespace Herbs_And_Fungi.Patcher
                 if (!HasWardInPlayerEnv()) return true;
                 if (UnityEngine.Random.value > SuppressionChance) return true;
 
-                Logger?.LogInfo("[DeathCapWard] Ward repelled a wild encounter.");
+                Logger?.LogDebug("[DeathCapWard] Ward repelled a wild encounter.");
                 return false;
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"[EncounterSuppress] prefix error: {ex.Message}");
+                Logger?.LogError($"[EncounterSuppress] prefix error: {ex}");
                 return true;
             }
         }
@@ -73,25 +77,75 @@ namespace Herbs_And_Fungi.Patcher
             foreach (var asm in AppDomain.CurrentDomain.GetAssemblies())
             {
                 if (_inGameCardBaseType == null) _inGameCardBaseType = asm.GetType("InGameCardBase", false);
-                if (_inGameCardBaseType != null) break;
+                if (_gameManagerType == null) _gameManagerType = asm.GetType("GameManager", false);
+                if (_inGameCardBaseType != null && _gameManagerType != null) break;
             }
+            _gameManagerInstanceProp = _gameManagerType?.GetProperty("Instance", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
         }
 
         private static bool HasWardInPlayerEnv()
         {
             InitReflection();
-            if (_inGameCardBaseType == null) return false;
-
-            var allCards = UnityEngine.Object.FindObjectsOfType(_inGameCardBaseType);
-            if (allCards == null) return false;
-
-            foreach (var c in allCards)
+            foreach (var c in CollectCards())
             {
                 if (c == null) continue;
                 if (GetUniqueId(c) != WardPlacedID) continue;
                 if (IsInPlayerEnv(c)) return true;
             }
             return false;
+        }
+
+        private static IEnumerable<object> CollectCards()
+        {
+            var cards = CollectGameManagerCards();
+            if (cards.Count > 0) return cards;
+
+            return CollectUnityCards();
+        }
+
+        private static List<object> CollectGameManagerCards()
+        {
+            var cards = new List<object>();
+            try
+            {
+                if (_gameManagerInstanceProp == null) return cards;
+
+                var gm = _gameManagerInstanceProp.GetValue(null, null);
+                var allCards = GetMemberValue(gm, "AllCards") as IEnumerable;
+                if (allCards == null) return cards;
+
+                foreach (var card in allCards)
+                {
+                    if (card != null) cards.Add(card);
+                }
+            }
+            catch
+            {
+                return new List<object>();
+            }
+            return cards;
+        }
+
+        private static List<object> CollectUnityCards()
+        {
+            var cards = new List<object>();
+            if (_inGameCardBaseType == null || !typeof(UnityEngine.Object).IsAssignableFrom(_inGameCardBaseType)) return cards;
+
+            try
+            {
+                var allCards = UnityEngine.Object.FindObjectsOfType(_inGameCardBaseType);
+                if (allCards == null) return cards;
+
+                foreach (var card in allCards)
+                {
+                    if (card != null) cards.Add(card);
+                }
+            }
+            catch
+            {
+                return new List<object>();
+            }
+            return cards;
         }
 
         private static string GetUniqueId(object card)
@@ -112,10 +166,27 @@ namespace Herbs_And_Fungi.Patcher
                 var env = GetMemberValue(card, "CardEnvironment");
                 if (env == null) return false;
                 var prop = env.GetType().GetProperty("MatchesPlayerEnv", BindingFlags.Instance | BindingFlags.Public);
-                if (prop == null) return false;
-                return (bool)prop.GetValue(env, null);
+                if (prop != null && (bool)prop.GetValue(env, null)) return true;
+
+                var currentEnv = GetCurrentEnvironment();
+                if (currentEnv == null) return false;
+                var matchesEnv = env.GetType().GetMethod("MatchesEnv", BindingFlags.Instance | BindingFlags.Public, null, new[] { currentEnv.GetType() }, null);
+                if (matchesEnv == null) return false;
+                return (bool)matchesEnv.Invoke(env, new[] { currentEnv });
             }
             catch { return false; }
+        }
+
+        private static object GetCurrentEnvironment()
+        {
+            try
+            {
+                if (_gameManagerInstanceProp == null) return null;
+
+                var gm = _gameManagerInstanceProp.GetValue(null, null);
+                return GetMemberValue(gm, "CurrentEnvironment");
+            }
+            catch { return null; }
         }
 
         private static object GetMemberValue(object target, string name)

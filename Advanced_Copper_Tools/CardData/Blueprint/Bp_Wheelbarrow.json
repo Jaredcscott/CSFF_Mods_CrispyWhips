@@ -16,7 +16,7 @@
         "LocalizationKey": "Advanced_Copper_Tools_Bp_Wheelbarrow_UnlockConditionsDesc",
         "DefaultText": "Wheelbarrow Bucket Needed"
     },
-    "BlueprintUnlockTicksCost": 48.0,
+    "BlueprintUnlockTicksCost": 96.0,
     "BuildingStatConditions": [],
     "StartUnlocked": false,
     "CardsOnBoard": [

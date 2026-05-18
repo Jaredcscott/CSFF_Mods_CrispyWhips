@@ -7,13 +7,9 @@ using BepInEx.Logging;
 namespace Advanced_Copper_Tools.Patcher
 {
     /// <summary>
-    /// Heats liquid held directly inside a lit Tea Blending Station (no kettle needed).
-    /// Vanilla CSFF only heats held liquid in containers placed inside another fire
-    /// source's slot — there is no JSON-only path for a station that IS the heat
-    /// source AND holds its own liquid. This patch closes that gap by bumping the
-    /// station's LiquidFuelValue once per daytime point while it is lit and contains
-    /// a heatable liquid. The held liquid's own OnFull (e.g. LQ_Water → BoiledWater)
-    /// fires naturally when LiquidFuelValue reaches max.
+    /// Legacy beta fallback for Tea Station layouts that stored real liquid directly
+    /// on the station card. Current ACT stations use SpecialDurability3/4 as their
+    /// reservoir, so this patch is opt-in through the BepInEx config.
     /// </summary>
     public static class HeatHeldLiquidPatch
     {
@@ -94,7 +90,7 @@ namespace Advanced_Copper_Tools.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"[HeatHeldLiquid] tick error: {ex.InnerException?.Message ?? ex.Message}");
+                Logger?.LogError($"[HeatHeldLiquid] tick error: {FullException(ex)}");
                 _disabled = true;
             }
         }
@@ -124,7 +120,7 @@ namespace Advanced_Copper_Tools.Patcher
                 if (TryHeat(c)) touched++;
             }
             if (touched > 0 && _logCount++ < 4)
-                Logger?.LogInfo($"[HeatHeldLiquid] heated held liquid on {touched} lit station(s) at dtp={_lastDtp}");
+                Logger?.LogDebug($"[HeatHeldLiquid] heated held liquid on {touched} lit station(s) at dtp={_lastDtp}");
         }
 
         private static bool IsLitStation(object card)
@@ -184,7 +180,7 @@ namespace Advanced_Copper_Tools.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"[HeatHeldLiquid] TryHeat failed: {ex.Message}");
+                Logger?.LogError($"[HeatHeldLiquid] TryHeat failed: {FullException(ex)}");
                 return false;
             }
         }
@@ -206,7 +202,12 @@ namespace Advanced_Copper_Tools.Patcher
                 if (f != null) { f.SetValue(obj, v); return; }
                 if (p != null && p.CanWrite) p.SetValue(obj, v);
             }
-            catch (Exception ex) { Logger?.Log(LogLevel.Debug, $"[HeatHeldLiquid] WriteFloat failed: {ex.Message}"); }
+            catch (Exception ex) { Logger?.Log(LogLevel.Debug, $"[HeatHeldLiquid] WriteFloat failed: {FullException(ex)}"); }
+        }
+
+        private static string FullException(Exception ex)
+        {
+            return ex.InnerException?.ToString() ?? ex.ToString();
         }
     }
 }

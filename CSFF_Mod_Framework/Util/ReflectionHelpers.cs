@@ -129,6 +129,77 @@ internal static class ReflectionHelpers
         }
     }
 
+    // ── Inheritance-walking member access ────────────────────────────────────
+
+    /// <summary>
+    /// Walks the inheritance chain to find a field by name (DeclaredOnly at each level).
+    /// Returns null silently if not found — avoids AccessTools.Field log spam for optional fields.
+    /// </summary>
+    public static FieldInfo FindField(Type type, string name)
+    {
+        for (var t = type; t != null && t != typeof(object); t = t.BaseType)
+        {
+            var f = t.GetField(name, InstanceFlags | BindingFlags.DeclaredOnly);
+            if (f != null) return f;
+        }
+        return null;
+    }
+
+    /// <summary>
+    /// Walks the inheritance chain to find a property by name.
+    /// </summary>
+    public static PropertyInfo FindProperty(Type type, string name)
+    {
+        for (var t = type; t != null && t != typeof(object); t = t.BaseType)
+        {
+            var p = t.GetProperty(name, InstanceFlags | BindingFlags.DeclaredOnly);
+            if (p != null) return p;
+        }
+        return null;
+    }
+
+    /// <summary>
+    /// Gets a member value via property first, then field, walking the inheritance chain.
+    /// Returns null silently on failure.
+    /// </summary>
+    public static object GetMemberValue(object instance, string name)
+    {
+        if (instance == null || string.IsNullOrEmpty(name)) return null;
+        try
+        {
+            var t = instance.GetType();
+            var prop = FindProperty(t, name);
+            if (prop?.CanRead == true) return prop.GetValue(instance, null);
+            return FindField(t, name)?.GetValue(instance);
+        }
+        catch { return null; }
+    }
+
+    /// <summary>
+    /// Sets a member value via property setter (including non-public) then field, walking the inheritance chain.
+    /// Returns true on success.
+    /// </summary>
+    public static bool SetMemberValue(object instance, string name, object value)
+    {
+        if (instance == null || string.IsNullOrEmpty(name)) return false;
+        try
+        {
+            var t = instance.GetType();
+            var prop = FindProperty(t, name);
+            if (prop != null)
+            {
+                var setter = prop.GetSetMethod(nonPublic: true);
+                if (setter != null) { setter.Invoke(instance, new[] { value }); return true; }
+            }
+            var field = FindField(t, name);
+            if (field != null) { field.SetValue(instance, value); return true; }
+        }
+        catch { }
+        return false;
+    }
+
+    // ── Initializers ─────────────────────────────────────────────────────────
+
     /// <summary>
     /// Initializes all null fields in an object with their default values, recursively up to a depth limit.
     /// Used to ensure ProducedCards and other nested structures have proper initialized fields.

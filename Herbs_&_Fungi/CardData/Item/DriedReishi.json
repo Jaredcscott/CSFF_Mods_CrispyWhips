@@ -333,7 +333,7 @@
             ]
         }
     ],
-    "ObjectWeight": 0.1,
+    "ObjectWeight": 25,
     "MaxStack": 20,
     "DroppedCardShadow": 1
 }

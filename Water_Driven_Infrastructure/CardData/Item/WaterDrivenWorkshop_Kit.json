@@ -1,0 +1,311 @@
+{
+  "UniqueID": "water_sawmill_workshop_kit",
+  "CardName": {
+    "ParentObjectID": "water_sawmill_workshop_kit",
+    "LocalizationKey": "Water_Sawmill_WorkshopKit_CardName",
+    "DefaultText": "Water-Driven Workshop Kit"
+  },
+  "CardDescription": {
+    "ParentObjectID": "water_sawmill_workshop_kit",
+    "LocalizationKey": "Water_Sawmill_WorkshopKit_CardDescription",
+    "DefaultText": "A bundled upgrade kit combining the water-driven forge, mill drive, forge hammer, charcoal reserve, and gear train for heavy metalworking."
+  },
+  "CanBeRenamed": false,
+  "CardHelpSection": {
+    "ParentObjectID": "water_sawmill_workshop_kit",
+    "LocalizationKey": "Water_Sawmill_WorkshopKit_CardHelpSection",
+    "DefaultText": "<b>Purpose:</b> A bundled upgrade kit for extending the water-driven forge into a workshop.\n\n<b>Contents:</b> Water-driven forge kit, water mill, forge hammer, charcoal, and copper gears."
+  },
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "WorkshopKit",
+  "CardImageWarpType": 3,
+  "CardType": 0,
+  "ObjectWeight": 1300.0,
+  "TradingValue": 1200.0,
+  "CardTags": [],
+  "CardTagsWarpData": ["tag_SmeltsAt1100", "tag_Wood", "tag_Copper", "tag_Metal", "tag_CopperBig"],
+  "CardTagsWarpType": 3,
+  "DoesNotPile": true,
+  "WhenCreatedSounds": [],
+  "WhenCreatedSoundsWarpData": ["Metal"],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {"Active": false},
+  "UsageDurability": {"Active": false},
+  "FuelCapacity": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "water_sawmill_workshop_kit",
+      "LocalizationKey": "Water_Sawmill_WorkshopKit_FuelCapacity.CardStatName",
+      "DefaultText": "Temperature"
+    },
+    "MaxValue": 1300.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 2,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Hot",
+    "OverrideIconWarpType": 3
+  },
+  "Progress": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "water_sawmill_workshop_kit",
+      "LocalizationKey": "",
+      "DefaultText": "Smelted"
+    },
+    "MaxValue": 8.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnFull": true,
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Cooking",
+    "OverrideIconWarpType": 3,
+    "OnFull": {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_workshop_kit",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_workshop_kit",
+        "LocalizationKey": "",
+        "DefaultText": "Metal melted!"
+      },
+      "NoveltyShared": false,
+      "UnavailableInDemo": false,
+      "SaveGame": false,
+      "ConfirmPopup": false,
+      "StackCompatible": false,
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "RequiredStatValues": [],
+      "RequiredCardsOnBoard": [],
+      "RequiredTagsOnBoard": [],
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {"m_FileID": 0, "m_PathID": 0},
+        "TransformIntoWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+        "TransformIntoWarpType": 3,
+        "TransformToLiquidQuantity": 0.0,
+        "TransferSpoilage": false,
+        "TransferUsage": false,
+        "TransferFuel": false,
+        "TransferCharges": false,
+        "TransferSpecial1": false,
+        "TransferSpecial2": false,
+        "TransferSpecial3": false,
+        "TransferSpecial4": false,
+        "TransferInventory": false
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "1",
+          "CollectionWeight": 0,
+          "DroppedCards": [
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 71, "y": 71},
+              "FinishUnlocking": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "SpecialDurability1": {"Active": false},
+  "SpecialDurability2": {"Active": false},
+  "SpecialDurability3": {"Active": false},
+  "SpecialDurability4": {"Active": false},
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_workshop_kit",
+        "LocalizationKey": "Water_Sawmill_WorkshopKit_Place_ActionName",
+        "DefaultText": "Place"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_workshop_kit",
+        "LocalizationKey": "Water_Sawmill_WorkshopKit_Place_ActionDescription",
+        "DefaultText": "Place the workshop kit into the environment."
+      },
+      "DaytimeCost": 4,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Metal"],
+      "ActionSoundsWarpType": 3,
+      "RequiredCardsOnBoard": [],
+      "RequiredTagsOnBoard": [],
+      "HideIfConditionsNotMet": true,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {"m_FileID": 0, "m_PathID": 0},
+        "TransformIntoWarpData": "water_sawmill_workshop_placed",
+        "TransformIntoWarpType": 3,
+        "TransferInventory": false,
+        "SpawnTransformAtSource": true
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_workshop_kit",
+        "LocalizationKey": "Water_Sawmill_WorkshopKit_Disassemble_ActionName",
+        "DefaultText": "Disassemble"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_workshop_kit",
+        "LocalizationKey": "Water_Sawmill_WorkshopKit_Disassemble_ActionDescription",
+        "DefaultText": "Break down the workshop kit into its component parts."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Metal"],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "water_sawmill_forge_kit",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "water_sawmill_water_mill",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "e118b8cd90f14b048aab78a0d37e8f61",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "51c751469bd15ce46804e399479d1764",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 10, "y": 10}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "water_sawmill_copper_gear_small",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 2, "y": 2}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "water_sawmill_copper_gear_large",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1}
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [
+    {
+      "EffectName": "Lose Smelting if not in smelting container",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTEquipped": false,
+      "OnlyWhenInHand": false,
+      "OnlyOnBaseActions": false,
+      "OnlyOnNOTBaseActions": false,
+      "OnlyWhenNOTInBG": false,
+      "Conditions": {
+        "NotInBackground": false,
+        "InBackground": false,
+        "PlayerUsesCard": 0,
+        "RequiredNOTContainerTagsWarpData": ["tag_SmeltingContainer"],
+        "RequiredNOTContainerTagsWarpType": 3
+      },
+      "StatChanges": [],
+      "ConsumableChargesModifier": {"Active": true, "FloatValue": -1.0}
+    },
+    {
+      "EffectName": "Lose Smelting if smelting container is not hot enough",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTEquipped": false,
+      "OnlyWhenInHand": false,
+      "OnlyOnBaseActions": false,
+      "OnlyOnNOTBaseActions": false,
+      "OnlyWhenNOTInBG": false,
+      "Conditions": {
+        "NotInBackground": false,
+        "InBackground": false,
+        "PlayerUsesCard": 0,
+        "RequiredContainerTagsWarpData": ["tag_SmeltingContainer"],
+        "RequiredContainerTagsWarpType": 3,
+        "ReceivingContainerRequiredDurabilityRanges": {
+          "SpoilageRange": {"x": 0.0, "y": 1099.0},
+          "UsageRange": {"x": 0.0, "y": 0.0},
+          "FuelRange": {"x": 0.0, "y": 0.0},
+          "ProgressRange": {"x": 0.0, "y": 0.0},
+          "Special1Range": {"x": 0.0, "y": 0.0},
+          "Special2Range": {"x": 0.0, "y": 0.0},
+          "Special3Range": {"x": 0.0, "y": 0.0},
+          "Special4Range": {"x": 0.0, "y": 0.0},
+          "LiquidQuantityRange": {"x": 0.0, "y": 0.0}
+        }
+      },
+      "StatChanges": [],
+      "ConsumableChargesModifier": {"Active": true, "FloatValue": -1.0}
+    }
+  ],
+  "MaxLiquidCapacity": 0.0,
+  "InventorySlots": [],
+  "CookingConditions": {
+    "NeedsSpoilage": false,
+    "NeedsUsage": false,
+    "NeedsFuel": false,
+    "NeedsProgress": false,
+    "NeedsSpecial1": false,
+    "NeedsSpecial2": false,
+    "NeedsSpecial3": false,
+    "NeedsSpecial4": false,
+    "ExtraSpoilageRate": 0.0,
+    "ExtraUsageRate": 0.0,
+    "ExtraFuelRate": 0.0,
+    "ExtraProgressRate": 0.0,
+    "ExtraSpecial1Rate": 0.0,
+    "ExtraSpecial2Rate": 0.0,
+    "ExtraSpecial3Rate": 0.0,
+    "ExtraSpecial4Rate": 0.0
+  },
+  "CookingRecipes": [],
+  "BlueprintStages": [],
+  "BlueprintResult": [],
+  "IsWeapon": false,
+  "IsArmor": false
+}

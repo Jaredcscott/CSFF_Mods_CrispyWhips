@@ -1,0 +1,1530 @@
+{
+  "UniqueID": "water_sawmill_workshop_placed",
+  "CardName": {
+    "ParentObjectID": "water_sawmill_workshop_placed",
+    "LocalizationKey": "Water_Sawmill_WorkshopPlaced_CardName",
+    "DefaultText": "Water-Driven Workshop"
+  },
+  "CardDescription": {
+    "ParentObjectID": "water_sawmill_workshop_placed",
+    "LocalizationKey": "Water_Sawmill_WorkshopPlaced_CardDescription",
+    "DefaultText": "A water-powered metalworking workshop with an upgraded forge hammer for higher-quality tools."
+  },
+  "CardHelpSection": {
+    "ParentObjectID": "water_sawmill_workshop_placed",
+    "LocalizationKey": "Water_Sawmill_WorkshopPlaced_CardHelpSection",
+    "DefaultText": "<b>Requirements:</b> Requires local mill race for water power.\n\n<b>Operation:</b> Drag firewood or charcoal onto the workshop forge to feed fuel. Light with embers, press Blast to raise temperature, then drag copper ore onto the hot forge to smelt. Place heated metal tool blanks or copper parts in the inventory, then press Hammer All to apply one water-hammer strike to each item. Put six copper nuggets in the workshop inventory, then use Hammer Copper Sheet or Forge Copper Nails. The workshop hammer improves metal quality while shaping tools.\n\n<b>Accepts:</b> All heated tool blanks, heated lump of metal, copper gear parts, and any item tagged Heatable or Copper."
+  },
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "WorkshopFullyBuilt",
+  "CardImageWarpType": 3,
+  "CardType": 2,
+  "ObjectWeight": 1200.0,
+  "TradingValue": 500.0,
+  "AlwaysUpdate": true,
+  "CardTags": [],
+  "CardTagsWarpData": [
+    "tag_Copper",
+    "tag_Wood",
+    "tag_Bag",
+    "tag_Env_Fire",
+    "tag_SmeltingContainer"
+  ],
+  "CardTagsWarpType": 3,
+  "DoesNotPile": true,
+  "CannotBeTrashed": false,
+  "WhenCreatedSounds": [],
+  "WhenCreatedSoundsWarpData": [
+    "Metal"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 1300.0,
+    "CardStatName": {
+      "ParentObjectID": "water_sawmill_workshop_placed",
+      "LocalizationKey": "Water_Sawmill_ForgePlaced_Temperature_StatName",
+      "DefaultText": "Temperature"
+    },
+    "RatePerDaytimePoint": -40.0,
+    "HidingOptions": 1,
+    "TextDisplay": 2,
+    "NumberPrecision": 0,
+    "OverrideIconWarpData": "Hot",
+    "OverrideIconWarpType": 3
+  },
+  "UsageDurability": {
+    "Active": false
+  },
+  "FuelCapacity": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "water_sawmill_workshop_placed",
+      "LocalizationKey": "Water_Sawmill_ForgePlaced_Fuel_StatName",
+      "DefaultText": "Fuel"
+    },
+    "MaxValue": 96.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "water_sawmill_workshop_placed",
+      "LocalizationKey": "Water_Sawmill_ForgePlaced_Windflow_StatName",
+      "DefaultText": "Windflow"
+    },
+    "MaxValue": 8.0,
+    "RatePerDaytimePoint": -4.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0
+  },
+  "SpecialDurability2": {
+    "Active": false
+  },
+  "SpecialDurability3": {
+    "Active": false
+  },
+  "SpecialDurability4": {
+    "Active": false
+  },
+  "DurabilitySorting": {
+    "SortingList": []
+  },
+  "InventoryIsHidden": false,
+  "IsMiniInventory": false,
+  "CannotPutItemsIn": false,
+  "CannotTakeItemsOut": false,
+  "PreventsDismantleActions": false,
+  "PreventsCardInteractions": false,
+  "IsWeaponSheath": false,
+  "OpenOnTab": 0,
+  "DontRememberLastOpenTab": false,
+  "MaxWeightCapacity": 5000.0,
+  "ContentWeightReduction": 0.0,
+  "InventorySlots": [
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0},
+    {"m_FileID": 0, "m_PathID": 0}
+  ],
+  "InventorySlotsWarpData": [],
+  "InventorySlotsWarpType": 3,
+  "InventoryFilter": {
+    "AcceptedCards": [],
+    "AcceptedCardsWarpData": [
+      "4b0f4937a5ecb90499428c8c10288afc",
+      "492ba87119393c1448fb6d320e371b65",
+      "water_sawmill_copper_gear_large",
+      "water_sawmill_copper_gear_small",
+      "water_sawmill_copper_saw_blade",
+      "water_sawmill_copper_saw_blade_dull",
+      "2d4b3ba562fd1aa43858448ffafeb6b4",
+      "b0baedca34b93424983298ab7a168a85",
+      "3986bea863bf48e47a80d67fa57019d0",
+      "9b7a51c0be2ec9a49a7374ebe6212a02",
+      "b34f3d5938e9f5a4dbae651248d1c1bc",
+      "cffeac972ccfe6b45a9f3070a1eca92e",
+      "5d79c88d18ed07b4c8d3306a2fcb1e1b",
+      "f2c926202f48c61468b0d0d35c7ebb46",
+      "25684a645eef15c449a19b8e9e5edcaa",
+      "69146e2a26e4f7244b2a4dae4ff8b76b",
+      "010a88e4ae8d07049b32f32822290fa0",
+      "bd5b4875f44cbdb42b316cedd91bb5ee",
+      "fdfdcd04f32cd2d4c98bf7aa19dbdbc9",
+      "1511b94f4de775e49a5ffc585bb3da19",
+      "35d22a55737a8b04c8d6199e07d1f9d4",
+      "946843dbba71e0a4db7933fb2d4ca0a4",
+      "14f7ddfe60496b54881d5a25de8abb20",
+      "3769abdc385c36c4ba349663240934c0",
+      "1ec399502888015468ee1c00dab60569",
+      "b94d2bf3902f37d4d917943d3c784298"
+    ],
+    "AcceptedCardsWarpType": 3,
+    "AcceptedTypes": [],
+    "AcceptedTags": [],
+    "AcceptedTagsWarpData": [
+      "tag_SmeltsAt1100",
+      "tag_ToolBlank",
+      "tag_CopperSmall",
+      "tag_CopperBig",
+      "tag_Clay",
+      "tag_Heatable",
+      "tag_Metal"
+    ],
+    "AcceptedTagsWarpType": 3,
+    "NOTAcceptedCards": [],
+    "NOTAcceptedTypes": [],
+    "NOTAcceptedTags": [],
+    "CardFilters": [],
+    "TagFilters": []
+  },
+  "SpillsInventoryOnDestroy": false,
+  "InventorySlotsText": {
+    "ParentObjectID": "",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "GroupInventoryActions": [],
+  "EffectsToInventoryContent": [],
+  "ContainedBlueprintCardsWarpData": [],
+  "ContainedBlueprintCardsWarpType": 3,
+  "ContainedBlueprintsDontStartUnlocked": false,
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_ForgePlaced_FeedFirewood_ActionName",
+        "DefaultText": "Feed Firewood"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_ForgePlaced_FeedFirewood_ActionDescription",
+        "DefaultText": "Feed wood or firewood into the forge firebox."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Wood"
+      ],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "692afc638c39e32428629da58f56136a",
+          "758be01db25eb4649a288d64b7600b9b"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "StackCompatible": true,
+      "DontCloseInspectionWindow": false,
+      "AppearsOnCardsInInventory": false,
+      "StatModifications": [],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "FuelChange": {
+          "x": 20.0,
+          "y": 20.0
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_ForgePlaced_FeedFuel_ActionName",
+        "DefaultText": "Feed Fuel"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_ForgePlaced_FeedFuel_ActionDescription",
+        "DefaultText": "Feed firewood or other fuel into the forge firebox."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Wood"
+      ],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerTagsWarpData": [
+          "tag_Fuel"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "StackCompatible": true,
+      "DontCloseInspectionWindow": false,
+      "AppearsOnCardsInInventory": false,
+      "StatModifications": [],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "FuelChange": {
+          "x": 20.0,
+          "y": 20.0
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_ForgePlaced_FeedCharcoal_ActionName",
+        "DefaultText": "Feed Charcoal"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_ForgePlaced_FeedCharcoal_ActionDescription",
+        "DefaultText": "Feed charcoal or embers into the forge firebox."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Wood"
+      ],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "51c751469bd15ce46804e399479d1764"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "StackCompatible": true,
+      "DontCloseInspectionWindow": false,
+      "AppearsOnCardsInInventory": false,
+      "StatModifications": [],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "FuelChange": {
+          "x": 25.0,
+          "y": 25.0
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_ForgePlaced_LightTinder_ActionName",
+        "DefaultText": "Light Forge"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_ForgePlaced_LightTinder_ActionDescription",
+        "DefaultText": "Use lit tinder to light the forge fire."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "FireIgnite"
+      ],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "f924def05400db54b9a99935631a632f",
+          "2649ed8b8cb9b14428f3a988f60093a2"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "NOTCompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": []
+      },
+      "WorksInverted": false,
+      "WorksBothWays": true,
+      "StackCompatible": false,
+      "DontCloseInspectionWindow": false,
+      "AppearsOnCardsInInventory": false,
+      "StatModifications": [],
+      "RequiredReceivingDurabilities": {
+        "RequiredSpoilagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredUsagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredFuelPercent": {
+          "Active": true,
+          "FloatValue": 0.01,
+          "MaxValue": 1.0
+        },
+        "RequiredProgressPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredLiquidQuantity": 0.0,
+        "RequiredSpecial1Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial2Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial3Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial4Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "ParentObjectID": "water_sawmill_workshop_placed",
+          "LocalizationKey": "Water_Sawmill_ForgePlaced_Light_FailMessage",
+          "DefaultText": "The forge needs fuel first."
+        },
+        "SpecificFailMessages": []
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "SpoilageChange": {
+          "x": 400.0,
+          "y": 400.0
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_ForgePlaced_LightTorch_ActionName",
+        "DefaultText": "Light Forge"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_ForgePlaced_LightTinder_ActionDescription",
+        "DefaultText": "Use lit tinder to light the forge fire."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "FireIgnite"
+      ],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "9711230a851db104eab1438342b8f88a"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "NOTCompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": []
+      },
+      "WorksInverted": false,
+      "WorksBothWays": true,
+      "StackCompatible": false,
+      "DontCloseInspectionWindow": false,
+      "AppearsOnCardsInInventory": false,
+      "StatModifications": [],
+      "RequiredReceivingDurabilities": {
+        "RequiredSpoilagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredUsagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredFuelPercent": {
+          "Active": true,
+          "FloatValue": 0.01,
+          "MaxValue": 1.0
+        },
+        "RequiredProgressPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredLiquidQuantity": 0.0,
+        "RequiredSpecial1Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial2Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial3Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial4Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "ParentObjectID": "water_sawmill_workshop_placed",
+          "LocalizationKey": "Water_Sawmill_ForgePlaced_Light_FailMessage",
+          "DefaultText": "The forge needs fuel first."
+        },
+        "SpecificFailMessages": []
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "SpoilageChange": {
+          "x": 400.0,
+          "y": 400.0
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 1,
+        "Special2Change": {
+          "x": -4.0,
+          "y": -4.0
+        }
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_ForgePlaced_FeedEmbers_ActionName",
+        "DefaultText": "Feed Embers"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_ForgePlaced_FeedEmbers_ActionDescription",
+        "DefaultText": "Feed hot embers into the forge firebox."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Wood"
+      ],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "0bf73914a3fb6894f9a3c7c2e8498e72"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "StackCompatible": false,
+      "DontCloseInspectionWindow": false,
+      "AppearsOnCardsInInventory": false,
+      "StatModifications": [],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "FuelChange": {
+          "x": 16.0,
+          "y": 16.0
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_ForgePlaced_SmeltOre_ActionName",
+        "DefaultText": "Smelt Ore"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_ForgePlaced_SmeltOre_ActionDescription",
+        "DefaultText": "Drag copper ore onto the hot forge to smelt it into an ingot."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Metal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "bcc7d7a764978e447bc38b36dcca2055"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "StackCompatible": false,
+      "DontCloseInspectionWindow": false,
+      "AppearsOnCardsInInventory": false,
+      "StatModifications": [],
+      "RequiredReceivingDurabilities": {
+        "RequiredSpoilagePercent": {
+          "Active": true,
+          "FloatValue": 0.6,
+          "MaxValue": 1.0
+        },
+        "RequiredUsagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredFuelPercent": {
+          "Active": true,
+          "FloatValue": 0.01,
+          "MaxValue": 1.0
+        },
+        "RequiredProgressPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredLiquidQuantity": 0.0,
+        "RequiredSpecial1Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial2Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial3Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial4Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "ParentObjectID": "water_sawmill_workshop_placed",
+          "LocalizationKey": "Water_Sawmill_ForgePlaced_SmeltOre_FailMessage",
+          "DefaultText": "The forge is not hot enough. Use Blast first."
+        },
+        "SpecificFailMessages": []
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "SpoilageChange": {
+          "x": -400.0,
+          "y": -400.0
+        },
+        "FuelChange": {
+          "x": -8.0,
+          "y": -8.0
+        }
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "b92071e54dac7e54db99b48794e737ad",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1.0,
+                "y": 2.0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_ForgePlaced_Blast_ActionName",
+        "DefaultText": "Blast"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_ForgePlaced_Blast_ActionDescription",
+        "DefaultText": "Drive the water leather bellows hard to push the forge to working heat. Requires fuel and a lit fire."
+      },
+      "DaytimeCost": 4,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Metal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredSpoilagePercent": {
+          "Active": true,
+          "FloatValue": 0.01,
+          "MaxValue": 1.0
+        },
+        "RequiredUsagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredFuelPercent": {
+          "Active": true,
+          "FloatValue": 0.01,
+          "MaxValue": 1.0
+        },
+        "RequiredProgressPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredLiquidQuantity": 0.0,
+        "RequiredSpecial1Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial2Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial3Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial4Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "ParentObjectID": "water_sawmill_workshop_placed",
+          "LocalizationKey": "Water_Sawmill_ForgePlaced_Blast_FailMessage",
+          "DefaultText": "Light the forge first."
+        },
+        "SpecificFailMessages": []
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "FuelChange": {
+          "x": -16.0,
+          "y": -16.0
+        },
+        "SpoilageChange": {
+          "x": 480.0,
+          "y": 480.0
+        },
+        "Special1Change": {
+          "x": 16.0,
+          "y": 16.0
+        }
+      },
+      "ProducedCards": [],
+      "StatModifications": []
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_ForgePlaced_HammerAll_ActionName",
+        "DefaultText": "Hammer All"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_ForgePlaced_HammerAll_ActionDescription",
+        "DefaultText": "Apply one hammer strike to all items in the forge using the water-driven hammer."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Metal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredSpoilagePercent": {
+          "Active": true,
+          "FloatValue": 0.6,
+          "MaxValue": 1.0
+        },
+        "RequiredUsagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredFuelPercent": {
+          "Active": true,
+          "FloatValue": 0.01,
+          "MaxValue": 1.0
+        },
+        "RequiredProgressPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredLiquidQuantity": 0.0,
+        "RequiredSpecial1Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial2Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial3Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial4Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "ParentObjectID": "water_sawmill_workshop_placed",
+          "LocalizationKey": "Water_Sawmill_ForgePlaced_HammerAll_FailMessage",
+          "DefaultText": "Forge must be at working heat. Use Blast first."
+        },
+        "SpecificFailMessages": []
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "ProducedCards": [],
+      "StatModifications": []
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_WorkshopPlaced_HammerCopperSheet_ActionName",
+        "DefaultText": "Hammer Copper Sheet"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_WorkshopPlaced_HammerCopperSheet_ActionDescription",
+        "DefaultText": "Hammer six copper nuggets from the workshop inventory into a copper sheet."
+      },
+      "DaytimeCost": 4,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Metal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredSpoilagePercent": {
+          "Active": true,
+          "FloatValue": 0.6,
+          "MaxValue": 1.0
+        },
+        "RequiredUsagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredFuelPercent": {
+          "Active": true,
+          "FloatValue": 0.01,
+          "MaxValue": 1.0
+        },
+        "RequiredProgressPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredLiquidQuantity": 0.0,
+        "RequiredSpecial1Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial2Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial3Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial4Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "ParentObjectID": "water_sawmill_workshop_placed",
+          "LocalizationKey": "Water_Sawmill_ForgePlaced_HammerAll_FailMessage",
+          "DefaultText": "Forge must be at working heat. Use Blast first."
+        },
+        "SpecificFailMessages": []
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "ProducedCards": [],
+      "StatModifications": []
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_WorkshopPlaced_ForgeCopperNails_ActionName",
+        "DefaultText": "Forge Copper Nails"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_WorkshopPlaced_ForgeCopperNails_ActionDescription",
+        "DefaultText": "Forge six copper nuggets from the workshop inventory into six copper nails."
+      },
+      "DaytimeCost": 4,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Metal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredSpoilagePercent": {
+          "Active": true,
+          "FloatValue": 0.6,
+          "MaxValue": 1.0
+        },
+        "RequiredUsagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredFuelPercent": {
+          "Active": true,
+          "FloatValue": 0.01,
+          "MaxValue": 1.0
+        },
+        "RequiredProgressPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredLiquidQuantity": 0.0,
+        "RequiredSpecial1Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial2Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial3Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial4Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "ParentObjectID": "water_sawmill_workshop_placed",
+          "LocalizationKey": "Water_Sawmill_ForgePlaced_HammerAll_FailMessage",
+          "DefaultText": "Forge must be at working heat. Use Blast first."
+        },
+        "SpecificFailMessages": []
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "ProducedCards": [],
+      "StatModifications": []
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_WorkshopPlaced_CastMetalLump_ActionName",
+        "DefaultText": "Cast Metal Lump"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_WorkshopPlaced_CastMetalLump_ActionDescription",
+        "DefaultText": "Pour four copper nuggets from the workshop inventory into a mold to cast one unfinished metal lump."
+      },
+      "DaytimeCost": 4,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Metal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredSpoilagePercent": {
+          "Active": true,
+          "FloatValue": 0.6,
+          "MaxValue": 1.0
+        },
+        "RequiredUsagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredFuelPercent": {
+          "Active": true,
+          "FloatValue": 0.01,
+          "MaxValue": 1.0
+        },
+        "RequiredProgressPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredLiquidQuantity": 0.0,
+        "RequiredSpecial1Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial2Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial3Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredSpecial4Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "ParentObjectID": "water_sawmill_workshop_placed",
+          "LocalizationKey": "Water_Sawmill_ForgePlaced_HammerAll_FailMessage",
+          "DefaultText": "Forge must be at working heat. Use Blast first."
+        },
+        "SpecificFailMessages": []
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "ProducedCards": [],
+      "StatModifications": []
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_WorkshopPlaced_PickUp_ActionName",
+        "DefaultText": "Pack Up"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_workshop_placed",
+        "LocalizationKey": "Water_Sawmill_WorkshopPlaced_PickUp_ActionDescription",
+        "DefaultText": "Pack up the workshop back into a transportable kit."
+      },
+      "DaytimeCost": 5,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Metal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "water_sawmill_workshop_kit",
+        "TransformIntoWarpType": 3,
+        "TransferInventory": false,
+        "SpawnTransformAtSource": true
+      }
+    }
+  ],
+  "PassiveEffects": [],
+  "PassiveStatEffects": [],
+  "MaxLiquidCapacity": 0.0,
+  "IsEnvironment": false,
+  "IsAttachedToEnvironment": true,
+  "PreventInteractionsInContainer": false,
+  "IsIndoors": false,
+  "BlueprintStatModifications": [],
+  "BlueprintCardModifications": [],
+  "CookingRecipes": [
+    {
+      "ActionName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "Water_Sawmill_ForgePlaced_SmeltGreenstone_ActionName",
+        "DefaultText": "Smelt Greenstone"
+      },
+      "CustomCookingText": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "CannotCookText": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": "More temperature required!"
+      },
+      "CompatibleCards": [],
+      "CompatibleCardsWarpData": [
+        "492ba87119393c1448fb6d320e371b65"
+      ],
+      "CompatibleCardsWarpType": 3,
+      "CompatibleTags": [],
+      "CompatibleTagsWarpData": [],
+      "CompatibleTagsWarpType": 3,
+      "ConditionsCard": 0,
+      "Conditions": {
+        "NotInBackground": false,
+        "InBackground": false,
+        "PlayerUsesCard": 0,
+        "RequiredEnvironment": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "InvertEnvironmentRequirement": false,
+        "RequiredEnvironmentTags": [],
+        "RequiredNOTEnvironmentTags": [],
+        "RequiredContainer": [],
+        "RequiredNOTContainer": [],
+        "RequiredContainerTags": [],
+        "RequiredNOTContainerTags": [],
+        "RequiredCardsOnBoard": [],
+        "RequiredTagsOnBoard": [],
+        "RequiredCardsNOTOnBoard": [],
+        "RequiredTagsNOTOnBoard": [],
+        "RequiredLiquidContainers": [],
+        "RequiredCardsInInventory": [],
+        "RequiredTagsInInventory": [],
+        "CardWasBuiltWith": [],
+        "CardWasNOTBuiltWith": [],
+        "RequiredPlayerOwnedCards": [],
+        "RequiredPlayerNOTOwnedCards": [],
+        "ReceivingRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 1100.0,
+            "y": 1E+09
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "GivenRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "ReceivingContainerRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "GivenContainerRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "ReceivingCardTags": [],
+        "GivenCardTags": [],
+        "ReceivingCardSpices": [],
+        "GivenCardSpices": [],
+        "RequiredEnvironmentWeight": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
+        "RequiredStatValues": [],
+        "RequiredNPCStatValues": [],
+        "RequiredInGameTimes": [],
+        "RequiredAlreadyVisitedEnvironments": []
+      },
+      "Duration": 1,
+      "DurationRdmVariation": 0,
+      "CookerChanges": {
+        "ModType": 0
+      },
+      "IngredientChanges": {
+        "ModType": 1,
+        "FuelChange": {
+          "x": 200.0,
+          "y": 200.0
+        },
+        "ChargesChange": {
+          "x": 1.0,
+          "y": 1.0
+        }
+      },
+      "FeedbackMode": 1,
+      "ProgressBar": 3,
+      "ProgressTowardsZero": false,
+      "HideCookingProgress": false,
+      "HideDurabilities": {
+        "MaskValue": 0
+      },
+      "HideResultNotification": false,
+      "RandomSingleDrop": false,
+      "CustomCompleteSound": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "Notification": 0,
+      "CustomNotification": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "ScaleDropsPerLiquidQuantity": {
+        "Active": false,
+        "FloatValue": 0.0
+      },
+      "Drops": [],
+      "StatModifications": [],
+      "UseCookerForCardDrops": false,
+      "DropsAsCollection": []
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "Water_Sawmill_ForgePlaced_RefineCopper_ActionName",
+        "DefaultText": "Refine Copper"
+      },
+      "CustomCookingText": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "CannotCookText": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": "More temperature required!"
+      },
+      "CompatibleCards": [],
+      "CompatibleCardsWarpData": [
+        "3769abdc385c36c4ba349663240934c0",
+        "1ec399502888015468ee1c00dab60569",
+        "b94d2bf3902f37d4d917943d3c784298"
+      ],
+      "CompatibleCardsWarpType": 3,
+      "CompatibleTags": [],
+      "CompatibleTagsWarpData": [],
+      "CompatibleTagsWarpType": 3,
+      "ConditionsCard": 0,
+      "Conditions": {
+        "NotInBackground": false,
+        "InBackground": false,
+        "PlayerUsesCard": 0,
+        "RequiredEnvironment": { "m_FileID": 0, "m_PathID": 0 },
+        "InvertEnvironmentRequirement": false,
+        "RequiredEnvironmentTags": [],
+        "RequiredNOTEnvironmentTags": [],
+        "RequiredContainer": [],
+        "RequiredNOTContainer": [],
+        "RequiredContainerTags": [],
+        "RequiredNOTContainerTags": [],
+        "RequiredCardsOnBoard": [],
+        "RequiredTagsOnBoard": [],
+        "RequiredCardsNOTOnBoard": [],
+        "RequiredTagsNOTOnBoard": [],
+        "RequiredLiquidContainers": [],
+        "RequiredCardsInInventory": [],
+        "RequiredTagsInInventory": [],
+        "CardWasBuiltWith": [],
+        "CardWasNOTBuiltWith": [],
+        "RequiredPlayerOwnedCards": [],
+        "RequiredPlayerNOTOwnedCards": [],
+        "ReceivingRequiredDurabilityRanges": {
+          "SpoilageRange": { "x": 1100.0, "y": 1E+09 },
+          "UsageRange": { "x": 0.0, "y": 0.0 },
+          "FuelRange": { "x": 0.0, "y": 0.0 },
+          "ProgressRange": { "x": 0.0, "y": 0.0 },
+          "Special1Range": { "x": 0.0, "y": 0.0 },
+          "Special2Range": { "x": 0.0, "y": 0.0 },
+          "Special3Range": { "x": 0.0, "y": 0.0 },
+          "Special4Range": { "x": 0.0, "y": 0.0 },
+          "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+        },
+        "GivenRequiredDurabilityRanges": {
+          "SpoilageRange": { "x": 0.0, "y": 0.0 },
+          "UsageRange": { "x": 0.0, "y": 0.0 },
+          "FuelRange": { "x": 0.0, "y": 0.0 },
+          "ProgressRange": { "x": 0.0, "y": 0.0 },
+          "Special1Range": { "x": 0.0, "y": 0.0 },
+          "Special2Range": { "x": 0.0, "y": 0.0 },
+          "Special3Range": { "x": 0.0, "y": 0.0 },
+          "Special4Range": { "x": 0.0, "y": 0.0 },
+          "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+        },
+        "ReceivingContainerRequiredDurabilityRanges": {
+          "SpoilageRange": { "x": 0.0, "y": 0.0 },
+          "UsageRange": { "x": 0.0, "y": 0.0 },
+          "FuelRange": { "x": 0.0, "y": 0.0 },
+          "ProgressRange": { "x": 0.0, "y": 0.0 },
+          "Special1Range": { "x": 0.0, "y": 0.0 },
+          "Special2Range": { "x": 0.0, "y": 0.0 },
+          "Special3Range": { "x": 0.0, "y": 0.0 },
+          "Special4Range": { "x": 0.0, "y": 0.0 },
+          "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+        },
+        "GivenContainerRequiredDurabilityRanges": {
+          "SpoilageRange": { "x": 0.0, "y": 0.0 },
+          "UsageRange": { "x": 0.0, "y": 0.0 },
+          "FuelRange": { "x": 0.0, "y": 0.0 },
+          "ProgressRange": { "x": 0.0, "y": 0.0 },
+          "Special1Range": { "x": 0.0, "y": 0.0 },
+          "Special2Range": { "x": 0.0, "y": 0.0 },
+          "Special3Range": { "x": 0.0, "y": 0.0 },
+          "Special4Range": { "x": 0.0, "y": 0.0 },
+          "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+        },
+        "ReceivingCardTags": [],
+        "GivenCardTags": [],
+        "ReceivingCardSpices": [],
+        "GivenCardSpices": [],
+        "RequiredEnvironmentWeight": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+        "RequiredStatValues": [],
+        "RequiredNPCStatValues": [],
+        "RequiredInGameTimes": [],
+        "RequiredAlreadyVisitedEnvironments": []
+      },
+      "Duration": 1,
+      "DurationRdmVariation": 0,
+      "CookerChanges": { "ModType": 0 },
+      "IngredientChanges": {
+        "ModType": 1,
+        "ChargesChange": { "x": 1.0, "y": 1.0 }
+      },
+      "FeedbackMode": 1,
+      "ProgressBar": 3,
+      "ProgressTowardsZero": false,
+      "HideCookingProgress": false,
+      "HideDurabilities": { "MaskValue": 0 },
+      "HideResultNotification": false,
+      "RandomSingleDrop": false,
+      "CustomCompleteSound": { "m_FileID": 0, "m_PathID": 0 },
+      "Notification": 0,
+      "CustomNotification": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
+      "ScaleDropsPerLiquidQuantity": { "Active": false, "FloatValue": 0.0 },
+      "Drops": [],
+      "StatModifications": [],
+      "UseCookerForCardDrops": false,
+      "DropsAsCollection": []
+    }
+  ],
+  "EquipSlots": [],
+  "EquipSlotType": 0
+}

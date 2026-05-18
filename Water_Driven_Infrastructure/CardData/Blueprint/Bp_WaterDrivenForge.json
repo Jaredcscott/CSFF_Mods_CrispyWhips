@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "water_sawmill_bp_water_driven_forge",
         "LocalizationKey": "Water_Sawmill_Bp_WaterDrivenForge_CardDescription",
-        "DefaultText": "Assemble a water-driven forge assembly. Requires a mill race as a core subcomponent."
+        "DefaultText": "Build a large forge in 4 phases: (1) Water mill and excavation, (2) Stone foundation and mud brick structure, (3) Fire chamber with leather bellows, (4) Final plaster finish. Total construction time: 12 hours (3 hours per phase)."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {
@@ -48,23 +48,10 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "CardImageWarpData": "ForgeFullyBuilt",
+    "CardImageWarpData": "ForgeKit",
     "CardImageWarpType": 3,
     "BuildingCardConditions": [],
     "BuildingTagConditions": [
-        {
-            "TriggerTag": {
-                "m_FileID": 0,
-                "m_PathID": 0
-            },
-            "OnlyInHand": false,
-            "NotInHand": false,
-            "ExcludeInventories": false,
-            "Inverted": false,
-            "OnlyEquipped": false,
-            "TriggerTagWarpData": "tag_River",
-            "TriggerTagWarpType": 3
-        },
         {
             "TriggerTag": {
                 "m_FileID": 0,
@@ -261,6 +248,6 @@
         "Wood"
     ],
     "WhenCreatedSoundsWarpType": 3,
-    "BlueprintUnlockTicksCost": 32.0,
+    "BlueprintUnlockTicksCost": 64.0,
     "ResearchedNotification": 0
 }

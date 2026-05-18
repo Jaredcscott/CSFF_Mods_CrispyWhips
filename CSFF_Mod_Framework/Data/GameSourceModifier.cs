@@ -85,12 +85,12 @@ internal static class GameSourceModifier
                 }
                 catch (Exception ex)
                 {
-                    Log.Error($"GameSourceModify: error processing {file}: {ex.Message}");
+                    Log.Error($"GameSourceModify: error processing {file}: {Log.ExceptionText(ex)}");
                 }
             }
         }
 
-        Log.Info($"GameSourceModify: applied {totalApplied} patches across {mods.Count} mod(s)");
+        Log.Debug($"GameSourceModify: applied {totalApplied} patches across {mods.Count} mod(s)");
     }
 
     private static void ApplyPatch(UnityEngine.Object target, string json, string modName, string filePath,
@@ -110,7 +110,7 @@ internal static class GameSourceModifier
         }
         catch (Exception ex)
         {
-            Log.Warn($"GameSourceModify: WarpData re-resolve failed for {target.name}: {ex.Message}");
+            Log.Warn($"GameSourceModify: WarpData re-resolve failed for {target.name}: {Log.ExceptionText(ex)}");
         }
 
         // Mark patched object as dirty so NullReferenceCompactor picks it up.
@@ -178,7 +178,7 @@ internal static class GameSourceModifier
                     }
                     catch (Exception ex)
                     {
-                        Log.Warn($"GameSourceModify._appendArrays: failed to append '{id}' to {target.name}.{fieldName}: {ex.Message}");
+                        Log.Warn($"GameSourceModify._appendArrays: failed to append '{id}' to {target.name}.{fieldName}: {Log.ExceptionText(ex)}");
                     }
                 }
             }

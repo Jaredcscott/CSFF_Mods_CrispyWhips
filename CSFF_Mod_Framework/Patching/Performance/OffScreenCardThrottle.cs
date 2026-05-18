@@ -109,11 +109,11 @@ internal static class OffScreenCardThrottle
         try
         {
             harmony.Patch(target, prefix: prefix);
-            Util.Log.Info($"OffScreenCardThrottle: enabled (1-in-{_throttleFrames} frames for off-screen cards).");
+            Util.Log.Debug($"OffScreenCardThrottle: enabled (1-in-{_throttleFrames} frames for off-screen cards).");
         }
         catch (Exception ex)
         {
-            Util.Log.Error($"OffScreenCardThrottle: failed to patch: {ex.Message}");
+            Util.Log.Error($"OffScreenCardThrottle: failed to patch: {ex.InnerException?.ToString() ?? ex.ToString()}");
         }
     }
 

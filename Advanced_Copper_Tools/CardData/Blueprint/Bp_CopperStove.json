@@ -147,6 +147,6 @@
     },
     "CardImageWarpData": "CopperStove",
     "CardImageWarpType": 3,
-    "BlueprintUnlockTicksCost": 32.0,
+    "BlueprintUnlockTicksCost": 64.0,
     "ResearchedNotification": 0
 }

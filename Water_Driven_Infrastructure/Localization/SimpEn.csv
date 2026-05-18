@@ -1,15 +1,15 @@
 Water_Sawmill_Bp_WaterDrivenSawmill_CardName,Water-Driven Sawmill
-Water_Sawmill_Bp_WaterDrivenSawmill_CardDescription,Construct a large sawmill powered by river flow. This project can only be built near a river.
+Water_Sawmill_Bp_WaterDrivenSawmill_CardDescription,Construct a large sawmill powered by river flow or a connected mill race outlet.
 Water_Sawmill_Bp_WaterDrivenSawmill_UnlockConditionsDesc,Water-Driven Mill
 Water_Sawmill_Frame_CardName,Water-Driven Sawmill Kit
-Water_Sawmill_Frame_CardDescription,A complete sawmill kit with all components for a large river-powered sawmill.
-Water_Sawmill_Frame_CardHelpSection,"<b>Use:</b> Place near a river to set up the full sawmill structure.
+Water_Sawmill_Frame_CardDescription,A complete sawmill kit with all components for a large water-powered sawmill.
+Water_Sawmill_Frame_CardHelpSection,"<b>Use:</b> Place near water or a connected mill race outlet to set up the full sawmill structure.
 
 <b>Scale:</b> This is a large construction project."
 Water_Sawmill_Frame_Place_ActionName,Place
 Water_Sawmill_Frame_Place_ActionDescription,Place the sawmill kit into the environment.
 Water_Sawmill_Placed_CardName,Water-Driven Sawmill
-Water_Sawmill_Placed_CardDescription,"A large, fixed river-powered sawmill built on the riverbank."
+Water_Sawmill_Placed_CardDescription,"A large, fixed water-powered sawmill fed by direct water or a mill race outlet."
 Water_Sawmill_Placed_CardHelpSection,"<b>Placement:</b> River environments only via blueprint conditions.
 
 <b>Operation:</b> Load a log into the sawmill, then press Cut to saw it into planks."
@@ -30,13 +30,6 @@ Water_Sawmill_WaterMill_CardHelpSection,"<b>Subcomponent:</b> Requires a mill ra
 <b>Capacity:</b> Can grind 4x the throughput of a manual rotary quern.
 
 <b>Operation:</b> Load millable items and press <b>Grind All</b> to process the batch on demand."
-Water_Sawmill_WaterDrivenForge_CardName,Water-Driven Forge
-Water_Sawmill_WaterDrivenForge_CardDescription,"A large forge powered by a water wheel driving a blower system that maintains high temperatures using fire. The water wheel drives the blower, which keeps the forge at optimal temperature for metalworking."
-Water_Sawmill_WaterDrivenForge_CardHelpSection,"<b>Construction:</b> 4-phase build requiring water mill, stones, mud bricks, planks, clay, leather bellows, and plaster.
-
-<b>Power:</b> Water-driven blower maintains forge temperature.
-
-<b>Purpose:</b> High-temperature metalworking and smelting."
 Water_Sawmill_CopperGearLarge_CardName,Large Copper Gear
 Water_Sawmill_CopperGearLarge_CardDescription,A large precision-cut copper gear for power transmission in the sawmill.
 Water_Sawmill_CopperGearSmall_CardName,Small Copper Gear
@@ -56,7 +49,7 @@ Water_Sawmill_Bp_CastCopperSawBlade_CardDescription,Cast a dull copper saw blade
 Water_Sawmill_Bp_CastCopperSawBlade_UnlockConditionsDesc,Large Crucible of Molten Copper Needed
 Water_Sawmill_Bp_MillRace_CardName,Mill Race
 Water_Sawmill_Bp_MillRace_CardDescription,Build a wooden mill race segment used for water channels.
-Water_Sawmill_Bp_MillRace_UnlockConditionsDesc,Requires 1 vanilla plank
+Water_Sawmill_Bp_MillRace_UnlockConditionsDesc,Requires 1 Plank
 Water_Sawmill_Bp_WaterWheel_CardName,Water Wheel
 Water_Sawmill_Bp_WaterWheel_CardDescription,Assemble a large water wheel for power generation.
 Water_Sawmill_Bp_WaterWheel_UnlockConditionsDesc,Mill Race
@@ -64,27 +57,35 @@ Water_Sawmill_Bp_WaterMill_CardName,Water-Driven Mill
 Water_Sawmill_Bp_WaterMill_CardDescription,Assemble a compact water mill. Requires a mill race as a core subcomponent.
 Water_Sawmill_Bp_WaterMill_UnlockConditionsDesc,Water Wheel
 Water_Sawmill_Bp_WaterDrivenForge_CardName,Water-Driven Forge
-Water_Sawmill_Bp_WaterDrivenForge_CardDescription,"Build a large forge in 4 phases: (1) Water mill and excavation, (2) Stone foundation and mud brick structure, (3) Fire chamber with leather bellows, (4) Final plaster finish. Total construction time: 3 hours."
+Water_Sawmill_Bp_WaterDrivenForge_CardDescription,"Build a large forge in 4 phases: (1) Water mill and excavation, (2) Stone foundation and mud brick structure, (3) Fire chamber with leather bellows, (4) Final plaster finish. Total construction time: 12 hours (3 hours per phase)."
 Water_Sawmill_Bp_WaterDrivenForge_UnlockConditionsDesc,Water-Driven Mill
 Water_Sawmill_Perk_SawmillStart_PerkName,Sawmill Start
-Water_Sawmill_Perk_SawmillStart_PerkDescription,Start with a water-driven sawmill kit ready to place near a river.
+Water_Sawmill_Perk_SawmillStart_PerkDescription,Start with a water-driven sawmill kit ready to place near water or a connected mill race outlet.
 
 Water_Sawmill_Frame_Disassemble_ActionName,Disassemble
 Water_Sawmill_Frame_Disassemble_ActionDescription,Break down the kit into its component parts.
 Water_Sawmill_ForgeKit_CardName,Water-Driven Forge Kit
 Water_Sawmill_ForgeKit_CardDescription,A complete forge kit with all components for a large water-powered metalworking forge.
-Water_Sawmill_ForgeKit_CardHelpSection,"<b>Use:</b> Place near a river with a local mill race to set up the forge.
+Water_Sawmill_ForgeKit_CardHelpSection,"<b>Use:</b> Place near water or a connected mill race outlet to set up the forge.
 
 <b>Scale:</b> This is a large construction project requiring water power."
 Water_Sawmill_ForgeKit_Place_ActionName,Place
 Water_Sawmill_ForgeKit_Place_ActionDescription,Place the forge kit into the environment.
 Water_Sawmill_ForgeKit_Disassemble_ActionName,Disassemble
 Water_Sawmill_ForgeKit_Disassemble_ActionDescription,Break down the kit into its component parts.
+Water_Sawmill_WorkshopKit_CardName,Water-Driven Workshop Kit
+Water_Sawmill_WorkshopKit_CardDescription,"A bundled upgrade kit combining the water-driven forge, mill drive, forge hammer, charcoal reserve, and gear train for heavy metalworking."
+Water_Sawmill_WorkshopKit_CardHelpSection,"<b>Purpose:</b> A bundled upgrade kit for extending the water-driven forge into a workshop.
+
+<b>Contents:</b> Water-driven forge kit, water mill, forge hammer, charcoal, and copper gears."
+Water_Sawmill_WorkshopKit_Disassemble_ActionName,Disassemble
+Water_Sawmill_WorkshopKit_Disassemble_ActionDescription,Break down the workshop kit into its component parts.
+Water_Sawmill_WorkshopKit_FuelCapacity.CardStatName,Temperature,温度
 Water_Sawmill_ForgePlaced_CardName,Water-Driven Forge
 Water_Sawmill_ForgePlaced_CardDescription,A large water-powered forge for high-temperature metalworking.
 Water_Sawmill_ForgePlaced_CardHelpSection,"<b>Requirements:</b> Requires local mill race for water power.
 
-<b>Operation:</b> Drag firewood or charcoal onto the forge to feed fuel. Light with embers, press Blast to raise temperature, then drag copper ore onto the hot forge to smelt. You can also place metal nuggets and clay items in the inventory."
+<b>Operation:</b> Drag firewood or charcoal onto the forge to feed fuel. Light with embers, press Blast to raise temperature, then drag copper ore onto the hot forge to smelt. Load heated tool blanks and press Hammer All to apply one water-hammer strike to each blank. You can also place metal nuggets and clay items in the inventory."
 Water_Sawmill_ForgePlaced_FeedFirewood_ActionName,Feed Firewood
 Water_Sawmill_ForgePlaced_FeedFirewood_ActionDescription,Feed wood or firewood into the forge firebox.
 Water_Sawmill_ForgePlaced_FeedFuel_ActionName,Feed Fuel
@@ -110,9 +111,11 @@ Water_Sawmill_ForgePlaced_HammerAll_FailMessage,Forge must be at working heat. U
 Water_Sawmill_ForgePlaced_SmeltOre_FailMessage,The forge is not hot enough. Use Blast first.
 Water_Sawmill_ForgePlaced_SmeltOre_ActionName,Smelt Ore
 Water_Sawmill_ForgePlaced_SmeltOre_ActionDescription,Drag copper ore onto the hot forge to smelt it into an ingot.
+Water_Sawmill_ForgePlaced_SmeltGreenstone_ActionName,Smelt Greenstone
+Water_Sawmill_ForgePlaced_RefineCopper_ActionName,Refine Copper
 Water_Sawmill_GrindingMillKit_CardName,Water-Driven Grinding Mill Kit
 Water_Sawmill_GrindingMillKit_CardDescription,A complete grinding mill kit with all components for a large water-powered grain mill.
-Water_Sawmill_GrindingMillKit_CardHelpSection,"<b>Use:</b> Place near a river with a local mill race to set up the grinding mill.
+Water_Sawmill_GrindingMillKit_CardHelpSection,"<b>Use:</b> Place near water or a connected mill race outlet to set up the grinding mill.
 
 <b>Scale:</b> This is a large construction project requiring water power."
 Water_Sawmill_GrindingMillKit_Place_ActionName,Place
@@ -131,13 +134,16 @@ Water_Sawmill_GrindingMillPlaced_GrindAll_ActionDescription,Engage the mill whee
 Water_Sawmill_Bp_GrindingMill_CardName,Water-Driven Grinding Mill
 Water_Sawmill_Bp_GrindingMill_CardDescription,Assemble a water-driven grinding mill. Requires a water mill as a core subcomponent.
 Water_Sawmill_Bp_GrindingMill_UnlockConditionsDesc,Water-Driven Mill
+Water_Sawmill_Bp_WaterDrivenWorkshopKit_CardName,Water-Driven Workshop Kit
+Water_Sawmill_Bp_WaterDrivenWorkshopKit_CardDescription,"Upgrade a completed water-driven forge kit with a water mill, forge hammer, charcoal, and copper gears into a workshop kit."
+Water_Sawmill_Bp_WaterDrivenWorkshopKit_UnlockConditionsDesc,Water-Driven Forge Kit
 Water_Sawmill_Perk_ForgeStart_PerkName,Forge Start
-Water_Sawmill_Perk_ForgeStart_PerkDescription,Start with a water-driven forge kit and mill race component. Place near a river to build a water-powered metalworking station.
+Water_Sawmill_Perk_ForgeStart_PerkDescription,Start with a water-driven forge kit and mill race component. Place near water or a connected mill race outlet to build a water-powered metalworking station.
 Water_Sawmill_Perk_GrindingMillStart_PerkName,Grinding Mill Start
-Water_Sawmill_Perk_GrindingMillStart_PerkDescription,Start with a grinding mill kit and mill race component. Place near a river to build a water-powered grain mill.
+Water_Sawmill_Perk_GrindingMillStart_PerkDescription,Start with a grinding mill kit and mill race component. Place near water or a connected mill race outlet to build a water-powered grain mill.
 Water_Sawmill_OreSluiceKit_CardName,Ore Sluice Kit
-Water_Sawmill_OreSluiceKit_CardDescription,A complete ore sluice kit ready to be placed near a river for mineral prospecting.
-Water_Sawmill_OreSluiceKit_CardHelpSection,"<b>Use:</b> Place near a river with a local mill race to set up the ore sluice.
+Water_Sawmill_OreSluiceKit_CardDescription,A complete ore sluice kit ready to be placed near water or a connected mill race outlet for mineral prospecting.
+Water_Sawmill_OreSluiceKit_CardHelpSection,"<b>Use:</b> Place near water or a connected mill race outlet to set up the ore sluice.
 
 <b>Purpose:</b> Wash soil to extract greenstone nuggets."
 Water_Sawmill_OreSluiceKit_Place_ActionName,Place
@@ -148,16 +154,16 @@ Water_Sawmill_OreSluicePlaced_CardName,Ore Sluice
 Water_Sawmill_OreSluicePlaced_CardDescription,"A water-powered sluice box for washing soil and separating mineral deposits. Load mud or dirt, then run the sluice to pan for greenstone."
 Water_Sawmill_OreSluicePlaced_CardHelpSection,"<b>Requirements:</b> Requires a local mill race for water power.
 
-<b>Operation:</b> Load mud piles, dirt piles, or fine dirt into the sluice, then press Sluice All. Each item has a chance to yield greenstone:
-- Mud Pile: 5%
-- Dirt Pile: 8%
-- Fine Dirt: 10%"
+<b>Operation:</b> Load mud piles, dirt piles, or fine dirt into the sluice, then press Sluice All. Rates vary by soil type:
+- Mud Pile: 8% greenstone / 15% flint / 77% stone
+- Dirt Pile: 5% greenstone / 10% flint / 85% stone
+- Fine Dirt: 2% greenstone / 8% flint / 90% stone"
 Water_Sawmill_OreSluicePlaced_SluiceAll_ActionName,Sluice All
 Water_Sawmill_OreSluicePlaced_SluiceAll_ActionDescription,Run water through the sluice to wash all loaded soil. Each item has a chance to yield greenstone.
 Water_Sawmill_OreSluicePlaced_PickUp_ActionName,Pack Up
 Water_Sawmill_OreSluicePlaced_PickUp_ActionDescription,Pack up the ore sluice back into a transportable kit.
 Water_Sawmill_Bp_OreSluice_CardName,Ore Sluice
-Water_Sawmill_Bp_OreSluice_CardDescription,Build a water-powered ore sluice for washing soil and extracting greenstone. Must be built near a river.
+Water_Sawmill_Bp_OreSluice_CardDescription,Build a water-powered ore sluice for washing soil and extracting greenstone. Requires direct water or a connected mill race outlet.
 Water_Sawmill_Bp_OreSluice_UnlockConditionsDesc,Mill Race
 Water_Sawmill_CopperGearLarge_CardHelpSection,"<b>Purpose:</b> Component for water-driven forge machinery.
 
@@ -173,13 +179,6 @@ Water_Sawmill_CopperSawBlade_CardHelpSection,"<b>Purpose:</b> Cutting component 
 Water_Sawmill_CopperSawBladeDull_CardHelpSection,"<b>Purpose:</b> Worn cutting component.
 
 <b>Condition:</b> Dull. Must be sharpened at a grinding stone before reuse."
-Water_Sawmill_MillRaceLocalPlaced_CardName,Mill Race (Local)
-Water_Sawmill_MillRaceLocalPlaced_CardDescription,A fixed local mill-race channel installed in this location to feed water-powered machinery.
-Water_Sawmill_MillRaceLocalPlaced_CardHelpSection,"<b>Water Flow:</b> Required for local water-powered machinery operation.
-
-<b>Setup:</b> Must be paired with a directional mill race between locations."
-Water_Sawmill_MillRaceLocalPlaced_Pack_ActionName,Pack Up
-Water_Sawmill_MillRaceLocalPlaced_Pack_ActionDescription,Pack up the local mill race back into a transportable race segment.
 Water_Sawmill_MillRace_Dismantle_ActionName,Dismantle
 Water_Sawmill_MillRace_Dismantle_ActionDescription,Break down the mill race and recover the planks.
 Water_Sawmill_WaterWheel_Dismantle_ActionName,Dismantle
@@ -192,17 +191,17 @@ Water_Sawmill_OreSluiceEmpty_CardHelpSection,<b>Use:</b> Combine with rope and a
 Water_Sawmill_OreSluiceEmpty_Dismantle_ActionName,Dismantle
 Water_Sawmill_OreSluiceEmpty_Dismantle_ActionDescription,Break down the sluice frame and recover planks.
 Water_Sawmill_Bp_OreSluiceEmpty_CardName,Ore Sluice Frame
-Water_Sawmill_Bp_OreSluiceEmpty_CardDescription,Hammer together a basic sluice box frame from planks.
+Water_Sawmill_Bp_OreSluiceEmpty_CardDescription,Hammer together a basic sluice box frame from planks and copper nails.
 Water_Sawmill_Bp_OreSluiceEmpty_UnlockConditionsDesc,Mill Race
 Water_Sawmill_CopperSawBlade_FuelCapacity_CardStatName,Temperature
 Water_Sawmill_CopperSawBladeDull_FuelCapacity_CardStatName,Temperature
 Water_Sawmill_ForgePlaced_Fuel_StatName,Fuel
 Water_Sawmill_Bp_Fishpond_CardName,Fishpond
-Water_Sawmill_Bp_Fishpond_CardDescription,"Dig a fishpond near a river in 3 stages using a shovel (3 hours each). Populate it with live pike, perch, and minnow which will grow over time. When the total fish count exceeds 10, the pond becomes stocked and frogs can be caught. The pond freezes in winter."
+Water_Sawmill_Bp_Fishpond_CardDescription,"Dig a fishpond near water or a connected mill race outlet in 5 stages (3 hours each, 15 hours total): 3 digging stages with a shovel, then 2 stocking stages with live fish and planks. Fish will grow over time. When the total fish count exceeds 10, the pond becomes stocked and frogs can be caught. The pond freezes in winter."
 Water_Sawmill_Bp_Fishpond_UnlockConditionsDesc,Mill Race Needed
 Water_Sawmill_FishpondKit_CardName,Fishpond Kit
-Water_Sawmill_FishpondKit_CardDescription,A pre-stocked fishpond kit ready for placement near a river. Fish populations grow slowly over time.
-Water_Sawmill_FishpondKit_CardHelpSection,"<b>Use:</b> Place near a river. Fish grow over time. The pond becomes stocked when the total fish count exceeds 10. Fish are caught with a spear."
+Water_Sawmill_FishpondKit_CardDescription,A pre-stocked fishpond kit ready for placement near water or a connected mill race outlet. Fish populations grow slowly over time.
+Water_Sawmill_FishpondKit_CardHelpSection,"<b>Use:</b> Place near water or a connected mill race outlet. Fish grow over time. The pond becomes stocked when the total fish count exceeds 10. Fish are caught with a spear."
 Water_Sawmill_FishpondKit_Place_ActionName,Place
 Water_Sawmill_FishpondKit_Place_ActionDescription,Place the fishpond near the river.
 Water_Sawmill_FishpondKit_Disassemble_ActionName,Disassemble
@@ -348,3 +347,64 @@ Water_Sawmill_FishpondStocked_CatchTrout_ActionName,Catch Trout
 Water_Sawmill_FishpondStocked_CatchTrout_ActionDescription,Spear a trout from the pond.
 Water_Sawmill_FishpondStocked_CatchChar_ActionName,Catch Char
 Water_Sawmill_FishpondStocked_CatchChar_ActionDescription,Spear a char from the pond.
+Water_Sawmill_MillRaceNorth_CardName,Mill Race (North)
+Water_Sawmill_MillRaceNorth_CardDescription,A northward mill race channel segment installed between locations to carry water from a water source.
+Water_Sawmill_MillRaceSouth_CardName,Mill Race (South)
+Water_Sawmill_MillRaceSouth_CardDescription,A southward mill race channel segment installed between locations to carry water from a water source.
+Water_Sawmill_MillRaceEast_CardName,Mill Race (East)
+Water_Sawmill_MillRaceEast_CardDescription,An eastward mill race channel segment installed between locations to carry water from a water source.
+Water_Sawmill_MillRaceWest_CardName,Mill Race (West)
+Water_Sawmill_MillRaceWest_CardDescription,A westward mill race channel segment installed between locations to carry water from a water source.
+Water_Sawmill_MillRaceOutletPlaced_CardName,Mill Race Outlet
+Water_Sawmill_MillRaceOutletPlaced_CardDescription,The downstream end of a mill race outlet. Provides a steady flow of unclean water. Freezes solid in winter.
+Water_Sawmill_MillRaceOutletPlaced_Fill_ActionName,Draw Unclean Water
+Water_Sawmill_MillRaceOutletPlaced_Fill_ActionDescription,Draw unclean water from the mill race outlet into the container.
+Water_Sawmill_MillRaceOutletPlaced_PackUp_ActionName,Pack Up
+Water_Sawmill_MillRaceOutletPlaced_PackUp_ActionDescription,Pack up the mill race outlet for relocation.
+Water_Sawmill_MillRaceOutletPlaced_Freeze_ActionName,Freeze
+Water_Sawmill_MillRaceOutletFrozen_CardName,Mill Race Outlet (Frozen)
+Water_Sawmill_MillRaceOutletFrozen_CardDescription,The mill race is frozen solid. Water flow from the river is suspended for the winter. The outlet will thaw and resume flowing in spring.
+Water_Sawmill_MillRaceOutletFrozen_PackUp_ActionName,Pack Up
+Water_Sawmill_MillRaceOutletFrozen_PackUp_ActionDescription,Pack up the frozen mill race outlet for relocation.
+Water_Sawmill_MillRaceOutletFrozen_Thaw_ActionName,Thaw
+Water_Sawmill_Bp_MillRaceOutlet_CardName,Mill Race Outlet
+Water_Sawmill_Bp_MillRaceOutlet_CardDescription,Build a mill race outlet at any outdoor location (1 hour). Requires a Mill Race, which is consumed in construction. Once built, provides a steady source of unclean water. Freezes solid in winter.
+Water_Sawmill_Bp_MillRaceOutlet_UnlockConditionsDesc,Requires Mill Race
+Water_Sawmill_MillRaceOutletKit_CardName,Mill Race Outlet
+Water_Sawmill_MillRaceOutletKit_CardDescription,A portable mill race outlet ready to be installed at any outdoor location.
+Water_Sawmill_MillRaceOutletKit_Place_ActionName,Place
+Water_Sawmill_MillRaceOutletKit_Place_ActionDescription,Install the mill race outlet in the current outdoor location.
+Water_Sawmill_MillRaceOutletKit_Dismantle_ActionName,Dismantle
+Water_Sawmill_MillRaceOutletKit_Dismantle_ActionDescription,Break down the mill race outlet and recover all materials.
+Water_Sawmill_WorkshopPlaced_CardName,Water-Driven Workshop
+Water_Sawmill_WorkshopPlaced_CardDescription,A water-powered metalworking workshop with an upgraded forge hammer for higher-quality tools.
+Water_Sawmill_WorkshopPlaced_PickUp_ActionName,Pack Up
+Water_Sawmill_WorkshopPlaced_PickUp_ActionDescription,Pack up the workshop back into a transportable kit.
+Water_Sawmill_WorkshopPlaced_HammerCopperSheet_ActionName,Hammer Copper Sheet
+Water_Sawmill_WorkshopPlaced_HammerCopperSheet_ActionDescription,Hammer six copper nuggets from the workshop inventory into a copper sheet.
+Water_Sawmill_WorkshopPlaced_ForgeCopperNails_ActionName,Forge Copper Nails
+Water_Sawmill_WorkshopPlaced_ForgeCopperNails_ActionDescription,Forge six copper nuggets from the workshop inventory into six copper nails.
+Water_Sawmill_WorkshopPlaced_CastMetalLump_ActionName,Cast Metal Lump
+Water_Sawmill_WorkshopPlaced_CastMetalLump_ActionDescription,Pour four copper nuggets from the workshop inventory into a mold to cast one unfinished metal lump.
+Water_Sawmill_WorkshopKit_Place_ActionName,Place
+Water_Sawmill_WorkshopKit_Place_ActionDescription,Place the workshop kit into the environment.
+Water_Sawmill_CopperSawBladeDull_Sharpen_ActionName,Sharpen
+Water_Sawmill_CopperSawBladeDull_Sharpen_ActionDescription,Use a sharpening stone to hone the saw blade back to cutting condition.
+Water_Sawmill_MillRaceOutletKit_CardHelpSection,"<b>Place:</b> Install the outlet outdoors to provide a steady flow of unclean water.
+
+<b>Dismantle:</b> Break it down to recover all materials."
+Water_Sawmill_MillRaceOutletPlaced_CardHelpSection,"<b>Fill containers:</b> Drag an empty water container onto the outlet to draw unclean water.
+
+<b>Winter:</b> The outlet freezes in winter — no water can be drawn until the spring thaw.
+
+<b>Pack Up:</b> Recover the mill race outlet as a portable item for relocation."
+Water_Sawmill_MillRaceOutletFrozen_CardHelpSection,"<b>Frozen:</b> No water can be drawn during winter.
+
+<b>Spring thaw:</b> The outlet automatically resumes when winter ends.
+
+<b>Pack Up:</b> Recover the outlet as a portable item for relocation even when frozen."
+Water_Sawmill_WorkshopPlaced_CardHelpSection,"<b>Requirements:</b> Requires mill race access for water power.
+
+<b>Operation:</b> Drag firewood or charcoal onto the workshop forge to feed fuel. Light with embers, press Blast to raise temperature, then drag copper ore onto the hot forge to smelt. Place heated metal tool blanks or copper parts in the inventory, then press Hammer All to apply one water-hammer strike to each item. The workshop hammer improves metal quality while shaping tools.
+
+<b>Accepts:</b> All heated tool blanks, heated lump of metal, copper gear parts, and any item tagged Heatable or Copper."

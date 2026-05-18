@@ -3,20 +3,20 @@
     "CardType": 0,
     "CardName": {
         "ParentObjectID": "herbs_fungi_hemp_butter_active",
-        "LocalizationKey": "Herbs_And_Fungus_HempButterActive_CardName",
+        "LocalizationKey": "Herbs_And_Fungi_HempButterActive_CardName",
         "DefaultText": "Active Hemp Butter"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_hemp_butter_active",
-        "LocalizationKey": "Herbs_And_Fungus_HempButterActive_CardDescription",
+        "LocalizationKey": "Herbs_And_Fungi_HempButterActive_CardDescription",
         "DefaultText": "Aromatic liquid hemp butter with activated psychoactive compounds. Needs to cool and solidify before use."
     },
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_hemp_butter_active",
-        "LocalizationKey": "Herbs_And_Fungus_HempButterActive_CardHelpSection",
+        "LocalizationKey": "Herbs_And_Fungi_HempButterActive_CardHelpSection",
         "DefaultText": "<b>State:</b> Liquid when hot.\n\n<b>Usage:</b> Let it dry to create solid hemp butter that can be added to foods."
     },
-    "ObjectWeight": 70.0,
+    "ObjectWeight": 75,
     "TradingValue": 0.0,
     "AlwaysUpdate": true,
     "CardImage": {
@@ -41,7 +41,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_hemp_butter_active",
-            "LocalizationKey": "Herbs_And_Fungus_HempButterActive_SpoilageTime_CardStatName",
+            "LocalizationKey": "Herbs_And_Fungi_HempButterActive_SpoilageTime_CardStatName",
             "DefaultText": "Spoilage"
         },
         "MaxValue": 1800.0,
@@ -55,7 +55,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_hemp_butter_active",
-                "LocalizationKey": "Herbs_And_Fungus_HempButterActive_SpoilageTime_OnFull_ActionDescription",
+                "LocalizationKey": "Herbs_And_Fungi_HempButterActive_SpoilageTime_OnFull_ActionDescription",
                 "DefaultText": "Active Hemp Butter Spoiled!"
             },
             "ReceivingCardChanges": {
@@ -77,7 +77,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_hemp_butter_active",
-            "LocalizationKey": "Herbs_And_Fungus_HempButterActive_FuelCapacity_CardStatName",
+            "LocalizationKey": "Herbs_And_Fungi_HempButterActive_FuelCapacity_CardStatName",
             "DefaultText": "Temperature"
         },
         "MaxValue": 200.0,
@@ -94,7 +94,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_hemp_butter_active",
-            "LocalizationKey": "Herbs_And_Fungus_HempButterActive_Progress_CardStatName",
+            "LocalizationKey": "Herbs_And_Fungi_HempButterActive_Progress_CardStatName",
             "DefaultText": "Wetness"
         },
         "MaxValue": 480.0,
@@ -108,7 +108,7 @@
         "OnZero": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_hemp_butter_active",
-                "LocalizationKey": "Herbs_And_Fungus_HempButterActive_Progress_OnZero_ActionDescription",
+                "LocalizationKey": "Herbs_And_Fungi_HempButterActive_Progress_OnZero_ActionDescription",
                 "DefaultText": "The hemp butter has solidified. It's now ready to be added to foods."
             },
             "ReceivingCardChanges": {
@@ -133,7 +133,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_hemp_butter_active",
-            "LocalizationKey": "Herbs_And_Fungus_HempButterActive_SpecialDurability2_CardStatName",
+            "LocalizationKey": "Herbs_And_Fungi_HempButterActive_SpecialDurability2_CardStatName",
             "DefaultText": "Quality"
         },
         "MaxValue": 192.0,

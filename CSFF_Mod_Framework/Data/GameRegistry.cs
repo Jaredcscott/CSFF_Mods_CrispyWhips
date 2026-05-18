@@ -63,7 +63,7 @@ internal static class GameRegistry
             if (_cachedDict != null) return _cachedDict;
             if (_allUniqueObjectsField == null) return null;
             try { _cachedDict = _allUniqueObjectsField.GetValue(null) as IDictionary; }
-            catch (Exception ex) { Log.Warn($"GameRegistry: failed to read AllUniqueObjects: {ex.Message}"); }
+            catch (Exception ex) { Log.Warn($"GameRegistry: failed to read AllUniqueObjects: {Log.ExceptionText(ex)}"); }
             return _cachedDict;
         }
     }
@@ -88,7 +88,7 @@ internal static class GameRegistry
             }
             catch (Exception ex)
             {
-                Log.Debug($"GameRegistry.GetByUid({uid}) non-generic threw: {ex.InnerException?.Message ?? ex.Message}");
+                Log.Debug($"GameRegistry.GetByUid({uid}) non-generic threw: {Log.ExceptionText(ex)}");
             }
         }
 
@@ -124,7 +124,7 @@ internal static class GameRegistry
                 try { return method.Invoke(null, new object[] { uid }) as T; }
                 catch (Exception ex)
                 {
-                    Log.Debug($"GameRegistry.GetByUid<{typeof(T).Name}>({uid}) generic threw: {ex.InnerException?.Message ?? ex.Message}");
+                    Log.Debug($"GameRegistry.GetByUid<{typeof(T).Name}>({uid}) generic threw: {Log.ExceptionText(ex)}");
                 }
             }
         }
@@ -132,21 +132,27 @@ internal static class GameRegistry
         return GetByUid(uid) as T;
     }
 
-    // Cached AllData list reference (resolved on first call).
+    // Session-local UID set for O(1) dedup in TryAddToAllData.
+    // Replaces the O(n) IList.Contains scan. TryRegister and TryAddToAllData are called
+    // in sequence per object, so AllUniqueObjects already contains the UID when
+    // TryAddToAllData runs — using it as a proxy would always skip the add. This HashSet
+    // tracks only the UIDs WE have added to AllData during this load session.
+    private static readonly HashSet<string> _allDataUids = new(StringComparer.OrdinalIgnoreCase);
+
+    // Cached AllData list reference (resolved on first call, retried on null).
     private static IList _allDataCached;
-    private static bool _allDataInitAttempted;
 
     /// <summary>
     /// The game's <c>GameLoad.Instance.DataBase.AllData</c> list, by reference.
     /// Returns <c>null</c> if <c>GameLoad.Instance</c> isn't constructed yet.
+    /// Retries on every call while null so a transient early call doesn't permanently
+    /// poison the cache.
     /// </summary>
     public static IList AllData
     {
         get
         {
             if (_allDataCached != null) return _allDataCached;
-            if (_allDataInitAttempted) return null; // earlier resolution failed
-            _allDataInitAttempted = true;
 
             try
             {
@@ -175,7 +181,7 @@ internal static class GameRegistry
             }
             catch (Exception ex)
             {
-                Log.Warn($"GameRegistry: failed to resolve GameLoad.Instance.DataBase.AllData: {ex.Message}");
+                Log.Warn($"GameRegistry: failed to resolve GameLoad.Instance.DataBase.AllData: {Log.ExceptionText(ex)}");
                 return null;
             }
         }
@@ -193,15 +199,22 @@ internal static class GameRegistry
 
         try
         {
-            if (!allData.Contains(obj))
+            var uid = obj.UniqueID;
+            if (!string.IsNullOrEmpty(uid))
             {
-                allData.Add(obj);
-                return true;
+                // O(1): track UIDs we've added this session. HashSet.Add returns false if already present.
+                if (!_allDataUids.Add(uid)) return false;
             }
+            else if (allData.Contains(obj))
+            {
+                return false; // fallback O(n) scan for UID-less objects (should be rare)
+            }
+            allData.Add(obj);
+            return true;
         }
         catch (Exception ex)
         {
-            Log.Warn($"GameRegistry: failed to register {obj.name} in AllData: {ex.Message}");
+            Log.Warn($"GameRegistry: failed to register {obj.name} in AllData: {Log.ExceptionText(ex)}");
         }
         return false;
     }
@@ -235,7 +248,7 @@ internal static class GameRegistry
         }
         catch (Exception ex)
         {
-            Log.Warn($"GameRegistry: failed to register UID '{uid}': {ex.Message}");
+            Log.Warn($"GameRegistry: failed to register UID '{uid}': {Log.ExceptionText(ex)}");
             return false;
         }
     }

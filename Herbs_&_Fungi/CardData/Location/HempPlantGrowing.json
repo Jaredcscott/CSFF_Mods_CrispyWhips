@@ -2,20 +2,20 @@
     "UniqueID": "herbs_fungi_hemp_plant_growing",
     "CardName": {
         "ParentObjectID": "herbs_fungi_hemp_plant_growing",
-        "LocalizationKey": "Herbs_And_Fungus_HempPlantGrowing_CardName",
+        "LocalizationKey": "Herbs_And_Fungi_HempPlantGrowing_CardName",
         "DefaultText": "Growing Hemp Plant"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_hemp_plant_growing",
-        "LocalizationKey": "Herbs_And_Fungus_HempPlantGrowing_CardDescription",
+        "LocalizationKey": "Herbs_And_Fungi_HempPlantGrowing_CardDescription",
         "DefaultText": "A young hemp plant growing in a garden. Needs time to mature before harvesting fibers and seeds."
     },
     "CanBeRenamed": false,
     "AlternateNames": [],
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_hemp_plant_growing",
-        "LocalizationKey": "Herbs_And_Fungus_HempPlantGrowing_CardHelpSection",
-        "DefaultText": "<b>Growth Time:</b> 4 days. \n\n<b>Produces:</b> Hemp fibers and seeds when mature."
+        "LocalizationKey": "Herbs_And_Fungi_HempPlantGrowing_CardHelpSection",
+        "DefaultText": "<b>Growth Time:</b> 7 days. \n\n<b>Produces:</b> Hemp fibers and seeds when mature."
     },
     "CardType": 2,
     "ObjectWeight": 200.0,
@@ -40,7 +40,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_hemp_plant_growing",
-            "LocalizationKey": "Herbs_And_Fungus_HempPlantGrowing_Progress_CardStatName",
+            "LocalizationKey": "Herbs_And_Fungi_HempPlantGrowing_Progress_CardStatName",
             "DefaultText": "Growth"
         },
         "RandomStartingOffset": 0.0,
@@ -62,7 +62,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_hemp_plant_growing",
-                "LocalizationKey": "Herbs_And_Fungus_HempPlantGrowing_Progress_OnFull_ActionDescription",
+                "LocalizationKey": "Herbs_And_Fungi_HempPlantGrowing_Progress_OnFull_ActionDescription",
                 "DefaultText": "Hemp Plant is Mature!"
             },
             "ReceivingCardChanges": {
@@ -96,13 +96,13 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_hemp_plant_growing",
-                "LocalizationKey": "Herbs_And_Fungus_HempPlantGrowing_DismantleActions_ActionName",
+                "LocalizationKey": "Herbs_And_Fungi_HempPlantGrowing_DismantleActions_ActionName",
                 "DefaultText": "Uproot"
             },
             "DaytimeCost": 1,
             "ConfirmPopup": true,
             "ReceivingCardChanges": {
-                "ModType": 1
+                "ModType": 3
             }
         }
     ],    "CardImage": {

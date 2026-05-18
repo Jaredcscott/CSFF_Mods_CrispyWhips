@@ -24,7 +24,7 @@
     "FloatValue": 0.0,
     "CardStatName": {
       "ParentObjectID": "herbs_fungi_hemp_field_growing",
-      "LocalizationKey": "herbs_fungi_hemp_field_growing_Progress.CardStatName",
+      "LocalizationKey": "herbs_fungi_hemp_field_growing_Progress_CardStatName",
       "DefaultText": "Growth"
     },
     "MaxValue": 1008.0,
@@ -50,7 +50,7 @@
     {
       "ActionName": {
         "ParentObjectID": "herbs_fungi_hemp_field_growing",
-        "LocalizationKey": "herbs_fungi_hemp_field_growing_DismantleActions[0].ActionName",
+        "LocalizationKey": "herbs_fungi_hemp_field_growing_DismantleActions_0_ActionName",
         "DefaultText": "Destroy"
       },
       "ConfirmPopup": true,

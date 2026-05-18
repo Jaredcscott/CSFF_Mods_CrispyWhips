@@ -16,14 +16,21 @@ internal static class BlueprintFlagFix
 {
     public static void ApplyPatch(Harmony harmony)
     {
-        var awakeMethod = AccessTools.Method(typeof(GameManager), "Awake");
-        if (awakeMethod == null)
+        try
         {
-            Util.Log.Warn("BlueprintFlagFix: GameManager.Awake not found; blueprint flags will not be reinforced.");
-            return;
+            var awakeMethod = AccessTools.Method(typeof(GameManager), "Awake");
+            if (awakeMethod == null)
+            {
+                Util.Log.Warn("BlueprintFlagFix: GameManager.Awake not found; blueprint flags will not be reinforced.");
+                return;
+            }
+            var postfix = new HarmonyMethod(typeof(BlueprintFlagFix), nameof(Postfix));
+            harmony.Patch(awakeMethod, postfix: postfix);
         }
-        var postfix = new HarmonyMethod(typeof(BlueprintFlagFix), nameof(Postfix));
-        harmony.Patch(awakeMethod, postfix: postfix);
+        catch (System.Exception ex)
+        {
+            Util.Log.Error($"BlueprintFlagFix: failed to patch GameManager.Awake: {FullException(ex)}");
+        }
     }
 
     private static void Postfix(GameManager __instance)
@@ -36,7 +43,10 @@ internal static class BlueprintFlagFix
         }
         catch (System.Exception ex)
         {
-            Util.Log.Warn($"BlueprintFlagFix: failed to set blueprint flags: {ex.Message}");
+            Util.Log.Warn($"BlueprintFlagFix: failed to set blueprint flags: {FullException(ex)}");
         }
     }
+
+    private static string FullException(System.Exception ex)
+        => ex.InnerException?.ToString() ?? ex.ToString();
 }

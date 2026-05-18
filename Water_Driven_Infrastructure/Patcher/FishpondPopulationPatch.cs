@@ -40,6 +40,11 @@ namespace WaterDrivenInfrastructure.Patcher
         private static readonly Dictionary<Type, PropertyInfo> _cardModelCache = new Dictionary<Type, PropertyInfo>();
         private static FieldInfo _uidField;
 
+        // ── pond cache — repopulated every 60 s; iterated every 2 s ──
+        private static readonly List<UnityEngine.Object> _pondCache = new List<UnityEngine.Object>();
+        private static float _nextFullScan = 0f;
+        private const float FullScanIntervalSeconds = 60f;
+
         // ── spawn reflection (GetFromID + CardData type) ──
         private static bool   _spawnInit;
         private static MethodInfo _getFromIDMethod;
@@ -58,7 +63,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     return;
                 }
                 Plugin.Instance.StartCoroutine(PollCoroutine());
-                Logger?.LogInfo("[FishpondPop] poll coroutine started");
+                Logger?.LogDebug("[FishpondPop] poll coroutine started");
             }
             catch (Exception ex)
             {
@@ -74,14 +79,23 @@ namespace WaterDrivenInfrastructure.Patcher
             var wait = new WaitForSeconds(PollIntervalSeconds);
             while (true)
             {
-                try { CheckAllPonds(); }
+                try
+                {
+                    if (Time.time >= _nextFullScan)
+                        RefreshPondCache();
+                    CheckCachedPonds();
+                }
                 catch (Exception ex) { Logger?.LogError($"[FishpondPop] poll error: {ex.Message}"); }
                 yield return wait;
             }
         }
 
-        private static void CheckAllPonds()
+        // Full scene scan — runs once every 60 s instead of every 2 s.
+        private static void RefreshPondCache()
         {
+            _nextFullScan = Time.time + FullScanIntervalSeconds;
+            _pondCache.Clear();
+
             if (_cardBaseType == null)
                 _cardBaseType = AccessTools.TypeByName("InGameCardBase");
             if (_cardBaseType == null) return;
@@ -89,12 +103,27 @@ namespace WaterDrivenInfrastructure.Patcher
             var cards = UnityEngine.Object.FindObjectsOfType(_cardBaseType);
             if (cards == null || cards.Length == 0) return;
 
-            foreach (var card in cards)
+            foreach (UnityEngine.Object card in cards)
             {
                 if (card == null) continue;
-
-                // Warm the per-type cache (same first step as ActionInterceptPatch.EnsureReflection)
                 EnsureCardReflection(card);
+                string uid = GetUID(card);
+                if (uid == FilledID || uid == StockedID || uid == WinterID)
+                    _pondCache.Add(card);
+            }
+        }
+
+        // Per-2s tick — iterates only cached ponds, evicts destroyed entries.
+        private static void CheckCachedPonds()
+        {
+            for (int i = _pondCache.Count - 1; i >= 0; i--)
+            {
+                var card = _pondCache[i];
+                if (card == null) // Unity destroyed-object check
+                {
+                    _pondCache.RemoveAt(i);
+                    continue;
+                }
 
                 string uid = GetUID(card);
                 if (uid == null) continue;
@@ -131,12 +160,12 @@ namespace WaterDrivenInfrastructure.Patcher
                 // ── threshold swap ──
                 if (isFilled && total > StockedThreshold)
                 {
-                    Logger?.LogInfo($"[FishpondPop] Filled→Stocked (pike={s1:F2} perch={s2:F2} minnow={s3:F2} total={total:F1})");
+                    Logger?.LogDebug($"[FishpondPop] Filled→Stocked (pike={s1:F2} perch={s2:F2} minnow={s3:F2} total={total:F1})");
                     TryTransform(card, StockedID, s1, s2, s3, spo, use, fuel, prog);
                 }
                 else if (isStocked && total < StockedThreshold)
                 {
-                    Logger?.LogInfo($"[FishpondPop] Stocked→Filled (pike={s1:F2} perch={s2:F2} minnow={s3:F2} total={total:F1})");
+                    Logger?.LogDebug($"[FishpondPop] Stocked→Filled (pike={s1:F2} perch={s2:F2} minnow={s3:F2} total={total:F1})");
                     TryTransform(card, FilledID, s1, s2, s3, spo, use, fuel, prog);
                 }
             }
@@ -234,7 +263,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 SetStat(card, "FuelCapacity",       fuel);
                 SetStat(card, "Progress",           prog);
 
-                Logger?.LogInfo($"[FishpondPop] transform complete → {targetUID}");
+                Logger?.LogDebug($"[FishpondPop] transform complete → {targetUID}");
             }
             catch (Exception ex)
             {
@@ -465,7 +494,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 if (_getFromIDMethod == null)
                     Logger?.LogError("[FishpondPop] GetFromID resolution failed");
                 else
-                    Logger?.LogInfo("[FishpondPop] spawn reflection ready");
+                    Logger?.LogDebug("[FishpondPop] spawn reflection ready");
             }
             catch (Exception ex)
             {

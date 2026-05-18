@@ -17,6 +17,8 @@ internal static class Log
     public static void Warn(string msg) => _source?.Log(LogLevel.Warning, Prefix + msg);
     public static void Error(string msg) => _source?.Log(LogLevel.Error, Prefix + msg);
 
+    public static string ExceptionText(Exception ex) => ex?.InnerException?.ToString() ?? ex?.ToString() ?? "<null exception>";
+
     /// <summary>
     /// Diagnostic logging — only emitted when Verbose is true.
     /// Use for per-item traces, timing info, and diagnostic dumps.

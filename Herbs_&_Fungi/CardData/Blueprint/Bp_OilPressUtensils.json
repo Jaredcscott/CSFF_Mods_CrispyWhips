@@ -16,7 +16,7 @@
         "LocalizationKey": "herbs_fungi_bp_oil_press_utensils_UnlockConditionsDesc",
         "DefaultText": "Unlocked after obtaining wood"
     },
-    "BlueprintUnlockTicksCost": 4.0,
+    "BlueprintUnlockTicksCost": 8.0,
     "BuildingStatConditions": [],
     "StartUnlocked": false,
     "CardsOnBoard": [

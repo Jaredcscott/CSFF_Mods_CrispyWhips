@@ -2,7 +2,7 @@
     "UniqueID": "herbs_fungi_spice_hemp_seeds_roasted",
     "SpiceName": {
         "ParentObjectID": "herbs_fungi_spice_hemp_seeds_roasted",
-        "LocalizationKey": "Herbs_And_Fungus_Spice_HempSeedsRoasted_SpiceName",
+        "LocalizationKey": "Herbs_And_Fungi_Spice_HempSeedsRoasted_SpiceName",
         "DefaultText": "Roasted Hemp Seeds"
     },
     "UseNameAsSuffix": false,

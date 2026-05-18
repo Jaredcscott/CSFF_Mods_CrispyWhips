@@ -55,11 +55,11 @@ internal static class SmeltingRecipeInjector
                         modCount++;
                     }
                 }
-                Log.Info($"SmeltingRecipeInjector: loaded {modCount} entries from {mod.Name}");
+                Log.Debug($"SmeltingRecipeInjector: loaded {modCount} entries from {mod.Name}");
             }
             catch (Exception ex)
             {
-                Log.Warn($"SmeltingRecipeInjector: error reading {path}: {ex.Message}");
+                Log.Warn($"SmeltingRecipeInjector: error reading {path}: {Log.ExceptionText(ex)}");
             }
         }
 
@@ -103,7 +103,7 @@ internal static class SmeltingRecipeInjector
         {
             if (obj is CardData cd && cd != forgeCard && cd != furnaceCard
                 && !string.IsNullOrEmpty(cd.UniqueID)
-                && cd.UniqueID.ToLowerInvariant().Contains("forge"))
+                && IsCustomSmeltingStation(cd.UniqueID))
             {
                 var rf = AccessTools.Field(cd.GetType(), "CookingRecipes");
                 if (rf != null && rf.GetValue(cd) is Array a && a.Length > 0)
@@ -120,6 +120,12 @@ internal static class SmeltingRecipeInjector
         {
             Log.Error("SmeltingRecipeInjector: no forge/furnace found");
             return;
+        }
+
+        static bool IsCustomSmeltingStation(string uniqueId)
+        {
+            var lower = uniqueId.ToLowerInvariant();
+            return lower.Contains("forge") || lower.Contains("workshop");
         }
 
         // 5. Get a vanilla smelting recipe as TEMPLATE (clone from it)
@@ -197,29 +203,53 @@ internal static class SmeltingRecipeInjector
 
         // 7. Append mod smelting recipes to each forge/furnace
         int injected = 0;
+        var cardsField = AccessTools.Field(cookingRecipeType, "CompatibleCards");
+        var tagsField = AccessTools.Field(cookingRecipeType, "CompatibleTags");
+
         foreach (var target in targets)
         {
             var field = AccessTools.Field(target.GetType(), "CookingRecipes");
             if (field == null) continue;
             var existing = field.GetValue(target) as Array ?? Array.CreateInstance(cookingRecipeType, 0);
 
-            var combined = Array.CreateInstance(cookingRecipeType, existing.Length + newRecipes.Count);
+            var existingCards = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            var existingTags = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            for (int i = 0; i < existing.Length; i++)
+                CollectRecipeIdentifiers(existing.GetValue(i), cardsField, tagsField, existingCards, existingTags);
+
+            var recipesToAdd = new List<object>();
+            foreach (var recipe in newRecipes)
+            {
+                if (RecipeAlreadyExists(recipe, cardsField, tagsField, existingCards, existingTags))
+                    continue;
+
+                recipesToAdd.Add(recipe);
+                CollectRecipeIdentifiers(recipe, cardsField, tagsField, existingCards, existingTags);
+            }
+
+            if (recipesToAdd.Count == 0)
+            {
+                Log.Debug($"SmeltingRecipeInjector: all {newRecipes.Count} recipes already present on {target.name} ({target.UniqueID})");
+                continue;
+            }
+
+            var combined = Array.CreateInstance(cookingRecipeType, existing.Length + recipesToAdd.Count);
             Array.Copy(existing, combined, existing.Length);
-            for (int i = 0; i < newRecipes.Count; i++)
-                combined.SetValue(newRecipes[i], existing.Length + i);
+            for (int i = 0; i < recipesToAdd.Count; i++)
+                combined.SetValue(recipesToAdd[i], existing.Length + i);
 
             field.SetValue(target, combined);
-            injected += newRecipes.Count;
+            injected += recipesToAdd.Count;
 
             // Forge/furnace targets are vanilla — mark for NullReferenceCompactor.
             Loading.FrameworkDirtyTracker.MarkDirty(target);
 
             // Verify the recipes are actually on the target
             var verifyArr = field.GetValue(target) as Array;
-            Log.Debug($"SmeltingRecipeInjector: injected {newRecipes.Count} recipes into {target.name} ({target.UniqueID}) — verified total: {verifyArr?.Length ?? -1}");
+            Log.Debug($"SmeltingRecipeInjector: injected {recipesToAdd.Count} recipes into {target.name} ({target.UniqueID}) — verified total: {verifyArr?.Length ?? -1}");
         }
 
-        Log.Info($"SmeltingRecipeInjector: {injected} total recipes injected across {targets.Count} forge(s)");
+        Log.Debug($"SmeltingRecipeInjector: {injected} total recipes injected across {targets.Count} forge(s)");
     }
 
     /// <summary>
@@ -336,7 +366,7 @@ internal static class SmeltingRecipeInjector
         }
         catch (Exception ex)
         {
-            Log.Error($"SmeltingRecipeInjector: failed to create recipe for {item.UniqueID}: {ex.Message}");
+            Log.Error($"SmeltingRecipeInjector: failed to create recipe for {item.UniqueID}: {Log.ExceptionText(ex)}");
             return null;
         }
     }

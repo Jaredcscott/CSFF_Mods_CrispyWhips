@@ -1,0 +1,228 @@
+{
+  "UniqueID": "water_sawmill_mill_race_outlet_placed",
+  "CardName": {
+    "ParentObjectID": "water_sawmill_mill_race_outlet_placed",
+    "LocalizationKey": "Water_Sawmill_MillRaceOutletPlaced_CardName",
+    "DefaultText": "Mill Race Outlet"
+  },
+  "CardDescription": {
+    "ParentObjectID": "water_sawmill_mill_race_outlet_placed",
+    "LocalizationKey": "Water_Sawmill_MillRaceOutletPlaced_CardDescription",
+    "DefaultText": "The downstream end of a mill race outlet. Provides a steady flow of unclean water. Freezes solid in winter."
+  },
+  "CardHelpSection": {
+    "ParentObjectID": "water_sawmill_mill_race_outlet_placed",
+    "LocalizationKey": "Water_Sawmill_MillRaceOutletPlaced_CardHelpSection",
+    "DefaultText": "<b>Fill containers:</b> Drag an empty water container onto the outlet to draw unclean water.\n\n<b>Winter:</b> The outlet freezes in winter — no water can be drawn until the spring thaw.\n\n<b>Pack Up:</b> Recover the mill race outlet as a portable item for relocation."
+  },
+  "CardType": 2,
+  "ObjectWeight": 500.0,
+  "TradingValue": 250.0,
+  "AlwaysUpdate": true,
+  "CardTags": [],
+  "CardTagsWarpData": ["tag_Wood", "tag_Structure"],
+  "CardTagsWarpType": 3,
+  "DoesNotPile": true,
+  "CannotBeTrashed": false,
+  "WhenCreatedSounds": [],
+  "WhenCreatedSoundsWarpData": ["Water"],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {"Active": false},
+  "UsageDurability": {"Active": false},
+  "FuelCapacity": {"Active": false},
+  "Progress": {"Active": false},
+  "SpecialDurability1": {"Active": false},
+  "SpecialDurability2": {"Active": false},
+  "SpecialDurability3": {"Active": false},
+  "SpecialDurability4": {"Active": false},
+  "DurabilitySorting": {
+    "SortingList": []
+  },
+  "InventoryIsHidden": true,
+  "IsMiniInventory": false,
+  "CannotPutItemsIn": true,
+  "CannotTakeItemsOut": true,
+  "PreventsDismantleActions": false,
+  "PreventsCardInteractions": false,
+  "IsWeaponSheath": false,
+  "OpenOnTab": 0,
+  "DontRememberLastOpenTab": false,
+  "MaxWeightCapacity": 0.0,
+  "ContentWeightReduction": 0.0,
+  "InventorySlots": [],
+  "InventorySlotsWarpData": [],
+  "InventorySlotsWarpType": 3,
+  "InventoryFilter": {
+    "AcceptedCards": [],
+    "AcceptedCardsWarpData": [],
+    "AcceptedCardsWarpType": 3,
+    "AcceptedTypes": [],
+    "AcceptedTags": [],
+    "AcceptedTagsWarpData": [],
+    "AcceptedTagsWarpType": 3,
+    "NOTAcceptedCards": [],
+    "NOTAcceptedTypes": [],
+    "NOTAcceptedTags": [],
+    "CardFilters": [],
+    "TagFilters": []
+  },
+  "SpillsInventoryOnDestroy": false,
+  "InventorySlotsText": {
+    "ParentObjectID": "",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "GroupInventoryActions": [],
+  "EffectsToInventoryContent": [],
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_mill_race_outlet_placed",
+        "LocalizationKey": "Water_Sawmill_MillRaceOutletPlaced_Fill_ActionName",
+        "DefaultText": "Draw Unclean Water"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_mill_race_outlet_placed",
+        "LocalizationKey": "Water_Sawmill_MillRaceOutletPlaced_Fill_ActionDescription",
+        "DefaultText": "Draw unclean water from the mill race outlet into the container."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Water"],
+      "ActionSoundsWarpType": 3,
+      "WorksInverted": false,
+      "StackCompatible": false,
+      "NotBaseAction": true,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerCardsWarpData": [],
+        "TriggerCardsWarpType": 3,
+        "TriggerTags": [],
+        "TriggerTagsWarpData": ["tag_WaterContainer"],
+        "TriggerTagsWarpType": 3
+      },
+      "GivenCardChanges": {
+        "ModType": 0
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "CreatedLiquidInGivenCard": {
+        "LiquidCard": {"m_FileID": 0, "m_PathID": 0},
+        "LiquidCardWarpData": "397594d260e114749ab6e1a76a732fbb",
+        "LiquidCardWarpType": 3,
+        "Quantity": {"x": 100000.0, "y": 100000.0},
+        "Durabilities": {
+          "Spoilage": 0, "Usage": 0, "Fuel": 0, "Progress": 0,
+          "Special1": 0, "Special2": 0, "Special3": 0, "Special4": 0,
+          "SpoilageValue": 0.0, "UsageValue": 0.0, "FuelValue": 0.0, "ProgressValue": 0.0,
+          "Special1Value": 0.0, "Special2Value": 0.0, "Special3Value": 0.0, "Special4Value": 0.0,
+          "SpoilageFrom": 0, "UsageFrom": 0, "FuelFrom": 0, "ProgressFrom": 0,
+          "Special1From": 0, "Special2From": 0, "Special3From": 0, "Special4From": 0
+        }
+      }
+    }
+  ],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_mill_race_outlet_placed",
+        "LocalizationKey": "Water_Sawmill_MillRaceOutletPlaced_PackUp_ActionName",
+        "DefaultText": "Pack Up"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_mill_race_outlet_placed",
+        "LocalizationKey": "Water_Sawmill_MillRaceOutletPlaced_PackUp_ActionDescription",
+        "DefaultText": "Pack up the mill race outlet for relocation."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Wood"],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "water_sawmill_mill_race_outlet_kit",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1}
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "OnStatsChangeActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_mill_race_outlet_placed",
+        "LocalizationKey": "Water_Sawmill_MillRaceOutletPlaced_Freeze_ActionName",
+        "DefaultText": "Freeze"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RepeatOptions": 2,
+      "RequiredStatValues": [],
+      "RequiredCardsOnBoard": [],
+      "RequiredTagsOnBoard": [],
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {"m_FileID": 0, "m_PathID": 0},
+        "TransformIntoWarpData": "water_sawmill_mill_race_outlet_frozen",
+        "TransformIntoWarpType": 3,
+        "TransferInventory": false
+      },
+      "StatChangeTrigger": [
+        {
+          "Stat": {"m_FileID": 0, "m_PathID": 0},
+          "StatWarpData": "12168210f9aa7cd4e971d1679155d4f6",
+          "StatWarpType": 3,
+          "TriggerRange": {"x": 672.0, "y": 1344.0},
+          "NotifyWhenNotMet": false,
+          "HideAllWhenNotMet": false
+        }
+      ]
+    }
+  ],
+  "PassiveEffects": [],
+  "PassiveStatEffects": [],
+  "MaxLiquidCapacity": 0.0,
+  "IsEnvironment": false,
+  "IsAttachedToEnvironment": true,
+  "PreventInteractionsInContainer": false,
+  "IsIndoors": false,
+  "BlueprintStatModifications": [],
+  "BlueprintCardModifications": [],
+  "CookingRecipes": [],
+  "EquipSlots": [],
+  "EquipSlotType": 0,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "MillRace",
+  "CardImageWarpType": 3
+}

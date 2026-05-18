@@ -14,6 +14,9 @@ public static class ModRegistry
     {
         get
         {
+            if (!LoadOrchestrator.LoadSucceeded)
+                FrameworkLog.Warn("ModRegistry.All queried before framework load completed — returning empty list");
+
             var src = LoadOrchestrator.LoadedMods;
             if (src == null || src.Count == 0)
                 return Array.Empty<ModInfo>();

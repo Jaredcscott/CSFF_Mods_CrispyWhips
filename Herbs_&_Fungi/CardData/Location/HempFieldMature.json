@@ -23,12 +23,12 @@
     {
       "ActionName": {
         "ParentObjectID": "herbs_fungi_hemp_field_mature",
-        "LocalizationKey": "herbs_fungi_hemp_field_mature_DismantleActions[0].ActionName",
+        "LocalizationKey": "herbs_fungi_hemp_field_mature_DismantleActions_0_ActionName",
         "DefaultText": "Harvest"
       },
       "ActionDescription": {
         "ParentObjectID": "herbs_fungi_hemp_field_mature",
-        "LocalizationKey": "herbs_fungi_hemp_field_mature_DismantleActions[0].ActionDescription",
+        "LocalizationKey": "herbs_fungi_hemp_field_mature_DismantleActions_0_ActionDescription",
         "DefaultText": "Harvest hemp flowers and seeds from the field."
       },
       "DaytimeCost": 4,

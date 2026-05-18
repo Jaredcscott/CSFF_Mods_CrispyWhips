@@ -69,11 +69,11 @@ internal static class DOTweenCapacityPrewarm
                 }
             }
 
-            Util.Log.Info($"DOTweenCapacityPrewarm: pool pre-warmed to {tweenersCfg.Value}/{sequencesCfg.Value} (tweeners/sequences).");
+            Util.Log.Debug($"DOTweenCapacityPrewarm: pool pre-warmed to {tweenersCfg.Value}/{sequencesCfg.Value} (tweeners/sequences).");
         }
         catch (Exception ex)
         {
-            Util.Log.Warn($"DOTweenCapacityPrewarm: failed to pre-warm DOTween pool: {ex.Message}");
+            Util.Log.Warn($"DOTweenCapacityPrewarm: failed to pre-warm DOTween pool: {ex.InnerException?.ToString() ?? ex.ToString()}");
         }
     }
 }

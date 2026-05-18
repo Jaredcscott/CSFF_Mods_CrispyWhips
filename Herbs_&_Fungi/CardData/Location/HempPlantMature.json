@@ -2,19 +2,19 @@
     "UniqueID": "herbs_fungi_hemp_plant_mature",
     "CardName": {
         "ParentObjectID": "herbs_fungi_hemp_plant_mature",
-        "LocalizationKey": "Herbs_And_Fungus_HempPlantMature_CardName",
+        "LocalizationKey": "Herbs_And_Fungi_HempPlantMature_CardName",
         "DefaultText": "Mature Hemp Plant"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_hemp_plant_mature",
-        "LocalizationKey": "Herbs_And_Fungus_HempPlantMature_CardDescription",
+        "LocalizationKey": "Herbs_And_Fungi_HempPlantMature_CardDescription",
         "DefaultText": "A fully mature hemp plant ready for harvest. Pull the plant to collect stalks and flowers."
     },
     "CanBeRenamed": false,
     "AlternateNames": [],
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_hemp_plant_mature",
-        "LocalizationKey": "Herbs_And_Fungus_HempPlantMature_CardHelpSection",
+        "LocalizationKey": "Herbs_And_Fungi_HempPlantMature_CardHelpSection",
         "DefaultText": "<b>Harvest:</b> Pull to collect hemp stalks and flowers."
     },
     "CardType": 2,
@@ -58,12 +58,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_hemp_plant_mature",
-                "LocalizationKey": "Herbs_And_Fungus_HempPlantMature_DismantleActions_ActionName",
+                "LocalizationKey": "Herbs_And_Fungi_HempPlantMature_DismantleActions_ActionName",
                 "DefaultText": "Harvest"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_hemp_plant_mature",
-                "LocalizationKey": "Herbs_And_Fungus_HempPlantMature_DismantleActions_ActionDescription",
+                "LocalizationKey": "Herbs_And_Fungi_HempPlantMature_DismantleActions_ActionDescription",
                 "DefaultText": "Harvest the hemp plant for stalks and flowers."
             },
             "DaytimeCost": 2,

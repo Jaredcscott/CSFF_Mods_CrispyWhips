@@ -1,14 +1,14 @@
 # Herbs and Fungi - Player Guide
 
-**Version:** 1.6.4
+**Version:** 1.6.9
 **Author:** Jared (crispywhips)
-**For:** Card Survival: Fantasy Forest (EA 0.62b)
+**For:** Card Survival: Fantasy Forest (EA 0.63)
 
 ---
 
 ## Overview
 
-Herbs and Fungi adds foraged mushrooms, medicinal herbs, hemp farming, oil pressing, pickle fermentation, and a full drying/preservation pipeline to Card Survival: Fantasy Forest. Forage gourmet and medicinal mushrooms, grow hemp, dry herbs and fungi on stackable racks, press oils from seeds and truffles, brew medicinal teas, and seal pickles in long-fermenting clay vats.
+Herbs and Fungi adds foraged mushrooms, medicinal herbs, hemp farming, mushroom log cultivation, oil pressing, pickle fermentation, and a full drying/preservation pipeline to Card Survival: Fantasy Forest. Forage gourmet and medicinal mushrooms, grow hemp, cultivate wood-loving mushrooms indoors, dry herbs and fungi on stackable racks, press oils from seeds and truffles, brew medicinal teas, and seal pickles in long-fermenting clay vats.
 
 ---
 
@@ -43,8 +43,13 @@ Herbs and Fungi adds foraged mushrooms, medicinal herbs, hemp farming, oil press
 - **Hemp Butter** — Fat + powder; activates with heat (3x stronger than smoking)
 - **Hemp Seed Oil** — Pressed from seeds in the Oil Press
 
+### Mushroom Log Cultivation
+- **Inoculated Logs** — Craft from a vanilla log, spoon auger, wood shavings, and 5 matching mushrooms
+- **Supported Types** — Shiitake, Lion's Mane, Reishi, Chicken of the Woods, Golden Oyster, King Oyster
+- **Growth Cycle** — Logs colonize for about 5 days as a Growing Fungal Log, then become the ready log for the inoculated mushroom type
+
 ### Crafted Items & Structures
-- **Drying Tray** — Single-slot tray for drying herbs, mushrooms, hemp flower, or meat
+- **Drying Tray** — 6-slot tray for drying herbs, mushrooms, hemp flower, or meat
 - **Drying Stack** — Placeable furniture holding up to 3 drying trays
 - **Wooden Pantry** — Sealed cool-storage furniture
 - **Herb Pipe** — Carved wooden pipe; reusable with herbal powders
@@ -105,7 +110,7 @@ All 15 perks appear in the **Situational** tab during character creation.
 ## Gameplay Systems
 
 ### Drying & Preservation
-1. Craft a **Drying Tray** (Support tab) — a single-slot tray for drying.
+1. Craft a **Drying Tray** (Support tab) — a 6-slot tray for drying.
 2. Optional: craft a **Drying Stack** (Furniture tab) — placeable furniture that holds up to 3 trays for vertical scaling.
 3. Place herbs, mushrooms, hemp flowers, ginger, or meat on a tray.
 4. The tray ticks every daytime point — the item dries in place and quality accrues.
@@ -121,6 +126,12 @@ All 15 perks appear in the **Situational** tab during character creation.
 2. Or use the **Hemp Field / Plant Hemp Seeds** blueprints (Farming Agriculture tab) for dedicated plots.
 3. Wait for growth → harvest stalks (fiber), flowers, and more seeds.
 4. Roast seeds for food, dry flowers for powder, or press seeds into oil.
+
+### Mushroom Log Cultivation
+1. Research the matching **Inoculate Mushroom Log** blueprint after finding that mushroom type.
+2. Craft it from 1 vanilla log, a spoon auger, 5 matching mushrooms, and 1 wood shavings.
+3. Keep the Growing Fungal Log indoors or sheltered while it colonizes for about 5 in-game days.
+4. Harvest the ready log for fresh mushrooms.
 
 ### Oil Press (Multi-Stage Build)
 The Oil Press is a heavy workstation built in stages from sub-components. Each part has its own blueprint:
@@ -138,7 +149,7 @@ A four-variant clay fermentation chain (see CLAUDE.md "4-variant fermentation ch
 2. **Make Brine**: drag salt onto the vat filled with water — water transforms into Pickle Brine in place.
 3. Add fermentable ingredients (Ginger and the vanilla Turnroot/Fireroot are tagged `tag_Fermentable` by this mod; specific pickle blueprints accept others).
 4. **Cap with Clay Bowl** → **Closed Pickle Vat**, then seal it (drag water) → **Sealed Pickle Vat** (placed structure).
-5. Wait — the seal counts down over 7 in-game days.
+5. Wait — the seal counts down over 7 in-game days (5 days for the generic base vat if you seal without choosing a specific content blueprint).
 6. When the timer expires, the vat becomes a **Ready Pickle Vat**. Harvest to spawn the pickled goods plus an empty fired vat for reuse.
 
 The pickle blueprints (Frogs, Meat, Mushrooms, Vegetables) gate on the vat containing pickle brine — water alone won't satisfy them.
@@ -166,7 +177,7 @@ Mod blueprints are injected into vanilla tabs:
 | **Support** | Herb Pipe, Drying Tray, Death Cap Ward |
 | **Utensils** | Unfired Pickle Vat, Death Cap Tincture |
 | **Materials** | Oil Press Legs/Frame, Press Bed Frame, Pressing Screw, Pressing Bag, Press Plate, Oil Press Utensils, Prepared Press Bag |
-| **Farming Agriculture** | Hemp Field, Plant Hemp Seeds |
+| **Farming Agriculture** | Hemp Field, Plant Hemp Seeds, Inoculate Mushroom Logs |
 | **Furniture** | Wooden Pantry, Drying Stack, Oil Press Kit |
 
 The press oil and pickle blueprints appear after their workstations are built and the relevant ingredients are present.
@@ -184,7 +195,7 @@ The mod injects mushroom drops into vanilla foraging actions across forest biome
 ### Requirements
 - **BepInEx 5.x** — mod loader
 - **CSFFModFramework** (latest) — data loading, perk/blueprint injection, sprite resolution, and runtime tag creation.
-- **Card Survival: Fantasy Forest** EA 0.62e
+- **Card Survival: Fantasy Forest** EA 0.63
 
 ### Installation
 1. Install BepInEx 5.x.
@@ -207,6 +218,18 @@ Patching beyond what the framework provides:
 ---
 
 ## Version History
+
+### v1.6.9 (current)
+- EA 0.63f compatibility; blueprint tab injector updated to live UI tabs (fixes journal tab on EA 0.63f)
+
+### v1.6.8
+- Minor stability fixes; forage drop injection guard updated
+
+### v1.6.7
+- EA 0.63 compatibility pass; no content changes.
+
+### v1.6.6
+- Added mushroom log cultivation for six wood-growing mushroom types. Logs use a vanilla log, spoon auger, 5 matching mushrooms, and wood shavings, then become ready after about 5 days.
 
 ### v1.6.4
 - Compatibility pass for Card Survival: Fantasy Forest EA 0.62d (clean rebuild, no source changes required).

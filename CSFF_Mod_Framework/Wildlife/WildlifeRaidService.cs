@@ -21,6 +21,7 @@ namespace CSFFModFramework.Wildlife;
 internal static class WildlifeRaidService
 {
     private const string NotSafeTagName = "tag_NotSafeFromAnimals";
+    private const string NotSafeBearTagName = "tag_NotSafeFromBears";
     private const string FoodTagName = "tag_HumanFood";
     private const string RottenRemainsUID = "25a487b16088c2046a51935973ba6a90";
     private const string StressStatUID = "3b79a4c6d7e151044a1c56fbbd401d78";
@@ -41,15 +42,16 @@ internal static class WildlifeRaidService
 
     public static bool Enabled { get; set; } = false;
     public static float DailyChance { get; set; } = 0.35f;
+    public static float BearRaidChance { get; set; } = 0.5f;
     public static float StressPenalty { get; set; } = 2f;
 
     private static bool _ready;
     private static bool _loadCompleteProcessed;
     private static int _lastDayTimePoints = int.MinValue;
-    private static Type _inGameCardBaseType;
     private static Type _gameManagerType;
     private static PropertyInfo _gameManagerInstanceProp;
     private static object _notSafeTagAsset;
+    private static object _notSafeBearTagAsset;
     // Cached DayTimePoints accessor — resolved once in TryCompleteOneTimeSetup to avoid per-frame reflection.
     private static PropertyInfo _dtpProp;
     private static FieldInfo _dtpField;
@@ -83,7 +85,7 @@ internal static class WildlifeRaidService
         {
             // Wrap detected.
             try { TryRaid(); }
-            catch (Exception ex) { Log.Warn($"[WildlifeRaid] raid attempt failed: {ex.Message}"); }
+            catch (Exception ex) { Log.Warn($"[WildlifeRaid] raid attempt failed: {Log.ExceptionText(ex)}"); }
         }
         _lastDayTimePoints = dtp;
     }
@@ -101,7 +103,7 @@ internal static class WildlifeRaidService
         ResolveTagAsset();
         InjectTagOnVanillaContainers();
         _ready = true;
-        Log.Info($"[WildlifeRaid] initialized — enabled={Enabled} chance={DailyChance:F2}");
+        Log.Debug($"[WildlifeRaid] initialized - enabled={Enabled} chance={DailyChance:F2}");
         return true;
     }
 
@@ -109,14 +111,24 @@ internal static class WildlifeRaidService
     {
         foreach (var asm in AppDomain.CurrentDomain.GetAssemblies())
         {
-            if (_inGameCardBaseType == null) _inGameCardBaseType = asm.GetType("InGameCardBase", false);
             if (_gameManagerType == null) _gameManagerType = asm.GetType("GameManager", false);
-            if (_inGameCardBaseType != null && _gameManagerType != null) break;
+            if (_gameManagerType != null) break;
         }
         if (_gameManagerType != null)
         {
+            // GameManager.Instance is defined on MBSingleton<T>, not GameManager directly.
+            // FlattenHierarchy + base-type walk is required; without it the prop is always null.
             _gameManagerInstanceProp = _gameManagerType.GetProperty("Instance",
-                BindingFlags.Static | BindingFlags.Public);
+                BindingFlags.Static | BindingFlags.Public | BindingFlags.FlattenHierarchy);
+            if (_gameManagerInstanceProp == null)
+            {
+                for (var t = _gameManagerType.BaseType; t != null; t = t.BaseType)
+                {
+                    _gameManagerInstanceProp = t.GetProperty("Instance",
+                        BindingFlags.Static | BindingFlags.Public | BindingFlags.FlattenHierarchy);
+                    if (_gameManagerInstanceProp != null) break;
+                }
+            }
 
             // Cache the DayTimePoints accessor once so PollUpdate doesn't do reflection every frame.
             foreach (var name in new[] { "DayTimePoints", "CurrentDayTimePoints", "DaytimePoints" })
@@ -135,34 +147,39 @@ internal static class WildlifeRaidService
             _notSafeTagAsset = so;
         else
             Log.Warn($"[WildlifeRaid] vanilla CardTag '{NotSafeTagName}' not found — tag injection skipped.");
+
+        if (Database.AllScriptableObjectDict.TryGetValue(NotSafeBearTagName, out var soB))
+            _notSafeBearTagAsset = soB;
+        else
+            Log.Warn($"[WildlifeRaid] vanilla CardTag '{NotSafeBearTagName}' not found — bear tag injection skipped.");
     }
 
     private static void InjectTagOnVanillaContainers()
     {
-        if (_notSafeTagAsset == null) return;
         int injected = 0;
-
         foreach (var uid in VanillaOpenStorage)
         {
             var target = GameRegistry.GetByUid(uid);
             if (target == null) continue;
-
             var tagsField = target.GetType().GetField("CardTags", Flags);
             if (tagsField == null) continue;
             if (!(tagsField.GetValue(target) is IList list)) continue;
 
-            // Skip if already present (idempotent — survives reloads).
-            bool already = false;
-            foreach (var t in list)
-            {
-                if (t is UnityEngine.Object uo && uo.name == NotSafeTagName) { already = true; break; }
-            }
-            if (already) continue;
-
-            try { list.Add(_notSafeTagAsset); injected++; }
-            catch (Exception ex) { Log.Debug($"[WildlifeRaid] tag inject failed on {uid}: {ex.Message}"); }
+            injected += TryInjectTag(list, _notSafeTagAsset, NotSafeTagName, uid);
+            injected += TryInjectTag(list, _notSafeBearTagAsset, NotSafeBearTagName, uid);
         }
-        if (injected > 0) Log.Info($"[WildlifeRaid] injected NotSafeFromAnimals on {injected} vanilla container(s).");
+        if (injected > 0) Log.Debug($"[WildlifeRaid] injected NotSafe tags on {injected} vanilla container slot(s).");
+    }
+
+    private static int TryInjectTag(IList list, object tagAsset, string tagName, string uid)
+    {
+        if (tagAsset == null) return 0;
+        foreach (var t in list)
+        {
+            if (t is UnityEngine.Object uo && uo.name == tagName) return 0; // already present
+        }
+        try { list.Add(tagAsset); return 1; }
+        catch (Exception ex) { Log.Debug($"[WildlifeRaid] inject '{tagName}' failed on {uid}: {Log.ExceptionText(ex)}"); return 0; }
     }
 
     // ------------------------------------------------------------ tick ------
@@ -177,19 +194,30 @@ internal static class WildlifeRaidService
             if (_dtpProp != null) return Convert.ToInt32(_dtpProp.GetValue(gm, null));
             if (_dtpField != null) return Convert.ToInt32(_dtpField.GetValue(gm));
         }
-        catch { }
+        catch (Exception ex) { Log.Debug($"[WildlifeRaid] ReadDayTimePoints failed: {ex.GetType().Name}"); }
         return -1;
     }
 
     // ----------------------------------------------------------- raid ------
 
+    /// <summary>Called by the encounter patch when a bear combat encounter starts.</summary>
+    public static void OnBearEncounter()
+    {
+        if (!_ready) return;
+        if (UnityEngine.Random.value > BearRaidChance) return;
+        RaidOnce(bearRaid: true);
+    }
+
     private static void TryRaid()
     {
         if (UnityEngine.Random.value > DailyChance) return;
-        if (_inGameCardBaseType == null) return;
+        RaidOnce(bearRaid: false);
+    }
 
-        var allCards = UnityEngine.Object.FindObjectsOfType(_inGameCardBaseType);
-        if (allCards == null || allCards.Length == 0) return;
+    private static void RaidOnce(bool bearRaid)
+    {
+        var allCards = CollectAllCards();
+        if (allCards.Count == 0) return;
 
         var candidates = new List<object>();
         foreach (var c in allCards)
@@ -198,13 +226,17 @@ internal static class WildlifeRaidService
             if (!IsInPlayerEnv(c)) continue;
             var model = GetMemberValue(c, "CardModel");
             if (model == null) continue;
-            if (!HasTag(model, NotSafeTagName)) continue;
+            // Bears can breach any open container (NotSafeFromAnimals OR NotSafeFromBears).
+            // Regular animals only raid NotSafeFromAnimals containers.
+            bool tagMatch = HasTag(model, NotSafeTagName)
+                || (bearRaid && HasTag(model, NotSafeBearTagName));
+            if (!tagMatch) continue;
             if (CountFoodIn(c) <= 0) continue;
             candidates.Add(c);
         }
         if (candidates.Count == 0)
         {
-            Log.Debug("[WildlifeRaid] roll succeeded but no eligible containers in player env.");
+            Log.Debug($"[WildlifeRaid] raid roll succeeded (bear={bearRaid}) but no eligible containers in player env.");
             return;
         }
 
@@ -217,7 +249,9 @@ internal static class WildlifeRaidService
 
         if (TransformToRotten(foodCard))
         {
-            Log.Info($"[WildlifeRaid] Wildlife raided {containerName} overnight — {foodName} was spoiled.");
+            string raider = bearRaid ? "A bear" : "Wildlife";
+            string timing = bearRaid ? "during the encounter" : "overnight";
+            Log.Info($"[WildlifeRaid] {raider} raided {containerName} {timing} — {foodName} was spoiled.");
             ApplyStress(StressPenalty);
         }
     }
@@ -234,7 +268,7 @@ internal static class WildlifeRaidService
                 if (t is UnityEngine.Object uo && uo.name == tagName) return true;
             }
         }
-        catch { }
+        catch (Exception ex) { Log.Debug($"[WildlifeRaid] HasTag reflection failed ({ex.GetType().Name})"); }
         return false;
     }
 
@@ -325,7 +359,7 @@ internal static class WildlifeRaidService
                     args[i] = pt.IsValueType ? Activator.CreateInstance(pt) : null;
                 }
                 try { setup.Invoke(card, args); return true; }
-                catch (Exception ex) { Log.Debug($"[WildlifeRaid] SetupCardSource failed: {ex.Message}"); }
+                catch (Exception ex) { Log.Debug($"[WildlifeRaid] SetupCardSource failed: {Log.ExceptionText(ex)}"); }
             }
 
             // Fallback: ResetCard() — repaints visuals/stats from CardModel.
@@ -335,7 +369,7 @@ internal static class WildlifeRaidService
         }
         catch (Exception ex)
         {
-            Log.Debug($"[WildlifeRaid] transform failed: {ex.Message}");
+            Log.Debug($"[WildlifeRaid] transform failed: {Log.ExceptionText(ex)}");
             return false;
         }
     }
@@ -355,7 +389,7 @@ internal static class WildlifeRaidService
             if (m != null && m.GetParameters().Length == 1)
             {
                 try { statObj = m.Invoke(gm, new object[] { StressStatUID }); if (statObj != null) break; }
-                catch { }
+                catch (Exception ex) { Log.Debug($"[WildlifeRaid] {name}() invoke failed: {Log.ExceptionText(ex)}"); }
             }
         }
         if (statObj == null && GameRegistry.GetByUid(StressStatUID) != null)
@@ -379,7 +413,37 @@ internal static class WildlifeRaidService
             float next = Math.Min(cur + amount, max);
             curProp.SetValue(statObj, Convert.ChangeType(next, curProp.PropertyType), null);
         }
-        catch (Exception ex) { Log.Debug($"[WildlifeRaid] stress write failed: {ex.Message}"); }
+        catch (Exception ex) { Log.Debug($"[WildlifeRaid] stress write failed: {Log.ExceptionText(ex)}"); }
+    }
+
+    private static List<object> CollectAllCards()
+    {
+        var cards = new List<object>();
+        if (_gameManagerInstanceProp == null) return cards;
+
+        try
+        {
+            var gm = _gameManagerInstanceProp.GetValue(null, null);
+            if (gm == null) return cards;
+
+            var allCards = GetMemberValue(gm, "AllCards") as IList;
+            if (allCards == null)
+            {
+                Log.Debug("[WildlifeRaid] GameManager.AllCards unavailable; raid scan skipped");
+                return cards;
+            }
+
+            foreach (var card in allCards)
+            {
+                if (card != null) cards.Add(card);
+            }
+        }
+        catch (Exception ex)
+        {
+            Log.Warn($"[WildlifeRaid] failed to read GameManager.AllCards: {Log.ExceptionText(ex)}");
+        }
+
+        return cards;
     }
 
     // ----------------------------------------------------------- helpers ---
@@ -388,9 +452,8 @@ internal static class WildlifeRaidService
     {
         var env = GetMemberValue(card, "CardEnvironment");
         if (env == null) return false;
-        var prop = env.GetType().GetProperty("MatchesPlayerEnv", BindingFlags.Instance | BindingFlags.Public);
-        if (prop == null) return false;
-        try { return (bool)prop.GetValue(env, null); } catch { return false; }
+        var val = GetMemberValue(env, "MatchesPlayerEnv");
+        return val is bool b && b;
     }
 
     private static string GetCardDisplayName(object card)
@@ -403,14 +466,20 @@ internal static class WildlifeRaidService
         return !string.IsNullOrEmpty(def) ? def : null;
     }
 
+    private static readonly Dictionary<(Type, string), MemberInfo> _memberCache = new();
+
     private static object GetMemberValue(object target, string name)
     {
         if (target == null) return null;
         var t = target.GetType();
-        var prop = t.GetProperty(name, Flags);
-        if (prop != null && prop.CanRead) { try { return prop.GetValue(target, null); } catch { } }
-        var field = t.GetField(name, Flags);
-        if (field != null) { try { return field.GetValue(target); } catch { } }
+        var key = (t, name);
+        if (!_memberCache.TryGetValue(key, out var member))
+        {
+            member = (MemberInfo)t.GetProperty(name, Flags) ?? t.GetField(name, Flags);
+            _memberCache[key] = member;
+        }
+        if (member is PropertyInfo pi && pi.CanRead) { try { return pi.GetValue(target, null); } catch { } }
+        if (member is FieldInfo fi) { try { return fi.GetValue(target); } catch { } }
         return null;
     }
 }

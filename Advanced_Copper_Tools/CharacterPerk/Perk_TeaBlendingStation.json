@@ -34,7 +34,7 @@
   },
   "PassiveStatModifiers": [],
   "PerkDescription": {
-    "DefaultText": "Start with a Tea Blending Station Kit. Place it to set up a 5-slot workstation that passively dries herbs and, once lit, cooks, heats, and boils — perfect for crafting teas and tinctures.",
+    "DefaultText": "Start with a Tea Blending Station Kit. Place it to set up a 6-slot workstation that passively dries herbs and, once lit, cooks, heats, and boils — perfect for crafting teas and tinctures.",
     "LocalizationKey": "Advanced_Copper_Tools_Perk_TeaBlendingStation_PerkDescription",
     "ParentObjectID": "advanced_copper_tools_perk_tea_blending_station"
   },

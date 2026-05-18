@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_herb_pipe_fairyweed",
     "CardName": {
         "ParentObjectID": "herbs_fungi_herb_pipe_fairyweed",
-        "LocalizationKey": "Herbs_And_Fungus_HerbPipeFairyweed_CardName",
+        "LocalizationKey": "Herbs_And_Fungi_HerbPipeFairyweed_CardName",
         "DefaultText": "Herb Pipe (Fairyweed)"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_herb_pipe_fairyweed",
-        "LocalizationKey": "Herbs_And_Fungus_HerbPipeFairyweed_CardDescription",
+        "LocalizationKey": "Herbs_And_Fungi_HerbPipeFairyweed_CardDescription",
         "DefaultText": "A carved wooden pipe loaded with fairyweed powder. Ready to smoke."
     },
     "CardType": 0,
@@ -39,7 +39,7 @@
         "FloatValue": 99.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_herb_pipe_fairyweed",
-            "LocalizationKey": "Herbs_And_Fungus_HerbPipeFairyweed_SpecialDurability2_CardStatName",
+            "LocalizationKey": "Herbs_And_Fungi_HerbPipeFairyweed_SpecialDurability2_CardStatName",
             "DefaultText": "Quality"
         },
         "MaxValue": 99.0,
@@ -54,7 +54,7 @@
         "OnZero": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_herb_pipe_fairyweed",
-                "LocalizationKey": "Herbs_And_Fungus_HerbPipeFairyweed_OnZero",
+                "LocalizationKey": "Herbs_And_Fungi_HerbPipeFairyweed_OnZero",
                 "DefaultText": "Pipe Empty!"
             },
             "ProducedCards": [
@@ -88,12 +88,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_herb_pipe_fairyweed",
-                "LocalizationKey": "Herbs_And_Fungus_HerbPipeFairyweed_CardInteractions0_ActionName",
+                "LocalizationKey": "Herbs_And_Fungi_HerbPipeFairyweed_CardInteractions0_ActionName",
                 "DefaultText": "Smoke Fairyweed"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_herb_pipe_fairyweed",
-                "LocalizationKey": "Herbs_And_Fungus_HerbPipeFairyweed_CardInteractions0_ActionDescription",
+                "LocalizationKey": "Herbs_And_Fungi_HerbPipeFairyweed_CardInteractions0_ActionDescription",
                 "DefaultText": "Light and smoke the fairyweed. Mystical and uplifting effects."
             },
             "DaytimeCost": 1,
@@ -172,12 +172,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_herb_pipe_fairyweed",
-                "LocalizationKey": "Herbs_And_Fungus_HerbPipeFairyweed_DismantleActions0_ActionName",
+                "LocalizationKey": "Herbs_And_Fungi_HerbPipeFairyweed_DismantleActions0_ActionName",
                 "DefaultText": "Empty Pipe"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_herb_pipe_fairyweed",
-                "LocalizationKey": "Herbs_And_Fungus_HerbPipeFairyweed_DismantleActions0_ActionDescription",
+                "LocalizationKey": "Herbs_And_Fungi_HerbPipeFairyweed_DismantleActions0_ActionDescription",
                 "DefaultText": "Dump out the fairyweed powder without smoking it."
             },
             "DaytimeCost": 0,

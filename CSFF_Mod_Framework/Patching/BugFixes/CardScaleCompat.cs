@@ -116,7 +116,7 @@ internal static class CardScaleCompat
         }
         catch (Exception ex)
         {
-            Util.Log.Warn($"CardScaleCompat: failed to patch AccessTools.Field: {ex.Message}");
+            Util.Log.Warn($"CardScaleCompat: failed to patch AccessTools.Field: {ex.InnerException?.ToString() ?? ex.ToString()}");
         }
     }
 
@@ -155,7 +155,7 @@ internal static class CardScaleCompat
         }
         catch (Exception ex)
         {
-            Util.Log.Debug($"[CSC] IsModCorePresent: {ex.Message}");
+            Util.Log.Debug($"[CSC] IsModCorePresent: {Util.Log.ExceptionText(ex)}");
             return false;
         }
     }
@@ -178,32 +178,7 @@ internal static class CardScaleCompat
         }
         catch (Exception ex)
         {
-            Util.Log.Debug($"[CSC] FindCsrDllVersion: {ex.Message}");
-            return null;
-        }
-    }
-
-    static Version GetInstalledPluginVersion(string guid)
-    {
-        try
-        {
-            // BepInEx 5.x: Chainloader.PluginInfos[guid].Metadata.Version
-            var chainloaderType = Type.GetType("BepInEx.Bootstrap.Chainloader, BepInEx");
-            if (chainloaderType == null) return null;
-            var infosProp = chainloaderType.GetProperty("PluginInfos", BindingFlags.Public | BindingFlags.Static);
-            var infos = infosProp?.GetValue(null) as System.Collections.IDictionary;
-            if (infos == null || !infos.Contains(guid)) return null;
-            var pluginInfo = infos[guid];
-            if (pluginInfo == null) return null;
-            var metaProp = pluginInfo.GetType().GetProperty("Metadata");
-            var meta = metaProp?.GetValue(pluginInfo);
-            if (meta == null) return null;
-            var verProp = meta.GetType().GetProperty("Version");
-            return verProp?.GetValue(meta) as Version;
-        }
-        catch (Exception ex)
-        {
-            Util.Log.Debug($"[CSC] GetInstalledPluginVersion({guid}): {ex.Message}");
+            Util.Log.Debug($"[CSC] FindCsrDllVersion: {Util.Log.ExceptionText(ex)}");
             return null;
         }
     }
@@ -295,9 +270,9 @@ internal static class CardScaleCompat
                 _scaledLineRefs.Add(cl);
                 Util.Log.Debug($"[CSC] Register: {fname}");
             }
-            Util.Log.Info($"CardScaleCompat: GraphicsManager.Init - {_scaledGoIds.Count} lines registered");
+            Util.Log.Debug($"CardScaleCompat: GraphicsManager.Init - {_scaledGoIds.Count} lines registered");
         }
-        catch (Exception ex) { Util.Log.Warn($"CardScaleCompat GraphicsManagerInit_Postfix: {ex.Message}"); }
+        catch (Exception ex) { Util.Log.Warn($"CardScaleCompat GraphicsManagerInit_Postfix: {Util.Log.ExceptionText(ex)}"); }
     }
 
     static void UpdateList_Prefix(object __instance)
@@ -358,6 +333,6 @@ internal static class CardScaleCompat
                 _updateListMethod.Invoke(comp, null);
             }
         }
-        catch (Exception ex) { Util.Log.Debug($"[CSC] ForceUpdateLists: {ex.Message}"); }
+        catch (Exception ex) { Util.Log.Debug($"[CSC] ForceUpdateLists: {Util.Log.ExceptionText(ex)}"); }
     }
 }

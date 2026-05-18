@@ -12,13 +12,20 @@
         "advanced_copper_tools_bp_cast_wheel_hub",
         "advanced_copper_tools_bp_copper_nails"
     ],
-    "Tab_2_Construction_Subtab_2_AdvancedTools_TabName": [
+    "Tab_2_Construction_Subtab_2_MetalTools_TabName": [
         "advanced_copper_tools_bp_wearable_metal_pan",
         "advanced_copper_tools_bp_large_saw",
         "advanced_copper_tools_bp_lantern_oilwell",
-        "advanced_copper_tools_bp_metal_lantern",
         "advanced_copper_tools_bp_copper_tea_kettle",
         "advanced_copper_tools_bp_copper_oil_flask",
+        "advanced_copper_tools_bp_copper_cauldron",
+        "advanced_copper_tools_bp_copper_helmet",
+        "advanced_copper_tools_bp_copper_gauntlets",
+        "advanced_copper_tools_bp_copper_greaves",
+        "advanced_copper_tools_bp_copper_breastplate"
+    ],
+    "Tab_2_Construction_Subtab_2_AdvancedTools_TabName": [
+        "advanced_copper_tools_bp_metal_lantern",
         "advanced_copper_tools_bp_wheelbarrow",
         "advanced_copper_tools_bp_bucket",
         "advanced_copper_tools_bp_handles",

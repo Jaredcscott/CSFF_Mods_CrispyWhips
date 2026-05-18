@@ -16,7 +16,7 @@
         "LocalizationKey": "Advanced_Copper_Tools_Bp_TeaBlendingStation_UnlockConditionsDesc",
         "DefaultText": "Copper Tea Kettle Needed"
     },
-    "BlueprintUnlockTicksCost": 16.0,
+    "BlueprintUnlockTicksCost": 64.0,
     "BuildingStatConditions": [],
     "StartUnlocked": false,
     "CardsOnBoard": [

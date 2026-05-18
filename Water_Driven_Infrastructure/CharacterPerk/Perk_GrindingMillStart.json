@@ -28,7 +28,7 @@
   "PerkDescription": {
     "ParentObjectID": "water_sawmill_perk_grinding_mill_start",
     "LocalizationKey": "Water_Sawmill_Perk_GrindingMillStart_PerkDescription",
-    "DefaultText": "Start with a grinding mill kit and mill race component. Place near a river to create a water-powered grain and ore processing facility."
+    "DefaultText": "Start with a grinding mill kit and mill race component. Place near water or a connected mill race outlet to build a water-powered grain mill."
   },
   "PerkUnlockConditions": {
     "ParentObjectID": "",

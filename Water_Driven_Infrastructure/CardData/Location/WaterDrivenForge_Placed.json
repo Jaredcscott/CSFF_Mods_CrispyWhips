@@ -13,7 +13,7 @@
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_forge_placed",
     "LocalizationKey": "Water_Sawmill_ForgePlaced_CardHelpSection",
-    "DefaultText": "<b>Requirements:</b> Requires local mill race for water power.\n\n<b>Operation:</b> Drag fuel or charcoal onto the forge to add fuel. Light with embers, press Blast to raise temperature, then drag copper ore onto the hot forge to smelt."
+    "DefaultText": "<b>Requirements:</b> Requires local mill race for water power.\n\n<b>Operation:</b> Drag firewood or charcoal onto the forge to feed fuel. Light with embers, press Blast to raise temperature, then drag copper ore onto the hot forge to smelt. You can also place metal nuggets and clay items in the inventory."
   },
   "CardType": 2,
   "ObjectWeight": 1200.0,
@@ -24,7 +24,8 @@
     "tag_Copper",
     "tag_Wood",
     "tag_Bag",
-    "tag_Env_Fire"
+    "tag_Env_Fire",
+    "tag_SmeltingContainer"
   ],
   "CardTagsWarpType": 3,
   "DoesNotPile": true,
@@ -43,7 +44,7 @@
       "LocalizationKey": "Water_Sawmill_ForgePlaced_Temperature_StatName",
       "DefaultText": "Temperature"
     },
-    "RatePerDaytimePoint": 40.0,
+    "RatePerDaytimePoint": -40.0,
     "HidingOptions": 1,
     "TextDisplay": 2,
     "NumberPrecision": 0,
@@ -62,7 +63,7 @@
       "DefaultText": "Fuel"
     },
     "MaxValue": 96.0,
-    "RatePerDaytimePoint": -1.0,
+    "RatePerDaytimePoint": 0.0,
     "HidingOptions": 1,
     "TextDisplay": 0,
     "NumberPrecision": 0
@@ -107,47 +108,27 @@
   "DontRememberLastOpenTab": false,
   "MaxWeightCapacity": 5000.0,
   "ContentWeightReduction": 0.0,
-  "InventorySlots": [
-    {
-      "m_FileID": 0,
-      "m_PathID": 0
-    },
-    {
-      "m_FileID": 0,
-      "m_PathID": 0
-    },
-    {
-      "m_FileID": 0,
-      "m_PathID": 0
-    },
-    {
-      "m_FileID": 0,
-      "m_PathID": 0
-    },
-    {
-      "m_FileID": 0,
-      "m_PathID": 0
-    },
-    {
-      "m_FileID": 0,
-      "m_PathID": 0
-    }
-  ],
+  "InventorySlots": [],
   "InventorySlotsWarpData": [],
   "InventorySlotsWarpType": 3,
   "InventoryFilter": {
     "AcceptedCards": [],
     "AcceptedCardsWarpData": [
+      "492ba87119393c1448fb6d320e371b65",
       "water_sawmill_copper_gear_large",
       "water_sawmill_copper_gear_small",
       "water_sawmill_copper_saw_blade",
-      "water_sawmill_copper_saw_blade_dull"
+      "water_sawmill_copper_saw_blade_dull",
+      "3769abdc385c36c4ba349663240934c0",
+      "1ec399502888015468ee1c00dab60569",
+      "b94d2bf3902f37d4d917943d3c784298"
     ],
     "AcceptedCardsWarpType": 3,
     "AcceptedTypes": [],
     "AcceptedTags": [],
     "AcceptedTagsWarpData": [
       "tag_SmeltsAt1100",
+      "tag_ToolBlank",
       "tag_CopperSmall",
       "tag_CopperBig",
       "tag_Clay"
@@ -326,7 +307,8 @@
         "TriggerCards": [],
         "TriggerTags": [],
         "TriggerCardsWarpData": [
-          "f924def05400db54b9a99935631a632f"
+          "f924def05400db54b9a99935631a632f",
+          "2649ed8b8cb9b14428f3a988f60093a2"
         ],
         "TriggerCardsWarpType": 3
       },
@@ -761,83 +743,6 @@
     {
       "ActionName": {
         "ParentObjectID": "water_sawmill_forge_placed",
-        "LocalizationKey": "Water_Sawmill_ForgePlaced_HammerAll_ActionName",
-        "DefaultText": "Hammer All"
-      },
-      "ActionDescription": {
-        "ParentObjectID": "water_sawmill_forge_placed",
-        "LocalizationKey": "Water_Sawmill_ForgePlaced_HammerAll_ActionDescription",
-        "DefaultText": "Apply one hammer strike to all items in the forge using the water-driven hammer."
-      },
-      "DaytimeCost": 2,
-      "UseMiniTicks": 0,
-      "ActionSounds": [],
-      "ActionTags": [],
-      "ActionTagsWarpData": [],
-      "ActionTagsWarpType": 3,
-      "ActionSoundsWarpData": [
-        "Metal"
-      ],
-      "ActionSoundsWarpType": 3,
-      "RequiredReceivingDurabilities": {
-        "RequiredSpoilagePercent": {
-          "Active": true,
-          "FloatValue": 0.6,
-          "MaxValue": 1.0
-        },
-        "RequiredUsagePercent": {
-          "Active": false,
-          "FloatValue": 0.0,
-          "MaxValue": 0.0
-        },
-        "RequiredFuelPercent": {
-          "Active": true,
-          "FloatValue": 0.01,
-          "MaxValue": 1.0
-        },
-        "RequiredProgressPercent": {
-          "Active": false,
-          "FloatValue": 0.0,
-          "MaxValue": 0.0
-        },
-        "RequiredLiquidQuantity": 0.0,
-        "RequiredSpecial1Percent": {
-          "Active": false,
-          "FloatValue": 0.0,
-          "MaxValue": 0.0
-        },
-        "RequiredSpecial2Percent": {
-          "Active": false,
-          "FloatValue": 0.0,
-          "MaxValue": 0.0
-        },
-        "RequiredSpecial3Percent": {
-          "Active": false,
-          "FloatValue": 0.0,
-          "MaxValue": 0.0
-        },
-        "RequiredSpecial4Percent": {
-          "Active": false,
-          "FloatValue": 0.0,
-          "MaxValue": 0.0
-        },
-        "HideActionIfNotMet": true,
-        "FailMessage": {
-          "ParentObjectID": "water_sawmill_forge_placed",
-          "LocalizationKey": "Water_Sawmill_ForgePlaced_HammerAll_FailMessage",
-          "DefaultText": "Forge must be at working heat. Use Blast first."
-        },
-        "SpecificFailMessages": []
-      },
-      "ReceivingCardChanges": {
-        "ModType": 0
-      },
-      "ProducedCards": [],
-      "StatModifications": []
-    },
-    {
-      "ActionName": {
-        "ParentObjectID": "water_sawmill_forge_placed",
         "LocalizationKey": "Water_Sawmill_ForgePlaced_PickUp_ActionName",
         "DefaultText": "Pack Up"
       },
@@ -882,7 +787,7 @@
     {
       "ActionName": {
         "ParentObjectID": "",
-        "LocalizationKey": "IGNOREKEY",
+        "LocalizationKey": "Water_Sawmill_ForgePlaced_SmeltGreenstone_ActionName",
         "DefaultText": "Smelt Greenstone"
       },
       "CustomCookingText": {
@@ -933,7 +838,7 @@
         "ReceivingRequiredDurabilityRanges": {
           "SpoilageRange": {
             "x": 1100.0,
-            "y": 3000.0
+            "y": 1E+09
           },
           "UsageRange": {
             "x": 0.0,
@@ -1096,7 +1001,7 @@
         "RequiredInGameTimes": [],
         "RequiredAlreadyVisitedEnvironments": []
       },
-      "Duration": 32,
+      "Duration": 1,
       "DurationRdmVariation": 0,
       "CookerChanges": {
         "ModType": 0
@@ -1133,26 +1038,150 @@
             "m_FileID": 0,
             "m_PathID": 0
           },
-          "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+          "DroppedCardWarpData": "b92071e54dac7e54db99b48794e737ad",
           "DroppedCardWarpType": 3,
           "Quantity": {
             "x": 1,
-            "y": 1
-          }
-        },
-        {
-          "DroppedCard": {
-            "m_FileID": 0,
-            "m_PathID": 0
+            "y": 2
           },
-          "DroppedCardWarpData": "efde4db74f8cb194e9ad7cd014bfd7d6",
-          "DroppedCardWarpType": 3,
-          "Quantity": {
-            "x": 1,
-            "y": 1
+          "FinishUnlocking": false,
+          "DropChance": {
+            "Active": false,
+            "BaseDropChance": 0.0,
+            "DurabilitiesModifiers": [],
+            "StatsModifiers": [],
+            "CardsModifiers": [],
+            "NPCStatsModifiers": []
           }
         }
       ],
+      "StatModifications": [],
+      "UseCookerForCardDrops": false,
+      "DropsAsCollection": []
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "Water_Sawmill_ForgePlaced_RefineCopper_ActionName",
+        "DefaultText": "Refine Copper"
+      },
+      "CustomCookingText": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "CannotCookText": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": "More temperature required!"
+      },
+      "CompatibleCards": [],
+      "CompatibleCardsWarpData": [
+        "3769abdc385c36c4ba349663240934c0",
+        "1ec399502888015468ee1c00dab60569",
+        "b94d2bf3902f37d4d917943d3c784298"
+      ],
+      "CompatibleCardsWarpType": 3,
+      "CompatibleTags": [],
+      "CompatibleTagsWarpData": [],
+      "CompatibleTagsWarpType": 3,
+      "ConditionsCard": 0,
+      "Conditions": {
+        "NotInBackground": false,
+        "InBackground": false,
+        "PlayerUsesCard": 0,
+        "RequiredEnvironment": { "m_FileID": 0, "m_PathID": 0 },
+        "InvertEnvironmentRequirement": false,
+        "RequiredEnvironmentTags": [],
+        "RequiredNOTEnvironmentTags": [],
+        "RequiredContainer": [],
+        "RequiredNOTContainer": [],
+        "RequiredContainerTags": [],
+        "RequiredNOTContainerTags": [],
+        "RequiredCardsOnBoard": [],
+        "RequiredTagsOnBoard": [],
+        "RequiredCardsNOTOnBoard": [],
+        "RequiredTagsNOTOnBoard": [],
+        "RequiredLiquidContainers": [],
+        "RequiredCardsInInventory": [],
+        "RequiredTagsInInventory": [],
+        "CardWasBuiltWith": [],
+        "CardWasNOTBuiltWith": [],
+        "RequiredPlayerOwnedCards": [],
+        "RequiredPlayerNOTOwnedCards": [],
+        "ReceivingRequiredDurabilityRanges": {
+          "SpoilageRange": { "x": 1100.0, "y": 1E+09 },
+          "UsageRange": { "x": 0.0, "y": 0.0 },
+          "FuelRange": { "x": 0.0, "y": 0.0 },
+          "ProgressRange": { "x": 0.0, "y": 0.0 },
+          "Special1Range": { "x": 0.0, "y": 0.0 },
+          "Special2Range": { "x": 0.0, "y": 0.0 },
+          "Special3Range": { "x": 0.0, "y": 0.0 },
+          "Special4Range": { "x": 0.0, "y": 0.0 },
+          "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+        },
+        "GivenRequiredDurabilityRanges": {
+          "SpoilageRange": { "x": 0.0, "y": 0.0 },
+          "UsageRange": { "x": 0.0, "y": 0.0 },
+          "FuelRange": { "x": 0.0, "y": 0.0 },
+          "ProgressRange": { "x": 0.0, "y": 0.0 },
+          "Special1Range": { "x": 0.0, "y": 0.0 },
+          "Special2Range": { "x": 0.0, "y": 0.0 },
+          "Special3Range": { "x": 0.0, "y": 0.0 },
+          "Special4Range": { "x": 0.0, "y": 0.0 },
+          "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+        },
+        "ReceivingContainerRequiredDurabilityRanges": {
+          "SpoilageRange": { "x": 0.0, "y": 0.0 },
+          "UsageRange": { "x": 0.0, "y": 0.0 },
+          "FuelRange": { "x": 0.0, "y": 0.0 },
+          "ProgressRange": { "x": 0.0, "y": 0.0 },
+          "Special1Range": { "x": 0.0, "y": 0.0 },
+          "Special2Range": { "x": 0.0, "y": 0.0 },
+          "Special3Range": { "x": 0.0, "y": 0.0 },
+          "Special4Range": { "x": 0.0, "y": 0.0 },
+          "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+        },
+        "GivenContainerRequiredDurabilityRanges": {
+          "SpoilageRange": { "x": 0.0, "y": 0.0 },
+          "UsageRange": { "x": 0.0, "y": 0.0 },
+          "FuelRange": { "x": 0.0, "y": 0.0 },
+          "ProgressRange": { "x": 0.0, "y": 0.0 },
+          "Special1Range": { "x": 0.0, "y": 0.0 },
+          "Special2Range": { "x": 0.0, "y": 0.0 },
+          "Special3Range": { "x": 0.0, "y": 0.0 },
+          "Special4Range": { "x": 0.0, "y": 0.0 },
+          "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+        },
+        "ReceivingCardTags": [],
+        "GivenCardTags": [],
+        "ReceivingCardSpices": [],
+        "GivenCardSpices": [],
+        "RequiredEnvironmentWeight": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+        "RequiredStatValues": [],
+        "RequiredNPCStatValues": [],
+        "RequiredInGameTimes": [],
+        "RequiredAlreadyVisitedEnvironments": []
+      },
+      "Duration": 1,
+      "DurationRdmVariation": 0,
+      "CookerChanges": { "ModType": 0 },
+      "IngredientChanges": {
+        "ModType": 1,
+        "ChargesChange": { "x": 1.0, "y": 1.0 }
+      },
+      "FeedbackMode": 1,
+      "ProgressBar": 3,
+      "ProgressTowardsZero": false,
+      "HideCookingProgress": false,
+      "HideDurabilities": { "MaskValue": 0 },
+      "HideResultNotification": false,
+      "RandomSingleDrop": false,
+      "CustomCompleteSound": { "m_FileID": 0, "m_PathID": 0 },
+      "Notification": 0,
+      "CustomNotification": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
+      "ScaleDropsPerLiquidQuantity": { "Active": false, "FloatValue": 0.0 },
+      "Drops": [],
       "StatModifications": [],
       "UseCookerForCardDrops": false,
       "DropsAsCollection": []

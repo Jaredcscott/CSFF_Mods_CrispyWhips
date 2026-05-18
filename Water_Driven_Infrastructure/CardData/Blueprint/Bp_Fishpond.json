@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "water_sawmill_bp_fishpond",
         "LocalizationKey": "Water_Sawmill_Bp_Fishpond_CardDescription",
-        "DefaultText": "Dig a fishpond near a river in 3 stages using a shovel (3 hours each). Populate it with live pike, perch, and minnow which will grow over time. When the total fish count exceeds 10, the pond becomes stocked and frogs can be caught. The pond freezes in winter."
+        "DefaultText": "Dig a fishpond near water or a connected mill race outlet in 5 stages (3 hours each, 15 hours total): 3 digging stages with a shovel, then 2 stocking stages with live fish and planks. Fish will grow over time. When the total fish count exceeds 10, the pond becomes stocked and frogs can be caught. The pond freezes in winter."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {
@@ -49,19 +49,6 @@
     "CardImageWarpData": "FishpondKit",
     "CardImageWarpType": 3,
     "BuildingTagConditions": [
-        {
-            "TriggerTag": {
-                "m_FileID": 0,
-                "m_PathID": 0
-            },
-            "OnlyInHand": false,
-            "NotInHand": false,
-            "ExcludeInventories": false,
-            "Inverted": false,
-            "OnlyEquipped": false,
-            "TriggerTagWarpData": "tag_River",
-            "TriggerTagWarpType": 3
-        },
         {
             "TriggerTag": {
                 "m_FileID": 0,
@@ -272,6 +259,6 @@
         "Wood"
     ],
     "WhenCreatedSoundsWarpType": 3,
-    "BlueprintUnlockTicksCost": 32.0,
+    "BlueprintUnlockTicksCost": 64.0,
     "ResearchedNotification": 0
 }

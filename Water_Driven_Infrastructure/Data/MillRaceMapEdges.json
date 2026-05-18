@@ -1,0 +1,2636 @@
+﻿{
+    "Version":  "EA_0-63f",
+    "GeneratedFrom":  "Documentation/GameData/CSFF-JsonData_EA_0-63f/ScriptableObjectJsonDataWithWarpLitAllInOne/WorldMapData/DefaultWorldMap.json",
+    "Edges":  [
+                  {
+                      "SourceEnvUid":  "08a396e21153e6c44aef77166346eab4",
+                      "SourceLocationUid":  "0047c4128e4efa548b394802e67e5bc5",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "07d1d950b563a3141ab22372f3c34927",
+                      "DestinationLocationUid":  "97cc89834cddcce43b8e44b32ccd1975",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "08a396e21153e6c44aef77166346eab4",
+                      "SourceLocationUid":  "0047c4128e4efa548b394802e67e5bc5",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "58352df2a29560b4e84d11ca8895731a",
+                      "DestinationLocationUid":  "569186c2715d16441bd502fdbedcb0e3",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "08a396e21153e6c44aef77166346eab4",
+                      "SourceLocationUid":  "0047c4128e4efa548b394802e67e5bc5",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "fcee32ddbcc972e4c9347d7d062e32a3",
+                      "DestinationLocationUid":  "fe69f0d7203eeda4c95b78b76d1deb36",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "08a396e21153e6c44aef77166346eab4",
+                      "SourceLocationUid":  "0047c4128e4efa548b394802e67e5bc5",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "ae879ccdd1a343140b17ee4d5f9d5784",
+                      "DestinationLocationUid":  "1ec714ca136119e499e7afb4a000867b",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "75a9d5c8dd8989a48a33cb7616db4226",
+                      "SourceLocationUid":  "02383c4705f7f0647a1ed6a1a48104a0",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "ee19c4094cf46064ab386ca2595d0645",
+                      "DestinationLocationUid":  "805a8f3ece70a704ba858aa0d7b7dff4",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "75a9d5c8dd8989a48a33cb7616db4226",
+                      "SourceLocationUid":  "02383c4705f7f0647a1ed6a1a48104a0",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "17e4cce5ae0a07649bde2cbbf218eace",
+                      "DestinationLocationUid":  "fce4bae0b4932964aa0833137f396e36",
+                      "PathCost":  1,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "92f0475eba969b54782c9092beb0a67b",
+                      "SourceLocationUid":  "02fc7896d0c47bb418c104af4e8c1068",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "86e4aee0a55ea3e439921af41431630a",
+                      "DestinationLocationUid":  "663fccb18fd82294f92d43050d7d12b4",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "92f0475eba969b54782c9092beb0a67b",
+                      "SourceLocationUid":  "02fc7896d0c47bb418c104af4e8c1068",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "24b659a069e11e54495f75d4d564f038",
+                      "DestinationLocationUid":  "6c508761e14c85d47b65d76a4148db30",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "3cf35090a5b1f2a46ac4dc35aef79bff",
+                      "SourceLocationUid":  "08633f82bef215c4a81234b68b23b89a",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "5ff76eafbc6b488409ac66902a635b79",
+                      "DestinationLocationUid":  "7d10f7361cd579a4d843d7a47ad04427",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "3cf35090a5b1f2a46ac4dc35aef79bff",
+                      "SourceLocationUid":  "08633f82bef215c4a81234b68b23b89a",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "95626728d47830e4283b16551e27dcfd",
+                      "DestinationLocationUid":  "d450c2919937ef54cb0bc67eb76d51c3",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "3cf35090a5b1f2a46ac4dc35aef79bff",
+                      "SourceLocationUid":  "08633f82bef215c4a81234b68b23b89a",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "eaf631e6e8ad93d49b9efcf1dde464f3",
+                      "DestinationLocationUid":  "cbb6d9b3d2ca0f24d89e62653c27eb25",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "3cf35090a5b1f2a46ac4dc35aef79bff",
+                      "SourceLocationUid":  "08633f82bef215c4a81234b68b23b89a",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "fcee32ddbcc972e4c9347d7d062e32a3",
+                      "DestinationLocationUid":  "fe69f0d7203eeda4c95b78b76d1deb36",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "60402000491626042b116556a55e84f5",
+                      "SourceLocationUid":  "08a9ab83720ce8d43940b3948290fd63",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "e16c4f61b078f584284e116866f5cdc0",
+                      "DestinationLocationUid":  "f5db0a50fd23fe44abce34c36b281dcd",
+                      "PathCost":  22.38303,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "60402000491626042b116556a55e84f5",
+                      "SourceLocationUid":  "08a9ab83720ce8d43940b3948290fd63",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "9e62eec158f8d9340ab9eb8553f78cfa",
+                      "DestinationLocationUid":  "b71c4ef8847555b4abcab5730a529145",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "60402000491626042b116556a55e84f5",
+                      "SourceLocationUid":  "08a9ab83720ce8d43940b3948290fd63",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "dd644a21d11b6ca479a91b4ea9c8be76",
+                      "DestinationLocationUid":  "f1f12161603a1674980559b8b1c67325",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "3dd228a55137f0843b3d4b1c9547bb37",
+                      "SourceLocationUid":  "095037d3e1e05bb4680e47410f0e5075",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "7e687594ad72ab744adc82fba5a5f31c",
+                      "DestinationLocationUid":  "7071f798052681d43a6d424cc62508db",
+                      "PathCost":  20,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "3dd228a55137f0843b3d4b1c9547bb37",
+                      "SourceLocationUid":  "095037d3e1e05bb4680e47410f0e5075",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "7ce232e320b323440a3c54b47a5fc48a",
+                      "DestinationLocationUid":  "e1874f4598988d04bb4b68049766d7b1",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "3dd228a55137f0843b3d4b1c9547bb37",
+                      "SourceLocationUid":  "095037d3e1e05bb4680e47410f0e5075",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "8f9a86377f8a6aa49b7b8d305cce051b",
+                      "DestinationLocationUid":  "b602040bffe7cd2478ffebe75d596962",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "6befcb14221b6e249819e2dc206ed641",
+                      "SourceLocationUid":  "09abacf6a4f23f94c8fcc73817d0cab4",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "45fc009b78bcc1345a4c970df6a552fc",
+                      "DestinationLocationUid":  "fdc6e8782c94fff4ab139847c4f717d1",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "6befcb14221b6e249819e2dc206ed641",
+                      "SourceLocationUid":  "09abacf6a4f23f94c8fcc73817d0cab4",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "e4da35707a07fec468cde1d2cc6ee0b7",
+                      "DestinationLocationUid":  "b5569b7c564d202419bc1e0efe6967e9",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "6befcb14221b6e249819e2dc206ed641",
+                      "SourceLocationUid":  "09abacf6a4f23f94c8fcc73817d0cab4",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "f3546cee72796a74e8dc6dd59414e6b9",
+                      "DestinationLocationUid":  "8e47cbac8e16ef644b70e610cf3dbd05",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "2b8eed1c14cc78d429d9633728d8e7ab",
+                      "SourceLocationUid":  "0aee57238013678409ec4dbe1fb09194",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "04c947daf3e247b4fb52fe98895d27de",
+                      "DestinationLocationUid":  "10a8c23a1c849c7428c685f822cd6cb3",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "2b8eed1c14cc78d429d9633728d8e7ab",
+                      "SourceLocationUid":  "0aee57238013678409ec4dbe1fb09194",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "893bfd37608d3d2438f49cf349f5f4d8",
+                      "DestinationLocationUid":  "15d45e3a5d854904bade0afeb6621f2e",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "04c947daf3e247b4fb52fe98895d27de",
+                      "SourceLocationUid":  "10a8c23a1c849c7428c685f822cd6cb3",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "e5ff4e632df90e643b4d968b4c55d6f8",
+                      "DestinationLocationUid":  "6a31f9adbf24f6d45b16d5ce24b39591",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "04c947daf3e247b4fb52fe98895d27de",
+                      "SourceLocationUid":  "10a8c23a1c849c7428c685f822cd6cb3",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "2b8eed1c14cc78d429d9633728d8e7ab",
+                      "DestinationLocationUid":  "0aee57238013678409ec4dbe1fb09194",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "893bfd37608d3d2438f49cf349f5f4d8",
+                      "SourceLocationUid":  "15d45e3a5d854904bade0afeb6621f2e",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "e4da35707a07fec468cde1d2cc6ee0b7",
+                      "DestinationLocationUid":  "b5569b7c564d202419bc1e0efe6967e9",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "893bfd37608d3d2438f49cf349f5f4d8",
+                      "SourceLocationUid":  "15d45e3a5d854904bade0afeb6621f2e",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "2b8eed1c14cc78d429d9633728d8e7ab",
+                      "DestinationLocationUid":  "0aee57238013678409ec4dbe1fb09194",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "893bfd37608d3d2438f49cf349f5f4d8",
+                      "SourceLocationUid":  "15d45e3a5d854904bade0afeb6621f2e",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "45fc009b78bcc1345a4c970df6a552fc",
+                      "DestinationLocationUid":  "fdc6e8782c94fff4ab139847c4f717d1",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "ca8ecdd9232b168449ef84103fa30276",
+                      "SourceLocationUid":  "16945ecc346cfb648a9731c60f59265e",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "ee19c4094cf46064ab386ca2595d0645",
+                      "DestinationLocationUid":  "805a8f3ece70a704ba858aa0d7b7dff4",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "bf132869ee232ed408f1dfc96b2bea3b",
+                      "SourceLocationUid":  "1761b5a45b73fee43a68f6dcec138ef6",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "0c7cd381f10689b49b2ca9ec8819380c",
+                      "DestinationLocationUid":  "e40f442246e85014c9a786342fb78a25",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "bf132869ee232ed408f1dfc96b2bea3b",
+                      "SourceLocationUid":  "1761b5a45b73fee43a68f6dcec138ef6",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "54d711f65d6500942b1e5c4041cb0cd5",
+                      "DestinationLocationUid":  "343475c3f2d73c84f8ffbbbe1f288414",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "bf132869ee232ed408f1dfc96b2bea3b",
+                      "SourceLocationUid":  "1761b5a45b73fee43a68f6dcec138ef6",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "9757aaf383f29ac4eae9ba7470075397",
+                      "DestinationLocationUid":  "4e870b81748a38f4d8922a3fac6cc69a",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "9b5f925efe81b284ca921f1d33e141a1",
+                      "SourceLocationUid":  "1ddd433a960e8a04cbcbb1dd6752c348",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "1debe82d82b4c3947b1dc8c75c15280a",
+                      "DestinationLocationUid":  "2332dfa5f177bfe45ac860c2a8e1792a",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "ae879ccdd1a343140b17ee4d5f9d5784",
+                      "SourceLocationUid":  "1ec714ca136119e499e7afb4a000867b",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "72546ee607e6e31429036db362cd268e",
+                      "DestinationLocationUid":  "9c9ae12ea130d9d41abb0f195bcaccf4",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "ae879ccdd1a343140b17ee4d5f9d5784",
+                      "SourceLocationUid":  "1ec714ca136119e499e7afb4a000867b",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "08a396e21153e6c44aef77166346eab4",
+                      "DestinationLocationUid":  "0047c4128e4efa548b394802e67e5bc5",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "ae879ccdd1a343140b17ee4d5f9d5784",
+                      "SourceLocationUid":  "1ec714ca136119e499e7afb4a000867b",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "dba2401af97f88f4cb50821fb0cb0000",
+                      "DestinationLocationUid":  "48cf028fc67cdb44cab666ebfa143789",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "1debe82d82b4c3947b1dc8c75c15280a",
+                      "SourceLocationUid":  "2332dfa5f177bfe45ac860c2a8e1792a",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "816d82c88f738fe4285c2880a9080299",
+                      "DestinationLocationUid":  "d62dae57fe6130841b450ba199f2c58e",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "1debe82d82b4c3947b1dc8c75c15280a",
+                      "SourceLocationUid":  "2332dfa5f177bfe45ac860c2a8e1792a",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "9b5f925efe81b284ca921f1d33e141a1",
+                      "DestinationLocationUid":  "1ddd433a960e8a04cbcbb1dd6752c348",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "1debe82d82b4c3947b1dc8c75c15280a",
+                      "SourceLocationUid":  "2332dfa5f177bfe45ac860c2a8e1792a",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "ca60012d0c6a8394f9bc5cef2e1794ad",
+                      "DestinationLocationUid":  "d478e681d8933624499b2d68120ff338",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "5a51045d28a3ffc4a9a5802bd5fb2e6c",
+                      "SourceLocationUid":  "258c8da1f1c1a2e4881fdf676762505f",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "ca60012d0c6a8394f9bc5cef2e1794ad",
+                      "DestinationLocationUid":  "d478e681d8933624499b2d68120ff338",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "df15a6f2e8d426f4b8a5a4dd39678b96",
+                      "SourceLocationUid":  "27e91c011daab4943a7c4db7b9b342cb",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "6e5b4f7c64c715244b7a76cbda244ac0",
+                      "DestinationLocationUid":  "8c6c0c29e4de0d741b40a2f19e8380b8",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "df15a6f2e8d426f4b8a5a4dd39678b96",
+                      "SourceLocationUid":  "27e91c011daab4943a7c4db7b9b342cb",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "07d1d950b563a3141ab22372f3c34927",
+                      "DestinationLocationUid":  "97cc89834cddcce43b8e44b32ccd1975",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "df15a6f2e8d426f4b8a5a4dd39678b96",
+                      "SourceLocationUid":  "27e91c011daab4943a7c4db7b9b342cb",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "d5ed3b56f92b3bf44b6220ddc246d9e9",
+                      "DestinationLocationUid":  "a292cbb4350f3e1479f06c75d5065e3e",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "5fb1552d03e1d0c4fa6e1514928b5a5e",
+                      "SourceLocationUid":  "2a0ed72a1373e4c459da8087043a5572",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "cf52841cc19f0fd4c8bd1c039fa2c420",
+                      "DestinationLocationUid":  "c155e398639f55040b52d30305468336",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "5fb1552d03e1d0c4fa6e1514928b5a5e",
+                      "SourceLocationUid":  "2a0ed72a1373e4c459da8087043a5572",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "f243b5e9ae48c884296c6c2ecc294bdf",
+                      "DestinationLocationUid":  "e85bc7ffb5604ef47b3b7f82eb395f39",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "5fb1552d03e1d0c4fa6e1514928b5a5e",
+                      "SourceLocationUid":  "2a0ed72a1373e4c459da8087043a5572",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "c5d869f30ddcd194f924042021d7df96",
+                      "DestinationLocationUid":  "8b50be9a6a78ea9439b08c653a12a1e7",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "28bb87a8ef9ad764eba84409c878d86c",
+                      "SourceLocationUid":  "2c3a29815c94ebe46a4bdbd1ccb754d0",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "f903546ae5022e94ea34c8fed6817b30",
+                      "DestinationLocationUid":  "cb861225c880cdf4f8d07bdf99abae51",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "28bb87a8ef9ad764eba84409c878d86c",
+                      "SourceLocationUid":  "2c3a29815c94ebe46a4bdbd1ccb754d0",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "0c7cd381f10689b49b2ca9ec8819380c",
+                      "DestinationLocationUid":  "e40f442246e85014c9a786342fb78a25",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "a2511a2a8fcba7b4aa35e87c700b94c0",
+                      "SourceLocationUid":  "2fbf1939053d3d54eb4df966c7a057bd",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "86e4aee0a55ea3e439921af41431630a",
+                      "DestinationLocationUid":  "663fccb18fd82294f92d43050d7d12b4",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "7fb57da98b2cc624a9fcbc3ce7f9a22d",
+                      "SourceLocationUid":  "30a11e1f41c65774fbdb291aadd64ccf",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "43848cba2ea28554da29bf5996c1f4dd",
+                      "DestinationLocationUid":  "b9107e4f48ff0d044bd31c7a51d13d40",
+                      "PathCost":  22.38303,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "7fb57da98b2cc624a9fcbc3ce7f9a22d",
+                      "SourceLocationUid":  "30a11e1f41c65774fbdb291aadd64ccf",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "ded1b630b78d74349b9a312d08ca3070",
+                      "DestinationLocationUid":  "5428355fcca1b464e9dfad18d69bf4f6",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "b12e9621a02af284fb731ae2c76aaf4d",
+                      "SourceLocationUid":  "3282546098b590d4ba2d40e96460720f",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "4ab984dd3063edb4192dc1c82d05dad2",
+                      "DestinationLocationUid":  "716c18156d6816d40b26b4b81a6b9d22",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "b12e9621a02af284fb731ae2c76aaf4d",
+                      "SourceLocationUid":  "3282546098b590d4ba2d40e96460720f",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "654e8fa8e5ead544f8a7def1746c3f5f",
+                      "DestinationLocationUid":  "8eaa097869c21d94d8eac6188fab7028",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "b12e9621a02af284fb731ae2c76aaf4d",
+                      "SourceLocationUid":  "3282546098b590d4ba2d40e96460720f",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "69bfd218f65d27a4e80c9b8365091f93",
+                      "DestinationLocationUid":  "9222a58ac48eabe4c96aa7c9419a3d53",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "df1746be00a5fc74e9536d83cf491b6c",
+                      "SourceLocationUid":  "33b838d1f3b1daa4bb0d5fd4921dcdfa",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "f903546ae5022e94ea34c8fed6817b30",
+                      "DestinationLocationUid":  "cb861225c880cdf4f8d07bdf99abae51",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "df1746be00a5fc74e9536d83cf491b6c",
+                      "SourceLocationUid":  "33b838d1f3b1daa4bb0d5fd4921dcdfa",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "7ce232e320b323440a3c54b47a5fc48a",
+                      "DestinationLocationUid":  "e1874f4598988d04bb4b68049766d7b1",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "df1746be00a5fc74e9536d83cf491b6c",
+                      "SourceLocationUid":  "33b838d1f3b1daa4bb0d5fd4921dcdfa",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "3560005192d0d0a4ea2ff43f17ea0a4a",
+                      "DestinationLocationUid":  "c780ea86ceddfa949bd99e709c287d08",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "54d711f65d6500942b1e5c4041cb0cd5",
+                      "SourceLocationUid":  "343475c3f2d73c84f8ffbbbe1f288414",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "bf132869ee232ed408f1dfc96b2bea3b",
+                      "DestinationLocationUid":  "1761b5a45b73fee43a68f6dcec138ef6",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "54d711f65d6500942b1e5c4041cb0cd5",
+                      "SourceLocationUid":  "343475c3f2d73c84f8ffbbbe1f288414",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "2b19b942a09fdd148a43798e942a74eb",
+                      "DestinationLocationUid":  "3c7144d78a55ebb45b0fdf1598cf6a04",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "54d711f65d6500942b1e5c4041cb0cd5",
+                      "SourceLocationUid":  "343475c3f2d73c84f8ffbbbe1f288414",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "de95b3566e373dd459a7bdccd7614603",
+                      "DestinationLocationUid":  "d64538c6aa0ac014e83221fda09ea8eb",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "88a0e15fc295d6d4a9497bd40be6899a",
+                      "SourceLocationUid":  "392726f7792a24849b9f3af9148c0871",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "43f27aef15c15d04d9b24d700a73cfcd",
+                      "DestinationLocationUid":  "d3bccca6f0e37d649923ea9a996e8388",
+                      "PathCost":  20,
+                      "HiddenOnInGameMap":  true
+                  },
+                  {
+                      "SourceEnvUid":  "88a0e15fc295d6d4a9497bd40be6899a",
+                      "SourceLocationUid":  "392726f7792a24849b9f3af9148c0871",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "4c37a8a55fdf1e248946658659dc3ca2",
+                      "DestinationLocationUid":  "49e2b4be940a84f4ca5c08024b5702b6",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  true
+                  },
+                  {
+                      "SourceEnvUid":  "2b19b942a09fdd148a43798e942a74eb",
+                      "SourceLocationUid":  "3c7144d78a55ebb45b0fdf1598cf6a04",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "54d711f65d6500942b1e5c4041cb0cd5",
+                      "DestinationLocationUid":  "343475c3f2d73c84f8ffbbbe1f288414",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "2b19b942a09fdd148a43798e942a74eb",
+                      "SourceLocationUid":  "3c7144d78a55ebb45b0fdf1598cf6a04",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "e50ba70e00d90094fb8216b6f1167a1e",
+                      "DestinationLocationUid":  "e715a7bb358c727408ca2f454850bca0",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "2b19b942a09fdd148a43798e942a74eb",
+                      "SourceLocationUid":  "3c7144d78a55ebb45b0fdf1598cf6a04",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "5af32ab7ce936684d99add01fc56015a",
+                      "DestinationLocationUid":  "6f1df28efe418cd4caeb66c8228583f1",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "b791dfa6bad821e4e91d7c4210ec3ea3",
+                      "SourceLocationUid":  "48763d81ff15a3247af3a2a9db6adbb1",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "8b43cd3ccc9e1ed418e27383135c30c8",
+                      "DestinationLocationUid":  "d68a69ef3eb90c94d8a05b8d44472119",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "b791dfa6bad821e4e91d7c4210ec3ea3",
+                      "SourceLocationUid":  "48763d81ff15a3247af3a2a9db6adbb1",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "9dc0063ceb4a24f4c815d2efb49256c2",
+                      "DestinationLocationUid":  "f874739d449a5c948a0cfa9890fa344c",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "b791dfa6bad821e4e91d7c4210ec3ea3",
+                      "SourceLocationUid":  "48763d81ff15a3247af3a2a9db6adbb1",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "43f27aef15c15d04d9b24d700a73cfcd",
+                      "DestinationLocationUid":  "d3bccca6f0e37d649923ea9a996e8388",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "dba2401af97f88f4cb50821fb0cb0000",
+                      "SourceLocationUid":  "48cf028fc67cdb44cab666ebfa143789",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "270ab01e5889c024f8b9f50bbce5fed3",
+                      "DestinationLocationUid":  "c5d461c899e25624a99e45496f18b48c",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "dba2401af97f88f4cb50821fb0cb0000",
+                      "SourceLocationUid":  "48cf028fc67cdb44cab666ebfa143789",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "b6fc2dc3d7248a74d839070be293e9d6",
+                      "DestinationLocationUid":  "7eb4ea3c101f2824686e53241133d0cc",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "dba2401af97f88f4cb50821fb0cb0000",
+                      "SourceLocationUid":  "48cf028fc67cdb44cab666ebfa143789",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "ae879ccdd1a343140b17ee4d5f9d5784",
+                      "DestinationLocationUid":  "1ec714ca136119e499e7afb4a000867b",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "4c37a8a55fdf1e248946658659dc3ca2",
+                      "SourceLocationUid":  "49e2b4be940a84f4ca5c08024b5702b6",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "43f27aef15c15d04d9b24d700a73cfcd",
+                      "DestinationLocationUid":  "d3bccca6f0e37d649923ea9a996e8388",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "4c37a8a55fdf1e248946658659dc3ca2",
+                      "SourceLocationUid":  "49e2b4be940a84f4ca5c08024b5702b6",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "88a0e15fc295d6d4a9497bd40be6899a",
+                      "DestinationLocationUid":  "392726f7792a24849b9f3af9148c0871",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "9757aaf383f29ac4eae9ba7470075397",
+                      "SourceLocationUid":  "4e870b81748a38f4d8922a3fac6cc69a",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "de95b3566e373dd459a7bdccd7614603",
+                      "DestinationLocationUid":  "d64538c6aa0ac014e83221fda09ea8eb",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "9757aaf383f29ac4eae9ba7470075397",
+                      "SourceLocationUid":  "4e870b81748a38f4d8922a3fac6cc69a",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "bf132869ee232ed408f1dfc96b2bea3b",
+                      "DestinationLocationUid":  "1761b5a45b73fee43a68f6dcec138ef6",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "9757aaf383f29ac4eae9ba7470075397",
+                      "SourceLocationUid":  "4e870b81748a38f4d8922a3fac6cc69a",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "f243b5e9ae48c884296c6c2ecc294bdf",
+                      "DestinationLocationUid":  "e85bc7ffb5604ef47b3b7f82eb395f39",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "ded1b630b78d74349b9a312d08ca3070",
+                      "SourceLocationUid":  "5428355fcca1b464e9dfad18d69bf4f6",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "dd644a21d11b6ca479a91b4ea9c8be76",
+                      "DestinationLocationUid":  "f1f12161603a1674980559b8b1c67325",
+                      "PathCost":  22.38303,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "ded1b630b78d74349b9a312d08ca3070",
+                      "SourceLocationUid":  "5428355fcca1b464e9dfad18d69bf4f6",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "5f230490c5810fe41949cf23b05f1d87",
+                      "DestinationLocationUid":  "a631af4cc22e93a43b70992c974fbbf0",
+                      "PathCost":  14.177447,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "ded1b630b78d74349b9a312d08ca3070",
+                      "SourceLocationUid":  "5428355fcca1b464e9dfad18d69bf4f6",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "e16c4f61b078f584284e116866f5cdc0",
+                      "DestinationLocationUid":  "f5db0a50fd23fe44abce34c36b281dcd",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "ded1b630b78d74349b9a312d08ca3070",
+                      "SourceLocationUid":  "5428355fcca1b464e9dfad18d69bf4f6",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "7fb57da98b2cc624a9fcbc3ce7f9a22d",
+                      "DestinationLocationUid":  "30a11e1f41c65774fbdb291aadd64ccf",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "35636fb5790878745aa1c773847116b3",
+                      "SourceLocationUid":  "549ed5b85e9e484479c5e4978eb22e79",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "424b62c4f6f58804b9f086ed14c4cbfe",
+                      "DestinationLocationUid":  "c021b70a40c0caa438322dbab799719e",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "35636fb5790878745aa1c773847116b3",
+                      "SourceLocationUid":  "549ed5b85e9e484479c5e4978eb22e79",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "17e4cce5ae0a07649bde2cbbf218eace",
+                      "DestinationLocationUid":  "fce4bae0b4932964aa0833137f396e36",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "35636fb5790878745aa1c773847116b3",
+                      "SourceLocationUid":  "549ed5b85e9e484479c5e4978eb22e79",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "3560005192d0d0a4ea2ff43f17ea0a4a",
+                      "DestinationLocationUid":  "c780ea86ceddfa949bd99e709c287d08",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "35636fb5790878745aa1c773847116b3",
+                      "SourceLocationUid":  "549ed5b85e9e484479c5e4978eb22e79",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "f3463563574aea04a9e165186619cfb9",
+                      "DestinationLocationUid":  "f97bf4f3c179b9e40a6035a63910b409",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "58352df2a29560b4e84d11ca8895731a",
+                      "SourceLocationUid":  "569186c2715d16441bd502fdbedcb0e3",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "08a396e21153e6c44aef77166346eab4",
+                      "DestinationLocationUid":  "0047c4128e4efa548b394802e67e5bc5",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "58352df2a29560b4e84d11ca8895731a",
+                      "SourceLocationUid":  "569186c2715d16441bd502fdbedcb0e3",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "f3463563574aea04a9e165186619cfb9",
+                      "DestinationLocationUid":  "f97bf4f3c179b9e40a6035a63910b409",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "58352df2a29560b4e84d11ca8895731a",
+                      "SourceLocationUid":  "569186c2715d16441bd502fdbedcb0e3",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "424b62c4f6f58804b9f086ed14c4cbfe",
+                      "DestinationLocationUid":  "c021b70a40c0caa438322dbab799719e",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "58352df2a29560b4e84d11ca8895731a",
+                      "SourceLocationUid":  "569186c2715d16441bd502fdbedcb0e3",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "2967195b731b3844e9cefacb82595287",
+                      "DestinationLocationUid":  "b32c74532ed8c634d991a6028bb435e2",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "156af397d5201f943b663a1f9abc382f",
+                      "SourceLocationUid":  "5aba809c3bd15904d80260034b976c24",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "c5d869f30ddcd194f924042021d7df96",
+                      "DestinationLocationUid":  "8b50be9a6a78ea9439b08c653a12a1e7",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "156af397d5201f943b663a1f9abc382f",
+                      "SourceLocationUid":  "5aba809c3bd15904d80260034b976c24",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "43f27aef15c15d04d9b24d700a73cfcd",
+                      "DestinationLocationUid":  "d3bccca6f0e37d649923ea9a996e8388",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "156af397d5201f943b663a1f9abc382f",
+                      "SourceLocationUid":  "5aba809c3bd15904d80260034b976c24",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "8b43cd3ccc9e1ed418e27383135c30c8",
+                      "DestinationLocationUid":  "d68a69ef3eb90c94d8a05b8d44472119",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "86e4aee0a55ea3e439921af41431630a",
+                      "SourceLocationUid":  "663fccb18fd82294f92d43050d7d12b4",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "92f0475eba969b54782c9092beb0a67b",
+                      "DestinationLocationUid":  "02fc7896d0c47bb418c104af4e8c1068",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "b2ee7e674257bac4492bf0f8bf2d6949",
+                      "SourceLocationUid":  "6940d62a86fc2974da75ce0431ca44e8",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "7ce232e320b323440a3c54b47a5fc48a",
+                      "DestinationLocationUid":  "e1874f4598988d04bb4b68049766d7b1",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "b2ee7e674257bac4492bf0f8bf2d6949",
+                      "SourceLocationUid":  "6940d62a86fc2974da75ce0431ca44e8",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "0c7cd381f10689b49b2ca9ec8819380c",
+                      "DestinationLocationUid":  "e40f442246e85014c9a786342fb78a25",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "b2ee7e674257bac4492bf0f8bf2d6949",
+                      "SourceLocationUid":  "6940d62a86fc2974da75ce0431ca44e8",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "f903546ae5022e94ea34c8fed6817b30",
+                      "DestinationLocationUid":  "cb861225c880cdf4f8d07bdf99abae51",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "fa767b76552c1aa40bbf0b647e12e29e",
+                      "SourceLocationUid":  "69947f55ba11e344cb6af02eedbfa4f4",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "a7e737858eaebac4981ac595527bc369",
+                      "DestinationLocationUid":  "950ae559bf16e524aab418c4f109164d",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "fa767b76552c1aa40bbf0b647e12e29e",
+                      "SourceLocationUid":  "69947f55ba11e344cb6af02eedbfa4f4",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "f243b5e9ae48c884296c6c2ecc294bdf",
+                      "DestinationLocationUid":  "e85bc7ffb5604ef47b3b7f82eb395f39",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "e5ff4e632df90e643b4d968b4c55d6f8",
+                      "SourceLocationUid":  "6a31f9adbf24f6d45b16d5ce24b39591",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "04c947daf3e247b4fb52fe98895d27de",
+                      "DestinationLocationUid":  "10a8c23a1c849c7428c685f822cd6cb3",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "24b659a069e11e54495f75d4d564f038",
+                      "SourceLocationUid":  "6c508761e14c85d47b65d76a4148db30",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "92f0475eba969b54782c9092beb0a67b",
+                      "DestinationLocationUid":  "02fc7896d0c47bb418c104af4e8c1068",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "24b659a069e11e54495f75d4d564f038",
+                      "SourceLocationUid":  "6c508761e14c85d47b65d76a4148db30",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "03d28e9e8f09c48479c24dbe2cd88c77",
+                      "DestinationLocationUid":  "b388dc0a3284d294e8058cfc3d888cec",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "5af32ab7ce936684d99add01fc56015a",
+                      "SourceLocationUid":  "6f1df28efe418cd4caeb66c8228583f1",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "de95b3566e373dd459a7bdccd7614603",
+                      "DestinationLocationUid":  "d64538c6aa0ac014e83221fda09ea8eb",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "5af32ab7ce936684d99add01fc56015a",
+                      "SourceLocationUid":  "6f1df28efe418cd4caeb66c8228583f1",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "2b19b942a09fdd148a43798e942a74eb",
+                      "DestinationLocationUid":  "3c7144d78a55ebb45b0fdf1598cf6a04",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "5af32ab7ce936684d99add01fc56015a",
+                      "SourceLocationUid":  "6f1df28efe418cd4caeb66c8228583f1",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "9dc0063ceb4a24f4c815d2efb49256c2",
+                      "DestinationLocationUid":  "f874739d449a5c948a0cfa9890fa344c",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "7e687594ad72ab744adc82fba5a5f31c",
+                      "SourceLocationUid":  "7071f798052681d43a6d424cc62508db",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "3dd228a55137f0843b3d4b1c9547bb37",
+                      "DestinationLocationUid":  "095037d3e1e05bb4680e47410f0e5075",
+                      "PathCost":  20,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "7e687594ad72ab744adc82fba5a5f31c",
+                      "SourceLocationUid":  "7071f798052681d43a6d424cc62508db",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "816d82c88f738fe4285c2880a9080299",
+                      "DestinationLocationUid":  "d62dae57fe6130841b450ba199f2c58e",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "4ab984dd3063edb4192dc1c82d05dad2",
+                      "SourceLocationUid":  "716c18156d6816d40b26b4b81a6b9d22",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "2967195b731b3844e9cefacb82595287",
+                      "DestinationLocationUid":  "b32c74532ed8c634d991a6028bb435e2",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "4ab984dd3063edb4192dc1c82d05dad2",
+                      "SourceLocationUid":  "716c18156d6816d40b26b4b81a6b9d22",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "b12e9621a02af284fb731ae2c76aaf4d",
+                      "DestinationLocationUid":  "3282546098b590d4ba2d40e96460720f",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "4ab984dd3063edb4192dc1c82d05dad2",
+                      "SourceLocationUid":  "716c18156d6816d40b26b4b81a6b9d22",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "f3463563574aea04a9e165186619cfb9",
+                      "DestinationLocationUid":  "f97bf4f3c179b9e40a6035a63910b409",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "4ab984dd3063edb4192dc1c82d05dad2",
+                      "SourceLocationUid":  "716c18156d6816d40b26b4b81a6b9d22",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "cc2b63c53be07de4d93f0bdbd544be25",
+                      "DestinationLocationUid":  "b618bec5e3d2de64694f5cfb170626d4",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "5ff76eafbc6b488409ac66902a635b79",
+                      "SourceLocationUid":  "7d10f7361cd579a4d843d7a47ad04427",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "ca60012d0c6a8394f9bc5cef2e1794ad",
+                      "DestinationLocationUid":  "d478e681d8933624499b2d68120ff338",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "5ff76eafbc6b488409ac66902a635b79",
+                      "SourceLocationUid":  "7d10f7361cd579a4d843d7a47ad04427",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "3cf35090a5b1f2a46ac4dc35aef79bff",
+                      "DestinationLocationUid":  "08633f82bef215c4a81234b68b23b89a",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "5ff76eafbc6b488409ac66902a635b79",
+                      "SourceLocationUid":  "7d10f7361cd579a4d843d7a47ad04427",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "816d82c88f738fe4285c2880a9080299",
+                      "DestinationLocationUid":  "d62dae57fe6130841b450ba199f2c58e",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "5ff76eafbc6b488409ac66902a635b79",
+                      "SourceLocationUid":  "7d10f7361cd579a4d843d7a47ad04427",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "0dc7431ce6e2eda4fac5be625525108a",
+                      "DestinationLocationUid":  "eee1c12c127d4d244988a366cb173070",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "b6fc2dc3d7248a74d839070be293e9d6",
+                      "SourceLocationUid":  "7eb4ea3c101f2824686e53241133d0cc",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "dba2401af97f88f4cb50821fb0cb0000",
+                      "DestinationLocationUid":  "48cf028fc67cdb44cab666ebfa143789",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "b6fc2dc3d7248a74d839070be293e9d6",
+                      "SourceLocationUid":  "7eb4ea3c101f2824686e53241133d0cc",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "cc2b63c53be07de4d93f0bdbd544be25",
+                      "DestinationLocationUid":  "b618bec5e3d2de64694f5cfb170626d4",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "b6fc2dc3d7248a74d839070be293e9d6",
+                      "SourceLocationUid":  "7eb4ea3c101f2824686e53241133d0cc",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "2967195b731b3844e9cefacb82595287",
+                      "DestinationLocationUid":  "b32c74532ed8c634d991a6028bb435e2",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "ee19c4094cf46064ab386ca2595d0645",
+                      "SourceLocationUid":  "805a8f3ece70a704ba858aa0d7b7dff4",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "ca8ecdd9232b168449ef84103fa30276",
+                      "DestinationLocationUid":  "16945ecc346cfb648a9731c60f59265e",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "ee19c4094cf46064ab386ca2595d0645",
+                      "SourceLocationUid":  "805a8f3ece70a704ba858aa0d7b7dff4",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "75a9d5c8dd8989a48a33cb7616db4226",
+                      "DestinationLocationUid":  "02383c4705f7f0647a1ed6a1a48104a0",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "c5d869f30ddcd194f924042021d7df96",
+                      "SourceLocationUid":  "8b50be9a6a78ea9439b08c653a12a1e7",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "39bdb9771153f0845bc478e951f38699",
+                      "DestinationLocationUid":  "8c257d7b697c17e458e95eb5e7d11552",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "c5d869f30ddcd194f924042021d7df96",
+                      "SourceLocationUid":  "8b50be9a6a78ea9439b08c653a12a1e7",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "156af397d5201f943b663a1f9abc382f",
+                      "DestinationLocationUid":  "5aba809c3bd15904d80260034b976c24",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "c5d869f30ddcd194f924042021d7df96",
+                      "SourceLocationUid":  "8b50be9a6a78ea9439b08c653a12a1e7",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "5fb1552d03e1d0c4fa6e1514928b5a5e",
+                      "DestinationLocationUid":  "2a0ed72a1373e4c459da8087043a5572",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "39bdb9771153f0845bc478e951f38699",
+                      "SourceLocationUid":  "8c257d7b697c17e458e95eb5e7d11552",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "654e8fa8e5ead544f8a7def1746c3f5f",
+                      "DestinationLocationUid":  "8eaa097869c21d94d8eac6188fab7028",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "39bdb9771153f0845bc478e951f38699",
+                      "SourceLocationUid":  "8c257d7b697c17e458e95eb5e7d11552",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "c5d869f30ddcd194f924042021d7df96",
+                      "DestinationLocationUid":  "8b50be9a6a78ea9439b08c653a12a1e7",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "39bdb9771153f0845bc478e951f38699",
+                      "SourceLocationUid":  "8c257d7b697c17e458e95eb5e7d11552",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "cf52841cc19f0fd4c8bd1c039fa2c420",
+                      "DestinationLocationUid":  "c155e398639f55040b52d30305468336",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "6e5b4f7c64c715244b7a76cbda244ac0",
+                      "SourceLocationUid":  "8c6c0c29e4de0d741b40a2f19e8380b8",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "df15a6f2e8d426f4b8a5a4dd39678b96",
+                      "DestinationLocationUid":  "27e91c011daab4943a7c4db7b9b342cb",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "f3546cee72796a74e8dc6dd59414e6b9",
+                      "SourceLocationUid":  "8e47cbac8e16ef644b70e610cf3dbd05",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "2f37a6886d614d741ab4943136565946",
+                      "DestinationLocationUid":  "ed06f3a336d3aaf42870c429e5b47f59",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "f3546cee72796a74e8dc6dd59414e6b9",
+                      "SourceLocationUid":  "8e47cbac8e16ef644b70e610cf3dbd05",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "6befcb14221b6e249819e2dc206ed641",
+                      "DestinationLocationUid":  "09abacf6a4f23f94c8fcc73817d0cab4",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "654e8fa8e5ead544f8a7def1746c3f5f",
+                      "SourceLocationUid":  "8eaa097869c21d94d8eac6188fab7028",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "f3463563574aea04a9e165186619cfb9",
+                      "DestinationLocationUid":  "f97bf4f3c179b9e40a6035a63910b409",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "654e8fa8e5ead544f8a7def1746c3f5f",
+                      "SourceLocationUid":  "8eaa097869c21d94d8eac6188fab7028",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "39bdb9771153f0845bc478e951f38699",
+                      "DestinationLocationUid":  "8c257d7b697c17e458e95eb5e7d11552",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "654e8fa8e5ead544f8a7def1746c3f5f",
+                      "SourceLocationUid":  "8eaa097869c21d94d8eac6188fab7028",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "17e4cce5ae0a07649bde2cbbf218eace",
+                      "DestinationLocationUid":  "fce4bae0b4932964aa0833137f396e36",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "654e8fa8e5ead544f8a7def1746c3f5f",
+                      "SourceLocationUid":  "8eaa097869c21d94d8eac6188fab7028",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "b12e9621a02af284fb731ae2c76aaf4d",
+                      "DestinationLocationUid":  "3282546098b590d4ba2d40e96460720f",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "69bfd218f65d27a4e80c9b8365091f93",
+                      "SourceLocationUid":  "9222a58ac48eabe4c96aa7c9419a3d53",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "cc2b63c53be07de4d93f0bdbd544be25",
+                      "DestinationLocationUid":  "b618bec5e3d2de64694f5cfb170626d4",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "69bfd218f65d27a4e80c9b8365091f93",
+                      "SourceLocationUid":  "9222a58ac48eabe4c96aa7c9419a3d53",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "b12e9621a02af284fb731ae2c76aaf4d",
+                      "DestinationLocationUid":  "3282546098b590d4ba2d40e96460720f",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "a7e737858eaebac4981ac595527bc369",
+                      "SourceLocationUid":  "950ae559bf16e524aab418c4f109164d",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "3560005192d0d0a4ea2ff43f17ea0a4a",
+                      "DestinationLocationUid":  "c780ea86ceddfa949bd99e709c287d08",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "a7e737858eaebac4981ac595527bc369",
+                      "SourceLocationUid":  "950ae559bf16e524aab418c4f109164d",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "fa767b76552c1aa40bbf0b647e12e29e",
+                      "DestinationLocationUid":  "69947f55ba11e344cb6af02eedbfa4f4",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "a7e737858eaebac4981ac595527bc369",
+                      "SourceLocationUid":  "950ae559bf16e524aab418c4f109164d",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "f903546ae5022e94ea34c8fed6817b30",
+                      "DestinationLocationUid":  "cb861225c880cdf4f8d07bdf99abae51",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "a7e737858eaebac4981ac595527bc369",
+                      "SourceLocationUid":  "950ae559bf16e524aab418c4f109164d",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "17e4cce5ae0a07649bde2cbbf218eace",
+                      "DestinationLocationUid":  "fce4bae0b4932964aa0833137f396e36",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "07d1d950b563a3141ab22372f3c34927",
+                      "SourceLocationUid":  "97cc89834cddcce43b8e44b32ccd1975",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "df15a6f2e8d426f4b8a5a4dd39678b96",
+                      "DestinationLocationUid":  "27e91c011daab4943a7c4db7b9b342cb",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "07d1d950b563a3141ab22372f3c34927",
+                      "SourceLocationUid":  "97cc89834cddcce43b8e44b32ccd1975",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "08a396e21153e6c44aef77166346eab4",
+                      "DestinationLocationUid":  "0047c4128e4efa548b394802e67e5bc5",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "07d1d950b563a3141ab22372f3c34927",
+                      "SourceLocationUid":  "97cc89834cddcce43b8e44b32ccd1975",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "0dc7431ce6e2eda4fac5be625525108a",
+                      "DestinationLocationUid":  "eee1c12c127d4d244988a366cb173070",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "07d1d950b563a3141ab22372f3c34927",
+                      "SourceLocationUid":  "97cc89834cddcce43b8e44b32ccd1975",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "72546ee607e6e31429036db362cd268e",
+                      "DestinationLocationUid":  "9c9ae12ea130d9d41abb0f195bcaccf4",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "72546ee607e6e31429036db362cd268e",
+                      "SourceLocationUid":  "9c9ae12ea130d9d41abb0f195bcaccf4",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "96141badf2c018a4c9d053a72a1d0a89",
+                      "DestinationLocationUid":  "aa6121b81d11250459a9b609986b4394",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "72546ee607e6e31429036db362cd268e",
+                      "SourceLocationUid":  "9c9ae12ea130d9d41abb0f195bcaccf4",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "ae879ccdd1a343140b17ee4d5f9d5784",
+                      "DestinationLocationUid":  "1ec714ca136119e499e7afb4a000867b",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "72546ee607e6e31429036db362cd268e",
+                      "SourceLocationUid":  "9c9ae12ea130d9d41abb0f195bcaccf4",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "07d1d950b563a3141ab22372f3c34927",
+                      "DestinationLocationUid":  "97cc89834cddcce43b8e44b32ccd1975",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "72546ee607e6e31429036db362cd268e",
+                      "SourceLocationUid":  "9c9ae12ea130d9d41abb0f195bcaccf4",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "270ab01e5889c024f8b9f50bbce5fed3",
+                      "DestinationLocationUid":  "c5d461c899e25624a99e45496f18b48c",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "d5ed3b56f92b3bf44b6220ddc246d9e9",
+                      "SourceLocationUid":  "a292cbb4350f3e1479f06c75d5065e3e",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "0dc7431ce6e2eda4fac5be625525108a",
+                      "DestinationLocationUid":  "eee1c12c127d4d244988a366cb173070",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "d5ed3b56f92b3bf44b6220ddc246d9e9",
+                      "SourceLocationUid":  "a292cbb4350f3e1479f06c75d5065e3e",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "ca60012d0c6a8394f9bc5cef2e1794ad",
+                      "DestinationLocationUid":  "d478e681d8933624499b2d68120ff338",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "d5ed3b56f92b3bf44b6220ddc246d9e9",
+                      "SourceLocationUid":  "a292cbb4350f3e1479f06c75d5065e3e",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "df15a6f2e8d426f4b8a5a4dd39678b96",
+                      "DestinationLocationUid":  "27e91c011daab4943a7c4db7b9b342cb",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "5f230490c5810fe41949cf23b05f1d87",
+                      "SourceLocationUid":  "a631af4cc22e93a43b70992c974fbbf0",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "e16c4f61b078f584284e116866f5cdc0",
+                      "DestinationLocationUid":  "f5db0a50fd23fe44abce34c36b281dcd",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "5f230490c5810fe41949cf23b05f1d87",
+                      "SourceLocationUid":  "a631af4cc22e93a43b70992c974fbbf0",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "2a59f9667debc034f8ee6273d822faa1",
+                      "DestinationLocationUid":  "f516c75849230e04e8b386d9f3b25d53",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "5f230490c5810fe41949cf23b05f1d87",
+                      "SourceLocationUid":  "a631af4cc22e93a43b70992c974fbbf0",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "ded1b630b78d74349b9a312d08ca3070",
+                      "DestinationLocationUid":  "5428355fcca1b464e9dfad18d69bf4f6",
+                      "PathCost":  14.177447,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "6fa92975cc96fd14fa6fafa18e46be23",
+                      "SourceLocationUid":  "a6e13d2ca11df984fb183052d0fe40e2",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "2f37a6886d614d741ab4943136565946",
+                      "DestinationLocationUid":  "ed06f3a336d3aaf42870c429e5b47f59",
+                      "PathCost":  1,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "6fa92975cc96fd14fa6fafa18e46be23",
+                      "SourceLocationUid":  "a6e13d2ca11df984fb183052d0fe40e2",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "45fc009b78bcc1345a4c970df6a552fc",
+                      "DestinationLocationUid":  "fdc6e8782c94fff4ab139847c4f717d1",
+                      "PathCost":  2.236068,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "96141badf2c018a4c9d053a72a1d0a89",
+                      "SourceLocationUid":  "aa6121b81d11250459a9b609986b4394",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "72546ee607e6e31429036db362cd268e",
+                      "DestinationLocationUid":  "9c9ae12ea130d9d41abb0f195bcaccf4",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "2967195b731b3844e9cefacb82595287",
+                      "SourceLocationUid":  "b32c74532ed8c634d991a6028bb435e2",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "4ab984dd3063edb4192dc1c82d05dad2",
+                      "DestinationLocationUid":  "716c18156d6816d40b26b4b81a6b9d22",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "2967195b731b3844e9cefacb82595287",
+                      "SourceLocationUid":  "b32c74532ed8c634d991a6028bb435e2",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "58352df2a29560b4e84d11ca8895731a",
+                      "DestinationLocationUid":  "569186c2715d16441bd502fdbedcb0e3",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "2967195b731b3844e9cefacb82595287",
+                      "SourceLocationUid":  "b32c74532ed8c634d991a6028bb435e2",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "b6fc2dc3d7248a74d839070be293e9d6",
+                      "DestinationLocationUid":  "7eb4ea3c101f2824686e53241133d0cc",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "03d28e9e8f09c48479c24dbe2cd88c77",
+                      "SourceLocationUid":  "b388dc0a3284d294e8058cfc3d888cec",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "24b659a069e11e54495f75d4d564f038",
+                      "DestinationLocationUid":  "6c508761e14c85d47b65d76a4148db30",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "03d28e9e8f09c48479c24dbe2cd88c77",
+                      "SourceLocationUid":  "b388dc0a3284d294e8058cfc3d888cec",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "2f37a6886d614d741ab4943136565946",
+                      "DestinationLocationUid":  "ed06f3a336d3aaf42870c429e5b47f59",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "e4da35707a07fec468cde1d2cc6ee0b7",
+                      "SourceLocationUid":  "b5569b7c564d202419bc1e0efe6967e9",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "893bfd37608d3d2438f49cf349f5f4d8",
+                      "DestinationLocationUid":  "15d45e3a5d854904bade0afeb6621f2e",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "e4da35707a07fec468cde1d2cc6ee0b7",
+                      "SourceLocationUid":  "b5569b7c564d202419bc1e0efe6967e9",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "6befcb14221b6e249819e2dc206ed641",
+                      "DestinationLocationUid":  "09abacf6a4f23f94c8fcc73817d0cab4",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "8f9a86377f8a6aa49b7b8d305cce051b",
+                      "SourceLocationUid":  "b602040bffe7cd2478ffebe75d596962",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "3dd228a55137f0843b3d4b1c9547bb37",
+                      "DestinationLocationUid":  "095037d3e1e05bb4680e47410f0e5075",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "8f9a86377f8a6aa49b7b8d305cce051b",
+                      "SourceLocationUid":  "b602040bffe7cd2478ffebe75d596962",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "95626728d47830e4283b16551e27dcfd",
+                      "DestinationLocationUid":  "d450c2919937ef54cb0bc67eb76d51c3",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "cc2b63c53be07de4d93f0bdbd544be25",
+                      "SourceLocationUid":  "b618bec5e3d2de64694f5cfb170626d4",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "b6fc2dc3d7248a74d839070be293e9d6",
+                      "DestinationLocationUid":  "7eb4ea3c101f2824686e53241133d0cc",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "cc2b63c53be07de4d93f0bdbd544be25",
+                      "SourceLocationUid":  "b618bec5e3d2de64694f5cfb170626d4",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "69bfd218f65d27a4e80c9b8365091f93",
+                      "DestinationLocationUid":  "9222a58ac48eabe4c96aa7c9419a3d53",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "cc2b63c53be07de4d93f0bdbd544be25",
+                      "SourceLocationUid":  "b618bec5e3d2de64694f5cfb170626d4",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "4ab984dd3063edb4192dc1c82d05dad2",
+                      "DestinationLocationUid":  "716c18156d6816d40b26b4b81a6b9d22",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "9e62eec158f8d9340ab9eb8553f78cfa",
+                      "SourceLocationUid":  "b71c4ef8847555b4abcab5730a529145",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "e50ba70e00d90094fb8216b6f1167a1e",
+                      "DestinationLocationUid":  "e715a7bb358c727408ca2f454850bca0",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "9e62eec158f8d9340ab9eb8553f78cfa",
+                      "SourceLocationUid":  "b71c4ef8847555b4abcab5730a529145",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "60402000491626042b116556a55e84f5",
+                      "DestinationLocationUid":  "08a9ab83720ce8d43940b3948290fd63",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "43848cba2ea28554da29bf5996c1f4dd",
+                      "SourceLocationUid":  "b9107e4f48ff0d044bd31c7a51d13d40",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "43f27aef15c15d04d9b24d700a73cfcd",
+                      "DestinationLocationUid":  "d3bccca6f0e37d649923ea9a996e8388",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "43848cba2ea28554da29bf5996c1f4dd",
+                      "SourceLocationUid":  "b9107e4f48ff0d044bd31c7a51d13d40",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "7fb57da98b2cc624a9fcbc3ce7f9a22d",
+                      "DestinationLocationUid":  "30a11e1f41c65774fbdb291aadd64ccf",
+                      "PathCost":  22.38303,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "43848cba2ea28554da29bf5996c1f4dd",
+                      "SourceLocationUid":  "b9107e4f48ff0d044bd31c7a51d13d40",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "dd644a21d11b6ca479a91b4ea9c8be76",
+                      "DestinationLocationUid":  "f1f12161603a1674980559b8b1c67325",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "424b62c4f6f58804b9f086ed14c4cbfe",
+                      "SourceLocationUid":  "c021b70a40c0caa438322dbab799719e",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "fcee32ddbcc972e4c9347d7d062e32a3",
+                      "DestinationLocationUid":  "fe69f0d7203eeda4c95b78b76d1deb36",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "424b62c4f6f58804b9f086ed14c4cbfe",
+                      "SourceLocationUid":  "c021b70a40c0caa438322dbab799719e",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "35636fb5790878745aa1c773847116b3",
+                      "DestinationLocationUid":  "549ed5b85e9e484479c5e4978eb22e79",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "424b62c4f6f58804b9f086ed14c4cbfe",
+                      "SourceLocationUid":  "c021b70a40c0caa438322dbab799719e",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "95626728d47830e4283b16551e27dcfd",
+                      "DestinationLocationUid":  "d450c2919937ef54cb0bc67eb76d51c3",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "424b62c4f6f58804b9f086ed14c4cbfe",
+                      "SourceLocationUid":  "c021b70a40c0caa438322dbab799719e",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "58352df2a29560b4e84d11ca8895731a",
+                      "DestinationLocationUid":  "569186c2715d16441bd502fdbedcb0e3",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "cf52841cc19f0fd4c8bd1c039fa2c420",
+                      "SourceLocationUid":  "c155e398639f55040b52d30305468336",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "17e4cce5ae0a07649bde2cbbf218eace",
+                      "DestinationLocationUid":  "fce4bae0b4932964aa0833137f396e36",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "cf52841cc19f0fd4c8bd1c039fa2c420",
+                      "SourceLocationUid":  "c155e398639f55040b52d30305468336",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "5fb1552d03e1d0c4fa6e1514928b5a5e",
+                      "DestinationLocationUid":  "2a0ed72a1373e4c459da8087043a5572",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "cf52841cc19f0fd4c8bd1c039fa2c420",
+                      "SourceLocationUid":  "c155e398639f55040b52d30305468336",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "39bdb9771153f0845bc478e951f38699",
+                      "DestinationLocationUid":  "8c257d7b697c17e458e95eb5e7d11552",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "270ab01e5889c024f8b9f50bbce5fed3",
+                      "SourceLocationUid":  "c5d461c899e25624a99e45496f18b48c",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "dba2401af97f88f4cb50821fb0cb0000",
+                      "DestinationLocationUid":  "48cf028fc67cdb44cab666ebfa143789",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "270ab01e5889c024f8b9f50bbce5fed3",
+                      "SourceLocationUid":  "c5d461c899e25624a99e45496f18b48c",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "72546ee607e6e31429036db362cd268e",
+                      "DestinationLocationUid":  "9c9ae12ea130d9d41abb0f195bcaccf4",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "3560005192d0d0a4ea2ff43f17ea0a4a",
+                      "SourceLocationUid":  "c780ea86ceddfa949bd99e709c287d08",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "95626728d47830e4283b16551e27dcfd",
+                      "DestinationLocationUid":  "d450c2919937ef54cb0bc67eb76d51c3",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "3560005192d0d0a4ea2ff43f17ea0a4a",
+                      "SourceLocationUid":  "c780ea86ceddfa949bd99e709c287d08",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "a7e737858eaebac4981ac595527bc369",
+                      "DestinationLocationUid":  "950ae559bf16e524aab418c4f109164d",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "3560005192d0d0a4ea2ff43f17ea0a4a",
+                      "SourceLocationUid":  "c780ea86ceddfa949bd99e709c287d08",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "df1746be00a5fc74e9536d83cf491b6c",
+                      "DestinationLocationUid":  "33b838d1f3b1daa4bb0d5fd4921dcdfa",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "3560005192d0d0a4ea2ff43f17ea0a4a",
+                      "SourceLocationUid":  "c780ea86ceddfa949bd99e709c287d08",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "35636fb5790878745aa1c773847116b3",
+                      "DestinationLocationUid":  "549ed5b85e9e484479c5e4978eb22e79",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "f903546ae5022e94ea34c8fed6817b30",
+                      "SourceLocationUid":  "cb861225c880cdf4f8d07bdf99abae51",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "df1746be00a5fc74e9536d83cf491b6c",
+                      "DestinationLocationUid":  "33b838d1f3b1daa4bb0d5fd4921dcdfa",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "f903546ae5022e94ea34c8fed6817b30",
+                      "SourceLocationUid":  "cb861225c880cdf4f8d07bdf99abae51",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "28bb87a8ef9ad764eba84409c878d86c",
+                      "DestinationLocationUid":  "2c3a29815c94ebe46a4bdbd1ccb754d0",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "f903546ae5022e94ea34c8fed6817b30",
+                      "SourceLocationUid":  "cb861225c880cdf4f8d07bdf99abae51",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "b2ee7e674257bac4492bf0f8bf2d6949",
+                      "DestinationLocationUid":  "6940d62a86fc2974da75ce0431ca44e8",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "f903546ae5022e94ea34c8fed6817b30",
+                      "SourceLocationUid":  "cb861225c880cdf4f8d07bdf99abae51",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "a7e737858eaebac4981ac595527bc369",
+                      "DestinationLocationUid":  "950ae559bf16e524aab418c4f109164d",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "eaf631e6e8ad93d49b9efcf1dde464f3",
+                      "SourceLocationUid":  "cbb6d9b3d2ca0f24d89e62653c27eb25",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "816d82c88f738fe4285c2880a9080299",
+                      "DestinationLocationUid":  "d62dae57fe6130841b450ba199f2c58e",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "eaf631e6e8ad93d49b9efcf1dde464f3",
+                      "SourceLocationUid":  "cbb6d9b3d2ca0f24d89e62653c27eb25",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "3cf35090a5b1f2a46ac4dc35aef79bff",
+                      "DestinationLocationUid":  "08633f82bef215c4a81234b68b23b89a",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "43f27aef15c15d04d9b24d700a73cfcd",
+                      "SourceLocationUid":  "d3bccca6f0e37d649923ea9a996e8388",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "156af397d5201f943b663a1f9abc382f",
+                      "DestinationLocationUid":  "5aba809c3bd15904d80260034b976c24",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "43f27aef15c15d04d9b24d700a73cfcd",
+                      "SourceLocationUid":  "d3bccca6f0e37d649923ea9a996e8388",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "43848cba2ea28554da29bf5996c1f4dd",
+                      "DestinationLocationUid":  "b9107e4f48ff0d044bd31c7a51d13d40",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "43f27aef15c15d04d9b24d700a73cfcd",
+                      "SourceLocationUid":  "d3bccca6f0e37d649923ea9a996e8388",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "b791dfa6bad821e4e91d7c4210ec3ea3",
+                      "DestinationLocationUid":  "48763d81ff15a3247af3a2a9db6adbb1",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "43f27aef15c15d04d9b24d700a73cfcd",
+                      "SourceLocationUid":  "d3bccca6f0e37d649923ea9a996e8388",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "4c37a8a55fdf1e248946658659dc3ca2",
+                      "DestinationLocationUid":  "49e2b4be940a84f4ca5c08024b5702b6",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "95626728d47830e4283b16551e27dcfd",
+                      "SourceLocationUid":  "d450c2919937ef54cb0bc67eb76d51c3",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "3cf35090a5b1f2a46ac4dc35aef79bff",
+                      "DestinationLocationUid":  "08633f82bef215c4a81234b68b23b89a",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "95626728d47830e4283b16551e27dcfd",
+                      "SourceLocationUid":  "d450c2919937ef54cb0bc67eb76d51c3",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "3560005192d0d0a4ea2ff43f17ea0a4a",
+                      "DestinationLocationUid":  "c780ea86ceddfa949bd99e709c287d08",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "95626728d47830e4283b16551e27dcfd",
+                      "SourceLocationUid":  "d450c2919937ef54cb0bc67eb76d51c3",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "8f9a86377f8a6aa49b7b8d305cce051b",
+                      "DestinationLocationUid":  "b602040bffe7cd2478ffebe75d596962",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "95626728d47830e4283b16551e27dcfd",
+                      "SourceLocationUid":  "d450c2919937ef54cb0bc67eb76d51c3",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "424b62c4f6f58804b9f086ed14c4cbfe",
+                      "DestinationLocationUid":  "c021b70a40c0caa438322dbab799719e",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "ca60012d0c6a8394f9bc5cef2e1794ad",
+                      "SourceLocationUid":  "d478e681d8933624499b2d68120ff338",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "5a51045d28a3ffc4a9a5802bd5fb2e6c",
+                      "DestinationLocationUid":  "258c8da1f1c1a2e4881fdf676762505f",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "ca60012d0c6a8394f9bc5cef2e1794ad",
+                      "SourceLocationUid":  "d478e681d8933624499b2d68120ff338",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "5ff76eafbc6b488409ac66902a635b79",
+                      "DestinationLocationUid":  "7d10f7361cd579a4d843d7a47ad04427",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "ca60012d0c6a8394f9bc5cef2e1794ad",
+                      "SourceLocationUid":  "d478e681d8933624499b2d68120ff338",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "1debe82d82b4c3947b1dc8c75c15280a",
+                      "DestinationLocationUid":  "2332dfa5f177bfe45ac860c2a8e1792a",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "ca60012d0c6a8394f9bc5cef2e1794ad",
+                      "SourceLocationUid":  "d478e681d8933624499b2d68120ff338",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "d5ed3b56f92b3bf44b6220ddc246d9e9",
+                      "DestinationLocationUid":  "a292cbb4350f3e1479f06c75d5065e3e",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "816d82c88f738fe4285c2880a9080299",
+                      "SourceLocationUid":  "d62dae57fe6130841b450ba199f2c58e",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "1debe82d82b4c3947b1dc8c75c15280a",
+                      "DestinationLocationUid":  "2332dfa5f177bfe45ac860c2a8e1792a",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "816d82c88f738fe4285c2880a9080299",
+                      "SourceLocationUid":  "d62dae57fe6130841b450ba199f2c58e",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "eaf631e6e8ad93d49b9efcf1dde464f3",
+                      "DestinationLocationUid":  "cbb6d9b3d2ca0f24d89e62653c27eb25",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "816d82c88f738fe4285c2880a9080299",
+                      "SourceLocationUid":  "d62dae57fe6130841b450ba199f2c58e",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "7e687594ad72ab744adc82fba5a5f31c",
+                      "DestinationLocationUid":  "7071f798052681d43a6d424cc62508db",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "816d82c88f738fe4285c2880a9080299",
+                      "SourceLocationUid":  "d62dae57fe6130841b450ba199f2c58e",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "5ff76eafbc6b488409ac66902a635b79",
+                      "DestinationLocationUid":  "7d10f7361cd579a4d843d7a47ad04427",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "de95b3566e373dd459a7bdccd7614603",
+                      "SourceLocationUid":  "d64538c6aa0ac014e83221fda09ea8eb",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "9757aaf383f29ac4eae9ba7470075397",
+                      "DestinationLocationUid":  "4e870b81748a38f4d8922a3fac6cc69a",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "de95b3566e373dd459a7bdccd7614603",
+                      "SourceLocationUid":  "d64538c6aa0ac014e83221fda09ea8eb",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "5af32ab7ce936684d99add01fc56015a",
+                      "DestinationLocationUid":  "6f1df28efe418cd4caeb66c8228583f1",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "de95b3566e373dd459a7bdccd7614603",
+                      "SourceLocationUid":  "d64538c6aa0ac014e83221fda09ea8eb",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "54d711f65d6500942b1e5c4041cb0cd5",
+                      "DestinationLocationUid":  "343475c3f2d73c84f8ffbbbe1f288414",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "de95b3566e373dd459a7bdccd7614603",
+                      "SourceLocationUid":  "d64538c6aa0ac014e83221fda09ea8eb",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "a98b1e077eeef824eb9a8c7968f72118",
+                      "DestinationLocationUid":  "fe3b15d5f9b8acc4f91ab2da9dce2ceb",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "8b43cd3ccc9e1ed418e27383135c30c8",
+                      "SourceLocationUid":  "d68a69ef3eb90c94d8a05b8d44472119",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "b791dfa6bad821e4e91d7c4210ec3ea3",
+                      "DestinationLocationUid":  "48763d81ff15a3247af3a2a9db6adbb1",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "8b43cd3ccc9e1ed418e27383135c30c8",
+                      "SourceLocationUid":  "d68a69ef3eb90c94d8a05b8d44472119",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "a98b1e077eeef824eb9a8c7968f72118",
+                      "DestinationLocationUid":  "fe3b15d5f9b8acc4f91ab2da9dce2ceb",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "8b43cd3ccc9e1ed418e27383135c30c8",
+                      "SourceLocationUid":  "d68a69ef3eb90c94d8a05b8d44472119",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "156af397d5201f943b663a1f9abc382f",
+                      "DestinationLocationUid":  "5aba809c3bd15904d80260034b976c24",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "7ce232e320b323440a3c54b47a5fc48a",
+                      "SourceLocationUid":  "e1874f4598988d04bb4b68049766d7b1",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "3dd228a55137f0843b3d4b1c9547bb37",
+                      "DestinationLocationUid":  "095037d3e1e05bb4680e47410f0e5075",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "7ce232e320b323440a3c54b47a5fc48a",
+                      "SourceLocationUid":  "e1874f4598988d04bb4b68049766d7b1",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "b2ee7e674257bac4492bf0f8bf2d6949",
+                      "DestinationLocationUid":  "6940d62a86fc2974da75ce0431ca44e8",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "7ce232e320b323440a3c54b47a5fc48a",
+                      "SourceLocationUid":  "e1874f4598988d04bb4b68049766d7b1",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "df1746be00a5fc74e9536d83cf491b6c",
+                      "DestinationLocationUid":  "33b838d1f3b1daa4bb0d5fd4921dcdfa",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "8c3875d756d0cba45bcb0a35994d4d9b",
+                      "SourceLocationUid":  "e2fe83127f87959488d0bc35d65760a4",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "2a59f9667debc034f8ee6273d822faa1",
+                      "DestinationLocationUid":  "f516c75849230e04e8b386d9f3b25d53",
+                      "PathCost":  10.049875,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "8c3875d756d0cba45bcb0a35994d4d9b",
+                      "SourceLocationUid":  "e2fe83127f87959488d0bc35d65760a4",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "e16c4f61b078f584284e116866f5cdc0",
+                      "DestinationLocationUid":  "f5db0a50fd23fe44abce34c36b281dcd",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "0c7cd381f10689b49b2ca9ec8819380c",
+                      "SourceLocationUid":  "e40f442246e85014c9a786342fb78a25",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "b2ee7e674257bac4492bf0f8bf2d6949",
+                      "DestinationLocationUid":  "6940d62a86fc2974da75ce0431ca44e8",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "0c7cd381f10689b49b2ca9ec8819380c",
+                      "SourceLocationUid":  "e40f442246e85014c9a786342fb78a25",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "bf132869ee232ed408f1dfc96b2bea3b",
+                      "DestinationLocationUid":  "1761b5a45b73fee43a68f6dcec138ef6",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "0c7cd381f10689b49b2ca9ec8819380c",
+                      "SourceLocationUid":  "e40f442246e85014c9a786342fb78a25",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "28bb87a8ef9ad764eba84409c878d86c",
+                      "DestinationLocationUid":  "2c3a29815c94ebe46a4bdbd1ccb754d0",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "e50ba70e00d90094fb8216b6f1167a1e",
+                      "SourceLocationUid":  "e715a7bb358c727408ca2f454850bca0",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "2b19b942a09fdd148a43798e942a74eb",
+                      "DestinationLocationUid":  "3c7144d78a55ebb45b0fdf1598cf6a04",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "e50ba70e00d90094fb8216b6f1167a1e",
+                      "SourceLocationUid":  "e715a7bb358c727408ca2f454850bca0",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "2a59f9667debc034f8ee6273d822faa1",
+                      "DestinationLocationUid":  "f516c75849230e04e8b386d9f3b25d53",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "e50ba70e00d90094fb8216b6f1167a1e",
+                      "SourceLocationUid":  "e715a7bb358c727408ca2f454850bca0",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "9e62eec158f8d9340ab9eb8553f78cfa",
+                      "DestinationLocationUid":  "b71c4ef8847555b4abcab5730a529145",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "f243b5e9ae48c884296c6c2ecc294bdf",
+                      "SourceLocationUid":  "e85bc7ffb5604ef47b3b7f82eb395f39",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "fa767b76552c1aa40bbf0b647e12e29e",
+                      "DestinationLocationUid":  "69947f55ba11e344cb6af02eedbfa4f4",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "f243b5e9ae48c884296c6c2ecc294bdf",
+                      "SourceLocationUid":  "e85bc7ffb5604ef47b3b7f82eb395f39",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "a98b1e077eeef824eb9a8c7968f72118",
+                      "DestinationLocationUid":  "fe3b15d5f9b8acc4f91ab2da9dce2ceb",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "f243b5e9ae48c884296c6c2ecc294bdf",
+                      "SourceLocationUid":  "e85bc7ffb5604ef47b3b7f82eb395f39",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "9757aaf383f29ac4eae9ba7470075397",
+                      "DestinationLocationUid":  "4e870b81748a38f4d8922a3fac6cc69a",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "f243b5e9ae48c884296c6c2ecc294bdf",
+                      "SourceLocationUid":  "e85bc7ffb5604ef47b3b7f82eb395f39",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "5fb1552d03e1d0c4fa6e1514928b5a5e",
+                      "DestinationLocationUid":  "2a0ed72a1373e4c459da8087043a5572",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "2f37a6886d614d741ab4943136565946",
+                      "SourceLocationUid":  "ed06f3a336d3aaf42870c429e5b47f59",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "f3546cee72796a74e8dc6dd59414e6b9",
+                      "DestinationLocationUid":  "8e47cbac8e16ef644b70e610cf3dbd05",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "2f37a6886d614d741ab4943136565946",
+                      "SourceLocationUid":  "ed06f3a336d3aaf42870c429e5b47f59",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "6fa92975cc96fd14fa6fafa18e46be23",
+                      "DestinationLocationUid":  "a6e13d2ca11df984fb183052d0fe40e2",
+                      "PathCost":  1,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "2f37a6886d614d741ab4943136565946",
+                      "SourceLocationUid":  "ed06f3a336d3aaf42870c429e5b47f59",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "03d28e9e8f09c48479c24dbe2cd88c77",
+                      "DestinationLocationUid":  "b388dc0a3284d294e8058cfc3d888cec",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "0dc7431ce6e2eda4fac5be625525108a",
+                      "SourceLocationUid":  "eee1c12c127d4d244988a366cb173070",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "d5ed3b56f92b3bf44b6220ddc246d9e9",
+                      "DestinationLocationUid":  "a292cbb4350f3e1479f06c75d5065e3e",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "0dc7431ce6e2eda4fac5be625525108a",
+                      "SourceLocationUid":  "eee1c12c127d4d244988a366cb173070",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "5ff76eafbc6b488409ac66902a635b79",
+                      "DestinationLocationUid":  "7d10f7361cd579a4d843d7a47ad04427",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "0dc7431ce6e2eda4fac5be625525108a",
+                      "SourceLocationUid":  "eee1c12c127d4d244988a366cb173070",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "07d1d950b563a3141ab22372f3c34927",
+                      "DestinationLocationUid":  "97cc89834cddcce43b8e44b32ccd1975",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "dd644a21d11b6ca479a91b4ea9c8be76",
+                      "SourceLocationUid":  "f1f12161603a1674980559b8b1c67325",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "ded1b630b78d74349b9a312d08ca3070",
+                      "DestinationLocationUid":  "5428355fcca1b464e9dfad18d69bf4f6",
+                      "PathCost":  22.38303,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "dd644a21d11b6ca479a91b4ea9c8be76",
+                      "SourceLocationUid":  "f1f12161603a1674980559b8b1c67325",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "60402000491626042b116556a55e84f5",
+                      "DestinationLocationUid":  "08a9ab83720ce8d43940b3948290fd63",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "dd644a21d11b6ca479a91b4ea9c8be76",
+                      "SourceLocationUid":  "f1f12161603a1674980559b8b1c67325",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "43848cba2ea28554da29bf5996c1f4dd",
+                      "DestinationLocationUid":  "b9107e4f48ff0d044bd31c7a51d13d40",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "2a59f9667debc034f8ee6273d822faa1",
+                      "SourceLocationUid":  "f516c75849230e04e8b386d9f3b25d53",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "e50ba70e00d90094fb8216b6f1167a1e",
+                      "DestinationLocationUid":  "e715a7bb358c727408ca2f454850bca0",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "2a59f9667debc034f8ee6273d822faa1",
+                      "SourceLocationUid":  "f516c75849230e04e8b386d9f3b25d53",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "5f230490c5810fe41949cf23b05f1d87",
+                      "DestinationLocationUid":  "a631af4cc22e93a43b70992c974fbbf0",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "2a59f9667debc034f8ee6273d822faa1",
+                      "SourceLocationUid":  "f516c75849230e04e8b386d9f3b25d53",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "8c3875d756d0cba45bcb0a35994d4d9b",
+                      "DestinationLocationUid":  "e2fe83127f87959488d0bc35d65760a4",
+                      "PathCost":  10.049875,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "e16c4f61b078f584284e116866f5cdc0",
+                      "SourceLocationUid":  "f5db0a50fd23fe44abce34c36b281dcd",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "60402000491626042b116556a55e84f5",
+                      "DestinationLocationUid":  "08a9ab83720ce8d43940b3948290fd63",
+                      "PathCost":  22.38303,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "e16c4f61b078f584284e116866f5cdc0",
+                      "SourceLocationUid":  "f5db0a50fd23fe44abce34c36b281dcd",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "5f230490c5810fe41949cf23b05f1d87",
+                      "DestinationLocationUid":  "a631af4cc22e93a43b70992c974fbbf0",
+                      "PathCost":  10.049875,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "e16c4f61b078f584284e116866f5cdc0",
+                      "SourceLocationUid":  "f5db0a50fd23fe44abce34c36b281dcd",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "8c3875d756d0cba45bcb0a35994d4d9b",
+                      "DestinationLocationUid":  "e2fe83127f87959488d0bc35d65760a4",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "e16c4f61b078f584284e116866f5cdc0",
+                      "SourceLocationUid":  "f5db0a50fd23fe44abce34c36b281dcd",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "ded1b630b78d74349b9a312d08ca3070",
+                      "DestinationLocationUid":  "5428355fcca1b464e9dfad18d69bf4f6",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "9dc0063ceb4a24f4c815d2efb49256c2",
+                      "SourceLocationUid":  "f874739d449a5c948a0cfa9890fa344c",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "5af32ab7ce936684d99add01fc56015a",
+                      "DestinationLocationUid":  "6f1df28efe418cd4caeb66c8228583f1",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "9dc0063ceb4a24f4c815d2efb49256c2",
+                      "SourceLocationUid":  "f874739d449a5c948a0cfa9890fa344c",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "b791dfa6bad821e4e91d7c4210ec3ea3",
+                      "DestinationLocationUid":  "48763d81ff15a3247af3a2a9db6adbb1",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "f3463563574aea04a9e165186619cfb9",
+                      "SourceLocationUid":  "f97bf4f3c179b9e40a6035a63910b409",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "58352df2a29560b4e84d11ca8895731a",
+                      "DestinationLocationUid":  "569186c2715d16441bd502fdbedcb0e3",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "f3463563574aea04a9e165186619cfb9",
+                      "SourceLocationUid":  "f97bf4f3c179b9e40a6035a63910b409",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "654e8fa8e5ead544f8a7def1746c3f5f",
+                      "DestinationLocationUid":  "8eaa097869c21d94d8eac6188fab7028",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "f3463563574aea04a9e165186619cfb9",
+                      "SourceLocationUid":  "f97bf4f3c179b9e40a6035a63910b409",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "35636fb5790878745aa1c773847116b3",
+                      "DestinationLocationUid":  "549ed5b85e9e484479c5e4978eb22e79",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "f3463563574aea04a9e165186619cfb9",
+                      "SourceLocationUid":  "f97bf4f3c179b9e40a6035a63910b409",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "4ab984dd3063edb4192dc1c82d05dad2",
+                      "DestinationLocationUid":  "716c18156d6816d40b26b4b81a6b9d22",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "17e4cce5ae0a07649bde2cbbf218eace",
+                      "SourceLocationUid":  "fce4bae0b4932964aa0833137f396e36",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "35636fb5790878745aa1c773847116b3",
+                      "DestinationLocationUid":  "549ed5b85e9e484479c5e4978eb22e79",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "17e4cce5ae0a07649bde2cbbf218eace",
+                      "SourceLocationUid":  "fce4bae0b4932964aa0833137f396e36",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "cf52841cc19f0fd4c8bd1c039fa2c420",
+                      "DestinationLocationUid":  "c155e398639f55040b52d30305468336",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "17e4cce5ae0a07649bde2cbbf218eace",
+                      "SourceLocationUid":  "fce4bae0b4932964aa0833137f396e36",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "a7e737858eaebac4981ac595527bc369",
+                      "DestinationLocationUid":  "950ae559bf16e524aab418c4f109164d",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "17e4cce5ae0a07649bde2cbbf218eace",
+                      "SourceLocationUid":  "fce4bae0b4932964aa0833137f396e36",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "654e8fa8e5ead544f8a7def1746c3f5f",
+                      "DestinationLocationUid":  "8eaa097869c21d94d8eac6188fab7028",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "45fc009b78bcc1345a4c970df6a552fc",
+                      "SourceLocationUid":  "fdc6e8782c94fff4ab139847c4f717d1",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "6befcb14221b6e249819e2dc206ed641",
+                      "DestinationLocationUid":  "09abacf6a4f23f94c8fcc73817d0cab4",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "45fc009b78bcc1345a4c970df6a552fc",
+                      "SourceLocationUid":  "fdc6e8782c94fff4ab139847c4f717d1",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "893bfd37608d3d2438f49cf349f5f4d8",
+                      "DestinationLocationUid":  "15d45e3a5d854904bade0afeb6621f2e",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "45fc009b78bcc1345a4c970df6a552fc",
+                      "SourceLocationUid":  "fdc6e8782c94fff4ab139847c4f717d1",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "6fa92975cc96fd14fa6fafa18e46be23",
+                      "DestinationLocationUid":  "a6e13d2ca11df984fb183052d0fe40e2",
+                      "PathCost":  2,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "a98b1e077eeef824eb9a8c7968f72118",
+                      "SourceLocationUid":  "fe3b15d5f9b8acc4f91ab2da9dce2ceb",
+                      "Direction":  0,
+                      "DirectionName":  "North",
+                      "DestinationEnvUid":  "f243b5e9ae48c884296c6c2ecc294bdf",
+                      "DestinationLocationUid":  "e85bc7ffb5604ef47b3b7f82eb395f39",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "a98b1e077eeef824eb9a8c7968f72118",
+                      "SourceLocationUid":  "fe3b15d5f9b8acc4f91ab2da9dce2ceb",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "de95b3566e373dd459a7bdccd7614603",
+                      "DestinationLocationUid":  "d64538c6aa0ac014e83221fda09ea8eb",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "a98b1e077eeef824eb9a8c7968f72118",
+                      "SourceLocationUid":  "fe3b15d5f9b8acc4f91ab2da9dce2ceb",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "8b43cd3ccc9e1ed418e27383135c30c8",
+                      "DestinationLocationUid":  "d68a69ef3eb90c94d8a05b8d44472119",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "fcee32ddbcc972e4c9347d7d062e32a3",
+                      "SourceLocationUid":  "fe69f0d7203eeda4c95b78b76d1deb36",
+                      "Direction":  1,
+                      "DirectionName":  "South",
+                      "DestinationEnvUid":  "424b62c4f6f58804b9f086ed14c4cbfe",
+                      "DestinationLocationUid":  "c021b70a40c0caa438322dbab799719e",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "fcee32ddbcc972e4c9347d7d062e32a3",
+                      "SourceLocationUid":  "fe69f0d7203eeda4c95b78b76d1deb36",
+                      "Direction":  2,
+                      "DirectionName":  "East",
+                      "DestinationEnvUid":  "3cf35090a5b1f2a46ac4dc35aef79bff",
+                      "DestinationLocationUid":  "08633f82bef215c4a81234b68b23b89a",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  },
+                  {
+                      "SourceEnvUid":  "fcee32ddbcc972e4c9347d7d062e32a3",
+                      "SourceLocationUid":  "fe69f0d7203eeda4c95b78b76d1deb36",
+                      "Direction":  3,
+                      "DirectionName":  "West",
+                      "DestinationEnvUid":  "08a396e21153e6c44aef77166346eab4",
+                      "DestinationLocationUid":  "0047c4128e4efa548b394802e67e5bc5",
+                      "PathCost":  10,
+                      "HiddenOnInGameMap":  false
+                  }
+              ]
+}

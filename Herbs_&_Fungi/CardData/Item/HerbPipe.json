@@ -2,17 +2,17 @@
     "UniqueID": "herbs_fungi_herb_pipe",
     "CardName": {
         "ParentObjectID": "herbs_fungi_herb_pipe",
-        "LocalizationKey": "Herbs_And_Fungus_HerbPipe_CardName",
+        "LocalizationKey": "Herbs_And_Fungi_HerbPipe_CardName",
         "DefaultText": "Herb Pipe"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_herb_pipe",
-        "LocalizationKey": "Herbs_And_Fungus_HerbPipe_CardDescription",
+        "LocalizationKey": "Herbs_And_Fungi_HerbPipe_CardDescription",
         "DefaultText": "A carved wooden pipe for smoking herbal powders. Provides relaxing effects without filling the room with smoke."
     },
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_herb_pipe",
-        "LocalizationKey": "Herbs_And_Fungus_HerbPipe_CardHelpSection",
+        "LocalizationKey": "Herbs_And_Fungi_HerbPipe_CardHelpSection",
         "DefaultText": "<b>Loading:</b> Add herbal powders (hemp, fairyweed, appleweed, frostleaf) to load the pipe.\n\n<b>Smoking:</b> Drag lit tinder or candle onto pipe to smoke. Reusable.\n\n<b>Benefits:</b> Discreet, no room smoke, portable relaxation."
     },
     "CardType": 0,
@@ -46,7 +46,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_herb_pipe",
-            "LocalizationKey": "Herbs_And_Fungus_HerbPipe_SpecialDurability2_CardStatName",
+            "LocalizationKey": "Herbs_And_Fungi_HerbPipe_SpecialDurability2_CardStatName",
             "DefaultText": "Quality"
         },
         "MaxValue": 96.0,
@@ -68,12 +68,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_herb_pipe",
-                "LocalizationKey": "Herbs_And_Fungus_HerbPipe_CardInteractions0_ActionName",
+                "LocalizationKey": "Herbs_And_Fungi_HerbPipe_CardInteractions0_ActionName",
                 "DefaultText": "Load: Hemp"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_herb_pipe",
-                "LocalizationKey": "Herbs_And_Fungus_HerbPipe_CardInteractions0_ActionDescription",
+                "LocalizationKey": "Herbs_And_Fungi_HerbPipe_CardInteractions0_ActionDescription",
                 "DefaultText": "Pack the pipe with hemp flower powder."
             },
             "DaytimeCost": 0,
@@ -115,12 +115,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_herb_pipe",
-                "LocalizationKey": "Herbs_And_Fungus_HerbPipe_CardInteractions1_ActionName",
+                "LocalizationKey": "Herbs_And_Fungi_HerbPipe_CardInteractions1_ActionName",
                 "DefaultText": "Load: Fairyweed"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_herb_pipe",
-                "LocalizationKey": "Herbs_And_Fungus_HerbPipe_CardInteractions1_ActionDescription",
+                "LocalizationKey": "Herbs_And_Fungi_HerbPipe_CardInteractions1_ActionDescription",
                 "DefaultText": "Pack the pipe with fairyweed powder."
             },
             "DaytimeCost": 0,
@@ -162,12 +162,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_herb_pipe",
-                "LocalizationKey": "Herbs_And_Fungus_HerbPipe_CardInteractions2_ActionName",
+                "LocalizationKey": "Herbs_And_Fungi_HerbPipe_CardInteractions2_ActionName",
                 "DefaultText": "Load: Appleweed"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_herb_pipe",
-                "LocalizationKey": "Herbs_And_Fungus_HerbPipe_CardInteractions2_ActionDescription",
+                "LocalizationKey": "Herbs_And_Fungi_HerbPipe_CardInteractions2_ActionDescription",
                 "DefaultText": "Pack the pipe with appleweed powder."
             },
             "DaytimeCost": 0,
@@ -205,12 +205,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_herb_pipe",
-                "LocalizationKey": "Herbs_And_Fungus_HerbPipe_CardInteractions3_ActionName",
+                "LocalizationKey": "Herbs_And_Fungi_HerbPipe_CardInteractions3_ActionName",
                 "DefaultText": "Load: Frostleaf"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_herb_pipe",
-                "LocalizationKey": "Herbs_And_Fungus_HerbPipe_CardInteractions3_ActionDescription",
+                "LocalizationKey": "Herbs_And_Fungi_HerbPipe_CardInteractions3_ActionDescription",
                 "DefaultText": "Pack the pipe with frostleaf powder."
             },
             "DaytimeCost": 0,

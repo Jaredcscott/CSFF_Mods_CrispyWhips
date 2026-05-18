@@ -24,7 +24,7 @@
     },
     "CardImageWarpData": "CastingMold",
     "CardImageWarpType": 3,
-    "BlueprintUnlockTicksCost": 4.0,
+    "BlueprintUnlockTicksCost": 8.0,
     "CardsOnBoard": [
         {
             "ObjectiveName": "HasSmallMoltenCrucible",

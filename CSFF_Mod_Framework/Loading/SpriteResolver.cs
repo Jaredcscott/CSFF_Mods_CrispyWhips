@@ -7,6 +7,8 @@ namespace CSFFModFramework.Loading;
 internal static class SpriteResolver
 {
     private static readonly Dictionary<string, Sprite> _diskSpriteCache = new(StringComparer.OrdinalIgnoreCase);
+    private static readonly Dictionary<(Type, string), FieldInfo> _spriteFieldCache = new();
+    private static Dictionary<string, string> _diskSpritePaths; // sprite name → file path, built once
 
     private static readonly string[] DurabilityIconFields =
     {
@@ -81,15 +83,20 @@ internal static class SpriteResolver
                 // Durability override icons
                 if (durabilityIconMap.TryGetValue(card.UniqueID, out var perCard))
                 {
+                    var cardType = card.GetType();
                     foreach (var kvp in perCard)
                     {
-                        var durField = AccessTools.Field(card.GetType(), kvp.Key);
+                        var durFieldKey = (cardType, kvp.Key);
+                        if (!_spriteFieldCache.TryGetValue(durFieldKey, out var durField))
+                            _spriteFieldCache[durFieldKey] = durField = AccessTools.Field(cardType, kvp.Key);
                         if (durField == null) continue;
 
                         var durObj = durField.GetValue(card);
                         if (durObj == null) continue;
 
-                        var overrideIconField = AccessTools.Field(durObj.GetType(), "OverrideIcon");
+                        var oiKey = (durObj.GetType(), "OverrideIcon");
+                        if (!_spriteFieldCache.TryGetValue(oiKey, out var overrideIconField))
+                            _spriteFieldCache[oiKey] = overrideIconField = AccessTools.Field(durObj.GetType(), "OverrideIcon");
                         if (overrideIconField == null || !typeof(Sprite).IsAssignableFrom(overrideIconField.FieldType))
                             continue;
 
@@ -125,49 +132,59 @@ internal static class SpriteResolver
         return LoadFromDisk(name);
     }
 
-    private static Sprite LoadFromDisk(string name)
+    private static void BuildDiskPathMap()
     {
-        if (_diskSpriteCache.TryGetValue(name, out var cached)) return cached;
-
+        _diskSpritePaths = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         var pluginsDir = PathUtil.PluginsDir;
-        if (pluginsDir == null) return null;
-
+        if (pluginsDir == null) return;
         foreach (var modDir in Directory.GetDirectories(pluginsDir))
         {
             var pictureDir = Path.Combine(modDir, "Resource", "Picture");
             if (!Directory.Exists(pictureDir)) continue;
-
-            var path = Path.Combine(pictureDir, name + ".png");
-            if (!File.Exists(path))
+            foreach (var file in Directory.GetFiles(pictureDir))
             {
-                path = Path.Combine(pictureDir, name + ".jpg");
-                if (!File.Exists(path)) continue;
+                var ext = Path.GetExtension(file);
+                if (!ext.Equals(".png", StringComparison.OrdinalIgnoreCase) &&
+                    !ext.Equals(".jpg", StringComparison.OrdinalIgnoreCase)) continue;
+                var spriteName = Path.GetFileNameWithoutExtension(file);
+                if (!_diskSpritePaths.ContainsKey(spriteName))
+                    _diskSpritePaths[spriteName] = file;
             }
-
-            try
-            {
-                var bytes = File.ReadAllBytes(path);
-                var texture = new Texture2D(2, 2, TextureFormat.RGBA32, false);
-                if (!texture.LoadImage(bytes))
-                {
-                    UnityEngine.Object.Destroy(texture);
-                    continue;
-                }
-
-                texture.name = name;
-                var sprite = Sprite.Create(texture,
-                    new Rect(0f, 0f, texture.width, texture.height),
-                    new Vector2(0.5f, 0.5f), 100f);
-                sprite.name = name;
-
-                _diskSpriteCache[name] = sprite;
-                Database.SpriteDict[name] = sprite;
-                return sprite;
-            }
-            catch { }
         }
+    }
 
-        return null;
+    private static Sprite LoadFromDisk(string name)
+    {
+        if (_diskSpriteCache.TryGetValue(name, out var cached)) return cached;
+
+        if (_diskSpritePaths == null) BuildDiskPathMap();
+        if (!_diskSpritePaths.TryGetValue(name, out var path)) return null;
+
+        try
+        {
+            var bytes = File.ReadAllBytes(path);
+            var texture = new Texture2D(2, 2, TextureFormat.RGBA32, false);
+            if (!texture.LoadImage(bytes))
+            {
+                UnityEngine.Object.Destroy(texture);
+                return null;
+            }
+
+            texture.name = name;
+            var sprite = Sprite.Create(texture,
+                new Rect(0f, 0f, texture.width, texture.height),
+                new Vector2(0.5f, 0.5f), 100f);
+            sprite.name = name;
+
+            _diskSpriteCache[name] = sprite;
+            Database.SpriteDict[name] = sprite;
+            return sprite;
+        }
+        catch (Exception ex)
+        {
+            Log.Warn($"SpriteResolver: disk load failed for '{name}': {Log.ExceptionText(ex)}");
+            return null;
+        }
     }
 
     private static void BuildDurabilityMap(string json, string uid,
@@ -177,7 +194,9 @@ internal static class SpriteResolver
 
         try
         {
-            var parsed = MiniJson.Parse(json) as Dictionary<string, object>;
+            // Use pre-parsed tree from JsonDataLoader cache; avoids N redundant MiniJson.Parse calls.
+            if (!JsonDataLoader.ParsedJsonByUniqueId.TryGetValue(uid, out var parsed) || parsed == null)
+                parsed = MiniJson.Parse(json) as Dictionary<string, object>;
             if (parsed == null) return;
 
             var perCard = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);

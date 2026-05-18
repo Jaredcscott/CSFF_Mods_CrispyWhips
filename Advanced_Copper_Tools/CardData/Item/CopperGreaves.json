@@ -1,0 +1,383 @@
+{
+  "UniqueID": "advanced_copper_tools_copper_greaves",
+  "CardName": {
+    "ParentObjectID": "advanced_copper_tools_copper_greaves",
+    "LocalizationKey": "Advanced_Copper_Tools_CopperGreaves_CardName",
+    "DefaultText": "Copper Greaves"
+  },
+  "CardDescription": {
+    "ParentObjectID": "advanced_copper_tools_copper_greaves",
+    "LocalizationKey": "Advanced_Copper_Tools_CopperGreaves_CardDescription",
+    "DefaultText": "Hammered copper greaves protecting both legs. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+  },
+  "CardType": 0,
+  "ObjectWeight": 300.0,
+  "WeightReductionWhenEquipped": -300.0,
+  "TradingValue": 80.0,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "CopperGreaves",
+  "CardImageWarpType": 3,
+  "CardTagsWarpData": [
+    "tag_Metal",
+    "tag_SmeltsAt1100"
+  ],
+  "CardTagsWarpType": 3,
+  "EquipmentTags": [],
+  "EquipmentTagsWarpData": ["eTag_Pants"],
+  "EquipmentTagsWarpType": 3,
+  "IsArmor": true,
+  "AffectStatsOnlyWhenEquipped": true,
+  "ArmorValues": {
+    "HeadArmor": 0.0,
+    "HeadArmorModifiers": [],
+    "HeadHitProbabilityModifier": 0.0,
+    "TorsoArmor": 0.0,
+    "TorsoArmorModifiers": [],
+    "TorsoHitProbabilityModifier": 0.0,
+    "LArmArmor": 0.0,
+    "LArmArmorModifiers": [],
+    "LArmHitProbabilityModifier": 0.0,
+    "RArmArmor": 0.0,
+    "RArmArmorModifiers": [],
+    "RArmHitProbabilityModifier": 0.0,
+    "LLegArmor": 15.0,
+    "LLegArmorModifiers": [],
+    "LLegHitProbabilityModifier": 0.0,
+    "RLegArmor": 15.0,
+    "RLegArmorModifiers": [],
+    "RLegHitProbabilityModifier": 0.0
+  },
+  "ArmorValueDurabilitiesMultiplier": [
+    {
+      "InputDurability": 64,
+      "Value": {
+        "Active": true,
+        "InputValueRange": {
+          "x": 0.0,
+          "y": 100.0
+        },
+        "OutputValueRange": {
+          "x": 1.0,
+          "y": 1.5
+        },
+        "WhenOutOfRange": 0,
+        "OutOfRangeCustomValue": 0.0
+      }
+    }
+  ],
+  "AlwaysUpdate": true,
+  "WhenCreatedSoundsWarpData": [
+    "Metal"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": true,
+    "FloatValue": 100.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_copper_greaves",
+      "LocalizationKey": "Advanced_Copper_Tools_CopperGreaves_UsageDurability.CardStatName",
+      "DefaultText": "Durability"
+    },
+    "MaxValue": 100.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 1,
+    "NumberPrecision": 0,
+    "HasActionOnZero": true,
+    "OnZero": {
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_copper_greaves",
+        "LocalizationKey": "",
+        "DefaultText": "Greaves Broken!"
+      },
+      "OnZeroNotification": 1,
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    },
+    "CountsForTradingValue": true
+  },
+  "FuelCapacity": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_copper_greaves",
+      "LocalizationKey": "",
+      "DefaultText": "Temperature"
+    },
+    "MaxValue": 200.0,
+    "RatePerDaytimePoint": -25.0,
+    "HidingOptions": 3,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Hot",
+    "OverrideIconWarpType": 3
+  },
+  "Progress": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_copper_greaves",
+      "LocalizationKey": "",
+      "DefaultText": "Smelted"
+    },
+    "MaxValue": 8.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnFull": true,
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Cooking",
+    "OverrideIconWarpType": 3,
+    "OnFull": {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_copper_greaves",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_copper_greaves",
+        "LocalizationKey": "",
+        "DefaultText": "Metal melted!"
+      },
+      "NoveltyShared": false,
+      "UnavailableInDemo": false,
+      "SaveGame": false,
+      "ConfirmPopup": false,
+      "StackCompatible": false,
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "RequiredStatValues": [],
+      "RequiredCardsOnBoard": [],
+      "RequiredTagsOnBoard": [],
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+        "TransformIntoWarpType": 3,
+        "TransformToLiquidQuantity": 0.0,
+        "TransferSpoilage": false,
+        "TransferUsage": false,
+        "TransferFuel": false,
+        "TransferCharges": false,
+        "TransferSpecial1": false,
+        "TransferSpecial2": false,
+        "TransferSpecial3": false,
+        "TransferSpecial4": false,
+        "TransferInventory": false
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "1",
+          "CollectionWeight": 0,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 15,
+                "y": 15
+              },
+              "FinishUnlocking": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "SpecialDurability1": {
+    "Active": false
+  },
+  "SpecialDurability2": {
+    "Active": false
+  },
+  "SpecialDurability3": {
+    "Active": false
+  },
+  "SpecialDurability4": {
+    "Active": false
+  },
+  "DurabilitySorting": {
+    "SortingList": []
+  },
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_copper_greaves",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperGreaves_Dismantle_ActionName",
+        "DefaultText": "Dismantle"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_copper_greaves",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperGreaves_Dismantle_ActionDescription",
+        "DefaultText": "Break apart the greaves to recover materials."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Metal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "advanced_copper_tools_metal_sheet",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 4,
+                "y": 4
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "advanced_copper_tools_copper_nails",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 2,
+                "y": 2
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [
+    {
+      "EffectName": "Lose Smelting if not in smelting container",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTEquipped": false,
+      "OnlyWhenInHand": false,
+      "OnlyOnBaseActions": false,
+      "OnlyOnNOTBaseActions": false,
+      "OnlyWhenNOTInBG": false,
+      "Conditions": {
+        "NotInBackground": false,
+        "InBackground": false,
+        "PlayerUsesCard": 0,
+        "RequiredNOTContainerTagsWarpData": [
+          "tag_SmeltingContainer"
+        ],
+        "RequiredNOTContainerTagsWarpType": 3
+      },
+      "StatChanges": [],
+      "ConsumableChargesModifier": {
+        "Active": true,
+        "FloatValue": -1.0
+      }
+    },
+    {
+      "EffectName": "Lose Smelting if smelting container not hot enough",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTEquipped": false,
+      "OnlyWhenInHand": false,
+      "OnlyOnBaseActions": false,
+      "OnlyOnNOTBaseActions": false,
+      "OnlyWhenNOTInBG": false,
+      "Conditions": {
+        "NotInBackground": false,
+        "InBackground": false,
+        "PlayerUsesCard": 0,
+        "RequiredContainerTagsWarpData": [
+          "tag_SmeltingContainer"
+        ],
+        "RequiredContainerTagsWarpType": 3,
+        "ReceivingContainerRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 1099.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        }
+      },
+      "StatChanges": [],
+      "ConsumableChargesModifier": {
+        "Active": true,
+        "FloatValue": -1.0
+      }
+    }
+  ]
+}

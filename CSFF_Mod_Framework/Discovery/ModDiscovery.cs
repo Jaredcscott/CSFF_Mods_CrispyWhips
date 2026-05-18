@@ -31,7 +31,7 @@ internal static class ModDiscovery
             }
             catch (Exception ex)
             {
-                Log.Warn($"Failed to parse ModInfo.json in {dir}: {ex.Message}");
+                Log.Warn($"Failed to parse ModInfo.json in {dir}: {Log.ExceptionText(ex)}");
             }
         }
 
@@ -84,7 +84,7 @@ internal static class ModDiscovery
         }
 
         deduped.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.OrdinalIgnoreCase));
-        Log.Info($"Discovered {deduped.Count} mod(s) total");
+        Log.Debug($"Discovered {deduped.Count} mod(s) total");
         return deduped;
     }
 
@@ -97,10 +97,12 @@ internal static class ModDiscovery
         var dir = mod.DirectoryPath;
 
         mod.HasSpriteFiles =
+            HasDeclaredAssets(mod.Assets?.Sprites) ||
             HasAnyFile(Path.Combine(dir, "Resource", "Picture"), new[] { "*.png", "*.jpg" }) ||
             HasAnyFile(Path.Combine(dir, "Resource", "Texture2D"), new[] { "*.png", "*.jpg" });
 
         mod.HasAssetBundles =
+            HasDeclaredAssets(mod.Assets?.AssetBundles) ||
             HasAnyFile(Path.Combine(dir, "Resource"), new[] { "*.ab" }, SearchOption.TopDirectoryOnly);
 
         mod.HasLocalization =
@@ -110,7 +112,24 @@ internal static class ModDiscovery
         mod.HasSmeltingRecipes = File.Exists(Path.Combine(dir, "SmeltingRecipes.json"));
 
         mod.HasAudio =
-            HasAnyFile(Path.Combine(dir, "Resource", "Audio"), new[] { "*.*" }, SearchOption.AllDirectories);
+            HasDeclaredAssets(mod.Assets?.Audio) ||
+            HasAnyFile(Path.Combine(dir, "Resource", "Audio"),
+                new[] { "*.wav", "*.mp3", "*.ogg" }, SearchOption.AllDirectories);
+
+        mod.HasMapCaches =
+            HasDeclaredAssets(mod.Assets?.MapCaches) ||
+            HasAnyFile(Path.Combine(dir, "Data", "MapCaches"), new[] { "*.json" }) ||
+            HasAnyFile(Path.Combine(dir, "Data", "MapCache"), new[] { "*.json" }) ||
+            HasAnyFile(Path.Combine(dir, "Data"), new[] { "*Map*.json" });
+    }
+
+    private static bool HasDeclaredAssets(List<string> entries)
+    {
+        if (entries == null) return false;
+        foreach (var entry in entries)
+            if (!string.IsNullOrWhiteSpace(entry))
+                return true;
+        return false;
     }
 
     // Counts JSON content files across the well-known content directories.

@@ -154,7 +154,7 @@ namespace Herbs_And_Fungi.Patcher
                     Logger?.LogDebug($"[GpTag] populated {name} with {resolved.Count} cards (label='{label}')");
                 }
 
-                Logger?.LogInfo($"[GpTag] populated {populated}/{Spec.Count} pickleable GpTags");
+                Logger?.LogDebug($"[GpTag] populated {populated}/{Spec.Count} pickleable GpTags");
             }
             catch (Exception ex)
             {

@@ -3,20 +3,20 @@
     "CardType": 0,
     "CardName": {
         "ParentObjectID": "herbs_fungi_hemp_flower",
-        "LocalizationKey": "Herbs_And_Fungus_HempFlower_CardName",
+        "LocalizationKey": "Herbs_And_Fungi_HempFlower_CardName",
         "DefaultText": "Hemp Flower"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_hemp_flower",
-        "LocalizationKey": "Herbs_And_Fungus_HempFlower_CardDescription",
+        "LocalizationKey": "Herbs_And_Fungi_HempFlower_CardDescription",
         "DefaultText": "Fragrant flowering tops of the hemp plant. Can be harvested for seeds or dried for preservation."
     },
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_hemp_flower",
-        "LocalizationKey": "Herbs_And_Fungus_HempFlower_CardHelpSection",
+        "LocalizationKey": "Herbs_And_Fungi_HempFlower_CardHelpSection",
         "DefaultText": "<b>Uses:</b> Harvest seeds for planting.\n\n<b>Drying:</b> Can be dried to preserve longer."
     },
-    "ObjectWeight": 100.0,
+    "ObjectWeight": 50,
     "TradingValue": 12.0,
     "AlwaysUpdate": true,
     "DoesNotPile": false,
@@ -34,7 +34,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_hemp_flower",
-            "LocalizationKey": "Herbs_And_Fungus_HempFlower_SpoilageTime_CardStatName",
+            "LocalizationKey": "Herbs_And_Fungi_HempFlower_SpoilageTime_CardStatName",
             "DefaultText": "Spoilage"
         },
         "MaxValue": 600.0,
@@ -45,7 +45,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_hemp_flower",
-                "LocalizationKey": "Herbs_And_Fungus_HempFlower_SpoilageTime_OnFull_ActionDescription",
+                "LocalizationKey": "Herbs_And_Fungi_HempFlower_SpoilageTime_OnFull_ActionDescription",
                 "DefaultText": "Hemp Flower Spoiled!"
             },
             "ReceivingCardChanges": {
@@ -60,7 +60,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_hemp_flower",
-            "LocalizationKey": "Herbs_And_Fungus_HempFlower_UsageDurability_CardStatName",
+            "LocalizationKey": "Herbs_And_Fungi_HempFlower_UsageDurability_CardStatName",
             "DefaultText": "Drying"
         },
         "MaxValue": 8.0,
@@ -70,7 +70,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_hemp_flower",
-                "LocalizationKey": "Herbs_And_Fungus_HempFlower_UsageDurability_OnFull_ActionDescription",
+                "LocalizationKey": "Herbs_And_Fungi_HempFlower_UsageDurability_OnFull_ActionDescription",
                 "DefaultText": "Hemp Flower dried!"
             },
             "ReceivingCardChanges": {
@@ -94,7 +94,7 @@
         "FloatValue": 72.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_hemp_flower",
-            "LocalizationKey": "Herbs_And_Fungus_HempFlower_SpecialDurability2_CardStatName",
+            "LocalizationKey": "Herbs_And_Fungi_HempFlower_SpecialDurability2_CardStatName",
             "DefaultText": "Quality"
         },
         "MaxValue": 96.0,
@@ -108,12 +108,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_hemp_flower",
-                "LocalizationKey": "Herbs_And_Fungus_HempFlower_CardInteractions_HarvestSeeds_ActionName",
+                "LocalizationKey": "Herbs_And_Fungi_HempFlower_CardInteractions_HarvestSeeds_ActionName",
                 "DefaultText": "Harvest Seeds"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_hemp_flower",
-                "LocalizationKey": "Herbs_And_Fungus_HempFlower_CardInteractions_HarvestSeeds_ActionDescription",
+                "LocalizationKey": "Herbs_And_Fungi_HempFlower_CardInteractions_HarvestSeeds_ActionDescription",
                 "DefaultText": "Extract seeds from the flower. Yields 1-3 seeds."
             },
             "DaytimeCost": 1,

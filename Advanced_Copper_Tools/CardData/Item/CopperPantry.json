@@ -1,227 +1,451 @@
 {
-    "UniqueID": "advanced_copper_tools_copper_pantry",
-    "CardName": {
-        "ParentObjectID": "advanced_copper_tools_copper_pantry",
-        "LocalizationKey": "Advanced_Copper_Tools_CopperPantry_CardName",
-        "DefaultText": "Copper Chest"
+  "UniqueID": "advanced_copper_tools_copper_pantry",
+  "CardName": {
+    "ParentObjectID": "advanced_copper_tools_copper_pantry",
+    "LocalizationKey": "Advanced_Copper_Tools_CopperPantry_CardName",
+    "DefaultText": "Copper Chest"
+  },
+  "CardDescription": {
+    "ParentObjectID": "advanced_copper_tools_copper_pantry",
+    "LocalizationKey": "Advanced_Copper_Tools_CopperPantry_CardDescription",
+    "DefaultText": "A sealed copper chest with thick insulated walls. Keeps food dramatically colder, greatly slowing spoilage and keeping animals out."
+  },
+  "CanBeRenamed": true,
+  "AlternateNames": [],
+  "LiquidSuffixName": {
+    "ParentObjectID": "",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "CardHelpSection": {
+    "ParentObjectID": "advanced_copper_tools_copper_pantry",
+    "LocalizationKey": "Advanced_Copper_Tools_CopperPantry_CardHelpSection",
+    "DefaultText": "<b>Spoilage:</b> Slows to 20% of normal rate.\n\n<b>Animal-safe:</b> Yes. Wildlife cannot raid this chest."
+  },
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardBackground": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "Copper_Chest",
+  "CardImageWarpType": 3,
+  "ShowImageAboveTitle": false,
+  "CardType": 0,
+  "CannotBeTransferred": false,
+  "NotAutoSolvableEvent": false,
+  "ObjectWeight": 1000.0,
+  "TradingValue": 200.0,
+  "CardTags": [],
+  "CardTagsWarpData": [
+    "tag_Metal",
+    "tag_SmeltsAt1100",
+    "tag_CopperBig"
+  ],
+  "CardTagsWarpType": 3,
+  "EquipmentTags": [],
+  "MapStructureType": 0,
+  "FlavourTags": [],
+  "SpiceTags": [],
+  "AlwaysUpdate": false,
+  "CannotBeTrashed": false,
+  "DoesNotPile": false,
+  "ToggleablePiling": false,
+  "DoesNotPinAutomatically": false,
+  "CanDragItemsToTravel": true,
+  "WhenCreatedSounds": [],
+  "WhenCreatedSoundsWarpData": [
+    "Metal"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": false
+  },
+  "FuelCapacity": {
+    "Active": false
+  },
+  "Progress": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_copper_pantry",
+      "LocalizationKey": "",
+      "DefaultText": "Smelted"
     },
-    "CardDescription": {
+    "MaxValue": 8.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnFull": true,
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Cooking",
+    "OverrideIconWarpType": 3,
+    "OnFull": {
+      "ActionName": {
         "ParentObjectID": "advanced_copper_tools_copper_pantry",
-        "LocalizationKey": "Advanced_Copper_Tools_CopperPantry_CardDescription",
-        "DefaultText": "A sealed copper chest with thick insulated walls. Keeps food dramatically colder, greatly slowing spoilage and keeping animals out."
-    },
-    "CanBeRenamed": true,
-    "AlternateNames": [],
-    "LiquidSuffixName": {
-        "ParentObjectID": "",
         "LocalizationKey": "",
         "DefaultText": ""
-    },
-    "CardHelpSection": {
+      },
+      "ActionDescription": {
         "ParentObjectID": "advanced_copper_tools_copper_pantry",
-        "LocalizationKey": "Advanced_Copper_Tools_CopperPantry_CardHelpSection",
-        "DefaultText": "<b>Spoilage:</b> Slows to 20% of normal rate.\n\n<b>Animal-safe:</b> Yes. Wildlife cannot raid this chest."
-    },
-    "CardImage": {
-        "m_FileID": 0,
-        "m_PathID": 0
-    },
-    "CardBackground": {
-        "m_FileID": 0,
-        "m_PathID": 0
-    },
-    "CardImageWarpData": "Copper_Chest",
-    "CardImageWarpType": 3,
-    "ShowImageAboveTitle": false,
-    "CardType": 0,
-    "CannotBeTransferred": false,
-    "NotAutoSolvableEvent": false,
-    "ObjectWeight": 1000.0,
-    "TradingValue": 200.0,
-    "CardTags": [],
-    "CardTagsWarpData": ["tag_Metal"],
-    "CardTagsWarpType": 3,
-    "EquipmentTags": [],
-    "MapStructureType": 0,
-    "FlavourTags": [],
-    "SpiceTags": [],
-    "AlwaysUpdate": false,
-    "CannotBeTrashed": false,
-    "DoesNotPile": false,
-    "ToggleablePiling": false,
-    "DoesNotPinAutomatically": false,
-    "CanDragItemsToTravel": true,
-    "WhenCreatedSounds": [],
-    "WhenCreatedSoundsWarpData": ["Metal"],
-    "WhenCreatedSoundsWarpType": 3,
-    "SpoilageTime": { "Active": false },
-    "UsageDurability": { "Active": false },
-    "FuelCapacity": { "Active": false },
-    "Progress": { "Active": false },
-    "SpecialDurability1": { "Active": false },
-    "SpecialDurability2": { "Active": false },
-    "SpecialDurability3": { "Active": false },
-    "SpecialDurability4": { "Active": false },
-    "DurabilitySorting": { "SortingList": [] },
-    "InventoryIsHidden": false,
-    "IsMiniInventory": false,
-    "CannotPutItemsIn": false,
-    "CannotTakeItemsOut": false,
-    "PreventsDismantleActions": false,
-    "PreventsCardInteractions": false,
-    "IsWeaponSheath": false,
-    "OpenOnTab": 0,
-    "DontRememberLastOpenTab": false,
-    "MaxWeightCapacity": 3500.0,
-    "ContentWeightReduction": 0.0,
-    "InventorySlots": [],
-    "InventoryFilter": {
-        "AcceptedCards": [],
-        "AcceptedTypes": [],
-        "AcceptedTags": [],
-        "NOTAcceptedCards": [],
-        "NOTAcceptedTypes": [],
-        "NOTAcceptedTags": [],
-        "CardFilters": [],
-        "TagFilters": [
-            {
-                "Tag": { "m_FileID": 0, "m_PathID": 0 },
-                "TagWarpData": "tag_LargeAnimal",
-                "TagWarpType": 3,
-                "NOT": true,
-                "OnlyWithLiquid": false
-            },
-            {
-                "Tag": { "m_FileID": 0, "m_PathID": 0 },
-                "TagWarpData": "tag_MediumAnimal",
-                "TagWarpType": 3,
-                "NOT": true,
-                "OnlyWithLiquid": false
-            },
-            {
-                "Tag": { "m_FileID": 0, "m_PathID": 0 },
-                "TagWarpData": "tag_SmallAnimal",
-                "TagWarpType": 3,
-                "NOT": true,
-                "OnlyWithLiquid": false
-            },
-            {
-                "Tag": { "m_FileID": 0, "m_PathID": 0 },
-                "TagWarpData": "tag_TinyAnimal",
-                "TagWarpType": 3,
-                "NOT": true,
-                "OnlyWithLiquid": false
-            }
-        ]
-    },
-    "SpillsInventoryOnDestroy": true,
-    "InventorySlotsText": {
-        "ParentObjectID": "",
         "LocalizationKey": "",
-        "DefaultText": ""
-    },
-    "GroupInventoryActions": [],
-    "EffectsToInventoryContent": [],
-    "CardInteractions": [],
-    "DismantleActions": [
-        {
-            "ActionName": {
-                "ParentObjectID": "advanced_copper_tools_copper_pantry",
-                "LocalizationKey": "Advanced_Copper_Tools_CopperPantry_DismantleActions_Place_ActionName",
-                "DefaultText": "Place"
-            },
-            "ActionDescription": {
-                "ParentObjectID": "advanced_copper_tools_copper_pantry",
-                "LocalizationKey": "Advanced_Copper_Tools_CopperPantry_DismantleActions_Place_ActionDescription",
-                "DefaultText": "Set the copper chest down in your environment."
-            },
-            "DaytimeCost": 1,
-            "UseMiniTicks": 0,
-            "ActionSounds": [],
-            "ActionTags": [],
-            "ActionTagsWarpData": [],
-            "ActionTagsWarpType": 3,
-            "ActionSoundsWarpData": ["Metal"],
-            "ActionSoundsWarpType": 3,
-            "ReceivingCardChanges": {
-                "ModType": 2,
-                "TransformInto": { "m_FileID": 0, "m_PathID": 0 },
-                "TransformIntoWarpData": "advanced_copper_tools_copper_pantry_placed",
-                "TransformIntoWarpType": 3,
-                "TransferInventory": true,
-                "SpawnTransformAtSource": true
-            }
+        "DefaultText": "Metal melted!"
+      },
+      "NoveltyShared": false,
+      "UnavailableInDemo": false,
+      "SaveGame": false,
+      "ConfirmPopup": false,
+      "StackCompatible": false,
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "RequiredStatValues": [],
+      "RequiredCardsOnBoard": [],
+      "RequiredTagsOnBoard": [],
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
         },
+        "TransformIntoWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+        "TransformIntoWarpType": 3,
+        "TransformToLiquidQuantity": 0.0,
+        "TransferSpoilage": false,
+        "TransferUsage": false,
+        "TransferFuel": false,
+        "TransferCharges": false,
+        "TransferSpecial1": false,
+        "TransferSpecial2": false,
+        "TransferSpecial3": false,
+        "TransferSpecial4": false,
+        "TransferInventory": false
+      },
+      "ProducedCards": [
         {
-            "ActionName": {
-                "ParentObjectID": "advanced_copper_tools_copper_pantry",
-                "LocalizationKey": "Advanced_Copper_Tools_CopperPantry_DismantleActions_Dismantle_ActionName",
-                "DefaultText": "Dismantle"
-            },
-            "ActionDescription": {
-                "ParentObjectID": "advanced_copper_tools_copper_pantry",
-                "LocalizationKey": "Advanced_Copper_Tools_CopperPantry_DismantleActions_Dismantle_ActionDescription",
-                "DefaultText": "Take the copper chest apart to recover some of the sheets."
-            },
-            "DaytimeCost": 2,
-            "UseMiniTicks": 0,
-            "ActionSounds": [],
-            "ActionTags": [],
-            "ActionTagsWarpData": [],
-            "ActionTagsWarpType": 3,
-            "ActionSoundsWarpData": ["Metal"],
-            "ActionSoundsWarpType": 3,
-            "RequiredReceivingDurabilities": {
-                "RequiredInventoryEmpty": true,
-                "HideActionIfNotMet": true,
-                "FailMessage": {
-                    "ParentObjectID": "advanced_copper_tools_copper_pantry",
-                    "LocalizationKey": "Advanced_Copper_Tools_CopperPantry_DismantleActions_Dismantle_FailMessage",
-                    "DefaultText": "Empty the chest first."
-                }
-            },
-            "ProducedCards": [
-                {
-                    "CollectionName": "",
-                    "CollectionWeight": 1,
-                    "DroppedCards": [
-                        {
-                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
-                            "DroppedCardWarpData": "advanced_copper_tools_metal_sheet",
-                            "DroppedCardWarpType": 3,
-                            "Quantity": { "x": 2, "y": 3 }
-                        },
-                        {
-                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
-                            "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
-                            "DroppedCardWarpType": 3,
-                            "Quantity": { "x": 1, "y": 2 }
-                        }
-                    ]
-                }
-            ],
-            "ReceivingCardChanges": { "ModType": 3 }
+          "CollectionName": "1",
+          "CollectionWeight": 0,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 29,
+                "y": 29
+              },
+              "FinishUnlocking": false
+            }
+          ]
         }
-    ],
-    "BlueprintCardConditions": [],
-    "BlueprintTagConditions": [],
-    "BlueprintStatConditions": [],
-    "BuildingCardConditions": [],
-    "BuildingTagConditions": [],
-    "BuildingStatConditions": [],
-    "BlueprintStages": [],
-    "BuildSounds": [],
-    "DeconstructSounds": [],
-    "BuildingDaytimeCost": 0,
-    "BuildingMiniTicks": 0,
-    "DeconstructDaytimeCost": 0,
-    "DeconstructMiniTicks": 0,
-    "BlueprintActionTags": [],
-    "BlueprintDoesntCountForEnvWeight": false,
-    "BPRandomSingleDrop": false,
-    "BlueprintResult": [],
-    "BlueprintBuiltImprovements": [],
-    "BlueprintStatModifications": [],
-    "BlueprintCardModifications": [],
-    "EquipSlotType": 0
+      ]
+    }
+  },
+  "SpecialDurability1": {
+    "Active": false
+  },
+  "SpecialDurability2": {
+    "Active": false
+  },
+  "SpecialDurability3": {
+    "Active": false
+  },
+  "SpecialDurability4": {
+    "Active": false
+  },
+  "DurabilitySorting": {
+    "SortingList": []
+  },
+  "InventoryIsHidden": false,
+  "IsMiniInventory": false,
+  "CannotPutItemsIn": false,
+  "CannotTakeItemsOut": false,
+  "PreventsDismantleActions": false,
+  "PreventsCardInteractions": false,
+  "IsWeaponSheath": false,
+  "OpenOnTab": 0,
+  "DontRememberLastOpenTab": false,
+  "MaxWeightCapacity": 3500.0,
+  "ContentWeightReduction": 0.0,
+  "InventorySlots": [],
+  "InventoryFilter": {
+    "AcceptedCards": [],
+    "AcceptedTypes": [],
+    "AcceptedTags": [],
+    "NOTAcceptedCards": [],
+    "NOTAcceptedTypes": [],
+    "NOTAcceptedTags": [],
+    "CardFilters": [],
+    "TagFilters": [
+      {
+        "Tag": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TagWarpData": "tag_LargeAnimal",
+        "TagWarpType": 3,
+        "NOT": true,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Tag": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TagWarpData": "tag_MediumAnimal",
+        "TagWarpType": 3,
+        "NOT": true,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Tag": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TagWarpData": "tag_SmallAnimal",
+        "TagWarpType": 3,
+        "NOT": true,
+        "OnlyWithLiquid": false
+      },
+      {
+        "Tag": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TagWarpData": "tag_TinyAnimal",
+        "TagWarpType": 3,
+        "NOT": true,
+        "OnlyWithLiquid": false
+      }
+    ]
+  },
+  "SpillsInventoryOnDestroy": true,
+  "InventorySlotsText": {
+    "ParentObjectID": "",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "GroupInventoryActions": [],
+  "EffectsToInventoryContent": [],
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_copper_pantry",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperPantry_DismantleActions_Place_ActionName",
+        "DefaultText": "Place"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_copper_pantry",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperPantry_DismantleActions_Place_ActionDescription",
+        "DefaultText": "Set the copper chest down in your environment."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Metal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformIntoWarpData": "advanced_copper_tools_copper_pantry_placed",
+        "TransformIntoWarpType": 3,
+        "TransferInventory": true,
+        "SpawnTransformAtSource": true
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_copper_pantry",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperPantry_DismantleActions_Dismantle_ActionName",
+        "DefaultText": "Dismantle"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_copper_pantry",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperPantry_DismantleActions_Dismantle_ActionDescription",
+        "DefaultText": "Take the copper chest apart to recover some of the sheets."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Metal"
+      ],
+      "ActionSoundsWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredInventoryEmpty": true,
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "ParentObjectID": "advanced_copper_tools_copper_pantry",
+          "LocalizationKey": "Advanced_Copper_Tools_CopperPantry_DismantleActions_Dismantle_FailMessage",
+          "DefaultText": "Empty the chest first."
+        }
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "advanced_copper_tools_metal_sheet",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 2,
+                "y": 3
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 2
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ],
+  "BlueprintCardConditions": [],
+  "BlueprintTagConditions": [],
+  "BlueprintStatConditions": [],
+  "BuildingCardConditions": [],
+  "BuildingTagConditions": [],
+  "BuildingStatConditions": [],
+  "BlueprintStages": [],
+  "BuildSounds": [],
+  "DeconstructSounds": [],
+  "BuildingDaytimeCost": 0,
+  "BuildingMiniTicks": 0,
+  "DeconstructDaytimeCost": 0,
+  "DeconstructMiniTicks": 0,
+  "BlueprintActionTags": [],
+  "BlueprintDoesntCountForEnvWeight": false,
+  "BPRandomSingleDrop": false,
+  "BlueprintResult": [],
+  "BlueprintBuiltImprovements": [],
+  "BlueprintStatModifications": [],
+  "BlueprintCardModifications": [],
+  "EquipSlotType": 0,
+  "PassiveEffects": [
+    {
+      "EffectName": "Lose Smelting if not in smelting container",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTEquipped": false,
+      "OnlyWhenInHand": false,
+      "OnlyOnBaseActions": false,
+      "OnlyOnNOTBaseActions": false,
+      "OnlyWhenNOTInBG": false,
+      "Conditions": {
+        "NotInBackground": false,
+        "InBackground": false,
+        "PlayerUsesCard": 0,
+        "RequiredNOTContainerTagsWarpData": [
+          "tag_SmeltingContainer"
+        ],
+        "RequiredNOTContainerTagsWarpType": 3
+      },
+      "StatChanges": [],
+      "ConsumableChargesModifier": {
+        "Active": true,
+        "FloatValue": -1.0
+      }
+    },
+    {
+      "EffectName": "Lose Smelting if smelting container is not hot enough",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTEquipped": false,
+      "OnlyWhenInHand": false,
+      "OnlyOnBaseActions": false,
+      "OnlyOnNOTBaseActions": false,
+      "OnlyWhenNOTInBG": false,
+      "Conditions": {
+        "NotInBackground": false,
+        "InBackground": false,
+        "PlayerUsesCard": 0,
+        "RequiredContainerTagsWarpData": [
+          "tag_SmeltingContainer"
+        ],
+        "RequiredContainerTagsWarpType": 3,
+        "ReceivingContainerRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 1099.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        }
+      },
+      "StatChanges": [],
+      "ConsumableChargesModifier": {
+        "Active": true,
+        "FloatValue": -1.0
+      }
+    }
+  ]
 }

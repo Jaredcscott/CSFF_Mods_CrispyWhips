@@ -13,50 +13,48 @@ internal static class BlueprintInjector
     private static readonly HashSet<string> _warnedMissing = new(StringComparer.OrdinalIgnoreCase);
     // Once injection succeeds, skip redundant re-injection on subsequent NewBlueprintContent.Start calls
     private static bool _injected;
+    private static bool _resourceTabScanDone;
+    private static readonly List<object> _resourceTabGroups = new();
 
     public static void InjectAll(IEnumerable allData, List<ModManifest> mods)
     {
         _queued.Clear();
         _warnedMissing.Clear();
         _injected = false;
+        _resourceTabScanDone = false;
+        _resourceTabGroups.Clear();
 
+        // Priority 1: Mods with BlueprintTabs.json use declarative mapping.
+        var priority1Mods = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         foreach (var mod in mods)
         {
-            // Priority 1: BlueprintTabs.json config file (declarative mapping)
             var tabsConfigPath = Path.Combine(mod.DirectoryPath, "BlueprintTabs.json");
-            if (File.Exists(tabsConfigPath))
-            {
-                LoadFromTabsConfig(tabsConfigPath, mod.Name);
-                continue;
-            }
+            if (!File.Exists(tabsConfigPath)) continue;
+            LoadFromTabsConfig(tabsConfigPath, mod.Name);
+            priority1Mods.Add(mod.Name);
+        }
 
-            // Priority 2: Scan blueprint JSONs for tab fields or default to Support
-            var cardDir = Path.Combine(mod.DirectoryPath, "CardData");
-            if (!Directory.Exists(cardDir)) continue;
+        // Priority 2: For mods without BlueprintTabs.json, scan blueprint JSONs via the
+        // already-loaded JSON cache — avoids re-reading files from disk.
+        foreach (var uid in Loading.JsonDataLoader.AllModUniqueIds)
+        {
+            if (!Loading.JsonDataLoader.UniqueIdToModName.TryGetValue(uid, out var modName)) continue;
+            if (priority1Mods.Contains(modName)) continue; // already handled by Priority 1
 
-            foreach (var file in Directory.GetFiles(cardDir, "*.json", SearchOption.AllDirectories))
-            {
-                try
-                {
-                    var json = File.ReadAllText(file);
-                    var cardTypeStr = PathUtil.QuickExtractString(json, "CardType");
-                    if (cardTypeStr != "7") continue;
+            if (!Loading.JsonDataLoader.ParsedJsonByUniqueId.TryGetValue(uid, out var parsed)) continue;
+            if (!parsed.TryGetValue("CardType", out var ct)) continue;
+            // MiniJson parses numbers as long; also accept string "7" from legacy paths.
+            bool isBp = ct is long l && l == 7 || ct is string s && s == "7";
+            if (!isBp) continue;
 
-                    var uid = PathUtil.QuickExtractString(json, "UniqueID");
-                    if (string.IsNullOrEmpty(uid)) continue;
-
-                    var tabKey = PathUtil.QuickExtractString(json, "BlueprintCardDataCardTabGroup");
-                    var subTabKey = PathUtil.QuickExtractString(json, "BlueprintCardDataCardTabSubGroup");
-
-                    _queued.Add((uid, tabKey, subTabKey));
-                }
-                catch { }
-            }
+            var tabKey = parsed.TryGetValue("BlueprintCardDataCardTabGroup", out var tk) ? tk as string : null;
+            var subTabKey = parsed.TryGetValue("BlueprintCardDataCardTabSubGroup", out var stk) ? stk as string : null;
+            _queued.Add((uid, tabKey, subTabKey));
         }
 
         if (_queued.Count == 0) return;
 
-        Log.Info($"BlueprintInjector: {_queued.Count} blueprints queued for tab injection");
+        Log.Info($"[BlueprintInjector] InjectAll: {_queued.Count} blueprints queued for tab injection");
         // NOTE: Do NOT call DoInject here — tabs don't exist during LoadMainGameData.
         // Injection happens from InjectFromUI() when NewBlueprintContent.Start fires.
     }
@@ -74,47 +72,22 @@ internal static class BlueprintInjector
         try
         {
             var json = File.ReadAllText(path);
-            // Simple JSON parser for { "key": ["val1", "val2"], ... }
-            // Using string parsing since we can't depend on LitJson/Newtonsoft
-            int pos = 0;
-            while (pos < json.Length)
+            if (MiniJson.Parse(json) is not Dictionary<string, object> root)
             {
-                // Find next key (tab LocalizationKey)
-                var keyStart = json.IndexOf('"', pos);
-                if (keyStart < 0) break;
-                var keyEnd = json.IndexOf('"', keyStart + 1);
-                if (keyEnd < 0) break;
-                var tabKey = json.Substring(keyStart + 1, keyEnd - keyStart - 1);
-
-                // Find the array start
-                var arrStart = json.IndexOf('[', keyEnd);
-                if (arrStart < 0) break;
-                var arrEnd = json.IndexOf(']', arrStart);
-                if (arrEnd < 0) break;
-
-                // Extract blueprint IDs from the array
-                var arrContent = json.Substring(arrStart + 1, arrEnd - arrStart - 1);
-                int aPos = 0;
-                while (aPos < arrContent.Length)
-                {
-                    var vStart = arrContent.IndexOf('"', aPos);
-                    if (vStart < 0) break;
-                    var vEnd = arrContent.IndexOf('"', vStart + 1);
-                    if (vEnd < 0) break;
-                    var bpId = arrContent.Substring(vStart + 1, vEnd - vStart - 1);
-
-                    _queued.Add((bpId, tabKey, null));
-                    aPos = vEnd + 1;
-                }
-
-                pos = arrEnd + 1;
+                Log.Warn($"BlueprintInjector: {modName}/BlueprintTabs.json is not a valid JSON object — skipping");
+                return;
             }
-
+            foreach (var kvp in root)
+            {
+                if (kvp.Value is not List<object> ids) continue;
+                foreach (var id in ids)
+                    if (id is string bpId) _queued.Add((bpId, kvp.Key, null));
+            }
             Log.Debug($"BlueprintInjector: loaded tab config from {modName}/BlueprintTabs.json");
         }
         catch (Exception ex)
         {
-            Log.Error($"BlueprintInjector: failed to read {path}: {ex.Message}");
+            Log.Error($"BlueprintInjector: failed to read {path}: {Log.ExceptionText(ex)}");
         }
     }
 
@@ -122,15 +95,16 @@ internal static class BlueprintInjector
     /// Called from NewBlueprintContent.Start prefix — injects all queued blueprints
     /// on the first call (tabs now guaranteed to exist), then skips subsequent calls.
     /// </summary>
-    public static void InjectFromUI()
+    public static void InjectFromUI(object uiRoot = null)
     {
+        Log.Info($"[BlueprintInjector] InjectFromUI: queued={_queued.Count}, alreadyDone={_injected}, uiRoot={uiRoot?.GetType().Name ?? "<null>"}");
         if (_injected || _queued.Count == 0) return;
 
         try
         {
             var allData = Loading.LoadOrchestrator.GetAllData();
-            DoInject(allData);
-            _injected = true;
+            _injected = DoInject(allData, uiRoot);
+            Log.Info($"[BlueprintInjector] InjectFromUI done: injected={_injected}");
         }
         catch (Exception ex)
         {
@@ -138,7 +112,7 @@ internal static class BlueprintInjector
         }
     }
 
-    private static void DoInject(IEnumerable allData)
+    private static bool DoInject(IEnumerable allData, object uiRoot)
     {
         // Build lookup: UniqueID → object
         var lookup = new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase);
@@ -149,55 +123,39 @@ internal static class BlueprintInjector
                 lookup[uid.UniqueID] = item;
         }
 
-        // Find all CardTabGroup instances
+        // Find all CardTabGroup instances. The early Resource cache can miss UI
+        // tabs that load later, so merge it with a UI-time resource scan and the
+        // live BlueprintModelsScreen tab tree when available.
         var cardTabGroupType = ReflectionCache.FindType("CardTabGroup");
         if (cardTabGroupType == null)
         {
             Log.Warn("BlueprintInjector: CardTabGroup type not found");
-            return;
+            return false;
         }
 
-        var findMethod = typeof(Resources).GetMethods()
-            .FirstOrDefault(m => m.Name == "FindObjectsOfTypeAll" && m.IsGenericMethod);
-        if (findMethod == null) return;
-
-        var generic = findMethod.MakeGenericMethod(cardTabGroupType);
-        var tabGroups = generic.Invoke(null, null) as Array;
-        if (tabGroups == null || tabGroups.Length == 0) return;
+        var tabGroups = GetTabGroups(allData, cardTabGroupType, uiRoot, out var allDataTabCount, out var databaseTabCount, out var resourceTabCount, out var uiTabCount);
+        if (tabGroups.Count == 0) return false;
 
         // Build tab lookup by LocalizationKey
         var tabLookup = new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase);
-        var tabNameField = AccessTools.Field(cardTabGroupType, "TabName");
 
         foreach (var tab in tabGroups)
         {
             if (tab == null) continue;
-            var tabNameObj = tabNameField?.GetValue(tab);
+            var tabNameObj = ReflectionHelpers.GetMemberValue(tab, "TabName");
             if (tabNameObj == null) continue;
 
-            var locType = tabNameObj.GetType();
-            // Try field first, then property — LocalizationKey may be either
-            string locKey = null;
-            var locKeyField = locType.GetField("LocalizationKey",
-                System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic);
-            if (locKeyField != null)
-            {
-                locKey = locKeyField.GetValue(tabNameObj) as string;
-            }
-            else
-            {
-                var locKeyProp = locType.GetProperty("LocalizationKey",
-                    System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic);
-                locKey = locKeyProp?.GetValue(tabNameObj) as string;
-            }
+            var locKey = ReflectionHelpers.GetMemberValue(tabNameObj, "LocalizationKey") as string;
             if (!string.IsNullOrEmpty(locKey))
                 tabLookup[locKey] = tab;
         }
 
-        Log.Debug($"BlueprintInjector: tabLookup built with {tabLookup.Count} entries from {tabGroups.Length} CardTabGroup objects");
-
-        var includedCardsField = AccessTools.Field(cardTabGroupType, "IncludedCards");
+        if (tabLookup.Count == 0)
+            Log.Warn($"BlueprintInjector: tab lookup is empty (merged={tabGroups.Count}, allData={allDataTabCount}, database={databaseTabCount}, resources={resourceTabCount}, ui={uiTabCount}, uiRoot={uiRoot?.GetType().FullName ?? "<none>"})");
+        else
+            Log.Info($"[BlueprintInjector] tabLookup: {tabLookup.Count} tabs from {tabGroups.Count} CardTabGroup objects (allData={allDataTabCount}, db={databaseTabCount}, res={resourceTabCount}, ui={uiTabCount})");
         int injected = 0;
+        bool completed = true;
 
         foreach (var (uniqueId, tabKey, subTabKey) in _queued)
         {
@@ -219,25 +177,164 @@ internal static class BlueprintInjector
 
             if (targetTab == null)
             {
+                completed = false;
                 if (_warnedMissing.Add($"tab:{uniqueId}"))
                     Log.Warn($"BlueprintInjector: no tab found for blueprint '{uniqueId}' (tabKey='{tabKey}', subTabKey='{subTabKey}') — skipping");
                 continue;
             }
 
-            var includedCards = includedCardsField?.GetValue(targetTab) as IList;
-            if (includedCards == null)
+            if (AddBlueprintToTab(targetTab, blueprint, uniqueId, out var added))
             {
-                Log.Warn($"BlueprintInjector: IncludedCards is null on tab for blueprint '{uniqueId}' — skipping");
-                continue;
+                if (added) injected++;
             }
-            if (!includedCards.Contains(blueprint))
+            else
             {
-                includedCards.Add(blueprint);
-                injected++;
+                completed = false;
             }
         }
 
-        if (injected > 0)
-            Log.Info($"BlueprintInjector: injected {injected} blueprints into tabs");
+        Log.Info($"[BlueprintInjector] DoInject done: injected={injected}, completed={completed}, queued={_queued.Count}");
+        return completed;
+    }
+
+    private static List<object> GetTabGroups(IEnumerable allData, Type cardTabGroupType, object uiRoot,
+        out int allDataTabCount, out int databaseTabCount, out int resourceTabCount, out int uiTabCount)
+    {
+        var tabGroups = new List<object>();
+        var seen = new HashSet<object>(ReferenceEqualityComparer.Instance);
+        allDataTabCount = 0;
+        databaseTabCount = 0;
+        resourceTabCount = 0;
+        uiTabCount = 0;
+
+        foreach (var item in allData)
+        {
+            if (item == null || !cardTabGroupType.IsInstanceOfType(item)) continue;
+            allDataTabCount++;
+            AddTabObject(item, cardTabGroupType, tabGroups, seen);
+        }
+
+        foreach (var tab in Data.Database.GetAllOfType(cardTabGroupType))
+        {
+            if (tab == null) continue;
+            databaseTabCount++;
+            AddTabObject(tab, cardTabGroupType, tabGroups, seen);
+        }
+
+        foreach (var tab in GetResourceTabGroups(cardTabGroupType))
+        {
+            if (tab == null) continue;
+            resourceTabCount++;
+            AddTabObject(tab, cardTabGroupType, tabGroups, seen);
+        }
+
+        if (uiRoot != null)
+        {
+            var blueprintTabs = ReflectionHelpers.GetMemberValue(uiRoot, "BlueprintTabs") as IEnumerable;
+            if (blueprintTabs != null)
+            {
+                foreach (var tab in blueprintTabs)
+                {
+                    uiTabCount += AddTabObject(tab, cardTabGroupType, tabGroups, seen);
+                }
+            }
+        }
+
+        return tabGroups;
+    }
+
+    private static IEnumerable<object> GetResourceTabGroups(Type cardTabGroupType)
+    {
+        if (_resourceTabScanDone) return _resourceTabGroups;
+        if (!typeof(UnityEngine.Object).IsAssignableFrom(cardTabGroupType)) return _resourceTabGroups;
+
+        try
+        {
+            var found = Resources.FindObjectsOfTypeAll(cardTabGroupType);
+            if (found != null)
+            {
+                foreach (var tab in found)
+                    if (tab != null) _resourceTabGroups.Add(tab);
+            }
+            if (_resourceTabGroups.Count > 0)
+                _resourceTabScanDone = true;
+        }
+        catch (Exception ex)
+        {
+            Log.Warn($"BlueprintInjector: CardTabGroup resource scan failed: {Log.ExceptionText(ex)}");
+            _resourceTabScanDone = true;
+        }
+
+        return _resourceTabGroups;
+    }
+
+    private static int AddTabObject(object tab, Type cardTabGroupType, List<object> tabGroups, HashSet<object> seen)
+    {
+        return AddTabObjectRecursive(tab, cardTabGroupType, tabGroups, seen, 0);
+    }
+
+    private static int AddTabObjectRecursive(object tab, Type cardTabGroupType, List<object> tabGroups, HashSet<object> seen, int depth)
+    {
+        if (tab == null || depth > 8 || !cardTabGroupType.IsInstanceOfType(tab)) return 0;
+
+        int discovered = 1;
+        if (seen.Add(tab))
+            tabGroups.Add(tab);
+
+        var subGroups = ReflectionHelpers.GetMemberValue(tab, "SubGroups") as IEnumerable;
+        if (subGroups == null) return discovered;
+
+        foreach (var child in subGroups)
+        {
+            if (child == null) continue;
+            discovered += AddTabObjectRecursive(child, cardTabGroupType, tabGroups, seen, depth + 1);
+        }
+
+        return discovered;
+    }
+
+    private static bool AddBlueprintToTab(object targetTab, object blueprint, string uniqueId, out bool added)
+    {
+        added = false;
+        var includedCards = ReflectionHelpers.GetMemberValue(targetTab, "IncludedCards") as IList;
+        if (includedCards == null)
+        {
+            Log.Warn($"BlueprintInjector: IncludedCards is null on tab for blueprint '{uniqueId}' — skipping");
+            return false;
+        }
+
+        if (includedCards.Contains(blueprint)) return true;
+
+        if (!includedCards.IsFixedSize && !includedCards.IsReadOnly)
+        {
+            includedCards.Add(blueprint);
+            added = true;
+            return true;
+        }
+
+        if (includedCards is Array existingArray)
+        {
+            var elementType = existingArray.GetType().GetElementType() ?? blueprint.GetType();
+            var expanded = Array.CreateInstance(elementType, existingArray.Length + 1);
+            Array.Copy(existingArray, expanded, existingArray.Length);
+            expanded.SetValue(blueprint, existingArray.Length);
+            if (ReflectionHelpers.SetMemberValue(targetTab, "IncludedCards", expanded))
+            {
+                added = true;
+                return true;
+            }
+        }
+
+        Log.Warn($"BlueprintInjector: IncludedCards is read-only on tab for blueprint '{uniqueId}' — skipping");
+        return false;
+    }
+
+    private sealed class ReferenceEqualityComparer : IEqualityComparer<object>
+    {
+        public static readonly ReferenceEqualityComparer Instance = new();
+
+        public new bool Equals(object left, object right) => ReferenceEquals(left, right);
+
+        public int GetHashCode(object obj) => RuntimeHelpers.GetHashCode(obj);
     }
 }

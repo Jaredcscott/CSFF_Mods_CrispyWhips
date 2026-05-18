@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "water_sawmill_bp_ore_sluice",
         "LocalizationKey": "Water_Sawmill_Bp_OreSluice_CardDescription",
-        "DefaultText": "Build a water-powered ore sluice for washing soil and extracting greenstone. Must be built near a river."
+        "DefaultText": "Build a water-powered ore sluice for washing soil and extracting greenstone. Requires direct water or a connected mill race outlet."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {
@@ -49,19 +49,6 @@
     "CardImageWarpData": "OreSluiceKit",
     "CardImageWarpType": 3,
     "BuildingTagConditions": [
-        {
-            "TriggerTag": {
-                "m_FileID": 0,
-                "m_PathID": 0
-            },
-            "OnlyInHand": false,
-            "NotInHand": false,
-            "ExcludeInventories": false,
-            "Inverted": false,
-            "OnlyEquipped": false,
-            "TriggerTagWarpData": "tag_River",
-            "TriggerTagWarpType": 3
-        },
         {
             "TriggerTag": {
                 "m_FileID": 0,
@@ -145,6 +132,6 @@
         "Wood"
     ],
     "WhenCreatedSoundsWarpType": 3,
-    "BlueprintUnlockTicksCost": 8.0,
+    "BlueprintUnlockTicksCost": 16.0,
     "ResearchedNotification": 0
 }

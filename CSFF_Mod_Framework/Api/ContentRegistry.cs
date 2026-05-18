@@ -32,10 +32,20 @@ public static class ContentRegistry
     /// </summary>
     public static bool Register(UniqueIDScriptable so)
     {
-        if (so == null) return false;
+        if (so == null)
+        {
+            FrameworkLog.Error("ContentRegistry.Register called with null — nothing registered");
+            return false;
+        }
+        if (string.IsNullOrEmpty(so.UniqueID))
+        {
+            FrameworkLog.Error($"ContentRegistry.Register: {so.name} has no UniqueID — nothing registered");
+            return false;
+        }
         var newlyRegistered = GameRegistry.TryRegister(so);
         // Append to AllData regardless of who put the UID in the dict — Add is idempotent.
         GameRegistry.TryAddToAllData(so);
+        // false = UID already registered (normal dedup), not an error; TryRegister logs at Debug.
         return newlyRegistered;
     }
 

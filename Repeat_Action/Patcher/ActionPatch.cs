@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using HarmonyLib;
 using BepInEx.Logging;
@@ -192,7 +191,12 @@ namespace Repeat_Action.Patcher
                 }
 
                 gmAnyActionBlockersProp = AccessTools.Property(gameManagerType, "AnyActionBlockers");
-                gmDayTimePointsProp = AccessTools.Property(gameManagerType, "DayTimePoints");
+                foreach (var dtName in new[] { "DayTimePoints", "CurrentDayTimePoints", "DaytimePoints" })
+                {
+                    gmDayTimePointsProp = AccessTools.Property(gameManagerType, dtName);
+                    if (gmDayTimePointsProp != null) { Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Init] DayTimePoints property found as '{dtName}'"); break; }
+                }
+                if (gmDayTimePointsProp == null) Logger.Log(BepInEx.Logging.LogLevel.Debug, "[Init] DayTimePoints property not found — tick detection disabled");
 
                 // ----- Cache InspectionPopup accessors -----
                 ipCurrentCardProp = AccessTools.Property(inspectionPopupType, "CurrentCard");
@@ -283,6 +287,10 @@ namespace Repeat_Action.Patcher
                 }
 
                 Logger.Log(BepInEx.Logging.LogLevel.Debug, "ActionPatch v4 applied - dual-gate player-only capture");
+                Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Init] Reflection status: GM.ActionRoutine={gameManagerActionRoutineMethod != null}, " +
+                    $"IP.OnButtonClicked={ipOnButtonClickedMethod != null}, IP.OnGroupAction={ipOnGroupInventoryActionClickedMethod != null}, " +
+                    $"GM.CurrentGameState={gmCurrentGameStateField != null}, NPC.Player={npcOrPlayerPlayerField != null}, " +
+                    $"IP.CurrentCard={ipCurrentCardProp != null}, GM.PerformingAction={gmPerformingActionProp != null}");
             }
             catch (Exception ex)
             {
@@ -836,12 +844,13 @@ namespace Repeat_Action.Patcher
 
             isRepeating = true;
             cancelRequested = false;
+            int completed = 0;
 
+            try
+            {
             Plugin.ShowNotification($"Repeating: {lastActionName} x{count}");
             string actionType = isDragDrop ? "drag-drop" : $"button #{lastActionIndex}";
             Logger.LogInfo($"[Repeat] Starting: '{lastActionName}' x{count} ({actionType})");
-
-            int completed = 0;
 
             for (int i = 0; i < count; i++)
             {
@@ -866,7 +875,7 @@ namespace Repeat_Action.Patcher
                 if (!readyWait.Ready)
                 {
                     Plugin.ShowNotification("Timed out waiting");
-                    Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] Timed out waiting for replay-ready state ({readyWait.Reason})");
+                    Logger.LogInfo($"[Repeat] Timed out waiting for replay-ready state ({readyWait.Reason})");
                     break;
                 }
 
@@ -888,6 +897,7 @@ namespace Repeat_Action.Patcher
 
                 // Snapshot game tick BEFORE execution (universal action-executed detector)
                 int tickBefore = GetGameTick();
+                Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] Pre-exec tick={tickBefore}, card='{receivingUniqueId}', isGroup={lastIsGroupInventoryAction}");
                 if (requireQuantityChange)
                     Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] Pre-eat tick={tickBefore}, card='{receivingUniqueId}'");
 
@@ -1468,7 +1478,7 @@ namespace Repeat_Action.Patcher
                 if (!executed)
                 {
                     Plugin.ShowNotification($"Execution failed ({completed}/{count})");
-                    Logger.LogDebug($"[Repeat] All execution methods failed at {i + 1}/{count}");
+                    Logger.LogInfo($"[Repeat] All execution methods failed at {i + 1}/{count}");
                     break;
                 }
 
@@ -1523,7 +1533,7 @@ namespace Repeat_Action.Patcher
                 {
                     // === DRINK VALIDATION: Card stays, liquid quantity should decrease ===
                     float? liquidAfter = GetLiquidQuantity(lastReceivingCard);
-                    Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] Post-drink: liquid {liquidBefore} ? {liquidAfter}");
+                    Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] Post-drink: liquid {liquidBefore} → {liquidAfter}");
 
                     if (liquidBefore.HasValue && liquidAfter.HasValue)
                     {
@@ -1576,7 +1586,7 @@ namespace Repeat_Action.Patcher
                     bool quantityDecreased = (quantityBefore.HasValue && quantityAfter.HasValue && 
                                               quantityAfter.Value < quantityBefore.Value - 0.001f);
 
-                    Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] Post-eat: tick {tickBefore}?{tickAfter} (adv={tickAdvanced}), destroyed={cardDestroyed}, unityDead={unityDestroyed}, qty={quantityBefore}?{quantityAfter}");
+                    Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] Post-eat: tick {tickBefore}→{tickAfter} (adv={tickAdvanced}), destroyed={cardDestroyed}, unityDead={unityDestroyed}, qty={quantityBefore}→{quantityAfter}");
 
                     if (tickAdvanced || cardDestroyed || unityDestroyed || quantityDecreased)
                     {
@@ -1601,7 +1611,7 @@ namespace Repeat_Action.Patcher
                     else
                     {
                         Plugin.ShowNotification($"Stopped - no change ({completed}/{count})");
-                        Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] Eat action had no detectable effect; stopping");
+                        Logger.Log(BepInEx.Logging.LogLevel.Debug, "[Repeat] Eat action had no detectable effect; stopping");
                         break;
                     }
                 }
@@ -1825,7 +1835,7 @@ namespace Repeat_Action.Patcher
                     if (!genericTickAdvanced && !cardConsumed && !cardlessAction)
                     {
                         Plugin.ShowNotification($"Stopped - no effect ({completed}/{count})");
-                        Logger.LogDebug($"[Repeat] STOP: no effect at {i + 1}/{count} (tickBefore={tickBefore}, tickAfter={genericTickAfter}, consumed={cardConsumed}, cardless={cardlessAction})");
+                        Logger.LogInfo($"[Repeat] STOP: no effect at {i + 1}/{count} (tickBefore={tickBefore}, tickAfter={genericTickAfter}, consumed={cardConsumed}, cardless={cardlessAction})");
                         break;
                     }
 
@@ -1884,11 +1894,11 @@ namespace Repeat_Action.Patcher
                     break;
                 }
             }
-
-            isRepeating = false;
-            // Only show "Done" if at least 1 completed — otherwise preserve the intermediate
-            // error message (e.g. "Stopped - no effect" or "Execution failed") so the user
-            // can see why the repeat failed.
+            }
+            finally
+            {
+                isRepeating = false;
+            }
             if (completed > 0)
                 Plugin.ShowNotification($"Done ({completed}/{count})");
             Logger.LogInfo($"[Repeat] Complete: {completed}/{count}");
@@ -2196,11 +2206,7 @@ namespace Repeat_Action.Patcher
                 });
 
                 if (coroutine is IEnumerator enumerator)
-                {
-                    MarkGameStatePlaying(gmMono);
-                    gmMono.StartCoroutine(enumerator);
-                    return true;
-                }
+                    return TryStartCoroutineWithState(gmMono, enumerator);
 
                 Logger.Log(BepInEx.Logging.LogLevel.Debug, "[Repeat] ActionRoutine did not return coroutine");
                 return false;
@@ -2234,11 +2240,7 @@ namespace Repeat_Action.Patcher
 
                     var coroutine = lastActionRoutineMethod.Invoke(gmMono, args);
                     if (coroutine is IEnumerator enumerator)
-                    {
-                        MarkGameStatePlaying(gmMono);
-                        gmMono.StartCoroutine(enumerator);
-                        return true;
-                    }
+                        return TryStartCoroutineWithState(gmMono, enumerator);
                     return false;
                 }
 
@@ -2259,11 +2261,7 @@ namespace Repeat_Action.Patcher
                 });
 
                 if (fallbackCoroutine is IEnumerator fallbackEnum)
-                {
-                    MarkGameStatePlaying(gmMono);
-                    gmMono.StartCoroutine(fallbackEnum);
-                    return true;
-                }
+                    return TryStartCoroutineWithState(gmMono, fallbackEnum);
 
                 return false;
             }
@@ -2304,11 +2302,7 @@ namespace Repeat_Action.Patcher
 
                     var coroutine = lastCocMethod.Invoke(gmMono, args);
                     if (coroutine is IEnumerator enumerator)
-                    {
-                        MarkGameStatePlaying(gmMono);
-                        gmMono.StartCoroutine(enumerator);
-                        return true;
-                    }
+                        return TryStartCoroutineWithState(gmMono, enumerator);
                     return false;
                 }
 
@@ -2331,15 +2325,11 @@ namespace Repeat_Action.Patcher
                         });
 
                         if (coroutine is IEnumerator enumerator)
-                        {
-                            MarkGameStatePlaying(gmMono);
-                            gmMono.StartCoroutine(enumerator);
-                            return true;
-                        }
+                            return TryStartCoroutineWithState(gmMono, enumerator);
                     }
                     catch (Exception arEx)
                     {
-                        Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] ActionRoutine fallback failed: {arEx.Message}");
+                        Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] ActionRoutine fallback failed: {arEx.InnerException?.ToString() ?? arEx.ToString()}");
                     }
                 }
 
@@ -2435,13 +2425,13 @@ namespace Repeat_Action.Patcher
                     }
                 }
 
-                if (GetBoolProperty(gmPerformingActionProp, null))
+                if (GetBoolProperty(gmPerformingActionProp, gm))
                 {
                     reason = "PerformingAction";
                     return false;
                 }
 
-                if (GetBoolProperty(gmIsTravellingProp, null))
+                if (GetBoolProperty(gmIsTravellingProp, gm))
                 {
                     reason = "IsTravelling";
                     return false;
@@ -2540,8 +2530,9 @@ namespace Repeat_Action.Patcher
                 object value = prop.GetValue(instance);
                 return value is bool b && b;
             }
-            catch
+            catch (Exception ex)
             {
+                Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[IsReplayReady] GetBoolProperty({prop?.Name}) exception: {ex.InnerException?.ToString() ?? ex.ToString()}");
                 return false;
             }
         }
@@ -2590,6 +2581,37 @@ namespace Repeat_Action.Patcher
             catch (Exception ex)
             {
                 Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] Could not mark game state PLAYINGCARD: {ex.InnerException?.ToString() ?? ex.ToString()}");
+            }
+        }
+
+        private static void RestoreGameStateSelect(object gm)
+        {
+            if (gm == null || gmCurrentGameStateField == null) return;
+            try
+            {
+                var stateType = gmCurrentGameStateField.FieldType;
+                object selectState = Enum.Parse(stateType, "SELECT");
+                gmCurrentGameStateField.SetValue(gm, selectState);
+            }
+            catch (Exception ex)
+            {
+                Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] RestoreGameStateSelect failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
+            }
+        }
+
+        private static bool TryStartCoroutineWithState(MonoBehaviour gmMono, IEnumerator enumerator)
+        {
+            MarkGameStatePlaying(gmMono);
+            try
+            {
+                gmMono.StartCoroutine(enumerator);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] StartCoroutine failed; restoring SELECT: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                RestoreGameStateSelect(gmMono);
+                return false;
             }
         }
 
@@ -2671,9 +2693,20 @@ namespace Repeat_Action.Patcher
             }
         }
 
-        /// <summary>
-        /// Permitted action allowlist. Only these actions can be captured and repeated.
-        /// </summary>
+        private static bool ContainsWord(string text, string word)
+        {
+            int idx = text.IndexOf(word, StringComparison.OrdinalIgnoreCase);
+            while (idx >= 0)
+            {
+                bool startOk = idx == 0 || !char.IsLetterOrDigit(text[idx - 1]);
+                int end = idx + word.Length;
+                bool endOk = end >= text.Length || !char.IsLetterOrDigit(text[end]);
+                if (startOk && endOk) return true;
+                idx = text.IndexOf(word, idx + 1, StringComparison.OrdinalIgnoreCase);
+            }
+            return false;
+        }
+
         private static readonly string[] PermittedActionKeywords = new[]
         {
             "forage",
@@ -2772,29 +2805,29 @@ namespace Repeat_Action.Patcher
         private static bool RequiresPopupOnlyExecution()
         {
             var actionName = lastActionName ?? string.Empty;
-            return actionName.IndexOf("eat", StringComparison.OrdinalIgnoreCase) >= 0
-                || actionName.IndexOf("drink", StringComparison.OrdinalIgnoreCase) >= 0;
+            return ContainsWord(actionName, "eat")
+                || ContainsWord(actionName, "drink");
         }
 
         private static bool IsLikelyCardlessAction()
         {
             var actionName = lastActionName ?? string.Empty;
-            return actionName.IndexOf("meditate", StringComparison.OrdinalIgnoreCase) >= 0
-                || actionName.IndexOf("rest", StringComparison.OrdinalIgnoreCase) >= 0
-                || actionName.IndexOf("sleep", StringComparison.OrdinalIgnoreCase) >= 0
-                || actionName.IndexOf("continue", StringComparison.OrdinalIgnoreCase) >= 0
-                || actionName.IndexOf("wait", StringComparison.OrdinalIgnoreCase) >= 0
-                || actionName.IndexOf("relax", StringComparison.OrdinalIgnoreCase) >= 0;
+            return ContainsWord(actionName, "meditate")
+                || ContainsWord(actionName, "rest")
+                || ContainsWord(actionName, "sleep")
+                || ContainsWord(actionName, "continue")
+                || ContainsWord(actionName, "wait")
+                || ContainsWord(actionName, "relax");
         }
 
         private static bool IsTravelAction()
         {
             var actionName = lastActionName ?? string.Empty;
-            return actionName.IndexOf("travel", StringComparison.OrdinalIgnoreCase) >= 0
-                || actionName.IndexOf("north", StringComparison.OrdinalIgnoreCase) >= 0
-                || actionName.IndexOf("south", StringComparison.OrdinalIgnoreCase) >= 0
-                || actionName.IndexOf("east", StringComparison.OrdinalIgnoreCase) >= 0
-                || actionName.IndexOf("west", StringComparison.OrdinalIgnoreCase) >= 0;
+            return ContainsWord(actionName, "travel")
+                || ContainsWord(actionName, "north")
+                || ContainsWord(actionName, "south")
+                || ContainsWord(actionName, "east")
+                || ContainsWord(actionName, "west");
         }
 
         /// <summary>
@@ -2804,9 +2837,10 @@ namespace Repeat_Action.Patcher
         private static bool IsChopAction()
         {
             var actionName = lastActionName ?? string.Empty;
-            return actionName.IndexOf("chop", StringComparison.OrdinalIgnoreCase) >= 0
-                || actionName.IndexOf("cut", StringComparison.OrdinalIgnoreCase) >= 0
-                || actionName.IndexOf("fell", StringComparison.OrdinalIgnoreCase) >= 0;
+            return ContainsWord(actionName, "chop")
+                || string.Equals(actionName, "Cut Tree", StringComparison.OrdinalIgnoreCase)
+                || string.Equals(actionName, "Cut Down", StringComparison.OrdinalIgnoreCase)
+                || ContainsWord(actionName, "fell");
         }
 
         /// <summary>
@@ -2816,14 +2850,14 @@ namespace Repeat_Action.Patcher
         private static bool IsWashAction()
         {
             var actionName = lastActionName ?? string.Empty;
-            return actionName.IndexOf("wash", StringComparison.OrdinalIgnoreCase) >= 0;
+            return ContainsWord(actionName, "wash");
         }
 
         private static bool RequiresQuantityProgressValidation()
         {
             var actionName = lastActionName ?? string.Empty;
-            return actionName.IndexOf("eat", StringComparison.OrdinalIgnoreCase) >= 0
-                || actionName.IndexOf("drink", StringComparison.OrdinalIgnoreCase) >= 0;
+            return ContainsWord(actionName, "eat")
+                || ContainsWord(actionName, "drink");
         }
 
         /// <summary>
@@ -2913,10 +2947,16 @@ namespace Repeat_Action.Patcher
                 if (gmInstanceProp == null) return -1;
                 var gm = gmInstanceProp.GetValue(null);
                 if (gm == null) return -1;
-                var prop = gmDayTimePointsProp
-                    ?? (gmDayTimePointsProp = AccessTools.Property(gameManagerType, "DayTimePoints"));
-                if (prop == null) return -1;
-                return (int)prop.GetValue(gm);
+                if (gmDayTimePointsProp == null)
+                {
+                    foreach (var name in new[] { "DayTimePoints", "CurrentDayTimePoints", "DaytimePoints" })
+                    {
+                        gmDayTimePointsProp = AccessTools.Property(gameManagerType, name);
+                        if (gmDayTimePointsProp != null) break;
+                    }
+                }
+                if (gmDayTimePointsProp == null) return -1;
+                return (int)gmDayTimePointsProp.GetValue(gm);
             }
             catch { return -1; }
         }
@@ -3037,7 +3077,7 @@ namespace Repeat_Action.Patcher
                     var asUnity = lastReceivingCard as UnityEngine.Object;
                     if (asUnity != null && asUnity)
                     {
-                        var cardModel = AccessTools.Property(lastReceivingCard.GetType(), "CardModel")?.GetValue(lastReceivingCard);
+                        var cardModel = (igcbCardModelProp ?? AccessTools.Property(lastReceivingCard.GetType(), "CardModel"))?.GetValue(lastReceivingCard);
                         if (cardModel != null)
                         {
                             // Card is alive, but did it transform into a different item?
@@ -3140,7 +3180,7 @@ namespace Repeat_Action.Patcher
                 var asUnity = lastGivenCard as UnityEngine.Object;
                 if (asUnity != null && asUnity)
                 {
-                    var cardModel = AccessTools.Property(lastGivenCard.GetType(), "CardModel")?.GetValue(lastGivenCard);
+                    var cardModel = (igcbCardModelProp ?? AccessTools.Property(lastGivenCard.GetType(), "CardModel"))?.GetValue(lastGivenCard);
                     if (cardModel != null) return true;  // Card truly alive
                 }
                 return false;
@@ -3340,11 +3380,13 @@ namespace Repeat_Action.Patcher
                 else
                 {
                     // Walk slot name candidates to find and cache the first valid member
+                    // Use native reflection (silent) rather than AccessTools (logs warnings on miss)
+                    var reflFlags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
                     foreach (var name in new[] { "CurrentSlot", "ContainerSlot", "ParentSlot" })
                     {
-                        var p = AccessTools.Property(cardType, name);
+                        var p = cardType.GetProperty(name, reflFlags);
                         if (p != null) { _slotMemberByType[cardType] = p; slot = p.GetValue(card); break; }
-                        var f = AccessTools.Field(cardType, name);
+                        var f = cardType.GetField(name, reflFlags);
                         if (f != null) { _slotMemberByType[cardType] = f; slot = f.GetValue(card); break; }
                     }
                     if (slot == null) _slotMemberByType[cardType] = null; // cache miss
@@ -3361,11 +3403,12 @@ namespace Repeat_Action.Patcher
                 }
                 else
                 {
-                    var p = AccessTools.Property(cardType, "CardLogic");
+                    var reflFlags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+                    var p = cardType.GetProperty("CardLogic", reflFlags);
                     if (p != null) { _cardLogicMemberByType[cardType] = p; cardLogic = p.GetValue(card); }
                     else
                     {
-                        var f = AccessTools.Field(cardType, "CardLogic");
+                        var f = cardType.GetField("CardLogic", reflFlags);
                         _cardLogicMemberByType[cardType] = f; // may be null
                         if (f != null) cardLogic = f.GetValue(card);
                     }
@@ -3381,9 +3424,10 @@ namespace Repeat_Action.Patcher
                     }
                     else
                     {
-                        var p = AccessTools.Property(logicType, "SlotOwner");
+                        var reflFlags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+                        var p = logicType.GetProperty("SlotOwner", reflFlags);
                         if (p != null) { _slotOwnerMemberByType[logicType] = p; return p.GetValue(cardLogic); }
-                        var f = AccessTools.Field(logicType, "SlotOwner");
+                        var f = logicType.GetField("SlotOwner", reflFlags);
                         _slotOwnerMemberByType[logicType] = f; // may be null
                         if (f != null) return f.GetValue(cardLogic);
                     }
@@ -3498,11 +3542,12 @@ namespace Repeat_Action.Patcher
             {
                 if (receivingCard == null || action == null) return -1;
 
-                var cardModel = AccessTools.Property(inGameCardBaseType, "CardModel");
-                var cardData = cardModel?.GetValue(receivingCard);
+                var cardData = (igcbCardModelProp ?? AccessTools.Property(inGameCardBaseType, "CardModel"))?.GetValue(receivingCard);
                 if (cardData == null) return -1;
 
-                var dismantleField = AccessTools.Field(cardData.GetType(), "DismantleActions");
+                var cdType = cardData.GetType();
+                if (!_dismantleFieldByType.TryGetValue(cdType, out var dismantleField))
+                    _dismantleFieldByType[cdType] = dismantleField = AccessTools.Field(cdType, "DismantleActions");
                 var dismantleActions = dismantleField?.GetValue(cardData);
                 if (dismantleActions is System.Collections.IList actionList)
                 {

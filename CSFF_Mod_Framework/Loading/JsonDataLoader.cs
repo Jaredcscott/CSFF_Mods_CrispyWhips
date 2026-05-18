@@ -24,6 +24,14 @@ internal static class JsonDataLoader
     internal static Dictionary<string, string> JsonByUniqueId { get; } = new(StringComparer.OrdinalIgnoreCase);
 
     /// <summary>
+    /// Pre-parsed JSON trees cached during load, keyed by UniqueID.
+    /// Eliminates redundant MiniJson.Parse calls in WarpResolver and SpriteResolver
+    /// (previously each service parsed the same N files independently → 2N→0 extra parses).
+    /// </summary>
+    internal static Dictionary<string, Dictionary<string, object>> ParsedJsonByUniqueId { get; }
+        = new(StringComparer.OrdinalIgnoreCase);
+
+    /// <summary>
     /// All UniqueIDs loaded from mod JSON files.
     /// Reused by ProducedCardService, PassiveEffectNormalizer, AlwaysUpdateService, PerkRelocationService.
     /// </summary>
@@ -37,6 +45,7 @@ internal static class JsonDataLoader
     public static void LoadAll(List<ModManifest> mods)
     {
         JsonByUniqueId.Clear();
+        ParsedJsonByUniqueId.Clear();
         AllModUniqueIds.Clear();
         UniqueIdToModName.Clear();
         ExtraDataStore.Clear();
@@ -66,7 +75,7 @@ internal static class JsonDataLoader
             totalLoaded += modCount;
         }
 
-        Log.Info($"JsonDataLoader: {totalLoaded} total objects loaded"
+        Log.Debug($"JsonDataLoader: {totalLoaded} total objects loaded"
                  + (ExtraDataStore.Count > 0 ? $", {ExtraDataStore.Count} sidecar extras" : ""));
 
         // Log batched summary of skipped types at Debug level — these are typically
@@ -92,7 +101,7 @@ internal static class JsonDataLoader
     }
 
     // Track skipped types per mod for batched summary warning
-    private static readonly Dictionary<string, List<string>> _skippedTypes = new();
+    private static readonly Dictionary<string, HashSet<string>> _skippedTypes = new();
 
     private static int LoadJsonFiles(ModManifest mod, string dir, string typeName, SearchOption searchOption)
     {
@@ -100,12 +109,12 @@ internal static class JsonDataLoader
         var type = ReflectionCache.FindType(typeName);
         if (type == null)
         {
-            if (!_skippedTypes.TryGetValue(mod.Name, out var list))
+            if (!_skippedTypes.TryGetValue(mod.Name, out var set))
             {
-                list = new List<string>();
-                _skippedTypes[mod.Name] = list;
+                set = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+                _skippedTypes[mod.Name] = set;
             }
-            if (!list.Contains(typeName)) list.Add(typeName);
+            set.Add(typeName);
             return 0;
         }
 
@@ -125,6 +134,8 @@ internal static class JsonDataLoader
                     if (JsonByUniqueId.ContainsKey(uniqueId))
                         Log.Warn($"JsonDataLoader: duplicate UniqueID '{uniqueId}' in {mod.Name} — second file overwrites first (check for duplicate JSON files)");
                     JsonByUniqueId[uniqueId] = json;
+                    if (MiniJson.Parse(json) is Dictionary<string, object> parsedTree)
+                        ParsedJsonByUniqueId[uniqueId] = parsedTree;
                     AllModUniqueIds.Add(uniqueId);
                     UniqueIdToModName[uniqueId] = mod.Name;
 
@@ -140,7 +151,7 @@ internal static class JsonDataLoader
                         }
                         catch (Exception ex)
                         {
-                            Log.Warn($"JsonDataLoader: failed to read sidecar {sidecar}: {ex.Message}");
+                            Log.Warn($"JsonDataLoader: failed to read sidecar {sidecar}: {Log.ExceptionText(ex)}");
                         }
                     }
                 }
@@ -192,7 +203,7 @@ internal static class JsonDataLoader
             }
             catch (Exception ex)
             {
-                Log.Warn($"JsonDataLoader: failed to load {file}: {ex.Message}");
+                Log.Warn($"JsonDataLoader: failed to load {file}: {Log.ExceptionText(ex)}");
             }
         }
 
@@ -209,35 +220,46 @@ internal static class JsonDataLoader
         var obj = ScriptableObject.CreateInstance(type);
         if (obj == null) return null;
 
-        foreach (var field in AccessTools.GetDeclaredFields(type))
+        // Walk full hierarchy so base-class LocalizedString fields (e.g. any declared in
+        // UniqueIDScriptable) are initialized too. GetDeclaredFields only returns the exact
+        // type's own fields and would miss inherited ones.
+        var currentType = type;
+        while (currentType != null && currentType != typeof(object)
+            && currentType != typeof(UnityEngine.Object)
+            && currentType != typeof(ScriptableObject))
         {
-            try
+            foreach (var field in currentType.GetFields(
+                BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly))
             {
-                if (field.FieldType.IsArray)
+                try
                 {
-                    field.SetValue(obj, Array.CreateInstance(
-                        field.FieldType.GetElementType() ?? typeof(object), 0));
+                    if (field.FieldType.IsArray)
+                    {
+                        field.SetValue(obj, Array.CreateInstance(
+                            field.FieldType.GetElementType() ?? typeof(object), 0));
+                    }
+                    else if (field.FieldType.IsGenericType &&
+                             field.FieldType.GetGenericTypeDefinition() == typeof(List<>))
+                    {
+                        field.SetValue(obj, Activator.CreateInstance(field.FieldType));
+                    }
+                    else if (field.FieldType == typeof(string))
+                    {
+                        field.SetValue(obj, "");
+                    }
+                    // Initialize serializable class fields (LocalizedString, etc.)
+                    // Skip Unity Object types (Sprite, AudioClip) — resolved later by WarpResolver
+                    else if (field.FieldType.IsClass
+                             && field.FieldType.IsSerializable
+                             && !typeof(UnityEngine.Object).IsAssignableFrom(field.FieldType)
+                             && field.GetValue(obj) == null)
+                    {
+                        field.SetValue(obj, Activator.CreateInstance(field.FieldType, true));
+                    }
                 }
-                else if (field.FieldType.IsGenericType &&
-                         field.FieldType.GetGenericTypeDefinition() == typeof(List<>))
-                {
-                    field.SetValue(obj, Activator.CreateInstance(field.FieldType));
-                }
-                else if (field.FieldType == typeof(string))
-                {
-                    field.SetValue(obj, "");
-                }
-                // Initialize serializable class fields (LocalizedString, etc.)
-                // Skip Unity Object types (Sprite, AudioClip) — resolved later by WarpResolver
-                else if (field.FieldType.IsClass
-                         && field.FieldType.IsSerializable
-                         && !typeof(UnityEngine.Object).IsAssignableFrom(field.FieldType)
-                         && field.GetValue(obj) == null)
-                {
-                    field.SetValue(obj, Activator.CreateInstance(field.FieldType, true));
-                }
+                catch { }
             }
-            catch { }
+            currentType = currentType.BaseType;
         }
 
         return obj;

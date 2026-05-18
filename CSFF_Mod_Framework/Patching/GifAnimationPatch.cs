@@ -77,7 +77,7 @@ internal static class GifAnimationPatch
         }
         catch (Exception ex)
         {
-            Log.Debug($"GifAnimationPatch.CardGraphics_Setup_Postfix: {ex.Message}");
+            Log.Debug($"GifAnimationPatch.CardGraphics_Setup_Postfix: {Log.ExceptionText(ex)}");
         }
     }
 
@@ -91,7 +91,7 @@ internal static class GifAnimationPatch
         }
         catch (Exception ex)
         {
-            Log.Debug($"GifAnimationPatch.InGameCardBase_RefreshCookingStatus_Postfix: {ex.Message}");
+            Log.Debug($"GifAnimationPatch.InGameCardBase_RefreshCookingStatus_Postfix: {Log.ExceptionText(ex)}");
         }
     }
 }

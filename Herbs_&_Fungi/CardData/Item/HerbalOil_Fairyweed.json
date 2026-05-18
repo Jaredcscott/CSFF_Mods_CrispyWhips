@@ -16,7 +16,7 @@
         "DefaultText": "<b>Crafted:</b> By pressing 1 Fresh Fairyweed + Clay Bowl at the Oil Press.\n\n<b>Uses:</b> Apply directly for uplifting, mood-enhancing effects. Returns an empty clay bowl."
     },
     "CardType": 0,
-    "ObjectWeight": 300.0,
+    "ObjectWeight": 100,
     "TradingValue": 80.0,
     "MaxStack": 4,
     "CardImage": {
@@ -37,14 +37,30 @@
         "Clay"
     ],
     "WhenCreatedSoundsWarpType": 3,
-    "SpoilageTime": { "Active": false },
-    "UsageDurability": { "Active": false },
-    "FuelCapacity": { "Active": false },
-    "Progress": { "Active": false },
-    "SpecialDurability1": { "Active": false },
-    "SpecialDurability2": { "Active": false },
-    "SpecialDurability3": { "Active": false },
-    "SpecialDurability4": { "Active": false },
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
     "CardInteractions": [],
     "DismantleActions": [
         {
@@ -75,12 +91,18 @@
                 {
                     "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
                     "StatWarpType": 3,
-                    "ValueModifier": { "x": 35.0, "y": 50.0 }
+                    "ValueModifier": {
+                        "x": 35.0,
+                        "y": 50.0
+                    }
                 },
                 {
                     "StatWarpData": "dd178fd8d77a4cf4da8a5311fbc7c912",
                     "StatWarpType": 3,
-                    "ValueModifier": { "x": 25.0, "y": 35.0 }
+                    "ValueModifier": {
+                        "x": 25.0,
+                        "y": 35.0
+                    }
                 }
             ],
             "ReceivingCardChanges": {
@@ -92,12 +114,21 @@
                     "CollectionWeight": 1,
                     "DroppedCards": [
                         {
-                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
                             "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
                             "DroppedCardWarpType": 3,
-                            "Quantity": { "x": 1, "y": 1 },
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
                             "FinishUnlocking": false,
-                            "DropChance": { "Active": false, "BaseDropChance": 0.0 }
+                            "DropChance": {
+                                "Active": false,
+                                "BaseDropChance": 0.0
+                            }
                         }
                     ]
                 }

@@ -169,7 +169,8 @@
             "CompatibleCards": {
                 "TriggerCards": [],
                 "TriggerCardsWarpData": [
-                    "425259cb06b869d45be2e7f1b5b54aff"
+                    "425259cb06b869d45be2e7f1b5b54aff",
+                    "a0e1cf6d47685a741b5cd9889fb39227"
                 ],
                 "TriggerCardsWarpType": 3
             },
@@ -299,7 +300,7 @@
             ]
         }
     ],
-    "ObjectWeight": 0.02,
+    "ObjectWeight": 10,
     "MaxStack": 20,
     "DroppedCardShadow": 1
 }

@@ -20,12 +20,14 @@ internal static class ModAssets
     private static readonly string[] LegacySpriteDirs    = { "Resource/Picture", "Resource/Texture2D" };
     private static readonly string[] LegacyAudioDirs     = { "Resource/Audio" };
     private static readonly string[] LegacyGifDirs       = { "Resource/GIF" };
+    private static readonly string[] LegacyMapCacheDirs  = { "Data/MapCaches", "Data/MapCache" };
     private const string LegacyAssetBundleDir            = "Resource";
 
     private static readonly string[] SpriteExts          = { ".png", ".jpg" };
     private static readonly string[] AudioExts           = { ".wav", ".ogg", ".mp3" };
     private static readonly string[] GifExts             = { ".gif" };
     private static readonly string[] AssetBundleExts     = { ".ab" };
+    private static readonly string[] JsonExts            = { ".json" };
 
     public static IEnumerable<string> ResolveSprites(ModManifest mod)
         => Resolve(mod, mod.Assets?.Sprites, LegacySpriteDirs, SpriteExts, recursive: true);
@@ -35,6 +37,30 @@ internal static class ModAssets
 
     public static IEnumerable<string> ResolveGifs(ModManifest mod)
         => Resolve(mod, mod.Assets?.Gifs, LegacyGifDirs, GifExts, recursive: true);
+
+    public static IEnumerable<string> ResolveMapCaches(ModManifest mod)
+    {
+        if (mod.Assets?.MapCaches != null && mod.Assets.MapCaches.Count > 0)
+        {
+            foreach (var file in Resolve(mod, mod.Assets.MapCaches, Array.Empty<string>(), JsonExts, recursive: true))
+                yield return file;
+            yield break;
+        }
+
+        var seen = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        foreach (var subDir in LegacyMapCacheDirs)
+        {
+            var dir = Path.Combine(mod.DirectoryPath, subDir);
+            if (!Directory.Exists(dir)) continue;
+            foreach (var file in Directory.GetFiles(dir, "*.json", SearchOption.AllDirectories))
+                if (seen.Add(file)) yield return file;
+        }
+
+        var dataDir = Path.Combine(mod.DirectoryPath, "Data");
+        if (!Directory.Exists(dataDir)) yield break;
+        foreach (var file in Directory.GetFiles(dataDir, "*Map*.json", SearchOption.AllDirectories))
+            if (seen.Add(file)) yield return file;
+    }
 
     public static IEnumerable<string> ResolveAssetBundles(ModManifest mod)
     {

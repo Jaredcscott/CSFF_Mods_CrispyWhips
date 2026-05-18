@@ -8,13 +8,13 @@
   "CardDescription": {
     "ParentObjectID": "water_sawmill_frame",
     "LocalizationKey": "Water_Sawmill_Frame_CardDescription",
-    "DefaultText": "A complete sawmill kit with all components for a large river-powered sawmill."
+    "DefaultText": "A complete sawmill kit with all components for a large water-powered sawmill."
   },
   "CanBeRenamed": false,
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_frame",
     "LocalizationKey": "Water_Sawmill_Frame_CardHelpSection",
-    "DefaultText": "<b>Use:</b> Place near a river to set up the full sawmill structure.\n\n<b>Scale:</b> This is a large construction project."
+    "DefaultText": "<b>Use:</b> Place near water or a connected mill race outlet to set up the full sawmill structure.\n\n<b>Scale:</b> This is a large construction project."
   },    "CardImage": {
         "m_FileID": 0,
         "m_PathID": 0
@@ -62,18 +62,7 @@
       "ActionSoundsWarpData": ["Wood"],
       "ActionSoundsWarpType": 3,
       "RequiredCardsOnBoard": [],
-      "RequiredTagsOnBoard": [
-        {
-          "TriggerTag": { "m_FileID": 0, "m_PathID": 0 },
-          "TriggerTagWarpData": "tag_River",
-          "TriggerTagWarpType": 3,
-          "Inverted": false,
-          "OnlyInHand": false,
-          "NotInHand": false,
-          "ExcludeInventories": false,
-          "OnlyEquipped": false
-        }
-      ],
+      "RequiredTagsOnBoard": [],
       "HideIfConditionsNotMet": true,
       "ReceivingCardChanges": {
         "ModType": 2,

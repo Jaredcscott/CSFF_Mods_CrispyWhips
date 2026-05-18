@@ -17,6 +17,9 @@ namespace CSFFModFramework.Loading;
 /// </summary>
 internal static class FrameworkDirtyTracker
 {
+    // Not thread-safe: all framework services run on Unity's main thread so this is safe in
+    // practice. If a future service uses Task.Run and calls MarkDirty, switch to a
+    // ConcurrentDictionary<UniqueIDScriptable, byte> used as a lock-free set.
     private static readonly HashSet<UniqueIDScriptable> _dirty = new();
 
     public static IReadOnlyCollection<UniqueIDScriptable> DirtyObjects => _dirty;

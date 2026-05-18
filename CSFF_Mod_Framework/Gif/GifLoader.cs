@@ -49,7 +49,7 @@ internal static class GifLoader
             (d.CardGif != null || d.CookingGif != null || d.CardBackgroundGif != null || d.ConditionSets.Count > 0));
 
         if (GifFrameSets.Count > 0 || CardDefinitions.Count > 0)
-            Log.Info($"GifLoader: {GifFrameSets.Count} GIFs decoded, {CardDefinitions.Count} card definitions ({activeCards} with GIF references)");
+            Log.Debug($"GifLoader: {GifFrameSets.Count} GIFs decoded, {CardDefinitions.Count} card definitions ({activeCards} with GIF references)");
     }
 
     // -------------------------------------------------------------------------
@@ -74,7 +74,7 @@ internal static class GifLoader
             }
             catch (Exception ex)
             {
-                Log.Warn($"GifLoader: failed to decode '{name}': {ex.Message}");
+                Log.Warn($"GifLoader: failed to decode '{name}': {Log.ExceptionText(ex)}");
             }
         }
     }
@@ -156,7 +156,7 @@ internal static class GifLoader
             }
             catch (Exception ex)
             {
-                Log.Warn($"GifLoader: failed to parse {file}: {ex.Message}");
+                Log.Warn($"GifLoader: failed to parse {file}: {Log.ExceptionText(ex)}");
             }
         }
     }

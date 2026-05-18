@@ -275,7 +275,7 @@ namespace Herbs_And_Fungi.Patcher
                     _cardResetMethod.Invoke(card, null);
                 }
 
-                Logger?.LogInfo($"[TruffleFatCook] Slices cooked → {targetUniqueId}");
+                Logger?.LogDebug($"[TruffleFatCook] Slices cooked → {targetUniqueId}");
             }
             catch (Exception ex)
             {

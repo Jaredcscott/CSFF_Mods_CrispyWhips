@@ -1,6 +1,6 @@
 # Quick Transfer
 
-**Version:** 1.5.5
+**Version:** 1.5.7
 
 A **Card Survival: Fantasy Forest** mod that lets you transfer multiple cards at once using a modifier key + Right-Click (configurable).
 

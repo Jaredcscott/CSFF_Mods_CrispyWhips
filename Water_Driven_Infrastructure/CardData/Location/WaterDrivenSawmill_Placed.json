@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "water_sawmill_placed",
     "LocalizationKey": "Water_Sawmill_Placed_CardDescription",
-    "DefaultText": "A large, fixed river-powered sawmill built on the riverbank."
+    "DefaultText": "A large, fixed water-powered sawmill fed by direct water or a mill race outlet."
   },
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_placed",

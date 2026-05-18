@@ -62,7 +62,7 @@
         },
         "MaxValue": 672.0,
         "RatePerDaytimePoint": -1.0,
-        "HidingOptions": 1,
+        "HidingOptions": 0,
         "TextDisplay": 0,
         "NumberPrecision": 0,
         "HasActionOnZero": true,
@@ -98,7 +98,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_pickle_vat_sealed_vegetables",
-            "LocalizationKey": "Herbs_And_Fungi_PickleVatSealedVegetables_SpecialDurability2.CardStatName",
+            "LocalizationKey": "Herbs_And_Fungi_PickleVatSealedVegetables_SpecialDurability2_CardStatName",
             "DefaultText": "Quality"
         },
         "MaxValue": 100.0,

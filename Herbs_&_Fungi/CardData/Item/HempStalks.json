@@ -3,17 +3,17 @@
     "CardType": 0,
     "CardName": {
         "ParentObjectID": "herbs_fungi_hemp_stalks",
-        "LocalizationKey": "Herbs_And_Fungus_HempStalks_CardName",
+        "LocalizationKey": "Herbs_And_Fungi_HempStalks_CardName",
         "DefaultText": "Hemp Stalks"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_hemp_stalks",
-        "LocalizationKey": "Herbs_And_Fungus_HempStalks_CardDescription",
+        "LocalizationKey": "Herbs_And_Fungi_HempStalks_CardDescription",
         "DefaultText": "Can be processed to extract fibers for crafting."
     },
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_hemp_stalks",
-        "LocalizationKey": "Herbs_And_Fungus_HempStalks_CardHelpSection",
+        "LocalizationKey": "Herbs_And_Fungi_HempStalks_CardHelpSection",
         "DefaultText": "Hemp stalks contain strong fibers that can be extracted and used for making twine, rope, and fabric."
     },
     "ObjectWeight": 75.0,
@@ -40,7 +40,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_hemp_stalks",
-            "LocalizationKey": "Herbs_And_Fungus_HempStalks_SpecialDurability2.CardStatName",
+            "LocalizationKey": "Herbs_And_Fungi_HempStalks_SpecialDurability2_CardStatName",
             "DefaultText": "Quality"
         },
         "MaxValue": 96.0,
@@ -52,12 +52,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_hemp_stalks",
-                "LocalizationKey": "Herbs_And_Fungus_HempStalks_DismantleActions_Extract.ActionName",
+                "LocalizationKey": "Herbs_And_Fungi_HempStalks_DismantleActions_Extract_ActionName",
                 "DefaultText": "Extract Fibers"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_hemp_stalks",
-                "LocalizationKey": "Herbs_And_Fungus_HempStalks_DismantleActions_Extract.ActionDescription",
+                "LocalizationKey": "Herbs_And_Fungi_HempStalks_DismantleActions_Extract_ActionDescription",
                 "DefaultText": "Separate the fibers from the stalks."
             },
             "DaytimeCost": 1,

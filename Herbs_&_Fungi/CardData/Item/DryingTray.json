@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_drying_tray",
         "LocalizationKey": "Herbs_And_Fungi_DryingTray_CardDescription",
-        "DefaultText": "A woven reed tray with fine mesh for drying smaller herbs and plant materials. Can hold up to 3 items at once."
+        "DefaultText": "A woven reed tray with fine mesh for drying smaller herbs and plant materials. Can hold up to 6 items at once."
     },
     "CanBeRenamed": true,
     "AlternateNames": [],
@@ -20,7 +20,7 @@
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_drying_tray",
         "LocalizationKey": "Herbs_And_Fungi_DryingTray_CardHelpSection",
-        "DefaultText": "<b>Capacity:</b> Holds 3 small items for drying\n\n<b>Use:</b> Ideal for drying frostleaf, cut fireroot, appleweed, hemp flowers, and other small herbs.\n\n<b>Benefits:</b> Mesh design allows maximum airflow for faster drying."
+        "DefaultText": "<b>Capacity:</b> Holds 6 small items for drying\n\n<b>Use:</b> Ideal for drying frostleaf, cut fireroot, appleweed, hemp flowers, and other small herbs.\n\n<b>Benefits:</b> Mesh design allows maximum airflow for faster drying."
     },
     "CardImage": {
         "m_FileID": 0,
@@ -199,6 +199,16 @@
                 "OnlyWithLiquid": false,
                 "TagWarpData": "tag_Heatable",
                 "TagWarpType": 3
+            },
+            {
+                "Tag": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "NOT": false,
+                "OnlyWithLiquid": false,
+                "TagWarpData": "tag_DryingRackSanctuary",
+                "TagWarpType": 3
             }
         ]
     },
@@ -225,7 +235,8 @@
                 "ReceivingCardTagsWarpData": [
                     "tag_Dryable",
                     "tag_DryableFastSpoilable",
-                    "tag_QuickDryable"
+                    "tag_QuickDryable",
+                    "tag_DryingRackSanctuary"
                 ],
                 "ReceivingCardTagsWarpType": 3
             },

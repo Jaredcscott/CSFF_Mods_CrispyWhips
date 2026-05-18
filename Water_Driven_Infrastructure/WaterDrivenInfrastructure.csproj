@@ -24,6 +24,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Reference Include="CSFFModFramework">
+            <HintPath>lib\CSFFModFramework.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
         <Reference Include="0Harmony">
             <HintPath>lib\0Harmony.dll</HintPath>
             <Private>False</Private>
@@ -90,6 +94,7 @@
     <ItemGroup>
         <Content Include="CardData\**\*.*" CopyToOutputDirectory="PreserveNewest" />
         <Content Include="CharacterPerk\**\*.*" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="Data\**\*.*" CopyToOutputDirectory="PreserveNewest" />
         <Content Include="Localization\**\*.*" CopyToOutputDirectory="PreserveNewest" />
         <!-- PerkGroup removed: injection is handled by C# AddPerkToSituationalTab() -->
         <!-- ScriptableObject removed: CardTabGroup JSONs override vanilla tabs and break things.

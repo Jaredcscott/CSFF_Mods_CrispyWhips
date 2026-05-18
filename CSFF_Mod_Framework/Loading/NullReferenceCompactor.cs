@@ -89,7 +89,7 @@ internal static class NullReferenceCompactor
         {
             if (item == null) continue;
             try { Walk(item, visited); }
-            catch (Exception ex) { Log.Debug($"NullReferenceCompactor: walk failed on {item.GetType().Name}: {ex.Message}"); }
+            catch (Exception ex) { Log.Debug($"NullReferenceCompactor: walk failed on {item.GetType().Name}: {Log.ExceptionText(ex)}"); }
         }
 
         var mode = guided ? $"guided ({dirtyCount} dirty)" : "full sweep";
@@ -98,9 +98,10 @@ internal static class NullReferenceCompactor
         else
             Log.Debug($"NullReferenceCompactor: no null entries found across {_objectsVisited} objects [{mode}]");
 
-        _fieldsByType.Clear();
-        _walkableFieldsByType.Clear();
-        _typeHasUnityCollection.Clear();
+        // Type-classification caches (_fieldsByType / _walkableFieldsByType / _typeHasUnityCollection)
+        // are intentionally NOT cleared here: game types are static at runtime so the metadata
+        // never becomes stale. Persisting them avoids rebuilding the type analysis for every
+        // subsequent CompactAll pass (two per load, plus any future passes).
     }
 
     private static void Walk(object obj, HashSet<object> visited)

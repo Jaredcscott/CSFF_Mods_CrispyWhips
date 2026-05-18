@@ -1,6 +1,8 @@
 # Repeat Action
 
-**Version:** 1.3.7
+**Version:** 1.3.9
+**Author:** Jared (crispywhips)
+**For:** Card Survival: Fantasy Forest (EA 0.63)
 
 A quality-of-life mod that lets you automatically repeat your last action multiple times with a single keypress.
 

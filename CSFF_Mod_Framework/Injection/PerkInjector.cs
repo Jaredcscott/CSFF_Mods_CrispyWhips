@@ -1,5 +1,6 @@
 using CSFFModFramework.Data;
 using CSFFModFramework.Discovery;
+using CSFFModFramework.Reflection;
 using CSFFModFramework.Util;
 
 namespace CSFFModFramework.Injection;
@@ -10,34 +11,13 @@ internal static class PerkInjector
 
     public static void InjectAll(IEnumerable allData, List<ModManifest> mods)
     {
-        // Build map: perk UniqueID → target PerkGroup UniqueID
-        var perkToGroup = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-
-        foreach (var mod in mods)
-        {
-            var perkDir = Path.Combine(mod.DirectoryPath, "CharacterPerk");
-            if (!Directory.Exists(perkDir)) continue;
-
-            foreach (var file in Directory.GetFiles(perkDir, "*.json", SearchOption.AllDirectories))
-            {
-                try
-                {
-                    var json = File.ReadAllText(file);
-                    var uid = PathUtil.QuickExtractString(json, "UniqueID");
-                    if (string.IsNullOrEmpty(uid)) continue;
-
-                    var groupId = PathUtil.QuickExtractString(json, "CharacterPerkPerkGroup");
-                    perkToGroup[uid] = string.IsNullOrEmpty(groupId) ? SituationalPerkGroupGuid : groupId;
-                }
-                catch { }
-            }
-        }
-
-        if (perkToGroup.Count == 0) return;
-
-        // Build lookups
+        // Build lookups from already-loaded game data
         var perks = new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase);
         var groups = new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase);
+
+        // Cache type refs once to avoid string allocation + comparison per allData item
+        var perkTabGroupType = ReflectionCache.FindType("PerkTabGroup");
+        var perkGroupType    = ReflectionCache.FindType("PerkGroup");
 
         foreach (var item in allData)
         {
@@ -47,11 +27,30 @@ internal static class PerkInjector
             if (item is CharacterPerk)
                 perks[uidObj.UniqueID] = item;
 
-            // PerkTabGroup check via type name (we can't reference the type directly)
-            var typeName = item.GetType().Name;
-            if (typeName == "PerkTabGroup" || typeName == "PerkGroup")
+            var itemType = item.GetType();
+            if ((perkTabGroupType != null && itemType == perkTabGroupType) ||
+                (perkGroupType    != null && itemType == perkGroupType))
                 groups[uidObj.UniqueID] = item;
         }
+
+        if (perks.Count == 0) return;
+
+        // Build perk → group mapping from the JSON cache populated by JsonDataLoader.
+        // Iterates only mod-loaded UIDs — vanilla perks are not processed.
+        var perkToGroup = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        foreach (var uid in Loading.JsonDataLoader.AllModUniqueIds)
+        {
+            if (!perks.ContainsKey(uid)) continue; // not a CharacterPerk
+
+            string groupId = null;
+            if (Loading.JsonDataLoader.ParsedJsonByUniqueId.TryGetValue(uid, out var parsed)
+                && parsed.TryGetValue("CharacterPerkPerkGroup", out var g))
+                groupId = g as string;
+
+            perkToGroup[uid] = string.IsNullOrEmpty(groupId) ? SituationalPerkGroupGuid : groupId;
+        }
+
+        if (perkToGroup.Count == 0) return;
 
         // Cache ContainedPerks field per type (PerkTabGroup and PerkGroup have different FieldInfo)
         var containedPerksFieldCache = new Dictionary<Type, System.Reflection.FieldInfo>();
@@ -70,6 +69,24 @@ internal static class PerkInjector
 
         int injected = 0;
         int relocated = 0;
+
+        // Build inverted map: perk UniqueID → group UniqueIDs that currently contain it.
+        // Replaces the O(P×G) all-groups scan with a targeted lookup during removal.
+        var perkInGroupGuids = new Dictionary<string, List<string>>(StringComparer.OrdinalIgnoreCase);
+        foreach (var grpKvp in groups)
+        {
+            var fi = GetContainedPerks(grpKvp.Value);
+            if (fi?.GetValue(grpKvp.Value) is not IList containedList) continue;
+            foreach (var p in containedList)
+            {
+                if (p is UniqueIDScriptable us && !string.IsNullOrEmpty(us.UniqueID))
+                {
+                    if (!perkInGroupGuids.TryGetValue(us.UniqueID, out var gl))
+                        perkInGroupGuids[us.UniqueID] = gl = new List<string>();
+                    gl.Add(grpKvp.Key);
+                }
+            }
+        }
 
         foreach (var kvp in perkToGroup)
         {
@@ -96,24 +113,28 @@ internal static class PerkInjector
                     Loading.FrameworkDirtyTracker.MarkDirty(uidGroup);
             }
 
-            // Remove from all OTHER groups (game may have auto-placed perks in wrong tabs)
-            foreach (var otherGroup in groups.Values)
+            // Remove from groups where this perk already appeared (inverted-map lookup)
+            if (perkInGroupGuids.TryGetValue(kvp.Key, out var containingGroupGuids))
             {
-                if (otherGroup == group) continue;
-                var otherField = GetContainedPerks(otherGroup);
-                if (otherField == null) continue;
-                var otherPerks = otherField.GetValue(otherGroup) as IList;
-                if (otherPerks != null && otherPerks.Contains(perk))
+                foreach (var otherGroupGuid in containingGroupGuids)
                 {
-                    otherPerks.Remove(perk);
-                    relocated++;
-                    if (otherGroup is UniqueIDScriptable uidOther)
-                        Loading.FrameworkDirtyTracker.MarkDirty(uidOther);
+                    if (otherGroupGuid.Equals(targetGroupId, StringComparison.OrdinalIgnoreCase)) continue;
+                    if (!groups.TryGetValue(otherGroupGuid, out var otherGroup)) continue;
+                    var otherField = GetContainedPerks(otherGroup);
+                    if (otherField == null) continue;
+                    var otherPerks = otherField.GetValue(otherGroup) as IList;
+                    if (otherPerks != null && otherPerks.Contains(perk))
+                    {
+                        otherPerks.Remove(perk);
+                        relocated++;
+                        if (otherGroup is UniqueIDScriptable uidOther)
+                            Loading.FrameworkDirtyTracker.MarkDirty(uidOther);
+                    }
                 }
             }
         }
 
-        Log.Info($"PerkInjector: injected {injected} perks into groups" +
+        Log.Debug($"PerkInjector: injected {injected} perks into groups" +
                  (relocated > 0 ? $", relocated {relocated} from wrong tabs" : ""));
     }
 }

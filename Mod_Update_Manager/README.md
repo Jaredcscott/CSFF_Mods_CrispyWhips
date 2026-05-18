@@ -1,6 +1,6 @@
 # Mod Update Manager
 
-**Version:** 2.0.3  
+**Version:** 2.0.5  
 **Author:** Jared (crispywhips)  
 **For:** Card Survival: Fantasy Forest (EA 0.63)
 
@@ -105,7 +105,7 @@ For beta-compatible mod releases, include the supported CSFF build in the publis
 **Window does not open with F8**
 - Check `BepInEx/LogOutput.log` for errors.
 - Verify BepInEx is installed correctly.
-- Look for `Mod_Update_Manager v2.0.3 loaded.` in the log.
+- Look for `Mod_Update_Manager v2.0.5 loaded.` in the log.
 
 **API key not set**
 - Enter your Nexus API key in the Settings tab and click Save.

@@ -3,20 +3,20 @@
     "CardType": 0,
     "CardName": {
         "ParentObjectID": "herbs_fungi_hemp_flower_powder",
-        "LocalizationKey": "Herbs_And_Fungus_HempFlowerPowder_CardName",
+        "LocalizationKey": "Herbs_And_Fungi_HempFlowerPowder_CardName",
         "DefaultText": "Hemp Flower Powder"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_hemp_flower_powder",
-        "LocalizationKey": "Herbs_And_Fungus_HempFlowerPowder_CardDescription",
+        "LocalizationKey": "Herbs_And_Fungi_HempFlowerPowder_CardDescription",
         "DefaultText": "Finely ground hemp flower powder with enhanced properties. The highest quality form of processed hemp flowers."
     },
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_hemp_flower_powder",
-        "LocalizationKey": "Herbs_And_Fungus_HempFlowerPowder_CardHelpSection",
+        "LocalizationKey": "Herbs_And_Fungi_HempFlowerPowder_CardHelpSection",
         "DefaultText": "<b>Quality:</b> Premium product with strongest effects.\n\n<b>Storage:</b> Excellent preservation properties."
     },
-    "ObjectWeight": 50.0,
+    "ObjectWeight": 10,
     "TradingValue": 50.0,
     "AlwaysUpdate": true,
     "CardImage": {
@@ -41,7 +41,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_hemp_flower_powder",
-            "LocalizationKey": "Herbs_And_Fungus_HempFlowerPowder_SpoilageTime_CardStatName",
+            "LocalizationKey": "Herbs_And_Fungi_HempFlowerPowder_SpoilageTime_CardStatName",
             "DefaultText": "Spoilage"
         },
         "MaxValue": 3600.0,
@@ -55,7 +55,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_hemp_flower_powder",
-                "LocalizationKey": "Herbs_And_Fungus_HempFlowerPowder_SpoilageTime_OnFull_ActionDescription",
+                "LocalizationKey": "Herbs_And_Fungi_HempFlowerPowder_SpoilageTime_OnFull_ActionDescription",
                 "DefaultText": "Hemp Flower Powder Spoiled!"
             },
             "ReceivingCardChanges": {
@@ -86,7 +86,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_hemp_flower_powder",
-            "LocalizationKey": "Herbs_And_Fungus_HempFlowerPowder_SpecialDurability2_CardStatName",
+            "LocalizationKey": "Herbs_And_Fungi_HempFlowerPowder_SpecialDurability2_CardStatName",
             "DefaultText": "Quality"
         },
         "MaxValue": 192.0,
@@ -155,13 +155,13 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_hemp_flower_powder",
-                "LocalizationKey": "Herbs_And_Fungus_HempFlowerPowder_CardInteractions0_ActionName",
-                "DefaultText": "Mix with Fat"
+                "LocalizationKey": "Herbs_And_Fungi_HempFlowerPowder_CardInteractions0_ActionName",
+                "DefaultText": "Mix with Fat or Butter"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_hemp_flower_powder",
-                "LocalizationKey": "Herbs_And_Fungus_HempFlowerPowder_CardInteractions0_ActionDescription",
-                "DefaultText": "Combine with fat to create inactive hemp butter. Must be heated for 60-90 minutes to activate."
+                "LocalizationKey": "Herbs_And_Fungi_HempFlowerPowder_CardInteractions0_ActionDescription",
+                "DefaultText": "Combine with fat or butter to create inactive hemp butter. Must be heated for 60-90 minutes to activate."
             },
             "DaytimeCost": 0,
             "UseMiniTicks": 1,
@@ -172,7 +172,10 @@
                 "TriggerCards": [],
                 "TriggerTags": [],
                 "TriggerCardsWarpData": [
-                    "0eb3634f696991b4d97b91626270e035"
+                    "0eb3634f696991b4d97b91626270e035",
+                    "39ec586d846bac14e96e7f8c2431945d",
+                    "6d12c7ac4b8baf24fabeeedd77dc60da",
+                    "e2c13510dfb6fde418f280891ce797a3"
                 ],
                 "TriggerCardsWarpType": 3
             },
@@ -193,12 +196,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_hemp_flower_powder",
-                "LocalizationKey": "Herbs_And_Fungus_HempFlowerPowder_CardInteractions1_ActionName",
+                "LocalizationKey": "Herbs_And_Fungi_HempFlowerPowder_CardInteractions1_ActionName",
                 "DefaultText": "Burn"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_hemp_flower_powder",
-                "LocalizationKey": "Herbs_And_Fungus_HempFlowerPowder_CardInteractions1_ActionDescription",
+                "LocalizationKey": "Herbs_And_Fungi_HempFlowerPowder_CardInteractions1_ActionDescription",
                 "DefaultText": "Burn with fire to create aromatic smoke. Improves mood and reduces anxiety."
             },
             "DaytimeCost": 1,

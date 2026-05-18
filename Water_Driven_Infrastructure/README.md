@@ -1,100 +1,281 @@
 # Water Driven Infrastructure
 
-**Version:** 1.2.2  
-**Author:** Jared (crispywhips)  
-**For:** Card Survival: Fantasy Forest (EA 0.62d)
+**Version:** 1.3.2
+**Author:** Jared (crispywhips)
+**For:** Card Survival: Fantasy Forest (EA 0.63)
+**Requires:** CSFFModFramework + AdvancedCopperTools
 
 ---
 
 ## Overview
 
-Water Driven Infrastructure adds large-scale water-powered construction to CSFF. Build water wheels, sawmills, forges, grinding mills, ore sluices, and more along rivers.
+Water Driven Infrastructure adds large-scale, water-powered construction to Card Survival: Fantasy Forest. Build water wheels to harness river power, then connect them to sawmills, forges, grinding mills, ore sluices, and fishponds. The Mill Race Outlet lets you tap that water supply to draw unclean water at any outdoor location — no more long treks to the river.
 
-## WDI Feature Infographic
+All 14 blueprints are injected into the crafting journal automatically via `BlueprintTabs.json`.
 
-```mermaid
-flowchart TD
-	A[Water Source] --> B[Mill Race]
-	B --> C[Water Wheel]
-	C --> D[Water Mill Core]
+---
 
-	D --> E[Water-Driven Sawmill]
-	D --> F[Water-Driven Grinding Mill]
-	D --> G[Water-Driven Forge]
-	D --> H[Ore Sluice]
+## Infrastructure Chain
 
-	E --> E1[Automated wood processing]
-	F --> F1[Automated grinding workflows]
-	G --> G1[Smelts copper at 1100+ temperature]
-	G --> G2[Fires 15 clay item types]
-	H --> H1[Water-based ore processing]
-
-	I[Crafted Components] --> I1[Large and small copper gears]
-	I --> I2[Copper saw blade]
-	I --> I3[Portable build kits]
-	I --> D
-
-	J[Blueprint System] --> J1[11 blueprints]
-	J --> J2[Injected via BlueprintTabs.json]
-
-	K[Perk System] --> K1[3 character creation perks]
-
-	classDef featured fill:#ffe8a3,stroke:#9a6a00,stroke-width:2px,color:#1b1b1b;
-	classDef infra fill:#d6ecff,stroke:#1d5f8c,stroke-width:1px,color:#0f2a3a;
-	classDef support fill:#e9f7e9,stroke:#2f7a2f,stroke-width:1px,color:#123512;
-
-	class E,F,G,H featured;
-	class A,B,C,D infra;
-	class I,J,K support;
 ```
+Water Source (river / lake)
+ └── Mill Race ──────────────────────→ Mill Race Outlet  (draw water anywhere outdoors)
+                   └── Water Wheel
+                          └── Water Mill
+                                 ├── Water-Driven Sawmill
+                                 ├── Water-Driven Forge ──→ Water-Driven Workshop (upgrade)
+                                 ├── Water-Driven Grinding Mill
+                                 └── Ore Sluice
+                                 └── Fishpond
+```
+
+---
 
 ## Content
 
-### Structures
-- **Water Wheel** — powers other water-driven machines
-- **Water Mill** — base milling structure
-- **Mill Race** — channels water to power structures
-- **Water-Driven Sawmill** — automated wood processing
-- **Water-Driven Forge** — water-powered metalworking
-- **Water-Driven Grinding Mill** — automated grinding
-- **Ore Sluice** — water-based ore processing
+### Blueprint Tabs
 
-### Crafted Components
-- Copper Gear (Large & Small) — cast copper gears for machinery
-- Copper Saw Blade — circular blade for the sawmill
-- Various kit items for portable structure assembly
+| Tab | Blueprints |
+|-----|-----------|
+| **Advanced Tools** | Mill Race, Mill Race Outlet, Water Wheel, Water Mill, Ore Sluice (Empty) |
+| **Metal Crafts** | Cast Copper Gear (Large), Cast Copper Gear (Small), Cast Copper Saw Blade |
+| **Furniture** | Ore Sluice, Water-Driven Grinding Mill, Water-Driven Sawmill, Water-Driven Forge, Water-Driven Workshop Kit |
+| **Farming Agriculture** | Fishpond |
 
-### Water-Driven Forge
-- Smelts copper items (vanilla and mod) at 1100+ temperature
-- Fires 15 clay item types (bowls, plates, pots, crucibles, etc.)
-- Water-powered bellows for rapid heating
-- Vanilla smelting recipes and mod recipes injected automatically by CSFFModFramework's SmeltingRecipeInjector
+Mill Race directional improvements (N/S/E/W) appear in the **Environment Improvements** panel of each outdoor location — injected per-location at runtime; they do not appear in the crafting journal.
 
-### Blueprints
-11 blueprints across casting, construction, and assembly categories. Blueprints are injected into crafting tabs via `BlueprintTabs.json` (framework handles injection automatically).
+---
 
-### Perks
-3 character creation perks for starting with pre-built infrastructure.
+## Mill Race & Water Outlets
 
-## Requirements
+**Mill Race** — a wooden channel that directs river or lake water to your machines.
 
-- BepInEx 5.x
-- CSFFModFramework (latest)
-- Card Survival: Fantasy Forest (EA 0.62d)
+- Must be placed adjacent to a water source (river, lake, or stream)
+- Unlocked: 16 ticks research; 1-stage build
+- Required by most downstream blueprints
+
+**Mill Race Outlet** — taps the Mill Race to provide freely drawable unclean water anywhere outdoors.
+
+- Build one Mill Race, then construct the outlet at any outdoor location
+- Provides effectively unlimited unclean water (purify before drinking)
+- Freezes in winter; thaws in spring
+- Unlock: 32 ticks research
+
+---
+
+## Water Wheel & Water Mill
+
+**Water Wheel** — the primary power source.
+
+| Field | Value |
+|-------|-------|
+| Requires | 25 Planks, 20 Stone, 5 Clay, 1 Large Copper Gear |
+| Placement | Adjacent to a Mill Race |
+| Unlock | 48 ticks |
+
+**Water Mill** — converts wheel rotation into usable mechanical power; the base for all downstream machines.
+
+| Field | Value |
+|-------|-------|
+| Requires | 1 Water Wheel + 1 Mill Race + 1 Large Copper Gear |
+| Unlock | 48 ticks |
+
+---
+
+## Water-Driven Sawmill
+
+Automated wood processing — drag logs in, collect planks.
+
+**Multi-stage build** (unlock 96 ticks, requires Water Mill):
+
+| Stage | Materials |
+|-------|-----------|
+| 1 | Clay, Iron, Bellows, Flume |
+| 2 | Stone |
+| 3 | Saw, Planks |
+| 4 | Water Mill + Mill Race + 2× Large Gear + 4× Small Gear + Saw Blade |
+
+**Key features:**
+- **Cut** action (30 min): drag a log onto the sawmill → 8 Planks
+- 6-slot inventory; holds logs awaiting processing
+- **Pack Up** dismantle (1 hour): recovers all components as a portable kit
+
+---
+
+## Water-Driven Forge
+
+Water-powered forge that smelts at 1100°+ and adds a water-hammer for batch metalworking.
+
+**Multi-stage build** (unlock 64 ticks, requires Water Mill):
+
+| Stage | Materials |
+|-------|-----------|
+| 1 | Water Mill + Bellows + Flume |
+| 2 | 40 Stone + 40 Clay + 10 Planks |
+| 3 | 10 Brick + 1 Grate + 10 Planks |
+| 4 | 20 Planks + 10 Clay + 10 Iron |
+
+**Key features:**
+- Max temperature 1300°; cools −40°/hour when idle
+- Fuel capacity 96 units: firewood (+20), charcoal (+25), embers
+- **Blast** action: +480° temperature using water power (costs fuel + 1 hour)
+- **Smelt Ore**: requires 1100°+; processes Greenstone and other copper ores into ingots
+- Automatically copies vanilla kiln and smelting recipes; greenstone and copper ore smelting built in
+
+### Water-Driven Workshop (Upgrade)
+
+An upgrade on top of the forge adding batch metalworking and 14 inventory slots.
+
+**Build** (unlock 32 ticks): requires existing Forge Kit + Water Mill + Bellows + charcoal + gears
+
+**Additional actions:**
+- **Hammer All** (30 min): applies water-hammer to all inventory contents simultaneously
+- **Hammer Copper Sheet** (1 hour): 6 copper nuggets → 1 metal sheet
+- **Forge Copper Nails** (1 hour): 6 copper nuggets → 6 copper nails
+
+The Workshop is tagged `tag_SmeltingContainer` so vanilla PassiveEffects on ore items work correctly.
+
+---
+
+## Water-Driven Grinding Mill
+
+The water wheel drives the millstone — automates all grinding tasks.
+
+**Build** (unlock 96 ticks, requires Water Mill): Water Mill + Grinding Stone + 20 Planks + 10 Stone
+
+---
+
+## Ore Sluice
+
+Uses flowing water to separate and concentrate mineral deposits.
+
+**Two-stage build** (unlock 16 ticks, requires Mill Race):
+
+| Stage | Materials |
+|-------|-----------|
+| 1 — Sluice Frame | 12 Planks + 6 Copper Nails + hammering tool |
+| 2 — Ore Sluice | 10 Planks + 4 Stone + 1 Sluice Frame |
+
+Placement must be adjacent to a Mill Race.
+
+---
+
+## Fishpond
+
+A dug and stocked pond for sustained fish production.
+
+**Multi-stage build** (unlock 64 ticks, requires Mill Race):
+
+| Stage | Action |
+|-------|--------|
+| 1 | Dig with shovel (−25 durability) |
+| 2 | Dig with shovel (−25 durability) |
+| 3 | Dig with shovel (−25 durability) |
+| 4 | Stock: 10 Pike + 3 Perch + 15 Minnow + 30 Planks |
+| 5 | Supplement: 2 Pike + 2 Perch + 2 Minnow |
+
+Fish population grows over time and can be harvested periodically.
+
+---
+
+## Copper Casting
+
+Cast copper components in the forge from molten crucibles.
+
+| Blueprint | Requires | Unlock | Ingredients |
+|-----------|----------|:------:|-------------|
+| **Cast Large Copper Gear** | Forge | 16 ticks | Large Molten Crucible + Clay + Stone + hammer |
+| **Cast Small Copper Gear** | Forge | 8 ticks | Small Molten Crucible + Clay + Stone + hammer |
+| **Cast Copper Saw Blade** | Forge | 16 ticks | Large Molten Crucible + 10 Clay + 10 Stone + hammer |
+
+---
+
+## Character Creation Perks
+
+All perks are free (0 Moons cost) and appear in the **Situational** tab.
+
+| Perk | Starting Items |
+|------|---------------|
+| **Forge Start** | Water-Driven Forge Kit + 1 Mill Race component |
+| **Sawmill Start** | Water-Driven Sawmill Frame |
+| **Grinding Mill Start** | Water-Driven Grinding Mill Kit + 1 Mill Race component |
+
+---
 
 ## Installation
 
-1. Install BepInEx if not already installed
-2. Install CSFFModFramework
-3. Extract to `BepInEx/plugins/Water_Driven_Infrastructure/`
-4. Launch game
+### Requirements
 
-## Status
+- BepInEx 5.x
+- CSFFModFramework (latest)
+- **AdvancedCopperTools** (hard dependency — provides the copper ingot pipeline)
+- Card Survival: Fantasy Forest (EA 0.63)
 
-v1.1.1. All systems functional: sawmill, forge (with kiln recipes), grinding mill, ore sluice, water wheel, mill race, copper components, 11 blueprints, 3 starting perks.
+### Steps
+
+1. Install BepInEx 5.x if not already installed.
+2. Deploy CSFFModFramework to `BepInEx/plugins/CSFF_Mod_Framework/`.
+3. Deploy AdvancedCopperTools to `BepInEx/plugins/Advanced_Copper_Tools/`.
+4. Extract this mod to `BepInEx/plugins/Water_Driven_Infrastructure/`.
+5. Launch the game — check `BepInEx/LogOutput.log` for `WaterDrivenInfrastructure v1.3.2 loaded.`
+
+### Deployed layout
+
+```
+BepInEx/plugins/Water_Driven_Infrastructure/
+├── Water_Driven_Infrastructure.dll
+├── ModInfo.json
+├── BlueprintTabs.json
+├── SmeltingRecipes.json
+├── CardData/
+│   ├── Blueprint/
+│   ├── EnvImprovement/
+│   ├── Item/
+│   └── Location/
+├── CharacterPerk/
+├── Localization/SimpEn.csv
+└── Resource/Picture/
+```
+
+---
+
+## Harmony Patches
+
+| Patch | Purpose |
+|-------|---------|
+| **GameLoadPatch** | Loads mod data at startup |
+| **MillRaceNetwork** | Bidirectional mill race connectivity — both endpoints of a race must be complete before the connection activates; a single directional segment cannot power structures |
+| **ActionInterceptPatch** | Intercepts sawmill Cut, forge Blast, and Workshop Hammer All; handles inventory-backed blueprint button logic (checks station inventory before consuming) |
+| **FishpondPopulationPatch** | Fishpond population growth and periodic harvesting mechanics |
+
+All patches filter on this mod's UniqueIDs and never modify vanilla cards, drops, or stats.
+
+---
+
+## Compatibility
+
+- **AdvancedCopperTools** is required — this mod builds on its copper ingot and metalworking pipeline.
+- Works alongside HerbsAndFungi, RepeatAction, SkillSpeedBoost, SheepHusbandry, and other framework mods.
+- Safe to add to an existing save. Removing mid-save causes modded structures to disappear but does not corrupt the save file.
+
+---
+
+## Troubleshooting
+
+**Blueprints not appearing?** Verify both CSFFModFramework and AdvancedCopperTools are installed. Check `LogOutput.log` for their load messages.
+
+**Forge won't smelt?** Temperature must reach 1100°. Feed charcoal and use the Blast action before attempting to smelt.
+
+**Mill Race Outlet not producing water?** The outlet must be outdoors and a Mill Race must be built first. Outlets freeze in winter — wait until spring.
+
+**Workshop Hammer All does nothing?** Load tool blanks or copper components into the workshop's inventory slots first.
+
+**Sawmill Cut action missing?** The sawmill must be placed (not held as a kit) and a log must be dragged onto it.
+
+---
 
 ## Credits
 
 - **Author:** Jared (crispywhips)
-- **Framework:** CSFFModFramework + BepInEx & Harmony
+- **Framework:** [CSFFModFramework](https://github.com/jscott3/CSFF_Mods) + BepInEx & Harmony
 - **Game:** Card Survival: Fantasy Forest by WinterSpring Games

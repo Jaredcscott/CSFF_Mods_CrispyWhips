@@ -1,9 +1,9 @@
 # Advanced Copper Tools
 
 **Quality of Life & Advanced Metalworking**
-**Version:** 1.7.2
+**Version:** 1.7.7
 **Author:** Jared (crispywhips)
-**For:** Card Survival: Fantasy Forest (EA 0.62d)
+**For:** Card Survival: Fantasy Forest (EA 0.63)
 
 ---
 
@@ -17,11 +17,13 @@ Major systems:
 - **Small Copper Stove** — Portable 2-slot fireplace; component for the bathtub and tea station
 - **Wearable Metal Pan** — Multi-metal cookware that doubles as wearable equipment and a water-purifying pot
 - **Large Copper Saw** — Two-handed saw that drops large trees in 1–2 hits via a Harmony bonus
+- **Copper Armor Set** — Helmet, bracers, greaves, and torso armor crafted from copper sheets and nails
 - **Wheelbarrow** — Wearable cargo container that reduces effective weight
 - **Copper Bathtub** — 3-state placed structure (empty / cold / warm) with deep cleansing and morale benefits
 - **Metal Lantern** — 4-variant portable light (item × placed × lit × unlit) running on rendered oil
 - **Oil chain** — Render animal fat (or hemp seed oil with H&F installed) into clean lamp oil; carry it in a Copper Oil Flask
 - **Copper Tea Kettle** — Liquid container that boils water on any fire source
+- **Copper Cauldron** — Fire-placeable batch vessel with six cooking slots and a 6240 ml basin
 - **Tea Blending Station** — 3-variant kit / placed / lit workstation with six herb-and-grinding slots, a built-in 8-bowl water reservoir, passive drying, a "Grind All" action, and a heated reservoir while lit
 - **Copper Chest** (formerly "Copper Pantry") — Sealed, animal-safe storage that slows spoilage to 20% of normal
 
@@ -35,7 +37,8 @@ Blueprints register into vanilla crafting tabs via `BlueprintTabs.json`:
 |-----|-----------|
 | **Survival → Support** | Rendered Oil, Render Hemp Seed Oil |
 | **Metal & Clay → Metal Crafts** | Metal Sheet, Copper Nail, Forged Pan Blank, Wheel Rim, Wheel Hub (forged), Cast Wheel Hub, Cast Stove Top |
-| **Construction → Advanced Tools** | Wearable Metal Pan, Large Saw, Lantern Oilwell, Metal Lantern, Copper Tea Kettle, Copper Oil Flask, Wheelbarrow Bucket, Wheelbarrow Handles, Wheel Assembly, Wheelbarrow |
+| **Construction → Metal Tools** | Wearable Metal Pan, Large Saw, Lantern Oilwell, Copper Tea Kettle, Copper Oil Flask, Copper Cauldron, Copper Helmet, Copper Bracers, Copper Greaves, Copper Armor |
+| **Construction → Advanced Tools** | Metal Lantern, Wheelbarrow Bucket, Wheelbarrow Handles, Wheel Assembly, Wheelbarrow |
 | **Construction → Furniture** | Small Copper Stove, Copper Bathtub, Tea Blending Station, Copper Chest |
 
 Time fields throughout this README use the standard CSFF unit: **1 tick = 15 minutes in-game**. `BuildingDaytimeCost` is the build time per stage (capped at 12 to keep stages ≤ 3 hours).
@@ -104,6 +107,21 @@ A two-handled cutting tool that fells large trees substantially faster than the 
 - **Bonus:** A Harmony prefix on `GameManager.ActionRoutine` adds an extra **−25 Progress** when the saw is used on a large tree (pine, oak, birch, willow). Combined with the vanilla "Cut Tree" −25, that's −50 per swing — pine/willow fall in 1 swing, oak in 2 swings, birch in 2 (75 → 25 → 0).
 
 The saw still works on small trees through the normal `tag_Axe` interaction; the bonus only applies to the four large-tree variants.
+
+---
+
+## Copper Armor Set
+
+Wearable copper armor pieces protect specific body zones when equipped. Each piece uses the new armor artwork in `Resource/Picture/` and can be dismantled back into its spent materials.
+
+| Piece | Protection | Recipe | Build | Unlock |
+|-------|------------|--------|------:|-------:|
+| **Copper Helmet** | Head +30 | 4 metal sheets + 2 copper nails + 1 rope + hammer (no spend) | 4 ticks | 24 ticks |
+| **Copper Bracers** | Arms +15 each | 3 metal sheets + 2 copper nails + 1 rope + hammer (no spend) | 4 ticks | 16 ticks |
+| **Copper Greaves** | Legs +15 each | 4 metal sheets + 2 copper nails + 1 rope + hammer (no spend) | 4 ticks | 24 ticks |
+| **Copper Armor** | Torso +30 | 6 metal sheets + 4 copper nails + 2 rope + hammer (no spend) | 6 ticks | 32 ticks |
+
+All four blueprints are research-gated by having at least one Metal Sheet and appear under **Construction → Metal Tools**. At full durability, the copper set's durability multiplier raises these values enough to fill the Armor stat when replacing the leather cuirass, helmet, greaves, and bracers while keeping the usual gloves, shoes, tunic, and trousers equipped.
 
 ---
 
@@ -192,6 +210,21 @@ A copper liquid container (build 3 ticks, unlock 16 ticks; 3 metal sheets + hamm
 
 ---
 
+## Copper Cauldron
+
+A large portable cooking vessel for batch cooking and brewing. Place the cauldron into a lit campfire, fireplace, fire pit, stove, or other fire source to heat it like the vanilla clay cauldron.
+
+**Recipe** (build 6 ticks, unlock 48 ticks): 5 metal sheets + 4 copper nails + hammer (not consumed).
+
+**Features**
+
+- Six ingredient slots for batch cooking multiple `tag_Cookable` or `tag_Boilable` items
+- 6240 ml open basin; boil/brew recipes require liquid in the cauldron
+- Accepted by vanilla-style fire inventories through cooking-container tags
+- Cools down when removed from heat, matching vanilla cooking containers
+
+---
+
 ## Tea Blending Station (3-variant)
 
 A dedicated workbench with six herb-and-grinding slots, a built-in 8-bowl water reservoir, an integrated copper stove, and a Grind All action.
@@ -228,17 +261,25 @@ A sealed copper chest with thick insulated walls (build 10 ticks, unlock 32 tick
 
 ## Smelting Recovery
 
-Every metal item is in `SmeltingRecipes.json` so you can melt it back down for nuggets:
+All crafted metal items can be melted back down for nuggets in the furnace (the Copper Oil Flask is the sole exception — its leather binding is not recovered):
 
 | Item | Nuggets returned |
 |------|-----------------:|
 | Copper Nail | 1 |
-| Wheel Hub / Pan Blank / Shaped Pan / Wearable Pan | 3–4 |
-| Metal Sheet / Wheel Rim / Stove Top Mold / Cast Stove Top / Lantern Oilwell | 5–6 |
+| Shaped Metal Pan Head | 4 |
+| Wearable Metal Pan | 5 |
+| Metal Sheet / Wheel Hub / Wheel Rim / Stove Top Mold / Cast Stove Top / Lantern Oilwell | 6 |
+| Wheel Assembly | 12 |
 | Large Saw | 16 |
 | Copper Tea Kettle | 18 |
-| Copper Chest | 24 |
-| Wheelbarrow Bucket | 48 |
+| Copper Bracers | 11 |
+| Copper Helmet | 15 |
+| Copper Greaves | 15 |
+| Copper Armor | 23 |
+| Small Copper Stove / Copper Chest | 30 |
+| Copper Cauldron | 34 |
+| Tea Station Kit / Wheelbarrow Bucket | 48 |
+| Copper Bathtub | 78 |
 
 All recipes use a duration of 8 ticks in the smelter.
 
@@ -263,13 +304,13 @@ All perks land on the Situational tab via the framework's perk injector.
 
 ## Harmony Patches
 
-Three small Harmony patches handle gameplay logic that JSON alone can't express:
+Two active Harmony patches handle gameplay logic that JSON alone can't express, with one opt-in compatibility fallback:
 
-- **`SawEffectPatch`** — `GameManager.ActionRoutine` prefix; adds −25 Progress when the Large Saw is dragged onto one of the four large-tree GUIDs.
-- **`TeaStationPatch`** — `GameManager.ActionRoutine` + `PerformStackActionRoutine` prefixes; resolves the "Grind All" DismantleAction for both unlit and lit station variants by reading each held card's own Grind CardInteraction and ejecting the ground results onto the board.
-- **`HeatHeldLiquidPatch`** — `GameManager.Update` postfix; once per daytime point, bumps `LiquidFuelValue` on each lit Tea Station that holds liquid, counteracting the vanilla "Cool Down" passive on `LQ_Water` and reaching max temp in ~2 dtp.
+- **`SawEffectPatch`** — `GameManager.ActionRoutine` / `CardOnCardActionRoutine` prefix; adds −25 Progress when the Large Saw is dragged onto one of the four large-tree GUIDs.
+- **`TeaStationPatch`** — `GameManager.ActionRoutine`, `CardOnCardActionRoutine`, and `PerformStackActionRoutine` hooks; resolves "Grind All" for both station variants and applies the targeted `Draw Boiled Water` fix after JSON fills the bowl, so spawned water is actually hot and one reservoir charge is consumed.
+- **`HeatHeldLiquidPatch`** — disabled by default; enable `Compatibility.EnableLegacyStationLiquidHeater` only for beta/testing layouts where a lit Tea Station stores real liquid on the station card. Current Tea Stations use Water Temp / Water Charges stats instead.
 
-All three are mod-scoped: they filter on this mod's UniqueIDs and never modify vanilla cards, drops, or stats.
+These hooks are mod-scoped: they filter on this mod's UniqueIDs and never modify vanilla cards, drops, or stats.
 
 ---
 
@@ -279,14 +320,14 @@ All three are mod-scoped: they filter on this mod's UniqueIDs and never modify v
 
 - BepInEx 5.x
 - CSFFModFramework
-- Card Survival: Fantasy Forest (EA 0.62d)
+- Card Survival: Fantasy Forest (EA 0.63)
 
 ### Steps
 
 1. Install BepInEx if not already installed.
 2. Install CSFFModFramework in `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. Drop this mod folder at `BepInEx/plugins/Advanced_Copper_Tools/`.
-4. Launch the game — content loads automatically; check `BepInEx/LogOutput.log` for `Advanced_Copper_Tools v1.7.2 loaded.`
+4. Launch the game — content loads automatically; check `BepInEx/LogOutput.log` for `Advanced_Copper_Tools v1.7.7 loaded.`
 
 ### Deployed file structure
 
@@ -311,6 +352,7 @@ BepInEx/plugins/Advanced_Copper_Tools/
 
 - Works alongside HerbsAndFungi, WaterDrivenInfrastructure, RepeatAction, and other framework-based mods.
 - Depends on CSFFModFramework for JSON loading, WarpData resolution, sprites, perks, and blueprint tab injection.
+- Declares HerbsAndFungi as a soft dependency so the optional hemp-oil recipe loads after H&F when it is installed.
 - The `Render Hemp Seed Oil` blueprint references an H&F card — without H&F installed, the recipe registers but its ingredient cannot be obtained.
 - No vanilla items, drops, or stats are modified. Safe to add to existing saves; safe to remove (modded items disappear without corrupting the save).
 
@@ -318,7 +360,7 @@ BepInEx/plugins/Advanced_Copper_Tools/
 
 ## Troubleshooting
 
-**Blueprints not appearing?** Verify CSFFModFramework is loaded — check `LogOutput.log` for `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.7.0 loaded.`
+**Blueprints not appearing?** Verify CSFFModFramework is loaded — check `LogOutput.log` for `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.7.7 loaded.`
 
 **Pan / kettle won't boil?** It must be on a *lit* fire source with fuel remaining. Vanilla water types boil via their own `LiquidFuelValue` OnFull transform; if the liquid isn't a heatable type, nothing happens.
 
@@ -327,6 +369,49 @@ BepInEx/plugins/Advanced_Copper_Tools/
 **Tea Station won't pick up?** The reservoir must be empty AND the stove must be unlit. Extinguish first, then drain water.
 
 **Items show `[MISSING]` text?** `Localization/SimpEn.csv` is missing or corrupted — re-extract the mod folder.
+
+---
+
+## Version History
+
+### v1.7.7 (current)
+- EA 0.63f compatibility; blueprint tab injector updated to use live UI tabs (fixes journal tab disappearing on EA 0.63f)
+- `StartUnlocked` / `ConstantlyChecking` fields corrected across all operation blueprints
+
+### v1.7.6
+- CardData JSON fixes for smelting and WarpData resolution; copper item smelting pattern aligned to Progress-based passive smelting
+
+### v1.7.5
+- EA 0.63 compatibility pass
+- `HeatHeldLiquidPatch` disabled by default; Tea Station uses Water Temp / Water Charges stats (legacy liquid-on-station layout removed)
+- Startup log normalized to single Info line per CSFF mod logging norms
+- `TeaStationPatch`: draw-boiled-water fix applies one reservoir charge on spawn so output is hot
+
+### v1.7.4
+- Copper Chest (formerly Copper Pantry): 20% spoilage rate, animal-safe (no `tag_NotSafeFromAnimals`), 4 sheets + 4 planks + 6 nails recipe
+- Tea Blending Station: 8-bowl water reservoir with Draw Cold Water / Draw Boiled Water actions
+- Grind All action reads each slot card's own Grind CI — no `tag_Millable` gate required
+
+### v1.7.1
+- Tea Blending Station v1: 3-variant kit/placed/lit, 6 herb-drying slots, passive drying recipe, integrated copper stove
+- Copper Cauldron: 6 cooking slots, 6240 ml basin
+
+### v1.6.x
+- Copper Bathtub: 3-state empty/cold/warm with deep cleansing and morale bonuses
+- Metal Lantern: 4-variant portable light (item × placed × lit × unlit) with rendered oil fuel
+- Oil chain: rendered animal fat → lamp oil; Copper Oil Flask for transport
+
+### v1.5.x
+- Wheelbarrow: 4-sub-assembly wearable cargo container with weight reduction
+- Copper Tea Kettle: boils water on any fire source
+
+### v1.4.x
+- Small Copper Stove: portable 2-slot fireplace
+- Wearable Metal Pan: multi-metal, wearable, water-purifying
+- Large Copper Saw: −25 Progress Harmony bonus on large trees
+
+### v1.0.x
+- Initial release: Metal Sheets, Copper Nails, basic metalworking blueprints
 
 ---
 

@@ -116,7 +116,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_pickling_vat",
-            "LocalizationKey": "Herbs_And_Fungi_PicklingVat_SpecialDurability2.CardStatName",
+            "LocalizationKey": "Herbs_And_Fungi_PicklingVat_SpecialDurability2_CardStatName",
             "DefaultText": "Quality"
         },
         "MaxValue": 100.0,

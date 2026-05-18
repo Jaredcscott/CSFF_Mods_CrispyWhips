@@ -16,7 +16,7 @@
         "LocalizationKey": "Herbs_And_Fungi_Bp_DryingStack_UnlockConditionsDesc",
         "DefaultText": "Unlocked after crafting or obtaining a Drying Tray"
     },
-    "BlueprintUnlockTicksCost": 16.0,
+    "BlueprintUnlockTicksCost": 32.0,
     "BuildingStatConditions": [],
     "StartUnlocked": false,
     "CardsOnBoard": [

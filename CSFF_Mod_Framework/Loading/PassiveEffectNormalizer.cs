@@ -37,9 +37,11 @@ internal static class PassiveEffectNormalizer
         {
             if (item == null) continue;
 
-            // Only normalize mod items — never touch vanilla data
-            var uid = item.GetType().GetField("UniqueID", InstanceFlags)?.GetValue(item) as string;
-            if (string.IsNullOrEmpty(uid) || !modUniqueIds.Contains(uid)) continue;
+            // UniqueIDScriptable is the common base for all allData entries.
+            // Direct cast avoids per-item uncached GetField reflection.
+            if (!(item is UniqueIDScriptable uidItem)
+                || string.IsNullOrEmpty(uidItem.UniqueID)
+                || !modUniqueIds.Contains(uidItem.UniqueID)) continue;
 
             try
             {

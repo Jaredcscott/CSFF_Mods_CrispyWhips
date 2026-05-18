@@ -14,7 +14,7 @@
   "UnlockConditionsDesc": {
     "ParentObjectID": "advanced_copper_tools_bp_lantern_oilwell",
     "LocalizationKey": "Advanced_Copper_Tools_Bp_LanternOilwell_UnlockConditionsDesc",
-    "DefaultText": "Metal Sheet Needed"
+    "DefaultText": "Copper Sheet Needed"
   },
   "BuildingStatConditions": [],
   "StartUnlocked": false,
@@ -128,6 +128,6 @@
   },
   "CardImageWarpData": "Lantern_Oilwell",
   "CardImageWarpType": 3,
-  "BlueprintUnlockTicksCost": 8.0,
+  "BlueprintUnlockTicksCost": 16.0,
   "ResearchedNotification": 0
 }

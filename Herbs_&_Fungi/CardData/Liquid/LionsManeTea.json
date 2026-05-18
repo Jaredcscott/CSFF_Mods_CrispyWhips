@@ -164,7 +164,6 @@
         }
     ],
     "MaxLiquidCapacity": 0.0,
-    "ObjectWeight": 0.33,
     "MaxStack": 1,
     "DroppedCardShadow": 1
 }

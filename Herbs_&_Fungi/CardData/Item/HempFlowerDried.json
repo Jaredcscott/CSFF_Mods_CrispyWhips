@@ -3,20 +3,20 @@
     "CardType": 0,
     "CardName": {
         "ParentObjectID": "herbs_fungi_hemp_flower_dried",
-        "LocalizationKey": "Herbs_And_Fungus_HempFlowerDried_CardName",
+        "LocalizationKey": "Herbs_And_Fungi_HempFlowerDried_CardName",
         "DefaultText": "Dried Hemp Flower"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_hemp_flower_dried",
-        "LocalizationKey": "Herbs_And_Fungus_HempFlowerDried_CardDescription",
+        "LocalizationKey": "Herbs_And_Fungi_HempFlowerDried_CardDescription",
         "DefaultText": "Dried flowering tops with psychoactive properties. Can be ground into powder or burned on fires to create aromatic smoke with mood-enhancing effects."
     },
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_hemp_flower_dried",
-        "LocalizationKey": "Herbs_And_Fungus_HempFlowerDried_CardHelpSection",
+        "LocalizationKey": "Herbs_And_Fungi_HempFlowerDried_CardHelpSection",
         "DefaultText": "<b>Processing:</b> Grind with rock for premium quality (+50), or use axes/knives/quern/mortar for standard quality (+25).\n\n<b>Burning:</b> Burn on any fire to create smoke that improves mood and reduces anxiety. Each flower adds 5% smoke to indoor spaces.\n\n<b>Warning:</b> Too much smoke (3+ flowers) becomes harmful despite mental benefits."
     },
-    "ObjectWeight": 100.0,
+    "ObjectWeight": 50,
     "TradingValue": 25.0,
     "AlwaysUpdate": true,
     "CardImage": {
@@ -41,7 +41,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_hemp_flower_dried",
-            "LocalizationKey": "Herbs_And_Fungus_HempFlowerDried_SpoilageTime_CardStatName",
+            "LocalizationKey": "Herbs_And_Fungi_HempFlowerDried_SpoilageTime_CardStatName",
             "DefaultText": "Spoilage"
         },
         "MaxValue": 2000.0,
@@ -55,7 +55,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_hemp_flower_dried",
-                "LocalizationKey": "Herbs_And_Fungus_HempFlowerDried_SpoilageTime_OnFull_ActionDescription",
+                "LocalizationKey": "Herbs_And_Fungi_HempFlowerDried_SpoilageTime_OnFull_ActionDescription",
                 "DefaultText": "Dried Hemp Flower Spoiled!"
             },
             "ReceivingCardChanges": {
@@ -86,7 +86,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_hemp_flower_dried",
-            "LocalizationKey": "Herbs_And_Fungus_HempFlowerDried_SpecialDurability2_CardStatName",
+            "LocalizationKey": "Herbs_And_Fungi_HempFlowerDried_SpecialDurability2_CardStatName",
             "DefaultText": "Quality"
         },
         "MaxValue": 144.0,
@@ -103,7 +103,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_hemp_flower_dried",
-            "LocalizationKey": "Herbs_And_Fungus_HempFlowerDried_SpecialDurability3_CardStatName",
+            "LocalizationKey": "Herbs_And_Fungi_HempFlowerDried_SpecialDurability3_CardStatName",
             "DefaultText": "Mill"
         },
         "MaxValue": 1.0,
@@ -134,12 +134,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_hemp_flower_dried",
-                "LocalizationKey": "Herbs_And_Fungus_HempFlowerDried_CardInteractions[0]_ActionName",
+                "LocalizationKey": "Herbs_And_Fungi_HempFlowerDried_CardInteractions[0]_ActionName",
                 "DefaultText": "Grind"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_hemp_flower_dried",
-                "LocalizationKey": "Herbs_And_Fungus_HempFlowerDried_CardInteractions[0]_ActionDescription",
+                "LocalizationKey": "Herbs_And_Fungi_HempFlowerDried_CardInteractions[0]_ActionDescription",
                 "DefaultText": "Premium grinding with rock. Increases quality by 50 and costs less effort."
             },
             "DaytimeCost": 1,
@@ -226,12 +226,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_hemp_flower_dried",
-                "LocalizationKey": "Herbs_And_Fungus_HempFlowerDried_CardInteractions[1]_ActionName",
+                "LocalizationKey": "Herbs_And_Fungi_HempFlowerDried_CardInteractions[1]_ActionName",
                 "DefaultText": "Grind"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_hemp_flower_dried",
-                "LocalizationKey": "Herbs_And_Fungus_HempFlowerDried_CardInteractions[1]_ActionDescription",
+                "LocalizationKey": "Herbs_And_Fungi_HempFlowerDried_CardInteractions[1]_ActionDescription",
                 "DefaultText": "Standard grinding with axes, knives, quern, or mortar. Increases quality by 25 but uses more energy."
             },
             "DaytimeCost": 1,
@@ -319,12 +319,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_hemp_flower_dried",
-                "LocalizationKey": "Herbs_And_Fungus_HempFlowerDried_CardInteractions[2]_ActionName",
+                "LocalizationKey": "Herbs_And_Fungi_HempFlowerDried_CardInteractions[2]_ActionName",
                 "DefaultText": "Burn"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_hemp_flower_dried",
-                "LocalizationKey": "Herbs_And_Fungus_HempFlowerDried_CardInteractions[2]_ActionDescription",
+                "LocalizationKey": "Herbs_And_Fungi_HempFlowerDried_CardInteractions[2]_ActionDescription",
                 "DefaultText": "Burn on fire to create aromatic smoke. Improves mood and reduces anxiety. Outdoors: repels mosquitoes but alerts all animals in the area, preventing sneak attacks. Indoors: adds 5% smoke to enclosed spaces."
             },
             "DaytimeCost": 1,
@@ -392,7 +392,7 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_hemp_flower_dried",
-                "LocalizationKey": "Herbs_And_Fungus_HempFlowerDried_OnStatsChangeActions[0]_ActionName",
+                "LocalizationKey": "Herbs_And_Fungi_HempFlowerDried_OnStatsChangeActions[0]_ActionName",
                 "DefaultText": "Finish Rotary Quern Grinding"
             },
             "ActionDescription": {

@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_herb_pipe_hemp",
     "CardName": {
         "ParentObjectID": "herbs_fungi_herb_pipe_hemp",
-        "LocalizationKey": "Herbs_And_Fungus_HerbPipeHemp_CardName",
+        "LocalizationKey": "Herbs_And_Fungi_HerbPipeHemp_CardName",
         "DefaultText": "Herb Pipe (Hemp)"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_herb_pipe_hemp",
-        "LocalizationKey": "Herbs_And_Fungus_HerbPipeHemp_CardDescription",
+        "LocalizationKey": "Herbs_And_Fungi_HerbPipeHemp_CardDescription",
         "DefaultText": "A carved wooden pipe loaded with hemp flower powder. Ready to smoke."
     },
     "CardType": 0,
@@ -41,7 +41,7 @@
         "FloatValue": 99.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_herb_pipe_hemp",
-            "LocalizationKey": "Herbs_And_Fungus_HerbPipeHemp_SpecialDurability2_CardStatName",
+            "LocalizationKey": "Herbs_And_Fungi_HerbPipeHemp_SpecialDurability2_CardStatName",
             "DefaultText": "Quality"
         },
         "MaxValue": 99.0,
@@ -56,7 +56,7 @@
         "OnZero": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_herb_pipe_hemp",
-                "LocalizationKey": "Herbs_And_Fungus_HerbPipeHemp_OnZero",
+                "LocalizationKey": "Herbs_And_Fungi_HerbPipeHemp_OnZero",
                 "DefaultText": "Pipe Empty!"
             },
             "ProducedCards": [
@@ -90,12 +90,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_herb_pipe_hemp",
-                "LocalizationKey": "Herbs_And_Fungus_HerbPipeHemp_CardInteractions0_ActionName",
+                "LocalizationKey": "Herbs_And_Fungi_HerbPipeHemp_CardInteractions0_ActionName",
                 "DefaultText": "Smoke Hemp"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_herb_pipe_hemp",
-                "LocalizationKey": "Herbs_And_Fungus_HerbPipeHemp_CardInteractions0_ActionDescription",
+                "LocalizationKey": "Herbs_And_Fungi_HerbPipeHemp_CardInteractions0_ActionDescription",
                 "DefaultText": "Light and smoke the hemp. Relaxing and calming effects."
             },
             "DaytimeCost": 1,
@@ -174,12 +174,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_herb_pipe_hemp",
-                "LocalizationKey": "Herbs_And_Fungus_HerbPipeHemp_DismantleActions0_ActionName",
+                "LocalizationKey": "Herbs_And_Fungi_HerbPipeHemp_DismantleActions0_ActionName",
                 "DefaultText": "Empty Pipe"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_herb_pipe_hemp",
-                "LocalizationKey": "Herbs_And_Fungus_HerbPipeHemp_DismantleActions0_ActionDescription",
+                "LocalizationKey": "Herbs_And_Fungi_HerbPipeHemp_DismantleActions0_ActionDescription",
                 "DefaultText": "Dump out the hemp powder without smoking it."
             },
             "DaytimeCost": 0,

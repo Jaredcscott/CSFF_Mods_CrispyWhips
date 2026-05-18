@@ -72,6 +72,8 @@
     "StartingStatModifiers": [],
     "StatsObjectives": [],
     "SunsCost": 0,
+    "TagsOnBoardObjectives": [],
+    "TimeObjectives": [],
     "UniqueID": "herbs_fungi_perk_edibles_kit",
     "CharacterPerkPerkGroup": "72120cda8e1cef540b1b25118dd7edaa"
 }

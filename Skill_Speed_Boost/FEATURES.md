@@ -26,8 +26,8 @@ Complete documentation of all features, configuration options, and systems.
 - `SkillExpMultiplier` (default: `1`, allowed: `1-10`) — Global XP multiplier
 
 **How It Works:**
-- Applied to all skill XP gains at runtime
-- Changes take effect immediately — multipliers are applied at runtime via the `ChangeStatValue` postfix
+- Applied to all skill XP gains at runtime (no load-time cost — fires only on skill XP gains)
+- Changes to this setting take effect after reloading a save or restarting the game
 - Overridden by per-skill multipliers if per-skill customization is enabled
 
 **Example:** Double all XP gains:
@@ -132,7 +132,7 @@ AreaFamiliarityVisitsForMaxBonus = 80
 ## Troubleshooting
 
 **Issue:** "SkillExpMultiplier changed but didn't apply"
-- *Solution:* Config values are live-bound — changes to the `.cfg` file take effect on the next skill XP gain without restarting. Ensure you saved the config file and check the spelling matches exactly (e.g. `SkillExpMultiplier`, not `SkillXpMultiplier`).
+- *Solution:* Reload your save or restart the game. Changes to `.cfg` files require a restart to take effect. Ensure the spelling matches exactly (e.g. `SkillExpMultiplier`, not `SkillXpMultiplier`).
 
 **Issue:** Per-skill settings not applying
 - *Solution:* Ensure `EnablePerSkillMultipliers = true`. Check config file spelling matches skill names exactly (e.g. `Smithing`, not `smithing`).

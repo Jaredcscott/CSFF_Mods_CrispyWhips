@@ -28,7 +28,7 @@
   "PerkDescription": {
     "ParentObjectID": "water_sawmill_perk_forge_start",
     "LocalizationKey": "Water_Sawmill_Perk_ForgeStart_PerkDescription",
-    "DefaultText": "Start with a water-driven forge kit and mill race component. Place near a river to create a powerful water-powered metalworking station."
+    "DefaultText": "Start with a water-driven forge kit and mill race component. Place near water or a connected mill race outlet to build a water-powered metalworking station."
   },
   "PerkUnlockConditions": {
     "ParentObjectID": "",

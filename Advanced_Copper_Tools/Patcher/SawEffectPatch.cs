@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using HarmonyLib;
 using BepInEx.Logging;
+using CSFFModFramework.Util;
 
 namespace Advanced_Copper_Tools.Patcher
 {
@@ -29,10 +31,7 @@ namespace Advanced_Copper_Tools.Patcher
         private static readonly BindingFlags Flags =
             BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
 
-        // Cached reflection accessors (populated on first use)
-        private static PropertyInfo _cardModelProp;
-        private static FieldInfo _uniqueIdField;
-        private static bool _reflectionCached;
+        // No local reflection caches — CardUtil handles card identity and method resolution.
 
         public static void ApplyPatch(Harmony harmony)
         {
@@ -45,7 +44,7 @@ namespace Advanced_Copper_Tools.Patcher
                     return;
                 }
 
-                var actionRoutine = AccessTools.Method(gameManagerType, "ActionRoutine");
+                var actionRoutine = FindActionRoutine(gameManagerType);
                 if (actionRoutine == null)
                 {
                     Logger.LogError("[SawEffect] GameManager.ActionRoutine not found.");
@@ -57,8 +56,15 @@ namespace Advanced_Copper_Tools.Patcher
             }
             catch (Exception ex)
             {
-                Logger.LogError($"[SawEffect] Failed to apply patch: {ex.Message}");
+                Logger.LogError($"[SawEffect] Failed to apply patch: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
+        }
+
+        private static MethodInfo FindActionRoutine(Type gameManagerType)
+        {
+            // EA 0.63+: drag-onto-card handler renamed to CardOnCardActionRoutine; fall back to ActionRoutine.
+            return CardUtil.FindMethodBySignature(gameManagerType, "CardOnCardActionRoutine", "CardOnCardAction", "InGameCardBase")
+                ?? CardUtil.FindMethodBySignature(gameManagerType, "ActionRoutine", "CardAction", "InGameCardBase");
         }
 
         /// <summary>
@@ -74,10 +80,10 @@ namespace Advanced_Copper_Tools.Patcher
             {
                 if (_GivenCard == null || _ReceivingCard == null) return;
 
-                string givenUid = GetCardUniqueId(_GivenCard);
+                string givenUid = CardUtil.GetCardUniqueId(_GivenCard);
                 if (givenUid != SawUniqueID) return;
 
-                string recvUid = GetCardUniqueId(_ReceivingCard);
+                string recvUid = CardUtil.GetCardUniqueId(_ReceivingCard);
                 if (recvUid == null || !LargeTreeGuids.Contains(recvUid)) return;
 
                 // Apply extra -25 Progress damage to the tree
@@ -90,36 +96,8 @@ namespace Advanced_Copper_Tools.Patcher
             catch (Exception ex)
             {
                 // Silently fail — don't break the game action
-                Logger.LogError($"[SawEffect] Prefix error: {ex.Message}");
+                Logger.LogError($"[SawEffect] Prefix error: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
-        }
-
-        private static string GetCardUniqueId(object inGameCard)
-        {
-            if (inGameCard == null) return null;
-
-            CacheReflection(inGameCard);
-
-            if (_cardModelProp == null) return null;
-            var cardData = _cardModelProp.GetValue(inGameCard);
-            if (cardData == null) return null;
-
-            if (_uniqueIdField == null)
-                _uniqueIdField = cardData.GetType().GetField("UniqueID", Flags)
-                              ?? AccessTools.Field(cardData.GetType(), "UniqueID");
-            if (_uniqueIdField == null) return null;
-
-            return _uniqueIdField.GetValue(cardData) as string;
-        }
-
-        private static void CacheReflection(object inGameCard)
-        {
-            if (_reflectionCached) return;
-            _reflectionCached = true;
-
-            var cardType = inGameCard.GetType();
-            _cardModelProp = cardType.GetProperty("CardModel", Flags)
-                          ?? cardType.GetProperty("CardData", Flags);
         }
 
         /// <summary>
@@ -237,5 +215,6 @@ namespace Advanced_Copper_Tools.Patcher
             }
             return false;
         }
+
     }
 }

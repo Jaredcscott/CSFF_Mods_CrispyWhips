@@ -31,11 +31,11 @@ internal static class CheatsPatchCompat
 
             harmony.Patch(typeByName,
                 postfix: new HarmonyMethod(typeof(CheatsPatchCompat), nameof(TypeByName_Postfix)));
-            Util.Log.Info("CheatsPatchCompat: patched AccessTools.TypeByName — UCheatsManager → CheatsManager alias active.");
+            Util.Log.Debug("CheatsPatchCompat: patched AccessTools.TypeByName — UCheatsManager -> CheatsManager alias active.");
         }
         catch (Exception ex)
         {
-            Util.Log.Warn($"CheatsPatchCompat: failed to patch AccessTools.TypeByName: {ex.Message}");
+            Util.Log.Warn($"CheatsPatchCompat: failed to patch AccessTools.TypeByName: {ex.InnerException?.ToString() ?? ex.ToString()}");
         }
     }
 
@@ -44,6 +44,6 @@ internal static class CheatsPatchCompat
         if (__result != null || name != "UCheatsManager") return;
         __result = AccessTools.TypeByName("CheatsManager");
         if (__result != null)
-            Util.Log.Debug("[CheatsPatchCompat] AccessTools.TypeByName: UCheatsManager → CheatsManager");
+            Util.Log.Debug("[CheatsPatchCompat] AccessTools.TypeByName: UCheatsManager -> CheatsManager");
     }
 }

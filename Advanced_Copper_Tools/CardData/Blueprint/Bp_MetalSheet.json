@@ -146,6 +146,6 @@
     },
     "CardImageWarpData": "MetalSheet_Copper",
     "CardImageWarpType": 3,
-    "BlueprintUnlockTicksCost": 8.0,
+    "BlueprintUnlockTicksCost": 16.0,
     "ResearchedNotification": 0
 }

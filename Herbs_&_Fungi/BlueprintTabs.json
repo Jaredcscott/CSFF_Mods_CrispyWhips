@@ -2,11 +2,17 @@
     "Tab_1_Survival_Subtab_2_Support_TabName": [
         "herbs_fungi_bp_herb_pipe",
         "herbs_fungi_bp_drying_tray",
-        "herbs_fungi_bp_death_cap_ward"
+        "herbs_fungi_bp_death_cap_ward",
+        "herbs_fungi_bp_sleep_tea",
+        "herbs_fungi_bp_anti_nausea_tea",
+        "herbs_fungi_bp_stimulant_tea",
+        "herbs_fungi_bp_pain_relief_powder",
+        "herbs_fungi_bp_herbal_salve",
+        "herbs_fungi_bp_herbal_tincture",
+        "herbs_fungi_bp_death_cap_tincture"
     ],
     "Tab_5_MetalAndClay_Subtab_1_Utensils_TabName": [
-        "herbs_fungi_bp_pickling_vat",
-        "herbs_fungi_bp_death_cap_tincture"
+        "herbs_fungi_bp_pickling_vat"
     ],
     "Tab_2_Construction_Subtab_3_Materials_TabName": [
         "herbs_fungi_bp_oil_press_legs",
@@ -20,7 +26,13 @@
     ],
     "Tab_6_Farming_Subtab_1_Agriculture_TabName": [
         "herbs_fungi_bp_hemp_field",
-        "herbs_fungi_bp_hemp_plant"
+        "herbs_fungi_bp_hemp_plant",
+        "herbs_fungi_bp_mushroom_log_shiitake",
+        "herbs_fungi_bp_mushroom_log_lions_mane",
+        "herbs_fungi_bp_mushroom_log_reishi",
+        "herbs_fungi_bp_mushroom_log_chicken_of_woods",
+        "herbs_fungi_bp_mushroom_log_golden_oyster",
+        "herbs_fungi_bp_mushroom_log_king_oyster"
     ],
     "Tab_2_Construction_Subtab_4_Furniture_TabName": [
         "herbs_fungi_bp_wooden_pantry",

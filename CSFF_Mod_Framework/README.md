@@ -1,12 +1,12 @@
 # CSFF Mod Framework
 
-Standalone modding framework for Card Survival: Fantasy Forest. Provides mod discovery, JSON data loading, WarpData resolution, sprite/audio loading, localization, perk injection, blueprint tab injection, smelting recipe injection, ProducedCards normalization, AlwaysUpdate enabling, and a suite of performance patches. Mods only need C# for mod-specific logic (forage drops, vanilla card patching, custom Harmony patches).
+Standalone modding framework for Card Survival: Fantasy Forest. Provides mod discovery, JSON data loading, map cache indexing, WarpData resolution, sprite/audio loading, localization, perk injection, blueprint tab injection, smelting recipe injection, ProducedCards normalization, AlwaysUpdate enabling, and a suite of performance patches. Mods only need C# for mod-specific logic (forage drops, vanilla card patching, custom Harmony patches).
 
 ## Status
 
-- **Framework Version**: 2.0.2
-- **Game Version**: EA 0.62d
-- All in-house mods verified working in-game on EA 0.62b; 2.0.2 keeps the EA 0.62d compatibility bump and adds a save-load fix for placed blueprint containers (e.g. Oil Press) whose Recipes tab was missing after reload — the framework now re-spawns missing inventory blueprints and forces `BlueprintModelStates` to `Available` for every contained recipe of every placed container.
+- **Version:** 2.0.7
+- **Game Version**: EA 0.63
+- All in-house mods are maintained against EA 0.63.
 
 ## What Changed in 2.0.0 (2026-04-26)
 
@@ -16,7 +16,7 @@ The framework is now **standalone** — it no longer ships compatibility stubs f
 - Third-party mods that hard-depend on removed external runtimes will not load with this framework.
 - The legacy compatibility stubs have been removed from the repository entirely. They are not built or deployed.
 - All in-house content mods now declare a hard dependency on `crispywhips.CSFFModFramework` v2.0.0 and no longer reference any Pikachu GUID.
-- Legacy loader-version manifest fields have been stripped from every `ModInfo.json` in the repo.
+- The legacy `ModLoaderVerison` manifest field is ignored by this framework; existing manifests may keep it, and new framework-based mods do not need it.
 
 ## Installation
 
@@ -55,19 +55,20 @@ ConfigurationManager is recommended for an in-game UI.
 
 | Mod | Plugins Folder | Version | Description |
 |---|---|---|---|
-| Advanced Copper Tools | `Advanced_Copper_Tools` | 1.7.1 | Copper metalworking, wheelbarrow, bathtub, stove, lantern, oil chain, tea kettle, tea blending station, copper chest |
-| Herbs and Fungi | `Herbs_And_Fungi` | 1.6.3 | Herbalism, mushroom foraging, hemp farming, oil press, pickle fermentation, drying racks, medicinal teas, 15 perks |
-| Water Driven Infrastructure | `Water_Driven_Infrastructure` | 1.2.0 | Water wheels, sawmills, grinding mills, ore sluices (river/lake adjacent) |
-| Quick Transfer | `Quick_Transfer` | 1.5.1 | CTRL+Right-Click multi-card transfer between inventories |
-| Repeat Action | `Repeat_Action` | 1.3.1 | Repeat last action with configurable keybinds and safety limits |
-| Skill Speed Boost | `Skill_Speed_Boost` | 1.7.0 | Per-skill XP multipliers, difficulty profiles, optional staleness decay |
-| Mod Update Manager | `Mod_Update_Manager` | 2.0.0 | Nexus Mods update checker with in-game UI (F8) |
+| Advanced Copper Tools | `Advanced_Copper_Tools` | 1.7.7 | Copper metalworking, wheelbarrow, bathtub, stove, lantern, oil chain, tea kettle, tea blending station, copper chest |
+| Herbs and Fungi | `Herbs_And_Fungi` | 1.6.9 | Herbalism, mushroom foraging, hemp farming, oil press, pickle fermentation, drying racks, medicinal teas, 15 perks |
+| Water Driven Infrastructure | `Water_Driven_Infrastructure` | 1.3.2 | Water wheels, sawmills, grinding mills, ore sluices (river/lake adjacent) |
+| Quick Transfer | `Quick_Transfer` | 1.5.7 | CTRL+Right-Click multi-card transfer between inventories |
+| Repeat Action | `Repeat_Action` | 1.3.9 | Repeat last action with configurable keybinds and safety limits |
+| Skill Speed Boost | `Skill_Speed_Boost` | 1.7.6 | Per-skill XP multipliers, difficulty profiles, optional staleness decay |
+| Mod Update Manager | `Mod_Update_Manager` | 2.0.5 | Nexus Mods update checker with in-game UI (F8) |
 
 Each in-house content mod declares `[BepInDependency("crispywhips.CSFFModFramework", "2.0.0")]`. The QoL mods (Quick Transfer, Repeat Action, Skill Speed Boost) work standalone on BepInEx 5.x and do not require the framework.
 
 ## What the Framework Handles
 
 - **Mod discovery** — scans `BepInEx/plugins/` two levels deep for `ModInfo.json`
+- **Map cache indexing** — parses declared/generated `Data/*Map*.json` files once and exposes them through `MapCacheRegistry`
 - **JSON data loading** — CardData, CharacterPerk, GameStat, etc. from each mod's subdirectories
 - **WarpData resolution** — UniqueID/GUID references, runtime tag creation, nested array expansion, both array and `List<T>` field types
 - **Sprite / Audio / Localization** — loads from each mod's `Resource/` and `Localization/` folders
@@ -83,6 +84,7 @@ Each in-house content mod declares `[BepInDependency("crispywhips.CSFFModFramewo
 
 - **3 total `Resources.FindObjectsOfTypeAll` calls** (ScriptableObject, Sprite, AudioClip) — every service reuses the cached dictionaries
 - **JSON file cache** — every mod JSON is read once into `JsonDataLoader.JsonByUniqueId`; downstream services never re-read from disk
+- **Map cache registry** — generated map details such as WDI mill-race edges are parsed once with `MiniJson` and reused by mod code
 - **Sprite texture cache** — decoded PNG bytes cached under `SpriteCache/`, keyed by MD5 of normalized path + source mtime; cuts sprite load from ~67% of total load time to < 5% on warm runs
 - **Reflection field cache** — `(Type, fieldName)` → `FieldInfo` dictionary across all services
 - **DOTween capacity pre-warm** — sized once at startup so animations don't trigger a pool-resize GC spike mid-session
@@ -101,10 +103,39 @@ Mods only need C# for **mod-specific logic**: custom action interception, forage
 
 ## Key File Locations
 
-- Vanilla game data dump: `Documentation/GameData/CSFF-JsonData_EA_0-62d/`
-- GUID lookups: `Documentation/GameData/CSFF-JsonData_EA_0-62d/UniqueIDScriptableGUID/`
+- Vanilla game data dump: `Documentation/GameData/CSFF-JsonData_EA_0-63/`
+- GUID lookups: `Documentation/GameData/CSFF-JsonData_EA_0-63/UniqueIDScriptableGUID/`
 - LitJSON source: `Stubs/LitJson/LitJsonStub.cs` → `LitJSON.dll` (v0.18.0.0)
 - Starter kit: `CSFF_Modding_Starter_Kit/Documentation/`
+
+## Version History
+
+### v2.0.7 (current)
+- Blueprint injector updated to use live UI tabs at `BlueprintModelsScreen.Show` time (with `Resources.FindObjectsOfTypeAll<CardTabGroup>` fallback) — fixes "no tab found" errors for all content mods on EA 0.63f
+
+### v2.0.6
+- Added `MapCacheRegistry` and `Assets.MapCaches` support so mods can ship generated map JSON caches (for example WDI mill-race edge maps) and reuse the framework's parsed copy instead of re-reading/parsing during their own load patches
+
+### v2.0.5
+- EA 0.63 compatibility pass
+- `BlueprintContainerSaveLoadFix`: uses `_isInGameplay` flag to separate save-load path from gameplay path; `SpawnDefault_Postfix` is a no-op during load (deferred via `OnGMInitialized`) — **never re-introduce a synchronous drain in this postfix** (causes freeze at "Current Character:")
+- `CardScaleCompat`: defers all Harmony patching into a coroutine; no `SafePatcher.TryPatch` during `Awake` (CSR 3.3.0 root cause + EA 0.62b fix)
+- `ReflectionCache.FindType`: guards `ReflectionTypeLoadException` via `rtle.Types`; never caches null
+- `CreateInstanceSafe`: initializes `LocalizedString` fields on all created instances (WikiMod crash fix)
+- `AccessTools.Field` → auto-property backing field fallback added for all services
+
+### v2.0.4
+- Blueprint-container save/load repair: re-spawns missing contained blueprints and forces `BlueprintModelStates` to `Available` for every placed container on load
+
+### v2.0.0
+- **Breaking change**: framework is now standalone. Legacy ModCore/ModLoader compatibility stubs removed; third-party mods that hard-depend on them will not load with this version.
+- All in-house content mods updated to `[BepInDependency("crispywhips.CSFFModFramework", "2.0.0")]`; no Pikachu GUID references remain in any in-house mod.
+- `ModLoaderVerison` manifest field ignored (intentional typo in game's own schema; new mods do not need to include it)
+
+### v1.x series
+- Incremental feature additions: WarpData resolver, perk injector, blueprint tab injector, smelting recipe injector, ProducedCards normalizer, AlwaysUpdate, GIF animation support, performance patches (SpriteTextureCache, OffScreenCardThrottle, SlotAssignmentLogSuppress, AmbienceArrayReuse, DOTweenPrewarm)
+
+---
 
 ## License
 

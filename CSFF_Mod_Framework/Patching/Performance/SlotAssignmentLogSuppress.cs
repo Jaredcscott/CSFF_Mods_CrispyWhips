@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Reflection.Emit;
+using BepInEx.Configuration;
 using HarmonyLib;
 
 namespace CSFFModFramework.Patching.Performance;
@@ -23,8 +24,18 @@ namespace CSFFModFramework.Patching.Performance;
 // that consume the arguments already pushed on the stack).
 internal static class SlotAssignmentLogSuppress
 {
-    public static void ApplyPatch(Harmony harmony)
+    public static void ApplyPatch(Harmony harmony, ConfigFile config)
     {
+        var enabledCfg = config.Bind(
+            "Performance", "SlotAssignmentLogSuppressEnabled", true,
+            "Strip Debug.LogWarning calls from DynamicLayoutSlot.AssignCard. "
+            + "Reduces per-frame GC churn on late-game saves. Set false to disable for diagnostic isolation.");
+        if (!enabledCfg.Value)
+        {
+            Util.Log.Debug("SlotAssignmentLogSuppress: disabled via config.");
+            return;
+        }
+
         var target = AccessTools.Method("DynamicLayoutSlot:AssignCard");
         if (target == null)
         {
@@ -37,11 +48,11 @@ internal static class SlotAssignmentLogSuppress
         try
         {
             harmony.Patch(target, transpiler: transpiler);
-            Util.Log.Info("SlotAssignmentLogSuppress: stripped Debug.LogWarning calls from DynamicLayoutSlot.AssignCard.");
+            Util.Log.Debug("SlotAssignmentLogSuppress: stripped Debug.LogWarning calls from DynamicLayoutSlot.AssignCard.");
         }
         catch (System.Exception ex)
         {
-            Util.Log.Error($"SlotAssignmentLogSuppress: failed to patch: {ex.Message}");
+            Util.Log.Error($"SlotAssignmentLogSuppress: failed to patch: {ex.InnerException?.ToString() ?? ex.ToString()}");
         }
     }
 

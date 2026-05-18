@@ -8,13 +8,13 @@
   "CardDescription": {
     "ParentObjectID": "water_sawmill_fishpond_kit",
     "LocalizationKey": "Water_Sawmill_FishpondKit_CardDescription",
-    "DefaultText": "A pre-stocked fishpond kit ready for placement near a river. Fish mature in 7 days after placement."
+    "DefaultText": "A pre-stocked fishpond kit ready for placement near water or a connected mill race outlet. Fish populations grow slowly over time."
   },
   "CanBeRenamed": false,
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_fishpond_kit",
     "LocalizationKey": "Water_Sawmill_FishpondKit_CardHelpSection",
-    "DefaultText": "<b>Use:</b> Place near a river. Fish mature in 7 days. After harvest, drag 6 fish (pike, perch, or minnow) into the empty pit to restock."
+    "DefaultText": "<b>Use:</b> Place near water or a connected mill race outlet. Fish grow over time. The pond becomes stocked when the total fish count exceeds 10. Fish are caught with a spear."
   },
   "CardImage": {
     "m_FileID": 0,
@@ -62,7 +62,7 @@
       "ActionSoundsWarpData": ["Dirt"],
       "ActionSoundsWarpType": 3,
       "RequiredCardsOnBoard": [],
-      "RequiredTagsOnBoard": [],
+      "RequiredTagsOnBoard": ["tag_River"],
       "HideIfConditionsNotMet": false,
       "ReceivingCardChanges": {
         "ModType": 2,

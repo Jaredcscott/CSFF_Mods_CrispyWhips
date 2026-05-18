@@ -11,7 +11,7 @@ public class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.repeat_action";
     public const string PluginName = "Repeat_Action";
-    public const string PluginVersion = "1.3.7";
+    public const string PluginVersion = "1.3.9";
 
     internal new static ManualLogSource Logger;
     private static Harmony _harmony;
@@ -220,17 +220,17 @@ public class Plugin : BaseUnityPlugin
             if (lastAction != "Unknown" && !string.IsNullOrEmpty(lastAction))
             {
                 ShowNotification($"'{lastAction}' is not supported");
-                Logger.Log(BepInEx.Logging.LogLevel.Debug, $"Action '{lastAction}' is not permitted for repeat");
+                Logger.LogInfo($"[Repeat] Action '{lastAction}' is not permitted for repeat");
             }
             else
             {
                 ShowNotification("No action to repeat");
-                Logger.Log(BepInEx.Logging.LogLevel.Debug, "No action recorded to repeat");
+                Logger.LogInfo("[Repeat] No action recorded to repeat");
             }
             return;
         }
 
-        Logger.Log(BepInEx.Logging.LogLevel.Debug, $"Starting repeat of last action ({CurrentRepeatCount} times)");
+        Logger.LogInfo($"[Repeat] Starting repeat of last action ({CurrentRepeatCount} times)");
         StartCoroutine(Patcher.ActionPatch.RepeatLastAction(CurrentRepeatCount));
     }
 

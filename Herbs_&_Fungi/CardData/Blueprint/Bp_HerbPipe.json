@@ -16,7 +16,7 @@
         "LocalizationKey": "Herbs_And_Fungi_Bp_HerbPipe_UnlockConditionsDesc",
         "DefaultText": "Requires Unfinished Wood Carving"
     },
-    "BlueprintUnlockTicksCost": 8.0,
+    "BlueprintUnlockTicksCost": 16.0,
     "BuildingStatConditions": [],
     "StartUnlocked": false,
     "CardsOnBoard": [

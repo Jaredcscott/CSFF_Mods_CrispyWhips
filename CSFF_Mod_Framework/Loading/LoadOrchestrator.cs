@@ -9,7 +9,10 @@ namespace CSFFModFramework.Loading;
 
 internal static class LoadOrchestrator
 {
+    // The game does not recreate its ScriptableObject graph on new-game start —
+    // the same graph persists for the session, so skipping re-runs is safe.
     private static bool _loaded = false;
+    internal static bool LoadSucceeded { get; private set; }
 
     /// <summary>
     /// When true, run the two <see cref="DiagBlueprintResearch"/> passes around WarpResolver.
@@ -29,10 +32,13 @@ internal static class LoadOrchestrator
     {
         if (_loaded) return;
         _loaded = true;
+        LoadSucceeded = false;
+        _anyRunPhaseFailed = false;
 
+        string currentPhase = "initialization";
         try
         {
-            Log.Info("=== CSFFModFramework Loading ===");
+            Log.Debug("=== CSFFModFramework Loading ===");
             var totalSw = Stopwatch.StartNew();
             var sw = Stopwatch.StartNew();
 
@@ -40,27 +46,39 @@ internal static class LoadOrchestrator
             FrameworkDirtyTracker.Reset();
 
             // 1. Discover mods
+            currentPhase = "ModDiscovery";
             var mods = ModDiscovery.DiscoverMods();
             LoadedMods = mods;
             LogTiming(sw, "ModDiscovery");
 
+            // 1a. Load free-form map caches supplied by mods (e.g. generated world-map edge lists).
+            // Downstream mod logic can query Api.MapCacheRegistry instead of re-reading/parsing files.
+            currentPhase = "MapCacheLoader";
+            if (mods.Any(m => m.HasMapCaches))
+                RunPhase(sw, "MapCacheLoader", () => MapCacheLoader.LoadAll(mods));
+            else
+            {
+                MapCacheLoader.Clear();
+                Log.Debug("[Skip] MapCacheLoader: no mod ships map cache JSON");
+            }
+
             // 2. Init database from game resources
+            currentPhase = "Database.InitFromGame";
             Database.InitFromGame();
             LogTiming(sw, "Database.InitFromGame");
 
             // 3. Load sprites
-            SpriteLoader.LoadAll(mods);
-            LogTiming(sw, "SpriteLoader");
+            RunPhase(sw, "SpriteLoader", () => SpriteLoader.LoadAll(mods), warnMs: 3000);
 
             // 3a. Decode GIFs and load CardData/Gif/*.json definitions. Drives the
             //     animations applied by Patching.GifAnimationPatch at runtime. No-op
             //     when no mod ships GIF content.
-            Gif.GifLoader.LoadAll(mods);
-            LogTiming(sw, "GifLoader");
+            RunPhase(sw, "GifLoader", () => Gif.GifLoader.LoadAll(mods));
 
             // 4. Load JSON data (cards, perks, etc.) — also caches JSON + UniqueIDs for downstream
+            currentPhase = "JsonDataLoader";
             JsonDataLoader.LoadAll(mods);
-            LogTiming(sw, "JsonDataLoader");
+            LogTiming(sw, "JsonDataLoader", warnMs: 3000);
 
             // 5. Resolve ALL WarpData references (THE key fix)
             var allData = GetAllData();
@@ -74,6 +92,7 @@ internal static class LoadOrchestrator
             if (EnableLoadDiagnostics)
                 DiagBlueprintResearch(allData, "BEFORE WarpResolver");
 
+            currentPhase = "WarpResolver";
             WarpResolver.ResolveAll(allData, mods);
             LogTiming(sw, "WarpResolver");
 
@@ -83,102 +102,74 @@ internal static class LoadOrchestrator
             //      iterates those collections (DurabilitiesAreCorrect on drag, TagIsOnBoard
             //      on day-tick). Removing null slots is always safe — a missing reference is
             //      functionally identical to no entry.
-            NullReferenceCompactor.CompactAll(allData);
-            LogTiming(sw, "NullReferenceCompactor");
+            RunPhase(sw, "NullReferenceCompactor", () => NullReferenceCompactor.CompactAll(allData));
 
             // 5b. Normalize PassiveEffects null fields (prevents NullRef in UpdatePassiveEffectStacks)
-            PassiveEffectNormalizer.NormalizeAll(allData, mods);
-            LogTiming(sw, "PassiveEffectNormalizer");
+            RunPhase(sw, "PassiveEffectNormalizer", () => PassiveEffectNormalizer.NormalizeAll(allData, mods));
 
             // 5c. Normalize ProducedCards defaults and clean null entries
-            ProducedCardService.ProcessAll(allData, mods);
-            LogTiming(sw, "ProducedCardService");
-
+            RunPhase(sw, "ProducedCardService", () => ProducedCardService.ProcessAll(allData, mods));
 
             // 5d. Enable AlwaysUpdate ticking on mod cards (durability, spoilage, etc.)
-            AlwaysUpdateService.EnableAll(allData, mods);
-            LogTiming(sw, "AlwaysUpdate");
+            RunPhase(sw, "AlwaysUpdate", () => AlwaysUpdateService.EnableAll(allData, mods));
 
             // 5e. Inject custom smelting recipes into forge/furnace
             if (mods.Any(m => m.HasSmeltingRecipes))
-            {
-                SmeltingRecipeInjector.InjectAll(allData, mods);
-                LogTiming(sw, "SmeltingRecipeInjector");
-            }
+                RunPhase(sw, "SmeltingRecipeInjector", () => SmeltingRecipeInjector.InjectAll(allData, mods));
             else
-            {
                 Log.Debug("[Skip] SmeltingRecipeInjector: no mod ships SmeltingRecipes.json");
-            }
 
-            // 6. Apply GameSourceModify patches
-            GameSourceModifier.ApplyAll(mods, allData);
-            LogTiming(sw, "GameSourceModifier");
+            // 6. Build DataMap before GameSourceModify so MatchTagWarpData /
+            //    MatchTypeWarpData bulk patches can resolve their target sets.
+            RunPhase(sw, "DataMap (pre-GameSourceModifier)", () => DataMap.BuildMaps(allData));
 
-            // 7. Resolve sprites for cards and perks
-            SpriteResolver.ResolveAll(allData, mods);
-            LogTiming(sw, "SpriteResolver");
+            // 7. Apply GameSourceModify patches
+            RunPhase(sw, "GameSourceModifier", () => GameSourceModifier.ApplyAll(mods, allData));
 
-            // 8. Build DataMap (per-type dictionaries by name and GUID)
-            DataMap.BuildMaps(allData);
-            LogTiming(sw, "DataMap");
+            // 8. Rebuild maps so later services see tag/type changes made by patches.
+            RunPhase(sw, "DataMap (post-GameSourceModifier)", () => DataMap.BuildMaps(allData));
+
+            // 8a. Resolve sprites for cards and perks
+            RunPhase(sw, "SpriteResolver", () => SpriteResolver.ResolveAll(allData, mods));
 
             // 9. Load localization
             if (mods.Any(m => m.HasLocalization))
-            {
-                LocalizationLoader.LoadAll(mods);
-                LogTiming(sw, "LocalizationLoader");
-            }
+                RunPhase(sw, "LocalizationLoader", () => LocalizationLoader.LoadAll(mods));
             else
-            {
                 Log.Debug("[Skip] LocalizationLoader: no mod ships Localization/*.csv");
-            }
 
             // 10. Load audio clips from mod directories
             if (mods.Any(m => m.HasAudio))
-            {
-                AudioLoader.LoadAll(mods);
-                LogTiming(sw, "AudioLoader");
-            }
+                RunPhase(sw, "AudioLoader", () => AudioLoader.LoadAll(mods));
             else
-            {
                 Log.Debug("[Skip] AudioLoader: no mod ships Resource/Audio/ content");
-            }
 
             // 11. Load asset bundles from mod directories
             if (mods.Any(m => m.HasAssetBundles))
-            {
-                AssetBundleLoader.LoadAll(mods);
-                LogTiming(sw, "AssetBundleLoader");
-            }
+                RunPhase(sw, "AssetBundleLoader", () => AssetBundleLoader.LoadAll(mods));
             else
-            {
                 Log.Debug("[Skip] AssetBundleLoader: no mod ships Resource/*.ab");
-            }
 
             // 11b. Inject perks into PerkGroups (Situational tab by default)
-            PerkInjector.InjectAll(allData, mods);
-
             // 11d. Clear hardcoded OverrideEnvironment on mod perks
-            PerkRelocationService.ClearOverrideEnvironments(allData, mods);
-            LogTiming(sw, "PerkInjector");
+            RunPhase(sw, "PerkInjector", () =>
+            {
+                PerkInjector.InjectAll(allData, mods);
+                PerkRelocationService.ClearOverrideEnvironments(allData, mods);
+            });
 
             // 11e. Second NullReferenceCompactor pass — picks up vanilla objects that
             //      GameSourceModifier / SmeltingRecipeInjector / PerkInjector mutated
             //      after the first compaction at step 5a2. allowFullSweep:false makes this
             //      a no-op when nothing was touched (avoids paying the full sweep twice).
-            NullReferenceCompactor.CompactAll(allData, allowFullSweep: false);
-            LogTiming(sw, "NullReferenceCompactor (post-injection)");
+            RunPhase(sw, "NullReferenceCompactor (post-injection)",
+                () => NullReferenceCompactor.CompactAll(allData, allowFullSweep: false));
 
             // 11c. Queue blueprint tab injection (tabs may not exist yet during LoadMainGameData)
             if (mods.Any(m => m.HasBlueprintTabs))
-            {
-                BlueprintInjector.InjectAll(allData, mods);
-                LogTiming(sw, "BlueprintInjector");
-            }
+                RunPhase(sw, "BlueprintInjector", () => BlueprintInjector.InjectAll(allData, mods));
             else
-            {
                 Log.Debug("[Skip] BlueprintInjector: no mod ships BlueprintTabs.json");
-            }
 
             // 12. BlueprintPurchasing/PurchasingWithTime are set by BlueprintFlagFix in GameManager.Awake postfix.
 
@@ -188,8 +179,7 @@ internal static class LoadOrchestrator
             //      placed Oil Press / similar blueprint containers lose their Recipes tab
             //      after save/exit/reload. No-op on first launch (no save loaded). Defers
             //      one frame via coroutine so any in-flight Init coroutines complete first.
-            BlueprintContainerSaveLoadFix.Schedule();
-            LogTiming(sw, "BlueprintContainerSaveLoadFix.Schedule");
+            RunPhase(sw, "BlueprintContainerSaveLoadFix", () => BlueprintContainerSaveLoadFix.Schedule());
 
             // DIAG: Snapshot vanilla blueprint research state AFTER all processing
             if (EnableLoadDiagnostics)
@@ -197,7 +187,7 @@ internal static class LoadOrchestrator
 
             // Flush any background sprite-cache writes scheduled during SpriteLoader
             // before we declare the load complete — the next launch must see them.
-            SpriteTextureCache.AwaitPendingWrites();
+            RunPhase(sw, "SpriteTextureCache.AwaitPendingWrites", () => SpriteTextureCache.AwaitPendingWrites());
 
             totalSw.Stop();
             var totalMs = totalSw.ElapsedMilliseconds;
@@ -207,22 +197,41 @@ internal static class LoadOrchestrator
             if (totalMs > 15000)
                 Log.Warn($"[Perf] Load time {totalMs}ms exceeds 15s regression threshold (baseline ~3.5s warm / ~11.7s cold). Check [Timing] lines above for the slow phase.");
 
-            Api.FrameworkEvents.RaiseLoaded();
+            if (_anyRunPhaseFailed)
+                Log.Error("Framework: one or more phases failed — LoadSucceeded remains false.");
+            else
+            {
+                LoadSucceeded = true;
+                Api.FrameworkEvents.RaiseLoaded();
+            }
         }
         catch (Exception ex)
         {
-            Log.Error($"Framework loading failed: {ex}");
+            Log.Error($"Framework loading failed in phase '{currentPhase}': {ex}");
         }
     }
 
-    private static void LogTiming(Stopwatch sw, string phase)
+    private static void LogTiming(Stopwatch sw, string phase, int warnMs = 500)
     {
         var ms = sw.ElapsedMilliseconds;
-        if (ms >= 50)
-            Log.Info($"[Timing] {phase}: {ms}ms");
+        if (ms >= warnMs)
+            Log.Warn($"[Timing SLOW] {phase}: {ms}ms");
         else
             Log.Debug($"[Timing] {phase}: {ms}ms");
         sw.Restart();
+    }
+
+    private static bool _anyRunPhaseFailed;
+
+    private static void RunPhase(Stopwatch sw, string name, Action phase, int warnMs = 500)
+    {
+        try { phase(); }
+        catch (Exception ex)
+        {
+            Log.Error($"Phase '{name}' failed: {ex}");
+            _anyRunPhaseFailed = true;
+        }
+        LogTiming(sw, name, warnMs);
     }
 
     /// <summary>
@@ -278,7 +287,7 @@ internal static class LoadOrchestrator
         }
         catch (Exception ex)
         {
-            Log.Warn($"[BlueprintDiag] {phase}: error: {ex.Message}");
+            Log.Warn($"[BlueprintDiag] {phase}: error: {Log.ExceptionText(ex)}");
         }
     }
 

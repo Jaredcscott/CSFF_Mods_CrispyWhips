@@ -12,7 +12,7 @@
     },
     "CardType": 7,
     "StartUnlocked": true,
-    "BlueprintUnlockTicksCost": 0.0,
+    "BlueprintUnlockTicksCost": 8.0,
     "BuildingStatConditions": [],
     "CardsOnBoard": [
         {
@@ -129,6 +129,7 @@
         "TransferLiquid": true,
         "SpawnTransformAtSource": true
     },
+    "BlueprintStatModifications": [],
     "WhenCreatedSoundsWarpData": [],
     "WhenCreatedSoundsWarpType": 3,
     "BlueprintActionTagsWarpData": [

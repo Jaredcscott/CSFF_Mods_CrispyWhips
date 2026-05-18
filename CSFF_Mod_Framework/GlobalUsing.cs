@@ -9,3 +9,6 @@ global using BepInEx;
 global using BepInEx.Logging;
 global using HarmonyLib;
 global using UnityEngine;
+
+[assembly: AssemblyVersion("2.0.7.0")]
+[assembly: AssemblyFileVersion("2.0.7.0")]

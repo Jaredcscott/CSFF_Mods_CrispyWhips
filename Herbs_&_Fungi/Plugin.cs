@@ -4,13 +4,13 @@ using HarmonyLib;
 
 namespace Herbs_And_Fungi;
 
-[BepInDependency("crispywhips.CSFFModFramework", "2.0.0")]
+[BepInDependency("crispywhips.CSFFModFramework", BepInDependency.DependencyFlags.SoftDependency)]
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
 internal class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.Herbs_And_Fungi";
     public const string PluginName = "Herbs and Fungi";
-    public const string PluginVersion = "1.6.4";
+    public const string PluginVersion = "1.6.9";
 
     internal new static ManualLogSource Logger;
     internal static Plugin Instance { get; private set; }

@@ -5,12 +5,13 @@ using HarmonyLib;
 namespace WaterDrivenInfrastructure;
 
 [BepInDependency("crispywhips.CSFFModFramework", BepInDependency.DependencyFlags.SoftDependency)]
+[BepInDependency("crispywhips.advanced_copper_tools", BepInDependency.DependencyFlags.HardDependency)]
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
 internal class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.waterdriveninfrastructure";
     public const string PluginName = "WaterDrivenInfrastructure";
-    public const string PluginVersion = "1.2.2";
+    public const string PluginVersion = "1.3.2";
 
     internal new static ManualLogSource Logger;
     internal static Plugin Instance { get; private set; }
@@ -31,6 +32,7 @@ internal class Plugin : BaseUnityPlugin
         try
         {
             Patcher.GameLoadPatch.ApplyPatch(_harmony);
+            Patcher.MillRaceNetwork.ApplyPatch(_harmony);
             Patcher.ActionInterceptPatch.ApplyPatch(_harmony);
             Patcher.FishpondPopulationPatch.ApplyPatch(_harmony);
             Logger.LogInfo($"{PluginName} v{PluginVersion} loaded.");

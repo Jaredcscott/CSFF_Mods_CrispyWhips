@@ -1,0 +1,158 @@
+{
+  "UniqueID": "water_sawmill_mill_race_south",
+  "CardName": {
+    "ParentObjectID": "water_sawmill_mill_race_south",
+    "LocalizationKey": "Water_Sawmill_MillRaceSouth_CardName",
+    "DefaultText": "Mill Race (South)"
+  },
+  "CardDescription": {
+    "ParentObjectID": "water_sawmill_mill_race_south",
+    "LocalizationKey": "Water_Sawmill_MillRaceSouth_CardDescription",
+    "DefaultText": "A southward mill race channel segment installed between locations to carry water from a water source."
+  },
+  "CardType": 10,
+  "CardsOnBoard": [
+    {
+      "ObjectiveName": "HasMillRace",
+      "CompletionWeight": 1,
+      "Card": { "m_FileID": 0, "m_PathID": 0 },
+      "Quantity": 1,
+      "ConstantlyChecking": true,
+      "OnlyInEnvironment": { "m_FileID": 0, "m_PathID": 0 },
+      "OnlyIfEquipped": false,
+      "OnlyInContainer": { "Target": { "m_FileID": 0, "m_PathID": 0 } },
+      "CardWarpData": "water_sawmill_mill_race",
+      "CardWarpType": 3
+    }
+  ],
+  "ObjectWeight": 0.0,
+  "TradingValue": 180.0,
+  "AlwaysUpdate": false,
+  "CardTags": [],
+  "CardTagsWarpData": [
+    "tag_Wood",
+    "tag_Structure",
+    "tag_WDI_MillRaceSegment"
+  ],
+  "CardTagsWarpType": 3,
+  "DoesNotPile": true,
+  "CannotBeTrashed": true,
+  "WhenCreatedSounds": [],
+  "WhenCreatedSoundsWarpData": [
+    "Wood"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": false
+  },
+  "FuelCapacity": {
+    "Active": false
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": false
+  },
+  "SpecialDurability2": {
+    "Active": false
+  },
+  "SpecialDurability3": {
+    "Active": false
+  },
+  "SpecialDurability4": {
+    "Active": false
+  },
+  "DurabilitySorting": {
+    "SortingList": []
+  },
+  "InventoryIsHidden": false,
+  "IsMiniInventory": false,
+  "CannotPutItemsIn": false,
+  "CannotTakeItemsOut": false,
+  "MaxWeightCapacity": 0.0,
+  "InventorySlots": [],
+  "InventorySlotsWarpData": [],
+  "InventorySlotsWarpType": 3,
+  "InventoryFilter": {
+    "AcceptedCards": [],
+    "AcceptedCardsWarpData": [],
+    "AcceptedCardsWarpType": 3,
+    "AcceptedTypes": [],
+    "AcceptedTags": [],
+    "AcceptedTagsWarpData": [],
+    "AcceptedTagsWarpType": 3,
+    "NOTAcceptedCards": [],
+    "NOTAcceptedTypes": [],
+    "NOTAcceptedTags": [],
+    "CardFilters": [],
+    "TagFilters": []
+  },
+  "CardInteractions": [],
+  "DismantleActions": [],
+  "BlueprintCardConditions": [],
+  "BlueprintTagConditions": [],
+  "BlueprintStatConditions": [],
+  "BuildingCardConditions": [],
+  "BuildingTagConditions": [],
+  "BuildingStatConditions": [],
+  "BlueprintStages": [
+    {
+      "CannotRevertToThisStage": false,
+      "RequiredElements": [
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "water_sawmill_mill_race",
+          "RequiredCardWarpType": 3
+        }
+      ],
+      "StepActionTags": [],
+      "StepActionTagsWarpData": [],
+      "StepActionTagsWarpType": 3
+    }
+  ],
+  "BuildSounds": [],
+  "DeconstructSounds": [],
+  "BuildingDaytimeCost": 4,
+  "BuildingMiniTicks": 0,
+  "DeconstructDaytimeCost": 2,
+  "DeconstructMiniTicks": 0,
+  "BlueprintActionTags": [],
+  "BlueprintActionTagsWarpData": [
+    "HandAction",
+    "CraftAction",
+    "LegAction"
+  ],
+  "BlueprintActionTagsWarpType": 3,
+  "BlueprintResult": [],
+  "BlueprintStatModifications": [],
+  "BlueprintCardModifications": [],
+  "BlueprintDoesntCountForEnvWeight": false,
+  "BPRandomSingleDrop": false,
+  "BlueprintBuiltImmediates": [],
+  "IsWorldRoad": false,
+  "RoadDirection": 1,
+  "OppositeRoad": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "OppositeRoadWarpData": "water_sawmill_mill_race_north",
+  "OppositeRoadWarpType": 3,
+  "PassiveEffects": [],
+  "PassiveStatEffects": [],
+  "CookingRecipes": [],
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "MillRace",
+  "CardImageWarpType": 3
+}

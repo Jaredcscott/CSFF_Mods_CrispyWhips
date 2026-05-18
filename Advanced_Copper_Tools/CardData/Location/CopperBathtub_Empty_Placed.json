@@ -197,6 +197,23 @@
         "TriggerTagsWarpType": 3
       },
       "WorksBothWays": true,
+      "RequiredGivenLiquidContent": {
+        "IsActive": true,
+        "RequiredLiquid": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "RequiredGroup": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "RequiredGroupWarpData": "tag_WaterAny",
+        "RequiredGroupWarpType": 3,
+        "RequiredQuantity": {
+          "x": 300.0,
+          "y": 99999.0
+        }
+      },
       "GivenCardChanges": {
         "ModType": 1,
         "ModifyLiquid": true,

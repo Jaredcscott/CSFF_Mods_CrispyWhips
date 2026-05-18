@@ -8,13 +8,13 @@
   "CardDescription": {
     "ParentObjectID": "water_sawmill_ore_sluice_kit",
     "LocalizationKey": "Water_Sawmill_OreSluiceKit_CardDescription",
-    "DefaultText": "A complete ore sluice kit ready to be placed near a river for mineral prospecting."
+    "DefaultText": "A complete ore sluice kit ready to be placed near water or a connected mill race outlet for mineral prospecting."
   },
   "CanBeRenamed": false,
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_ore_sluice_kit",
     "LocalizationKey": "Water_Sawmill_OreSluiceKit_CardHelpSection",
-    "DefaultText": "<b>Use:</b> Place near a river with a local mill race to set up the ore sluice.\n\n<b>Purpose:</b> Wash soil to extract greenstone nuggets."
+    "DefaultText": "<b>Use:</b> Place near water or a connected mill race outlet to set up the ore sluice.\n\n<b>Purpose:</b> Wash soil to extract greenstone nuggets."
   },
   "CardImage": {
     "m_FileID": 0,
@@ -62,18 +62,7 @@
       "ActionSoundsWarpData": ["Wood"],
       "ActionSoundsWarpType": 3,
       "RequiredCardsOnBoard": [],
-      "RequiredTagsOnBoard": [
-        {
-          "TriggerTag": { "m_FileID": 0, "m_PathID": 0 },
-          "TriggerTagWarpData": "tag_River",
-          "TriggerTagWarpType": 3,
-          "Inverted": false,
-          "OnlyInHand": false,
-          "NotInHand": false,
-          "ExcludeInventories": false,
-          "OnlyEquipped": false
-        }
-      ],
+      "RequiredTagsOnBoard": [],
       "HideIfConditionsNotMet": true,
       "ReceivingCardChanges": {
         "ModType": 2,

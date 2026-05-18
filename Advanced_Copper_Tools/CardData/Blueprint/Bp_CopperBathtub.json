@@ -218,6 +218,6 @@
   },
   "CardImageWarpData": "CopperBathtub_Kit",
   "CardImageWarpType": 3,
-  "BlueprintUnlockTicksCost": 48.0,
+  "BlueprintUnlockTicksCost": 96.0,
   "ResearchedNotification": 0
 }

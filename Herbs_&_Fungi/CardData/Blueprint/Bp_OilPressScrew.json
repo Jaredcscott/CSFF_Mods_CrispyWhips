@@ -16,7 +16,7 @@
         "LocalizationKey": "herbs_fungi_bp_oil_press_screw_UnlockConditionsDesc",
         "DefaultText": "Unlocked after obtaining a plank"
     },
-    "BlueprintUnlockTicksCost": 16.0,
+    "BlueprintUnlockTicksCost": 32.0,
     "BuildingStatConditions": [],
     "StartUnlocked": false,
     "CardsOnBoard": [

@@ -30,6 +30,7 @@
     },
     "MaxLiquidCapacity": 500.0,
     "CannotReceiveLiquidWithDragNDrop": true,
+    "CannotGiveLiquidWithDragNDrop": true,
     "CardImage": {"m_FileID": 0, "m_PathID": 0},
     "CardImageWarpData": "Pickling_Jar_Closed",
     "CardImageWarpType": 3,
@@ -46,7 +47,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_pickle_vat_closed",
-            "LocalizationKey": "Herbs_And_Fungi_PickleVatClosed_SpecialDurability2.CardStatName",
+            "LocalizationKey": "Herbs_And_Fungi_PickleVatClosed_SpecialDurability2_CardStatName",
             "DefaultText": "Quality"
         },
         "MaxValue": 100.0,
@@ -82,7 +83,9 @@
                 "TriggerCards": [],
                 "TriggerTags": [],
                 "TriggerCardsWarpData": [
-                    "425259cb06b869d45be2e7f1b5b54aff"
+                    "425259cb06b869d45be2e7f1b5b54aff",
+                    "aa33d3104cc682c4e9a163e7df9a7e13",
+                    "397594d260e114749ab6e1a76a732fbb"
                 ],
                 "TriggerCardsWarpType": 3,
                 "TriggerTagsWarpData": [],

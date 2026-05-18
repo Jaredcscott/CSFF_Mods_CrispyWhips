@@ -3,12 +3,12 @@
   "CardName": {
     "ParentObjectID": "water_sawmill_water_mill",
     "LocalizationKey": "Water_Sawmill_WaterMill_CardName",
-    "DefaultText": "Water Mill"
+    "DefaultText": "Water-Driven Mill"
   },
   "CardDescription": {
     "ParentObjectID": "water_sawmill_water_mill",
     "LocalizationKey": "Water_Sawmill_WaterMill_CardDescription",
-    "DefaultText": "A water-driven bulk mill that continuously grinds millable materials."
+    "DefaultText": "A water-driven mill that grinds millable materials on demand with 4x the capacity of a rotary quern."
   },
   "CanBeRenamed": false,
   "CardHelpSection": {
@@ -27,7 +27,7 @@
   "ObjectWeight": 520.0,
   "TradingValue": 360.0,
   "CardTags": [],
-  "CardTagsWarpData": ["tag_Wood", "tag_Bag"],
+  "CardTagsWarpData": ["tag_Wood"],
   "CardTagsWarpType": 3,
   "DoesNotPile": true,
   "WhenCreatedSounds": [],

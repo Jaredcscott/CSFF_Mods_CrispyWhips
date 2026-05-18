@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_pickle_vat_ready",
         "LocalizationKey": "Herbs_And_Fungi_PickleVatReady_CardDescription",
-        "DefaultText": "Fermentation is complete. Harvest the vat to crack it open and collect your pickled goods."
+        "DefaultText": "Fermentation is complete. Harvest the vat to crack it open and reclaim the empty vat and bowl."
     },
     "CardType": 2,
     "CardTags": [],
@@ -48,7 +48,20 @@
     "SpecialDurability2": {"Active": false},
     "SpecialDurability3": {"Active": false},
     "SpecialDurability4": {"Active": false},
-    "DroppedOnDestroy": [],
+    "DroppedOnDestroy": [
+        {
+            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+            "Quantity": {"x": 1, "y": 1},
+            "DroppedCardWarpData": "herbs_fungi_pickling_vat",
+            "DroppedCardWarpType": 3
+        },
+        {
+            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+            "Quantity": {"x": 1, "y": 1},
+            "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+            "DroppedCardWarpType": 3
+        }
+    ],
     "CardInteractions": [],
     "DismantleActions": [
         {
@@ -60,7 +73,7 @@
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_pickle_vat_ready",
                 "LocalizationKey": "Herbs_And_Fungi_PickleVatReady_Harvest_ActionDescription",
-                "DefaultText": "Crack the seal, collect the pickled goods, and reclaim the empty vat."
+                "DefaultText": "Crack the seal and reclaim the empty vat and bowl."
             },
             "DaytimeCost": 1,
             "UseMiniTicks": 0,

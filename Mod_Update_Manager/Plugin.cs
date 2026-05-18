@@ -1,8 +1,4 @@
-using System.IO;
-using BepInEx;
 using BepInEx.Logging;
-using HarmonyLib;
-using UnityEngine;
 
 namespace mod_update_manager;
 
@@ -11,7 +7,7 @@ internal class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.mod_update_manager";
     public const string PluginName = "Mod_Update_Manager";
-    public const string PluginVersion = "2.0.3";
+    public const string PluginVersion = "2.0.5";
 
     internal new static ManualLogSource Logger;
     public static Plugin Instance { get; private set; }

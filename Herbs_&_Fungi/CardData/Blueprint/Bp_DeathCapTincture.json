@@ -16,7 +16,7 @@
         "LocalizationKey": "Herbs_And_Fungi_Bp_DeathCapTincture_UnlockConditionsDesc",
         "DefaultText": "Unlocked after obtaining a Death Cap"
     },
-    "BlueprintUnlockTicksCost": 16.0,
+    "BlueprintUnlockTicksCost": 32.0,
     "BuildingStatConditions": [],
     "StartUnlocked": false,
     "CardsOnBoard": [

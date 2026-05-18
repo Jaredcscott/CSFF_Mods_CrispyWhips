@@ -56,12 +56,12 @@ internal static class AssetBundleLoader
                 }
                 catch (Exception ex)
                 {
-                    Log.Warn($"AssetBundleLoader: error loading {file}: {ex.Message}");
+                    Log.Warn($"AssetBundleLoader: error loading {file}: {Log.ExceptionText(ex)}");
                 }
             }
         }
 
         if (totalSprites > 0 || totalClips > 0)
-            Log.Info($"AssetBundleLoader: loaded {totalSprites} sprites, {totalClips} audio clips from bundles");
+            Log.Debug($"AssetBundleLoader: loaded {totalSprites} sprites, {totalClips} audio clips from bundles");
     }
 }

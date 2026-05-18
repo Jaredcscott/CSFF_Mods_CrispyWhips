@@ -35,7 +35,7 @@
     },
     "PassiveStatModifiers": [],
     "PerkDescription": {
-        "DefaultText": "Start with a wooden drying stack (6 slots) and 3 woven drying trays (1 slot each) for preserving herbs, mushrooms, flowers, and meats. Dried items have extended shelf life.",
+        "DefaultText": "Start with a wooden drying stack (3 tray slots) and 3 woven drying trays (6 drying slots each) for preserving herbs, mushrooms, flowers, and meats. Dried items have extended shelf life.",
         "LocalizationKey": "Herbs_And_Fungi_Perk_DryingKit_PerkDescription",
         "ParentObjectID": "herbs_fungi_perk_drying_kit"
     },

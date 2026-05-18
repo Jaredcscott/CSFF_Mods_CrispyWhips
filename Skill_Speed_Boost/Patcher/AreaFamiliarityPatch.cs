@@ -19,7 +19,6 @@ internal static class AreaFamiliarityPatch
     // Unity coroutines run on the main thread serially within an action chain — plain static is safe.
     private static string _currentLocationUid;
     private static bool _skillXpGainedThisAction;
-    private static int _depth;
 
     public static string CurrentLocationUid => _currentLocationUid;
     public static void NoteSkillXpGained() => _skillXpGainedThisAction = true;
@@ -54,7 +53,7 @@ internal static class AreaFamiliarityPatch
         }
         catch (Exception ex)
         {
-            Logger.LogError($"[AreaFamiliarity] Patch error: {ex.Message}");
+            Logger.LogError($"[AreaFamiliarity] Patch error: {ex.InnerException?.ToString() ?? ex.ToString()}");
         }
     }
 
@@ -70,7 +69,6 @@ internal static class AreaFamiliarityPatch
         // Save outer context (nested actions: e.g. action triggers another action via durabilities)
         string priorUid = _currentLocationUid;
         bool priorXpFlag = _skillXpGainedThisAction;
-        _depth++;
 
         var receivingCard = __args != null && _receivingCardArgIndex >= 0 && _receivingCardArgIndex < __args.Length
             ? __args[_receivingCardArgIndex]
@@ -96,7 +94,6 @@ internal static class AreaFamiliarityPatch
 
             _currentLocationUid = priorUid;
             _skillXpGainedThisAction = priorXpFlag;
-            _depth--;
         }
     }
 

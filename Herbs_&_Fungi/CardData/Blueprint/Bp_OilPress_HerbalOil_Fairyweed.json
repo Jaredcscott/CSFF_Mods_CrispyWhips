@@ -12,7 +12,7 @@
     },
     "CardType": 7,
     "StartUnlocked": true,
-    "BlueprintUnlockTicksCost": 4.0,
+    "BlueprintUnlockTicksCost": 8.0,
     "BuildingStatConditions": [],
     "CardsOnBoard": [
         {
@@ -95,6 +95,7 @@
             "DroppedCardWarpType": 3
         }
     ],
+    "BlueprintStatModifications": [],
     "WhenCreatedSoundsWarpData": [
         "Wood"
     ],
@@ -108,7 +109,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "CardImageWarpData": "Fairyweed_Item",
+    "CardImageWarpData": "Fairyweed",
     "CardImageWarpType": 3,
     "ResearchedNotification": 0,
     "UnlockConditionsDesc": {

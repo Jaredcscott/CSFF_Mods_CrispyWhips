@@ -20,6 +20,25 @@ internal static class Database
     private static readonly Dictionary<Type, IDictionary> _typedSODicts
         = new Dictionary<Type, IDictionary>();
 
+    private static readonly Dictionary<Type, List<ScriptableObject>> _typedSOLists
+        = new Dictionary<Type, List<ScriptableObject>>();
+
+    /// <summary>
+    /// Return all cached ScriptableObjects whose runtime type is assignable to <paramref name="soType"/>.
+    /// Prefer this over <c>Resources.FindObjectsOfTypeAll</c> for types already captured by
+    /// <see cref="InitFromGame"/>.
+    /// </summary>
+    public static IEnumerable<ScriptableObject> GetAllOfType(Type soType)
+    {
+        if (soType == null) yield break;
+        foreach (var kvp in _typedSOLists)
+        {
+            if (!soType.IsAssignableFrom(kvp.Key)) continue;
+            foreach (var so in kvp.Value)
+                yield return so;
+        }
+    }
+
     /// <summary>
     /// Look up a ScriptableObject by (type, name). Checks the exact type first,
     /// then scans all registered types for an assignable match.
@@ -62,6 +81,14 @@ internal static class Database
         var typed = (Dictionary<string, ScriptableObject>)dict;
         typed[name] = so;
 
+        if (!_typedSOLists.TryGetValue(soType, out var list))
+        {
+            list = new List<ScriptableObject>();
+            _typedSOLists[soType] = list;
+        }
+        if (!list.Contains(so))
+            list.Add(so);
+
         if (!AllScriptableObjectDict.ContainsKey(name))
             AllScriptableObjectDict[name] = so;
     }
@@ -70,7 +97,7 @@ internal static class Database
     {
         // UniqueID-keyed lookups go directly through GameRegistry (the game's own
         // AllUniqueObjects dict). No parallel registry to populate here.
-        Log.Info($"Database: game has {GameRegistry.Count} UniqueIDScriptable objects registered");
+        Log.Debug($"Database: game has {GameRegistry.Count} UniqueIDScriptable objects registered");
 
         // Populate SpriteDict from all loaded sprites
         SpriteDict.Clear();
@@ -85,7 +112,9 @@ internal static class Database
         // Previous approach called FindObjectsOfTypeAll per-subclass (100+ calls) — extremely slow.
         AllScriptableObjectDict.Clear();
         _typedSODicts.Clear();
+        _typedSOLists.Clear();
         int typedCount = 0;
+        int listCount = 0;
         int typeCount = 0;
         var allSOs = Resources.FindObjectsOfTypeAll<ScriptableObject>();
         foreach (var so in allSOs)
@@ -97,9 +126,13 @@ internal static class Database
             {
                 dict = new Dictionary<string, ScriptableObject>(StringComparer.OrdinalIgnoreCase);
                 _typedSODicts[type] = dict;
+                _typedSOLists[type] = new List<ScriptableObject>();
                 typeCount++;
             }
             var typed = (Dictionary<string, ScriptableObject>)dict;
+
+            _typedSOLists[type].Add(so);
+            listCount++;
 
             // Per-type dict (no cross-type collisions)
             if (!typed.ContainsKey(so.name))
@@ -112,7 +145,7 @@ internal static class Database
             if (!AllScriptableObjectDict.ContainsKey(so.name))
                 AllScriptableObjectDict[so.name] = so;
         }
-        Log.Debug($"Database: loaded {AllScriptableObjectDict.Count} ScriptableObjects by name ({typeCount} types, {typedCount} typed entries)");
+        Log.Debug($"Database: loaded {AllScriptableObjectDict.Count} ScriptableObjects by name ({typeCount} types, {typedCount} typed names, {listCount} typed objects)");
 
         // Populate AudioClipDict
         AudioClipDict.Clear();
@@ -130,5 +163,6 @@ internal static class Database
         AudioClipDict.Clear();
         AllScriptableObjectDict.Clear();
         _typedSODicts.Clear();
+        _typedSOLists.Clear();
     }
 }

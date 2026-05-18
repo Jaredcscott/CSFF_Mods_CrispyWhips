@@ -89,7 +89,7 @@ internal static class LocalizationLoader
                 }
                 catch (Exception ex)
                 {
-                    Log.Warn($"LocalizationLoader: failed to load {file}: {ex.Message}");
+                    Log.Warn($"LocalizationLoader: failed to load {file}: {Log.ExceptionText(ex)}");
                 }
             }
 
@@ -98,7 +98,7 @@ internal static class LocalizationLoader
             totalStrings += modCount;
         }
 
-        Log.Info($"LocalizationLoader: {totalStrings} total strings loaded");
+        Log.Debug($"LocalizationLoader: {totalStrings} total strings loaded");
     }
 
     /// <summary>
@@ -157,7 +157,7 @@ internal static class LocalizationLoader
         }
         catch (Exception ex)
         {
-            Log.Warn($"LocalizationLoader: reflection error: {ex.Message}");
+            Log.Warn($"LocalizationLoader: reflection error: {Log.ExceptionText(ex)}");
             return null;
         }
     }

@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_hemp_seeds_roasted",
     "CardName": {
         "ParentObjectID": "herbs_fungi_hemp_seeds_roasted",
-        "LocalizationKey": "Herbs_And_Fungus_HempSeedsRoasted_CardName",
+        "LocalizationKey": "Herbs_And_Fungi_HempSeedsRoasted_CardName",
         "DefaultText": "Roasted Hemp Seeds"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_hemp_seeds_roasted",
-        "LocalizationKey": "Herbs_And_Fungus_HempSeedsRoasted_CardDescription",
+        "LocalizationKey": "Herbs_And_Fungi_HempSeedsRoasted_CardDescription",
         "DefaultText": "Nutritious roasted seeds. Can be eaten or used as seasoning."
     },
     "CanBeRenamed": false,
@@ -19,7 +19,7 @@
     },
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_hemp_seeds_roasted",
-        "LocalizationKey": "Herbs_And_Fungus_HempSeedsRoasted_CardHelpSection",
+        "LocalizationKey": "Herbs_And_Fungi_HempSeedsRoasted_CardHelpSection",
         "DefaultText": "<b>Found:</b> Roast raw hemp seeds on a fire. \n\n<b>Uses:</b> Food source, seasoning."
     },
     "CardImage": {
@@ -34,7 +34,7 @@
     "CardType": 0,
     "CannotBeTransferred": false,
     "NotAutoSolvableEvent": false,
-    "ObjectWeight": 20.0,
+    "ObjectWeight": 25,
     "TradingValue": 40.0,
     "CardTags": [],
     "EquipmentTags": [],
@@ -52,7 +52,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_hemp_seeds_roasted",
-            "LocalizationKey": "Herbs_And_Fungus_HempSeedsRoasted_SpoilageTime_CardStatName",
+            "LocalizationKey": "Herbs_And_Fungi_HempSeedsRoasted_SpoilageTime_CardStatName",
             "DefaultText": "Spoilage"
         },
         "RandomStartingOffset": 0.0,
@@ -78,7 +78,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_hemp_seeds_roasted",
-                "LocalizationKey": "Herbs_And_Fungus_HempSeedsRoasted_SpoilageTime_OnFull_ActionDescription",
+                "LocalizationKey": "Herbs_And_Fungi_HempSeedsRoasted_SpoilageTime_OnFull_ActionDescription",
                 "DefaultText": "Roasted Hemp Seeds Spoiled!"
             },
             "ReceivingCardChanges": {
@@ -100,7 +100,7 @@
         "FloatValue": 100.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_hemp_seeds_roasted",
-            "LocalizationKey": "Herbs_And_Fungus_HempSeedsRoasted_FuelCapacity_CardStatName",
+            "LocalizationKey": "Herbs_And_Fungi_HempSeedsRoasted_FuelCapacity_CardStatName",
             "DefaultText": "Temperature"
         },
         "RandomStartingOffset": 0.0,
@@ -148,7 +148,7 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_hemp_seeds_roasted",
-                "LocalizationKey": "Herbs_And_Fungus_HempSeedsRoasted_CardInteractions_Add_ActionName",
+                "LocalizationKey": "Herbs_And_Fungi_HempSeedsRoasted_CardInteractions_Add_ActionName",
                 "DefaultText": "Add"
             },
             "DaytimeCost": 0,
@@ -181,7 +181,7 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_hemp_seeds_roasted",
-                "LocalizationKey": "Herbs_And_Fungus_HempSeedsRoasted_DismantleActions_Eat_ActionName",
+                "LocalizationKey": "Herbs_And_Fungi_HempSeedsRoasted_DismantleActions_Eat_ActionName",
                 "DefaultText": "Eat"
             },
             "ActionSounds": [],
