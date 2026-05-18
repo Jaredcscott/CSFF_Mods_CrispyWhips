@@ -8,14 +8,14 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_hemp_plant_growing",
         "LocalizationKey": "Herbs_And_Fungi_HempPlantGrowing_CardDescription",
-        "DefaultText": "A young hemp plant growing in a garden. Needs time to mature before harvesting fibers and seeds."
+        "DefaultText": "A young hemp plant growing in a garden. Needs time to mature before harvesting stalks, flowers, and seeds."
     },
     "CanBeRenamed": false,
     "AlternateNames": [],
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_hemp_plant_growing",
         "LocalizationKey": "Herbs_And_Fungi_HempPlantGrowing_CardHelpSection",
-        "DefaultText": "<b>Growth Time:</b> 7 days. \n\n<b>Produces:</b> Hemp fibers and seeds when mature."
+        "DefaultText": "<b>Growth Time:</b> 7 days. \n\n<b>Produces:</b> Hemp stalks, flowers, and seeds when mature."
     },
     "CardType": 2,
     "ObjectWeight": 200.0,

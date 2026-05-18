@@ -460,7 +460,7 @@ namespace WaterDrivenInfrastructure.Patcher
             if (allDataList == null)
             { logger?.LogError("[MillRaceInject] DataBase.AllData is not an IList; clone cards cannot enter the unlockable scan"); return; }
 
-            logger?.LogInfo($"[MillRaceInject] Phase 1: wdiDirs={wdiTemplates.Count}, explorableLocs={explorableLocations.Count}, allDataBefore={allDataList.Count}");
+            logger?.LogDebug($"[MillRaceInject] Phase 1: wdiDirs={wdiTemplates.Count}, explorableLocs={explorableLocations.Count}, allDataBefore={allDataList.Count}");
 
             var mapEdges = MillRaceMapEdgeProvider.Load(logger, explorableLocations);
             if (mapEdges.Count == 0)
@@ -503,8 +503,11 @@ namespace WaterDrivenInfrastructure.Patcher
                 MillRaceNetwork.Reset();
 
                 int patched = 0, clonesCreated = 0, allDataAdded = 0, oppositesLinked = 0;
-                int skippedMissingLocation = 0, skippedDirections = 0, skippedDuplicates = 0;
+                int fallbackPatched = 0, fallbackClones = 0;
+                int skippedMissingLocation = 0, skippedDirections = 0, skippedDuplicates = 0, fallbackDuplicates = 0;
                 var clonesByRoute = new Dictionary<string, CardData>(StringComparer.Ordinal);
+                var patchStates = new Dictionary<CardData, LocationPatchState>();
+                var linkedSourceDirections = new HashSet<string>(StringComparer.Ordinal);
 
                 foreach (var edge in mapEdges)
                 {
@@ -521,22 +524,29 @@ namespace WaterDrivenInfrastructure.Patcher
                     MillRaceNetwork.RegisterLocation(destinationLocation, edge.DestinationEnvUid, destinationEnvironment);
 
                     var routeKey = RouteKey(edge.SourceLocationUid, edge.Direction, edge.DestinationLocationUid);
+                    linkedSourceDirections.Add(SourceDirectionKey(edge.SourceLocationUid, edge.Direction));
                     if (clonesByRoute.ContainsKey(routeKey))
                     { skippedDuplicates++; continue; }
 
-                    var existing = envImprovementsField.GetValue(sourceLocation) as Array ?? Array.CreateInstance(cardSlotType, 0);
-                    var presentUIDs = new HashSet<string>(StringComparer.Ordinal);
-                    for (int k = 0; k < existing.Length; k++)
+                    if (!patchStates.TryGetValue(sourceLocation, out var patchState))
                     {
-                        var slot = existing.GetValue(k);
-                        if (slot == null) continue;
-                        var slotCard = cardSlotCardField.GetValue(slot);
-                        if (slotCard is UniqueIDScriptable slotUid)
-                            presentUIDs.Add(slotUid.UniqueID);
+                        var existing = envImprovementsField.GetValue(sourceLocation) as Array ?? Array.CreateInstance(cardSlotType, 0);
+                        patchState = new LocationPatchState(existing);
+
+                        for (int k = 0; k < existing.Length; k++)
+                        {
+                            var slot = existing.GetValue(k);
+                            if (slot == null) continue;
+                            var slotCard = cardSlotCardField.GetValue(slot);
+                            if (slotCard is UniqueIDScriptable slotUid)
+                                patchState.PresentUIDs.Add(slotUid.UniqueID);
+                        }
+
+                        patchStates[sourceLocation] = patchState;
                     }
 
                     var cloneUID = $"{template.UniqueID}_{FNV1aHex(edge.SourceLocationUid + "_" + edge.Direction + "_" + edge.DestinationLocationUid)}";
-                    if (presentUIDs.Contains(cloneUID))
+                    if (patchState.PresentUIDs.Contains(cloneUID))
                     { skippedDuplicates++; continue; }
 
                     var clone = UnityEngine.Object.Instantiate(template);
@@ -552,11 +562,8 @@ namespace WaterDrivenInfrastructure.Patcher
 
                     var slotObj = Activator.CreateInstance(cardSlotType);
                     cardSlotCardField.SetValue(slotObj, clone);
-
-                    var newArray = Array.CreateInstance(cardSlotType, existing.Length + 1);
-                    Array.Copy(existing, newArray, existing.Length);
-                    newArray.SetValue(slotObj, existing.Length);
-                    envImprovementsField.SetValue(sourceLocation, newArray);
+                    patchState.NewSlots.Add(slotObj);
+                    patchState.PresentUIDs.Add(cloneUID);
 
                     MillRaceNetwork.RegisterEdge(new MillRaceNetwork.EdgeRecord
                     {
@@ -571,6 +578,78 @@ namespace WaterDrivenInfrastructure.Patcher
 
                     patched++;
                     clonesCreated++;
+                }
+
+                foreach (var locationEntry in explorableLocations)
+                {
+                    var sourceLocationUid = locationEntry.Key;
+                    var sourceLocation = locationEntry.Value;
+
+                    for (int direction = 0; direction <= 3; direction++)
+                    {
+                        if (linkedSourceDirections.Contains(SourceDirectionKey(sourceLocationUid, direction)))
+                            continue;
+                        if (!wdiTemplates.TryGetValue(direction, out var template))
+                            continue;
+
+                        if (!patchStates.TryGetValue(sourceLocation, out var patchState))
+                        {
+                            var existing = envImprovementsField.GetValue(sourceLocation) as Array ?? Array.CreateInstance(cardSlotType, 0);
+                            patchState = new LocationPatchState(existing);
+
+                            for (int slotIndex = 0; slotIndex < existing.Length; slotIndex++)
+                            {
+                                var slot = existing.GetValue(slotIndex);
+                                if (slot == null) continue;
+                                var slotCard = cardSlotCardField.GetValue(slot);
+                                if (slotCard is UniqueIDScriptable slotUid)
+                                    patchState.PresentUIDs.Add(slotUid.UniqueID);
+                            }
+
+                            patchStates[sourceLocation] = patchState;
+                        }
+
+                        var cloneUID = $"{template.UniqueID}_{FNV1aHex(sourceLocationUid + "_" + direction + "_unlinked")}";
+                        if (patchState.PresentUIDs.Contains(cloneUID))
+                        {
+                            fallbackDuplicates++;
+                            continue;
+                        }
+
+                        var clone = UnityEngine.Object.Instantiate(template);
+                        clone.name = cloneUID;
+                        if (uidFieldInfo != null) uidFieldInfo.SetValue(clone, cloneUID);
+                        else uidPropInfo?.GetSetMethod(nonPublic: true)?.Invoke(clone, new object[] { cloneUID });
+                        oppositeRoadField?.SetValue(clone, null);
+                        clone.RegisterID();
+
+                        allDataList.Add(clone);
+                        allDataAdded++;
+
+                        var slotObj = Activator.CreateInstance(cardSlotType);
+                        cardSlotCardField.SetValue(slotObj, clone);
+                        patchState.NewSlots.Add(slotObj);
+                        patchState.PresentUIDs.Add(cloneUID);
+
+                        fallbackPatched++;
+                        fallbackClones++;
+                    }
+                }
+
+                foreach (var kvp in patchStates)
+                {
+                    var patchState = kvp.Value;
+                    if (patchState.NewSlots.Count == 0)
+                        continue;
+
+                    var existing = patchState.ExistingSlots;
+                    var newArray = Array.CreateInstance(cardSlotType, existing.Length + patchState.NewSlots.Count);
+                    Array.Copy(existing, newArray, existing.Length);
+
+                    for (int i = 0; i < patchState.NewSlots.Count; i++)
+                        newArray.SetValue(patchState.NewSlots[i], existing.Length + i);
+
+                    envImprovementsField.SetValue(kvp.Key, newArray);
                 }
 
                 foreach (var edge in mapEdges)
@@ -588,12 +667,24 @@ namespace WaterDrivenInfrastructure.Patcher
                     oppositesLinked++;
                 }
 
-                logger?.LogInfo($"[MillRaceInject] Static map done — edges={mapEdges.Count}, patched={patched}, clones={clonesCreated}, allDataAdded={allDataAdded}, allDataAfter={allDataList.Count}, opposites={oppositesLinked}, skippedMissingLocation={skippedMissingLocation}, skippedDirs={skippedDirections}, duplicates={skippedDuplicates}");
+                logger?.LogDebug($"[MillRaceInject] Static map done — edges={mapEdges.Count}, linkedPatched={patched}, linkedClones={clonesCreated}, fallbackPatched={fallbackPatched}, fallbackClones={fallbackClones}, allDataAdded={allDataAdded}, allDataAfter={allDataList.Count}, opposites={oppositesLinked}, skippedMissingLocation={skippedMissingLocation}, skippedDirs={skippedDirections}, duplicates={skippedDuplicates}, fallbackDuplicates={fallbackDuplicates}");
                 MillRaceNetwork.LogRegistrySummary();
             }
             catch (Exception ex)
             {
                 logger?.LogError($"[MillRaceInject] Static map injection failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
+            }
+        }
+
+        private sealed class LocationPatchState
+        {
+            public readonly Array ExistingSlots;
+            public readonly HashSet<string> PresentUIDs = new HashSet<string>(StringComparer.Ordinal);
+            public readonly List<object> NewSlots = new List<object>();
+
+            public LocationPatchState(Array existingSlots)
+            {
+                ExistingSlots = existingSlots;
             }
         }
 
@@ -608,6 +699,11 @@ namespace WaterDrivenInfrastructure.Patcher
         private static string RouteKey(string sourceUid, int direction, string destinationUid)
         {
             return $"{sourceUid}:{direction}:{destinationUid}";
+        }
+
+        private static string SourceDirectionKey(string sourceUid, int direction)
+        {
+            return $"{sourceUid}:{direction}";
         }
 
         private static int OppositeDirection(int direction)

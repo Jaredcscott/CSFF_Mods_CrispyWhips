@@ -48,14 +48,14 @@ namespace WaterDrivenInfrastructure.Patcher
                 if (TryLoadFrameworkMapCache(logger, out mapFile))
                 {
                     int cachedEdgesLen = mapFile?.Edges?.Length ?? -1;
-                    logger?.LogInfo($"[MillRaceMap] Parse diagnostic: parser=CSFFModFramework.MapCacheRegistry, mapFile={(mapFile == null ? "null" : "ok")}, edgesArrayLen={cachedEdgesLen}");
+                    logger?.LogDebug($"[MillRaceMap] Parse diagnostic: parser=CSFFModFramework.MapCacheRegistry, mapFile={(mapFile == null ? "null" : "ok")}, edgesArrayLen={cachedEdgesLen}");
                 }
                 else
                 {
                     var jsonText = ReadAllTextDetectEncoding(filePath);
                     mapFile = ParseMapFile(jsonText);
                     int rawEdgesLen = mapFile?.Edges?.Length ?? -1;
-                    logger?.LogInfo($"[MillRaceMap] Parse diagnostic: parser=MiniJson, encoding={DescribeEncoding(filePath)}, mapFile={(mapFile == null ? "null" : "ok")}, edgesArrayLen={rawEdgesLen}");
+                    logger?.LogDebug($"[MillRaceMap] Parse diagnostic: parser=MiniJson, encoding={DescribeEncoding(filePath)}, mapFile={(mapFile == null ? "null" : "ok")}, edgesArrayLen={rawEdgesLen}");
                 }
             }
             catch (Exception ex)
@@ -101,7 +101,11 @@ namespace WaterDrivenInfrastructure.Patcher
                 }
             }
 
-            logger?.LogInfo($"[MillRaceMap] Loaded static map: edges={total}, valid={result.Count}, skippedMissing={skippedMissing}, duplicate={duplicate}, version={mapFile?.Version ?? "unknown"}");
+            var summary = $"[MillRaceMap] Loaded static map: edges={total}, valid={result.Count}, skippedMissing={skippedMissing}, duplicate={duplicate}, version={mapFile?.Version ?? "unknown"}";
+            if (result.Count == 0 || skippedMissing > 0)
+                logger?.LogWarning(summary);
+            else
+                logger?.LogDebug(summary);
             return result;
         }
 

@@ -156,7 +156,7 @@ Hemp provides fiber (from stalks), food (from seeds), smokeable material (from f
 
 ### Harvesting
 
-When the plant matures, harvest:
+When the plant or field matures, harvest:
 - **Hemp Flower** — dry, then grind for smokeable powder
 - **Hemp Stalks** — use the **Extract Fibers** action to get plant fiber
 - **Hemp Seeds** — replant or press into oil

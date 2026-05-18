@@ -294,6 +294,63 @@
   "PassiveStatEffects": [],
   "PassiveEffects": [
     {
+      "EffectName": "Armor (+30) interpolated by quality from 1 to 1.5",
+      "OnlyWhenEquipped": true,
+      "EquippedOnBodyOnly": true,
+      "Conditions": {},
+      "StatModifiers": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "b9013a3e77a421b4bb7e4a8293e75382",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 30.0,
+            "y": 30.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "EffectScalesWithDurabilities": {
+        "Active": true,
+        "Inputs": [
+          {
+            "Durability": 64,
+            "Range": {
+              "x": 0.0,
+              "y": 100.0
+            }
+          }
+        ],
+        "EffectScalingOutput": {
+          "x": 1.0,
+          "y": 1.5
+        }
+      }
+    },
+    {
       "EffectName": "Lose Smelting if not in smelting container",
       "OnlyWhenEquipped": false,
       "EquippedOnBodyOnly": false,

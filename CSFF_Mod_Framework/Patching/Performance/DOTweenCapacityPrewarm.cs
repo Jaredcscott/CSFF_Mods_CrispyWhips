@@ -38,13 +38,29 @@ internal static class DOTweenCapacityPrewarm
             "Performance", "DOTweenQuietLogs", true,
             "Downshift DOTween log verbosity to ErrorsOnly. Reduces per-frame GC from tween warnings. Default true.");
 
+        if (!TryApply(tweenersCfg.Value, sequencesCfg.Value, quietCfg.Value))
+            Plugin.Instance?.StartCoroutine(ApplyWhenAvailable(tweenersCfg.Value, sequencesCfg.Value, quietCfg.Value));
+    }
+
+    private static IEnumerator ApplyWhenAvailable(int tweenerCapacity, int sequenceCapacity, bool quietLogs)
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            yield return null;
+            if (TryApply(tweenerCapacity, sequenceCapacity, quietLogs))
+                yield break;
+        }
+    }
+
+    private static bool TryApply(int tweenerCapacity, int sequenceCapacity, bool quietLogs)
+    {
         try
         {
             var dotweenType = AccessTools.TypeByName("DG.Tweening.DOTween");
             if (dotweenType == null)
             {
                 Util.Log.Debug("DOTweenCapacityPrewarm: DOTween type not found, skipping.");
-                return;
+                return false;
             }
 
             var setCapacity = AccessTools.Method(dotweenType, "SetTweensCapacity",
@@ -52,12 +68,12 @@ internal static class DOTweenCapacityPrewarm
             if (setCapacity == null)
             {
                 Util.Log.Warn("DOTweenCapacityPrewarm: SetTweensCapacity(int,int) not found.");
-                return;
+                return true;
             }
 
-            setCapacity.Invoke(null, new object[] { tweenersCfg.Value, sequencesCfg.Value });
+            setCapacity.Invoke(null, new object[] { tweenerCapacity, sequenceCapacity });
 
-            if (quietCfg.Value)
+            if (quietLogs)
             {
                 var logEnumType = AccessTools.TypeByName("DG.Tweening.LogBehaviour");
                 var logProp = AccessTools.Property(dotweenType, "logBehaviour");
@@ -69,11 +85,13 @@ internal static class DOTweenCapacityPrewarm
                 }
             }
 
-            Util.Log.Debug($"DOTweenCapacityPrewarm: pool pre-warmed to {tweenersCfg.Value}/{sequencesCfg.Value} (tweeners/sequences).");
+            Util.Log.Debug($"DOTweenCapacityPrewarm: pool pre-warmed to {tweenerCapacity}/{sequenceCapacity} (tweeners/sequences).");
+            return true;
         }
         catch (Exception ex)
         {
             Util.Log.Warn($"DOTweenCapacityPrewarm: failed to pre-warm DOTween pool: {ex.InnerException?.ToString() ?? ex.ToString()}");
+            return true;
         }
     }
 }

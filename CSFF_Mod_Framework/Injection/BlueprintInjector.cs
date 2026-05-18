@@ -97,14 +97,15 @@ internal static class BlueprintInjector
     /// </summary>
     public static void InjectFromUI(object uiRoot = null)
     {
-        Log.Info($"[BlueprintInjector] InjectFromUI: queued={_queued.Count}, alreadyDone={_injected}, uiRoot={uiRoot?.GetType().Name ?? "<null>"}");
         if (_injected || _queued.Count == 0) return;
+
+        Log.Debug($"[BlueprintInjector] InjectFromUI: queued={_queued.Count}, uiRoot={uiRoot?.GetType().Name ?? "<null>"}");
 
         try
         {
             var allData = Loading.LoadOrchestrator.GetAllData();
             _injected = DoInject(allData, uiRoot);
-            Log.Info($"[BlueprintInjector] InjectFromUI done: injected={_injected}");
+            Log.Debug($"[BlueprintInjector] InjectFromUI done: injected={_injected}");
         }
         catch (Exception ex)
         {
@@ -153,7 +154,7 @@ internal static class BlueprintInjector
         if (tabLookup.Count == 0)
             Log.Warn($"BlueprintInjector: tab lookup is empty (merged={tabGroups.Count}, allData={allDataTabCount}, database={databaseTabCount}, resources={resourceTabCount}, ui={uiTabCount}, uiRoot={uiRoot?.GetType().FullName ?? "<none>"})");
         else
-            Log.Info($"[BlueprintInjector] tabLookup: {tabLookup.Count} tabs from {tabGroups.Count} CardTabGroup objects (allData={allDataTabCount}, db={databaseTabCount}, res={resourceTabCount}, ui={uiTabCount})");
+            Log.Debug($"[BlueprintInjector] tabLookup: {tabLookup.Count} tabs from {tabGroups.Count} CardTabGroup objects (allData={allDataTabCount}, db={databaseTabCount}, res={resourceTabCount}, ui={uiTabCount})");
         int injected = 0;
         bool completed = true;
 
@@ -193,7 +194,7 @@ internal static class BlueprintInjector
             }
         }
 
-        Log.Info($"[BlueprintInjector] DoInject done: injected={injected}, completed={completed}, queued={_queued.Count}");
+        Log.Debug($"[BlueprintInjector] DoInject done: injected={injected}, completed={completed}, queued={_queued.Count}");
         return completed;
     }
 

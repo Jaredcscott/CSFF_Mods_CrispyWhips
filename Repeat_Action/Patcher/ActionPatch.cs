@@ -3050,10 +3050,14 @@ namespace Repeat_Action.Patcher
         {
             try
             {
-                // Use saved UniqueID as fallback � cleared cards lose their CardModel/UniqueID
-                string uniqueId = lastReceivingCard != null ? GetCardUniqueId(lastReceivingCard) : null;
-                if (string.IsNullOrEmpty(uniqueId))
-                    uniqueId = savedReceivingUniqueId;
+                string currentId = lastReceivingCard != null ? GetCardUniqueId(lastReceivingCard) : null;
+                string uniqueId = !string.IsNullOrEmpty(savedReceivingUniqueId) ? savedReceivingUniqueId : currentId;
+
+                if (!string.IsNullOrEmpty(currentId) && !string.IsNullOrEmpty(savedReceivingUniqueId)
+                    && !string.Equals(currentId, savedReceivingUniqueId, StringComparison.Ordinal))
+                {
+                    Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] Receiving card transformed since capture: '{savedReceivingUniqueId}' -> '{currentId}'; refreshing original target");
+                }
 
                 if (string.IsNullOrEmpty(uniqueId))
                 {
@@ -3082,11 +3086,11 @@ namespace Repeat_Action.Patcher
                         {
                             // Card is alive, but did it transform into a different item?
                             // If UniqueID changed (e.g., nettle stem -> fibers), treat as consumed.
-                            string currentId = GetCardUniqueId(lastReceivingCard);
-                            if (!string.IsNullOrEmpty(currentId) && !string.IsNullOrEmpty(uniqueId)
-                                && !string.Equals(currentId, uniqueId, StringComparison.Ordinal))
+                            string liveId = GetCardUniqueId(lastReceivingCard);
+                            if (!string.IsNullOrEmpty(liveId) && !string.IsNullOrEmpty(uniqueId)
+                                && !string.Equals(liveId, uniqueId, StringComparison.Ordinal))
                             {
-                                Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] Card transformed: expected '{uniqueId}', now '{currentId}'");
+                                Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] Card transformed: expected '{uniqueId}', now '{liveId}'");
                                 return false;
                             }
                             return true;  // Card truly alive and same type

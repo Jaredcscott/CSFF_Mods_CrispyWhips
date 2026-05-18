@@ -84,18 +84,18 @@ Herbs_And_Fungi_MorelDried_SpoilageTime_OnFull_ActionDescription,Dried Morel Spo
 Herbs_And_Fungi_MorelDried_DismantleActions_Eat_ActionName,Eat,吃
 Herbs_And_Fungi_MorelDried_DismantleActions_Eat_ActionDescription,Eat the dried morel. Chewy texture with concentrated earthy flavor.,吃干羊肚菌。有嚼劲的质地，浓缩的土味。
 Herbs_Fungi_Bp_HempField_CardName,Hemp Field,大麻田
-Herbs_Fungi_Bp_HempField_CardDescription,Plant hemp seeds to create a field that produces hemp flowers and seeds after 11 days.,种植大麻种子以创建一个在11天后产出大麻花和种子的田地。
+Herbs_Fungi_Bp_HempField_CardDescription,"Plant hemp seeds to create a field that produces hemp stalks, flowers, and seeds after 11 days.",种植大麻种子以创建一个在11天后产出大麻茎、花和种子的田地。
 Herbs_Fungi_Bp_HempField_UnlockConditionsDesc,Unlocked after obtaining a Hemp Seed,获得大麻种子后解锁
 herbs_fungi_hemp_field_growing_CardName,Hemp Field (Growing),大麻田（生长中）
 herbs_fungi_hemp_field_growing_CardDescription,A field of hemp plants growing steadily. Will be ready to harvest when mature.,一片稳定生长的大麻植物田。成熟后可以收获。
-herbs_fungi_hemp_field_growing_CardHelpSection,"<b>Growth:</b> Takes 11 days to mature.
+herbs_fungi_hemp_field_growing_CardHelpSection,"<b>Growth:</b> Takes 11 days to mature. <b>Harvest:</b> Once mature, harvest for hemp stalks, flowers, and seeds.","<b>生长:</b> 需要11天成熟。<b>收获:</b> 成熟后可收获大麻茎、花和种子。"
 herbs_fungi_hemp_field_growing_Progress_CardStatName,Growth,生长度
 herbs_fungi_hemp_field_growing_OnFull_ActionDescription,Hemp field is ready to harvest!,大麻田可以收获了！
 herbs_fungi_hemp_field_mature_CardName,Mature Hemp Field,成熟的大麻田
 herbs_fungi_hemp_field_mature_CardDescription,A field of mature hemp plants ready for harvest.,一片成熟的大麻植物田，可以收获了。
-herbs_fungi_hemp_field_mature_CardHelpSection,<b>Harvest:</b> Extract hemp flowers and seeds. Harvesting destroys the field.,<b>收获:</b> 提取大麻花和种子。收获时将摧毁该田地。
+herbs_fungi_hemp_field_mature_CardHelpSection,"<b>Harvest:</b> Collect hemp stalks, flowers, and seeds. Harvesting destroys the field.","<b>收获:</b> 收集大麻茎、花和种子。收获时将摧毁该田地。"
 herbs_fungi_hemp_field_mature_DismantleActions_0_ActionName,Harvest,收获
-herbs_fungi_hemp_field_mature_DismantleActions_0_ActionDescription,Harvest hemp flowers and seeds from the field.,从田地收获大麻花和种子。
+herbs_fungi_hemp_field_mature_DismantleActions_0_ActionDescription,"Harvest hemp stalks, flowers, and seeds from the field.",从田地收获大麻茎、花和种子。
 Herbs_Fungi_Bp_HempPlant_CardName,Plant Hemp Seeds,种植大麻种子
 Herbs_Fungi_Bp_HempPlant_CardDescription,Plant 2 hemp seeds in a garden plot to grow a hemp plant.,在花园地块中种植2颗大麻种子以种出一株大麻。
 Herbs_Fungi_Bp_HempPlant_UnlockConditionsDesc,Unlocked after obtaining a Hemp Seed,获得大麻种子后解锁
@@ -987,10 +987,10 @@ Herbs_And_Fungi_HempFlower_SpoilageTime_CardStatName,Spoilage
 Herbs_And_Fungi_HempFlower_SpoilageTime_OnFull_ActionDescription,Hemp Flower Spoiled!
 Herbs_And_Fungi_HempFlower_UsageDurability_CardStatName,Drying
 Herbs_And_Fungi_HempFlower_UsageDurability_OnFull_ActionDescription,Hemp Flower dried!
-Herbs_And_Fungi_HempPlantGrowing_CardDescription,A young hemp plant growing in a garden. Needs time to mature before harvesting fibers and seeds.
+Herbs_And_Fungi_HempPlantGrowing_CardDescription,"A young hemp plant growing in a garden. Needs time to mature before harvesting stalks, flowers, and seeds."
 Herbs_And_Fungi_HempPlantGrowing_CardHelpSection,"<b>Growth Time:</b> 7 days. 
 
-<b>Produces:</b> Hemp fibers and seeds when mature."
+<b>Produces:</b> Hemp stalks, flowers, and seeds when mature."
 Herbs_And_Fungi_HempPlantGrowing_CardName,Growing Hemp Plant
 Herbs_And_Fungi_HempPlantGrowing_DismantleActions_ActionName,Uproot
 Herbs_And_Fungi_HempPlantGrowing_Progress_CardStatName,Growth

@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_bp_hemp_field",
         "LocalizationKey": "Herbs_Fungi_Bp_HempField_CardDescription",
-        "DefaultText": "Plant hemp seeds to create a field that produces hemp flowers and seeds after 11 days."
+        "DefaultText": "Plant hemp seeds to create a field that produces hemp stalks, flowers, and seeds after 11 days."
     },
     "CanBeRenamed": false,
     "CardType": 7,

@@ -13,7 +13,7 @@
   "CardHelpSection": {
     "ParentObjectID": "herbs_fungi_hemp_field_growing",
     "LocalizationKey": "herbs_fungi_hemp_field_growing_CardHelpSection",
-    "DefaultText": "<b>Growth:</b> Takes 11 days to mature.\n\n<b>Harvest:</b> Once mature, harvest for hemp flowers and seeds."
+    "DefaultText": "<b>Growth:</b> Takes 11 days to mature.\n\n<b>Harvest:</b> Once mature, harvest for hemp stalks, flowers, and seeds."
   },
   "CardType": 2,
   "ObjectWeight": 100.0,
