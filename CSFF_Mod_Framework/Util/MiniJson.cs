@@ -61,7 +61,27 @@ internal static class MiniJson
 
     private static string Str(string s, ref int i)
     {
-        i++;
+        i++; // skip opening quote
+
+        // Fast path: the overwhelming majority of JSON string tokens (every object key,
+        // most values) contain no escape sequences. Scan forward for the closing quote;
+        // if no backslash is seen first, return a single Substring and skip the
+        // StringBuilder + per-char Append entirely. Bail to the slow path the instant a
+        // backslash appears so \n, \", \\, \/, \r, \t and \uXXXX still decode correctly.
+        int start = i;
+        int j = i;
+        while (j < s.Length)
+        {
+            char ch = s[j];
+            if (ch == '"')
+            {
+                i = j + 1;
+                return s.Substring(start, j - start);
+            }
+            if (ch == '\\') break; // escape present — fall through to the decoding loop
+            j++;
+        }
+
         var sb = new System.Text.StringBuilder();
         while (i < s.Length)
         {

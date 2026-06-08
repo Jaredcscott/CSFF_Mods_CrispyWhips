@@ -18,8 +18,8 @@ internal static class GameLoadPatch
         var blueprintPrefix = new HarmonyMethod(AccessTools.Method(typeof(GameLoadPatch), nameof(BlueprintContent_Start_Prefix)));
         SafePatcher.TryPatch(harmony, "NewBlueprintContent", "Start", prefix: blueprintPrefix);
 
-        var blueprintScreenPrefix = new HarmonyMethod(AccessTools.Method(typeof(GameLoadPatch), nameof(BlueprintModelsScreen_Show_Prefix)));
-        SafePatcher.TryPatch(harmony, "BlueprintModelsScreen", "Show", prefix: blueprintScreenPrefix);
+        var blueprintScreenPostfix = new HarmonyMethod(AccessTools.Method(typeof(GameLoadPatch), nameof(BlueprintModelsScreen_Show_Postfix)));
+        SafePatcher.TryPatch(harmony, "BlueprintModelsScreen", "Show", postfix: blueprintScreenPostfix);
     }
 
     static void Postfix()
@@ -34,7 +34,7 @@ internal static class GameLoadPatch
         BlueprintInjector.InjectFromUI();
     }
 
-    static void BlueprintModelsScreen_Show_Prefix(object __instance)
+    static void BlueprintModelsScreen_Show_Postfix(object __instance)
     {
         BlueprintInjector.InjectFromUI(__instance);
     }

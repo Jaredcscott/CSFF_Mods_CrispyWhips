@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "water_sawmill_bp_cast_copper_saw_blade",
         "LocalizationKey": "Water_Sawmill_Bp_CastCopperSawBlade_CardDescription",
-        "DefaultText": "Cast a dull copper saw blade in a clay mold and break it open with a hammer."
+        "DefaultText": "Cast copper saw blade in a clay mold using two large crucibles of molten copper, then break it open with a hammer."
     },
     "CanBeRenamed": false,
     "CardType": 7,
@@ -139,7 +139,7 @@
                 "x": 1,
                 "y": 1
             },
-            "DroppedCardWarpData": "water_sawmill_copper_saw_blade_dull",
+            "DroppedCardWarpData": "water_sawmill_copper_saw_blade",
             "DroppedCardWarpType": 3
         }
     ],

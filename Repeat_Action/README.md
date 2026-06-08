@@ -1,6 +1,6 @@
 # Repeat Action
 
-**Version:** 1.3.9
+**Version:** 1.4.2
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.63)
 
@@ -13,6 +13,8 @@ A quality-of-life mod that lets you automatically repeat your last action multip
 - **Adjustable Count**: Press `Shift+Plus(= key)` or `Shift+Minus` to increase/decrease how many times to repeat (1-50). **Hold** either key for rapid adjustment. Either Shift key works.
 - **Visual Feedback**: On-screen notifications show what action is being repeated and progress
 - **Safety Stop**: Automatically stops if health or hunger drops critically low (configurable)
+- **Stat Thresholds**: Configurable per-stat stop conditions — set a Satiation, Hydration, or Stamina % floor and the repeat halts before you hit critical levels
+- **Tool-Break Stop**: Stops automatically when a drag-drop tool transforms (e.g. axe wears out mid-run)
 - **Cancel Anytime**: Press `Shift+R` again while repeating to cancel
 - **Smart Travel**: Rests before each travel step to ensure stamina, then moves in the chosen direction. Stops automatically when there's no path forward, a critical stat event triggers, or you cancel. Each step: Rest → Travel → repeat.
 - **Smart Chopping**: Automatically rests between chop/cut/fell iterations to recover stamina and allow small trees to respawn

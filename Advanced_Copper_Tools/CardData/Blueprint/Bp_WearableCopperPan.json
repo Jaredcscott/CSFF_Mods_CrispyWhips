@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "advanced_copper_tools_bp_wearable_metal_pan",
         "LocalizationKey": "Bp_WearableMetalPan_CardDescription",
-        "DefaultText": "Attach rope and leather to a shaped pan to make it wearable."
+        "DefaultText": "Attach a wooden grip, rope, small leather, and copper nails to a shaped pan to make it wearable."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {

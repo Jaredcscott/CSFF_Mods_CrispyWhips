@@ -1,0 +1,101 @@
+{
+    "UniqueID": "herbs_fungi_common_plantain",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_common_plantain",
+        "LocalizationKey": "herbs_fungi_common_plantain_CardName",
+        "DefaultText": "Common Plantain"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_common_plantain",
+        "LocalizationKey": "herbs_fungi_common_plantain_CardDescription",
+        "DefaultText": "A wide-leafed medicinal herb found on pathways and riverbanks. Leaves can be dried and used in poultices for wound care. Not a food plant."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Foraged",
+        "tag_Herb",
+        "tag_Dryable"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "PlantainFresh",
+    "CardImageWarpType": 3,
+    "AlwaysUpdate": true,
+    "SpoilageTime": {
+        "ParentObjectID": "herbs_fungi_common_plantain",
+        "LocalizationKey": "herbs_fungi_common_plantain_SpoilageTime_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_common_plantain",
+            "LocalizationKey": "herbs_fungi_common_plantain_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 576.0,
+        "RatePerDaytimePoint": 1.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_common_plantain",
+                "LocalizationKey": "herbs_fungi_common_plantain_SpoilageTime_OnFull",
+                "DefaultText": "The plantain leaves have rotted."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "UsageDurability": {
+        "ParentObjectID": "herbs_fungi_common_plantain",
+        "LocalizationKey": "herbs_fungi_common_plantain_UsageDurability_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_common_plantain",
+            "LocalizationKey": "herbs_fungi_common_plantain_UsageDurability_StatName",
+            "DefaultText": "Dry"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 24.0,
+        "RatePerDaytimePoint": 0.02,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_common_plantain",
+                "LocalizationKey": "herbs_fungi_common_plantain_UsageDurability_OnFull",
+                "DefaultText": "The plantain leaves have dried, concentrating their medicinal properties."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_common_plantain_dried",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "ObjectWeight": 25,
+    "MaxStack": 15,
+    "DroppedCardShadow": 1
+}

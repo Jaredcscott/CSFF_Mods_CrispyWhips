@@ -40,7 +40,7 @@
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
-        "MaxValue": 4320.0,
+        "MaxValue": 480.0,
         "RatePerDaytimePoint": 1.0,
         "RateMultiplier": 1.0,
         "HasActionOnFull": true,
@@ -91,96 +91,276 @@
                         "m_FileID": 0,
                         "m_PathID": 0
                     },
-                    "ValueModifier": {
-                        "x": 18.0,
-                        "y": 18.0
-                    },
-                    "RateModifier": {
-                        "x": 0.0,
-                        "y": 0.0
-                    },
-                    "MinValueModifier": {
-                        "x": 0.0,
-                        "y": 0.0
-                    },
-                    "MaxValueModifier": {
-                        "x": 0.0,
-                        "y": 0.0
-                    },
                     "StatWarpData": "930cf914322e9f145af1315d96f85a28",
-                    "StatWarpType": 3
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 24,
+                        "y": 24
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
                 },
                 {
                     "Stat": {
                         "m_FileID": 0,
                         "m_PathID": 0
-                    },
-                    "ValueModifier": {
-                        "x": 25.0,
-                        "y": 25.0
-                    },
-                    "RateModifier": {
-                        "x": 0.0,
-                        "y": 0.0
-                    },
-                    "MinValueModifier": {
-                        "x": 0.0,
-                        "y": 0.0
-                    },
-                    "MaxValueModifier": {
-                        "x": 0.0,
-                        "y": 0.0
                     },
                     "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
-                    "StatWarpType": 3
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 34,
+                        "y": 34
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
                 },
                 {
                     "Stat": {
                         "m_FileID": 0,
                         "m_PathID": 0
-                    },
-                    "ValueModifier": {
-                        "x": 10.0,
-                        "y": 10.0
-                    },
-                    "RateModifier": {
-                        "x": 0.0,
-                        "y": 0.0
-                    },
-                    "MinValueModifier": {
-                        "x": 0.0,
-                        "y": 0.0
-                    },
-                    "MaxValueModifier": {
-                        "x": 0.0,
-                        "y": 0.0
                     },
                     "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
-                    "StatWarpType": 3
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 20,
+                        "y": 20
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
                 },
                 {
                     "Stat": {
                         "m_FileID": 0,
                         "m_PathID": 0
                     },
+                    "StatWarpData": "9824a150f7bc85f4384a0ed026a69f0a",
+                    "StatWarpType": 3,
                     "ValueModifier": {
-                        "x": 48.0,
-                        "y": 48.0
+                        "x": 40,
+                        "y": 40
                     },
-                    "RateModifier": {
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
                         "x": 0.0,
                         "y": 0.0
                     },
-                    "MinValueModifier": {
-                        "x": 0.0,
-                        "y": 0.0
-                    },
-                    "MaxValueModifier": {
-                        "x": 0.0,
-                        "y": 0.0
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
                     },
                     "StatWarpData": "5e303712abfb8134c9cdcc3a15ef563e",
-                    "StatWarpType": 3
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 4,
+                        "y": 4
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "c589f92d8a479a24c937ea90fa2d1a82",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -8,
+                        "y": -8
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 3,
+                        "y": 3
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 2,
+                        "y": 2
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 5,
+                        "y": 5
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 12,
+                        "y": 12
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "0344bd36c91a41041947df8e879ffab5",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 24,
+                        "y": 24
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
                 },
                 {
                     "Stat": {
@@ -385,6 +565,35 @@
                 "ModType": 3
             },
             "ProducedCards": []
+        }
+    ],
+    "FlavourTags": [
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "79e30fba7cf532345b483833c449a3ae",
+            "FlavourWarpType": 3,
+            "Intensity": 3
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "55ebfecd567382b44a9d2c176c5b5156",
+            "FlavourWarpType": 3,
+            "Intensity": 5
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "d5d0c5e6112875a4cafc88a4b57711bf",
+            "FlavourWarpType": 3,
+            "Intensity": 1
         }
     ]
 }

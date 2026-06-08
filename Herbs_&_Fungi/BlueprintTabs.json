@@ -2,13 +2,20 @@
     "Tab_1_Survival_Subtab_2_Support_TabName": [
         "herbs_fungi_bp_herb_pipe",
         "herbs_fungi_bp_drying_tray",
-        "herbs_fungi_bp_death_cap_ward",
+        "herbs_fungi_bp_flower_garland"
+    ],
+    "Tab_1_Survival_Subtab_5_Cooking_TabName": [
+        "herbs_fungi_bp_mushroom_broth",
         "herbs_fungi_bp_sleep_tea",
         "herbs_fungi_bp_anti_nausea_tea",
-        "herbs_fungi_bp_stimulant_tea",
+        "herbs_fungi_bp_stimulant_tea"
+    ],
+    "Tab_1_Survival_Subtab_3_Medical_TabName": [
         "herbs_fungi_bp_pain_relief_powder",
         "herbs_fungi_bp_herbal_salve",
+        "herbs_fungi_bp_plantain_poultice",
         "herbs_fungi_bp_herbal_tincture",
+        "herbs_fungi_bp_healers_moss_tincture",
         "herbs_fungi_bp_death_cap_tincture"
     ],
     "Tab_5_MetalAndClay_Subtab_1_Utensils_TabName": [

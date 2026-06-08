@@ -1,8 +1,8 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using BepInEx.Logging;
+using CSFFModFramework.Util;
 using HarmonyLib;
 using UnityEngine;
 
@@ -27,8 +27,8 @@ namespace Herbs_And_Fungi.Patcher
     ///   When a slice has Char ≥ 1.0 (1 dtp = 15 min in-game) AND Fat ≥ 0.99,
     ///   swap it in place to a Cooked Truffle BEFORE the OnFull burn at Char=3.0
     ///   fires. The 0.333 normalized threshold = 1.0/3.0 absolute.
-    ///   In-place transform uses the WDI/TeaStation CardModel-swap pattern so the
-    ///   card stays in its container slot (no OnDestroy relocation).
+    ///   In-place transform uses CardUtil.TransformCardInPlace so the card stays
+    ///   in its container slot (no OnDestroy relocation).
     /// </summary>
     public static class TruffleFatCookPatch
     {
@@ -41,7 +41,6 @@ namespace Herbs_And_Fungi.Patcher
         private const float FatRequiredThreshold = 0.99f;
         private const float TickInterval = 0.25f;
 
-        private const BindingFlags Flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
         private static float _nextCheck;
 
         // Type lookups
@@ -52,13 +51,9 @@ namespace Herbs_And_Fungi.Patcher
         private static MethodInfo _getFromIDMethod;
         private static bool _typeReflectionInit;
 
-        // Per-runtime-type transform reflection (CardModel property / setter / backing field)
-        private static Type _transformCardType;
-        private static PropertyInfo _cardModelSetProp;
-        private static MethodInfo _cardModelSetter;
-        private static FieldInfo _cardModelBackingField;
-        private static MethodInfo _cardResetMethod;
-        private static MethodInfo _cardSetupMethod;
+        // GameManager.AllCards access
+        private static PropertyInfo _gmInstanceProp;
+        private static PropertyInfo _allCardsProp;
 
         private static ManualLogSource Logger => Plugin.Logger;
 
@@ -81,9 +76,9 @@ namespace Herbs_And_Fungi.Patcher
                 harmony.Patch(updateMethod,
                     postfix: new HarmonyMethod(typeof(TruffleFatCookPatch), nameof(Update_Postfix)));
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
-                Logger?.LogError($"[TruffleFatCook] ApplyPatch failed: {ex.Message}");
+                Logger?.LogError($"[TruffleFatCook] ApplyPatch failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
         }
 
@@ -93,32 +88,44 @@ namespace Herbs_And_Fungi.Patcher
             _nextCheck = Time.time + TickInterval;
 
             try { ScanTruffles(); }
-            catch (Exception ex) { Logger?.LogError($"[TruffleFatCook] tick error: {ex.Message}"); }
+            catch (System.Exception ex) { Logger?.LogError($"[TruffleFatCook] tick error: {ex.Message}"); }
         }
 
         private static void ScanTruffles()
         {
             InitTypeReflection();
+            _inGameCardBaseType ??= CardUtil.FindGameType("InGameCardBase");
             if (_inGameCardBaseType == null) return;
 
-            var allCards = UnityEngine.Object.FindObjectsOfType(_inGameCardBaseType);
-            if (allCards == null || allCards.Length == 0) return;
+            var allCards = GetAllCardsFromGM();
+            if (allCards == null)
+            {
+                // Fallback to scene scan only if AllCards is unavailable (e.g. before GM initialized)
+                var found = UnityEngine.Object.FindObjectsOfType(_inGameCardBaseType);
+                if (found == null || found.Length == 0) return;
+                foreach (var c in found) ProcessCard(c);
+                return;
+            }
 
             foreach (var card in allCards)
-            {
-                if (card == null) continue;
-                if (GetUniqueId(card) != CutTruffleID) continue;
+                ProcessCard(card);
+        }
 
-                float charStat = GetSpecial(card, "Special1") ?? 0f;
-                if (charStat < CharPreemptThreshold) continue;
+        private static void ProcessCard(object card)
+        {
+            if (card == null) return;
+            if (GetUniqueId(card) != CutTruffleID) return;
 
-                float fatStat = GetSpecial(card, "Special4") ?? 0f;
-                if (fatStat < FatRequiredThreshold) continue;
+            float charStat = GetSpecial(card, "Special1") ?? 0f;
+            if (charStat < CharPreemptThreshold) return;
 
-                Logger?.Log(LogLevel.Debug,
-                    $"[TruffleFatCook] Pre-empting char (Char={charStat:F2}, Fat={fatStat:F2}) → CookedTruffle");
-                TransformCardInPlace(card, CookedTruffleID);
-            }
+            float fatStat = GetSpecial(card, "Special4") ?? 0f;
+            if (fatStat < FatRequiredThreshold) return;
+
+            Logger?.Log(LogLevel.Debug,
+                $"[TruffleFatCook] Pre-empting char (Char={charStat:F2}, Fat={fatStat:F2}) → CookedTruffle");
+            if (!CardUtil.TransformCardInPlace(card, CookedTruffleID))
+                Logger?.LogError($"[TruffleFatCook] Transform failed for card {card}");
         }
 
         // ============================================================
@@ -144,6 +151,52 @@ namespace Herbs_And_Fungi.Patcher
                 if (generic != null)
                     _getFromIDMethod = generic.MakeGenericMethod(_cardDataType);
             }
+
+            if (_gmType != null && _gmInstanceProp == null)
+            {
+                // Instance is on MBSingleton<T> — need FlattenHierarchy or base-type walk
+                _gmInstanceProp = _gmType.GetProperty("Instance",
+                    BindingFlags.Static | BindingFlags.Public | BindingFlags.FlattenHierarchy);
+                if (_gmInstanceProp == null)
+                {
+                    for (var t = _gmType.BaseType; t != null && t != typeof(object); t = t.BaseType)
+                    {
+                        _gmInstanceProp = t.GetProperty("Instance",
+                            BindingFlags.Static | BindingFlags.Public | BindingFlags.FlattenHierarchy);
+                        if (_gmInstanceProp != null) break;
+                    }
+                }
+            }
+        }
+
+        private static System.Collections.IEnumerable GetAllCardsFromGM()
+        {
+            try
+            {
+                if (_gmInstanceProp == null) return null;
+                var gm = _gmInstanceProp.GetValue(null, null);
+                if (gm == null) return null;
+
+                if (_allCardsProp == null)
+                {
+                    var gmRuntimeType = gm.GetType();
+                    _allCardsProp = gmRuntimeType.GetProperty("AllCards",
+                        BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy);
+                    if (_allCardsProp == null)
+                    {
+                        for (var t = gmRuntimeType.BaseType; t != null && t != typeof(object); t = t.BaseType)
+                        {
+                            _allCardsProp = t.GetProperty("AllCards",
+                                BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+                            if (_allCardsProp != null) break;
+                        }
+                    }
+                }
+
+                if (_allCardsProp == null) return null;
+                return _allCardsProp.GetValue(gm, null) as System.Collections.IEnumerable;
+            }
+            catch { return null; }
         }
 
         private static string GetUniqueId(object card)
@@ -151,161 +204,39 @@ namespace Herbs_And_Fungi.Patcher
             if (card == null) return null;
             try
             {
-                var cardModel = GetMemberValue(card, "CardModel");
+                var cardModel = CardUtil.GetMemberValue(card, "CardModel");
                 if (cardModel == null) return null;
-                return GetMemberValue(cardModel, "UniqueID") as string;
+                return CardUtil.GetMemberValue(cardModel, "UniqueID") as string;
             }
             catch { return null; }
         }
 
+
         /// <summary>
-        /// Returns the normalized (0..1) value of the named special-durability stat
-        /// on the runtime InGameCardBase. EA 0.62b exposes these directly as
-        /// `CurrentSpecial1` / `CurrentSpecial1Percent` (and ...4) on the card —
-        /// there is no `DurabilityStats` container. Tries the *Percent property
-        /// first, then falls back to Current{N} / template MaxValue.
+        /// Returns the normalized (0..1) value of the named special-durability stat.
+        /// Tries the *Percent property first, then falls back to Current{N} / template MaxValue.
         /// </summary>
         private static float? GetSpecial(object card, string memberName)
         {
             try
             {
-                // memberName is "Special1" or "Special4" — InGameCardBase has
-                // CurrentSpecial1Percent / CurrentSpecial4Percent properties (0..1).
-                var pct = GetMemberValue(card, "Current" + memberName + "Percent");
-                if (pct != null) return ToFloat(pct);
+                var pct = CardUtil.GetMemberValue(card, "Current" + memberName + "Percent");
+                if (pct != null) return CardUtil.ToFloat(pct);
 
-                // Fallback: raw CurrentSpecial{N} divided by template MaxValue.
-                var raw = GetMemberValue(card, "Current" + memberName);
+                var raw = CardUtil.GetMemberValue(card, "Current" + memberName);
                 if (raw == null) return null;
-                float current = ToFloat(raw);
+                float current = CardUtil.ToFloat(raw);
 
-                var cardModel = GetMemberValue(card, "CardModel");
+                var cardModel = CardUtil.GetMemberValue(card, "CardModel");
                 var statTemplate = cardModel != null
-                    ? GetMemberValue(cardModel, memberName.Replace("Special", "SpecialDurability"))
+                    ? CardUtil.GetMemberValue(cardModel, memberName.Replace("Special", "SpecialDurability"))
                     : null;
-                float max = statTemplate != null ? ToFloat(GetMemberValue(statTemplate, "MaxValue")) : 0f;
-                if (max <= 0f) return current;
-                return current / max;
+                float max = statTemplate != null
+                    ? CardUtil.ToFloat(CardUtil.GetMemberValue(statTemplate, "MaxValue"))
+                    : 0f;
+                return max <= 0f ? current : current / max;
             }
             catch { return null; }
-        }
-
-        private static float ToFloat(object o)
-        {
-            if (o is float f) return f;
-            if (o is double d) return (float)d;
-            if (o is int i) return i;
-            return 0f;
-        }
-
-        private static object GetMemberValue(object target, string name)
-        {
-            if (target == null) return null;
-            var t = target.GetType();
-            var prop = t.GetProperty(name, Flags);
-            if (prop != null && prop.CanRead) { try { return prop.GetValue(target, null); } catch { } }
-            var field = t.GetField(name, Flags);
-            if (field != null) { try { return field.GetValue(target); } catch { } }
-            return null;
-        }
-
-        // ============================================================
-        //  In-place CardModel swap (WDI / TeaStation pattern)
-        // ============================================================
-        private static void TransformCardInPlace(object card, string targetUniqueId)
-        {
-            if (card == null || string.IsNullOrEmpty(targetUniqueId)) return;
-            try
-            {
-                if (_getFromIDMethod == null)
-                {
-                    Logger?.LogError("[TruffleFatCook] Transform: GetFromID reflection unavailable");
-                    return;
-                }
-
-                var targetData = _getFromIDMethod.Invoke(null, new object[] { targetUniqueId });
-                if (targetData == null)
-                {
-                    Logger?.LogError($"[TruffleFatCook] Transform: CardData not found for '{targetUniqueId}'");
-                    return;
-                }
-
-                Type cardType = card.GetType();
-                if (_transformCardType != cardType)
-                {
-                    _transformCardType    = cardType;
-                    _cardModelSetProp     = cardType.GetProperty("CardModel", Flags);
-                    _cardModelSetter      = _cardModelSetProp?.GetSetMethod(nonPublic: true);
-                    _cardModelBackingField = ResolveBackingField(cardType, "CardModel");
-                    _cardResetMethod      = cardType.GetMethod("ResetCard", Flags, null, Type.EmptyTypes, null);
-                    _cardSetupMethod      = cardType.GetMethods(Flags)
-                        .FirstOrDefault(m => m.Name == "SetupCardSource"
-                            && m.GetParameters().Length >= 1
-                            && _cardDataType != null
-                            && m.GetParameters()[0].ParameterType.IsAssignableFrom(_cardDataType));
-                    Logger?.Log(LogLevel.Debug,
-                        $"[TruffleFatCook] Transform reflection for {cardType.Name}: " +
-                        $"CardModelProp={(_cardModelSetProp != null)}, " +
-                        $"Setter={(_cardModelSetter != null)}, " +
-                        $"BackingField={(_cardModelBackingField != null)}, " +
-                        $"SetupCardSource={(_cardSetupMethod != null)}, " +
-                        $"ResetCard={(_cardResetMethod != null)}");
-                }
-
-                if (!TrySetCardModel(card, targetData))
-                {
-                    Logger?.LogError($"[TruffleFatCook] Transform: CardModel not settable on {cardType.Name}");
-                    return;
-                }
-
-                if (_cardSetupMethod != null)
-                {
-                    var p = _cardSetupMethod.GetParameters();
-                    var args = new object[p.Length];
-                    args[0] = targetData;
-                    for (int i = 1; i < p.Length; i++)
-                    {
-                        var pt = p[i].ParameterType;
-                        args[i] = pt.IsValueType ? Activator.CreateInstance(pt) : null;
-                    }
-                    _cardSetupMethod.Invoke(card, args);
-                }
-                else if (_cardResetMethod != null)
-                {
-                    _cardResetMethod.Invoke(card, null);
-                }
-
-                Logger?.LogDebug($"[TruffleFatCook] Slices cooked → {targetUniqueId}");
-            }
-            catch (Exception ex)
-            {
-                Logger?.LogError($"[TruffleFatCook] Transform failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
-            }
-        }
-
-        private static bool TrySetCardModel(object card, object targetData)
-        {
-            try { if (_cardModelSetProp != null && _cardModelSetProp.CanWrite) { _cardModelSetProp.SetValue(card, targetData); return true; } }
-            catch (Exception ex) { Logger?.Log(LogLevel.Debug, $"[TruffleFatCook] prop.SetValue: {ex.Message}"); }
-
-            try { if (_cardModelSetter != null) { _cardModelSetter.Invoke(card, new object[] { targetData }); return true; } }
-            catch (Exception ex) { Logger?.Log(LogLevel.Debug, $"[TruffleFatCook] setter.Invoke: {ex.Message}"); }
-
-            try { if (_cardModelBackingField != null) { _cardModelBackingField.SetValue(card, targetData); return true; } }
-            catch (Exception ex) { Logger?.Log(LogLevel.Debug, $"[TruffleFatCook] backingField.SetValue: {ex.Message}"); }
-
-            return false;
-        }
-
-        private static FieldInfo ResolveBackingField(Type type, string propName)
-        {
-            string target = $"<{propName}>k__BackingField";
-            for (var t = type; t != null && t != typeof(object); t = t.BaseType)
-            {
-                var f = t.GetField(target, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
-                if (f != null) return f;
-            }
-            return null;
         }
     }
 }

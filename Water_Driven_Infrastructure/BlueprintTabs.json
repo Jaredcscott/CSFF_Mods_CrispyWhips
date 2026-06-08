@@ -9,7 +9,11 @@
     "Tab_5_MetalAndClay_Subtab_3_MetalCrafts_TabName": [
         "water_sawmill_bp_cast_copper_gear_large",
         "water_sawmill_bp_cast_copper_gear_small",
-        "water_sawmill_bp_cast_copper_saw_blade"
+        "water_sawmill_bp_cast_copper_saw_blade",
+        "water_sawmill_bp_iron_parts",
+        "water_sawmill_bp_iron_bearing",
+        "water_sawmill_bp_iron_axle",
+        "water_sawmill_bp_iron_wrench"
     ],
     "Tab_2_Construction_Subtab_4_Furniture_TabName": [
         "water_sawmill_bp_ore_sluice",

@@ -29,6 +29,22 @@ internal static class ProducedCardService
         return field;
     }
 
+    // Silent (Type,name)→FieldInfo cache using native GetField — no AccessTools warning log.
+    // Used for optional/legacy field names (e.g. CardWarpData) that won't exist on modern types,
+    // where the warning AccessTools.Field emits on a miss would just pollute the log.
+    private static readonly Dictionary<(Type, string), FieldInfo> _nativeFieldCache = new();
+
+    private static FieldInfo CachedFieldNative(Type type, string name)
+    {
+        var key = (type, name);
+        if (!_nativeFieldCache.TryGetValue(key, out var field))
+        {
+            field = type.GetField(name, AllInstance);
+            _nativeFieldCache[key] = field;
+        }
+        return field;
+    }
+
     private static readonly string[] DurabilityFields =
     {
         "FuelCapacity", "SpecialDurability1", "SpecialDurability2",
@@ -59,25 +75,27 @@ internal static class ProducedCardService
                 || !modUniqueIds.Contains(uid.UniqueID))
                 continue;
 
-            // Phase 1: Normalize defaults
-            normalized += NormalizeCard(item);
-
-            // Phase 2: Clean nulls
-            cleaned += CleanCard(item);
+            var (norm, clean) = ProcessCard(item);
+            normalized += norm;
+            cleaned += clean;
         }
 
         if (normalized > 0 || cleaned > 0 || _quantityFixCount > 0)
             Log.Info($"ProducedCardService: initialized {normalized} fields, removed {cleaned} null drops, fixed {_quantityFixCount} (0,0)→(1,1) quantities");
     }
 
-    // ===== NORMALIZATION =====
-
-    private static int NormalizeCard(object card)
+    // Single-pass combined normalize+clean: one walk over ActionArrayFields and DurabilityFields per card
+    // instead of two separate passes, halving the outer field-lookup and array-traversal work.
+    private static (int normalized, int cleaned) ProcessCard(object card)
     {
-        int total = 0;
+        int normalized = 0, cleaned = 0;
 
         foreach (var fieldName in ActionArrayFields)
-            total += NormalizeActionsArray(card, fieldName);
+        {
+            var (n, c) = ProcessActionsArray(card, fieldName);
+            normalized += n;
+            cleaned += c;
+        }
 
         foreach (var durName in DurabilityFields)
         {
@@ -86,7 +104,6 @@ internal static class ProducedCardService
             var durVal = durField.GetValue(card);
             if (durVal == null) continue;
 
-            // Check HasActionOnFull for diagnostic purposes
             var hasOnFullField = CachedField(durVal.GetType(), "HasActionOnFull");
             bool hasOnFull = hasOnFullField != null && (bool)hasOnFullField.GetValue(durVal);
             if (hasOnFull && card is UniqueIDScriptable diagUid)
@@ -106,37 +123,45 @@ internal static class ProducedCardService
                 var actionVal = actionField.GetValue(durVal);
                 if (actionVal == null) continue;
 
-                int count = NormalizeProducedCardsOnAction(actionVal);
-                if (count > 0 && durField.FieldType.IsValueType)
+                int normCount = NormalizeProducedCardsOnAction(actionVal);
+                int cleanCount = CleanProducedCardsOnAction(actionVal);
+
+                // Write value-type durability back once after both operations complete.
+                if ((normCount + cleanCount) > 0 && durField.FieldType.IsValueType)
                 {
                     actionField.SetValue(durVal, actionVal);
                     durField.SetValue(card, durVal);
                 }
-                total += count;
+                normalized += normCount;
+                cleaned += cleanCount;
             }
         }
 
-        return total;
+        return (normalized, cleaned);
     }
 
-    private static int NormalizeActionsArray(object owner, string fieldName)
+    private static (int normalized, int cleaned) ProcessActionsArray(object owner, string fieldName)
     {
         var field = CachedField(owner.GetType(), fieldName);
-        if (field == null) return 0;
+        if (field == null) return (0, 0);
         var actionsValue = field.GetValue(owner);
-        if (actionsValue == null) return 0;
+        if (actionsValue == null) return (0, 0);
 
-        int total = 0;
+        int normTotal = 0, cleanTotal = 0;
         if (actionsValue is Array actionsArray)
         {
             for (int i = 0; i < actionsArray.Length; i++)
             {
                 var action = actionsArray.GetValue(i);
                 if (action == null) continue;
-                int count = NormalizeProducedCardsOnAction(action);
-                if (count > 0 && action.GetType().IsValueType)
+                int normCount = NormalizeProducedCardsOnAction(action);
+                int cleanCount = CleanProducedCardsOnAction(action);
+                // Normalize may initialize value-type fields on action; write back if needed.
+                // Clean modifies heap arrays within the action — no write-back required.
+                if (normCount > 0 && action.GetType().IsValueType)
                     actionsArray.SetValue(action, i);
-                total += count;
+                normTotal += normCount;
+                cleanTotal += cleanCount;
             }
         }
         else if (actionsValue is IList actionsList)
@@ -145,13 +170,15 @@ internal static class ProducedCardService
             {
                 var action = actionsList[i];
                 if (action == null) continue;
-                int count = NormalizeProducedCardsOnAction(action);
-                if (count > 0 && action.GetType().IsValueType)
+                int normCount = NormalizeProducedCardsOnAction(action);
+                int cleanCount = CleanProducedCardsOnAction(action);
+                if (normCount > 0 && action.GetType().IsValueType)
                     actionsList[i] = action;
-                total += count;
+                normTotal += normCount;
+                cleanTotal += cleanCount;
             }
         }
-        return total;
+        return (normTotal, cleanTotal);
     }
 
     private static int NormalizeProducedCardsOnAction(object action)
@@ -316,69 +343,6 @@ internal static class ProducedCardService
         return 0;
     }
 
-    // ===== CLEANING =====
-
-    private static int CleanCard(object card)
-    {
-        int total = 0;
-
-        foreach (var fieldName in ActionArrayFields)
-            total += CleanActionsArray(card, fieldName);
-
-        foreach (var durName in DurabilityFields)
-        {
-            var durField = CachedField(card.GetType(), durName);
-            if (durField == null) continue;
-            var durVal = durField.GetValue(card);
-            if (durVal == null) continue;
-
-            foreach (var actionName in new[] { "OnZero", "OnFull" })
-            {
-                var actionField = CachedField(durVal.GetType(), actionName);
-                if (actionField == null) continue;
-                var actionVal = actionField.GetValue(durVal);
-                if (actionVal == null) continue;
-                int c = CleanProducedCardsOnAction(actionVal);
-                if (c > 0 && durField.FieldType.IsValueType)
-                {
-                    actionField.SetValue(durVal, actionVal);
-                    durField.SetValue(card, durVal);
-                }
-                total += c;
-            }
-        }
-        return total;
-    }
-
-    private static int CleanActionsArray(object owner, string fieldName)
-    {
-        var field = CachedField(owner.GetType(), fieldName);
-        if (field == null) return 0;
-        var actionsValue = field.GetValue(owner);
-        if (actionsValue == null) return 0;
-
-        int total = 0;
-        if (actionsValue is Array actionsArray)
-        {
-            for (int i = 0; i < actionsArray.Length; i++)
-            {
-                var action = actionsArray.GetValue(i);
-                if (action == null) continue;
-                total += CleanProducedCardsOnAction(action);
-            }
-        }
-        else if (actionsValue is IList actionsList)
-        {
-            for (int i = 0; i < actionsList.Count; i++)
-            {
-                var action = actionsList[i];
-                if (action == null) continue;
-                total += CleanProducedCardsOnAction(action);
-            }
-        }
-        return total;
-    }
-
     private static int CleanProducedCardsOnAction(object action)
     {
         var producedField = CachedField(action.GetType(), "ProducedCards");
@@ -401,8 +365,8 @@ internal static class ProducedCardService
             var droppedCardFieldInfo = elemType != null ? CachedField(elemType, "DroppedCard") : null;
             if (droppedCardFieldInfo == null) continue;
 
-            var warpFieldInfo = elemType.GetField("DroppedCardWarpData", AllInstance)
-                             ?? elemType.GetField("CardWarpData", AllInstance);
+            var warpFieldInfo = CachedFieldNative(elemType, "DroppedCardWarpData")
+                             ?? CachedFieldNative(elemType, "CardWarpData");
 
             var validDrops = new List<object>();
             bool anyModified = false;

@@ -1,0 +1,1362 @@
+Herbs_And_Fungi_Perk_SeedBag_PerkDescription,"Start with variety seeds: 2 Hemp (edible, roastable, grows for fiber & flowers), 2 Rye, 2 Flax, 2 Peas, 2 Wheat. Plant in tilled soil for crops.",开始时携带多种种子：2份大麻（可食用、可烘烤、可种植获取纤维和花朵）、2份黑麦、2份亚麻、2份豌豆和2份小麦。在翻耕的土壤中种植。
+Herbs_And_Fungi_Perk_SeedBag_PerkName,Seed Bag,种子袋
+Herbs_And_Fungi_Perk_DryingKit_PerkDescription,"Start with a wooden drying stack (3 tray slots) and 3 woven drying trays (6 drying slots each) for preserving herbs, mushrooms, flowers, and meats. Dried items have extended shelf life.",开始时携带一个木制晾干堆（3个托盘槽位）和3个编织晾干托盘（各6个晾干槽位），用于保存草药、蘑菇、花朵和肉类。干燥物品保质期更长。
+Herbs_And_Fungi_Perk_DryingKit_PerkName,Drying Kit,晾干套装
+Herbs_And_Fungi_Perk_AddHemp_PerkDescription,"Start with 10 Hemp Seeds. Edible raw or roasted, plantable for fiber and flowers. Wild hemp can be foraged in the primeval woods. Flowers dry, grind into powder, smoke in pipes, or make into hemp butter (requires heating to activate).",开始时携带10份大麻种子。可生吃或烘烤，可种植获取纤维和花朵。野生大麻可在原始森林中采集。花朵可干燥、研磨成粉、在烟斗中吸食，或制成大麻黄油（需要加热激活）。
+Herbs_And_Fungi_Perk_AddHemp_PerkName,Add Hemp,添加大麻
+Herbs_And_Fungi_Perk_Stoner_PerkDescription,"Complete hemp testing kit: 1 Herb Pipe with 4 hemp powder, 8 seeds (edible/plantable), 4 raw flowers, 4 dried flowers, and stalks for fiber crafting.",完整大麻测试套装：1个草药烟斗配4份大麻粉、8份种子（可食用/种植）、4朵鲜花、4朵干花和用于纤维工艺的茎。
+Herbs_And_Fungi_Perk_Stoner_PerkName,Hemp Farmer,大麻爱好者
+Herbs_And_Fungi_MorelMushroom_SpoilageTime_CardStatName,Freshness,新鲜度
+Herbs_And_Fungi_MorelMushroom_SpoilageTime_OnFull_ActionDescription,Morel Spoiled!,羊肚菌变质了！
+Herbs_And_Fungi_MorelMushroom_DismantleActions_Eat_ActionName,Eat Raw,生吃
+Herbs_And_Fungi_MorelMushroom_DismantleActions_Eat_ActionDescription,Eat the morel raw. Warning: Raw morels contain toxins that cause stomach upset!,生吃羊肚菌。警告：生羊肚菌含有引起胃部不适的毒素！
+Herbs_And_Fungi_GoldenOyster_CardName,Golden Oyster,金顶侧耳
+Herbs_And_Fungi_GoldenOyster_CardDescription,Brilliant yellow oysters found in summer heat. Prized for their nutty cashew-like flavor.,夏季高温时发现的亮黄色侧耳。以其类似腰果的坚果风味而闻名。
+Herbs_And_Fungi_GoldenOyster_CardHelpSection,"<b>Season:</b> Summer
+Herbs_And_Fungi_GoldenOyster_SpoilageTime_CardStatName,Freshness,新鲜度
+Herbs_And_Fungi_GoldenOyster_SpoilageTime_OnFull_ActionDescription,Golden Oyster Spoiled!,金顶侧耳变质了！
+Herbs_And_Fungi_GoldenOyster_DismantleActions_Eat_ActionName,Eat Raw,生吃
+Herbs_And_Fungi_GoldenOyster_DismantleActions_Eat_ActionDescription,Eat the golden oyster raw. Delicious nutty flavor.,生吃金顶侧耳。美味的坚果风味。
+Herbs_And_Fungi_KingOyster_CardName,King Oyster,杏鲍菇
+Herbs_And_Fungi_KingOyster_CardDescription,The largest oyster variety with thick white stems found in summer. Meaty texture makes it an excellent meat substitute.,夏季发现的最大侧耳品种，茎粗白。肉质口感使其成为极佳的肉类替代品。
+Herbs_And_Fungi_KingOyster_CardHelpSection,<b>Season:</b> Summer","<b>季节：</b> 夏季
+
+<b>发现地点：</b> 夏季森林，常见于腐木附近。
+
+<b>用途：</b> 可生吃、烹饪以获得更好的营养，或晾干保存。"
+Herbs_And_Fungi_KingOyster_SpoilageTime_CardStatName,Freshness,新鲜度
+Herbs_And_Fungi_KingOyster_SpoilageTime_OnFull_ActionDescription,King Oyster Spoiled!,杏鲍菇变质了！
+Herbs_And_Fungi_KingOyster_DismantleActions_Eat_ActionName,Eat Raw,生吃
+Herbs_And_Fungi_KingOyster_DismantleActions_Eat_ActionDescription,Eat the king oyster raw. Chewy texture but satisfying.,生吃杏鲍菇。口感有嚼劲但令人满足。
+Herbs_And_Fungi_LionsMane_CardName,Lion's Mane Mushroom,狮鬃菇
+Herbs_And_Fungi_LionsMane_CardDescription,A distinctive white shaggy mushroom resembling a lion's mane. Prized for both culinary and medicinal properties known to boost the immune system.,一种独特的白色毛茸茸蘑菇，形似狮鬃。因其烹饪和药用价值而受到珍视，已知可增强免疫系统。
+Herbs_And_Fungi_LionsMane_CardHelpSection,"<b>Season:</b> Late Summer to Fall
+Herbs_And_Fungi_LionsMane_SpoilageTime_CardStatName,Freshness,新鲜度
+Herbs_And_Fungi_LionsMane_SpoilageTime_OnFull_ActionDescription,Lion's Mane Mushroom Spoiled!,狮鬃菇变质了！
+Herbs_And_Fungi_DryingStack_CardName,Drying Stack,晾干堆
+Herbs_And_Fungi_DryingStack_CardDescription,A simple wooden rack system that holds up to 3 drying trays in separate slots for efficient herb preservation.,一个简单的木架系统，最多可容纳3个独立槽位中的晾干托盘，用于高效保存草药。
+Herbs_And_Fungi_DryingStack_CardHelpSection,<b>Capacity:</b> Holds 3 drying trays","<b>季节：</b> 夏末至秋季
+
+<b>发现地点：</b> 生长在老橡树或山毛榉的树干上。
+
+<b>用途：</b> 煮熟后食用，或晾干磨粉用于茶饮和药用。"
+Herbs_And_Fungi_DryingStack_DismantleActions_Dismantle_ActionName,Dismantle,拆除
+Herbs_And_Fungi_DryingStack_DismantleActions_Dismantle_ActionDescription,Take apart the drying stack to recover materials.,拆除晾干堆以回收材料。
+Herbs_And_Fungi_DryingTray_CardName,Drying Tray,晾干托盘
+Herbs_And_Fungi_DryingTray_CardDescription,A woven reed tray with fine mesh for drying smaller herbs and plant materials. Can hold up to 6 items at once.,一个编织的芦苇托盘，带有细网，用于晾干较小的草药和植物材料。一次最多可容纳6个物品。
+Herbs_And_Fungi_DryingTray_CardHelpSection,"<b>Capacity:</b> Holds 6 small items for drying
+Herbs_And_Fungi_DryingTray_UsageDurability_CardStatName,Condition,状况
+Herbs_And_Fungi_DryingTray_DismantleActions_Dismantle_ActionName,Dismantle,拆除
+Herbs_And_Fungi_DryingTray_DismantleActions_Dismantle_ActionDescription,Take apart the tray to recover materials.,拆除托盘以回收材料。
+Herbs_And_Fungi_GoldenOysterCooked_CardName,Cooked Golden Oyster,煮熟的金顶侧耳
+Herbs_And_Fungi_GoldenOysterCooked_CardDescription,Perfectly cooked golden oysters with a tender meaty texture and rich cashew flavor.,完美煮熟的金顶侧耳，具有嫩滑的肉质口感和浓郁的腰果风味。
+Herbs_And_Fungi_GoldenOysterCooked_CardHelpSection,<b>Prepared:</b> Perfectly cooked.","<b>容量：</b> 可放置6个小物品进行晾干
+
+<b>用途：</b> 将新鲜草药或蘑菇放入槽位，静置晾干。晾干完成后进行变换。"
+Herbs_And_Fungi_GoldenOysterCooked_SpoilageTime_CardStatName,Freshness,新鲜度
+Herbs_And_Fungi_GoldenOysterCooked_SpoilageTime_OnFull_ActionDescription,Cooked Golden Oyster Spoiled!,煮熟的金顶侧耳变质了！
+Herbs_And_Fungi_GoldenOysterCooked_DismantleActions_Eat_ActionName,Eat,吃
+Herbs_And_Fungi_GoldenOysterCooked_DismantleActions_Eat_ActionDescription,Eat the cooked golden oyster. Delicious and highly nutritious.,吃煮熟的金顶侧耳。美味且营养丰富。
+Herbs_And_Fungi_KingOysterCooked_CardName,Cooked King Oyster,煮熟的杏鲍菇
+Herbs_And_Fungi_KingOysterCooked_CardDescription,Perfectly cooked king oysters with a thick meaty stem that rivals the texture of scallops or abalone.,完美煮熟的杏鲍菇，茎粗肉厚，口感可与扇贝或鲍鱼媲美。
+Herbs_And_Fungi_KingOysterCooked_CardHelpSection,"<b>Prepared:</b> Perfectly cooked.
+Herbs_And_Fungi_KingOysterCooked_SpoilageTime_CardStatName,Freshness,新鲜度
+Herbs_And_Fungi_KingOysterCooked_SpoilageTime_OnFull_ActionDescription,Cooked King Oyster Spoiled!,煮熟的杏鲍菇变质了！
+Herbs_And_Fungi_KingOysterCooked_DismantleActions_Eat_ActionName,Eat,吃
+Herbs_And_Fungi_KingOysterCooked_DismantleActions_Eat_ActionDescription,Eat the cooked king oyster. Very filling and highly nutritious.,吃煮熟的杏鲍菇。非常饱腹且营养丰富。
+Herbs_And_Fungi_MorelCooked_CardName,Cooked Morel,煮熟的羊肚菌
+Herbs_And_Fungi_MorelCooked_CardDescription,Expertly cooked morel. The heat has neutralized the raw toxins and brought out the deep earthy flavor this fungus is prized for.,专业烹饪的羊肚菌。高温中和了生毒素，带出了这种真菌备受珍视的深邃土味。
+Herbs_And_Fungi_MorelCooked_CardHelpSection,<b>Prepared:</b> Properly cooked to remove toxins.","<b>准备：</b> 已完美烹熟。
+
+<b>营养：</b> 饱腹感强，蛋白质丰富。"
+Herbs_And_Fungi_MorelCooked_SpoilageTime_CardStatName,Freshness,新鲜度
+Herbs_And_Fungi_MorelCooked_SpoilageTime_OnFull_ActionDescription,Cooked Morel Spoiled!,煮熟的羊肚菌变质了！
+Herbs_And_Fungi_MorelCooked_DismantleActions_Eat_ActionName,Eat,吃
+Herbs_And_Fungi_MorelCooked_DismantleActions_Eat_ActionDescription,Eat the cooked morel. Exquisite earthy flavor with no toxins.,吃煮熟的羊肚菌。精致的土味，无毒素。
+Herbs_And_Fungi_LionsManeDried_CardName,Dried Lion's Mane,干狮鬃菇
+Herbs_And_Fungi_LionsManeDried_CardDescription,Carefully dried lion's mane mushroom. The drying process concentrates its medicinal compounds significantly boosting its immune-enhancing properties.,精心干燥的狮鬃菇。干燥过程浓缩了其药用化合物，显著增强其免疫增强特性。
+Herbs_And_Fungi_LionsManeDried_CardHelpSection,"<b>Preservation:</b> Dried for extended shelf life.
+Herbs_And_Fungi_LionsManeDried_SpoilageTime_CardStatName,Freshness,新鲜度
+Herbs_And_Fungi_LionsManeDried_SpoilageTime_OnFull_ActionDescription,Dried Lion's Mane Spoiled!,干狮鬃菇变质了！
+Herbs_And_Fungi_LionsManeDried_DismantleActions_Eat_ActionName,Eat Dried,吃干货
+Herbs_And_Fungi_LionsManeDried_DismantleActions_Eat_ActionDescription,Eat the dried lion's mane. Chewy but packed with concentrated immune-boosting compounds.,吃干狮鬃菇。有嚼劲但富含浓缩的免疫增强化合物。
+Herbs_And_Fungi_MorelMushroom_UsageDurability_CardStatName,Dryness,干燥度
+Herbs_And_Fungi_MorelMushroom_UsageDurability_OnFull_ActionName,Dried,已干燥
+Herbs_And_Fungi_LionsMane_UsageDurability_CardStatName,Dryness,干燥度
+Herbs_And_Fungi_LionsMane_UsageDurability_OnFull_ActionName,Dried,已干燥
+Herbs_And_Fungi_KingOyster_UsageDurability_CardStatName,Dryness,干燥度
+Herbs_And_Fungi_KingOyster_UsageDurability_OnFull_ActionName,Dried,已干燥
+Herbs_And_Fungi_GoldenOyster_UsageDurability_CardStatName,Dryness,干燥度
+Herbs_And_Fungi_GoldenOyster_UsageDurability_OnFull_ActionName,Dried,已干燥
+Herbs_And_Fungi_MorelDried_CardName,Dried Morel,干羊肚菌
+Herbs_And_Fungi_MorelDried_CardDescription,Dried morel mushrooms. The honeycomb texture becomes intensely concentrated when dried creating a powerful umami flavor.,干羊肚菌。蜂窝状质地在干燥时变得非常浓缩，产生强烈的鲜味。
+Herbs_And_Fungi_MorelDried_CardHelpSection,<b>Preservation:</b> Dried for extended shelf life.","<b>保存：</b> 晾干以延长保质期。
+
+<b>用途：</b> 可直接食用或磨成粉末泡茶。"
+Herbs_And_Fungi_MorelDried_SpoilageTime_CardStatName,Freshness,新鲜度
+Herbs_And_Fungi_MorelDried_SpoilageTime_OnFull_ActionDescription,Dried Morel Spoiled!,干羊肚菌变质了！
+Herbs_And_Fungi_MorelDried_DismantleActions_Eat_ActionName,Eat,吃
+Herbs_And_Fungi_MorelDried_DismantleActions_Eat_ActionDescription,Eat the dried morel. Chewy texture with concentrated earthy flavor.,吃干羊肚菌。有嚼劲的质地，浓缩的土味。
+Herbs_Fungi_Bp_HempField_CardName,Hemp Field,大麻田
+Herbs_Fungi_Bp_HempField_CardDescription,"Plant hemp seeds to create a field that produces hemp stalks, flowers, and seeds after 11 days.",种植大麻种子以创建一个在11天后产出大麻茎、花和种子的田地。
+Herbs_Fungi_Bp_HempField_UnlockConditionsDesc,Unlocked after obtaining a Hemp Seed,获得大麻种子后解锁
+herbs_fungi_hemp_field_growing_CardName,Hemp Field (Growing),大麻田（生长中）
+herbs_fungi_hemp_field_growing_CardDescription,A field of hemp plants growing steadily. Will be ready to harvest when mature.,一片稳定生长的大麻植物田。成熟后可以收获。
+herbs_fungi_hemp_field_growing_CardHelpSection,"<b>Growth:</b> Takes 11 days to mature. <b>Harvest:</b> Once mature, harvest for hemp stalks, flowers, and seeds.",<b>生长:</b> 需要11天成熟。<b>收获:</b> 成熟后可收获大麻茎、花和种子。
+herbs_fungi_hemp_field_growing_Progress_CardStatName,Growth,生长度
+herbs_fungi_hemp_field_growing_OnFull_ActionDescription,Hemp field is ready to harvest!,大麻田可以收获了！
+herbs_fungi_hemp_field_mature_CardName,Mature Hemp Field,成熟的大麻田
+herbs_fungi_hemp_field_mature_CardDescription,A field of mature hemp plants ready for harvest.,一片成熟的大麻植物田，可以收获了。
+herbs_fungi_hemp_field_mature_CardHelpSection,"<b>Harvest:</b> Collect hemp stalks, flowers, and seeds. Harvesting destroys the field.",<b>收获:</b> 收集大麻茎、花和种子。收获时将摧毁该田地。
+herbs_fungi_hemp_field_mature_DismantleActions_0_ActionName,Harvest,收获
+herbs_fungi_hemp_field_mature_DismantleActions_0_ActionDescription,"Harvest hemp stalks, flowers, and seeds from the field.",从田地收获大麻茎、花和种子。
+Herbs_Fungi_Bp_HempPlant_CardName,Plant Hemp Seeds,种植大麻种子
+Herbs_Fungi_Bp_HempPlant_CardDescription,Plant 2 hemp seeds in a garden plot to grow a hemp plant.,在花园地块中种植2颗大麻种子以种出一株大麻。
+Herbs_Fungi_Bp_HempPlant_UnlockConditionsDesc,Unlocked after obtaining a Hemp Seed,获得大麻种子后解锁
+herbs_fungi_chanterelle_CardName,Chanterelle,鸡油菌
+herbs_fungi_chanterelle_CardDescription,A golden funnel-shaped mushroom prized for its fruity aroma and peppery taste. Found near oak and birch trees during summer and fall. Excellent when cooked.,一种金色漏斗状蘑菇，因其果香和胡椒味而备受珍视。夏秋季节在橡树和桦树附近发现。烹饪后味道极佳。
+herbs_fungi_cooked_chanterelle_CardName,Cooked Chanterelle,熟鸡油菌
+herbs_fungi_cooked_chanterelle_CardDescription,A beautifully cooked golden chanterelle with a rich peppery flavor.,美味的金色鸡油菌，带有浓郁的胡椒味。
+herbs_fungi_dried_chanterelle_CardName,Dried Chanterelle,干鸡油菌
+herbs_fungi_dried_chanterelle_CardDescription,A dried chanterelle with concentrated flavor. Keeps much longer than fresh.,干燥的鸡油菌，味道更浓。比新鲜的保存时间更长。
+herbs_fungi_reishi_CardName,Reishi Mushroom,灵芝
+herbs_fungi_reishi_CardDescription,A tough woody shelf fungus prized for its medicinal properties. Known to boost immunity and fight infection.,一种坚硬的木质架菇，因其药用价值而备受珍视。以增强免疫力和抗感染著称。
+herbs_fungi_reishi_EatRaw,Eat Raw,生吃
+herbs_fungi_reishi_EatRaw_Desc,Eat the fresh reishi raw. Tough and woody but provides medicinal benefits.,生吃新鲜灵芝。坚硬木质但提供药用益处。
+herbs_fungi_dried_reishi_CardName,Dried Reishi,干灵芝
+herbs_fungi_dried_reishi_CardDescription,Properly dried reishi mushroom. Can be brewed into medicinal tea or ground into powder.,正确干燥的灵芝。可以煮成药茶或研磨成粉。
+herbs_fungi_dried_reishi_Eat,Eat,食用
+herbs_fungi_dried_reishi_Eat_Desc,Eat the dried reishi. Concentrated medicinal effect.,食用干灵芝。浓缩的药用效果。
+herbs_fungi_puffball_CardName,Giant Puffball,大马勃
+herbs_fungi_puffball_CardDescription,A large round white mushroom found in clearings. When young and white inside it is an excellent food source.,一种在空地发现的大型圆形白色蘑菇。年轻且内部呈白色时是极佳的食物来源。
+herbs_fungi_cooked_puffball_CardName,Cooked Puffball,熟马勃
+herbs_fungi_cooked_puffball_CardDescription,Sliced and fried puffball with a texture similar to tofu. Very filling.,切片油炸的马勃，口感类似豆腐。非常饱腹。
+herbs_fungi_chicken_of_woods_CardName,Chicken of the Woods,硫磺菌
+herbs_fungi_chicken_of_woods_CardDescription,A bright orange shelf fungus with a texture remarkably similar to chicken. A prized find for any forager.,一种亮橙色的架菇，质地与鸡肉惊人相似。任何采集者都珍视的发现。
+herbs_fungi_dried_chicken_of_woods_CardName,Dried Chicken of the Woods,干硫磺菌
+herbs_fungi_dried_chicken_of_woods_CardDescription,Dried chicken of the woods with concentrated flavor. Much longer shelf life than fresh.,风味更浓缩的干硫磺菌。比新鲜时保存得更久。
+herbs_fungi_dried_chicken_of_woods_Eat,Eat,食用
+herbs_fungi_dried_chicken_of_woods_Eat_Desc,Eat the dried chicken of the woods. Chewy but satisfying.,食用干硫磺菌。很有嚼劲但令人满足。
+herbs_fungi_cooked_chicken_of_woods_CardName,Cooked Chicken of the Woods,熟硫磺菌
+herbs_fungi_cooked_chicken_of_woods_CardDescription,Perfectly cooked chicken of the woods. The texture and taste are remarkably similar to actual chicken.,完美烹饪的硫磺菌。质地和味道与真正的鸡肉惊人相似。
+herbs_fungi_death_cap_CardName,Death Cap,毒鹅膏
+herbs_fungi_death_cap_CardDescription,A deadly poisonous mushroom often mistaken for edible varieties. Even a small amount can be fatal. Handle with extreme caution. Can be applied to weapons as poison.,一种致命的毒蘑菇，常被误认为可食用品种。即使少量也可能致命。务必极其小心处理。可涂抹在武器上作为毒药。
+herbs_fungi_death_cap_ApplyPoison,Apply Poison,涂抹毒药
+herbs_fungi_death_cap_ApplyPoison_Desc,Smear the deadly toxins from the death cap onto a weapon.,将毒鹅膏的致命毒素涂抹在武器上。
+herbs_fungi_ginseng_CardName,Wild Ginseng,野生人参
+herbs_fungi_ginseng_CardDescription,A rare and prized root found deep in ancient forests. Known for its powerful energy-boosting properties.,一种在古老森林深处发现的珍稀根茎。以其强大的提神特性闻名。
+herbs_fungi_ginseng_EatRaw,Eat Raw,生吃
+herbs_fungi_ginseng_EatRaw_Desc,Eat the fresh ginseng root raw. Provides a powerful burst of energy.,生吃新鲜人参根。提供强大的能量爆发。
+herbs_fungi_dried_ginseng_CardName,Dried Ginseng,干人参
+herbs_fungi_dried_ginseng_CardDescription,Properly dried ginseng with concentrated energizing compounds. Highly valued.,正确干燥的人参，能量化合物更浓缩。价值极高。
+herbs_fungi_dried_ginseng_Eat,Eat,食用
+herbs_fungi_dried_ginseng_Eat_Desc,Eat the dried ginseng for a powerful energy boost.,食用干人参以获得强力能量提升。
+Herbs_And_Fungi_LionsManeCooked_CardName,Cooked Lion's Mane,熟狮鬃菇
+Herbs_And_Fungi_LionsManeCooked_CardDescription,Perfectly cooked lion's mane mushroom with a delicate seafood-like flavor. A gourmet treat that provides excellent nutrition and boosts mood.,完美烹饪的狮鬃菇，带有细腻的海鲜风味。是一道美味佳肴，提供极佳营养并提升情绪。
+Herbs_And_Fungi_LionsManeCooked_CardHelpSection,"<b>Prepared:</b> Properly cooked for optimal flavor.""","<b>准备：</b> 已正确烹熟以获得最佳风味。
+
+<b>营养：</b> 含有丰富的认知增强化合物。"
+Herbs_And_Fungi_LionsManeCooked_SpoilageTime_CardStatName,Freshness,新鲜度
+Herbs_And_Fungi_LionsManeCooked_SpoilageTime_OnFull_ActionDescription,Cooked Lion's Mane Spoiled!,熟狮鬃菇变质了！
+Herbs_And_Fungi_LionsManeCooked_DismantleActions_Eat_ActionName,Eat,食用
+Herbs_And_Fungi_LionsManeCooked_DismantleActions_Eat_ActionDescription,Eat the cooked lion's mane. Delicious seafood-like flavor with excellent nutrition.,食用熟狮鬃菇。美味的海鲜风味和极佳营养。
+Herbs_And_Fungi_LionsManeGround_CardName,Ground Lion's Mane,狮鬃菇粉
+Herbs_And_Fungi_LionsManeGround_CardDescription,Finely ground dried lion's mane powder. Highly concentrated medicinal compounds make this a powerful immune system booster and brain tonic.,精细研磨的干狮鬃菇粉。高度浓缩的药用化合物使其成为强力免疫增强剂和健脑补品。
+Herbs_And_Fungi_LionsManeGround_CardHelpSection,"<b>Preparation:</b> Ground from dried lion's mane.
+Herbs_And_Fungi_LionsManeGround_DismantleActions_Eat_ActionName,Eat,服用粉末
+Herbs_And_Fungi_LionsManeGround_DismantleActions_Eat_ActionDescription,Consume the lion's mane powder directly. Intensely medicinal with powerful immune and cognitive benefits.,直接服用狮鬃菇粉。具有强大的药用价值，提供强力免疫和认知益处。
+Herbs_And_Fungi_LionsMane_SpecialDurability1_CardStatName,Cook,烹饪度
+Herbs_And_Fungi_LionsMane_SpecialDurability1_OnFull_ActionDescription,Lion's Mane Cooked!,狮鬃菇已烹熟！
+herbs_fungi_black_trumpet_CardName,Black Trumpet,黑喇叭菇
+herbs_fungi_black_trumpet_CardDescription,A gourmet mushroom with smoky rich flavor. Found near oak and beech trees in autumn. Highly prized by chefs.,一种带有浓郁烟熏风味的美食蘑菇。秋季在橡树和山毛榉附近发现。深受厨师青睐。
+herbs_fungi_black_trumpet_dried_CardName,Dried Black Trumpet,干黑喇叭菇
+herbs_fungi_black_trumpet_dried_CardDescription,Intensified smoky flavor perfect for winter soups and stews. Can be added to dishes or eaten as a chewy snack.,烟熏风味更浓郁，非常适合冬季汤和炖菜。可添加到菜肴中或作为有嚼劲的零食食用。
+herbs_fungi_black_trumpet_cooked_CardName,Cooked Black Trumpet,熟黑喇叭菇
+herbs_fungi_black_trumpet_cooked_CardDescription,Perfectly sauteed black trumpets with rich earthy flavor. A true delicacy.,完美煎炒的黑喇叭菇，带有浓郁的泥土风味。真正的美味佳肴。
+herbs_fungi_shiitake_CardName,Shiitake Mushroom,香菇
+herbs_fungi_shiitake_CardDescription,A prized culinary mushroom with rich umami flavor. Known for immune-boosting properties.,一种珍贵的烹饪蘑菇，带有浓郁的鲜味。以其增强免疫力的特性闻名。
+herbs_fungi_shiitake_dried_CardName,Dried Shiitake,干香菇
+herbs_fungi_shiitake_dried_CardDescription,Concentrated umami flavor. Add to broths or eat dried as a chewy snack.,浓缩的鲜味。添加到汤底或作为有嚼劲的零食干吃。
+herbs_fungi_shiitake_cooked_CardName,Cooked Shiitake,熟香菇
+herbs_fungi_shiitake_cooked_CardDescription,Tender meaty shiitake with deep savory flavor. Excellent nutrition and immune support.,鲜嫩多汁的香菇，带有浓郁的鲜味。营养丰富，增强免疫力。
+herbs_fungi_yarrow_CardName,Yarrow,蓍草
+herbs_fungi_yarrow_CardDescription,A medicinal herb with feathery leaves. Traditionally used to stop bleeding and heal wounds.,一种具有羽状叶片的药用草本植物。传统上用于止血和愈合伤口。
+herbs_fungi_yarrow_EatRaw,Eat Raw,生吃
+herbs_fungi_yarrow_EatRaw_Desc,Eat the fresh yarrow leaves raw. Bitter but helps reduce bleeding and infection.,生吃新鲜蓍草叶。苦涩但有助于减少出血和感染。
+herbs_fungi_yarrow_dried_CardName,Dried Yarrow,干蓍草
+herbs_fungi_yarrow_dried_CardDescription,Dried yarrow with concentrated healing properties. Apply to wounds or eat for internal benefits.,具有浓缩愈合特性的干蓍草。涂抹于伤口或食用以获得内部益处。
+herbs_fungi_yarrow_dried_Eat,Eat,食用
+herbs_fungi_yarrow_dried_Eat_Desc,Eat the dried yarrow leaves. Concentrated healing properties help stop bleeding and fight infection.,食用干蓍草叶。浓缩的愈合特性有助于止血和抗感染。
+herbs_fungi_yarrow_ground_CardName,Ground Yarrow,蓍草粉
+herbs_fungi_yarrow_ground_CardDescription,Finely ground yarrow powder. The most potent form for wound treatment and infection prevention.,细磨的蓍草粉。是伤口治疗和预防感染最有效的形式。
+herbs_fungi_yarrow_ground_Eat,Eat,食用
+herbs_fungi_yarrow_ground_Eat_Desc,Eat the concentrated yarrow powder. Very effective at stopping bleeding and fighting infection.,食用浓缩的蓍草粉。在止血和抗感染方面非常有效。
+herbs_fungi_yarrow_ground_MixTea,Mix into Hot Water,混入热水
+herbs_fungi_yarrow_ground_MixTea_Desc,Mix yarrow powder into hot water to create healing tea.,将蓍草粉混入热水中制作愈合茶。
+herbs_fungi_ginseng_ground_CardName,Ground Ginseng,人参粉
+herbs_fungi_ginseng_ground_CardDescription,Concentrated ginseng powder with maximum energy-boosting properties. A powerful tonic.,浓缩的人参粉，具有最大的提神特性。一种强力补品。
+herbs_fungi_ginseng_ground_Eat,Eat,食用
+herbs_fungi_ginseng_ground_Eat_Desc,Eat the concentrated ginseng powder. Provides a powerful boost to energy vitality and immune function.,食用浓缩的人参粉。提供强大的能量活力和免疫功能提升。
+herbs_fungi_ginseng_ground_MixTea,Mix into Hot Water,混入热水
+herbs_fungi_ginseng_ground_MixTea_Desc,Mix ginseng powder into hot water to create revitalizing tea.,将人参粉混入热水中制作恢复活力茶。
+herbs_fungi_reishi_ground_CardName,Ground Reishi,灵芝粉
+herbs_fungi_reishi_ground_CardDescription,Finely ground reishi mushroom powder. Provides powerful immune support and stress relief when consumed or brewed into tea.,细磨的灵芝粉。服用或泡茶时提供强大的免疫支持和压力缓解。
+herbs_fungi_reishi_ground_Eat,Eat,食用
+herbs_fungi_reishi_ground_Eat_Desc,Eat the concentrated reishi powder. Provides powerful immune support and stress relief.,食用浓缩的灵芝粉。提供强大的免疫支持和压力缓解。
+herbs_fungi_reishi_ground_MixTea,Mix into Hot Water,混入热水
+herbs_fungi_reishi_ground_MixTea_Desc,Mix reishi powder into hot water to create therapeutic medicinal tea.,将灵芝粉混入热水中制作治疗性药茶。
+herbs_fungi_ginseng_tea_CardName,Ginseng Tea,人参茶
+herbs_fungi_ginseng_tea_CardDescription,A revitalizing herbal tea brewed from ground ginseng root. Reduces fatigue and boosts mental clarity.,由人参根粉泡制的提神草药茶。减少疲劳并增强思维清晰度。
+herbs_fungi_ginseng_tea_CardHelpSection,<b>Preparation:</b> Mix ground ginseng with hot water in a bowl.","<b>制作：</b> 由干狮鬃菇磨成。
+
+<b>用途：</b> 直接食用或混入热水制成茶饮。"
+herbs_fungi_ginseng_tea_SpoilageTime_CardStatName,Bacteria,细菌
+herbs_fungi_ginseng_tea_SpoilageTime_OnFull_ActionDescription,Ginseng Tea Spoiled!,人参茶变质了！
+herbs_fungi_ginseng_tea_FuelCapacity_CardStatName,Liquid Temperature,液体温度
+herbs_fungi_ginseng_tea_SpecialDurability2_CardStatName,Quality,质量
+herbs_fungi_ginseng_tea_DismantleActions_Drink_ActionName,Drink,喝
+herbs_fungi_lions_mane_tea_CardName,Lion's Mane Tea,狮鬃菇茶
+herbs_fungi_lions_mane_tea_CardDescription,A medicinal tea brewed from ground lion's mane mushroom. Known for boosting cognitive function and immune health.,由狮鬃菇粉泡制的药茶。以增强认知功能和免疫健康而闻名。
+herbs_fungi_lions_mane_tea_CardHelpSection,"<b>Preparation:</b> Mix ground lion's mane with hot water in a bowl.
+herbs_fungi_lions_mane_tea_SpoilageTime_CardStatName,Bacteria,细菌
+herbs_fungi_lions_mane_tea_SpoilageTime_OnFull_ActionDescription,Lion's Mane Tea Spoiled!,狮鬃菇茶变质了！
+herbs_fungi_lions_mane_tea_FuelCapacity_CardStatName,Liquid Temperature,液体温度
+herbs_fungi_lions_mane_tea_SpecialDurability2_CardStatName,Quality,质量
+herbs_fungi_lions_mane_tea_DismantleActions_Drink_ActionName,Drink,喝
+herbs_fungi_reishi_tea_CardName,Reishi Tea,灵芝茶
+herbs_fungi_reishi_tea_CardDescription,A therapeutic tea brewed from ground reishi mushroom. Powerful immune support and stress relief in a warming cup.,由灵芝粉泡制的治疗茶。一杯暖暖的茶提供强大的免疫支持和压力缓解。
+herbs_fungi_reishi_tea_CardHelpSection,<b>Preparation:</b> Mix ground reishi with hot water in a bowl.","<b>制作：</b> 将磨碎的狮鬃菇与热水在碗中混合。
+
+<b>效果：</b> 提升专注力，增强认知功能。"
+herbs_fungi_reishi_tea_SpoilageTime_CardStatName,Bacteria,细菌
+herbs_fungi_reishi_tea_SpoilageTime_OnFull_ActionDescription,Reishi Tea Spoiled!,灵芝茶变质了！
+herbs_fungi_reishi_tea_FuelCapacity_CardStatName,Liquid Temperature,液体温度
+herbs_fungi_reishi_tea_SpecialDurability2_CardStatName,Quality,质量
+herbs_fungi_reishi_tea_DismantleActions_Drink_ActionName,Drink,喝
+herbs_fungi_yarrow_tea_CardName,Yarrow Tea,蓍草茶
+herbs_fungi_yarrow_tea_CardDescription,A healing tea brewed from ground yarrow. Traditional remedy for reducing bleeding and combating infection.,由蓍草粉泡制的愈合茶。减少出血和对抗感染的传统疗法。
+herbs_fungi_yarrow_tea_CardHelpSection,"<b>Preparation:</b> Mix ground yarrow with hot water in a bowl.
+herbs_fungi_yarrow_tea_SpoilageTime_CardStatName,Bacteria,细菌
+herbs_fungi_yarrow_tea_SpoilageTime_OnFull_ActionDescription,Yarrow Tea Spoiled!,蓍草茶变质了！
+herbs_fungi_yarrow_tea_FuelCapacity_CardStatName,Liquid Temperature,液体温度
+herbs_fungi_yarrow_tea_SpecialDurability2_CardStatName,Quality,质量
+herbs_fungi_yarrow_tea_DismantleActions_Drink_ActionName,Drink,喝
+Herbs_And_Fungi_Bp_HerbPipe_CardDescription,A carved wooden pipe for smoking herbal powders. Requires 1 unfinished wood carving", spoon bit," and knife."""
+Herbs_And_Fungi_Bp_HerbPipe_CardName,Herb Pipe,草药烟斗
+Herbs_And_Fungi_Bp_HerbPipe_UnlockConditionsDesc,Requires Unfinished Wood Carving,需要未完成的木雕
+Herbs_And_Fungi_DryingStack_DismantleActions_Dismantle_FailMessage,Remove drying trays from the stack first.,先将晾干托盘从架子上取下。
+Herbs_And_Fungi_DryingTray_CookingRecipes_DryDryable_ActionName,Dry Herbs & Fungi (Quality +0.25),晾干草药和菌类（质量+0.25）
+Herbs_And_Fungi_DryingTray_Transform_BlackTrumpet,Finish Drying,完成晾干
+Herbs_And_Fungi_DryingTray_Transform_Chanterelle,Finish Drying,完成晾干
+Herbs_And_Fungi_DryingTray_Transform_Complete,Drying complete!,晾干完成！
+Herbs_And_Fungi_DryingTray_Transform_Ginseng,Finish Drying,完成晾干
+Herbs_And_Fungi_DryingTray_Transform_GoldenOyster,Finish Drying,完成晾干
+Herbs_And_Fungi_DryingTray_Transform_HempFlower,Finish Drying,完成晾干
+Herbs_And_Fungi_DryingTray_Transform_KingOyster,Finish Drying,完成晾干
+Herbs_And_Fungi_DryingTray_Transform_LionsMane,Finish Drying,完成晾干
+Herbs_And_Fungi_DryingTray_Transform_Morel,Finish Drying,完成晾干
+Herbs_And_Fungi_DryingTray_Transform_Reishi,Finish Drying,完成晾干
+Herbs_And_Fungi_DryingTray_Transform_Shiitake,Finish Drying,完成晾干
+Herbs_And_Fungi_DryingTray_Transform_Yarrow,Finish Drying,完成晾干
+Herbs_And_Fungi_GoldenOysterDried_CardDescription,Dried golden oyster mushrooms. The dehydration process preserves their nutty cashew-like flavor for long-term storage.,干金顶侧耳蘑菇。脱水过程保留了其坚果腰果般的风味，便于长期储存。
+Herbs_And_Fungi_GoldenOysterDried_CardHelpSection,"<b>Preservation:</b> Dried for extended shelf life.
+Herbs_And_Fungi_GoldenOysterDried_CardName,Dried Golden Oyster,
+Herbs_And_Fungi_GoldenOysterDried_DismantleActions_Eat_ActionDescription,Eat the dried golden oyster. Chewy with concentrated flavor.,
+Herbs_And_Fungi_GoldenOysterDried_DismantleActions_Eat_ActionName,Eat Dried,
+Herbs_And_Fungi_GoldenOysterDried_SpoilageTime_CardStatName,Freshness,
+Herbs_And_Fungi_GoldenOysterDried_SpoilageTime_OnFull_ActionDescription,Dried Golden Oyster Spoiled!,
+Herbs_And_Fungi_GoldenOyster_SpecialDurability1_CardStatName,Cook,
+Herbs_And_Fungi_GoldenOyster_SpecialDurability1_OnFull_ActionDescription,Golden Oyster Cooked!,
+Herbs_And_Fungi_KingOysterDried_CardDescription,Dried king oyster mushrooms. The thick stems become dense and chewy when dried"," perfect for long-term storage."""
+Herbs_And_Fungi_KingOysterDried_CardHelpSection,"<b>Preservation:</b> Dried for extended shelf life.
+Herbs_And_Fungi_KingOysterDried_CardName,Dried King Oyster,
+Herbs_And_Fungi_KingOysterDried_DismantleActions_Eat_ActionDescription,Eat the dried king oyster mushroom. Very chewy with intense umami flavor.,
+Herbs_And_Fungi_KingOysterDried_DismantleActions_Eat_ActionName,Eat Dried,
+Herbs_And_Fungi_KingOysterDried_SpoilageTime_CardStatName,Freshness,
+Herbs_And_Fungi_KingOysterDried_SpoilageTime_OnFull_ActionDescription,Dried King Oyster Spoiled!,
+Herbs_And_Fungi_KingOyster_SpecialDurability1_CardStatName,Cook,
+Herbs_And_Fungi_KingOyster_SpecialDurability1_OnFull_ActionDescription,King Oyster Cooked!,
+Herbs_And_Fungi_LionsManeDried_Grind,Grind,
+Herbs_And_Fungi_LionsManeDried_Grind_Desc,Grind the dried lion's mane into powder using stones or grinding tools.,
+Herbs_And_Fungi_LionsManeGround_MixTea,Mix into Hot Water,
+Herbs_And_Fungi_LionsManeGround_MixTea_Desc,Mix lion's mane powder into hot water to create a brain-boosting medicinal tea.,
+Herbs_And_Fungi_LionsMane_DismantleActions_Chew_ActionDescription,Chew the lion's mane mushroom. Less effective than dried/ground"," but provides weak immune boost. Can chew 3 times."""
+Herbs_And_Fungi_LionsMane_DismantleActions_Chew_ActionName,Chew,咀嚼
+Herbs_And_Fungi_MorelMushroom_SpecialDurability1_CardStatName,Cook,烹熟度
+Herbs_And_Fungi_MorelMushroom_SpecialDurability1_OnFull_ActionDescription,Morel Cooked!,羊肚菌已烹熟！
+Herbs_And_Fungi_Perk_CulinaryKit_PerkDescription,"Start with gourmet culinary mushrooms and herbs: King Oyster (meaty), Golden Oyster (decorative), Morel (rare delicacy), Black Trumpet (gourmet), Shiitake (umami), Puffball (mild, versatile), Yarrow (aromatic herb), and Ginseng (energy herb). All can be dried, cooked, or ground for recipes.",开始时携带美味蘑菇和草药：杏鲍菇（多肉）、金顶侧耳（装饰性）、羊肚菌（稀有美味）、黑喇叭菇（美食）、香菇（鲜味）、马勃（温和万用）、蓍草（芳香草药）和人参（能量草药）。均可干燥、烹饪或研磨入菜。
+Herbs_And_Fungi_Perk_CulinaryKit_PerkName,Culinary Kit,烹饪套装
+Herbs_And_Fungi_Perk_MedicalMushrooms_PerkDescription,"Start with medicinal mushrooms: Lion's Mane (cognitive boost, chewable 3x or grindable), Shiitake (immune system support), Reishi (longevity and wellness, chewable or grindable), and Spirit Mushrooms (vanilla rare medicinal). Dry and grind for powerful medicinal powders or teas.",开始时携带药用蘑菇：狮鬃菇（认知增强，可咀嚼3次或研磨）、香菇（免疫系统支持）、灵芝（长寿和健康，可咀嚼或研磨）和灵魂蘑菇（原版稀有药用）。干燥并研磨制成强效药粉或茶。
+Herbs_And_Fungi_Perk_MedicalMushrooms_PerkName,Medical Mushrooms,药用蘑菇
+herbs_fungi_black_trumpet_EatRaw,Eat Raw,生吃
+herbs_fungi_black_trumpet_EatRaw_Desc,Eat the black trumpet raw. Safe but better when cooked for full flavor.,生吃黑喇叭菌。安全可食但烹熟后风味更佳。
+herbs_fungi_black_trumpet_SpecialDurability1_Cooked,The black trumpet is perfectly cooked.,黑喇叭菌已完美烹熟。
+herbs_fungi_black_trumpet_SpecialDurability1_StatName,Cook,烹饪
+herbs_fungi_black_trumpet_SpoilageTime_Spoiled,The black trumpet has spoiled.,黑喇叭菌已变质。
+herbs_fungi_black_trumpet_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_black_trumpet_UsageDurability_Dried,The black trumpet has dried properly.,黑喇叭菌已适当晾干。
+herbs_fungi_black_trumpet_UsageDurability_StatName,Dry,干燥
+herbs_fungi_black_trumpet_cooked_Eat,Eat,食用
+herbs_fungi_black_trumpet_cooked_Eat_Desc,"Savor the smoky, truffle-like flavor of the cooked black trumpet.",品味烹熟的黑喇叭菌浓郁烟熏松露般的风味。
+herbs_fungi_black_trumpet_cooked_SpoilageTime_Spoiled,The cooked black trumpet has spoiled.,熟黑喇叭菌已变质。
+herbs_fungi_black_trumpet_cooked_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_black_trumpet_dried_Eat,Eat,食用
+herbs_fungi_black_trumpet_dried_Eat_Desc,Chew on the dried black trumpet. Tough but intensely flavorful.,咀嚼干黑喇叭菌。质地较硬但风味极为浓郁。
+herbs_fungi_black_trumpet_dried_SpecialDurability1_Cooked,The dried black trumpet has been cooked.,干黑喇叭菌已被烹熟。
+herbs_fungi_black_trumpet_dried_SpecialDurability1_StatName,Cook,烹饪
+herbs_fungi_chanterelle_EatRaw,Eat Raw,生吃
+herbs_fungi_chanterelle_EatRaw_Desc,Eat the chanterelle raw. Edible but better cooked.,生吃鸡油菌。可以食用但烹熟更佳。
+herbs_fungi_chanterelle_SpecialDurability1_Cooked,The chanterelle is cooked.,鸡油菌已烹熟。
+herbs_fungi_chanterelle_SpecialDurability1_StatName,Cook,烹饪
+herbs_fungi_chanterelle_SpoilageTime_Spoiled,The chanterelle has spoiled.,鸡油菌已变质。
+herbs_fungi_chanterelle_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_chanterelle_UsageDurability_Dried,The chanterelle has dried out.,鸡油菌已晾干。
+herbs_fungi_chanterelle_UsageDurability_StatName,Dry,干燥
+herbs_fungi_chicken_of_woods_EatRaw,Eat Raw,生吃
+herbs_fungi_chicken_of_woods_EatRaw_Desc,Eat raw. Should really be cooked first.,生吃。最好先烹熟。
+herbs_fungi_chicken_of_woods_SpecialDurability1_Cooked,The chicken of the woods is perfectly cooked.,木鸡菌已完美烹熟。
+herbs_fungi_chicken_of_woods_SpecialDurability1_StatName,Cook,烹饪
+herbs_fungi_chicken_of_woods_SpoilageTime_Spoiled,The chicken of the woods has spoiled.,木鸡菌已变质。
+herbs_fungi_chicken_of_woods_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_chicken_of_woods_UsageDurability_Dried,The chicken of the woods has dried out.,木鸡菌已晾干。
+herbs_fungi_chicken_of_woods_UsageDurability_StatName,Dry,干燥
+herbs_fungi_cooked_chanterelle_Eat,Eat,食用
+herbs_fungi_cooked_chanterelle_Eat_Desc,Enjoy the delicious cooked chanterelle.,享用美味的熟鸡油菌。
+herbs_fungi_cooked_chanterelle_SpoilageTime_Spoiled,The cooked chanterelle has spoiled.,熟鸡油菌已变质。
+herbs_fungi_cooked_chanterelle_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_cooked_chicken_of_woods_Eat,Eat,食用
+herbs_fungi_cooked_chicken_of_woods_Eat_Desc,Enjoy this meaty mushroom - it tastes just like chicken!,享用这道肉质蘑菇——口感就像鸡肉！
+herbs_fungi_cooked_chicken_of_woods_SpoilageTime_Spoiled,The cooked mushroom has spoiled.,熟蘑菇已变质。
+herbs_fungi_cooked_chicken_of_woods_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_cooked_puffball_Eat,Eat,食用
+herbs_fungi_cooked_puffball_Eat_Desc,Eat the delicious cooked puffball slices.,食用美味的熟马勃菌片。
+herbs_fungi_cooked_puffball_SpoilageTime_Spoiled,The cooked puffball has spoiled.,熟马勃菌已变质。
+herbs_fungi_cooked_puffball_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_death_cap_EatRaw,Eat (DANGER!),食用（危险！）
+herbs_fungi_death_cap_EatRaw_Desc,Eat the death cap. This will poison you severely - likely fatally!,食用毒鹅膏。这将使您严重中毒——很可能致命！
+herbs_fungi_death_cap_SpoilageTime_Spoiled,The death cap has decomposed - but is no less dangerous.,毒鹅膏已腐烂——但依然危险。
+herbs_fungi_death_cap_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_dried_chanterelle_Eat,Eat,食用
+herbs_fungi_dried_chanterelle_Eat_Desc,Eat the dried chanterelle. Chewy but nutritious.,食用干鸡油菌。有嚼劲但营养丰富。
+herbs_fungi_dried_chanterelle_SpecialDurability1_Cooked,The dried chanterelle is cooked.,干鸡油菌已烹熟。
+herbs_fungi_dried_chanterelle_SpecialDurability1_StatName,Cook,烹饪
+herbs_fungi_dried_chanterelle_SpoilageTime_Spoiled,The dried chanterelle has finally spoiled.,干鸡油菌终于变质了。
+herbs_fungi_dried_chanterelle_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_dried_chicken_of_woods_SpecialDurability1_Cooked,The dried chicken of the woods is cooked.,干木鸡菌已烹熟。
+herbs_fungi_dried_chicken_of_woods_SpecialDurability1_StatName,Cook,烹饪
+herbs_fungi_dried_chicken_of_woods_SpoilageTime_Spoiled,The dried chicken of the woods has finally spoiled.,干木鸡菌终于变质了。
+herbs_fungi_dried_chicken_of_woods_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_dried_ginseng_Grind,Grind,研磨
+herbs_fungi_dried_ginseng_Grind_Desc,Grind the dried ginseng into powder using stones or grinding tools.,用石头或研磨工具将干人参研磨成粉末。
+herbs_fungi_dried_ginseng_OnStatsChangeActions[0]_ActionName,Finish Rotary Quern Grinding,完成旋转磨盘研磨
+herbs_fungi_dried_ginseng_SpecialDurability3_CardStatName,Mill,磨碎度
+herbs_fungi_dried_ginseng_SpoilageTime_Spoiled,The dried ginseng has lost its potency.,干人参已失去效力。
+herbs_fungi_dried_ginseng_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_dried_reishi_Grind,Grind,研磨
+herbs_fungi_dried_reishi_Grind_Desc,Grind the dried reishi into powder using stones or grinding tools.,用石头或研磨工具将干灵芝研磨成粉末。
+herbs_fungi_dried_reishi_SpoilageTime_Spoiled,The dried reishi has crumbled to dust.,干灵芝已碎成尘土。
+herbs_fungi_dried_reishi_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_ginseng_SpoilageTime_Spoiled,The ginseng root has withered.,人参根已萎蔫。
+herbs_fungi_ginseng_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_ginseng_UsageDurability_Dried,The ginseng root has dried properly.,人参根已适当晾干。
+herbs_fungi_ginseng_UsageDurability_StatName,Dry,干燥
+herbs_fungi_hemp_field_growing_DismantleActions_0_ActionName,Destroy,销毁
+herbs_fungi_puffball_EatRaw,Eat Raw,生吃
+herbs_fungi_puffball_EatRaw_Desc,"Eat the puffball raw. Mild flavor, very filling.",生吃马勃菌。味道温和，非常饱腹。
+herbs_fungi_puffball_SpecialDurability1_Cooked,The puffball is nicely browned.,马勃菌已烤成金黄色。
+herbs_fungi_puffball_SpecialDurability1_StatName,Cook,烹饪
+herbs_fungi_puffball_SpoilageTime_Spoiled,The puffball has turned brown and released its spores.,马勃菌已变褐并释放孢子。
+herbs_fungi_puffball_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_puffball_UsageDurability_StatName,Durability,耐久度
+herbs_fungi_reishi_SpoilageTime_Spoiled,The reishi has dried out and crumbled.,灵芝已干燥碎裂。
+herbs_fungi_reishi_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_reishi_UsageDurability_Dried,The reishi has dried properly.,灵芝已适当晾干。
+herbs_fungi_reishi_UsageDurability_StatName,Dry,干燥
+herbs_fungi_shiitake_EatRaw,Eat Raw,生吃
+herbs_fungi_shiitake_EatRaw_Desc,Eat the shiitake raw. Safe but better when cooked to unlock its full flavor and benefits.,生吃香菇。安全可食但烹熟后可发挥其完整风味和功效。
+herbs_fungi_shiitake_SpecialDurability1_Cooked,The shiitake mushroom is perfectly cooked.,香菇已完美烹熟。
+herbs_fungi_shiitake_SpecialDurability1_StatName,Cook,烹饪
+herbs_fungi_shiitake_SpoilageTime_Spoiled,The shiitake mushroom has spoiled.,香菇已变质。
+herbs_fungi_shiitake_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_shiitake_UsageDurability_Dried,The shiitake mushroom has dried properly.,香菇已适当晾干。
+herbs_fungi_shiitake_UsageDurability_StatName,Dry,干燥
+herbs_fungi_shiitake_cooked_Eat,Eat,食用
+herbs_fungi_shiitake_cooked_Eat_Desc,"Enjoy the meaty, umami-rich shiitake. Feel your immune system strengthen.",享用肉质鲜美的香菇，感受免疫力的增强。
+herbs_fungi_shiitake_cooked_SpoilageTime_Spoiled,The cooked shiitake has spoiled.,熟香菇已变质。
+herbs_fungi_shiitake_cooked_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_shiitake_dried_Eat,Eat,食用
+herbs_fungi_shiitake_dried_Eat_Desc,Chew on the dried shiitake. Tough but rich in umami flavor.,咀嚼干香菇。质地较硬但富含浓郁的鲜味。
+herbs_fungi_shiitake_dried_SpecialDurability1_Cooked,The dried shiitake has been cooked.,干香菇已被烹熟。
+herbs_fungi_shiitake_dried_SpecialDurability1_StatName,Cook,烹饪
+herbs_fungi_yarrow_SpoilageTime_Spoiled,The yarrow has wilted and spoiled.,蓍草已枯萎变质。
+herbs_fungi_yarrow_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_yarrow_UsageDurability_Dried,"The yarrow has dried properly, preserving its healing properties.",蓍草已适当晾干，保留了其愈合特性。
+herbs_fungi_yarrow_UsageDurability_StatName,Dry,干燥
+herbs_fungi_yarrow_dried_Grind,Grind,研磨
+herbs_fungi_yarrow_dried_Grind_Desc,Grind the dried yarrow into powder using stones or grinding tools.,用石头或研磨工具将干蓍草研磨成粉末。
+herbs_fungi_yarrow_ground_ApplyWound,Apply to Wound,涂抹伤口
+herbs_fungi_yarrow_ground_ApplyWound_Desc,Apply the concentrated yarrow powder directly to wounds. Excellent hemostatic and antiseptic properties.,将浓缩的蓍草粉直接涂抹于伤口。具有极佳的止血和消毒特性。
+herbs_fungi_truffle_CardName,Truffle,松露
+herbs_fungi_truffle_CardDescription,A rare valuable underground fungus prized for its intoxicating aroma and unique flavor. Found deep in old-growth forests. Extremely rare.,一种罕见且宝贵的地下真菌，因其迷人的香气和独特的风味而备受推崇。在老林深处发现。极其罕见。
+herbs_fungi_truffle_EatRaw,Eat Raw,生吃
+herbs_fungi_truffle_EatRaw_Desc,Eat the rare truffle raw. Luxurious and satisfying.,生吃罕见的松露。奢侈和令人满足。
+herbs_fungi_cooked_truffle_CardName,Cooked Truffle,烹饪松露
+herbs_fungi_cooked_truffle_CardDescription,A perfectly cooked rare truffle. The distinctive aroma and flavor are even more pronounced when heated.,一个完美烹饪的罕见松露。加热时独特的香气和风味更加突出。
+herbs_fungi_cooked_truffle_Eat,Eat,吃
+herbs_fungi_cooked_truffle_Eat_Desc,Eat the fat-cooked truffle. A masterpiece of flavor — one of the finest things you can put in your mouth.,吃脂肪烹饪的松露。风味的杰作 — 你嘴里能放进去的最好的东西之一。
+herbs_fungi_dried_truffle_CardName,Dried Truffle,干松露
+herbs_fungi_dried_truffle_CardDescription,A dried truffle. Keeps far longer than fresh and the flavor is concentrated. Valuable trade good.,一种干松露。保存时间远长于新鲜，风味浓缩。有价值的贸易商品。
+herbs_fungi_dried_truffle_Eat,Eat,吃
+herbs_fungi_dried_truffle_Eat_Desc,Eat the concentrated dried truffle.,吃浓缩的干松露。
+herbs_fungi_dried_truffle_Cut,Cut,切
+herbs_fungi_dried_truffle_Cut_Desc,Slice the dried truffle into thin pieces for seasoning.,将干松露切成薄片以便调味。
+herbs_fungi_dried_truffle_cut_CardName,Dried Truffle Slices,干松露片
+herbs_fungi_dried_truffle_cut_CardDescription,"""Thin slices of dried truffle. Drag butter or fat onto the slices to coat them, then heat. Coated slices cook into a luxurious dish; uncoated slices simply char to ash.""","""干松露薄片。将黄油或脂肪拖到松露片上为其裹覆，然后加热。裹覆好的松露片可烹制成奢华佳肴；未裹覆的则会直接烧焦成灰。"""
+herbs_fungi_dried_truffle_cut_SpoilageTime_StatName,Spoilage,腐烂
+herbs_fungi_dried_truffle_cut_SpecialDurability1_StatName,Char,焦化
+herbs_fungi_dried_truffle_cut_SpecialDurability1_Burned,The truffle slices charred without fat.,松露片在没有脂肪的情况下烧焦了。
+herbs_fungi_dried_truffle_cut_SpecialDurability4_StatName,Fat,脂肪
+herbs_fungi_dried_truffle_cut_SpecialDurability4_Coated,The truffle slices are now fully coated in fat.,松露片现已完全裹覆脂肪。
+herbs_fungi_dried_truffle_cut_AddFat,Coat with Fat,裹覆脂肪
+herbs_fungi_dried_truffle_cut_AddFat_Desc,Coat the truffle slices in fat. They will now cook properly when heated.,将松露片裹覆脂肪。加热时它们将正确地烹制。
+herbs_fungi_dried_truffle_cut_Eat,Eat,吃
+herbs_fungi_dried_truffle_cut_Eat_Desc,"""Nibble a few slices of dried truffle. Intense, earthy flavor.""","""嚼几片干松露。浓烈的泥土风味。"""
+herbs_fungi_dried_truffle_cut_fat_coated_CardName,Fat-Coated Dried Truffle Slices,脂肪裹覆干松露片
+herbs_fungi_dried_truffle_cut_fat_coated_CardDescription,Dried truffle slices coated in fat. Heat them in a hot bowl to render a luxurious cooked truffle. They will char if left on heat too long but the fat protects them long enough to cook properly.,裹覆脂肪的干松露片。在热碗中加热，可烹制成奢华的松露佳肴。加热过久仍会烧焦，但脂肪能保护它们足够长的时间以正确烹制。
+herbs_fungi_dried_truffle_cut_fat_coated_SpoilageTime_StatName,Spoilage,腐烂
+herbs_fungi_dried_truffle_cut_fat_coated_SpecialDurability1_StatName,Cook,烹饪
+herbs_fungi_dried_truffle_cut_fat_coated_SpecialDurability1_Cooked,The fat-coated truffle slices cooked into a perfect dish.,脂肪裹覆的松露片烹制成了完美的佳肴。
+herbs_fungi_dried_truffle_cut_fat_coated_SpecialDurability4_StatName,Fat,脂肪
+herbs_fungi_dried_truffle_cut_fat_coated_Eat,Eat,吃
+herbs_fungi_dried_truffle_cut_fat_coated_Eat_Desc,"""Nibble the fat-coated dried truffle slices raw. Rich and oily, but not as good as cooked.""","""生吃脂肪裹覆的干松露片。丰腴油润，但不如烹熟的好。"""
+herbs_fungi_herbal_salve_CardName,Herbal Salve,草药膏
+herbs_fungi_herbal_salve_CardDescription,A topical healing salve made from medicinal herbs and fat. Apply directly to wounds for faster healing.,用药用草本和脂肪制成的局部治疗膏。直接涂抹于伤口以加快愈合。
+herbs_fungi_herbal_salve_Apply,Apply Salve,涂抹膏药
+herbs_fungi_herbal_salve_Apply_Desc,Apply the healing salve to your wounds.,在你的伤口上涂抹治疗膏。
+herbs_fungi_herbal_tincture_CardName,Herbal Tincture,草药酊剂
+herbs_fungi_herbal_tincture_CardDescription,An alcohol-based extract of medicinal herbs. A potent remedy for various ailments.,以酒精为基础的药用草本提取物。各种疾病的强效良方。
+herbs_fungi_herbal_tincture_Drink,Drink,喝
+herbs_fungi_herbal_tincture_Drink_Desc,Drink the medicinal tincture. Bitter but effective.,喝这种药用酊剂。味苦但有效。
+herbs_fungi_sleep_tea_CardName,Sleep Tea,睡眠茶
+herbs_fungi_sleep_tea_CardDescription,A soothing herbal tea blend designed to improve sleep quality and reduce stress.,一种舒适的草药茶混合物，旨在改善睡眠质量并减轻压力。
+herbs_fungi_sleep_tea_Drink,Drink,喝
+herbs_fungi_sleep_tea_Drink_Desc,Drink the soothing tea before rest to sleep better.,在休息前喝舒缓的茶以更好地睡眠。
+herbs_fungi_pain_relief_powder_CardName,Pain Relief Powder,止痛粉
+herbs_fungi_pain_relief_powder_CardDescription,A finely ground herbal powder that reduces pain when ingested. More efficient than raw herbs.,一种细碎的草药粉，摄入时可减轻疼痛。比生草药更有效。
+herbs_fungi_pain_relief_powder_Take,Take Powder,服用粉末
+herbs_fungi_pain_relief_powder_Take_Desc,Ingest the pain-relieving powder.,摄入止痛粉。
+herbs_fungi_anti_nausea_tea_CardName,Anti-Nausea Tea,止吐茶
+herbs_fungi_anti_nausea_tea_CardDescription,A calming herbal tea that settles the stomach and reduces nausea.,一种镇定草本茶，安抚胃部并减轻恶心。
+herbs_fungi_anti_nausea_tea_Drink,Drink,喝
+herbs_fungi_anti_nausea_tea_Drink_Desc,Drink the soothing tea to settle your stomach.,喝舒缓的茶来安抚你的胃。
+herbs_fungi_stimulant_tea_CardName,Stimulant Tea,兴奋茶
+herbs_fungi_stimulant_tea_CardDescription,An energizing herbal tea blend that boosts focus and energy. Effects are temporary.,一种充满活力的草本茶混合物，可增强注意力和能量。效果是暂时的。
+herbs_fungi_stimulant_tea_Drink,Drink,喝
+herbs_fungi_stimulant_tea_Drink_Desc,Drink the energizing tea to boost your focus.,喝刺激茶以增强你的注意力。
+herbs_fungi_ginger_CardName,Ginger,生姜
+herbs_fungi_ginger_CardDescription,"""Fresh ginger root. Spicy and warming, with medicinal properties. Slice it with a knife before drying.""",新鲜生姜根。辛辣温暖，具有药用特性。在干燥之前用刀切片。
+herbs_fungi_ginger_Eat,Eat,吃
+herbs_fungi_ginger_Eat_Desc,Chew the fresh ginger. Spicy and warming.,嚼新鲜生姜。辛辣温暖。
+herbs_fungi_ginger_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_ginger_SpoilageTime_Spoiled,The ginger has spoiled.,生姜变质了。
+herbs_fungi_ginger_Cut,Cut,切
+herbs_fungi_ginger_Cut_Desc,"""Slice the ginger root into thin pieces, ready to be dried.""",将生姜根切成薄片，准备干燥。
+herbs_fungi_ginger_cut_CardName,Cut Ginger,切生姜
+herbs_fungi_ginger_cut_CardDescription,Fresh ginger that has been sliced into thin pieces. Ready to be dried for long-term preservation.,切成薄片的新鲜生姜。可以干燥以长期保存。
+herbs_fungi_ginger_cut_Eat,Eat,吃
+herbs_fungi_ginger_cut_Eat_Desc,Chew the cut ginger pieces. Spicy and warming.,嚼切好的生姜片。辛辣温暖。
+herbs_fungi_ginger_cut_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_ginger_cut_SpoilageTime_Spoiled,The cut ginger has spoiled.,切好的生姜变质了。
+"herbs_fungi_ginger_cut_UsageDurability_StatName""",",
+herbs_fungi_ginger_cut_UsageDurability_Dried,The cut ginger has dried properly.,切好的生姜已适当干燥。
+herbs_fungi_dried_ginger_CardName,Dried Ginger,干生姜
+herbs_fungi_dried_ginger_CardDescription,Dried ginger root. More concentrated flavor and medicinal properties. Keeps indefinitely.,干生姜根。味道和药用特性更浓。无限期保存。
+herbs_fungi_dried_ginger_Eat,Eat,吃
+herbs_fungi_dried_ginger_Eat_Desc,Chew the dried ginger. Concentrated flavor and warmth.,嚼干生姜。浓缩的味道和温暖。
+Herbs_And_Fungi_OilPress_CardName,Oil Press,油压机
+Herbs_And_Fungi_OilPress_CardDescription,A mechanical oil press for extracting oil. Open the Recipes tab to press hemp seeds a truffle or fresh herbs into oil.,机械榨油机，用于榨取油脂。打开配方页，将大麻籽、松露或新鲜草药压榨成油。
+Herbs_And_Fungi_OilPress_CardHelpSection,""<b>How to Use:</b>"
+Herbs_And_Fungi_Bp_OilPressSeeds_CardName,Press Hemp Seeds,压榨大麻籽
+Herbs_And_Fungi_Bp_OilPressSeeds_CardDescription,Crush 3 hemp seeds in the press and collect in a clay bowl to extract hemp seed oil.,在压榨机中压碎3粒大麻籽并用陶碗盛装以提取大麻籽油。
+Herbs_And_Fungi_Bp_OilPressTruffle_CardName,Press Truffle,压榨松露
+Herbs_And_Fungi_Bp_OilPressTruffle_CardDescription,Press 1 fresh truffle into an empty clay bowl to produce 1 bowl of aromatic truffle oil.,将1个新鲜松露压入一个空陶碗中以生产1碗芳香松露油。
+Herbs_And_Fungi_OilPress_PickUp_ActionName,Pick Up,拾起
+Herbs_And_Fungi_OilPress_PickUp_ActionDescription,Disassemble the oil press back into its portable kit form.,将油压机拆解回其便携套件形式。
+Herbs_And_Fungi_Bp_PicklingVat_UnlockConditionsDesc,Unlocked after obtaining clay,获得粘土后解锁
+Herbs_And_Fungi_UnfiredPickleVat_CardName,Unfired Pickle Vat,未烧制腌菜缸
+Herbs_And_Fungi_UnfiredPickleVat_CardDescription,"A shaped clay vat, soft and fragile. Fire it in a kiln to harden the ceramic.",一个成型的陶土缸，质地柔软易碎。在窑中烧制以硬化陶瓷。
+Herbs_And_Fungi_UnfiredPickleVat_SpecialDurability1_CardStatName,Fired,烧制度
+Herbs_And_Fungi_UnfiredPickleVat_SpecialDurability1_OnFull_ActionDescription,Pickle Vat fired.,腌菜缸已烧制完成。
+Herbs_And_Fungi_UnfiredPickleVat_SpecialDurability2_CardStatName,Quality,质量
+Herbs_And_Fungi_PicklingVat_CardName,Pickle Vat,腌菜缸
+Herbs_And_Fungi_PicklingVat_CardDescription,"A fired ceramic vat for brine pickling. Fill with water from any container, then drag salt to turn the water into pickle brine. Click the vat to access pickling recipes — each batch consumes 500 units of brine.",一个用于盐水腌制的烧制陶缸。向其中注水，然后拖动盐使水变成腌制卤水。点击缸以访问腌制配方——每批消耗500单位卤水。
+Herbs_And_Fungi_PicklingVat_SpecialDurability2_CardStatName,Quality,质量
+herbs_fungi_oil_press_legs_CardName,Oil Press Legs,油压机腿
+herbs_fungi_oil_press_legs_CardDescription,Sturdy wooden legs for an oil press. Part of a larger assembly.,油压机的坚固木腿。是较大装配的一部分。
+herbs_fungi_bp_oil_press_legs_CardName,Oil Press Legs,油压机腿
+herbs_fungi_bp_oil_press_legs_CardDescription,"""Sturdy wooden legs for an oil press. Requires 4 planks, a spoon auger, and a sharp knife.""",油压机的坚固木腿。需要4块木板。
+herbs_fungi_bp_oil_press_legs_UnlockConditionsDesc,Unlocked after obtaining a plank,获得木板后解锁
+herbs_fungi_oil_press_frame_CardName,Oil Press Frame,油压机框架
+herbs_fungi_oil_press_frame_CardDescription,A wooden frame that holds the press mechanism. Part of a larger assembly.,固定压制机构的木框架。是较大装配的一部分。
+herbs_fungi_bp_oil_press_frame_CardName,Oil Press Frame,油压机框架
+herbs_fungi_bp_oil_press_frame_CardDescription,"""Assemble the wooden chassis for an oil press. Requires 1 Oil Press Legs, 1 Press Bed Frame, 1 Pressing Screw, and a hammer.""","""组装油压机的木制底盘。需要1个油压机支腿、1个压床框架和1个压制螺杆。"""
+herbs_fungi_bp_oil_press_frame_UnlockConditionsDesc,Unlocked after crafting a Press Bed Frame,制作压床框架后解锁
+herbs_fungi_press_bed_frame_CardName,Press Bed Frame,压床框架
+herbs_fungi_press_bed_frame_CardDescription,A flat stone-reinforced bed frame for the oil press. Part of a larger assembly.,油压机的平石加固床架。是较大装配的一部分。
+herbs_fungi_bp_press_bed_frame_CardName,Press Bed Frame,压床框架
+herbs_fungi_bp_press_bed_frame_CardDescription,"""A stone-reinforced press bed for an oil press. Requires 2 planks, 1 stone, a sharp knife, and a chisel.""",油压机的石头加固压床。需要2块木板和1块石头。
+herbs_fungi_bp_press_bed_frame_UnlockConditionsDesc,Unlocked after obtaining a plank,获得木板后解锁
+herbs_fungi_oil_press_screw_CardName,Pressing Screw,压紧螺杆
+herbs_fungi_oil_press_screw_CardDescription,A wooden screw mechanism for applying pressure in an oil press. Part of a larger assembly.,用于在油压机中施加压力的木质螺杆机构。是较大装配的一部分。
+herbs_fungi_bp_oil_press_screw_CardName,Pressing Screw,压紧螺杆
+herbs_fungi_bp_oil_press_screw_CardDescription,"""A wooden screw mechanism for an oil press. Carved from a log in four stages: rough-shape with axe and knife, chisel the thread, bore the center with a spoon auger, then fit the press plate.""","""油压机的木质螺杆机构。从原木上分四个阶段雕刻而成：用斧和刀粗略成形，用凿子凿出螺纹，用勺钻钻出中心孔，最后装上压板。"""
+herbs_fungi_bp_oil_press_screw_UnlockConditionsDesc,Unlocked after obtaining a plank,获得木板后解锁
+herbs_fungi_oil_press_bag_CardName,Pressing Bag,压榨袋
+herbs_fungi_oil_press_bag_CardDescription,A woven rope bag for holding seeds or herbs during oil pressing. Combine with a press plate to make a prepared press bag.,用于在榨油过程中盛放种子或草本的编织绳袋。与压板组合制作已备压榨袋。
+herbs_fungi_bp_oil_press_bag_CardName,Pressing Bag,压榨袋
+herbs_fungi_bp_oil_press_bag_CardDescription,A woven rope bag for oil pressing. Requires 1 rope and 1 large cloth.,用于榨油的编织绳袋。需要2根绳子。
+herbs_fungi_bp_oil_press_bag_UnlockConditionsDesc,Unlocked after obtaining rope,获得绳子后解锁
+herbs_fungi_oil_press_bag_plate_CardName,Press Plate,压板
+herbs_fungi_oil_press_bag_plate_CardDescription,A flat wooden plate that distributes pressure evenly across the pressing bag in an oil press.,在油压机中均匀分配压力的平木板。
+herbs_fungi_bp_oil_press_bag_plate_CardName,Press Plate,压板
+herbs_fungi_bp_oil_press_bag_plate_CardDescription,A flat wooden pressing plate for even pressure distribution. Requires 1 plank and a sharp axe.,均匀分配压力的平木压板。需要2块木板。
+herbs_fungi_bp_oil_press_bag_plate_UnlockConditionsDesc,Unlocked after obtaining a plank,获得木板后解锁
+herbs_fungi_oil_press_bag_prepared_CardName,Prepared Press Bag,已备压榨袋
+herbs_fungi_oil_press_bag_prepared_CardDescription,A pressing bag assembled with its pressure plate. Place it in the oil press and load it with seeds to extract oil.,装有压板的压榨袋组件。将其放入油压机并加入种子以提取油脂。
+herbs_fungi_bp_oil_press_bag_prepared_CardName,Prepared Press Bag,已备压榨袋
+herbs_fungi_bp_oil_press_bag_prepared_CardDescription,Fit a pressure plate into a pressing bag ready to receive seeds in the oil press. Requires 1 pressing bag and 1 press plate.,将压板装入压榨袋中以备在油压机中接收种子。需要1个压榨袋和1块压板。
+herbs_fungi_bp_oil_press_bag_prepared_UnlockConditionsDesc,Unlocked after crafting a Pressing Bag,制作压榨袋后解锁
+herbs_fungi_oil_press_utensils_CardName,Oil Press Utensils,榨油器具
+herbs_fungi_oil_press_utensils_CardDescription,Wooden scrapers and tools for loading and cleaning the oil press. Part of the oil press kit.,用于装载和清洁油压机的木质刮刀和工具。是榨油套件的一部分。
+herbs_fungi_bp_oil_press_utensils_CardName,Oil Press Utensils,榨油器具
+herbs_fungi_bp_oil_press_utensils_CardDescription,Wooden scrapers and tools for the oil press. Requires 2 wood and a chisel.,油压机的木质刮刀和工具。需要2根长棍和1根绳子。
+herbs_fungi_bp_oil_press_utensils_UnlockConditionsDesc,Unlocked after obtaining wood,获得绳子后解锁
+herbs_fungi_oil_press_kit_CardName,Oil Press Kit,榨油套件
+herbs_fungi_oil_press_kit_CardDescription,The portable kit form of the oil press. Use the Place action to set it up in your environment.,完整的榨油配件套装：油压机框架、器具和已备压榨袋。操作油压机所必需。
+Herbs_And_Fungi_OilPressKit_Dismantle_ActionName,Dismantle,拆解
+Herbs_And_Fungi_OilPressKit_Dismantle_ActionDescription,Break down the oil press kit and recover all components.,拆解榨油套件并回收所有零件。
+herbs_fungi_bp_oil_press_kit_CardName,Oil Press Kit,榨油套件
+herbs_fungi_bp_oil_press_kit_CardDescription,"""Assemble the complete oil press kit. Requires 1 oil press frame, 1 oil press utensils, 1 prepared press bag, 15 stone, and a hammer. Place the kit to set up the oil press.""",组装完整的榨油配件套件。需要1个油压机框架、1套榨油器具和1个已备压榨袋。
+herbs_fungi_bp_oil_press_kit_UnlockConditionsDesc,Unlocked after crafting Oil Press Utensils,制作榨油器具后解锁
+Herbs_And_Fungi_Perk_Alchemist_PerkName,Alchemist,炼金术士
+Herbs_And_Fungi_Perk_Alchemist_PerkDescription,"Start with an alchemist's complete remedies collection: Herbal Salve, Tincture, Sleep Tea, Pain Relief Powder, Anti-Nausea Tea, and signature herbal teas. Well-prepared for any ailment.","""以炼金术士的身份开始：草药药膏、酊剂、安神茶、止痛粉、止吐茶和招牌草药茶。为各种疾病做好充分准备。"""
+Herbs_And_Fungi_Perk_Apothecary_PerkName,Apothecary,药剂师
+Herbs_And_Fungi_Perk_Apothecary_PerkDescription,"Start as a skilled apothecary with a medical herbs focused collection: Herbal Salves, Tinctures, Pain Relief Powders, Anti-Nausea Tea, and Sleep Teas. Focused on healing and wellness.","""以熟练药剂师的身份开始，专注于药用草药：草药药膏、酊剂、止痛粉、止吐茶和安神茶。专注于治疗与健康。"""
+Herbs_And_Fungi_Perk_FungalCultivator_PerkName,Fungal Cultivator,真菌培育者
+Herbs_And_Fungi_Perk_FungalCultivator_PerkDescription,"Start with a cultivator's collection of specialty mushrooms: Chanterelles, Black Trumpets, Shiitake, and Puffballs, plus Ginseng. Ideal for those who love farming and rare fungi.","""以培育者的身份开始，携带特色蘑菇收藏：鸡油菌、黑喇叭菌、香菇、马勃菌，以及人参。适合热爱种植稀有真菌的玩家。"""
+Herbs_And_Fungi_Perk_MasterHerbalist_PerkName,Master Herbalist,草药大师
+Herbs_And_Fungi_Perk_MasterHerbalist_PerkDescription,"Start as an experienced herbalist with a full collection of medicinal herbs and roots: Ginseng, Reishi, and Yarrow in both fresh and dried forms. Perfect for tea brewing and potion crafting.","""以资深草药师的身份开始，携带完整的药用草药和根茎：新鲜和干燥的人参、灵芝、蓍草。适合泡茶和炼制药剂。"""
+Herbs_And_Fungi_PickleBrine_CardName,Pickle Brine,腌制卤水
+Herbs_And_Fungi_PickleBrine_CardDescription,A salt-water brine for fermenting and preserving fermentable foods. Items soaked in sealed brine will last for a long time.,用于发酵和保存食物的盐水卤水。浸泡在密封卤水中的食物可以长期保存。
+Herbs_And_Fungi_PicklingVat_MakeBrine_ActionName,Make Brine,制作卤水
+Herbs_And_Fungi_PicklingVat_MakeBrine_ActionDescription,Dissolve salt into the water to form pickle brine.,将盐溶于水中形成腌制卤水。
+Herbs_And_Fungi_PickleVatSealed_CardName,Sealed Pickle Vat,密封腌菜缸
+Herbs_And_Fungi_PickleVatSealed_CardDescription,A water-sealed pickle vat fermenting in place. Takes about 5 days to fully pickle its contents.,一个就地发酵的水封腌菜缸。大约需要5天完全腌制其内容物。
+Herbs_And_Fungi_PickleVatSealed_Progress_CardStatName,Fermenting,发酵中
+Herbs_And_Fungi_PickleVatSealed_Progress_OnZero_ActionDescription,Pickling Complete!,腌制完成！
+Herbs_And_Fungi_PickleVatSealed_SpecialDurability2_CardStatName,Quality,质量
+Herbs_And_Fungi_HempSeedOil_CardName,Hemp Seed Oil,大麻籽油
+Herbs_And_Fungi_HempSeedOil_CardDescription,"""Cold-pressed oil extracted from hemp seeds, served in a clay bowl. Nutty and rich. Eat it, season food with it, or render it into lamp oil.""","""从大麻籽冷榨的油，盛于陶碗中。坚果香浓郁。可直接食用、为食物调味，或熬炼成灯油。"""
+Herbs_And_Fungi_HempSeedOil_CardHelpSection,"""<b>Crafted:</b> By pressing 3 Hemp Seeds + Clay Bowl on a placed Oil Press.
+Herbs_And_Fungi_TruffleOil_CardName,Bowl of Truffle Oil,松露油碗
+Herbs_And_Fungi_TruffleOil_CardDescription,A clay bowl of oil infused with the intoxicating aroma of rare truffles. Sip it for a luxurious pick-me-up.,一只盛着罕见松露迷人香气油的陶碗。啜一口便觉奢华提神。
+Herbs_And_Fungi_TruffleOil_CardHelpSection,""<b>Crafted:</b> By pressing a Truffle + Clay Bowl at the Oil Press.","<b>制作：</b> 在已放置的榨油机上将3颗大麻籽+陶碗压榨而成。
+
+<b>用途：</b> 可饮用（返回空陶碗），或用于制作草药膏。"
+Herbs_And_Fungi_WoodenPantry_CardName,Wooden Pantry,木制食品柜
+Herbs_And_Fungi_WoodenPantry_CardDescription,"""A plank-built food pantry. Slows food spoilage, but wild animals can break in and eat what's inside.""",一个木板制成的食品柜。减缓食物腐败，但野生动物可能会破门而入。
+Herbs_And_Fungi_WoodenPantry_CardHelpSection,"""<b>Spoilage:</b> Slows to 75% of normal rate.
+Herbs_And_Fungi_WoodenPantry_DismantleActions_Place_ActionName,Place,
+Herbs_And_Fungi_WoodenPantry_DismantleActions_Place_ActionDescription,Set the pantry down in your environment.,
+Herbs_And_Fungi_WoodenPantry_DismantleActions_Dismantle_ActionName,Dismantle,
+Herbs_And_Fungi_WoodenPantry_DismantleActions_Dismantle_ActionDescription,Take the pantry apart to recover the planks.,
+Herbs_And_Fungi_WoodenPantry_DismantleActions_Dismantle_FailMessage,Empty the pantry first.,
+Herbs_And_Fungi_WoodenPantryPlaced_DismantleActions_PickUp_ActionName,Pick Up,
+Herbs_And_Fungi_WoodenPantryPlaced_DismantleActions_PickUp_ActionDescription,Pick up the pantry to carry it.,
+Herbs_And_Fungi_WoodenPantryPlaced_DismantleActions_PickUp_FailMessage,Empty the pantry before picking it up.,
+Herbs_And_Fungi_Bp_WoodenPantry_CardName,Wooden Pantry,
+Herbs_And_Fungi_Bp_WoodenPantry_CardDescription,A simple plank pantry with woven shelves. Slows food spoilage", but animals can raid it. Requires 6 planks, 3 rope," and a hammer."""
+Herbs_And_Fungi_Bp_WoodenPantry_UnlockConditionsDesc,Plank Needed,需要木板
+herbs_fungi_death_cap_tincture_CardName,Death Cap Tincture,毒鹅膏酊剂
+herbs_fungi_death_cap_tincture_CardDescription,"""A bitter, murky extract pressed from death caps. The amatoxins that kill a careless forager will also kill gut parasites - at a dose the body can (usually) survive. Expect nausea and a rough day.""",从毒鹅膏中压榨出的苦涩混浊提取物。杀死寄生虫的毒素在适当剂量下身体（通常）能承受。预计会引起恶心和难受的一天。
+herbs_fungi_death_cap_tincture_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_death_cap_tincture_SpoilageTime_Spoiled,The tincture has spoiled - the toxins remain but the therapeutic dose is gone.,酊剂已变质——毒素仍然存在但治疗剂量已消失。
+herbs_fungi_death_cap_tincture_Drink,Drink,饮用
+herbs_fungi_death_cap_tincture_Drink_Desc,Swallow the tincture. Kills gut parasites; causes significant nausea and mild poisoning.,吞下酊剂。杀死肠道寄生虫；引起明显恶心和轻微中毒。
+Herbs_And_Fungi_Bp_SleepTea_CardName,Sleep Tea,安眠茶
+Herbs_And_Fungi_Bp_SleepTea_CardDescription,Grind 2 reishi into a clay bowl to brew a soothing sleep remedy. Reduces stress and aids rest.,将2个灵芝研磨入陶碗以酿制舒缓的安眠药。减少压力并帮助休息。
+Herbs_And_Fungi_Bp_SleepTea_UnlockConditionsDesc,Unlocked after obtaining Ground Reishi,获得磨碎的灵芝后解锁
+Herbs_And_Fungi_Bp_AntiNauseaTea_CardName,Anti-Nausea Tea,止吐茶
+Herbs_And_Fungi_Bp_AntiNauseaTea_CardDescription,Steep 2 dried ginger pieces in a clay bowl to brew a stomach-settling remedy. Reduces nausea quickly.,将2片干姜浸泡在陶碗中酿制一种快速安抚胃部的止吐茶。
+Herbs_And_Fungi_Bp_AntiNauseaTea_UnlockConditionsDesc,Unlocked after obtaining Dried Ginger,获得干姜后解锁
+Herbs_And_Fungi_Bp_StimulantTea_CardName,Stimulant Tea,兴奋茶
+Herbs_And_Fungi_Bp_StimulantTea_CardDescription,Combine ground ginseng with dried ginger in a clay bowl to brew a stimulating blend. Boosts focus and reduces stress.,将磨碎的人参与干姜在陶碗中混合酿制提神混合茶。增强专注力并减少压力。
+Herbs_And_Fungi_Bp_StimulantTea_UnlockConditionsDesc,Unlocked after obtaining Ground Ginseng,获得人参粉后解锁
+Herbs_And_Fungi_Bp_PainReliefPowder_CardName,Pain Relief Powder,止痛粉
+Herbs_And_Fungi_Bp_PainReliefPowder_CardDescription,Combine ground yarrow with frostleaf powder in a clay bowl for a powdered pain reliever. Frostleaf adds a mild numbing effect.,将磨碎的蓍草与霜叶粉在陶碗中混合制成粉末止痛剂。霜叶添加轻微麻木效果。
+Herbs_And_Fungi_Bp_PainReliefPowder_UnlockConditionsDesc,Unlocked after obtaining Frostleaf Powder,获得霜叶粉后解锁
+Herbs_And_Fungi_Bp_HerbalSalve_CardName,Herbal Salve,草药膏
+Herbs_And_Fungi_Bp_HerbalSalve_CardDescription,Combine 2 ground yarrow with hemp seed oil in a clay bowl to make a wound-healing salve. Apply directly for faster recovery.,将2份磨碎的蓍草与麻籽油在陶碗中混合制成伤口愈合软膏。直接涂抹可加速恢复。
+Herbs_And_Fungi_Bp_HerbalSalve_UnlockConditionsDesc,Unlocked after obtaining Hemp Seed Oil,获得麻籽油后解锁
+Herbs_And_Fungi_Bp_HerbalTincture_CardName,Herbal Tincture,草药酊剂
+Herbs_And_Fungi_Bp_HerbalTincture_CardDescription,Press 3 dried yarrow into a clay bowl at the oil press to extract a medicinal tincture. A bitter but effective all-purpose remedy.,在榨油机上将3株干蓍草压榨入陶碗以提取药用酊剂。苦涩但有效的全能药剂。
+Herbs_And_Fungi_Bp_HerbalTincture_UnlockConditionsDesc,Unlocked after obtaining Dried Yarrow,获得干蓍草后解锁
+Herbs_And_Fungi_Bp_DeathCapTincture_CardName,Death Cap Tincture,毒鹅膏酊剂
+Herbs_And_Fungi_Bp_DeathCapTincture_CardDescription,Press 5 death caps at the oil press into a clay bowl to extract a parasite-killing tincture. A folk remedy that risks the cure being as bad as the affliction.,在榨油机上将5个毒鹅膏压榨入陶碗以提取杀寄生虫酊剂。一种民间疗法，风险是治疗可能与病症一样严重。
+Herbs_And_Fungi_Bp_DeathCapTincture_UnlockConditionsDesc,Unlocked after obtaining a Death Cap,获得毒鹅膏后解锁
+Herbs_And_Fungi_OpenPickleJar_CardName,Open Pickle Jar,空腌菜罐
+Herbs_And_Fungi_OpenPickleJar_CardDescription,An empty ceramic pickle jar. Return it to reclaim the clay bowl lid.,一个空陶制腌菜罐。归还它以取回陶碗盖子。
+Herbs_And_Fungi_OpenPickleJar_ReturnBowl_ActionName,Return Bowl,归还碗
+Herbs_And_Fungi_OpenPickleJar_ReturnBowl_ActionDescription,Discard the empty jar and reclaim the clay bowl lid.,丢弃空罐并取回陶碗盖子。
+Herbs_And_Fungi_HempSeedOil_Eat_ActionName,Eat,食用
+Herbs_And_Fungi_TruffleOil_Drink_ActionName,Drink,饮用
+Herbs_And_Fungi_Spice_HempOil_SpiceName,Hemp Seed Oil,大麻籽油
+Herbs_And_Fungi_Bp_OilPressHerbalAppleweed_CardDescription,Press 1 fresh appleweed into an empty clay bowl to extract a soothing herbal oil.,将1株新鲜苹果草压入空陶碗，提取舒缓的草药油。
+Herbs_And_Fungi_Bp_OilPressHerbalAppleweed_CardName,Press Appleweed Oil,压榨苹果草油
+Herbs_And_Fungi_Bp_OilPressHerbalFairyweed_CardDescription,Press 1 fresh fairyweed into an empty clay bowl to extract an uplifting herbal oil.,将1株新鲜仙女草压入空陶碗，提取振奋的草药油。
+Herbs_And_Fungi_Bp_OilPressHerbalFairyweed_CardName,Press Fairyweed Oil,压榨仙女草油
+Herbs_And_Fungi_Bp_OilPressHerbalFrostleaf_CardDescription,Press 1 fresh frostleaf into an empty clay bowl to extract a cooling herbal oil.,将1株新鲜冰叶压入空陶碗，提取清凉的草药油。
+Herbs_And_Fungi_Bp_OilPressHerbalFrostleaf_CardName,Press Frostleaf Oil,压榨冰叶油
+Herbs_And_Fungi_Bp_OilPressHerbalHemp_CardDescription,Press 1 fresh hemp flower into an empty clay bowl to extract a calming herbal oil.,将1株新鲜大麻花压入空陶碗，提取平静舒缓的草药油。
+Herbs_And_Fungi_Bp_OilPressHerbalHemp_CardName,Press Hemp Oil,压榨大麻油
+Herbs_And_Fungi_Bp_OilPressSeeds_UnlockConditionsDesc,Oil Press Needed,需要榨油机
+Herbs_And_Fungi_Bp_OilPressTruffle_UnlockConditionsDesc,Oil Press Needed,需要榨油机
+Herbs_And_Fungi_Bp_OilPress_HerbalOil_Appleweed_UnlockConditionsDesc,Oil Press Needed,需要榨油机
+Herbs_And_Fungi_Bp_OilPress_HerbalOil_Fairyweed_UnlockConditionsDesc,Oil Press Needed,需要榨油机
+Herbs_And_Fungi_Bp_OilPress_HerbalOil_Frostleaf_UnlockConditionsDesc,Oil Press Needed,需要榨油机
+Herbs_And_Fungi_Bp_OilPress_HerbalOil_Hemp_UnlockConditionsDesc,Oil Press Needed,需要榨油机
+Herbs_And_Fungi_Bp_PicklingVat_CardDescription,Shape a soft clay pickling vat. Fire it in a kiln to harden it before use. Requires 6 clay.,塑造一个软质黏土腌制瓦罐。在窑中烧制硬化后方可使用。
+Herbs_And_Fungi_Bp_PicklingVat_CardName,Unfired Pickle Vat,未烧制腌制瓦罐
+Herbs_And_Fungi_HerbalOilAppleweed_Apply_ActionDescription,Apply the appleweed oil. Sweet and soothing effects.,涂抹苹果草油。甜蜜舒缓的效果。
+Herbs_And_Fungi_HerbalOilAppleweed_Apply_ActionName,Apply,涂抹
+Herbs_And_Fungi_HerbalOilAppleweed_CardDescription,"A clay bowl of oil infused with appleweed essence. Apply it for sweet, soothing effects — the same as smoking the pipe, without the smoke.",注入苹果草精华的陶碗油脂。涂抹以获得甜蜜舒缓的效果。
+Herbs_And_Fungi_HerbalOilAppleweed_CardHelpSection,"<b>Crafted:</b> By pressing 1 Fresh Appleweed + Clay Bowl at the Oil Press.
+Herbs_And_Fungi_HerbalOilAppleweed_CardName,Appleweed Herbal Oil,Appleweed Herbal Oil
+Herbs_And_Fungi_HerbalOilFairyweed_Apply_ActionDescription,Apply the fairyweed oil. Mystical and uplifting effects.,Apply the fairyweed oil. Mystical and uplifting effects.
+Herbs_And_Fungi_HerbalOilFairyweed_Apply_ActionName,Apply,Apply
+Herbs_And_Fungi_HerbalOilFairyweed_CardDescription,A clay bowl of oil infused with fairyweed essence. Apply it for mystical""""", uplifting effects — the same as smoking the pipe," without the smoke.""""""""""""",A clay bowl of oil infused with fairyweed essence. Apply it for mystical, uplifting effects — the same as smoking the pipe," without the smoke."""""""
+Herbs_And_Fungi_HerbalOilFairyweed_CardHelpSection,"<b>Crafted:</b> By pressing 1 Fresh Fairyweed + Clay Bowl at the Oil Press.
+Herbs_And_Fungi_HerbalOilFairyweed_CardName,Fairyweed Herbal Oil,Fairyweed Herbal Oil
+Herbs_And_Fungi_HerbalOilFrostleaf_Apply_ActionDescription,Apply the frostleaf oil. Cool and refreshing effects.,Apply the frostleaf oil. Cool and refreshing effects.
+Herbs_And_Fungi_HerbalOilFrostleaf_Apply_ActionName,Apply,Apply
+Herbs_And_Fungi_HerbalOilFrostleaf_CardDescription,A clay bowl of oil infused with frostleaf essence. Apply it for cool""""", refreshing pain relief — the same as smoking the pipe," without the smoke.""""""""""""",A clay bowl of oil infused with frostleaf essence. Apply it for cool, refreshing pain relief — the same as smoking the pipe," without the smoke."""""""
+Herbs_And_Fungi_HerbalOilFrostleaf_CardHelpSection,"<b>Crafted:</b> By pressing 1 Fresh Frostleaf + Clay Bowl at the Oil Press.
+Herbs_And_Fungi_HerbalOilFrostleaf_CardName,Frostleaf Herbal Oil,Frostleaf Herbal Oil
+Herbs_And_Fungi_HerbalOilHemp_Apply_ActionDescription,Apply the hemp oil. Calming and stress-relieving effects.,Apply the hemp oil. Calming and stress-relieving effects.
+Herbs_And_Fungi_HerbalOilHemp_Apply_ActionName,Apply,Apply
+Herbs_And_Fungi_HerbalOilHemp_CardDescription,A clay bowl of oil infused with hemp flower essence. Apply it to the skin for calming""""", stress-relieving effects — the same as smoking the pipe," without the smoke.""""""""""""",A clay bowl of oil infused with hemp flower essence. Apply it to the skin for calming, stress-relieving effects — the same as smoking the pipe," without the smoke."""""""
+Herbs_And_Fungi_HerbalOilHemp_CardHelpSection,"<b>Crafted:</b> By pressing 1 Hemp Flower + Clay Bowl at the Oil Press.
+Herbs_And_Fungi_HerbalOilHemp_CardName,Hemp Herbal Oil,Hemp Herbal Oil
+Herbs_And_Fungi_OilPressKit_Place_ActionDescription,Set up the oil press in your environment.,Set up the oil press in your environment.
+Herbs_And_Fungi_OilPressKit_Place_ActionName,Place,Place
+herbs_fungi_anti_nausea_tea_SpoilageTime_Spoiled,The anti-nausea tea has spoiled.,The anti-nausea tea has spoiled.
+herbs_fungi_anti_nausea_tea_SpoilageTime_StatName,,
+herbs_fungi_cooked_truffle_SpoilageTime_Spoiled,The cooked truffle has spoiled.,The cooked truffle has spoiled.
+herbs_fungi_cooked_truffle_SpoilageTime_StatName,,
+herbs_fungi_cooked_truffle_UsageDurability_Dried,The cooked truffle has dried out.,The cooked truffle has dried out.
+herbs_fungi_cooked_truffle_UsageDurability_StatName,,
+herbs_fungi_dried_ginger_SpoilageTime_StatName,,
+herbs_fungi_dried_truffle_SpoilageTime_StatName,,
+herbs_fungi_herbal_salve_SpoilageTime_Spoiled,The herbal salve has spoiled.,The herbal salve has spoiled.
+herbs_fungi_herbal_salve_SpoilageTime_StatName,,
+herbs_fungi_herbal_tincture_SpoilageTime_Spoiled,The herbal tincture has spoiled.,The herbal tincture has spoiled.
+herbs_fungi_herbal_tincture_SpoilageTime_StatName,,
+herbs_fungi_pain_relief_powder_SpoilageTime_Spoiled,The pain relief powder has spoiled.,The pain relief powder has spoiled.
+herbs_fungi_pain_relief_powder_SpoilageTime_StatName,,
+herbs_fungi_sleep_tea_SpoilageTime_Spoiled,The sleep tea has spoiled.,The sleep tea has spoiled.
+herbs_fungi_sleep_tea_SpoilageTime_StatName,,
+herbs_fungi_stimulant_tea_SpoilageTime_Spoiled,The stimulant tea has spoiled.,The stimulant tea has spoiled.
+herbs_fungi_stimulant_tea_SpoilageTime_StatName,,
+herbs_fungi_truffle_SpoilageTime_Spoiled,The truffle has spoiled.,The truffle has spoiled.
+herbs_fungi_truffle_SpoilageTime_StatName,,
+herbs_fungi_truffle_UsageDurability_Dried,The truffle has dried out.,The truffle has dried out.
+herbs_fungi_truffle_UsageDurability_StatName,,
+Herbs_And_Fungi_DryingStack_Placed_CardHelpSection,<b>Capacity:</b> Holds 3 drying trays",<b>制作方式：</b>在榨油机中将1株大麻花与陶碗一起压榨而成。
+Herbs_And_Fungi_WoodenPantry_Placed_CardHelpSection,"""<b>Spoilage:</b> Slows to 75% of normal rate.
+Herbs_And_Fungi_Bp_PickleVegetables_CardName,Pickle Vegetables""","<b>腐败：</b> 腐败速度降至正常的75%。
+
+<b>注意：</b> 野生动物可能会破门而入。"
+Herbs_And_Fungi_Bp_PickleVegetables_CardDescription,Pack 5 raw vegetables and a clay bowl into a brine-filled vat to begin pickling. Consumes 500 units of brine and seals the vat into 'Pickle Vegetables' (closed). Then add water to seal and wait ~7 days.,将5个生蔬菜和一个陶碗放入装有卤水的缸中开始腌制。消耗500单位卤水并将缸密封成『腌制蔬菜（已盖盖）』。然后加水密封并等待约7天。
+Herbs_And_Fungi_Bp_PickleVegetables_UnlockConditionsDesc,Closed Pickle Vat Needed,需要已盖盖腌菜缸
+Herbs_And_Fungi_Bp_PickleMushrooms_CardName,Pickle Mushrooms,腌制蘑菇
+Herbs_And_Fungi_Bp_PickleMushrooms_CardDescription,Pack 5 raw mushrooms and a clay bowl into a brine-filled vat to begin pickling. Consumes 500 units of brine and seals the vat into 'Pickle Mushrooms' (closed). Then add water to seal and wait ~7 days.,将5个生蘑菇和一个陶碗放入装有卤水的缸中开始腌制。消耗500单位卤水并将缸密封成『腌制蘑菇（已盖盖）』。然后加水密封并等待约7天。
+Herbs_And_Fungi_Bp_PickleMushrooms_UnlockConditionsDesc,Closed Pickle Vat Needed,需要已盖盖腌菜缸
+Herbs_And_Fungi_Bp_PickleMeat_CardName,Pickle Meat,腌制肉类
+Herbs_And_Fungi_Bp_PickleMeat_CardDescription,Pack 5 raw meat and a clay bowl into a brine-filled vat to begin pickling. Consumes 500 units of brine and seals the vat into 'Pickle Meat' (closed). Then add water to seal and wait ~7 days.,将5块生肉和一个陶碗放入装有卤水的缸中开始腌制。消耗500单位卤水并将缸密封成『腌制肉类（已盖盖）』。然后加水密封并等待约7天。
+Herbs_And_Fungi_Bp_PickleMeat_UnlockConditionsDesc,Closed Pickle Vat Needed,需要已盖盖腌菜缸
+Herbs_And_Fungi_Bp_PickleFrogs_CardName,Pickle Frogs,腌制青蛙
+Herbs_And_Fungi_Bp_PickleFrogs_CardDescription,Pack 5 raw frogs and a clay bowl into a brine-filled vat to begin pickling. Consumes 500 units of brine and seals the vat into 'Pickle Frogs' (closed). Then add water to seal and wait ~7 days.,将5只生青蛙和一个陶碗放入装有卤水的缸中开始腌制。消耗500单位卤水并将缸密封成『腌制青蛙（已盖盖）』。然后加水密封并等待约7天。
+Herbs_And_Fungi_Bp_PickleFrogs_UnlockConditionsDesc,Closed Pickle Vat Needed,需要已盖盖腌菜缸
+Herbs_And_Fungi_PickleVatClosedFrogs_CardName,Pickled Frogs (Closed),腌制青蛙（已盖盖）
+Herbs_And_Fungi_PickleVatClosedFrogs_CardDescription,"A pickle vat capped with a clay bowl, packed with frogs for fermenting. Pour water over the lid to water-seal it and begin the 7-day cycle.",一个用陶碗盖住、装满青蛙进行发酵的腌菜缸。将水倒在盖子上以水封并开始7天周期。
+Herbs_And_Fungi_PickleVatClosedFrogs_SpecialDurability2_CardStatName,Quality,质量
+Herbs_And_Fungi_PickleVatClosedFrogs_Seal_ActionName,Seal,密封
+Herbs_And_Fungi_PickleVatClosedFrogs_Seal_ActionDescription,Pour water over the lid to seal the vat. Begin the frogs pickling cycle.,将水倒在盖子上以密封缸。开始腌制青蛙周期。
+Herbs_And_Fungi_PickleVatClosedFrogs_Uncap_ActionName,Uncap,开盖
+Herbs_And_Fungi_PickleVatClosedFrogs_Uncap_ActionDescription,Remove the clay bowl and reopen the vat. The packed frogs are lost.,取下陶碗并重新打开缸。装入的青蛙会丢失。
+Herbs_And_Fungi_PickleVatSealedFrogs_CardName,Sealed Pickled Frogs,密封腌制青蛙
+Herbs_And_Fungi_PickleVatSealedFrogs_CardDescription,A water-sealed vat fermenting frogs. Takes about 7 days to finish.,一个正在发酵青蛙的水封缸。大约需要7天完成。
+Herbs_And_Fungi_PickleVatSealedFrogs_Progress_CardStatName,Fermenting,发酵中
+Herbs_And_Fungi_PickleVatSealedFrogs_Progress_OnZero_ActionDescription,Pickled Frogs are ready!,腌制青蛙已就绪！
+Herbs_And_Fungi_PickleVatSealedFrogs_SpecialDurability2_CardStatName,Quality,质量
+Herbs_And_Fungi_PickleVatReadyFrogs_CardName,Pickled Frogs,腌制青蛙
+Herbs_And_Fungi_PickleVatReadyFrogs_CardDescription,"Frogs cured in salt brine. Eat 5 servings straight from the vat. Keeps for about 3 months. When emptied, the vat returns ready for refilling and the clay bowl is reclaimed.",用盐水腌制的青蛙。直接从缸中食用5份。可保存约3个月。清空后缸体返回可重新填充状态，陶碗得以回收。
+Herbs_And_Fungi_PickleVatClosedVegetables_CardName,Pickled Vegetables (Closed),腌制蔬菜（已盖盖）
+Herbs_And_Fungi_PickleVatClosedVegetables_CardDescription,"A pickle vat capped with a clay bowl, packed with vegetables for fermenting. Pour water over the lid to water-seal it and begin the 7-day cycle.",一个用陶碗盖住、装满蔬菜进行发酵的腌菜缸。将水倒在盖子上以水封并开始7天周期。
+Herbs_And_Fungi_PickleVatClosedVegetables_SpecialDurability2_CardStatName,Quality,质量
+Herbs_And_Fungi_PickleVatClosedVegetables_Seal_ActionName,Seal,密封
+Herbs_And_Fungi_PickleVatClosedVegetables_Seal_ActionDescription,Pour water over the lid to seal the vat. Begin the vegetables pickling cycle.,将水倒在盖子上以密封缸。开始腌制蔬菜周期。
+Herbs_And_Fungi_PickleVatClosedVegetables_Uncap_ActionName,Uncap,开盖
+Herbs_And_Fungi_PickleVatClosedVegetables_Uncap_ActionDescription,Remove the clay bowl and reopen the vat. The packed vegetables are lost.,取下陶碗并重新打开缸。装入的蔬菜会丢失。
+Herbs_And_Fungi_PickleVatSealedVegetables_CardName,Sealed Pickled Vegetables,密封腌制蔬菜
+Herbs_And_Fungi_PickleVatSealedVegetables_CardDescription,A water-sealed vat fermenting vegetables. Takes about 7 days to finish.,一个正在发酵蔬菜的水封缸。大约需要7天完成。
+Herbs_And_Fungi_PickleVatSealedVegetables_Progress_CardStatName,Fermenting,发酵中
+Herbs_And_Fungi_PickleVatSealedVegetables_Progress_OnZero_ActionDescription,Pickled Vegetables are ready!,腌制蔬菜已就绪！
+Herbs_And_Fungi_PickleVatSealedVegetables_SpecialDurability2_CardStatName,Quality,质量
+Herbs_And_Fungi_PickleVatReadyVegetables_CardName,Pickled Vegetables,腌制蔬菜
+Herbs_And_Fungi_PickleVatReadyVegetables_CardDescription,"Vegetables cured in salt brine. Eat 5 servings straight from the vat. Keeps for about 3 months. When emptied, the vat returns ready for refilling and the clay bowl is reclaimed.",用盐水腌制的蔬菜。直接从缸中食用5份。可保存约3个月。清空后缸体返回可重新填充状态，陶碗得以回收。
+Herbs_And_Fungi_PickleVatClosedMushrooms_CardName,Pickled Mushrooms (Closed),腌制蘑菇（已盖盖）
+Herbs_And_Fungi_PickleVatClosedMushrooms_CardDescription,"A pickle vat capped with a clay bowl, packed with mushrooms for fermenting. Pour water over the lid to water-seal it and begin the 7-day cycle.",一个用陶碗盖住、装满蘑菇进行发酵的腌菜缸。将水倒在盖子上以水封并开始7天周期。
+Herbs_And_Fungi_PickleVatClosedMushrooms_SpecialDurability2_CardStatName,Quality,质量
+Herbs_And_Fungi_PickleVatClosedMushrooms_Seal_ActionName,Seal,密封
+Herbs_And_Fungi_PickleVatClosedMushrooms_Seal_ActionDescription,Pour water over the lid to seal the vat. Begin the mushrooms pickling cycle.,将水倒在盖子上以密封缸。开始腌制蘑菇周期。
+Herbs_And_Fungi_PickleVatClosedMushrooms_Uncap_ActionName,Uncap,开盖
+Herbs_And_Fungi_PickleVatClosedMushrooms_Uncap_ActionDescription,Remove the clay bowl and reopen the vat. The packed mushrooms are lost.,取下陶碗并重新打开缸。装入的蘑菇会丢失。
+Herbs_And_Fungi_PickleVatSealedMushrooms_CardName,Sealed Pickled Mushrooms,密封腌制蘑菇
+Herbs_And_Fungi_PickleVatSealedMushrooms_CardDescription,A water-sealed vat fermenting mushrooms. Takes about 7 days to finish.,一个正在发酵蘑菇的水封缸。大约需要7天完成。
+Herbs_And_Fungi_PickleVatSealedMushrooms_Progress_CardStatName,Fermenting,发酵中
+Herbs_And_Fungi_PickleVatSealedMushrooms_Progress_OnZero_ActionDescription,Pickled Mushrooms are ready!,腌制蘑菇已就绪！
+Herbs_And_Fungi_PickleVatSealedMushrooms_SpecialDurability2_CardStatName,Quality,质量
+Herbs_And_Fungi_PickleVatReadyMushrooms_CardName,Pickled Mushrooms,腌制蘑菇
+Herbs_And_Fungi_PickleVatReadyMushrooms_CardDescription,"Mushrooms cured in salt brine. Eat 5 servings straight from the vat. Keeps for about 3 months. When emptied, the vat returns ready for refilling and the clay bowl is reclaimed.",用盐水腌制的蘑菇。直接从缸中食用5份。可保存约3个月。清空后缸体返回可重新填充状态，陶碗得以回收。
+Herbs_And_Fungi_PickleVatClosedMeat_CardName,Pickled Meat (Closed),腌制肉类（已盖盖）
+Herbs_And_Fungi_PickleVatClosedMeat_CardDescription,"A pickle vat capped with a clay bowl, packed with meat for fermenting. Pour water over the lid to water-seal it and begin the 7-day cycle.",一个用陶碗盖住、装满肉类进行发酵的腌菜缸。将水倒在盖子上以水封并开始7天周期。
+Herbs_And_Fungi_PickleVatClosedMeat_SpecialDurability2_CardStatName,Quality,质量
+Herbs_And_Fungi_PickleVatClosedMeat_Seal_ActionName,Seal,密封
+Herbs_And_Fungi_PickleVatClosedMeat_Seal_ActionDescription,Pour water over the lid to seal the vat. Begin the meat pickling cycle.,将水倒在盖子上以密封缸。开始腌制肉类周期。
+Herbs_And_Fungi_PickleVatClosedMeat_Uncap_ActionName,Uncap,开盖
+Herbs_And_Fungi_PickleVatClosedMeat_Uncap_ActionDescription,Remove the clay bowl and reopen the vat. The packed meat are lost.,取下陶碗并重新打开缸。装入的肉类会丢失。
+Herbs_And_Fungi_PickleVatSealedMeat_CardName,Sealed Pickled Meat,密封腌制肉类
+Herbs_And_Fungi_PickleVatSealedMeat_CardDescription,A water-sealed vat fermenting meat. Takes about 7 days to finish.,一个正在发酵肉类的水封缸。大约需要7天完成。
+Herbs_And_Fungi_PickleVatSealedMeat_Progress_CardStatName,Fermenting,发酵中
+Herbs_And_Fungi_PickleVatSealedMeat_Progress_OnZero_ActionDescription,Pickled Meat is ready!,腌制肉类已就绪！
+Herbs_And_Fungi_PickleVatSealedMeat_SpecialDurability2_CardStatName,Quality,质量
+Herbs_And_Fungi_PickleVatReadyMeat_CardName,Pickled Meat,腌制肉类
+Herbs_And_Fungi_PickleVatReadyMeat_CardDescription,"Meat cured in salt brine. Eat 5 servings straight from the vat. Keeps for about 3 months. When emptied, the vat returns ready for refilling and the clay bowl is reclaimed.",用盐水腌制的肉类。直接从缸中食用5份。可保存约3个月。清空后缸体返回可重新填充状态，陶碗得以回收。
+Herbs_And_Fungi_PickleVatReadyFrogs_SpoilageTime_CardStatName,Spoilage,腐败
+Herbs_And_Fungi_PickleVatReadyFrogs_SpoilageTime_OnFull_ActionDescription,Pickled Frogs Spoiled!,腌制青蛙变质了！
+Herbs_And_Fungi_PickleVatReadyFrogs_UsageDurability_CardStatName,Servings,份数
+Herbs_And_Fungi_PickleVatReadyFrogs_UsageDurability_OnZero_ActionDescription,Vat emptied.,缸已清空。
+Herbs_And_Fungi_PickleVatReadyFrogs_Eat_ActionName,Eat,食用
+Herbs_And_Fungi_PickleVatReadyFrogs_Eat_ActionDescription,Eat a serving of pickled frogs straight from the vat.,直接从缸中食用一份腌制青蛙。
+Herbs_And_Fungi_PickleVatReadyMushrooms_SpoilageTime_CardStatName,Spoilage,腐败
+Herbs_And_Fungi_PickleVatReadyMushrooms_SpoilageTime_OnFull_ActionDescription,Pickled Mushrooms Spoiled!,腌制蘑菇变质了！
+Herbs_And_Fungi_PickleVatReadyMushrooms_UsageDurability_CardStatName,Servings,份数
+Herbs_And_Fungi_PickleVatReadyMushrooms_UsageDurability_OnZero_ActionDescription,Vat emptied.,缸已清空。
+Herbs_And_Fungi_PickleVatReadyMushrooms_Eat_ActionName,Eat,食用
+Herbs_And_Fungi_PickleVatReadyMushrooms_Eat_ActionDescription,Eat a serving of pickled mushrooms straight from the vat.,直接从缸中食用一份腌制蘑菇。
+Herbs_And_Fungi_PickleVatReadyMeat_SpoilageTime_CardStatName,Spoilage,腐败
+Herbs_And_Fungi_PickleVatReadyMeat_SpoilageTime_OnFull_ActionDescription,Pickled Meat Spoiled!,腌制肉类变质了！
+Herbs_And_Fungi_PickleVatReadyMeat_UsageDurability_CardStatName,Servings,份数
+Herbs_And_Fungi_PickleVatReadyMeat_UsageDurability_OnZero_ActionDescription,Vat emptied.,缸已清空。
+Herbs_And_Fungi_PickleVatReadyMeat_Eat_ActionName,Eat,食用
+Herbs_And_Fungi_PickleVatReadyMeat_Eat_ActionDescription,Eat a serving of pickled meat straight from the vat.,直接从缸中食用一份腌制肉类。
+Herbs_And_Fungi_PickleVatReadyVegetables_SpoilageTime_CardStatName,Spoilage,腐败
+Herbs_And_Fungi_PickleVatReadyVegetables_SpoilageTime_OnFull_ActionDescription,Pickled Vegetables Spoiled!,腌制蔬菜变质了！
+Herbs_And_Fungi_PickleVatReadyVegetables_UsageDurability_CardStatName,Servings,份数
+Herbs_And_Fungi_PickleVatReadyVegetables_UsageDurability_OnZero_ActionDescription,Vat emptied.,缸已清空。
+Herbs_And_Fungi_PickleVatReadyVegetables_Eat_ActionName,Eat,食用
+Herbs_And_Fungi_PickleVatReadyVegetables_Eat_ActionDescription,Eat a serving of pickled vegetables straight from the vat.,直接从缸中食用一份腌制蔬菜。
+Herbs_And_Fungi_Perk_OilPress_PerkName,Oil Press,榨油机
+Herbs_And_Fungi_Perk_OilPress_PerkDescription,"Start with an Oil Press Kit. Place it to press seeds, mushrooms, and truffles into oils for cooking and herbal preparations.",初始携带一个榨油机套件。放置后可将种子、蘑菇和松露压榨成用于烹饪和草药制剂的油脂。
+Herbs_And_Fungi_MushroomLogShiitakeGrowing_CardName,Growing Fungal Log,生长中的菌菇木
+Herbs_And_Fungi_MushroomLogShiitakeGrowing_CardDescription,A freshly inoculated mushroom log. Keep it indoors or sheltered while the mycelium runs through the deadwood.,一根刚接种的菌菇木。在室内或遮蔽处保存，让菌丝穿透枯木生长。
+Herbs_And_Fungi_MushroomLogShiitakeGrowing_CardHelpSection,"<b>Growth Time:</b> About 5 days.
+
+<b>Harvest:</b> Becomes a ready shiitake log when fully colonized.","<b>生长时间：</b> 约5天。
+
+<b>收获：</b> 菌丝完全定殖后变为可采收的香菇木。"
+Herbs_And_Fungi_MushroomLogShiitakeGrowing_Progress_CardStatName,Colonizing,定殖中
+Herbs_And_Fungi_MushroomLogShiitakeGrowing_Progress_OnFull_ActionDescription,Shiitake log is ready to harvest!,香菇木已准备好采收！
+Herbs_And_Fungi_MushroomLogShiitakeGrowing_BreakDown_ActionName,Break Down,拆解
+Herbs_And_Fungi_MushroomLogShiitakeGrowing_BreakDown_ActionDescription,"Break apart the inoculated log. Recovers the log, but the mushrooms and shavings are lost.",拆解已接种的木头。可回收木头，但蘑菇和木屑会丢失。
+Herbs_And_Fungi_MushroomLogShiitakeMature_CardName,Ready Shiitake Log,成熟香菇木
+Herbs_And_Fungi_MushroomLogShiitakeMature_CardDescription,A cultivated log covered with ready-to-pick shiitake mushrooms.,一根覆满待采香菇的培育木头。
+Herbs_And_Fungi_MushroomLogShiitakeMature_CardHelpSection,"<b>Harvest:</b> Pick the final shiitake flush for 20 fresh mushrooms, using up the log.",<b>采收：</b> 采集最后一批香菇可获得20个新鲜蘑菇，同时耗尽木头。
+Herbs_And_Fungi_MushroomLogShiitakeMature_Harvest_ActionName,Harvest,采收
+Herbs_And_Fungi_MushroomLogShiitakeMature_Harvest_ActionDescription,Pick 20 fresh shiitake mushrooms and break down the spent log.,采摘20个新鲜香菇并拆解耗尽的木头。
+Herbs_And_Fungi_Bp_MushroomLogShiitake_CardName,Inoculate Shiitake Log,接种香菇木
+Herbs_And_Fungi_Bp_MushroomLogShiitake_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 5 shiitake mushrooms and wood shavings.,",用挖孔钻在香草木上钻出接种孔，然后填入5个香菇和木屑。
+Herbs_And_Fungi_Bp_MushroomLogShiitake_UnlockConditionsDesc,Unlocked after obtaining a shiitake mushroom,获得香菇后解锁
+Herbs_And_Fungi_MushroomLogLionsManeGrowing_CardName,Growing Fungal Log,生长中的菌菇木
+Herbs_And_Fungi_MushroomLogLionsManeGrowing_CardDescription,A freshly inoculated mushroom log. Keep it indoors or sheltered while the mycelium runs through the deadwood.,一根刚接种的菌菇木。在室内或遮蔽处保存，让菌丝穿透枯木生长。
+Herbs_And_Fungi_MushroomLogLionsManeGrowing_CardHelpSection,"<b>Growth Time:</b> About 5 days.
+
+<b>Harvest:</b> Becomes a ready lion's mane log when fully colonized.","<b>生长时间：</b> 约5天。
+
+<b>收获：</b> 菌丝完全定殖后变为可采收的狮鬃菇木。"
+Herbs_And_Fungi_MushroomLogLionsManeGrowing_Progress_CardStatName,Colonizing,定殖中
+Herbs_And_Fungi_MushroomLogLionsManeGrowing_Progress_OnFull_ActionDescription,Lion's mane log is ready to harvest!,狮鬃菇木已准备好采收！
+Herbs_And_Fungi_MushroomLogLionsManeGrowing_BreakDown_ActionName,Break Down,拆解
+Herbs_And_Fungi_MushroomLogLionsManeGrowing_BreakDown_ActionDescription,"Break apart the inoculated log. Recovers the log, but the mushrooms and shavings are lost.",拆解已接种的木头。可回收木头，但蘑菇和木屑会丢失。
+Herbs_And_Fungi_MushroomLogLionsManeMature_CardName,Ready Lion's Mane Log,成熟狮鬃菇木
+Herbs_And_Fungi_MushroomLogLionsManeMature_CardDescription,A cultivated log covered with ready-to-pick lion's mane mushrooms.,一根覆满待采狮鬃菇的培育木头。
+Herbs_And_Fungi_MushroomLogLionsManeMature_CardHelpSection,"<b>Harvest:</b> Pick the final lion's mane flush for 20 fresh mushrooms, using up the log.",<b>采收：</b> 采集最后一批狮鬃菇可获得20个新鲜蘑菇，同时耗尽木头。
+Herbs_And_Fungi_MushroomLogLionsManeMature_Harvest_ActionName,Harvest,采收
+Herbs_And_Fungi_MushroomLogLionsManeMature_Harvest_ActionDescription,Pick 20 fresh lion's mane mushrooms and break down the spent log.,采摘20个新鲜狮鬃菇并拆解耗尽的木头。
+Herbs_And_Fungi_Bp_MushroomLogLionsMane_CardName,Inoculate Lion's Mane Log,接种狮鬃菇木
+Herbs_And_Fungi_Bp_MushroomLogLionsMane_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 5 lion's mane mushrooms and wood shavings.,",用挖孔钻在香草木上钻出接种孔，然后填入5个狮鬃菇和木屑。
+Herbs_And_Fungi_Bp_MushroomLogLionsMane_UnlockConditionsDesc,Unlocked after obtaining a lion's mane mushroom,获得狮鬃菇后解锁
+Herbs_And_Fungi_MushroomLogReishiGrowing_CardName,Growing Fungal Log,生长中的菌菇木
+Herbs_And_Fungi_MushroomLogReishiGrowing_CardDescription,A freshly inoculated mushroom log. Keep it indoors or sheltered while the mycelium runs through the deadwood.,一根刚接种的菌菇木。在室内或遮蔽处保存，让菌丝穿透枯木生长。
+Herbs_And_Fungi_MushroomLogReishiGrowing_CardHelpSection,"<b>Growth Time:</b> About 5 days.
+
+<b>Harvest:</b> Becomes a ready reishi log when fully colonized.","<b>生长时间：</b> 约5天。
+
+<b>收获：</b> 菌丝完全定殖后变为可采收的灵芝木。"
+Herbs_And_Fungi_MushroomLogReishiGrowing_Progress_CardStatName,Colonizing,定殖中
+Herbs_And_Fungi_MushroomLogReishiGrowing_Progress_OnFull_ActionDescription,Reishi log is ready to harvest!,灵芝木已准备好采收！
+Herbs_And_Fungi_MushroomLogReishiGrowing_BreakDown_ActionName,Break Down,拆解
+Herbs_And_Fungi_MushroomLogReishiGrowing_BreakDown_ActionDescription,"Break apart the inoculated log. Recovers the log, but the mushrooms and shavings are lost.",拆解已接种的木头。可回收木头，但蘑菇和木屑会丢失。
+Herbs_And_Fungi_MushroomLogReishiMature_CardName,Ready Reishi Log,成熟灵芝木
+Herbs_And_Fungi_MushroomLogReishiMature_CardDescription,A cultivated log covered with ready-to-pick reishi mushrooms.,一根覆满待采灵芝的培育木头。
+Herbs_And_Fungi_MushroomLogReishiMature_CardHelpSection,"<b>Harvest:</b> Pick the final reishi flush for 20 fresh mushrooms, using up the log.",<b>采收：</b> 采集最后一批灵芝可获得20个新鲜蘑菇，同时耗尽木头。
+Herbs_And_Fungi_MushroomLogReishiMature_Harvest_ActionName,Harvest,采收
+Herbs_And_Fungi_MushroomLogReishiMature_Harvest_ActionDescription,Pick 20 fresh reishi mushrooms and break down the spent log.,采摘20个新鲜灵芝并拆解耗尽的木头。
+Herbs_And_Fungi_Bp_MushroomLogReishi_CardName,Inoculate Reishi Log,接种灵芝木
+Herbs_And_Fungi_Bp_MushroomLogReishi_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 5 reishi mushrooms and wood shavings.,",用挖孔钻在香草木上钻出接种孔，然后填入5个灵芝和木屑。
+Herbs_And_Fungi_Bp_MushroomLogReishi_UnlockConditionsDesc,Unlocked after obtaining a reishi mushroom,获得灵芝后解锁
+Herbs_And_Fungi_MushroomLogChickenOfWoodsGrowing_CardName,Growing Fungal Log,生长中的菌菇木
+Herbs_And_Fungi_MushroomLogChickenOfWoodsGrowing_CardDescription,A freshly inoculated mushroom log. Keep it indoors or sheltered while the mycelium runs through the deadwood.,一根刚接种的菌菇木。在室内或遮蔽处保存，让菌丝穿透枯木生长。
+Herbs_And_Fungi_MushroomLogChickenOfWoodsGrowing_CardHelpSection,"<b>Growth Time:</b> About 5 days.
+
+<b>Harvest:</b> Becomes a ready chicken of the woods log when fully colonized.","<b>生长时间：</b> 约5天。
+
+<b>收获：</b> 菌丝完全定殖后变为可采收的木鸡菌木。"
+Herbs_And_Fungi_MushroomLogChickenOfWoodsGrowing_Progress_CardStatName,Colonizing,定殖中
+Herbs_And_Fungi_MushroomLogChickenOfWoodsGrowing_Progress_OnFull_ActionDescription,Chicken of the woods log is ready to harvest!,木鸡菌木已准备好采收！
+Herbs_And_Fungi_MushroomLogChickenOfWoodsGrowing_BreakDown_ActionName,Break Down,拆解
+Herbs_And_Fungi_MushroomLogChickenOfWoodsGrowing_BreakDown_ActionDescription,"Break apart the inoculated log. Recovers the log, but the mushrooms and shavings are lost.",拆解已接种的木头。可回收木头，但蘑菇和木屑会丢失。
+Herbs_And_Fungi_MushroomLogChickenOfWoodsMature_CardName,Ready Chicken of the Woods Log,成熟木鸡菌木
+Herbs_And_Fungi_MushroomLogChickenOfWoodsMature_CardDescription,A cultivated log covered with ready-to-pick chicken of the woods mushrooms.,一根覆满待采木鸡菌的培育木头。
+Herbs_And_Fungi_MushroomLogChickenOfWoodsMature_CardHelpSection,"<b>Harvest:</b> Pick the final chicken of the woods flush for 20 fresh mushrooms, using up the log.",<b>采收：</b> 采集最后一批木鸡菌可获得20个新鲜蘑菇，同时耗尽木头。
+Herbs_And_Fungi_MushroomLogChickenOfWoodsMature_Harvest_ActionName,Harvest,采收
+Herbs_And_Fungi_MushroomLogChickenOfWoodsMature_Harvest_ActionDescription,Pick 20 fresh chicken of the woods mushrooms and break down the spent log.,采摘20个新鲜木鸡菌并拆解耗尽的木头。
+Herbs_And_Fungi_Bp_MushroomLogChickenOfWoods_CardName,Inoculate Chicken Log,接种木鸡菌木
+Herbs_And_Fungi_Bp_MushroomLogChickenOfWoods_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 5 chicken of the woods mushrooms and wood shavings.,",用挖孔钻在香草木上钻出接种孔，然后填入5个木鸡菌和木屑。
+Herbs_And_Fungi_Bp_MushroomLogChickenOfWoods_UnlockConditionsDesc,Unlocked after obtaining chicken of the woods,获得木鸡菌后解锁
+Herbs_And_Fungi_MushroomLogGoldenOysterGrowing_CardName,Growing Fungal Log,生长中的菌菇木
+Herbs_And_Fungi_MushroomLogGoldenOysterGrowing_CardDescription,A freshly inoculated mushroom log. Keep it indoors or sheltered while the mycelium runs through the deadwood.,一根刚接种的菌菇木。在室内或遮蔽处保存，让菌丝穿透枯木生长。
+Herbs_And_Fungi_MushroomLogGoldenOysterGrowing_CardHelpSection,"<b>Growth Time:</b> About 5 days.
+
+<b>Harvest:</b> Becomes a ready golden oyster log when fully colonized.","<b>生长时间：</b> 约5天。
+
+<b>收获：</b> 菌丝完全定殖后变为可采收的金顶侧耳木。"
+Herbs_And_Fungi_MushroomLogGoldenOysterGrowing_Progress_CardStatName,Colonizing,定殖中
+Herbs_And_Fungi_MushroomLogGoldenOysterGrowing_Progress_OnFull_ActionDescription,Golden oyster log is ready to harvest!,金顶侧耳木已准备好采收！
+Herbs_And_Fungi_MushroomLogGoldenOysterGrowing_BreakDown_ActionName,Break Down,拆解
+Herbs_And_Fungi_MushroomLogGoldenOysterGrowing_BreakDown_ActionDescription,"Break apart the inoculated log. Recovers the log, but the mushrooms and shavings are lost.",拆解已接种的木头。可回收木头，但蘑菇和木屑会丢失。
+Herbs_And_Fungi_MushroomLogGoldenOysterMature_CardName,Ready Golden Oyster Log,成熟金顶侧耳木
+Herbs_And_Fungi_MushroomLogGoldenOysterMature_CardDescription,A cultivated log covered with ready-to-pick golden oyster mushrooms.,一根覆满待采金顶侧耳的培育木头。
+Herbs_And_Fungi_MushroomLogGoldenOysterMature_CardHelpSection,"<b>Harvest:</b> Pick the final golden oyster flush for 20 fresh mushrooms, using up the log.",<b>采收：</b> 采集最后一批金顶侧耳可获得20个新鲜蘑菇，同时耗尽木头。
+Herbs_And_Fungi_MushroomLogGoldenOysterMature_Harvest_ActionName,Harvest,采收
+Herbs_And_Fungi_MushroomLogGoldenOysterMature_Harvest_ActionDescription,Pick 20 fresh golden oyster mushrooms and break down the spent log.,采摘20个新鲜金顶侧耳并拆解耗尽的木头。
+Herbs_And_Fungi_Bp_MushroomLogGoldenOyster_CardName,Inoculate Golden Oyster Log,接种金顶侧耳木
+Herbs_And_Fungi_Bp_MushroomLogGoldenOyster_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 5 golden oyster mushrooms and wood shavings.,",用挖孔钻在香草木上钻出接种孔，然后填入5个金顶侧耳和木屑。
+Herbs_And_Fungi_Bp_MushroomLogGoldenOyster_UnlockConditionsDesc,Unlocked after obtaining a golden oyster mushroom,获得金顶侧耳后解锁
+Herbs_And_Fungi_MushroomLogKingOysterGrowing_CardName,Growing Fungal Log,生长中的菌菇木
+Herbs_And_Fungi_MushroomLogKingOysterGrowing_CardDescription,A freshly inoculated mushroom log. Keep it indoors or sheltered while the mycelium runs through the deadwood.,一根刚接种的菌菇木。在室内或遮蔽处保存，让菌丝穿透枯木生长。
+Herbs_And_Fungi_MushroomLogKingOysterGrowing_CardHelpSection,"<b>Growth Time:</b> About 5 days.
+
+<b>Harvest:</b> Becomes a ready king oyster log when fully colonized.","<b>生长时间：</b> 约5天。
+
+<b>收获：</b> 菌丝完全定殖后变为可采收的杏鲍菇木。"
+Herbs_And_Fungi_MushroomLogKingOysterGrowing_Progress_CardStatName,Colonizing,定殖中
+Herbs_And_Fungi_MushroomLogKingOysterGrowing_Progress_OnFull_ActionDescription,King oyster log is ready to harvest!,杏鲍菇木已准备好采收！
+Herbs_And_Fungi_MushroomLogKingOysterGrowing_BreakDown_ActionName,Break Down,拆解
+Herbs_And_Fungi_MushroomLogKingOysterGrowing_BreakDown_ActionDescription,"Break apart the inoculated log. Recovers the log, but the mushrooms and shavings are lost.",拆解已接种的木头。可回收木头，但蘑菇和木屑会丢失。
+Herbs_And_Fungi_MushroomLogKingOysterMature_CardName,Ready King Oyster Log,成熟杏鲍菇木
+Herbs_And_Fungi_MushroomLogKingOysterMature_CardDescription,A cultivated log covered with ready-to-pick king oyster mushrooms.,一根覆满待采杏鲍菇的培育木头。
+Herbs_And_Fungi_MushroomLogKingOysterMature_CardHelpSection,"<b>Harvest:</b> Pick the final king oyster flush for 20 fresh mushrooms, using up the log.",<b>采收：</b> 采集最后一批杏鲍菇可获得20个新鲜蘑菇，同时耗尽木头。
+Herbs_And_Fungi_MushroomLogKingOysterMature_Harvest_ActionName,Harvest,采收
+Herbs_And_Fungi_MushroomLogKingOysterMature_Harvest_ActionDescription,Pick 20 fresh king oyster mushrooms and break down the spent log.,采摘20个新鲜杏鲍菇并拆解耗尽的木头。
+Herbs_And_Fungi_Bp_MushroomLogKingOyster_CardName,Inoculate King Oyster Log,接种杏鲍菇木
+Herbs_And_Fungi_Bp_MushroomLogKingOyster_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 5 king oyster mushrooms and wood shavings.,",用挖孔钻在香草木上钻出接种孔，然后填入5个杏鲍菇和木屑。
+Herbs_And_Fungi_Bp_MushroomLogKingOyster_UnlockConditionsDesc,Unlocked after obtaining a king oyster mushroom,获得杏鲍菇后解锁
+Herbs_And_Fungi_PickleVatClosed_CardName,Closed Pickle Vat,已盖盖腌菜缸
+Herbs_And_Fungi_PickleVatClosed_CardDescription,A pickle vat capped with a clay bowl. Pour water over the lid to water-seal the jar for fermentation.,一个用陶碗盖住的腌菜缸。将水倒在盖子上以水封罐子开始发酵。
+Herbs_And_Fungi_PickleVatClosed_Seal_ActionName,Seal,密封
+Herbs_And_Fungi_PickleVatClosed_Seal_ActionDescription,Pour water over the lid to create a water seal. Places the jar in your environment to begin fermenting.,将水倒在盖子上以形成水封。将罐子放置在您的环境中开始发酵。
+Herbs_And_Fungi_PickleVatClosed_Uncap_ActionName,Uncap,开盖
+Herbs_And_Fungi_PickleVatClosed_Uncap_ActionDescription,Remove the clay bowl lid and reopen the vat.,取下陶碗盖子并重新打开缸。
+Herbs_And_Fungi_PickleVatClosed_SpecialDurability2_CardStatName,Quality,质量
+Herbs_And_Fungi_PickleVatReady_CardName,Ready Pickle Vat,已就绪腌菜缸
+Herbs_And_Fungi_PickleVatReady_CardDescription,Fermentation is complete. Harvest the vat to crack it open and reclaim the empty vat and bowl.,发酵已完成。收获缸体以打开密封并取回空缸和碗。
+Herbs_And_Fungi_PickleVatReady_Harvest_ActionName,Harvest,收获
+Herbs_And_Fungi_PickleVatReady_Harvest_ActionDescription,Crack the seal and reclaim the empty vat and bowl.,破开密封并取回空缸和碗。
+herbs_fungi_ginger_cut_UsageDurability_StatName,Dry,干燥
+Herbs_And_Fungi_Bp_DryingStack_CardName,Drying Stack,晾干架
+Herbs_And_Fungi_Bp_DryingStack_CardDescription,A vertical wooden rack for storing multiple drying trays. Requires 4 planks and a hammer.,一个用于存放多个晾干托盘的竖向木架。需要4块木板和一把锤子。
+Herbs_And_Fungi_Bp_DryingStack_UnlockConditionsDesc,Unlocked after crafting or obtaining a Drying Tray,制作或获得晾干托盘后解锁
+Herbs_And_Fungi_Bp_DryingTray_CardName,Drying Tray,晾干托盘
+Herbs_And_Fungi_Bp_DryingTray_CardDescription,A woven tray with fine mesh for drying herbs. Requires 4 reeds or willow twigs and 2 twine.,一个用细网眼编织的晾干草药托盘。需要4根干芦苇或柳树枝和2根麻绳。
+Herbs_And_Fungi_Bp_DryingTray_UnlockConditionsDesc,Unlocked after obtaining Dry Reeds,获得干芦苇后解锁
+Herbs_And_Fungi_DryingStack_DismantleActions_Place_ActionName,Place,放置
+Herbs_And_Fungi_DryingStackPlaced_DismantleActions_PickUp_ActionName,Pick Up,拾起
+Herbs_And_Fungi_LionsManeDried_OnStatsChangeActions[0]_ActionName,Finish Rotary Quern Grinding,完成旋转磨盘研磨
+Herbs_And_Fungi_LionsManeDried_SpecialDurability3_CardStatName,Mill,磨碎度
+Herbs_And_Fungi_MorelMushroom_CardName,Morel Mushroom,羊肚菌
+Herbs_And_Fungi_MorelMushroom_CardDescription,A prized honeycomb-capped morel found in autumn forests. Delicious when cooked but must never be eaten raw.,一种在秋季森林中发现的珍贵蜂窝状羊肚菌。烹熟后美味可口，但绝不可生吃。
+Herbs_And_Fungi_MorelMushroom_CardHelpSection,"<b>Season:</b> Autumn
+
+<b>Warning:</b> Must be cooked before eating - raw morels are mildly toxic.
+
+<b>Nutrition:</b> Excellent protein and mineral content when cooked.","<b>季节：</b> 秋季
+
+<b>警告：</b> 食用前必须烹熟——生羊肚菌有轻微毒性。
+
+<b>营养：</b> 烹熟后蛋白质和矿物质含量极佳。"
+Herbs_And_Fungi_Perk_AddFungi_PerkName,Add Fungi,添加菌菇
+Herbs_And_Fungi_Perk_AddFungi_PerkDescription,"Start with forageable fungi: Morels (spring), Golden & King Oysters (summer), Lion's Mane (fall, cognitive boost). Can be dried, cooked, or ground into medicinal powders.",初始携带可采集的菌菇：羊肚菌（春季）、金顶侧耳和杏鲍菇（夏季）、狮鬃菇（秋季，提升认知）。可晾干、烹饪或磨成药用粉末。
+Herbs_And_Fungi_Perk_EdiblesKit_PerkName,Edibles Kit,食用套件
+Herbs_And_Fungi_Perk_EdiblesKit_PerkDescription,"Hemp cooking kit: 3 Fat, 4 Dried Hemp Flowers, 3 Raw Meat, 1 Clay Bowl. Craft hemp butter with 3x stronger effects than smoking. Dose carefully!",大麻烹饪套件：3块脂肪、4朵干大麻花、3块生肉、1个陶碗。用3倍于吸食效果的大麻黄油制作。小心控制剂量！
+Herbs_And_Fungi_Perk_MushroomBasket_PerkName,Mushroom Basket,蘑菇篮
+Herbs_And_Fungi_Perk_MushroomBasket_PerkDescription,"Start with a hand basket filled with a bountiful mushroom harvest: Morels (gourmet), Golden & King Oysters (meaty), Black Trumpets (earthy), Shiitake (immune boost), Lion's Mane (cognitive), Forest Caps, and Spirit Mushrooms. All can be dried or cooked.",初始携带一个装满丰盛蘑菇采收物的手提篮：羊肚菌（美食）、金顶侧耳和杏鲍菇（肉质）、黑喇叭菌（泥土味）、香菇（增强免疫）、狮鬃菇（认知增强）、森林蘑菇和灵性蘑菇。所有蘑菇都可晾干或烹熟。
+Herbs_And_Fungi_Perk_SmokeKit_PerkName,Smoke Kit,烟斗套件
+Herbs_And_Fungi_Perk_SmokeKit_PerkDescription,"Herbal medicine kit: Reusable Herb Pipe + 4 powders each (Hemp: calming, Fairyweed: pain relief, Appleweed: energy, Frostleaf: anti-inflammatory) + 10 Fiber.",初始携带一个草药烟斗套件，包含大麻花和其他草药。
+herbs_fungi_dried_reishi_OnStatsChangeActions[0]_ActionName,Finish Rotary Quern Grinding,完成旋转磨盘研磨
+herbs_fungi_dried_reishi_SpecialDurability3_CardStatName,Mill,磨碎度
+herbs_fungi_yarrow_dried_OnStatsChangeActions[0]_ActionName,Finish Rotary Quern Grinding,完成旋转磨盘研磨
+herbs_fungi_yarrow_dried_SpecialDurability3_CardStatName,Mill,磨碎度
+Herbs_And_Fungi_DryingStackPlaced_DismantleActions_PickUp_ActionDescription,Pick up the drying stack and carry it.,拾起晾晒架并携带它。
+Herbs_And_Fungi_DryingStack_DismantleActions_Place_ActionDescription,Place the drying stack in your environment.,将晾晒架放置在环境中。
+Herbs_And_Fungi_HempButterActive_CardDescription,Aromatic liquid hemp butter with activated psychoactive compounds. Needs to cool and solidify before use.,含有活化精神活性化合物的芳香液态大麻黄油。需冷却凝固后方可使用。
+Herbs_And_Fungi_HempButterActive_CardHelpSection,"<b>State:</b> Liquid when hot.
+
+<b>Usage:</b> Let it dry to create solid hemp butter that can be added to foods.","<b>状态：</b>加热时呈液态。
+
+<b>用法：</b>待其干燥，制成可添加到食物中的固态大麻黄油。"
+Herbs_And_Fungi_HempButterActive_CardName,Active Hemp Butter,活性大麻黄油
+Herbs_And_Fungi_HempButterActive_FuelCapacity_CardStatName,Temperature,温度
+Herbs_And_Fungi_HempButterActive_Progress_CardStatName,Wetness,湿度
+Herbs_And_Fungi_HempButterActive_Progress_OnZero_ActionDescription,The hemp butter has solidified. It's now ready to be added to foods.,大麻黄油已凝固。现在可以添加到食物中了。
+Herbs_And_Fungi_HempButterActive_SpecialDurability2_CardStatName,Quality,品质
+Herbs_And_Fungi_HempButterActive_SpoilageTime_CardStatName,Spoilage,腐败
+Herbs_And_Fungi_HempButterActive_SpoilageTime_OnFull_ActionDescription,Active Hemp Butter Spoiled!,活性大麻黄油已变质！
+Herbs_And_Fungi_HempButterInactive_CardDescription,Raw mixture of fat and ground hemp flower. Must be heated at cooking temperature for 60-90 minutes to activate the compounds.,脂肪与磨碎大麻花的混合物。需在烹饪温度下加热60至90分钟以激活化合物。
+Herbs_And_Fungi_HempButterInactive_CardHelpSection,"<b>Usage:</b> Place in a container on a fire and heat slowly.
+
+<b>Activation:</b> Requires sustained heat to activate psychoactive properties.","<b>用法：</b>放入容器中置于火上缓慢加热。
+
+<b>激活：</b>需要持续加热以激活精神活性成分。"
+Herbs_And_Fungi_HempButterInactive_CardInteractions0_ActionDescription,"The butter melts quickly in the flames! You need to cook it in a bowl or pot, not directly on fire.",黄油在火焰中迅速融化！你需要在碗或锅中烹饪，而不是直接放在火上。
+Herbs_And_Fungi_HempButterInactive_CardInteractions0_ActionName,Melt,融化
+Herbs_And_Fungi_HempButterInactive_CardName,Inactive Hemp Butter,非活性大麻黄油
+Herbs_And_Fungi_HempButterInactive_FuelCapacity_CardStatName,Temperature,温度
+Herbs_And_Fungi_HempButterInactive_Progress_CardStatName,Activation Progress,激活进度
+Herbs_And_Fungi_HempButterInactive_Progress_OnFull_ActionDescription,Hemp butter has been activated! The aromatic liquid contains powerful psychoactive compounds.,大麻黄油已激活！芳香液体含有强效精神活性化合物。
+Herbs_And_Fungi_HempButterInactive_SpecialDurability2_CardStatName,Quality,品质
+Herbs_And_Fungi_HempButterInactive_SpoilageTime_CardStatName,Spoilage,腐败
+Herbs_And_Fungi_HempButterInactive_SpoilageTime_OnFull_ActionDescription,Inactive Hemp Butter Spoiled!,非活性大麻黄油已变质！
+Herbs_And_Fungi_HempButter_CardDescription,"Solid hemp-infused fat with activated psychoactive properties. Can be consumed in small, medium, or large doses. Effects are 3x stronger than burning hemp flowers. High doses may trigger anxiety.",含有活化精神活性成分的固态大麻浸脂。可小剂量、中剂量或大剂量服用。效果是燃烧大麻花的3倍。大剂量可能引发焦虑。
+Herbs_And_Fungi_HempButter_CardHelpSection,"<b>Dosing:</b> Choose your dose carefully.
+<b>Mild:</b> Pleasant effects.
+<b>Medium:</b> Strong effects, small anxiety risk.
+<b>High:</b> Very strong effects, high anxiety risk.
+
+<b>Warning:</b> Does not repel mosquitoes like burning does.","<b>剂量：</b>请谨慎选择剂量。
+<b>小剂量：</b>效果温和，体验愉悦。
+<b>中剂量：</b>效果强烈，轻微焦虑风险。
+<b>大剂量：</b>效果极强，高度焦虑风险。
+
+<b>注意：</b>不像燃烧那样能驱赶蚊虫。"
+Herbs_And_Fungi_HempButter_CardName,Hemp Butter,大麻黄油
+Herbs_And_Fungi_HempButter_DismantleActions0_ActionDescription,"Eat a small amount. Gentle effects, pleasant experience.",吃少量。效果温和，体验愉悦。
+Herbs_And_Fungi_HempButter_DismantleActions0_ActionName,Consume Mild Dose,服用小剂量
+Herbs_And_Fungi_HempButter_DismantleActions1_ActionDescription,Eat a moderate amount. Strong effects with small risk of anxiety.,吃适量。效果强烈，有轻微焦虑风险。
+Herbs_And_Fungi_HempButter_DismantleActions1_ActionName,Consume Medium Dose,服用中剂量
+Herbs_And_Fungi_HempButter_DismantleActions2_ActionDescription,Eat the entire portion. Extremely strong effects with HIGH risk of anxiety attack!,吃完整份。效果极其强烈，有极高焦虑发作风险！
+Herbs_And_Fungi_HempButter_DismantleActions2_ActionName,Consume High Dose,服用大剂量
+Herbs_And_Fungi_HempButter_SpecialDurability2_CardStatName,Quality,品质
+Herbs_And_Fungi_HempButter_SpoilageTime_CardStatName,Spoilage,腐败
+Herbs_And_Fungi_HempButter_SpoilageTime_OnFull_ActionDescription,Hemp Butter Spoiled!,大麻黄油已变质！
+Herbs_And_Fungi_HempButter_UsageDurability_CardStatName,Doses,剂量
+Herbs_And_Fungi_HempFlowerDried_CardDescription,Dried flowering tops with psychoactive properties. Can be ground into powder or burned on fires to create aromatic smoke with mood-enhancing effects.,干燥的花穗，含有精神活性成分。可研磨成粉或在火上燃烧，产生芳香烟雾，改善情绪。
+Herbs_And_Fungi_HempFlowerDried_CardHelpSection,"<b>Processing:</b> Grind with rock for premium quality (+50), or use axes/knives/quern/mortar for standard quality (+25).
+
+<b>Burning:</b> Burn on any fire to create smoke that improves mood and reduces anxiety. Each flower adds 5% smoke to indoor spaces.
+
+<b>Warning:</b> Too much smoke (3+ flowers) becomes harmful despite mental benefits.","<b>加工：</b>用岩石精细研磨可提升品质50点，或用斧头/刀/磨盘/研钵标准研磨提升25点。
+
+<b>燃烧：</b>在任何火源上燃烧，产生改善情绪、减轻焦虑的烟雾。每朵花为室内增加5%烟雾。
+
+<b>注意：</b>超过3朵花的烟雾会产生危害，尽管有精神益处。"
+Herbs_And_Fungi_HempFlowerDried_CardInteractions[0]_ActionDescription,Premium grinding with rock. Increases quality by 50 and costs less effort.,用岩石精细研磨。品质提升50，耗费较少体力。
+Herbs_And_Fungi_HempFlowerDried_CardInteractions[0]_ActionName,Grind,研磨
+Herbs_And_Fungi_HempFlowerDried_CardInteractions[1]_ActionDescription,"Standard grinding with axes, knives, quern, or mortar. Increases quality by 25 but uses more energy.",用斧头、刀、磨盘或研钵标准研磨。品质提升25，但消耗较多体力。
+Herbs_And_Fungi_HempFlowerDried_CardInteractions[1]_ActionName,Grind,研磨
+Herbs_And_Fungi_HempFlowerDried_CardInteractions[2]_ActionDescription,"Burn on fire to create aromatic smoke. Improves mood and reduces anxiety. Outdoors: repels mosquitoes but alerts all animals in the area, preventing sneak attacks. Indoors: adds 5% smoke to enclosed spaces.",在火上燃烧，产生芳香烟雾。改善情绪，减轻焦虑。户外：驱赶蚊虫，但会惊动附近所有动物。室内：为封闭空间增加5%烟雾。
+Herbs_And_Fungi_HempFlowerDried_CardInteractions[2]_ActionName,Burn,燃烧
+Herbs_And_Fungi_HempFlowerDried_CardName,Dried Hemp Flower,干燥大麻花
+Herbs_And_Fungi_HempFlowerDried_OnStatsChangeActions[0]_ActionName,Finish Rotary Quern Grinding,完成旋转磨盘研磨
+Herbs_And_Fungi_HempFlowerDried_SpecialDurability2_CardStatName,Quality,品质
+Herbs_And_Fungi_HempFlowerDried_SpecialDurability3_CardStatName,Mill,磨碎度
+Herbs_And_Fungi_HempFlowerDried_SpoilageTime_CardStatName,Spoilage,腐败
+Herbs_And_Fungi_HempFlowerDried_SpoilageTime_OnFull_ActionDescription,Dried Hemp Flower Spoiled!,干燥大麻花已变质！
+Herbs_And_Fungi_HempFlowerPowder_CardDescription,Finely ground hemp flower powder with enhanced properties. The highest quality form of processed hemp flowers.,细磨大麻花粉末，效果增强。是加工大麻花的最高品质形态。
+Herbs_And_Fungi_HempFlowerPowder_CardHelpSection,"<b>Quality:</b> Premium product with strongest effects.
+
+<b>Storage:</b> Excellent preservation properties.","<b>品质：</b>优质产品，效果最强。
+
+<b>储存：</b>保存性能优良。"
+Herbs_And_Fungi_HempFlowerPowder_CardInteractions0_ActionDescription,Combine with fat or butter to create inactive hemp butter. Must be heated for 60-90 minutes to activate.,与脂肪或黄油混合，制作非活性大麻黄油。需加热60至90分钟以激活。
+Herbs_And_Fungi_HempFlowerPowder_CardInteractions0_ActionName,Mix with Fat or Butter,与脂肪或黄油混合
+Herbs_And_Fungi_HempFlowerPowder_CardInteractions1_ActionDescription,Burn with fire to create aromatic smoke. Improves mood and reduces anxiety.,在火上燃烧，产生芳香烟雾。改善情绪，减轻焦虑。
+Herbs_And_Fungi_HempFlowerPowder_CardInteractions1_ActionName,Burn,燃烧
+Herbs_And_Fungi_HempFlowerPowder_CardName,Hemp Flower Powder,大麻花粉
+Herbs_And_Fungi_HempFlowerPowder_SpecialDurability2_CardStatName,Quality,品质
+Herbs_And_Fungi_HempFlowerPowder_SpoilageTime_CardStatName,Spoilage,腐败
+Herbs_And_Fungi_HempFlowerPowder_SpoilageTime_OnFull_ActionDescription,Hemp Flower Powder Spoiled!,大麻花粉已变质！
+Herbs_And_Fungi_HempFlower_CardDescription,Fragrant flowering tops of the hemp plant. Can be harvested for seeds or dried for preservation.,大麻植株的芳香花穗。可采收种子或晾干保存。
+Herbs_And_Fungi_HempFlower_CardHelpSection,"<b>Uses:</b> Harvest seeds for planting.
+
+<b>Drying:</b> Can be dried to preserve longer.","<b>用途：</b>采收种子用于种植。
+
+<b>晾干：</b>可晾干以延长保存时间。"
+Herbs_And_Fungi_HempFlower_CardInteractions_HarvestSeeds_ActionDescription,Extract seeds from the flower. Yields 1-3 seeds.,从花穗中提取种子，可得1至3颗种子。
+Herbs_And_Fungi_HempFlower_CardInteractions_HarvestSeeds_ActionName,Harvest Seeds,采收种子
+Herbs_And_Fungi_HempFlower_CardName,Hemp Flower,大麻花
+Herbs_And_Fungi_HempFlower_SpecialDurability2_CardStatName,Quality,品质
+Herbs_And_Fungi_HempFlower_SpoilageTime_CardStatName,Spoilage,腐败
+Herbs_And_Fungi_HempFlower_SpoilageTime_OnFull_ActionDescription,Hemp Flower Spoiled!,大麻花已变质！
+Herbs_And_Fungi_HempFlower_UsageDurability_CardStatName,Drying,干燥度
+Herbs_And_Fungi_HempFlower_UsageDurability_OnFull_ActionDescription,Hemp Flower dried!,大麻花已干燥！
+Herbs_And_Fungi_HempPlantGrowing_CardDescription,"A young hemp plant growing in a garden. Needs time to mature before harvesting stalks, flowers, and seeds.",一株在菜园中生长的幼小大麻植株。需要时间成熟，然后才能采收茎秆、花穗和种子。
+Herbs_And_Fungi_HempPlantGrowing_CardHelpSection,"<b>Growth Time:</b> 7 days. 
+
+<b>Produces:</b> Hemp stalks, flowers, and seeds when mature.","<b>生长时间：</b>7天。
+
+<b>产出：</b>成熟时可获得大麻茎秆、花穗和种子。"
+Herbs_And_Fungi_HempPlantGrowing_CardName,Growing Hemp Plant,生长中的大麻植株
+Herbs_And_Fungi_HempPlantGrowing_DismantleActions_ActionName,Uproot,拔除
+Herbs_And_Fungi_HempPlantGrowing_Progress_CardStatName,Growth,生长进度
+Herbs_And_Fungi_HempPlantGrowing_Progress_OnFull_ActionDescription,Hemp Plant is Mature!,大麻植株已成熟！
+Herbs_And_Fungi_HempPlantMature_CardDescription,A fully mature hemp plant ready for harvest. Pull the plant to collect stalks and flowers.,一株完全成熟、可以采收的大麻植株。拔取植株以收集茎秆和花穗。
+Herbs_And_Fungi_HempPlantMature_CardHelpSection,<b>Harvest:</b> Pull to collect hemp stalks and flowers.,<b>采收：</b>拔取以收集大麻茎秆和花穗。
+Herbs_And_Fungi_HempPlantMature_CardName,Mature Hemp Plant,成熟的大麻植株
+Herbs_And_Fungi_HempPlantMature_DismantleActions_ActionDescription,Harvest the hemp plant for stalks and flowers.,采收大麻植株，获取茎秆和花穗。
+Herbs_And_Fungi_HempPlantMature_DismantleActions_ActionName,Harvest,采收
+Herbs_And_Fungi_HempSeedsRoasted_CardDescription,Nutritious roasted seeds. Can be eaten or used as seasoning.,富含营养的烤制种子。可直接食用或用作调味料。
+Herbs_And_Fungi_HempSeedsRoasted_CardHelpSection,"<b>Found:</b> Roast raw hemp seeds on a fire. 
+
+<b>Uses:</b> Food source, oil production, fiber cultivation.","<b>获取：</b>在火上烘烤生大麻籽。
+
+<b>用途：</b>食物来源、榨油原料、纤维种植。"
+Herbs_And_Fungi_HempSeedsRoasted_CardInteractions_Add_ActionName,Add,添加
+Herbs_And_Fungi_HempSeedsRoasted_CardName,Roasted Hemp Seeds,烤大麻籽
+Herbs_And_Fungi_HempSeedsRoasted_DismantleActions_Eat_ActionName,Eat,吃
+Herbs_And_Fungi_HempSeedsRoasted_FuelCapacity_CardStatName,Temperature,温度
+Herbs_And_Fungi_HempSeedsRoasted_SpoilageTime_CardStatName,Spoilage,腐败
+Herbs_And_Fungi_HempSeedsRoasted_SpoilageTime_OnFull_ActionDescription,Roasted Hemp Seeds Spoiled!,烤大麻籽已变质！
+Herbs_And_Fungi_HempSeeds_CardDescription,"Nutritious seeds from hemp plants. Can be eaten raw, pressed for oil, or planted to grow hemp fiber.",大麻植株上的营养种子。可生吃、压榨成油，或种植培育大麻纤维。
+Herbs_And_Fungi_HempSeeds_CardHelpSection,"<b>Found:</b> Character creation perk. 
+
+Herbs_And_Fungi_HempSeeds_CardInteractions_Add_ActionDescription,Plant a single hemp seed in a garden plot to grow an individual plant.
+Herbs_And_Fungi_HempSeeds_CardInteractions_Add_ActionName,Add
+Herbs_And_Fungi_HempSeeds_CardInteractions_Plant_ActionDescription,Plant 4 hemp seeds in a tilled field to start growing a hemp crop.
+Herbs_And_Fungi_HempSeeds_CardInteractions_Plant_ActionName,Plant
+Herbs_And_Fungi_HempSeeds_CardName,Hemp Seeds,大麻种子
+Herbs_And_Fungi_HempSeeds_DismantleActions_Eat_ActionName,Eat
+Herbs_And_Fungi_HempSeeds_DismantleActions_Roast_ActionName,Roast
+Herbs_And_Fungi_HempSeeds_SpoilageTime_CardStatName,Spoilage
+Herbs_And_Fungi_HempSeeds_SpoilageTime_OnFull_ActionDescription,Hemp Seeds Spoiled!
+Herbs_And_Fungi_HempStalks_CardDescription,Can be processed to extract fibers for crafting.
+Herbs_And_Fungi_HempStalks_CardHelpSection,Hemp stalks contain strong fibers that can be extracted and used for making twine", rope," and fabric."""
+Herbs_And_Fungi_HempStalks_CardName,Hemp Stalks,大麻茎秆
+Herbs_And_Fungi_HempStalks_DismantleActions_Extract_ActionDescription,Separate the fibers from the stalks.,将纤维从茎秆中分离出来。
+Herbs_And_Fungi_HempStalks_DismantleActions_Extract_ActionName,Extract Fibers,提取纤维
+Herbs_And_Fungi_HempStalks_SpecialDurability2_CardStatName,Quality,品质
+Herbs_And_Fungi_HerbPipeAppleweed_CardDescription,A carved wooden pipe loaded with appleweed powder. Ready to smoke.,装填了苹果草粉末的雕刻木烟斗。随时可以吸食。
+Herbs_And_Fungi_HerbPipeAppleweed_CardInteractions0_ActionDescription,Light and smoke the appleweed. Sweet and soothing effects.,点燃并吸食苹果草。甜蜜舒缓的效果。
+Herbs_And_Fungi_HerbPipeAppleweed_CardInteractions0_ActionName,Smoke Appleweed,吸食苹果草
+Herbs_And_Fungi_HerbPipeAppleweed_CardName,Herb Pipe (Appleweed),草药烟斗（苹果草）
+Herbs_And_Fungi_HerbPipeAppleweed_DismantleActions0_ActionDescription,Dump out the appleweed powder without smoking it.,不吸食，直接倒出苹果草粉末。
+Herbs_And_Fungi_HerbPipeAppleweed_DismantleActions0_ActionName,Empty Pipe,清空烟斗
+Herbs_And_Fungi_HerbPipeAppleweed_OnZero,Pipe Empty!,烟斗已空！
+Herbs_And_Fungi_HerbPipeAppleweed_SpecialDurability2_CardStatName,Quality,品质
+Herbs_And_Fungi_HerbPipeFairyweed_CardDescription,A carved wooden pipe loaded with fairyweed powder. Ready to smoke.,装填了仙女草粉末的雕刻木烟斗。随时可以吸食。
+Herbs_And_Fungi_HerbPipeFairyweed_CardInteractions0_ActionDescription,Light and smoke the fairyweed. Mystical and uplifting effects.,点燃并吸食仙女草。神秘振奋的效果。
+Herbs_And_Fungi_HerbPipeFairyweed_CardInteractions0_ActionName,Smoke Fairyweed,吸食仙女草
+Herbs_And_Fungi_HerbPipeFairyweed_CardName,Herb Pipe (Fairyweed),草药烟斗（仙女草）
+Herbs_And_Fungi_HerbPipeFairyweed_DismantleActions0_ActionDescription,Dump out the fairyweed powder without smoking it.,不吸食，直接倒出仙女草粉末。
+Herbs_And_Fungi_HerbPipeFairyweed_DismantleActions0_ActionName,Empty Pipe,清空烟斗
+Herbs_And_Fungi_HerbPipeFairyweed_OnZero,Pipe Empty!,烟斗已空！
+Herbs_And_Fungi_HerbPipeFairyweed_SpecialDurability2_CardStatName,Quality,品质
+Herbs_And_Fungi_HerbPipeFrostleaf_CardDescription,A carved wooden pipe loaded with frostleaf powder. Ready to smoke.,装填了冰叶粉末的雕刻木烟斗。随时可以吸食。
+Herbs_And_Fungi_HerbPipeFrostleaf_CardInteractions0_ActionDescription,Light and smoke the frostleaf. Cool and refreshing effects.,点燃并吸食冰叶。清凉爽神的效果。
+Herbs_And_Fungi_HerbPipeFrostleaf_CardInteractions0_ActionName,Smoke Frostleaf,吸食冰叶
+Herbs_And_Fungi_HerbPipeFrostleaf_CardName,Herb Pipe (Frostleaf),草药烟斗（冰叶）
+Herbs_And_Fungi_HerbPipeFrostleaf_DismantleActions0_ActionDescription,Dump out the frostleaf powder without smoking it.,不吸食，直接倒出冰叶粉末。
+Herbs_And_Fungi_HerbPipeFrostleaf_DismantleActions0_ActionName,Empty Pipe,清空烟斗
+Herbs_And_Fungi_HerbPipeFrostleaf_OnZero,Pipe Empty!,烟斗已空！
+Herbs_And_Fungi_HerbPipeFrostleaf_SpecialDurability2_CardStatName,Quality,品质
+Herbs_And_Fungi_HerbPipeHemp_CardDescription,A carved wooden pipe loaded with hemp flower powder. Ready to smoke.,装填了大麻花粉的雕刻木烟斗。随时可以吸食。
+Herbs_And_Fungi_HerbPipeHemp_CardInteractions0_ActionDescription,Light and smoke the hemp. Relaxing and calming effects.,点燃并吸食大麻。放松平静的效果。
+Herbs_And_Fungi_HerbPipeHemp_CardInteractions0_ActionName,Smoke Hemp,吸食大麻
+Herbs_And_Fungi_HerbPipeHemp_CardName,Herb Pipe (Hemp),草药烟斗（大麻）
+Herbs_And_Fungi_HerbPipeHemp_DismantleActions0_ActionDescription,Dump out the hemp powder without smoking it.,不吸食，直接倒出大麻粉末。
+Herbs_And_Fungi_HerbPipeHemp_DismantleActions0_ActionName,Empty Pipe,清空烟斗
+Herbs_And_Fungi_HerbPipeHemp_OnZero,Pipe Empty!,烟斗已空！
+Herbs_And_Fungi_HerbPipeHemp_SpecialDurability2_CardStatName,Quality,品质
+Herbs_And_Fungi_HerbPipe_CardDescription,A carved wooden pipe for smoking herbal powders. Provides relaxing effects without filling the room with smoke.,用于吸食草药粉末的雕刻木烟斗。提供放松效果，不会让房间充满烟雾。
+Herbs_And_Fungi_HerbPipe_CardHelpSection,"<b>Loading:</b> Add herbal powders (hemp, fairyweed, appleweed, frostleaf) to load the pipe.
+
+<b>Smoking:</b> Drag lit tinder or candle onto pipe to smoke. Reusable.
+
+<b>Benefits:</b> Discreet, no room smoke, portable relaxation.","<b>装填：</b>添加草药粉末（大麻、仙女草、苹果草、冰叶）以装填烟斗。
+
+<b>吸食：</b>将点燃的火绒或蜡烛拖到烟斗上吸食。可重复使用。
+
+<b>优点：</b>低调隐蔽，无房间烟雾，便携放松。"
+Herbs_And_Fungi_HerbPipe_CardInteractions0_ActionDescription,Pack the pipe with hemp flower powder.,将大麻花粉装入烟斗。
+Herbs_And_Fungi_HerbPipe_CardInteractions0_ActionName,Load: Hemp,装填：大麻
+Herbs_And_Fungi_HerbPipe_CardInteractions1_ActionDescription,Pack the pipe with fairyweed powder.,将仙女草粉末装入烟斗。
+Herbs_And_Fungi_HerbPipe_CardInteractions1_ActionName,Load: Fairyweed,装填：仙女草
+Herbs_And_Fungi_HerbPipe_CardInteractions2_ActionDescription,Pack the pipe with appleweed powder.,将苹果草粉末装入烟斗。
+Herbs_And_Fungi_HerbPipe_CardInteractions2_ActionName,Load: Appleweed,装填：苹果草
+Herbs_And_Fungi_HerbPipe_CardInteractions3_ActionDescription,Pack the pipe with frostleaf powder.,将冰叶粉末装入烟斗。
+Herbs_And_Fungi_HerbPipe_CardInteractions3_ActionName,Load: Frostleaf,装填：冰叶
+Herbs_And_Fungi_HerbPipe_CardName,Herb Pipe,草药烟斗
+Herbs_And_Fungi_HerbPipe_SpecialDurability2_CardStatName,Quality,品质
+Herbs_And_Fungi_Spice_HempSeedsRoasted_SpiceName,Roasted Hemp Seeds,烤大麻籽
+
+"<b>Pick Up:</b> Retrieve the ward if you want to relocate it."""
+
+<b>Use:</b> Add drying trays to the rack," then fill each tray with herbs, flowers, or fungi."
+
+"<b>Benefits:</b> Organized vertical storage for efficient drying."""
+
+
+
+<b>Nutrition:</b> Cooking enhances the nutritional value and flavor of these mushrooms.
+
+<b>Flavor:</b> Rich," nutty taste with tender texture."""
+
+<b>Characteristics:</b> Thick stem with small cap.
+
+"<b>Uses:</b> Best when cooked - meaty texture perfect for grilling or stir-fry."""
+
+<b>Taste:</b> Delicate, lobster-like flavor prized by chefs.
+
+"<b>Benefits:</b> Good nutrition plus mood and wellbeing boost."""
+
+<b>Delicacy:</b> One of the most prized edible mushrooms.
+
+"<b>Nutrition:</b> Excellent protein and mineral content."""
+
+<b>Use:</b> Add to soups or eat directly. Still requires cooking before eating.
+
+"<b>Benefits:</b> Concentrated earthy flavor and extended storage."""
+
+<b>Uses:</b> Drink for hunger, stress relief," and an immune boost."""
+
+<b>Benefits:</b> Reduces fatigue, improves focus," boosts immunity."""
+
+<b>Benefits:</b> Immune boost, stress relief," promotes calm."""
+
+herbs_fungi_blackcurrant_CardName,Blackcurrants,黑醋栗
+herbs_fungi_blackcurrant_CardDescription,"Small, intensely flavored dark berries with a sharp, earthy tartness. Rich in vitamins and antioxidants. Good raw, better dried or fermented.",富含维生素和抗氧化物的浓郁深色小浆果，味道浓烈而微涩。可直接食用，但晒干或发酵后更佳。
+herbs_fungi_blackcurrant_CardHelpSection,"<b>Season:</b> Summer
+
+<b>Found:</b> Birch forests, river banks, oak groves.
+
+<b>Uses:</b> Eat raw, dry for long-term storage, or ferment into wine.
+
+<b>Benefits:</b> Good nutrition and hydration.","<b>季节：</b>夏季
+
+<b>出现地点：</b>桦树林、河岸、橡树林。
+
+<b>用途：</b>生吃、晾干长期储存，或发酵成葡萄酒。
+
+<b>益处：</b>营养丰富，补充水分。"
+herbs_fungi_blackcurrant_SpoilageTime_CardStatName,Freshness,新鲜度
+herbs_fungi_blackcurrant_SpoilageTime_OnFull,Blackcurrants spoiled!,黑醋栗变质了！
+herbs_fungi_blackcurrant_UsageDurability_CardStatName,Dryness,干燥度
+herbs_fungi_blackcurrant_UsageDurability_OnFull,Blackcurrants dried!,黑醋栗晒干了！
+herbs_fungi_blackcurrant_Eat_ActionName,Eat,食用
+herbs_fungi_blackcurrant_Eat_ActionDescription,Eat the blackcurrants. Tart and nutritious.,食用黑醋栗。酸爽而营养。
+herbs_fungi_blackcurrant_dried_CardName,Dried Blackcurrants,晒干的黑醋栗
+herbs_fungi_blackcurrant_dried_CardDescription,"Shriveled dark blackcurrants with concentrated flavor and extended shelf life. Dense and chewy, good for long journeys.",皱缩的深色黑醋栗，味道浓缩，保质期长。质地紧实耐嚼，适合长途旅行携带。
+herbs_fungi_blackcurrant_dried_SpoilageTime_CardStatName,Freshness,新鲜度
+herbs_fungi_blackcurrant_dried_SpoilageTime_OnFull,Dried blackcurrants lost their flavor.,晒干的黑醋栗失去了味道。
+herbs_fungi_blackcurrant_dried_Eat_ActionName,Eat,食用
+herbs_fungi_blackcurrant_dried_Eat_ActionDescription,Eat the dried blackcurrants. Chewy and concentrated.,食用晒干的黑醋栗。耐嚼而浓郁。
+herbs_fungi_redcurrant_CardName,Redcurrants,红醋栗
+herbs_fungi_redcurrant_CardDescription,"Bright red clusters of small, translucent berries with a sweet-tart flavor. Commonly found along oak forest edges and in clearings.",明亮的红色小浆果簇，晶莹剔透，甜酸适口。常见于橡树林边缘和空地处。
+herbs_fungi_redcurrant_CardHelpSection,"<b>Season:</b> Summer
+
+<b>Found:</b> Oak groves, birch forests, clearings.
+
+<b>Uses:</b> Eat raw, dry for long-term storage, or ferment into wine.
+
+<b>Benefits:</b> Good nutrition and hydration.","<b>季节：</b>夏季
+
+<b>出现地点：</b>橡树林、桦树林、空地。
+
+<b>用途：</b>生吃、晾干长期储存，或发酵成葡萄酒。
+
+<b>益处：</b>营养丰富，补充水分。"
+herbs_fungi_redcurrant_SpoilageTime_CardStatName,Freshness,新鲜度
+herbs_fungi_redcurrant_SpoilageTime_OnFull,Redcurrants spoiled!,红醋栗变质了！
+herbs_fungi_redcurrant_UsageDurability_CardStatName,Dryness,干燥度
+herbs_fungi_redcurrant_UsageDurability_OnFull,Redcurrants dried!,红醋栗晒干了！
+herbs_fungi_redcurrant_Eat_ActionName,Eat,食用
+herbs_fungi_redcurrant_Eat_ActionDescription,Eat the redcurrants. Sweet-tart and refreshing.,食用红醋栗。甜酸清爽。
+herbs_fungi_redcurrant_dried_CardName,Dried Redcurrants,晒干的红醋栗
+herbs_fungi_redcurrant_dried_CardDescription,Tangy dried redcurrants with a pleasant sweet-sour punch. Lightweight travel rations that keep for a very long time.,酸爽的晒干红醋栗，带有宜人的甜酸感。轻便的旅行干粮，保存时间极长。
+herbs_fungi_redcurrant_dried_SpoilageTime_CardStatName,Freshness,新鲜度
+herbs_fungi_redcurrant_dried_SpoilageTime_OnFull,Dried redcurrants lost their flavor.,晒干的红醋栗失去了味道。
+herbs_fungi_redcurrant_dried_Eat_ActionName,Eat,食用
+herbs_fungi_redcurrant_dried_Eat_ActionDescription,Eat the dried redcurrants. Tangy and satisfying.,食用晒干的红醋栗。酸爽而令人满足。
+herbs_fungi_lingonberry_CardName,Lingonberries,越橘
+herbs_fungi_lingonberry_CardDescription,"Small, bright red berries found carpeting the forest floor under pine trees. Tart and slightly bitter raw, but excellent dried or fermented.",覆盖在松树下林地地面的鲜红色小浆果。生吃时酸涩微苦，但晒干或发酵后口感极佳。
+herbs_fungi_lingonberry_CardHelpSection,"<b>Season:</b> Late Summer to Autumn
+
+<b>Found:</b> Pine forests, northern regions, pine meadows.
+
+<b>Uses:</b> Eat raw, dry for long-term storage, or ferment.
+
+<b>Benefits:</b> Abundant and reliable survival food.","<b>季节：</b>仲夏至秋季
+
+<b>出现地点：</b>松树林、北部地区、松树草地。
+
+<b>用途：</b>生吃、晾干长期储存，或发酵。
+
+<b>益处：</b>数量充足，可靠的生存食物。"
+herbs_fungi_lingonberry_SpoilageTime_CardStatName,Freshness,新鲜度
+herbs_fungi_lingonberry_SpoilageTime_OnFull,Lingonberries spoiled!,越橘变质了！
+herbs_fungi_lingonberry_UsageDurability_CardStatName,Dryness,干燥度
+herbs_fungi_lingonberry_UsageDurability_OnFull,Lingonberries dried!,越橘晒干了！
+herbs_fungi_lingonberry_Eat_ActionName,Eat,食用
+herbs_fungi_lingonberry_Eat_ActionDescription,Eat the lingonberries. Tart but filling.,食用越橘。酸涩但饱腹。
+herbs_fungi_lingonberry_dried_CardName,Dried Lingonberries,晒干的越橘
+herbs_fungi_lingonberry_dried_CardDescription,"Dried lingonberries with a pleasant tartness. A staple of northern survival — durable, lightweight, and nutritious.",带有宜人酸味的晒干越橘。北方求生必备品——耐储、轻便且营养丰富。
+herbs_fungi_lingonberry_dried_SpoilageTime_CardStatName,Freshness,新鲜度
+herbs_fungi_lingonberry_dried_SpoilageTime_OnFull,Dried lingonberries lost their flavor.,晒干的越橘失去了味道。
+herbs_fungi_lingonberry_dried_Eat_ActionName,Eat,食用
+herbs_fungi_lingonberry_dried_Eat_ActionDescription,Eat the dried lingonberries. A reliable trail ration.,食用晒干的越橘。可靠的旅途干粮。
+herbs_fungi_cloudberry_CardName,Cloudberries,云莓
+herbs_fungi_cloudberry_CardDescription,"Rare golden-orange berries that grow only in the coldest northern bogs and meadows. Sweet, soft, and highly prized as a delicacy.",仅生长于最寒冷北方沼泽和草甸的稀有金橙色浆果。口感甜软，极为珍贵。
+herbs_fungi_cloudberry_CardHelpSection,"<b>Season:</b> Late Summer
+
+<b>Found:</b> Northern regions, pine meadows only.
+
+<b>Uses:</b> Eat raw, dry for long-term storage, or ferment.
+
+<b>Benefits:</b> Excellent nutrition. Rare and rewarding find.","<b>季节：</b>仲夏
+
+<b>出现地点：</b>仅限北部地区和松树草地。
+
+<b>用途：</b>生吃、晾干长期储存，或发酵。
+
+<b>益处：</b>营养极佳，稀有而珍贵的发现。"
+herbs_fungi_cloudberry_SpoilageTime_CardStatName,Freshness,新鲜度
+herbs_fungi_cloudberry_SpoilageTime_OnFull,Cloudberries spoiled!,云莓变质了！
+herbs_fungi_cloudberry_UsageDurability_CardStatName,Dryness,干燥度
+herbs_fungi_cloudberry_UsageDurability_OnFull,Cloudberries dried!,云莓晒干了！
+herbs_fungi_cloudberry_Eat_ActionName,Eat,食用
+herbs_fungi_cloudberry_Eat_ActionDescription,"Eat the cloudberries. Soft, sweet, and highly nutritious.",食用云莓。口感软糯，甜蜜可口，营养丰富。
+herbs_fungi_cloudberry_dried_CardName,Dried Cloudberries,晒干的云莓
+herbs_fungi_cloudberry_dried_CardDescription,Carefully dried cloudberries with intensified sweetness and remarkable keeping quality. A precious long-term ration from a rare ingredient.,精心晒制的云莓，甜味更为浓郁，保存性能出色。由稀有食材制成的珍贵长期口粮。
+herbs_fungi_cloudberry_dried_SpoilageTime_CardStatName,Freshness,新鲜度
+herbs_fungi_cloudberry_dried_SpoilageTime_OnFull,Dried cloudberries lost their flavor.,晒干的云莓失去了味道。
+herbs_fungi_cloudberry_dried_Eat_ActionName,Eat,食用
+herbs_fungi_cloudberry_dried_Eat_ActionDescription,Eat the dried cloudberries. Sweet and highly sustaining.,食用晒干的云莓。甜美且极为饱腹。
+herbs_fungi_wild_flowers_CardName,Wild Flowers,野花
+herbs_fungi_wild_flowers_CardDescription,A small bundle of colourful wildflowers. Dry them to craft flower garlands.,一小束色彩斑斓的野花。晾干后可制作花环。
+herbs_fungi_wild_flowers_CardHelpSection,Wild Flowers,<b>用途：</b>晾干后制作花环。
+herbs_fungi_wild_flowers_SpoilageTime_StatName,Freshness,新鲜度
+herbs_fungi_wild_flowers_SpoilageTime_OnFull,The flowers have wilted and crumbled.,花朵已枯萎凋零。
+herbs_fungi_wild_flowers_UsageDurability_StatName,Dry,干燥度
+herbs_fungi_wild_flowers_UsageDurability_OnFull,The flowers have dried, preserving their colour and form.,The flowers have dried, preserving their colour and form.
+herbs_fungi_wild_flowers_dried_CardName,Dried Wild Flowers,干野花
+herbs_fungi_wild_flowers_dried_CardDescription,Carefully dried wildflowers. Craft them with rope into a flower garland.,精心晾干的野花。可与绳子制作成花环。
+herbs_fungi_wild_flowers_dried_CardHelpSection,Dried Wild Flowers,<b>用途：</b>与绳子制作花环。
+herbs_fungi_wild_flowers_dried_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_wild_flowers_dried_SpoilageTime_OnFull,The dried flowers have finally crumbled to dust.,干花终于碎成粉尘。
+herbs_fungi_dandelion_CardName,Dandelion,蒲公英
+herbs_fungi_dandelion_CardDescription,A common but versatile plant. Mildly edible and good for fermenting.,一种常见但用途广泛的植物。可轻微食用，适合发酵。
+herbs_fungi_dandelion_CardHelpSection,Dandelion,<b>用途：</b>可食用，晾干用于泡茶或发酵。
+herbs_fungi_dandelion_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_dandelion_SpoilageTime_OnFull,The dandelion has wilted and rotted.,蒲公英已枯萎腐烂。
+herbs_fungi_dandelion_UsageDurability_StatName,Dry,干燥度
+herbs_fungi_dandelion_UsageDurability_OnFull,The dandelion has dried properly.,蒲公英已适当干燥。
+herbs_fungi_dandelion_Eat,Eat,吃
+herbs_fungi_dandelion_Eat_Desc,Eat the dandelion. Slightly bitter but nutritious.,吃新鲜蒲公英。略带苦味，但富含营养。
+herbs_fungi_dandelion_dried_CardName,Dried Dandelion,干蒲公英
+herbs_fungi_dandelion_dried_CardDescription,Dried dandelion flowers. Eat them directly or steep them in hot water for mild herbal tea.,晾干的蒲公英花。可直接食用或用热水泡制温和的草药茶。
+herbs_fungi_dandelion_dried_CardHelpSection,Dried Dandelion,<b>用途：</b>发酵原料，或用热水泡制草药茶。
+herbs_fungi_dandelion_dried_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_dandelion_dried_SpoilageTime_OnFull,The dried dandelion has finally crumbled away.,干蒲公英终于碎裂消散。
+herbs_fungi_dandelion_dried_Eat,Eat,吃
+herbs_fungi_dandelion_dried_Eat_Desc,Eat the dried dandelion. More concentrated than fresh, pleasantly bitter.,Eat the dried dandelion. More concentrated than fresh, pleasantly bitter.
+herbs_fungi_dandelion_dried_MixTea,Mix into Hot Water,混入热水
+herbs_fungi_dandelion_dried_MixTea_Desc,Steep dried dandelion in hot water to brew a mild herbal tea.,将干蒲公英泡入热水中制成温和的草药茶。
+herbs_fungi_common_plantain_CardName,Common Plantain,宽叶车前草
+herbs_fungi_common_plantain_CardDescription,A wide-leafed medicinal herb. Dry for use in wound poultices.,一种宽叶药用草本植物。晾干后可用于伤口湿敷。
+herbs_fungi_common_plantain_CardHelpSection,Common Plantain,<b>用途：</b>晾干后制作伤口湿敷剂。
+herbs_fungi_common_plantain_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_common_plantain_SpoilageTime_OnFull,The plantain leaves have rotted.,车前草叶已腐烂。
+herbs_fungi_common_plantain_UsageDurability_StatName,Dry,干燥度
+herbs_fungi_common_plantain_UsageDurability_OnFull,The plantain leaves have dried, concentrating their medicinal properties.,The plantain leaves have dried, concentrating their medicinal properties.
+herbs_fungi_common_plantain_dried_CardName,Dried Common Plantain,干宽叶车前草
+herbs_fungi_common_plantain_dried_CardDescription,Dried plantain leaves. A key ingredient for wound poultices.,晾干的车前草叶。伤口湿敷剂的关键原料。
+herbs_fungi_common_plantain_dried_CardHelpSection,Dried Common Plantain,<b>用途：</b>制作伤口湿敷剂。
+herbs_fungi_common_plantain_dried_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_common_plantain_dried_SpoilageTime_OnFull,The dried plantain has crumbled away.,干车前草已碎裂消散。
+herbs_fungi_dandelion_tea_CardName,Dandelion Tea,蒲公英茶
+herbs_fungi_dandelion_tea_CardDescription,A mild herbal tea brewed from dried dandelions. Restores a little hydration and eases stress.,用干蒲公英泡制的温和草药茶。恢复少量水分并缓解压力。
+herbs_fungi_dandelion_tea_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_dandelion_tea_Spoiled,The dandelion tea has spoiled.,蒲公英茶已变质。
+herbs_fungi_dandelion_tea_Drink,Drink,饮用
+herbs_fungi_dandelion_tea_Drink_Desc,Drink the mild dandelion tea. Restores a little hydration and eases stress.,饮用温和的蒲公英茶。恢复少量水分并缓解压力。
+Herbs_And_Fungi_Bp_FlowerGarland_CardName,Flower Garland,花环
+Herbs_And_Fungi_Bp_FlowerGarland_CardDescription,Tie dried wild flowers onto a length of rope to make a simple garland. Hanging it gives a small morale boost.,将干野花系在绳子上制成简单花环。悬挂它可带来小幅心情提升。
+Herbs_And_Fungi_Bp_FlowerGarland_UnlockConditionsDesc,Unlocked after obtaining Dried Wild Flowers,获得干野花后解锁
+herbs_fungi_flower_garland_CardName,Flower Garland,花环
+herbs_fungi_flower_garland_CardDescription,Dried wild flowers tied into a simple garland. Hang it nearby for a small moment of comfort.,由干野花编成的简单花环。悬挂在附近可带来片刻安慰。
+herbs_fungi_flower_garland_Hang,Hang Garland,悬挂花环
+herbs_fungi_flower_garland_Hang_Desc,Hang the garland and enjoy the color. Eases stress a little.,悬挂花环并欣赏色彩。稍微缓解压力。
+Herbs_And_Fungi_Bp_PlantainPoultice_CardName,Plantain Poultice,车前草湿敷剂
+Herbs_And_Fungi_Bp_PlantainPoultice_CardDescription,Mash dried common plantain in a clay bowl to make a simple wound poultice. Apply directly to ease pain and inflammation.,在陶碗中捣碎干车前草，制成简单的伤口湿敷剂。直接涂抹以缓解疼痛和炎症。
+Herbs_And_Fungi_Bp_PlantainPoultice_UnlockConditionsDesc,Unlocked after obtaining Dried Common Plantain,获得干宽叶车前草后解锁
+herbs_fungi_plantain_poultice_CardName,Plantain Poultice,车前草湿敷剂
+herbs_fungi_plantain_poultice_CardDescription,A simple poultice made from mashed common plantain. Apply it to ease pain and inflammation.,由捣碎车前草制成的简单湿敷剂。涂抹可缓解疼痛和炎症。
+herbs_fungi_plantain_poultice_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_plantain_poultice_SpoilageTime_Spoiled,The plantain poultice has spoiled.,车前草湿敷剂已变质。
+herbs_fungi_plantain_poultice_Apply,Apply Poultice,涂抹湿敷剂
+herbs_fungi_plantain_poultice_Apply_Desc,Apply the plantain poultice to tender skin and small wounds.,将车前草湿敷剂涂抹在敏感皮肤和小伤口上。
+herbs_fungi_chamomile_CardName,Chamomile,洋甘菊
+herbs_fungi_chamomile_CardDescription,Delicate white flowers with a gentle apple-like scent. Mildly edible.,娇嫩的白色花朵，带有温和的苹果般香气。可轻微食用。
+herbs_fungi_chamomile_CardHelpSection,Chamomile,<b>用途：</b>可食用，晾干后泡茶或入药。
+herbs_fungi_chamomile_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_chamomile_SpoilageTime_OnFull,The chamomile has wilted and rotted.,洋甘菊已枯萎腐烂。
+herbs_fungi_chamomile_UsageDurability_StatName,Dry,干燥度
+herbs_fungi_chamomile_UsageDurability_OnFull,The chamomile flowers have dried perfectly.,洋甘菊花已完美晾干。
+herbs_fungi_chamomile_Eat,Eat,吃
+herbs_fungi_chamomile_Eat_Desc,Eat the fresh chamomile flowers. Pleasantly aromatic and mildly nutritious.,吃新鲜洋甘菊花。清香宜人，略有营养。
+herbs_fungi_chamomile_dried_CardName,Dried Chamomile,干洋甘菊
+herbs_fungi_chamomile_dried_CardDescription,Dried chamomile flowers. Soothing and slightly calming. Steep them in hot water to brew tea.,晾干的洋甘菊花。舒缓镇静，可用热水泡茶。
+herbs_fungi_chamomile_dried_CardHelpSection,Dried Chamomile,<b>用途：</b>用热水泡制舒缓茶饮，减轻压力。
+herbs_fungi_chamomile_dried_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_chamomile_dried_SpoilageTime_OnFull,The dried chamomile has finally crumbled away.,干洋甘菊终于碎裂消散。
+herbs_fungi_chamomile_dried_Eat,Eat,吃
+herbs_fungi_chamomile_dried_Eat_Desc,Consume the dried chamomile. Its soothing properties help ease tension.,食用干洋甘菊。其舒缓特性有助缓解紧张情绪。
+herbs_fungi_chamomile_dried_MixTea,Mix into Hot Water,混入热水
+herbs_fungi_chamomile_dried_MixTea_Desc,Steep dried chamomile in hot water to brew a soothing tea.,将干洋甘菊泡入热水中制成舒缓茶饮。
+herbs_fungi_chamomile_tea_CardName,Chamomile Tea,洋甘菊茶
+herbs_fungi_chamomile_tea_CardDescription,"A calming herbal tea brewed from dried chamomile flowers. Eases stress and soothes the mind.","用干洋甘菊花冲泡的舒缓草药茶。缓解压力，平静心神。"
+herbs_fungi_chamomile_tea_SpoilageTime_StatName,Spoilage,腐败
+herbs_fungi_chamomile_tea_Spoiled,The chamomile tea has spoiled.,洋甘菊茶已变质。
+herbs_fungi_chamomile_tea_Drink,Drink,喝
+herbs_fungi_chamomile_tea_Drink_Desc,Drink the calming chamomile tea. Reduces stress and soothes the spirit.,饮用舒缓的洋甘菊茶。减轻压力，抚慰精神。

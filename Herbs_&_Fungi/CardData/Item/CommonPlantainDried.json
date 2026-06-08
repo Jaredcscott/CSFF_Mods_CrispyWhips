@@ -1,0 +1,66 @@
+{
+    "UniqueID": "herbs_fungi_common_plantain_dried",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_common_plantain_dried",
+        "LocalizationKey": "herbs_fungi_common_plantain_dried_CardName",
+        "DefaultText": "Dried Common Plantain"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_common_plantain_dried",
+        "LocalizationKey": "herbs_fungi_common_plantain_dried_CardDescription",
+        "DefaultText": "Dried plantain leaves with concentrated medicinal compounds. A key ingredient for wound poultices and anti-inflammatory remedies."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Foraged",
+        "tag_Herb"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "PlantainDried",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "ParentObjectID": "herbs_fungi_common_plantain_dried",
+        "LocalizationKey": "herbs_fungi_common_plantain_dried_SpoilageTime_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_common_plantain_dried",
+            "LocalizationKey": "herbs_fungi_common_plantain_dried_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 3600.0,
+        "RatePerDaytimePoint": 1.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_common_plantain_dried",
+                "LocalizationKey": "herbs_fungi_common_plantain_dried_SpoilageTime_OnFull",
+                "DefaultText": "The dried plantain has crumbled away."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "ObjectWeight": 10,
+    "MaxStack": 20,
+    "DroppedCardShadow": 1
+}

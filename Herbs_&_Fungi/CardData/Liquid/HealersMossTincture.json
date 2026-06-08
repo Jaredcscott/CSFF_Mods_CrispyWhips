@@ -1,0 +1,105 @@
+{
+    "UniqueID": "herbs_fungi_healers_moss_tincture",
+    "CardName": {
+        "LocalizationKey": "herbs_fungi_healers_moss_tincture_CardName",
+        "DefaultText": "Healer's Moss Tincture"
+    },
+    "CardDescription": {
+        "LocalizationKey": "herbs_fungi_healers_moss_tincture_CardDescription",
+        "DefaultText": "A concentrated extract of healer's moss pressed in a clay bowl. Potent antiseptic properties help fight infection."
+    },
+    "CardHelpSection": {
+        "LocalizationKey": "herbs_fungi_healers_moss_tincture_CardHelpSection",
+        "DefaultText": "<b>Made by:</b> Blueprint: Healer's Moss Tincture\n\n<b>Uses:</b> Drink to reduce infection.\n\n<b>Benefits:</b> Strong infection reduction. Bitter taste."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Consumable",
+        "tag_Drinkable",
+        "tag_Medicine"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+    "CardImageWarpData": "Bowl_Clay",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "LocalizationKey": "herbs_fungi_healers_moss_tincture_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 5760.0,
+        "RatePerDaytimePoint": 0.5,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "LocalizationKey": "herbs_fungi_healers_moss_tincture_Spoiled",
+                "DefaultText": "The healer's moss tincture has spoiled."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": { "m_FileID": 0, "m_PathID": 0 },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "herbs_fungi_healers_moss_tincture_Drink",
+                "DefaultText": "Drink"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "herbs_fungi_healers_moss_tincture_Drink_Desc",
+                "DefaultText": "Drink the tincture. Bitter and mossy, but it fights infection."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": [ "DrinkingAction" ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": { "ModType": 3 },
+            "StatModifications": [
+                {
+                    "Stat": { "m_FileID": 0, "m_PathID": 0 },
+                    "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": -25.0, "y": -25.0 }
+                },
+                {
+                    "Stat": { "m_FileID": 0, "m_PathID": 0 },
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 10.0, "y": 10.0 }
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 1, "y": 1 },
+                            "FinishUnlocking": false,
+                            "DropChance": { "Active": false, "BaseDropChance": 0.0 }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "ObjectWeight": 0.3,
+    "MaxStack": 5,
+    "DroppedCardShadow": 1
+}

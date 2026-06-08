@@ -49,6 +49,8 @@ internal class ModManifest
     [NonSerialized] public bool HasSmeltingRecipes;    // SmeltingRecipes.json
     [NonSerialized] public bool HasAudio;              // Resource/Audio/ (any file)
     [NonSerialized] public bool HasMapCaches;          // Data/MapCaches/*.json, Data/*Map*.json, or Assets.MapCaches
+    [NonSerialized] public bool HasTriggers;           // CardData/Trigger/*.json
+    [NonSerialized] public bool HasGSMTagOrTypeMatch;  // GameSourceModify/ uses MatchTagWarpData/MatchTypeWarpData
 
     public static ModManifest FromJson(string json, string directoryPath)
     {

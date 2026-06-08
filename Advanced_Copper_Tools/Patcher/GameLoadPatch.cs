@@ -149,7 +149,7 @@ namespace Advanced_Copper_Tools.Patcher
                 var newArray = Array.CreateInstance(elementType, 1);
                 newArray.SetValue(entry, 0);
                 multField.SetValue(card, newArray);
-                Logger.LogInfo($"[ACT-Fix] {uid}: ArmorValueDurabilitiesMultiplier restored (1 entry, type={elementType.Name})");
+                Logger.LogDebug($"[ACT-Fix] {uid}: ArmorValueDurabilitiesMultiplier restored (1 entry, type={elementType.Name})");
             }
             catch (Exception ex)
             {
@@ -283,7 +283,7 @@ namespace Advanced_Copper_Tools.Patcher
                 RefreshCopperArmorPassiveEffects(copperCards);
 
             if (added > 0)
-                Logger.LogInfo($"[ACT-Fix] Copper armor combat list repaired ({added} card(s), {phase}).");
+                Logger.LogDebug($"[ACT-Fix] Copper armor combat list repaired ({added} card(s), {phase}).");
 
             return added;
         }
@@ -322,7 +322,7 @@ namespace Advanced_Copper_Tools.Patcher
                     var routine = update?.Invoke(card, null) as IEnumerator;
                     if (routine != null) host.StartCoroutine(routine);
                 }
-                catch { }
+                catch (Exception ex) { Logger.LogError($"[ACT] RefreshPassiveEffects failed: {ex.InnerException?.ToString() ?? ex.ToString()}"); }
             }
         }
 

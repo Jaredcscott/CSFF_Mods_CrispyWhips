@@ -39,6 +39,7 @@ internal static class CardScaleCompat
     private static readonly List<Component> _scaledLineRefs = new();
 
     private static MethodInfo _updateListMethod;
+    private static readonly List<Component> _dvlgCache = new();
 
     public static void Configure(ConfigFile config, Harmony harmony)
     {
@@ -258,6 +259,10 @@ internal static class CardScaleCompat
             _scaledGoIds.Clear();
             _scaledTransformIds.Clear();
             _scaledLineRefs.Clear();
+            _dvlgCache.Clear();
+            if (_dvlgType != null)
+                foreach (var obj in UnityEngine.Object.FindObjectsOfType(_dvlgType))
+                    if (obj is Component c) _dvlgCache.Add(c);
             var bf = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
             var gmType = __instance.GetType();
             foreach (var fname in _scaledLineNames)
@@ -323,12 +328,11 @@ internal static class CardScaleCompat
 
     static void ForceUpdateLists()
     {
-        if (_updateListMethod == null || _dvlgType == null || _scaledGoIds.Count == 0) return;
+        if (_updateListMethod == null || _scaledGoIds.Count == 0) return;
         try
         {
-            foreach (var obj in UnityEngine.Object.FindObjectsOfType(_dvlgType))
+            foreach (var comp in _dvlgCache)
             {
-                var comp = obj as Component;
                 if (comp == null || !_scaledGoIds.Contains(comp.gameObject.GetInstanceID())) continue;
                 _updateListMethod.Invoke(comp, null);
             }

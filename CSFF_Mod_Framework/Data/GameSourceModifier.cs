@@ -18,14 +18,9 @@ internal static class GameSourceModifier
 {
     public static void ApplyAll(List<ModManifest> mods, IEnumerable allData)
     {
-        // Build lookup of all UniqueIDScriptable objects by UniqueID
-        var objectMap = new Dictionary<string, UniqueIDScriptable>(StringComparer.OrdinalIgnoreCase);
-        foreach (var item in allData)
-        {
-            if (item is UniqueIDScriptable uid && !string.IsNullOrEmpty(uid.UniqueID))
-                objectMap[uid.UniqueID] = uid;
-        }
-
+        // No local objectMap needed — GameRegistry.AllUniqueObjects already contains every
+        // vanilla + mod UniqueIDScriptable by this point in the load sequence. Using it directly
+        // eliminates one full allData sweep (~4000 items) and a dictionary allocation per load.
         int totalApplied = 0;
 
         foreach (var mod in mods)
@@ -53,7 +48,7 @@ internal static class GameSourceModifier
                         var targets = DataMap.GetCardsByTag(matchTag);
                         foreach (var target in targets)
                         {
-                            ApplyPatch(target, json, mod.Name, file, objectMap);
+                            ApplyPatch(target, json, mod.Name, file);
                             totalApplied++;
                         }
                     }
@@ -63,7 +58,7 @@ internal static class GameSourceModifier
                         var targets = DataMap.GetCardsByType(matchType);
                         foreach (var target in targets)
                         {
-                            ApplyPatch(target, json, mod.Name, file, objectMap);
+                            ApplyPatch(target, json, mod.Name, file);
                             totalApplied++;
                         }
                     }
@@ -71,10 +66,11 @@ internal static class GameSourceModifier
                     {
                         // Standard: file name or UniqueID field is the target
                         var targetUid = PathUtil.QuickExtractString(json, "UniqueID") ?? fileName;
+                        var target = GameRegistry.GetByUid(targetUid);
 
-                        if (objectMap.TryGetValue(targetUid, out var target))
+                        if (target != null)
                         {
-                            ApplyPatch(target, json, mod.Name, file, objectMap);
+                            ApplyPatch(target, json, mod.Name, file);
                             totalApplied++;
                         }
                         else
@@ -93,8 +89,7 @@ internal static class GameSourceModifier
         Log.Debug($"GameSourceModify: applied {totalApplied} patches across {mods.Count} mod(s)");
     }
 
-    private static void ApplyPatch(UnityEngine.Object target, string json, string modName, string filePath,
-        Dictionary<string, UniqueIDScriptable> objectMap)
+    private static void ApplyPatch(UnityEngine.Object target, string json, string modName, string filePath)
     {
         JsonUtility.FromJsonOverwrite(json, target);
 
@@ -105,7 +100,7 @@ internal static class GameSourceModifier
             if (tree is Dictionary<string, object> root)
             {
                 WarpResolver.Walk(target, root);
-                ApplyAppendArrays(target, root, objectMap, modName);
+                ApplyAppendArrays(target, root, modName);
             }
         }
         catch (Exception ex)
@@ -124,9 +119,10 @@ internal static class GameSourceModifier
     /// Handles the "_appendArrays" section of a GameSourceModify JSON patch.
     /// Appends items to existing IList fields on the target object without overwriting them.
     /// Each entry maps a field name to an array of UniqueIDs to resolve and append.
+    /// Uses GameRegistry.GetByUid for item lookup — no separate objectMap needed.
     /// </summary>
     private static void ApplyAppendArrays(UnityEngine.Object target, Dictionary<string, object> root,
-        Dictionary<string, UniqueIDScriptable> objectMap, string modName)
+        string modName)
     {
         if (!root.TryGetValue("_appendArrays", out var appendObj)) return;
         if (appendObj is not Dictionary<string, object> appendDict) return;
@@ -158,9 +154,10 @@ internal static class GameSourceModifier
                 var id = idObj?.ToString();
                 if (string.IsNullOrEmpty(id)) continue;
 
-                if (!objectMap.TryGetValue(id, out var resolved))
+                var resolved = GameRegistry.GetByUid(id);
+                if (resolved == null)
                 {
-                    Log.Warn($"GameSourceModify._appendArrays: '{id}' not found in AllData (target: {target.name}.{fieldName})");
+                    Log.Warn($"GameSourceModify._appendArrays: '{id}' not found in registry (target: {target.name}.{fieldName})");
                     continue;
                 }
 

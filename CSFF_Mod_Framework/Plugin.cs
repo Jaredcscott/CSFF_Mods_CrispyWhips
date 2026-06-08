@@ -5,7 +5,7 @@ public class Plugin : BaseUnityPlugin
 {
     public const string PluginGuid = "crispywhips.CSFFModFramework";
     public const string PluginName = "CSFF Mod Framework";
-    public const string PluginVersion = "2.0.7";
+    public const string PluginVersion = "2.0.8";
 
     public static Plugin Instance { get; private set; }
     internal new static ManualLogSource Logger { get; private set; }
@@ -21,6 +21,12 @@ public class Plugin : BaseUnityPlugin
         var verboseConfig = Config.Bind("General", "VerboseLogging", false,
             "Enable verbose/debug logging. Shows per-item diagnostic traces in LogOutput.log.");
         Util.Log.Verbose = verboseConfig.Value;
+
+        // Config: force Chinese localization (default off — override for testing without a Chinese game install)
+        var forceChineseConfig = Config.Bind("General", "ForceChineseMode", false,
+            "When true, loads Chinese (SimpCn.csv) regardless of game language setting. "
+            + "Use to test Chinese translations without changing your system language.");
+        Loading.LocalizationLoader.ForceChineseMode = forceChineseConfig.Value;
 
         // Config: load-time diagnostics (default off — two full AllData scans around WarpResolver)
         var diagConfig = Config.Bind("General", "EnableLoadDiagnostics", false,
@@ -48,6 +54,8 @@ public class Plugin : BaseUnityPlugin
         Wildlife.WildlifeRaidService.BearRaidChance = bearRaidChance.Value;
         Wildlife.WildlifeRaidService.StressPenalty = raidStress.Value;
         Wildlife.WildlifeRaidService.Init();
+
+        Triggers.TriggerService.Init();
 
         Harmony = new Harmony(PluginGuid);
 
@@ -110,6 +118,7 @@ public class Plugin : BaseUnityPlugin
     private void Update()
     {
         Wildlife.WildlifeRaidService.PollUpdate();
+        Triggers.TriggerService.PollUpdate();
     }
 
     private void OnDestroy()

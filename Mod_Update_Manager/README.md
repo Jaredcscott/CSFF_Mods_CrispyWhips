@@ -1,6 +1,6 @@
 # Mod Update Manager
 
-**Version:** 2.0.5  
+**Version:** 2.1.1  
 **Author:** Jared (crispywhips)  
 **For:** Card Survival: Fantasy Forest (EA 0.63)
 
@@ -24,6 +24,12 @@ It also does not validate game-beta compatibility by itself. When a mod update i
 - Caches Nexus API responses for 24 hours when caching is enabled.
 - Includes optional, slow Nexus ID discovery for unmapped mods. This is disabled by default to avoid spending API quota.
 - Shows lightweight conflict and analytics summaries based on local mod names and update status.
+- **Favorites and Ignore** — Star mods to highlight them; ignore mods to exclude them from update checks. Both states are saved across sessions.
+- **Per-mod Notes** — Attach a short note to any mod (e.g. testing status). Saved alongside favorite/ignore state.
+- **Mod metadata** — Shows the Nexus summary and endorsement count for each checked mod.
+- **Major-version warning** — Update entries where the major version changes are flagged in red.
+- **Changelogs** — On-demand Nexus changelog fetch per mod, shown as an inline scrollable panel.
+- **Mod list export** — Analytics tab generates a formatted plain-text list of all installed mods (name, version, status, notes) suitable for bug reports.
 
 ## Requirements
 
@@ -93,10 +99,11 @@ Config file: `BepInEx/config/crispywhips.Mod_Update_Manager.cfg`
 - Mod mappings: `BepInEx/config/ModUpdateManager_Mappings.json`
 - Nexus response cache: `BepInEx/config/ModUpdateManager_Cache.json`
 - Nexus discovery cache: `BepInEx/config/nexus_discovery_cache.json`
+- Mod preferences (favorites, ignore, notes): `BepInEx/config/ModUpdateManager_Preferences.json`
 
 ## Release Notes And Beta Compatibility
 
-Mod Update Manager currently compares installed and Nexus-reported version strings. It does not display Nexus changelogs or inspect release notes in the dashboard yet.
+Click the **Changelog** button on any checked mod to fetch and display its Nexus version history inline. The changelog view is on-demand and does not run at startup.
 
 For beta-compatible mod releases, include the supported CSFF build in the published release notes, for example `Compatible with Card Survival: Fantasy Forest EA 0.63 beta`. This keeps compatibility information available without implying that the manager performs automatic beta validation.
 
@@ -105,7 +112,7 @@ For beta-compatible mod releases, include the supported CSFF build in the publis
 **Window does not open with F8**
 - Check `BepInEx/LogOutput.log` for errors.
 - Verify BepInEx is installed correctly.
-- Look for `Mod_Update_Manager v2.0.5 loaded.` in the log.
+- Look for `Mod_Update_Manager v2.1.1 loaded.` in the log.
 
 **API key not set**
 - Enter your Nexus API key in the Settings tab and click Save.

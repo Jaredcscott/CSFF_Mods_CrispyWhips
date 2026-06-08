@@ -121,6 +121,36 @@ internal static class ModDiscovery
             HasAnyFile(Path.Combine(dir, "Data", "MapCaches"), new[] { "*.json" }) ||
             HasAnyFile(Path.Combine(dir, "Data", "MapCache"), new[] { "*.json" }) ||
             HasAnyFile(Path.Combine(dir, "Data"), new[] { "*Map*.json" });
+
+        mod.HasTriggers =
+            HasAnyFile(Path.Combine(dir, "CardData", "Trigger"), new[] { "*.json" });
+
+        mod.HasGSMTagOrTypeMatch = HasGSMBulkMatch(dir);
+    }
+
+    private static bool HasGSMBulkMatch(string modDir)
+    {
+        var gsmDir = Path.Combine(modDir, "GameSourceModify");
+        if (!Directory.Exists(gsmDir))
+            gsmDir = Path.Combine(modDir, "Data", "GameSourceModify");
+        if (!Directory.Exists(gsmDir)) return false;
+
+        try
+        {
+            foreach (var file in Directory.EnumerateFiles(gsmDir, "*.json", SearchOption.AllDirectories))
+            {
+                try
+                {
+                    var json = File.ReadAllText(file);
+                    if (json.IndexOf("MatchTagWarpData", StringComparison.Ordinal) >= 0
+                        || json.IndexOf("MatchTypeWarpData", StringComparison.Ordinal) >= 0)
+                        return true;
+                }
+                catch { }
+            }
+        }
+        catch { }
+        return false;
     }
 
     private static bool HasDeclaredAssets(List<string> entries)

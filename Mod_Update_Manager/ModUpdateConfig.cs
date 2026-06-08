@@ -32,12 +32,14 @@ namespace mod_update_manager
         // Mod ID mappings file path
         public string ModMappingsPath { get; private set; }
         public string ResponseCachePath { get; private set; }
+        public string PreferencesPath { get; private set; }
 
         public ModUpdateConfig(ConfigFile config)
         {
             _config = config;
             ModMappingsPath = Path.Combine(Paths.ConfigPath, "ModUpdateManager_Mappings.json");
             ResponseCachePath = Path.Combine(Paths.ConfigPath, "ModUpdateManager_Cache.json");
+            PreferencesPath = Path.Combine(Paths.ConfigPath, "ModUpdateManager_Preferences.json");
             InitializeConfig();
         }
 

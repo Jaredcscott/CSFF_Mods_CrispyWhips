@@ -65,7 +65,6 @@ The rarest and most valuable mushroom.
 **Safe uses:**
 - **Death Cap Tincture** (craft at a kiln) — a bitter amatoxin extract that kills gut parasites when consumed in small doses.
 - **Poison a weapon** — drag a Death Cap onto a spear, axe, or blade to coat it in contact poison.
-- **Death Cap Ward** (placed structure) — suppresses 60% of wildlife encounters in your environment (see Death Cap Ward below).
 
 Handle them like tools, not food.
 
@@ -134,7 +133,7 @@ Craft from the **Furniture** tab. A placed structure that holds **up to 3 Drying
 
 A sealed cool-storage cabinet that slows spoilage to **75% of normal**. Built from the Furniture tab; place it indoors.
 
-- Not animal-safe — foxes, badgers, and other wildlife can raid it. Build a Death Cap Ward nearby for protection.
+- Not animal-safe — foxes, badgers, and other wildlife can raid it.
 - Best for storing dried herbs, preserved foods, and anything with a moderate shelf life.
 
 ---
@@ -305,18 +304,6 @@ Brew ground medicinal powder in hot water.
 **Pain Relief Powder** — Ground Yarrow and vanilla Frostleaf Powder blended into an analgesic; reduces pain stats.
 
 **Death Cap Tincture** — Made from Death Cap mushrooms. Kills gut parasites when consumed carefully. Risky — manage dosage.
-
----
-
-## Death Cap Ward
-
-A small carved totem structure that deters wildlife.
-
-**Building:** Craft the Death Cap Ward blueprint (Support tab), then place it in your camp environment.
-
-**Effect:** While the Ward is placed in your current environment, there is a **60% chance to suppress** any incoming **wildlife encounter** (predator attacks, animal ambushes). NPC encounters are **never** affected.
-
-**Tip:** Pair with the Wooden Pantry to protect stored food from both spoilage and wildlife raids.
 
 ---
 

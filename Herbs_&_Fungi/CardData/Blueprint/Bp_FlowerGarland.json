@@ -1,0 +1,85 @@
+{
+    "UniqueID": "herbs_fungi_bp_flower_garland",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_bp_flower_garland",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_FlowerGarland_CardName",
+        "DefaultText": "Flower Garland"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_bp_flower_garland",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_FlowerGarland_CardDescription",
+        "DefaultText": "Tie dried wild flowers onto a length of rope to make a simple garland. Hanging it gives a small morale boost."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "herbs_fungi_bp_flower_garland",
+        "LocalizationKey": "Herbs_And_Fungi_Bp_FlowerGarland_UnlockConditionsDesc",
+        "DefaultText": "Unlocked after obtaining Dried Wild Flowers"
+    },
+    "BlueprintUnlockTicksCost": 8.0,
+    "BuildingStatConditions": [],
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasWildFlowersDried",
+            "CompletionWeight": 1,
+            "Card": {"m_FileID": 0, "m_PathID": 0},
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {"m_FileID": 0, "m_PathID": 0},
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {"m_FileID": 0, "m_PathID": 0}
+            },
+            "CardWarpData": "herbs_fungi_wild_flowers_dried",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {"m_FileID": 0, "m_PathID": 0},
+                    "RequiredTabGroup": {"m_FileID": 0, "m_PathID": 0},
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "herbs_fungi_wild_flowers_dried",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {"m_FileID": 0, "m_PathID": 0},
+                    "RequiredTabGroup": {"m_FileID": 0, "m_PathID": 0},
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": ["HandAction", "CraftAction"],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 1,
+    "DeconstructDaytimeCost": 1,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+            "Quantity": {"x": 1, "y": 1},
+            "DroppedCardWarpData": "herbs_fungi_flower_garland",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": ["Fiber"],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": {"m_FileID": 0, "m_PathID": 0},
+    "CardImageWarpData": "WildFlowersDried",
+    "CardImageWarpType": 3,
+    "ResearchedNotification": 0
+}

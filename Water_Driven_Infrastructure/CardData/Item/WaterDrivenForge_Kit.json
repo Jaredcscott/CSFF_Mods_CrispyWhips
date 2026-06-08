@@ -8,13 +8,13 @@
   "CardDescription": {
     "ParentObjectID": "water_sawmill_forge_kit",
     "LocalizationKey": "Water_Sawmill_ForgeKit_CardDescription",
-    "DefaultText": "A complete forge kit with all components for a large water-powered metalworking forge."
+    "DefaultText": "A complete forge kit with all components for a large water-powered metalworking forge, including iron fittings, bearings, and an axle."
   },
   "CanBeRenamed": false,
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_forge_kit",
     "LocalizationKey": "Water_Sawmill_ForgeKit_CardHelpSection",
-    "DefaultText": "<b>Use:</b> Place near water or a connected mill race outlet to set up the forge.\n\n<b>Scale:</b> This is a large construction project requiring water power."
+    "DefaultText": "<b>Use:</b> Place near water or a connected mill race outlet to set up the forge.\n\n<b>Scale:</b> This is a large construction project requiring water power, iron parts, bearings, and an axle."
   },    "CardImage": {
         "m_FileID": 0,
         "m_PathID": 0
@@ -23,8 +23,8 @@
   "CardImageWarpData": "ForgeKit",
   "CardImageWarpType": 3,
   "CardType": 0,
-  "ObjectWeight": 600.0,
-  "TradingValue": 450.0,
+  "ObjectWeight": 3000.0,
+  "TradingValue": 1650.0,
   "CardTags": [],
   "CardTagsWarpData": ["tag_Wood", "tag_Copper"],
   "CardTagsWarpType": 3,
@@ -147,6 +147,24 @@
               "DroppedCardWarpData": "c8de2fee0c31ea64583a2f833a6d0a22",
               "DroppedCardWarpType": 3,
               "Quantity": {"x": 10, "y": 10}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "water_sawmill_iron_parts",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 2, "y": 2}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "water_sawmill_iron_bearing",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 2, "y": 2}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "water_sawmill_iron_axle",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1}
             }
           ]
         }
@@ -175,9 +193,6 @@
     "ExtraSpecial3Rate": 0.0,
     "ExtraSpecial4Rate": 0.0
   },
-  "CookingRecipes": [],
-  "BlueprintStages": [],
-  "BlueprintResult": [],
   "IsWeapon": false,
   "IsArmor": false
 }

@@ -17,6 +17,7 @@ namespace mod_update_manager
         private NexusModDiscovery _modDiscovery;
         private ConflictDetector _conflictDetector;
         private UpdateScheduler _updateScheduler;
+        private ModPreferences _preferences;
 
         private bool _showWindow = false;
         private Rect _windowRect;
@@ -24,14 +25,18 @@ namespace mod_update_manager
         private string _statusMessage = "Press Check Updates to scan for mod updates";
         private string _searchFilter = "";
         private int _selectedTab = 0;
-        private string[] _tabNames = { "All Mods", "Updates Available", "Up to Date", "Unable to Check", "Conflicts", "Analytics", "Settings" };
+        private string[] _tabNames = { "All Mods", "Updates", "Up to Date", "Unchecked", "Conflicts", "Analytics", "Settings" };
 
         // Styles
         private GUIStyle _headerStyle;
         private GUIStyle _updateAvailableStyle;
+        private GUIStyle _majorUpdateStyle;
         private GUIStyle _upToDateStyle;
         private GUIStyle _errorStyle;
         private GUIStyle _modNameStyle;
+        private GUIStyle _favoriteStyle;
+        private GUIStyle _ignoredStyle;
+        private GUIStyle _summaryStyle;
         private GUIStyle _windowStyle;
         private GUIStyle _boxStyle;
         private bool _stylesInitialized = false;
@@ -45,9 +50,28 @@ namespace mod_update_manager
         // Inline quick-map input (mod folder name -> nexus id text)
         private Dictionary<string, string> _inlineNexusIds = new Dictionary<string, string>();
 
+        // All Mods tab filter state
+        private bool _showIgnored = false;
+        private bool _favoritesOnly = false;
+
+        // Per-mod expanded state: changelog, notes
+        private Dictionary<string, bool> _changelogExpanded = new Dictionary<string, bool>();
+        private Dictionary<string, bool> _notesExpanded = new Dictionary<string, bool>();
+        private Dictionary<string, string> _notesInput = new Dictionary<string, string>();
+        private Dictionary<string, Vector2> _changelogScroll = new Dictionary<string, Vector2>();
+
+        // Changelog cache: folderName -> (entries, error)
+        private Dictionary<string, (List<(string Version, List<string> Entries)> data, string error)> _changelogCache
+            = new Dictionary<string, (List<(string, List<string>)>, string)>();
+        private HashSet<string> _changelogFetching = new HashSet<string>();
+
+        // Export text
+        private string _exportText = "";
+        private Vector2 _exportScroll;
+
         public void Initialize(ModUpdateConfig config, UpdateChecker updateChecker, ModMappingManager mappingManager,
             ConflictDetector conflictDetector, UpdateScheduler updateScheduler, NexusApiClient nexusClient,
-            NexusModDiscovery modDiscovery = null)
+            NexusModDiscovery modDiscovery = null, ModPreferences preferences = null)
         {
             _config = config;
             _updateChecker = updateChecker;
@@ -56,7 +80,8 @@ namespace mod_update_manager
             _modDiscovery = modDiscovery;
             _conflictDetector = conflictDetector;
             _updateScheduler = updateScheduler;
-            
+            _preferences = preferences;
+
             _windowRect = new Rect(
                 (Screen.width - _config.WindowWidth.Value) / 2,
                 (Screen.height - _config.WindowHeight.Value) / 2,
@@ -66,15 +91,12 @@ namespace mod_update_manager
 
             _apiKeyInput = _config.NexusApiKey.Value;
 
-            // Subscribe to events
             _updateChecker.OnStatusUpdate += (msg) => _statusMessage = msg;
-            _updateChecker.OnAllChecksComplete += (mods) => 
+            _updateChecker.OnAllChecksComplete += (mods) =>
             {
                 var updates = mods.Count(m => m.NeedsUpdate);
                 if (updates > 0)
-                {
-                    _selectedTab = 1; // Switch to updates tab
-                }
+                    _selectedTab = 1;
             };
         }
 
@@ -82,35 +104,24 @@ namespace mod_update_manager
         {
             _showWindow = !_showWindow;
             if (_showWindow && _updateChecker.InstalledMods.Count == 0)
-            {
                 _updateChecker.ScanMods();
-            }
         }
 
         public void Show()
         {
             _showWindow = true;
             if (_updateChecker.InstalledMods.Count == 0)
-            {
                 _updateChecker.ScanMods();
-            }
         }
 
-        public void Hide()
-        {
-            _showWindow = false;
-        }
+        public void Hide() => _showWindow = false;
 
         private void OnGUI()
         {
             if (!_showWindow) return;
-
             InitializeStyles();
-
-            // Draw opaque background
             GUI.color = Color.white;
             GUI.backgroundColor = new Color(0.2f, 0.2f, 0.2f, 1f);
-
             _windowRect = GUILayout.Window(
                 GetInstanceID(),
                 _windowRect,
@@ -125,12 +136,10 @@ namespace mod_update_manager
         {
             if (_stylesInitialized) return;
 
-            // Create opaque window style
             _windowStyle = new GUIStyle(GUI.skin.window);
             _windowStyle.normal.background = MakeOpaqueTexture(new Color(0.15f, 0.15f, 0.15f, 1f));
             _windowStyle.onNormal.background = _windowStyle.normal.background;
 
-            // Create opaque box style for content areas
             _boxStyle = new GUIStyle(GUI.skin.box);
             _boxStyle.normal.background = MakeOpaqueTexture(new Color(0.2f, 0.2f, 0.2f, 1f));
 
@@ -143,18 +152,24 @@ namespace mod_update_manager
 
             _updateAvailableStyle = new GUIStyle(GUI.skin.label)
             {
-                normal = { textColor = new Color(1f, 0.6f, 0.2f) }, // Orange
+                normal = { textColor = new Color(1f, 0.6f, 0.2f) },
+                fontStyle = FontStyle.Bold
+            };
+
+            _majorUpdateStyle = new GUIStyle(GUI.skin.label)
+            {
+                normal = { textColor = new Color(1f, 0.3f, 0.3f) },
                 fontStyle = FontStyle.Bold
             };
 
             _upToDateStyle = new GUIStyle(GUI.skin.label)
             {
-                normal = { textColor = new Color(0.4f, 0.9f, 0.4f) } // Green
+                normal = { textColor = new Color(0.4f, 0.9f, 0.4f) }
             };
 
             _errorStyle = new GUIStyle(GUI.skin.label)
             {
-                normal = { textColor = new Color(0.7f, 0.7f, 0.7f) } // Gray
+                normal = { textColor = new Color(0.7f, 0.7f, 0.7f) }
             };
 
             _modNameStyle = new GUIStyle(GUI.skin.label)
@@ -162,12 +177,27 @@ namespace mod_update_manager
                 fontStyle = FontStyle.Bold
             };
 
+            _favoriteStyle = new GUIStyle(GUI.skin.label)
+            {
+                fontStyle = FontStyle.Bold,
+                normal = { textColor = new Color(1f, 0.85f, 0.2f) }
+            };
+
+            _ignoredStyle = new GUIStyle(GUI.skin.label)
+            {
+                normal = { textColor = new Color(0.45f, 0.45f, 0.45f) }
+            };
+
+            _summaryStyle = new GUIStyle(GUI.skin.label)
+            {
+                normal = { textColor = new Color(0.75f, 0.75f, 0.75f) },
+                wordWrap = true,
+                fontSize = GUI.skin.label.fontSize - 1
+            };
+
             _stylesInitialized = true;
         }
 
-        /// <summary>
-        /// Creates a solid color texture for opaque backgrounds
-        /// </summary>
         private Texture2D MakeOpaqueTexture(Color color)
         {
             var texture = new Texture2D(1, 1);
@@ -178,29 +208,22 @@ namespace mod_update_manager
 
         private void DrawWindow(int windowId)
         {
-            // Draw solid background
-            GUI.DrawTexture(new Rect(0, 0, _windowRect.width, _windowRect.height), 
+            GUI.DrawTexture(new Rect(0, 0, _windowRect.width, _windowRect.height),
                 _opaqueBackground ?? (_opaqueBackground = MakeOpaqueTexture(new Color(0.18f, 0.18f, 0.18f, 1f))));
 
             GUILayout.BeginVertical();
 
-            // Header with game version
             var gameVersion = ModScanner.GetGameVersion();
             GUILayout.Label($"Card Survival: Fantasy Forest · {gameVersion}", _headerStyle);
             GUILayout.Space(5);
 
-            // Status bar
             GUILayout.BeginHorizontal("box");
             GUILayout.Label(_statusMessage);
             if (_updateChecker.IsChecking)
-            {
                 GUILayout.Label($"Progress: {_updateChecker.Progress:P0}", GUILayout.Width(100));
-            }
             GUILayout.EndHorizontal();
 
-            // Action buttons
             GUILayout.BeginHorizontal();
-            
             GUI.enabled = !_updateChecker.IsChecking && _config.HasApiKey;
             if (GUILayout.Button("Check for Updates", GUILayout.Height(30)))
             {
@@ -210,43 +233,30 @@ namespace mod_update_manager
             GUI.enabled = true;
 
             if (GUILayout.Button("Refresh Mod List", GUILayout.Height(30)))
-            {
                 _updateChecker.ScanMods();
-            }
 
             if (GUILayout.Button("Close", GUILayout.Height(30), GUILayout.Width(80)))
-            {
                 Hide();
-            }
-            
             GUILayout.EndHorizontal();
 
             if (!_config.HasApiKey)
-            {
-                GUILayout.Label("⚠️ Configure your Nexus API key in Settings to check for updates", _updateAvailableStyle);
-            }
+                GUILayout.Label("Configure your Nexus API key in Settings to check for updates", _updateAvailableStyle);
 
             GUILayout.Space(10);
 
-            // Tabs
             _selectedTab = GUILayout.Toolbar(_selectedTab, _tabNames);
-            
             GUILayout.Space(5);
 
-            // Search filter (not for settings, conflicts, analytics, or advanced settings tabs)
             if (_selectedTab < 4)
             {
                 GUILayout.BeginHorizontal();
                 GUILayout.Label("Filter:", GUILayout.Width(50));
                 _searchFilter = GUILayout.TextField(_searchFilter);
                 if (GUILayout.Button("Clear", GUILayout.Width(50)))
-                {
                     _searchFilter = "";
-                }
                 GUILayout.EndHorizontal();
             }
 
-            // Content area
             _scrollPosition = GUILayout.BeginScrollView(_scrollPosition, "box");
 
             switch (_selectedTab)
@@ -261,31 +271,48 @@ namespace mod_update_manager
             }
 
             GUILayout.EndScrollView();
-
             GUILayout.EndVertical();
 
-            // Make window draggable
             GUI.DragWindow(new Rect(0, 0, _windowRect.width, 25));
         }
 
+        // ── Tabs ────────────────────────────────────────────────────────────
+
         private void DrawAllMods()
         {
+            GUILayout.BeginHorizontal();
+            _favoritesOnly = GUILayout.Toggle(_favoritesOnly, "Favorites only", GUILayout.Width(110));
+            _showIgnored = GUILayout.Toggle(_showIgnored, "Show ignored", GUILayout.Width(100));
+            GUILayout.EndHorizontal();
+            GUILayout.Space(4);
+
             var mods = _config.ShowOnlyUpdates.Value
                 ? FilterMods(_updateChecker.GetModsNeedingUpdate())
                 : FilterMods(_updateChecker.InstalledMods);
+
+            if (_favoritesOnly)
+                mods = mods.Where(m => m.IsFavorited).ToList();
+            if (!_showIgnored)
+                mods = mods.Where(m => !m.IsIgnored).ToList();
+
             DrawModList(mods);
         }
 
         private void DrawUpdatesAvailable()
         {
             var mods = FilterMods(_updateChecker.GetModsNeedingUpdate());
+            if (!_showIgnored)
+                mods = mods.Where(m => !m.IsIgnored).ToList();
+
             if (mods.Count == 0)
             {
                 GUILayout.Label("No updates available! All configured mods are up to date.", _upToDateStyle);
             }
             else
             {
-                GUILayout.Label($"{mods.Count} mod(s) have updates available:", _updateAvailableStyle);
+                var majorCount = mods.Count(m => m.IsMajorVersionUpdate);
+                GUILayout.Label($"{mods.Count} mod(s) have updates available" +
+                    (majorCount > 0 ? $" ({majorCount} major)" : "") + ":", _updateAvailableStyle);
                 DrawModList(mods);
             }
         }
@@ -293,14 +320,13 @@ namespace mod_update_manager
         private void DrawUpToDate()
         {
             var mods = FilterMods(_updateChecker.GetUpToDateMods());
+            if (!_showIgnored)
+                mods = mods.Where(m => !m.IsIgnored).ToList();
+
             if (mods.Count == 0)
-            {
                 GUILayout.Label("No mods have been checked yet.");
-            }
             else
-            {
                 DrawModList(mods);
-            }
         }
 
         private void DrawUnableToCheck()
@@ -326,19 +352,12 @@ namespace mod_update_manager
                 GUILayout.Label($"v{mod.Version}", _errorStyle, GUILayout.Width(100));
                 GUILayout.FlexibleSpace();
 
-                // Check if known registry has a suggestion
                 var knownId = KnownModRegistry.GetNexusModId(mod.Name)
                     ?? KnownModRegistry.GetNexusModId(mod.FolderName);
                 if (knownId != null)
-                {
-                    var knownName = KnownModRegistry.GetDisplayName(mod.Name)
-                        ?? KnownModRegistry.GetDisplayName(mod.FolderName) ?? mod.Name;
                     GUILayout.Label($"Known: #{knownId}", _upToDateStyle, GUILayout.Width(100));
-                }
-
                 GUILayout.EndHorizontal();
 
-                // Inline quick-map: text field + button
                 if (!_inlineNexusIds.ContainsKey(mod.FolderName))
                     _inlineNexusIds[mod.FolderName] = knownId ?? "";
 
@@ -361,6 +380,133 @@ namespace mod_update_manager
             }
         }
 
+        private void DrawConflicts()
+        {
+            if (!_config.ShowConflictWarnings.Value)
+            {
+                GUILayout.Label("Conflict warnings are disabled in Settings.", _errorStyle);
+                return;
+            }
+
+            if (_updateChecker.InstalledMods.Count == 0)
+            {
+                GUILayout.Label("No mods installed.");
+                return;
+            }
+
+            var conflicts = _conflictDetector.DetectConflicts(_updateChecker.InstalledMods);
+
+            if (conflicts.Count == 0)
+            {
+                GUILayout.Label("No conflicts detected!", _upToDateStyle);
+                return;
+            }
+
+            GUILayout.Label($"Found {conflicts.Count} potential conflict(s):", _headerStyle);
+            GUILayout.Space(5);
+
+            foreach (var conflict in conflicts)
+            {
+                GUILayout.BeginHorizontal("box");
+                var severityStyle = conflict.Severity switch
+                {
+                    ConflictDetector.ConflictSeverity.Critical => _updateAvailableStyle,
+                    ConflictDetector.ConflictSeverity.Warning => _modNameStyle,
+                    _ => _upToDateStyle
+                };
+                GUILayout.Label($"[{conflict.Severity}] {conflict.ModA} <-> {conflict.ModB}", severityStyle);
+                GUILayout.EndHorizontal();
+                GUILayout.Label($"  {conflict.Description}", _errorStyle);
+                GUILayout.Label($"  Resolution: {_conflictDetector.GetConflictResolution(conflict)}", _errorStyle);
+                GUILayout.Space(5);
+            }
+        }
+
+        private void DrawAnalytics()
+        {
+            if (_updateChecker.InstalledMods.Count == 0)
+            {
+                GUILayout.Label("No mods installed.");
+                return;
+            }
+
+            var stats = ModComparisonView.GenerateStats(_updateChecker.InstalledMods);
+
+            GUILayout.Label("Update Statistics", _headerStyle);
+            GUILayout.Space(5);
+
+            GUILayout.BeginHorizontal("box");
+            GUILayout.Label("Total Mods:");
+            GUILayout.Label(stats.TotalMods.ToString(), _modNameStyle);
+            GUILayout.EndHorizontal();
+
+            GUILayout.BeginHorizontal("box");
+            GUILayout.Label("Up to Date:");
+            GUILayout.Label(stats.ModsUpToDate.ToString(), _upToDateStyle);
+            GUILayout.EndHorizontal();
+
+            GUILayout.BeginHorizontal("box");
+            GUILayout.Label("Need Updates:");
+            GUILayout.Label(stats.ModsNeedingUpdate.ToString(), _updateAvailableStyle);
+            GUILayout.EndHorizontal();
+
+            if (stats.CriticalUpdates > 0)
+            {
+                GUILayout.BeginHorizontal("box");
+                GUILayout.Label("Critical / Major Updates:");
+                GUILayout.Label(stats.CriticalUpdates.ToString(), _majorUpdateStyle);
+                GUILayout.EndHorizontal();
+            }
+
+            if (stats.ModsUnchecked > 0)
+            {
+                GUILayout.BeginHorizontal("box");
+                GUILayout.Label("Unable to Check:");
+                GUILayout.Label(stats.ModsUnchecked.ToString(), _errorStyle);
+                GUILayout.EndHorizontal();
+            }
+
+            var favCount = _updateChecker.InstalledMods.Count(m => m.IsFavorited);
+            var ignCount = _updateChecker.InstalledMods.Count(m => m.IsIgnored);
+            if (favCount > 0 || ignCount > 0)
+            {
+                GUILayout.Space(5);
+                GUILayout.BeginHorizontal("box");
+                GUILayout.Label($"Favorites: {favCount}  |  Ignored: {ignCount}", _errorStyle);
+                GUILayout.EndHorizontal();
+            }
+
+            GUILayout.Space(10);
+            if (_updateScheduler.IsRunning)
+            {
+                GUILayout.BeginHorizontal("box");
+                GUILayout.Label("Next background check:", _modNameStyle);
+                GUILayout.Label(_updateScheduler.GetTimeUntilNextCheckFormatted(), _upToDateStyle);
+                GUILayout.EndHorizontal();
+            }
+
+            GUILayout.Space(10);
+            GUILayout.Label("Export Mod List", _headerStyle);
+            GUILayout.Space(4);
+            GUILayout.Label("Generates a formatted list for bug reports or compatibility discussions.", _errorStyle);
+
+            if (GUILayout.Button("Generate Export", GUILayout.Width(150)))
+            {
+                _exportText = ModPreferences.ExportText(_updateChecker.InstalledMods);
+                _exportScroll = Vector2.zero;
+            }
+
+            if (!string.IsNullOrEmpty(_exportText))
+            {
+                if (GUILayout.Button("Copy to Clipboard", GUILayout.Width(150)))
+                    GUIUtility.systemCopyBuffer = _exportText;
+
+                _exportScroll = GUILayout.BeginScrollView(_exportScroll, GUILayout.Height(180));
+                GUILayout.TextArea(_exportText);
+                GUILayout.EndScrollView();
+            }
+        }
+
         private void DrawSettings()
         {
             GUILayout.Label("API Configuration", _headerStyle);
@@ -375,7 +521,6 @@ namespace mod_update_manager
                 _statusMessage = "API key saved!";
             }
             GUILayout.EndHorizontal();
-
             GUILayout.Label("Get your API key from: https://www.nexusmods.com/users/myaccount?tab=api+access", _errorStyle);
 
             GUILayout.Space(20);
@@ -418,9 +563,7 @@ namespace mod_update_manager
                 GUILayout.BeginHorizontal("box");
                 GUILayout.Label($"{mapping.LocalModName} → Nexus ID: {mapping.NexusModId}");
                 if (GUILayout.Button("Remove", GUILayout.Width(60)))
-                {
                     _mappingManager.RemoveMapping(mapping.LocalModName);
-                }
                 GUILayout.EndHorizontal();
             }
 
@@ -436,15 +579,11 @@ namespace mod_update_manager
                 GUILayout.Label("Check Interval (min):", GUILayout.Width(150));
                 var intervalStr = GUILayout.TextField(_config.CheckIntervalMinutes.Value.ToString(), GUILayout.Width(50));
                 if (int.TryParse(intervalStr, out int interval) && interval >= 10 && interval <= 1440)
-                {
                     _config.CheckIntervalMinutes.Value = interval;
-                }
                 GUILayout.EndHorizontal();
 
                 if (_updateScheduler.IsRunning)
-                {
                     GUILayout.Label($"Next check: {_updateScheduler.GetTimeUntilNextCheckFormatted()}", _upToDateStyle);
-                }
             }
 
             GUILayout.Space(20);
@@ -460,10 +599,7 @@ namespace mod_update_manager
             _config.CachingEnabled.Value = GUILayout.Toggle(_config.CachingEnabled.Value, "Cache API responses");
 
             if (_config.CachingEnabled.Value)
-            {
-                var cacheSize = _nexusClient.GetCacheSize();
-                GUILayout.Label($"Cached responses: {cacheSize}", _upToDateStyle);
-            }
+                GUILayout.Label($"Cached responses: {_nexusClient.GetCacheSize()}", _upToDateStyle);
 
             _config.EnableNexusDiscovery.Value = GUILayout.Toggle(_config.EnableNexusDiscovery.Value, "Enable slow Nexus ID discovery");
             if (_config.EnableNexusDiscovery.Value)
@@ -473,121 +609,12 @@ namespace mod_update_manager
             }
         }
 
-        private void DrawConflicts()
-        {
-            if (!_config.ShowConflictWarnings.Value)
-            {
-                GUILayout.Label("Conflict warnings are disabled in Settings.", _errorStyle);
-                return;
-            }
-
-            if (_updateChecker.InstalledMods.Count == 0)
-            {
-                GUILayout.Label("No mods installed.");
-                return;
-            }
-
-            var conflicts = _conflictDetector.DetectConflicts(_updateChecker.InstalledMods);
-
-            if (conflicts.Count == 0)
-            {
-                GUILayout.Label("No conflicts detected! ✓", _upToDateStyle);
-                return;
-            }
-
-            GUILayout.Label($"Found {conflicts.Count} potential conflict(s):", _headerStyle);
-            GUILayout.Space(5);
-
-            foreach (var conflict in conflicts)
-            {
-                GUILayout.BeginHorizontal("box");
-
-                var severityColor = conflict.Severity switch
-                {
-                    ConflictDetector.ConflictSeverity.Critical => _updateAvailableStyle,
-                    ConflictDetector.ConflictSeverity.Warning => _modNameStyle,
-                    _ => _upToDateStyle
-                };
-
-                GUILayout.Label($"[{conflict.Severity}] {conflict.ModA} <-> {conflict.ModB}", severityColor);
-                GUILayout.EndHorizontal();
-
-                GUILayout.Label($"  {conflict.Description}", _errorStyle);
-                GUILayout.Label($"  Resolution: {_conflictDetector.GetConflictResolution(conflict)}", _errorStyle);
-                GUILayout.Space(5);
-            }
-        }
-
-        private void DrawAnalytics()
-        {
-            if (_updateChecker.InstalledMods.Count == 0)
-            {
-                GUILayout.Label("No mods installed.");
-                return;
-            }
-
-            var stats = ModComparisonView.GenerateStats(_updateChecker.InstalledMods);
-
-            GUILayout.Label("Update Statistics", _headerStyle);
-            GUILayout.Space(5);
-
-            GUILayout.BeginHorizontal("box");
-            GUILayout.Label("Total Mods:");
-            GUILayout.Label(stats.TotalMods.ToString(), _modNameStyle);
-            GUILayout.EndHorizontal();
-
-            GUILayout.BeginHorizontal("box");
-            GUILayout.Label("Up to Date:");
-            GUILayout.Label(stats.ModsUpToDate.ToString(), _upToDateStyle);
-            GUILayout.EndHorizontal();
-
-            GUILayout.BeginHorizontal("box");
-            GUILayout.Label("Need Updates:");
-            GUILayout.Label(stats.ModsNeedingUpdate.ToString(), _updateAvailableStyle);
-            GUILayout.EndHorizontal();
-
-            if (stats.CriticalUpdates > 0)
-            {
-                GUILayout.BeginHorizontal("box");
-                GUILayout.Label("Critical Updates:");
-                GUILayout.Label(stats.CriticalUpdates.ToString(), _updateAvailableStyle);
-                GUILayout.EndHorizontal();
-            }
-
-            if (stats.ModsUnchecked > 0)
-            {
-                GUILayout.BeginHorizontal("box");
-                GUILayout.Label("Unable to Check:");
-                GUILayout.Label(stats.ModsUnchecked.ToString(), _errorStyle);
-                GUILayout.EndHorizontal();
-            }
-
-            GUILayout.Space(10);
-            GUILayout.Label("Update Summary", _headerStyle);
-            GUILayout.Space(5);
-
-            if (stats.ModsNeedingUpdate == 0)
-            {
-                GUILayout.Label("All mods are up to date!", _upToDateStyle);
-            }
-
-            GUILayout.Space(10);
-
-            if (_updateScheduler.IsRunning)
-            {
-                GUILayout.BeginHorizontal("box");
-                GUILayout.Label("Background Checking:", _modNameStyle);
-                GUILayout.Label($"Next check in {_updateScheduler.GetTimeUntilNextCheckFormatted()}", _upToDateStyle);
-                GUILayout.EndHorizontal();
-            }
-        }
+        // ── Mod list helpers ─────────────────────────────────────────────────
 
         private List<InstalledModInfo> FilterMods(List<InstalledModInfo> mods)
         {
-            if (string.IsNullOrEmpty(_searchFilter))
-                return mods;
-
-            return mods.Where(m => 
+            if (string.IsNullOrEmpty(_searchFilter)) return mods;
+            return mods.Where(m =>
                 m.Name.IndexOf(_searchFilter, StringComparison.OrdinalIgnoreCase) >= 0 ||
                 m.FolderName.IndexOf(_searchFilter, StringComparison.OrdinalIgnoreCase) >= 0 ||
                 (m.Author != null && m.Author.IndexOf(_searchFilter, StringComparison.OrdinalIgnoreCase) >= 0)
@@ -602,25 +629,41 @@ namespace mod_update_manager
                 return;
             }
 
-            foreach (var mod in mods.OrderBy(m => m.Name))
-            {
+            foreach (var mod in mods.OrderByDescending(m => m.IsFavorited).ThenBy(m => m.Name))
                 DrawModEntry(mod);
-            }
         }
 
         private void DrawModEntry(InstalledModInfo mod)
         {
+            var nameStyle = mod.IsIgnored ? _ignoredStyle
+                          : mod.IsFavorited ? _favoriteStyle
+                          : _modNameStyle;
+
             GUILayout.BeginVertical("box");
 
+            // ── Row 1: star | name | author | endorsements | version ──
             GUILayout.BeginHorizontal();
-            GUILayout.Label(mod.Name, _modNameStyle, GUILayout.Width(250));
-            GUILayout.Label($"by {mod.Author}", GUILayout.Width(150));
+
+            // Favorite toggle
+            var starLabel = mod.IsFavorited ? "★" : "☆";
+            if (GUILayout.Button(starLabel, GUILayout.Width(24), GUILayout.Height(20)))
+            {
+                mod.IsFavorited = !mod.IsFavorited;
+                _preferences?.SetFavorited(mod.FolderName, mod.IsFavorited);
+            }
+
+            GUILayout.Label(mod.Name, nameStyle, GUILayout.Width(220));
+            GUILayout.Label($"by {mod.Author}", _errorStyle, GUILayout.Width(130));
+
+            if (mod.EndorsementCount > 0)
+                GUILayout.Label($"♥ {mod.EndorsementCount}", _upToDateStyle, GUILayout.Width(60));
+
             GUILayout.FlexibleSpace();
 
-            // Version status
             if (mod.NeedsUpdate)
             {
-                GUILayout.Label($"v{mod.Version} -> v{mod.LatestVersion}", _updateAvailableStyle);
+                var verStyle = mod.IsMajorVersionUpdate ? _majorUpdateStyle : _updateAvailableStyle;
+                GUILayout.Label($"v{mod.Version} → v{mod.LatestVersion}", verStyle);
             }
             else if (!mod.CheckFailed && !string.IsNullOrEmpty(mod.LatestVersion) && mod.LatestVersion != "No Nexus ID")
             {
@@ -633,19 +676,28 @@ namespace mod_update_manager
 
             GUILayout.EndHorizontal();
 
-            // Additional info row
+            // ── Row 2: summary (if available) ──
+            if (!string.IsNullOrEmpty(mod.Summary))
+            {
+                var truncated = mod.Summary.Length > 120 ? mod.Summary.Substring(0, 117) + "..." : mod.Summary;
+                GUILayout.Label("  " + truncated, _summaryStyle);
+            }
+
+            // ── Row 3: update / error actions ──
             if (mod.NeedsUpdate)
             {
                 GUILayout.BeginHorizontal();
-                GUILayout.Label("  UPDATE AVAILABLE", _updateAvailableStyle);
+                var updateLabel = mod.IsMajorVersionUpdate ? "  MAJOR UPDATE AVAILABLE" : "  UPDATE AVAILABLE";
+                GUILayout.Label(updateLabel, mod.IsMajorVersionUpdate ? _majorUpdateStyle : _updateAvailableStyle);
                 GUILayout.FlexibleSpace();
+
                 if (!string.IsNullOrEmpty(mod.NexusUrl))
                 {
                     if (GUILayout.Button("Open Nexus Page", GUILayout.Width(130)))
-                    {
                         Application.OpenURL(mod.NexusUrl);
-                    }
                 }
+
+                DrawChangelogButton(mod);
                 GUILayout.EndHorizontal();
             }
             else if (mod.CheckFailed && !string.IsNullOrEmpty(mod.CheckError))
@@ -654,8 +706,152 @@ namespace mod_update_manager
                 GUILayout.Label($"  {mod.CheckError}", _errorStyle);
                 GUILayout.EndHorizontal();
             }
+            else if (!mod.CheckFailed && !string.IsNullOrEmpty(mod.LatestVersion) && mod.LatestVersion != "No Nexus ID")
+            {
+                // Up to date — still allow changelog viewing
+                GUILayout.BeginHorizontal();
+                GUILayout.FlexibleSpace();
+                DrawChangelogButton(mod);
+                GUILayout.EndHorizontal();
+            }
+
+            // ── Row 4: inline changelog ──
+            DrawInlineChangelog(mod);
+
+            // ── Row 5: notes ──
+            DrawInlineNotes(mod);
+
+            // ── Row 6: ignore toggle ──
+            GUILayout.BeginHorizontal();
+            GUILayout.Space(4);
+            var ignoreLabel = mod.IsIgnored ? "Unignore" : "Ignore";
+            if (GUILayout.Button(ignoreLabel, GUILayout.Width(70)))
+            {
+                mod.IsIgnored = !mod.IsIgnored;
+                _preferences?.SetIgnored(mod.FolderName, mod.IsIgnored);
+            }
+            GUILayout.EndHorizontal();
 
             GUILayout.EndVertical();
+        }
+
+        private void DrawChangelogButton(InstalledModInfo mod)
+        {
+            if (!_config.HasApiKey) return;
+
+            var nexusId = GetNexusIdForMod(mod);
+            if (string.IsNullOrEmpty(nexusId)) return;
+
+            bool expanded = _changelogExpanded.TryGetValue(mod.FolderName, out var e) && e;
+            var label = expanded ? "Hide Changelog" : "Changelog";
+
+            if (GUILayout.Button(label, GUILayout.Width(110)))
+            {
+                _changelogExpanded[mod.FolderName] = !expanded;
+                if (!expanded && !_changelogCache.ContainsKey(mod.FolderName) && !_changelogFetching.Contains(mod.FolderName))
+                {
+                    _changelogFetching.Add(mod.FolderName);
+                    _nexusClient.GetModChangelogs(nexusId, (data, error) =>
+                    {
+                        _changelogFetching.Remove(mod.FolderName);
+                        _changelogCache[mod.FolderName] = (data, error);
+                    });
+                }
+            }
+        }
+
+        private void DrawInlineChangelog(InstalledModInfo mod)
+        {
+            bool expanded = _changelogExpanded.TryGetValue(mod.FolderName, out var e) && e;
+            if (!expanded) return;
+
+            GUILayout.Space(4);
+            GUILayout.BeginVertical("box");
+
+            if (_changelogFetching.Contains(mod.FolderName))
+            {
+                GUILayout.Label("Fetching changelog...", _errorStyle);
+            }
+            else if (_changelogCache.TryGetValue(mod.FolderName, out var cached))
+            {
+                if (!string.IsNullOrEmpty(cached.error))
+                {
+                    GUILayout.Label($"Changelog unavailable: {cached.error}", _errorStyle);
+                }
+                else if (cached.data == null || cached.data.Count == 0)
+                {
+                    GUILayout.Label("No changelog entries found for this mod.", _errorStyle);
+                }
+                else
+                {
+                    if (!_changelogScroll.ContainsKey(mod.FolderName))
+                        _changelogScroll[mod.FolderName] = Vector2.zero;
+
+                    _changelogScroll[mod.FolderName] = GUILayout.BeginScrollView(
+                        _changelogScroll[mod.FolderName], GUILayout.Height(140));
+
+                    foreach (var (version, entries) in cached.data)
+                    {
+                        GUILayout.Label($"v{version}", _modNameStyle);
+                        foreach (var entry in entries)
+                            GUILayout.Label($"  • {entry}", _summaryStyle);
+                        GUILayout.Space(4);
+                    }
+
+                    GUILayout.EndScrollView();
+                }
+            }
+            else
+            {
+                GUILayout.Label("Click Changelog button to load.", _errorStyle);
+            }
+
+            GUILayout.EndVertical();
+        }
+
+        private void DrawInlineNotes(InstalledModInfo mod)
+        {
+            bool expanded = _notesExpanded.TryGetValue(mod.FolderName, out var e) && e;
+            var hasNotes = !string.IsNullOrEmpty(mod.Notes);
+            var notesLabel = expanded ? "Hide Notes" : (hasNotes ? $"Notes: {mod.Notes.Substring(0, Math.Min(mod.Notes.Length, 30))}" : "Add Notes");
+
+            GUILayout.BeginHorizontal();
+            GUILayout.Space(4);
+            if (GUILayout.Button(notesLabel, GUILayout.Width(200)))
+            {
+                _notesExpanded[mod.FolderName] = !expanded;
+                if (!expanded)
+                {
+                    if (!_notesInput.ContainsKey(mod.FolderName))
+                        _notesInput[mod.FolderName] = mod.Notes ?? "";
+                }
+            }
+            GUILayout.EndHorizontal();
+
+            if (!expanded) return;
+
+            GUILayout.BeginHorizontal();
+            GUILayout.Space(4);
+            _notesInput.TryGetValue(mod.FolderName, out var current);
+            _notesInput[mod.FolderName] = GUILayout.TextField(current ?? "", GUILayout.Width(320));
+            if (GUILayout.Button("Save", GUILayout.Width(50)))
+            {
+                mod.Notes = _notesInput[mod.FolderName];
+                _preferences?.SetNotes(mod.FolderName, mod.Notes);
+                _notesExpanded[mod.FolderName] = false;
+            }
+            if (GUILayout.Button("Cancel", GUILayout.Width(60)))
+                _notesExpanded[mod.FolderName] = false;
+            GUILayout.EndHorizontal();
+        }
+
+        // Resolves the Nexus mod ID for a given mod (same priority chain as UpdateChecker)
+        private string GetNexusIdForMod(InstalledModInfo mod)
+        {
+            if (!string.IsNullOrEmpty(mod.NexusModId)) return mod.NexusModId;
+            var mapped = _mappingManager.GetNexusModId(mod.Name) ?? _mappingManager.GetNexusModId(mod.FolderName);
+            if (mapped != null) return mapped;
+            return KnownModRegistry.GetNexusModId(mod.Name) ?? KnownModRegistry.GetNexusModId(mod.FolderName);
         }
     }
 }

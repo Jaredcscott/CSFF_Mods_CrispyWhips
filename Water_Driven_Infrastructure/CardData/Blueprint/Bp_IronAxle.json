@@ -1,0 +1,163 @@
+{
+    "UniqueID": "water_sawmill_bp_iron_axle",
+    "CardName": {
+        "ParentObjectID": "water_sawmill_bp_iron_axle",
+        "LocalizationKey": "Water_Sawmill_Bp_IronAxle_CardName",
+        "DefaultText": "Forge Iron Axle"
+    },
+    "CardDescription": {
+        "ParentObjectID": "water_sawmill_bp_iron_axle",
+        "LocalizationKey": "Water_Sawmill_Bp_IronAxle_CardDescription",
+        "DefaultText": "Forge one heavy iron axle from a wrought iron bar."
+    },
+    "CanBeRenamed": false,
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "water_sawmill_bp_iron_axle",
+        "LocalizationKey": "Water_Sawmill_Bp_IronAxle_UnlockConditionsDesc",
+        "DefaultText": "Wrought Iron Bar Needed"
+    },
+    "StartUnlocked": false,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "IronAxle",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 8.0,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasWroughtIronBar",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "CardWarpData": "14f7ddfe60496b54881d5a25de8abb20",
+            "CardWarpType": 3,
+            "WithDurabilities": {
+                "SpoilageRange": { "x": 0.0, "y": 0.0 },
+                "UsageRange": { "x": 0.0, "y": 0.0 },
+                "FuelRange": { "x": 0.0, "y": 300.0 },
+                "ProgressRange": { "x": 0.0, "y": 0.0 },
+                "Special1Range": { "x": 0.0, "y": 0.0 },
+                "Special2Range": { "x": 0.0, "y": 0.0 },
+                "Special3Range": { "x": 0.0, "y": 0.0 },
+                "Special4Range": { "x": 200.0, "y": 200.0 },
+                "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+            }
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BuildingStatConditions": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "Spoilage": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+                    "Usage": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+                    "Fuel": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+                    "Progress": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+                    "Special1": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+                    "Special2": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+                    "Special3": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+                    "Special4": { "Active": true, "FloatValue": 200.0, "MaxValue": 1000.0 },
+                    "DurabilityFeedback": 0,
+                    "FilterStackWithDurability": {
+                        "MaskValue": 256
+                    },
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "14f7ddfe60496b54881d5a25de8abb20",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroupWarpData": "GpTag_HammeringToolGeneral",
+                    "RequiredTabGroupWarpType": 3,
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "UsageChange": {
+                            "x": -8.0,
+                            "y": -8.0
+                        }
+                    }
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [
+                "HammeringActionSoftSpecial5Drops"
+            ],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildSounds": [],
+    "DeconstructSounds": [],
+    "BuildingDaytimeCost": 3,
+    "BuildingMiniTicks": 0,
+    "DeconstructDaytimeCost": 0,
+    "DeconstructMiniTicks": 0,
+    "BlueprintActionTags": [],
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "BlueprintDoesntCountForEnvWeight": false,
+    "BPRandomSingleDrop": false,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "DroppedCardWarpData": "water_sawmill_iron_axle",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintContainerCardChanges": {
+        "ModType": 0
+    },
+    "WhenCreatedSoundsWarpData": [
+        "Metal"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "ResearchedNotification": 0
+}

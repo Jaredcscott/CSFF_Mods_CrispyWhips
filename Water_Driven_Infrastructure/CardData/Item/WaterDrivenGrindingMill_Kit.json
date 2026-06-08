@@ -8,13 +8,13 @@
   "CardDescription": {
     "ParentObjectID": "water_sawmill_grinding_mill_kit",
     "LocalizationKey": "Water_Sawmill_GrindingMillKit_CardDescription",
-    "DefaultText": "A complete grinding mill kit with all components for a large water-powered grain mill."
+    "DefaultText": "A complete grinding mill kit with all components for a large water-powered grain mill, including iron bearing and axle hardware."
   },
   "CanBeRenamed": false,
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_grinding_mill_kit",
     "LocalizationKey": "Water_Sawmill_GrindingMillKit_CardHelpSection",
-    "DefaultText": "<b>Use:</b> Place near water or a connected mill race outlet to set up the grinding mill.\n\n<b>Scale:</b> This is a large construction project requiring water power."
+    "DefaultText": "<b>Use:</b> Place near water or a connected mill race outlet to set up the grinding mill.\n\n<b>Scale:</b> This is a large construction project requiring water power, an iron bearing, and an iron axle."
   },    "CardImage": {
         "m_FileID": 0,
         "m_PathID": 0
@@ -123,6 +123,18 @@
               "DroppedCardWarpData": "a7384e5147b23a642809451cc4ef24fb",
               "DroppedCardWarpType": 3,
               "Quantity": {"x": 10, "y": 10}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "water_sawmill_iron_bearing",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "water_sawmill_iron_axle",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1}
             }
           ]
         }
@@ -151,9 +163,6 @@
     "ExtraSpecial3Rate": 0.0,
     "ExtraSpecial4Rate": 0.0
   },
-  "CookingRecipes": [],
-  "BlueprintStages": [],
-  "BlueprintResult": [],
   "IsWeapon": false,
   "IsArmor": false
 }

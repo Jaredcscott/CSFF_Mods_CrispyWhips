@@ -2,7 +2,7 @@
 
 Complete documentation of all features, configuration options, and systems.
 
-**Current Features:** Staleness control, global XP multiplier, per-skill multipliers, morning bonus, area familiarity.
+**Current Features:** Staleness control, global XP multiplier, per-skill multipliers, morning bonus, area familiarity, difficulty profiles, per-skill staleness, skill synergies, level scaling.
 
 ## Core Features
 
@@ -88,6 +88,58 @@ Set Blade_Multiplier = 3     (fast melee)
 - Bonus scales linearly from 0% to `AreaFamiliarityMaxBonus` as you accumulate visits
 - Persists across sessions in `BepInEx/config/SkillSpeedBoost/AreaFamiliarity.tsv`
 - Stacks multiplicatively with global, per-skill, and morning bonuses
+
+---
+
+### 6. Difficulty Profiles
+**What:** Named presets that set multiple settings at once with a single config key.
+
+**Settings:**
+- `ActiveProfile` (default: `""`) — Set to a profile name to apply it: `VanillaPlus`, `Casual`, `Hardcore`, `Grinder`, `Balanced`, `Legacy`
+
+**How It Works:**
+- Applying a profile sets `SkillExpMultiplier` and `EnableSkillStaleness` to preset values
+- Overriding any individual setting still works — the profile is a starting point
+
+---
+
+### 7. Per-Skill Staleness
+**What:** Fine-grained staleness control per skill — toggle and rate multiplier for each skill individually.
+
+**Settings:**
+- `<Skill>_UseStaleness` (default: `true`) — Enable/disable staleness for a specific skill, AND-ed with the global `EnableSkillStaleness` flag
+- `<Skill>_StalenessMultiplier` (default: `1.0`, range: `0.1–5.0`) — Multiplier applied to the staleness decay rate for that skill
+
+**How It Works:**
+- A skill's staleness only activates if BOTH the global `EnableSkillStaleness` AND its own `_UseStaleness` flag are true
+- Higher `_StalenessMultiplier` means faster staleness decay (the stale penalty clears sooner)
+
+---
+
+### 8. Skill Synergies
+**What:** Combo XP bonus for chaining related skills in sequence.
+
+**Settings:**
+- `EnableSkillSynergies` (default: `false`) — Enable the synergy system
+- `SkillSynergiesDebugLog` (default: `false`) — Log synergy calculations to the BepInEx log
+
+**How It Works:**
+- Chaining related skills (e.g. Foraging → Herbal → Cooking) gives +10% per consecutive related action
+- Capped at +50% (5-action combo); resets after 5 minutes of inactivity
+- Stacks multiplicatively with all other bonuses
+
+---
+
+### 9. Level Scaling
+**What:** Optional XP bonus that grows as a skill approaches its maximum level, compensating for the steep XP cost at higher levels.
+
+**Settings:**
+- `LevelScalingEnabled` (default: `false`) — Enable level scaling bonus
+- `LevelScalingMaxBonus` (default: `0.50`, range: `0–3.0`) — Bonus at max skill level (+50% by default)
+
+**How It Works:**
+- At skill level 0: 0% bonus. At max level: `LevelScalingMaxBonus` bonus. Scales linearly between.
+- Stacks multiplicatively with global, per-skill, morning, area familiarity, and synergy bonuses
 
 ---
 

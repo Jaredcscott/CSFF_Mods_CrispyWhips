@@ -13,7 +13,7 @@ internal class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.advanced_copper_tools";
     public const string PluginName = "Advanced_Copper_Tools";
-    public const string PluginVersion = "1.7.7";
+    public const string PluginVersion = "1.8.0";
 
     internal new static ManualLogSource Logger;
     internal static Plugin Instance { get; private set; }

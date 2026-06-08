@@ -1,27 +1,24 @@
 {
-    "UniqueID": "herbs_fungi_bp_death_cap_ward",
+    "UniqueID": "herbs_fungi_bp_mushroom_broth",
     "CardName": {
-        "ParentObjectID": "herbs_fungi_bp_death_cap_ward",
-        "LocalizationKey": "Herbs_And_Fungi_Bp_DeathCapWard_CardName",
-        "DefaultText": "Death Cap Ward"
+        "LocalizationKey": "Herbs_And_Fungi_Bp_MushroomBroth_CardName",
+        "DefaultText": "Mushroom Broth"
     },
     "CardDescription": {
-        "ParentObjectID": "herbs_fungi_bp_death_cap_ward",
-        "LocalizationKey": "Herbs_And_Fungi_Bp_DeathCapWard_CardDescription",
-        "DefaultText": "Lash 5 death caps to a pair of long sticks. Place the finished ward at a location to deter wild-animal encounters."
+        "LocalizationKey": "Herbs_And_Fungi_Bp_MushroomBroth_CardDescription",
+        "DefaultText": "Simmer dried shiitake and king oyster mushrooms in a clay bowl to make a rich, earthy mushroom broth. Warming and deeply nourishing."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {
-        "ParentObjectID": "herbs_fungi_bp_death_cap_ward",
-        "LocalizationKey": "Herbs_And_Fungi_Bp_DeathCapWard_UnlockConditionsDesc",
-        "DefaultText": "Unlocked after obtaining a Death Cap"
+        "LocalizationKey": "Herbs_And_Fungi_Bp_MushroomBroth_UnlockConditionsDesc",
+        "DefaultText": "Unlocked after obtaining Dried Shiitake and Dried King Oyster"
     },
-    "BlueprintUnlockTicksCost": 16.0,
+    "BlueprintUnlockTicksCost": 4.0,
     "BuildingStatConditions": [],
     "StartUnlocked": false,
     "CardsOnBoard": [
         {
-            "ObjectiveName": "HasDeathCap",
+            "ObjectiveName": "HasDriedShiitake",
             "CompletionWeight": 1,
             "Card": {
                 "m_FileID": 0,
@@ -40,7 +37,30 @@
                     "m_PathID": 0
                 }
             },
-            "CardWarpData": "herbs_fungi_death_cap",
+            "CardWarpData": "herbs_fungi_shiitake_dried",
+            "CardWarpType": 3
+        },
+        {
+            "ObjectiveName": "HasDriedKingOyster",
+            "CompletionWeight": 1,
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": {
+                "Target": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                }
+            },
+            "CardWarpData": "herbs_fungi_king_oyster_dried",
             "CardWarpType": 3
         }
     ],
@@ -59,9 +79,9 @@
                         "m_FileID": 0,
                         "m_PathID": 0
                     },
-                    "RequiredQuantity": 5,
+                    "RequiredQuantity": 1,
                     "DontSpend": false,
-                    "RequiredCardWarpData": "herbs_fungi_death_cap",
+                    "RequiredCardWarpData": "herbs_fungi_shiitake_dried",
                     "RequiredCardWarpType": 3
                 },
                 {
@@ -73,9 +93,23 @@
                         "m_FileID": 0,
                         "m_PathID": 0
                     },
-                    "RequiredQuantity": 2,
+                    "RequiredQuantity": 1,
                     "DontSpend": false,
-                    "RequiredCardWarpData": "3db4c94184af274409f0d3eb16870f64",
+                    "RequiredCardWarpData": "herbs_fungi_king_oyster_dried",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
                     "RequiredCardWarpType": 3
                 }
             ],
@@ -87,7 +121,7 @@
             "StepActionTagsWarpType": 3
         }
     ],
-    "BuildingDaytimeCost": 3,
+    "BuildingDaytimeCost": 2,
     "DeconstructDaytimeCost": 1,
     "BlueprintResult": [
         {
@@ -99,13 +133,13 @@
                 "x": 1,
                 "y": 1
             },
-            "DroppedCardWarpData": "herbs_fungi_death_cap_ward",
+            "DroppedCardWarpData": "herbs_fungi_mushroom_broth",
             "DroppedCardWarpType": 3
         }
     ],
     "BlueprintStatModifications": [],
     "WhenCreatedSoundsWarpData": [
-        "Wood"
+        "Clay"
     ],
     "WhenCreatedSoundsWarpType": 3,
     "BlueprintActionTagsWarpData": [
@@ -117,7 +151,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "CardImageWarpData": "DeathCap_Fresh",
+    "CardImageWarpData": "ShiitakeDried",
     "CardImageWarpType": 3,
     "ResearchedNotification": 0
 }

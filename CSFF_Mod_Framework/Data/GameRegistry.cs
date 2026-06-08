@@ -72,14 +72,24 @@ internal static class GameRegistry
     public static int Count => AllUniqueObjects?.Count ?? 0;
 
     /// <summary>
-    /// Resolve a UID through the game's own <c>GetFromID</c> static method.
-    /// Returns null if the game's resolver returns null.
+    /// Resolve a UID through the game's <c>AllUniqueObjects</c> dictionary.
+    /// Direct dict access is equivalent to GetFromID (which wraps the same dict) but
+    /// avoids allocating a <c>new object[]</c> on every call — WarpResolver calls this
+    /// for every WarpData reference resolution, so the savings accumulate quickly.
+    /// Falls back to the reflection-based GetFromID path if the dict isn't reachable.
     /// </summary>
     public static UniqueIDScriptable GetByUid(string uid)
     {
         if (string.IsNullOrEmpty(uid)) return null;
         EnsureInit();
 
+        // Fast path: direct dict lookup — same source GetFromID reads internally.
+        // Avoids `new object[] { uid }` allocation on every call (hot WarpResolver path).
+        var dict = AllUniqueObjects;
+        if (dict != null && dict.Contains(uid))
+            return dict[uid] as UniqueIDScriptable;
+
+        // Fallback: use the game's GetFromID in case it handles edge cases beyond the dict.
         if (_getFromIdNonGeneric != null)
         {
             try
@@ -91,11 +101,6 @@ internal static class GameRegistry
                 Log.Debug($"GameRegistry.GetByUid({uid}) non-generic threw: {Log.ExceptionText(ex)}");
             }
         }
-
-        // Fallback: read the dict directly.
-        var dict = AllUniqueObjects;
-        if (dict != null && dict.Contains(uid))
-            return dict[uid] as UniqueIDScriptable;
 
         return null;
     }

@@ -8,12 +8,12 @@
   "CardDescription": {
     "ParentObjectID": "water_sawmill_copper_gear_large",
     "LocalizationKey": "Water_Sawmill_CopperGearLarge_CardDescription",
-    "DefaultText": "A large precision-cast copper gear used in water-driven forge assemblies. Can be melted back into copper nuggets in a forge."
+    "DefaultText": "A large cast copper gear used in water-driven machinery. Can be smelted back into copper nuggets."
   },
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_copper_gear_large",
     "LocalizationKey": "Water_Sawmill_CopperGearLarge_CardHelpSection",
-    "DefaultText": "<b>Purpose:</b> Component for water-driven forge machinery.\n\n<b>Used in:</b> Water-driven forge leather bellows mechanism."
+    "DefaultText": "<b>Purpose:</b> Component for water-driven machinery.\n\n<b>Used in:</b> Sawmills, workshops, and other water-powered devices."
   },
   "CardImage": {
     "m_FileID": 0,
@@ -23,12 +23,11 @@
   "CardImageWarpType": 3,
   "CardType": 0,
   "ObjectWeight": 120.0,
-  "TradingValue": 180.0,
+  "TradingValue": 240.0,
   "CardTags": [],
   "CardTagsWarpData": [
     "tag_Metal",
-    "tag_SmeltsAt1100",
-    "tag_CopperBig"
+    "tag_SmeltsAt1100"
   ],
   "CardTagsWarpType": 3,
   "DoesNotPile": false,
@@ -76,8 +75,8 @@
               "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
               "DroppedCardWarpType": 3,
               "Quantity": {
-                "x": 10,
-                "y": 10
+                "x": 6,
+                "y": 6
               }
             }
           ]
@@ -136,16 +135,10 @@
         },
         "TransformIntoWarpData": "4b0f4937a5ecb90499428c8c10288afc",
         "TransformIntoWarpType": 3,
-        "TransformToLiquidQuantity": 0.0,
         "TransferSpoilage": false,
         "TransferUsage": false,
         "TransferFuel": false,
-        "TransferCharges": false,
-        "TransferSpecial1": false,
-        "TransferSpecial2": false,
-        "TransferSpecial3": false,
-        "TransferSpecial4": false,
-        "TransferInventory": false
+        "TransferCharges": false
       },
       "ProducedCards": [
         {
@@ -160,10 +153,9 @@
               "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
               "DroppedCardWarpType": 3,
               "Quantity": {
-                "x": 11,
-                "y": 11
-              },
-              "FinishUnlocking": false
+                "x": 5,
+                "y": 5
+              }
             }
           ]
         }
@@ -187,7 +179,7 @@
   "PassiveStatEffects": [],
   "PassiveEffects": [
     {
-      "EffectName": "Lose Smelting if not in smelting container",
+      "EffectName": "Lose Smelting if not in copper smelting container",
       "OnlyWhenEquipped": false,
       "EquippedOnBodyOnly": false,
       "OnlyWhenNOTEquipped": false,
@@ -294,7 +286,6 @@
     "ExtraSpecial3Rate": 0.0,
     "ExtraSpecial4Rate": 0.0
   },
-  "CookingRecipes": [],
   "EquipSlots": [],
   "EquipSlotType": 0
 }

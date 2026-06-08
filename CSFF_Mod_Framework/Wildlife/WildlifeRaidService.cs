@@ -409,7 +409,7 @@ internal static class WildlifeRaidService
             float cur = Convert.ToSingle(curProp.GetValue(statObj, null));
             float max = cur;
             var maxProp = statObj.GetType().GetProperty("MaxValue", Flags);
-            if (maxProp != null) { try { max = Convert.ToSingle(maxProp.GetValue(statObj, null)); } catch { } }
+            if (maxProp != null) { try { max = Convert.ToSingle(maxProp.GetValue(statObj, null)); } catch (Exception ex) { Log.Debug($"[WildlifeRaid] stress MaxValue read failed: {ex.GetType().Name}"); } }
             float next = Math.Min(cur + amount, max);
             curProp.SetValue(statObj, Convert.ChangeType(next, curProp.PropertyType), null);
         }

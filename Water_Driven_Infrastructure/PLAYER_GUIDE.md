@@ -53,6 +53,10 @@ Once your Mill Race is routed, build the power source.
 **Copper Gears** are cast in a forge or foundry:
 - **Cast Large Copper Gear** (Metal Crafts tab): Large Molten Crucible + Clay + Stone + hammer (unlock 16 ticks)
 - **Cast Small Copper Gear** (Metal Crafts tab): Small Molten Crucible + Clay + Stone + hammer (unlock 8 ticks)
+- **Forge Iron Parts** (Metal Crafts tab): Wrought Iron Bar + hammer (unlock 8 ticks)
+- **Forge Iron Bearing** (Metal Crafts tab): Wrought Iron Bar + hammer (unlock 8 ticks)
+- **Forge Iron Axle** (Metal Crafts tab): Wrought Iron Bar + hammer (unlock 8 ticks)
+- **Forge Iron Wrench** (Metal Crafts tab): Wrought Iron Bar + hammer (unlock 8 ticks)
 
 ---
 
@@ -154,7 +158,7 @@ The Workshop is an upgraded version of the Forge with 14 inventory slots and wat
 ### Building
 
 Blueprint: Furniture tab → Water-Driven Workshop Kit (unlock 32 ticks)
-**Requires:** Existing Forge Kit + Water Mill + Bellows + Charcoal + 2 Small Gears + 1 Large Gear
+**Requires:** Existing Forge Kit + Water Mill + Bellows + Charcoal + 2 Iron Parts + 2 Iron Bearings + 1 Iron Wrench + 2 Small Gears + 1 Large Gear
 
 ### Workshop-Exclusive Actions
 
@@ -168,7 +172,7 @@ All actions require temperature ≥780° and fuel ≥1:
 
 ### What to Load
 
-The Workshop accepts 14 inventory slots and takes tool blanks, copper components (small and large), clay, any `tag_SmeltsAt1100` items, and general metal items.
+The Workshop accepts 14 inventory slots and takes tool blanks, copper components (small and large), clay, and smeltable copper parts (`tag_SmeltsAt1100`).
 
 **Hammer All workflow:**
 1. Load all your in-progress metal items (tool blanks, gears, etc.) into the workshop inventory.

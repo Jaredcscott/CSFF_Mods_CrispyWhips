@@ -37,7 +37,7 @@
             "LocalizationKey": "Herbs_And_Fungi_HempFlower_SpoilageTime_CardStatName",
             "DefaultText": "Spoilage"
         },
-        "MaxValue": 600.0,
+        "MaxValue": 576.0,
         "RatePerDaytimePoint": 1.0,
         "HidingOptions": 1,
         "HasActionOnZero": false,
@@ -63,8 +63,8 @@
             "LocalizationKey": "Herbs_And_Fungi_HempFlower_UsageDurability_CardStatName",
             "DefaultText": "Drying"
         },
-        "MaxValue": 8.0,
-        "RatePerDaytimePoint": 0.042,
+        "MaxValue": 24.0,
+        "RatePerDaytimePoint": 0.02,
         "HidingOptions": 0,
         "HasActionOnFull": true,
         "OnFull": {

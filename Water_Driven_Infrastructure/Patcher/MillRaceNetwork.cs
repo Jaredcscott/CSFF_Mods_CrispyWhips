@@ -13,6 +13,7 @@ namespace WaterDrivenInfrastructure.Patcher
         private const string OutletFrozenID = "water_sawmill_mill_race_outlet_frozen";
         private const string OutletKitID = "water_sawmill_mill_race_outlet_kit";
         private const string OutletBlueprintID = "water_sawmill_bp_mill_race_outlet";
+        private const string LitBrazierID = "advanced_copper_tools_copper_brazier_placed_lit";
 
         private static readonly BindingFlags Flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
         private static readonly Dictionary<string, LocationRecord> LocationsByUid = new Dictionary<string, LocationRecord>(StringComparer.Ordinal);
@@ -232,6 +233,8 @@ namespace WaterDrivenInfrastructure.Patcher
             if (string.Equals(cardId, OutletFrozenID, StringComparison.Ordinal) && IsDrawWaterAction(actionName))
             {
                 locationUid = GetCardLocationUid(cardInstance);
+                if (!string.IsNullOrEmpty(locationUid) && HasLitBrazierAt(locationUid))
+                    return MillRaceGateResult.Allowed;
                 return MillRaceGateResult.FrozenOutlet;
             }
 
@@ -261,12 +264,19 @@ namespace WaterDrivenInfrastructure.Patcher
 
             if (WdiStationIds.Contains(cardId))
             {
-                if (IsMaintenanceAction(actionName))
+                if (IsMaintenanceAction(actionName) || IsStationPreparationAction(actionName))
+                    return MillRaceGateResult.Allowed;
+
+                if (IsForgeFireAction(cardId, actionName))
                     return MillRaceGateResult.Allowed;
 
                 locationUid = GetCardLocationUid(cardInstance);
                 if (string.IsNullOrEmpty(locationUid))
                     return MillRaceGateResult.UnknownLocation;
+
+                if (IsWinter() && !HasLitBrazierAt(locationUid))
+                    return MillRaceGateResult.FrozenOutlet;
+
                 return GetStationWaterAccessResult(locationUid);
             }
 
@@ -665,6 +675,38 @@ namespace WaterDrivenInfrastructure.Patcher
                 if (string.Equals(GetCardLocationUid(card), locationUid, StringComparison.Ordinal))
                     return true;
             }
+            // A frozen outlet heated by a nearby lit Copper Brazier counts as an active outlet.
+            if (HasLitBrazierAt(locationUid))
+            {
+                foreach (var card in GetGameCards("AllCards"))
+                {
+                    var uid = GetCardUniqueId(card);
+                    if (!string.Equals(uid, OutletFrozenID, StringComparison.Ordinal))
+                        continue;
+                    if (IsDestroyed(card))
+                        continue;
+                    if (string.Equals(GetCardLocationUid(card), locationUid, StringComparison.Ordinal))
+                        return true;
+                }
+            }
+            return false;
+        }
+
+        private static bool HasLitBrazierAt(string locationUid)
+        {
+            if (string.IsNullOrEmpty(locationUid))
+                return false;
+            if (!EnvironmentUidByLocationUid.TryGetValue(locationUid, out var targetEnvUid) || string.IsNullOrEmpty(targetEnvUid))
+                return false;
+            foreach (var card in GetGameCards("AllCards"))
+            {
+                if (!string.Equals(GetCardUniqueId(card), LitBrazierID, StringComparison.Ordinal))
+                    continue;
+                if (IsDestroyed(card))
+                    continue;
+                if (string.Equals(GetCardEnvironmentUid(card), targetEnvUid, StringComparison.Ordinal))
+                    return true;
+            }
             return false;
         }
 
@@ -770,7 +812,12 @@ namespace WaterDrivenInfrastructure.Patcher
 
         private static string GetCardLocationUid(object card)
         {
-            return ToLocationUid(GetCardEnvironmentUid(card));
+            var locationUid = ToLocationUid(GetCardEnvironmentUid(card));
+            if (!string.IsNullOrEmpty(locationUid) && LocationsByUid.ContainsKey(locationUid))
+                return locationUid;
+
+            var currentLocationUid = GetCurrentLocationUid();
+            return string.IsNullOrEmpty(currentLocationUid) ? locationUid : currentLocationUid;
         }
 
         private static string GetCardUniqueId(object card)
@@ -918,6 +965,44 @@ namespace WaterDrivenInfrastructure.Patcher
         {
             return actionName.IndexOf("Pack", StringComparison.OrdinalIgnoreCase) >= 0
                 || actionName.IndexOf("Dismantle", StringComparison.OrdinalIgnoreCase) >= 0;
+        }
+
+        private static bool IsStationPreparationAction(string actionName)
+        {
+            return actionName.IndexOf("Feed", StringComparison.OrdinalIgnoreCase) >= 0
+                || actionName.IndexOf("Light", StringComparison.OrdinalIgnoreCase) >= 0
+                || actionName.IndexOf("Increase Temperature", StringComparison.OrdinalIgnoreCase) >= 0
+                || actionName.IndexOf("Warm Up", StringComparison.OrdinalIgnoreCase) >= 0
+                || actionName.IndexOf("Wait by Fire", StringComparison.OrdinalIgnoreCase) >= 0;
+        }
+
+        private static bool IsForgeFireAction(string cardId, string actionName)
+        {
+            if (!string.Equals(cardId, "water_sawmill_forge_placed", StringComparison.Ordinal)
+                && !string.Equals(cardId, "water_sawmill_workshop_placed", StringComparison.Ordinal))
+                return false;
+
+            return actionName.IndexOf("Smelt", StringComparison.OrdinalIgnoreCase) >= 0
+                || actionName.IndexOf("Heat Metal", StringComparison.OrdinalIgnoreCase) >= 0;
+        }
+
+        private static bool IsWinter()
+        {
+            try
+            {
+                var season = GetMemberValue(GetGameManager(), "CurrentSeason");
+                if (season == null)
+                    return false;
+
+                var uniqueId = (season as UniqueIDScriptable)?.UniqueID
+                    ?? GetMemberValue(season, "UniqueID") as string
+                    ?? (season as UnityEngine.Object)?.name;
+                return string.Equals(uniqueId, "Winter", StringComparison.OrdinalIgnoreCase);
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         private static string SourceDirectionKey(string sourceLocationUid, int direction)

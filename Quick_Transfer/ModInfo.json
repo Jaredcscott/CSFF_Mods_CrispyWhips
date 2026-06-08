@@ -1,6 +1,6 @@
 {
 	"Name": "QuickTransfer",
 	"Author": "Jared",
-	"Version": "1.5.7",
-	"Description": "Allows transferring multiple cards at once using CTRL+Right-Click. Configure stack size with CTRL+Plus/Minus."
+	"Version": "1.6.1",
+	"Description": "Bulk card transfers with modifier presets: Shift+Right-Click (5), Ctrl+Right-Click (10), Ctrl+Shift+Right-Click (all). Adjust preset amounts with modifier+Plus/Minus."
 }

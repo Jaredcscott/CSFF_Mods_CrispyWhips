@@ -105,6 +105,8 @@ namespace mod_update_manager
                         Version = version,
                         Name = ReadJsonString(body, "name"),
                         Author = ReadJsonString(body, "author"),
+                        Summary = ReadJsonString(body, "summary"),
+                        EndorsementCount = int.TryParse(ReadJsonString(body, "endorsement_count"), out int ec) ? ec : 0,
                     }, ts);
                 }
             }
@@ -153,6 +155,8 @@ namespace mod_update_manager
                     sb.Append($"\"version\":\"{Escape(r.Version ?? "")}\",");
                     sb.Append($"\"name\":\"{Escape(r.Name ?? "")}\",");
                     sb.Append($"\"author\":\"{Escape(r.Author ?? "")}\",");
+                    sb.Append($"\"summary\":\"{Escape(r.Summary ?? "")}\",");
+                    sb.Append($"\"endorsement_count\":{r.EndorsementCount},");
                     sb.Append($"\"cachedAt\":\"{kvp.Value.timestamp:O}\"");
                     sb.Append('}');
                 }
@@ -323,6 +327,7 @@ namespace mod_update_manager
                     else if (request.responseCode == 429)
                     {
                         errorMsg = "Rate limited - try again later";
+                        Plugin.Logger.LogWarning("Nexus rate limit hit — some mods will not be checked this session.");
                     }
                     callback(null, errorMsg);
                 }
@@ -372,6 +377,81 @@ namespace mod_update_manager
         {
             if (!_cachingEnabled) return 0;
             return _responseCache.Count;
+        }
+
+        /// <summary>
+        /// Fetches the changelog for a mod. Callback receives a list of (version, entries[]) pairs
+        /// sorted newest-first, or an error string.
+        /// </summary>
+        public void GetModChangelogs(string modId, Action<List<(string Version, List<string> Entries)>, string> callback)
+        {
+            if (!HasApiKey)
+            {
+                callback(null, "No API key configured");
+                return;
+            }
+            _coroutineRunner.StartCoroutine(GetChangelogsCoroutine(modId, callback));
+        }
+
+        private IEnumerator GetChangelogsCoroutine(string modId, Action<List<(string, List<string>)>, string> callback)
+        {
+            var url = $"{BASE_URL}/games/{GAME_DOMAIN}/mods/{modId}/changelogs.json";
+            using (var request = UnityWebRequest.Get(url))
+            {
+                request.SetRequestHeader("apikey", _apiKey);
+                request.SetRequestHeader("Accept", "application/json");
+                request.SetRequestHeader("User-Agent", $"Mod_Update_Manager/{Plugin.PluginVersion}");
+                yield return request.SendWebRequest();
+
+                if (!request.isNetworkError && !request.isHttpError)
+                {
+                    try
+                    {
+                        callback(ParseChangelogs(request.downloadHandler.text), null);
+                    }
+                    catch (Exception ex)
+                    {
+                        callback(null, $"Failed to parse changelog: {ex.Message}");
+                    }
+                }
+                else
+                {
+                    callback(null, $"Changelog fetch failed: {request.error}");
+                }
+            }
+        }
+
+        // Parses {"1.2.0": ["note", "note"], "1.1.0": [...]} → sorted list newest-first
+        private static List<(string, List<string>)> ParseChangelogs(string json)
+        {
+            var result = new List<(string, List<string>)>();
+            // Match top-level "version": [ ... ] pairs
+            var versionPattern = new System.Text.RegularExpressions.Regex(
+                "\"([^\"]+)\"\\s*:\\s*\\[([^\\[\\]]*)\\]", System.Text.RegularExpressions.RegexOptions.Singleline);
+            var entryPattern = new System.Text.RegularExpressions.Regex(
+                "\"((?:\\\\.|[^\"])*)\"");
+
+            foreach (System.Text.RegularExpressions.Match m in versionPattern.Matches(json))
+            {
+                var version = m.Groups[1].Value;
+                var arrayBody = m.Groups[2].Value;
+                var entries = new List<string>();
+                foreach (System.Text.RegularExpressions.Match e in entryPattern.Matches(arrayBody))
+                {
+                    var text = e.Groups[1].Value
+                        .Replace("\\\"", "\"")
+                        .Replace("\\\\", "\\")
+                        .Replace("\\n", " ")
+                        .Trim();
+                    if (!string.IsNullOrEmpty(text))
+                        entries.Add(text);
+                }
+                result.Add((version, entries));
+            }
+
+            // Sort newest-first using version comparison
+            result.Sort((a, b) => VersionComparer.Compare(b.Item1, a.Item1));
+            return result;
         }
     }
 }

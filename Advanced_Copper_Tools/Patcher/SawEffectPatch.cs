@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using HarmonyLib;
 using BepInEx.Logging;
@@ -27,9 +26,6 @@ namespace Advanced_Copper_Tools.Patcher
             "e8287a79ea2ea4245b4a83ce727c4c9d", // TreeBirchLarge
             "f27a6838066ae10428aa6df6d6259221"  // TreeWillowLarge
         };
-
-        private static readonly BindingFlags Flags =
-            BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
 
         // No local reflection caches — CardUtil handles card identity and method resolution.
 
@@ -86,134 +82,14 @@ namespace Advanced_Copper_Tools.Patcher
                 string recvUid = CardUtil.GetCardUniqueId(_ReceivingCard);
                 if (recvUid == null || !LargeTreeGuids.Contains(recvUid)) return;
 
-                // Apply extra -25 Progress damage to the tree
-                float extraDamage = -25f;
-                if (ApplyProgressChange(_ReceivingCard, extraDamage))
-                {
+                const float extraDamage = -25f;
+                if (CardUtil.ModifyDurabilityStat(_ReceivingCard, "CurrentProgress", extraDamage))
                     Logger.LogDebug($"[SawEffect] Applied extra {extraDamage} Progress to {recvUid}");
-                }
             }
             catch (Exception ex)
             {
-                // Silently fail — don't break the game action
                 Logger.LogError($"[SawEffect] Prefix error: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
-        }
-
-        /// <summary>
-        /// Directly modify the Progress durability on an InGameCardBase instance.
-        /// Path: card.DurabilityStats.Progress.CurrentValue (or equivalent)
-        /// </summary>
-        private static bool ApplyProgressChange(object inGameCard, float change)
-        {
-            var cardType = inGameCard.GetType();
-
-            // Try direct CurrentProgress field/property first
-            var directProgress = cardType.GetProperty("CurrentProgress", Flags);
-            if (directProgress != null && directProgress.CanRead && directProgress.CanWrite)
-            {
-                float val = Convert.ToSingle(directProgress.GetValue(inGameCard));
-                directProgress.SetValue(inGameCard, val + change);
-                return true;
-            }
-
-            // Try DurabilityStats -> Progress -> CurrentValue path
-            var statsField = cardType.GetField("DurabilityStats", Flags)
-                          ?? cardType.GetField("CardDurabilities", Flags)
-                          ?? cardType.GetField("Durabilities", Flags);
-            if (statsField == null) return TryFlatDurabilityField(inGameCard, cardType, change);
-
-            var stats = statsField.GetValue(inGameCard);
-            if (stats == null) return false;
-
-            var statsType = stats.GetType();
-            var progressProp = statsType.GetProperty("Progress", Flags)
-                            ?? statsType.GetProperty("CurrentProgress", Flags);
-            if (progressProp == null)
-            {
-                // Try as a field instead
-                var progressField = statsType.GetField("Progress", Flags);
-                if (progressField == null) return TryFlatDurabilityField(inGameCard, cardType, change);
-
-                var progressVal = progressField.GetValue(stats);
-                if (progressVal == null) return false;
-                return ModifyDurabilityValue(progressVal, progressField, stats, statsField, inGameCard, change);
-            }
-
-            var progressObj = progressProp.GetValue(stats);
-            if (progressObj == null) return false;
-
-            return ModifyDurabilityValue(progressObj, null, stats, statsField, inGameCard, change);
-        }
-
-        private static bool ModifyDurabilityValue(object durObj, FieldInfo durField, object parent,
-            FieldInfo parentField, object root, float change)
-        {
-            var durType = durObj.GetType();
-
-            // Try CurrentValue property
-            var curProp = durType.GetProperty("CurrentValue", Flags)
-                       ?? durType.GetProperty("FloatValue", Flags);
-            if (curProp != null && curProp.CanRead && curProp.CanWrite)
-            {
-                float cur = Convert.ToSingle(curProp.GetValue(durObj));
-                curProp.SetValue(durObj, cur + change);
-
-                // Write back if value type
-                if (durType.IsValueType && durField != null)
-                {
-                    durField.SetValue(parent, durObj);
-                    if (parent != null && parent.GetType().IsValueType && parentField != null)
-                        parentField.SetValue(root, parent);
-                }
-                return true;
-            }
-
-            // Try FloatValue field
-            var valField = durType.GetField("CurrentValue", Flags)
-                        ?? durType.GetField("FloatValue", Flags);
-            if (valField != null)
-            {
-                float cur = Convert.ToSingle(valField.GetValue(durObj));
-                valField.SetValue(durObj, cur + change);
-
-                if (durType.IsValueType && durField != null)
-                {
-                    durField.SetValue(parent, durObj);
-                    if (parent != null && parent.GetType().IsValueType && parentField != null)
-                        parentField.SetValue(root, parent);
-                }
-                return true;
-            }
-
-            return false;
-        }
-
-        /// <summary>
-        /// Fallback: look for a flat CurrentProgress or ProgressValue field directly on the card.
-        /// </summary>
-        private static bool TryFlatDurabilityField(object card, Type cardType, float change)
-        {
-            foreach (var name in new[] { "CurrentProgress", "ProgressValue", "Progress" })
-            {
-                var field = cardType.GetField(name, Flags);
-                if (field != null && (field.FieldType == typeof(float) || field.FieldType == typeof(double)))
-                {
-                    float cur = Convert.ToSingle(field.GetValue(card));
-                    field.SetValue(card, cur + change);
-                    return true;
-                }
-
-                var prop = cardType.GetProperty(name, Flags);
-                if (prop != null && prop.CanRead && prop.CanWrite &&
-                    (prop.PropertyType == typeof(float) || prop.PropertyType == typeof(double)))
-                {
-                    float cur = Convert.ToSingle(prop.GetValue(card));
-                    prop.SetValue(card, cur + change);
-                    return true;
-                }
-            }
-            return false;
         }
 
     }

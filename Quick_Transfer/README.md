@@ -1,17 +1,20 @@
 # Quick Transfer
 
-**Version:** 1.5.7
+**Version:** 1.6.1
 
-A **Card Survival: Fantasy Forest** mod that lets you transfer multiple cards at once using a modifier key + Right-Click (configurable).
+A **Card Survival: Fantasy Forest** mod that lets you transfer multiple cards at once using modifier key combos + Right-Click.
 
 ## Features
 
-- **Bulk Transfer** — Hold modifier key (default: CTRL) and right-click a card stack to transfer multiple cards to an open container/inventory at once.
-- **Adjustable Amount** — Change how many cards transfer per click:
-  - **Modifier + Plus (+)** — Increase transfer amount
-  - **Modifier + Minus (-)** — Decrease transfer amount
-- **On-Screen Indicator** — Visual notification displays the current transfer amount when adjusted.
-- **Fully Configurable** — Modifier key, transfer amount, and keybindings are all configurable via BepInEx config.
+- **Modifier Presets** (default, enabled) — Three quick-access combos:
+  - **Shift + Right-Click** — Transfer 5 cards (Shift preset, default 5)
+  - **Ctrl + Right-Click** — Transfer 10 cards (Ctrl preset, default 10)
+  - **Ctrl + Shift + Right-Click** — Transfer the **entire stack**
+- **Adjustable Presets** — Hold the modifier then press **Plus/Minus** to tune that preset in real time:
+  - **Ctrl + Plus/Minus** — Adjust the Ctrl preset amount (saves to config)
+  - **Shift + Plus/Minus** — Adjust the Shift preset amount (saves to config)
+- **Live Indicator** — While any transfer modifier is held, an on-screen overlay shows the effective transfer amount before you click.
+- **Legacy Custom Mode** — Set `Enable Modifier Presets = false` to use a single configurable modifier key with a fully custom transfer amount (original 1.5.x behavior).
 
 ## Installation
 
@@ -38,25 +41,41 @@ BepInEx/
 ## Usage
 
 1. Open a container, chest, or any inventory that accepts cards.
-2. Hold **CTRL** (or your configured modifier key) and **right-click** a card stack.
-3. The configured number of cards will transfer automatically.
+2. Hold a modifier key and **right-click** a card stack:
+   - **Shift** → transfers 5 cards (adjustable)
+   - **Ctrl** → transfers 10 cards (adjustable)
+   - **Ctrl + Shift** → transfers the entire stack
 
-### Adjusting Transfer Amount
-- Hold modifier key and press **+ (Equals key)** to increase the amount.
-- Hold modifier key and press **- (Minus key)** to decrease the amount.
-- The current amount displays briefly on screen when changed.
-- Default: **5 cards** per transfer (range: 1–1000).
+### Adjusting Preset Amounts In-Game
+- Hold **Ctrl** and press **+** or **−** to change the Ctrl preset. The new value saves automatically.
+- Hold **Shift** and press **+** or **−** to change the Shift preset. The new value saves automatically.
+- The on-screen indicator updates in real time while you hold the modifier, showing exactly how many cards will transfer before you click.
 
 ## Configuration
 
 After first launch, a config file is created at `BepInEx/config/crispywhips.quick_transfer.cfg`:
 
+**Transfer Settings**
+
 | Setting | Default | Description |
 |---------|---------|-------------|
-| Transfer Amount | 5 | Cards transferred per Modifier+Right-Click (1-1000) |
-| Modifier Key | LeftControl | The key to hold while right-clicking (LeftControl, LeftShift, LeftAlt, etc.) |
-| Increase Amount Key | Equals (=) | Key to increase transfer amount |
-| Decrease Amount Key | Minus (-) | Key to decrease transfer amount |
+| Transfer Amount | 5 | Cards transferred when modifier presets are disabled or a non-Ctrl/Shift modifier is used |
+
+**Modifier Presets**
+
+| Setting | Default | Description |
+|---------|---------|-------------|
+| Enable Modifier Presets | true | Enable Shift/Ctrl/Ctrl+Shift preset combos |
+| Shift Preset Amount | 5 | Cards transferred per Shift+Right-Click |
+| Ctrl Preset Amount | 10 | Cards transferred per Ctrl+Right-Click |
+
+**Keybindings**
+
+| Setting | Default | Description |
+|---------|---------|-------------|
+| Modifier Key | LeftControl | Fallback modifier key (used when presets disabled) |
+| Increase Amount Key | Equals (=) | Increase the active preset or custom amount |
+| Decrease Amount Key | Minus (-) | Decrease the active preset or custom amount |
 
 ### In-Game Configuration (Recommended)
 

@@ -16,6 +16,21 @@ internal static class BlueprintInjector
     private static bool _resourceTabScanDone;
     private static readonly List<object> _resourceTabGroups = new();
 
+    // Per-blueprint success tracking. A blueprint injected once is never re-attempted, even
+    // while OTHER queued blueprints are still waiting for a tab that loads later.
+    private static readonly HashSet<string> _doneIds = new(StringComparer.OrdinalIgnoreCase);
+
+    // Bounded UI-time injection attempts. If even one queued blueprint can never resolve its
+    // tab (mistyped LocalizationKey, operation blueprint with no UI tab), _injected never flips
+    // true — and without a cap every BlueprintModelsScreen.Show would re-run a full
+    // Resources.FindObjectsOfTypeAll(CardTabGroup) scan + ~4000-entry lookup rebuild + recursive
+    // tab walk, hitching the journal on every open. After this many Show-driven attempts we stop
+    // retrying: already-injected blueprints stay, unresolved ones are abandoned (same end state
+    // as the old perpetual-retry behavior, minus the per-open cost). A late-loading legitimate
+    // tab still has these first N opens to appear.
+    private const int MaxUiInjectAttempts = 8;
+    private static int _uiInjectAttempts;
+
     public static void InjectAll(IEnumerable allData, List<ModManifest> mods)
     {
         _queued.Clear();
@@ -23,6 +38,8 @@ internal static class BlueprintInjector
         _injected = false;
         _resourceTabScanDone = false;
         _resourceTabGroups.Clear();
+        _doneIds.Clear();
+        _uiInjectAttempts = 0;
 
         // Priority 1: Mods with BlueprintTabs.json use declarative mapping.
         var priority1Mods = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
@@ -92,14 +109,35 @@ internal static class BlueprintInjector
     }
 
     /// <summary>
-    /// Called from NewBlueprintContent.Start prefix — injects all queued blueprints
-    /// on the first call (tabs now guaranteed to exist), then skips subsequent calls.
+    /// Called from NewBlueprintContent.Start prefix and BlueprintModelsScreen.Show postfix.
+    /// Injects all queued blueprints on the first call (tabs now guaranteed to exist),
+    /// then skips subsequent calls. When called with a non-null uiRoot (Show postfix),
+    /// forces a fresh UI-time resource scan to pick up tabs that weren't in memory at startup.
     /// </summary>
     public static void InjectFromUI(object uiRoot = null)
     {
         if (_injected || _queued.Count == 0) return;
 
-        Log.Debug($"[BlueprintInjector] InjectFromUI: queued={_queued.Count}, uiRoot={uiRoot?.GetType().Name ?? "<null>"}");
+        // BlueprintModelsScreen.Show postfix: the UI has fully initialized its tab tree.
+        // Force a fresh Resources.FindObjectsOfTypeAll scan so any tabs that loaded after
+        // startup (or were missed by the pre-Show scan) are included — but only while we still
+        // have retry budget, so an unresolvable tab doesn't trigger a full SO-graph rescan on
+        // every journal open forever.
+        if (uiRoot != null)
+        {
+            if (_uiInjectAttempts >= MaxUiInjectAttempts)
+            {
+                if (_warnedMissing.Add("ui:retry-exhausted"))
+                    Log.Warn($"BlueprintInjector: stopping UI injection retries after {MaxUiInjectAttempts} attempts "
+                           + $"({_doneIds.Count}/{_queued.Count} blueprints injected); remaining tabs appear unresolvable.");
+                return;
+            }
+            _uiInjectAttempts++;
+            _resourceTabScanDone = false;
+            _resourceTabGroups.Clear();
+        }
+
+        Log.Debug($"[BlueprintInjector] InjectFromUI: queued={_queued.Count}, done={_doneIds.Count}, attempt={_uiInjectAttempts}, uiRoot={uiRoot?.GetType().Name ?? "<null>"}");
 
         try
         {
@@ -134,7 +172,7 @@ internal static class BlueprintInjector
             return false;
         }
 
-        var tabGroups = GetTabGroups(allData, cardTabGroupType, uiRoot, out var allDataTabCount, out var databaseTabCount, out var resourceTabCount, out var uiTabCount);
+        var tabGroups = GetTabGroups(allData, lookup, cardTabGroupType, uiRoot, out var allDataTabCount, out var databaseTabCount, out var resourceTabCount, out var uiTabCount);
         if (tabGroups.Count == 0) return false;
 
         // Build tab lookup by LocalizationKey
@@ -148,18 +186,24 @@ internal static class BlueprintInjector
 
             var locKey = ReflectionHelpers.GetMemberValue(tabNameObj, "LocalizationKey") as string;
             if (!string.IsNullOrEmpty(locKey))
+            {
                 tabLookup[locKey] = tab;
+                Log.Debug($"[BlueprintInjector]   tab in lookup: '{locKey}'");
+            }
         }
 
         if (tabLookup.Count == 0)
             Log.Warn($"BlueprintInjector: tab lookup is empty (merged={tabGroups.Count}, allData={allDataTabCount}, database={databaseTabCount}, resources={resourceTabCount}, ui={uiTabCount}, uiRoot={uiRoot?.GetType().FullName ?? "<none>"})");
         else
-            Log.Debug($"[BlueprintInjector] tabLookup: {tabLookup.Count} tabs from {tabGroups.Count} CardTabGroup objects (allData={allDataTabCount}, db={databaseTabCount}, res={resourceTabCount}, ui={uiTabCount})");
+            Log.Info($"[BlueprintInjector] tabLookup: {tabLookup.Count} tabs from {tabGroups.Count} CardTabGroup objects (allData={allDataTabCount}, db={databaseTabCount}, res={resourceTabCount}, ui={uiTabCount})");
         int injected = 0;
         bool completed = true;
 
         foreach (var (uniqueId, tabKey, subTabKey) in _queued)
         {
+            // Already injected on a prior pass — don't pay the lookup/tab-match cost again.
+            if (_doneIds.Contains(uniqueId)) continue;
+
             if (!lookup.TryGetValue(uniqueId, out var blueprint))
             {
                 if (_warnedMissing.Add(uniqueId))
@@ -176,6 +220,8 @@ internal static class BlueprintInjector
             if (targetTab == null)
                 tabLookup.TryGetValue("Tab_1_Survival_Subtab_2_Support_TabName", out targetTab);
 
+            Log.Debug($"[BlueprintInjector] bp='{uniqueId}' tabKey='{tabKey ?? "<null>"}' → {(targetTab != null ? "FOUND" : "MISSING")}");
+
             if (targetTab == null)
             {
                 completed = false;
@@ -186,6 +232,7 @@ internal static class BlueprintInjector
 
             if (AddBlueprintToTab(targetTab, blueprint, uniqueId, out var added))
             {
+                _doneIds.Add(uniqueId); // resolved — never re-attempt this blueprint
                 if (added) injected++;
             }
             else
@@ -198,7 +245,7 @@ internal static class BlueprintInjector
         return completed;
     }
 
-    private static List<object> GetTabGroups(IEnumerable allData, Type cardTabGroupType, object uiRoot,
+    private static List<object> GetTabGroups(IEnumerable allData, Dictionary<string, object> lookup, Type cardTabGroupType, object uiRoot,
         out int allDataTabCount, out int databaseTabCount, out int resourceTabCount, out int uiTabCount)
     {
         var tabGroups = new List<object>();
@@ -212,21 +259,21 @@ internal static class BlueprintInjector
         {
             if (item == null || !cardTabGroupType.IsInstanceOfType(item)) continue;
             allDataTabCount++;
-            AddTabObject(item, cardTabGroupType, tabGroups, seen);
+            AddTabObject(item, cardTabGroupType, lookup, tabGroups, seen);
         }
 
         foreach (var tab in Data.Database.GetAllOfType(cardTabGroupType))
         {
             if (tab == null) continue;
             databaseTabCount++;
-            AddTabObject(tab, cardTabGroupType, tabGroups, seen);
+            AddTabObject(tab, cardTabGroupType, lookup, tabGroups, seen);
         }
 
         foreach (var tab in GetResourceTabGroups(cardTabGroupType))
         {
             if (tab == null) continue;
             resourceTabCount++;
-            AddTabObject(tab, cardTabGroupType, tabGroups, seen);
+            AddTabObject(tab, cardTabGroupType, lookup, tabGroups, seen);
         }
 
         if (uiRoot != null)
@@ -236,7 +283,7 @@ internal static class BlueprintInjector
             {
                 foreach (var tab in blueprintTabs)
                 {
-                    uiTabCount += AddTabObject(tab, cardTabGroupType, tabGroups, seen);
+                    uiTabCount += AddTabObject(tab, cardTabGroupType, lookup, tabGroups, seen);
                 }
             }
         }
@@ -269,26 +316,53 @@ internal static class BlueprintInjector
         return _resourceTabGroups;
     }
 
-    private static int AddTabObject(object tab, Type cardTabGroupType, List<object> tabGroups, HashSet<object> seen)
+    private static int AddTabObject(object tab, Type cardTabGroupType, Dictionary<string, object> lookup, List<object> tabGroups, HashSet<object> seen)
     {
-        return AddTabObjectRecursive(tab, cardTabGroupType, tabGroups, seen, 0);
+        return AddTabObjectRecursive(tab, cardTabGroupType, lookup, tabGroups, seen, 0);
     }
 
-    private static int AddTabObjectRecursive(object tab, Type cardTabGroupType, List<object> tabGroups, HashSet<object> seen, int depth)
+    private static int AddTabObjectRecursive(object tab, Type cardTabGroupType, Dictionary<string, object> lookup, List<object> tabGroups, HashSet<object> seen, int depth)
     {
-        if (tab == null || depth > 8 || !cardTabGroupType.IsInstanceOfType(tab)) return 0;
+        if (tab == null || depth > 8) return 0;
 
-        int discovered = 1;
-        if (seen.Add(tab))
-            tabGroups.Add(tab);
-
-        var subGroups = ReflectionHelpers.GetMemberValue(tab, "SubGroups") as IEnumerable;
-        if (subGroups == null) return discovered;
-
-        foreach (var child in subGroups)
+        int discovered = 0;
+        // Only add this object if it IS a CardTabGroup instance.
+        if (cardTabGroupType.IsInstanceOfType(tab) && seen.Add(tab))
         {
-            if (child == null) continue;
-            discovered += AddTabObjectRecursive(child, cardTabGroupType, tabGroups, seen, depth + 1);
+            tabGroups.Add(tab);
+            discovered = 1;
+        }
+
+        // Always recurse into SubGroups even if this object is not a CardTabGroup —
+        // wrapper types (e.g. ModCore BlueprintTab UI model) may contain CardTabGroup children.
+        var subGroups = ReflectionHelpers.GetMemberValue(tab, "SubGroups") as IEnumerable;
+        bool foundAnySubGroup = false;
+        if (subGroups != null)
+        {
+            foreach (var child in subGroups)
+            {
+                if (child == null) continue;
+                foundAnySubGroup = true;
+                discovered += AddTabObjectRecursive(child, cardTabGroupType, lookup, tabGroups, seen, depth + 1);
+            }
+        }
+
+        // Fallback: when SubGroups is empty (not yet resolved by WarpResolver at scan time,
+        // or this is an early allData/Database scan), traverse SubGroupsWarpData via the
+        // allData lookup to find subtabs that ARE present but not yet linked.
+        if (!foundAnySubGroup && lookup != null)
+        {
+            var warpData = ReflectionHelpers.GetMemberValue(tab, "SubGroupsWarpData") as IEnumerable;
+            if (warpData != null)
+            {
+                foreach (var entry in warpData)
+                {
+                    if (entry == null) continue;
+                    var uid = entry as string ?? entry.ToString();
+                    if (!string.IsNullOrEmpty(uid) && lookup.TryGetValue(uid, out var subTab) && subTab != null)
+                        discovered += AddTabObjectRecursive(subTab, cardTabGroupType, lookup, tabGroups, seen, depth + 1);
+                }
+            }
         }
 
         return discovered;

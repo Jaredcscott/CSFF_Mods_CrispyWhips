@@ -163,6 +163,16 @@
                         "m_FileID": 0,
                         "m_PathID": 0
                     },
+                    "RequiredQuantity": 4,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "advanced_copper_tools_copper_nails",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
                     "RequiredQuantity": 3,
                     "DontSpend": false,
                     "RequiredCardWarpData": "64c4dd2e834526541935792cbbdd7f87",

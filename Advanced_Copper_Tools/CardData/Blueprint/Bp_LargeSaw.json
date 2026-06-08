@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "advanced_copper_tools_bp_large_saw",
     "LocalizationKey": "Advanced_Copper_Tools_Bp_LargeSaw_CardDescription",
-    "DefaultText": "Assemble a large saw from copper sheets and wood."
+    "DefaultText": "Assemble a large saw from copper sheets, copper nails, and wood."
   },
   "CardType": 7,
   "UnlockConditionsDesc": {

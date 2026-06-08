@@ -1,0 +1,70 @@
+{
+  "UniqueID": "water_sawmill_iron_wrench",
+  "CardName": {
+    "ParentObjectID": "water_sawmill_iron_wrench",
+    "LocalizationKey": "Water_Sawmill_IronWrench_CardName",
+    "DefaultText": "Iron Wrench"
+  },
+  "CardDescription": {
+    "ParentObjectID": "water_sawmill_iron_wrench",
+    "LocalizationKey": "Water_Sawmill_IronWrench_CardDescription",
+    "DefaultText": "A heavy wrought iron wrench sized for tightening the workshop's hammer and drive assemblies."
+  },
+  "CardHelpSection": {
+    "ParentObjectID": "water_sawmill_iron_wrench",
+    "LocalizationKey": "Water_Sawmill_IronWrench_CardHelpSection",
+    "DefaultText": "<b>Purpose:</b> Forged workshop tool used when assembling a water-driven workshop kit."
+  },
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "Bar_Iron",
+  "CardImageWarpType": 3,
+  "CardType": 0,
+  "ObjectWeight": 450.0,
+  "TradingValue": 250.0,
+  "CardTags": [],
+  "CardTagsWarpData": [
+    "tag_Metal"
+  ],
+  "CardTagsWarpType": 3,
+  "DoesNotPile": false,
+  "CannotBeTrashed": false,
+  "WhenCreatedSounds": [],
+  "WhenCreatedSoundsWarpData": [
+    "Metal"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": false
+  },
+  "FuelCapacity": {
+    "Active": false
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": false
+  },
+  "SpecialDurability2": {
+    "Active": false
+  },
+  "SpecialDurability3": {
+    "Active": false
+  },
+  "SpecialDurability4": {
+    "Active": false
+  },
+  "CardInteractions": [],
+  "DismantleActions": [],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [],
+  "InventorySlotsWarpData": [],
+  "InventorySlotsWarpType": 3,
+  "DroppedCardShadow": 1
+}

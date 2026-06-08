@@ -7,7 +7,7 @@ internal class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.mod_update_manager";
     public const string PluginName = "Mod_Update_Manager";
-    public const string PluginVersion = "2.0.5";
+    public const string PluginVersion = "2.1.1";
 
     internal new static ManualLogSource Logger;
     public static Plugin Instance { get; private set; }
@@ -17,6 +17,7 @@ internal class Plugin : BaseUnityPlugin
     private ModUpdateConfig _config;
     private NexusApiClient _nexusClient;
     private ModMappingManager _mappingManager;
+    private ModPreferences _preferences;
     private UpdateChecker _updateChecker;
     private UpdateManagerUI _ui;
     private NexusModDiscovery _modDiscovery;
@@ -37,20 +38,21 @@ internal class Plugin : BaseUnityPlugin
 
         // Initialize core components
         _mappingManager = new ModMappingManager(_config.ModMappingsPath);
+        _preferences = new ModPreferences(_config.PreferencesPath);
         _nexusClient = new NexusApiClient(_config.NexusApiKey.Value, this, _config.ResponseCachePath, _config.CachingEnabled.Value);
         _modDiscovery = new NexusModDiscovery(
             _nexusClient,
             Path.GetDirectoryName(_config.ModMappingsPath),
             _config.DiscoveryMaxScanId.Value,
             _config.DiscoveryMaxConsecutiveMisses.Value);
-        _updateChecker = new UpdateChecker(_nexusClient, _mappingManager, _modDiscovery);
+        _updateChecker = new UpdateChecker(_nexusClient, _mappingManager, _modDiscovery, _preferences);
 
         _conflictDetector = new ConflictDetector();
         _updateScheduler = new UpdateScheduler(_updateChecker, this);
 
         // Create UI component
         _ui = gameObject.AddComponent<UpdateManagerUI>();
-        _ui.Initialize(_config, _updateChecker, _mappingManager, _conflictDetector, _updateScheduler, _nexusClient, _modDiscovery);
+        _ui.Initialize(_config, _updateChecker, _mappingManager, _conflictDetector, _updateScheduler, _nexusClient, _modDiscovery, _preferences);
 
         // Subscribe to config changes
         _config.NexusApiKey.SettingChanged += (sender, args) =>

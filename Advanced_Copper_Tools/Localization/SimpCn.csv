@@ -1,0 +1,560 @@
+﻿Advanced_Copper_Tools_CopperNails_CardName,Copper Nail,铜钉
+Advanced_Copper_Tools_CopperNails_CardDescription,"A small copper nail, perfect for joining wood.",一枚小铜钉，非常适合连接木材。
+Advanced_Copper_Tools_Oil_CardName,Oil,油脂
+Advanced_Copper_Tools_Oil_CardDescription,Rendered animal fat collected in a clay bowl. A rich food source that also burns as clean lamp fuel.,从动物脂肪中提炼、收集在陶碗中的油脂。既是富含营养的食物，也可作为清洁的灯油。
+Advanced_Copper_Tools_Oil_CardHelpSection,"<b>Crafted:</b> By rendering 2 animal fat in a clay bowl over any fire.
+
+<b>Uses:</b> Drink for nutrition (returns empty clay bowl), or pour into a lantern or oil flask as lamp fuel.","<b>制作：</b> 在任何火源上将2块动物脂肪放入陶碗中熬制。
+
+<b>用途：</b> 饮用补充营养（返回空陶碗），或倒入提灯或油瓶作为灯油。"
+Advanced_Copper_Tools_Oil_Drink_ActionName,Drink,饮用
+Advanced_Copper_Tools_Bp_Oil_CardName,Rendered Oil,熬制油脂
+Advanced_Copper_Tools_Bp_Oil_CardDescription,Render 2 animal fat in a clay bowl over a fire to produce cooking oil and lamp fuel.,将2块动物脂肪放入陶碗置于火上熬制，制成烹饪油和灯油。
+Advanced_Copper_Tools_Bp_Oil_UnlockConditionsDesc,Animal Fat Needed,需要动物脂肪
+Advanced_Copper_Tools_MetalLantern_Refuel_ActionName,Refuel with Oil,用油补充燃料
+Advanced_Copper_Tools_MetalLantern_Refuel_ActionDescription,Poured oil into the lantern.,向提灯中倒入油脂。
+Advanced_Copper_Tools_MetalLantern_Light_ActionName,Light Lantern,点燃提灯
+Advanced_Copper_Tools_MetalLantern_Light_ActionDescription,Light the lantern with a flame.,用火焰点燃提灯。
+Advanced_Copper_Tools_MetalLantern_NeedsFuel,The lantern needs oil first.,提灯需要先加油。
+Advanced_Copper_Tools_MetalLantern_FuelCapacity_CardStatName,Oil,油量
+Advanced_Copper_Tools_MetalLantern_Lit_CardName,Lit Metal Lantern,已点燃的金属提灯
+Advanced_Copper_Tools_MetalLantern_Lit_CardDescription,A lit copper lantern burning oil for portable light. Extinguish it before refueling.,一盏正在燃烧油脂提供便携照明的铜提灯。补充燃料前需先熄灭。
+Advanced_Copper_Tools_MetalLantern_Lit_FuelCapacity_CardStatName,Oil,油量
+Advanced_Copper_Tools_MetalLantern_Lit_FuelOut_ActionName,Lantern Burns Out,提灯燃尽
+Advanced_Copper_Tools_MetalLantern_Lit_FuelOut_ActionDescription,The lantern runs out of oil.,提灯的油脂耗尽了。
+Advanced_Copper_Tools_MetalLantern_Extinguish_ActionName,Extinguish,熄灭
+Advanced_Copper_Tools_MetalLantern_Extinguish_ActionDescription,Put out the lantern.,熄灭提灯。
+Advanced_Copper_Tools_MetalLantern_Place_ActionName,Place,放置
+Advanced_Copper_Tools_MetalLantern_Place_ActionDescription,Set the lantern down in your environment.,将提灯放置在环境中。
+Advanced_Copper_Tools_MetalLantern_Lit_Place_ActionName,Place,放置
+Advanced_Copper_Tools_MetalLantern_Lit_Place_ActionDescription,Set the lit lantern down to light the area.,将已点燃的提灯放下以照亮区域。
+Advanced_Copper_Tools_MetalLantern_PickUp_ActionName,Pick Up,拾起
+Advanced_Copper_Tools_MetalLantern_PickUp_ActionDescription,Pick up the lantern and carry it.,拾起提灯并携带。
+Advanced_Copper_Tools_MetalLantern_PickUpLit_ActionDescription,Pick up the lit lantern and carry it.,拾起已点燃的提灯并携带。
+Advanced_Copper_Tools_MetalLantern_CardHelpSection,"<b>Usage:</b> Add oil, then light from any fire source to illuminate the area.",<b>用途：</b> 添加油脂，然后用任何火源点燃以照亮区域。
+Advanced_Copper_Tools_MetalLantern_Placed_Lit_CardDescription,A lit copper lantern burning oil to illuminate the area. Extinguish before refueling.,一盏正在燃烧油脂以照亮区域的铜提灯。补充燃料前需先熄灭。
+Advanced_Copper_Tools_MetalLantern_Placed_Lit_CardHelpSection,<b>Usage:</b> Provides light to the surrounding area while lit. Extinguish to refuel.,<b>用途：</b> 点燃时为周围区域提供照明。熄灭后补充燃料。
+Advanced_Copper_Tools_Bucket_CardName,Wheelbarrow Bucket,手推车桶
+Advanced_Copper_Tools_Bucket_CardDescription,A sturdy metal bucket formed from metal lumps. The main cargo area of a wheelbarrow.,由金属锭制成的坚固金属桶。手推车的主要货仓部分。
+Advanced_Copper_Tools_Handles_CardName,Wheelbarrow Handles,手推车把手
+Advanced_Copper_Tools_Handles_CardDescription,Two sturdy wooden handles for gripping and lifting a wheelbarrow.,两根用于握持和提起手推车的坚固木把手。
+Advanced_Copper_Tools_WheelAssembly_CardName,Wheel Assembly,车轮总成
+Advanced_Copper_Tools_WheelAssembly_CardDescription,A complete wheel with metal hub attached. Ready to be mounted on a wheelbarrow.,一个安装了金属轮毂的完整车轮。可直接安装到手推车上。
+Advanced_Copper_Tools_Wheelbarrow_CardName,Wheelbarrow,手推车
+Advanced_Copper_Tools_Wheelbarrow_CardDescription,A sturdy wheelbarrow for hauling heavy loads.,一辆用于搬运重物的坚固手推车。
+Advanced_Copper_Tools_Bp_Wheelbarrow_CardName,Wheelbarrow,手推车
+Advanced_Copper_Tools_Bp_Wheelbarrow_CardDescription,"Construct a wheelbarrow for hauling heavy loads. Requires a bucket, handles, and wheel assembly.",用桶、把手和车轮总成建造一辆手推车用于搬运重物。需要锤子。
+Advanced_Copper_Tools_Bp_CopperNails_CardName,Forged Copper Nail,锻造铜钉
+Advanced_Copper_Tools_Bp_CopperNails_CardDescription,Hammer a heated copper nugget into a copper nail.,将加热的铜块锤打成铜钉。
+Advanced_Copper_Tools_Bp_WheelbarrowBucket_CardName,Wheelbarrow Bucket,手推车桶
+Advanced_Copper_Tools_Bp_WheelbarrowBucket_CardDescription,Combine 8 metal sheets into a wheelbarrow bucket.,将8块金属片组合成一个手推车桶。
+Advanced_Copper_Tools_Bp_Handles_CardName,Wheelbarrow Handles,手推车把手
+Advanced_Copper_Tools_Bp_Handles_CardDescription,"Craft wheelbarrow handles from planks, small leather, and long sticks.",用木板、小块皮革和长棍制作手推车把手。
+Advanced_Copper_Tools_Bp_WheelHub_CardName,Forged Wheel Hub,锻造轮毂
+Advanced_Copper_Tools_Bp_WheelHub_CardDescription,Shape a heated copper nugget into a wheel hub at an anvil.,将3个加热铜块锤打成轮毂。
+Advanced_Copper_Tools_Bp_WheelAssembly_CardName,Wheel Assembly,车轮总成
+Advanced_Copper_Tools_Bp_WheelAssembly_CardDescription,Attach a metal hub to a wooden wheel to create a complete wheel assembly.,将金属轮毂安装到木轮上，制成完整的车轮总成。
+Advanced_Copper_Tools_CopperStove_CardName,Small Copper Stove,小型铜炉
+Advanced_Copper_Tools_CopperStove_CardDescription,A small copper stove. Can be placed as a fireplace with 2 cooking slots.,一个小型铜炉。可以作为带2个烹饪槽的壁炉放置。
+Advanced_Copper_Tools_CopperStove_CardHelpSection,"<b>Crafted:</b> From 4 metal sheets and a cast stove top.
+
+<b>Uses:</b> Place in environment as a fireplace with 2 cooking slots. Accepts oak wood, twigs, or charcoal as fuel. Also a component for the copper bathtub blueprint.","<b>制作：</b> 由4块金属片和一个铸造炉顶制成。
+
+<b>用途：</b> 在环境中作为带2个烹饪槽的壁炉放置。接受橡木、树枝或木炭作为燃料。也是铜制浴缸图纸的部件。"
+Advanced_Copper_Tools_Bp_CopperStove_CardName,Small Copper Stove,小型铜炉
+Advanced_Copper_Tools_Bp_CopperStove_CardDescription,Assemble a small stove from 4 metal sheets and a cast stove top.,用4块金属片和一个铸造炉顶组装一个小炉子。
+Advanced_Copper_Tools_Bp_CopperStove_UnlockConditionsDesc,Copper Nugget Needed,需要铜块
+Advanced_Copper_Tools_Bp_CopperBathtub_CardName,Copper Bathtub,铜制浴缸
+Advanced_Copper_Tools_Bp_CopperBathtub_CardDescription,"Assemble a copper bathtub from a bucket, stove, planks, mud bricks, large cloth, sticks, and leather. Requires a hammer.",用桶、炉子、木板、泥砖、大块布料、棍子和皮革组装铜制浴缸。需要锤子。
+Advanced_Copper_Tools_Bp_CopperBathtub_UnlockConditionsDesc,Wheelbarrow Bucket and Copper Stove Needed,需要手推车桶和铜炉
+Advanced_Copper_Tools_CopperBathtub_Empty_CardName,Copper Bathtub Kit,铜制浴缸套件
+Advanced_Copper_Tools_CopperBathtub_Empty_CardDescription,An assembled copper bathtub kit. Place it in your camp to set it up then fill with water.,一套组装好的铜制浴缸套件。将其放置在营地中安装，然后注入水。
+Advanced_Copper_Tools_CopperBathtub_Empty_Place_ActionName,Place,放置
+Advanced_Copper_Tools_CopperBathtub_Empty_Place_ActionDescription,Place the empty bathtub on the ground.,将空浴缸放置在地面上。
+Advanced_Copper_Tools_CopperBathtub_Empty_FillRiver_ActionName,Fill from River,从河流取水
+Advanced_Copper_Tools_CopperBathtub_Empty_FillRiver_ActionDescription,Haul water from the river to fill the bathtub.,从河流取水以注满浴缸。
+Advanced_Copper_Tools_CopperBathtub_Empty_FillWater_ActionName,Fill with Water,注水
+Advanced_Copper_Tools_CopperBathtub_Empty_FillWater_ActionDescription,Fill the bathtub with water from a container.,从容器中向浴缸注水。
+Advanced_Copper_Tools_CopperBathtub_Full_CardName,Copper Bathtub (Full),铜制浴缸（满水）
+Advanced_Copper_Tools_CopperBathtub_Full_CardDescription,A copper bathtub filled with cold water. Add firewood and light it to heat the water.,一个装满冷水的铜制浴缸。添加柴火并点火以加热水。
+Advanced_Copper_Tools_CopperBathtub_Full_FuelCapacity_CardStatName,Fuel,燃料
+Advanced_Copper_Tools_CopperBathtub_Full_AddFuel_ActionName,Add Firewood,添加柴火
+Advanced_Copper_Tools_CopperBathtub_Full_AddFuel_ActionDescription,Add fuel to the stove.,向炉子添加燃料。
+Advanced_Copper_Tools_CopperBathtub_Full_Light_ActionName,Light Fire,点火
+Advanced_Copper_Tools_CopperBathtub_Full_Light_ActionDescription,Light the stove to heat the water.,用火源点燃炉子以加热水。
+Advanced_Copper_Tools_CopperBathtub_Full_ColdBath_ActionName,Take Cold Bath,冷水浴
+Advanced_Copper_Tools_CopperBathtub_Full_ColdBath_ActionDescription,Wash in the cold water. Cleansing but not very comfortable.,在冷水中清洗。能清洁身体但不太舒适。
+Advanced_Copper_Tools_CopperBathtub_Full_Empty_ActionName,Empty Water,倒空水
+Advanced_Copper_Tools_CopperBathtub_Full_Empty_ActionDescription,Dump out all the water.,倒出所有的水。
+Advanced_Copper_Tools_CopperBathtub_Warm_CardName,Copper Bathtub (Warm),铜制浴缸（温水）
+Advanced_Copper_Tools_CopperBathtub_Warm_CardDescription,"A copper bathtub with warm, steaming water. Perfect for a relaxing bath.",一个盛有温热蒸腾水的铜制浴缸。适合放松沐浴。
+Advanced_Copper_Tools_CopperBathtub_Warm_FuelCapacity_CardStatName,Fuel,燃料
+Advanced_Copper_Tools_CopperBathtub_Warm_AddFuel_ActionName,Add Firewood,添加柴火
+Advanced_Copper_Tools_CopperBathtub_Warm_AddFuel_ActionDescription,Add more fuel to keep the water warm.,添加更多燃料以保持水温。
+Advanced_Copper_Tools_CopperBathtub_Warm_WarmBath_ActionName,Warm Bath,温水浴
+Advanced_Copper_Tools_CopperBathtub_Warm_WarmBath_ActionDescription,"Soak in the warm water. Very relaxing, cleansing, and warming.",浸泡在温水中。非常放松、清洁且令人温暖。
+Advanced_Copper_Tools_CopperBathtub_Warm_Empty_ActionName,Empty Water,倒空水
+Advanced_Copper_Tools_CopperBathtub_Warm_Empty_ActionDescription,Dump out all the water and extinguish the fire.,倒出所有的水并熄灭火焰。
+Advanced_Copper_Tools_CopperBathtub_Warm_AddKindling_ActionName,Add Kindling,添加引火物
+Advanced_Copper_Tools_CopperBathtub_Full_AddKindling_ActionName,Add Kindling,添加引火物
+Advanced_Copper_Tools_CopperBathtub_PickUp_ActionName,Pick Up,拾起
+Advanced_Copper_Tools_CopperBathtub_PickUp_ActionDescription,Pick up the bathtub to carry it in your inventory.,拾起浴缸并携带在背包中。
+Advanced_Copper_Tools_WheelRim_CardName,Wheel Rim,轮缘
+Advanced_Copper_Tools_WheelRim_CardDescription,A metal outer ring that provides strength and durability to a wheel. Essential for heavy-duty use.,为车轮提供强度和耐久度的金属外圈。重型使用所必需。
+Advanced_Copper_Tools_WheelRim_CardHelpSection,"<b>Crafted:</b> Forged from 3 heated copper nuggets.
+
+<b>Uses:</b> Reinforces wooden wheels for durability.","<b>制作：</b> 由3个加热铜块锻造而成。
+
+<b>用途：</b> 增强木轮的耐久性。"
+Advanced_Copper_Tools_Bp_WheelRim_CardName,Forged Wheel Rim,锻造轮缘
+Advanced_Copper_Tools_Bp_WheelRim_CardDescription,Hammer a heated lump of metal into a wheel rim.,将加热的金属锭锤打成轮缘。
+Advanced_Copper_Tools_Bp_CastWheelHub_CardName,Cast Wheel Hub,铸造轮毂
+Advanced_Copper_Tools_Bp_CastWheelHub_CardDescription,Cast a wheel hub using a small molten crucible.,用小型熔融坩埚铸造一个轮毂。
+Advanced_Copper_Tools_Bp_CastWheelHub_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
+Advanced_Copper_Tools_Bp_WheelHub_CardName,Forged Wheel Hub,锻造轮毂
+Advanced_Copper_Tools_Bp_WheelHub_CardDescription,Hammer 3 heated copper nuggets into a wheel hub.,将3个加热铜块锤打成轮毂。
+Advanced_Copper_Tools_CopperStove_Lit_CardName,Small Copper Stove (Lit),小型铜炉（已点燃）
+Advanced_Copper_Tools_CopperStove_Lit_CardDescription,A lit copper stove. Burns fuel and provides heat for cooking and warming nearby.,一个已点燃的铜炉。燃烧燃料，为烹饪和取暖提供热量。
+Advanced_Copper_Tools_CopperStove_Lit_CardHelpSection,<b>Usage:</b> A lit stove with 2 cooking slots. Warms you in cold weather. Consumes fuel over time. Goes out when fuel is empty or when manually extinguished.,<b>用途：</b> 带2个烹饪槽的已点燃炉子。在寒冷天气中为您取暖。随时间消耗燃料。当燃料耗尽或手动熄灭时熄火。
+Advanced_Copper_Tools_CopperStove_Extinguish_ActionName,Fire Goes Out,火焰熄灭
+Advanced_Copper_Tools_CopperStove_Extinguish_ActionDescription,The fire goes out.,火焰熄灭了。
+Advanced_Copper_Tools_CopperStove_Extinguish_Manual_ActionName,Extinguish,熄灭
+Advanced_Copper_Tools_CopperStove_Extinguish_Manual_ActionDescription,Put out the fire.,熄灭火焰。
+Advanced_Copper_Tools_CopperStove_WarmUp_ActionName,Warm Up,取暖
+Advanced_Copper_Tools_CopperStove_WarmUp_ActionDescription,Warm yourself by the stove.,靠在炉子旁取暖。
+Advanced_Copper_Tools_CopperStove_WaitByFire_ActionName,Wait by Fire,守火等待
+Advanced_Copper_Tools_CopperStove_WaitByFire_ActionDescription,Pass time warming yourself by the stove.,靠在炉子旁取暖以打发时间。
+Advanced_Copper_Tools_CopperStove_LightFire_ActionName,Light Fire,点火
+Advanced_Copper_Tools_CopperStove_LightFire_ActionDescription,Use the stove's flame to light tinder or a campfire.,用炉火点燃引火物或营地火堆。
+Advanced_Copper_Tools_CopperStove_BurnMediumHeat_ActionName,Burn things which burn on medium heat,燃烧中热物品
+Advanced_Copper_Tools_CopperStove_CookCookables_ActionName,Cook Cookables,烹饪可烹饪物
+Advanced_Copper_Tools_CopperStove_HeatContainers_ActionName,Heat up Cooking and Water Containers and Heatables,加热烹饪和水容器及可加热物
+Advanced_Copper_Tools_CopperStove_BoilLiquids_ActionName,Heats up and Boils Liquids,加热并沸腾液体
+Advanced_Copper_Tools_CopperCauldron_CardName,Copper Cauldron,铜制大锅
+Advanced_Copper_Tools_CopperCauldron_CardDescription,A broad copper cauldron with a large open basin. Place it on a campfire or fireplace to heat it up and cook or brew several items at once. Holds 30% more liquid than a clay cauldron. Food stored inside spoils 30% slower than normal.,一口宽口铜制大锅，具有宽大的开口盆。将其放置在营地火堆或壁炉上加热，可同时烹饪或酿造多种物品。容量比陶制大锅多30%。储存在内的食物变质速度比正常慢30%。
+Advanced_Copper_Tools_CopperCauldron_CardHelpSection,"<b>Usage:</b> Fill at a river or lake, then place on a campfire or fireplace to heat up. Temperature must reach 100 before cooking or boiling begins. Holds up to 6240 ml of liquid. Copper slows food spoilage by 30% while stored inside.",<b>用途：</b> 在河流或湖泊中注水，然后放置在营地火堆或壁炉上加热。温度必须达到100才能开始烹饪或沸腾。最多可容纳6240毫升液体。铜质材料使储存在内的食物变质速度减慢30%。
+Advanced_Copper_Tools_CopperCauldron_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_CopperCauldron_Dismantle_ActionDescription,Take apart the cauldron to recover its main components.,拆解大锅以回收其主要部件。
+Advanced_Copper_Tools_CopperCauldron_PickUp_ActionName,Pick Up,拾起
+Advanced_Copper_Tools_CopperCauldron_PickUp_ActionDescription,Pick up the cauldron and pack it for transport.,拾起大锅并打包运输。
+Advanced_Copper_Tools_CopperCauldron_HasContents,Empty the cauldron first.,先将大锅清空。
+Advanced_Copper_Tools_CopperCauldron_CookBatch_ActionName,Cook,烹饪
+Advanced_Copper_Tools_CopperCauldron_BrewBatch_ActionName,Boil,煮沸
+Advanced_Copper_Tools_CopperCauldron_BrewBatch_CannotCookText,Needs liquid in the cauldron.,大锅内需要液体。
+Advanced_Copper_Tools_Bp_CopperCauldron_CardName,Copper Cauldron,铜制大锅
+Advanced_Copper_Tools_Bp_CopperCauldron_CardDescription,"Assemble a large copper cauldron from copper sheets, copper nails, and a hammer. Place the finished cauldron on a campfire or fireplace to cook and brew with its 6240 ml basin.",用铜片、铜钉和锤子组装一口大型铜制大锅。将完成的大锅放置在营地火堆或壁炉上，用其6240毫升的盆进行烹饪和酿造。
+Advanced_Copper_Tools_Bp_CopperCauldron_UnlockConditionsDesc,Metal Sheet Needed,需要金属片
+Advanced_Copper_Tools_CopperStove_Progress_CardStatName,Charcoal,木炭
+Advanced_Copper_Tools_CopperStove_Special1_CardStatName,Ash Amount,灰烬量
+Advanced_Copper_Tools_CopperStove_GenerateAsh_ActionName,Generate Ash,生成灰烬
+Advanced_Copper_Tools_CopperStove_FeedCharcoal_ActionName,Feed Charcoal,添加木炭
+Advanced_Copper_Tools_CopperStove_TakeCharcoalAsh_ActionName,Take Charcoal and Ash,取出木炭和灰烬
+Advanced_Copper_Tools_CopperStove_TakeCharcoalAsh_ActionDescription,Collect charcoal and ash from the stove.,从炉子中收集木炭和灰烬。
+Advanced_Copper_Tools_CopperStove_TakeCharcoalAsh_FailMessage,Charcoal not ready yet.,木炭尚未就绪。
+Advanced_Copper_Tools_CopperStove_HasItems,Remove items from the stove first.,先将炉内物品移除。
+Advanced_Copper_Tools_Bp_CopperNails_UnlockConditionsDesc,Copper Nugget Needed,需要铜块
+Advanced_Copper_Tools_Bp_Handles_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
+Advanced_Copper_Tools_Bp_PanBlank_CardDescription,Hammer 4 heated copper nuggets into a pan blank.,将4个加热铜块锤打成锅坯。
+Advanced_Copper_Tools_Bp_PanBlank_CardName,Forged Pan Blank,锻造锅坯
+Advanced_Copper_Tools_Bp_PanBlank_UnlockConditionsDesc,Copper Nugget Needed,需要铜块
+Advanced_Copper_Tools_Bp_WheelAssembly_UnlockConditionsDesc,Wheel Hub Needed,需要轮毂
+Advanced_Copper_Tools_Bp_Wheelbarrow_UnlockConditionsDesc,Wheelbarrow Bucket Needed,需要手推车桶
+Advanced_Copper_Tools_Bp_WheelbarrowBucket_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
+Advanced_Copper_Tools_Bp_WheelHub_UnlockConditionsDesc,Copper Nugget Needed,需要铜块
+Advanced_Copper_Tools_Bp_WheelRim_UnlockConditionsDesc,Heated Lump of Metal Needed,需要加热金属锭
+Advanced_Copper_Tools_Bucket_CardHelpSection,"<b>Crafted:</b> Hammered from 8 metal sheets.
+
+<b>Uses:</b> Component for wheelbarrow or bathtub construction.","<b>制作：</b> 由8块金属片锤打而成。
+
+<b>用途：</b> 手推车或浴缸建造的部件。"
+Advanced_Copper_Tools_CastStoveTop_CardDescription,A heavy metal stove top freed from its casting mold.,从铸造模具中取出的厚重金属炉顶。
+Advanced_Copper_Tools_CastStoveTop_CardName,Stove Top,炉顶
+Advanced_Copper_Tools_CopperBathtub_CollectCharcoal_ActionDescription,Collect charcoal from the bathtub fire.,从浴缸炉中收集木炭。
+Advanced_Copper_Tools_CopperBathtub_CollectCharcoal_ActionName,Collect Charcoal,收集木炭
+Advanced_Copper_Tools_CopperBathtub_CollectCharcoal_FailMessage,Charcoal not ready yet.,木炭尚未就绪。
+Advanced_Copper_Tools_CopperBathtub_Empty_CardHelpSection,<b>Usage:</b> Use the Place action to set up the bathtub. Once placed fill it with water from a container or river.,<b>用途：</b> 使用放置动作设置浴缸。放置后，用容器或河流中的水注满浴缸。
+Advanced_Copper_Tools_CopperBathtub_Empty_Placed_CardHelpSection,<b>Usage:</b> Add water from a container to fill the bathtub. You can also pre-load fuel before filling.,<b>用途：</b> 从容器中添加水以注满浴缸。您也可以在注水前预先装入燃料。
+Advanced_Copper_Tools_CopperBathtub_Empty_Dismantle_ActionDescription,Take apart the bathtub to recover all crafting materials.,拆解浴缸以回收所有制作材料。
+Advanced_Copper_Tools_CopperBathtub_Empty_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_CopperBathtub_Empty_FeedCharcoal_ActionName,Feed Charcoal,添加木炭
+Advanced_Copper_Tools_CopperBathtub_Empty_FeedFirewood_ActionName,Feed Firewood,添加柴火
+Advanced_Copper_Tools_CopperBathtub_Empty_FeedFuel_ActionName,Feed Fuel,添加燃料
+Advanced_Copper_Tools_CopperBathtub_Empty_FeedFuelWeak_ActionName,Feed Fuel,添加燃料
+Advanced_Copper_Tools_CopperBathtub_Empty_FuelCapacity_CardStatName,Firewood,柴火
+Advanced_Copper_Tools_CopperBathtub_Empty_Progress_CardStatName,Charcoal,木炭
+Advanced_Copper_Tools_CopperBathtub_Empty_Special1_CardStatName,Ash Amount,灰烬量
+Advanced_Copper_Tools_CopperBathtub_FeedCharcoal_ActionName,Feed Charcoal,添加木炭
+Advanced_Copper_Tools_CopperBathtub_Full_AddFirewood_ActionDescription,Add firewood to heat the bath water.,添加柴火以加热洗澡水。
+Advanced_Copper_Tools_CopperBathtub_Full_AddFirewood_ActionName,Feed Fuel,添加燃料
+Advanced_Copper_Tools_CopperBathtub_Full_CardHelpSection,"<b>Usage:</b> Add firewood to the bathtub, then light it with a fire source to heat the water for a warm bath.",<b>用途：</b> 向浴缸中添加柴火，然后用火源点燃以加热水，享受温水浴。
+Advanced_Copper_Tools_CopperBathtub_Full_Placed_CardHelpSection,"<b>Usage:</b> Add firewood to the bathtub, then light it with a fire source to heat the water for a warm bath.",<b>用途：</b> 向浴缸中添加柴火，然后用火源点燃以加热水，享受温水浴。
+Advanced_Copper_Tools_CopperBathtub_Full_FeedFirewood_ActionName,Feed Firewood,添加柴火
+Advanced_Copper_Tools_CopperBathtub_Full_Light_FailMessage,Need firewood to light.,需要柴火才能点火。
+Advanced_Copper_Tools_CopperBathtub_Full_LightTorch_ActionName,Light Fire,点火
+Advanced_Copper_Tools_CopperBathtub_Full_Place_ActionDescription,Place the bathtub in the environment.,将浴缸放置在环境中。
+Advanced_Copper_Tools_CopperBathtub_Full_Place_ActionName,Place,放置
+Advanced_Copper_Tools_CopperBathtub_GenerateAsh_ActionName,Generate Ash,生成灰烬
+Advanced_Copper_Tools_CopperBathtub_Progress_CardStatName,Charcoal,木炭
+Advanced_Copper_Tools_CopperBathtub_Special1_CardStatName,Ash Amount,灰烬量
+Advanced_Copper_Tools_CopperBathtub_Warm_Bath_ActionDescription,"Soak in the warm water. Very relaxing, cleansing, and warming.",浸泡在温水中。非常放松、清洁且令人温暖。
+Advanced_Copper_Tools_CopperBathtub_Warm_Bath_ActionName,Warm Bath,温水浴
+Advanced_Copper_Tools_CopperBathtub_Warm_CardHelpSection,<b>Usage:</b> Take a warm bath to reduce dirtiness and greatly improve mood. Add more firewood to keep it warm longer.,<b>用途：</b> 洗温水浴可减少肮脏度并大幅改善心情。添加更多柴火以保温更久。
+Advanced_Copper_Tools_CopperBathtub_Warm_Placed_CardHelpSection,<b>Usage:</b> Take a warm bath to reduce dirtiness and greatly improve mood. Add more firewood to keep it warm longer.,<b>用途：</b> 洗温水浴可减少肮脏度并大幅改善心情。添加更多柴火以保温更久。
+Advanced_Copper_Tools_CopperBathtub_Warm_FeedFirewood_ActionName,Feed Firewood,添加柴火
+Advanced_Copper_Tools_CopperBathtub_Warm_OnZero_ActionDescription,The bath water has cooled down.,洗澡水已经冷却了。
+Advanced_Copper_Tools_CopperBathtub_Warm_Place_ActionDescription,Place the bathtub in the environment.,将浴缸放置在环境中。
+Advanced_Copper_Tools_CopperBathtub_Warm_Place_ActionName,Place,放置
+Advanced_Copper_Tools_CopperNails_CardHelpSection,"<b>Crafted:</b> From a lump of metal using a hammer.
+
+<b>Uses:</b> Construction and crafting materials.","<b>制作：</b> 使用锤子从一块金属锭制作。
+
+<b>用途：</b> 建筑和制作材料。"
+Advanced_Copper_Tools_CopperStove_Dismantle_ActionDescription,Take apart the stove to recover the metal sheets and cast stove top.,拆解炉子以回收金属片和铸造炉顶。
+Advanced_Copper_Tools_CopperStove_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_CopperStove_Feed_Twigs_ActionDescription,Add 3 twigs as fuel (24h),添加3根树枝作为燃料（24小时）
+Advanced_Copper_Tools_CopperStove_Feed_Twigs_ActionName,Feed Twigs,添加树枝
+Advanced_Copper_Tools_CopperStove_Feed_Wood_ActionDescription,Add oak wood as fuel (96h),添加橡木作为燃料（96小时）
+Advanced_Copper_Tools_CopperStove_Feed_Wood_ActionName,Feed Oak Wood,添加橡木
+Advanced_Copper_Tools_CopperStove_Light_ActionDescription,Light the stove with any fire source.,用任何火源点燃炉子。
+Advanced_Copper_Tools_CopperStove_Light_ActionName,Light Fire,点火
+Advanced_Copper_Tools_CopperStove_NeedsFuel,The stove needs fuel first.,炉子需要先添加燃料。
+Advanced_Copper_Tools_CopperStove_PickUp_ActionDescription,Pick up the stove and carry it.,拾起炉子并携带。
+Advanced_Copper_Tools_CopperStove_PickUp_ActionName,Pick Up,拾起
+Advanced_Copper_Tools_CopperStove_Place_ActionDescription,Place the stove in your environment.,将炉子放置在您的环境中。
+Advanced_Copper_Tools_CopperStove_Place_ActionName,Place,放置
+Advanced_Copper_Tools_CopperStove_Placed_CardHelpSection,<b>Usage:</b> A placed copper stove functioning as a fireplace with 2 cooking slots. Accepts oak wood, twigs, or charcoal as fuel. Pick up to move.
+Advanced_Copper_Tools_Handles_CardHelpSection,"<b>Crafted:</b> From 3 planks, 2 leather, and 2 long sticks with a knife.
+
+<b>Uses:</b> Component for wheelbarrow construction.","<b>制作：</b> 使用刀从3块木板、2块皮革和2根长棍制作。
+
+<b>用途：</b> 手推车建造的部件。"
+Advanced_Copper_Tools_Handles_Dismantle_ActionDescription,Take apart the handles to recover the long sticks.,拆解把手以回收长棍。
+Advanced_Copper_Tools_Handles_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_MetalSheet_CardDescription,"A flat metal sheet, hammered thin.",一块锤打成薄片的金属片。
+Advanced_Copper_Tools_MetalSheet_CardName,Copper Sheet,铜片
+Advanced_Copper_Tools_WheelAssembly_CardHelpSection,"<b>Crafted:</b> From metal hub and wooden wheel.
+
+<b>Uses:</b> Component for wheelbarrow construction.","<b>制作：</b> 由金属轮毂和木轮制成。
+
+<b>用途：</b> 手推车建造的部件。"
+Advanced_Copper_Tools_WheelAssembly_Dismantle_ActionDescription,Take apart the wheel assembly to recover the rim and hub.,拆解车轮总成以回收轮缘和轮毂。
+Advanced_Copper_Tools_WheelAssembly_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_WheelAssembly_UsageDurability_CardStatName,Wheel Condition,车轮状况
+Advanced_Copper_Tools_Wheelbarrow_CardHelpSection,"<b>Crafted:</b> From bucket, handles, and wheel assembly.
+
+<b>Uses:</b> Transport heavy loads. Can be dismantled to recover components.","<b>制作：</b> 由桶、把手和车轮总成制成。
+
+<b>用途：</b> 运输重物。可拆解以回收部件。"
+Advanced_Copper_Tools_Wheelbarrow_Dismantle_ActionDescription,"Take apart the wheelbarrow to recover the bucket, handles, and wheel assembly.",拆解手推车以回收桶、把手和车轮总成。
+Advanced_Copper_Tools_Wheelbarrow_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_WheelHub_CardDescription,A metal center piece that connects the wooden wheel to the axle. Essential for smooth rotation.,将木轮连接到车轴的金属中心件。是顺畅旋转所必需的。
+Advanced_Copper_Tools_WheelHub_CardHelpSection,"<b>Crafted:</b> Forged from 3 heated copper nuggets, or cast from a molten crucible.
+
+<b>Uses:</b> Component for wheel assembly.","<b>制作：</b> 由3个加热铜块锻造，或由熔融坩埚铸造。
+
+<b>用途：</b> 车轮总成的部件。"
+Advanced_Copper_Tools_WheelHub_CardName,Wheel Hub,轮毂
+Bp_CastStoveTop_CardDescription,Cast a stove top mold using a small molten crucible.,使用小型熔融坩埚铸造一个炉顶模具。
+Bp_CastStoveTop_CardName,Cast Stove Top Mold,铸造炉顶模具
+Bp_CastStoveTop_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
+Bp_MetalSheet_CardDescription,Hammer a heated lump of metal flat into a copper sheet.,将加热的金属锭锤打成铜片。
+Bp_MetalSheet_CardName,Metal Sheet,金属片
+Bp_MetalSheet_UnlockConditionsDesc,Heated Lump of Metal Needed,需要加热金属锭
+Bp_WearableMetalPan_CardDescription,"Attach a wooden grip, rope, small leather, and copper nails to a shaped pan to make it wearable.",将绳子和皮革附加到成形锅头上，使其可穿戴。
+Bp_WearableMetalPan_CardName,Wearable Metal Pan,可穿戴金属平底锅
+Bp_WearableMetalPan_UnlockConditionsDesc,Shaped Metal Pan Needed,需要成形金属锅头
+Advanced_Copper_Tools_Bucket_FuelCapacity.CardStatName,Temperature,温度
+Advanced_Copper_Tools_CastStoveTop_AlternateNames[0].Name,Copper Stove Top,铜制炉顶
+Advanced_Copper_Tools_CastStoveTop_AlternateNames[1].Name,Ghost Bronze Stove Top,幽灵青铜炉顶
+Advanced_Copper_Tools_CastStoveTop_AlternateNames[2].Name,Tin Stove Top,锡炉顶
+Advanced_Copper_Tools_CastStoveTop_AlternateNames[3].Name,Tin Bronze Stove Top,锡青铜炉顶
+Advanced_Copper_Tools_CastStoveTop_AlternateNames[4].Name,White Bronze Stove Top,白青铜炉顶
+Advanced_Copper_Tools_CastStoveTop_FuelCapacity.CardStatName,Temperature,温度
+Advanced_Copper_Tools_CastStoveTop_SpecialDurability2.CardStatName,Metal Quality,金属质量
+Advanced_Copper_Tools_CastStoveTop_SpecialDurability3.CardStatName,Quality,质量
+Advanced_Copper_Tools_CastStoveTop_SpecialDurability4.CardStatName,Metal Type,金属类型
+Advanced_Copper_Tools_StoveTopMold_CardName,Stove Top Mold,炉顶模具
+Advanced_Copper_Tools_StoveTopMold_CardDescription,A cast metal stove top still in its clay mold. Break with a hammer to free the casting.,一个仍在陶土模具中的铸造金属炉顶。用锤子敲击以取出铸件。
+Advanced_Copper_Tools_StoveTopMold_AlternateNames[0].Name,Copper Stove Top Mold,铜制炉顶模具
+Advanced_Copper_Tools_StoveTopMold_AlternateNames[1].Name,Ghost Bronze Stove Top Mold,幽灵青铜炉顶模具
+Advanced_Copper_Tools_StoveTopMold_AlternateNames[2].Name,Tin Stove Top Mold,锡炉顶模具
+Advanced_Copper_Tools_StoveTopMold_AlternateNames[3].Name,Tin Bronze Stove Top Mold,锡青铜炉顶模具
+Advanced_Copper_Tools_StoveTopMold_AlternateNames[4].Name,White Bronze Stove Top Mold,白青铜炉顶模具
+Advanced_Copper_Tools_StoveTopMold_FuelCapacity.CardStatName,Temperature,温度
+Advanced_Copper_Tools_StoveTopMold_SpecialDurability2.CardStatName,Metal Quality,金属质量
+Advanced_Copper_Tools_StoveTopMold_SpecialDurability3.CardStatName,Quality,质量
+Advanced_Copper_Tools_StoveTopMold_SpecialDurability4.CardStatName,Metal Type,金属类型
+Advanced_Copper_Tools_StoveTopMold_Break_ActionName,Break Mold,打碎模具
+Advanced_Copper_Tools_StoveTopMold_Break_ActionDescription,Break the clay mold to free the stove top casting.,打碎陶土模具以取出炉顶铸件。
+Advanced_Copper_Tools_CopperNails_FuelCapacity.CardStatName,Temperature,温度
+GpTag_ClothAny_TabName,Cloth,布料
+Advanced_Copper_Tools_MetalSheet_AlternateNames[0].Name,Copper Sheet,铜片
+Advanced_Copper_Tools_MetalSheet_AlternateNames[1].Name,Ghost Bronze Sheet,幽灵青铜片
+Advanced_Copper_Tools_MetalSheet_AlternateNames[2].Name,Tin Sheet,锡片
+Advanced_Copper_Tools_MetalSheet_AlternateNames[3].Name,Tin Bronze Sheet,锡青铜片
+Advanced_Copper_Tools_MetalSheet_AlternateNames[4].Name,White Bronze Sheet,白青铜片
+Advanced_Copper_Tools_MetalSheet_FuelCapacity.CardStatName,Temperature,温度
+Advanced_Copper_Tools_Shape_MetalPan_AlternateNames[0].Name,Copper Pan Head,铜制锅头
+Advanced_Copper_Tools_Shape_MetalPan_AlternateNames[1].Name,Ghost Bronze Pan Head,幽灵青铜锅头
+Advanced_Copper_Tools_Shape_MetalPan_AlternateNames[2].Name,Tin Pan Head,锡制锅头
+Advanced_Copper_Tools_Shape_MetalPan_AlternateNames[3].Name,Tin Bronze Pan Head,锡青铜锅头
+Advanced_Copper_Tools_Shape_MetalPan_AlternateNames[4].Name,White Bronze Pan Head,白青铜锅头
+Advanced_Copper_Tools_Shape_MetalPan_CardDescription,Ready to be assembled into a wearable pan.,已准备好组装成可穿戴平底锅。
+Advanced_Copper_Tools_Shape_MetalPan_CardName,Shaped Metal Pan Head,成形金属锅头
+Advanced_Copper_Tools_Shape_MetalPan_FuelCapacity.CardStatName,Temperature,温度
+Advanced_Copper_Tools_Shape_MetalPan_Progress.CardStatName,Smelted,熔炼
+Advanced_Copper_Tools_Shape_MetalPan_SpecialDurability1.CardStatName,Strikes,锤击次数
+Advanced_Copper_Tools_Shape_MetalPan_SpecialDurability2.CardStatName,Metal Quality,金属质量
+Advanced_Copper_Tools_Shape_MetalPan_SpecialDurability3.CardStatName,Quality,质量
+Advanced_Copper_Tools_Shape_MetalPan_SpecialDurability4.CardStatName,Metal Type,金属类型
+Tab_1_Survival_Subtab_2_Support_TabName,Support,辅助
+Tab_2_Construction_Subtab_4_Furniture_TabName,Furniture,家具
+Tab_5_MetalAndClay_Subtab_3_MetalCrafts_TabName,Metal Crafts,金属工艺
+Advanced_Copper_Tools_WearableMetalPan_AlternateNames[0].Name,Copper Pan,铜制平底锅
+Advanced_Copper_Tools_WearableMetalPan_AlternateNames[1].Name,Ghost Bronze Pan,幽灵青铜平底锅
+Advanced_Copper_Tools_WearableMetalPan_AlternateNames[2].Name,Tin Pan,锡制平底锅
+Advanced_Copper_Tools_WearableMetalPan_AlternateNames[3].Name,Tin Bronze Pan,锡青铜平底锅
+Advanced_Copper_Tools_WearableMetalPan_AlternateNames[4].Name,White Bronze Pan,白青铜平底锅
+Advanced_Copper_Tools_WearableMetalPan_CardDescription,"A sturdy metal cooking pan with a wooden grip, rope and leather straps, and copper nails. Can be worn like a quiver.",一口带有皮绳肩带的坚固金属烹饪锅。可以像箭袋一样穿戴。
+Advanced_Copper_Tools_WearableMetalPan_CardName,Wearable Metal Pan,可穿戴金属平底锅
+Advanced_Copper_Tools_WearableMetalPan_CookingRecipes_Boil_ActionName,Boil,煮沸
+Advanced_Copper_Tools_WearableMetalPan_CookingRecipes_Burn_ActionName,Slowly Overcook (Burn),慢速过火（烧焦）
+Advanced_Copper_Tools_WearableMetalPan_CookingRecipes_Cook_ActionName,Cook,烹饪
+Advanced_Copper_Tools_WearableMetalPan_CookingRecipes_Cook_CannotCookText,Not hot enough,温度不够高
+Advanced_Copper_Tools_WearableMetalPan_Dismantle_ActionDescription,Take apart the wearable pan to recover the shaped metal pan.,拆解可穿戴平底锅以回收成形金属锅头。
+Advanced_Copper_Tools_WearableMetalPan_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_WearableMetalPan_MeltFat_ActionName,Melt Fat,熔化脂肪
+Advanced_Copper_Tools_WearableMetalPan_MeltFat_ActionDescription,Render fat in the hot pan to produce cooking oil.,在热锅中熬化脂肪以制作烹饪油。
+Advanced_Copper_Tools_WearableMetalPan_FuelCapacity.CardStatName,Temperature,温度
+Advanced_Copper_Tools_WearableMetalPan_SpecialDurability2.CardStatName,Metal Quality,金属质量
+Advanced_Copper_Tools_WearableMetalPan_SpecialDurability3.CardStatName,Quality,质量
+Advanced_Copper_Tools_WearableMetalPan_SpecialDurability4.CardStatName,Metal Type,金属类型
+Advanced_Copper_Tools_WearableMetalPan_UsageDurability.CardStatName,Durability,耐久度
+Advanced_Copper_Tools_WearableMetalPan_UsageDurability.OnZero.ActionDescription,Pan Broken!,平底锅破损！
+Advanced_Copper_Tools_WheelHub_FuelCapacity.CardStatName,Temperature,温度
+Advanced_Copper_Tools_WheelRim_FuelCapacity.CardStatName,Temperature,温度
+Advanced_Copper_Tools_Perk_BathtubKit_PerkDescription,"Start with all materials needed to build a copper bathtub: bucket, copper stove, 4 planks, 8 mud bricks, 1 large cloth, 4 long sticks, and 3 leather. Also unlocks bathtub blueprint.",初始携带建造铜制浴缸所需的所有材料：桶、铜炉、4块木板、8块泥砖、1块大布料、4根长棍和3块皮革。同时解锁浴缸图纸。
+Advanced_Copper_Tools_Perk_BathtubKit_PerkName,Bathtub Kit,浴缸套件
+Advanced_Copper_Tools_Perk_BuildingMaterials_PerkDescription,"Start with essential building materials: 10 planks, 10 leather, 10 long sticks, 20 mud bricks, a large cloth, and a spoon auger.",初始携带基本建筑材料：10块木板、10块皮革、10根长棍、20块泥砖、1块大布料和1根挖孔钻。
+Advanced_Copper_Tools_Perk_BuildingMaterials_PerkName,Building Materials,建筑材料
+Advanced_Copper_Tools_Perk_CopperBathtub_PerkDescription,Start with a copper bathtub. A luxurious way to stay clean and relax.,初始携带一个铜制浴缸。保持清洁和放松的豪华方式。
+Advanced_Copper_Tools_Perk_CopperBathtub_PerkName,Copper Bathtub,铜制浴缸
+Advanced_Copper_Tools_Perk_Wheelbarrow_PerkDescription,Start with a sturdy wheelbarrow for hauling heavy loads. Reduces weight of stored items when traveling.,初始携带一辆用于搬运重物的坚固手推车。旅行时减少存储物品的重量。
+Advanced_Copper_Tools_Perk_Wheelbarrow_PerkName,Wheelbarrow,手推车
+Advanced_Copper_Tools_Perk_WheelbarrowKit_PerkDescription,"Start with all the components needed to assemble a wheelbarrow: bucket, handles, and wheel assembly. Also unlocks all wheelbarrow blueprints.",初始携带组装手推车所需的所有部件：桶、把手和车轮总成。同时解锁所有手推车图纸。
+Advanced_Copper_Tools_Perk_WheelbarrowKit_PerkName,Wheelbarrow Kit,手推车套件
+eTag_WearablePan_InGameName,Pan,平底锅
+Advanced_Copper_Tools_Perk_MetalPanTester_PerkDescription,"Start with metal pan crafting materials and completed pans. Includes copper lumps, hammer, wood, rope, leather, and one of each metal type pan.",初始携带金属平底锅制作材料和成品锅。包括铜锭、锤子、木材、绳子、皮革以及每种金属类型的平底锅各一个。
+Advanced_Copper_Tools_Perk_MetalPanTester_PerkName,Metal Pan,金属平底锅
+Advanced_Copper_Tools_CopperBathtub_WaterLevel_CardStatName,Water Level,水位
+Advanced_Copper_Tools_CopperBathtub_Full_RefillRiver_ActionName,Refill from River,从河流补水
+Advanced_Copper_Tools_CopperBathtub_Full_RefillRiver_ActionDescription,Haul more water from the river to refill the bathtub.,从河流取更多水以补充浴缸。
+Advanced_Copper_Tools_CopperBathtub_Warm_RefillRiver_ActionName,Refill from River,从河流补水
+Advanced_Copper_Tools_CopperBathtub_Warm_RefillRiver_ActionDescription,Haul more water from the river to refill the warm bathtub.,从河流取更多水以补充温热浴缸。
+Advanced_Copper_Tools_LargeSaw_CardName,Large Copper Saw,大型铜锯
+Advanced_Copper_Tools_LargeSaw_CardDescription,A large two-handled saw with a copper blade. Cuts trees much faster than an axe.,一把带铜锯条的大型双手锯。比斧头更快地砍伐树木。
+Advanced_Copper_Tools_LargeSaw_CardHelpSection,"<b>Crafted:</b> From 2 copper sheets and 2 wood using a hammer.
+
+<b>Uses:</b> Cuts trees faster than an axe. Use as a cutting tool.","<b>制作：</b> 由2块铜片和2块木材使用锤子制成。
+
+<b>用途：</b> 比斧头更快地砍伐树木。可用作切割工具。"
+Advanced_Copper_Tools_LargeSaw_UsageDurability.CardStatName,Durability,耐久度
+Advanced_Copper_Tools_LargeSaw_UsageDurability.OnZero.ActionDescription,Saw Broken!,锯子破损！
+Advanced_Copper_Tools_LargeSaw_FuelCapacity.CardStatName,Temperature,温度
+Advanced_Copper_Tools_Bp_LargeSaw_CardName,Large Copper Saw,大型铜锯
+Advanced_Copper_Tools_Bp_LargeSaw_CardDescription,Assemble a large saw from copper sheets and wood.,用铜片和木材组装一把大型锯。
+Advanced_Copper_Tools_Bp_LargeSaw_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
+Advanced_Copper_Tools_Perk_LargeSaw_PerkName,Large Saw,大型锯
+Advanced_Copper_Tools_Perk_LargeSaw_PerkDescription,Start with a large copper saw for cutting trees quickly.,初始携带一把用于快速砍伐树木的大型铜锯。
+Advanced_Copper_Tools_MetalLantern_CardName,Metal Lantern,金属提灯
+Advanced_Copper_Tools_MetalLantern_CardDescription,A durable copper lantern crafted from metal sheets and glass. Burns fuel to provide light.,一盏由金属片和玻璃制成的耐用铜提灯。燃烧燃料以提供照明。
+Advanced_Copper_Tools_MetalLantern_CardHelpSection,<b>Usage:</b> Add oil or other fuel to keep the lantern lit.,<b>用途：</b> 添加油脂，然后用任何火源点燃以照亮区域。
+Advanced_Copper_Tools_MetalLantern_FuelCapacity_CardStatName,Oil,油量
+Advanced_Copper_Tools_Bp_MetalLantern_CardName,Metal Lantern,金属提灯
+Advanced_Copper_Tools_Bp_MetalLantern_CardDescription,Assemble a sturdy copper lantern from a metal sheet and a hammered oilwell reservoir.,用一块金属片和一个锤制油井组装一盏坚固的铜提灯。
+Advanced_Copper_Tools_Bp_MetalLantern_UnlockConditionsDesc,Lantern Oilwell Needed,需要提灯油井
+Advanced_Copper_Tools_LanternOilwell_CardName,Lantern Oilwell,提灯油井
+Advanced_Copper_Tools_LanternOilwell_CardDescription,A small copper reservoir hammered into a cup shape to hold lamp oil. The fount component of a metal lantern.,一个小铜储油器，锤打成杯形以盛放灯油。金属提灯的油槽部件。
+Advanced_Copper_Tools_LanternOilwell_CardHelpSection,"<b>Crafted:</b> Hammered from a single copper sheet.
+
+<b>Uses:</b> Sub-component for crafting a Metal Lantern.","<b>制作：</b> 由单块铜片锤打而成。
+
+<b>用途：</b> 制作金属提灯的子部件。"
+Advanced_Copper_Tools_LanternOilwell_FuelCapacity.CardStatName,Temperature,温度
+Advanced_Copper_Tools_Bp_LanternOilwell_CardName,Lantern Oilwell,提灯油井
+Advanced_Copper_Tools_Bp_LanternOilwell_CardDescription,"Hammer a copper sheet into a small cup-shaped oil reservoir, wrapped with twine for a wick.",将一块铜片锤打成小杯形储油器，用麻绳作灯芯缠绕。
+Advanced_Copper_Tools_Bp_LanternOilwell_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
+Advanced_Copper_Tools_CopperTeaKettle_CardName,Copper Tea Kettle,铜制茶壶
+Advanced_Copper_Tools_CopperTeaKettle_CardDescription,"A copper kettle for holding and boiling water. Fill with water, then place on a fire or stove to boil it clean for tea.",一个用于盛水和煮水的铜壶。注入水后，放置在火源或炉子上煮沸，为泡茶做准备。
+Advanced_Copper_Tools_CopperTeaKettle_CardHelpSection,"<b>Usage:</b> Fill with water (clean or dirty), place on fire or stove to heat. Boiling cleans dirty water and prepares it for brewing tea.",<b>用途：</b> 注入水（干净或脏水），放置在火源或炉子上加热。煮沸可清洁脏水，并为冲泡茶叶做准备。
+Advanced_Copper_Tools_CopperTeaKettle_FuelCapacity_CardStatName,Temperature,温度
+Advanced_Copper_Tools_Bp_CopperTeaKettle_CardName,Forged Copper Tea Kettle,锻造铜制茶壶
+Advanced_Copper_Tools_Bp_CopperTeaKettle_CardDescription,Hammer 3 metal sheets into a copper tea kettle for boiling water.,将3块金属片锤打成一个铜制茶壶用于煮水。
+Advanced_Copper_Tools_Bp_CopperTeaKettle_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
+Advanced_Copper_Tools_TeaBlendingStation_CardName,Tea Station,茶站
+Advanced_Copper_Tools_TeaBlendingStation_CardDescription,"A dedicated workbench with six herb-and-grinding slots, a built-in water tank (8 bowls capacity, tracked as Water Charges), and a copper stove. Drag a water container or shallow water source (river, pond) to add a charge. Light the stove to heat the water and speed up herb drying.",一个专用工作台，带有六个草药研磨槽、内置水箱（8碗容量，以水量格计）和铜炉。拖动水容器或浅水源（河流、池塘）以添加一格水量。点燃炉子以加热水并加速草药干燥。
+Advanced_Copper_Tools_Bp_TeaBlendingStation_CardName,Tea Station,茶站
+Advanced_Copper_Tools_Bp_TeaBlendingStation_CardDescription,"Build a tea station with an integrated copper tea kettle, copper stove, and rotary quern for grinding tea leaves. Requires 2 planks, 4 twine, 1 copper tea kettle, 1 copper stove, 1 rotary quern, and 15 large stones.",建造一个带有内置铜茶壶、铜炉和旋转磨盘的茶站，用于研磨茶叶。需要2块木板、4根麻绳、1个铜茶壶、1个铜炉、1个旋转磨盘和15块大型石头。
+Advanced_Copper_Tools_Bp_TeaBlendingStation_UnlockConditionsDesc,Copper Tea Kettle Needed,需要铜制茶壶
+Advanced_Copper_Tools_TeaBlendingStation_CardHelpSection,"<b>Slots (×6):</b> Place fresh herbs — they dry passively over time. Use 'Grind All' to mill every dried or millable item at once. <b>Water Tank:</b> Drag a water container to add a Water Charge (up to 8), or drag a river, pond, or stream card directly (1 charge, 15 min). Drag an empty clay bowl to draw cold water back out. Light the stove to heat the water for tea brewing.","<b>槽位（共6个）：</b> 放置新鲜草药——它们会随时间被动晾干。使用「研磨全部」一次性研磨所有已干燥或可研磨的物品。
+
+<b>水箱：</b> 拖动水容器以添加一格水量（最多8格），或直接拖动河流、池塘或溪流卡（每次1格，15分钟）。拖动空陶碗以取出冷水。点燃炉子以加热水用于泡茶。"
+Advanced_Copper_Tools_TeaBlendingStation_Special1_CardStatName,Ash Amount,灰烬量
+Advanced_Copper_Tools_TeaBlendingStation_Progress_CardStatName,Charcoal,木炭
+Advanced_Copper_Tools_TeaBlendingStation_WaterTemp_CardStatName,Water Temp,水温
+Advanced_Copper_Tools_TeaBlendingStation_WaterHot_ActionName,Water is Hot,水已沸腾
+Advanced_Copper_Tools_TeaBlendingStation_Feed_Wood_ActionName,Feed Oak Wood,添加橡木
+Advanced_Copper_Tools_TeaBlendingStation_Feed_Wood_ActionDescription,Add oak wood as fuel (96h),添加橡木作为燃料（96小时）
+Advanced_Copper_Tools_TeaBlendingStation_Feed_Twigs_ActionName,Feed Twigs,添加树枝
+Advanced_Copper_Tools_TeaBlendingStation_Feed_Twigs_ActionDescription,Add 3 twigs as fuel (24h),添加3根树枝作为燃料（24小时）
+Advanced_Copper_Tools_TeaBlendingStation_FeedCharcoal_ActionName,Feed Charcoal,添加木炭
+Advanced_Copper_Tools_TeaBlendingStation_Light_ActionName,Light Fire,点火
+Advanced_Copper_Tools_TeaBlendingStation_Light_ActionDescription,Light the stove with any fire source.,用任何火源点燃炉子。
+Advanced_Copper_Tools_TeaBlendingStation_NeedsFuel,The stove needs fuel first.,炉子需要先添加燃料。
+Advanced_Copper_Tools_TeaBlendingStation_GrindAll_ActionName,Grind All,研磨全部
+Advanced_Copper_Tools_TeaBlendingStation_GrindAll_ActionDescription,Turn the rotary quern to grind every dried herb or millable root placed on the station.,转动旋转磨盘，研磨放置在站台上的所有已干燥草药或可研磨根茎。
+Advanced_Copper_Tools_TeaBlendingStation_DryHerbs_ActionName,Dry Herbs (Accelerated, Quality +0.3)
+Advanced_Copper_Tools_TeaBlendingStation_DryHerbsLit_ActionName,Dry Herbs with Heat (Accelerated, Quality +0.3)
+Advanced_Copper_Tools_TeaBlendingStation_PourWaterIn_ActionName,Pour Water In,倒水入箱
+Advanced_Copper_Tools_TeaBlendingStation_PourWaterIn_ActionDescription,Pour water from any container into the tank.,将任何容器中的水倒入水箱。
+Advanced_Copper_Tools_TeaBlendingStation_FetchShallowWater_ActionName,Fetch from Shallow Water,从浅水处取水
+Advanced_Copper_Tools_TeaBlendingStation_FetchShallowWater_ActionDescription,"Collect water from a river, pond, or stream to fill the tank (1 charge per action).",从河流、池塘或溪流中取水以注满水箱（每次1格）。
+Advanced_Copper_Tools_TeaBlendingStation_DrawColdWater_ActionName,Draw Cold Water,取冷水
+Advanced_Copper_Tools_TeaBlendingStation_DrawColdWater_ActionDescription,Fill an empty clay bowl with cold water from the tank.,从水箱中向空陶碗注入冷水。
+Advanced_Copper_Tools_TeaBlendingStation_DrawHotWater_ActionName,Draw Boiled Water,取沸水
+Advanced_Copper_Tools_TeaBlendingStation_DrawHotWater_ActionDescription,Fill an empty clay bowl with boiled water from the heated tank.,从加热水箱中向空陶碗注入沸水。
+Advanced_Copper_Tools_TeaBlendingStation_NeedsWater,The water tank is empty — pour some water in first.,水箱已空——请先注入水。
+Advanced_Copper_Tools_TeaBlendingStation_NotHotEnough,Either the tank is empty or the water is not hot enough yet.,水箱已空或水温尚未够热。
+Advanced_Copper_Tools_TeaBlendingStation_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_TeaBlendingStation_Dismantle_ActionDescription,Break the station down into its main components.,将站台拆解为其主要部件。
+Advanced_Copper_Tools_TeaBlendingStation_HasItems,Remove items from the station first.,请先将站台上的物品移除。
+Advanced_Copper_Tools_TeaBlendingStation_TakeCharcoalAsh_ActionName,Take Charcoal and Ash,取出木炭和灰烬
+Advanced_Copper_Tools_TeaBlendingStation_TakeCharcoalAsh_ActionDescription,Collect charcoal and ash from the stove.,从炉子中收集木炭和灰烬。
+Advanced_Copper_Tools_TeaBlendingStation_TakeCharcoalAsh_FailMessage,Charcoal not ready yet.,木炭尚未就绪。
+Advanced_Copper_Tools_TeaBlendingStation_Lit_CardName,Tea Station (Lit),茶站（已点燃）
+Advanced_Copper_Tools_TeaBlendingStation_Lit_CardDescription,"A lit tea station. The stove burns steadily, heating the built-in water tank. Fresh herbs in the six slots dry rapidly. Drag a water container or shallow water source to add a Water Charge; drag an empty clay bowl to draw boiled water once Water Temp reaches 50%. Fire will go out when fuel runs empty.",一个已点燃的茶站。炉子稳定燃烧，加热内置水箱。六个槽位中的新鲜草药迅速干燥。拖动水容器或浅水源以添加水量格；拖动空陶碗以在水温达到50%时取出沸水。燃料耗尽时火焰熄灭。
+Advanced_Copper_Tools_TeaBlendingStation_Lit_CardHelpSection,<b>Slots (×6):</b> Herbs dry faster while lit. Use 'Grind All' to mill dried or millable items. <b>Water Tank:</b> Drag a water container or river/pond card to add a Water Charge (max 8). Drag an empty clay bowl to draw boiled water — requires at least 1 Water Charge AND Water Temp ≥ 50%. Consumes fuel over time.,"<b>槽位（共6个）：</b> 点燃时草药干燥更快。使用「研磨全部」研磨已干燥或可研磨的物品。
+
+<b>水箱：</b> 拖动水容器或河流/池塘卡以添加水量格（最多8格）。拖动空陶碗以取出沸水——需要至少1格水量且水温≥50%。随时间消耗燃料。"
+Advanced_Copper_Tools_TeaBlendingStation_Extinguish_ActionName,Fire Goes Out,火焰熄灭
+Advanced_Copper_Tools_TeaBlendingStation_Extinguish_ActionDescription,The fire goes out.,火焰熄灭了。
+Advanced_Copper_Tools_TeaBlendingStation_GenerateAsh_ActionName,Generate Ash,生成灰烬
+Advanced_Copper_Tools_TeaBlendingStation_LightFire_ActionName,Light Fire,点火
+Advanced_Copper_Tools_TeaBlendingStation_LightFire_ActionDescription,Use the stove's flame to light tinder or a campfire.,用炉火点燃引火物或营地火堆。
+Advanced_Copper_Tools_TeaBlendingStation_Extinguish_Manual_ActionName,Extinguish,熄灭
+Advanced_Copper_Tools_TeaBlendingStation_Extinguish_Manual_ActionDescription,Put out the fire.,熄灭火焰。
+Advanced_Copper_Tools_TeaBlendingStation_PickUp_ActionName,Pick Up,拾起
+Advanced_Copper_Tools_TeaBlendingStation_PickUp_ActionDescription,Pack up the station and carry it.,打包茶站并携带。
+Advanced_Copper_Tools_TeaBlendingStation_PickUp_FailMessage,Remove items from the station first.,请先将站台上的物品移除。
+Advanced_Copper_Tools_TeaStationKit_CardName,Tea Station Kit,茶站套件
+Advanced_Copper_Tools_TeaStationKit_CardDescription,A disassembled tea station packed for transport. Place it in the environment to set it up — six herb slots, an integrated water tank, and a copper stove.
+Advanced_Copper_Tools_TeaStationKit_CardHelpSection,"<b>Usage:</b> Use the Place action to set up the tea station. Fill the water tank by dragging full water bowls onto it, fuel the stove, and light it to heat the water.",<b>用途：</b> 使用放置动作安置茶站。通过拖动装满水的陶碗向水箱注水，添加燃料，然后点燃以加热水。
+Advanced_Copper_Tools_TeaStationKit_Place_ActionName,Place,放置
+Advanced_Copper_Tools_TeaStationKit_Place_ActionDescription,Set up the tea station in your environment.,在您的环境中安置茶站。
+Advanced_Copper_Tools_CopperPantry_CardName,Copper Chest,铜制箱子
+Advanced_Copper_Tools_CopperPantry_CardDescription,A sealed copper chest with thick insulated walls. Keeps food dramatically colder, greatly slowing spoilage and keeping animals out.
+Advanced_Copper_Tools_CopperPantry_CardHelpSection,"<b>Spoilage:</b> Slows to 20% of normal rate.
+
+<b>Animal-safe:</b> Yes. Wildlife cannot raid this chest.","<b>腐败：</b> 腐败速度降至正常的20%。
+
+<b>防野兽：</b> 是。野生动物无法袭击此箱子。"
+Advanced_Copper_Tools_CopperPantry_Placed_CardHelpSection,"<b>Spoilage:</b> Slows to 20% of normal rate.
+
+<b>Animal-safe:</b> Yes. Wildlife cannot raid this chest.","<b>腐败：</b> 腐败速度降至正常的20%。
+
+<b>防野兽：</b> 是。野生动物无法袭击此箱子。"
+Advanced_Copper_Tools_CopperPantry_DismantleActions_Place_ActionName,Place,放置
+Advanced_Copper_Tools_CopperPantry_DismantleActions_Place_ActionDescription,Set the copper chest down in your environment.,将铜制箱子放置在您的环境中。
+Advanced_Copper_Tools_CopperPantry_DismantleActions_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_CopperPantry_DismantleActions_Dismantle_ActionDescription,Take the copper chest apart to recover some of the sheets.,拆解铜制箱子以回收部分金属片。
+Advanced_Copper_Tools_CopperPantry_DismantleActions_Dismantle_FailMessage,Empty the chest first.,先将箱子清空。
+Advanced_Copper_Tools_CopperPantryPlaced_DismantleActions_PickUp_ActionName,Pick Up,拾起
+Advanced_Copper_Tools_CopperPantryPlaced_DismantleActions_PickUp_ActionDescription,Pick up the copper chest to carry it.,拾起铜制箱子并携带。
+Advanced_Copper_Tools_CopperPantryPlaced_DismantleActions_PickUp_FailMessage,Empty the chest before picking it up.,拾起前先将箱子清空。
+Advanced_Copper_Tools_Bp_CopperPantry_CardName,Copper Chest,铜制箱子
+Advanced_Copper_Tools_Bp_CopperPantry_CardDescription,"Build a sealed copper chest with thick insulated walls. Dramatically slows food spoilage and keeps animals out. Requires 4 metal sheets, 4 planks, 6 copper nails, and a hammer.",建造一个带有厚实隔热墙的密封铜制箱子。大幅减缓食物腐败并阻止动物入侵。需要4块金属片、4块木板、6颗铜钉和一把锤子。
+Advanced_Copper_Tools_Bp_CopperPantry_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
+Advanced_Copper_Tools_Bp_RenderHempOil_CardName,Render Hemp Seed Oil,熬制麻籽油
+Advanced_Copper_Tools_Bp_RenderHempOil_CardDescription,Cook down hemp seed oil over a fire to produce clean lamp oil.,在火上熬煮麻籽油以制作清洁的灯油。
+Advanced_Copper_Tools_Bp_RenderHempOil_UnlockConditionsDesc,Hemp Seed Oil Needed,需要麻籽油
+Advanced_Copper_Tools_CopperOilFlask_CardName,Copper Oil Flask,铜制油瓶
+Advanced_Copper_Tools_CopperOilFlask_CardDescription,A hammered copper flask for storing lamp oil. Holds 6 charges of oil — enough to fully refuel a lantern twice. Drag onto a lantern to pour in one charge.,一个用于储存灯油的锤制铜瓶。可储存6格油量——足以为提灯完全补充两次燃料。拖到提灯上以倒入一格油量。
+Advanced_Copper_Tools_CopperOilFlask_CardHelpSection,"<b>Fill:</b> Drag Oil items onto the flask (6 items = full).
+
+<b>Use:</b> Drag the flask onto a Metal Lantern to pour in one full charge of oil.","<b>注油：</b> 将油脂物品拖到油瓶上（6个 = 满格）。
+
+<b>使用：</b> 将油瓶拖到金属提灯上以倒入一整格油量。"
+Advanced_Copper_Tools_CopperOilFlask_FuelCapacity_CardStatName,Oil,油量
+Advanced_Copper_Tools_CopperOilFlask_FillOil_ActionName,Fill with Oil,注入油脂
+Advanced_Copper_Tools_CopperOilFlask_FillOil_ActionDescription,Poured oil into the flask.,向油瓶中倒入油脂。
+Advanced_Copper_Tools_MetalLantern_RefuelFlask_ActionName,Refuel from Flask,从油瓶补充燃料
+Advanced_Copper_Tools_MetalLantern_RefuelFlask_ActionDescription,Poured oil from the copper flask into the lantern.,从铜制油瓶向提灯中倒入油脂。
+Advanced_Copper_Tools_Bp_CopperOilFlask_CardName,Copper Oil Flask,铜制油瓶
+Advanced_Copper_Tools_Bp_CopperOilFlask_CardDescription,"Hammer two copper sheets into a sealed flask for storing lamp oil, wrapped with a leather carry strap. Holds enough for two full lantern refills. Requires 2 copper sheets, 1 medium leather, and a hammer.",将两块铜片锤打成密封油瓶用于储存灯油，并缠绕皮革提手。可存储两次完整提灯补充量。需要2块铜片、1块中型皮革和一把锤子。
+Advanced_Copper_Tools_Bp_CopperOilFlask_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
+Advanced_Copper_Tools_Perk_TeaBlendingStation_PerkName,Tea Blending Station,茶站
+Advanced_Copper_Tools_Perk_TeaBlendingStation_PerkDescription,"Start with a Tea Blending Station Kit. Place it to set up a 6-slot workstation that passively dries herbs and, once lit, cooks, heats, and boils — perfect for crafting teas and tinctures.",初始携带一个茶站套件。放置后可设置一个6槽工作台，被动晾干草药，点燃后可烹饪、加热和煮沸——非常适合制作茶饮和酊剂。
+Advanced_Copper_Tools_TeaBlendingStation_WaterCharges_CardStatName,Water Charges,水量格
+Advanced_Copper_Tools_CopperCauldron_FuelCapacity,Container Temperature,容器温度
+Advanced_Copper_Tools_CopperCauldron_Burn_ActionName,Slowly Overcook (Burn) and Reduce Quality,慢速过火（烧焦）并降低质量
+Advanced_Copper_Tools_CopperCauldron_CookBatch_CannotCookText,Not hot enough,温度不够高
+Advanced_Copper_Tools_CopperCauldron_CookInLiquid_ActionName,Cook in Cookable Liquid,在可烹饪液体中烹饪
+Advanced_Copper_Tools_CopperHelmet_CardName,Copper Helmet,铜制头盔
+Advanced_Copper_Tools_CopperHelmet_CardDescription,A hammered copper helmet offering solid head protection. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.,一顶锤制铜头盔，提供坚实的头部防护。可在熔炉中回收。必须装备在装备槽上才能生效。
+Advanced_Copper_Tools_CopperHelmet_UsageDurability.CardStatName,Durability,耐久度
+Advanced_Copper_Tools_CopperHelmet_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_CopperHelmet_Dismantle_ActionDescription,Break apart the helmet to recover materials.,拆解头盔以回收材料。
+Advanced_Copper_Tools_Bp_CopperHelmet_CardName,Copper Helmet,铜制头盔
+Advanced_Copper_Tools_Bp_CopperHelmet_CardDescription,"Craft a hammered copper helmet for head protection. Requires 2 copper sheets, 4 copper nails, 1 small leather, 2 sinew, and a hammer.",制作一顶锤制铜头盔用于头部防护。需要2块铜片、4颗铜钉、1块小皮革、2根肌腱和一把锤子。
+Advanced_Copper_Tools_Bp_CopperHelmet_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
+Advanced_Copper_Tools_CopperGauntlets_CardName,Copper Bracers,铜制护臂
+Advanced_Copper_Tools_CopperGauntlets_CardDescription,Hammered copper bracers protecting both arms. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.,锤制铜护臂，保护双臂。可在熔炉中回收。必须装备在装备槽上才能生效。
+Advanced_Copper_Tools_CopperGauntlets_UsageDurability.CardStatName,Durability,耐久度
+Advanced_Copper_Tools_CopperGauntlets_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_CopperGauntlets_Dismantle_ActionDescription,Break apart the bracers to recover materials.,拆解护臂以回收材料。
+Advanced_Copper_Tools_Bp_CopperGauntlets_CardName,Copper Bracers,铜制护臂
+Advanced_Copper_Tools_Bp_CopperGauntlets_CardDescription,"Craft hammered copper bracers for arm protection. Requires 2 heated lumps of metal, 4 copper nails, 1 small leather, 2 sinew, and a hammer.",制作锤制铜护臂用于手臂防护。需要2块加热金属锭、4颗铜钉、1块小皮革、2根肌腱和一把锤子。
+Advanced_Copper_Tools_Bp_CopperGauntlets_UnlockConditionsDesc,Heated Lump of Metal Needed,需要加热金属锭
+Advanced_Copper_Tools_CopperGreaves_CardName,Copper Greaves,铜制护腿
+Advanced_Copper_Tools_CopperGreaves_CardDescription,Hammered copper greaves protecting both legs. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.,锤制铜护腿，保护双腿。可在熔炉中回收。必须装备在装备槽上才能生效。
+Advanced_Copper_Tools_CopperGreaves_UsageDurability.CardStatName,Durability,耐久度
+Advanced_Copper_Tools_CopperGreaves_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_CopperGreaves_Dismantle_ActionDescription,Break apart the greaves to recover materials.,拆解护腿以回收材料。
+Advanced_Copper_Tools_Bp_CopperGreaves_CardName,Copper Greaves,铜制护腿
+Advanced_Copper_Tools_Bp_CopperGreaves_CardDescription,"Craft hammered copper greaves for leg protection. Requires 2 heated lumps of metal, 4 copper nails, 1 small leather, 2 sinew, and a hammer.",制作锤制铜护腿用于腿部防护。需要2块加热金属锭、4颗铜钉、1块小皮革、2根肌腱和一把锤子。
+Advanced_Copper_Tools_Bp_CopperGreaves_UnlockConditionsDesc,Heated Lump of Metal Needed,需要加热金属锭
+Advanced_Copper_Tools_CopperBreastplate_CardName,Copper Armor,铜制铠甲
+Advanced_Copper_Tools_CopperBreastplate_CardDescription,A sturdy suit of copper armor offering strong torso protection. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.,一套坚固的铜制铠甲，提供强力躯干防护。可在熔炉中回收。必须装备在装备槽上才能生效。
+Advanced_Copper_Tools_CopperBreastplate_UsageDurability.CardStatName,Durability,耐久度
+Advanced_Copper_Tools_CopperBreastplate_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_CopperBreastplate_Dismantle_ActionDescription,Break apart the armor to recover materials.,拆解铠甲以回收材料。
+Advanced_Copper_Tools_Bp_CopperBreastplate_CardName,Copper Armor,铜制铠甲
+Advanced_Copper_Tools_Bp_CopperBreastplate_CardDescription,"Craft sturdy copper armor for torso protection. Requires 4 copper sheets, 4 copper nails, 1 medium leather, 4 sinew, and a hammer.",制作坚固的铜制铠甲用于躯干防护。需要4块铜片、4颗铜钉、1块中型皮革、4根肌腱和一把锤子。
+Advanced_Copper_Tools_Bp_CopperBreastplate_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
+Advanced_Copper_Tools_CopperBrazierKit_CardName,Copper Brazier Kit,铜制火盆套件
+Advanced_Copper_Tools_CopperBrazierKit_CardDescription,A portable copper brazier on a stick tripod. Set it up in your environment and fill with oil for a bright long-burning light source.,一个架在三脚架上的便携铜制火盆。在环境中安置并注入油脂，以获得明亮持久的光源。
+Advanced_Copper_Tools_CopperBrazierKit_Place_ActionName,Place,放置
+Advanced_Copper_Tools_CopperBrazierKit_Place_ActionDescription,Set up the copper brazier in your environment.,在您的环境中安置铜制火盆。
+Advanced_Copper_Tools_CopperBrazier_CardName,Copper Brazier,铜制火盆
+Advanced_Copper_Tools_CopperBrazier_CardDescription,"A placed copper brazier, currently unlit. Fill with oil and light from any fire source to illuminate and warm the area.",一个已放置的铜制火盆，当前未点燃。注入油脂并用任何火源点燃，以照亮并温暖周围区域。
+Advanced_Copper_Tools_CopperBrazier_CardHelpSection,"<b>Usage:</b> Add oil, then light from any fire source. Burns brighter and longer than a clay brazier. Pack up to carry.",<b>用途：</b> 添加油脂，然后用任何火源点燃。比陶制火盆燃烧更明亮、持久。打包可携带。
+Advanced_Copper_Tools_CopperBrazier_FuelCapacity_CardStatName,Oil,油量
+Advanced_Copper_Tools_CopperBrazier_Refuel_ActionName,Pour in Oil,倒入油脂
+Advanced_Copper_Tools_CopperBrazier_Refuel_ActionDescription,Poured oil into the brazier.,向火盆中倒入油脂。
+Advanced_Copper_Tools_CopperBrazier_RefuelFlask_ActionName,Pour from Flask,从油瓶倒油
+Advanced_Copper_Tools_CopperBrazier_RefuelFlask_ActionDescription,Poured oil from the copper flask into the brazier.,从铜制油瓶向火盆中倒入油脂。
+Advanced_Copper_Tools_CopperBrazier_Light_ActionName,Light Brazier,点燃火盆
+Advanced_Copper_Tools_CopperBrazier_Light_ActionDescription,Light the brazier with a flame.,用火焰点燃火盆。
+Advanced_Copper_Tools_CopperBrazier_NeedsFuel,The brazier needs oil first.,火盆需要先加油。
+Advanced_Copper_Tools_CopperBrazier_PackUp_ActionName,Pack Up,收起
+Advanced_Copper_Tools_CopperBrazier_PackUp_ActionDescription,Disassemble the brazier and carry it.,拆卸火盆并携带。
+Advanced_Copper_Tools_CopperBrazier_Extinguish_ActionName,Extinguish,熄灭
+Advanced_Copper_Tools_CopperBrazier_Extinguish_ActionDescription,Smother the flames.,扑灭火焰。
+Advanced_Copper_Tools_CopperBrazierLit_CardName,Lit Copper Brazier,已点燃的铜制火盆
+Advanced_Copper_Tools_CopperBrazierLit_CardDescription,A copper brazier burning oil with a bright warm flame. Burns through oil faster than a lantern but illuminates a larger area.,一个燃烧油脂散发明亮温暖火焰的铜制火盆。比提灯消耗油脂更快，但照亮范围更大。
+Advanced_Copper_Tools_CopperBrazierLit_CardHelpSection,<b>Usage:</b> Illuminates a wide area and boosts morale. Extinguish before refueling.,<b>用途：</b> 照亮大片区域并提升士气。补充燃料前需先熄灭。
+Advanced_Copper_Tools_CopperBrazierLit_FuelOut_ActionName,Brazier Burns Out,火盆燃尽
+Advanced_Copper_Tools_CopperBrazierLit_FuelOut_ActionDescription,The brazier runs out of oil.,火盆的油脂耗尽了。
+Advanced_Copper_Tools_Bp_CopperBrazier_CardName,Copper Brazier,铜制火盆
+Advanced_Copper_Tools_Bp_CopperBrazier_CardDescription,"Craft a copper brazier from metal sheets, copper nails, and long sticks. Holds 4 charges of oil and burns brighter than a lantern.",用金属片、铜钉和长棍制作一个铜制火盆。可储存4格油量，比提灯燃烧更明亮。
+Advanced_Copper_Tools_Bp_CopperBrazier_UnlockConditionsDesc,Metal Sheet Needed,需要金属片

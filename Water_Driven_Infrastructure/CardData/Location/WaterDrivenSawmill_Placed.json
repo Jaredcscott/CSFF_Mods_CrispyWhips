@@ -61,7 +61,7 @@
   "InventorySlotsWarpType": 3,
   "InventoryFilter": {
     "AcceptedCards": [],
-    "AcceptedCardsWarpData": ["0ab556ab6af1efc47a2cba5cdf4ace04"],
+    "AcceptedCardsWarpData": ["water_sawmill_copper_saw_blade"],
     "AcceptedCardsWarpType": 3,
     "AcceptedTypes": [],
     "AcceptedTags": [],
@@ -103,7 +103,7 @@
       "ActionSoundsWarpType": 3,
       "CompatibleCards": {
         "TriggerCards": [],
-        "TriggerCardsWarpData": ["0ab556ab6af1efc47a2cba5cdf4ace04"],
+        "TriggerCardsWarpData": ["water_sawmill_copper_saw_blade"],
         "TriggerCardsWarpType": 3,
         "TriggerTags": []
       },

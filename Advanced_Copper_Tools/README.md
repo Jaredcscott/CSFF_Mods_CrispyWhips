@@ -1,7 +1,7 @@
 # Advanced Copper Tools
 
 **Quality of Life & Advanced Metalworking**
-**Version:** 1.7.7
+**Version:** 1.8.0
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.63)
 
@@ -39,7 +39,7 @@ Blueprints register into vanilla crafting tabs via `BlueprintTabs.json`:
 | **Metal & Clay → Metal Crafts** | Metal Sheet, Copper Nail, Forged Pan Blank, Wheel Rim, Wheel Hub (forged), Cast Wheel Hub, Cast Stove Top |
 | **Construction → Metal Tools** | Wearable Metal Pan, Large Saw, Lantern Oilwell, Copper Tea Kettle, Copper Oil Flask, Copper Cauldron, Copper Helmet, Copper Bracers, Copper Greaves, Copper Armor |
 | **Construction → Advanced Tools** | Metal Lantern, Wheelbarrow Bucket, Wheelbarrow Handles, Wheel Assembly, Wheelbarrow |
-| **Construction → Furniture** | Small Copper Stove, Copper Bathtub, Tea Blending Station, Copper Chest |
+| **Construction → Furniture** | Small Copper Stove, Copper Bathtub, Tea Blending Station, Copper Chest, Copper Brazier |
 
 Time fields throughout this README use the standard CSFF unit: **1 tick = 15 minutes in-game**. `BuildingDaytimeCost` is the build time per stage (capped at 12 to keep stages ≤ 3 hours).
 
@@ -49,8 +49,8 @@ Time fields throughout this README use the standard CSFF unit: **1 tick = 15 min
 
 | Item | Recipe | Build Time | Unlock |
 |------|--------|-----------:|-------:|
-| **Metal Sheet** | 3 heated copper nuggets + hammer (no spend) | 2 ticks | 8 ticks |
-| **Copper Nail** | 1 heated copper nugget + hammer (no spend) | 2 ticks | 8 ticks |
+| **Metal Sheet** | 3 heated copper nuggets + hammer (no spend) | 2 ticks | 16 ticks |
+| **Copper Nail** | 1 heated copper nugget + hammer (no spend) | 2 ticks | 16 ticks |
 
 Multi-metal supported wherever it makes sense — copper, ghost bronze, tin, tin bronze, and white bronze variants of metal sheets and pans all work through the same blueprints.
 
@@ -102,8 +102,8 @@ Multi-metal pan that you can wear, cook in, and use to purify water on a stove o
 
 A two-handled cutting tool that fells large trees substantially faster than the vanilla advanced axe.
 
-- **Recipe:** 2 metal sheets + 2 planks + 4 copper nails (build 4 ticks, unlock 16 ticks)
-- **Tags:** `tag_Cutter`, `tag_AdvancedAxe`-equivalent for tree-cutting interactions
+- **Recipe:** 2 metal sheets + 2 Wood + 4 copper nails (build 4 ticks, unlock 32 ticks)
+- **Tags:** `tag_Axe`, `tag_AdvancedAxe`
 - **Bonus:** A Harmony prefix on `GameManager.ActionRoutine` adds an extra **−25 Progress** when the saw is used on a large tree (pine, oak, birch, willow). Combined with the vanilla "Cut Tree" −25, that's −50 per swing — pine/willow fall in 1 swing, oak in 2 swings, birch in 2 (75 → 25 → 0).
 
 The saw still works on small trees through the normal `tag_Axe` interaction; the bonus only applies to the four large-tree variants.
@@ -116,12 +116,12 @@ Wearable copper armor pieces protect specific body zones when equipped. Each pie
 
 | Piece | Protection | Recipe | Build | Unlock |
 |-------|------------|--------|------:|-------:|
-| **Copper Helmet** | Head +30 | 4 metal sheets + 2 copper nails + 1 rope + hammer (no spend) | 4 ticks | 24 ticks |
-| **Copper Bracers** | Arms +15 each | 3 metal sheets + 2 copper nails + 1 rope + hammer (no spend) | 4 ticks | 16 ticks |
-| **Copper Greaves** | Legs +15 each | 4 metal sheets + 2 copper nails + 1 rope + hammer (no spend) | 4 ticks | 24 ticks |
-| **Copper Armor** | Torso +30 | 6 metal sheets + 4 copper nails + 2 rope + hammer (no spend) | 6 ticks | 32 ticks |
+| **Copper Helmet** | Head +30 | 2 metal sheets + 4 copper nails + 1 small leather + 2 sinew + hammer (no spend) | 4 ticks | 24 ticks |
+| **Copper Bracers** | Arms +15 each | 2 heated metal lumps + 4 copper nails + 1 small leather + 2 sinew + hammer (no spend) | 4 ticks | 16 ticks |
+| **Copper Greaves** | Legs +15 each | 2 heated metal lumps + 4 copper nails + 1 small leather + 2 sinew + hammer (no spend) | 4 ticks | 24 ticks |
+| **Copper Armor** | Torso +30 | 4 metal sheets + 4 copper nails + 1 medium leather + 4 sinew + hammer (no spend) | 6 ticks | 32 ticks |
 
-All four blueprints are research-gated by having at least one Metal Sheet and appear under **Construction → Metal Tools**. At full durability, the copper set's durability multiplier raises these values enough to fill the Armor stat when replacing the leather cuirass, helmet, greaves, and bracers while keeping the usual gloves, shoes, tunic, and trousers equipped.
+Helmet and Armor are research-gated by having a Metal Sheet; Bracers and Greaves are gated by a Heated Metal Lump. All four appear under **Construction → Metal Tools**. At full durability, the copper set's durability multiplier raises these values enough to fill the Armor stat when replacing the leather cuirass, helmet, greaves, and bracers while keeping the usual gloves, shoes, tunic, and trousers equipped.
 
 ---
 
@@ -152,7 +152,7 @@ A wearable container that carries items at reduced effective weight. Built from 
 
 A 3-state placed structure for cleansing and morale.
 
-**Recipe** (build 12 ticks, unlock 48 ticks): 1 wheelbarrow bucket + 1 small copper stove + 4 planks + 8 mud bricks + 1 large cloth + 4 long sticks + 3 small leather + hammer (not consumed).
+**Recipe** (build 12 ticks, unlock 96 ticks): 1 wheelbarrow bucket + 1 small copper stove + 4 planks + 8 mud bricks + 1 large cloth + 4 long sticks + 3 small leather + hammer (not consumed).
 
 **States**
 
@@ -175,7 +175,7 @@ A portable light source with the standard CSFF four-variant pattern: item ↔ pl
 | **Placed Lantern** (unlit) | 2 | no | no (refuel here) |
 | **Placed Lantern** (lit) | 2 | no | yes (area light) |
 
-**Recipe** (build 2 ticks, unlock 6 ticks): 2 metal sheets + 1 lantern oilwell + 1 stone (forge component pattern).
+**Recipe** (build 2 ticks, unlock 12 ticks): 2 metal sheets + 1 lantern oilwell + 1 stone (forge component pattern).
 
 **Fuel**: Pour `Oil` directly onto the unlit lantern, or drag a Copper Oil Flask onto it for one charge per drag. Holds 3 charges; each charge burns ~6 hours, total ~18 hours per full tank. Light by dragging a fire source onto the unlit lantern (gated by ≥10% fuel).
 
@@ -189,10 +189,10 @@ When fuel runs out, lit variants auto-extinguish back to their unlit counterpart
 
 | Blueprint | Recipe | Build | Unlock |
 |-----------|--------|------:|------:|
-| **Rendered Oil** | 2 animal fat + 1 clay bowl, over a fire | 4 ticks | 8 ticks |
-| **Render Hemp Seed Oil** | 1 hemp seed oil → 1 oil (requires H&F installed)¹ | 4 ticks | 8 ticks |
-| **Lantern Oilwell** | 1 metal sheet + 1 twine + hammer (no spend) | 2 ticks | 8 ticks |
-| **Copper Oil Flask** | 2 metal sheets + 1 medium leather + hammer (no spend) | 3 ticks | 8 ticks |
+| **Rendered Oil** | 2 animal fat + 1 clay bowl, over a fire | 4 ticks | 16 ticks |
+| **Render Hemp Seed Oil** | 1 hemp seed oil → 1 oil (requires H&F installed)¹ | 4 ticks | 16 ticks |
+| **Lantern Oilwell** | 1 metal sheet + 1 twine + hammer (no spend) | 2 ticks | 16 ticks |
+| **Copper Oil Flask** | 2 metal sheets + 1 medium leather + hammer (no spend) | 3 ticks | 16 ticks |
 
 The flask holds 6 charges — enough to fully refuel a lantern twice. Drag the flask onto a lantern to pour one charge.
 
@@ -202,7 +202,7 @@ The flask holds 6 charges — enough to fully refuel a lantern twice. Drag the f
 
 ## Copper Tea Kettle
 
-A copper liquid container (build 3 ticks, unlock 16 ticks; 3 metal sheets + hammer) that boils water on any fire source.
+A copper liquid container (build 3 ticks, unlock 32 ticks; 3 metal sheets + hammer) that boils water on any fire source.
 
 - 200-unit Temperature; vanilla "Cool Down" passive dissipates heat off the source
 - Place on a lit stove, campfire, or copper bathtub heat to boil
@@ -237,7 +237,7 @@ A dedicated workbench with six herb-and-grinding slots, a built-in 8-bowl water 
 | **Tea Station** (placed, unlit) | 2 | yes (must be empty) | no |
 | **Tea Station** (placed, lit) | 2 | no — extinguish first | yes |
 
-**Recipe** (build 4 ticks, unlock 16 ticks): 2 planks + 4 twine + 1 copper tea kettle + 1 small copper stove + 1 rotary quern + 15 stone (Stone). Place the kit to set up the workbench.
+**Recipe** (build 4 ticks, unlock 64 ticks): 2 planks + 4 twine + 1 copper tea kettle + 1 small copper stove + 1 rotary quern + 15 stone (Stone). Place the kit to set up the workbench.
 
 **Slots (×6)**: Place fresh herbs to dry passively over time. The drying recipe runs even unlit (`tag_Dryable` / `tag_DryableFastSpoilable`); lighting the stove speeds drying further and unlocks cooking, heating, and water-boiling recipes inside the slots.
 
@@ -249,9 +249,23 @@ A dedicated workbench with six herb-and-grinding slots, a built-in 8-bowl water 
 
 ---
 
+## Copper Brazier
+
+A copper fire-bowl on a stick tripod (build 4 ticks, unlock 16 ticks; 3 metal sheets + 4 copper nails + 3 long sticks). Gated by having a Metal Sheet.
+
+- **3 states:** Kit (CT0, carryable) → Placed unlit (CT2) → Placed lit (CT2)
+- **Fuel:** Drag rendered oil onto the placed brazier to fill (24 units per clay bowl); drag a fire source to light
+- **Light:** Lit variant provides warm-toned light; drains oil at 1.5 per daytime point (≈ 64 DTP per fill)
+- **Pack Up:** Extinguish first (or pack up the unlit version) — remaining oil transfers back to the kit
+- **Smelting:** Can be melted in the furnace for 22 copper nuggets
+
+Blueprinted under **Construction → Furniture**.
+
+---
+
 ## Copper Chest
 
-A sealed copper chest with thick insulated walls (build 10 ticks, unlock 32 ticks; 4 metal sheets + 4 planks + 6 copper nails + hammer).
+A sealed copper chest with thick insulated walls (build 10 ticks, unlock 64 ticks; 4 metal sheets + 4 planks + 6 copper nails + hammer).
 
 - Slows spoilage on contained items to **20% of normal**
 - **Animal-safe**: wildlife cannot raid this chest (lacks `tag_NotSafeFromAnimals`)
@@ -271,6 +285,7 @@ All crafted metal items can be melted back down for nuggets in the furnace (the 
 | Metal Sheet / Wheel Hub / Wheel Rim / Stove Top Mold / Cast Stove Top / Lantern Oilwell | 6 |
 | Wheel Assembly | 12 |
 | Large Saw | 16 |
+| Metal Lantern | 18 |
 | Copper Tea Kettle | 18 |
 | Copper Bracers | 11 |
 | Copper Helmet | 15 |
@@ -327,7 +342,7 @@ These hooks are mod-scoped: they filter on this mod's UniqueIDs and never modify
 1. Install BepInEx if not already installed.
 2. Install CSFFModFramework in `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. Drop this mod folder at `BepInEx/plugins/Advanced_Copper_Tools/`.
-4. Launch the game — content loads automatically; check `BepInEx/LogOutput.log` for `Advanced_Copper_Tools v1.7.7 loaded.`
+4. Launch the game — content loads automatically; check `BepInEx/LogOutput.log` for `Advanced_Copper_Tools v1.8.0 loaded.`
 
 ### Deployed file structure
 
@@ -354,13 +369,13 @@ BepInEx/plugins/Advanced_Copper_Tools/
 - Depends on CSFFModFramework for JSON loading, WarpData resolution, sprites, perks, and blueprint tab injection.
 - Declares HerbsAndFungi as a soft dependency so the optional hemp-oil recipe loads after H&F when it is installed.
 - The `Render Hemp Seed Oil` blueprint references an H&F card — without H&F installed, the recipe registers but its ingredient cannot be obtained.
-- No vanilla items, drops, or stats are modified. Safe to add to existing saves; safe to remove (modded items disappear without corrupting the save).
+- ACT does not modify vanilla drops or stats. It adds scoped runtime fire-container acceptance and heating recipes to vanilla fire cards so ACT kettles and cauldrons work on existing fire sources. Safe to add to existing saves; safe to remove (modded items disappear without corrupting the save).
 
 ---
 
 ## Troubleshooting
 
-**Blueprints not appearing?** Verify CSFFModFramework is loaded — check `LogOutput.log` for `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.7.7 loaded.`
+**Blueprints not appearing?** Verify CSFFModFramework is loaded — check `LogOutput.log` for `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.8.0 loaded.`
 
 **Pan / kettle won't boil?** It must be on a *lit* fire source with fuel remaining. Vanilla water types boil via their own `LiquidFuelValue` OnFull transform; if the liquid isn't a heatable type, nothing happens.
 
@@ -374,7 +389,16 @@ BepInEx/plugins/Advanced_Copper_Tools/
 
 ## Version History
 
-### v1.7.7 (current)
+### v1.8.0 (current)
+- Added **Copper Brazier** — 3-variant oil-burning fire bowl (kit → placed unlit → placed lit)
+  - Fueled by rendered oil (24 units per clay bowl); lit variant drains at 1.5 per DTP (~64 DTP per fill)
+  - Pack-up transfers remaining oil back to the kit; smelts for 22 copper nuggets
+  - Blueprinted under Construction → Furniture, gated by having a Metal Sheet
+
+### v1.7.8
+- Version bump for release; `CopperHelmet` image reference corrected (was `CopperHemlet`); unlock time README values reconciled with JSON (16 ticks for Metal Sheet and Copper Nail)
+
+### v1.7.7
 - EA 0.63f compatibility; blueprint tab injector updated to use live UI tabs (fixes journal tab disappearing on EA 0.63f)
 - `StartUnlocked` / `ConstantlyChecking` fields corrected across all operation blueprints
 

@@ -324,18 +324,13 @@ internal static class BlueprintContainerSaveLoadFix
     }
 
     /// <summary>
-    /// Synchronous runner for the rare case where <c>Plugin.Instance</c> is unavailable
-    /// to host the coroutine (boot ordering, postfix re-entry). Drains the same loop in
-    /// one go — no yields, so the main thread blocks for the full duration. Should not
-    /// be the normal path; <see cref="DeferredRun"/> is preferred.
+    /// Called when <c>Plugin.Instance</c> is unavailable at GM-init time. Logs an error
+    /// and skips rather than draining synchronously — synchronous drain causes a reproducible
+    /// freeze when ModCore is installed.
     /// </summary>
     private static void RunSync()
     {
-        var ctx = PrepareRunContext();
-        if (ctx == null) return;
-
-        var enumerator = RunNowCoroutine(ctx);
-        while (enumerator.MoveNext()) { /* drain */ }
+        Log.Error("[BlueprintContainerSaveLoadFix] Plugin.Instance is null at GM init — skipping blueprint slot repair to avoid freeze.");
     }
 
     private static IEnumerator RunNowCoroutine(RunContext ctx)
@@ -361,7 +356,159 @@ internal static class BlueprintContainerSaveLoadFix
         }
 
         var summary = $"[BlueprintContainerSaveLoadFix] done: {containers} blueprint container(s) seen, {refreshed} re-spawned, {unlocked} blueprint(s) marked Available";
-        Log.Debug(summary);
+        Log.Info(summary);
+
+        // Retroactive fallback: ensure all regular mod blueprints are registered in
+        // AllBlueprintModels and have correct BlueprintModelStates.
+        //
+        // Primary path: BlueprintFlagFix.FinishInitializing_Prefix adds them BEFORE
+        // FinishInitializing's state-restoration loop, so states are normally restored
+        // from PurchasableBlueprintCards / ResearchedBlueprintCards automatically.
+        //
+        // This pass handles the case where FinishInitializing rebuilt AllBlueprintModels
+        // from IncludedCards (overwriting the prefix's additions) or where the prefix
+        // patch was unavailable.
+        RestoreModBlueprintStates(ctx.GmInstance, ctx.GmType);
+    }
+
+    // Ensures all mod blueprints are in AllBlueprintModels and have a BlueprintModelState.
+    // If a mod blueprint is missing from BlueprintModelStates (state was not restored by
+    // FinishInitializing), its state is derived from the game's in-memory save-data fields.
+    private static void RestoreModBlueprintStates(object gmInstance, Type gmType)
+    {
+        try
+        {
+            // Resolve AllBlueprintModels
+            var allBpModelsField = AccessTools.Field(gmType, "AllBlueprintModels");
+            var allBpModels = allBpModelsField?.GetValue(gmInstance) as IList;
+            if (allBpModels == null) return;
+
+            // Resolve BlueprintModelStates
+            var statesField = AccessTools.Field(gmType, "BlueprintModelStates");
+            var states = statesField?.GetValue(gmInstance) as IDictionary;
+            if (states == null) return;
+
+            var stateType = states.GetType().GetGenericArguments().Length >= 2
+                ? states.GetType().GetGenericArguments()[1]
+                : null;
+            if (stateType == null || !stateType.IsEnum) return;
+
+            // Parse Available and Purchased enum values (fallback to int if name not found).
+            object available, purchased;
+            try { available = Enum.Parse(stateType, "Available"); }
+            catch { available = Enum.ToObject(stateType, 1); }
+            try { purchased = Enum.Parse(stateType, "Purchased"); }
+            catch
+            {
+                try { purchased = Enum.Parse(stateType, "Researched"); }
+                catch { purchased = Enum.ToObject(stateType, 2); }
+            }
+
+            // Build sets of UIDs from the game's in-memory save state lists so we can restore
+            // the correct state for blueprints that FinishInitializing missed.
+            var purchasedUids = BuildUidSet(gmInstance, gmType, "ResearchedBlueprintCards", isPurchased: true);
+            var availableUids = BuildUidSet(gmInstance, gmType, "PurchasableBlueprintCards", isPurchased: false);
+
+            int added = 0;
+            int restored = 0;
+            foreach (var uid in Loading.JsonDataLoader.AllModUniqueIds)
+            {
+                if (!Loading.JsonDataLoader.ParsedJsonByUniqueId.TryGetValue(uid, out var parsed)) continue;
+                if (!parsed.TryGetValue("CardType", out var ct)) continue;
+                bool isBp = ct is long l && l == 7 || ct is string s && s == "7";
+                if (!isBp) continue;
+
+                var card = Data.GameRegistry.GetByUid(uid) as CardData;
+                if (card == null) continue;
+
+                // Ensure blueprint is in AllBlueprintModels (needed for future save cycles).
+                if (!allBpModels.Contains(card))
+                {
+                    allBpModels.Add(card);
+                    added++;
+                }
+
+                // If state is already present (restored by FinishInitializing), leave it.
+                if (states.Contains(card)) continue;
+
+                // Retroactively restore state from the game's in-memory save data.
+                object targetState;
+                if (purchasedUids.Contains(uid))
+                    targetState = purchased;
+                else if (availableUids.Contains(uid))
+                    targetState = available;
+                else
+                    continue; // blueprint was NotAvailable/undiscovered — don't seed
+
+                states[card] = targetState;
+                restored++;
+            }
+
+            if (added > 0 || restored > 0)
+                Log.Info($"[BlueprintStateFix] retroactive: {added} blueprint(s) added to AllBlueprintModels, {restored} state(s) restored");
+        }
+        catch (Exception ex)
+        {
+            Log.Warn($"[BlueprintStateFix] RestoreModBlueprintStates failed: {Log.ExceptionText(ex)}");
+        }
+    }
+
+    // Reads a string list/array field on GameManager (PurchasableBlueprintCards or
+    // ResearchedBlueprintCards) and extracts the plain UniqueIDs from entries that
+    // use the "GUID(CardName)" save format.
+    private static HashSet<string> BuildUidSet(object gmInstance, Type gmType, string fieldName, bool isPurchased)
+    {
+        var result = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        try
+        {
+            var field = AccessTools.Field(gmType, fieldName);
+            if (field == null) return result;
+
+            var value = field.GetValue(gmInstance);
+            if (value == null) return result;
+
+            // Field may be List<string>, string[], List<BlueprintResearchData>, etc.
+            // For strings: extract UID from "GUID(CardName)" format.
+            // For BlueprintResearchData objects: read BlueprintID field.
+            if (value is IEnumerable enumerable)
+            {
+                foreach (var entry in enumerable)
+                {
+                    if (entry == null) continue;
+
+                    string uid;
+                    if (entry is string str)
+                    {
+                        uid = ExtractUidFromSaveEntry(str);
+                    }
+                    else
+                    {
+                        // Likely BlueprintResearchData — read its BlueprintID field.
+                        var idField = entry.GetType().GetField("BlueprintID",
+                            BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+                        uid = idField?.GetValue(entry) as string;
+                        if (uid != null) uid = ExtractUidFromSaveEntry(uid);
+                    }
+
+                    if (!string.IsNullOrEmpty(uid))
+                        result.Add(uid);
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Log.Warn($"[BlueprintStateFix] BuildUidSet({fieldName}) failed: {Log.ExceptionText(ex)}");
+        }
+        return result;
+    }
+
+    // Save entries use "UniqueID(CardName)" format (e.g. "advanced_copper_tools_bp_oil(Bp_Oil)").
+    // Extract the UniqueID portion.
+    private static string ExtractUidFromSaveEntry(string entry)
+    {
+        if (string.IsNullOrEmpty(entry)) return entry;
+        var paren = entry.IndexOf('(');
+        return paren > 0 ? entry.Substring(0, paren) : entry;
     }
 
     private static void ProcessOneCard(RunContext ctx, object card,

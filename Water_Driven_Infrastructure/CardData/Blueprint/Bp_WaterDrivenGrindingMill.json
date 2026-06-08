@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "water_sawmill_bp_grinding_mill",
         "LocalizationKey": "Water_Sawmill_Bp_GrindingMill_CardDescription",
-        "DefaultText": "Assemble a water-driven grinding mill. Requires a water mill as a core subcomponent."
+        "DefaultText": "Assemble a water-driven grinding mill. Requires a water mill, iron bearing, and iron axle as core subcomponents."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {
@@ -108,6 +108,36 @@
                     "RequiredQuantity": 10,
                     "DontSpend": false,
                     "RequiredCardWarpData": "a7384e5147b23a642809451cc4ef24fb",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "water_sawmill_iron_bearing",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "water_sawmill_iron_axle",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 8,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "advanced_copper_tools_copper_nails",
                     "RequiredCardWarpType": 3
                 }
             ],

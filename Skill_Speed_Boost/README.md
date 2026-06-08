@@ -1,6 +1,6 @@
 # Skill Speed Boost
 
-**Version:** 1.7.6
+**Version:** 1.9.1
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.63)
 
@@ -8,16 +8,19 @@
 
 ## Overview
 
-**Version:** 1.7.6 — EA 0.63 compatibility
+**Version:** 1.9.1 — Level Scaling, Skill Synergies, Difficulty Profiles, Per-Skill Staleness
 
-Skill Speed Boost provides comprehensive control over skill progression mechanics in Card Survival: Fantasy Forest. The mod enables natural staleness decay (like Fishing), customizable XP multipliers per skill, and per-location area familiarity bonuses.
+Skill Speed Boost provides comprehensive control over skill progression mechanics in Card Survival: Fantasy Forest. The mod enables natural staleness decay (like Fishing), customizable XP multipliers per skill, per-location area familiarity bonuses, difficulty presets, and a combo synergy system for chaining related skills.
 
 ### Key Features
 
-1. **Staleness Management** — Skills decay naturally after 3 in-game hours (vs. vanilla permanent decay)
+1. **Staleness Management** — Skills decay naturally after 3 in-game hours; adjustable per-skill with individual rate multipliers
 2. **Per-Skill XP Multipliers** — Set different learning rates for each skill (0-10x)
 3. **Morning Study Bonus** — Optional XP multiplier during configurable morning hours (off by default)
 4. **Area Familiarity** — XP bonus that grows the more you forage/work at a given location, capped per location and configurable
+5. **Difficulty Profiles** — Named presets (Balanced, Casual, Hardcore, Grinder, etc.) that set ExpMultiplier and Staleness together with one config key
+6. **Skill Synergies** — Combo XP bonus for chaining related skills in sequence: +10% per consecutive related action, capped at +50% (5-action combo), resets after 5 minutes of inactivity (off by default)
+7. **Level Scaling** — Optional XP bonus that grows as a skill approaches its maximum level, compensating for the increasing XP cost at higher levels (off by default)
 
 ### Before vs After (Vanilla)
 
@@ -42,7 +45,7 @@ Skill Speed Boost provides comprehensive control over skill progression mechanic
 - Card Survival: Fantasy Forest (EA 0.63)
 
 ### Steps
-1. Download the latest release (v1.7.6+)
+1. Download the latest release (v1.9.1+)
 2. Copy the `Skill_Speed_Boost` folder into `BepInEx/plugins/`
 3. Launch the game
 
@@ -118,7 +121,7 @@ See **FEATURES.md** for full per-skill configuration details.
 ## Technical Details
 
 - **Load-time:** `GameLoad.LoadMainGameData` postfix configures staleness on all skill stats
-- **Runtime:** `GameManager.ChangeStatValue` coroutine postfix applies XP multipliers (global, per-skill, morning bonus, area familiarity) on every skill XP gain
+- **Runtime:** `GameManager.ChangeStatValue` coroutine postfix applies XP multipliers (global, per-skill, morning bonus, area familiarity, synergies, level scaling) on every skill XP gain
 - **Area tracking:** `GameManager.ActionRoutine` coroutine postfix tracks current location for familiarity scoring
 - **Staleness:** Sets `NoveltyCooldownDuration = 12` (12 ticks × 15 min = 3 hours)
 - **Safe:** No permanent changes to save files; fully reversible
@@ -132,7 +135,20 @@ See **FEATURES.md** for full per-skill configuration details.
 
 ## Version History
 
-### v1.7.6 (current)
+### v1.9.1 (current)
+- Version bump for release alongside framework 2.0.8 and all in-house mods
+
+### v1.9.0
+- **Level Scaling** — Optional XP bonus that scales linearly from 0% at skill level 0 to `LevelScalingMaxBonus` (default +50%) at max level, compensating for the steep XP-per-level cost at higher levels
+  - `LevelScalingEnabled` (default false), `LevelScalingMaxBonus` (default 0.50 = +50% at max level, range 0–3.0)
+  - Stacks multiplicatively with global, per-skill, morning, area familiarity, and synergy bonuses
+
+### v1.8.0
+- **Skill Synergies** — Combo XP bonus for chaining related skills; +10% per action up to +50%, 5-min timeout. Off by default (`EnableSkillSynergies`). Debug logging via `SkillSynergiesDebugLog`.
+- **Difficulty Profiles** — `ActiveProfile` config key applies a named preset (VanillaPlus, Casual, Hardcore, Grinder, Balanced, Legacy) with one change.
+- **Per-Skill Staleness** — `<Skill>_UseStaleness` toggle and `<Skill>_StalenessMultiplier` (0.1–5.0) for fine-grained staleness control per skill, AND-ed with the global `EnableSkillStaleness` flag.
+
+### v1.7.6
 - EA 0.63f compatibility pass; no logic changes
 
 ### v1.7.5

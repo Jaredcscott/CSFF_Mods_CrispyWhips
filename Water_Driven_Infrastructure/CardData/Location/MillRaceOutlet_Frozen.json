@@ -8,12 +8,12 @@
   "CardDescription": {
     "ParentObjectID": "water_sawmill_mill_race_outlet_frozen",
     "LocalizationKey": "Water_Sawmill_MillRaceOutletFrozen_CardDescription",
-    "DefaultText": "The mill race is frozen solid. Water flow from the river is suspended for the winter. The outlet will thaw and resume flowing in spring."
+    "DefaultText": "The mill race is frozen solid. Water flow from the river is suspended for the winter. A lit Copper Brazier placed nearby provides enough heat to keep the machinery running. The outlet will thaw and resume flowing in spring."
   },
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_mill_race_outlet_frozen",
     "LocalizationKey": "Water_Sawmill_MillRaceOutletFrozen_CardHelpSection",
-    "DefaultText": "<b>Frozen:</b> No water can be drawn during winter.\n\n<b>Spring thaw:</b> The outlet automatically resumes when winter ends.\n\n<b>Pack Up:</b> Recover the outlet as a portable item for relocation even when frozen."
+    "DefaultText": "<b>Frozen:</b> No water can be drawn during winter.\n\n<b>Copper Brazier:</b> A lit Copper Brazier placed in this area provides enough heat to keep the machinery running, even while the outlet is frozen.\n\n<b>Spring thaw:</b> The outlet automatically resumes when winter ends.\n\n<b>Pack Up:</b> Recover the outlet as a portable item for relocation even when frozen."
   },
   "CardType": 2,
   "ObjectWeight": 500.0,

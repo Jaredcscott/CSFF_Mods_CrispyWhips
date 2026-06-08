@@ -131,6 +131,12 @@ namespace mod_update_manager
 
             // ID 37: Greenstone of RiverConfluence (linxier1)
             { "Greenstone of RiverConfluence",   ("37", "Greenstone of RiverConfluence") },
+
+            // Sentinel — not yet published on Nexus; filtered from "Unable to Check" display
+            { "Mod_Update_Manager",              ("self", "Mod Update Manager") },
+            { "ModUpdateManager",                ("self", "Mod Update Manager") },
+            { "Mod Update Manager",              ("self", "Mod Update Manager") },
+            { "crispywhips.mod_update_manager",  ("self", "Mod Update Manager") },
         };
 
         /// <summary>
@@ -170,6 +176,21 @@ namespace mod_update_manager
                 return entry.DisplayName;
 
             return null;
+        }
+
+        /// <summary>
+        /// Returns true when the identifier maps to the sentinel "self" entry
+        /// (i.e. this mod is Mod_Update_Manager itself, not yet published on Nexus).
+        /// </summary>
+        public static bool IsSelfMod(string identifier)
+        {
+            if (string.IsNullOrEmpty(identifier)) return false;
+            if (_knownMods.TryGetValue(identifier, out var e) && e.NexusId == "self") return true;
+            var withSpaces = identifier.Replace("_", " ");
+            if (_knownMods.TryGetValue(withSpaces, out e) && e.NexusId == "self") return true;
+            var withUnderscores = identifier.Replace(" ", "_");
+            if (_knownMods.TryGetValue(withUnderscores, out e) && e.NexusId == "self") return true;
+            return false;
         }
 
         /// <summary>

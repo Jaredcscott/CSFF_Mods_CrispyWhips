@@ -8,13 +8,13 @@
   "CardDescription": {
     "ParentObjectID": "water_sawmill_workshop_kit",
     "LocalizationKey": "Water_Sawmill_WorkshopKit_CardDescription",
-    "DefaultText": "A bundled upgrade kit combining the water-driven forge, mill drive, forge hammer, charcoal reserve, and gear train for heavy metalworking."
+    "DefaultText": "A bundled upgrade kit combining the water-driven forge, mill drive, forge hammer, iron reinforcements, bearing and axle support, an iron workshop wrench, charcoal reserve, and gear train for heavy metalworking."
   },
   "CanBeRenamed": false,
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_workshop_kit",
     "LocalizationKey": "Water_Sawmill_WorkshopKit_CardHelpSection",
-    "DefaultText": "<b>Purpose:</b> A bundled upgrade kit for extending the water-driven forge into a workshop.\n\n<b>Contents:</b> Water-driven forge kit, water mill, forge hammer, charcoal, and copper gears."
+    "DefaultText": "<b>Purpose:</b> A bundled upgrade kit for extending the water-driven forge into a workshop.\n\n<b>Contents:</b> Water-driven forge kit, water mill, forge hammer, iron parts, iron bearings, iron axle, iron wrench, charcoal, and copper gears."
   },
   "CardImage": {
     "m_FileID": 0,
@@ -23,8 +23,8 @@
   "CardImageWarpData": "WorkshopKit",
   "CardImageWarpType": 3,
   "CardType": 0,
-  "ObjectWeight": 1300.0,
-  "TradingValue": 1200.0,
+  "ObjectWeight": 4150.0,
+  "TradingValue": 2650.0,
   "CardTags": [],
   "CardTagsWarpData": ["tag_SmeltsAt1100", "tag_Wood", "tag_Copper", "tag_Metal", "tag_CopperBig"],
   "CardTagsWarpType": 3,
@@ -194,7 +194,7 @@
               "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
               "DroppedCardWarpData": "water_sawmill_forge_kit",
               "DroppedCardWarpType": 3,
-              "Quantity": {"x": 1, "y": 1}
+              "Quantity": {"x": 2, "y": 2}
             },
             {
               "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
@@ -213,6 +213,30 @@
               "DroppedCardWarpData": "51c751469bd15ce46804e399479d1764",
               "DroppedCardWarpType": 3,
               "Quantity": {"x": 10, "y": 10}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "water_sawmill_iron_parts",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 2, "y": 2}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "water_sawmill_iron_bearing",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 2, "y": 2}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "water_sawmill_iron_axle",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "water_sawmill_iron_wrench",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1}
             },
             {
               "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
@@ -303,9 +327,6 @@
     "ExtraSpecial3Rate": 0.0,
     "ExtraSpecial4Rate": 0.0
   },
-  "CookingRecipes": [],
-  "BlueprintStages": [],
-  "BlueprintResult": [],
   "IsWeapon": false,
   "IsArmor": false
 }

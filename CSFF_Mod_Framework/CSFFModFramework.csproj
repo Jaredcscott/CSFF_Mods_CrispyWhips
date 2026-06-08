@@ -79,6 +79,10 @@
     </ItemGroup>
 
     <ItemGroup Condition=" '$(Configuration)' == 'Release' ">
+        <ProjectReference Include="Stubs\LitJson\LitJSON.csproj">
+            <Private>False</Private>
+            <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+        </ProjectReference>
         <Content Include="Stubs\LitJson\bin\Release\LitJSON.dll">
             <Link>LitJSON.dll</Link>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -88,8 +92,4 @@
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
     </ItemGroup>
-
-    <Target Name="BuildLitJsonStub" BeforeTargets="ResolveReferences" Condition=" '$(Configuration)' == 'Release' ">
-        <MSBuild Projects="Stubs\LitJson\LitJSON.csproj" Targets="Build" Properties="Configuration=$(Configuration)" />
-    </Target>
 </Project>

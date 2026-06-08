@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "water_sawmill_bp_water_driven_workshop_kit",
         "LocalizationKey": "Water_Sawmill_Bp_WaterDrivenWorkshopKit_CardDescription",
-        "DefaultText": "Upgrade a completed water-driven forge kit with a water mill, forge hammer, charcoal, and copper gears into a workshop kit."
+        "DefaultText": "Upgrade a completed water-driven forge kit with a water mill, forge hammer, iron parts, iron bearings, an iron axle, an iron wrench, charcoal, and copper gears into a workshop kit."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {
@@ -104,6 +104,46 @@
                     },
                     "RequiredQuantity": 2,
                     "DontSpend": false,
+                    "RequiredCardWarpData": "water_sawmill_iron_parts",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "water_sawmill_iron_bearing",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "water_sawmill_iron_axle",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "water_sawmill_iron_wrench",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
                     "RequiredCardWarpData": "water_sawmill_copper_gear_small",
                     "RequiredCardWarpType": 3
                 },
@@ -115,6 +155,16 @@
                     "RequiredQuantity": 1,
                     "DontSpend": false,
                     "RequiredCardWarpData": "water_sawmill_copper_gear_large",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 8,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "advanced_copper_tools_copper_nails",
                     "RequiredCardWarpType": 3
                 }
             ],

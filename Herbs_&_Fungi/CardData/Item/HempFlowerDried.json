@@ -44,7 +44,7 @@
             "LocalizationKey": "Herbs_And_Fungi_HempFlowerDried_SpoilageTime_CardStatName",
             "DefaultText": "Spoilage"
         },
-        "MaxValue": 2000.0,
+        "MaxValue": 3600.0,
         "RatePerDaytimePoint": 1.0,
         "HidingOptions": 0,
         "TextDisplay": 0,

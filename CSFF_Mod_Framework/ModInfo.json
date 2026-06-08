@@ -1,6 +1,6 @@
 {
     "Name": "CSFF Mod Framework",
     "Author": "Jared",
-    "Version": "2.0.7",
+    "Version": "2.0.8",
     "Description": "Standalone framework for CSFF mods. Provides mod discovery, data loading, map cache indexing, WarpData resolution, sprite loading, blueprint/perk injection, and localization."
 }

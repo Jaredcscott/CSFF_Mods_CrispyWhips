@@ -51,8 +51,10 @@ internal static class SpriteResolver
         {
             if (item is CharacterPerk perk && perkIconField != null)
             {
-                var icon = perkIconField.GetValue(perk) as Sprite;
-                if (icon == null && perkIconMap.TryGetValue(perk.UniqueID, out var spriteName))
+                // Cheap map check first — the reflective GetValue is only worth paying when
+                // this perk actually has a mod icon override (a few hundred of ~thousands).
+                if (perkIconMap.TryGetValue(perk.UniqueID, out var spriteName)
+                    && perkIconField.GetValue(perk) as Sprite == null)
                 {
                     var sprite = LookupSprite(spriteName);
                     if (sprite != null)
@@ -69,8 +71,10 @@ internal static class SpriteResolver
 
             if (item is CardData card && cardImageField != null && card.UniqueID != null)
             {
-                var img = cardImageField.GetValue(card) as Sprite;
-                if (img == null && cardImageMap.TryGetValue(card.UniqueID, out var imgName))
+                // Cheap map check first — skip the reflective GetValue on every vanilla card
+                // that has no mod image override.
+                if (cardImageMap.TryGetValue(card.UniqueID, out var imgName)
+                    && cardImageField.GetValue(card) as Sprite == null)
                 {
                     var imgSprite = LookupSprite(imgName);
                     if (imgSprite != null)

@@ -1,0 +1,145 @@
+{
+    "UniqueID": "herbs_fungi_mushroom_broth",
+    "CardName": {
+        "LocalizationKey": "herbs_fungi_mushroom_broth_CardName",
+        "DefaultText": "Mushroom Broth"
+    },
+    "CardDescription": {
+        "LocalizationKey": "herbs_fungi_mushroom_broth_CardDescription",
+        "DefaultText": "A bowl of rich, earthy broth simmered from dried shiitake and king oyster mushrooms. Warming, nourishing, and deeply satisfying."
+    },
+    "CardHelpSection": {
+        "LocalizationKey": "herbs_fungi_mushroom_broth_CardHelpSection",
+        "DefaultText": "<b>Made by:</b> Blueprint: Mushroom Broth\n\n<b>Uses:</b> Drink for strong nutrition and hydration.\n\n<b>Benefits:</b> High hydration, solid satiation, mild stress relief. Earthy and savoury flavor profile."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Consumable",
+        "tag_Drinkable",
+        "tag_HumanFood"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {"m_FileID": 0, "m_PathID": 0},
+    "CardImageWarpData": "Bowl_Clay",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "LocalizationKey": "herbs_fungi_mushroom_broth_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 288.0,
+        "RatePerDaytimePoint": 1.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "LocalizationKey": "herbs_fungi_mushroom_broth_Spoiled",
+                "DefaultText": "The mushroom broth has spoiled."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {"m_FileID": 0, "m_PathID": 0},
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "herbs_fungi_mushroom_broth_Drink",
+                "DefaultText": "Drink"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "herbs_fungi_mushroom_broth_Drink_Desc",
+                "DefaultText": "Drink the mushroom broth. Earthy and warming."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": ["DrinkingAction"],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 35.0, "y": 35.0}
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "95ca7c21ffad5e647acc3d9cb5bfcde6",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 80.0, "y": 80.0}
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 40.0, "y": 40.0}
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 150.0, "y": 150.0}
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -15.0, "y": -15.0}
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1},
+                            "FinishUnlocking": false,
+                            "DropChance": {"Active": false, "BaseDropChance": 0.0}
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "FlavourTags": [
+        {
+            "Flavour": {"m_FileID": 0, "m_PathID": 0},
+            "FlavourWarpData": "79e30fba7cf532345b483833c449a3ae",
+            "FlavourWarpType": 3,
+            "Intensity": 4
+        },
+        {
+            "Flavour": {"m_FileID": 0, "m_PathID": 0},
+            "FlavourWarpData": "55ebfecd567382b44a9d2c176c5b5156",
+            "FlavourWarpType": 3,
+            "Intensity": 3
+        },
+        {
+            "Flavour": {"m_FileID": 0, "m_PathID": 0},
+            "FlavourWarpData": "d5d0c5e6112875a4cafc88a4b57711bf",
+            "FlavourWarpType": 3,
+            "Intensity": 1
+        }
+    ],
+    "ObjectWeight": 50,
+    "MaxStack": 5,
+    "DroppedCardShadow": 1
+}

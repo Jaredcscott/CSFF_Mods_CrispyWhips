@@ -89,8 +89,10 @@ internal static class MorningBonusPatch
         bool morningOn = Plugin.MorningBonusEnabled;
         bool familiarityOn = Plugin.AreaFamiliarityEnabled;
         bool expMultOn = Plugin.SkillExpMultiplier > 1 || Plugin.EnablePerSkillMultipliers;
+        bool synergiesOn = Plugin.SkillSynergiesEnabled;
+        bool levelScalingOn = Plugin.LevelScalingEnabled;
 
-        if (stat == null || (!morningOn && !familiarityOn && !expMultOn))
+        if (stat == null || (!morningOn && !familiarityOn && !expMultOn && !synergiesOn && !levelScalingOn))
         {
             yield return enumerator;
             yield break;
@@ -106,6 +108,12 @@ internal static class MorningBonusPatch
         if (delta <= 0f) yield break;            // not an XP gain — skip
         if (!IsSkillStat(stat)) yield break;     // not a tracked skill
 
+        // Resolve skill identity once — shared by expMult, synergies, and debug logging.
+        var uid = GetUniqueId(stat);
+        string resolvedSkillName = null;
+        if (!string.IsNullOrEmpty(uid))
+            GameLoadPatch.SkillNamesByUniqueId.TryGetValue(uid, out resolvedSkillName);
+
         // Compose multipliers from every active dynamic bonus.
         float multiplier = 1f;
 
@@ -113,16 +121,9 @@ internal static class MorningBonusPatch
         if (expMultOn)
         {
             int expMult = Plugin.SkillExpMultiplier;
-            if (Plugin.EnablePerSkillMultipliers)
-            {
-                var uid = GetUniqueId(stat);
-                if (!string.IsNullOrEmpty(uid)
-                    && GameLoadPatch.SkillNamesByUniqueId.TryGetValue(uid, out var skillName)
-                    && !string.IsNullOrWhiteSpace(skillName))
-                {
-                    expMult = SkillConfigManager.GetSkillMultiplier(skillName);
-                }
-            }
+            if (Plugin.EnablePerSkillMultipliers && !string.IsNullOrWhiteSpace(resolvedSkillName))
+                expMult = SkillConfigManager.GetSkillMultiplier(resolvedSkillName);
+
             if (expMult == 0)
             {
                 // Per-skill set to 0 → "disable skill leveling". Revert the gain that the
@@ -149,10 +150,32 @@ internal static class MorningBonusPatch
             }
         }
 
+        if (synergiesOn && !string.IsNullOrWhiteSpace(resolvedSkillName))
+        {
+            float synergyMult = SkillSynergies.GetAndRecordSynergyBonus(resolvedSkillName);
+            if (synergyMult > 1f)
+            {
+                multiplier *= synergyMult;
+                if (Plugin.SkillSynergiesDebugLog)
+                    Logger.LogInfo($"[Synergy] {resolvedSkillName}: {synergyMult:F2}x | {SkillSynergies.GetSynergyDebugInfo()}");
+            }
+        }
+
+        float maxVal = GetMaxValue(stat);
+
+        if (levelScalingOn && maxVal > 0f)
+        {
+            // Fraction of max level already achieved (0.0 = just started, 1.0 = fully maxed).
+            // Use `after` so the scaling reflects the level *after* this XP tick.
+            float levelFraction = Math.Min(after / maxVal, 1f);
+            float levelBonus = Plugin.LevelScalingMaxBonus * levelFraction;
+            if (levelBonus > 0f)
+                multiplier *= (1f + levelBonus);
+        }
+
         if (multiplier <= 1f) yield break;
 
         float bonus = delta * (multiplier - 1f);
-        float maxVal = GetMaxValue(stat);
         float capped = Math.Min(after + bonus, maxVal);
         if (capped > after)
             SetCurrentValue(stat, capped, modification);

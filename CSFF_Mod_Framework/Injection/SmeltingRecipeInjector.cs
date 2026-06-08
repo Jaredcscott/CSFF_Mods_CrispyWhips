@@ -18,7 +18,8 @@ namespace CSFFModFramework.Injection;
 /// </summary>
 internal static class SmeltingRecipeInjector
 {
-    private const string FORGE_UID = "0e4fa8919542c6c44a464c3fba469661";
+    private const string FORGE_UID = "bbbbd576f3cb8e434a85032487085cf57";
+    private const string LEGACY_FORGE_UID = "0e4fa8919542c6c44a464c3fba469661";
     private const string FURNACE_UID = "984bad0c8931f3545bef58171f9bf252";
     private const string NUGGET_UID = "4b0f4937a5ecb90499428c8c10288afc";
 
@@ -94,19 +95,21 @@ internal static class SmeltingRecipeInjector
         }
 
         // 4. Find forge and furnace
-        var forgeCard = UniqueIDScriptable.GetFromID<CardData>(FORGE_UID);
+        var forgeCard = FindCardByUid(FORGE_UID) ?? FindCardByUid(LEGACY_FORGE_UID);
         var furnaceCard = UniqueIDScriptable.GetFromID<CardData>(FURNACE_UID);
 
-        // Also find WDI custom forges
+        // Also find mod smelting stations (any card with tag_SmeltingContainer + CookingRecipes)
         var customForges = new List<CardData>();
+        FieldInfo cookingRecipesFieldCached = null;
+        FieldInfo cardTagsFieldCached = null;
         foreach (var obj in allData)
         {
             if (obj is CardData cd && cd != forgeCard && cd != furnaceCard
                 && !string.IsNullOrEmpty(cd.UniqueID)
-                && IsCustomSmeltingStation(cd.UniqueID))
+                && HasSmeltingContainerTag(cd, ref cardTagsFieldCached))
             {
-                var rf = AccessTools.Field(cd.GetType(), "CookingRecipes");
-                if (rf != null && rf.GetValue(cd) is Array a && a.Length > 0)
+                cookingRecipesFieldCached ??= AccessTools.Field(cd.GetType(), "CookingRecipes");
+                if (cookingRecipesFieldCached != null && cookingRecipesFieldCached.GetValue(cd) is Array a && a.Length > 0)
                     customForges.Add(cd);
             }
         }
@@ -122,10 +125,17 @@ internal static class SmeltingRecipeInjector
             return;
         }
 
-        static bool IsCustomSmeltingStation(string uniqueId)
+        static bool HasSmeltingContainerTag(CardData cd, ref FieldInfo cachedTagsField)
         {
-            var lower = uniqueId.ToLowerInvariant();
-            return lower.Contains("forge") || lower.Contains("workshop");
+            cachedTagsField ??= AccessTools.Field(cd.GetType(), "CardTags");
+            if (cachedTagsField == null) return false;
+            if (cachedTagsField.GetValue(cd) is not Array tags) return false;
+            for (int i = 0; i < tags.Length; i++)
+            {
+                if (tags.GetValue(i) is UnityEngine.Object tag && tag.name == "tag_SmeltingContainer")
+                    return true;
+            }
+            return false;
         }
 
         // 5. Get a vanilla smelting recipe as TEMPLATE (clone from it)
@@ -133,14 +143,20 @@ internal static class SmeltingRecipeInjector
         Type cookingRecipeType = null;
         FieldInfo recipesFieldInfo = null;
 
-        if (forgeCard != null)
+        CardData fallbackSource = null;
+        object fallbackRecipe = null;
+        var templateSources = new List<CardData>();
+        if (furnaceCard != null) templateSources.Add(furnaceCard);
+        if (forgeCard != null && !ReferenceEquals(forgeCard, furnaceCard)) templateSources.Add(forgeCard);
+
+        foreach (var templateSource in templateSources)
         {
-            recipesFieldInfo = AccessTools.Field(forgeCard.GetType(), "CookingRecipes");
-            var existing = recipesFieldInfo?.GetValue(forgeCard) as Array;
+            recipesFieldInfo = AccessTools.Field(templateSource.GetType(), "CookingRecipes");
+            var existing = recipesFieldInfo?.GetValue(templateSource) as Array;
             if (existing != null)
             {
                 cookingRecipeType = existing.GetType().GetElementType();
-                Log.Debug($"SmeltingRecipeInjector: CookingRecipe type = {cookingRecipeType.FullName}, Forge has {existing.Length} recipes");
+                Log.Debug($"SmeltingRecipeInjector: CookingRecipe type = {cookingRecipeType.FullName}, template has {existing.Length} recipes from {templateSource.name} ({templateSource.UniqueID})");
 
                 // Log available fields on CookingRecipe type
                 var ccField = AccessTools.Field(cookingRecipeType, "CompatibleCards");
@@ -164,18 +180,27 @@ internal static class SmeltingRecipeInjector
                         break;
                     }
                 }
-                // Fallback: use any recipe
-                if (templateRecipe == null && existing.Length > 0)
+
+                if (fallbackRecipe == null && existing.Length > 0)
                 {
-                    templateRecipe = existing.GetValue(0);
-                    Log.Warn("SmeltingRecipeInjector: FALLBACK — using recipe[0] as template (no recipe with tags found)");
+                    fallbackRecipe = existing.GetValue(0);
+                    fallbackSource = templateSource;
                 }
             }
+
+            if (templateRecipe != null)
+                break;
+        }
+
+        if (templateRecipe == null && fallbackRecipe != null)
+        {
+            templateRecipe = fallbackRecipe;
+            Log.Warn($"SmeltingRecipeInjector: using first recipe from {fallbackSource.name} as template (no tagged smelting recipe found)");
         }
 
         if (templateRecipe == null || cookingRecipeType == null)
         {
-            Log.Error("SmeltingRecipeInjector: no template recipe found on forge");
+            Log.Error("SmeltingRecipeInjector: no template recipe found on forge/furnace");
             return;
         }
 
@@ -377,6 +402,11 @@ internal static class SmeltingRecipeInjector
         if (v is long l) return (int)l;
         if (v is int i) return i;
         return 0;
+    }
+
+    private static CardData FindCardByUid(string uid)
+    {
+        return string.IsNullOrEmpty(uid) ? null : UniqueIDScriptable.GetFromID<CardData>(uid);
     }
 
     /// <summary>Collect card/tag identifiers from a recipe for duplicate detection.</summary>

@@ -1,0 +1,65 @@
+{
+    "UniqueID": "herbs_fungi_wild_flowers_dried",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_wild_flowers_dried",
+        "LocalizationKey": "herbs_fungi_wild_flowers_dried_CardName",
+        "DefaultText": "Dried Wild Flowers"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_wild_flowers_dried",
+        "LocalizationKey": "herbs_fungi_wild_flowers_dried_CardDescription",
+        "DefaultText": "Carefully dried wildflowers. Their colour is preserved indefinitely. Used in decoration and crafting."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Foraged"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "WildFlowersDried",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "ParentObjectID": "herbs_fungi_wild_flowers_dried",
+        "LocalizationKey": "herbs_fungi_wild_flowers_dried_SpoilageTime_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_wild_flowers_dried",
+            "LocalizationKey": "herbs_fungi_wild_flowers_dried_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 3600.0,
+        "RatePerDaytimePoint": 1.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_wild_flowers_dried",
+                "LocalizationKey": "herbs_fungi_wild_flowers_dried_SpoilageTime_OnFull",
+                "DefaultText": "The dried flowers have finally crumbled to dust."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "ObjectWeight": 10,
+    "MaxStack": 20,
+    "DroppedCardShadow": 1
+}

@@ -1,6 +1,6 @@
 # Herbs and Fungi - Player Guide
 
-**Version:** 1.6.9
+**Version:** 1.7.0
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.63)
 
@@ -28,12 +28,25 @@ Herbs and Fungi adds foraged mushrooms, medicinal herbs, hemp farming, mushroom 
 | **Lion's Mane** | Medicinal — chew raw or grind for tea |
 | **Reishi** | Medicinal — chew raw or grind for tea |
 | **Death Cap** | Deadly poisonous (used only for Death Cap Tincture & Ward) |
-| **Truffle** | Buried — dig under birch trees |
+| **Truffle** | Buried — dig under old-growth oak trees |
+
+### Berries (Foraged)
+| Berry | Season | Where Found | Notes |
+|-------|--------|-------------|-------|
+| **Blackcurrant** | Summer | Birch forests, river banks, oak groves | Tart, dark berries rich in vitamins; eat raw, dry, or ferment |
+| **Redcurrant** | Summer | Oak groves, birch forests, clearings | Sweet-tart translucent clusters; good raw or dried |
+| **Lingonberry** | Late Summer – Autumn | Pine forests, northern regions | Tart and abundant; best dried or fermented |
+| **Cloudberry** | Late Summer | Pine meadows (rare) | Rare golden-orange delicacy; highest nutrition of the four |
+
+All four berries share the same mechanics: eat raw (DismantleAction), add to any stew container, dry passively into a dried variant, ferment in the pickle vat. Stack up to 20; spoil in ~6 in-game days if left fresh.
 
 ### Herbs & Roots
 - **Yarrow** — Dry and grind into wound-healing powder
 - **Ginseng** — Dry and grind for energy-boosting tea
 - **Wild Ginger** — Foraged spice; dry, slice fresh, or process
+- **Dandelion** — Fresh or dried edible herb; dried flowers brew into tea
+- **Common Plantain** — Dry leaves for plantain poultices
+- **Wild Flowers** — Dry and craft into flower garlands
 
 ### Hemp Cycle
 - **Hemp Seeds** — Edible raw, roastable, plantable in tilled soil and garden plots
@@ -53,7 +66,7 @@ Herbs and Fungi adds foraged mushrooms, medicinal herbs, hemp farming, mushroom 
 - **Drying Stack** — Placeable furniture holding up to 3 drying trays
 - **Wooden Pantry** — Sealed cool-storage furniture
 - **Herb Pipe** — Carved wooden pipe; reusable with herbal powders
-- **Death Cap Ward** — Placed structure that suppresses wildlife encounters in its environment
+- **Flower Garland** — Decorative craft from dried wild flowers; hang for a small morale boost
 - **Oil Press** — Multi-stage workstation for pressing oils from seeds, truffles, and herbs
 - **Pickle Vat** — Clay fermentation vessel for preserving foods over long periods
 
@@ -64,10 +77,13 @@ Herbs and Fungi adds foraged mushrooms, medicinal herbs, hemp farming, mushroom 
 | **Reishi Tea** | Immune support, stress relief |
 | **Yarrow Tea** | Wound healing, antiseptic |
 | **Lion's Mane Tea** | Cognitive boost |
+| **Chamomile Tea** | Calming stress relief |
 | **Sleep Tea** | Improved sleep, lower stress |
+| **Dandelion Tea** | Mild hydration and stress relief |
 | **Stimulant Tea** | Focus and energy boost |
 | **Anti-Nausea Tea** | Settles the stomach |
 | **Herbal Salve** | Topical wound healing (herbs + fat) |
+| **Plantain Poultice** | Simple topical pain and inflammation relief |
 | **Herbal Tincture** | Alcohol-based herbal extract |
 | **Pain Relief Powder** | Ground herbal analgesic |
 | **Death Cap Tincture** | Bitter amatoxin extract — kills gut parasites |
@@ -154,9 +170,6 @@ A four-variant clay fermentation chain (see CLAUDE.md "4-variant fermentation ch
 
 The pickle blueprints (Frogs, Meat, Mushrooms, Vegetables) gate on the vat containing pickle brine — water alone won't satisfy them.
 
-### Death Cap Ward
-A passive structure that, when present in the player's current environment, has a 60% chance to suppress an incoming **wildlife** encounter. NPC encounters are never affected.
-
 ### Cooking
 - Place raw mushrooms on any heat source (campfire, stove, copper stove).
 - Watch the cook stat — pull off before it overcooks.
@@ -174,8 +187,8 @@ Mod blueprints are injected into vanilla tabs:
 
 | Tab | Blueprints |
 |-----|-----------|
-| **Support** | Herb Pipe, Drying Tray, Death Cap Ward |
-| **Utensils** | Unfired Pickle Vat, Death Cap Tincture |
+| **Support** | Herb Pipe, Drying Tray, Sleep Tea, Anti-Nausea Tea, Stimulant Tea, Pain Relief Powder, Herbal Salve, Plantain Poultice, Flower Garland, Herbal Tincture, Death Cap Tincture |
+| **Utensils** | Unfired Pickle Vat |
 | **Materials** | Oil Press Legs/Frame, Press Bed Frame, Pressing Screw, Pressing Bag, Press Plate, Oil Press Utensils, Prepared Press Bag |
 | **Farming Agriculture** | Hemp Field, Plant Hemp Seeds, Inoculate Mushroom Logs |
 | **Furniture** | Wooden Pantry, Drying Stack, Oil Press Kit |
@@ -186,7 +199,7 @@ The press oil and pickle blueprints appear after their workstations are built an
 
 ## Foraging Integration
 
-The mod injects mushroom drops into vanilla foraging actions across forest biomes (including the EA 0.61 cave locations: Old Hollow, Shady Thicket, Still Hollow). Truffles are added to a "Dig for Truffles" dismantle action on appropriate locations.
+The mod injects mushroom drops into vanilla foraging actions across forest biomes (including the EA 0.61 cave locations: Old Hollow, Shady Thicket, Still Hollow). Truffles are added to a "Dig for Truffles" dismantle action on appropriate locations. Berries spawn via foraging in their respective biomes: Blackcurrant and Redcurrant in oak/birch areas, Lingonberry in pine regions, and Cloudberry (rare) in northern pine meadows.
 
 ---
 
@@ -212,14 +225,22 @@ The mod injects mushroom drops into vanilla foraging actions across forest biome
 Patching beyond what the framework provides:
 - **GameLoadPatch** — injects hemp into garden plots/tilled fields, adds mushrooms to vanilla foraging, tags vanilla Turnroot/Fireroot as fermentable, populates pickle GpTag content.
 - **TruffleFatCookPatch** — fat-cooks Dried Truffle Slices instead of letting them burn.
-- **EncounterSuppressPatch** — Death Cap Ward wildlife suppression.
 - **PickleVatRoutePatch** — Make Brine in-place liquid swap and pickle BP brine-required gate.
 
 ---
 
 ## Version History
 
-### v1.6.9 (current)
+### v1.7.0 (current)
+- Added four foraged berries: Blackcurrant, Redcurrant, Lingonberry, and Cloudberry
+  - All dryable (passive Dryness stat → dried variant), fermentable (pickle vat), and stackable up to 20
+  - Each has Eat and Add to Stew actions; Cloudberry is the rarest and most nutritious
+- Fixed invalid JSON in berry CardHelpSection entries (literal newlines → `\n` escapes)
+
+### v1.6.10
+- Version bump for release alongside framework 2.0.8 and all in-house mods
+
+### v1.6.9
 - EA 0.63f compatibility; blueprint tab injector updated to live UI tabs (fixes journal tab on EA 0.63f)
 
 ### v1.6.8
@@ -244,7 +265,6 @@ Patching beyond what the framework provides:
 ### v1.6.1
 - Pickle vat fermentation chain shipped (4-variant clay vessel: unfired → fired → closed → sealed → ready).
 - Oil press multi-stage build chain with seed/truffle/herbal oil recipes.
-- Death Cap Ward wildlife encounter suppression.
 - Truffle fat-cook patch (truffle + fat in heat → cooked truffle, not ash).
 - Wooden Pantry furniture storage.
 - 15 character-creation perks in Situational tab.

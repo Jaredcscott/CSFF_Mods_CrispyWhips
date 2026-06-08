@@ -1,22 +1,17 @@
 [
   {
     "Item": "water_sawmill_copper_gear_small",
-    "NuggetReturn": 6,
+    "NuggetReturn": 3,
     "Duration": 8
   },
   {
     "Item": "water_sawmill_copper_gear_large",
-    "NuggetReturn": 12,
+    "NuggetReturn": 6,
     "Duration": 8
   },
   {
     "Item": "water_sawmill_copper_saw_blade",
-    "NuggetReturn": 24,
-    "Duration": 8
-  },
-  {
-    "Item": "water_sawmill_copper_saw_blade_dull",
-    "NuggetReturn": 24,
+    "NuggetReturn": 9,
     "Duration": 8
   },
   {

@@ -16,11 +16,24 @@ internal static class PassiveEffectNormalizer
     private static readonly BindingFlags InstanceFlags =
         BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
 
+    // Caches for InitializeNullFields — same pattern as NullReferenceCompactor.
+    // Called per-effect per-card; caching eliminates repeated GetFields on the same types.
+    private static readonly Dictionary<Type, FieldInfo[]> _initFieldsCache = new();
+
+    // Caches for ResolveStatRefsInArray / ResolveReference field lookups.
+    // Keyed (type, fieldName) to match the WarpResolver pattern.
+    private static readonly Dictionary<(Type, string), FieldInfo> _fieldLookupCache = new();
+
+    private static FieldInfo CachedField(Type type, string name)
+    {
+        var key = (type, name);
+        if (!_fieldLookupCache.TryGetValue(key, out var fi))
+            _fieldLookupCache[key] = fi = type.GetField(name, InstanceFlags);
+        return fi;
+    }
+
     public static void NormalizeAll(IEnumerable allData, List<ModManifest> mods)
     {
-        // Build a reference map for stat resolution (GameStats + all UniqueIDScriptable)
-        var referenceMap = BuildReferenceMap(allData);
-
         // Reuse mod UniqueIDs cached by JsonDataLoader (avoids redundant filesystem scan)
         var modUniqueIds = JsonDataLoader.AllModUniqueIds;
 
@@ -67,11 +80,11 @@ internal static class PassiveEffectNormalizer
                         fieldsFixed += nullsFixed;
 
                         // Resolve stat references in StatModifiers
-                        int refs = ResolveStatRefsInArray(effect, "StatModifiers", referenceMap);
+                        int refs = ResolveStatRefsInArray(effect, "StatModifiers");
                         refsResolved += refs;
 
                         // Handle Conditions sub-object (may be a value type)
-                        var condField = effect.GetType().GetField("Conditions", InstanceFlags);
+                        var condField = CachedField(effect.GetType(), "Conditions");
                         if (condField != null)
                         {
                             var cond = condField.GetValue(effect);
@@ -80,8 +93,8 @@ internal static class PassiveEffectNormalizer
                                 int condNulls = InitializeNullFields(cond);
                                 fieldsFixed += condNulls;
 
-                                refsResolved += ResolveStatRefsInArray(cond, "RequiredStatValues", referenceMap);
-                                refsResolved += ResolveStatRefsInArray(cond, "RequiredNPCStatValues", referenceMap);
+                                refsResolved += ResolveStatRefsInArray(cond, "RequiredStatValues");
+                                refsResolved += ResolveStatRefsInArray(cond, "RequiredNPCStatValues");
 
                                 if (condField.FieldType.IsValueType)
                                     condField.SetValue(effect, cond);
@@ -108,42 +121,13 @@ internal static class PassiveEffectNormalizer
     }
 
     /// <summary>
-    /// Build a lookup map: name/UniqueID → ScriptableObject.
-    /// Covers GameStats (which are ScriptableObjects but not UniqueIDScriptable)
-    /// and all cards/perks in AllData.
-    /// </summary>
-    private static Dictionary<string, object> BuildReferenceMap(IEnumerable allData)
-    {
-        var map = new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase);
-
-        // All UniqueIDScriptable from AllData (keyed by UniqueID)
-        foreach (var item in allData)
-        {
-            if (item == null) continue;
-            var uid = item.GetType().GetField("UniqueID", InstanceFlags)?.GetValue(item) as string;
-            if (!string.IsNullOrEmpty(uid) && !map.ContainsKey(uid))
-                map[uid] = item;
-        }
-
-        // Reuse Database's pre-built SO cache (covers GameStats, SpiceTags, etc.)
-        // instead of calling FindObjectsOfTypeAll again
-        foreach (var kvp in Data.Database.AllScriptableObjectDict)
-        {
-            if (!map.ContainsKey(kvp.Key))
-                map[kvp.Key] = kvp.Value;
-        }
-
-        return map;
-    }
-
-    /// <summary>
     /// Resolve StatWarpData → Stat on each element of a named array field.
     /// </summary>
-    private static int ResolveStatRefsInArray(object owner, string arrayFieldName, Dictionary<string, object> referenceMap)
+    private static int ResolveStatRefsInArray(object owner, string arrayFieldName)
     {
         if (owner == null) return 0;
 
-        var arrayField = owner.GetType().GetField(arrayFieldName, InstanceFlags);
+        var arrayField = CachedField(owner.GetType(), arrayFieldName);
         if (arrayField == null) return 0;
 
         var arr = arrayField.GetValue(owner) as Array;
@@ -160,7 +144,7 @@ internal static class PassiveEffectNormalizer
 
             InitializeNullFields(entry);
 
-            if (ResolveReference(entry, "StatWarpData", "Stat", referenceMap))
+            if (ResolveReference(entry, "StatWarpData", "Stat"))
                 resolved++;
 
             if (isValueType)
@@ -174,12 +158,15 @@ internal static class PassiveEffectNormalizer
     }
 
     /// <summary>
-    /// If referenceField is null but warpField has a key, resolve it from the map.
+    /// If referenceField is null but warpField has a key, resolve it.
+    /// Uses GameRegistry + Database directly instead of a per-call reference map —
+    /// eliminates the BuildReferenceMap allData sweep that previously iterated all
+    /// ~4000 objects just to build a dict that duplicated GameRegistry.
     /// </summary>
-    private static bool ResolveReference(object target, string warpFieldName, string referenceFieldName, Dictionary<string, object> referenceMap)
+    private static bool ResolveReference(object target, string warpFieldName, string referenceFieldName)
     {
-        var referenceField = target.GetType().GetField(referenceFieldName, InstanceFlags);
-        var warpField = target.GetType().GetField(warpFieldName, InstanceFlags);
+        var referenceField = CachedField(target.GetType(), referenceFieldName);
+        var warpField      = CachedField(target.GetType(), warpFieldName);
         if (referenceField == null || warpField == null) return false;
 
         // Check if already resolved (handle Unity fake-null)
@@ -193,7 +180,14 @@ internal static class PassiveEffectNormalizer
         var warpId = warpField.GetValue(target) as string;
         if (string.IsNullOrWhiteSpace(warpId)) return false;
 
-        if (!referenceMap.TryGetValue(warpId, out var resolved)) return false;
+        // Try game's UID registry first (covers all UniqueIDScriptable: cards, perks, stats).
+        object resolved = Data.GameRegistry.GetByUid(warpId);
+
+        // Fallback: SO name lookup (covers GameStats, SpiceTags, and any SO keyed by .name).
+        if (resolved == null && Data.Database.AllScriptableObjectDict.TryGetValue(warpId, out var byName))
+            resolved = byName;
+
+        if (resolved == null) return false;
         if (!referenceField.FieldType.IsAssignableFrom(resolved.GetType())) return false;
 
         referenceField.SetValue(target, resolved);
@@ -203,22 +197,31 @@ internal static class PassiveEffectNormalizer
     /// <summary>
     /// For each non-value, non-string, non-UnityObject field on target that is null,
     /// create an empty instance (empty array for array types, default ctor for classes).
+    /// Field list is cached per type to avoid repeated GetFields calls.
     /// </summary>
     private static int InitializeNullFields(object target)
     {
         if (target == null) return 0;
         int count = 0;
 
-        foreach (var field in target.GetType().GetFields(InstanceFlags))
+        var type = target.GetType();
+        if (!_initFieldsCache.TryGetValue(type, out var fields))
         {
-            if (field.IsInitOnly || field.IsLiteral) continue;
+            // Filter once and cache — keeps only fields that can ever be null-initialized.
+            fields = type.GetFields(InstanceFlags)
+                         .Where(f => !f.IsInitOnly && !f.IsLiteral
+                                     && !f.FieldType.IsValueType
+                                     && f.FieldType != typeof(string)
+                                     && !typeof(UnityEngine.Object).IsAssignableFrom(f.FieldType))
+                         .ToArray();
+            _initFieldsCache[type] = fields;
+        }
 
-            var ft = field.FieldType;
-            if (ft.IsValueType || ft == typeof(string) || typeof(UnityEngine.Object).IsAssignableFrom(ft))
-                continue;
-
+        foreach (var field in fields)
+        {
             if (field.GetValue(target) != null) continue;
 
+            var ft = field.FieldType;
             if (ft.IsArray)
             {
                 field.SetValue(target, Array.CreateInstance(ft.GetElementType() ?? typeof(object), 0));

@@ -1,0 +1,100 @@
+{
+    "UniqueID": "herbs_fungi_wild_flowers",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_wild_flowers",
+        "LocalizationKey": "herbs_fungi_wild_flowers_CardName",
+        "DefaultText": "Wild Flowers"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_wild_flowers",
+        "LocalizationKey": "herbs_fungi_wild_flowers_CardDescription",
+        "DefaultText": "A small bundle of colourful wildflowers gathered from a meadow. They won't last long fresh, but dried flowers keep their beauty and can be used in crafting."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Foraged",
+        "tag_Dryable"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "WildFlowersFresh",
+    "CardImageWarpType": 3,
+    "AlwaysUpdate": true,
+    "SpoilageTime": {
+        "ParentObjectID": "herbs_fungi_wild_flowers",
+        "LocalizationKey": "herbs_fungi_wild_flowers_SpoilageTime_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_wild_flowers",
+            "LocalizationKey": "herbs_fungi_wild_flowers_SpoilageTime_StatName",
+            "DefaultText": "Freshness"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 576.0,
+        "RatePerDaytimePoint": 1.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_wild_flowers",
+                "LocalizationKey": "herbs_fungi_wild_flowers_SpoilageTime_OnFull",
+                "DefaultText": "The flowers have wilted and crumbled."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "UsageDurability": {
+        "ParentObjectID": "herbs_fungi_wild_flowers",
+        "LocalizationKey": "herbs_fungi_wild_flowers_UsageDurability_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_wild_flowers",
+            "LocalizationKey": "herbs_fungi_wild_flowers_UsageDurability_StatName",
+            "DefaultText": "Dry"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 24.0,
+        "RatePerDaytimePoint": 0.02,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_wild_flowers",
+                "LocalizationKey": "herbs_fungi_wild_flowers_UsageDurability_OnFull",
+                "DefaultText": "The flowers have dried, preserving their colour and form."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_wild_flowers_dried",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "ObjectWeight": 25,
+    "MaxStack": 15,
+    "DroppedCardShadow": 1
+}

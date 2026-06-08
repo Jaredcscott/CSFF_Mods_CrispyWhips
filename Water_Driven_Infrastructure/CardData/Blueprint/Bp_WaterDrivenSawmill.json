@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "water_sawmill_bp_water_driven_sawmill",
         "LocalizationKey": "Water_Sawmill_Bp_WaterDrivenSawmill_CardDescription",
-        "DefaultText": "Construct a large sawmill powered by river flow or a connected mill race outlet."
+        "DefaultText": "Construct a large sawmill powered by river flow or a connected mill race outlet, reinforced with iron fittings, bearings, and an axle."
     },
     "CanBeRenamed": false,
     "CardType": 7,
@@ -243,6 +243,46 @@
                     "RequiredQuantity": 1,
                     "DontSpend": false,
                     "RequiredCardWarpData": "water_sawmill_copper_saw_blade",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "water_sawmill_iron_parts",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "water_sawmill_iron_bearing",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "water_sawmill_iron_axle",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 12,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "advanced_copper_tools_copper_nails",
                     "RequiredCardWarpType": 3
                 }
             ],

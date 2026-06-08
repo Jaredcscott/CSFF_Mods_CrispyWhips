@@ -20,7 +20,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_large_saw",
     "LocalizationKey": "Advanced_Copper_Tools_LargeSaw_CardHelpSection",
-    "DefaultText": "<b>Crafted:</b> From 2 metal sheets and 2 planks using a hammer.\n\n<b>Uses:</b> Cuts trees faster than an axe. Use as a cutting tool."
+    "DefaultText": "<b>Crafted:</b> From 2 copper sheets, 4 copper nails, and 2 wood using a hammer.\n\n<b>Uses:</b> Cuts trees faster than an axe. Use as a cutting tool."
   },
   "CardImage": {
     "m_FileID": 0,
@@ -49,7 +49,7 @@
   "CardTagsWarpType": 3,
   "EquipmentTags": [],
   "EquipmentTagsWarpData": [
-    "tag_Back"
+    "eTag_Backpack"
   ],
   "EquipmentTagsWarpType": 3,
   "MapStructureType": 0,

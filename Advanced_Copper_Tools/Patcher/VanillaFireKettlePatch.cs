@@ -260,7 +260,7 @@ namespace Advanced_Copper_Tools.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"[KettleFire] {label}: AddAcceptedTagsToFilter failed: {ex.Message}");
+                Logger?.LogError($"[KettleFire] {label}: AddAcceptedTagsToFilter failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
                 return false;
             }
         }
@@ -314,7 +314,7 @@ namespace Advanced_Copper_Tools.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"[KettleFire] {label}: AddAcceptedCardsToFilter failed: {ex.Message}");
+                Logger?.LogError($"[KettleFire] {label}: AddAcceptedCardsToFilter failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
                 return false;
             }
         }
@@ -389,7 +389,7 @@ namespace Advanced_Copper_Tools.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"[KettleFire] {label}: EnsureFireWeightCapacity failed: {ex.Message}");
+                Logger?.LogError($"[KettleFire] {label}: EnsureFireWeightCapacity failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
                 return false;
             }
         }
@@ -526,7 +526,7 @@ namespace Advanced_Copper_Tools.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"[KettleFire] {label}: InjectHeatingRecipe failed: {ex.Message}");
+                Logger?.LogError($"[KettleFire] {label}: InjectHeatingRecipe failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
                 return false;
             }
         }

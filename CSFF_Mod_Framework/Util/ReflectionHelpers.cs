@@ -198,6 +198,21 @@ internal static class ReflectionHelpers
         return false;
     }
 
+    // ── Array append ─────────────────────────────────────────────────────────
+
+    /// <summary>
+    /// Returns a new array with <paramref name="element"/> appended to the end.
+    /// Replaces the common Array.CreateInstance / Array.Copy / SetValue pattern.
+    /// </summary>
+    public static T[] AppendToArray<T>(T[] array, T element)
+    {
+        var newArr = new T[(array?.Length ?? 0) + 1];
+        if (array != null && array.Length > 0)
+            Array.Copy(array, newArr, array.Length);
+        newArr[newArr.Length - 1] = element;
+        return newArr;
+    }
+
     // ── Initializers ─────────────────────────────────────────────────────────
 
     /// <summary>

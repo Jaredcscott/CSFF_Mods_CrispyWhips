@@ -61,7 +61,7 @@ namespace Advanced_Copper_Tools.Patcher
             "LiquidEmpty"
         };
 
-        private static bool _grindHandled;
+        private static int _lastGrindFrame = -1;
 
         public static void ApplyPatch(Harmony harmony)
         {
@@ -78,16 +78,20 @@ namespace Advanced_Copper_Tools.Patcher
                 var cardOnCardRoutine = FindCardOnCardActionRoutine(gmType);
                 if (actionRoutine != null)
                 {
-                    harmony.Patch(actionRoutine,
+                    TryPatch(
+                        harmony,
+                        actionRoutine,
+                        "ActionRoutine prefix",
                         prefix: new HarmonyMethod(typeof(TeaStationPatch), nameof(ActionRoutine_Prefix)) { priority = Priority.High });
 
                     if (cardOnCardRoutine == null)
                     {
-                        harmony.Patch(actionRoutine,
+                        TryPatch(
+                            harmony,
+                            actionRoutine,
+                            "ActionRoutine postfix",
                             postfix: new HarmonyMethod(typeof(TeaStationPatch), nameof(ActionRoutine_Postfix)));
                     }
-
-                    Logger?.LogDebug("[TeaStation] ActionRoutine patched");
                 }
                 else
                 {
@@ -96,19 +100,41 @@ namespace Advanced_Copper_Tools.Patcher
 
                 if (cardOnCardRoutine != null)
                 {
-                    harmony.Patch(cardOnCardRoutine,
+                    TryPatch(
+                        harmony,
+                        cardOnCardRoutine,
+                        "CardOnCardActionRoutine postfix",
                         postfix: new HarmonyMethod(typeof(TeaStationPatch), nameof(CardOnCardActionRoutine_Postfix)));
-                    Logger?.LogDebug("[TeaStation] CardOnCardActionRoutine patched");
                 }
 
                 var stackRoutine = AccessTools.Method(gmType, "PerformStackActionRoutine");
                 if (stackRoutine != null)
-                    harmony.Patch(stackRoutine,
+                {
+                    TryPatch(
+                        harmony,
+                        stackRoutine,
+                        "PerformStackActionRoutine prefix",
                         prefix: new HarmonyMethod(typeof(TeaStationPatch), nameof(PerformStackAction_Prefix)) { priority = Priority.High });
+                }
             }
             catch (Exception ex)
             {
                 Logger?.LogError($"[TeaStation] Patch failed: {FullException(ex)}");
+            }
+        }
+
+        private static bool TryPatch(Harmony harmony, MethodInfo method, string label, HarmonyMethod prefix = null, HarmonyMethod postfix = null)
+        {
+            try
+            {
+                harmony.Patch(method, prefix: prefix, postfix: postfix);
+                Logger?.LogDebug($"[TeaStation] {label} patched");
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Logger?.LogError($"[TeaStation] Failed to patch {label}: {FullException(ex)}");
+                return false;
             }
         }
 
@@ -169,10 +195,9 @@ namespace Advanced_Copper_Tools.Patcher
         // ============================================================
         private static bool HandleGrindAll(object station)
         {
-            if (_grindHandled) return false;
-            _grindHandled = true;
-            try { return HandleGrindAllInner(station); }
-            finally { _grindHandled = false; }
+            if (_lastGrindFrame == UnityEngine.Time.frameCount) return false;
+            _lastGrindFrame = UnityEngine.Time.frameCount;
+            return HandleGrindAllInner(station);
         }
 
         private static bool HandleGrindAllInner(object station)
@@ -590,18 +615,14 @@ namespace Advanced_Copper_Tools.Patcher
             try
             {
                 if (stationCard == null) return;
-                FieldInfo s4Field = null;
-                for (var t = stationCard.GetType(); t != null && t != typeof(object); t = t.BaseType)
+                float before = CardUtil.ToFloat(CardUtil.GetMemberValue(stationCard, "CurrentSpecial4"));
+                if (!CardUtil.ModifyDurabilityStat(stationCard, "CurrentSpecial4", -1f))
                 {
-                    s4Field = t.GetField("CurrentSpecial4", Flags | BindingFlags.DeclaredOnly);
-                    if (s4Field != null) break;
+                    Logger?.LogError("[TeaStation] DrainWaterCharge: CurrentSpecial4 not found");
+                    return;
                 }
-                if (s4Field == null) { Logger?.LogError("[TeaStation] DrainWaterCharge: CurrentSpecial4 field not found"); return; }
-
-                float current = (float)s4Field.GetValue(stationCard);
-                float newVal = Math.Max(0f, current - 1f);
-                s4Field.SetValue(stationCard, newVal);
-                Logger?.LogDebug($"[TeaStation] DrainWaterCharge: WaterCharges {current} -> {newVal}");
+                float after = Math.Max(0f, before - 1f);
+                Logger?.LogDebug($"[TeaStation] DrainWaterCharge: WaterCharges {before} -> {after}");
             }
             catch (Exception ex)
             {

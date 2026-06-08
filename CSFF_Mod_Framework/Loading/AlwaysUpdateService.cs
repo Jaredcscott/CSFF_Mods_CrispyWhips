@@ -20,6 +20,8 @@ internal static class AlwaysUpdateService
         if (alwaysUpdateField == null || alwaysUpdateField.FieldType != typeof(bool))
             return;
 
+        // For all mod cards we always want AlwaysUpdate = true.
+        // Skip the GetValue read — just unconditionally set to avoid one reflection call per card.
         int updated = 0;
         foreach (var item in allData)
         {
@@ -27,11 +29,8 @@ internal static class AlwaysUpdateService
             if (string.IsNullOrEmpty(card.UniqueID) || !modUniqueIds.Contains(card.UniqueID))
                 continue;
 
-            if (!(bool)alwaysUpdateField.GetValue(card))
-            {
-                alwaysUpdateField.SetValue(card, true);
-                updated++;
-            }
+            alwaysUpdateField.SetValue(card, true);
+            updated++;
         }
 
         if (updated > 0)

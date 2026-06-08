@@ -14,6 +14,7 @@ namespace mod_update_manager
         private NexusApiClient _apiClient;
         private ModMappingManager _mappingManager;
         private NexusModDiscovery _modDiscovery;
+        private ModPreferences _preferences;
         private List<InstalledModInfo> _installedMods;
         private bool _isChecking;
         private int _checksCompleted;
@@ -27,21 +28,24 @@ namespace mod_update_manager
         public float Progress => _totalChecks > 0 ? (float)_checksCompleted / _totalChecks : 0f;
         public List<InstalledModInfo> InstalledMods => _installedMods;
 
-        public UpdateChecker(NexusApiClient apiClient, ModMappingManager mappingManager, NexusModDiscovery modDiscovery = null)
+        public UpdateChecker(NexusApiClient apiClient, ModMappingManager mappingManager, NexusModDiscovery modDiscovery = null, ModPreferences preferences = null)
         {
             _apiClient = apiClient;
             _mappingManager = mappingManager;
             _modDiscovery = modDiscovery;
+            _preferences = preferences;
             _installedMods = new List<InstalledModInfo>();
         }
 
         /// <summary>
-        /// Scans for installed mods
+        /// Scans for installed mods and applies saved preferences
         /// </summary>
         public void ScanMods()
         {
             OnStatusUpdate?.Invoke("Scanning installed mods...");
             _installedMods = ModScanner.ScanInstalledMods();
+            if (_preferences != null)
+                foreach (var m in _installedMods) _preferences.ApplyToMod(m);
             OnStatusUpdate?.Invoke($"Found {_installedMods.Count} installed mods");
         }
 
@@ -71,7 +75,7 @@ namespace mod_update_manager
             _isChecking = true;
             _checksCompleted = 0;
 
-            var modsToCheck = _installedMods.Where(m => GetNexusModId(m) != null).ToList();
+            var modsToCheck = _installedMods.Where(m => GetNexusModId(m) != null && !m.IsIgnored).ToList();
 
             var invalidVersionMods = modsToCheck.Where(m =>
                 m.Version == "Parse Error" || m.Version == "Unknown").ToList();
@@ -96,12 +100,16 @@ namespace mod_update_manager
                     if (response != null)
                     {
                         mod.LatestVersion = response.Version;
+                        mod.Summary = response.Summary;
+                        mod.EndorsementCount = response.EndorsementCount;
 
                         var equivalent = KnownModRegistry.GetVersionEquivalent(nexusId, mod.Version);
                         bool isEquivalent = equivalent != null &&
                             VersionComparer.Compare(equivalent, response.Version) == 0;
 
                         mod.NeedsUpdate = !isEquivalent && VersionComparer.NeedsUpdate(mod.Version, response.Version);
+                        mod.IsMajorVersionUpdate = mod.NeedsUpdate &&
+                            ModComparisonView.IsMajorUpdate(mod.Version, response.Version);
                         mod.CheckFailed = false;
 
                         if (!string.IsNullOrEmpty(response.Name))
@@ -130,6 +138,9 @@ namespace mod_update_manager
 
             foreach (var mod in _installedMods.Where(m => GetNexusModId(m) == null))
             {
+                // Don't list Mod_Update_Manager itself in the "Unable to Check" tab
+                if (KnownModRegistry.IsSelfMod(mod.Name) || KnownModRegistry.IsSelfMod(mod.FolderName))
+                    continue;
                 mod.LatestVersion = "No Nexus ID";
                 mod.CheckFailed = true;
                 mod.CheckError = "No Nexus Mod ID configured";
@@ -172,8 +183,10 @@ namespace mod_update_manager
             }
 
             // 4. Check built-in known mods registry
-            return KnownModRegistry.GetNexusModId(mod.Name)
+            var known = KnownModRegistry.GetNexusModId(mod.Name)
                 ?? KnownModRegistry.GetNexusModId(mod.FolderName);
+            // "self" sentinel means this is Mod_Update_Manager itself — treat as no ID
+            return known == "self" ? null : known;
         }
 
         /// <summary>

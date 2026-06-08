@@ -2,16 +2,18 @@
 // LitJSON Stub — CSFFModFramework assimilation
 //
 // This is a MOCK of the LitJSON public API. It exists only so
-// third-party CSFF mods that reference LitJSON v0.18.0.0 as an
-// assembly dependency can load without FileNotFoundException.
+// third-party CSFF mods that reference LitJSON as an assembly
+// dependency can load without FileNotFoundException.
 //
 // The implementation is intentionally minimal — just enough of
 // the real LitJSON surface to cover the common usage patterns
 // (JsonMapper.ToObject / ToJson, JsonData indexer access,
 // JsonReader/JsonWriter token streaming).
 //
-// AssemblyVersion is pinned to 0.18.0.0 for CLR binding
-// compatibility with mods built against the original DLL.
+// AssemblyVersion bumped to 0.19.0.0 to satisfy ModCore 3.3.1
+// which requires LitJSON v0.19.0.0. Without a matching version,
+// BepInEx's TypeLoader loads our 0.18 stub first and ModCore's
+// reference to 0.19.0.0 fails with TypeLoadException.
 // =============================================================
 
 using System;
@@ -25,9 +27,9 @@ using System.Text;
 
 [assembly: System.Reflection.AssemblyTitle("LitJson")]
 [assembly: System.Reflection.AssemblyProduct("LitJSON")]
-[assembly: System.Reflection.AssemblyVersion("0.18.0.0")]
-[assembly: System.Reflection.AssemblyFileVersion("0.18.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersion("0.18.0-CSFFModFramework-stub")]
+[assembly: System.Reflection.AssemblyVersion("0.19.0.0")]
+[assembly: System.Reflection.AssemblyFileVersion("0.19.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersion("0.19.0-CSFFModFramework-stub")]
 
 public delegate bool StateHandler();
 

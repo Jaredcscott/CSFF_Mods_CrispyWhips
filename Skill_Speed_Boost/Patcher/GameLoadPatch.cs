@@ -72,7 +72,7 @@ namespace Skill_Speed_Boost.Patcher
             }
             catch (Exception ex)
             {
-                Logger.LogError($"[SkillSpeedBoost] Patch error: {ex.Message}");
+                Logger.LogError($"[SkillSpeedBoost] Patch error: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
         }
 
@@ -160,17 +160,34 @@ namespace Skill_Speed_Boost.Patcher
                             continue;
                         }
 
-                        // Staleness enabled: set NoveltyCooldownDuration to 12 (3 in-game hours,
-                        // since 1 unit = 15 min) so identical actions stop refunding novelty
-                        // immediately.
+                        // Per-skill staleness: check toggle + rate before setting cooldown.
+                        bool perSkillUse  = string.IsNullOrWhiteSpace(skillName)
+                            || SkillConfigManager.GetSkillUseStaleness(skillName);
+                        float perSkillRate = string.IsNullOrWhiteSpace(skillName)
+                            ? 1f
+                            : SkillConfigManager.GetSkillStalenessRate(skillName);
+
+                        if (!perSkillUse)
+                        {
+                            TrySetMemberValue(entry, entryType, "UsesNovelty", UsesNoveltyFields, false);
+                            TrySetMemberValue(entry, entryType, "StalenessMultiplier", StalenessMultiplierFields, 0f);
+                            TrySetMemberValue(entry, entryType, "MaxStalenessStack", MaxStalenessStackFields, 0);
+                            disabledStalenessCount++;
+                            continue;
+                        }
+
+                        // Staleness enabled: NoveltyCooldownDuration controls decay speed.
+                        // Base = 12 (3 in-game hours, since 1 unit = 15 min).
+                        // Rate multiplier scales the cooldown inversely: 2x faster → cooldown/2.
                         if (!TryGetIntMember(entry, entryType, "NoveltyCooldownDuration", NoveltyCooldownFields, out var currentValue))
                         {
                             continue;
                         }
 
-                        if (currentValue != 12)
+                        int targetCooldown = (int)Math.Max(1, Math.Round(12.0 / perSkillRate));
+                        if (currentValue != targetCooldown)
                         {
-                            TrySetMemberValue(entry, entryType, "NoveltyCooldownDuration", NoveltyCooldownFields, 12);
+                            TrySetMemberValue(entry, entryType, "NoveltyCooldownDuration", NoveltyCooldownFields, targetCooldown);
                             updatedCount++;
                         }
                     }

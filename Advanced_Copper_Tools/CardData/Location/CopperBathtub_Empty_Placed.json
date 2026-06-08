@@ -210,7 +210,7 @@
         "RequiredGroupWarpData": "tag_WaterAny",
         "RequiredGroupWarpType": 3,
         "RequiredQuantity": {
-          "x": 300.0,
+          "x": 50.0,
           "y": 99999.0
         }
       },
@@ -218,8 +218,8 @@
         "ModType": 1,
         "ModifyLiquid": true,
         "LiquidQuantityChange": {
-          "x": -300.0,
-          "y": -300.0
+          "x": -50.0,
+          "y": -50.0
         }
       },
       "ReceivingCardChanges": {
@@ -271,11 +271,9 @@
       },
       "ReceivingCardChanges": {
         "ModType": 1,
-        "GetUsageFromOtherCard": true,
-        "GetFuelFromOtherCard": true,
         "FuelChange": {
-          "x": 0.0,
-          "y": 0.0
+          "x": 16.0,
+          "y": 16.0
         }
       }
     },

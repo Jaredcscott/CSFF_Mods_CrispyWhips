@@ -1,6 +1,6 @@
 # Water Driven Infrastructure
 
-**Version:** 1.3.2
+**Version:** 1.3.3
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.63)
 **Requires:** CSFFModFramework + AdvancedCopperTools
@@ -9,9 +9,9 @@
 
 ## Overview
 
-Water Driven Infrastructure adds large-scale, water-powered construction to Card Survival: Fantasy Forest. Build water wheels to harness river power, then connect them to sawmills, forges, grinding mills, ore sluices, and fishponds. The Mill Race Outlet lets you tap that water supply to draw unclean water at any outdoor location — no more long treks to the river.
+Water Driven Infrastructure adds large-scale, water-powered construction to Card Survival: Fantasy Forest. Build water wheels to harness river power, then connect them to sawmills, forges, grinding mills, ore sluices, and fishponds. Gears and saw blades are cast from copper using the AdvancedCopperTools metalworking pipeline. The Mill Race Outlet lets you tap that water supply to draw unclean water at any outdoor location — no more long treks to the river.
 
-All 14 blueprints are injected into the crafting journal automatically via `BlueprintTabs.json`.
+All 17 shipped blueprints are injected into the crafting journal automatically via `BlueprintTabs.json`.
 
 ---
 
@@ -25,7 +25,7 @@ Water Source (river / lake)
                                  ├── Water-Driven Sawmill
                                  ├── Water-Driven Forge ──→ Water-Driven Workshop (upgrade)
                                  ├── Water-Driven Grinding Mill
-                                 └── Ore Sluice
+                                 ├── Ore Sluice
                                  └── Fishpond
 ```
 
@@ -38,7 +38,7 @@ Water Source (river / lake)
 | Tab | Blueprints |
 |-----|-----------|
 | **Advanced Tools** | Mill Race, Mill Race Outlet, Water Wheel, Water Mill, Ore Sluice (Empty) |
-| **Metal Crafts** | Cast Copper Gear (Large), Cast Copper Gear (Small), Cast Copper Saw Blade |
+| **Metal Crafts** | Cast Large Copper Gear, Cast Small Copper Gear, Cast Copper Saw Blade, Forge Iron Parts, Forge Iron Bearing, Forge Iron Axle, Forge Iron Wrench |
 | **Furniture** | Ore Sluice, Water-Driven Grinding Mill, Water-Driven Sawmill, Water-Driven Forge, Water-Driven Workshop Kit |
 | **Farming Agriculture** | Fishpond |
 
@@ -90,10 +90,10 @@ Automated wood processing — drag logs in, collect planks.
 
 | Stage | Materials |
 |-------|-----------|
-| 1 | Clay, Iron, Bellows, Flume |
-| 2 | Stone |
-| 3 | Saw, Planks |
-| 4 | Water Mill + Mill Race + 2× Large Gear + 4× Small Gear + Saw Blade |
+| 1 | 25 Heavy Stone + 10 Plaster + Wooden Shovel (keep) + Metal Shovel (keep) |
+| 2 | 8 Rope |
+| 3 | Forge Hammer (keep) + 20 Planks |
+| 4 | Water Mill + Mill Race + 2× Large Copper Gear + 4× Small Copper Gear + Copper Saw Blade + 2× Iron Parts + 2× Iron Bearings |
 
 **Key features:**
 - **Cut** action (30 min): drag a log onto the sawmill → 8 Planks
@@ -110,10 +110,10 @@ Water-powered forge that smelts at 1100°+ and adds a water-hammer for batch met
 
 | Stage | Materials |
 |-------|-----------|
-| 1 | Water Mill + Bellows + Flume |
-| 2 | 40 Stone + 40 Clay + 10 Planks |
-| 3 | 10 Brick + 1 Grate + 10 Planks |
-| 4 | 20 Planks + 10 Clay + 10 Iron |
+| 1 | Water Mill + Wooden Shovel (keep) + Metal Shovel (keep) |
+| 2 | 40 Stone + 40 Mud Brick + 10 Planks |
+| 3 | 10 Clay + 1 Leather Bellows + 10 Planks |
+| 4 | 20 Planks + 10 Mud Brick + 10 Plaster + 2× Iron Parts + 2× Iron Bearings |
 
 **Key features:**
 - Max temperature 1300°; cools −40°/hour when idle
@@ -126,7 +126,7 @@ Water-powered forge that smelts at 1100°+ and adds a water-hammer for batch met
 
 An upgrade on top of the forge adding batch metalworking and 14 inventory slots.
 
-**Build** (unlock 32 ticks): requires existing Forge Kit + Water Mill + Bellows + charcoal + gears
+**Build** (unlock 32 ticks): requires existing Forge Kit + Water Mill + Bellows + charcoal + 2 Iron Parts + 2 Iron Bearings + 1 Iron Wrench + gears
 
 **Additional actions:**
 - **Hammer All** (30 min): applies water-hammer to all inventory contents simultaneously
@@ -171,34 +171,40 @@ A dug and stocked pond for sustained fish production.
 | 1 | Dig with shovel (−25 durability) |
 | 2 | Dig with shovel (−25 durability) |
 | 3 | Dig with shovel (−25 durability) |
-| 4 | Stock: 10 Pike + 3 Perch + 15 Minnow + 30 Planks |
+| 4 | Line: 10 Planks + 3 Bugs + 15 Heavy Stone + 30 Stone |
 | 5 | Supplement: 2 Pike + 2 Perch + 2 Minnow |
 
 Fish population grows over time and can be harvested periodically.
 
 ---
 
-## Copper Casting
+## Copper Gear Components
 
-Cast copper components in the forge from molten crucibles.
+Copper gears, the copper saw blade, iron parts, iron bearings, and the iron wrench are required for advanced water-driven machinery. Cast copper components through the AdvancedCopperTools crucible pipeline, forge iron parts, bearings, axles, and wrenches from wrought iron bars, then use them in WDI construction blueprints.
 
 | Blueprint | Requires | Unlock | Ingredients |
 |-----------|----------|:------:|-------------|
-| **Cast Large Copper Gear** | Forge | 16 ticks | Large Molten Crucible + Clay + Stone + hammer |
-| **Cast Small Copper Gear** | Forge | 8 ticks | Small Molten Crucible + Clay + Stone + hammer |
-| **Cast Copper Saw Blade** | Forge | 16 ticks | Large Molten Crucible + 10 Clay + 10 Stone + hammer |
+| **Cast Large Copper Gear** | Large Crucible of Molten Copper | 16 ticks | large molten copper crucible + mold + hammer |
+| **Cast Small Copper Gear** | Small Crucible of Molten Copper | 8 ticks | small molten copper crucible + mold + hammer |
+| **Cast Copper Saw Blade** | Large Crucible of Molten Copper | 16 ticks | two large molten copper crucibles + saw-blade mold + hammer |
+| **Forge Iron Parts** | Wrought Iron Bar | 8 ticks | wrought iron bar + hammer |
+| **Forge Iron Bearing** | Wrought Iron Bar | 8 ticks | wrought iron bar + hammer |
+| **Forge Iron Axle** | Wrought Iron Bar | 8 ticks | wrought iron bar + hammer |
+| **Forge Iron Wrench** | Wrought Iron Bar | 8 ticks | wrought iron bar + hammer |
+
+These components can be smelted back into copper nuggets if you need to reclaim the metal.
 
 ---
 
 ## Character Creation Perks
 
-All perks are free (0 Moons cost) and appear in the **Situational** tab.
+All perks cost **Moons** and appear in the **Situational** tab.
 
-| Perk | Starting Items |
-|------|---------------|
-| **Forge Start** | Water-Driven Forge Kit + 1 Mill Race component |
-| **Sawmill Start** | Water-Driven Sawmill Frame |
-| **Grinding Mill Start** | Water-Driven Grinding Mill Kit + 1 Mill Race component |
+| Perk | Cost | Starting Items |
+|------|-----:|---------------|
+| **Forge Start** | 8 Moons | Water-Driven Forge Kit + 1 Mill Race component |
+| **Sawmill Start** | 8 Moons | Water-Driven Sawmill Frame |
+| **Grinding Mill Start** | 8 Moons | Water-Driven Grinding Mill Kit + 1 Mill Race component |
 
 ---
 
@@ -217,7 +223,7 @@ All perks are free (0 Moons cost) and appear in the **Situational** tab.
 2. Deploy CSFFModFramework to `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. Deploy AdvancedCopperTools to `BepInEx/plugins/Advanced_Copper_Tools/`.
 4. Extract this mod to `BepInEx/plugins/Water_Driven_Infrastructure/`.
-5. Launch the game — check `BepInEx/LogOutput.log` for `WaterDrivenInfrastructure v1.3.2 loaded.`
+5. Launch the game — check `BepInEx/LogOutput.log` for `WaterDrivenInfrastructure v1.3.3 loaded.`
 
 ### Deployed layout
 
@@ -265,6 +271,8 @@ All patches filter on this mod's UniqueIDs and never modify vanilla cards, drops
 **Blueprints not appearing?** Verify both CSFFModFramework and AdvancedCopperTools are installed. Check `LogOutput.log` for their load messages.
 
 **Forge won't smelt?** Temperature must reach 1100°. Feed charcoal and use the Blast action before attempting to smelt.
+
+**Building from source?** The project intentionally references `lib/Assembly-CSharp-nstrip.dll` as its compile-time game assembly. A separate `lib/Assembly-CSharp.dll` is not required for this mod.
 
 **Mill Race Outlet not producing water?** The outlet must be outdoors and a Mill Race must be built first. Outlets freeze in winter — wait until spring.
 

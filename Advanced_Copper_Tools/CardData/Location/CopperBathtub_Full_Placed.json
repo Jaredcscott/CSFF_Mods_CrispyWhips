@@ -168,11 +168,9 @@
       },
       "ReceivingCardChanges": {
         "ModType": 1,
-        "GetUsageFromOtherCard": true,
-        "GetFuelFromOtherCard": true,
         "FuelChange": {
-          "x": 0.0,
-          "y": 0.0
+          "x": 16.0,
+          "y": 16.0
         }
       }
     },

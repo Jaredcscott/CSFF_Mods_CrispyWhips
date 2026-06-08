@@ -18,13 +18,23 @@ namespace mod_update_manager
         public string Version { get; set; }
         public string NexusModId { get; set; }  // Optional: can be specified in ModInfo.json
         public bool HasModInfo { get; set; }
-        
+
         // Version comparison results (populated after Nexus check)
         public string LatestVersion { get; set; }
         public bool NeedsUpdate { get; set; }
         public bool CheckFailed { get; set; }
         public string CheckError { get; set; }
         public string NexusUrl { get; set; }  // Nexus page URL for this mod
+
+        // Nexus metadata (populated after Nexus check)
+        public string Summary { get; set; }
+        public int EndorsementCount { get; set; }
+        public bool IsMajorVersionUpdate { get; set; }
+
+        // User preferences (applied from ModPreferences)
+        public bool IsIgnored { get; set; }
+        public bool IsFavorited { get; set; }
+        public string Notes { get; set; }
     }
 
     /// <summary>

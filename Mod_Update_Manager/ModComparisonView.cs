@@ -68,6 +68,9 @@ namespace mod_update_manager
             }
         }
 
+        public static bool IsMajorUpdate(string currentVersion, string latestVersion) =>
+            DetectBreakingChanges(currentVersion, latestVersion);
+
         private static bool DetectBreakingChanges(string currentVersion, string latestVersion)
         {
             if (string.IsNullOrEmpty(currentVersion) || string.IsNullOrEmpty(latestVersion))

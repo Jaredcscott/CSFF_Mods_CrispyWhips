@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using HarmonyLib;
 using BepInEx.Logging;
@@ -60,6 +61,11 @@ namespace Repeat_Action.Patcher
         // ===== Cached helper-method reflection lookups =====
         private static PropertyInfo gmAnyActionBlockersProp;        // HasActionBlockers
         private static PropertyInfo gmDayTimePointsProp;            // GetGameTick
+
+        // ===== Cached stat reflection (for stat threshold stop) =====
+        private static Type uniqueIdScriptableType;
+        private static Type gameStatType;
+        private static MethodInfo getFromIdGenericMethod;
         private static PropertyInfo igcbCardModelProp;              // GetCardUniqueId / GetCardDisplayName / RefreshTravelContext / TryPerformRestAction
         private static readonly Dictionary<Type, PropertyInfo> _destroyedPropByType = new Dictionary<Type, PropertyInfo>();  // IsCardDestroyed
         private static readonly Dictionary<Type, FieldInfo> _dismantleFieldByType = new Dictionary<Type, FieldInfo>();       // RefreshTravelContext / TryPerformRestAction
@@ -638,6 +644,15 @@ namespace Repeat_Action.Patcher
                     lastCocMethod = null;
                     lastActionRoutineArgs = null;
                     lastActionRoutineMethod = null;
+                    return;
+                }
+
+                // Don't let a rest/relax action overwrite a previously captured primary action
+                // (chop, mine, forage, etc.). When the player rests to recover stamina between
+                // chops, the chop context should persist so Shift+R resumes chopping, not resting.
+                if (IsRestLikeCapture(actionName) && lastAction != null && !IsRestLikeCapture(lastActionName))
+                {
+                    Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Capture] Skipping rest capture - preserving primary action '{lastActionName}'");
                     return;
                 }
 
@@ -1893,6 +1908,23 @@ namespace Repeat_Action.Patcher
                     Logger.LogDebug($"[Repeat] STOP: blocker triggered at {completed}/{count}");
                     break;
                 }
+
+                // --- Check stat thresholds (Satiation / Hydration / Stamina) ---
+                var statStop = CheckStatThresholds();
+                if (statStop != null)
+                {
+                    Plugin.ShowNotification($"Stopped - {statStop} ({completed}/{count})");
+                    Logger.LogDebug($"[Repeat] STOP: stat threshold: {statStop} at {completed}/{count}");
+                    break;
+                }
+
+                // --- Check for tool transformation (tool wore out / changed state) ---
+                if (Plugin.StopOnToolBreak.Value && IsGivenCardTransformed())
+                {
+                    Plugin.ShowNotification($"Stopped - Tool changed ({completed}/{count})");
+                    Logger.LogDebug($"[Repeat] STOP: given card transformed (UID changed) at {completed}/{count}");
+                    break;
+                }
             }
             }
             finally
@@ -2789,14 +2821,100 @@ namespace Repeat_Action.Patcher
             "till",        // Till field
             "wet",         // Wet garden plot
             "water",       // Water plants (CI on garden plots)
+            "candle",      // Candle making
+            "crack",       // Bone cracking
         };
+
+        // =====================================================================
+        // STAT THRESHOLD & TOOL BREAK HELPERS
+        // =====================================================================
+
+        /// <summary>
+        /// Returns CurrentValue/MaxValue ratio for a GameStat by GUID, or null on failure.
+        /// </summary>
+        private static float? GetStatCurrentRatio(string guid)
+        {
+            try
+            {
+                if (uniqueIdScriptableType == null)
+                    uniqueIdScriptableType = AccessTools.TypeByName("UniqueIDScriptable");
+                if (gameStatType == null)
+                    gameStatType = AccessTools.TypeByName("GameStat");
+
+                if (getFromIdGenericMethod == null && uniqueIdScriptableType != null && gameStatType != null)
+                {
+                    var generic = uniqueIdScriptableType.GetMethods()
+                        .FirstOrDefault(m => m.Name == "GetFromID" && m.IsGenericMethodDefinition);
+                    if (generic != null)
+                        getFromIdGenericMethod = generic.MakeGenericMethod(gameStatType);
+                }
+
+                if (getFromIdGenericMethod == null) return null;
+
+                var stat = getFromIdGenericMethod.Invoke(null, new object[] { guid });
+                if (stat == null) return null;
+
+                var current = GetMemberValueSilent(stat, "CurrentValue");
+                var max = GetMemberValueSilent(stat, "MaxValue");
+                if (current == null || max == null) return null;
+
+                float maxVal = Convert.ToSingle(max);
+                if (maxVal <= 0f) return null;
+                return Convert.ToSingle(current) / maxVal;
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
+        /// Checks all configured stat thresholds. Returns a human-readable stop reason or null if all ok.
+        /// </summary>
+        private static string CheckStatThresholds()
+        {
+            int satiationThreshold = Plugin.SatiationStopThreshold.Value;
+            int hydrationThreshold = Plugin.HydrationStopThreshold.Value;
+            int staminaThreshold = Plugin.StaminaStopThreshold.Value;
+
+            if (satiationThreshold > 0)
+            {
+                var ratio = GetStatCurrentRatio("930cf914322e9f145af1315d96f85a28");
+                if (ratio.HasValue && ratio.Value * 100f < satiationThreshold)
+                    return $"Satiation < {satiationThreshold}%";
+            }
+            if (hydrationThreshold > 0)
+            {
+                var ratio = GetStatCurrentRatio("95ca7c21ffad5e647acc3d9cb5bfcde6");
+                if (ratio.HasValue && ratio.Value * 100f < hydrationThreshold)
+                    return $"Hydration < {hydrationThreshold}%";
+            }
+            if (staminaThreshold > 0)
+            {
+                var ratio = GetStatCurrentRatio("1cfd30cf13b69b949a0ac521f55a59a2");
+                if (ratio.HasValue && ratio.Value * 100f < staminaThreshold)
+                    return $"Stamina < {staminaThreshold}%";
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Returns true if the given drag-drop card is still alive but its CardModel UniqueID
+        /// changed since capture — indicating it transformed (e.g. tool wore out).
+        /// </summary>
+        private static bool IsGivenCardTransformed()
+        {
+            if (lastGivenCard == null || string.IsNullOrEmpty(savedGivenUniqueId)) return false;
+            var asUnity = lastGivenCard as UnityEngine.Object;
+            if (asUnity == null || !asUnity) return false; // Destroyed, handled by givenExhausted
+            string currentId = GetCardUniqueId(lastGivenCard);
+            if (string.IsNullOrEmpty(currentId)) return false;
+            return !string.Equals(currentId, savedGivenUniqueId, StringComparison.Ordinal);
+        }
 
         private static bool IsPermittedAction(string actionName)
         {
             if (string.IsNullOrEmpty(actionName)) return false;
             foreach (var keyword in PermittedActionKeywords)
             {
-                if (actionName.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0)
+                if (ContainsWord(actionName, keyword))
                     return true;
             }
             return false;
@@ -2828,6 +2946,16 @@ namespace Repeat_Action.Patcher
                 || ContainsWord(actionName, "south")
                 || ContainsWord(actionName, "east")
                 || ContainsWord(actionName, "west");
+        }
+
+        /// <summary>
+        /// Returns true if the action is rest/relax — used to prevent rest from
+        /// overwriting a previously captured primary action (chop, mine, forage, etc.).
+        /// </summary>
+        private static bool IsRestLikeCapture(string actionName)
+        {
+            if (string.IsNullOrEmpty(actionName)) return false;
+            return ContainsWord(actionName, "rest") || ContainsWord(actionName, "relax");
         }
 
         /// <summary>

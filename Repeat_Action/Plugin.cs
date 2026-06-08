@@ -11,7 +11,7 @@ public class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.repeat_action";
     public const string PluginName = "Repeat_Action";
-    public const string PluginVersion = "1.3.9";
+    public const string PluginVersion = "1.4.2";
 
     internal new static ManualLogSource Logger;
     private static Harmony _harmony;
@@ -28,6 +28,10 @@ public class Plugin : BaseUnityPlugin
     public static ConfigEntry<int> MaxRepeatCount { get; private set; }
     public static ConfigEntry<bool> ShowNotifications { get; private set; }
     public static ConfigEntry<bool> StopOnLowStats { get; private set; }
+    public static ConfigEntry<bool> StopOnToolBreak { get; private set; }
+    public static ConfigEntry<int> StaminaStopThreshold { get; private set; }
+    public static ConfigEntry<int> SatiationStopThreshold { get; private set; }
+    public static ConfigEntry<int> HydrationStopThreshold { get; private set; }
     public static ConfigEntry<float> ActionCompletionTimeout { get; private set; }
     public static ConfigEntry<int> Gate1TimeoutFrames { get; private set; }
     public static ConfigEntry<float> PreTravelRestTimeout { get; private set; }
@@ -109,6 +113,36 @@ public class Plugin : BaseUnityPlugin
             "Stop On Low Stats",
             true,
             "Automatically stop repeating when the game detects a critical condition (health, hunger, or event popup)");
+
+        StopOnToolBreak = Config.Bind(
+            "Safety",
+            "Stop On Tool Break",
+            true,
+            "Stop repeating when a drag-drop tool transforms (e.g. axe wears out and changes state)");
+
+        StaminaStopThreshold = Config.Bind(
+            "Safety",
+            "Stamina Stop Threshold (%)",
+            0,
+            new BepInEx.Configuration.ConfigDescription(
+                "Stop repeating when Stamina drops below this percentage (0 = disabled)",
+                new BepInEx.Configuration.AcceptableValueRange<int>(0, 100)));
+
+        SatiationStopThreshold = Config.Bind(
+            "Safety",
+            "Satiation Stop Threshold (%)",
+            0,
+            new BepInEx.Configuration.ConfigDescription(
+                "Stop repeating when Satiation drops below this percentage (0 = disabled)",
+                new BepInEx.Configuration.AcceptableValueRange<int>(0, 100)));
+
+        HydrationStopThreshold = Config.Bind(
+            "Safety",
+            "Hydration Stop Threshold (%)",
+            0,
+            new BepInEx.Configuration.ConfigDescription(
+                "Stop repeating when Hydration drops below this percentage (0 = disabled)",
+                new BepInEx.Configuration.AcceptableValueRange<int>(0, 100)));
 
         ActionCompletionTimeout = Config.Bind(
             "Timeout Settings",

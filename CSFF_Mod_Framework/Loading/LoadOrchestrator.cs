@@ -119,9 +119,19 @@ internal static class LoadOrchestrator
             else
                 Log.Debug("[Skip] SmeltingRecipeInjector: no mod ships SmeltingRecipes.json");
 
-            // 6. Build DataMap before GameSourceModify so MatchTagWarpData /
-            //    MatchTypeWarpData bulk patches can resolve their target sets.
-            RunPhase(sw, "DataMap (pre-GameSourceModifier)", () => DataMap.BuildMaps(allData));
+            // 5f. Load mod-defined spawn triggers (CardData/Trigger/*.json). Runtime firing is
+            //     handled by TriggerService via Plugin.Update — no SO injection needed here.
+            if (mods.Any(m => m.HasTriggers))
+                RunPhase(sw, "TriggerLoader", () => Triggers.TriggerLoader.LoadAll(mods));
+            else
+                Log.Debug("[Skip] TriggerLoader: no mod ships CardData/Trigger/ JSON");
+
+            // 6. Build DataMap before GameSourceModify — only needed when a mod uses
+            //    MatchTagWarpData / MatchTypeWarpData bulk patches.
+            if (mods.Any(m => m.HasGSMTagOrTypeMatch))
+                RunPhase(sw, "DataMap (pre-GameSourceModifier)", () => DataMap.BuildMaps(allData));
+            else
+                Log.Debug("[Skip] DataMap (pre-GameSourceModifier): no mod uses MatchTagWarpData/MatchTypeWarpData");
 
             // 7. Apply GameSourceModify patches
             RunPhase(sw, "GameSourceModifier", () => GameSourceModifier.ApplyAll(mods, allData));

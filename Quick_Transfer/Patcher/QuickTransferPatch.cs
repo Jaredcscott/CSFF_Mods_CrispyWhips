@@ -29,6 +29,7 @@ namespace Quick_Transfer.Patcher
         private static object savedSourceSlot = null;
         private static string savedUniqueId = null;
         private static bool savedCtrlRightClick = false;
+        private static int savedTransferCount = 1;
 
         public static void ApplyPatch(Harmony harmony)
         {
@@ -67,6 +68,7 @@ namespace Quick_Transfer.Patcher
             savedSourceSlot = null;
             savedUniqueId = null;
             savedCtrlRightClick = false;
+            savedTransferCount = 1;
             
             // Skip if we're already doing a batch transfer
             if (isTransferring) return;
@@ -110,6 +112,7 @@ namespace Quick_Transfer.Patcher
                 if (slot == null) return;
                 
                 savedSourceSlot = slot;
+                savedTransferCount = Plugin.GetEffectiveTransferAmount();
                 savedCtrlRightClick = true;
             }
             catch (Exception ex)
@@ -128,15 +131,20 @@ namespace Quick_Transfer.Patcher
             
             try
             {
-                int additionalCount = Plugin.CurrentTransferAmount - 1;
+                int additionalCount = savedTransferCount - 1;
                 if (additionalCount <= 0) return;
-                
+
                 // Capture state locally before clearing
                 var sourceSlot = savedSourceSlot;
                 var uniqueId = savedUniqueId;
-                
+                var totalCount = savedTransferCount;
+
                 if (sourceSlot == null || string.IsNullOrEmpty(uniqueId)) return;
-                
+
+                // Show what's happening before the coroutine runs
+                string label = totalCount >= 9999 ? "All" : totalCount.ToString();
+                Plugin.ShowNotification($"Quick Transfer: {label}");
+
                 // Start coroutine for remaining transfers (one per frame)
                 Plugin.Instance.StartCoroutine(TransferCardsCoroutine(sourceSlot, uniqueId, additionalCount));
             }

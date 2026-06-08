@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "water_sawmill_bp_ore_sluice",
         "LocalizationKey": "Water_Sawmill_Bp_OreSluice_CardDescription",
-        "DefaultText": "Build a water-powered ore sluice for washing soil and extracting greenstone. Requires direct water or a connected mill race outlet."
+        "DefaultText": "Build a water-powered ore sluice for washing soil and extracting greenstone. Requires direct water or a connected mill race outlet. Uses heavy stones as ballast."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {
@@ -87,7 +87,7 @@
                     },
                     "RequiredQuantity": 4,
                     "DontSpend": false,
-                    "RequiredCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+                    "RequiredCardWarpData": "8695a7aa22521aa45be582d3c1558f78",
                     "RequiredCardWarpType": 3
                 },
                 {
@@ -98,6 +98,16 @@
                     "RequiredQuantity": 1,
                     "DontSpend": false,
                     "RequiredCardWarpData": "water_sawmill_ore_sluice_empty",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 6,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "advanced_copper_tools_copper_nails",
                     "RequiredCardWarpType": 3
                 }
             ],

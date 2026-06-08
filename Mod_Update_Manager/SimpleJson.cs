@@ -89,7 +89,7 @@ namespace mod_update_manager
             if (string.IsNullOrEmpty(json)) return result;
 
             // Match "key": "value" or "key": number patterns
-            var stringPattern = new Regex("\"([^\"]+)\"\\s*:\\s*\"([^\"]*)\"");
+            var stringPattern = new Regex("\"([^\"]+)\"\\s*:\\s*\"((?:[^\"\\\\]|\\\\.)*)\"");
             var numberPattern = new Regex("\"([^\"]+)\"\\s*:\\s*([0-9.]+)");
 
             foreach (Match match in stringPattern.Matches(json))
@@ -142,7 +142,7 @@ namespace mod_update_manager
 
         private static string ExtractValue(string json, string key)
         {
-            var pattern = new Regex($"\"{key}\"\\s*:\\s*\"([^\"]*)\"", RegexOptions.IgnoreCase);
+            var pattern = new Regex($"\"{key}\"\\s*:\\s*\"((?:[^\"\\\\]|\\\\.)*)\"", RegexOptions.IgnoreCase);
             var match = pattern.Match(json);
             return match.Success ? UnescapeString(match.Groups[1].Value) : null;
         }

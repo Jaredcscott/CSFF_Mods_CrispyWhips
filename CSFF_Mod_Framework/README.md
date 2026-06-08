@@ -4,7 +4,7 @@ Standalone modding framework for Card Survival: Fantasy Forest. Provides mod dis
 
 ## Status
 
-- **Version:** 2.0.7
+- **Version:** 2.0.8
 - **Game Version**: EA 0.63
 - All in-house mods are maintained against EA 0.63.
 
@@ -15,7 +15,7 @@ The framework is now **standalone** — it no longer ships compatibility stubs f
 - Legacy compatibility DLLs are **not** in the deploy output.
 - Third-party mods that hard-depend on removed external runtimes will not load with this framework.
 - The legacy compatibility stubs have been removed from the repository entirely. They are not built or deployed.
-- All in-house content mods now declare a hard dependency on `crispywhips.CSFFModFramework` v2.0.0 and no longer reference any Pikachu GUID.
+- All in-house content mods now declare a `SoftDependency` on `crispywhips.CSFFModFramework` for load ordering and no longer reference any Pikachu GUID.
 - The legacy `ModLoaderVerison` manifest field is ignored by this framework; existing manifests may keep it, and new framework-based mods do not need it.
 
 ## Installation
@@ -55,15 +55,15 @@ ConfigurationManager is recommended for an in-game UI.
 
 | Mod | Plugins Folder | Version | Description |
 |---|---|---|---|
-| Advanced Copper Tools | `Advanced_Copper_Tools` | 1.7.7 | Copper metalworking, wheelbarrow, bathtub, stove, lantern, oil chain, tea kettle, tea blending station, copper chest |
-| Herbs and Fungi | `Herbs_And_Fungi` | 1.6.9 | Herbalism, mushroom foraging, hemp farming, oil press, pickle fermentation, drying racks, medicinal teas, 15 perks |
-| Water Driven Infrastructure | `Water_Driven_Infrastructure` | 1.3.2 | Water wheels, sawmills, grinding mills, ore sluices (river/lake adjacent) |
-| Quick Transfer | `Quick_Transfer` | 1.5.7 | CTRL+Right-Click multi-card transfer between inventories |
-| Repeat Action | `Repeat_Action` | 1.3.9 | Repeat last action with configurable keybinds and safety limits |
-| Skill Speed Boost | `Skill_Speed_Boost` | 1.7.6 | Per-skill XP multipliers, difficulty profiles, optional staleness decay |
-| Mod Update Manager | `Mod_Update_Manager` | 2.0.5 | Nexus Mods update checker with in-game UI (F8) |
+| Advanced Copper Tools | `Advanced_Copper_Tools` | 1.7.8 | Copper metalworking, wheelbarrow, bathtub, stove, lantern, oil chain, tea kettle, tea blending station, copper chest |
+| Herbs and Fungi | `Herbs_And_Fungi` | 1.6.10 | Herbalism, mushroom foraging, hemp farming, oil press, pickle fermentation, drying racks, medicinal teas, 15 perks |
+| Water Driven Infrastructure | `Water_Driven_Infrastructure` | 1.3.3 | Water wheels, sawmills, grinding mills, ore sluices (river/lake adjacent) |
+| Quick Transfer | `Quick_Transfer` | 1.6.1 | Shift/Ctrl/Ctrl+Shift+Right-Click multi-card transfer with live preset indicator |
+| Repeat Action | `Repeat_Action` | 1.4.1 | Repeat last action with configurable keybinds and safety limits |
+| Skill Speed Boost | `Skill_Speed_Boost` | 1.9.1 | Per-skill XP multipliers, difficulty profiles, staleness decay, synergies, level scaling |
+| Mod Update Manager | `Mod_Update_Manager` | 2.1.1 | Nexus Mods update checker with in-game UI (F8) |
 
-Each in-house content mod declares `[BepInDependency("crispywhips.CSFFModFramework", "2.0.0")]`. The QoL mods (Quick Transfer, Repeat Action, Skill Speed Boost) work standalone on BepInEx 5.x and do not require the framework.
+Each in-house content mod declares `[BepInDependency("crispywhips.CSFFModFramework", BepInDependency.DependencyFlags.SoftDependency)]`. The QoL mods (Quick Transfer, Repeat Action, Skill Speed Boost) work standalone on BepInEx 5.x and do not require the framework.
 
 ## What the Framework Handles
 
@@ -82,7 +82,7 @@ Each in-house content mod declares `[BepInDependency("crispywhips.CSFFModFramewo
 
 ## Performance Patches (active by default unless noted)
 
-- **3 total `Resources.FindObjectsOfTypeAll` calls** (ScriptableObject, Sprite, AudioClip) — every service reuses the cached dictionaries
+- **3 startup `Resources.FindObjectsOfTypeAll` calls** (ScriptableObject, Sprite, AudioClip), plus one cached UI-time `CardTabGroup` scan for blueprint journal tabs — every other service reuses the cached dictionaries
 - **JSON file cache** — every mod JSON is read once into `JsonDataLoader.JsonByUniqueId`; downstream services never re-read from disk
 - **Map cache registry** — generated map details such as WDI mill-race edges are parsed once with `MiniJson` and reused by mod code
 - **Sprite texture cache** — decoded PNG bytes cached under `SpriteCache/`, keyed by MD5 of normalized path + source mtime; cuts sprite load from ~67% of total load time to < 5% on warm runs
@@ -110,7 +110,10 @@ Mods only need C# for **mod-specific logic**: custom action interception, forage
 
 ## Version History
 
-### v2.0.7 (current)
+### v2.0.8 (current)
+- Version bump for release alongside ACT 1.7.8, H&F 1.6.10, WDI 1.3.3, QT 1.6.1, RA 1.4.1, SSB 1.9.1, MUM 2.1.1
+
+### v2.0.7
 - Blueprint injector updated to use live UI tabs at `BlueprintModelsScreen.Show` time (with `Resources.FindObjectsOfTypeAll<CardTabGroup>` fallback) — fixes "no tab found" errors for all content mods on EA 0.63f
 
 ### v2.0.6
@@ -129,7 +132,7 @@ Mods only need C# for **mod-specific logic**: custom action interception, forage
 
 ### v2.0.0
 - **Breaking change**: framework is now standalone. Legacy ModCore/ModLoader compatibility stubs removed; third-party mods that hard-depend on them will not load with this version.
-- All in-house content mods updated to `[BepInDependency("crispywhips.CSFFModFramework", "2.0.0")]`; no Pikachu GUID references remain in any in-house mod.
+- All in-house content mods updated to `[BepInDependency("crispywhips.CSFFModFramework", BepInDependency.DependencyFlags.SoftDependency)]`; no Pikachu GUID references remain in any in-house mod.
 - `ModLoaderVerison` manifest field ignored (intentional typo in game's own schema; new mods do not need to include it)
 
 ### v1.x series

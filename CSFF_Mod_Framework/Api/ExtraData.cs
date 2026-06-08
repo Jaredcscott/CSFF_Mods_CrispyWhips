@@ -1,4 +1,5 @@
 using CSFFModFramework.Data;
+using LitJson;
 
 namespace CSFFModFramework.Api;
 
@@ -31,14 +32,16 @@ public static class ExtraData
 
     /// <summary>
     /// Convenience: deserializes the sidecar JSON into <typeparamref name="T"/> using
-    /// Unity's <c>JsonUtility</c>. Returns <c>default</c> if no sidecar exists or if
-    /// the JSON does not match <typeparamref name="T"/>.
+    /// LitJSON. Returns <c>default</c> if no sidecar exists or if the JSON does not
+    /// match <typeparamref name="T"/>. Supports object arrays and nested types;
+    /// prefer this overload over calling <c>JsonUtility.FromJson</c> directly (Unity's
+    /// serializer silently nulls array fields with no error).
     /// </summary>
     public static T Get<T>(string uniqueId)
     {
         var raw = ExtraDataStore.Get(uniqueId);
         if (string.IsNullOrEmpty(raw)) return default;
-        try { return JsonUtility.FromJson<T>(raw); }
+        try { return JsonMapper.ToObject<T>(raw); }
         catch { return default; }
     }
 

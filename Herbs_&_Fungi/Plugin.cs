@@ -10,7 +10,7 @@ internal class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.Herbs_And_Fungi";
     public const string PluginName = "Herbs and Fungi";
-    public const string PluginVersion = "1.6.9";
+    public const string PluginVersion = "1.7.0";
 
     internal new static ManualLogSource Logger;
     internal static Plugin Instance { get; private set; }
@@ -29,8 +29,7 @@ internal class Plugin : BaseUnityPlugin
         {
             Herbs_And_Fungi.Patcher.GameLoadPatch.ApplyPatch(_harmony);
             Herbs_And_Fungi.Patcher.TruffleFatCookPatch.ApplyPatch(_harmony);
-            Herbs_And_Fungi.Patcher.EncounterSuppressPatch.ApplyPatch(_harmony);
-            Herbs_And_Fungi.Patcher.PickleVatRoutePatch.ApplyPatch(_harmony);
+Herbs_And_Fungi.Patcher.PickleVatRoutePatch.ApplyPatch(_harmony);
             Logger.LogInfo($"{PluginName} v{PluginVersion} loaded.");
         }
         catch (System.Exception ex)

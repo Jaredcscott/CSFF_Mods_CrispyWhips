@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_pickle_vat_ready",
         "LocalizationKey": "Herbs_And_Fungi_PickleVatReady_CardDescription",
-        "DefaultText": "Fermentation is complete. Harvest the vat to crack it open and reclaim the empty vat and bowl."
+        "DefaultText": "Fermentation is complete. Harvest the vat to crack it open. Returns the empty vat and an open jar; use the jar's Return Bowl action to reclaim the clay lid."
     },
     "CardType": 2,
     "CardTags": [],
@@ -58,7 +58,7 @@
         {
             "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
             "Quantity": {"x": 1, "y": 1},
-            "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+            "DroppedCardWarpData": "herbs_fungi_open_pickle_jar",
             "DroppedCardWarpType": 3
         }
     ],

@@ -8,12 +8,12 @@
   "CardDescription": {
     "ParentObjectID": "water_sawmill_ore_sluice_placed",
     "LocalizationKey": "Water_Sawmill_OreSluicePlaced_CardDescription",
-    "DefaultText": "A water-powered sluice box for washing soil and separating mineral deposits. Load mud piles, dirt piles, or fine dirt, then run the sluice to process them for greenstone, flint, and stone."
+    "DefaultText": "A water-powered sluice box for washing soil and separating mineral deposits. Load mud piles, dirt piles, or fine dirt, then run the sluice to process them for greenstone, flint, stone, and occasionally metal nuggets."
   },
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_ore_sluice_placed",
     "LocalizationKey": "Water_Sawmill_OreSluicePlaced_CardHelpSection",
-    "DefaultText": "<b>Operation:</b> Load mud piles, dirt piles, or fine dirt into the sluice, then press Sluice All. Each item produces one result; richer soil has higher mineral yields:\n\nMud Pile: Greenstone 8% / Flint 15% / Stone 77%\nDirt Pile: Greenstone 5% / Flint 10% / Stone 85%\nFine Dirt: Greenstone 2% / Flint 8% / Stone 90%"
+    "DefaultText": "<b>Operation:</b> Load mud piles, dirt piles, or fine dirt into the sluice, then press Sluice All. Each drop is rolled independently — a single pile can yield multiple items or nothing.\n\nDrop chances (Mud / Dirt / Fine Dirt):\nIron Nugget: 8% / 5% / 1%\nCopper Nugget: 12% / 8% / 1%\nTin Nugget: 8% / 5% / 1%\nGreenstone: 22% / 18% / 12%\nFlint: 30% / 20% / 10%\nStone: 55% / 40% / 10%\nClay: 10% / 20% / 55%\n\nNuggets spawn at 35% quality."
   },
   "CardType": 2,
   "ObjectWeight": 800.0,

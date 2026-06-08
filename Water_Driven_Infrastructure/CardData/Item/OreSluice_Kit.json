@@ -8,13 +8,13 @@
   "CardDescription": {
     "ParentObjectID": "water_sawmill_ore_sluice_kit",
     "LocalizationKey": "Water_Sawmill_OreSluiceKit_CardDescription",
-    "DefaultText": "A complete ore sluice kit ready to be placed near water or a connected mill race outlet for mineral prospecting."
+    "DefaultText": "A complete ore sluice kit with iron bearing and axle hardware, ready to be placed near water or a connected mill race outlet for mineral prospecting."
   },
   "CanBeRenamed": false,
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_ore_sluice_kit",
     "LocalizationKey": "Water_Sawmill_OreSluiceKit_CardHelpSection",
-    "DefaultText": "<b>Use:</b> Place near water or a connected mill race outlet to set up the ore sluice.\n\n<b>Purpose:</b> Wash soil to extract greenstone nuggets."
+    "DefaultText": "<b>Use:</b> Place near water or a connected mill race outlet to set up the ore sluice.\n\n<b>Purpose:</b> Wash soil to extract greenstone nuggets. Requires iron bearing and axle hardware."
   },
   "CardImage": {
     "m_FileID": 0,
@@ -117,6 +117,18 @@
               "DroppedCardWarpData": "water_sawmill_ore_sluice_empty",
               "DroppedCardWarpType": 3,
               "Quantity": {"x": 1, "y": 1}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "water_sawmill_iron_bearing",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "water_sawmill_iron_axle",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1, "y": 1}
             }
           ]
         }
@@ -145,9 +157,6 @@
     "ExtraSpecial3Rate": 0.0,
     "ExtraSpecial4Rate": 0.0
   },
-  "CookingRecipes": [],
-  "BlueprintStages": [],
-  "BlueprintResult": [],
   "IsWeapon": false,
   "IsArmor": false
 }

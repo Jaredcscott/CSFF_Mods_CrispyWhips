@@ -108,6 +108,9 @@ namespace Herbs_And_Fungi.Patcher
                 // Accelerate Tendon drying on the vanilla DryingRack and ACT Tea Blending Station
                 AddTendonDryingRecipe(allDataEnumerable);
 
+                // Allow the vanilla Pouch to store herb/mushroom powders
+                PatchVanillaPouchForPowderStorage(allDataEnumerable);
+
                 // Populate the four pickleable GpTags (auto-created by framework) with raw-only ingredient lists
                 GpTagContentPatch.Populate();
 
@@ -115,8 +118,7 @@ namespace Herbs_And_Fungi.Patcher
             }
             catch (Exception ex)
             {
-                Logger.LogError($"Error in LoadMainGameData postfix: {ex.Message}");
-                Logger.LogError($"Stack trace: {ex.StackTrace}");
+                Logger.LogError($"Error in LoadMainGameData postfix: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
         }
 
@@ -153,8 +155,7 @@ namespace Herbs_And_Fungi.Patcher
                     var cardNameObj = cardNameField?.GetValue(item);
                     if (cardNameObj == null) continue;
 
-                    var locKeyField = AccessTools.Field(cardNameObj.GetType(), "LocalizationKey");
-                    var localizationKey = locKeyField?.GetValue(cardNameObj) as string;
+                    var localizationKey = GetMember(cardNameObj, "LocalizationKey") as string;
 
                     if (localizationKey == null || (!localizationKey.Contains("GardenPlot") && !localizationKey.Contains("TilledField")))
                         continue;
@@ -168,7 +169,7 @@ namespace Herbs_And_Fungi.Patcher
 
                     if (!TryAddPlantationCard(item, plantationCardsField, plantationCards, hempSeeds))
                     {
-                        Logger?.LogDebug($"[HempSeeds] Could not append hemp seed to {localizationKey} PlantationCards ({plantationCardsField.FieldType.Name})");
+                        Logger?.LogWarning($"[HempSeeds] Could not append hemp seed to {localizationKey} PlantationCards ({plantationCardsField.FieldType.Name})");
                     }
                 }
             }
@@ -217,7 +218,7 @@ namespace Herbs_And_Fungi.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.LogDebug($"[HempSeeds] PlantationCards append failed: {ex.Message}");
+                Logger?.LogWarning($"[HempSeeds] PlantationCards append failed: {ex.Message}");
             }
 
             return false;
@@ -299,6 +300,18 @@ namespace Herbs_And_Fungi.Patcher
                 object shiitake = null;
                 object yarrow = null;
 
+                // Berries
+                object blackcurrant = null;
+                object redcurrant = null;
+                object lingonberry = null;
+                object cloudberry = null;
+
+                // Phase 1 decorative/medicinal plants
+                object wildFlowers = null;
+                object dandelion = null;
+                object commonPlantain = null;
+                object chamomile = null;
+
                 foreach (var item in allDataEnumerable)
                 {
                     if (item == null) continue;
@@ -327,6 +340,16 @@ namespace Herbs_And_Fungi.Patcher
                     else if (uniqueId == "herbs_fungi_black_trumpet") blackTrumpet = item;
                     else if (uniqueId == "herbs_fungi_shiitake") shiitake = item;
                     else if (uniqueId == "herbs_fungi_yarrow") yarrow = item;
+                    // Berries
+                    else if (uniqueId == "herbs_fungi_blackcurrant") blackcurrant = item;
+                    else if (uniqueId == "herbs_fungi_redcurrant") redcurrant = item;
+                    else if (uniqueId == "herbs_fungi_lingonberry") lingonberry = item;
+                    else if (uniqueId == "herbs_fungi_cloudberry") cloudberry = item;
+                    // Phase 1 decorative/medicinal plants
+                    else if (uniqueId == "herbs_fungi_wild_flowers") wildFlowers = item;
+                    else if (uniqueId == "herbs_fungi_dandelion") dandelion = item;
+                    else if (uniqueId == "herbs_fungi_common_plantain") commonPlantain = item;
+                    else if (uniqueId == "herbs_fungi_chamomile") chamomile = item;
                 }
 
                 int locationsModified = 0;
@@ -345,8 +368,7 @@ namespace Herbs_And_Fungi.Patcher
                     var cardNameObj = cardNameField?.GetValue(item);
                     if (cardNameObj == null) continue;
 
-                    var locKeyField = AccessTools.Field(cardNameObj.GetType(), "LocalizationKey");
-                    var localizationKey = locKeyField?.GetValue(cardNameObj) as string;
+                    var localizationKey = GetMember(cardNameObj, "LocalizationKey") as string;
 
                     if (string.IsNullOrEmpty(localizationKey)) continue;
 
@@ -374,7 +396,7 @@ namespace Herbs_And_Fungi.Patcher
                     bool isCaveStillHollow = localizationKey.Contains("CaveStillHollow");
                     bool isUndergroundCave = isCaveOldHollow || isCaveShadyThicket || isCaveStillHollow;
 
-                    if (!isOakGrove && !isPineForest && !isBirchForest && !isWillowArea && !isRiverBank && !isPrimevalWoods && !isClearing && !isWildWoods && !isNorthernRegion && !isPineMeadow && !isUndergroundCave) continue;
+                    if (!isOakGrove && !isPineForest && !isBirchForest && !isWillowArea && !isRiverBank && !isPrimevalWoods && !isClearing && !isWildWoods && !isNorthernRegion && !isPineMeadow && !isUndergroundCave && !isLostWoods && !isGreenGrove && !isGreenGlade && !isOakenGrove) continue;
 
                     // Determine location type for mushroom drop logic
                     string locationType = isNorthernRegion ? "Northern" : (isPrimevalWoods ? "Primeval" : (isWillowArea ? "Willow" : (isWildWoods ? "WildWoods" : (isPineMeadow ? "PineMeadow" : (isOakGrove ? "Oak" : (isBirchForest ? "Birch" : (isPineForest ? "Pine" : (isUndergroundCave ? "Cave" : "River"))))))));
@@ -392,12 +414,10 @@ namespace Herbs_And_Fungi.Patcher
                         if (action == null) continue;
 
                         // Get action name
-                        var actionNameField = AccessTools.Field(action.GetType(), "ActionName");
-                        var actionNameObj = actionNameField?.GetValue(action);
+                        var actionNameObj = GetMember(action, "ActionName");
                         if (actionNameObj == null) continue;
 
-                        var defaultTextField = AccessTools.Field(actionNameObj.GetType(), "DefaultText");
-                        var actionName = defaultTextField?.GetValue(actionNameObj) as string;
+                        var actionName = GetMember(actionNameObj, "DefaultText") as string;
 
                         if (actionName == null) continue;
 
@@ -459,10 +479,10 @@ namespace Herbs_And_Fungi.Patcher
 
                             // === NEW MUSHROOMS ===
 
-                            // Chanterelle in oak AND birch forests (5% chance) - Spring/Summer/Fall only
+                            // Chanterelle in oak AND birch forests (8% chance) - Spring/Summer/Fall only
                             if ((isOakGrove || isBirchForest) && chanterelle != null)
                             {
-                                AddMushroomDropToAction(producedCards, chanterelle, 5.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, chanterelle, 8.0f, false, false, true);
                             }
 
                             // Reishi in oak AND pine forests (4% chance - medicinal) - Spring/Summer/Fall only
@@ -471,16 +491,20 @@ namespace Herbs_And_Fungi.Patcher
                                 AddMushroomDropToAction(producedCards, reishi, 4.0f, false, false, true);
                             }
 
-                            // Puffball in clearings (5% chance - large food source) - Spring/Summer/Fall only
+                            // Puffball in clearings (10% chance - large food source) - Spring/Summer/Fall only
                             if (isClearing && puffball != null)
                             {
-                                AddMushroomDropToAction(producedCards, puffball, 5.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, puffball, 10.0f, false, false, true);
                             }
 
-                            // Chicken of the Woods near Willow trees only (12% chance) - Spring/Summer/Fall only
+                            // Chicken of the Woods near Willow trees (12%) and Oak groves (6%) - Spring/Summer/Fall only
                             if (isWillowArea && chickenOfWoods != null)
                             {
                                 AddMushroomDropToAction(producedCards, chickenOfWoods, 12.0f, false, false, true);
+                            }
+                            else if (isOakGrove && chickenOfWoods != null)
+                            {
+                                AddMushroomDropToAction(producedCards, chickenOfWoods, 6.0f, false, false, true);
                             }
 
                             // Death Cap in northern region above Grenfell Falls only (1% chance) - Spring/Summer/Fall only
@@ -541,6 +565,72 @@ namespace Herbs_And_Fungi.Patcher
                             {
                                 AddMushroomDropToAction(producedCards, hempPlantMature, 15.0f, false, false, true);
                             }
+
+                            // === BERRIES ===
+
+                            // Blackcurrant: birch (12%), river banks (8%), oak (5%) - Summer only
+                            if (isBirchForest && blackcurrant != null)
+                                AddMushroomDropToAction(producedCards, blackcurrant, 12.0f, false, false, true);
+                            if (isRiverBank && blackcurrant != null)
+                                AddMushroomDropToAction(producedCards, blackcurrant, 8.0f, false, false, true);
+                            if (isOakGrove && blackcurrant != null)
+                                AddMushroomDropToAction(producedCards, blackcurrant, 5.0f, false, false, true);
+
+                            // Redcurrant: oak (12%), birch (8%), clearings (6%) - Summer only
+                            if (isOakGrove && redcurrant != null)
+                                AddMushroomDropToAction(producedCards, redcurrant, 12.0f, false, false, true);
+                            if (isBirchForest && redcurrant != null)
+                                AddMushroomDropToAction(producedCards, redcurrant, 8.0f, false, false, true);
+                            if (isClearing && !isPineMeadow && redcurrant != null)
+                                AddMushroomDropToAction(producedCards, redcurrant, 6.0f, false, false, true);
+
+                            // Lingonberry: pine meadow (18%), pine forest (16%), northern (12%) - Late Summer/Fall
+                            if (isPineMeadow && lingonberry != null)
+                                AddMushroomDropToAction(producedCards, lingonberry, 18.0f, false, false, true);
+                            else if (isPineForest && lingonberry != null)
+                                AddMushroomDropToAction(producedCards, lingonberry, 16.0f, false, false, true);
+                            if (isNorthernRegion && lingonberry != null)
+                                AddMushroomDropToAction(producedCards, lingonberry, 12.0f, false, false, true);
+
+                            // Cloudberry: northern (10%), pine meadow (6%) - rare northern delicacy
+                            if (isNorthernRegion && cloudberry != null)
+                                AddMushroomDropToAction(producedCards, cloudberry, 10.0f, false, false, true);
+                            if (isPineMeadow && cloudberry != null)
+                                AddMushroomDropToAction(producedCards, cloudberry, 6.0f, false, false, true);
+
+                            // === PHASE 1 DECORATIVE/MEDICINAL PLANTS (boosted rates for low-benefit items) ===
+
+                            // Wild Flowers: clearings (20%), pine meadow (16%), river banks (12%)
+                            if (isClearing && wildFlowers != null)
+                                AddMushroomDropToAction(producedCards, wildFlowers, 20.0f, false, false, true);
+                            if (isPineMeadow && wildFlowers != null)
+                                AddMushroomDropToAction(producedCards, wildFlowers, 16.0f, false, false, true);
+                            if (isRiverBank && wildFlowers != null)
+                                AddMushroomDropToAction(producedCards, wildFlowers, 12.0f, false, false, true);
+
+                            // Dandelion: clearings (20%), river banks (14%), oak groves (12%)
+                            if (isClearing && dandelion != null)
+                                AddMushroomDropToAction(producedCards, dandelion, 20.0f, false, false, true);
+                            if (isRiverBank && dandelion != null)
+                                AddMushroomDropToAction(producedCards, dandelion, 14.0f, false, false, true);
+                            if (isOakGrove && dandelion != null)
+                                AddMushroomDropToAction(producedCards, dandelion, 12.0f, false, false, true);
+
+                            // Common Plantain: clearings (16%), river banks (14%), birch (10%)
+                            if (isClearing && commonPlantain != null)
+                                AddMushroomDropToAction(producedCards, commonPlantain, 16.0f, false, false, true);
+                            if (isRiverBank && commonPlantain != null)
+                                AddMushroomDropToAction(producedCards, commonPlantain, 14.0f, false, false, true);
+                            if (isBirchForest && commonPlantain != null)
+                                AddMushroomDropToAction(producedCards, commonPlantain, 10.0f, false, false, true);
+
+                            // Chamomile: pine meadow (18%), clearings (14%), birch (10%)
+                            if (isPineMeadow && chamomile != null)
+                                AddMushroomDropToAction(producedCards, chamomile, 18.0f, false, false, true);
+                            else if (isClearing && chamomile != null)
+                                AddMushroomDropToAction(producedCards, chamomile, 14.0f, false, false, true);
+                            if (isBirchForest && chamomile != null)
+                                AddMushroomDropToAction(producedCards, chamomile, 10.0f, false, false, true);
 
                             forageActionsModified++;
                         }
@@ -672,8 +762,8 @@ namespace Herbs_And_Fungi.Patcher
                 foreach (var action in dismantleActions)
                 {
                     if (action == null) continue;
-                    var nameObj = AccessTools.Field(action.GetType(), "ActionName")?.GetValue(action);
-                    var defText = AccessTools.Field(nameObj?.GetType(), "DefaultText")?.GetValue(nameObj) as string;
+                    var nameObj = GetMember(action, "ActionName");
+                    var defText = GetMember(nameObj, "DefaultText") as string;
                     if (defText == "Dig for Truffles") return;
                     if (defText == "Forage" && template == null) template = action;
                 }
@@ -691,16 +781,15 @@ namespace Herbs_And_Fungi.Patcher
                 }
 
                 // Replace ActionName with a fresh LocalizedString so we don't mutate the template.
-                var actionNameField = AccessTools.Field(actionType, "ActionName");
-                var templateNameObj = actionNameField?.GetValue(template);
+                var templateNameObj = GetMember(template, "ActionName");
                 if (templateNameObj != null)
                 {
                     var nameType = templateNameObj.GetType();
                     var newName = Activator.CreateInstance(nameType);
-                    AccessTools.Field(nameType, "ParentObjectID")?.SetValue(newName, "");
-                    AccessTools.Field(nameType, "LocalizationKey")?.SetValue(newName, "Herbs_And_Fungi_Action_DigForTruffles");
-                    AccessTools.Field(nameType, "DefaultText")?.SetValue(newName, "Dig for Truffles");
-                    actionNameField.SetValue(newAction, newName);
+                    SetMember(newName, "ParentObjectID", "");
+                    SetMember(newName, "LocalizationKey", "Herbs_And_Fungi_Action_DigForTruffles");
+                    SetMember(newName, "DefaultText", "Dig for Truffles");
+                    SetMember(newAction, "ActionName", newName);
                 }
 
                 // Digging is harder than foraging; give it a longer daytime cost.
@@ -977,6 +1066,131 @@ namespace Herbs_And_Fungi.Patcher
             catch (Exception ex)
             {
                 Logger?.LogError($"[TendonDry] {label}: {ex.Message}\n{ex.StackTrace}");
+            }
+        }
+
+        private static object GetMember(object target, string name)
+        {
+            if (target == null) return null;
+            var t = target.GetType();
+            const BindingFlags f = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+            try { var p = t.GetProperty(name, f); if (p != null && p.CanRead) return p.GetValue(target, null); } catch { }
+            try { var fi = t.GetField(name, f); if (fi != null) return fi.GetValue(target); } catch { }
+            return null;
+        }
+
+        private static void SetMember(object target, string name, object value)
+        {
+            if (target == null) return;
+            var t = target.GetType();
+            const BindingFlags f = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+            try { var p = t.GetProperty(name, f); if (p != null && p.CanWrite) { p.SetValue(target, value, null); return; } } catch { }
+            try { var fi = t.GetField(name, f); fi?.SetValue(target, value); } catch { }
+        }
+
+        /// <summary>
+        /// Patches the vanilla Pouch (description: "ideal for preserving powders") to actually
+        /// function as a powder container. Sets MaxWeightCapacity and adds tag_Powder /
+        /// tag_PowderLiquid to its InventoryFilter so H&amp;F ground herbs fit inside.
+        /// </summary>
+        static void PatchVanillaPouchForPowderStorage(IEnumerable allDataEnumerable)
+        {
+            const string PouchGuid = "80fb7f8100618414d9abb10dec0e31a5";
+            const BindingFlags Flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+
+            try
+            {
+                // Locate the vanilla Pouch CardData
+                object pouch = null;
+                foreach (var item in allDataEnumerable)
+                {
+                    if (item == null) continue;
+                    var uid = AccessTools.Field(item.GetType(), "UniqueID")?.GetValue(item) as string;
+                    if (uid == PouchGuid) { pouch = item; break; }
+                }
+
+                if (pouch == null)
+                {
+                    Logger?.LogWarning("[PouchPatch] Vanilla Pouch not found in AllData.");
+                    return;
+                }
+
+                // Give it enough weight capacity for ~10 powder items (each weighs 10)
+                var weightField = AccessTools.Field(pouch.GetType(), "MaxWeightCapacity");
+                if (weightField == null) { Logger?.LogError("[PouchPatch] MaxWeightCapacity field not found."); return; }
+                weightField.SetValue(pouch, 100.0f);
+
+                // Find tag_Powder and tag_PowderLiquid – created at runtime by the framework
+                // when it processes H&F items that carry those tags.
+                var cardTagType = AccessTools.TypeByName("CardTag");
+                if (cardTagType == null) { Logger?.LogError("[PouchPatch] CardTag type not found."); return; }
+
+                UnityEngine.Object tagPowder = null, tagPowderLiquid = null;
+                foreach (var tag in Resources.FindObjectsOfTypeAll(cardTagType))
+                {
+                    if (tag == null) continue;
+                    if (tag.name == "tag_Powder")       tagPowder       = tag;
+                    else if (tag.name == "tag_PowderLiquid") tagPowderLiquid = tag;
+                    if (tagPowder != null && tagPowderLiquid != null) break;
+                }
+
+                if (tagPowder == null) { Logger?.LogWarning("[PouchPatch] tag_Powder not found; powder filter not added."); return; }
+
+                // Access InventoryFilter on the Pouch CardData
+                var filterField = AccessTools.Field(pouch.GetType(), "InventoryFilter");
+                if (filterField == null) { Logger?.LogError("[PouchPatch] InventoryFilter field not found."); return; }
+                var filterObj = filterField.GetValue(pouch);
+                if (filterObj == null) { Logger?.LogError("[PouchPatch] InventoryFilter is null."); return; }
+
+                // Access the TagFilters collection inside InventoryFilter
+                var tagFiltersField = filterObj.GetType().GetField("TagFilters", Flags);
+                if (tagFiltersField == null) { Logger?.LogError("[PouchPatch] TagFilters field not found."); return; }
+                var tagFiltersObj = tagFiltersField.GetValue(filterObj);
+
+                // Determine the TagFilter element type
+                Type tagFilterType = null;
+                if (tagFiltersObj is Array ta) tagFilterType = ta.GetType().GetElementType();
+                else if (tagFiltersObj != null)
+                {
+                    var ga = tagFiltersObj.GetType().GetGenericArguments();
+                    if (ga.Length > 0) tagFilterType = ga[0];
+                }
+                if (tagFilterType == null) { Logger?.LogError("[PouchPatch] Cannot resolve TagFilter element type."); return; }
+
+                // Build the new TagFilter entries for tag_Powder and (optionally) tag_PowderLiquid
+                var newFilters = new List<object>();
+                foreach (var tag in new[] { tagPowder, tagPowderLiquid })
+                {
+                    if (tag == null) continue;
+                    var tf = Activator.CreateInstance(tagFilterType);
+                    tagFilterType.GetField("Tag", Flags)?.SetValue(tf, tag);
+                    // NOT = false, OnlyWithLiquid = false  (value-type defaults are already correct)
+                    newFilters.Add(tf);
+                }
+
+                // Append the new entries – handles both Array and List<T>
+                if (tagFiltersObj is Array existingArr)
+                {
+                    int old = existingArr.Length;
+                    var newArr = Array.CreateInstance(tagFilterType, old + newFilters.Count);
+                    Array.Copy(existingArr, newArr, old);
+                    for (int i = 0; i < newFilters.Count; i++) newArr.SetValue(newFilters[i], old + i);
+                    tagFiltersField.SetValue(filterObj, newArr);
+                }
+                else if (tagFiltersObj is IList list)
+                {
+                    foreach (var tf in newFilters) list.Add(tf);
+                }
+                else { Logger?.LogError("[PouchPatch] TagFilters is neither Array nor IList."); return; }
+
+                // Write the (potentially boxed) filter struct back onto the card
+                filterField.SetValue(pouch, filterObj);
+
+                Logger?.LogInfo("[PouchPatch] Vanilla Pouch patched: capacity=100, accepts tag_Powder + tag_PowderLiquid.");
+            }
+            catch (Exception ex)
+            {
+                Logger?.LogError($"[PouchPatch] {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
         }
 

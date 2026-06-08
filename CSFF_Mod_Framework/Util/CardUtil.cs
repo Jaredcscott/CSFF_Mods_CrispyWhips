@@ -233,6 +233,269 @@ public static class CardUtil
         catch { return null; }
     }
 
+    // ── Type lookup ───────────────────────────────────────────────────────────
+
+    /// <summary>
+    /// Resolves a game type by name across all loaded assemblies. Results are cached.
+    /// Use for types not accessible at compile-time (e.g. InGameCardBase, GameManager).
+    /// </summary>
+    public static Type FindGameType(string typeName)
+        => Reflection.ReflectionCache.FindType(typeName);
+
+    // ── Cached field/property lookup ─────────────────────────────────────────
+
+    private static readonly Dictionary<(Type, string), FieldInfo>    _fieldCache = new();
+    private static readonly Dictionary<(Type, string), PropertyInfo> _propCache  = new();
+
+    /// <summary>
+    /// Finds a field by walking the inheritance chain, caching results per (Type, name).
+    /// Prefer this over <see cref="FindField"/> for hot paths (e.g. per-frame or per-card loops).
+    /// </summary>
+    public static FieldInfo GetCachedField(Type type, string name)
+    {
+        if (type == null || name == null) return null;
+        var key = (type, name);
+        if (_fieldCache.TryGetValue(key, out var fi)) return fi;
+        return _fieldCache[key] = ReflectionHelpers.FindField(type, name);
+    }
+
+    /// <summary>
+    /// Finds a property by walking the inheritance chain, caching results per (Type, name).
+    /// Prefer this over <see cref="FindProperty"/> for hot paths.
+    /// </summary>
+    public static PropertyInfo GetCachedProperty(Type type, string name)
+    {
+        if (type == null || name == null) return null;
+        var key = (type, name);
+        if (_propCache.TryGetValue(key, out var pi)) return pi;
+        return _propCache[key] = ReflectionHelpers.FindProperty(type, name);
+    }
+
+    // ── Array append ─────────────────────────────────────────────────────────
+
+    /// <summary>
+    /// Returns a new array with <paramref name="element"/> appended to the end.
+    /// Replaces the common inline Array.CreateInstance / Array.Copy / SetValue pattern.
+    /// </summary>
+    public static T[] AppendToArray<T>(T[] array, T element)
+        => ReflectionHelpers.AppendToArray(array, element);
+
+    // ── GameManager singleton access ──────────────────────────────────────────
+
+    private static Type         _gmType;
+    private static PropertyInfo _gmInstanceProp;
+    private static FieldInfo    _gmInstanceField;
+    private static bool         _gmReflected;
+
+    /// <summary>
+    /// Returns the live GameManager singleton. Searches the MBSingleton&lt;T&gt; hierarchy
+    /// for the static Instance property or field. Returns null before the game initializes.
+    /// </summary>
+    public static object GetGameManagerInstance()
+    {
+        if (!_gmReflected)
+        {
+            _gmReflected = true;
+            _gmType = Reflection.ReflectionCache.FindType("GameManager");
+            if (_gmType != null)
+            {
+                const BindingFlags StaticAll = BindingFlags.Static | BindingFlags.Public
+                    | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy;
+                _gmInstanceProp  = _gmType.GetProperty("Instance", StaticAll);
+                _gmInstanceField = _gmInstanceProp == null
+                    ? _gmType.GetField("Instance", StaticAll) : null;
+            }
+        }
+        if (_gmType == null) return null;
+        try
+        {
+            if (_gmInstanceProp  != null) return _gmInstanceProp.GetValue(null, null);
+            if (_gmInstanceField != null) return _gmInstanceField.GetValue(null);
+        }
+        catch { }
+        return null;
+    }
+
+    // ── Type conversion helpers ───────────────────────────────────────────────
+
+    /// <summary>Converts any boxed numeric value to float. Returns 0 on null or failure.</summary>
+    public static float ToFloat(object value)
+    {
+        if (value is float f)  return f;
+        if (value is double d) return (float)d;
+        if (value is int i)    return i;
+        if (value is long l)   return l;
+        if (value == null)     return 0f;
+        try { return Convert.ToSingle(value); } catch { return 0f; }
+    }
+
+    /// <summary>Converts any boxed numeric value to int. Returns 0 on null or failure.</summary>
+    public static int ToInt(object value)
+    {
+        if (value is int i)    return i;
+        if (value is long l)   return (int)l;
+        if (value is float f)  return (int)f;
+        if (value is double d) return (int)d;
+        if (value == null)     return 0;
+        try { return Convert.ToInt32(value); } catch { return 0; }
+    }
+
+    /// <summary>Converts a boxed bool or numeric value to bool. Returns false on null or failure.</summary>
+    public static bool ToBool(object value)
+    {
+        if (value is bool b) return b;
+        if (value == null)   return false;
+        try { return Convert.ToBoolean(value); } catch { return false; }
+    }
+
+    // ── High-level card transform ─────────────────────────────────────────────
+
+    /// <summary>
+    /// Performs a complete in-place card model swap: resolves <paramref name="targetUniqueId"/>
+    /// to a CardData, calls <see cref="TrySetCardModel"/>, then <see cref="ReinitCard"/>.
+    /// Returns true on success.
+    /// For transforms that also need placement restore or runtime-state reset (durabilities,
+    /// latches), call the lower-level methods after this returns.
+    /// </summary>
+    public static bool TransformCardInPlace(object card, string targetUniqueId)
+    {
+        if (card == null || string.IsNullOrEmpty(targetUniqueId)) return false;
+        var targetData = GetCardDataById(targetUniqueId);
+        if (targetData == null) return false;
+        if (!TrySetCardModel(card, targetData)) return false;
+        ReinitCard(card, targetData);
+        return true;
+    }
+
+    // ── Batch AllData queries ─────────────────────────────────────────────────
+
+    /// <summary>
+    /// Returns all loaded CardData ScriptableObjects where <paramref name="predicate"/> returns true.
+    /// Iterates the framework's SO cache — call only after LoadMainGameData fires.
+    /// For UniqueID lookups, <see cref="FindCardsByUniqueIds"/> is faster (O(1) per ID).
+    /// </summary>
+    public static IEnumerable<object> FindCardsWhere(Func<object, bool> predicate)
+    {
+        var cardDataType = Reflection.ReflectionCache.FindType("CardData");
+        if (cardDataType == null) yield break;
+        foreach (var so in Data.Database.GetAllOfType(cardDataType))
+        {
+            if (so == null) continue;
+            if (predicate == null || predicate(so))
+                yield return so;
+        }
+    }
+
+    /// <summary>
+    /// Returns CardData objects whose UniqueID matches any element in <paramref name="ids"/>.
+    /// Uses the game's own UniqueIDScriptable registry — O(1) per ID.
+    /// </summary>
+    public static IReadOnlyList<object> FindCardsByUniqueIds(IEnumerable<string> ids)
+    {
+        var result = new List<object>();
+        foreach (var id in ids)
+        {
+            if (string.IsNullOrEmpty(id)) continue;
+            var card = GetCardDataById(id);
+            if (card != null) result.Add(card);
+        }
+        return result;
+    }
+
+    // ── Durability stat modifier ──────────────────────────────────────────────
+
+    /// <summary>
+    /// Adds <paramref name="delta"/> to a float durability field on an InGameCardBase instance.
+    /// Three search paths: (1) flat <c>statName</c> property/field directly on the card,
+    /// (2) DurabilityStats/CardDurabilities/Durabilities container → sub-stat.CurrentValue,
+    /// stripping a leading "Current" prefix to find the sub-stat name.
+    /// Returns true if any path succeeded.
+    /// </summary>
+    public static bool ModifyDurabilityStat(object card, string statName, float delta)
+    {
+        if (card == null || string.IsNullOrEmpty(statName)) return false;
+        try
+        {
+            var cardType = card.GetType();
+
+            // Path 1: flat property on the card (e.g. CurrentProgress, CurrentSpecial4)
+            var directProp = ReflectionHelpers.FindProperty(cardType, statName);
+            if (directProp?.CanRead == true && directProp.CanWrite)
+            {
+                directProp.SetValue(card, Convert.ToSingle(directProp.GetValue(card)) + delta);
+                return true;
+            }
+
+            // Path 2: flat field on the card (float or double)
+            var directField = ReflectionHelpers.FindField(cardType, statName);
+            if (directField != null
+                && (directField.FieldType == typeof(float) || directField.FieldType == typeof(double)))
+            {
+                directField.SetValue(card, Convert.ToSingle(directField.GetValue(card)) + delta);
+                return true;
+            }
+
+            // Path 3: container → sub-stat → CurrentValue/FloatValue
+            string innerName = statName.StartsWith("Current", StringComparison.Ordinal)
+                ? statName.Substring("Current".Length) : statName;
+
+            foreach (var containerName in _durabilityContainerNames)
+            {
+                var cField = ReflectionHelpers.FindField(cardType, containerName);
+                if (cField == null) continue;
+                var container = cField.GetValue(card);
+                if (container == null) continue;
+                if (TryModifySubStat(container, cField, card, innerName, delta))
+                    return true;
+            }
+        }
+        catch { }
+        return false;
+    }
+
+    private static readonly string[] _durabilityContainerNames =
+        { "DurabilityStats", "CardDurabilities", "Durabilities" };
+
+    private static bool TryModifySubStat(object container, FieldInfo containerField,
+        object card, string innerName, float delta)
+    {
+        var ct = container.GetType();
+        var innerProp  = ReflectionHelpers.FindProperty(ct, innerName);
+        var innerField = innerProp == null ? ReflectionHelpers.FindField(ct, innerName) : null;
+        var innerObj   = innerProp != null ? innerProp.GetValue(container)
+                                          : innerField?.GetValue(container);
+        if (innerObj == null) return false;
+
+        var it = innerObj.GetType();
+        var cvProp = ReflectionHelpers.FindProperty(it, "CurrentValue")
+                  ?? ReflectionHelpers.FindProperty(it, "FloatValue");
+        if (cvProp?.CanRead == true && cvProp.CanWrite)
+        {
+            cvProp.SetValue(innerObj, Convert.ToSingle(cvProp.GetValue(innerObj)) + delta);
+            WriteBackIfValueType(innerObj, it, innerField, container, containerField, card);
+            return true;
+        }
+
+        var cvField = ReflectionHelpers.FindField(it, "CurrentValue")
+                   ?? ReflectionHelpers.FindField(it, "FloatValue");
+        if (cvField != null)
+        {
+            cvField.SetValue(innerObj, Convert.ToSingle(cvField.GetValue(innerObj)) + delta);
+            WriteBackIfValueType(innerObj, it, innerField, container, containerField, card);
+            return true;
+        }
+        return false;
+    }
+
+    private static void WriteBackIfValueType(object innerObj, Type innerType, FieldInfo innerField,
+        object container, FieldInfo containerField, object card)
+    {
+        if (!innerType.IsValueType || innerField == null) return;
+        innerField.SetValue(container, innerObj);
+        if (containerField.FieldType.IsValueType)
+            containerField.SetValue(card, container);
+    }
+
     // ── In-place card model swap ──────────────────────────────────────────────
 
     // Per-type reflection for the model swap — invalidated when card type changes.

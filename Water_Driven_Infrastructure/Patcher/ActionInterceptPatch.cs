@@ -63,14 +63,12 @@ namespace WaterDrivenInfrastructure.Patcher
         // SmeltingRecipes: UniqueID → copper nugget count
         // Mirrors WaterDrivenInfrastructure/SmeltingRecipes.json + AdvancedCopperTools/SmeltingRecipes.json.
         // ACT entries are harmless if ACT is not installed (items simply won't appear in inventory).
+        // Copper gear/blade items (copper_gear_small/large, copper_saw_blade) smelt via their own passive-effect
+        // Progress system in the water-driven forge and return copper nuggets — not IronBloom.
         // Yields based on: 1 Heated Lump = 6 nuggets, 1 Small Crucible = 6, 1 Large Crucible = 12.
         private static readonly Dictionary<string, int> _smeltingRecipes = new Dictionary<string, int>(StringComparer.Ordinal)
         {
-            // WDI copper parts
-            { "water_sawmill_copper_gear_small",          6  },  // 1 small crucible
-            { "water_sawmill_copper_gear_large",          12 },  // 1 large crucible
-            { "water_sawmill_copper_saw_blade",           24 },  // 2 large crucibles
-            { "water_sawmill_copper_saw_blade_dull",      24 },  // 2 large crucibles
+            // WDI parts
             { "water_sawmill_workshop_kit",               72 },  // forge_kit(24) + water_mill(24) + 2×small(12) + 1×large(12)
             // ACT copper items (from AdvancedCopperTools/SmeltingRecipes.json)
             { "advanced_copper_tools_copper_nails",        1  },  // 1 nugget direct
@@ -83,14 +81,20 @@ namespace WaterDrivenInfrastructure.Patcher
             { "advanced_copper_tools_large_saw",           16 },  // 2 sheets(12) + 4 nails(4)
             { "advanced_copper_tools_wearable_metal_pan",  5  },  // pan(4) + nail(1)
             { "advanced_copper_tools_lantern_oilwell",     6  },  // 1 sheet
+            { "advanced_copper_tools_metal_lantern",       18 },  // oilwell(6) + 2 sheets(12)
             { "advanced_copper_tools_copper_tea_kettle",   18 },  // 3 sheets
             { "advanced_copper_tools_copper_cauldron",     34 },  // 5 sheets(30) + 4 nails(4)
             { "advanced_copper_tools_copper_pantry",       30 },  // 4 sheets(24) + 6 nails(6)
             { "advanced_copper_tools_copper_stove",        30 },  // 4 sheets(24) + stove_top(6)
             { "advanced_copper_tools_wheel_assembly",      12 },  // rim(6) + hub(6)
             { "advanced_copper_tools_bucket",              48 },  // 8 sheets
-            { "advanced_copper_tools_copper_tea_station_kit", 48 }, // kettle(18) + stove(30)
+            { "advanced_copper_tools_tea_station_kit",      48 },  // kettle(18) + stove(30)
             { "advanced_copper_tools_copper_bathtub_empty",   78 }, // bucket(48) + stove(30)
+            { "advanced_copper_tools_copper_helmet",        15 },
+            { "advanced_copper_tools_copper_gauntlets",     11 },
+            { "advanced_copper_tools_copper_greaves",       15 },
+            { "advanced_copper_tools_copper_breastplate",   23 },
+            { "advanced_copper_tools_copper_brazier_kit",   22 },
         };
 
         // Vanilla GUIDs
@@ -102,6 +106,13 @@ namespace WaterDrivenInfrastructure.Patcher
         private const string GreenstoneGUID = "bcc7d7a764978e447bc38b36dcca2055";
         private const string FlintGUID      = "bef002cfd45b3e8459864746f403cf73";
         private const string StoneGUID      = "a7384e5147b23a642809451cc4ef24fb";
+        private const string ClayGUID       = "68c14d265ea6c874ba79444d2e1ef7b3";
+        // Sluice nugget types — all use MetalNugget (CopperNuggetGUID); SpecialDurability4 sets display type (EA 0.64+)
+        private const float  NuggetIronType      = 200f; // Iron Nugget
+        private const float  NuggetCopperType    = 100f; // Copper Nugget
+        private const float  NuggetTinType       = 120f; // Tin Nugget
+        private const float  NuggetSluiceQuality =  35f; // SD1/SD2/SD3 quality on spawned nuggets
+        private const int    NuggetInitRetryFrames = 5;
 
         // Fish caught from ponds should spawn at 75% quality (SpecialDurability2 = 72/96)
         // and with vanilla fresh-caught weight (SpecialDurability1), which controls gutting portions.
@@ -207,7 +218,7 @@ namespace WaterDrivenInfrastructure.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"[ActionIntercept] Patch failed: {ex.Message}");
+                Logger?.LogError($"[ActionIntercept] Patch failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
         }
 
@@ -707,7 +718,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 if (setter != null) setter.Invoke(gm, new[] { value });
                 else field?.SetValue(gm, value);
             }
-            catch { }
+            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] SetGameState({stateName}) failed: {ex.Message}"); }
         }
 
         private static void SetIsPerformingAction(object card, bool value)
@@ -728,7 +739,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 field ??= cardType.GetField("<IsPerformingAction>k__BackingField", Flags);
                 field?.SetValue(card, value);
             }
-            catch { }
+            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] SetIsPerformingAction({value}) failed: {ex.Message}"); }
         }
 
         private static object GetGameManagerInstance()
@@ -1105,7 +1116,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     if (card is UnityEngine.Object uo) result.Add(uo.GetInstanceID());
                 }
             }
-            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] SnapshotFishCardIds: {ex.Message}"); }
+            catch (Exception ex) { Logger?.LogWarning($"[ActionIntercept] SnapshotFishCardIds: {ex.Message}"); }
             return result;
         }
 
@@ -1250,7 +1261,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     if (card is UnityEngine.Object uo) result.Add(uo.GetInstanceID());
                 }
             }
-            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] SnapshotCardIdsByUniqueId: {ex.Message}"); }
+            catch (Exception ex) { Logger?.LogWarning($"[ActionIntercept] SnapshotCardIdsByUniqueId: {ex.Message}"); }
             return result;
         }
 
@@ -1354,7 +1365,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     }
                 }
             }
-            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] FindLatestKnownCardByUniqueId: {ex.Message}"); }
+            catch (Exception ex) { Logger?.LogWarning($"[ActionIntercept] FindLatestKnownCardByUniqueId: {ex.Message}"); }
             return null;
         }
 
@@ -1375,7 +1386,7 @@ namespace WaterDrivenInfrastructure.Patcher
 
             UnityEngine.Object[] sceneCards = null;
             try { sceneCards = UnityEngine.Object.FindObjectsOfType(_cardBaseType); }
-            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] EnumerateKnownCards scene fallback: {ex.Message}"); }
+            catch (Exception ex) { Logger?.LogWarning($"[ActionIntercept] EnumerateKnownCards scene fallback: {ex.Message}"); }
             if (sceneCards == null) yield break;
 
             foreach (var card in sceneCards)
@@ -1401,7 +1412,7 @@ namespace WaterDrivenInfrastructure.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.LogDebug($"[ActionIntercept] EnumerateGameManagerAllCards: {ex.Message}");
+                Logger?.LogWarning($"[ActionIntercept] EnumerateGameManagerAllCards: {ex.Message}");
             }
 
             if (cards == null) yield break;
@@ -1609,6 +1620,12 @@ namespace WaterDrivenInfrastructure.Patcher
 
             float curS1 = GetDurabilityStatValue(card, "SpecialDurability1");
             if (float.IsNaN(curS1)) return;
+
+            // Skip items whose SD1 is at 0 — these are spawned with default FloatValue=0
+            // (e.g., lumps produced by the Smelt Ore CI before initialization runs).
+            // Blueprint-crafted items start at SD1=MaxValue; Cast Metal Lump items are
+            // initialized to SD1=2. Both are >0 and processed correctly.
+            if (curS1 <= 0f) return;
 
             float newS1 = curS1 + hit.special1Change; // special1Change is negative (e.g., -1)
             if (newS1 <= 0f && hit.onZeroResultId != null)
@@ -2189,25 +2206,27 @@ namespace WaterDrivenInfrastructure.Patcher
 
             Logger?.Log(LogLevel.Debug, $"[ActionIntercept] Sluice: processing {totalRolls} mud pile rolls from {slotsToProcess.Count} slot(s)");
 
-            // Spawn result cards on the board via GiveCard, then eject the consumed mud piles.
-            // TransformCardInPlace is NOT used — it would leave results inside the sluice instead
-            // of delivering them to the player's board.
-            // Per-soil rates: mud (8% GS / 15% FL / 77% ST) > dirt (5% / 10% / 85%) > fine dirt (2% / 8% / 90%)
+            // Each drop chance is evaluated independently — a single soil pile can yield
+            // multiple items (or nothing).  Nuggets are batched and stat-initialized after spawn.
             InitSpawnReflection();
 
             int greenstoneCount = 0;
             int flintCount = 0;
             int stoneCount = 0;
+            int clayCount = 0;
+            var nuggetQueue = new List<float>(); // NuggetType values for deferred stat init
             var toEject = new List<object>();
 
             foreach (var (slot, innerCards, sourceUid) in slotsToProcess)
             {
                 if (innerCards == null || innerCards.Count == 0)
                 {
-                    // Direct card (EA 0.62b path) — one roll per card
-                    string guid = RollResultGuid(sourceUid);
-                    SpawnResultOnBoard(guid);
-                    IncrResult(guid, ref greenstoneCount, ref flintCount, ref stoneCount);
+                    // Direct card (EA 0.62b path)
+                    foreach (var drop in RollSluiceDrops(sourceUid))
+                    {
+                        if (drop.NuggetType > 0f) nuggetQueue.Add(drop.NuggetType);
+                        else { SpawnResultOnBoard(drop.Guid); IncrResult(drop.Guid, ref greenstoneCount, ref flintCount, ref stoneCount, ref clayCount); }
+                    }
                     toEject.Add(slot);
                     continue;
                 }
@@ -2215,49 +2234,144 @@ namespace WaterDrivenInfrastructure.Patcher
                 foreach (object inner in innerCards)
                 {
                     if (inner == null) continue;
-                    string guid = RollResultGuid(sourceUid);
-                    SpawnResultOnBoard(guid);
-                    IncrResult(guid, ref greenstoneCount, ref flintCount, ref stoneCount);
+                    foreach (var drop in RollSluiceDrops(sourceUid))
+                    {
+                        if (drop.NuggetType > 0f) nuggetQueue.Add(drop.NuggetType);
+                        else { SpawnResultOnBoard(drop.Guid); IncrResult(drop.Guid, ref greenstoneCount, ref flintCount, ref stoneCount, ref clayCount); }
+                    }
                     toEject.Add(inner);
                 }
+            }
+
+            // Spawn nuggets last; capture pre-snapshot so deferred init can find the new cards
+            int ironCount = 0, copperCount = 0, tinCount = 0;
+            if (nuggetQueue.Count > 0)
+            {
+                var preIds = SnapshotCardIdsByUniqueId(CopperNuggetGUID);
+                foreach (float t in nuggetQueue)
+                {
+                    SpawnResultOnBoard(CopperNuggetGUID);
+                    if (t == NuggetIronType)        ironCount++;
+                    else if (t == NuggetCopperType) copperCount++;
+                    else                            tinCount++;
+                }
+                StartDelayedNuggetInitialization(preIds, nuggetQueue);
             }
 
             EjectCardsFromStructure(sluice, toEject);
 
             Logger?.Log(LogLevel.Debug,
-                $"[ActionIntercept] Sluice: spawned {greenstoneCount} greenstone, {flintCount} flint, {stoneCount} stone on board; ejected {toEject.Count} source card(s)");
+                $"[ActionIntercept] Sluice: spawned {greenstoneCount} GS, {flintCount} FL, {stoneCount} ST, {clayCount} clay" +
+                (nuggetQueue.Count > 0 ? $", {ironCount} iron/{copperCount} copper/{tinCount} tin nugget(s)" : "") +
+                $" on board; ejected {toEject.Count} source(s)");
 
             return false; // block JSON action, we handled everything
         }
 
-        private static string RollResultGuid(string sourceUid)
+        private struct SluiceRoll { public string Guid; public float NuggetType; }
+
+        // Per-soil independent drop chances: [0]=Mud, [1]=Dirt, [2]=FineDirt
+        private static readonly float[] _ironChance   = { 0.08f, 0.05f, 0.01f };
+        private static readonly float[] _copperChance = { 0.12f, 0.08f, 0.01f };
+        private static readonly float[] _tinChance    = { 0.08f, 0.05f, 0.01f };
+        private static readonly float[] _gsChance     = { 0.22f, 0.18f, 0.12f };
+        private static readonly float[] _flChance     = { 0.30f, 0.20f, 0.10f };
+        private static readonly float[] _stChance     = { 0.55f, 0.40f, 0.10f };
+        private static readonly float[] _clayChance   = { 0.10f, 0.20f, 0.55f };
+
+        private static int SoilIndex(string uid)
         {
-            double roll = _sluiceRng.NextDouble();
-            // Mud piles: mineral-rich (8% GS / 15% FL / 77% ST)
-            if (sourceUid == MudPileGUID)
-            {
-                if (roll < 0.08) return GreenstoneGUID;
-                if (roll < 0.23) return FlintGUID;
-                return StoneGUID;
-            }
-            // Fine dirt: already sifted (2% GS / 8% FL / 90% ST)
-            if (sourceUid == FineDirtGUID)
-            {
-                if (roll < 0.02) return GreenstoneGUID;
-                if (roll < 0.10) return FlintGUID;
-                return StoneGUID;
-            }
-            // Dirt piles: standard (5% GS / 10% FL / 85% ST)
-            if (roll < 0.05) return GreenstoneGUID;
-            if (roll < 0.15) return FlintGUID;
-            return StoneGUID;
+            if (uid == MudPileGUID)  return 0;
+            if (uid == FineDirtGUID) return 2;
+            return 1;
         }
 
-        private static void IncrResult(string guid, ref int g, ref int f, ref int s)
+        private static List<SluiceRoll> RollSluiceDrops(string sourceUid)
+        {
+            int i = SoilIndex(sourceUid);
+            var drops = new List<SluiceRoll>();
+            if (_sluiceRng.NextDouble() < _ironChance[i])   drops.Add(new SluiceRoll { Guid = CopperNuggetGUID, NuggetType = NuggetIronType });
+            if (_sluiceRng.NextDouble() < _copperChance[i]) drops.Add(new SluiceRoll { Guid = CopperNuggetGUID, NuggetType = NuggetCopperType });
+            if (_sluiceRng.NextDouble() < _tinChance[i])    drops.Add(new SluiceRoll { Guid = CopperNuggetGUID, NuggetType = NuggetTinType });
+            if (_sluiceRng.NextDouble() < _gsChance[i])     drops.Add(new SluiceRoll { Guid = GreenstoneGUID });
+            if (_sluiceRng.NextDouble() < _flChance[i])     drops.Add(new SluiceRoll { Guid = FlintGUID });
+            if (_sluiceRng.NextDouble() < _stChance[i])     drops.Add(new SluiceRoll { Guid = StoneGUID });
+            if (_sluiceRng.NextDouble() < _clayChance[i])   drops.Add(new SluiceRoll { Guid = ClayGUID });
+            return drops;
+        }
+
+        private static void IncrResult(string guid, ref int g, ref int f, ref int s, ref int c)
         {
             if (guid == GreenstoneGUID) g++;
             else if (guid == FlintGUID) f++;
+            else if (guid == ClayGUID)  c++;
             else s++;
+        }
+
+        // ——— Nugget stat initialization (type + quality applied after GiveCard) ———
+
+        private static void StartDelayedNuggetInitialization(HashSet<int> preIds, List<float> nuggetTypes)
+        {
+            try
+            {
+                var gm = GetGameManagerInstance();
+                if (gm is UnityEngine.MonoBehaviour mb)
+                {
+                    mb.StartCoroutine(ApplyNuggetStatsAfterSpawn(preIds, nuggetTypes));
+                    return;
+                }
+            }
+            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] StartDelayedNuggetInitialization: {ex.Message}"); }
+            ApplyNuggetSpawnStats(preIds, nuggetTypes);
+        }
+
+        private static IEnumerator ApplyNuggetStatsAfterSpawn(HashSet<int> preIds, List<float> nuggetTypes)
+        {
+            for (int attempt = 0; attempt < NuggetInitRetryFrames; attempt++)
+            {
+                yield return null;
+                if (ApplyNuggetSpawnStats(preIds, nuggetTypes) >= nuggetTypes.Count) yield break;
+            }
+            ApplyNuggetSpawnStats(preIds, nuggetTypes, allowExistingFallback: true);
+        }
+
+        private static int ApplyNuggetSpawnStats(HashSet<int> preIds, List<float> nuggetTypes, bool allowExistingFallback = false)
+        {
+            int updated = 0;
+            try
+            {
+                var newCards = new List<object>();
+                foreach (var card in EnumerateKnownCards())
+                {
+                    if (CardUtil.GetCardUniqueId(card) != CopperNuggetGUID) continue;
+                    if (card is UnityEngine.Object uo && preIds.Contains(uo.GetInstanceID())) continue;
+                    newCards.Add(card);
+                }
+                for (int i = 0; i < newCards.Count && i < nuggetTypes.Count; i++)
+                    if (ApplyNuggetStatsToCard(newCards[i], nuggetTypes[i])) updated++;
+                if (updated == 0 && allowExistingFallback && nuggetTypes.Count > 0)
+                {
+                    var latest = FindLatestKnownCardByUniqueId(CopperNuggetGUID);
+                    if (latest != null && ApplyNuggetStatsToCard(latest, nuggetTypes[0])) updated++;
+                }
+            }
+            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] ApplyNuggetSpawnStats: {ex.Message}"); }
+            return updated;
+        }
+
+        private static bool ApplyNuggetStatsToCard(object card, float nuggetType)
+        {
+            try
+            {
+                bool changed = SetDurabilityStatValue(card, "SpecialDurability4", nuggetType);
+                changed |= SetDurabilityStatValue(card, "SpecialDurability1", NuggetSluiceQuality);
+                changed |= SetDurabilityStatValue(card, "SpecialDurability2", NuggetSluiceQuality);
+                changed |= SetDurabilityStatValue(card, "SpecialDurability3", NuggetSluiceQuality);
+                if (changed) RefreshCardDurabilityVisuals(card);
+                Logger?.LogDebug($"[ActionIntercept] NuggetInit: type={nuggetType} quality={NuggetSluiceQuality}");
+                return changed;
+            }
+            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] ApplyNuggetStatsToCard: {ex.Message}"); return false; }
         }
 
         /// <summary>
@@ -2343,7 +2457,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 _dragStateProp?.SetValue(gm, null);
                 _dragStateField?.SetValue(gm, null);
             }
-            catch { }
+            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] ClearDragState failed: {ex.Message}"); }
         }
 
         // Cached reflection handles for GiveCard

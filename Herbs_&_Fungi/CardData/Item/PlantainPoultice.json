@@ -1,0 +1,107 @@
+{
+    "UniqueID": "herbs_fungi_plantain_poultice",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_plantain_poultice",
+        "LocalizationKey": "herbs_fungi_plantain_poultice_CardName",
+        "DefaultText": "Plantain Poultice"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_plantain_poultice",
+        "LocalizationKey": "herbs_fungi_plantain_poultice_CardDescription",
+        "DefaultText": "A simple poultice made from mashed common plantain. Apply it to ease pain and inflammation."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Consumable",
+        "tag_Medicine"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {"m_FileID": 0, "m_PathID": 0},
+    "CardImageWarpData": "PlantainDried",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "ParentObjectID": "herbs_fungi_plantain_poultice",
+        "LocalizationKey": "herbs_fungi_plantain_poultice_SpoilageTime_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_plantain_poultice",
+            "LocalizationKey": "herbs_fungi_plantain_poultice_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 2880.0,
+        "RatePerDaytimePoint": 1.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_plantain_poultice",
+                "LocalizationKey": "herbs_fungi_plantain_poultice_SpoilageTime_Spoiled",
+                "DefaultText": "The plantain poultice has spoiled."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {"m_FileID": 0, "m_PathID": 0},
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_plantain_poultice",
+                "LocalizationKey": "herbs_fungi_plantain_poultice_Apply",
+                "DefaultText": "Apply Poultice"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_plantain_poultice",
+                "LocalizationKey": "herbs_fungi_plantain_poultice_Apply_Desc",
+                "DefaultText": "Apply the plantain poultice to tender skin and small wounds."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 1,
+            "ActionTags": [],
+            "ActionTagsWarpData": ["MedicineAction"],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "ValueModifier": {"x": -10.0, "y": -10.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
+                    "StatWarpType": 3
+                }
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1},
+                            "FinishUnlocking": false,
+                            "DropChance": {"Active": false, "BaseDropChance": 0.0}
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "ObjectWeight": 0.2,
+    "MaxStack": 5,
+    "DroppedCardShadow": 1
+}

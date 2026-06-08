@@ -255,8 +255,8 @@
               "DroppedCardWarpData": "advanced_copper_tools_metal_sheet",
               "DroppedCardWarpType": 3,
               "Quantity": {
-                "x": 4,
-                "y": 4
+                "x": 2,
+                "y": 2
               }
             },
             {
@@ -267,8 +267,8 @@
               "DroppedCardWarpData": "advanced_copper_tools_copper_nails",
               "DroppedCardWarpType": 3,
               "Quantity": {
-                "x": 2,
-                "y": 2
+                "x": 4,
+                "y": 4
               }
             },
             {
@@ -276,11 +276,23 @@
                 "m_FileID": 0,
                 "m_PathID": 0
               },
-              "DroppedCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+              "DroppedCardWarpData": "669497ecaa30b634c86bea6b61f31e63",
               "DroppedCardWarpType": 3,
               "Quantity": {
                 "x": 1,
                 "y": 1
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "e2d62c5b98d164745b276da572605efe",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 2,
+                "y": 2
               }
             }
           ]

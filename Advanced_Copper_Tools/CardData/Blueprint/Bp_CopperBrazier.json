@@ -1,0 +1,117 @@
+{
+  "UniqueID": "advanced_copper_tools_bp_copper_brazier",
+  "CardName": {
+    "ParentObjectID": "advanced_copper_tools_bp_copper_brazier",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_CopperBrazier_CardName",
+    "DefaultText": "Copper Brazier"
+  },
+  "CardDescription": {
+    "ParentObjectID": "advanced_copper_tools_bp_copper_brazier",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_CopperBrazier_CardDescription",
+    "DefaultText": "Craft a copper brazier from metal sheets, copper nails, and long sticks. Holds 4 charges of oil and burns brighter than a lantern."
+  },
+  "CardType": 7,
+  "UnlockConditionsDesc": {
+    "ParentObjectID": "advanced_copper_tools_bp_copper_brazier",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_CopperBrazier_UnlockConditionsDesc",
+    "DefaultText": "Metal Sheet Needed"
+  },
+  "BuildingStatConditions": [],
+  "StartUnlocked": false,
+  "CardsOnBoard": [
+    {
+      "ObjectiveName": "HasMetalSheet",
+      "CompletionWeight": 1,
+      "Card": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "Quantity": 1,
+      "ConstantlyChecking": false,
+      "OnlyInEnvironment": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "OnlyIfEquipped": false,
+      "OnlyInContainer": {
+        "Target": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        }
+      },
+      "CardWarpData": "advanced_copper_tools_metal_sheet",
+      "CardWarpType": 3
+    }
+  ],
+  "TagsOnBoard": [],
+  "StatValues": [],
+  "BlueprintStages": [
+    {
+      "CannotRevertToThisStage": false,
+      "RequiredElements": [
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 3,
+          "DontSpend": false,
+          "RequiredCardWarpData": "advanced_copper_tools_metal_sheet",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 4,
+          "DontSpend": false,
+          "RequiredCardWarpData": "advanced_copper_tools_copper_nails",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 3,
+          "DontSpend": false,
+          "RequiredCardWarpData": "3db4c94184af274409f0d3eb16870f64",
+          "RequiredCardWarpType": 3
+        }
+      ],
+      "StepActionTags": [],
+      "StepActionTagsWarpData": [],
+      "StepActionTagsWarpType": 3
+    }
+  ],
+  "BuildingDaytimeCost": 4,
+  "DeconstructDaytimeCost": 2,
+  "BlueprintResult": [
+    {
+      "DroppedCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      },
+      "DroppedCardWarpData": "advanced_copper_tools_copper_brazier_kit",
+      "DroppedCardWarpType": 3
+    }
+  ],
+  "BlueprintStatModifications": [],
+  "WhenCreatedSoundsWarpData": ["Metal"],
+  "WhenCreatedSoundsWarpType": 3,
+  "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+  "BlueprintActionTagsWarpType": 3,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "CopperBrazier_Unlit",
+  "CardImageWarpType": 3,
+  "BlueprintUnlockTicksCost": 16.0,
+  "ResearchedNotification": 0
+}

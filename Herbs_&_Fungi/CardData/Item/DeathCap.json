@@ -39,7 +39,7 @@
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
-        "MaxValue": 5760.0,
+        "MaxValue": 480.0,
         "RatePerDaytimePoint": 1.0,
         "RateMultiplier": 1.0,
         "HasActionOnFull": true,
@@ -858,6 +858,35 @@
             },
             "WorksInverted": true,
             "WorksBothWays": false
+        }
+    ],
+    "FlavourTags": [
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "7f58c5cb8842308409aeab7464cf36e4",
+            "FlavourWarpType": 3,
+            "Intensity": 3
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "9983ffd1ccbfd3340b3fdb8f05e655be",
+            "FlavourWarpType": 3,
+            "Intensity": 4
+        },
+        {
+            "Flavour": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "FlavourWarpData": "6a15980a4255f024584c507d2c1e2c53",
+            "FlavourWarpType": 3,
+            "Intensity": 2
         }
     ]
 }

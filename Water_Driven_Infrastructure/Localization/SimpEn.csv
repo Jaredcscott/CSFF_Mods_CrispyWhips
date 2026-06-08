@@ -1,213 +1,231 @@
-Water_Sawmill_Bp_WaterDrivenSawmill_CardName,Water-Driven Sawmill
-Water_Sawmill_Bp_WaterDrivenSawmill_CardDescription,Construct a large sawmill powered by river flow or a connected mill race outlet.
-Water_Sawmill_Bp_WaterDrivenSawmill_UnlockConditionsDesc,Water-Driven Mill
-Water_Sawmill_Frame_CardName,Water-Driven Sawmill Kit
-Water_Sawmill_Frame_CardDescription,A complete sawmill kit with all components for a large water-powered sawmill.
+Water_Sawmill_Bp_WaterDrivenSawmill_CardName,Water-Driven Sawmill,水力锯木厂
+Water_Sawmill_Bp_WaterDrivenSawmill_CardDescription,"Construct a large sawmill powered by river flow or a connected mill race outlet, reinforced with iron fittings, bearings, and an axle.",在河流旁或连接的引水渠出口附近建造一座用铁制配件、轴承和铁轴加固的大型水力锯木厂。
+Water_Sawmill_Bp_WaterDrivenSawmill_UnlockConditionsDesc,Water-Driven Mill,水力磨坊
+Water_Sawmill_Frame_CardName,Water-Driven Sawmill Kit,水力锯木厂套件
+Water_Sawmill_Frame_CardDescription,"A complete sawmill kit with all components for a large water-powered sawmill, including iron fittings, bearings, and an axle.",包含大型水力锯木厂所有组件的完整套件，包括铁制配件、轴承和铁轴。
 Water_Sawmill_Frame_CardHelpSection,"<b>Use:</b> Place near water or a connected mill race outlet to set up the full sawmill structure.
 
-<b>Scale:</b> This is a large construction project."
-Water_Sawmill_Frame_Place_ActionName,Place
-Water_Sawmill_Frame_Place_ActionDescription,Place the sawmill kit into the environment.
-Water_Sawmill_Placed_CardName,Water-Driven Sawmill
-Water_Sawmill_Placed_CardDescription,"A large, fixed water-powered sawmill fed by direct water or a mill race outlet."
+<b>Scale:</b> This is a large construction project requiring iron parts, bearings, and an axle.","<b>用途：</b> 放置在水源旁或引水渠出口附近，建立完整的锯木厂结构。
+
+<b>规模：</b> 这是一个需要铁制零件、轴承和铁轴的大型建造项目。"
+Water_Sawmill_Frame_Place_ActionName,Place,放置
+Water_Sawmill_Frame_Place_ActionDescription,Place the sawmill kit into the environment.,将锯木厂套件放置在环境中。
+Water_Sawmill_Placed_CardName,Water-Driven Sawmill,水力锯木厂
+Water_Sawmill_Placed_CardDescription,"A large, fixed water-powered sawmill fed by direct water or a mill race outlet.",一座由直接水源或引水渠出口驱动的大型固定水力锯木厂。
 Water_Sawmill_Placed_CardHelpSection,"<b>Placement:</b> River environments only via blueprint conditions.
 
-<b>Operation:</b> Load a log into the sawmill, then press Cut to saw it into planks."
-Water_Sawmill_Placed_PickUp_ActionName,Pack Up
-Water_Sawmill_Placed_PickUp_ActionDescription,Pack up the sawmill back into a transportable kit.
-Water_Sawmill_Placed_Cut_ActionName,Cut
-Water_Sawmill_Placed_Cut_ActionDescription,Saw one log from the inventory into planks using water power.
-Water_Sawmill_MillRace_CardName,Mill Race
-Water_Sawmill_MillRace_CardDescription,A channel segment used to carry and direct water flow to river-powered machines.
-Water_Sawmill_MillRace_CardHelpSection,<b>Use:</b> Build directional between-location races and install local mill race structures.
-Water_Sawmill_WaterWheel_CardName,Water Wheel
-Water_Sawmill_WaterWheel_CardDescription,A river-driven wheel assembly. Built with a mill race as a required subcomponent.
-Water_Sawmill_WaterWheel_CardHelpSection,<b>Subcomponent:</b> The mill race is required to build this wheel.
-Water_Sawmill_WaterMill_CardName,Water-Driven Mill
-Water_Sawmill_WaterMill_CardDescription,A water-driven mill that grinds millable materials on demand with 4x the capacity of a rotary quern.
+<b>Operation:</b> Load a log into the sawmill, then press Cut to saw it into planks.","<b>放置：</b> 仅限通过蓝图条件在河流环境中放置。
+
+<b>操作：</b> 将木料装入锯木厂，然后按切割将其锯成木板。"
+Water_Sawmill_Placed_PickUp_ActionName,Pack Up,收起
+Water_Sawmill_Placed_PickUp_ActionDescription,Pack up the sawmill back into a transportable kit.,将锯木厂收回为可携带套件。
+Water_Sawmill_Placed_Cut_ActionName,Cut,切割
+Water_Sawmill_Placed_Cut_ActionDescription,Saw one log from the inventory into planks using water power.,利用水力将库存中的一根木料锯成木板。
+Water_Sawmill_MillRace_CardName,Mill Race,引水渠
+Water_Sawmill_MillRace_CardDescription,A channel segment used to carry and direct water flow to river-powered machines.,用于将水流引导至水力机械的渠道段。
+Water_Sawmill_MillRace_CardHelpSection,<b>Use:</b> Build directional between-location races and install local mill race structures.,<b>用途：</b> 建造地点间定向引水渠并安装本地引水渠结构。
+Water_Sawmill_WaterWheel_CardName,Water Wheel,水车
+Water_Sawmill_WaterWheel_CardDescription,A river-driven wheel assembly. Built with a mill race as a required subcomponent.,由河流驱动的水车组件。需要引水渠作为必要子组件。
+Water_Sawmill_WaterWheel_CardHelpSection,<b>Subcomponent:</b> The mill race is required to build this wheel.,<b>子组件：</b> 建造此水车需要引水渠。
+Water_Sawmill_WaterMill_CardName,Water-Driven Mill,水力磨坊
+Water_Sawmill_WaterMill_CardDescription,A water-driven mill that grinds millable materials on demand with 4x the capacity of a rotary quern.,按需研磨可磨材料的水力磨坊，容量是旋转石磨的4倍。
 Water_Sawmill_WaterMill_CardHelpSection,"<b>Subcomponent:</b> Requires a mill race to construct.
 
 <b>Capacity:</b> Can grind 4x the throughput of a manual rotary quern.
 
-<b>Operation:</b> Load millable items and press <b>Grind All</b> to process the batch on demand."
-Water_Sawmill_CopperGearLarge_CardName,Large Copper Gear
-Water_Sawmill_CopperGearLarge_CardDescription,A large precision-cut copper gear for power transmission in the sawmill.
-Water_Sawmill_CopperGearSmall_CardName,Small Copper Gear
-Water_Sawmill_CopperGearSmall_CardDescription,A smaller copper gear for fine power adjustment in the sawmill mechanism.
-Water_Sawmill_CopperSawBlade_CardName,Copper Saw Blade
-Water_Sawmill_CopperSawBlade_CardDescription,A precision copper saw blade mounted on the sawmill frame to cut logs.
-Water_Sawmill_CopperSawBladeDull_CardName,Dull Copper Saw Blade
-Water_Sawmill_CopperSawBladeDull_CardDescription,A cast saw blade that still needs careful whetstone sharpening.
-Water_Sawmill_Bp_CastCopperGearLarge_CardName,Cast Large Copper Gear
-Water_Sawmill_Bp_CastCopperGearLarge_CardDescription,Cast a large copper gear in a mud-brick and clay mold using a large crucible of molten copper, then break it open with a hammer.
-Water_Sawmill_Bp_CastCopperGearLarge_UnlockConditionsDesc,Large Crucible of Molten Copper Needed
-Water_Sawmill_Bp_CastCopperGearSmall_CardName,Cast Small Copper Gear
-Water_Sawmill_Bp_CastCopperGearSmall_CardDescription,Cast a small copper gear in a mud-brick and clay mold using a small crucible of molten copper, then break it open with a hammer.
-Water_Sawmill_Bp_CastCopperGearSmall_UnlockConditionsDesc,Small Crucible of Molten Copper Needed
-Water_Sawmill_Bp_CastCopperSawBlade_CardName,Cast Copper Saw Blade
-Water_Sawmill_Bp_CastCopperSawBlade_CardDescription,Cast a dull copper saw blade in a clay mold and break it open with a hammer.
-Water_Sawmill_Bp_CastCopperSawBlade_UnlockConditionsDesc,Large Crucible of Molten Copper Needed
-Water_Sawmill_Bp_MillRace_CardName,Mill Race
-Water_Sawmill_Bp_MillRace_CardDescription,Build a wooden mill race segment used for water channels.
-Water_Sawmill_Bp_MillRace_UnlockConditionsDesc,Requires 1 Plank
-Water_Sawmill_Bp_WaterWheel_CardName,Water Wheel
-Water_Sawmill_Bp_WaterWheel_CardDescription,Assemble a large water wheel for power generation.
-Water_Sawmill_Bp_WaterWheel_UnlockConditionsDesc,Mill Race
-Water_Sawmill_Bp_WaterMill_CardName,Water-Driven Mill
-Water_Sawmill_Bp_WaterMill_CardDescription,Assemble a compact water mill. Requires a mill race as a core subcomponent.
-Water_Sawmill_Bp_WaterMill_UnlockConditionsDesc,Water Wheel
-Water_Sawmill_Bp_WaterDrivenForge_CardName,Water-Driven Forge
-Water_Sawmill_Bp_WaterDrivenForge_CardDescription,"Build a large forge in 4 phases: (1) Water mill and excavation, (2) Stone foundation and mud brick structure, (3) Fire chamber with leather bellows, (4) Final plaster finish. Total construction time: 12 hours (3 hours per phase)."
-Water_Sawmill_Bp_WaterDrivenForge_UnlockConditionsDesc,Water-Driven Mill
-Water_Sawmill_Perk_SawmillStart_PerkName,Sawmill Start
-Water_Sawmill_Perk_SawmillStart_PerkDescription,Start with a water-driven sawmill kit ready to place near water or a connected mill race outlet.
+<b>Operation:</b> Load millable items and press <b>Grind All</b> to process the batch on demand.","<b>子组件：</b> 建造需要引水渠。
 
-Water_Sawmill_Frame_Disassemble_ActionName,Disassemble
-Water_Sawmill_Frame_Disassemble_ActionDescription,Break down the kit into its component parts.
-Water_Sawmill_ForgeKit_CardName,Water-Driven Forge Kit
-Water_Sawmill_ForgeKit_CardDescription,A complete forge kit with all components for a large water-powered metalworking forge.
+<b>容量：</b> 吞吐量是手动旋转石磨的4倍。
+
+<b>操作：</b> 装入可磨物品后按<b>全部研磨</b>批量处理。"
+Water_Sawmill_Bp_MillRace_CardName,Mill Race,引水渠
+Water_Sawmill_Bp_MillRace_CardDescription,Build a wooden mill race segment used for water channels.,建造用于水渠的木制引水渠段。
+Water_Sawmill_Bp_MillRace_UnlockConditionsDesc,Requires 1 Plank,需要1块木板
+Water_Sawmill_Bp_WaterWheel_CardName,Water Wheel,水车
+Water_Sawmill_Bp_WaterWheel_CardDescription,Assemble a large water wheel for power generation.,组装用于发电的大型水车。
+Water_Sawmill_Bp_WaterWheel_UnlockConditionsDesc,Mill Race,引水渠
+Water_Sawmill_Bp_WaterMill_CardName,Water-Driven Mill,水力磨坊
+Water_Sawmill_Bp_WaterMill_CardDescription,Assemble a compact water mill. Requires a mill race as a core subcomponent.,组装紧凑型水力磨坊。需要引水渠作为核心子组件。
+Water_Sawmill_Bp_WaterMill_UnlockConditionsDesc,Water Wheel,水车
+Water_Sawmill_Bp_WaterDrivenForge_CardName,Water-Driven Forge,水力锻炉
+Water_Sawmill_Bp_WaterDrivenForge_CardDescription,"Build a large forge in 4 phases: (1) Water mill and excavation, (2) Stone foundation and mud brick structure, (3) Fire chamber with leather bellows, (4) Final plaster, iron fittings, bearings, and axle. Total construction time: 12 hours (3 hours per phase).",分4阶段建造大型锻炉：(1)水力磨坊和挖掘，(2)石质地基和泥砖结构，(3)带皮风箱的火膛，(4)最终抹灰、铁制配件、轴承和铁轴。总建造时间：12小时（每阶段3小时）。
+Water_Sawmill_Bp_WaterDrivenForge_UnlockConditionsDesc,Water-Driven Mill,水力磨坊
+Water_Sawmill_Perk_SawmillStart_PerkName,Sawmill Start,锯木厂起步
+Water_Sawmill_Perk_SawmillStart_PerkDescription,Start with a water-driven sawmill kit ready to place near water or a connected mill race outlet.,携带一个水力锯木厂套件开始游戏，可放置在水源旁或引水渠出口附近。
+,,
+Water_Sawmill_Frame_Disassemble_ActionName,Disassemble,拆卸
+Water_Sawmill_Frame_Disassemble_ActionDescription,Break down the kit into its component parts.,将套件拆解为各组件。
+Water_Sawmill_ForgeKit_CardName,Water-Driven Forge Kit,水力锻炉套件
+Water_Sawmill_ForgeKit_CardDescription,"A complete forge kit with all components for a large water-powered metalworking forge, including iron fittings, bearings, and an axle.",包含大型水力锻炉所有组件的完整套件，包括铁制配件、轴承和铁轴。
 Water_Sawmill_ForgeKit_CardHelpSection,"<b>Use:</b> Place near water or a connected mill race outlet to set up the forge.
 
-<b>Scale:</b> This is a large construction project requiring water power."
-Water_Sawmill_ForgeKit_Place_ActionName,Place
-Water_Sawmill_ForgeKit_Place_ActionDescription,Place the forge kit into the environment.
-Water_Sawmill_ForgeKit_Disassemble_ActionName,Disassemble
-Water_Sawmill_ForgeKit_Disassemble_ActionDescription,Break down the kit into its component parts.
-Water_Sawmill_WorkshopKit_CardName,Water-Driven Workshop Kit
-Water_Sawmill_WorkshopKit_CardDescription,"A bundled upgrade kit combining the water-driven forge, mill drive, forge hammer, charcoal reserve, and gear train for heavy metalworking."
+<b>Scale:</b> This is a large construction project requiring water power, iron parts, bearings, and an axle.","<b>用途：</b> 放置在水源旁或引水渠出口附近建立锻炉。
+
+<b>规模：</b> 这是一个需要水力、铁制零件、轴承和铁轴的大型建造项目。"
+Water_Sawmill_ForgeKit_Place_ActionName,Place,放置
+Water_Sawmill_ForgeKit_Place_ActionDescription,Place the forge kit into the environment.,将锻炉套件放置在环境中。
+Water_Sawmill_ForgeKit_Disassemble_ActionName,Disassemble,拆卸
+Water_Sawmill_ForgeKit_Disassemble_ActionDescription,Break down the kit into its component parts.,将套件拆解为各组件。
+Water_Sawmill_WorkshopKit_CardName,Water-Driven Workshop Kit,水力工坊套件
+Water_Sawmill_WorkshopKit_CardDescription,"A bundled upgrade kit combining the water-driven forge, mill drive, forge hammer, iron reinforcements, bearing and axle support, an iron workshop wrench, charcoal reserve, and gear train for heavy metalworking.",集水力锻炉、磨坊驱动装置、锻锤、铁制加固件、轴承和铁轴支撑、铁制工坊扳手、木炭储备和齿轮系于一体的重型金属加工升级套件。
 Water_Sawmill_WorkshopKit_CardHelpSection,"<b>Purpose:</b> A bundled upgrade kit for extending the water-driven forge into a workshop.
 
-<b>Contents:</b> Water-driven forge kit, water mill, forge hammer, charcoal, and copper gears."
-Water_Sawmill_WorkshopKit_Disassemble_ActionName,Disassemble
-Water_Sawmill_WorkshopKit_Disassemble_ActionDescription,Break down the workshop kit into its component parts.
-Water_Sawmill_WorkshopKit_FuelCapacity.CardStatName,Temperature,温度
-Water_Sawmill_ForgePlaced_CardName,Water-Driven Forge
-Water_Sawmill_ForgePlaced_CardDescription,A large water-powered forge for high-temperature metalworking.
-Water_Sawmill_ForgePlaced_CardHelpSection,"<b>Requirements:</b> Requires local mill race for water power.
+<b>Contents:</b> Water-driven forge kit, water mill, forge hammer, iron parts, iron bearings, iron axle, iron wrench, charcoal, and copper gears.","<b>用途：</b> 将水力锻炉升级扩展为工坊的捆绑套件。
 
-<b>Operation:</b> Drag firewood or charcoal onto the forge to feed fuel. Light with embers, press Blast to raise temperature, then drag copper ore onto the hot forge to smelt. Load heated tool blanks and press Hammer All to apply one water-hammer strike to each blank. You can also place metal nuggets and clay items in the inventory."
-Water_Sawmill_ForgePlaced_FeedFirewood_ActionName,Feed Firewood
-Water_Sawmill_ForgePlaced_FeedFirewood_ActionDescription,Feed wood or firewood into the forge firebox.
-Water_Sawmill_ForgePlaced_FeedFuel_ActionName,Feed Fuel
-Water_Sawmill_ForgePlaced_FeedFuel_ActionDescription,Feed firewood or other fuel into the forge firebox.
-Water_Sawmill_ForgePlaced_FeedCharcoal_ActionName,Feed Charcoal
-Water_Sawmill_ForgePlaced_FeedCharcoal_ActionDescription,Feed charcoal or embers into the forge firebox.
-Water_Sawmill_ForgePlaced_PickUp_ActionName,Pack Up
-Water_Sawmill_ForgePlaced_PickUp_ActionDescription,Pack up the forge back into a transportable kit.
-Water_Sawmill_ForgePlaced_Temperature_StatName,Temperature
-Water_Sawmill_ForgePlaced_Windflow_StatName,Windflow
-Water_Sawmill_ForgePlaced_LightTinder_ActionName,Light Forge
-Water_Sawmill_ForgePlaced_LightTinder_ActionDescription,Use lit tinder to light the forge fire.
-Water_Sawmill_ForgePlaced_LightTorch_ActionName,Light Forge
-Water_Sawmill_ForgePlaced_Light_FailMessage,The forge needs fuel first.
-Water_Sawmill_ForgePlaced_FeedEmbers_ActionName,Feed Embers
-Water_Sawmill_ForgePlaced_FeedEmbers_ActionDescription,Feed hot embers into the forge firebox.
-Water_Sawmill_ForgePlaced_Blast_ActionName,Blast
-Water_Sawmill_ForgePlaced_Blast_ActionDescription,Drive the water-powered bellows to push the forge to smelting heat. Requires fuel and a lit fire.
-Water_Sawmill_ForgePlaced_Blast_FailMessage,Light the forge first.
-Water_Sawmill_ForgePlaced_HammerAll_ActionName,Hammer All
-Water_Sawmill_ForgePlaced_HammerAll_ActionDescription,Apply one hammer strike to all items in the forge using the water-driven hammer.
-Water_Sawmill_ForgePlaced_HammerAll_FailMessage,Forge must be at working heat. Use Blast first.
-Water_Sawmill_ForgePlaced_SmeltOre_FailMessage,The forge is not hot enough. Use Blast first.
-Water_Sawmill_ForgePlaced_SmeltOre_ActionName,Smelt Ore
-Water_Sawmill_ForgePlaced_SmeltOre_ActionDescription,Drag copper ore onto the hot forge to smelt it into an ingot.
-Water_Sawmill_ForgePlaced_SmeltGreenstone_ActionName,Smelt Greenstone
-Water_Sawmill_ForgePlaced_RefineCopper_ActionName,Refine Copper
-Water_Sawmill_GrindingMillKit_CardName,Water-Driven Grinding Mill Kit
-Water_Sawmill_GrindingMillKit_CardDescription,A complete grinding mill kit with all components for a large water-powered grain mill.
+<b>内容：</b> 水力锻炉套件、水力磨坊、锻锤、铁制零件、铁轴承、铁轴、铁扳手、木炭和铜齿轮。"
+Water_Sawmill_WorkshopKit_Disassemble_ActionName,Disassemble,拆卸
+Water_Sawmill_WorkshopKit_Disassemble_ActionDescription,Break down the workshop kit into its component parts.,将工坊套件拆解为各组件。
+Water_Sawmill_WorkshopKit_FuelCapacity.CardStatName,Temperature,温度
+Water_Sawmill_ForgePlaced_CardName,Water-Driven Forge,水力锻炉
+Water_Sawmill_ForgePlaced_CardDescription,A large water-powered forge for high-temperature metalworking, copper smelting, and clay firing.,用于高温金属加工、铜冶炼和烧陶的大型水力锻炉。
+Water_Sawmill_ForgePlaced_CardHelpSection,"<b>Requirements:</b> Requires local mill race for water power. Water-powered actions stop when water is frozen in winter.
+
+<b>Operation:</b> Drag firewood or charcoal onto the forge to feed fuel, then light it with embers. The forge naturally heats to about 1000. Use Blast when water is flowing, or drag Bellows onto the lit forge by hand, to push the temperature high enough for smelting. You can also place metal nuggets and clay items in the inventory.","<b>需求：</b> 需要本地引水渠提供水力。冬季水流冻结时，水力动作会停止。
+
+<b>操作：</b> 将柴火或木炭拖至锻炉补充燃料，然后用余烬点火。锻炉会自然升温至约1000。水流畅通时可使用鼓风，或手动将风箱拖到已点燃的锻炉上，将温度推高到足以冶炼。也可在库存中放入金属块和陶土物品。"
+Water_Sawmill_ForgePlaced_FeedFirewood_ActionName,Feed Firewood,投入柴火
+Water_Sawmill_ForgePlaced_FeedFirewood_ActionDescription,Feed wood or firewood into the forge firebox.,向锻炉火膛中投入木材或柴火。
+Water_Sawmill_ForgePlaced_FeedFuel_ActionName,Feed Fuel,投入燃料
+Water_Sawmill_ForgePlaced_FeedFuel_ActionDescription,Feed firewood or other fuel into the forge firebox.,向锻炉火膛中投入柴火或其他燃料。
+Water_Sawmill_ForgePlaced_FeedCharcoal_ActionName,Feed Charcoal,投入木炭
+Water_Sawmill_ForgePlaced_FeedCharcoal_ActionDescription,Feed charcoal or embers into the forge firebox.,向锻炉火膛中投入木炭或余烬。
+Water_Sawmill_ForgePlaced_PickUp_ActionName,Pack Up,收起
+Water_Sawmill_ForgePlaced_PickUp_ActionDescription,Pack up the forge back into a transportable kit.,将锻炉收回为可携带套件。
+Water_Sawmill_ForgePlaced_Temperature_StatName,Temperature,温度
+Water_Sawmill_ForgePlaced_Windflow_StatName,Windflow,风量
+Water_Sawmill_ForgePlaced_LightTinder_ActionName,Light Forge,点燃锻炉
+Water_Sawmill_ForgePlaced_LightTinder_ActionDescription,Use lit tinder to light the forge fire.,用点燃的火绒点燃锻炉。
+Water_Sawmill_ForgePlaced_LightTorch_ActionName,Light Forge,点燃锻炉
+Water_Sawmill_ForgePlaced_Light_FailMessage,The forge needs fuel first.,锻炉需要先加燃料。
+Water_Sawmill_ForgePlaced_FeedEmbers_ActionName,Feed Embers,投入余烬
+Water_Sawmill_ForgePlaced_FeedEmbers_ActionDescription,Feed hot embers into the forge firebox.,向锻炉火膛中投入热余烬。
+Water_Sawmill_ForgePlaced_IncreaseTemperature_ActionName,Increase Temperature,升高温度
+Water_Sawmill_ForgePlaced_IncreaseTemperature_ActionDescription,Use bellows by hand to push the forge above natural heat.,手动使用风箱将锻炉温度推高到自然热量以上。
+Water_Sawmill_ForgePlaced_Blast_ActionName,Blast,鼓风
+Water_Sawmill_ForgePlaced_Blast_ActionDescription,Drive the water-powered bellows to push the forge to smelting heat. Requires fuel, a lit fire, and flowing water.,驱动水力风箱使锻炉升至冶炼温度。需要燃料、已点燃的火焰和流动水源。
+Water_Sawmill_ForgePlaced_Blast_FailMessage,Light the forge first.,请先点燃锻炉。
+Water_Sawmill_ForgePlaced_HammerAll_ActionName,Hammer All,全部锤打
+Water_Sawmill_ForgePlaced_HammerAll_ActionDescription,Apply one hammer strike to all items in the forge using the water-driven hammer. Requires flowing water.,使用水力锤对锻炉中的所有物品施加一次锤击。需要流动水源。
+Water_Sawmill_ForgePlaced_HammerAll_FailMessage,Forge must be at working heat. Use Blast or Bellows first.,锻炉必须达到工作温度。请先使用鼓风或风箱。
+Water_Sawmill_ForgePlaced_SmeltOre_FailMessage,The forge is not hot enough. Use Blast or Bellows first.,锻炉温度不够高。请先使用鼓风或风箱。
+Water_Sawmill_ForgePlaced_SmeltOre_ActionName,Smelt Ore,冶炼矿石
+Water_Sawmill_ForgePlaced_SmeltOre_ActionDescription,Drag copper ore onto the hot forge to smelt it into an ingot.,将铜矿拖至热锻炉冶炼成铜锭。
+Water_Sawmill_ForgePlaced_SmeltGreenstone_ActionName,Smelt Greenstone,冶炼绿石
+Water_Sawmill_ForgePlaced_RefineCopper_ActionName,Refine Copper,精炼铜
+Water_Sawmill_ForgePlaced_SmeltIronOre_ActionName,Smelt High-Heat Ore,冶炼高温矿石
+Water_Sawmill_ForgePlaced_HeatMetalItems_ActionName,Heat Metal Items,加热金属物品
+Water_Sawmill_GrindingMillKit_CardName,Water-Driven Grinding Mill Kit,水力磨坊套件
+Water_Sawmill_GrindingMillKit_CardDescription,"A complete grinding mill kit with all components for a large water-powered grain mill, including iron bearing and axle hardware.",包含大型水力谷物磨所有组件的完整套件，包括铁轴承和铁轴五金。
 Water_Sawmill_GrindingMillKit_CardHelpSection,"<b>Use:</b> Place near water or a connected mill race outlet to set up the grinding mill.
 
-<b>Scale:</b> This is a large construction project requiring water power."
-Water_Sawmill_GrindingMillKit_Place_ActionName,Place
-Water_Sawmill_GrindingMillKit_Place_ActionDescription,Place the grinding mill kit into the environment.
-Water_Sawmill_GrindingMillKit_Disassemble_ActionName,Disassemble
-Water_Sawmill_GrindingMillKit_Disassemble_ActionDescription,Break down the kit into its component parts.
-Water_Sawmill_GrindingMillPlaced_CardName,Water-Driven Grinding Mill
-Water_Sawmill_GrindingMillPlaced_CardDescription,A large water-powered grinding mill for batch processing millable materials.
+<b>Scale:</b> This is a large construction project requiring water power, an iron bearing, and an iron axle.","<b>用途：</b> 放置在水源旁或引水渠出口附近建立磨坊。
+
+<b>规模：</b> 这是一个需要水力、铁轴承和铁轴的大型建造项目。"
+Water_Sawmill_GrindingMillKit_Place_ActionName,Place,放置
+Water_Sawmill_GrindingMillKit_Place_ActionDescription,Place the grinding mill kit into the environment.,将磨坊套件放置在环境中。
+Water_Sawmill_GrindingMillKit_Disassemble_ActionName,Disassemble,拆卸
+Water_Sawmill_GrindingMillKit_Disassemble_ActionDescription,Break down the kit into its component parts.,将套件拆解为各组件。
+Water_Sawmill_GrindingMillPlaced_CardName,Water-Driven Grinding Mill,水力磨坊
+Water_Sawmill_GrindingMillPlaced_CardDescription,A large water-powered grinding mill for batch processing millable materials.,用于批量处理可磨材料的大型水力磨坊。
 Water_Sawmill_GrindingMillPlaced_CardHelpSection,"<b>Requirements:</b> Requires local mill race for water power.
 
-<b>Operation:</b> Load millable items, then press Grind All to process the full batch on demand, like a larger rotary quern."
-Water_Sawmill_GrindingMillPlaced_PickUp_ActionName,Pack Up
-Water_Sawmill_GrindingMillPlaced_PickUp_ActionDescription,Pack up the grinding mill back into a transportable kit.
-Water_Sawmill_GrindingMillPlaced_GrindAll_ActionName,Grind All
-Water_Sawmill_GrindingMillPlaced_GrindAll_ActionDescription,Engage the mill wheel and process all millable contents in one batch.
-Water_Sawmill_Bp_GrindingMill_CardName,Water-Driven Grinding Mill
-Water_Sawmill_Bp_GrindingMill_CardDescription,Assemble a water-driven grinding mill. Requires a water mill as a core subcomponent.
-Water_Sawmill_Bp_GrindingMill_UnlockConditionsDesc,Water-Driven Mill
-Water_Sawmill_Bp_WaterDrivenWorkshopKit_CardName,Water-Driven Workshop Kit
-Water_Sawmill_Bp_WaterDrivenWorkshopKit_CardDescription,"Upgrade a completed water-driven forge kit with a water mill, forge hammer, charcoal, and copper gears into a workshop kit."
-Water_Sawmill_Bp_WaterDrivenWorkshopKit_UnlockConditionsDesc,Water-Driven Forge Kit
-Water_Sawmill_Perk_ForgeStart_PerkName,Forge Start
-Water_Sawmill_Perk_ForgeStart_PerkDescription,Start with a water-driven forge kit and mill race component. Place near water or a connected mill race outlet to build a water-powered metalworking station.
-Water_Sawmill_Perk_GrindingMillStart_PerkName,Grinding Mill Start
-Water_Sawmill_Perk_GrindingMillStart_PerkDescription,Start with a grinding mill kit and mill race component. Place near water or a connected mill race outlet to build a water-powered grain mill.
-Water_Sawmill_OreSluiceKit_CardName,Ore Sluice Kit
-Water_Sawmill_OreSluiceKit_CardDescription,A complete ore sluice kit ready to be placed near water or a connected mill race outlet for mineral prospecting.
+<b>Operation:</b> Load millable items, then press Grind All to process the full batch on demand, like a larger rotary quern.","<b>需求：</b> 需要本地引水渠提供水力。
+
+<b>操作：</b> 装入可磨物品，然后按全部研磨按需批量处理，相当于更大的旋转石磨。"
+Water_Sawmill_GrindingMillPlaced_PickUp_ActionName,Pack Up,收起
+Water_Sawmill_GrindingMillPlaced_PickUp_ActionDescription,Pack up the grinding mill back into a transportable kit.,将磨坊收回为可携带套件。
+Water_Sawmill_GrindingMillPlaced_GrindAll_ActionName,Grind All,全部研磨
+Water_Sawmill_GrindingMillPlaced_GrindAll_ActionDescription,Engage the mill wheel and process all millable contents in one batch.,启动磨轮，一次批量处理所有可磨内容物。
+Water_Sawmill_Bp_GrindingMill_CardName,Water-Driven Grinding Mill,水力磨坊
+Water_Sawmill_Bp_GrindingMill_CardDescription,"Assemble a water-driven grinding mill. Requires a water mill, iron bearing, and iron axle as core subcomponents.",组装水力磨坊。需要水力磨坊、铁轴承和铁轴作为核心子组件。
+Water_Sawmill_Bp_GrindingMill_UnlockConditionsDesc,Water-Driven Mill,水力磨坊
+Water_Sawmill_IronWrench_CardName,Iron Wrench,铁扳手
+Water_Sawmill_IronWrench_CardDescription,A heavy wrought iron wrench sized for tightening the workshop's hammer and drive assemblies.,一把沉重的熟铁扳手，用于拧紧工坊锻锤与传动机构。
+Water_Sawmill_IronWrench_CardHelpSection,<b>Purpose:</b> Forged workshop tool used when assembling a water-driven workshop kit.,<b>用途：</b> 组装水力工坊套件时使用的锻造工坊工具。
+Water_Sawmill_Bp_IronWrench_CardName,Forge Iron Wrench,锻造铁扳手
+Water_Sawmill_Bp_IronWrench_CardDescription,Forge one heavy iron wrench from a wrought iron bar.,用一根熟铁条锻造一把沉重的铁扳手。
+Water_Sawmill_Bp_IronWrench_UnlockConditionsDesc,Wrought Iron Bar Needed,需要熟铁条
+Water_Sawmill_Bp_WaterDrivenWorkshopKit_CardName,Water-Driven Workshop Kit,水力工坊套件
+Water_Sawmill_Bp_WaterDrivenWorkshopKit_CardDescription,"Upgrade a completed water-driven forge kit with a water mill, forge hammer, iron parts, iron bearings, an iron axle, an iron wrench, charcoal, and copper gears into a workshop kit.","将完成的水力锻炉套件与水力磨坊、锻锤、铁制零件、铁轴承、铁轴、铁扳手、木炭和铜齿轮升级为工坊套件。"
+Water_Sawmill_Bp_WaterDrivenWorkshopKit_UnlockConditionsDesc,Water-Driven Forge Kit,水力锻炉套件
+Water_Sawmill_Perk_ForgeStart_PerkName,Forge Start,锻炉起步
+Water_Sawmill_Perk_ForgeStart_PerkDescription,Start with a water-driven forge kit and mill race component. Place near water or a connected mill race outlet to build a water-powered metalworking station.,携带水力锻炉套件和引水渠组件开始游戏。放置在水源旁或引水渠出口附近以建造水力金属加工站。
+Water_Sawmill_Perk_GrindingMillStart_PerkName,Grinding Mill Start,磨坊起步
+Water_Sawmill_Perk_GrindingMillStart_PerkDescription,Start with a grinding mill kit and mill race component. Place near water or a connected mill race outlet to build a water-powered grain mill.,携带磨坊套件和引水渠组件开始游戏。放置在水源旁或引水渠出口附近以建造水力谷物磨。
+Water_Sawmill_OreSluiceKit_CardName,Ore Sluice Kit,矿石淘洗槽套件
+Water_Sawmill_OreSluiceKit_CardDescription,"A complete ore sluice kit with iron bearing and axle hardware, ready to be placed near water or a connected mill race outlet for mineral prospecting.",带有铁轴承和铁轴五金的完整矿石淘洗槽套件，可放置在水源旁或引水渠出口附近用于矿物勘探。
 Water_Sawmill_OreSluiceKit_CardHelpSection,"<b>Use:</b> Place near water or a connected mill race outlet to set up the ore sluice.
 
-<b>Purpose:</b> Wash soil to extract greenstone nuggets."
-Water_Sawmill_OreSluiceKit_Place_ActionName,Place
-Water_Sawmill_OreSluiceKit_Place_ActionDescription,Place the ore sluice kit into the environment.
-Water_Sawmill_OreSluiceKit_Disassemble_ActionName,Disassemble
-Water_Sawmill_OreSluiceKit_Disassemble_ActionDescription,Break down the sluice kit into its component parts.
-Water_Sawmill_OreSluicePlaced_CardName,Ore Sluice
-Water_Sawmill_OreSluicePlaced_CardDescription,"A water-powered sluice box for washing soil and separating mineral deposits. Load mud or dirt, then run the sluice to pan for greenstone."
+<b>Purpose:</b> Wash soil to extract greenstone nuggets. Requires iron bearing and axle hardware.","<b>用途：</b> 放置在水源旁或引水渠出口附近建立矿石淘洗槽。
+
+<b>目的：</b> 冲洗土壤以提取绿石块。需要铁轴承和铁轴五金。"
+Water_Sawmill_OreSluiceKit_Place_ActionName,Place,放置
+Water_Sawmill_OreSluiceKit_Place_ActionDescription,Place the ore sluice kit into the environment.,将矿石淘洗槽套件放置在环境中。
+Water_Sawmill_OreSluiceKit_Disassemble_ActionName,Disassemble,拆卸
+Water_Sawmill_OreSluiceKit_Disassemble_ActionDescription,Break down the sluice kit into its component parts.,将淘洗槽套件拆解为各组件。
+Water_Sawmill_OreSluicePlaced_CardName,Ore Sluice,矿石淘洗槽
+Water_Sawmill_OreSluicePlaced_CardDescription,"A water-powered sluice box for washing soil and separating mineral deposits. Load mud piles, dirt piles, or fine dirt, then run the sluice to process them for greenstone, flint, stone, and occasionally metal nuggets.",用于冲洗土壤和分离矿物沉积物的水力淘洗槽。装入泥堆、污土堆或细沙土后运行淘洗槽以提取绿石、燧石、石头和偶尔的金属矿块。
 Water_Sawmill_OreSluicePlaced_CardHelpSection,"<b>Requirements:</b> Requires a local mill race for water power.
 
-<b>Operation:</b> Load mud piles, dirt piles, or fine dirt into the sluice, then press Sluice All. Rates vary by soil type:
-- Mud Pile: 8% greenstone / 15% flint / 77% stone
-- Dirt Pile: 5% greenstone / 10% flint / 85% stone
-- Fine Dirt: 2% greenstone / 8% flint / 90% stone"
-Water_Sawmill_OreSluicePlaced_SluiceAll_ActionName,Sluice All
-Water_Sawmill_OreSluicePlaced_SluiceAll_ActionDescription,Run water through the sluice to wash all loaded soil. Each item has a chance to yield greenstone.
-Water_Sawmill_OreSluicePlaced_PickUp_ActionName,Pack Up
-Water_Sawmill_OreSluicePlaced_PickUp_ActionDescription,Pack up the ore sluice back into a transportable kit.
-Water_Sawmill_Bp_OreSluice_CardName,Ore Sluice
-Water_Sawmill_Bp_OreSluice_CardDescription,Build a water-powered ore sluice for washing soil and extracting greenstone. Requires direct water or a connected mill race outlet.
-Water_Sawmill_Bp_OreSluice_UnlockConditionsDesc,Mill Race
-Water_Sawmill_CopperGearLarge_CardHelpSection,"<b>Purpose:</b> Component for water-driven forge machinery.
+<b>Operation:</b> Load mud piles, dirt piles, or fine dirt into the sluice, then press Sluice All. Each drop is rolled independently — a single pile can yield multiple items or nothing.
 
-<b>Used in:</b> Water-driven forge leather bellows mechanism."
-Water_Sawmill_CopperGearLarge_FuelCapacity_CardStatName,Temperature
-Water_Sawmill_CopperGearSmall_CardHelpSection,"<b>Purpose:</b> Component for water-driven machinery.
+Drop chances (Mud / Dirt / Fine Dirt):
+Iron Nugget: 8% / 5% / 1%
+Copper Nugget: 12% / 8% / 1%
+Tin Nugget: 8% / 5% / 1%
+Greenstone: 22% / 18% / 12%
+Flint: 30% / 20% / 10%
+Stone: 55% / 40% / 10%
+Clay: 10% / 20% / 55%
 
-<b>Used in:</b> Grinding mills, sawmills, and other water-powered devices."
-Water_Sawmill_CopperGearSmall_FuelCapacity_CardStatName,Temperature
-Water_Sawmill_CopperSawBlade_CardHelpSection,"<b>Purpose:</b> Cutting component for water-driven sawmill.
+Nuggets spawn at 35% quality.","<b>需求：</b> 需要本地引水渠提供水力。
 
-<b>Condition:</b> Sharp and ready for use. Will dull over time."
-Water_Sawmill_CopperSawBladeDull_CardHelpSection,"<b>Purpose:</b> Worn cutting component.
+<b>操作：</b> 将泥堆、污土堆或细沙土装入淘洗槽，然后按全部淘洗。每种产出独立掷骰——单个土堆可产出多件物品或无产出。
 
-<b>Condition:</b> Dull. Must be sharpened at a grinding stone before reuse."
-Water_Sawmill_MillRace_Dismantle_ActionName,Dismantle
-Water_Sawmill_MillRace_Dismantle_ActionDescription,Break down the mill race and recover the planks.
-Water_Sawmill_WaterWheel_Dismantle_ActionName,Dismantle
-Water_Sawmill_WaterWheel_Dismantle_ActionDescription,Disassemble the water wheel into its wooden frame, stonework, and gear.
-Water_Sawmill_WaterMill_Dismantle_ActionName,Dismantle
-Water_Sawmill_WaterMill_Dismantle_ActionDescription,Break down the water mill into its wheel, race, and drive gear.
-Water_Sawmill_OreSluiceEmpty_CardName,Ore Sluice Frame
-Water_Sawmill_OreSluiceEmpty_CardDescription,An unfinished sluice box frame. Needs rope and a mill race connection to become a working ore sluice.
-Water_Sawmill_OreSluiceEmpty_CardHelpSection,<b>Use:</b> Combine with rope and a mill race in the Ore Sluice blueprint to finish construction.
-Water_Sawmill_OreSluiceEmpty_Dismantle_ActionName,Dismantle
-Water_Sawmill_OreSluiceEmpty_Dismantle_ActionDescription,Break down the sluice frame and recover planks.
-Water_Sawmill_Bp_OreSluiceEmpty_CardName,Ore Sluice Frame
-Water_Sawmill_Bp_OreSluiceEmpty_CardDescription,Hammer together a basic sluice box frame from planks and copper nails.
-Water_Sawmill_Bp_OreSluiceEmpty_UnlockConditionsDesc,Mill Race
-Water_Sawmill_CopperSawBlade_FuelCapacity_CardStatName,Temperature
-Water_Sawmill_CopperSawBladeDull_FuelCapacity_CardStatName,Temperature
-Water_Sawmill_ForgePlaced_Fuel_StatName,Fuel
-Water_Sawmill_Bp_Fishpond_CardName,Fishpond
-Water_Sawmill_Bp_Fishpond_CardDescription,"Dig a fishpond near water or a connected mill race outlet in 5 stages (3 hours each, 15 hours total): 3 digging stages with a shovel, then 2 stocking stages with live fish and planks. Fish will grow over time. When the total fish count exceeds 10, the pond becomes stocked and frogs can be caught. The pond freezes in winter."
-Water_Sawmill_Bp_Fishpond_UnlockConditionsDesc,Mill Race Needed
-Water_Sawmill_FishpondKit_CardName,Fishpond Kit
-Water_Sawmill_FishpondKit_CardDescription,A pre-stocked fishpond kit ready for placement near water or a connected mill race outlet. Fish populations grow slowly over time.
-Water_Sawmill_FishpondKit_CardHelpSection,"<b>Use:</b> Place near water or a connected mill race outlet. Fish grow over time. The pond becomes stocked when the total fish count exceeds 10. Fish are caught with a spear."
-Water_Sawmill_FishpondKit_Place_ActionName,Place
-Water_Sawmill_FishpondKit_Place_ActionDescription,Place the fishpond near the river.
-Water_Sawmill_FishpondKit_Disassemble_ActionName,Disassemble
-Water_Sawmill_FishpondKit_Disassemble_ActionDescription,Break down the kit and recover most of the planks and rope.
-Water_Sawmill_FishpondFilled_CardName,Fishpond
-Water_Sawmill_FishpondFilled_CardDescription,"A working fishpond with a small population of pike, perch, and minnow. Only those three breed; trout, char, and sturgeon can be stocked separately but do not breed. Once the breeding population exceeds 10 the pond becomes a fully Stocked Fishpond."
+掉落概率（泥堆 / 污土堆 / 细沙土）：
+铁矿块：8% / 5% / 1%
+铜矿块：12% / 8% / 1%
+锡矿块：8% / 5% / 1%
+绿石：22% / 18% / 12%
+燧石：30% / 20% / 10%
+石头：55% / 40% / 10%
+黏土：10% / 20% / 55%
+
+矿块以35%品质产出。"
+Water_Sawmill_OreSluicePlaced_SluiceAll_ActionName,Sluice All,全部淘洗
+Water_Sawmill_OreSluicePlaced_SluiceAll_ActionDescription,Run water through the sluice to wash all loaded soil. Each item yields minerals or a rare metal nugget.,引水通过淘洗槽冲洗所有装载的土壤。每件物品可产出矿物或稀有金属矿块。
+Water_Sawmill_OreSluicePlaced_PickUp_ActionName,Pack Up,收起
+Water_Sawmill_OreSluicePlaced_PickUp_ActionDescription,Pack up the ore sluice back into a transportable kit.,将矿石淘洗槽收回为可携带套件。
+Water_Sawmill_Bp_OreSluice_CardName,Ore Sluice,矿石淘洗槽
+Water_Sawmill_Bp_OreSluice_CardDescription,Build a water-powered ore sluice for washing soil and extracting greenstone. Requires direct water or a connected mill race outlet. Uses heavy stones as ballast.,建造水力矿石淘洗槽，用于冲洗土壤和提取绿石。需要直接水源或引水渠出口。使用大石块作压舱石。
+Water_Sawmill_Bp_OreSluice_UnlockConditionsDesc,Mill Race,引水渠
+Water_Sawmill_MillRace_Dismantle_ActionName,Dismantle,拆除
+Water_Sawmill_MillRace_Dismantle_ActionDescription,Break down the mill race and recover the planks.,拆除引水渠并回收木板。
+Water_Sawmill_WaterWheel_Dismantle_ActionName,Dismantle,拆除
+Water_Sawmill_WaterWheel_Dismantle_ActionDescription,"Disassemble the water wheel into its wooden frame, stonework, and gear.",将水车拆解为木框架、石工和齿轮。
+Water_Sawmill_WaterMill_Dismantle_ActionName,Dismantle,拆除
+Water_Sawmill_WaterMill_Dismantle_ActionDescription,"Break down the water mill into its wheel, race, and drive gear.",将水力磨坊拆解为水轮、引水渠和驱动齿轮。
+Water_Sawmill_OreSluiceEmpty_CardName,Ore Sluice Frame,矿石淘洗槽框架
+Water_Sawmill_OreSluiceEmpty_CardDescription,An unfinished sluice box frame. Needs rope and a mill race connection to become a working ore sluice.,未完工的淘洗槽框架。需要绳索和引水渠连接才能成为可用的矿石淘洗槽。
+Water_Sawmill_OreSluiceEmpty_CardHelpSection,<b>Use:</b> Combine with rope and a mill race in the Ore Sluice blueprint to finish construction.,<b>用途：</b> 在矿石淘洗槽蓝图中与绳索和引水渠结合以完成建造。
+Water_Sawmill_OreSluiceEmpty_Dismantle_ActionName,Dismantle,拆除
+Water_Sawmill_OreSluiceEmpty_Dismantle_ActionDescription,Break down the sluice frame and recover planks.,拆除淘洗槽框架并回收木板。
+Water_Sawmill_Bp_OreSluiceEmpty_CardName,Ore Sluice Frame,矿石淘洗槽框架
+Water_Sawmill_Bp_OreSluiceEmpty_CardDescription,Hammer together a basic sluice box frame from planks and copper nails.,用木板和铜钉锤制基础淘洗槽框架。
+Water_Sawmill_Bp_OreSluiceEmpty_UnlockConditionsDesc,Mill Race,引水渠
+Water_Sawmill_ForgePlaced_Fuel_StatName,Fuel,燃料
+Water_Sawmill_Bp_Fishpond_CardName,Fishpond,鱼塘
+Water_Sawmill_Bp_Fishpond_CardDescription,"Dig a fishpond near water or a connected mill race outlet in 5 stages (3 hours each, 15 hours total): 3 digging stages with a shovel, then 2 stocking stages with live fish and planks. Fish will grow over time. When the total fish count exceeds 10, the pond becomes stocked and frogs can be caught. The pond freezes in winter.",在水源旁或引水渠出口附近分5阶段挖掘鱼塘（每阶段3小时，共15小时）：3个挖掘阶段（需铲子），然后2个放鱼阶段（需活鱼和木板）。鱼会随时间增长。当总鱼数超过10条时，鱼塘变为满载状态，可捕捉青蛙。鱼塘在冬天结冰。
+Water_Sawmill_Bp_Fishpond_UnlockConditionsDesc,Mill Race Needed,需要引水渠
+Water_Sawmill_FishpondKit_CardName,Fishpond Kit,鱼塘套件
+Water_Sawmill_FishpondKit_CardDescription,A pre-stocked fishpond kit ready for placement near water or a connected mill race outlet. Fish populations grow slowly over time.,预先放鱼的鱼塘套件，可放置在水源旁或引水渠出口附近。鱼群数量随时间缓慢增长。
+Water_Sawmill_FishpondKit_CardHelpSection,<b>Use:</b> Place near water or a connected mill race outlet. Fish grow over time. The pond becomes stocked when the total fish count exceeds 10. Fish are caught with a spear.,<b>用途：</b> 放置在水源旁或引水渠出口附近。鱼会随时间增长。当总鱼数超过10条时鱼塘变为满载状态。用标枪捕鱼。
+Water_Sawmill_FishpondKit_Place_ActionName,Place,放置
+Water_Sawmill_FishpondKit_Place_ActionDescription,Place the fishpond near the river.,将鱼塘放置在河边。
+Water_Sawmill_FishpondKit_Disassemble_ActionName,Disassemble,拆卸
+Water_Sawmill_FishpondKit_Disassemble_ActionDescription,Break down the kit and recover most of the planks and rope.,拆解套件并回收大部分木板和绳索。
+Water_Sawmill_FishpondFilled_CardName,Fishpond,鱼塘
+Water_Sawmill_FishpondFilled_CardDescription,"A working fishpond with a small population of pike, perch, and minnow. Only those three breed; trout, char, and sturgeon can be stocked separately but do not breed. Once the breeding population exceeds 10 the pond becomes a fully Stocked Fishpond.",一个有少量狗鱼、鲈鱼和小鱼的运作鱼塘。只有这三种鱼繁殖；鳟鱼、鲑鱼和鲟鱼可单独放养但不繁殖。繁殖种群超过10条后鱼塘变为满载鱼塘。
 Water_Sawmill_FishpondFilled_CardHelpSection,"<b>Populations:</b> Pike, perch, and minnow each grow at the same slow rate (~2 days per fish per species).
 
 <b>Trout / Char / Sturgeon:</b> Each tracked separately (cap 10 each). They do not breed.
@@ -218,23 +236,33 @@ Water_Sawmill_FishpondFilled_CardHelpSection,"<b>Populations:</b> Pike, perch, a
 
 <b>Water Draw:</b> Drag a water container in to fill it with unsafe water (boil before drinking).
 
-<b>Winter:</b> The pond freezes when winter sets in and only ice fishing is available."
-Water_Sawmill_FishpondFilled_SpecialDurability1_CardStatName,Pike
-Water_Sawmill_FishpondFilled_SpecialDurability2_CardStatName,Perch
-Water_Sawmill_FishpondFilled_SpecialDurability3_CardStatName,Minnow
-Water_Sawmill_FishpondFilled_CatchPike_ActionName,Catch Pike
-Water_Sawmill_FishpondFilled_CatchPike_ActionDescription,Spear a pike from the pond.
-Water_Sawmill_FishpondFilled_CatchPerch_ActionName,Catch Perch
-Water_Sawmill_FishpondFilled_CatchPerch_ActionDescription,Spear a perch from the pond.
-Water_Sawmill_FishpondFilled_CatchMinnow_ActionName,Catch Minnow
-Water_Sawmill_FishpondFilled_CatchMinnow_ActionDescription,Spear a minnow from the pond.
-Water_Sawmill_FishpondFilled_Fill_ActionName,Fill with Unsafe Water
-Water_Sawmill_FishpondFilled_Fill_ActionDescription,Draw unsafe water from the pond into a container. Boil before drinking.
-Water_Sawmill_FishpondFilled_Drain_ActionName,Drain
-Water_Sawmill_FishpondFilled_Drain_ActionDescription,Abandon the fish and drain the pond back to a fishpond kit.
-Water_Sawmill_FishpondFilled_Freeze_ActionName,Freeze Over
-Water_Sawmill_FishpondStocked_CardName,Fishpond (Stocked)
-Water_Sawmill_FishpondStocked_CardDescription,"A mature fishpond rich with pike, perch, and minnow. Trout, char, and sturgeon can also be stocked but do not breed. The thriving ecosystem also attracts frogs to the water's edge."
+<b>Winter:</b> The pond freezes when winter sets in and only ice fishing is available.","<b>种群：</b> 狗鱼、鲈鱼和小鱼各自以相同的缓慢速度增长（每种每条约2天）。
+
+<b>鳟鱼/鲑鱼/鲟鱼：</b> 各自单独追踪（上限各10条）。不繁殖。
+
+<b>捕捞：</b> 用标枪每次捕捞一条鱼。每次捕捞使该物种数量减少1。
+
+<b>满载阈值：</b> 繁殖种群（狗鱼+鲈鱼+小鱼）超过10条时，鱼塘转为满载状态，可捕捉青蛙。
+
+<b>取水：</b> 拖入水容器以汲取不安全的水（饮用前需煮沸）。
+
+<b>冬季：</b> 冬季来临时鱼塘结冰，只能冰钓。"
+Water_Sawmill_FishpondFilled_SpecialDurability1_CardStatName,Pike,狗鱼
+Water_Sawmill_FishpondFilled_SpecialDurability2_CardStatName,Perch,鲈鱼
+Water_Sawmill_FishpondFilled_SpecialDurability3_CardStatName,Minnow,小鱼
+Water_Sawmill_FishpondFilled_CatchPike_ActionName,Catch Pike,捕捞狗鱼
+Water_Sawmill_FishpondFilled_CatchPike_ActionDescription,Spear a pike from the pond.,用标枪从鱼塘捕捞一条狗鱼。
+Water_Sawmill_FishpondFilled_CatchPerch_ActionName,Catch Perch,捕捞鲈鱼
+Water_Sawmill_FishpondFilled_CatchPerch_ActionDescription,Spear a perch from the pond.,用标枪从鱼塘捕捞一条鲈鱼。
+Water_Sawmill_FishpondFilled_CatchMinnow_ActionName,Catch Minnow,捕捞小鱼
+Water_Sawmill_FishpondFilled_CatchMinnow_ActionDescription,Spear a minnow from the pond.,用标枪从鱼塘捕捞一条小鱼。
+Water_Sawmill_FishpondFilled_Fill_ActionName,Fill with Unsafe Water,汲取不安全的水
+Water_Sawmill_FishpondFilled_Fill_ActionDescription,Draw unsafe water from the pond into a container. Boil before drinking.,从鱼塘汲取不安全的水装入容器。饮用前需煮沸。
+Water_Sawmill_FishpondFilled_Drain_ActionName,Drain,排水
+Water_Sawmill_FishpondFilled_Drain_ActionDescription,Abandon the fish and drain the pond back to a fishpond kit.,放弃鱼群，将鱼塘排水还原为鱼塘套件。
+Water_Sawmill_FishpondFilled_Freeze_ActionName,Freeze Over,结冰
+Water_Sawmill_FishpondStocked_CardName,Fishpond (Stocked),鱼塘（满载）
+Water_Sawmill_FishpondStocked_CardDescription,"A mature fishpond rich with pike, perch, and minnow. Trout, char, and sturgeon can also be stocked but do not breed. The thriving ecosystem also attracts frogs to the water's edge.",一个富含狗鱼、鲈鱼和小鱼的成熟鱼塘。鳟鱼、鲑鱼和鲟鱼也可放养但不繁殖。繁盛的生态系统也会吸引青蛙来到水边。
 Water_Sawmill_FishpondStocked_CardHelpSection,"<b>Populations:</b> Pike, perch, and minnow continue to grow at the same slow rate.
 
 <b>Trout / Char / Sturgeon:</b> Each tracked separately (cap 10 each). They do not breed.
@@ -247,164 +275,247 @@ Water_Sawmill_FishpondStocked_CardHelpSection,"<b>Populations:</b> Pike, perch, 
 
 <b>Water Draw:</b> Drag a water container in to fill it with unsafe water (boil before drinking).
 
-<b>Winter:</b> The pond freezes when winter sets in and only ice fishing is available."
-Water_Sawmill_FishpondStocked_SpecialDurability1_CardStatName,Pike
-Water_Sawmill_FishpondStocked_SpecialDurability2_CardStatName,Perch
-Water_Sawmill_FishpondStocked_SpecialDurability3_CardStatName,Minnow
-Water_Sawmill_FishpondStocked_CatchPike_ActionName,Catch Pike
-Water_Sawmill_FishpondStocked_CatchPike_ActionDescription,Spear a pike from the pond.
-Water_Sawmill_FishpondStocked_CatchPerch_ActionName,Catch Perch
-Water_Sawmill_FishpondStocked_CatchPerch_ActionDescription,Spear a perch from the pond.
-Water_Sawmill_FishpondStocked_CatchMinnow_ActionName,Catch Minnow
-Water_Sawmill_FishpondStocked_CatchMinnow_ActionDescription,Spear a minnow from the pond.
-Water_Sawmill_FishpondStocked_CatchFrog_ActionName,Catch Frog
-Water_Sawmill_FishpondStocked_CatchFrog_ActionDescription,Catch a frog by hand from the pond's edge.
-Water_Sawmill_FishpondStocked_Fill_ActionName,Fill with Unsafe Water
-Water_Sawmill_FishpondStocked_Fill_ActionDescription,Draw unsafe water from the pond into a container. Boil before drinking.
-Water_Sawmill_FishpondStocked_Drain_ActionName,Drain
-Water_Sawmill_FishpondStocked_Drain_ActionDescription,Abandon the fish and drain the pond back to a fishpond kit.
-Water_Sawmill_FishpondStocked_Freeze_ActionName,Freeze Over
-Water_Sawmill_FishpondWinter_CardName,Fishpond (Frozen)
-Water_Sawmill_FishpondWinter_CardDescription,"The fishpond is frozen over. The fish remain under the ice but no longer grow until spring. Only ice fishing is possible."
+<b>Winter:</b> The pond freezes when winter sets in and only ice fishing is available.","<b>种群：</b> 狗鱼、鲈鱼和小鱼继续以相同的缓慢速度增长。
+
+<b>鳟鱼/鲑鱼/鲟鱼：</b> 各自单独追踪（上限各10条）。不繁殖。
+
+<b>捕捞：</b> 用标枪每次捕捞一条鱼。每次捕捞使该物种数量减少1。
+
+<b>青蛙：</b> 鱼塘处于满载状态时可执行捕捉青蛙操作（无需标枪）。
+
+<b>还原：</b> 繁殖种群（狗鱼+鲈鱼+小鱼）降至10条以下时，鱼塘恢复为普通鱼塘状态，青蛙离开。
+
+<b>取水：</b> 拖入水容器以汲取不安全的水（饮用前需煮沸）。
+
+<b>冬季：</b> 冬季来临时鱼塘结冰，只能冰钓。"
+Water_Sawmill_FishpondStocked_SpecialDurability1_CardStatName,Pike,狗鱼
+Water_Sawmill_FishpondStocked_SpecialDurability2_CardStatName,Perch,鲈鱼
+Water_Sawmill_FishpondStocked_SpecialDurability3_CardStatName,Minnow,小鱼
+Water_Sawmill_FishpondStocked_CatchPike_ActionName,Catch Pike,捕捞狗鱼
+Water_Sawmill_FishpondStocked_CatchPike_ActionDescription,Spear a pike from the pond.,用标枪从鱼塘捕捞一条狗鱼。
+Water_Sawmill_FishpondStocked_CatchPerch_ActionName,Catch Perch,捕捞鲈鱼
+Water_Sawmill_FishpondStocked_CatchPerch_ActionDescription,Spear a perch from the pond.,用标枪从鱼塘捕捞一条鲈鱼。
+Water_Sawmill_FishpondStocked_CatchMinnow_ActionName,Catch Minnow,捕捞小鱼
+Water_Sawmill_FishpondStocked_CatchMinnow_ActionDescription,Spear a minnow from the pond.,用标枪从鱼塘捕捞一条小鱼。
+Water_Sawmill_FishpondStocked_CatchFrog_ActionName,Catch Frog,捕捉青蛙
+Water_Sawmill_FishpondStocked_CatchFrog_ActionDescription,Catch a frog by hand from the pond's edge.,用手从鱼塘边缘捕捉青蛙。
+Water_Sawmill_FishpondStocked_Fill_ActionName,Fill with Unsafe Water,汲取不安全的水
+Water_Sawmill_FishpondStocked_Fill_ActionDescription,Draw unsafe water from the pond into a container. Boil before drinking.,从鱼塘汲取不安全的水装入容器。饮用前需煮沸。
+Water_Sawmill_FishpondStocked_Drain_ActionName,Drain,排水
+Water_Sawmill_FishpondStocked_Drain_ActionDescription,Abandon the fish and drain the pond back to a fishpond kit.,放弃鱼群，将鱼塘排水还原为鱼塘套件。
+Water_Sawmill_FishpondStocked_Freeze_ActionName,Freeze Over,结冰
+Water_Sawmill_FishpondWinter_CardName,Fishpond (Frozen),鱼塘（冰封）
+Water_Sawmill_FishpondWinter_CardDescription,The fishpond is frozen over. The fish remain under the ice but no longer grow until spring. Only ice fishing is possible.,鱼塘已结冰。鱼仍在冰下但在春天前不再生长。只能进行冰钓。
 Water_Sawmill_FishpondWinter_CardHelpSection,"<b>Populations:</b> Pike, perch, and minnow are preserved beneath the ice (no growth until thaw). Trout, char, and sturgeon are tracked separately and preserved across the freeze.
 
 <b>Ice Fish:</b> Each ice fishing action takes longer than open water and requires a spear.
 
 <b>Water Draw:</b> Disabled while frozen.
 
-<b>Thaw:</b> The pond returns to its working state automatically when winter ends. Population is preserved across the freeze."
-Water_Sawmill_FishpondWinter_SpecialDurability1_CardStatName,Pike
-Water_Sawmill_FishpondWinter_SpecialDurability2_CardStatName,Perch
-Water_Sawmill_FishpondWinter_SpecialDurability3_CardStatName,Minnow
-Water_Sawmill_FishpondWinter_IceFishPike_ActionName,Ice Fish Pike
-Water_Sawmill_FishpondWinter_IceFishPike_ActionDescription,Spear a pike through the ice.
-Water_Sawmill_FishpondWinter_IceFishPerch_ActionName,Ice Fish Perch
-Water_Sawmill_FishpondWinter_IceFishPerch_ActionDescription,Spear a perch through the ice.
-Water_Sawmill_FishpondWinter_IceFishMinnow_ActionName,Ice Fish Minnow
-Water_Sawmill_FishpondWinter_IceFishMinnow_ActionDescription,Spear a minnow through the ice.
-Water_Sawmill_FishpondWinter_Thaw_ActionName,Thaw
-Water_Sawmill_FishpondFilled_Progress_CardStatName,Crayfish
-Water_Sawmill_FishpondFilled_StockPike_ActionName,Stock Pike
-Water_Sawmill_FishpondFilled_StockPike_ActionDescription,Release a live pike into the pond. Increases pike population by 1.
-Water_Sawmill_FishpondFilled_StockPerch_ActionName,Stock Perch
-Water_Sawmill_FishpondFilled_StockPerch_ActionDescription,Release a live perch into the pond. Increases perch population by 1.
-Water_Sawmill_FishpondFilled_StockMinnow_ActionName,Stock Minnow
-Water_Sawmill_FishpondFilled_StockMinnow_ActionDescription,Release a live minnow into the pond. Increases minnow population by 1.
-Water_Sawmill_FishpondFilled_StockSturgeon_ActionName,Stock Sturgeon
-Water_Sawmill_FishpondFilled_StockSturgeon_ActionDescription,Release a live sturgeon into the pond. Increases the sturgeon population by 1 (cap 10). Sturgeon do not breed.
-Water_Sawmill_FishpondFilled_StockCrayfish_ActionName,Stock Crayfish
-Water_Sawmill_FishpondFilled_StockCrayfish_ActionDescription,Release a live crayfish into the pond. Crayfish do not breed but can be stored up to 10.
-Water_Sawmill_FishpondFilled_CatchCrayfish_ActionName,Catch Crayfish
-Water_Sawmill_FishpondFilled_CatchCrayfish_ActionDescription,Catch a crayfish from the pond by hand.
-Water_Sawmill_FishpondStocked_Progress_CardStatName,Crayfish
-Water_Sawmill_FishpondStocked_StockPike_ActionName,Stock Pike
-Water_Sawmill_FishpondStocked_StockPike_ActionDescription,Release a live pike into the pond. Increases pike population by 1.
-Water_Sawmill_FishpondStocked_StockPerch_ActionName,Stock Perch
-Water_Sawmill_FishpondStocked_StockPerch_ActionDescription,Release a live perch into the pond. Increases perch population by 1.
-Water_Sawmill_FishpondStocked_StockMinnow_ActionName,Stock Minnow
-Water_Sawmill_FishpondStocked_StockMinnow_ActionDescription,Release a live minnow into the pond. Increases minnow population by 1.
-Water_Sawmill_FishpondStocked_StockSturgeon_ActionName,Stock Sturgeon
-Water_Sawmill_FishpondStocked_StockSturgeon_ActionDescription,Release a live sturgeon into the pond. Increases the sturgeon population by 1 (cap 10). Sturgeon do not breed.
-Water_Sawmill_FishpondStocked_StockCrayfish_ActionName,Stock Crayfish
-Water_Sawmill_FishpondStocked_StockCrayfish_ActionDescription,Release a live crayfish into the pond. Crayfish do not breed but can be stored up to 10.
-Water_Sawmill_FishpondStocked_CatchCrayfish_ActionName,Catch Crayfish
-Water_Sawmill_FishpondStocked_CatchCrayfish_ActionDescription,Catch a crayfish from the pond by hand.
-Water_Sawmill_FishpondWinter_Progress_CardStatName,Crayfish
-Water_Sawmill_FishpondWinter_IceFishSturgeon_ActionName,Ice Fish Sturgeon
-Water_Sawmill_FishpondWinter_IceFishSturgeon_ActionDescription,Chop a hole and spear a sturgeon beneath the ice. Reduces the pond's sturgeon population by one.
-Water_Sawmill_FishpondWinter_IceFishCrayfish_ActionName,Ice Fish Crayfish
-Water_Sawmill_FishpondWinter_IceFishCrayfish_ActionDescription,Pull a crayfish through a hole chopped in the ice.
-Water_Sawmill_FishpondFilled_StockTrout_ActionName,Stock Trout
-Water_Sawmill_FishpondFilled_StockTrout_ActionDescription,Release a live trout into the pond. Increases the trout population by 1 (cap 10). Trout do not breed.
-Water_Sawmill_FishpondFilled_StockChar_ActionName,Stock Char
-Water_Sawmill_FishpondFilled_StockChar_ActionDescription,Release a live char into the pond. Increases the char population by 1 (cap 10). Char do not breed.
-Water_Sawmill_FishpondStocked_StockTrout_ActionName,Stock Trout
-Water_Sawmill_FishpondStocked_StockTrout_ActionDescription,Release a live trout into the pond. Increases the trout population by 1 (cap 10). Trout do not breed.
-Water_Sawmill_FishpondStocked_StockChar_ActionName,Stock Char
-Water_Sawmill_FishpondStocked_StockChar_ActionDescription,Release a live char into the pond. Increases the char population by 1 (cap 10). Char do not breed.
-Water_Sawmill_FishpondWinter_IceFishTrout_ActionName,Ice Fish Trout
-Water_Sawmill_FishpondWinter_IceFishTrout_ActionDescription,Chop a hole and spear a trout beneath the ice. Reduces the pond's trout population by one.
-Water_Sawmill_FishpondWinter_IceFishChar_ActionName,Ice Fish Char
-Water_Sawmill_FishpondWinter_IceFishChar_ActionDescription,Chop a hole and spear a char beneath the ice. Reduces the pond's char population by one.
-Water_Sawmill_FishpondFilled_SpoilageTime_CardStatName,Sturgeon
-Water_Sawmill_FishpondFilled_UsageDurability_CardStatName,Trout
-Water_Sawmill_FishpondFilled_FuelCapacity_CardStatName,Char
-Water_Sawmill_FishpondStocked_SpoilageTime_CardStatName,Sturgeon
-Water_Sawmill_FishpondStocked_UsageDurability_CardStatName,Trout
-Water_Sawmill_FishpondStocked_FuelCapacity_CardStatName,Char
-Water_Sawmill_FishpondWinter_SpoilageTime_CardStatName,Sturgeon
-Water_Sawmill_FishpondWinter_UsageDurability_CardStatName,Trout
-Water_Sawmill_FishpondWinter_FuelCapacity_CardStatName,Char
-Water_Sawmill_FishpondFilled_CatchSturgeon_ActionName,Catch Sturgeon
-Water_Sawmill_FishpondFilled_CatchSturgeon_ActionDescription,Spear a sturgeon from the pond.
-Water_Sawmill_FishpondFilled_CatchTrout_ActionName,Catch Trout
-Water_Sawmill_FishpondFilled_CatchTrout_ActionDescription,Spear a trout from the pond.
-Water_Sawmill_FishpondFilled_CatchChar_ActionName,Catch Char
-Water_Sawmill_FishpondFilled_CatchChar_ActionDescription,Spear a char from the pond.
-Water_Sawmill_FishpondStocked_CatchSturgeon_ActionName,Catch Sturgeon
-Water_Sawmill_FishpondStocked_CatchSturgeon_ActionDescription,Spear a sturgeon from the pond.
-Water_Sawmill_FishpondStocked_CatchTrout_ActionName,Catch Trout
-Water_Sawmill_FishpondStocked_CatchTrout_ActionDescription,Spear a trout from the pond.
-Water_Sawmill_FishpondStocked_CatchChar_ActionName,Catch Char
-Water_Sawmill_FishpondStocked_CatchChar_ActionDescription,Spear a char from the pond.
-Water_Sawmill_MillRaceNorth_CardName,Mill Race (North)
-Water_Sawmill_MillRaceNorth_CardDescription,A northward mill race channel segment installed between locations to carry water from a water source.
-Water_Sawmill_MillRaceSouth_CardName,Mill Race (South)
-Water_Sawmill_MillRaceSouth_CardDescription,A southward mill race channel segment installed between locations to carry water from a water source.
-Water_Sawmill_MillRaceEast_CardName,Mill Race (East)
-Water_Sawmill_MillRaceEast_CardDescription,An eastward mill race channel segment installed between locations to carry water from a water source.
-Water_Sawmill_MillRaceWest_CardName,Mill Race (West)
-Water_Sawmill_MillRaceWest_CardDescription,A westward mill race channel segment installed between locations to carry water from a water source.
-Water_Sawmill_MillRaceOutletPlaced_CardName,Mill Race Outlet
-Water_Sawmill_MillRaceOutletPlaced_CardDescription,The downstream end of a mill race outlet. Provides a steady flow of unclean water. Freezes solid in winter.
-Water_Sawmill_MillRaceOutletPlaced_Fill_ActionName,Draw Unclean Water
-Water_Sawmill_MillRaceOutletPlaced_Fill_ActionDescription,Draw unclean water from the mill race outlet into the container.
-Water_Sawmill_MillRaceOutletPlaced_PackUp_ActionName,Pack Up
-Water_Sawmill_MillRaceOutletPlaced_PackUp_ActionDescription,Pack up the mill race outlet for relocation.
-Water_Sawmill_MillRaceOutletPlaced_Freeze_ActionName,Freeze
-Water_Sawmill_MillRaceOutletFrozen_CardName,Mill Race Outlet (Frozen)
-Water_Sawmill_MillRaceOutletFrozen_CardDescription,The mill race is frozen solid. Water flow from the river is suspended for the winter. The outlet will thaw and resume flowing in spring.
-Water_Sawmill_MillRaceOutletFrozen_PackUp_ActionName,Pack Up
-Water_Sawmill_MillRaceOutletFrozen_PackUp_ActionDescription,Pack up the frozen mill race outlet for relocation.
-Water_Sawmill_MillRaceOutletFrozen_Thaw_ActionName,Thaw
-Water_Sawmill_Bp_MillRaceOutlet_CardName,Mill Race Outlet
-Water_Sawmill_Bp_MillRaceOutlet_CardDescription,Build a mill race outlet at any outdoor location (1 hour). Requires a Mill Race, which is consumed in construction. Once built, provides a steady source of unclean water. Freezes solid in winter.
-Water_Sawmill_Bp_MillRaceOutlet_UnlockConditionsDesc,Requires Mill Race
-Water_Sawmill_MillRaceOutletKit_CardName,Mill Race Outlet
-Water_Sawmill_MillRaceOutletKit_CardDescription,A portable mill race outlet ready to be installed at any outdoor location.
-Water_Sawmill_MillRaceOutletKit_Place_ActionName,Place
-Water_Sawmill_MillRaceOutletKit_Place_ActionDescription,Install the mill race outlet in the current outdoor location.
-Water_Sawmill_MillRaceOutletKit_Dismantle_ActionName,Dismantle
-Water_Sawmill_MillRaceOutletKit_Dismantle_ActionDescription,Break down the mill race outlet and recover all materials.
-Water_Sawmill_WorkshopPlaced_CardName,Water-Driven Workshop
-Water_Sawmill_WorkshopPlaced_CardDescription,A water-powered metalworking workshop with an upgraded forge hammer for higher-quality tools.
-Water_Sawmill_WorkshopPlaced_PickUp_ActionName,Pack Up
-Water_Sawmill_WorkshopPlaced_PickUp_ActionDescription,Pack up the workshop back into a transportable kit.
-Water_Sawmill_WorkshopPlaced_HammerCopperSheet_ActionName,Hammer Copper Sheet
-Water_Sawmill_WorkshopPlaced_HammerCopperSheet_ActionDescription,Hammer six copper nuggets from the workshop inventory into a copper sheet.
-Water_Sawmill_WorkshopPlaced_ForgeCopperNails_ActionName,Forge Copper Nails
-Water_Sawmill_WorkshopPlaced_ForgeCopperNails_ActionDescription,Forge six copper nuggets from the workshop inventory into six copper nails.
-Water_Sawmill_WorkshopPlaced_CastMetalLump_ActionName,Cast Metal Lump
-Water_Sawmill_WorkshopPlaced_CastMetalLump_ActionDescription,Pour four copper nuggets from the workshop inventory into a mold to cast one unfinished metal lump.
-Water_Sawmill_WorkshopKit_Place_ActionName,Place
-Water_Sawmill_WorkshopKit_Place_ActionDescription,Place the workshop kit into the environment.
-Water_Sawmill_CopperSawBladeDull_Sharpen_ActionName,Sharpen
-Water_Sawmill_CopperSawBladeDull_Sharpen_ActionDescription,Use a sharpening stone to hone the saw blade back to cutting condition.
+<b>Thaw:</b> The pond returns to its working state automatically when winter ends. Population is preserved across the freeze.","<b>种群：</b> 狗鱼、鲈鱼和小鱼被保存在冰下（解冻前不再生长）。鳟鱼、鲑鱼和鲟鱼单独追踪，冰封期间得以保存。
+
+<b>冰钓：</b> 每次冰钓比开放水域耗时更长，需要标枪。
+
+<b>取水：</b> 结冰期间禁用。
+
+<b>解冻：</b> 冬季结束时鱼塘自动恢复工作状态。种群在冰封期间得以保存。"
+Water_Sawmill_FishpondWinter_SpecialDurability1_CardStatName,Pike,狗鱼
+Water_Sawmill_FishpondWinter_SpecialDurability2_CardStatName,Perch,鲈鱼
+Water_Sawmill_FishpondWinter_SpecialDurability3_CardStatName,Minnow,小鱼
+Water_Sawmill_FishpondWinter_IceFishPike_ActionName,Ice Fish Pike,冰钓狗鱼
+Water_Sawmill_FishpondWinter_IceFishPike_ActionDescription,Spear a pike through the ice.,穿冰用标枪捕捞一条狗鱼。
+Water_Sawmill_FishpondWinter_IceFishPerch_ActionName,Ice Fish Perch,冰钓鲈鱼
+Water_Sawmill_FishpondWinter_IceFishPerch_ActionDescription,Spear a perch through the ice.,穿冰用标枪捕捞一条鲈鱼。
+Water_Sawmill_FishpondWinter_IceFishMinnow_ActionName,Ice Fish Minnow,冰钓小鱼
+Water_Sawmill_FishpondWinter_IceFishMinnow_ActionDescription,Spear a minnow through the ice.,穿冰用标枪捕捞一条小鱼。
+Water_Sawmill_FishpondWinter_Thaw_ActionName,Thaw,解冻
+Water_Sawmill_FishpondFilled_Progress_CardStatName,Crayfish,小龙虾
+Water_Sawmill_FishpondFilled_StockPike_ActionName,Stock Pike,放养狗鱼
+Water_Sawmill_FishpondFilled_StockPike_ActionDescription,Release a live pike into the pond. Increases pike population by 1.,将一条活狗鱼放入鱼塘。狗鱼数量增加1。
+Water_Sawmill_FishpondFilled_StockPerch_ActionName,Stock Perch,放养鲈鱼
+Water_Sawmill_FishpondFilled_StockPerch_ActionDescription,Release a live perch into the pond. Increases perch population by 1.,将一条活鲈鱼放入鱼塘。鲈鱼数量增加1。
+Water_Sawmill_FishpondFilled_StockMinnow_ActionName,Stock Minnow,放养小鱼
+Water_Sawmill_FishpondFilled_StockMinnow_ActionDescription,Release a live minnow into the pond. Increases minnow population by 1.,将一条活小鱼放入鱼塘。小鱼数量增加1。
+Water_Sawmill_FishpondFilled_StockSturgeon_ActionName,Stock Sturgeon,放养鲟鱼
+Water_Sawmill_FishpondFilled_StockSturgeon_ActionDescription,Release a live sturgeon into the pond. Increases the sturgeon population by 1 (cap 10). Sturgeon do not breed.,将一条活鲟鱼放入鱼塘。鲟鱼数量增加1（上限10条）。鲟鱼不繁殖。
+Water_Sawmill_FishpondFilled_StockCrayfish_ActionName,Stock Crayfish,放养小龙虾
+Water_Sawmill_FishpondFilled_StockCrayfish_ActionDescription,Release a live crayfish into the pond. Crayfish do not breed but can be stored up to 10.,将一只活小龙虾放入鱼塘。小龙虾不繁殖，最多存放10只。
+Water_Sawmill_FishpondFilled_CatchCrayfish_ActionName,Catch Crayfish,捕捉小龙虾
+Water_Sawmill_FishpondFilled_CatchCrayfish_ActionDescription,Catch a crayfish from the pond by hand.,用手从鱼塘捕捉一只小龙虾。
+Water_Sawmill_FishpondStocked_Progress_CardStatName,Crayfish,小龙虾
+Water_Sawmill_FishpondStocked_StockPike_ActionName,Stock Pike,放养狗鱼
+Water_Sawmill_FishpondStocked_StockPike_ActionDescription,Release a live pike into the pond. Increases pike population by 1.,将一条活狗鱼放入鱼塘。狗鱼数量增加1。
+Water_Sawmill_FishpondStocked_StockPerch_ActionName,Stock Perch,放养鲈鱼
+Water_Sawmill_FishpondStocked_StockPerch_ActionDescription,Release a live perch into the pond. Increases perch population by 1.,将一条活鲈鱼放入鱼塘。鲈鱼数量增加1。
+Water_Sawmill_FishpondStocked_StockMinnow_ActionName,Stock Minnow,放养小鱼
+Water_Sawmill_FishpondStocked_StockMinnow_ActionDescription,Release a live minnow into the pond. Increases minnow population by 1.,将一条活小鱼放入鱼塘。小鱼数量增加1。
+Water_Sawmill_FishpondStocked_StockSturgeon_ActionName,Stock Sturgeon,放养鲟鱼
+Water_Sawmill_FishpondStocked_StockSturgeon_ActionDescription,Release a live sturgeon into the pond. Increases the sturgeon population by 1 (cap 10). Sturgeon do not breed.,将一条活鲟鱼放入鱼塘。鲟鱼数量增加1（上限10条）。鲟鱼不繁殖。
+Water_Sawmill_FishpondStocked_StockCrayfish_ActionName,Stock Crayfish,放养小龙虾
+Water_Sawmill_FishpondStocked_StockCrayfish_ActionDescription,Release a live crayfish into the pond. Crayfish do not breed but can be stored up to 10.,将一只活小龙虾放入鱼塘。小龙虾不繁殖，最多存放10只。
+Water_Sawmill_FishpondStocked_CatchCrayfish_ActionName,Catch Crayfish,捕捉小龙虾
+Water_Sawmill_FishpondStocked_CatchCrayfish_ActionDescription,Catch a crayfish from the pond by hand.,用手从鱼塘捕捉一只小龙虾。
+Water_Sawmill_FishpondWinter_Progress_CardStatName,Crayfish,小龙虾
+Water_Sawmill_FishpondWinter_IceFishSturgeon_ActionName,Ice Fish Sturgeon,冰钓鲟鱼
+Water_Sawmill_FishpondWinter_IceFishSturgeon_ActionDescription,Chop a hole and spear a sturgeon beneath the ice. Reduces the pond's sturgeon population by one.,凿洞并穿冰捕捞一条鲟鱼。鱼塘鲟鱼数量减少1。
+Water_Sawmill_FishpondWinter_IceFishCrayfish_ActionName,Ice Fish Crayfish,冰钓小龙虾
+Water_Sawmill_FishpondWinter_IceFishCrayfish_ActionDescription,Pull a crayfish through a hole chopped in the ice.,凿洞后从冰孔捕捉一只小龙虾。
+Water_Sawmill_FishpondFilled_StockTrout_ActionName,Stock Trout,放养鳟鱼
+Water_Sawmill_FishpondFilled_StockTrout_ActionDescription,Release a live trout into the pond. Increases the trout population by 1 (cap 10). Trout do not breed.,将一条活鳟鱼放入鱼塘。鳟鱼数量增加1（上限10条）。鳟鱼不繁殖。
+Water_Sawmill_FishpondFilled_StockChar_ActionName,Stock Char,放养鲑鱼
+Water_Sawmill_FishpondFilled_StockChar_ActionDescription,Release a live char into the pond. Increases the char population by 1 (cap 10). Char do not breed.,将一条活鲑鱼放入鱼塘。鲑鱼数量增加1（上限10条）。鲑鱼不繁殖。
+Water_Sawmill_FishpondStocked_StockTrout_ActionName,Stock Trout,放养鳟鱼
+Water_Sawmill_FishpondStocked_StockTrout_ActionDescription,Release a live trout into the pond. Increases the trout population by 1 (cap 10). Trout do not breed.,将一条活鳟鱼放入鱼塘。鳟鱼数量增加1（上限10条）。鳟鱼不繁殖。
+Water_Sawmill_FishpondStocked_StockChar_ActionName,Stock Char,放养鲑鱼
+Water_Sawmill_FishpondStocked_StockChar_ActionDescription,Release a live char into the pond. Increases the char population by 1 (cap 10). Char do not breed.,将一条活鲑鱼放入鱼塘。鲑鱼数量增加1（上限10条）。鲑鱼不繁殖。
+Water_Sawmill_FishpondWinter_IceFishTrout_ActionName,Ice Fish Trout,冰钓鳟鱼
+Water_Sawmill_FishpondWinter_IceFishTrout_ActionDescription,Chop a hole and spear a trout beneath the ice. Reduces the pond's trout population by one.,凿洞并穿冰捕捞一条鳟鱼。鱼塘鳟鱼数量减少1。
+Water_Sawmill_FishpondWinter_IceFishChar_ActionName,Ice Fish Char,冰钓鲑鱼
+Water_Sawmill_FishpondWinter_IceFishChar_ActionDescription,Chop a hole and spear a char beneath the ice. Reduces the pond's char population by one.,凿洞并穿冰捕捞一条鲑鱼。鱼塘鲑鱼数量减少1。
+Water_Sawmill_FishpondFilled_SpoilageTime_CardStatName,Sturgeon,鲟鱼
+Water_Sawmill_FishpondFilled_UsageDurability_CardStatName,Trout,鳟鱼
+Water_Sawmill_FishpondFilled_FuelCapacity_CardStatName,Char,鲑鱼
+Water_Sawmill_FishpondStocked_SpoilageTime_CardStatName,Sturgeon,鲟鱼
+Water_Sawmill_FishpondStocked_UsageDurability_CardStatName,Trout,鳟鱼
+Water_Sawmill_FishpondStocked_FuelCapacity_CardStatName,Char,鲑鱼
+Water_Sawmill_FishpondWinter_SpoilageTime_CardStatName,Sturgeon,鲟鱼
+Water_Sawmill_FishpondWinter_UsageDurability_CardStatName,Trout,鳟鱼
+Water_Sawmill_FishpondWinter_FuelCapacity_CardStatName,Char,鲑鱼
+Water_Sawmill_FishpondFilled_CatchSturgeon_ActionName,Catch Sturgeon,捕捞鲟鱼
+Water_Sawmill_FishpondFilled_CatchSturgeon_ActionDescription,Spear a sturgeon from the pond.,用标枪从鱼塘捕捞一条鲟鱼。
+Water_Sawmill_FishpondFilled_CatchTrout_ActionName,Catch Trout,捕捞鳟鱼
+Water_Sawmill_FishpondFilled_CatchTrout_ActionDescription,Spear a trout from the pond.,用标枪从鱼塘捕捞一条鳟鱼。
+Water_Sawmill_FishpondFilled_CatchChar_ActionName,Catch Char,捕捞鲑鱼
+Water_Sawmill_FishpondFilled_CatchChar_ActionDescription,Spear a char from the pond.,用标枪从鱼塘捕捞一条鲑鱼。
+Water_Sawmill_FishpondStocked_CatchSturgeon_ActionName,Catch Sturgeon,捕捞鲟鱼
+Water_Sawmill_FishpondStocked_CatchSturgeon_ActionDescription,Spear a sturgeon from the pond.,用标枪从鱼塘捕捞一条鲟鱼。
+Water_Sawmill_FishpondStocked_CatchTrout_ActionName,Catch Trout,捕捞鳟鱼
+Water_Sawmill_FishpondStocked_CatchTrout_ActionDescription,Spear a trout from the pond.,用标枪从鱼塘捕捞一条鳟鱼。
+Water_Sawmill_FishpondStocked_CatchChar_ActionName,Catch Char,捕捞鲑鱼
+Water_Sawmill_FishpondStocked_CatchChar_ActionDescription,Spear a char from the pond.,用标枪从鱼塘捕捞一条鲑鱼。
+Water_Sawmill_MillRaceNorth_CardName,Mill Race (North),引水渠（北）
+Water_Sawmill_MillRaceNorth_CardDescription,A northward mill race channel segment installed between locations to carry water from a water source.,安装在地点之间、向北引水的引水渠段。
+Water_Sawmill_MillRaceSouth_CardName,Mill Race (South),引水渠（南）
+Water_Sawmill_MillRaceSouth_CardDescription,A southward mill race channel segment installed between locations to carry water from a water source.,安装在地点之间、向南引水的引水渠段。
+Water_Sawmill_MillRaceEast_CardName,Mill Race (East),引水渠（东）
+Water_Sawmill_MillRaceEast_CardDescription,An eastward mill race channel segment installed between locations to carry water from a water source.,安装在地点之间、向东引水的引水渠段。
+Water_Sawmill_MillRaceWest_CardName,Mill Race (West),引水渠（西）
+Water_Sawmill_MillRaceWest_CardDescription,A westward mill race channel segment installed between locations to carry water from a water source.,安装在地点之间、向西引水的引水渠段。
+Water_Sawmill_MillRaceOutletPlaced_CardName,Mill Race Outlet,引水渠出口
+Water_Sawmill_MillRaceOutletPlaced_CardDescription,The downstream end of a mill race outlet. Provides a steady flow of unclean water. Freezes solid in winter.,引水渠出口的下游端。持续提供不洁净的水流。冬季完全结冰。
+Water_Sawmill_MillRaceOutletPlaced_Fill_ActionName,Draw Unclean Water,汲取不洁净的水
+Water_Sawmill_MillRaceOutletPlaced_Fill_ActionDescription,Draw unclean water from the mill race outlet into the container.,从引水渠出口汲取不洁净的水装入容器。
+Water_Sawmill_MillRaceOutletPlaced_PackUp_ActionName,Pack Up,收起
+Water_Sawmill_MillRaceOutletPlaced_PackUp_ActionDescription,Pack up the mill race outlet for relocation.,收起引水渠出口以便迁移。
+Water_Sawmill_MillRaceOutletPlaced_Freeze_ActionName,Freeze,结冰
+Water_Sawmill_MillRaceOutletFrozen_CardName,Mill Race Outlet (Frozen),引水渠出口（冰封）
+Water_Sawmill_MillRaceOutletFrozen_CardDescription,The mill race is frozen solid. Water flow from the river is suspended for the winter. A lit Copper Brazier placed nearby provides enough heat to keep the machinery running. The outlet will thaw and resume flowing in spring.,引水渠已完全结冰。冬季河流水流暂停。附近放置一个点燃的铜制火盆可提供足够热量维持机械运转。出口将在春天解冻并恢复流水。
+Water_Sawmill_MillRaceOutletFrozen_PackUp_ActionName,Pack Up,收起
+Water_Sawmill_MillRaceOutletFrozen_PackUp_ActionDescription,Pack up the frozen mill race outlet for relocation.,收起冰封的引水渠出口以便迁移。
+Water_Sawmill_MillRaceOutletFrozen_Thaw_ActionName,Thaw,解冻
+Water_Sawmill_Bp_MillRaceOutlet_CardName,Mill Race Outlet,引水渠出口
+Water_Sawmill_Bp_MillRaceOutlet_CardDescription,"Build a mill race outlet at any outdoor location (1 hour). Requires a Mill Race, which is consumed in construction. Once built, provides a steady source of unclean water. Freezes solid in winter.",在任意户外地点建造引水渠出口（1小时）。需要一段引水渠，建造时消耗。建成后持续提供不洁净水源。冬季完全结冰。
+Water_Sawmill_Bp_MillRaceOutlet_UnlockConditionsDesc,Requires Mill Race,需要引水渠
+Water_Sawmill_MillRaceOutletKit_CardName,Mill Race Outlet,引水渠出口
+Water_Sawmill_MillRaceOutletKit_CardDescription,A portable mill race outlet ready to be installed at any outdoor location.,可安装在任意户外地点的便携式引水渠出口。
+Water_Sawmill_MillRaceOutletKit_Place_ActionName,Place,放置
+Water_Sawmill_MillRaceOutletKit_Place_ActionDescription,Install the mill race outlet in the current outdoor location.,在当前户外地点安装引水渠出口。
+Water_Sawmill_MillRaceOutletKit_Dismantle_ActionName,Dismantle,拆除
+Water_Sawmill_MillRaceOutletKit_Dismantle_ActionDescription,Break down the mill race outlet and recover all materials.,拆除引水渠出口并回收所有材料。
+Water_Sawmill_WorkshopPlaced_CardName,Water-Driven Workshop,水力工坊
+Water_Sawmill_WorkshopPlaced_CardDescription,A water-powered metalworking workshop with an upgraded forge hammer for higher-quality tools.,配备升级锻锤的水力金属加工工坊，可制造更高品质的工具。
+Water_Sawmill_WorkshopPlaced_PickUp_ActionName,Pack Up,收起
+Water_Sawmill_WorkshopPlaced_PickUp_ActionDescription,Pack up the workshop back into a transportable kit.,将工坊收回为可携带套件。
+Water_Sawmill_WorkshopPlaced_HammerCopperSheet_ActionName,Hammer Copper Sheet,锤打铜片
+Water_Sawmill_WorkshopPlaced_HammerCopperSheet_ActionDescription,Hammer six copper nuggets from the workshop inventory into a copper sheet.,将工坊库存中的六块铜块锤打成一张铜片。
+Water_Sawmill_WorkshopPlaced_ForgeCopperNails_ActionName,Forge Copper Nails,锻造铜钉
+Water_Sawmill_WorkshopPlaced_ForgeCopperNails_ActionDescription,Forge six copper nuggets from the workshop inventory into six copper nails.,将工坊库存中的六块铜块锻造成六枚铜钉。
+Water_Sawmill_WorkshopPlaced_CastMetalLump_ActionName,Cast Metal Lump,铸造金属块
+Water_Sawmill_WorkshopPlaced_CastMetalLump_ActionDescription,Pour four copper nuggets from the workshop inventory into a mold to cast one unfinished metal lump.,将工坊库存中的四块铜块浇入模具铸造一个未成形金属块。
+Water_Sawmill_WorkshopKit_Place_ActionName,Place,放置
+Water_Sawmill_WorkshopKit_Place_ActionDescription,Place the workshop kit into the environment.,将工坊套件放置在环境中。
 Water_Sawmill_MillRaceOutletKit_CardHelpSection,"<b>Place:</b> Install the outlet outdoors to provide a steady flow of unclean water.
 
-<b>Dismantle:</b> Break it down to recover all materials."
+<b>Dismantle:</b> Break it down to recover all materials.","<b>放置：</b> 在户外安装出口以持续提供不洁净水流。
+
+<b>拆除：</b> 拆解以回收所有材料。"
 Water_Sawmill_MillRaceOutletPlaced_CardHelpSection,"<b>Fill containers:</b> Drag an empty water container onto the outlet to draw unclean water.
 
 <b>Winter:</b> The outlet freezes in winter — no water can be drawn until the spring thaw.
 
-<b>Pack Up:</b> Recover the mill race outlet as a portable item for relocation."
+<b>Pack Up:</b> Recover the mill race outlet as a portable item for relocation.","<b>装水：</b> 将空水容器拖至出口汲取不洁净的水。
+
+<b>冬季：</b> 出口在冬天结冰——春天解冻前无法取水。
+
+<b>收起：</b> 将引水渠出口收回为便携物品以便迁移。"
 Water_Sawmill_MillRaceOutletFrozen_CardHelpSection,"<b>Frozen:</b> No water can be drawn during winter.
+
+<b>Copper Brazier:</b> A lit Copper Brazier placed in this area provides enough heat to keep the machinery running, even while the outlet is frozen.
 
 <b>Spring thaw:</b> The outlet automatically resumes when winter ends.
 
-<b>Pack Up:</b> Recover the outlet as a portable item for relocation even when frozen."
-Water_Sawmill_WorkshopPlaced_CardHelpSection,"<b>Requirements:</b> Requires mill race access for water power.
+<b>Pack Up:</b> Recover the outlet as a portable item for relocation even when frozen.","<b>冰封：</b> 冬季无法取水。
 
-<b>Operation:</b> Drag firewood or charcoal onto the workshop forge to feed fuel. Light with embers, press Blast to raise temperature, then drag copper ore onto the hot forge to smelt. Place heated metal tool blanks or copper parts in the inventory, then press Hammer All to apply one water-hammer strike to each item. The workshop hammer improves metal quality while shaping tools.
+<b>铜制火盆：</b> 在此区域放置一个点燃的铜制火盆可提供足够热量维持机械运转，即使出口已冰封。
 
-<b>Accepts:</b> All heated tool blanks, heated lump of metal, copper gear parts, and any item tagged Heatable or Copper."
+<b>春季解冻：</b> 冬季结束时出口自动恢复。
+
+<b>收起：</b> 即使冰封时也可将出口收回为便携物品以便迁移。"
+Water_Sawmill_WorkshopPlaced_CardHelpSection,"<b>Requirements:</b> Requires mill race access for water power. Water-powered actions stop when water is frozen in winter.
+
+<b>Operation:</b> Drag firewood or charcoal onto the workshop forge to feed fuel, then light it with embers. The forge naturally heats to about 1000. Use Blast when water is flowing, or drag Bellows onto the lit forge by hand, to push the temperature high enough for smelting. Place heated metal tool blanks or copper parts in the inventory, then press Hammer All to apply one water-hammer strike to each item while water is flowing. The workshop hammer improves metal quality while shaping tools.
+
+<b>Accepts:</b> All heated tool blanks, heated lump of metal, copper gear parts, and any item tagged Heatable or Copper.","<b>需求：</b> 需要引水渠提供水力。冬季水流冻结时，水力动作会停止。
+
+<b>操作：</b> 将柴火或木炭拖至工坊锻炉补充燃料，然后用余烬点火。锻炉会自然升温至约1000。水流畅通时可使用鼓风，或手动将风箱拖到已点燃的锻炉上，将温度推高到足以冶炼。将加热的金属工具坯料或铜零件放入库存，然后在水流畅通时按全部锤打对每件物品施加一次水力锤击。工坊锻锤在塑形工具时提升金属品质。
+
+<b>接受：</b> 所有加热工具坯料、加热金属块、铜齿轮零件，以及任何带有可加热或铜标签的物品。"
+Water_Sawmill_CopperGearSmall_CardName,Small Copper Gear
+Water_Sawmill_CopperGearSmall_CardDescription,A small cast copper gear used in water-driven machinery. Can be smelted back into copper nuggets.
+Water_Sawmill_CopperGearSmall_CardHelpSection,"<b>Purpose:</b> Component for water-driven machinery.
+
+<b>Used in:</b> Sawmills, workshops, and other water-powered devices."
+Water_Sawmill_CopperGearSmall_FuelCapacity_CardStatName,Temperature
+Water_Sawmill_CopperGearLarge_CardName,Large Copper Gear
+Water_Sawmill_CopperGearLarge_CardDescription,A large cast copper gear used in water-driven machinery. Can be smelted back into copper nuggets.
+Water_Sawmill_CopperGearLarge_CardHelpSection,"<b>Purpose:</b> Component for water-driven machinery.
+
+<b>Used in:</b> Sawmills, workshops, and other water-powered devices."
+Water_Sawmill_CopperGearLarge_FuelCapacity_CardStatName,Temperature
+Water_Sawmill_CopperSawBlade_CardName,Copper Saw Blade
+Water_Sawmill_CopperSawBlade_CardDescription,A large cast copper saw blade for use in a water-driven sawmill. Can be smelted back into copper nuggets.
+Water_Sawmill_CopperSawBlade_CardHelpSection,<b>Purpose:</b> Cutting component for the water-driven sawmill.
+Water_Sawmill_CopperSawBlade_FuelCapacity_CardStatName,Temperature
+Water_Sawmill_IronParts_CardName,Iron Parts
+Water_Sawmill_IronParts_CardDescription,A set of heavy wrought iron fittings for reinforcing water-driven machinery.
+Water_Sawmill_IronParts_CardHelpSection,"<b>Purpose:</b> Reinforcement component for advanced water-driven machinery.
+
+<b>Used in:</b> Water-driven sawmill, forge, and workshop kits."
+Water_Sawmill_IronBearing_CardName,Iron Bearing
+Water_Sawmill_IronBearing_CardDescription,A wrought iron bearing for supporting the heavy rotating shaft of a water-driven workshop.
+Water_Sawmill_IronBearing_CardHelpSection,"<b>Purpose:</b> Rotating support component for advanced water-driven machinery.
+
+<b>Used in:</b> Water-driven sawmill, forge, grinding mill, ore sluice, and workshop kits."
+Water_Sawmill_IronAxle_CardName,Iron Axle
+Water_Sawmill_IronAxle_CardDescription,A wrought iron axle for transferring rotation through heavy water-driven machinery.
+Water_Sawmill_IronAxle_CardHelpSection,"<b>Purpose:</b> Drive-shaft component for advanced water-driven machinery.
+
+<b>Used in:</b> Water-driven sawmill, forge, grinding mill, ore sluice, and workshop kits."
+Water_Sawmill_Bp_CastCopperGearSmall_CardName,Cast Small Copper Gear
+Water_Sawmill_Bp_CastCopperGearSmall_CardDescription,"Cast a small copper gear in a mud-brick and clay mold using a small crucible of molten copper, then break it open with a hammer."
+Water_Sawmill_Bp_CastCopperGearSmall_UnlockConditionsDesc,Small Crucible of Molten Copper Needed
+Water_Sawmill_Bp_CastCopperGearLarge_CardName,Cast Large Copper Gear
+Water_Sawmill_Bp_CastCopperGearLarge_CardDescription,"Cast a large copper gear in a mud-brick and clay mold using a large crucible of molten copper, then break it open with a hammer."
+Water_Sawmill_Bp_CastCopperGearLarge_UnlockConditionsDesc,Large Crucible of Molten Copper Needed
+Water_Sawmill_Bp_CastCopperSawBlade_CardName,Cast Copper Saw Blade
+Water_Sawmill_Bp_CastCopperSawBlade_CardDescription,"Cast a copper saw blade in a clay mold using two large crucibles of molten copper, then break it open with a hammer."
+Water_Sawmill_Bp_CastCopperSawBlade_UnlockConditionsDesc,Large Crucible of Molten Copper Needed
+Water_Sawmill_Bp_IronParts_CardName,Forge Iron Parts
+Water_Sawmill_Bp_IronParts_CardDescription,Forge two iron parts from one iron bar.
+Water_Sawmill_Bp_IronParts_UnlockConditionsDesc,Wrought Iron Bar Needed
+Water_Sawmill_Bp_IronBearing_CardName,Forge Iron Bearing
+Water_Sawmill_Bp_IronBearing_CardDescription,Forge one heavy iron bearing from a wrought iron bar.
+Water_Sawmill_Bp_IronBearing_UnlockConditionsDesc,Wrought Iron Bar Needed
+Water_Sawmill_Bp_IronAxle_CardName,Forge Iron Axle
+Water_Sawmill_Bp_IronAxle_CardDescription,Forge one heavy iron axle from a wrought iron bar.
+Water_Sawmill_Bp_IronAxle_UnlockConditionsDesc,Wrought Iron Bar Needed
