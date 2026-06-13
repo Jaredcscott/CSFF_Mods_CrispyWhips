@@ -165,7 +165,7 @@
           "SpoilageRange": {"x": 0.0, "y": 0.0},
           "UsageRange": {"x": 0.0, "y": 0.0},
           "FuelRange": {"x": 0.0, "y": 0.0},
-          "ProgressRange": {"x": 1.0, "y": 1.0},
+          "ProgressRange": {"x": 0.01, "y": 99.0},
           "Special1Range": {"x": 0.0, "y": 0.0},
           "Special2Range": {"x": 0.0, "y": 0.0},
           "Special3Range": {"x": 0.0, "y": 0.0},

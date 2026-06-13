@@ -185,6 +185,31 @@ public static class GameQuery
         }
     }
 
+    /// <summary>
+    /// True if the player is currently inside an instanced environment (cabin, mud hut, cellar,
+    /// enclosure, mine, coop, etc.). Returns false when outdoors or before game init.
+    /// </summary>
+    public static bool IsInInstancedEnvironment
+    {
+        get
+        {
+            if (!TryResolve()) return false;
+            var gm = GetGM();
+            if (gm == null) return false;
+            try
+            {
+                var env = _currentEnvProp?.GetValue(gm, null);
+                if (env == null) return false;
+                var envCard = CardUtil.GetMemberValue(env, "EnvCard");
+                if (envCard == null) return false;
+                var isInstanced = CardUtil.GetMemberValue(envCard, "InstancedEnvironment");
+                return isInstanced is true;
+            }
+            catch { }
+            return false;
+        }
+    }
+
     /// <summary>True while the player is transitioning between environments.</summary>
     public static bool IsTransitioning
     {

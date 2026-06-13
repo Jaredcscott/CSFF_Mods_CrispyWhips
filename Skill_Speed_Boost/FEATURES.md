@@ -95,10 +95,12 @@ Set Blade_Multiplier = 3     (fast melee)
 **What:** Named presets that set multiple settings at once with a single config key.
 
 **Settings:**
-- `ActiveProfile` (default: `""`) — Set to a profile name to apply it: `VanillaPlus`, `Casual`, `Hardcore`, `Grinder`, `Balanced`, `Legacy`
+- `ActiveProfile` (default: `"None"`) — Set to a profile name to apply it: `VanillaPlus`, `Casual`, `Hardcore`, `Grinder`, `Balanced`, `Legacy`
 
 **How It Works:**
 - Applying a profile sets `SkillExpMultiplier` and `EnableSkillStaleness` to preset values
+- Applied automatically on startup from saved config; also fires immediately when changed at runtime
+- ExpMultiplier takes effect immediately; staleness changes take effect after reloading a save
 - Overriding any individual setting still works — the profile is a starting point
 
 ---

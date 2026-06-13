@@ -102,14 +102,18 @@ namespace Herbs_And_Fungi.Patcher
                 // Add mushroom drops to vanilla foraging actions (following ColdWinds' technique)
                 AddMushroomDropsToForaging(allDataEnumerable);
 
+                // Cache CardTag scan once for both fermentable-tag and pouch-patch methods
+                var cardTagType = AccessTools.TypeByName("CardTag");
+                var allCardTags = cardTagType != null ? Resources.FindObjectsOfTypeAll(cardTagType) : null;
+
                 // Extend vanilla Turnroot/Fireroot with tag_Fermentable so they work in the pickle vat
-                AddFermentableTagToVanillaRoots(allDataEnumerable);
+                AddFermentableTagToVanillaRoots(allDataEnumerable, allCardTags);
 
                 // Accelerate Tendon drying on the vanilla DryingRack and ACT Tea Blending Station
                 AddTendonDryingRecipe(allDataEnumerable);
 
                 // Allow the vanilla Pouch to store herb/mushroom powders
-                PatchVanillaPouchForPowderStorage(allDataEnumerable);
+                PatchVanillaPouchForPowderStorage(allDataEnumerable, allCardTags);
 
                 // Populate the four pickleable GpTags (auto-created by framework) with raw-only ingredient lists
                 GpTagContentPatch.Populate();
@@ -871,24 +875,21 @@ namespace Herbs_And_Fungi.Patcher
         /// Appends tag_Fermentable to vanilla TurnrootFresh and FirerootFresh so they can be placed
         /// into the H&F pickle vat alongside tagged mod items.
         /// </summary>
-        static void AddFermentableTagToVanillaRoots(IEnumerable allDataEnumerable)
+        static void AddFermentableTagToVanillaRoots(IEnumerable allDataEnumerable, UnityEngine.Object[] allCardTags)
         {
             try
             {
                 const string TurnrootGuid = "ac174c399999d14489fb3788c8931e93";
                 const string FirerootGuid = "5ad63f32ed767c64190a64d79841d023";
 
-                // Locate tag_Fermentable CardTag via Resources.FindObjectsOfTypeAll on the CardTag type
-                var cardTagType = AccessTools.TypeByName("CardTag");
-                if (cardTagType == null)
+                if (allCardTags == null || allCardTags.Length == 0)
                 {
-                    Logger?.LogError("[FermentableTag] CardTag type not found.");
+                    Logger?.LogError("[FermentableTag] CardTag scan was empty.");
                     return;
                 }
 
                 UnityEngine.Object fermentableTag = null;
-                var allTags = Resources.FindObjectsOfTypeAll(cardTagType);
-                foreach (var tag in allTags)
+                foreach (var tag in allCardTags)
                 {
                     if (tag == null) continue;
                     if (tag.name == "tag_Fermentable") { fermentableTag = tag; break; }
@@ -1093,7 +1094,7 @@ namespace Herbs_And_Fungi.Patcher
         /// function as a powder container. Sets MaxWeightCapacity and adds tag_Powder /
         /// tag_PowderLiquid to its InventoryFilter so H&amp;F ground herbs fit inside.
         /// </summary>
-        static void PatchVanillaPouchForPowderStorage(IEnumerable allDataEnumerable)
+        static void PatchVanillaPouchForPowderStorage(IEnumerable allDataEnumerable, UnityEngine.Object[] allCardTags)
         {
             const string PouchGuid = "80fb7f8100618414d9abb10dec0e31a5";
             const BindingFlags Flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
@@ -1120,13 +1121,14 @@ namespace Herbs_And_Fungi.Patcher
                 if (weightField == null) { Logger?.LogError("[PouchPatch] MaxWeightCapacity field not found."); return; }
                 weightField.SetValue(pouch, 100.0f);
 
-                // Find tag_Powder and tag_PowderLiquid – created at runtime by the framework
-                // when it processes H&F items that carry those tags.
-                var cardTagType = AccessTools.TypeByName("CardTag");
-                if (cardTagType == null) { Logger?.LogError("[PouchPatch] CardTag type not found."); return; }
+                if (allCardTags == null || allCardTags.Length == 0)
+                {
+                    Logger?.LogWarning("[PouchPatch] CardTag scan was empty; powder filter not added.");
+                    return;
+                }
 
                 UnityEngine.Object tagPowder = null, tagPowderLiquid = null;
-                foreach (var tag in Resources.FindObjectsOfTypeAll(cardTagType))
+                foreach (var tag in allCardTags)
                 {
                     if (tag == null) continue;
                     if (tag.name == "tag_Powder")       tagPowder       = tag;
@@ -1186,7 +1188,7 @@ namespace Herbs_And_Fungi.Patcher
                 // Write the (potentially boxed) filter struct back onto the card
                 filterField.SetValue(pouch, filterObj);
 
-                Logger?.LogInfo("[PouchPatch] Vanilla Pouch patched: capacity=100, accepts tag_Powder + tag_PowderLiquid.");
+                Logger?.LogDebug("[PouchPatch] Vanilla Pouch patched: capacity=100, accepts tag_Powder + tag_PowderLiquid.");
             }
             catch (Exception ex)
             {

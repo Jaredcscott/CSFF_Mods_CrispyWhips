@@ -82,6 +82,7 @@ namespace WaterDrivenInfrastructure.Patcher
             { "advanced_copper_tools_wearable_metal_pan",  5  },  // pan(4) + nail(1)
             { "advanced_copper_tools_lantern_oilwell",     6  },  // 1 sheet
             { "advanced_copper_tools_metal_lantern",       18 },  // oilwell(6) + 2 sheets(12)
+            { "advanced_copper_tools_metal_lantern_lit",   18 },  // same as unlit
             { "advanced_copper_tools_copper_tea_kettle",   18 },  // 3 sheets
             { "advanced_copper_tools_copper_cauldron",     34 },  // 5 sheets(30) + 4 nails(4)
             { "advanced_copper_tools_copper_pantry",       30 },  // 4 sheets(24) + 6 nails(6)
@@ -111,8 +112,20 @@ namespace WaterDrivenInfrastructure.Patcher
         private const float  NuggetIronType      = 200f; // Iron Nugget
         private const float  NuggetCopperType    = 100f; // Copper Nugget
         private const float  NuggetTinType       = 120f; // Tin Nugget
-        private const float  NuggetSluiceQuality =  35f; // SD1/SD2/SD3 quality on spawned nuggets
+        private const float  NuggetSluiceQuality =   5f; // SD1/SD2/SD3 quality on spawned nuggets
+        private const float  NuggetSmeltQuality  =  50f; // SD1/SD2/SD3 quality on iron smelt nuggets
         private const int    NuggetInitRetryFrames = 5;
+
+        // Iron item OnFull smelting (WDI iron items → 4x iron MetalNugget)
+        private const string MetalBarFinishedGUID = "14f7ddfe60496b54881d5a25de8abb20"; // kept for reference
+        private const float  IronBarMetalType     = 200f; // SpecialDurability4 value for iron type
+        private static readonly HashSet<string> IronSmeltItemIds = new HashSet<string>(StringComparer.Ordinal)
+        {
+            "water_sawmill_iron_parts",
+            "water_sawmill_iron_bearing",
+            "water_sawmill_iron_axle",
+            "water_sawmill_iron_wrench",
+        };
 
         // Fish caught from ponds should spawn at 75% quality (SpecialDurability2 = 72/96)
         // and with vanilla fresh-caught weight (SpecialDurability1), which controls gutting portions.
@@ -215,6 +228,21 @@ namespace WaterDrivenInfrastructure.Patcher
                 {
                     harmony.Patch(performAction, prefix: new HarmonyMethod(typeof(ActionInterceptPatch), nameof(PerformActionAsEnum_Prefix)) { priority = Priority.High });
                 }
+
+                // GiveCard postfix — set Metal Type=200 on MetalBarFinished from iron item OnFull
+                var giveCardForPatch = gmType?.GetMethods(Flags).FirstOrDefault(m =>
+                    m.Name == "GiveCard" && !m.IsGenericMethod &&
+                    m.GetParameters().Length >= 1 &&
+                    m.GetParameters()[0].ParameterType.Name.Contains("CardData"));
+                if (giveCardForPatch != null)
+                {
+                    harmony.Patch(giveCardForPatch,
+                        postfix: new HarmonyMethod(typeof(ActionInterceptPatch), nameof(GiveCard_Postfix)));
+                }
+                else
+                {
+                    Logger?.LogDebug("[ActionIntercept] GiveCard not found at patch time; iron bar metal type uses fallback");
+                }
             }
             catch (Exception ex)
             {
@@ -298,7 +326,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     }
                 }
 
-                if (string.Equals(cardId, WorkshopID, StringComparison.Ordinal) && IsHammerAllAction(__0))
+                if (string.Equals(cardId, WorkshopID, StringComparison.Ordinal) && IsHammerAllAction(__0) && _hammerDrainDepth == 0)
                 {
                     // Let the original JSON action run for its DaytimeCost:2 timing and keep the
                     // menu open (ModType:0 never closes the card popup). The postfix wraps the
@@ -316,10 +344,10 @@ namespace WaterDrivenInfrastructure.Patcher
                 }
 
                 var workshopCraft = GetWorkshopCraftKind(__0);
-                if (string.Equals(cardId, WorkshopID, StringComparison.Ordinal) && workshopCraft != WorkshopCraftKind.None)
+                if (string.Equals(cardId, WorkshopID, StringComparison.Ordinal) && workshopCraft != WorkshopCraftKind.None && _craftDrainDepth == 0)
                 {
                     int cost = GetCraftCost(workshopCraft);
-                    if (CountInventoryCards(receivingCard, CopperNuggetGUID) < cost)
+                    if (CountCopperNuggets(receivingCard) < cost)
                     {
                         Logger?.LogDebug($"[ActionIntercept] {workshopCraft}: needs {cost} copper nuggets in workshop inventory");
                         return SkipOriginalWithResult(ref __result, receivingCard);
@@ -334,7 +362,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 // Returns false to skip the JSON 33/33/33 produced cards if we have tracking
                 // data; otherwise returns true so JSON fallback fires.
                 if ((cardId == FishpondFilledID || cardId == FishpondStockedID)
-                    && actionName == "Catch Other Fish")
+                    && actionName == "Catch Other Fish" && _fishDrainDepth == 0)
                 {
                     bool allowVanilla = HandleCatchOtherFish(receivingCard);
                     if (!allowVanilla)
@@ -347,7 +375,7 @@ namespace WaterDrivenInfrastructure.Patcher
 
                 // "Catch X" / "Ice Fish X" DismantleActions — postfix wrapper sets SD2 quality.
                 bool isFishpondAny = cardId == FishpondFilledID || cardId == FishpondStockedID || cardId == FishpondWinterID;
-                if (isFishpondAny && IsFishCatchAction(actionName))
+                if (isFishpondAny && IsFishCatchAction(actionName) && _fishDrainDepth == 0)
                     _pendingFishCatchCard = receivingCard;
             }
             catch (Exception ex)
@@ -395,9 +423,14 @@ namespace WaterDrivenInfrastructure.Patcher
 
         private static IEnumerator HammerAllAfterAction(IEnumerator original, object forge)
         {
-            if (original != null)
-                while (original.MoveNext())
-                    yield return original.Current;
+            _hammerDrainDepth++;
+            try
+            {
+                if (original != null)
+                    while (original.MoveNext())
+                        yield return original.Current;
+            }
+            finally { _hammerDrainDepth--; }
             HandleHammerAll(forge, workshopQualityBoost: true);
         }
 
@@ -411,9 +444,14 @@ namespace WaterDrivenInfrastructure.Patcher
 
         private static IEnumerator WorkshopCraftAfterAction(IEnumerator original, object workshop, WorkshopCraftKind kind)
         {
-            if (original != null)
-                while (original.MoveNext())
-                    yield return original.Current;
+            _craftDrainDepth++;
+            try
+            {
+                if (original != null)
+                    while (original.MoveNext())
+                        yield return original.Current;
+            }
+            finally { _craftDrainDepth--; }
             HandleWorkshopCraft(workshop, kind);
         }
 
@@ -474,11 +512,33 @@ namespace WaterDrivenInfrastructure.Patcher
             int totalNuggets = 0;
             foreach (var (_, n) in toSmelt) totalNuggets += n;
 
-            Logger?.LogDebug($"[ActionIntercept] BlastAll: smelting {toSmelt.Count} item(s) → {totalNuggets} copper nugget(s)");
+            // Nuggets inherit the best smelted item's quality percentage (never below
+            // NuggetSmeltQuality) — machine processing must never lower quality.
+            float bestQualityPct = 0f;
+            foreach (var (item, _) in toSmelt)
+            {
+                float v = GetDurabilityStatValue(item, "SpecialDurability2");
+                if (float.IsNaN(v) || v <= 0f) continue;
+                float m = GetDurabilityStatMaxValue(item, "SpecialDurability2");
+                float pct = (!float.IsNaN(m) && m > 0f) ? v / m : v / 100f;
+                if (pct > bestQualityPct) bestQualityPct = pct;
+            }
+
+            Logger?.LogDebug($"[ActionIntercept] BlastAll: smelting {toSmelt.Count} item(s) → {totalNuggets} copper nugget(s), quality {bestQualityPct:P0}");
 
             InitSpawnReflection();
             for (int i = 0; i < totalNuggets; i++)
-                SpawnResultOnBoard(CopperNuggetGUID);
+            {
+                var nugget = SpawnResultOnBoard(CopperNuggetGUID);
+                if (nugget == null) continue;
+                foreach (var stat in new[] { "SpecialDurability1", "SpecialDurability2", "SpecialDurability3" })
+                {
+                    float max = GetDurabilityStatMaxValue(nugget, stat);
+                    if (float.IsNaN(max) || max <= 0f) max = 100f;
+                    SetMinimumDurabilityStatValue(nugget, stat, Math.Max(bestQualityPct * max, NuggetSmeltQuality));
+                }
+                RefreshCardDurabilityVisuals(nugget);
+            }
 
             EjectCardsFromStructure(workshop, toSmelt.Select(t => t.item));
         }
@@ -585,7 +645,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     return SkipOriginalWithResult(ref __result, receivingCard);
                 }
 
-                if (string.Equals(cardId, WorkshopID, StringComparison.Ordinal) && IsHammerAllAction(action))
+                if (string.Equals(cardId, WorkshopID, StringComparison.Ordinal) && IsHammerAllAction(action) && _hammerDrainDepth == 0)
                 {
                     // Let the original JSON action run for its DaytimeCost timing and
                     // to keep the card popup open (ModType:0 never closes it).
@@ -596,10 +656,10 @@ namespace WaterDrivenInfrastructure.Patcher
                 }
 
                 var workshopCraft = GetWorkshopCraftKind(action);
-                if (string.Equals(cardId, WorkshopID, StringComparison.Ordinal) && workshopCraft != WorkshopCraftKind.None)
+                if (string.Equals(cardId, WorkshopID, StringComparison.Ordinal) && workshopCraft != WorkshopCraftKind.None && _craftDrainDepth == 0)
                 {
                     int cost = GetCraftCost(workshopCraft);
-                    if (CountInventoryCards(receivingCard, CopperNuggetGUID) < cost)
+                    if (CountCopperNuggets(receivingCard) < cost)
                     {
                         Logger?.LogDebug($"[ActionIntercept] {workshopCraft}: needs {cost} copper nuggets in workshop inventory");
                         ClearDragState(givenCard);
@@ -626,7 +686,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 // Set pending flag so the postfix wrapper can apply quality after spawn.
                 {
                     bool isFishpondAny = cardId == FishpondFilledID || cardId == FishpondStockedID || cardId == FishpondWinterID;
-                    if (isFishpondAny && IsFishCatchAction(actionName))
+                    if (isFishpondAny && IsFishCatchAction(actionName) && _fishDrainDepth == 0)
                         _pendingFishCatchCard = receivingCard;
                 }
 
@@ -639,6 +699,14 @@ namespace WaterDrivenInfrastructure.Patcher
                         ClearDragState(givenCard);
                         return SkipOriginalWithResult(ref __result, sluiceCard);
                     }
+                }
+
+                // Iron item OnFull fires when Progress=MaxValue; snapshot existing nugget IDs
+                // so the postfix fallback can identify the newly spawned iron nuggets.
+                if (IronSmeltItemIds.Contains(cardId))
+                {
+                    _preIronSmeltBarIds = SnapshotCardIdsByUniqueId(CopperNuggetGUID);
+                    _pendingIronSmelt = true;
                 }
 
                 return true;
@@ -675,6 +743,14 @@ namespace WaterDrivenInfrastructure.Patcher
                 _pendingFishCatchCard = null;
                 var original = __result;
                 __result = SetFishStatsAfterCatch(original, card);
+            }
+            else if (_pendingIronSmelt)
+            {
+                _pendingIronSmelt = false;
+                var preIds = _preIronSmeltBarIds;
+                _preIronSmeltBarIds = null;
+                var original = __result;
+                __result = SetIronBarTypeAfterSmelt(original, preIds);
             }
         }
 
@@ -800,15 +876,23 @@ namespace WaterDrivenInfrastructure.Patcher
             InitSpawnReflection();
             if (_giveCardMethod != null && _gmType != null)
             {
-                foreach (var (_, resultId) in toGrind)
-                    SpawnResultOnBoard(resultId);
+                foreach (var (sourceCard, resultId) in toGrind)
+                {
+                    var spawned = SpawnResultOnBoard(resultId);
+                    if (spawned != null)
+                    {
+                        TransferQualityPercent(sourceCard, spawned, "SpecialDurability2");
+                        TransferQualityPercent(sourceCard, spawned, "SpecialDurability3");
+                        RefreshCardDurabilityVisuals(spawned);
+                    }
+                }
             }
 
             EjectSourceCardsFromMill(mill, toGrind);
             return false;
         }
 
-        private static void SpawnResultOnBoard(string uniqueId)
+        private static object SpawnResultOnBoard(string uniqueId)
         {
             try
             {
@@ -816,11 +900,11 @@ namespace WaterDrivenInfrastructure.Patcher
                 if (cardData == null)
                 {
                     Logger?.LogError($"[ActionIntercept] GrindAll: CardData not found for '{uniqueId}'");
-                    return;
+                    return null;
                 }
                 var gm = _gmType.GetProperty("Instance", BindingFlags.Public | BindingFlags.Static)?.GetValue(null)
                       ?? UnityEngine.Object.FindObjectOfType(_gmType);
-                if (gm == null) { Logger?.LogError("[ActionIntercept] GrindAll: GameManager instance not found"); return; }
+                if (gm == null) { Logger?.LogError("[ActionIntercept] GrindAll: GameManager instance not found"); return null; }
 
                 var parms = _giveCardMethod.GetParameters();
                 var args = new object[parms.Length];
@@ -830,12 +914,14 @@ namespace WaterDrivenInfrastructure.Patcher
                     var pt = parms[i].ParameterType;
                     args[i] = pt.IsValueType ? Activator.CreateInstance(pt) : null;
                 }
-                _giveCardMethod.Invoke(gm, args);
+                var spawned = _giveCardMethod.Invoke(gm, args);
                 Logger?.Log(LogLevel.Debug, $"[ActionIntercept] GrindAll: spawned '{uniqueId}' on board");
+                return spawned;
             }
             catch (Exception ex)
             {
                 Logger?.LogError($"[ActionIntercept] SpawnResultOnBoard({uniqueId}) failed: {ex.InnerException?.Message ?? ex.Message}");
+                return null;
             }
         }
 
@@ -1054,23 +1140,32 @@ namespace WaterDrivenInfrastructure.Patcher
         private static IEnumerator SetFishStatsAfterCatch(IEnumerator original, object pond)
         {
             var preIds = SnapshotFishCardIds();
-            if (original != null)
-                while (original.MoveNext())
-                    yield return original.Current;
+            _fishDrainDepth++;
+            try
+            {
+                if (original != null)
+                    while (original.MoveNext())
+                        yield return original.Current;
+            }
+            finally { _fishDrainDepth--; }
 
-            yield return SpendFishCatchPostSpawnTime(pond);
+            // One frame for GiveCard to register the spawned fish in AllCards
+            yield return null;
 
+            // Apply stats immediately so the fish is ready before the tick animates
             int updated = ApplyFishCaughtStats(preIds, FishCaughtQuality, includeZeroQualityExisting: true);
             if (updated == 0)
             {
                 yield return null;
                 updated = ApplyFishCaughtStats(preIds, FishCaughtQuality, includeZeroQualityExisting: true);
             }
+
+            // Tick runs after stats are set — fish is already at proper quality when time advances
+            yield return SpendFishCatchPostSpawnTime(pond);
+
+            // Final fallback for late-spawn edge cases
             if (updated == 0)
-            {
-                yield return null;
-                updated = ApplyFishCaughtStats(preIds, FishCaughtQuality, includeZeroQualityExisting: true);
-            }
+                ApplyFishCaughtStats(preIds, FishCaughtQuality, includeZeroQualityExisting: true);
         }
 
         private static void StartDelayedFishInitialization(HashSet<int> preIds, object pond)
@@ -1095,7 +1190,6 @@ namespace WaterDrivenInfrastructure.Patcher
         private static IEnumerator ApplyFishStatsAfterSpawn(HashSet<int> preIds, object pond)
         {
             yield return null;
-            yield return SpendFishCatchPostSpawnTime(pond);
 
             int updated = ApplyFishCaughtStats(preIds, FishCaughtQuality, includeZeroQualityExisting: true);
             if (updated == 0)
@@ -1103,6 +1197,11 @@ namespace WaterDrivenInfrastructure.Patcher
                 yield return null;
                 updated = ApplyFishCaughtStats(preIds, FishCaughtQuality, includeZeroQualityExisting: true);
             }
+
+            yield return SpendFishCatchPostSpawnTime(pond);
+
+            if (updated == 0)
+                ApplyFishCaughtStats(preIds, FishCaughtQuality, includeZeroQualityExisting: true);
         }
 
         private static HashSet<int> SnapshotFishCardIds()
@@ -1422,6 +1521,94 @@ namespace WaterDrivenInfrastructure.Patcher
         }
 
         // ============================================================
+        //  IRON ITEM SMELTING — set Metal Type=200 + quality on spawned iron nuggets
+        //  Iron items (Parts/Bearing/Axle/Wrench) use progress-based OnFull to smelt.
+        //  ProducedCards spawns MetalNugget x4 at SD4=0; we fix type and quality here.
+        // ============================================================
+
+        static void GiveCard_Postfix(object __result)
+        {
+            try
+            {
+                if (__result == null) return;
+                if (CardUtil.GetCardUniqueId(__result) != CopperNuggetGUID) return;
+
+                float sd4 = GetDurabilityStatValue(__result, "SpecialDurability4");
+                if (!float.IsNaN(sd4) && sd4 > 0f) return; // already typed by sluice or other path
+
+                if (IsIronSmeltPending())
+                {
+                    bool ok = SetDurabilityStatValue(__result, "SpecialDurability4", IronBarMetalType);
+                    ok &= SetMinimumDurabilityStatValue(__result, "SpecialDurability1", NuggetSmeltQuality);
+                    ok &= SetMinimumDurabilityStatValue(__result, "SpecialDurability2", NuggetSmeltQuality);
+                    ok &= SetMinimumDurabilityStatValue(__result, "SpecialDurability3", NuggetSmeltQuality);
+                    if (ok) Logger?.LogDebug("[ActionIntercept] IronSmelt (GiveCard): set Type=200 quality=50 on iron nugget");
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger?.LogError($"[ActionIntercept] GiveCard_Postfix: {ex.Message}");
+            }
+        }
+
+        private static bool IsIronSmeltPending()
+        {
+            try
+            {
+                foreach (var card in EnumerateKnownCards())
+                {
+                    if (!IronSmeltItemIds.Contains(CardUtil.GetCardUniqueId(card))) continue;
+                    float progress = GetDurabilityStatValue(card, "Progress");
+                    float max = GetDurabilityStatMaxValue(card, "Progress");
+                    if (!float.IsNaN(progress) && !float.IsNaN(max) && max > 0f && progress >= max)
+                        return true;
+                }
+            }
+            catch { }
+            return false;
+        }
+
+        private static IEnumerator SetIronBarTypeAfterSmelt(IEnumerator original, HashSet<int> preIds)
+        {
+            if (original != null)
+                while (original.MoveNext())
+                    yield return original.Current;
+
+            if (ApplyIronBarType(preIds) == 0)
+            {
+                yield return null;
+                ApplyIronBarType(preIds);
+            }
+        }
+
+        private static int ApplyIronBarType(HashSet<int> preIds)
+        {
+            int updated = 0;
+            try
+            {
+                foreach (var card in EnumerateKnownCards())
+                {
+                    if (CardUtil.GetCardUniqueId(card) != CopperNuggetGUID) continue;
+                    if (card is UnityEngine.Object uo && preIds != null && preIds.Contains(uo.GetInstanceID())) continue;
+
+                    float sd4 = GetDurabilityStatValue(card, "SpecialDurability4");
+                    if (!float.IsNaN(sd4) && sd4 > 0f) continue; // already typed
+
+                    bool ok = SetDurabilityStatValue(card, "SpecialDurability4", IronBarMetalType);
+                    ok &= SetMinimumDurabilityStatValue(card, "SpecialDurability1", NuggetSmeltQuality);
+                    ok &= SetMinimumDurabilityStatValue(card, "SpecialDurability2", NuggetSmeltQuality);
+                    ok &= SetMinimumDurabilityStatValue(card, "SpecialDurability3", NuggetSmeltQuality);
+                    if (ok) updated++;
+                }
+            }
+            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] ApplyIronBarType: {ex.Message}"); }
+
+            if (updated > 0)
+                Logger?.LogDebug($"[ActionIntercept] IronSmelt: set Type=200 quality=50 on {updated} iron nugget(s)");
+            return updated;
+        }
+
+        // ============================================================
         //  WATER-DRIVEN FORGE - apply one hammer strike to all inventory items
         // ============================================================
         private static bool   _hammerHandled;
@@ -1429,10 +1616,24 @@ namespace WaterDrivenInfrastructure.Patcher
         private static object _pendingHammerAllCard = null;
         private static object _pendingBlastAllCard  = null;
         private static object _pendingWorkshopCraftCard = null;
+
+        // Drain-depth guards: one button press can route through BOTH
+        // PerformStackActionRoutine and ActionRoutine (the stack routine calls
+        // ActionRoutine internally), and both prefixes would set a pending wrap.
+        // Whether the duplicate handler call survives the frame guard depends on
+        // how vanilla nests the coroutines — doubled strikes when the outer wrapper
+        // finishes a frame later, or a dropped legitimate press in the same frame.
+        // Depth > 0 means an outer wrapper is already draining this press: the
+        // inner routine must not wrap again.
+        private static int _hammerDrainDepth;
+        private static int _craftDrainDepth;
+        private static int _fishDrainDepth;
         private static WorkshopCraftKind _pendingWorkshopCraftKind = WorkshopCraftKind.None;
         private static int _lastWorkshopCraftFrame = -1;
         private static object _pendingFishCatchCard = null;
         private static readonly HashSet<int> _initializedFishCatchIds = new HashSet<int>();
+        private static bool _pendingIronSmelt = false;
+        private static HashSet<int> _preIronSmeltBarIds = null;
         private static MethodInfo _spendDaytimePointsMethod;
         private static Type _cardBaseType;
 
@@ -1530,6 +1731,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     // Accumulating-counter items (e.g. ACT shaped metal): no on-zero transform,
                     // so SD1 counts strikes UP. Increment by 1 per Hammer All press.
                     IncrementAccumulatingStrikeCount(card);
+                    RefreshCardDurabilityVisuals(card);
                 }
                 if (boosted > 0)
                     Logger?.Log(LogLevel.Debug, $"[ActionIntercept] HammerAll: workshop quality boosted {boosted} item(s)");
@@ -1551,11 +1753,13 @@ namespace WaterDrivenInfrastructure.Patcher
                     if (!float.IsNaN(curFuel))
                         SetDurabilityStatValue(card, "FuelCapacity", Math.Max(0f, curFuel + fuelChange));
                 }
+                RefreshCardDurabilityVisuals(card);
             }
 
             foreach (var (card, resultId, s1Change, fuelChange, transferStats) in toComplete)
                 CompleteHammeredCard(card, resultId, s1Change, fuelChange, transferStats);
 
+            RefreshOpenInventoryPopup();
             return false;
         }
 
@@ -1568,7 +1772,7 @@ namespace WaterDrivenInfrastructure.Patcher
             _lastWorkshopCraftFrame = frame;
 
             int cost = GetCraftCost(kind);
-            if (!TryConsumeInventoryCards(workshop, CopperNuggetGUID, cost))
+            if (!TryConsumeCopperNuggets(workshop, cost))
             {
                 Logger?.LogDebug($"[ActionIntercept] {kind}: not enough copper nuggets in workshop inventory at completion");
                 return false;
@@ -1621,11 +1825,20 @@ namespace WaterDrivenInfrastructure.Patcher
             float curS1 = GetDurabilityStatValue(card, "SpecialDurability1");
             if (float.IsNaN(curS1)) return;
 
-            // Skip items whose SD1 is at 0 — these are spawned with default FloatValue=0
-            // (e.g., lumps produced by the Smelt Ore CI before initialization runs).
-            // Blueprint-crafted items start at SD1=MaxValue; Cast Metal Lump items are
-            // initialized to SD1=2. Both are >0 and processed correctly.
-            if (curS1 <= 0f) return;
+            // Skip items whose SD1 is at 0 — these are spawned with default FloatValue=0.
+            // Exception: UnfinishedLumps may not have been initialized yet (async coroutine).
+            // Eagerly initialize them on the spot so Hammer All works immediately after Cast.
+            if (curS1 <= 0f)
+            {
+                if (CardUtil.GetCardUniqueId(card) == UnfinishedLumpID)
+                {
+                    ApplyLumpSpawnStatsToCard(card, allowExistingCard: true);
+                    curS1 = GetDurabilityStatValue(card, "SpecialDurability1");
+                    if (curS1 <= 0f) return;
+                }
+                else
+                    return;
+            }
 
             float newS1 = curS1 + hit.special1Change; // special1Change is negative (e.g., -1)
             if (newS1 <= 0f && hit.onZeroResultId != null)
@@ -1650,12 +1863,21 @@ namespace WaterDrivenInfrastructure.Patcher
                 }
 
                 var transferred = CaptureDurabilityValues(card, transferStats);
+                // Quality (SD2/SD3) is always carried by percentage of max — the
+                // transformed CardData's stat scale can differ from the source's,
+                // and machine processing must never lower quality.
+                float q2Val = GetDurabilityStatValue(card, "SpecialDurability2");
+                float q2Max = GetDurabilityStatMaxValue(card, "SpecialDurability2");
+                float q3Val = GetDurabilityStatValue(card, "SpecialDurability3");
+                float q3Max = GetDurabilityStatMaxValue(card, "SpecialDurability3");
                 if (!TransformCardInPlace(card, resultId))
                 {
                     Logger?.LogError($"[ActionIntercept] HammerAll: failed to transform completed item into '{resultId}'");
                     return;
                 }
                 RestoreDurabilityValues(card, transferred);
+                ApplyMinimumQualityPercent(card, "SpecialDurability2", q2Val, q2Max);
+                ApplyMinimumQualityPercent(card, "SpecialDurability3", q3Val, q3Max);
             }
             catch (Exception ex)
             {
@@ -1897,8 +2119,8 @@ namespace WaterDrivenInfrastructure.Patcher
             if (GetBoolField(cardStateChange, "TransferFuel")) stats.Add("FuelCapacity");
             if (GetBoolField(cardStateChange, "TransferProgress")) stats.Add("Progress");
             if (GetBoolField(cardStateChange, "TransferSpecial1")) stats.Add("SpecialDurability1");
-            if (GetBoolField(cardStateChange, "TransferSpecial2")) stats.Add("SpecialDurability2");
-            if (GetBoolField(cardStateChange, "TransferSpecial3")) stats.Add("SpecialDurability3");
+            // SD2/SD3 (quality) intentionally absent: CompleteHammeredCard always carries
+            // them by percentage of max via ApplyMinimumQualityPercent, never raw.
             if (GetBoolField(cardStateChange, "TransferSpecial4")) stats.Add("SpecialDurability4");
             return stats.ToArray();
         }
@@ -2066,6 +2288,27 @@ namespace WaterDrivenInfrastructure.Patcher
             float current = GetDurabilityStatValue(card, statName);
             if (!float.IsNaN(current) && current >= minimumValue) return false;
             return SetDurabilityStatValue(card, statName, minimumValue);
+        }
+
+        // Machine processing must never lower quality. Stat MaxValues differ between
+        // source and output cards (e.g. dried herb Quality max=144 vs powder max=192),
+        // so a raw value copy silently drops the percentage — always map by percentage
+        // of max and only ever raise the target's value.
+        private static void ApplyMinimumQualityPercent(object target, string statName, float srcVal, float srcMax)
+        {
+            if (float.IsNaN(srcVal) || srcVal <= 0f) return;
+            float pct = (!float.IsNaN(srcMax) && srcMax > 0f) ? srcVal / srcMax : srcVal / 100f;
+            float dstMax = GetDurabilityStatMaxValue(target, statName);
+            if (float.IsNaN(dstMax) || dstMax <= 0f)
+                dstMax = (!float.IsNaN(srcMax) && srcMax > 0f) ? srcMax : 100f;
+            SetMinimumDurabilityStatValue(target, statName, pct * dstMax);
+        }
+
+        private static void TransferQualityPercent(object source, object target, string statName)
+        {
+            ApplyMinimumQualityPercent(target, statName,
+                GetDurabilityStatValue(source, statName),
+                GetDurabilityStatMaxValue(source, statName));
         }
 
         private static void RefreshCardDurabilityVisuals(object card)
@@ -2271,12 +2514,12 @@ namespace WaterDrivenInfrastructure.Patcher
         private struct SluiceRoll { public string Guid; public float NuggetType; }
 
         // Per-soil independent drop chances: [0]=Mud, [1]=Dirt, [2]=FineDirt
-        private static readonly float[] _ironChance   = { 0.08f, 0.05f, 0.01f };
-        private static readonly float[] _copperChance = { 0.12f, 0.08f, 0.01f };
-        private static readonly float[] _tinChance    = { 0.08f, 0.05f, 0.01f };
-        private static readonly float[] _gsChance     = { 0.22f, 0.18f, 0.12f };
+        private static readonly float[] _ironChance   = { 0.03f, 0.02f, 0.01f };
+        private static readonly float[] _copperChance = { 0.08f, 0.04f, 0.01f };
+        private static readonly float[] _tinChance    = { 0.03f, 0.02f, 0.01f };
+        private static readonly float[] _gsChance     = { 0.10f, 0.05f, 0.03f };
         private static readonly float[] _flChance     = { 0.30f, 0.20f, 0.10f };
-        private static readonly float[] _stChance     = { 0.55f, 0.40f, 0.10f };
+        private static readonly float[] _stChance     = { 0.40f, 0.20f, 0.10f };
         private static readonly float[] _clayChance   = { 0.10f, 0.20f, 0.55f };
 
         private static int SoilIndex(string uid)
@@ -2367,6 +2610,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 changed |= SetDurabilityStatValue(card, "SpecialDurability1", NuggetSluiceQuality);
                 changed |= SetDurabilityStatValue(card, "SpecialDurability2", NuggetSluiceQuality);
                 changed |= SetDurabilityStatValue(card, "SpecialDurability3", NuggetSluiceQuality);
+                changed |= SetDurabilityStatValue(card, "FuelCapacity", 0f);
                 if (changed) RefreshCardDurabilityVisuals(card);
                 Logger?.LogDebug($"[ActionIntercept] NuggetInit: type={nuggetType} quality={NuggetSluiceQuality}");
                 return changed;
@@ -2654,6 +2898,33 @@ namespace WaterDrivenInfrastructure.Patcher
         private static int CountInventoryCards(object container, string uniqueId)
         {
             return FindInventoryCards(container, uniqueId, int.MaxValue).Count;
+        }
+
+        // A MetalNugget is "copper" if it has no WDI type tag (SD4==0, vanilla-smelted)
+        // or is explicitly tagged as copper by the sluice (SD4==NuggetCopperType).
+        // Iron (200) and Tin (120) nuggets are rejected.
+        private static bool IsCopperNugget(object card)
+        {
+            float sd4 = GetDurabilityStatValue(card, "SpecialDurability4");
+            return float.IsNaN(sd4) || sd4 == 0f || sd4 == NuggetCopperType;
+        }
+
+        private static int CountCopperNuggets(object container)
+        {
+            var all = FindInventoryCards(container, CopperNuggetGUID, int.MaxValue);
+            int n = 0;
+            foreach (var c in all) if (IsCopperNugget(c)) n++;
+            return n;
+        }
+
+        private static bool TryConsumeCopperNuggets(object container, int count)
+        {
+            var all = FindInventoryCards(container, CopperNuggetGUID, int.MaxValue);
+            var copper = new List<object>();
+            foreach (var c in all) { if (IsCopperNugget(c)) { copper.Add(c); if (copper.Count >= count) break; } }
+            if (copper.Count < count) return false;
+            EjectCardsFromStructure(container, copper);
+            return true;
         }
 
         private static bool TryConsumeInventoryCards(object container, string uniqueId, int count)

@@ -365,6 +365,52 @@
       "GivenCardChanges": {
         "ModType": 3
       }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_copper_bathtub_warm_placed",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Warm_RefillRiver_ActionName",
+        "DefaultText": "Refill from River"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_copper_bathtub_warm_placed",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Warm_RefillRiver_ActionDescription",
+        "DefaultText": "Haul more water from the river to refill the warm bathtub."
+      },
+      "DaytimeCost": 4,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionSoundsWarpData": [
+        "Water"
+      ],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [],
+        "TriggerCardsWarpType": 3,
+        "TriggerTagsWarpData": [
+          "tag_ShallowWater"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "WorksBothWays": true,
+      "GivenCardChanges": {
+        "ModType": 0
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "ModifyLiquid": true,
+        "LiquidQuantityChange": {
+          "x": 300.0,
+          "y": 300.0
+        },
+        "Special2Change": {
+          "x": 300.0,
+          "y": 300.0
+        }
+      }
     }
   ],
   "DismantleActions": [
@@ -564,52 +610,6 @@
         "Special2Change": {
           "x": -300.0,
           "y": -300.0
-        }
-      }
-    },
-    {
-      "ActionName": {
-        "ParentObjectID": "advanced_copper_tools_copper_bathtub_warm_placed",
-        "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Warm_RefillRiver_ActionName",
-        "DefaultText": "Refill from River"
-      },
-      "ActionDescription": {
-        "ParentObjectID": "advanced_copper_tools_copper_bathtub_warm_placed",
-        "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Warm_RefillRiver_ActionDescription",
-        "DefaultText": "Haul more water from the river to refill the warm bathtub."
-      },
-      "DaytimeCost": 4,
-      "UseMiniTicks": 0,
-      "ActionSounds": [],
-      "ActionTags": [],
-      "ActionSoundsWarpData": [
-        "Water"
-      ],
-      "ActionSoundsWarpType": 3,
-      "CompatibleCards": {
-        "TriggerCards": [],
-        "TriggerTags": [],
-        "TriggerCardsWarpData": [],
-        "TriggerCardsWarpType": 3,
-        "TriggerTagsWarpData": [
-          "tag_ShallowWater"
-        ],
-        "TriggerTagsWarpType": 3
-      },
-      "WorksBothWays": true,
-      "GivenCardChanges": {
-        "ModType": 0
-      },
-      "ReceivingCardChanges": {
-        "ModType": 1,
-        "ModifyLiquid": true,
-        "LiquidQuantityChange": {
-          "x": 300.0,
-          "y": 300.0
-        },
-        "Special2Change": {
-          "x": 300.0,
-          "y": 300.0
         }
       }
     },

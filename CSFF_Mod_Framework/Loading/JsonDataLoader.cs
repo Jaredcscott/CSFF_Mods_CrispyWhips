@@ -9,7 +9,23 @@ namespace CSFFModFramework.Loading;
 
 internal static class JsonDataLoader
 {
-    // Maps directory name to ScriptableObject type name
+    // Maps directory name to ScriptableObject type name.
+    //
+    // Folder name == type name throughout, matching the vanilla JSON export layout
+    // (Documentation/GameData/.../UniqueIDScriptableJsonDataWithWarpLitAllInOne/) so
+    // authors can crib structure from vanilla exports 1:1.
+    //
+    // The 2.1.0 expansion entries (NPCStat onward, per the 2026-06-09 gap audit) are
+    // LOADED AND REGISTERED into the game's UID registry; WarpData references to and
+    // from them resolve like any other content. Activation/injection (agent spawning,
+    // STA scheduling, quest attachment, map nodes) ships in later framework phases.
+    // Ordered so referenced types materialize before their referrers — not required
+    // for correctness (WarpResolver runs after all materialization), but it keeps
+    // load order deterministic and debugging sane.
+    //
+    // Deliberately absent: Gamemode (singleton — patch via GameSourceModify, don't
+    // create) and WorldMapData/MapEnvData/EnvID (plain ScriptableObjects, not
+    // UniqueIDScriptable — planned for the map-injection phase).
     private static readonly Dictionary<string, string> DirToTypeName = new(StringComparer.OrdinalIgnoreCase)
     {
         { "CardData", "CardData" },
@@ -17,7 +33,29 @@ internal static class JsonDataLoader
         { "PerkGroup", "PerkGroup" },
         { "GameStat", "GameStat" },
         { "SpiceTag", "SpiceTag" },
+        // ── 2.1.0 expansion ──
+        { "FlavourTag", "FlavourTag" },
+        { "NPCStat", "NPCStat" },
+        { "NPCDuty", "NPCDuty" },
+        { "NPCHidingGroup", "NPCHidingGroup" },
+        { "NPCAgent", "NPCAgent" },
+        { "Encounter", "Encounter" },
+        { "SelfTriggeredAction", "SelfTriggeredAction" },
+        { "Objective", "Objective" },
+        { "QuestLog", "QuestLog" },
+        { "GameModifierPackage", "GameModifierPackage" },
+        { "PlayerCharacter", "PlayerCharacter" },
+        { "CookingRecipeGroup", "CookingRecipeGroup" },
+        { "ConstructionCardGroup", "ConstructionCardGroup" },
+        { "BookmarkGroup", "BookmarkGroup" },
+        { "LocalTickCounter", "LocalTickCounter" },
     };
+
+    /// <summary>
+    /// Type names this loader maps from top-level mod content directories.
+    /// Surfaced to third-party mods via <see cref="Api.Framework.SupportedContentTypes"/>.
+    /// </summary>
+    internal static IReadOnlyCollection<string> SupportedContentTypes => DirToTypeName.Values;
 
     /// <summary>
     /// Raw JSON content cached during load, keyed by UniqueID.
@@ -44,6 +82,16 @@ internal static class JsonDataLoader
     /// </summary>
     internal static Dictionary<string, string> UniqueIdToModName { get; } = new(StringComparer.OrdinalIgnoreCase);
 
+    /// <summary>
+    /// Maps UniqueID → the framework-created UniqueIDScriptable instance.
+    /// Source of truth for <see cref="ForeignInstanceReconciler"/>: when another mod
+    /// loader (Pikachu ModLoader/ModCore) created its own instance for the same UID
+    /// first, this map identifies the instance that must become canonical.
+    /// Last-file-wins on in-mod duplicate UIDs, matching the JSON cache semantics.
+    /// </summary>
+    internal static Dictionary<string, UniqueIDScriptable> LoadedObjectsByUniqueId { get; }
+        = new(StringComparer.OrdinalIgnoreCase);
+
     // Below this many files, parse serially — thread-pool spin-up isn't worth it.
     private const int ParallelParseThreshold = 24;
 
@@ -56,6 +104,7 @@ internal static class JsonDataLoader
         ParsedJsonByUniqueId.Clear();
         AllModUniqueIds.Clear();
         UniqueIdToModName.Clear();
+        LoadedObjectsByUniqueId.Clear();
         ExtraDataStore.Clear();
         _skippedTypes.Clear();
 
@@ -175,8 +224,12 @@ internal static class JsonDataLoader
                 }
 
                 // Register in game's AllUniqueObjects + GameLoad.Instance.DataBase.AllData
-                // (additive — first-wins coexistence with any other plugin).
+                // (additive — first-wins coexistence with any other plugin; the
+                // ForeignInstanceReconciler pass rebinds losing UIDs to our instance
+                // right after LoadAll, before WarpResolver).
                 t0 = Stopwatch.GetTimestamp();
+                if (!string.IsNullOrEmpty(uniqueId))
+                    LoadedObjectsByUniqueId[uniqueId] = uidObj;
                 GameRegistry.TryRegister(uidObj);
                 RegisterInAllData(uidObj);
                 registerTicks += Stopwatch.GetTimestamp() - t0;

@@ -48,21 +48,7 @@
     },
     "CardImageWarpData": "FishpondKit",
     "CardImageWarpType": 3,
-    "BuildingTagConditions": [
-        {
-            "TriggerTag": {
-                "m_FileID": 0,
-                "m_PathID": 0
-            },
-            "OnlyInHand": false,
-            "NotInHand": false,
-            "ExcludeInventories": false,
-            "Inverted": true,
-            "OnlyEquipped": false,
-            "TriggerTagWarpData": "tag_EnvIndoors",
-            "TriggerTagWarpType": 3
-        }
-    ],
+    "BuildingTagConditions": [],
     "TagsOnBoard": [],
     "StatValues": [],
     "BuildingStatConditions": [],

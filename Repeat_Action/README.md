@@ -1,8 +1,8 @@
 # Repeat Action
 
-**Version:** 1.4.2
+**Version:** 1.6.0
 **Author:** Jared (crispywhips)
-**For:** Card Survival: Fantasy Forest (EA 0.63)
+**For:** Card Survival: Fantasy Forest (EA 0.64f)
 
 A quality-of-life mod that lets you automatically repeat your last action multiple times with a single keypress.
 
@@ -83,46 +83,27 @@ Stop On Low Stats = true
 
 ## Supported Actions
 
-Actions are matched by keyword — any in-game action whose name contains a supported keyword will be captured and repeatable.
+**All player-initiated actions are supported by default.** The mod captures any action you click in a card's popup or via drag-and-drop, then replays it. If an action can no longer execute (card consumed, conditions not met), it stops cleanly.
 
-### Supported Action Table
+Examples of actions that work: Forage, Clear, Eat, Drink, Cook, Boil, Roast, Fry, Bake, Smoke, Dry, Make, Build, Plant, Harvest, Mine, Chop, Craft, Grind, Dig, Butcher, Skin, Tan, Sew, Smith, Repair, Fill, Pour, Brew, Ferment, Wash, Feed, Water, Till, Train, and any mod-added action.
 
-| Category | In-Game Actions | Type | Notes |
-|----------|----------------|------|-------|
-| **Location Gathering** | Forage, Clear | Group action (location cards) | Click on Clearings, Groves, etc. |
-| **Consumption** | Eat Raw, Eat Cooked, Drink | Popup button | Consumes the card; stops when supply runs out |
-| **Woodcutting** | Chop Wood, Cut Tree, Fell a Tree | Drag-drop / Popup | Automatically rests between chops for stamina recovery; small trees respawn after rest |
-| **Resource Extraction** | Extract Fibers, Harvest | Popup button | Reeds, nettles, crops, meadow grass |
-| **Mining** | Mine | Popup button | Flint veins, witchstone veins |
-| **Crafting (drag-drop)** | Make Twine, Soak Reeds, Craft Tourniquet | Drag card onto card | Drag one card onto another |
-| **Crafting (popup)** | Make Clay, Grind, Dig, Carve, Press, Mill, Mash, Thresh, Mince, Crush, Mix, Stir, Knead, Peel, Scrape | Popup button | Mud, clay, grinding, food processing actions |
-| **Travel** | North, South, East, West | Popup button | Rest → Travel → Rest → Travel; stops when no path available or stat event triggers |
-| **Pick Up** | Pick up (soaking reeds/flax/nettle) | Popup button | Location cards that transform back to items |
-| **Rest & Recovery** | Meditate, Rest, Relax, Sharpen | Popup button | Cardless actions executed directly |
-| **Leatherworking** | Tan, Skin, Sew | Popup / Drag-drop | Leather tanning and sewing |
-| **Butchery** | Butcher, Bleed, Disembowel, Gut, Flesh | Popup button | Carcass processing actions |
-| **Smithing & Tools** | Smith, Dismantle, Repair, Trim, Apply | Popup button | Forging, repair, and dismantling |
-| **Liquid Handling** | Fill, Pour, Wash, Brew, Ferment | Popup / Drag-drop | Containers, liquids, fermentation |
-| **Farming** | Water, Till, Wet | Popup button | Garden plot maintenance |
-| **Combat Training** | Train, Practice | Popup button | Weapon training and throwing practice |
-| **Feeding & Fuel** | Feed, Add, Shovel | Drag-drop | Fire fuel, ingredient additions, snow shoveling |
-| **Cleaning** | Clean | Popup button | Clean structures |
-| **Spirit Rituals** | Bless, Curse, Enchant, Invoke, Summon, Commune, Perform, Bind, Call | Popup button | Grove rituals and spirit actions (EA 0.61+) |
-| **Thread & Stitching** | Thread, Stitch | Popup button | Needle threading, wound stitching |
+### Special Behaviors
+
+| Action Category | Special Handling |
+|-----------------|-----------------|
+| **Eat** | Popup-based replay; stops when card is consumed and no more of the same item exist |
+| **Drink** | Stops when the container runs dry |
+| **Chop / Cut / Fell** | Automatically rests between iterations to recover stamina; waits for trees to respawn |
+| **Travel (N/S/E/W)** | Rests before each step for stamina; stops when no path forward or a stat event triggers |
+| **Drag-drop (Twine, Wash, etc.)** | Refreshes given and receiving card each iteration; stops when either is exhausted |
 
 ### Not Supported
 
-These action types are intentionally excluded to prevent unintended side effects:
+| Action | Reason |
+|--------|--------|
+| **Continue** (event popup) | One-shot event outcome; auto-advancing through events would be harmful |
 
-| Action Type | Reason |
-|-------------|--------|
-| Build | Multi-step construction; risky to auto-repeat |
-| Cook, Boil, Roast, Fry, Bake, Smoke, Dry | Cooking on fire; complex card state |
-| Plant, Fertilize | Farming setup; usually done once per card |
-| Fish, Hunt | Combat/encounter triggers; event popups |
-| Place, Move, Empty | Inventory management; not a timed action |
-
-> **Tip:** If you try to repeat an unsupported action, a notification will show the action name with "is not supported".
+> **Tip:** All other actions captured through the card popup or drag-and-drop will be repeatable. If an action stops early, check the on-screen notification for the reason.
 
 ## Troubleshooting
 

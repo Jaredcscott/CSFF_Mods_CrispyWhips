@@ -1,4 +1,4 @@
-﻿Advanced_Copper_Tools_CopperNails_CardName,Copper Nail,铜钉
+Advanced_Copper_Tools_CopperNails_CardName,Copper Nail,铜钉
 Advanced_Copper_Tools_CopperNails_CardDescription,"A small copper nail, perfect for joining wood.",一枚小铜钉，非常适合连接木材。
 Advanced_Copper_Tools_Oil_CardName,Oil,油脂
 Advanced_Copper_Tools_Oil_CardDescription,Rendered animal fat collected in a clay bowl. A rich food source that also burns as clean lamp fuel.,从动物脂肪中提炼、收集在陶碗中的油脂。既是富含营养的食物，也可作为清洁的灯油。
@@ -51,7 +51,6 @@ Advanced_Copper_Tools_Bp_WheelbarrowBucket_CardDescription,Combine 8 metal sheet
 Advanced_Copper_Tools_Bp_Handles_CardName,Wheelbarrow Handles,手推车把手
 Advanced_Copper_Tools_Bp_Handles_CardDescription,"Craft wheelbarrow handles from planks, small leather, and long sticks.",用木板、小块皮革和长棍制作手推车把手。
 Advanced_Copper_Tools_Bp_WheelHub_CardName,Forged Wheel Hub,锻造轮毂
-Advanced_Copper_Tools_Bp_WheelHub_CardDescription,Shape a heated copper nugget into a wheel hub at an anvil.,将3个加热铜块锤打成轮毂。
 Advanced_Copper_Tools_Bp_WheelAssembly_CardName,Wheel Assembly,车轮总成
 Advanced_Copper_Tools_Bp_WheelAssembly_CardDescription,Attach a metal hub to a wooden wheel to create a complete wheel assembly.,将金属轮毂安装到木轮上，制成完整的车轮总成。
 Advanced_Copper_Tools_CopperStove_CardName,Small Copper Stove,小型铜炉
@@ -111,7 +110,6 @@ Advanced_Copper_Tools_Bp_WheelRim_CardDescription,Hammer a heated lump of metal 
 Advanced_Copper_Tools_Bp_CastWheelHub_CardName,Cast Wheel Hub,铸造轮毂
 Advanced_Copper_Tools_Bp_CastWheelHub_CardDescription,Cast a wheel hub using a small molten crucible.,用小型熔融坩埚铸造一个轮毂。
 Advanced_Copper_Tools_Bp_CastWheelHub_UnlockConditionsDesc,Copper Sheet Needed,需要铜片
-Advanced_Copper_Tools_Bp_WheelHub_CardName,Forged Wheel Hub,锻造轮毂
 Advanced_Copper_Tools_Bp_WheelHub_CardDescription,Hammer 3 heated copper nuggets into a wheel hub.,将3个加热铜块锤打成轮毂。
 Advanced_Copper_Tools_CopperStove_Lit_CardName,Small Copper Stove (Lit),小型铜炉（已点燃）
 Advanced_Copper_Tools_CopperStove_Lit_CardDescription,A lit copper stove. Burns fuel and provides heat for cooking and warming nearby.,一个已点燃的铜炉。燃烧燃料，为烹饪和取暖提供热量。
@@ -333,18 +331,18 @@ Advanced_Copper_Tools_WearableMetalPan_UsageDurability.CardStatName,Durability,�
 Advanced_Copper_Tools_WearableMetalPan_UsageDurability.OnZero.ActionDescription,Pan Broken!,平底锅破损！
 Advanced_Copper_Tools_WheelHub_FuelCapacity.CardStatName,Temperature,温度
 Advanced_Copper_Tools_WheelRim_FuelCapacity.CardStatName,Temperature,温度
-Advanced_Copper_Tools_Perk_BathtubKit_PerkDescription,"Start with all materials needed to build a copper bathtub: bucket, copper stove, 4 planks, 8 mud bricks, 1 large cloth, 4 long sticks, and 3 leather. Also unlocks bathtub blueprint.",初始携带建造铜制浴缸所需的所有材料：桶、铜炉、4块木板、8块泥砖、1块大布料、4根长棍和3块皮革。同时解锁浴缸图纸。
+Advanced_Copper_Tools_Perk_BathtubKit_PerkDescription,"Start with all materials needed to build a copper bathtub: bucket, copper stove, 4 planks, 8 mud bricks, 1 large cloth, 4 long sticks, and 3 leather.",初始携带建造铜制浴缸所需的所有材料：桶、铜炉、4块木板、8块泥砖、1块大布料、4根长棍和3块皮革。
 Advanced_Copper_Tools_Perk_BathtubKit_PerkName,Bathtub Kit,浴缸套件
-Advanced_Copper_Tools_Perk_BuildingMaterials_PerkDescription,"Start with essential building materials: 10 planks, 10 leather, 10 long sticks, 20 mud bricks, a large cloth, and a spoon auger.",初始携带基本建筑材料：10块木板、10块皮革、10根长棍、20块泥砖、1块大布料和1根挖孔钻。
+Advanced_Copper_Tools_Perk_BuildingMaterials_PerkDescription,"Start with essential building materials: 10 planks, 10 small leather, 10 long sticks, 20 mud bricks, a large cloth, and a spoon auger.",初始携带基本建筑材料：10块木板、10块小皮革、10根长棍、20块泥砖、1块大布料和1根挖孔钻。
 Advanced_Copper_Tools_Perk_BuildingMaterials_PerkName,Building Materials,建筑材料
 Advanced_Copper_Tools_Perk_CopperBathtub_PerkDescription,Start with a copper bathtub. A luxurious way to stay clean and relax.,初始携带一个铜制浴缸。保持清洁和放松的豪华方式。
 Advanced_Copper_Tools_Perk_CopperBathtub_PerkName,Copper Bathtub,铜制浴缸
 Advanced_Copper_Tools_Perk_Wheelbarrow_PerkDescription,Start with a sturdy wheelbarrow for hauling heavy loads. Reduces weight of stored items when traveling.,初始携带一辆用于搬运重物的坚固手推车。旅行时减少存储物品的重量。
 Advanced_Copper_Tools_Perk_Wheelbarrow_PerkName,Wheelbarrow,手推车
-Advanced_Copper_Tools_Perk_WheelbarrowKit_PerkDescription,"Start with all the components needed to assemble a wheelbarrow: bucket, handles, and wheel assembly. Also unlocks all wheelbarrow blueprints.",初始携带组装手推车所需的所有部件：桶、把手和车轮总成。同时解锁所有手推车图纸。
+Advanced_Copper_Tools_Perk_WheelbarrowKit_PerkDescription,"Start with all the components needed to assemble a wheelbarrow: bucket, handles, and wheel assembly.",初始携带组装手推车所需的所有部件：桶、把手和车轮总成。
 Advanced_Copper_Tools_Perk_WheelbarrowKit_PerkName,Wheelbarrow Kit,手推车套件
 eTag_WearablePan_InGameName,Pan,平底锅
-Advanced_Copper_Tools_Perk_MetalPanTester_PerkDescription,"Start with metal pan crafting materials and completed pans. Includes copper lumps, hammer, wood, rope, leather, and one of each metal type pan.",初始携带金属平底锅制作材料和成品锅。包括铜锭、锤子、木材、绳子、皮革以及每种金属类型的平底锅各一个。
+Advanced_Copper_Tools_Perk_MetalPanTester_PerkDescription,"Start with metal pan crafting materials, finished pans, and the related blueprints. Includes a forge hammer, leather bellows, 5 metal nuggets, wood, rope, and small leather, plus a shaped pan head and two wearable metal pans.",初始携带金属平底锅的制作材料、成品锅以及相关蓝图。包括锻造锤、皮革风箱、5 块金属锭、木材、绳子和小块皮革，以及一个平底锅锅胚和两个可穿戴金属平底锅。
 Advanced_Copper_Tools_Perk_MetalPanTester_PerkName,Metal Pan,金属平底锅
 Advanced_Copper_Tools_CopperBathtub_WaterLevel_CardStatName,Water Level,水位
 Advanced_Copper_Tools_CopperBathtub_Full_RefillRiver_ActionName,Refill from River,从河流补水
@@ -368,8 +366,6 @@ Advanced_Copper_Tools_Perk_LargeSaw_PerkName,Large Saw,大型锯
 Advanced_Copper_Tools_Perk_LargeSaw_PerkDescription,Start with a large copper saw for cutting trees quickly.,初始携带一把用于快速砍伐树木的大型铜锯。
 Advanced_Copper_Tools_MetalLantern_CardName,Metal Lantern,金属提灯
 Advanced_Copper_Tools_MetalLantern_CardDescription,A durable copper lantern crafted from metal sheets and glass. Burns fuel to provide light.,一盏由金属片和玻璃制成的耐用铜提灯。燃烧燃料以提供照明。
-Advanced_Copper_Tools_MetalLantern_CardHelpSection,<b>Usage:</b> Add oil or other fuel to keep the lantern lit.,<b>用途：</b> 添加油脂，然后用任何火源点燃以照亮区域。
-Advanced_Copper_Tools_MetalLantern_FuelCapacity_CardStatName,Oil,油量
 Advanced_Copper_Tools_Bp_MetalLantern_CardName,Metal Lantern,金属提灯
 Advanced_Copper_Tools_Bp_MetalLantern_CardDescription,Assemble a sturdy copper lantern from a metal sheet and a hammered oilwell reservoir.,用一块金属片和一个锤制油井组装一盏坚固的铜提灯。
 Advanced_Copper_Tools_Bp_MetalLantern_UnlockConditionsDesc,Lantern Oilwell Needed,需要提灯油井

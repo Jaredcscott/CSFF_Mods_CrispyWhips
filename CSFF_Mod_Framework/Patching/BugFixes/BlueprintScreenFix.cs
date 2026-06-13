@@ -13,11 +13,18 @@ internal static class BlueprintScreenFix
 
     public static void ApplyPatch(Harmony harmony)
     {
-        var finalizer = new HarmonyMethod(AccessTools.Method(typeof(BlueprintScreenFix), nameof(ShowFinalizer)));
-        SafePatcher.TryPatch(harmony, "BlueprintModelsScreen", "Show", finalizer: finalizer);
+        try
+        {
+            var finalizer = new HarmonyMethod(AccessTools.Method(typeof(BlueprintScreenFix), nameof(ShowFinalizer)));
+            SafePatcher.TryPatch(harmony, "BlueprintModelsScreen", "Show", finalizer: finalizer);
 
-        var toggleFinalizer = new HarmonyMethod(AccessTools.Method(typeof(BlueprintScreenFix), nameof(ToggleFinalizer)));
-        SafePatcher.TryPatch(harmony, "BlueprintModelsScreen", "Toggle", finalizer: toggleFinalizer);
+            var toggleFinalizer = new HarmonyMethod(AccessTools.Method(typeof(BlueprintScreenFix), nameof(ToggleFinalizer)));
+            SafePatcher.TryPatch(harmony, "BlueprintModelsScreen", "Toggle", finalizer: toggleFinalizer);
+        }
+        catch (Exception ex)
+        {
+            Util.Log.Warn($"BlueprintScreenFix: patch setup failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
+        }
     }
 
     static Exception ShowFinalizer(Exception __exception)

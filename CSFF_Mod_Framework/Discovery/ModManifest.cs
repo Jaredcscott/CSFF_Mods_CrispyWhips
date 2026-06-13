@@ -36,9 +36,16 @@ internal class ModManifest
     public string Version;
     public string Description;
     public AssetsManifest Assets;
+    // Pikachu ModLoader manifest field (typo is the game ecosystem's own spelling).
+    // Framework-native mods must NOT declare it; its presence marks a mod as
+    // authored for ModLoader/ModCore. See ModDiscovery's coexistence skip.
+    public string ModLoaderVerison;
 #pragma warning restore 0649
     public string DirectoryPath; // Set at runtime, not from JSON
     public bool Enabled = true;
+
+    /// <summary>True when the manifest declares the ModLoader/ModCore <c>ModLoaderVerison</c> field.</summary>
+    public bool IsModLoaderNative => !string.IsNullOrWhiteSpace(ModLoaderVerison);
 
     // ── Feature flags (populated by ModDiscovery after JSON parse; never deserialized) ──
     // These let LoadOrchestrator skip phases whose content isn't present in any mod.
@@ -50,7 +57,12 @@ internal class ModManifest
     [NonSerialized] public bool HasAudio;              // Resource/Audio/ (any file)
     [NonSerialized] public bool HasMapCaches;          // Data/MapCaches/*.json, Data/*Map*.json, or Assets.MapCaches
     [NonSerialized] public bool HasTriggers;           // CardData/Trigger/*.json
+    [NonSerialized] public bool HasGifContent;         // CardData/Gif/*.json
     [NonSerialized] public bool HasGSMTagOrTypeMatch;  // GameSourceModify/ uses MatchTagWarpData/MatchTypeWarpData
+    [NonSerialized] public bool HasWorldMapNodes;       // WorldMap/MapNodes.json
+    [NonSerialized] public bool HasEncounterGuards;     // EncounterGuards/*.json
+    [NonSerialized] public bool HasQuestManifest;       // Quests.json
+    [NonSerialized] public bool HasCharacterManifest;   // Characters.json
 
     public static ModManifest FromJson(string json, string directoryPath)
     {

@@ -22,6 +22,20 @@ namespace CSFFModFramework.Api;
 /// are visible to the rest of the load chain.
 /// </para>
 /// </summary>
+/// <summary>
+/// Outcome of a <see cref="ContentRegistry.RegisterWithResult"/> call — distinguishes
+/// normal duplicate-skips from actual failures (FRAMEWORK_EVALUATION.md D2).
+/// </summary>
+public enum RegisterResult
+{
+    /// <summary>The UID was new; the object is now registered.</summary>
+    Registered,
+    /// <summary>The UID was already registered (by us, vanilla, or another plugin) — existing entry left in place. Normal during re-runs.</summary>
+    DuplicateSkipped,
+    /// <summary>Registration failed: null object, missing UniqueID, or the game's registry is unreachable. Details logged at Error.</summary>
+    Failed,
+}
+
 public static class ContentRegistry
 {
     /// <summary>
@@ -29,24 +43,44 @@ public static class ContentRegistry
     /// GameStat, etc.) under its <c>UniqueID</c> in the game's static UID dict
     /// AND append it to <c>GameLoad.Instance.DataBase.AllData</c>.
     /// Returns <c>true</c> if the UID was new and registration succeeded.
+    /// Use <see cref="RegisterWithResult"/> to distinguish duplicate-skips from failures.
     /// </summary>
     public static bool Register(UniqueIDScriptable so)
+        => RegisterWithResult(so) == RegisterResult.Registered;
+
+    /// <summary>
+    /// As <see cref="Register(UniqueIDScriptable)"/>, but reports the outcome as a
+    /// <see cref="RegisterResult"/> so callers can tell a normal duplicate-skip from an error.
+    /// </summary>
+    public static RegisterResult RegisterWithResult(UniqueIDScriptable so)
     {
         if (so == null)
         {
             FrameworkLog.Error("ContentRegistry.Register called with null — nothing registered");
-            return false;
+            return RegisterResult.Failed;
         }
         if (string.IsNullOrEmpty(so.UniqueID))
         {
             FrameworkLog.Error($"ContentRegistry.Register: {so.name} has no UniqueID — nothing registered");
-            return false;
+            return RegisterResult.Failed;
         }
+
+        var dict = GameRegistry.AllUniqueObjects;
+        if (dict == null)
+        {
+            FrameworkLog.Error($"ContentRegistry.Register: game UID registry unreachable — '{so.UniqueID}' not registered");
+            return RegisterResult.Failed;
+        }
+        bool alreadyPresent = dict.Contains(so.UniqueID);
+
         var newlyRegistered = GameRegistry.TryRegister(so);
         // Append to AllData regardless of who put the UID in the dict — Add is idempotent.
         GameRegistry.TryAddToAllData(so);
-        // false = UID already registered (normal dedup), not an error; TryRegister logs at Debug.
-        return newlyRegistered;
+
+        if (newlyRegistered) return RegisterResult.Registered;
+        // TryRegister logs the duplicate case at Debug; a false WITHOUT a pre-existing
+        // entry means the dict.Add itself failed (logged at Warn by GameRegistry).
+        return alreadyPresent ? RegisterResult.DuplicateSkipped : RegisterResult.Failed;
     }
 
     /// <summary>

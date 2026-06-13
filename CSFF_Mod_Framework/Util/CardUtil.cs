@@ -597,4 +597,296 @@ public static class CardUtil
         }
         catch { }
     }
+
+    // ── Absolute durability get/set (Tier 1) ─────────────────────────────────
+    //
+    // One unified path over the two runtime stat shapes:
+    //   (a) EA 0.62b+: flat properties on InGameCardBase (CurrentProgress, CurrentSpecial1–4,
+    //       CurrentFuel, CurrentUsage, CurrentSpoilage)
+    //   (b) older / container shape: DurabilityStats|CardDurabilities → <stat> → CurrentValue|FloatValue
+    // Lifted from WDI FishpondPopulationPatch GetStat/SetStat (the proven implementation)
+    // and CMC QualitySplitPatch. Accepts both JSON stat names ("SpoilageTime") and
+    // runtime member names ("CurrentSpoilage").
+
+    /// <summary>
+    /// Maps a JSON-side stat name to the flat runtime member on InGameCardBase.
+    /// Returns null for unknown names.
+    /// </summary>
+    private static string MapStatToRuntimeMember(string statName) => statName switch
+    {
+        "Progress"           => "CurrentProgress",
+        "SpecialDurability1" => "CurrentSpecial1",
+        "SpecialDurability2" => "CurrentSpecial2",
+        "SpecialDurability3" => "CurrentSpecial3",
+        "SpecialDurability4" => "CurrentSpecial4",
+        "FuelCapacity"       => "CurrentFuel",
+        "UsageDurability"    => "CurrentUsage",
+        "SpoilageTime"       => "CurrentSpoilage",
+        _                    => statName != null && statName.StartsWith("Current", StringComparison.Ordinal)
+                                    ? statName : null,
+    };
+
+    /// <summary>All eight JSON-side durability stat names, in SpecialDurability/Progress order.</summary>
+    public static readonly string[] AllDurabilityStats =
+    {
+        "Progress", "SpecialDurability1", "SpecialDurability2", "SpecialDurability3",
+        "SpecialDurability4", "FuelCapacity", "UsageDurability", "SpoilageTime",
+    };
+
+    /// <summary>
+    /// Reads the current value of a durability stat on an InGameCardBase instance.
+    /// <paramref name="statName"/> accepts JSON names ("SpoilageTime", "SpecialDurability4")
+    /// or runtime names ("CurrentSpoilage"). Returns <see cref="float.NaN"/> on failure —
+    /// always check with <see cref="float.IsNaN(float)"/>, not a sentinel comparison.
+    /// </summary>
+    public static float GetDurability(object card, string statName)
+    {
+        if (card == null || string.IsNullOrEmpty(statName)) return float.NaN;
+        try
+        {
+            var cardType = card.GetType();
+
+            // Path A: flat runtime property/field on the card.
+            var directName = MapStatToRuntimeMember(statName);
+            if (directName != null)
+            {
+                var dp = GetCachedProperty(cardType, directName);
+                if (dp?.CanRead == true) return Convert.ToSingle(dp.GetValue(card));
+                var df = GetCachedField(cardType, directName);
+                if (df != null) return Convert.ToSingle(df.GetValue(card));
+            }
+
+            // Path B: container → sub-stat → CurrentValue/FloatValue.
+            var innerName = statName.StartsWith("Current", StringComparison.Ordinal)
+                ? statName.Substring("Current".Length) : statName;
+            foreach (var containerName in _durabilityContainerNames)
+            {
+                var cField = GetCachedField(cardType, containerName);
+                if (cField == null) continue;
+                var stats = cField.GetValue(card);
+                if (stats == null) continue;
+                var dur = ReflectionHelpers.GetMemberValue(stats, innerName);
+                if (dur == null) continue;
+                var cv = ReflectionHelpers.GetMemberValue(dur, "CurrentValue")
+                      ?? ReflectionHelpers.GetMemberValue(dur, "FloatValue");
+                if (cv != null) return Convert.ToSingle(cv);
+            }
+        }
+        catch { }
+        return float.NaN;
+    }
+
+    /// <summary>
+    /// Reads the maximum value of a durability stat on an InGameCardBase instance.
+    /// Path 1: runtime durability container → sub-stat → MaxValue. Path 2: the card's
+    /// CardModel JSON stat (CardData.&lt;stat&gt;.MaxValue). Accepts JSON names
+    /// ("SpoilageTime") or runtime names ("CurrentSpoilage"). Returns
+    /// <see cref="float.NaN"/> on failure — check with <see cref="float.IsNaN(float)"/>.
+    /// </summary>
+    public static float GetDurabilityMax(object card, string statName)
+    {
+        if (card == null || string.IsNullOrEmpty(statName)) return float.NaN;
+        try
+        {
+            var innerName = statName.StartsWith("Current", StringComparison.Ordinal)
+                ? statName.Substring("Current".Length) : statName;
+
+            // Path 1: runtime container stat MaxValue.
+            var cardType = card.GetType();
+            foreach (var containerName in _durabilityContainerNames)
+            {
+                var cField = GetCachedField(cardType, containerName);
+                if (cField == null) continue;
+                var stats = cField.GetValue(card);
+                if (stats == null) continue;
+                var dur = ReflectionHelpers.GetMemberValue(stats, innerName);
+                if (dur == null) continue;
+                var mv = ReflectionHelpers.GetMemberValue(dur, "MaxValue");
+                if (mv != null) return Convert.ToSingle(mv);
+            }
+
+            // Path 2: CardModel JSON-side stat MaxValue.
+            var model = GetCardData(card);
+            if (model != null)
+            {
+                var dur = ReflectionHelpers.GetMemberValue(model, innerName);
+                var mv = dur == null ? null : ReflectionHelpers.GetMemberValue(dur, "MaxValue");
+                if (mv != null) return Convert.ToSingle(mv);
+            }
+        }
+        catch { }
+        return float.NaN;
+    }
+
+    /// <summary>
+    /// Writes an absolute value to a durability stat on an InGameCardBase instance.
+    /// Write paths per layer: writable property → non-public setter → backing field →
+    /// direct field, with value-type write-back at every container boundary.
+    /// Returns true on success.
+    /// </summary>
+    public static bool SetDurability(object card, string statName, float value)
+    {
+        if (card == null || string.IsNullOrEmpty(statName)) return false;
+        try
+        {
+            var cardType = card.GetType();
+
+            // Path A: flat runtime property/field on the card.
+            var directName = MapStatToRuntimeMember(statName);
+            if (directName != null)
+            {
+                var dp = GetCachedProperty(cardType, directName);
+                if (dp != null)
+                {
+                    var setter = dp.GetSetMethod(nonPublic: true);
+                    if (setter != null) { setter.Invoke(card, new object[] { value }); return true; }
+                }
+                var df = GetCachedField(cardType, directName);
+                if (df != null) { df.SetValue(card, value); return true; }
+            }
+
+            // Path B: container → sub-stat → CurrentValue/FloatValue with write-back.
+            var innerName = statName.StartsWith("Current", StringComparison.Ordinal)
+                ? statName.Substring("Current".Length) : statName;
+            foreach (var containerName in _durabilityContainerNames)
+            {
+                var cField = GetCachedField(cardType, containerName);
+                if (cField == null) continue;
+                var stats = cField.GetValue(card);
+                if (stats == null) continue;
+
+                var statsType = stats.GetType();
+                var durProp  = ReflectionHelpers.FindProperty(statsType, innerName);
+                var durField = durProp == null ? ReflectionHelpers.FindField(statsType, innerName) : null;
+                var dur = durProp != null ? durProp.GetValue(stats) : durField?.GetValue(stats);
+                if (dur == null) continue;
+
+                if (!WriteCurrentValue(dur, value)) continue;
+
+                // Value-type write-back at each boundary (struct copies don't propagate).
+                if (dur.GetType().IsValueType)
+                {
+                    if (durProp?.CanWrite == true) durProp.SetValue(stats, dur);
+                    else durField?.SetValue(stats, dur);
+                }
+                if (statsType.IsValueType) cField.SetValue(card, stats);
+                return true;
+            }
+        }
+        catch { }
+        return false;
+    }
+
+    private static bool WriteCurrentValue(object dur, float value)
+    {
+        var durType = dur.GetType();
+        var cvProp = ReflectionHelpers.FindProperty(durType, "CurrentValue")
+                  ?? ReflectionHelpers.FindProperty(durType, "FloatValue");
+        if (cvProp != null)
+        {
+            var setter = cvProp.GetSetMethod(nonPublic: true);
+            if (setter != null) { setter.Invoke(dur, new object[] { value }); return true; }
+            // Auto-property with no setter at all — backing field, walking base types.
+            var bf = ReflectionHelpers.FindField(durType, $"<{cvProp.Name}>k__BackingField");
+            if (bf != null) { bf.SetValue(dur, value); return true; }
+        }
+        var cvField = ReflectionHelpers.FindField(durType, "FloatValue")
+                   ?? ReflectionHelpers.FindField(durType, "CurrentValue");
+        if (cvField != null) { cvField.SetValue(dur, value); return true; }
+        return false;
+    }
+
+    // ── Stat-preserving in-place transform (Tier 1) ──────────────────────────
+
+    /// <summary>
+    /// Transforms a card in place (CardModel swap + reinit) while preserving the given
+    /// durability stats across the transform — SetupCardSource resets them to the target
+    /// JSON defaults, so they are captured before and restored after. Pass no stat names
+    /// to preserve all eight (<see cref="AllDurabilityStats"/>). Formalizes the WDI
+    /// fishpond capture/restore sequence. Returns true if the transform succeeded
+    /// (stat restore is best-effort per stat).
+    /// </summary>
+    public static bool TransformInPlacePreservingStats(object card, string targetUniqueId, params string[] statsToPreserve)
+    {
+        if (card == null || string.IsNullOrEmpty(targetUniqueId)) return false;
+        var stats = statsToPreserve is { Length: > 0 } ? statsToPreserve : AllDurabilityStats;
+
+        var captured = new List<(string name, float value)>(stats.Length);
+        foreach (var s in stats)
+        {
+            var v = GetDurability(card, s);
+            if (!float.IsNaN(v)) captured.Add((s, v));
+        }
+
+        if (!TransformCardInPlace(card, targetUniqueId)) return false;
+
+        foreach (var (name, value) in captured)
+            SetDurability(card, name, value);
+        return true;
+    }
+
+    // ── Card removal (Tier 1) ────────────────────────────────────────────────
+
+    private static readonly Dictionary<Type, MethodInfo> _removeMethodCache = new();
+
+    /// <summary>
+    /// Removes a card via the game's own removal methods (RemoveFromGame → DestroyCard →
+    /// DestroyCardFromInventory, whichever exists on this game version), with flexible
+    /// 0–2 bool parameter signatures. Returns true if a method was found and invoked.
+    ///
+    /// <para>CAUTION: for cards inside another card's inventory these paths trigger
+    /// OnDestroy callbacks that can relocate cards to adjacent containers (CLAUDE.md
+    /// §Runtime Card Removal). For in-inventory cards prefer
+    /// <see cref="Api.Inventory.Eject"/> or <see cref="RemoveCardCleanly"/>.</para>
+    /// </summary>
+    public static bool TryRemoveCard(object card)
+    {
+        if (card == null) return false;
+        try
+        {
+            var cardType = card.GetType();
+            if (!_removeMethodCache.TryGetValue(cardType, out var m))
+            {
+                foreach (var n in new[] { "RemoveFromGame", "DestroyCard", "DestroyCardFromInventory" })
+                {
+                    foreach (var cand in cardType.GetMethods(All).Where(x => x.Name == n))
+                    {
+                        var p = cand.GetParameters();
+                        if (p.Length == 0 || (p.Length <= 2 && p.All(pp => pp.ParameterType == typeof(bool))))
+                        {
+                            m = cand;
+                            break;
+                        }
+                    }
+                    if (m != null) break;
+                }
+                _removeMethodCache[cardType] = m;
+            }
+            if (m == null)
+            {
+                Log.Warn($"CardUtil.TryRemoveCard: no removal method found on {cardType.Name}");
+                return false;
+            }
+
+            var pms = m.GetParameters();
+            if (pms.Length == 0) m.Invoke(card, null);
+            else if (pms.Length == 1) m.Invoke(card, new object[] { true });
+            else m.Invoke(card, new object[] { true, true });
+            return true;
+        }
+        catch (Exception ex)
+        {
+            Log.Warn($"CardUtil.TryRemoveCard failed: {ex.InnerException?.Message ?? ex.Message}");
+            return false;
+        }
+    }
+
+    /// <summary>
+    /// Removes a card without triggering OnDestroy relocation: in-place CardModel swap
+    /// to <paramref name="placeholderUniqueId"/> (an inert card the calling mod defines,
+    /// e.g. a "consumed" stub) plus reinit. The safe removal path for cards inside
+    /// another card's inventory. Returns true on success.
+    /// </summary>
+    public static bool RemoveCardCleanly(object card, string placeholderUniqueId)
+        => TransformCardInPlace(card, placeholderUniqueId);
 }

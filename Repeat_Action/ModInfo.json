@@ -1,6 +1,6 @@
 {
 	"Name": "RepeatAction",
 	"Author": "Jared",
-	"Version": "1.4.2",
-	"Description": "A quality-of-life mod that repeats your last supported action with configurable keybinds and safety limits."
+	"Version": "1.6.0",
+	"Description": "A quality-of-life mod that repeats your last action with configurable keybinds and safety limits. All player-initiated actions are supported."
 }

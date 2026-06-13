@@ -5,7 +5,7 @@ public class Plugin : BaseUnityPlugin
 {
     public const string PluginGuid = "crispywhips.CSFFModFramework";
     public const string PluginName = "CSFF Mod Framework";
-    public const string PluginVersion = "2.0.8";
+    public const string PluginVersion = "2.7.1";
 
     public static Plugin Instance { get; private set; }
     internal new static ManualLogSource Logger { get; private set; }
@@ -99,6 +99,10 @@ public class Plugin : BaseUnityPlugin
         // when Combat_EventBear_1_Explore starts. Self-no-ops when raids are disabled.
         Patching.WildlifeRaidPatch.ApplyPatch(Harmony);
 
+        // Encounter guards (Tier 2): the single StartEncounter suppression prefix all
+        // Api.EncounterGuards predicates flow through. Zero-cost when no guards exist.
+        Patching.EncounterGuardPatch.ApplyPatch(Harmony);
+
         // GIF animation support — patches CardGraphics.Setup / RefreshCookingStatus.
         // Self-skips registration when no mod ships CardData/Gif/*.json.
         Patching.GifAnimationPatch.ApplyPatch(Harmony);
@@ -119,6 +123,7 @@ public class Plugin : BaseUnityPlugin
     {
         Wildlife.WildlifeRaidService.PollUpdate();
         Triggers.TriggerService.PollUpdate();
+        Api.TickEvents.PollUpdate();
     }
 
     private void OnDestroy()

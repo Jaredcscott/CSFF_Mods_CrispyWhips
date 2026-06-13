@@ -64,14 +64,24 @@ namespace WaterDrivenInfrastructure.Patcher
                 return result;
             }
 
-            int total = mapFile?.Edges?.Length ?? 0;
+            // Mod-added map locations: CSFFModFramework 2.7.0+ records every WorldMap
+            // node connection it injects (both directions) in Api.WorldMap, serialized
+            // in this file's exact edge schema. Appending them here makes new locations
+            // (e.g. CMC's Village Path) part of the mill-race network automatically.
+            var extensionEdges = LoadFrameworkInjectedEdges(logger);
+
+            int total = (mapFile?.Edges?.Length ?? 0) + extensionEdges.Count;
             int skippedMissing = 0;
             int duplicate = 0;
             var seen = new HashSet<string>(StringComparer.Ordinal);
 
+            var allEdges = new List<MillRaceMapEdge>(total);
             if (mapFile?.Edges != null)
+                allEdges.AddRange(mapFile.Edges);
+            allEdges.AddRange(extensionEdges);
+
             {
-                foreach (var edge in mapFile.Edges)
+                foreach (var edge in allEdges)
                 {
                     if (edge == null)
                         continue;
@@ -101,11 +111,56 @@ namespace WaterDrivenInfrastructure.Patcher
                 }
             }
 
-            var summary = $"[MillRaceMap] Loaded static map: edges={total}, valid={result.Count}, skippedMissing={skippedMissing}, duplicate={duplicate}, version={mapFile?.Version ?? "unknown"}";
+            var summary = $"[MillRaceMap] Loaded static map: edges={total} (extension={extensionEdges.Count}), valid={result.Count}, skippedMissing={skippedMissing}, duplicate={duplicate}, version={mapFile?.Version ?? "unknown"}";
             if (result.Count == 0 || skippedMissing > 0)
                 logger?.LogWarning(summary);
             else
                 logger?.LogDebug(summary);
+            return result;
+        }
+
+        /// <summary>
+        /// Fetches travel edges for mod-injected world-map locations from
+        /// CSFFModFramework.Api.WorldMap (2.7.0+) via reflection. The framework
+        /// serializes them in this file's edge schema, so the existing parser is
+        /// reused unchanged. Returns an empty list when the framework is absent,
+        /// older than 2.7.0, or no mod added map locations.
+        /// </summary>
+        private static List<MillRaceMapEdge> LoadFrameworkInjectedEdges(ManualLogSource logger)
+        {
+            var result = new List<MillRaceMapEdge>();
+            try
+            {
+                var worldMapType = AppDomain.CurrentDomain.GetAssemblies()
+                    .Select(assembly => assembly.GetType("CSFFModFramework.Api.WorldMap", throwOnError: false))
+                    .FirstOrDefault(type => type != null);
+                if (worldMapType == null)
+                    return result;
+
+                var getJson = worldMapType.GetMethod("GetInjectedEdgesJson",
+                    BindingFlags.Public | BindingFlags.Static);
+                if (getJson == null)
+                    return result;
+
+                var json = getJson.Invoke(null, null) as string;
+                if (string.IsNullOrEmpty(json))
+                    return result;
+
+                var file = ParseMapFile(json);
+                if (file?.Edges != null)
+                {
+                    foreach (var edge in file.Edges)
+                        if (edge != null)
+                            result.Add(edge);
+                }
+
+                if (result.Count > 0)
+                    logger?.LogDebug($"[MillRaceMap] {result.Count} extension edge(s) from CSFFModFramework.Api.WorldMap");
+            }
+            catch (Exception ex)
+            {
+                logger?.LogDebug($"[MillRaceMap] Framework WorldMap extension unavailable: {ex.InnerException?.Message ?? ex.Message}");
+            }
             return result;
         }
 

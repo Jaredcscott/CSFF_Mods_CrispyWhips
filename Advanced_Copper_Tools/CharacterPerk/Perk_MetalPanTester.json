@@ -32,7 +32,7 @@
     "ParentObjectID": "advanced_copper_tools_perk_metal_pan_tester"
   },
   "PerkDescription": {
-    "DefaultText": "Start with metal pan crafting materials and completed pans. Includes copper lumps, hammer, wood, rope, leather, and one of each metal type pan.",
+    "DefaultText": "Start with metal pan crafting materials, finished pans, and the related blueprints. Includes a forge hammer, leather bellows, 5 metal nuggets, wood, rope, and small leather, plus a shaped pan head and two wearable metal pans.",
     "LocalizationKey": "Advanced_Copper_Tools_Perk_MetalPanTester_PerkDescription",
     "ParentObjectID": "advanced_copper_tools_perk_metal_pan_tester"
   },

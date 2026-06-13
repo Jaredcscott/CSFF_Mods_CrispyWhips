@@ -88,8 +88,7 @@ namespace mod_update_manager
             _totalChecks = modsToCheck.Count;
             OnStatusUpdate?.Invoke($"Checking {_totalChecks} mods with Nexus IDs...");
 
-            // Fire all requests concurrently — no sequential waiting or per-request delays.
-            // Nexus API allows 50 req/hour (free) or higher (premium); with ~20 mods we're well under.
+            // Stagger requests by 0.5s to avoid 429 rate-limit bursts on large mod lists.
             foreach (var mod in modsToCheck)
             {
                 var nexusId = GetNexusModId(mod);
@@ -127,9 +126,11 @@ namespace mod_update_manager
                     _checksCompleted++;
                     OnModChecked?.Invoke(mod);
                 });
+
+                yield return new WaitForSeconds(0.5f);
             }
 
-            // Poll until all concurrent requests finish
+            // Poll until all staggered requests finish
             while (_checksCompleted < _totalChecks)
             {
                 OnStatusUpdate?.Invoke($"Checking mods... ({_checksCompleted}/{_totalChecks})");

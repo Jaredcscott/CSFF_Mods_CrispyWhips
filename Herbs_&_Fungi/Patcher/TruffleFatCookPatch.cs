@@ -98,14 +98,7 @@ namespace Herbs_And_Fungi.Patcher
             if (_inGameCardBaseType == null) return;
 
             var allCards = GetAllCardsFromGM();
-            if (allCards == null)
-            {
-                // Fallback to scene scan only if AllCards is unavailable (e.g. before GM initialized)
-                var found = UnityEngine.Object.FindObjectsOfType(_inGameCardBaseType);
-                if (found == null || found.Length == 0) return;
-                foreach (var c in found) ProcessCard(c);
-                return;
-            }
+            if (allCards == null) return;
 
             foreach (var card in allCards)
                 ProcessCard(card);

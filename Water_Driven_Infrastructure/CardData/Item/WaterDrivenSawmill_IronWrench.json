@@ -19,14 +19,15 @@
     "m_FileID": 0,
     "m_PathID": 0
   },
-  "CardImageWarpData": "Bar_Iron",
+  "CardImageWarpData": "IronWrench",
   "CardImageWarpType": 3,
   "CardType": 0,
   "ObjectWeight": 450.0,
   "TradingValue": 250.0,
   "CardTags": [],
   "CardTagsWarpData": [
-    "tag_Metal"
+    "tag_Metal",
+    "tag_SmeltsAt1300"
   ],
   "CardTagsWarpType": 3,
   "DoesNotPile": false,
@@ -46,7 +47,70 @@
     "Active": false
   },
   "Progress": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "water_sawmill_iron_wrench",
+      "LocalizationKey": "",
+      "DefaultText": "Smelted"
+    },
+    "MaxValue": 8.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnFull": true,
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Cooking",
+    "OverrideIconWarpType": 3,
+    "OnFull": {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_iron_wrench",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_iron_wrench",
+        "LocalizationKey": "",
+        "DefaultText": "Metal melted!"
+      },
+      "NoveltyShared": false,
+      "UnavailableInDemo": false,
+      "SaveGame": false,
+      "ConfirmPopup": false,
+      "StackCompatible": false,
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "RequiredStatValues": [],
+      "RequiredCardsOnBoard": [],
+      "RequiredTagsOnBoard": [],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 6,
+                "y": 6
+              },
+              "FinishUnlocking": false
+            }
+          ]
+        }
+      ]
+    }
   },
   "SpecialDurability1": {
     "Active": false
@@ -63,7 +127,157 @@
   "CardInteractions": [],
   "DismantleActions": [],
   "PassiveStatEffects": [],
-  "PassiveEffects": [],
+  "PassiveEffects": [
+    {
+      "EffectName": "Lose Smelting if not in iron smelting container",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTEquipped": false,
+      "OnlyWhenInHand": false,
+      "OnlyOnBaseActions": false,
+      "OnlyOnNOTBaseActions": false,
+      "OnlyWhenNOTInBG": false,
+      "Conditions": {
+        "NotInBackground": false,
+        "InBackground": false,
+        "PlayerUsesCard": 0,
+        "RequiredNOTContainerTagsWarpData": [
+          "tag_SmeltingContainer"
+        ],
+        "RequiredNOTContainerTagsWarpType": 3
+      },
+      "StatChanges": [],
+      "ConsumableChargesModifier": {
+        "Active": true,
+        "FloatValue": -1.0
+      }
+    },
+    {
+      "EffectName": "Lose Smelting if forge is not hot enough",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTEquipped": false,
+      "OnlyWhenInHand": false,
+      "OnlyOnBaseActions": false,
+      "OnlyOnNOTBaseActions": false,
+      "OnlyWhenNOTInBG": false,
+      "Conditions": {
+        "NotInBackground": false,
+        "InBackground": false,
+        "PlayerUsesCard": 0,
+        "RequiredContainerTagsWarpData": [
+          "tag_SmeltingContainer"
+        ],
+        "RequiredContainerTagsWarpType": 3,
+        "ReceivingContainerRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 1299.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        }
+      },
+      "StatChanges": [],
+      "ConsumableChargesModifier": {
+        "Active": true,
+        "FloatValue": -1.0
+      }
+    },
+    {
+      "EffectName": "Gain Smelting when in hot iron smelting container",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTEquipped": false,
+      "OnlyWhenInHand": false,
+      "OnlyOnBaseActions": false,
+      "OnlyOnNOTBaseActions": false,
+      "OnlyWhenNOTInBG": false,
+      "Conditions": {
+        "NotInBackground": false,
+        "InBackground": false,
+        "PlayerUsesCard": 0,
+        "RequiredContainerTagsWarpData": [
+          "tag_SmeltingContainer"
+        ],
+        "RequiredContainerTagsWarpType": 3,
+        "ReceivingContainerRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 1300.0,
+            "y": 3000.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        }
+      },
+      "StatChanges": [],
+      "ConsumableChargesModifier": {
+        "Active": true,
+        "FloatValue": 1.0
+      }
+    }
+  ],
+  "InventorySlots": [],
   "InventorySlotsWarpData": [],
   "InventorySlotsWarpType": 3,
   "DroppedCardShadow": 1

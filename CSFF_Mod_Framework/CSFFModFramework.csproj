@@ -72,6 +72,11 @@
     </ItemGroup>
 
     <ItemGroup>
+        <!-- Vanilla GUID registry for Api.VanillaIds — regenerate via Development_Tools/Generate-VanillaIds.ps1 -->
+        <EmbeddedResource Include="Resources\VanillaIds.json" />
+    </ItemGroup>
+
+    <ItemGroup>
         <Content Include="ModInfo.json" CopyToOutputDirectory="PreserveNewest" />
         <Content Include="LICENSE" CopyToOutputDirectory="PreserveNewest" Condition="Exists('LICENSE')" />
         <Content Include="ASSET_CREDITS.md" CopyToOutputDirectory="PreserveNewest" Condition="Exists('ASSET_CREDITS.md')" />

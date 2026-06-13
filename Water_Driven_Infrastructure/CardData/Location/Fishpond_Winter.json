@@ -13,7 +13,7 @@
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_fishpond_winter",
     "LocalizationKey": "Water_Sawmill_FishpondWinter_CardHelpSection",
-    "DefaultText": "<b>Ice fish:</b> Use Ice Fish Pike / Ice Fish Perch / Ice Fish Minnow / Ice Fish Trout / Ice Fish Char / Ice Fish Sturgeon with a spear nearby. Each catch costs more time than open-water fishing.\n\n<b>No frogs:</b> Frogs are dormant beneath the ice.\n\n<b>No water draw:</b> The pond is frozen — wait for the thaw.\n\n<b>Spring thaw:</b> When winter ends the pond reopens and pike, perch, and minnow populations resume growing. Trout, char, and sturgeon are tracked separately and do not breed."
+    "DefaultText": "<b>Ice fish:</b> Use Ice Fish Pike / Ice Fish Perch / Ice Fish Minnow / Ice Fish Trout / Ice Fish Char / Ice Fish Sturgeon with a spear nearby. Each catch costs more time than open-water fishing.\n\n<b>No frogs:</b> Frogs are dormant beneath the ice.\n\n<b>No water draw:</b> The pond is frozen — wait for the thaw.\n\n<b>No pack up:</b> A frozen pond cannot be packed up — wait for the spring thaw to drain and relocate it.\n\n<b>Spring thaw:</b> When winter ends the pond reopens and pike, perch, and minnow populations resume growing. Trout, char, and sturgeon are tracked separately and do not breed."
   },
   "CardType": 2,
   "ObjectWeight": 1500.0,

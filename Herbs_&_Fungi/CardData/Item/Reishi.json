@@ -107,7 +107,10 @@
             "DaytimeCost": 0,
             "UseMiniTicks": 1,
             "ActionTags": [],
-            "ActionTagsWarpData": [],
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
             "ActionTagsWarpType": 3,
             "ReceivingCardChanges": {
                 "ModType": 3

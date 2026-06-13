@@ -57,32 +57,7 @@
     "TextDisplay": 2,
     "NumberPrecision": 0,
     "HasActionOnZero": false,
-    "HasActionOnFull": true,
-    "OnFull": {
-      "ReceivingCardChanges": {
-        "ModType": 3
-      },
-      "ProducedCards": [
-        {
-          "CollectionName": "Drops",
-          "CollectionWeight": 1,
-          "DroppedCards": [
-            {
-              "DroppedCard": {
-                "m_FileID": 0,
-                "m_PathID": 0
-              },
-              "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
-              "DroppedCardWarpType": 3,
-              "Quantity": {
-                "x": 9,
-                "y": 9
-              }
-            }
-          ]
-        }
-      ]
-    },
+    "HasActionOnFull": false,
     "CountsForTradingValue": false,
     "OverrideIconWarpData": "Hot",
     "OverrideIconWarpType": 3
@@ -128,22 +103,12 @@
       "RequiredCardsOnBoard": [],
       "RequiredTagsOnBoard": [],
       "ReceivingCardChanges": {
-        "ModType": 2,
-        "TransformInto": {
-          "m_FileID": 0,
-          "m_PathID": 0
-        },
-        "TransformIntoWarpData": "4b0f4937a5ecb90499428c8c10288afc",
-        "TransformIntoWarpType": 3,
-        "TransferSpoilage": false,
-        "TransferUsage": false,
-        "TransferFuel": false,
-        "TransferCharges": false
+        "ModType": 3
       },
       "ProducedCards": [
         {
           "CollectionName": "1",
-          "CollectionWeight": 0,
+          "CollectionWeight": 1,
           "DroppedCards": [
             {
               "DroppedCard": {
@@ -153,8 +118,8 @@
               "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
               "DroppedCardWarpType": 3,
               "Quantity": {
-                "x": 8,
-                "y": 8
+                "x": 12,
+                "y": 12
               }
             }
           ]
@@ -222,7 +187,7 @@
         "ReceivingContainerRequiredDurabilityRanges": {
           "SpoilageRange": {
             "x": 0.0,
-            "y": 1099.0
+            "y": 899.0
           },
           "UsageRange": {
             "x": 0.0,
@@ -262,6 +227,68 @@
       "ConsumableChargesModifier": {
         "Active": true,
         "FloatValue": -1.0
+      }
+    },
+    {
+      "EffectName": "Gain Smelting when in hot copper smelting container",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTEquipped": false,
+      "OnlyWhenInHand": false,
+      "OnlyOnBaseActions": false,
+      "OnlyOnNOTBaseActions": false,
+      "OnlyWhenNOTInBG": false,
+      "Conditions": {
+        "NotInBackground": false,
+        "InBackground": false,
+        "PlayerUsesCard": 0,
+        "RequiredContainerTagsWarpData": [
+          "tag_SmeltingContainer"
+        ],
+        "RequiredContainerTagsWarpType": 3,
+        "ReceivingContainerRequiredDurabilityRanges": {
+          "SpoilageRange": {
+            "x": 900.0,
+            "y": 3000.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
+        }
+      },
+      "StatChanges": [],
+      "ConsumableChargesModifier": {
+        "Active": true,
+        "FloatValue": 1.0
       }
     }
   ],

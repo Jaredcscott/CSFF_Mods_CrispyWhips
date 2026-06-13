@@ -114,6 +114,7 @@ Water_Sawmill_ForgePlaced_SmeltGreenstone_ActionName,Smelt Greenstone,冶炼绿�
 Water_Sawmill_ForgePlaced_RefineCopper_ActionName,Refine Copper,精炼铜
 Water_Sawmill_ForgePlaced_SmeltIronOre_ActionName,Smelt High-Heat Ore,冶炼高温矿石
 Water_Sawmill_ForgePlaced_HeatMetalItems_ActionName,Heat Metal Items,加热金属物品
+Water_Sawmill_ForgePlaced_MeltIronParts_ActionName,Melt Iron Parts,熔化铁件
 Water_Sawmill_GrindingMillKit_CardName,Water-Driven Grinding Mill Kit,水力磨坊套件
 Water_Sawmill_GrindingMillKit_CardDescription,"A complete grinding mill kit with all components for a large water-powered grain mill, including iron bearing and axle hardware.",包含大型水力谷物磨所有组件的完整套件，包括铁轴承和铁轴五金。
 Water_Sawmill_GrindingMillKit_CardHelpSection,"<b>Use:</b> Place near water or a connected mill race outlet to set up the grinding mill.
@@ -312,11 +313,15 @@ Water_Sawmill_FishpondWinter_CardHelpSection,"<b>Populations:</b> Pike, perch, a
 
 <b>Water Draw:</b> Disabled while frozen.
 
+<b>Relocation:</b> The pond cannot be packed up while frozen — wait for the spring thaw to drain and relocate it.
+
 <b>Thaw:</b> The pond returns to its working state automatically when winter ends. Population is preserved across the freeze.","<b>种群：</b> 狗鱼、鲈鱼和小鱼被保存在冰下（解冻前不再生长）。鳟鱼、鲑鱼和鲟鱼单独追踪，冰封期间得以保存。
 
 <b>冰钓：</b> 每次冰钓比开放水域耗时更长，需要标枪。
 
 <b>取水：</b> 结冰期间禁用。
+
+<b>迁移：</b> 鱼塘在冰封状态下无法收起——请等待春季解冻后再排水并迁移。
 
 <b>解冻：</b> 冬季结束时鱼塘自动恢复工作状态。种群在冰封期间得以保存。"
 Water_Sawmill_FishpondWinter_SpecialDurability1_CardStatName,Pike,狗鱼
@@ -470,52 +475,62 @@ Water_Sawmill_WorkshopPlaced_CardHelpSection,"<b>Requirements:</b> Requires mill
 <b>操作：</b> 将柴火或木炭拖至工坊锻炉补充燃料，然后用余烬点火。锻炉会自然升温至约1000。水流畅通时可使用鼓风，或手动将风箱拖到已点燃的锻炉上，将温度推高到足以冶炼。将加热的金属工具坯料或铜零件放入库存，然后在水流畅通时按全部锤打对每件物品施加一次水力锤击。工坊锻锤在塑形工具时提升金属品质。
 
 <b>接受：</b> 所有加热工具坯料、加热金属块、铜齿轮零件，以及任何带有可加热或铜标签的物品。"
-Water_Sawmill_CopperGearSmall_CardName,Small Copper Gear
-Water_Sawmill_CopperGearSmall_CardDescription,A small cast copper gear used in water-driven machinery. Can be smelted back into copper nuggets.
+Water_Sawmill_CopperGearSmall_CardName,Small Copper Gear,小铜齿轮
+Water_Sawmill_CopperGearSmall_CardDescription,A small cast copper gear used in water-driven machinery. Can be smelted back into copper nuggets.,用于水驱机械的小型铸铜齿轮。可熔炼回铜块。
 Water_Sawmill_CopperGearSmall_CardHelpSection,"<b>Purpose:</b> Component for water-driven machinery.
 
-<b>Used in:</b> Sawmills, workshops, and other water-powered devices."
-Water_Sawmill_CopperGearSmall_FuelCapacity_CardStatName,Temperature
-Water_Sawmill_CopperGearLarge_CardName,Large Copper Gear
-Water_Sawmill_CopperGearLarge_CardDescription,A large cast copper gear used in water-driven machinery. Can be smelted back into copper nuggets.
+<b>Used in:</b> Sawmills, workshops, and other water-powered devices.","<b>用途:</b> 水驱机械部件。
+
+<b>用于:</b> 锯木厂、工坊及其他水力装置。"
+Water_Sawmill_CopperGearSmall_FuelCapacity_CardStatName,Temperature,温度
+Water_Sawmill_CopperGearLarge_CardName,Large Copper Gear,大铜齿轮
+Water_Sawmill_CopperGearLarge_CardDescription,A large cast copper gear used in water-driven machinery. Can be smelted back into copper nuggets.,用于水驱机械的大型铸铜齿轮。可熔炼回铜块。
 Water_Sawmill_CopperGearLarge_CardHelpSection,"<b>Purpose:</b> Component for water-driven machinery.
 
-<b>Used in:</b> Sawmills, workshops, and other water-powered devices."
-Water_Sawmill_CopperGearLarge_FuelCapacity_CardStatName,Temperature
-Water_Sawmill_CopperSawBlade_CardName,Copper Saw Blade
-Water_Sawmill_CopperSawBlade_CardDescription,A large cast copper saw blade for use in a water-driven sawmill. Can be smelted back into copper nuggets.
-Water_Sawmill_CopperSawBlade_CardHelpSection,<b>Purpose:</b> Cutting component for the water-driven sawmill.
-Water_Sawmill_CopperSawBlade_FuelCapacity_CardStatName,Temperature
-Water_Sawmill_IronParts_CardName,Iron Parts
-Water_Sawmill_IronParts_CardDescription,A set of heavy wrought iron fittings for reinforcing water-driven machinery.
+<b>Used in:</b> Sawmills, workshops, and other water-powered devices.","<b>用途:</b> 水驱机械部件。
+
+<b>用于:</b> 锯木厂、工坊及其他水力装置。"
+Water_Sawmill_CopperGearLarge_FuelCapacity_CardStatName,Temperature,温度
+Water_Sawmill_CopperSawBlade_CardName,Copper Saw Blade,铜锯片
+Water_Sawmill_CopperSawBlade_CardDescription,A large cast copper saw blade for use in a water-driven sawmill. Can be smelted back into copper nuggets.,用于水驱锯木厂的大型铸铜锯片。可熔炼回铜块。
+Water_Sawmill_CopperSawBlade_CardHelpSection,<b>Purpose:</b> Cutting component for the water-driven sawmill.,<b>用途:</b> 水驱锯木厂的切割部件。
+Water_Sawmill_CopperSawBlade_FuelCapacity_CardStatName,Temperature,温度
+Water_Sawmill_IronParts_CardName,Iron Parts,铁制零件
+Water_Sawmill_IronParts_CardDescription,A set of heavy wrought iron fittings for reinforcing water-driven machinery.,一组用于加固水力机械的重型锻铁配件。
 Water_Sawmill_IronParts_CardHelpSection,"<b>Purpose:</b> Reinforcement component for advanced water-driven machinery.
 
-<b>Used in:</b> Water-driven sawmill, forge, and workshop kits."
-Water_Sawmill_IronBearing_CardName,Iron Bearing
-Water_Sawmill_IronBearing_CardDescription,A wrought iron bearing for supporting the heavy rotating shaft of a water-driven workshop.
+<b>Used in:</b> Water-driven sawmill, forge, and workshop kits.","<b>用途：</b> 用于高级水力机械的加固组件。
+
+<b>用于：</b> 水力锯木厂、锻炉和工坊套件。"
+Water_Sawmill_IronBearing_CardName,Iron Bearing,铁轴承
+Water_Sawmill_IronBearing_CardDescription,A wrought iron bearing for supporting the heavy rotating shaft of a water-driven workshop.,用于支撑水力工坊重型旋转轴的锻铁轴承。
 Water_Sawmill_IronBearing_CardHelpSection,"<b>Purpose:</b> Rotating support component for advanced water-driven machinery.
 
-<b>Used in:</b> Water-driven sawmill, forge, grinding mill, ore sluice, and workshop kits."
-Water_Sawmill_IronAxle_CardName,Iron Axle
-Water_Sawmill_IronAxle_CardDescription,A wrought iron axle for transferring rotation through heavy water-driven machinery.
+<b>Used in:</b> Water-driven sawmill, forge, grinding mill, ore sluice, and workshop kits.","<b>用途：</b> 用于高级水力机械的旋转支撑组件。
+
+<b>用于：</b> 水力锯木厂、锻炉、磨坊、矿石淘洗槽和工坊套件。"
+Water_Sawmill_IronAxle_CardName,Iron Axle,铁轴
+Water_Sawmill_IronAxle_CardDescription,A wrought iron axle for transferring rotation through heavy water-driven machinery.,用于在重型水力机械中传递旋转的锻铁轴。
 Water_Sawmill_IronAxle_CardHelpSection,"<b>Purpose:</b> Drive-shaft component for advanced water-driven machinery.
 
-<b>Used in:</b> Water-driven sawmill, forge, grinding mill, ore sluice, and workshop kits."
-Water_Sawmill_Bp_CastCopperGearSmall_CardName,Cast Small Copper Gear
-Water_Sawmill_Bp_CastCopperGearSmall_CardDescription,"Cast a small copper gear in a mud-brick and clay mold using a small crucible of molten copper, then break it open with a hammer."
-Water_Sawmill_Bp_CastCopperGearSmall_UnlockConditionsDesc,Small Crucible of Molten Copper Needed
-Water_Sawmill_Bp_CastCopperGearLarge_CardName,Cast Large Copper Gear
-Water_Sawmill_Bp_CastCopperGearLarge_CardDescription,"Cast a large copper gear in a mud-brick and clay mold using a large crucible of molten copper, then break it open with a hammer."
-Water_Sawmill_Bp_CastCopperGearLarge_UnlockConditionsDesc,Large Crucible of Molten Copper Needed
-Water_Sawmill_Bp_CastCopperSawBlade_CardName,Cast Copper Saw Blade
-Water_Sawmill_Bp_CastCopperSawBlade_CardDescription,"Cast a copper saw blade in a clay mold using two large crucibles of molten copper, then break it open with a hammer."
-Water_Sawmill_Bp_CastCopperSawBlade_UnlockConditionsDesc,Large Crucible of Molten Copper Needed
-Water_Sawmill_Bp_IronParts_CardName,Forge Iron Parts
-Water_Sawmill_Bp_IronParts_CardDescription,Forge two iron parts from one iron bar.
-Water_Sawmill_Bp_IronParts_UnlockConditionsDesc,Wrought Iron Bar Needed
-Water_Sawmill_Bp_IronBearing_CardName,Forge Iron Bearing
-Water_Sawmill_Bp_IronBearing_CardDescription,Forge one heavy iron bearing from a wrought iron bar.
-Water_Sawmill_Bp_IronBearing_UnlockConditionsDesc,Wrought Iron Bar Needed
-Water_Sawmill_Bp_IronAxle_CardName,Forge Iron Axle
-Water_Sawmill_Bp_IronAxle_CardDescription,Forge one heavy iron axle from a wrought iron bar.
-Water_Sawmill_Bp_IronAxle_UnlockConditionsDesc,Wrought Iron Bar Needed
+<b>Used in:</b> Water-driven sawmill, forge, grinding mill, ore sluice, and workshop kits.","<b>用途：</b> 用于高级水力机械的传动轴组件。
+
+<b>用于：</b> 水力锯木厂、锻炉、磨坊、矿石淘洗槽和工坊套件。"
+Water_Sawmill_Bp_CastCopperGearSmall_CardName,Cast Small Copper Gear,铸造小铜齿轮
+Water_Sawmill_Bp_CastCopperGearSmall_CardDescription,"Cast a small copper gear in a mud-brick and clay mold using a small crucible of molten copper, then break it open with a hammer.",用小型熔融铜坩埚在泥砖和黏土模具中铸造小铜齿轮，然后用锤子敲开。
+Water_Sawmill_Bp_CastCopperGearSmall_UnlockConditionsDesc,Small Crucible of Molten Copper Needed,需要小型熔融铜坩埚
+Water_Sawmill_Bp_CastCopperGearLarge_CardName,Cast Large Copper Gear,铸造大铜齿轮
+Water_Sawmill_Bp_CastCopperGearLarge_CardDescription,"Cast a large copper gear in a mud-brick and clay mold using a large crucible of molten copper, then break it open with a hammer.",用大型熔融铜坩埚在泥砖和黏土模具中铸造大铜齿轮，然后用锤子敲开。
+Water_Sawmill_Bp_CastCopperGearLarge_UnlockConditionsDesc,Large Crucible of Molten Copper Needed,需要大型熔融铜坩埚
+Water_Sawmill_Bp_CastCopperSawBlade_CardName,Cast Copper Saw Blade,铸造铜锯片
+Water_Sawmill_Bp_CastCopperSawBlade_CardDescription,"Cast a copper saw blade in a clay mold using two large crucibles of molten copper, then break it open with a hammer.",用两个大型熔融铜坩埚在黏土模具中铸造铜锯片，然后用锤子敲开。
+Water_Sawmill_Bp_CastCopperSawBlade_UnlockConditionsDesc,Large Crucible of Molten Copper Needed,需要大型熔融铜坩埚
+Water_Sawmill_Bp_IronParts_CardName,Forge Iron Parts,锻造铁制零件
+Water_Sawmill_Bp_IronParts_CardDescription,Forge two iron parts from one iron bar.,用一根锻铁条锻造成两组重型铁制零件。
+Water_Sawmill_Bp_IronParts_UnlockConditionsDesc,Wrought Iron Bar Needed,需要锻铁条
+Water_Sawmill_Bp_IronBearing_CardName,Forge Iron Bearing,锻造铁轴承
+Water_Sawmill_Bp_IronBearing_CardDescription,Forge one heavy iron bearing from a wrought iron bar.,用一根锻铁条锻造成一个重型铁轴承。
+Water_Sawmill_Bp_IronBearing_UnlockConditionsDesc,Wrought Iron Bar Needed,需要锻铁条
+Water_Sawmill_Bp_IronAxle_CardName,Forge Iron Axle,锻造铁轴
+Water_Sawmill_Bp_IronAxle_CardDescription,Forge one heavy iron axle from a wrought iron bar.,用一根锻铁条锻造成一根重型铁轴。
+Water_Sawmill_Bp_IronAxle_UnlockConditionsDesc,Wrought Iron Bar Needed,需要锻铁条

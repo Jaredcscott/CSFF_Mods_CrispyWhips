@@ -1,9 +1,9 @@
 # Advanced Copper Tools
 
 **Quality of Life & Advanced Metalworking**
-**Version:** 1.8.0
+**Version:** 1.9.0
 **Author:** Jared (crispywhips)
-**For:** Card Survival: Fantasy Forest (EA 0.63)
+**For:** Card Survival: Fantasy Forest (EA 0.64f)
 
 ---
 
@@ -36,6 +36,7 @@ Blueprints register into vanilla crafting tabs via `BlueprintTabs.json`:
 | Tab | Blueprints |
 |-----|-----------|
 | **Survival → Support** | Rendered Oil, Render Hemp Seed Oil |
+| **Survival → Fire** | Copper Brazier |
 | **Metal & Clay → Metal Crafts** | Metal Sheet, Copper Nail, Forged Pan Blank, Wheel Rim, Wheel Hub (forged), Cast Wheel Hub, Cast Stove Top |
 | **Construction → Metal Tools** | Wearable Metal Pan, Large Saw, Lantern Oilwell, Copper Tea Kettle, Copper Oil Flask, Copper Cauldron, Copper Helmet, Copper Bracers, Copper Greaves, Copper Armor |
 | **Construction → Advanced Tools** | Metal Lantern, Wheelbarrow Bucket, Wheelbarrow Handles, Wheel Assembly, Wheelbarrow |
@@ -259,7 +260,7 @@ A copper fire-bowl on a stick tripod (build 4 ticks, unlock 16 ticks; 3 metal sh
 - **Pack Up:** Extinguish first (or pack up the unlit version) — remaining oil transfers back to the kit
 - **Smelting:** Can be melted in the furnace for 22 copper nuggets
 
-Blueprinted under **Construction → Furniture**.
+Blueprinted under **Construction → Furniture** and **Survival → Fire**.
 
 ---
 
@@ -291,6 +292,7 @@ All crafted metal items can be melted back down for nuggets in the furnace (the 
 | Copper Helmet | 15 |
 | Copper Greaves | 15 |
 | Copper Armor | 23 |
+| Copper Brazier | 22 |
 | Small Copper Stove / Copper Chest | 30 |
 | Copper Cauldron | 34 |
 | Tea Station Kit / Wheelbarrow Bucket | 48 |
@@ -306,12 +308,12 @@ All recipes use a duration of 8 ticks in the smelter.
 |------|------|-------------|
 | **Metal Pan** | 5 Suns | Start with copper lumps, hammer, wood, rope, leather, and a wearable metal pan equipped + a shaped pan in inventory. |
 | **Wheelbarrow** | 3 Moons | Start with a fully assembled wheelbarrow. |
-| **Wheelbarrow Kit** | 2 Moons | Start with bucket, handles, and wheel assembly + all wheelbarrow blueprints unlocked. |
+| **Wheelbarrow Kit** | 2 Moons | Start with bucket, handles, and wheel assembly. |
 | **Copper Bathtub** | 3 Moons | Start with a copper bathtub. |
-| **Bathtub Kit** | 2 Moons | Start with all bathtub crafting materials + the bathtub blueprint unlocked. |
+| **Bathtub Kit** | 2 Moons | Start with all bathtub crafting materials: bucket, copper stove, 4 planks, 8 mud bricks, 1 large cloth, 4 long sticks, and 3 leather. |
 | **Large Saw** | 3 Moons | Start with a Large Copper Saw. |
 | **Tea Blending Station** | 3 Moons | Start with a Tea Station Kit ready to place. |
-| **Building Materials** | 4 Moons | Start with 10 planks, 10 leather, 10 long sticks, 20 mud bricks, 1 large cloth, and 1 spoon auger. |
+| **Building Materials** | 4 Moons | Start with 10 planks, 10 small leather, 10 long sticks, 20 mud bricks, 1 large cloth, and 1 spoon auger. |
 
 All perks land on the Situational tab via the framework's perk injector.
 
@@ -335,14 +337,14 @@ These hooks are mod-scoped: they filter on this mod's UniqueIDs and never modify
 
 - BepInEx 5.x
 - CSFFModFramework
-- Card Survival: Fantasy Forest (EA 0.63)
+- Card Survival: Fantasy Forest (EA 0.64f)
 
 ### Steps
 
 1. Install BepInEx if not already installed.
 2. Install CSFFModFramework in `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. Drop this mod folder at `BepInEx/plugins/Advanced_Copper_Tools/`.
-4. Launch the game — content loads automatically; check `BepInEx/LogOutput.log` for `Advanced_Copper_Tools v1.8.0 loaded.`
+4. Launch the game — content loads automatically; check `BepInEx/LogOutput.log` for `Advanced_Copper_Tools v1.9.0 loaded.`
 
 ### Deployed file structure
 
@@ -375,7 +377,7 @@ BepInEx/plugins/Advanced_Copper_Tools/
 
 ## Troubleshooting
 
-**Blueprints not appearing?** Verify CSFFModFramework is loaded — check `LogOutput.log` for `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.8.0 loaded.`
+**Blueprints not appearing?** Verify CSFFModFramework is loaded — check `LogOutput.log` for `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.9.0 loaded.`
 
 **Pan / kettle won't boil?** It must be on a *lit* fire source with fuel remaining. Vanilla water types boil via their own `LiquidFuelValue` OnFull transform; if the liquid isn't a heatable type, nothing happens.
 
@@ -389,7 +391,12 @@ BepInEx/plugins/Advanced_Copper_Tools/
 
 ## Version History
 
-### v1.8.0 (current)
+### v1.9.0 (current)
+- Tier 2 framework retrofit: ActionRouter/SpawnService integration; manifest cleanup (removed `ModLoaderVerison`/`ModEditorVersion` fields)
+- Perk descriptions corrected: Wheelbarrow Kit and Bathtub Kit no longer claim blueprint unlocks that aren't implemented; Building Materials now says "10 small leather"
+- Copper Armor set perk descriptions fixed; IDEAS.md cleaned of shipped content
+
+### v1.8.0
 - Added **Copper Brazier** — 3-variant oil-burning fire bowl (kit → placed unlit → placed lit)
   - Fueled by rendered oil (24 units per clay bowl); lit variant drains at 1.5 per DTP (~64 DTP per fill)
   - Pack-up transfers remaining oil back to the kit; smelts for 22 copper nuggets

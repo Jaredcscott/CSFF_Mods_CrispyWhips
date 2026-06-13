@@ -160,7 +160,7 @@ internal class Plugin : BaseUnityPlugin
                 "Apply a named difficulty preset that sets ExpMultiplier and Staleness together. 'None' = use individual settings. " +
                 "Options: None, VanillaPlus (2x+staleness), Casual (3x, no staleness), Hardcore (1x+staleness), " +
                 "Grinder (10x, no staleness), Balanced (2x+staleness), Legacy (1x+staleness). " +
-                "Changes apply after loading a save.",
+                "ExpMultiplier applies immediately; staleness change takes effect after reloading a save.",
                 new AcceptableValueList<string>("None", "VanillaPlus", "Casual", "Hardcore", "Grinder", "Balanced", "Legacy")
             )
         );

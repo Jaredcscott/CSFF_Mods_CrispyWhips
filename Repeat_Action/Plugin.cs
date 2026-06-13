@@ -11,7 +11,7 @@ public class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.repeat_action";
     public const string PluginName = "Repeat_Action";
-    public const string PluginVersion = "1.4.2";
+    public const string PluginVersion = "1.6.0";
 
     internal new static ManualLogSource Logger;
     private static Harmony _harmony;

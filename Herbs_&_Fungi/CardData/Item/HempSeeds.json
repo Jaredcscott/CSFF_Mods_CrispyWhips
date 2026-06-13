@@ -146,73 +146,7 @@
     "DurabilitySorting": {
         "SortingList": []
     },
-    "CardInteractions": [
-        {
-            "ActionName": {
-                "ParentObjectID": "herbs_fungi_hemp_seeds",
-                "LocalizationKey": "Herbs_And_Fungi_HempSeeds_CardInteractions_Add_ActionName",
-                "DefaultText": "Add"
-            },
-            "ActionDescription": {
-                "ParentObjectID": "herbs_fungi_hemp_seeds",
-                "LocalizationKey": "Herbs_And_Fungi_HempSeeds_CardInteractions_Add_ActionDescription",
-                "DefaultText": "Plant a single hemp seed in a garden plot to grow an individual plant."
-            },
-            "DaytimeCost": 1,
-            "StackCompatible": false,
-            "RequiredCardsOnBoard": [],
-            "RequiredReceivingContainer": [],
-            "RequiredReceivingContainerWarpData": [
-                "f853a0a8ad6c64c4b81eabb8367c0c5c"
-            ],
-            "RequiredReceivingContainerWarpType": 3,
-            "RequiredReceivingContainerTag": [],
-            "RequiredReceivingContainerDurabilities": {
-                "HideActionIfNotMet": false
-            },
-            "RequiredReceivingDurabilities": {
-                "HideActionIfNotMet": false
-            },
-            "ReceivingCardChanges": {
-                "ModType": 3
-            },
-            "GivenCardChanges": {
-                "ModType": 1
-            }
-        },
-        {
-            "ActionName": {
-                "ParentObjectID": "herbs_fungi_hemp_seeds",
-                "LocalizationKey": "Herbs_And_Fungi_HempSeeds_CardInteractions_Plant_ActionName",
-                "DefaultText": "Plant"
-            },
-            "ActionDescription": {
-                "ParentObjectID": "herbs_fungi_hemp_seeds",
-                "LocalizationKey": "Herbs_And_Fungi_HempSeeds_CardInteractions_Plant_ActionDescription",
-                "DefaultText": "Plant 4 hemp seeds in a tilled field to start growing a hemp crop."
-            },
-            "DaytimeCost": 2,
-            "StackCompatible": true,
-            "RequiredCardsOnBoard": [],
-            "RequiredReceivingContainer": [],
-            "RequiredReceivingContainerWarpData": [
-                "9068f2758996ba84c858e5936a6c2a27"
-            ],
-            "RequiredReceivingContainerWarpType": 3,
-            "RequiredReceivingContainerTag": [],
-            "RequiredReceivingContainerDurabilities": {
-                "HideActionIfNotMet": false
-            },
-            "RequiredReceivingDurabilities": {
-                "HideActionIfNotMet": false
-            },
-            "ReceivingCardChanges": {
-                "ModType": 2,
-                "TransformIntoWarpData": "herbs_fungi_hemp_field_growing",
-                "TransformIntoWarpType": 3
-            }
-        }
-    ],
+    "CardInteractions": [],
     "DismantleActions": [
         {
             "ActionName": {

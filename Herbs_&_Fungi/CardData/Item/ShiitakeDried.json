@@ -556,7 +556,7 @@
     ],
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_shiitake_dried",
-        "LocalizationKey": "herbs_fungi_shiitake_dried_SpoilageTime_LocalizationKey",
+        "LocalizationKey": "herbs_fungi_shiitake_dried_SpoilageTime_CardStatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {

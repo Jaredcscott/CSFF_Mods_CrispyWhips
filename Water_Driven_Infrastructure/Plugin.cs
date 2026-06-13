@@ -11,7 +11,7 @@ internal class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.waterdriveninfrastructure";
     public const string PluginName = "WaterDrivenInfrastructure";
-    public const string PluginVersion = "1.3.3";
+    public const string PluginVersion = "1.6.0";
 
     internal new static ManualLogSource Logger;
     internal static Plugin Instance { get; private set; }

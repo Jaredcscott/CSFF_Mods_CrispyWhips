@@ -29,7 +29,7 @@
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_dried_ginger",
-        "LocalizationKey": "herbs_fungi_dried_ginger_SpoilageTime_LocalizationKey",
+        "LocalizationKey": "herbs_fungi_dried_ginger_SpoilageTime_CardStatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {

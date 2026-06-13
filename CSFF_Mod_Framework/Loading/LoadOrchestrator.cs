@@ -71,14 +71,23 @@ internal static class LoadOrchestrator
             RunPhase(sw, "SpriteLoader", () => SpriteLoader.LoadAll(mods), warnMs: 3000);
 
             // 3a. Decode GIFs and load CardData/Gif/*.json definitions. Drives the
-            //     animations applied by Patching.GifAnimationPatch at runtime. No-op
-            //     when no mod ships GIF content.
-            RunPhase(sw, "GifLoader", () => Gif.GifLoader.LoadAll(mods));
+            //     animations applied by Patching.GifAnimationPatch at runtime.
+            if (mods.Any(m => m.HasGifContent))
+                RunPhase(sw, "GifLoader", () => Gif.GifLoader.LoadAll(mods));
+            else
+                Log.Debug("[Skip] GifLoader: no mod ships CardData/Gif/ JSON");
 
             // 4. Load JSON data (cards, perks, etc.) — also caches JSON + UniqueIDs for downstream
             currentPhase = "JsonDataLoader";
             JsonDataLoader.LoadAll(mods);
             LogTiming(sw, "JsonDataLoader", warnMs: 3000);
+
+            // 4b. Supersede duplicate instances created by Pikachu ModLoader/ModCore for
+            //     UIDs we own (they load every ModInfo.json mod inside a ClearDict prefix,
+            //     so their duplicates win GetFromID — which resets blueprint research on
+            //     save load and splits reference identity). MUST run before WarpResolver
+            //     so warps link against the canonical instances.
+            RunPhase(sw, "ForeignInstanceReconciler", () => ForeignInstanceReconciler.ReconcileAll());
 
             // 5. Resolve ALL WarpData references (THE key fix)
             var allData = GetAllData();
@@ -126,6 +135,46 @@ internal static class LoadOrchestrator
             else
                 Log.Debug("[Skip] TriggerLoader: no mod ships CardData/Trigger/ JSON");
 
+            // 5f2. Register declarative wildlife-encounter guards (EncounterGuards/*.json).
+            //      Runtime suppression flows through the framework's single StartEncounter
+            //      prefix (Patching.EncounterGuardPatch → Api.EncounterGuards).
+            if (mods.Any(m => m.HasEncounterGuards))
+                RunPhase(sw, "EncounterGuardLoader", () => EncounterGuardLoader.LoadAll(mods));
+            else
+                Log.Debug("[Skip] EncounterGuardLoader: no mod ships EncounterGuards/ JSON");
+
+            // 5g. Validate mod SelfTriggeredActions and arm the run-start activation check.
+            //     No injection needed: GameManager.InitializeStatsAndActions() discovers STAs
+            //     by iterating DataBase.AllData, where JsonDataLoader already registered them.
+            RunPhase(sw, "StaActivationService", () => StaActivationService.ValidateAll(allData));
+
+            // 5h. Phase 3: Validate mod NPCAgents at load time, then inject any that GameManager
+            //     didn't auto-discover into its agent list at OnGMInitialized. NPCDuty/NPCStat/
+            //     NPCHidingGroup are loaded into AllData by JsonDataLoader and resolve via WarpData.
+            //     A verbose [DIAGNOSTICS] survey of GameManager NPC fields is available at Debug
+            //     level (visible with VerboseLogging=true in the BepInEx config).
+            RunPhase(sw, "NPCAgentActivationService", () => NPCAgentActivationService.ValidateAll(allData));
+
+            // 5i. Phase 4: Prepare mod WorldMap/MapNodes.json entries. WorldMapData is a static
+            //     plain ScriptableObject (not UniqueIDScriptable) that is NOT loaded into memory
+            //     at this point (verified EA 0.64f — Resources.FindObjectsOfTypeAll(WorldMapData)
+            //     returns empty during LoadMainGameData; it loads later, around GameManager init).
+            //     So PrepareAll only does the load-time work here — cloning env/location pairs into
+            //     AllData and recording Api.WorldMap travel edges (both consumed by WDI's own
+            //     LoadMainGameData postfix) — and defers the actual WorldMapData.Environments[]
+            //     node injection to GameManager.OnGMInitialized via WorldMapInjector.InjectIntoWorldMap.
+            if (mods.Any(m => m.HasWorldMapNodes))
+            {
+                RunPhase(sw, "WorldMapInjector", () =>
+                {
+                    var mapNodes = WorldMapLoader.LoadAll(mods);
+                    if (mapNodes.Count > 0)
+                        WorldMapInjector.PrepareAll(mapNodes);
+                });
+            }
+            else
+                Log.Debug("[Skip] WorldMapInjector: no mod ships WorldMap/MapNodes.json");
+
             // 6. Build DataMap before GameSourceModify — only needed when a mod uses
             //    MatchTagWarpData / MatchTypeWarpData bulk patches.
             if (mods.Any(m => m.HasGSMTagOrTypeMatch))
@@ -167,6 +216,21 @@ internal static class LoadOrchestrator
                 PerkInjector.InjectAll(allData, mods);
                 PerkRelocationService.ClearOverrideEnvironments(allData, mods);
             });
+
+            // 11b2. Phase 5: attach mod QuestLogs to PlayerCharacter quest lists (Quests.json)
+            //       and mod PlayerCharacters to the Gamemode select rosters (Characters.json).
+            //       Both run after WarpResolver (quest/character cross-refs resolved) and
+            //       before the post-injection compactor (Collections.Append dirty-marks
+            //       the mutated vanilla SOs).
+            if (mods.Any(m => m.HasQuestManifest))
+                RunPhase(sw, "QuestInjector", () => Injection.QuestInjector.InjectAll(allData, mods));
+            else
+                Log.Debug("[Skip] QuestInjector: no mod ships Quests.json");
+
+            if (mods.Any(m => m.HasCharacterManifest))
+                RunPhase(sw, "CharacterRosterInjector", () => Injection.CharacterRosterInjector.InjectAll(allData, mods));
+            else
+                Log.Debug("[Skip] CharacterRosterInjector: no mod ships Characters.json");
 
             // 11e. Second NullReferenceCompactor pass — picks up vanilla objects that
             //      GameSourceModifier / SmeltingRecipeInjector / PerkInjector mutated

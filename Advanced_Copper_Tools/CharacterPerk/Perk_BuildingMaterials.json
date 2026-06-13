@@ -85,7 +85,7 @@
   },
   "PassiveStatModifiers": [],
   "PerkDescription": {
-    "DefaultText": "Start with essential building materials: 10 planks, 10 leather, 10 long sticks, 20 mud bricks, a large cloth, and a spoon auger.",
+    "DefaultText": "Start with essential building materials: 10 planks, 10 small leather, 10 long sticks, 20 mud bricks, a large cloth, and a spoon auger.",
     "LocalizationKey": "Advanced_Copper_Tools_Perk_BuildingMaterials_PerkDescription",
     "ParentObjectID": "advanced_copper_tools_perk_building_materials"
   },

@@ -204,7 +204,7 @@ namespace Skill_Speed_Boost.Patcher
             }
             catch (Exception ex)
             {
-                Logger.LogError($"[SkillSpeedBoost] Error modifying skills: {ex.Message}");
+                Logger.LogError($"[SkillSpeedBoost] Error modifying skills: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
         }
 

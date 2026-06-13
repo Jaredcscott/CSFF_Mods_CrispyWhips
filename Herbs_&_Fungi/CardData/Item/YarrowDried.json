@@ -555,7 +555,7 @@
     ],
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_yarrow_dried",
-        "LocalizationKey": "herbs_fungi_yarrow_dried_SpoilageTime_LocalizationKey",
+        "LocalizationKey": "herbs_fungi_yarrow_dried_SpoilageTime_CardStatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {

@@ -100,7 +100,7 @@
         <!-- ScriptableObject removed: CardTabGroup JSONs override vanilla tabs and break things.
              Tab injection is handled by C# AddBlueprintsToTabs() instead. -->
         <Content Include="Resource\**\*.*" CopyToOutputDirectory="PreserveNewest" />
-        <Content Include="ModInfo.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('ModInfo.json')" />
+        <Content Include="ModInfo.json" CopyToOutputDirectory="Always" Condition="Exists('ModInfo.json')" />
         <Content Include="BlueprintTabs.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('BlueprintTabs.json')" />
         <Content Include="SmeltingRecipes.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('SmeltingRecipes.json')" />
     </ItemGroup>

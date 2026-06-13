@@ -45,7 +45,7 @@
   "SpoilageTime": {
     "Active": true,
     "FloatValue": 0.0,
-    "MaxValue": 1600.0,
+    "MaxValue": 1800.0,
     "CardStatName": {
       "ParentObjectID": "water_sawmill_workshop_placed",
       "LocalizationKey": "Water_Sawmill_ForgePlaced_Temperature_StatName",
@@ -162,7 +162,11 @@
       "14f7ddfe60496b54881d5a25de8abb20",
       "3769abdc385c36c4ba349663240934c0",
       "1ec399502888015468ee1c00dab60569",
-      "b94d2bf3902f37d4d917943d3c784298"
+      "b94d2bf3902f37d4d917943d3c784298",
+      "water_sawmill_iron_parts",
+      "water_sawmill_iron_bearing",
+      "water_sawmill_iron_axle",
+      "water_sawmill_iron_wrench"
     ],
     "AcceptedCardsWarpType": 3,
     "AcceptedTypes": [],
@@ -1274,7 +1278,7 @@
       "EffectName": "High Temperature loss without windflow",
       "Conditions": {
         "ReceivingRequiredDurabilityRanges": {
-          "SpoilageRange": {"x": 1001.0, "y": 1600.0},
+          "SpoilageRange": {"x": 1001.0, "y": 1800.0},
           "Special1Range": {"x": 0.0, "y": 1.0}
         }
       },
@@ -1289,6 +1293,15 @@
         }
       },
       "SpoilageRateModifier": {"Active": true, "FloatValue": -40.0}
+    },
+    {
+      "EffectName": "Natural Windflow",
+      "Conditions": {
+        "RequiredEnvironmentTagsWarpData": ["tag_Env_Windy"],
+        "RequiredEnvironmentTagsWarpType": 3
+      },
+      "Special1RateModifier": {"Active": true, "FloatValue": 8.0},
+      "SpoilageRateModifier": {"Active": true, "FloatValue": 120.0}
     }
   ],
   "PassiveStatEffects": [],
@@ -1902,7 +1915,7 @@
       "Duration": 1,
       "DurationRdmVariation": 0,
       "CookerChanges": { "ModType": 0 },
-      "IngredientChanges": { "ModType": 1, "FuelChange": { "x": 200.0, "y": 200.0 } },
+      "IngredientChanges": { "ModType": 1, "FuelChange": { "x": 400.0, "y": 400.0 } },
       "FeedbackMode": 1,
       "ProgressBar": 3,
       "ProgressTowardsZero": false,
@@ -1914,6 +1927,126 @@
       "Notification": 0,
       "CustomNotification": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
       "ScaleDropsPerLiquidQuantity": { "Active": false, "FloatValue": 0.0 },
+      "Drops": [],
+      "StatModifications": [],
+      "UseCookerForCardDrops": false,
+      "DropsAsCollection": []
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "Water_Sawmill_ForgePlaced_MeltIronParts_ActionName",
+        "DefaultText": "Melt Iron Parts"
+      },
+      "CustomCookingText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+      "CannotCookText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": "Temperature must reach 1300 to melt iron!"},
+      "CompatibleCards": [],
+      "CompatibleCardsWarpData": [
+        "water_sawmill_iron_parts",
+        "water_sawmill_iron_bearing",
+        "water_sawmill_iron_axle",
+        "water_sawmill_iron_wrench"
+      ],
+      "CompatibleCardsWarpType": 3,
+      "CompatibleTags": [],
+      "CompatibleTagsWarpData": [],
+      "CompatibleTagsWarpType": 3,
+      "ConditionsCard": 0,
+      "Conditions": {
+        "NotInBackground": false,
+        "InBackground": false,
+        "PlayerUsesCard": 0,
+        "RequiredEnvironment": {"m_FileID": 0, "m_PathID": 0},
+        "InvertEnvironmentRequirement": false,
+        "RequiredEnvironmentTags": [],
+        "RequiredNOTEnvironmentTags": [],
+        "RequiredContainer": [],
+        "RequiredNOTContainer": [],
+        "RequiredContainerTags": [],
+        "RequiredNOTContainerTags": [],
+        "RequiredCardsOnBoard": [],
+        "RequiredTagsOnBoard": [],
+        "RequiredCardsNOTOnBoard": [],
+        "RequiredTagsNOTOnBoard": [],
+        "RequiredLiquidContainers": [],
+        "RequiredCardsInInventory": [],
+        "RequiredTagsInInventory": [],
+        "CardWasBuiltWith": [],
+        "CardWasNOTBuiltWith": [],
+        "RequiredPlayerOwnedCards": [],
+        "RequiredPlayerNOTOwnedCards": [],
+        "ReceivingRequiredDurabilityRanges": {
+          "SpoilageRange": {"x": 1300.0, "y": 1E+09},
+          "UsageRange": {"x": 0.0, "y": 0.0},
+          "FuelRange": {"x": 0.0, "y": 0.0},
+          "ProgressRange": {"x": 0.0, "y": 0.0},
+          "Special1Range": {"x": 0.0, "y": 0.0},
+          "Special2Range": {"x": 0.0, "y": 0.0},
+          "Special3Range": {"x": 0.0, "y": 0.0},
+          "Special4Range": {"x": 0.0, "y": 0.0},
+          "LiquidQuantityRange": {"x": 0.0, "y": 0.0}
+        },
+        "GivenRequiredDurabilityRanges": {
+          "SpoilageRange": {"x": 0.0, "y": 0.0},
+          "UsageRange": {"x": 0.0, "y": 0.0},
+          "FuelRange": {"x": 0.0, "y": 0.0},
+          "ProgressRange": {"x": 0.0, "y": 0.0},
+          "Special1Range": {"x": 0.0, "y": 0.0},
+          "Special2Range": {"x": 0.0, "y": 0.0},
+          "Special3Range": {"x": 0.0, "y": 0.0},
+          "Special4Range": {"x": 0.0, "y": 0.0},
+          "LiquidQuantityRange": {"x": 0.0, "y": 0.0}
+        },
+        "ReceivingContainerRequiredDurabilityRanges": {
+          "SpoilageRange": {"x": 0.0, "y": 0.0},
+          "UsageRange": {"x": 0.0, "y": 0.0},
+          "FuelRange": {"x": 0.0, "y": 0.0},
+          "ProgressRange": {"x": 0.0, "y": 0.0},
+          "Special1Range": {"x": 0.0, "y": 0.0},
+          "Special2Range": {"x": 0.0, "y": 0.0},
+          "Special3Range": {"x": 0.0, "y": 0.0},
+          "Special4Range": {"x": 0.0, "y": 0.0},
+          "LiquidQuantityRange": {"x": 0.0, "y": 0.0}
+        },
+        "GivenContainerRequiredDurabilityRanges": {
+          "SpoilageRange": {"x": 0.0, "y": 0.0},
+          "UsageRange": {"x": 0.0, "y": 0.0},
+          "FuelRange": {"x": 0.0, "y": 0.0},
+          "ProgressRange": {"x": 0.0, "y": 0.0},
+          "Special1Range": {"x": 0.0, "y": 0.0},
+          "Special2Range": {"x": 0.0, "y": 0.0},
+          "Special3Range": {"x": 0.0, "y": 0.0},
+          "Special4Range": {"x": 0.0, "y": 0.0},
+          "LiquidQuantityRange": {"x": 0.0, "y": 0.0}
+        },
+        "ReceivingCardTags": [],
+        "GivenCardTags": [],
+        "ReceivingCardSpices": [],
+        "GivenCardSpices": [],
+        "RequiredEnvironmentWeight": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+        "RequiredStatValues": [],
+        "RequiredNPCStatValues": [],
+        "RequiredInGameTimes": [],
+        "RequiredAlreadyVisitedEnvironments": []
+      },
+      "Duration": 1,
+      "DurationRdmVariation": 0,
+      "CookerChanges": {"ModType": 0},
+      "IngredientChanges": {
+        "ModType": 1,
+        "ChargesChange": {"x": 1.0, "y": 1.0}
+      },
+      "FeedbackMode": 1,
+      "ProgressBar": 3,
+      "ProgressTowardsZero": false,
+      "HideCookingProgress": false,
+      "HideDurabilities": {"MaskValue": 0},
+      "HideResultNotification": false,
+      "RandomSingleDrop": false,
+      "CustomCompleteSound": {"m_FileID": 0, "m_PathID": 0},
+      "Notification": 0,
+      "CustomNotification": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+      "ScaleDropsPerLiquidQuantity": {"Active": false, "FloatValue": 0.0},
       "Drops": [],
       "StatModifications": [],
       "UseCookerForCardDrops": false,

@@ -39,7 +39,7 @@
     "ObjectWeight": 800.0,
     "TradingValue": 200.0,
     "CardTags": [],
-    "CardTagsWarpData": ["tag_Structure", "tag_Metal"],
+    "CardTagsWarpData": ["tag_Preservable", "tag_Structure", "tag_Metal"],
     "CardTagsWarpType": 3,
     "EquipmentTags": [],
     "MapStructureType": 0,

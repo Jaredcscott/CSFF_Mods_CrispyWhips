@@ -97,12 +97,4 @@ internal static class SkillSynergies
         return sb.Length > 0 ? sb.ToString().TrimEnd() : "(no active combos)";
     }
 
-    /// <summary>Resets combo state for all groups a skill belongs to (e.g., on save-load).</summary>
-    public static void ResetCombo(string skillName)
-    {
-        if (string.IsNullOrEmpty(skillName)) return;
-        if (!_skillGroups.TryGetValue(skillName, out var groups)) return;
-        foreach (var group in groups)
-            _groupCombos.Remove(group);
-    }
 }

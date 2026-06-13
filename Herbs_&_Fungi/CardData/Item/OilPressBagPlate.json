@@ -22,7 +22,7 @@
     },
     "CardImageWarpData": "OilPress_Bag_Plate",
     "CardImageWarpType": 3,
-    "ObjectWeight": 0.5,
+    "ObjectWeight": 50.0,
     "MaxStack": 2,
     "DroppedCardShadow": 1
 }

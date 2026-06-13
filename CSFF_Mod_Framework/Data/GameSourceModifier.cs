@@ -91,13 +91,28 @@ internal static class GameSourceModifier
 
     private static void ApplyPatch(UnityEngine.Object target, string json, string modName, string filePath)
     {
+        // Parse the tree before FromJsonOverwrite so we can warn about accidental
+        // collection zeroing while the target still holds its pre-patch values.
+        Dictionary<string, object> root = null;
+        try { root = MiniJson.Parse(json) as Dictionary<string, object>; }
+        catch (Exception ex)
+        {
+            Log.Warn($"GameSourceModify: failed to parse {Path.GetFileName(filePath)}: {Log.ExceptionText(ex)}");
+        }
+
+        // FromJsonOverwrite replaces any collection present in the JSON — an empty
+        // "Foo": [] erases the target's entire vanilla Foo array. That is occasionally
+        // intended, but far more often the author meant _appendArrays. Warn so the
+        // erasure is visible instead of silently breaking vanilla behavior.
+        if (root != null)
+            WarnOnEmptyArrayZeroing(target, root, modName, filePath);
+
         JsonUtility.FromJsonOverwrite(json, target);
 
         // Re-resolve WarpData on the patched object and apply _appendArrays
         try
         {
-            var tree = MiniJson.Parse(json);
-            if (tree is Dictionary<string, object> root)
+            if (root != null)
             {
                 WarpResolver.Walk(target, root);
                 ApplyAppendArrays(target, root, modName);
@@ -113,6 +128,42 @@ internal static class GameSourceModifier
             Loading.FrameworkDirtyTracker.MarkDirty(uidTarget);
 
         Log.Debug($"GameSourceModify: [{modName}] patched {target.name} via {Path.GetFileName(filePath)}");
+    }
+
+    /// <summary>
+    /// Warns when a patch JSON contains an empty array for a field that is currently
+    /// non-empty on the target — FromJsonOverwrite will erase the whole collection.
+    /// Detection only; the patch is still applied (zeroing may be intentional).
+    /// </summary>
+    private static void WarnOnEmptyArrayZeroing(UnityEngine.Object target, Dictionary<string, object> root,
+        string modName, string filePath)
+    {
+        try
+        {
+            var type = target.GetType();
+            foreach (var kvp in root)
+            {
+                if (kvp.Value is not List<object> { Count: 0 }) continue;
+
+                var field = type.GetField(kvp.Key,
+                    BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+                var current = field?.GetValue(target);
+                int count = current switch
+                {
+                    Array arr => arr.Length,
+                    ICollection col => col.Count,
+                    _ => 0,
+                };
+                if (count > 0)
+                    Log.Warn($"GameSourceModify: [{modName}] {Path.GetFileName(filePath)} sets '{kvp.Key}': [] "
+                           + $"on {target.name}, erasing {count} existing entr{(count == 1 ? "y" : "ies")}. "
+                           + "If you meant to add entries, use _appendArrays instead.");
+            }
+        }
+        catch (Exception ex)
+        {
+            Log.Debug($"GameSourceModify: zeroing check failed for {target.name}: {Log.ExceptionText(ex)}");
+        }
     }
 
     /// <summary>

@@ -8,6 +8,7 @@ internal static class ModDiscovery
     {
         var mods = new List<ModManifest>();
         var frameworkDir = PathUtil.FrameworkDir;
+        var skippedForLoader = new List<string>();
 
         foreach (var dir in PathUtil.GetModDirectories())
         {
@@ -25,6 +26,21 @@ internal static class ModDiscovery
                 if (string.IsNullOrEmpty(manifest.Name))
                     manifest.Name = Path.GetFileName(dir);
 
+                // Coexistence rule: Pikachu ModLoader/ModCore load every plugins
+                // folder that has a ModInfo.json themselves (inside a
+                // UniqueIDScriptable.ClearDict prefix at boot). Mods authored for
+                // them carry the ModLoaderVerison manifest field — when one of
+                // those loaders is installed it owns such mods, and the framework
+                // must not load them a second time: duplicate instances split
+                // reference identity (blueprint research resets on save load,
+                // RequiredCard slots reject crafted items). Without a Pikachu
+                // loader installed, the framework loads them as before.
+                if (manifest.IsModLoaderNative && PikachuLoaderName != null)
+                {
+                    skippedForLoader.Add(manifest.Name);
+                    continue;
+                }
+
                 ProbeFeatures(manifest);
                 mods.Add(manifest);
                 Log.Debug($"Discovered mod: {manifest.Name} v{manifest.Version} by {manifest.Author} @ {dir}");
@@ -34,6 +50,10 @@ internal static class ModDiscovery
                 Log.Warn($"Failed to parse ModInfo.json in {dir}: {Log.ExceptionText(ex)}");
             }
         }
+
+        if (skippedForLoader.Count > 0)
+            Log.Info($"Skipping {skippedForLoader.Count} ModLoader-native mod(s) owned by installed {PikachuLoaderName}: "
+                   + string.Join(", ", skippedForLoader));
 
         // Deduplicate mods with the same Name (e.g. stale debug folder + deploy folder).
         // Picks the folder with MORE content (JSON file count across well-known dirs) as primary.
@@ -88,6 +108,44 @@ internal static class ModDiscovery
         return deduped;
     }
 
+    private static bool _pikachuProbed;
+    private static string _pikachuLoaderName;
+
+    /// <summary>
+    /// Display name of the installed Pikachu loader ("ModLoader", "ModCore", or
+    /// "ModLoader+ModCore"), or <c>null</c> when neither DLL exists under plugins.
+    /// Detected by filename on disk — does not load anything into the AppDomain.
+    /// </summary>
+    internal static string PikachuLoaderName
+    {
+        get
+        {
+            if (_pikachuProbed) return _pikachuLoaderName;
+            _pikachuProbed = true;
+            try
+            {
+                bool hasModLoader = false, hasModCore = false;
+                foreach (var dll in Directory.EnumerateFiles(PathUtil.PluginsDir, "*.dll", SearchOption.AllDirectories))
+                {
+                    var name = Path.GetFileName(dll);
+                    if (string.Equals(name, "ModLoader.dll", StringComparison.OrdinalIgnoreCase)) hasModLoader = true;
+                    else if (string.Equals(name, "ModCore.dll", StringComparison.OrdinalIgnoreCase)) hasModCore = true;
+                    if (hasModLoader && hasModCore) break;
+                }
+                _pikachuLoaderName = hasModLoader && hasModCore ? "ModLoader+ModCore"
+                                   : hasModLoader ? "ModLoader"
+                                   : hasModCore ? "ModCore"
+                                   : null;
+            }
+            catch (Exception ex)
+            {
+                Log.Warn($"Pikachu loader probe failed: {Log.ExceptionText(ex)}");
+                _pikachuLoaderName = null;
+            }
+            return _pikachuLoaderName;
+        }
+    }
+
     /// <summary>
     /// Inspects a mod's directory tree for content that gates optional LoadOrchestrator phases.
     /// Populates the <c>Has*</c> flags on the manifest. Only filesystem checks — no parsing.
@@ -125,7 +183,19 @@ internal static class ModDiscovery
         mod.HasTriggers =
             HasAnyFile(Path.Combine(dir, "CardData", "Trigger"), new[] { "*.json" });
 
+        mod.HasGifContent =
+            HasAnyFile(Path.Combine(dir, "CardData", "Gif"), new[] { "*.json" });
+
         mod.HasGSMTagOrTypeMatch = HasGSMBulkMatch(dir);
+
+        mod.HasWorldMapNodes =
+            HasAnyFile(Path.Combine(dir, "WorldMap"), new[] { "MapNodes.json" });
+
+        mod.HasEncounterGuards =
+            HasAnyFile(Path.Combine(dir, "EncounterGuards"), new[] { "*.json" }, SearchOption.TopDirectoryOnly);
+
+        mod.HasQuestManifest = File.Exists(Path.Combine(dir, "Quests.json"));
+        mod.HasCharacterManifest = File.Exists(Path.Combine(dir, "Characters.json"));
     }
 
     private static bool HasGSMBulkMatch(string modDir)

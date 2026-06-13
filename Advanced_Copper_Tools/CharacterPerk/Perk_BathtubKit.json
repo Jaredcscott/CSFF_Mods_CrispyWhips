@@ -55,7 +55,7 @@
   },
   "PassiveStatModifiers": [],
   "PerkDescription": {
-    "DefaultText": "Start with all materials needed to build a copper bathtub: bucket, copper stove, 4 planks, 8 mud bricks, 1 large cloth, 4 long sticks, and 3 leather. Also unlocks bathtub blueprint.",
+    "DefaultText": "Start with all materials needed to build a copper bathtub: bucket, copper stove, 4 planks, 8 mud bricks, 1 large cloth, 4 long sticks, and 3 leather.",
     "LocalizationKey": "Advanced_Copper_Tools_Perk_BathtubKit_PerkDescription",
     "ParentObjectID": "advanced_copper_tools_perk_bathtub_kit"
   },

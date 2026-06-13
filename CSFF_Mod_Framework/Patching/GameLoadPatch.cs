@@ -8,18 +8,25 @@ internal static class GameLoadPatch
 {
     public static void ApplyPatch(Harmony harmony)
     {
-        var postfix = new HarmonyMethod(AccessTools.Method(typeof(GameLoadPatch), nameof(Postfix)));
-        var patched = SafePatcher.TryPatch(harmony, "GameLoad", "LoadMainGameData", postfix: postfix)
-                   || SafePatcher.TryPatch(harmony, "GameLoad", "LoadGameFilesData", postfix: postfix);
-        if (!patched)
-            Log.Error("CSFFModFramework: failed to hook GameLoad — mod content will NOT load. Check for game version mismatch.");
+        try
+        {
+            var postfix = new HarmonyMethod(AccessTools.Method(typeof(GameLoadPatch), nameof(Postfix)));
+            var patched = SafePatcher.TryPatch(harmony, "GameLoad", "LoadMainGameData", postfix: postfix)
+                       || SafePatcher.TryPatch(harmony, "GameLoad", "LoadGameFilesData", postfix: postfix);
+            if (!patched)
+                Log.Error("CSFFModFramework: failed to hook GameLoad — mod content will NOT load. Check for game version mismatch.");
 
-        // Blueprint tabs don't exist during LoadMainGameData — re-inject when UI opens
-        var blueprintPrefix = new HarmonyMethod(AccessTools.Method(typeof(GameLoadPatch), nameof(BlueprintContent_Start_Prefix)));
-        SafePatcher.TryPatch(harmony, "NewBlueprintContent", "Start", prefix: blueprintPrefix);
+            // Blueprint tabs don't exist during LoadMainGameData — re-inject when UI opens
+            var blueprintPrefix = new HarmonyMethod(AccessTools.Method(typeof(GameLoadPatch), nameof(BlueprintContent_Start_Prefix)));
+            SafePatcher.TryPatch(harmony, "NewBlueprintContent", "Start", prefix: blueprintPrefix);
 
-        var blueprintScreenPostfix = new HarmonyMethod(AccessTools.Method(typeof(GameLoadPatch), nameof(BlueprintModelsScreen_Show_Postfix)));
-        SafePatcher.TryPatch(harmony, "BlueprintModelsScreen", "Show", postfix: blueprintScreenPostfix);
+            var blueprintScreenPostfix = new HarmonyMethod(AccessTools.Method(typeof(GameLoadPatch), nameof(BlueprintModelsScreen_Show_Postfix)));
+            SafePatcher.TryPatch(harmony, "BlueprintModelsScreen", "Show", postfix: blueprintScreenPostfix);
+        }
+        catch (Exception ex)
+        {
+            Log.Error($"GameLoadPatch: patch setup failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
+        }
     }
 
     static void Postfix()

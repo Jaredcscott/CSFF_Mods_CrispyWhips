@@ -75,6 +75,7 @@
         }
     ],
     "BuildingDaytimeCost": 6,
+    "DeconstructDaytimeCost": 3,
     "BlueprintActionTags": [],
     "BlueprintActionTagsWarpData": [
         "HandAction",

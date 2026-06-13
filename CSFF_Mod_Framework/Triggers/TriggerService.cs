@@ -168,6 +168,13 @@ internal static class TriggerService
     {
         if (_giveCardMethod == null || _gmInstanceProp == null) return false;
 
+        // SpawnLocation > 0 = outdoor only — skip when inside an instanced environment.
+        if (def.SpawnLocation > 0 && Api.GameQuery.IsInInstancedEnvironment)
+        {
+            Log.Debug($"[TriggerService] '{def.UniqueID}': player is indoors — skipping outdoor-only spawn");
+            return false;
+        }
+
         var gm = _gmInstanceProp.GetValue(null, null);
         if (gm == null)
         {

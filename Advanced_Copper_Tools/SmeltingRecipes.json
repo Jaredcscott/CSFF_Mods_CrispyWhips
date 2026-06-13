@@ -10,11 +10,6 @@
     "Duration": 8
   },
   {
-    "Item": "advanced_copper_tools_shape_metal_pan",
-    "NuggetReturn": 4,
-    "Duration": 8
-  },
-  {
     "Item": "advanced_copper_tools_metal_sheet",
     "NuggetReturn": 6,
     "Duration": 8
@@ -40,11 +35,6 @@
     "Duration": 8
   },
   {
-    "Item": "advanced_copper_tools_wearable_metal_pan",
-    "NuggetReturn": 5,
-    "Duration": 8
-  },
-  {
     "Item": "advanced_copper_tools_lantern_oilwell",
     "NuggetReturn": 6,
     "Duration": 8
@@ -60,16 +50,6 @@
     "Duration": 8
   },
   {
-    "Item": "advanced_copper_tools_copper_tea_kettle",
-    "NuggetReturn": 18,
-    "Duration": 8
-  },
-  {
-    "Item": "advanced_copper_tools_copper_cauldron",
-    "NuggetReturn": 34,
-    "Duration": 8
-  },
-  {
     "Item": "advanced_copper_tools_copper_pantry",
     "NuggetReturn": 30,
     "Duration": 8
@@ -82,11 +62,6 @@
   {
     "Item": "advanced_copper_tools_wheel_assembly",
     "NuggetReturn": 12,
-    "Duration": 8
-  },
-  {
-    "Item": "advanced_copper_tools_bucket",
-    "NuggetReturn": 48,
     "Duration": 8
   },
   {
@@ -122,6 +97,11 @@
   {
     "Item": "advanced_copper_tools_copper_brazier_kit",
     "NuggetReturn": 22,
+    "Duration": 8
+  },
+  {
+    "Item": "advanced_copper_tools_copper_cauldron",
+    "NuggetReturn": 34,
     "Duration": 8
   }
 ]

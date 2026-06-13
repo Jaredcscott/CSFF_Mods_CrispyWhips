@@ -404,10 +404,18 @@ internal static class BlueprintContainerSaveLoadFix
                 catch { purchased = Enum.ToObject(stateType, 2); }
             }
 
-            // Build sets of UIDs from the game's in-memory save state lists so we can restore
-            // the correct state for blueprints that FinishInitializing missed.
-            var purchasedUids = BuildUidSet(gmInstance, gmType, "ResearchedBlueprintCards", isPurchased: true);
-            var availableUids = BuildUidSet(gmInstance, gmType, "PurchasableBlueprintCards", isPurchased: false);
+            // Build sets of UIDs from the game's in-memory blueprint state lists so we can
+            // restore the correct state for blueprints that FinishInitializing missed.
+            // EA 0.64f stores both lists as List<CardData> and renamed the researched list
+            // to FinishedBlueprintResearch, while older versions used save-entry strings.
+            var purchasedUids = BuildUidSet(gmInstance, gmType,
+                "FinishedBlueprintResearch",
+                "ResearchedBlueprintCards");
+            var availableUids = BuildUidSet(gmInstance, gmType,
+                "PurchasableBlueprintCards",
+                "AvailableBlueprintCards");
+
+            Log.Info($"[BlueprintStateFix] RestoreModBlueprintStates: purchasedUids={purchasedUids.Count}, availableUids={availableUids.Count}");
 
             int added = 0;
             int restored = 0;
@@ -453,42 +461,24 @@ internal static class BlueprintContainerSaveLoadFix
         }
     }
 
-    // Reads a string list/array field on GameManager (PurchasableBlueprintCards or
-    // ResearchedBlueprintCards) and extracts the plain UniqueIDs from entries that
-    // use the "GUID(CardName)" save format.
-    private static HashSet<string> BuildUidSet(object gmInstance, Type gmType, string fieldName, bool isPurchased)
+    // Reads one of the blueprint-state members on GameManager and extracts UniqueIDs from
+    // whichever save representation the current game version uses.
+    private static HashSet<string> BuildUidSet(object gmInstance, Type gmType, params string[] memberNames)
     {
         var result = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         try
         {
-            var field = AccessTools.Field(gmType, fieldName);
-            if (field == null) return result;
-
-            var value = field.GetValue(gmInstance);
+            var value = GetFirstBlueprintStateMemberValue(gmInstance, gmType, memberNames);
             if (value == null) return result;
 
-            // Field may be List<string>, string[], List<BlueprintResearchData>, etc.
-            // For strings: extract UID from "GUID(CardName)" format.
-            // For BlueprintResearchData objects: read BlueprintID field.
+            // Members may be List<CardData>, string save entries, or version-specific DTOs.
             if (value is IEnumerable enumerable)
             {
                 foreach (var entry in enumerable)
                 {
                     if (entry == null) continue;
 
-                    string uid;
-                    if (entry is string str)
-                    {
-                        uid = ExtractUidFromSaveEntry(str);
-                    }
-                    else
-                    {
-                        // Likely BlueprintResearchData — read its BlueprintID field.
-                        var idField = entry.GetType().GetField("BlueprintID",
-                            BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-                        uid = idField?.GetValue(entry) as string;
-                        if (uid != null) uid = ExtractUidFromSaveEntry(uid);
-                    }
+                    var uid = ExtractUidFromBlueprintStateEntry(entry);
 
                     if (!string.IsNullOrEmpty(uid))
                         result.Add(uid);
@@ -497,9 +487,56 @@ internal static class BlueprintContainerSaveLoadFix
         }
         catch (Exception ex)
         {
-            Log.Warn($"[BlueprintStateFix] BuildUidSet({fieldName}) failed: {Log.ExceptionText(ex)}");
+            Log.Warn($"[BlueprintStateFix] BuildUidSet({string.Join("/", memberNames)}) failed: {Log.ExceptionText(ex)}");
         }
         return result;
+    }
+
+    private static object GetFirstBlueprintStateMemberValue(object gmInstance, Type gmType, string[] memberNames)
+    {
+        foreach (var memberName in memberNames)
+        {
+            if (string.IsNullOrEmpty(memberName)) continue;
+
+            var field = gmType.GetField(memberName,
+                BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            if (field != null)
+                return field.GetValue(gmInstance);
+
+            var property = gmType.GetProperty(memberName,
+                BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            if (property != null)
+                return property.GetValue(gmInstance, null);
+        }
+
+        return null;
+    }
+
+    private static string ExtractUidFromBlueprintStateEntry(object entry)
+    {
+        if (entry == null) return null;
+
+        if (entry is string str)
+            return ExtractUidFromSaveEntry(str);
+
+        if (entry is CardData card)
+            return card.UniqueID;
+
+        var entryType = entry.GetType();
+        foreach (var memberName in new[] { "BlueprintID", "CardID", "UniqueID" })
+        {
+            var field = entryType.GetField(memberName,
+                BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            if (field?.GetValue(entry) is string fieldValue)
+                return ExtractUidFromSaveEntry(fieldValue);
+
+            var property = entryType.GetProperty(memberName,
+                BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            if (property?.GetValue(entry, null) is string propertyValue)
+                return ExtractUidFromSaveEntry(propertyValue);
+        }
+
+        return null;
     }
 
     // Save entries use "UniqueID(CardName)" format (e.g. "advanced_copper_tools_bp_oil(Bp_Oil)").

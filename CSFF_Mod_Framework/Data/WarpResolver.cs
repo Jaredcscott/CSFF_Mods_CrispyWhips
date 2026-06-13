@@ -39,6 +39,15 @@ internal static class WarpResolver
     private static readonly HashSet<string> _unresolvedAudioClips = new(StringComparer.OrdinalIgnoreCase);
     private static string _currentUid = "";
 
+    // Live-scan cache (per ScriptableObject type) used to find already-loaded vanilla tags that
+    // are absent from the early Database SO cache (which can be built before vanilla data finishes
+    // loading). One FindObjectsOfTypeAll call per type per run. Reset per ResolveAll.
+    private static readonly Dictionary<Type, Dictionary<string, ScriptableObject>> _liveTagScanByType = new();
+    // Diagnostic: vanilla tags rescued via live scan (would otherwise have been duplicated) and
+    // genuinely-new runtime tags created. Reset per ResolveAll.
+    private static readonly HashSet<string> _rescuedVanillaTags = new(StringComparer.Ordinal);
+    private static readonly HashSet<string> _createdRuntimeTags = new(StringComparer.Ordinal);
+
     /// <summary>
     /// Resolve all WarpData references for all mod JSON files.
     /// </summary>
@@ -49,6 +58,9 @@ internal static class WarpResolver
         _unresolvedByMod.Clear();
         _unresolvedAudioClips.Clear();
         _currentUid = "";
+        _liveTagScanByType.Clear();
+        _rescuedVanillaTags.Clear();
+        _createdRuntimeTags.Clear();
         // Invalidate alias caches so a Database.Clear() between runs doesn't leave stale refs.
         _soNameCache = null;
         _spriteCache = null;
@@ -110,6 +122,13 @@ internal static class WarpResolver
         }
 
         Log.Debug($"WarpResolver: processed {filesProcessed} files, resolved {totalResolved} references, created {_runtimeCreatedCount} runtime tags, {_triggerResolveCount} trigger refs, {totalUnresolved} unresolved");
+        // Surface tag resolution at Info: rescued = vanilla tags that the early SO cache missed and
+        // that would have been fabricated as duplicates (the cause of mod food being skipped by the
+        // plate "Eat All"); created = genuinely new mod-defined tags with no vanilla instance.
+        if (_rescuedVanillaTags.Count > 0)
+            Log.Info($"WarpResolver: resolved {_rescuedVanillaTags.Count} vanilla tag(s) via live scan (missing from early SO cache): {string.Join(", ", _rescuedVanillaTags)}");
+        if (_createdRuntimeTags.Count > 0)
+            Log.Info($"WarpResolver: created {_createdRuntimeTags.Count} new runtime tag(s): {string.Join(", ", _createdRuntimeTags)}");
         _runtimeCreatedCount = 0;
         _triggerResolveCount = 0;
         _unresolvedByMod.Clear();
@@ -416,7 +435,13 @@ internal static class WarpResolver
                             if (elem == null && listElemType != null && IsSerializableType(listElemType))
                             {
                                 try { elem = Activator.CreateInstance(listElemType); rtList[i] = elem; resolved++; }
-                                catch { continue; }
+                                catch (Exception ex)
+                                {
+                                    // Surface the failure — silent skips here mean an author's
+                                    // WarpType 4/6 element injection never happens with no trace.
+                                    Log.Debug($"WarpResolver: failed to create list element {listElemType.Name} for '{_currentUid}': {Log.ExceptionText(ex)}");
+                                    continue;
+                                }
                             }
                             if (elem == null) continue;
                             int r = Walk(elem, elemDict);
@@ -435,7 +460,10 @@ internal static class WarpResolver
                         for (int i = 0; i < jsonArr.Count; i++)
                         {
                             try { newArr.SetValue(Activator.CreateInstance(eType), i); }
-                            catch { }
+                            catch (Exception ex)
+                            {
+                                Log.Debug($"WarpResolver: failed to create array element {eType.Name} for '{_currentUid}': {Log.ExceptionText(ex)}");
+                            }
                         }
                         field.SetValue(rtObj, newArr);
                         resolved++;
@@ -635,6 +663,34 @@ internal static class WarpResolver
         "CardTag", "ActionTag", "EquipmentTag", "CardTabGroup"
     };
 
+    /// <summary>
+    /// Live scan (cached per type — one FindObjectsOfTypeAll call per type per run) for a loaded
+    /// ScriptableObject of the given exact type whose name matches. Catches vanilla tags that were
+    /// not present in the early Database SO cache because they hadn't loaded when it was built.
+    /// </summary>
+    private static ScriptableObject FindLoadedSOByName(Type targetType, string name)
+    {
+        if (!_liveTagScanByType.TryGetValue(targetType, out var byName))
+        {
+            byName = new Dictionary<string, ScriptableObject>(StringComparer.OrdinalIgnoreCase);
+            try
+            {
+                foreach (var o in Resources.FindObjectsOfTypeAll(targetType))
+                {
+                    if (o is ScriptableObject so && !string.IsNullOrEmpty(so.name) && !byName.ContainsKey(so.name))
+                        byName[so.name] = so;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Debug($"WarpResolver: live tag scan for {targetType.Name} failed: {Log.ExceptionText(ex)}");
+            }
+            Log.Info($"WarpResolver [DIAG]: live scan for {targetType.Name} found {byName.Count} entries: [{string.Join(", ", byName.Keys)}]");
+            _liveTagScanByType[targetType] = byName;
+        }
+        return byName.TryGetValue(name, out var hit) ? hit : null;
+    }
+
     private static bool IsCreatableTagType(Type t)
     {
         // Check the type and its base types — the actual runtime type name may differ
@@ -726,6 +782,21 @@ internal static class WarpResolver
             //    mod items to have custom tag categories without shipping ScriptableObject JSON.
             if (IsCreatableTagType(targetType))
             {
+                // Before fabricating a duplicate, do a live scan for an already-loaded SO of this
+                // exact type+name. The early Database SO cache can be built before vanilla data
+                // finishes loading, so vanilla tags (e.g. the ActionTag "EatingAction") may be
+                // absent from it. Fabricating a duplicate breaks the game's reference-equality tag
+                // checks — e.g. the plate "Eat All" group action matches DismantleAction.ActionTags
+                // by instance against the vanilla EatingAction tag, so a duplicate makes modded
+                // foods unrecognized and silently skipped.
+                var existingLive = FindLoadedSOByName(targetType, id);
+                if (existingLive != null)
+                {
+                    Database.RegisterTypedSO(targetType, id, existingLive);
+                    _rescuedVanillaTags.Add($"{id}({targetType.Name})");
+                    return existingLive;
+                }
+
                 var created = ScriptableObject.CreateInstance(targetType);
                 if (created != null)
                 {
@@ -733,6 +804,7 @@ internal static class WarpResolver
                     InitializeTagFields(created, id);
                     Database.RegisterTypedSO(targetType, id, created);
                     _runtimeCreatedCount++;
+                    _createdRuntimeTags.Add($"{id}({targetType.Name})");
                     return created;
                 }
             }
@@ -798,7 +870,10 @@ internal static class WarpResolver
                     lkField.SetValue(ls, displayName);
                 field.SetValue(obj, ls);
             }
-            catch { }
+            catch (Exception ex)
+            {
+                Log.Debug($"WarpResolver: failed to init LocalizedString '{field.Name}' on runtime tag '{displayName}': {Log.ExceptionText(ex)}");
+            }
         }
     }
 
@@ -826,7 +901,10 @@ internal static class WarpResolver
         for (int i = existing.Length; i < newSize; i++)
         {
             try { newArr.SetValue(Activator.CreateInstance(elemType), i); }
-            catch { }
+            catch (Exception ex)
+            {
+                Log.Debug($"WarpResolver: ExpandArray failed to create {elemType.Name} for '{_currentUid}': {Log.ExceptionText(ex)}");
+            }
         }
         return newArr;
     }

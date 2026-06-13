@@ -103,7 +103,7 @@
       "ActionSoundsWarpType": 3,
       "CompatibleCards": {
         "TriggerCards": [],
-        "TriggerCardsWarpData": ["water_sawmill_copper_saw_blade"],
+          "TriggerCardsWarpData": ["0ab556ab6af1efc47a2cba5cdf4ace04"],
         "TriggerCardsWarpType": 3,
         "TriggerTags": []
       },
@@ -165,31 +165,22 @@
       }
     }
   ],
-  "BlueprintCardConditions": [],
-  "BlueprintTagConditions": [],
-  "BlueprintStatConditions": [],
-  "BuildingCardConditions": [],
-  "BuildingTagConditions": [],
-  "BuildingStatConditions": [],
-  "BuildSounds": [],
-  "DeconstructSounds": [],
-  "BuildingDaytimeCost": 0,
-  "BuildingMiniTicks": 0,
-  "DeconstructDaytimeCost": 0,
-  "DeconstructMiniTicks": 0,
-  "BlueprintActionTags": [],
-  "BlueprintDoesntCountForEnvWeight": false,
-  "BPRandomSingleDrop": false,
-  "BlueprintResult": [],
-  "BlueprintBuiltImprovements": [],
+  "PassiveEffects": [],
+  "PassiveStatEffects": [],
+  "MaxLiquidCapacity": 0.0,
+  "IsEnvironment": false,
+  "IsAttachedToEnvironment": true,
+  "PreventInteractionsInContainer": false,
+  "IsIndoors": false,
   "BlueprintStatModifications": [],
   "BlueprintCardModifications": [],
   "CookingRecipes": [],
-  "EquipSlotType": 0,    "CardImage": {
-        "m_FileID": 0,
-        "m_PathID": 0
-    },
-
+  "EquipSlots": [],
+  "EquipSlotType": 0,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
   "CardImageWarpData": "SawmillFullyBuilt",
   "CardImageWarpType": 3
 }

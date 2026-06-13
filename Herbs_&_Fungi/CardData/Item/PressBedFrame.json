@@ -22,7 +22,7 @@
     },
     "CardImageWarpData": "Press_Bed_Frame",
     "CardImageWarpType": 3,
-    "ObjectWeight": 4.0,
+    "ObjectWeight": 400.0,
     "MaxStack": 1,
     "DroppedCardShadow": 1
 }

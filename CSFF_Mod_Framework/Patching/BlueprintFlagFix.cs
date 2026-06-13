@@ -6,9 +6,14 @@
 // reinforce them in case any other mod or future game change flips them off.
 //
 // Also patches GameManager.FinishInitializing as a prefix to register all mod blueprints in
-// AllBlueprintModels BEFORE the game's save-state restoration loop runs. Without this, mod
-// blueprints are absent from AllBlueprintModels (which the game builds from CardTabGroup.IncludedCards
-// — not from AllData), so their researched/available states are lost on every load.
+// AllBlueprintModels BEFORE the game's save-state restoration loop runs. NOTE (verified against
+// EA 0.64f decompile, 2026-06-12): the game builds AllBlueprintModels itself from
+// DataBase.AllData (every exact-type CardData with CardType==Blueprint) inside
+// InitializeStatsAndActions, so this registration is a belt-and-braces no-op in normal loads.
+// Researched ("Available") blueprint state is NOT persisted in any save list — it is restored
+// by re-giving the saved blueprint MODEL CARDS through GiveCard, which resolves each card via
+// UniqueIDScriptable.GetFromID and calls SetBpAvailable on the resolved instance. Duplicate
+// instances from other loaders break that path; see Loading/ForeignInstanceReconciler.
 //
 // Must use compile-time `typeof(GameManager)` (via the framework's Assembly-CSharp reference) —
 // `SafePatcher` cannot find `GameManager.Awake` reliably at framework Awake time.
@@ -80,9 +85,17 @@ internal static class BlueprintFlagFix
         if (__instance == null) return;
         try
         {
+            int totalModUids = Loading.JsonDataLoader.AllModUniqueIds.Count;
+            Util.Log.Info($"[BlueprintStateFix] FinishInitializing_Prefix fired — {totalModUids} mod UID(s) in registry");
             var added = RegisterModBlueprintsInAllBlueprintModels(__instance);
             if (added > 0)
                 Util.Log.Info($"[BlueprintStateFix] registered {added} mod blueprint(s) in AllBlueprintModels before save-state restore");
+            else
+                // Expected: EA 0.64f builds AllBlueprintModels from DataBase.AllData
+                // (every exact-type CardData with CardType==Blueprint) inside
+                // InitializeStatsAndActions, and the Awake postfix already ran — mod
+                // blueprints are normally registered before this prefix fires.
+                Util.Log.Info("[BlueprintStateFix] 0 mod blueprints added (all already registered in AllBlueprintModels — expected)");
         }
         catch (System.Exception ex)
         {

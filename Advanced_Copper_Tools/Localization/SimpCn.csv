@@ -344,7 +344,7 @@ Advanced_Copper_Tools_Perk_Wheelbarrow_PerkName,Wheelbarrow,手推车
 Advanced_Copper_Tools_Perk_WheelbarrowKit_PerkDescription,"Start with all the components needed to assemble a wheelbarrow: bucket, handles, and wheel assembly. Also unlocks all wheelbarrow blueprints.",初始携带组装手推车所需的所有部件：桶、把手和车轮总成。同时解锁所有手推车图纸。
 Advanced_Copper_Tools_Perk_WheelbarrowKit_PerkName,Wheelbarrow Kit,手推车套件
 eTag_WearablePan_InGameName,Pan,平底锅
-Advanced_Copper_Tools_Perk_MetalPanTester_PerkDescription,"Start with metal pan crafting materials and completed pans. Includes copper lumps, hammer, wood, rope, leather, and one of each metal type pan.",初始携带金属平底锅制作材料和成品锅。包括铜锭、锤子、木材、绳子、皮革以及每种金属类型的平底锅各一个。
+Advanced_Copper_Tools_Perk_MetalPanTester_PerkDescription,"Start with metal pan crafting materials, finished pans, and the related blueprints. Includes a forge hammer, leather bellows, 5 metal nuggets, wood, rope, and small leather, plus a shaped pan head and two wearable metal pans.",初始携带金属平底锅的制作材料、成品锅以及相关蓝图。包括锻造锤、皮革风箱、5 块金属锭、木材、绳子和小块皮革，以及一个平底锅锅胚和两个可穿戴金属平底锅。
 Advanced_Copper_Tools_Perk_MetalPanTester_PerkName,Metal Pan,金属平底锅
 Advanced_Copper_Tools_CopperBathtub_WaterLevel_CardStatName,Water Level,水位
 Advanced_Copper_Tools_CopperBathtub_Full_RefillRiver_ActionName,Refill from River,从河流补水

@@ -2,7 +2,7 @@
 
 **Version:** 1.9.1
 **Author:** Jared (crispywhips)
-**For:** Card Survival: Fantasy Forest (EA 0.63)
+**For:** Card Survival: Fantasy Forest (EA 0.64f)
 
 ---
 
@@ -42,7 +42,7 @@ Skill Speed Boost provides comprehensive control over skill progression mechanic
 
 ### Requirements
 - [BepInEx 5.4.23.4+](https://github.com/BepInEx/BepInEx/releases)
-- Card Survival: Fantasy Forest (EA 0.63)
+- Card Survival: Fantasy Forest (EA 0.64f)
 
 ### Steps
 1. Download the latest release (v1.9.1+)
@@ -149,13 +149,13 @@ See **FEATURES.md** for full per-skill configuration details.
 - **Per-Skill Staleness** — `<Skill>_UseStaleness` toggle and `<Skill>_StalenessMultiplier` (0.1–5.0) for fine-grained staleness control per skill, AND-ed with the global `EnableSkillStaleness` flag.
 
 ### v1.7.6
-- EA 0.63f compatibility pass; no logic changes
+- EA 0.64ff compatibility pass; no logic changes
 
 ### v1.7.5
 - Minor fixes to area familiarity TSV persistence path
 
 ### v1.7.4
-- EA 0.63 compatibility pass
+- EA 0.64f compatibility pass
 - Startup log normalized to single Info line per CSFF mod logging norms
 
 ### v1.7.3

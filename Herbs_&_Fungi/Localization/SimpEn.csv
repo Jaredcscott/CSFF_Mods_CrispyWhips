@@ -600,10 +600,10 @@ Herbs_And_Fungi_Bp_HerbalSalve_CardDescription,Combine 2 ground yarrow with hemp
 Herbs_And_Fungi_Bp_HerbalSalve_UnlockConditionsDesc,Unlocked after obtaining Hemp Seed Oil,获得麻籽油后解锁
 Herbs_And_Fungi_Bp_HerbalTincture_CardName,Herbal Tincture,草药酊剂
 Herbs_And_Fungi_Bp_HerbalTincture_CardDescription,Press 2 dried yarrow and 1 dried reishi into a clay bowl at the oil press to extract a medicinal tincture. A bitter but effective all-purpose remedy.,在榨油机上将3株干蓍草压榨入陶碗以提取药用酊剂。苦涩但有效的全能药剂。
-Herbs_And_Fungi_Bp_HerbalTincture_UnlockConditionsDesc,Unlocked after obtaining Dried Yarrow,获得干蓍草后解锁
+Herbs_And_Fungi_Bp_HerbalTincture_UnlockConditionsDesc,Unlocked after obtaining Dried Yarrow and an Oil Press,获得干蓍草及压油机后解锁
 Herbs_And_Fungi_Bp_DeathCapTincture_CardName,Death Cap Tincture,毒鹅膏酊剂
 Herbs_And_Fungi_Bp_DeathCapTincture_CardDescription,Press 5 death caps at the oil press into a clay bowl to extract a parasite-killing tincture. A folk remedy that risks the cure being as bad as the affliction.,在榨油机上将5个毒鹅膏压榨入陶碗以提取杀寄生虫酊剂。一种民间疗法，风险是治疗可能与病症一样严重。
-Herbs_And_Fungi_Bp_DeathCapTincture_UnlockConditionsDesc,Unlocked after obtaining a Death Cap,获得毒鹅膏后解锁
+Herbs_And_Fungi_Bp_DeathCapTincture_UnlockConditionsDesc,Unlocked after obtaining a Death Cap and an Oil Press,获得毒鹅膏及压油机后解锁
 Herbs_And_Fungi_OpenPickleJar_CardName,Open Pickle Jar,空腌菜罐
 Herbs_And_Fungi_OpenPickleJar_CardDescription,An empty ceramic pickle jar. Return it to reclaim the clay bowl lid.,一个空陶制腌菜罐。归还它以取回陶碗盖子。
 Herbs_And_Fungi_OpenPickleJar_ReturnBowl_ActionName,Return Bowl,归还碗
@@ -1625,7 +1625,7 @@ herbs_fungi_healers_moss_tincture_Drink,Drink,饮用
 herbs_fungi_healers_moss_tincture_Drink_Desc,"Drink the tincture. Bitter and mossy, but it fights infection.",饮用酊剂。苦涩且带苔藓味，但能对抗感染。
 Herbs_And_Fungi_Bp_HealersMossTincture_CardName,"Healer's Moss Tincture",疗伤地衣酊剂
 Herbs_And_Fungi_Bp_HealersMossTincture_CardDescription,"Press 3 healer's moss into a clay bowl at the oil press to extract a powerful antiseptic tincture. Fights infection effectively.",在榨油机中将3块疗伤地衣压入粘土碗中，提取强效防腐酊剂。有效对抗感染。
-Herbs_And_Fungi_Bp_HealersMossTincture_UnlockConditionsDesc,"Unlocked after obtaining Healer's Moss",获得疗伤地衣后解锁
+Herbs_And_Fungi_Bp_HealersMossTincture_UnlockConditionsDesc,"Unlocked after obtaining Healer's Moss and an Oil Press",获得疗伤地衣及压油机后解锁
 
 <b>Uses:</b> Drink for nourishment and mental calm.
 

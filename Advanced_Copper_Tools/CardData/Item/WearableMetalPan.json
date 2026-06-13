@@ -292,7 +292,9 @@
   ],
   "CardTagsWarpType": 3,
   "EquipmentTags": [],
-  "EquipmentTagsWarpData": ["eTag_Shoulder"],
+  "EquipmentTagsWarpData": [
+    "eTag_Shoulder"
+  ],
   "EquipmentTagsWarpType": 3,
   "AlwaysUpdate": true,
   "DoesNotPile": false,
@@ -305,7 +307,7 @@
   },
   "UsageDurability": {
     "Active": true,
-    "FloatValue": 0.0,
+    "FloatValue": 100.0,
     "CardStatName": {
       "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
       "LocalizationKey": "Advanced_Copper_Tools_WearableMetalPan_UsageDurability.CardStatName",
@@ -368,11 +370,6 @@
     "OverrideIconWarpData": "Cooking",
     "OverrideIconWarpType": 3,
     "OnFull": {
-      "ActionName": {
-        "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
-        "LocalizationKey": "",
-        "DefaultText": ""
-      },
       "ActionDescription": {
         "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
         "LocalizationKey": "",
@@ -391,28 +388,12 @@
       "RequiredCardsOnBoard": [],
       "RequiredTagsOnBoard": [],
       "ReceivingCardChanges": {
-        "ModType": 2,
-        "TransformInto": {
-          "m_FileID": 0,
-          "m_PathID": 0
-        },
-        "TransformIntoWarpData": "4b0f4937a5ecb90499428c8c10288afc",
-        "TransformIntoWarpType": 3,
-        "TransformToLiquidQuantity": 0.0,
-        "TransferSpoilage": false,
-        "TransferUsage": false,
-        "TransferFuel": false,
-        "TransferCharges": false,
-        "TransferSpecial1": false,
-        "TransferSpecial2": false,
-        "TransferSpecial3": false,
-        "TransferSpecial4": false,
-        "TransferInventory": false
+        "ModType": 3
       },
       "ProducedCards": [
         {
           "CollectionName": "1",
-          "CollectionWeight": 0,
+          "CollectionWeight": 1,
           "DroppedCards": [
             {
               "DroppedCard": {
@@ -422,10 +403,9 @@
               "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
               "DroppedCardWarpType": 3,
               "Quantity": {
-                "x": 4,
-                "y": 4
-              },
-              "FinishUnlocking": false
+                "x": 5,
+                "y": 5
+              }
             }
           ]
         }
@@ -671,18 +651,9 @@
   "PassiveStatEffects": [],
   "PassiveEffects": [
     {
-      "EffectName": "Lose Smelting if not in smelting container",
+      "EffectName": "Lose Smelting if not in copper smelting container",
       "OnlyWhenEquipped": false,
-      "EquippedOnBodyOnly": false,
-      "OnlyWhenNOTEquipped": false,
-      "OnlyWhenInHand": false,
-      "OnlyOnBaseActions": false,
-      "OnlyOnNOTBaseActions": false,
-      "OnlyWhenNOTInBG": false,
       "Conditions": {
-        "NotInBackground": false,
-        "InBackground": false,
-        "PlayerUsesCard": 0,
         "RequiredNOTContainerTagsWarpData": [
           "tag_SmeltingContainer"
         ],
@@ -697,63 +668,53 @@
     {
       "EffectName": "Lose Smelting if smelting container is not hot enough",
       "OnlyWhenEquipped": false,
-      "EquippedOnBodyOnly": false,
-      "OnlyWhenNOTEquipped": false,
-      "OnlyWhenInHand": false,
-      "OnlyOnBaseActions": false,
-      "OnlyOnNOTBaseActions": false,
-      "OnlyWhenNOTInBG": false,
       "Conditions": {
-        "NotInBackground": false,
-        "InBackground": false,
-        "PlayerUsesCard": 0,
         "RequiredContainerTagsWarpData": [
           "tag_SmeltingContainer"
         ],
         "RequiredContainerTagsWarpType": 3,
         "ReceivingContainerRequiredDurabilityRanges": {
-          "SpoilageRange": {
-            "x": 0.0,
-            "y": 1099.0
-          },
-          "UsageRange": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "FuelRange": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "ProgressRange": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "Special1Range": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "Special2Range": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "Special3Range": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "Special4Range": {
-            "x": 0.0,
-            "y": 0.0
-          },
-          "LiquidQuantityRange": {
-            "x": 0.0,
-            "y": 0.0
-          }
+          "SpoilageRange": { "x": 0.0, "y": 1099.0 },
+          "UsageRange": { "x": 0.0, "y": 0.0 },
+          "FuelRange": { "x": 0.0, "y": 0.0 },
+          "ProgressRange": { "x": 0.0, "y": 0.0 },
+          "Special1Range": { "x": 0.0, "y": 0.0 },
+          "Special2Range": { "x": 0.0, "y": 0.0 },
+          "Special3Range": { "x": 0.0, "y": 0.0 },
+          "Special4Range": { "x": 0.0, "y": 0.0 },
+          "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
         }
       },
       "StatChanges": [],
       "ConsumableChargesModifier": {
         "Active": true,
         "FloatValue": -1.0
+      }
+    },
+    {
+      "EffectName": "Gain Smelting when in hot copper smelting container",
+      "OnlyWhenEquipped": false,
+      "Conditions": {
+        "RequiredContainerTagsWarpData": [
+          "tag_SmeltingContainer"
+        ],
+        "RequiredContainerTagsWarpType": 3,
+        "ReceivingContainerRequiredDurabilityRanges": {
+          "SpoilageRange": { "x": 1100.0, "y": 3000.0 },
+          "UsageRange": { "x": 0.0, "y": 0.0 },
+          "FuelRange": { "x": 0.0, "y": 0.0 },
+          "ProgressRange": { "x": 0.0, "y": 0.0 },
+          "Special1Range": { "x": 0.0, "y": 0.0 },
+          "Special2Range": { "x": 0.0, "y": 0.0 },
+          "Special3Range": { "x": 0.0, "y": 0.0 },
+          "Special4Range": { "x": 0.0, "y": 0.0 },
+          "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+        }
+      },
+      "StatChanges": [],
+      "ConsumableChargesModifier": {
+        "Active": true,
+        "FloatValue": 1.0
       }
     }
   ],

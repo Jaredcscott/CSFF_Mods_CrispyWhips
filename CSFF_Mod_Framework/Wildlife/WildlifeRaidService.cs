@@ -26,8 +26,12 @@ internal static class WildlifeRaidService
     private const string RottenRemainsUID = "25a487b16088c2046a51935973ba6a90";
     private const string StressStatUID = "3b79a4c6d7e151044a1c56fbbd401d78";
 
-    /// <summary>Vanilla container UIDs that gain the NotSafe tag at load time.</summary>
-    private static readonly string[] VanillaOpenStorage =
+    /// <summary>
+    /// Fallback container UIDs that gain the NotSafe tag at load time (EA 0.64f values).
+    /// The live list comes from <see cref="Api.VanillaIds.OpenStorage"/> (regenerated per
+    /// game version); this array only covers a missing/empty embedded registry.
+    /// </summary>
+    private static readonly string[] FallbackOpenStorage =
     {
         "fc102f9646c86fc4d85f25f05713376b", // BasketPlaced
         "ae80b3304fa930748941abc6edc5c884", // HandBasket
@@ -37,6 +41,15 @@ internal static class WildlifeRaidService
         "9fc4843f7d5c97044952b9c14902f431", // RusticBarrelLocation
         "4e2b3e00c88f8d14cb52a614584a66d5", // DryingRack
     };
+
+    private static IReadOnlyList<string> OpenStorageUids
+    {
+        get
+        {
+            var fromRegistry = Api.VanillaIds.OpenStorage;
+            return fromRegistry.Count > 0 ? fromRegistry : FallbackOpenStorage;
+        }
+    }
 
     private const BindingFlags Flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
 
@@ -52,9 +65,6 @@ internal static class WildlifeRaidService
     private static PropertyInfo _gameManagerInstanceProp;
     private static object _notSafeTagAsset;
     private static object _notSafeBearTagAsset;
-    // Cached DayTimePoints accessor — resolved once in TryCompleteOneTimeSetup to avoid per-frame reflection.
-    private static PropertyInfo _dtpProp;
-    private static FieldInfo _dtpField;
 
     /// <summary>Call once at framework Awake — registers a one-shot hook that fires after data load.</summary>
     public static void Init()
@@ -74,20 +84,13 @@ internal static class WildlifeRaidService
             if (!TryCompleteOneTimeSetup()) return;
         }
 
-        var dtp = ReadDayTimePoints();
-        if (dtp < 0) return;
-        if (_lastDayTimePoints == int.MinValue) { _lastDayTimePoints = dtp; return; }
-
-        // Day rollover: DayTimePoints wraps each day in the range [0..96]. A day rollover
-        // is any drop from last > current (e.g. 2 → 1 → 0 → wraps to ~96 next day;
-        // "fresh morning" is when it drops toward 0 then jumps back up).
-        if (dtp > _lastDayTimePoints + 50)
+        // Day rollover: DayTimePoints wraps each day in the range [0..96]; a jump of >50
+        // upward is the wrap. Detection shared with mods via Api.Gate.
+        if (Api.Gate.OncePerDayRollover(ref _lastDayTimePoints))
         {
-            // Wrap detected.
             try { TryRaid(); }
             catch (Exception ex) { Log.Warn($"[WildlifeRaid] raid attempt failed: {Log.ExceptionText(ex)}"); }
         }
-        _lastDayTimePoints = dtp;
     }
 
     // ------------------------------------------------------------ setup ------
@@ -130,14 +133,6 @@ internal static class WildlifeRaidService
                 }
             }
 
-            // Cache the DayTimePoints accessor once so PollUpdate doesn't do reflection every frame.
-            foreach (var name in new[] { "DayTimePoints", "CurrentDayTimePoints", "DaytimePoints" })
-            {
-                _dtpProp = _gameManagerType.GetProperty(name, Flags);
-                if (_dtpProp != null) break;
-                _dtpField = _gameManagerType.GetField(name, Flags);
-                if (_dtpField != null) break;
-            }
         }
     }
 
@@ -157,7 +152,7 @@ internal static class WildlifeRaidService
     private static void InjectTagOnVanillaContainers()
     {
         int injected = 0;
-        foreach (var uid in VanillaOpenStorage)
+        foreach (var uid in OpenStorageUids)
         {
             var target = GameRegistry.GetByUid(uid);
             if (target == null) continue;
@@ -180,22 +175,6 @@ internal static class WildlifeRaidService
         }
         try { list.Add(tagAsset); return 1; }
         catch (Exception ex) { Log.Debug($"[WildlifeRaid] inject '{tagName}' failed on {uid}: {Log.ExceptionText(ex)}"); return 0; }
-    }
-
-    // ------------------------------------------------------------ tick ------
-
-    private static int ReadDayTimePoints()
-    {
-        if (_gameManagerInstanceProp == null) return -1;
-        var gm = _gameManagerInstanceProp.GetValue(null, null);
-        if (gm == null) return -1;
-        try
-        {
-            if (_dtpProp != null) return Convert.ToInt32(_dtpProp.GetValue(gm, null));
-            if (_dtpField != null) return Convert.ToInt32(_dtpField.GetValue(gm));
-        }
-        catch (Exception ex) { Log.Debug($"[WildlifeRaid] ReadDayTimePoints failed: {ex.GetType().Name}"); }
-        return -1;
     }
 
     // ----------------------------------------------------------- raid ------
@@ -273,49 +252,13 @@ internal static class WildlifeRaidService
     }
 
     private static int CountFoodIn(object container)
-    {
-        int total = 0;
-        IterateInnerCards(container, card =>
-        {
-            var model = GetMemberValue(card, "CardModel");
-            if (model != null && HasTag(model, FoodTagName)) total++;
-        });
-        return total;
-    }
+        => Api.Inventory.Count(container, FoodTagName);
 
     private static object PickRandomFoodInside(object container)
     {
-        var foods = new List<object>();
-        IterateInnerCards(container, card =>
-        {
-            var model = GetMemberValue(card, "CardModel");
-            if (model != null && HasTag(model, FoodTagName)) foods.Add(card);
-        });
+        var foods = Api.Inventory.Find(container, FoodTagName);
         if (foods.Count == 0) return null;
         return foods[UnityEngine.Random.Range(0, foods.Count)];
-    }
-
-    private static void IterateInnerCards(object container, Action<object> visit)
-    {
-        if (container == null) return;
-        // InGameCardBase.InventorySlots — list of InventorySlot; each slot has AllCards or ContainedCards.
-        var slotsMember = GetMemberValue(container, "InventorySlots");
-        if (!(slotsMember is IList slots)) return;
-        foreach (var slot in slots)
-        {
-            if (slot == null) continue;
-            foreach (var name in new[] { "AllCards", "ContainedCards" })
-            {
-                var inner = GetMemberValue(slot, name);
-                if (!(inner is IList innerList)) continue;
-                foreach (var card in innerList)
-                {
-                    if (card == null) continue;
-                    visit(card);
-                }
-                break;
-            }
-        }
     }
 
     // ----------------------------------------------------------- effects ---

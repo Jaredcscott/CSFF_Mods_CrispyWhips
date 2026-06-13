@@ -373,11 +373,33 @@ internal static class SmeltingRecipeInjector
                 }
             }
 
-            // Keep SpoilageRange={1100,3000} from the Forge template — the vanilla Furnace
-            // IS externally heated to 1300°C before smelting, and the WDI Forge self-heats
-            // via Rate=+40. Both satisfy the {1100,3000} condition. The previous code that
-            // cleared SpoilageRange to {0,0} was based on the incorrect assumption that those
-            // stations never reach 1100°C; zeroing the range caused the timer to freeze.
+            // Override smelting threshold to 900°C — vanilla forge caps at 1000°C, so the
+            // vanilla template's {1100,3000} range never fires there. {900,3000} lets items
+            // smelt in both vanilla forge (≥900°C) and vanilla furnace.
+            // ReceivingRequiredDurabilityRanges is nested inside the Conditions sub-object.
+            var conditionsField = AccessTools.Field(recipeType, "Conditions");
+            if (conditionsField != null)
+            {
+                object conditions = conditionsField.GetValue(recipe);
+                if (conditions != null)
+                {
+                    var rrdrField = conditions.GetType().GetField("ReceivingRequiredDurabilityRanges", BF);
+                    if (rrdrField != null)
+                    {
+                        object ranges = rrdrField.GetValue(conditions);
+                        if (ranges != null)
+                        {
+                            var spoilField = ranges.GetType().GetField("SpoilageRange", BF);
+                            if (spoilField != null)
+                            {
+                                spoilField.SetValue(ranges, new Vector2(900f, 3000f));
+                                rrdrField.SetValue(conditions, ranges);
+                                conditionsField.SetValue(recipe, conditions);
+                            }
+                        }
+                    }
+                }
+            }
 
             // Clear StatModifications (don't copy vanilla skill XP effects)
             var statModField = AccessTools.Field(recipeType, "StatModifications");

@@ -84,7 +84,7 @@
     "AlwaysUpdate": false,
     "CannotBeTrashed": false,
     "DoesNotPile": false,
-    "ToggleablePiling": false,
+    "ToggleablePiling": true,
     "DoesNotPinAutomatically": false,
     "WhenCreatedSounds": [],
     "SpoilageTime": {

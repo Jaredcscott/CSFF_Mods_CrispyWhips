@@ -2739,90 +2739,14 @@ namespace Repeat_Action.Patcher
             return false;
         }
 
-        private static readonly string[] PermittedActionKeywords = new[]
+        // Blocklist: these action keywords are never captured for repeat, regardless of which gate fired.
+        // Keep this list SHORT — Gates 1 and 2 already identify player actions structurally.
+        // The game's own SimpleConditionsCheck / QuickRequirementsCheck blocks unexecutable actions.
+        // Only add a keyword here if repeating it would cause a genuinely unrecoverable side-effect.
+        private static readonly string[] BlockedActionKeywords = new[]
         {
-            "forage",
-            "clear",
-            "drink",
-            "eat",
-            "extract",     // Extract Fibers
-            "chop",        // Chop Wood
-            "cut",         // Cut Tree variant
-            "fell",        // Fell a tree
-            "twine",       // Make Twine
-            "travel",      // Travel between locations
-            "north",       // Directional travel
-            "south",       // Directional travel
-            "east",        // Directional travel
-            "west",        // Directional travel
-            "meditat",     // Meditate/Meditation
-            "grind",       // Grind items to powder
-            "craft",       // Craft Tourniquet, etc.
-            "dig",         // Dig up mud
-            "clay",        // Make clay from mud
-            "mud",         // Mud-related actions
-            "harvest",     // Harvest plants (meadow grass, nettles, etc.) by hand or with tools
-            "soak",        // Soak Reeds
-            "mine",        // Mine veins (flint, copper, witchstone)
-            "sharpen",     // Sharpen / Sharpen Stone on tools and weapons
-            "relax",       // Relax on furniture (log stool, etc.)
-            "rest",        // Rest on chairs, stools, stamina bar, time skip
-            "pick up",     // Pick up soaking reeds/flax/nettle stems
-            // EA 0.61 Additions
-            "tan",         // Tan leather
-            "sew",         // Sew leather items
-            "bless",       // Bless Grove ritual
-            "curse",       // Curse Grove ritual
-            "enchant",     // Enchantment rituals
-            "invoke",      // Spirit invocation
-            "summon",      // Spirit summoning
-            "commune",     // Spirit communion
-            "perform",     // Perform ritual actions
-            "bind",        // Spirit binding actions
-            "call",        // Spirit calling
-            "wash",        // Wash dirty items (intestines, etc.) in water
-            // Food & drink processing
-            "mince",       // Mince meat/herbs
-            "crush",       // Crush items
-            "mix",         // Mix ingredients / Mix with Water
-            "stir",        // Stir (cooking)
-            "knead",       // Knead dough
-            "peel",        // Peel & Cut vegetables
-            "scrape",      // Scrape materials / Scrape Salt
-            "carve",       // Carve wood/bone
-            "fill",        // Fill containers (water, flour)
-            "pour",        // Pour liquids (Pour Lye, etc.)
-            "brew",        // Brew Fairybrew, Firebrew, etc.
-            "ferment",     // Add Fermented items (wine making)
-            // Tier 1 additions (action audit, 2026-04-26)
-            "dismantle",   // Dismantle items into materials
-            "feed",        // Feed Charcoal/Fuel/Firewood/Embers/Tinder/Husk/Pine Needles/etc.
-            "repair",      // Repair clothing/tools/beds
-            "apply",       // Apply, Apply to Wound, Apply Salve, Apply Insecticide/Fungicide/Poison
-            "trim",        // Trim fur/skin
-            "smith",       // Smith heated blanks
-            "skin",        // Skin carcass
-            "butcher",     // Butcher carcass
-            "bleed",       // Bleed carcass
-            "disembowel",  // Disembowel carcass
-            "gut",         // Gut fish/small animals
-            "flesh",       // Flesh fur/skin
-            "mill",        // Mill grain on rotary quern
-            "press",       // Press fat/seeds for oil
-            "mash",        // Mash berries
-            "thresh",      // Thresh stalks
-            "stitch",      // Stitch wounds
-            "thread",      // Thread needle
-            "train",       // Train with weapon
-            "practice",    // Practice / Practice Rock Throwing
-            "add",         // Drag-drop ingredient additions (Add Eggs/Garlic/Fireroot/etc.)
-            "shovel",      // Shovel Snow
-            "clean",       // Clean structures (Cabin, etc.)
-            "till",        // Till field
-            "wet",         // Wet garden plot
-            "water",       // Water plants (CI on garden plots)
-            "candle",      // Candle making
-            "crack",       // Bone cracking
+            "continue",  // Event-popup forward button ("Continue" on anxiety/encounter/outcome cards).
+                         // "Continue Exploring" is also one-shot per location, so blocking is correct.
         };
 
         // =====================================================================
@@ -2912,12 +2836,12 @@ namespace Repeat_Action.Patcher
         private static bool IsPermittedAction(string actionName)
         {
             if (string.IsNullOrEmpty(actionName)) return false;
-            foreach (var keyword in PermittedActionKeywords)
+            foreach (var keyword in BlockedActionKeywords)
             {
                 if (ContainsWord(actionName, keyword))
-                    return true;
+                    return false;
             }
-            return false;
+            return true; // Permit everything not explicitly blocked
         }
 
         private static bool RequiresPopupOnlyExecution()

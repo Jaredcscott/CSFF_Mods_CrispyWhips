@@ -14,18 +14,7 @@
     "StartUnlocked": true,
     "BlueprintUnlockTicksCost": 8.0,
     "BuildingStatConditions": [],
-    "CardsOnBoard": [
-        {
-            "ObjectiveName": "HasPickleVat",
-            "CompletionWeight": 1,
-            "Card": { "m_FileID": 0, "m_PathID": 0 },
-            "CardWarpData": "herbs_fungi_pickle_vat_closed",
-            "CardWarpType": 3,
-            "Quantity": 1,
-            "ConstantlyChecking": false,
-            "OnlyInEnvironment": { "m_FileID": 0, "m_PathID": 0 }
-        }
-    ],
+    "CardsOnBoard": [],
     "TagsOnBoard": [],
     "StatValues": [],
     "BuildingContainerDurabilitiesConditions": {
@@ -130,7 +119,7 @@
         "SpawnTransformAtSource": true
     },
     "BlueprintStatModifications": [],
-    "WhenCreatedSoundsWarpData": [],
+    "WhenCreatedSoundsWarpData": ["Clay"],
     "WhenCreatedSoundsWarpType": 3,
     "BlueprintActionTagsWarpData": [
         "HandAction",

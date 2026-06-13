@@ -36,7 +36,7 @@
   },
   "PassiveStatModifiers": [],
   "PerkDescription": {
-    "DefaultText": "Start with all the components needed to assemble a wheelbarrow: bucket, handles, and wheel assembly. Also unlocks all wheelbarrow blueprints.",
+    "DefaultText": "Start with all the components needed to assemble a wheelbarrow: bucket, handles, and wheel assembly.",
     "LocalizationKey": "Advanced_Copper_Tools_Perk_WheelbarrowKit_PerkDescription",
     "ParentObjectID": "advanced_copper_tools_perk_wheelbarrow_kit"
   },

@@ -1,15 +1,18 @@
 {
     "UniqueID": "herbs_fungi_bp_mushroom_broth",
     "CardName": {
+        "ParentObjectID": "herbs_fungi_bp_mushroom_broth",
         "LocalizationKey": "Herbs_And_Fungi_Bp_MushroomBroth_CardName",
         "DefaultText": "Mushroom Broth"
     },
     "CardDescription": {
+        "ParentObjectID": "herbs_fungi_bp_mushroom_broth",
         "LocalizationKey": "Herbs_And_Fungi_Bp_MushroomBroth_CardDescription",
         "DefaultText": "Simmer dried shiitake and king oyster mushrooms in a clay bowl to make a rich, earthy mushroom broth. Warming and deeply nourishing."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {
+        "ParentObjectID": "herbs_fungi_bp_mushroom_broth",
         "LocalizationKey": "Herbs_And_Fungi_Bp_MushroomBroth_UnlockConditionsDesc",
         "DefaultText": "Unlocked after obtaining Dried Shiitake and Dried King Oyster"
     },

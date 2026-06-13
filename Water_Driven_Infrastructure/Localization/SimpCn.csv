@@ -308,11 +308,15 @@ Water_Sawmill_FishpondWinter_CardHelpSection,"<b>Populations:</b> Pike, perch, a
 
 <b>Water Draw:</b> Disabled while frozen.
 
+<b>Relocation:</b> The pond cannot be packed up while frozen — wait for the spring thaw to drain and relocate it.
+
 <b>Thaw:</b> The pond returns to its working state automatically when winter ends. Population is preserved across the freeze.","<b>种群：</b> 狗鱼、鲈鱼和小鱼被保存在冰下（解冻前不再生长）。鳟鱼、鲑鱼和鲟鱼单独追踪，冰封期间得以保存。
 
 <b>冰钓：</b> 每次冰钓比开放水域耗时更长，需要标枪。
 
 <b>取水：</b> 结冰期间禁用。
+
+<b>迁移：</b> 鱼塘在冰封状态下无法收起——请等待春季解冻后再排水并迁移。
 
 <b>解冻：</b> 冬季结束时鱼塘自动恢复工作状态。种群在冰封期间得以保存。"
 Water_Sawmill_FishpondWinter_SpecialDurability1_CardStatName,Pike,狗鱼
@@ -520,4 +524,8 @@ Water_Sawmill_Bp_IronBearing_CardDescription,Forge one heavy iron bearing from a
 Water_Sawmill_Bp_IronBearing_UnlockConditionsDesc,Wrought Iron Bar Needed,需要锻铁条
 Water_Sawmill_Bp_IronAxle_CardName,Forge Iron Axle,锻造铁轴
 Water_Sawmill_Bp_IronAxle_CardDescription,Forge one heavy iron axle from a wrought iron bar.,用一根锻铁条锻造成一根重型铁轴。
-Water_Sawmill_Bp_IronAxle_UnlockConditionsDesc,Wrought Iron Bar Needed,需要锻铁条
+Water_Sawmill_Bp_IronAxle_UnlockConditionsDesc,Wrought Iron Bar Needed,需要锻铁条Water_Sawmill_ForgePlaced_IncreaseTemperature_ActionName,Increase Temperature,升高温度
+Water_Sawmill_ForgePlaced_IncreaseTemperature_ActionDescription,Use bellows by hand to push the forge above natural heat.,手动使用风箱将锻炉温度推高到自然热量以上。
+Water_Sawmill_ForgePlaced_SmeltIronOre_ActionName,Smelt High-Heat Ore,冶炼高温矿石
+Water_Sawmill_ForgePlaced_HeatMetalItems_ActionName,Heat Metal Items,加热金属物品
+Water_Sawmill_ForgePlaced_MeltIronParts_ActionName,Melt Iron Parts,熔化铁件

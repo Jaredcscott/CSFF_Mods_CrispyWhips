@@ -11,8 +11,23 @@ namespace CSFFModFramework.Patching;
 /// </summary>
 internal static class WildlifeRaidPatch
 {
-    // Combat_EventBear_1_Explore UID — the only wildlife bear combat encounter in vanilla.
-    private const string BearCombatEncounterUID = "72c629f49c1fb974ca8491e0a7d2e5e1";
+    // Fallback: Combat_EventBear_1_Explore (EA 0.64f) — the only wildlife bear combat
+    // encounter in vanilla. The live list comes from Api.VanillaIds.BearEncounters,
+    // regenerated per game version.
+    private const string FallbackBearEncounterUID = "72c629f49c1fb974ca8491e0a7d2e5e1";
+
+    private static bool IsBearEncounterUid(string uid)
+    {
+        if (string.IsNullOrEmpty(uid)) return false;
+        var registry = Api.VanillaIds.BearEncounters;
+        if (registry.Count > 0)
+        {
+            foreach (var known in registry)
+                if (uid == known) return true;
+            return false;
+        }
+        return uid == FallbackBearEncounterUID;
+    }
 
     public static void ApplyPatch(Harmony harmony)
     {
@@ -59,6 +74,9 @@ internal static class WildlifeRaidPatch
     {
         if (!WildlifeRaidService.Enabled) return;
         if (__1 != null) return; // NPC encounter — never trigger raid
+        // Harmony runs postfixes even when a prefix skipped the original — an encounter
+        // suppressed by EncounterGuards must not still trigger a bear raid.
+        if (Api.EncounterGuards.WasSuppressedThisFrame) return;
         if (!IsBearEncounter(__0)) return;
         WildlifeRaidService.OnBearEncounter();
     }
@@ -68,20 +86,12 @@ internal static class WildlifeRaidPatch
         if (encounter == null) return false;
         try
         {
-            // Primary: match by UniqueID (stable, version-independent)
+            // Primary: match by UniqueID against the per-version registry list
             var t = encounter.GetType();
             var uidProp = t.GetProperty("UniqueID", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-            if (uidProp != null)
-            {
-                var uid = uidProp.GetValue(encounter) as string;
-                if (uid == BearCombatEncounterUID) return true;
-            }
+            if (uidProp != null && IsBearEncounterUid(uidProp.GetValue(encounter) as string)) return true;
             var uidField = t.GetField("UniqueID", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-            if (uidField != null)
-            {
-                var uid = uidField.GetValue(encounter) as string;
-                if (uid == BearCombatEncounterUID) return true;
-            }
+            if (uidField != null && IsBearEncounterUid(uidField.GetValue(encounter) as string)) return true;
 
             // Fallback: check CardName.DefaultText for "Bear" (catches future bear encounter cards)
             var cardNameProp = t.GetProperty("CardName", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)

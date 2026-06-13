@@ -2,7 +2,7 @@
 
 **Version:** 2.1.1  
 **Author:** Jared (crispywhips)  
-**For:** Card Survival: Fantasy Forest (EA 0.63)
+**For:** Card Survival: Fantasy Forest (EA 0.64)
 
 ## Overview
 
@@ -35,7 +35,7 @@ It also does not validate game-beta compatibility by itself. When a mod update i
 
 | Requirement | Notes |
 |-------------|-------|
-| Card Survival: Fantasy Forest | Steam version (EA 0.63) |
+| Card Survival: Fantasy Forest | Steam version (EA 0.64) |
 | BepInEx 5.x | Mod framework |
 | Nexus Mods API Key | Free, requires Nexus account |
 | Internet Connection | Needed to check for updates |
@@ -105,7 +105,7 @@ Config file: `BepInEx/config/crispywhips.Mod_Update_Manager.cfg`
 
 Click the **Changelog** button on any checked mod to fetch and display its Nexus version history inline. The changelog view is on-demand and does not run at startup.
 
-For beta-compatible mod releases, include the supported CSFF build in the published release notes, for example `Compatible with Card Survival: Fantasy Forest EA 0.63 beta`. This keeps compatibility information available without implying that the manager performs automatic beta validation.
+For beta-compatible mod releases, include the supported CSFF build in the published release notes, for example `Compatible with Card Survival: Fantasy Forest EA 0.64`. This keeps compatibility information available without implying that the manager performs automatic beta validation.
 
 ## Troubleshooting
 

@@ -1,7 +1,7 @@
 # Mod Update Manager - Implementation Summary
 
-Date: 2026-04-30
-Version: 2.0.4
+Date: 2026-06-13
+Version: 2.1.1
 
 ## Active Runtime Flow
 
@@ -34,4 +34,4 @@ Version: 2.0.4
 
 ## Future Work
 
-See `Documentation/Ideas/Mod_Update_Manager/FUTURE_FEATURES.md` for planned backup, rollback, changelog, ignore/favorite, and richer analytics ideas.
+See `Documentation/Ideas/Mod_Update_Manager/FUTURE_FEATURES.md` for planned backup, rollback, one-click installs, and richer analytics ideas.
