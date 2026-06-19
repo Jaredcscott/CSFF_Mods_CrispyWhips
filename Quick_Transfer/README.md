@@ -1,6 +1,6 @@
 # Quick Transfer
 
-**Version:** 1.6.1
+**Version:** 1.7.0
 
 A **Card Survival: Fantasy Forest** mod that lets you transfer multiple cards at once using modifier key combos + Right-Click.
 
@@ -14,6 +14,7 @@ A **Card Survival: Fantasy Forest** mod that lets you transfer multiple cards at
   - **Ctrl + Plus/Minus** — Adjust the Ctrl preset amount (saves to config)
   - **Shift + Plus/Minus** — Adjust the Shift preset amount (saves to config)
 - **Live Indicator** — While any transfer modifier is held, an on-screen overlay shows the effective transfer amount before you click.
+- **Full Stack Mode** — Set `Full Stack Mode = true` to skip all count logic. Any modifier+right-click always transfers the entire stack. Count adjustment keys and preset amounts are ignored.
 - **Legacy Custom Mode** — Set `Enable Modifier Presets = false` to use a single configurable modifier key with a fully custom transfer amount (original 1.5.x behavior).
 
 ## Installation
@@ -59,15 +60,16 @@ After first launch, a config file is created at `BepInEx/config/crispywhips.quic
 
 | Setting | Default | Description |
 |---------|---------|-------------|
-| Transfer Amount | 5 | Cards transferred when modifier presets are disabled or a non-Ctrl/Shift modifier is used |
+| Transfer Amount | 5 | Cards transferred when modifier presets are disabled or a non-Ctrl/Shift modifier is used (range 1–9999) |
+| Full Stack Mode | false | When true, all modifier+right-click transfers move the entire stack; count keys and presets are ignored |
 
 **Modifier Presets**
 
 | Setting | Default | Description |
 |---------|---------|-------------|
 | Enable Modifier Presets | true | Enable Shift/Ctrl/Ctrl+Shift preset combos |
-| Shift Preset Amount | 5 | Cards transferred per Shift+Right-Click |
-| Ctrl Preset Amount | 10 | Cards transferred per Ctrl+Right-Click |
+| Shift Preset Amount | 5 | Cards transferred per Shift+Right-Click (range 1–9999) |
+| Ctrl Preset Amount | 10 | Cards transferred per Ctrl+Right-Click (range 1–9999) |
 
 **Keybindings**
 

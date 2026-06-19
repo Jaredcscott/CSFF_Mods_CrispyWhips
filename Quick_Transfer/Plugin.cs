@@ -8,7 +8,7 @@ public class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.quick_transfer";
     public const string PluginName = "Quick_Transfer";
-    public const string PluginVersion = "1.6.1";
+    public const string PluginVersion = "1.7.0";
 
     internal new static ManualLogSource Logger;
     private static Harmony _harmony;
@@ -25,6 +25,9 @@ public class Plugin : BaseUnityPlugin
     public static ConfigEntry<bool> EnableModifierPresets { get; private set; }
     public static ConfigEntry<int> ShiftPresetAmount { get; private set; }
     public static ConfigEntry<int> CtrlPresetAmount { get; private set; }
+
+    // Configuration — full stack mode
+    public static ConfigEntry<bool> FullStackMode { get; private set; }
 
     // Runtime state
     public static int CurrentTransferAmount { get; set; } = 5;
@@ -53,7 +56,7 @@ public class Plugin : BaseUnityPlugin
             5,
             new ConfigDescription(
                 "Cards transferred per Modifier+Right-Click when modifier presets are disabled, or when using a non-Ctrl/Shift modifier key. Adjust in-game with Modifier+Plus/Minus.",
-                new AcceptableValueRange<int>(1, 1000)));
+                new AcceptableValueRange<int>(1, 9999)));
 
         ModifierKey = Config.Bind(
             "Keybindings",
@@ -85,7 +88,7 @@ public class Plugin : BaseUnityPlugin
             5,
             new ConfigDescription(
                 "Cards transferred per Shift+Right-Click (requires Enable Modifier Presets). Adjust in-game: hold Shift + Plus/Minus.",
-                new AcceptableValueRange<int>(1, 1000)));
+                new AcceptableValueRange<int>(1, 9999)));
 
         CtrlPresetAmount = Config.Bind(
             "Modifier Presets",
@@ -93,7 +96,13 @@ public class Plugin : BaseUnityPlugin
             10,
             new ConfigDescription(
                 "Cards transferred per Ctrl+Right-Click (requires Enable Modifier Presets). Adjust in-game: hold Ctrl + Plus/Minus.",
-                new AcceptableValueRange<int>(1, 1000)));
+                new AcceptableValueRange<int>(1, 9999)));
+
+        FullStackMode = Config.Bind(
+            "Transfer Settings",
+            "Full Stack Mode",
+            false,
+            "When enabled, modifier+right-click always transfers the entire stack. Count adjustment keys and preset amounts are ignored.");
 
         CurrentTransferAmount = TransferAmount.Value;
 
@@ -125,7 +134,7 @@ public class Plugin : BaseUnityPlugin
         bool increaseHeld = Input.GetKey(IncreaseKey.Value);
         bool decreaseHeld = Input.GetKey(DecreaseKey.Value);
 
-        if (modHeld && (increaseHeld || decreaseHeld))
+        if (!FullStackMode.Value && modHeld && (increaseHeld || decreaseHeld))
         {
             bool shouldTrigger = false;
 
@@ -160,24 +169,24 @@ public class Plugin : BaseUnityPlugin
                     }
                     else if (ctrl)
                     {
-                        CtrlPresetAmount.Value = Mathf.Clamp(CtrlPresetAmount.Value + delta, 1, 1000);
+                        CtrlPresetAmount.Value = Mathf.Clamp(CtrlPresetAmount.Value + delta, 1, 9999);
                         ShowNotification($"Quick Transfer: {CtrlPresetAmount.Value} (Ctrl)");
                     }
                     else if (shift)
                     {
-                        ShiftPresetAmount.Value = Mathf.Clamp(ShiftPresetAmount.Value + delta, 1, 1000);
+                        ShiftPresetAmount.Value = Mathf.Clamp(ShiftPresetAmount.Value + delta, 1, 9999);
                         ShowNotification($"Quick Transfer: {ShiftPresetAmount.Value} (Shift)");
                     }
                     else
                     {
-                        CurrentTransferAmount = Mathf.Clamp(CurrentTransferAmount + delta, 1, 1000);
+                        CurrentTransferAmount = Mathf.Clamp(CurrentTransferAmount + delta, 1, 9999);
                         TransferAmount.Value = CurrentTransferAmount;
                         ShowNotification($"Quick Transfer: {CurrentTransferAmount}");
                     }
                 }
                 else
                 {
-                    CurrentTransferAmount = Mathf.Clamp(CurrentTransferAmount + delta, 1, 1000);
+                    CurrentTransferAmount = Mathf.Clamp(CurrentTransferAmount + delta, 1, 9999);
                     TransferAmount.Value = CurrentTransferAmount;
                     ShowNotification($"Quick Transfer: {CurrentTransferAmount}");
                 }
@@ -229,6 +238,8 @@ public class Plugin : BaseUnityPlugin
     /// <summary>Returns the effective transfer count based on the currently held modifier combo.</summary>
     public static int GetEffectiveTransferAmount()
     {
+        if (FullStackMode.Value) return 9999;
+
         if (!EnableModifierPresets.Value)
             return CurrentTransferAmount;
 
