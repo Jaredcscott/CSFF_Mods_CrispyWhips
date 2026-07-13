@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 using HarmonyLib;
 using BepInEx.Logging;
+using CSFFModFramework.Api;
 using CSFFModFramework.Util;
 
 namespace Advanced_Copper_Tools.Patcher
@@ -27,70 +27,30 @@ namespace Advanced_Copper_Tools.Patcher
             "f27a6838066ae10428aa6df6d6259221"  // TreeWillowLarge
         };
 
-        // No local reflection caches — CardUtil handles card identity and method resolution.
-
-        public static void ApplyPatch(Harmony harmony)
+        public static void ApplyPatch(Harmony _)
         {
             try
             {
-                var gameManagerType = AccessTools.TypeByName("GameManager");
-                if (gameManagerType == null)
+                ActionRouter.Register(new ActionHandler
                 {
-                    Logger.LogError("[SawEffect] GameManager type not found.");
-                    return;
-                }
-
-                var actionRoutine = FindActionRoutine(gameManagerType);
-                if (actionRoutine == null)
-                {
-                    Logger.LogError("[SawEffect] GameManager.ActionRoutine not found.");
-                    return;
-                }
-
-                var prefix = AccessTools.Method(typeof(SawEffectPatch), nameof(ActionRoutine_Prefix));
-                harmony.Patch(actionRoutine, prefix: new HarmonyMethod(prefix));
+                    Name = "SawEffect",
+                    CardPredicate = ctx => ctx.CardUid != null && LargeTreeGuids.Contains(ctx.CardUid),
+                    Timing = ActionTiming.Before,
+                    Before = ctx =>
+                    {
+                        if (ctx.GivenCard == null) return false;
+                        if (CardUtil.GetCardUniqueId(ctx.GivenCard) != SawUniqueID) return false;
+                        const float extraDamage = -25f;
+                        if (CardUtil.ModifyDurabilityStat(ctx.Card, "CurrentProgress", extraDamage))
+                            Logger.LogDebug($"[SawEffect] Applied extra {extraDamage} Progress to {ctx.CardUid}");
+                        return false;
+                    }
+                });
             }
             catch (Exception ex)
             {
                 Logger.LogError($"[SawEffect] Failed to apply patch: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
         }
-
-        private static MethodInfo FindActionRoutine(Type gameManagerType)
-        {
-            // EA 0.63+: drag-onto-card handler renamed to CardOnCardActionRoutine; fall back to ActionRoutine.
-            return CardUtil.FindMethodBySignature(gameManagerType, "CardOnCardActionRoutine", "CardOnCardAction", "InGameCardBase")
-                ?? CardUtil.FindMethodBySignature(gameManagerType, "ActionRoutine", "CardAction", "InGameCardBase");
-        }
-
-        /// <summary>
-        /// Prefix on GameManager.ActionRoutine. When the Large Saw is dragged onto a large tree,
-        /// apply an extra -25 to the tree's Progress before the normal action runs.
-        /// </summary>
-        static void ActionRoutine_Prefix(
-            object _Action,
-            object _ReceivingCard,
-            object _GivenCard)
-        {
-            try
-            {
-                if (_GivenCard == null || _ReceivingCard == null) return;
-
-                string givenUid = CardUtil.GetCardUniqueId(_GivenCard);
-                if (givenUid != SawUniqueID) return;
-
-                string recvUid = CardUtil.GetCardUniqueId(_ReceivingCard);
-                if (recvUid == null || !LargeTreeGuids.Contains(recvUid)) return;
-
-                const float extraDamage = -25f;
-                if (CardUtil.ModifyDurabilityStat(_ReceivingCard, "CurrentProgress", extraDamage))
-                    Logger.LogDebug($"[SawEffect] Applied extra {extraDamage} Progress to {recvUid}");
-            }
-            catch (Exception ex)
-            {
-                Logger.LogError($"[SawEffect] Prefix error: {ex.InnerException?.ToString() ?? ex.ToString()}");
-            }
-        }
-
     }
 }

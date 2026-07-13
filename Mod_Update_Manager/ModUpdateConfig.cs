@@ -72,21 +72,21 @@ namespace mod_update_manager
             ToggleUIKey = _config.Bind(
                 "UI",
                 "ToggleKey",
-                KeyCode.F8,
+                KeyCode.F3,
                 "Key to toggle the update manager window"
             );
 
             WindowWidth = _config.Bind(
                 "UI",
                 "WindowWidth",
-                600f,
+                900f,
                 "Width of the update manager window"
             );
 
             WindowHeight = _config.Bind(
                 "UI",
                 "WindowHeight",
-                500f,
+                680f,
                 "Height of the update manager window"
             );
 

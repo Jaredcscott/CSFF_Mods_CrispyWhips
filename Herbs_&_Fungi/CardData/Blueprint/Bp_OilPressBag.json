@@ -2,18 +2,18 @@
     "UniqueID": "herbs_fungi_bp_oil_press_bag",
     "CardName": {
         "ParentObjectID": "herbs_fungi_bp_oil_press_bag",
-        "LocalizationKey": "herbs_fungi_bp_oil_press_bag_CardName",
+        "LocalizationKey": "herbsfungibpoilpressbag_CardName",
         "DefaultText": "Pressing Bag"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_bp_oil_press_bag",
-        "LocalizationKey": "herbs_fungi_bp_oil_press_bag_CardDescription",
+        "LocalizationKey": "herbsfungibpoilpressbag_CardDescription",
         "DefaultText": "A woven rope bag for oil pressing. Requires 1 rope and 1 large cloth."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {
         "ParentObjectID": "herbs_fungi_bp_oil_press_bag",
-        "LocalizationKey": "herbs_fungi_bp_oil_press_bag_UnlockConditionsDesc",
+        "LocalizationKey": "herbsfungibpoilpressbag_UnlockConditionsDesc",
         "DefaultText": "Unlocked after obtaining rope"
     },
     "BlueprintUnlockTicksCost": 8.0,

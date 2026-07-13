@@ -13,7 +13,7 @@
     "CanBeRenamed": true,
     "AlternateNames": [],
     "LiquidSuffixName": {
-        "ParentObjectID": "",
+        "ParentObjectID": "advanced_copper_tools_copper_pantry_placed",
         "LocalizationKey": "",
         "DefaultText": ""
     },
@@ -256,25 +256,5 @@
             "ReceivingCardChanges": { "ModType": 3 }
         }
     ],
-    "BlueprintCardConditions": [],
-    "BlueprintTagConditions": [],
-    "BlueprintStatConditions": [],
-    "BuildingCardConditions": [],
-    "BuildingTagConditions": [],
-    "BuildingStatConditions": [],
-    "BlueprintStages": [],
-    "BuildSounds": [],
-    "DeconstructSounds": [],
-    "BuildingDaytimeCost": 0,
-    "BuildingMiniTicks": 0,
-    "DeconstructDaytimeCost": 0,
-    "DeconstructMiniTicks": 0,
-    "BlueprintActionTags": [],
-    "BlueprintDoesntCountForEnvWeight": false,
-    "BPRandomSingleDrop": false,
-    "BlueprintResult": [],
-    "BlueprintBuiltImprovements": [],
-    "BlueprintStatModifications": [],
-    "BlueprintCardModifications": [],
     "EquipSlotType": 0
 }

@@ -128,7 +128,10 @@ internal static class WarpResolver
         if (_rescuedVanillaTags.Count > 0)
             Log.Info($"WarpResolver: resolved {_rescuedVanillaTags.Count} vanilla tag(s) via live scan (missing from early SO cache): {string.Join(", ", _rescuedVanillaTags)}");
         if (_createdRuntimeTags.Count > 0)
-            Log.Info($"WarpResolver: created {_createdRuntimeTags.Count} new runtime tag(s): {string.Join(", ", _createdRuntimeTags)}");
+        {
+            Log.Info($"WarpResolver: created {_createdRuntimeTags.Count} new runtime tag(s)");
+            Log.Debug($"WarpResolver runtime tags: {string.Join(", ", _createdRuntimeTags)}");
+        }
         _runtimeCreatedCount = 0;
         _triggerResolveCount = 0;
         _unresolvedByMod.Clear();
@@ -685,7 +688,7 @@ internal static class WarpResolver
             {
                 Log.Debug($"WarpResolver: live tag scan for {targetType.Name} failed: {Log.ExceptionText(ex)}");
             }
-            Log.Info($"WarpResolver [DIAG]: live scan for {targetType.Name} found {byName.Count} entries: [{string.Join(", ", byName.Keys)}]");
+            Log.Debug($"WarpResolver [DIAG]: live scan for {targetType.Name} found {byName.Count} entries: [{string.Join(", ", byName.Keys)}]");
             _liveTagScanByType[targetType] = byName;
         }
         return byName.TryGetValue(name, out var hit) ? hit : null;

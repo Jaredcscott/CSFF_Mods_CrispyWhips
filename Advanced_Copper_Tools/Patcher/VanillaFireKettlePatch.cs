@@ -5,6 +5,7 @@ using System.Reflection;
 using HarmonyLib;
 using BepInEx.Logging;
 using UnityEngine;
+using CSFFModFramework.Api;
 
 namespace Advanced_Copper_Tools.Patcher
 {
@@ -319,50 +320,6 @@ namespace Advanced_Copper_Tools.Patcher
             }
         }
 
-        static object GetMemberValue(object owner, string memberName)
-        {
-            if (owner == null) return null;
-            var type = owner.GetType();
-            var field = type.GetField(memberName, Flags);
-            if (field != null) return field.GetValue(owner);
-            var property = type.GetProperty(memberName, Flags);
-            return property?.GetValue(owner, null);
-        }
-
-        static bool SetMemberValue(object owner, string memberName, object value)
-        {
-            if (owner == null) return false;
-            var type = owner.GetType();
-            var field = type.GetField(memberName, Flags);
-            if (field != null)
-            {
-                field.SetValue(owner, value);
-                return true;
-            }
-
-            var property = type.GetProperty(memberName, Flags);
-            if (property != null && property.CanWrite)
-            {
-                property.SetValue(owner, value, null);
-                return true;
-            }
-
-            return false;
-        }
-
-        static float GetFloatMember(object owner, string memberName)
-        {
-            try
-            {
-                var value = GetMemberValue(owner, memberName);
-                return value == null ? 0f : Convert.ToSingle(value);
-            }
-            catch
-            {
-                return 0f;
-            }
-        }
-
         static bool EnsureFireWeightCapacity(object fireCard, IReadOnlyList<object> containers, string label)
         {
             try
@@ -370,19 +327,19 @@ namespace Advanced_Copper_Tools.Patcher
                 float requiredCapacity = 0f;
                 foreach (var container in containers)
                 {
-                    float objectWeight = GetFloatMember(container, "ObjectWeight");
-                    float liquidCapacity = GetFloatMember(container, "MaxLiquidCapacity");
-                    float contentWeightReduction = GetFloatMember(container, "ContentWeightReduction");
+                    float objectWeight = Reflect.GetFloat(container, "ObjectWeight");
+                    float liquidCapacity = Reflect.GetFloat(container, "MaxLiquidCapacity");
+                    float contentWeightReduction = Reflect.GetFloat(container, "ContentWeightReduction");
                     float effectiveFullWeight = objectWeight + Math.Max(0f, liquidCapacity + contentWeightReduction);
                     if (effectiveFullWeight > requiredCapacity) requiredCapacity = effectiveFullWeight;
                 }
 
                 if (requiredCapacity <= 0f) return false;
 
-                float currentCapacity = GetFloatMember(fireCard, "MaxWeightCapacity");
+                float currentCapacity = Reflect.GetFloat(fireCard, "MaxWeightCapacity");
                 if (currentCapacity >= requiredCapacity) return false;
 
-                if (!SetMemberValue(fireCard, "MaxWeightCapacity", requiredCapacity)) return false;
+                if (!Reflect.SetMember(fireCard, "MaxWeightCapacity", requiredCapacity)) return false;
 
                 Logger?.LogDebug($"[KettleFire] {label}: raised MaxWeightCapacity from {currentCapacity:0.#} to {requiredCapacity:0.#} for ACT copper containers.");
                 return true;
@@ -402,127 +359,26 @@ namespace Advanced_Copper_Tools.Patcher
         {
             try
             {
-                var recipesField = fireCard.GetType().GetField("CookingRecipes", Flags);
-                if (recipesField == null)
+                var spec = new RecipeSpec
                 {
-                    Logger?.LogError($"[KettleFire] {label}: CookingRecipes field not found.");
-                    return false;
-                }
+                    CompatibleCards = compatibleCards,
+                    CompatibleTags = heatableTag != null
+                        ? new object[] { heatableTag }
+                        : Array.Empty<object>(),
+                    ConditionsCard = 0, // no heat condition required (fire is always lit)
+                    Duration = 1,
+                    CookerModType = 0, // fire itself unchanged
+                    IngredientModType = 1, // modify kettle in place
+                    UsageChange = Vector2.zero,
+                    SpoilageChange = Vector2.zero,
+                    // Net heating rate: +200 (recipe) + (-100) (Cool Down passive) = +100/dtp
+                    FuelChange = new Vector2(200f, 200f),
+                };
 
-                var recipeArr = recipesField.GetValue(fireCard) as Array;
-                if (recipeArr == null || recipeArr.Length == 0)
-                {
-                    Logger?.LogDebug($"[KettleFire] {label}: CookingRecipes is null/empty; heating recipe skipped.");
-                    return false;
-                }
-
-                var recipeType = recipeArr.GetType().GetElementType();
-
-                // Idempotency: skip if our recipe already contains all target cards.
-                var compatCardsField = recipeType.GetField("CompatibleCards", Flags);
-                if (compatCardsField != null)
-                {
-                    foreach (var r in recipeArr)
-                    {
-                        var cc = compatCardsField.GetValue(r) as Array;
-                        if (cc != null)
-                        {
-                            int matches = 0;
-                            foreach (var target in compatibleCards)
-                            {
-                                foreach (var c in cc)
-                                {
-                                    if (c == target) { matches++; break; }
-                                }
-                            }
-                            if (matches == compatibleCards.Count) return false;
-                        }
-                    }
-                }
-
-                // Clone first recipe as structural template
-                var template = recipeArr.GetValue(0);
-                var newRecipe = Activator.CreateInstance(recipeType);
-                foreach (var fi in recipeType.GetFields(Flags))
-                    fi.SetValue(newRecipe, fi.GetValue(template));
-
-                // CompatibleCards = [ACT containers]
-                if (compatCardsField != null)
-                {
-                    var elemType2 = compatCardsField.FieldType.GetElementType() ?? typeof(object);
-                    var cards = new List<object>();
-                    foreach (var card in compatibleCards)
-                        if (card != null && elemType2.IsInstanceOfType(card)) cards.Add(card);
-
-                    var arr = Array.CreateInstance(elemType2, cards.Count);
-                    for (int i = 0; i < cards.Count; i++) arr.SetValue(cards[i], i);
-                    compatCardsField.SetValue(newRecipe, arr);
-                }
-
-                // CompatibleTags = [tag_HeatAbleAndBoilableLiquid] if found
-                var compatTagsField = recipeType.GetField("CompatibleTags", Flags);
-                if (compatTagsField != null)
-                {
-                    if (heatableTag != null)
-                    {
-                        var tagElemType = compatTagsField.FieldType.GetElementType() ?? typeof(UnityEngine.Object);
-                        var tagArr = Array.CreateInstance(tagElemType, 1);
-                        tagArr.SetValue(heatableTag, 0);
-                        compatTagsField.SetValue(newRecipe, tagArr);
-                    }
-                    else if (compatTagsField.FieldType.IsArray)
-                    {
-                        compatTagsField.SetValue(newRecipe,
-                            Array.CreateInstance(compatTagsField.FieldType.GetElementType(), 0));
-                    }
-                }
-
-                // No heat condition required (fire is always lit)
-                recipeType.GetField("ConditionsCard", Flags)?.SetValue(newRecipe, 0);
-                recipeType.GetField("Duration", Flags)?.SetValue(newRecipe, 1);
-
-                // CookerChanges: ModType=0 (fire unchanged)
-                var cookerField = recipeType.GetField("CookerChanges", Flags);
-                if (cookerField != null)
-                {
-                    var cooker = cookerField.GetValue(newRecipe) ?? Activator.CreateInstance(cookerField.FieldType);
-                    cooker.GetType().GetField("ModType", Flags)?.SetValue(cooker, 0);
-                    cookerField.SetValue(newRecipe, cooker);
-                }
-
-                // IngredientChanges: ModType=1 (modify kettle), FuelChange=+200/dtp
-                // Net heating rate: +200 (recipe) + (-100) (Cool Down passive) = +100/dtp
-                var ingField = recipeType.GetField("IngredientChanges", Flags);
-                if (ingField == null)
-                {
-                    Logger?.LogError($"[KettleFire] {label}: IngredientChanges field not found.");
-                    return false;
-                }
-
-                var ing = ingField.GetValue(newRecipe) ?? Activator.CreateInstance(ingField.FieldType);
-                var ingType = ing.GetType();
-                var fuelChangeField = ingType.GetField("FuelChange", Flags);
-                if (fuelChangeField == null)
-                {
-                    Logger?.LogError($"[KettleFire] {label}: FuelChange not found on IngredientChanges.");
-                    return false;
-                }
-
-                var zero = new Vector2(0f, 0f);
-                ingType.GetField("ModType",        Flags)?.SetValue(ing, 1);
-                ingType.GetField("UsageChange",    Flags)?.SetValue(ing, zero);
-                ingType.GetField("SpoilageChange", Flags)?.SetValue(ing, zero);
-                fuelChangeField.SetValue(ing, new Vector2(200f, 200f));
-                ingField.SetValue(newRecipe, ing);
-
-                // Append recipe
-                var newArr = Array.CreateInstance(recipeType, recipeArr.Length + 1);
-                Array.Copy(recipeArr, newArr, recipeArr.Length);
-                newArr.SetValue(newRecipe, recipeArr.Length);
-                recipesField.SetValue(fireCard, newArr);
-
-                Logger?.LogDebug($"[KettleFire] Injected kettle heating recipe on fire {label}.");
-                return true;
+                bool injected = RecipeInjector.InjectCookingRecipe(fireCard, spec, label);
+                if (injected)
+                    Logger?.LogDebug($"[KettleFire] Injected kettle heating recipe on fire {label}.");
+                return injected;
             }
             catch (Exception ex)
             {

@@ -1,0 +1,90 @@
+{
+  "UniqueID": "herbs_fungi_overgrown_forest_trail",
+  "CardName": {
+    "ParentObjectID": "herbs_fungi_overgrown_forest_trail",
+    "LocalizationKey": "Herbs_And_Fungi_OvergrownForestTrail_CardName",
+    "DefaultText": "Overgrown Forest Trail"
+  },
+  "CardDescription": {
+    "ParentObjectID": "herbs_fungi_overgrown_forest_trail",
+    "LocalizationKey": "Herbs_And_Fungi_OvergrownForestTrail_CardDescription",
+    "DefaultText": "Brush and bramble have swallowed the old trail into the foraging forest. Hack it clear with a blade, axe, shovel, or antler to open the way west."
+  },
+  "CanBeRenamed": false,
+  "AlternateNames": [],
+  "CardHelpSection": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
+  "CardType": 2,
+  "ObjectWeight": 0.0,
+  "TradingValue": 0.0,
+  "CardTags": [],
+  "CardTagsWarpData": [ "tag_Structure" ],
+  "CardTagsWarpType": 3,
+  "EquipmentTags": [],
+  "MapStructureType": 0,
+  "AlwaysUpdate": false,
+  "CannotBeTransferred": true,
+  "CannotBeTrashed": true,
+  "DoesNotPile": true,
+  "NeedsRoomInLocationToSpawn": false,
+  "WhenCreatedSoundsWarpData": [ "Grass" ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": { "Active": false },
+  "UsageDurability": { "Active": false },
+  "FuelCapacity": { "Active": false },
+  "Progress": { "Active": false },
+  "SpecialDurability1": { "Active": false },
+  "SpecialDurability2": { "Active": false },
+  "SpecialDurability3": { "Active": false },
+  "SpecialDurability4": { "Active": false },
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "herbs_fungi_overgrown_forest_trail",
+        "LocalizationKey": "Herbs_And_Fungi_OvergrownForestTrail_Hack_ActionName",
+        "DefaultText": "Hack Through"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "herbs_fungi_overgrown_forest_trail",
+        "LocalizationKey": "Herbs_And_Fungi_OvergrownForestTrail_Hack_ActionDescription",
+        "DefaultText": "Cut back the brush with a blade, axe, shovel, or antler to clear the trail. Opens the foot route to the foraging forest."
+      },
+      "DaytimeCost": 4,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [ "HandAction" ],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [ "Grass" ],
+      "ActionSoundsWarpType": 3,
+      "RequiredStatValues": [],
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerTagsWarpData": [ "tag_Cutter", "tag_CutterAdv", "tag_Axe", "tag_Shovel" ],
+        "TriggerTagsWarpType": 3
+      },
+      "GivenCardChanges": {
+        "ModType": 1,
+        "UsageChange": { "x": -1.0, "y": -1.0 }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "herbs_fungi_cleared_forest_trail",
+        "TransformIntoWarpType": 3
+      }
+    }
+  ],
+  "DismantleActions": [],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [],
+  "MaxLiquidCapacity": 0.0,
+  "InventorySlots": [],
+  "CookingRecipes": [],
+  "BlueprintStages": [],
+  "BlueprintResult": [],
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "Woods1",
+  "CardImageWarpType": 3,
+  "IsWeapon": false,
+  "IsArmor": false
+}

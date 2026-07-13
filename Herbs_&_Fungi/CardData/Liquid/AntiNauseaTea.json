@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_anti_nausea_tea",
     "CardName": {
         "ParentObjectID": "herbs_fungi_anti_nausea_tea",
-        "LocalizationKey": "herbs_fungi_anti_nausea_tea_CardName",
+        "LocalizationKey": "herbsfungiantinauseatea_CardName",
         "DefaultText": "Anti-Nausea Tea"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_anti_nausea_tea",
-        "LocalizationKey": "herbs_fungi_anti_nausea_tea_CardDescription",
+        "LocalizationKey": "herbsfungiantinauseatea_CardDescription",
         "DefaultText": "A calming herbal tea that settles the stomach and reduces nausea."
     },
     "CardType": 0,
@@ -27,12 +27,12 @@
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_anti_nausea_tea",
-        "LocalizationKey": "herbs_fungi_anti_nausea_tea_SpoilageTime_StatName",
+        "LocalizationKey": "herbsfungiantinauseatea_SpoilageTime_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_anti_nausea_tea",
-            "LocalizationKey": "herbs_fungi_anti_nausea_tea_SpoilageTime_StatName",
+            "LocalizationKey": "herbsfungiantinauseatea_SpoilageTime_StatName",
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
@@ -43,7 +43,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_anti_nausea_tea",
-                "LocalizationKey": "herbs_fungi_anti_nausea_tea_SpoilageTime_Spoiled",
+                "LocalizationKey": "herbsfungiantinauseatea_SpoilageTime_Spoiled",
                 "DefaultText": "The anti-nausea tea has spoiled."
             },
             "ReceivingCardChanges": {
@@ -62,12 +62,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_anti_nausea_tea",
-                "LocalizationKey": "herbs_fungi_anti_nausea_tea_Drink",
+                "LocalizationKey": "herbsfungiantinauseatea_Drink",
                 "DefaultText": "Drink"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_anti_nausea_tea",
-                "LocalizationKey": "herbs_fungi_anti_nausea_tea_Drink_Desc",
+                "LocalizationKey": "herbsfungiantinauseatea_Drink_Desc",
                 "DefaultText": "Drink the soothing tea to settle your stomach."
             },
             "DaytimeCost": 0,

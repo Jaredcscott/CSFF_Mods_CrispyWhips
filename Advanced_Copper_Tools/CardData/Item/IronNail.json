@@ -1,0 +1,180 @@
+{
+  "UniqueID": "act_iron_nail",
+  "CardName": {
+    "ParentObjectID": "act_iron_nail",
+    "LocalizationKey": "Advanced_Copper_Tools_IronNail_CardName",
+    "DefaultText": "Iron Nail"
+  },
+  "CardDescription": {
+    "ParentObjectID": "act_iron_nail",
+    "LocalizationKey": "Advanced_Copper_Tools_IronNail_CardDescription",
+    "DefaultText": "A hand-forged iron nail. Stronger than copper. Interchangeable with copper nails in all constructions."
+  },
+  "CardHelpSection": {
+    "ParentObjectID": "act_iron_nail",
+    "LocalizationKey": "Advanced_Copper_Tools_IronNail_CardHelpSection",
+    "DefaultText": "<b>Crafted:</b> From 2 iron nuggets using a hammer (yields 4).\n\n<b>Uses:</b> Construction and crafting — accepted anywhere copper nails are required.\n\n<b>Smelts:</b> Returns 1 iron nugget in a furnace at 1100°C+."
+  },
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardBackground": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "IronNails",
+  "CardImageWarpType": 3,
+  "CardType": 0,
+  "ObjectWeight": 15.0,
+  "TradingValue": 20.0,
+  "CardTags": [],
+  "CardTagsWarpData": [ "tag_Metal", "tag_Preservable", "tag_SmeltsAt1100" ],
+  "CardTagsWarpType": 3,
+  "AlwaysUpdate": false,
+  "CannotBeTrashed": false,
+  "CanBeTrashed": true,
+  "DoesNotPile": false,
+  "ToggleablePiling": true,
+  "WhenCreatedSoundsWarpData": [ "Metal" ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": { "Active": false },
+  "UsageDurability": { "Active": false },
+  "FuelCapacity": { "Active": false },
+  "Progress": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "act_iron_nail",
+      "LocalizationKey": "",
+      "DefaultText": "Smelted"
+    },
+    "MaxValue": 8.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": true,
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Cooking",
+    "OverrideIconWarpType": 3,
+    "OnFull": {
+      "ActionName": { "ParentObjectID": "act_iron_nail", "LocalizationKey": "", "DefaultText": "" },
+      "ActionDescription": { "ParentObjectID": "act_iron_nail", "LocalizationKey": "", "DefaultText": "Iron smelted!" },
+      "NoveltyShared": false,
+      "UnavailableInDemo": false,
+      "SaveGame": false,
+      "ConfirmPopup": false,
+      "StackCompatible": false,
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "RequiredStatValues": [],
+      "RequiredCardsOnBoard": [],
+      "RequiredTagsOnBoard": [],
+      "ReceivingCardChanges": { "ModType": 3 },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 },
+              "FinishUnlocking": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "SpecialDurability1": { "Active": false },
+  "SpecialDurability2": { "Active": false },
+  "SpecialDurability3": { "Active": false },
+  "SpecialDurability4": { "Active": false },
+  "CardInteractions": [],
+  "DismantleActions": [],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [
+    {
+      "EffectName": "Lose Smelting if not in smelting container",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTEquipped": false,
+      "OnlyWhenInHand": false,
+      "OnlyOnBaseActions": false,
+      "OnlyOnNOTBaseActions": false,
+      "OnlyWhenNOTInBG": false,
+      "Conditions": {
+        "NotInBackground": false,
+        "InBackground": false,
+        "PlayerUsesCard": 0,
+        "RequiredNOTContainerTagsWarpData": [ "tag_SmeltingContainer" ],
+        "RequiredNOTContainerTagsWarpType": 3
+      },
+      "StatChanges": [],
+      "ConsumableChargesModifier": { "Active": true, "FloatValue": -1.0 }
+    },
+    {
+      "EffectName": "Lose Smelting if furnace is not hot enough",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTEquipped": false,
+      "OnlyWhenInHand": false,
+      "OnlyOnBaseActions": false,
+      "OnlyOnNOTBaseActions": false,
+      "OnlyWhenNOTInBG": false,
+      "Conditions": {
+        "NotInBackground": false,
+        "InBackground": false,
+        "PlayerUsesCard": 0,
+        "RequiredContainerTagsWarpData": [ "tag_SmeltingContainer" ],
+        "RequiredContainerTagsWarpType": 3,
+        "ReceivingContainerRequiredDurabilityRanges": {
+          "SpoilageRange": { "x": 0.0, "y": 1099.0 },
+          "UsageRange": { "x": 0.0, "y": 0.0 },
+          "FuelRange": { "x": 0.0, "y": 0.0 },
+          "ProgressRange": { "x": 0.0, "y": 0.0 },
+          "Special1Range": { "x": 0.0, "y": 0.0 },
+          "Special2Range": { "x": 0.0, "y": 0.0 },
+          "Special3Range": { "x": 0.0, "y": 0.0 },
+          "Special4Range": { "x": 0.0, "y": 0.0 },
+          "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+        }
+      },
+      "StatChanges": [],
+      "ConsumableChargesModifier": { "Active": true, "FloatValue": -1.0 }
+    },
+    {
+      "EffectName": "Gain Smelting in furnace at 1100°C+",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTEquipped": false,
+      "OnlyWhenInHand": false,
+      "OnlyOnBaseActions": false,
+      "OnlyOnNOTBaseActions": false,
+      "OnlyWhenNOTInBG": false,
+      "Conditions": {
+        "NotInBackground": false,
+        "InBackground": false,
+        "PlayerUsesCard": 0,
+        "RequiredContainerTagsWarpData": [ "tag_SmeltingContainer" ],
+        "RequiredContainerTagsWarpType": 3,
+        "ReceivingContainerRequiredDurabilityRanges": {
+          "SpoilageRange": { "x": 1100.0, "y": 3000.0 },
+          "UsageRange": { "x": 0.0, "y": 0.0 },
+          "FuelRange": { "x": 0.0, "y": 0.0 },
+          "ProgressRange": { "x": 0.0, "y": 0.0 },
+          "Special1Range": { "x": 0.0, "y": 0.0 },
+          "Special2Range": { "x": 0.0, "y": 0.0 },
+          "Special3Range": { "x": 0.0, "y": 0.0 },
+          "Special4Range": { "x": 0.0, "y": 0.0 },
+          "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+        }
+      },
+      "StatChanges": [],
+      "ConsumableChargesModifier": { "Active": true, "FloatValue": 1.0 }
+    }
+  ],
+  "MaxLiquidCapacity": 0.0,
+  "InventorySlots": [],
+  "DroppedCardShadow": 1
+}

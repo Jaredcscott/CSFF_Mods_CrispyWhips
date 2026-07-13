@@ -1,0 +1,48 @@
+{
+  "UniqueID": "csffmfwportalkit",
+  "CardType": 0,
+  "CardName": {
+    "ParentObjectID": "csffmfwportalkit",
+    "LocalizationKey": "CSFFMFW_PortalKit_CardName",
+    "DefaultText": "Portal Kit"
+  },
+  "CardDescription": {
+    "ParentObjectID": "csffmfwportalkit",
+    "LocalizationKey": "CSFFMFW_PortalKit_CardDescription",
+    "DefaultText": "A kit containing everything needed to raise a Portal Hub. Place it anywhere — then use the portal to travel to other worlds."
+  },
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "Portal_Kit",
+  "CardImageWarpType": 3,
+  "UniqueOnBoard": true,
+  "CannotBeTrashed": true,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "csffmfwportalkit",
+        "LocalizationKey": "CSFFMFW_PortalKit_DA_Place",
+        "DefaultText": "Set Up Portal"
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 2,
+      "FadeToBlack": 1,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "Place",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCardWarpData": "csffmfwportalplaced",
+              "DroppedCardWarpType": 3,
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "Quantity": { "x": 1, "y": 1 }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

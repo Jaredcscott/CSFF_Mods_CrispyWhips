@@ -1,0 +1,76 @@
+{
+    "UniqueID": "TODO_modname_bp_my_herb_frame",
+    "CardName": {
+        "ParentObjectID": "TODO_modname_bp_my_herb_frame",
+        "LocalizationKey": "TODO_ModName_Bp_MyHerbFrame_CardName",
+        "DefaultText": "Herb Drying Frame"
+    },
+    "CardDescription": {
+        "ParentObjectID": "TODO_modname_bp_my_herb_frame",
+        "LocalizationKey": "TODO_ModName_Bp_MyHerbFrame_CardDescription",
+        "DefaultText": "A simple wooden frame for hanging and drying herbs. Requires planks and a hammer."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "TODO_modname_bp_my_herb_frame",
+        "LocalizationKey": "TODO_ModName_Bp_MyHerbFrame_UnlockConditionsDesc",
+        "DefaultText": "Unlocked after finding My Herb in the wild."
+    },
+    "BlueprintUnlockTicksCost": 8.0,
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "Card": { "m_FileID": 0, "m_PathID": 0 },
+            "CardWarpData": "TODO_modname_my_herb",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 4,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "UsageChange": { "x": -8.0, "y": -8.0 }
+                    },
+                    "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredTabGroupWarpData": "GpTag_HammeringToolGeneral",
+                    "RequiredTabGroupWarpType": 3
+                }
+            ],
+            "StepActionTagsWarpData": [ "ToolAction" ],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 4,
+    "DeconstructDaytimeCost": 1,
+    "BlueprintResult": [
+        {
+            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": { "x": 1, "y": 1 },
+            "DroppedCardWarpData": "TODO_modname_my_herb_frame",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": [ "Wood" ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": [ "HandAction", "CraftAction" ],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImageWarpData": "TODO_ModName_MyHerbFrame",
+    "CardImageWarpType": 3,
+    "ResearchedNotification": 0
+}

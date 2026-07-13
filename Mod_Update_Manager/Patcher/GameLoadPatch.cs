@@ -16,9 +16,20 @@ namespace mod_update_manager.Patcher
         {
             try
             {
-                var gameLoadType = AccessTools.TypeByName("GameLoad");
+                var gameLoadType = AppDomain.CurrentDomain.GetAssemblies()
+                    .FirstOrDefault(a => a.GetName().Name == "Assembly-CSharp")
+                    ?.GetType("GameLoad");
+                if (gameLoadType == null)
+                {
+                    Logger.LogError("GameLoadPatch: could not find GameLoad type in Assembly-CSharp — patch not applied");
+                    return;
+                }
                 var loadMainGameDataMethod = AccessTools.Method(gameLoadType, "LoadMainGameData");
-                
+                if (loadMainGameDataMethod == null)
+                {
+                    Logger.LogError("GameLoadPatch: could not find LoadMainGameData method — patch not applied");
+                    return;
+                }
                 var postfixMethod = AccessTools.Method(typeof(GameLoadPatch), nameof(LoadMainGameData_Postfix));
                 harmony.Patch(loadMainGameDataMethod, postfix: new HarmonyMethod(postfixMethod));
             }

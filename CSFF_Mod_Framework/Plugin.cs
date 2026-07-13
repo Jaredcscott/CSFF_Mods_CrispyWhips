@@ -5,7 +5,7 @@ public class Plugin : BaseUnityPlugin
 {
     public const string PluginGuid = "crispywhips.CSFFModFramework";
     public const string PluginName = "CSFF Mod Framework";
-    public const string PluginVersion = "2.7.1";
+    public const string PluginVersion = "2.14.2";
 
     public static Plugin Instance { get; private set; }
     internal new static ManualLogSource Logger { get; private set; }
@@ -55,6 +55,14 @@ public class Plugin : BaseUnityPlugin
         Wildlife.WildlifeRaidService.StressPenalty = raidStress.Value;
         Wildlife.WildlifeRaidService.Init();
 
+        // Config: declarative animal system (on by default — only activates when a mod
+        // ships Animals/*.json; see Documentation/Design/Animal_System_Plan.md).
+        var animalsEnabled = Config.Bind("Animals", "AnimalsEnabled", true,
+            "Load declarative animal species from mods' Animals/*.json manifests "
+            + "(framework-generated NPC agents: spawning, movement, tracks, traps, encounters). "
+            + "Disable to skip all framework-generated animals.");
+        Animals.AnimalService.Enabled = animalsEnabled.Value;
+
         Triggers.TriggerService.Init();
 
         Harmony = new Harmony(PluginGuid);
@@ -87,6 +95,9 @@ public class Plugin : BaseUnityPlugin
         // Finalizer that swallows third-party NREs in BlueprintModelsScreen.Show/Toggle
         // (CardSizeReduce's Show_Postfix throws every frame on blueprint unlock).
         Patching.BugFixes.BlueprintScreenFix.ApplyPatch(Harmony);
+        // Finalizer that swallows third-party NREs in ExplorationPopup.Setup
+        // (WikiMod 2.6.5.1's SetupPostfix crashes on framework clone CT8 locations).
+        Patching.BugFixes.ExplorationPopupFix.ApplyPatch(Harmony);
         // CardSizeReduce 3.3.0 compat: patches AccessTools.Field to find auto-property
         // backing fields when CSR is installed; falls back to internal scaling shim
         // when CSR config is present but the DLL is missing. Self-no-ops without CSR.
@@ -94,6 +105,10 @@ public class Plugin : BaseUnityPlugin
         // CheatsPatch 1.1.0 compat: postfix AccessTools.TypeByName so CheatsPatch's
         // patches resolve "UCheatsManager" → "CheatsManager" (CSFF rename).
         Patching.BugFixes.CheatsPatchCompat.Configure(Harmony);
+
+        // No-op — portal travel now uses game-default ChangeEnvironment behavior:
+        // slot items travel with the player; floor/placed items stay at source.
+        Portal.PortalTravelPatch.ApplyPatch(Harmony);
 
         // Wildlife: bear raid on encounter — fires WildlifeRaidService.OnBearEncounter()
         // when Combat_EventBear_1_Explore starts. Self-no-ops when raids are disabled.
@@ -103,9 +118,25 @@ public class Plugin : BaseUnityPlugin
         // Api.EncounterGuards predicates flow through. Zero-cost when no guards exist.
         Patching.EncounterGuardPatch.ApplyPatch(Harmony);
 
+        // Connection gates (Tier 2): re-evaluate ImprovementBuilt / PerkEquipped gates
+        // when an improvement is completed, updating map connection visibility immediately.
+        // Zero-cost when no gates are declared.
+        Patching.ConnectionGatePatch.ApplyPatch(Harmony);
+
         // GIF animation support — patches CardGraphics.Setup / RefreshCookingStatus.
         // Self-skips registration when no mod ships CardData/Gif/*.json.
         Patching.GifAnimationPatch.ApplyPatch(Harmony);
+
+        // Animals: GameManager.Awake prefix that appends queued mod agents to
+        // WorldSettings.NPCAgents right before the game consumes it. No-ops per run
+        // when nothing is queued (i.e. no mod ships Animals/*.json or the system is off).
+        Animals.SpawnRegistrar.ApplyPatch(Harmony);
+
+        // Animals: null-guards InGameNPC.CreateModelCards' InventorySlots. Vanilla only
+        // assigns InventorySlots when StartingInventory produces a non-empty list, so any
+        // NPCAgent with a genuinely empty inventory (every hand-authored Animal-system agent)
+        // crashes SortInventory() on first inspect. No-op for every vanilla NPCAgent.
+        Animals.ModelCardInventoryFix.ApplyPatch(Harmony);
 
         // Opt-in diagnostic: logs GameLoad.AutoSaveGame calls (first 8) so beta
         // day/week/season checkpoint behavior can be inspected without changing it.

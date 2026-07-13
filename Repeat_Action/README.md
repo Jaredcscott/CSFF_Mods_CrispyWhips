@@ -1,8 +1,8 @@
 # Repeat Action
 
-**Version:** 1.6.0
+**Version:** 1.6.4
 **Author:** Jared (crispywhips)
-**For:** Card Survival: Fantasy Forest (EA 0.64f)
+**For:** Card Survival: Fantasy Forest (EA 0.65)
 
 A quality-of-life mod that lets you automatically repeat your last action multiple times with a single keypress.
 
@@ -20,13 +20,19 @@ A quality-of-life mod that lets you automatically repeat your last action multip
 - **Smart Chopping**: Automatically rests between chop/cut/fell iterations to recover stamina and allow small trees to respawn
 - **Drag-Drop Support**: Repeat drag-drop actions like making twine, soaking reeds, or chopping trees with tools
 - **Pick Up Support**: Repeat picking up soaking reeds, flax stems, and nettle stems
-- **Event-Aware**: Pauses if a game event popup appears during repetition
+- **Event-Aware**: Stops the repeat sequence if a game event popup (dehydration, starvation, encounters, etc.) triggers mid-run
 
 ## Installation
 
+### Requirements
+- [BepInEx 5.x](https://github.com/BepInEx/BepInEx/releases) for Card Survival: Fantasy Forest
+- **CSFFModFramework** (recommended) — Repeat Action's card-identification helper calls the framework's `Api.CardUtil`/`Api.Reflect` utilities. The mod declares `CSFFModFramework` as a `SoftDependency` for load order; without it installed, that helper throws and action-repeat replay can fail.
+
+### Steps
 1. Install [BepInEx 5.x](https://github.com/BepInEx/BepInEx/releases) for Card Survival: Fantasy Forest
-2. Download this mod and extract to your `BepInEx/plugins/` folder
-3. Launch the game
+2. Install CSFFModFramework in `BepInEx/plugins/CSFF_Mod_Framework/`
+3. Download this mod and extract to your `BepInEx/plugins/` folder
+4. Launch the game
 
 ## Usage
 
@@ -71,15 +77,33 @@ Maximum Repeat Count = 50
 Show Notifications = true
 
 [Safety]
-# Automatically stop repeating when the game signals a critical action blocker
-# (event popups, critical stat events such as dehydration or starvation)
+# Stop repeating when the game signals a critical condition (health, hunger, or event popup)
 Stop On Low Stats = true
+
+# Stop repeating when a drag-drop tool transforms (e.g. axe wears out and changes state)
+Stop On Tool Break = true
+
+# Per-stat stop floors (0 = disabled); stop repeating when stat drops below this % of max
+Stamina Stop Threshold (%) = 0
+Satiation Stop Threshold (%) = 0
+Hydration Stop Threshold (%) = 0
+
+[Timeout Settings]
+# Maximum seconds to wait for an action to complete before aborting the repeat sequence
+Action Completion Timeout (seconds) = 30
+
+# Frames to wait for ActionRoutine to fire after a button click (60 frames ≈ 1 second at 60fps)
+Gate 1 Timeout (frames) = 60
+
+# Maximum seconds to wait for a rest action to complete before travel
+Pre-Travel Rest Timeout (seconds) = 15
 ```
 
 ## Compatibility
 
 - **Quick Transfer**: This mod uses `Shift` as its modifier key, while Quick Transfer uses `Ctrl`, so they work together without conflict.
 - **Other Mods**: Should be compatible with most mods. If you experience issues, please report them.
+- **Dependencies:** `CSFFModFramework` (soft — see Requirements above). No dependency on any content mod, and no other mod depends on Repeat Action.
 
 ## Supported Actions
 
@@ -110,7 +134,7 @@ Examples of actions that work: Forage, Clear, Eat, Drink, Cook, Boil, Roast, Fry
 **Q: The action doesn't repeat**
 - Make sure you're pressing `Shift+R` (not just `R`)
 - The action must be a player-initiated action (not a passive/automatic one)
-- A notification saying "'ActionName' is not supported" means it's not in the allowed list
+- A notification saying "'ActionName' is not supported" means it matched the mod's short blocklist (currently just the event-popup "Continue" button)
 - Check the config file to verify keybinds
 
 **Q: Repeat stops unexpectedly**

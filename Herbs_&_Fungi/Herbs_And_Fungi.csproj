@@ -92,6 +92,8 @@
     <!-- Copy mod content files to output -->
     <ItemGroup>
         <Content Include="ModInfo.json" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="MapMod.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('MapMod.json')" />
+        <Content Include="WorldMap\*.json" CopyToOutputDirectory="PreserveNewest" Link="WorldMap\%(Filename)%(Extension)" />
         <Content Include="LICENSE" CopyToOutputDirectory="PreserveNewest" Condition="Exists('LICENSE')" />
         <Content Include="ASSET_CREDITS.md" CopyToOutputDirectory="PreserveNewest" Condition="Exists('ASSET_CREDITS.md')" />
         <Content Include="BlueprintTabs.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('BlueprintTabs.json')" />

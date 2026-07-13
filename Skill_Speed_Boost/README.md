@@ -1,14 +1,12 @@
 # Skill Speed Boost
 
-**Version:** 1.9.1
+**Version:** 1.9.4
 **Author:** Jared (crispywhips)
-**For:** Card Survival: Fantasy Forest (EA 0.64f)
+**For:** Card Survival: Fantasy Forest (EA 0.65)
 
 ---
 
 ## Overview
-
-**Version:** 1.9.1 — Level Scaling, Skill Synergies, Difficulty Profiles, Per-Skill Staleness
 
 Skill Speed Boost provides comprehensive control over skill progression mechanics in Card Survival: Fantasy Forest. The mod enables natural staleness decay (like Fishing), customizable XP multipliers per skill, per-location area familiarity bonuses, difficulty presets, and a combo synergy system for chaining related skills.
 
@@ -42,12 +40,14 @@ Skill Speed Boost provides comprehensive control over skill progression mechanic
 
 ### Requirements
 - [BepInEx 5.4.23.4+](https://github.com/BepInEx/BepInEx/releases)
-- Card Survival: Fantasy Forest (EA 0.64f)
+- **CSFFModFramework** (recommended) — since v1.9.2, `GameLoadPatch`, `AreaFamiliarityPatch`, and `MorningBonusPatch` (the staleness config, area familiarity, and morning bonus features) call the framework's `Api.Reflect`/`Api.StatAccess`/`Api.CardUtil` utilities directly. The mod declares `CSFFModFramework` as a `SoftDependency` for load order; without it installed, those features throw instead of applying.
+- Card Survival: Fantasy Forest (EA 0.65)
 
 ### Steps
-1. Download the latest release (v1.9.1+)
-2. Copy the `Skill_Speed_Boost` folder into `BepInEx/plugins/`
-3. Launch the game
+1. Install CSFFModFramework in `BepInEx/plugins/CSFF_Mod_Framework/`
+2. Download the latest release (v1.9.2+)
+3. Copy the `Skill_Speed_Boost` folder into `BepInEx/plugins/`
+4. Launch the game
 
 Your plugins folder should look like:
 ```
@@ -94,9 +94,9 @@ For detailed configuration, see **FEATURES.md**.
 ## Core Mechanics
 
 ### Staleness Decay (Base Feature)
-In vanilla CSFF, staleness penalties are permanent. This mod enables natural decay:
-- Skills decay staleness after **3 in-game hours** (12 game ticks) of non-use
-- Mimics Fishing skill behavior (only vanilla skill with natural decay)
+In vanilla CSFF, most skills' staleness penalties never decay on their own — a handful of skills (Fishing among them) already decay, but at wildly inconsistent rates. This mod normalizes decay across every skill:
+- Skills decay staleness after **3 in-game hours** (12 game ticks) of non-use by default
+- Applies the same consistent, configurable decay rate to every skill — including the few skills vanilla already decays, just inconsistently
 - Encourages skill variety without permanent penalties
 
 ### XP Multipliers
@@ -108,15 +108,15 @@ Control learning speed with global or per-skill multipliers:
 
 ## Affected Skills
 
-The mod affects all 24+ skills with XP/staleness mechanics:
+Rather than a hardcoded list, the mod scans every vanilla `GameStat` at load time and treats any stat that uses the same staleness flag as Fishing (`UsesNovelty`) as a skill, auto-registering per-skill XP/staleness config for it under its real in-game name. This covers over 30 EA 0.65 vanilla skills, including:
 
-**Crafting:** Smithing, Tailoring, Carpentry, Cooking  
-**Gathering:** Foraging, Herbal, Gathering  
-**Combat:** Archery, Blade, Blunt, Dodge  
-**Hunting:** Tracking, Trapping  
-**Other:** Spellcraft, Axe, Mining, and more
+**Crafting:** Smithing, Tailoring, Weaving, Cooking, Woodworking, Leatherworking, Pottery, Metalworking, Knapping, Crafting  
+**Gathering:** Herbalism, Fishing, Spear Fishing  
+**Combat:** Archery, Axe Fighting, Knife Fighting, Club Fighting, Spear Fighting, Rock Throwing, Sling, Handguns  
+**Hunting:** Tracking, Trapping, Butchering  
+**Other:** Stealth, Climbing, Swimming, Socials, Insight, Percussion, Wind Instruments, Perception
 
-See **FEATURES.md** for full per-skill configuration details.
+Any skill added by another mod is picked up the same way automatically — no update to this mod is needed. See **FEATURES.md** for full per-skill configuration details.
 
 ## Technical Details
 
@@ -130,12 +130,17 @@ See **FEATURES.md** for full per-skill configuration details.
 
 - **Existing saves:** Safe to add/remove anytime
 - **Other mods:** Compatible with all CSFF mods
+- **Dependencies:** `CSFFModFramework` (soft — see Requirements above). No dependency on any content mod, and no other mod depends on Skill Speed Boost.
 - **Performance:** Minimal overhead — load-time scan of ~30 skill stats + lightweight coroutine postfix on XP gains
 - **Save format:** No save file modifications
 
 ## Version History
 
-### v1.9.1 (current)
+### v1.9.2 (current)
+- Internal refactor: `AreaFamiliarityPatch`, `GameLoadPatch`, and `MorningBonusPatch` migrated their bespoke reflection helpers to the shared `CSFFModFramework.Api.Reflect`/`StatAccess`/`CardUtil` utilities, removing ~320 lines of duplicated per-mod reflection scaffolding. No behavior change.
+- Version bump for release alongside framework 2.9.1 and all in-house mods
+
+### v1.9.1
 - Version bump for release alongside framework 2.0.8 and all in-house mods
 
 ### v1.9.0
@@ -149,13 +154,13 @@ See **FEATURES.md** for full per-skill configuration details.
 - **Per-Skill Staleness** — `<Skill>_UseStaleness` toggle and `<Skill>_StalenessMultiplier` (0.1–5.0) for fine-grained staleness control per skill, AND-ed with the global `EnableSkillStaleness` flag.
 
 ### v1.7.6
-- EA 0.64ff compatibility pass; no logic changes
+- EA 0.65f compatibility pass; no logic changes
 
 ### v1.7.5
 - Minor fixes to area familiarity TSV persistence path
 
 ### v1.7.4
-- EA 0.64f compatibility pass
+- EA 0.65 compatibility pass
 - Startup log normalized to single Info line per CSFF mod logging norms
 
 ### v1.7.3

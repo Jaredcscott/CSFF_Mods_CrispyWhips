@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Linq;
 using System.Reflection;
+using CSFFModFramework.Api;
 using CSFFModFramework.Util;
 
 namespace CSFFModFramework.Injection;
@@ -159,6 +160,15 @@ internal static class NPCAgentActivationService
 
             // Check if mod agents appear in any discovered list.
             CheckModAgentsInNpcLists(gmType, gm);
+
+            // Wild-animal-system bring-up (temporary LogInfo diagnostics — see
+            // Documentation plan "Animal Modification System — Wild Owl"). Confirms
+            // whether a mod NPCAgent becomes a live, ticking InGameNPC and whether its
+            // Interactions -> DroppedEncounter resolves to a mod Encounter. Demote to
+            // Log.Debug once confirmed working end-to-end in-game.
+            SurveyLiveInGameNPCs();
+            SurveyModAgentEncounters();
+            RegisterEncounterFireDiagnostic();
         }
         catch (Exception ex)
         {
@@ -247,6 +257,7 @@ internal static class NPCAgentActivationService
         {
             var t = AccessTools.TypeByName(candidateName);
             if (t == null) continue;
+            if (!typeof(UnityEngine.Object).IsAssignableFrom(t)) continue;
             try
             {
                 var allComponents = UnityEngine.Resources.FindObjectsOfTypeAll(t);
@@ -307,7 +318,7 @@ internal static class NPCAgentActivationService
             if (missing.Count > 0)
             {
                 Log.Info($"NPCAgentActivation: {present}/{_modAgents.Count} mod NPCAgent(s) in {foundIn}. Missing: {string.Join(", ", missing.Select(a => a.name))}");
-                Log.Info("NPCAgentActivation: [DIAGNOSTICS] Mod agents NOT auto-discovered — injecting into " + foundIn);
+                Log.Debug("NPCAgentActivation: [DIAGNOSTICS] Mod agents NOT auto-discovered — injecting into " + foundIn);
                 InjectMissingAgents(agentList, missing);
             }
             else
@@ -330,7 +341,7 @@ internal static class NPCAgentActivationService
             {
                 agentList.Add(agent);
                 injected++;
-                Log.Info($"NPCAgentActivation: injected {agent.name} ({agent.UniqueID}) into GameManager agent list");
+                Log.Debug($"NPCAgentActivation: injected {agent.name} ({agent.UniqueID}) into GameManager agent list");
             }
             catch (Exception ex)
             {
@@ -338,5 +349,121 @@ internal static class NPCAgentActivationService
             }
         }
         Log.Info($"NPCAgentActivation: {injected}/{missing.Count} mod NPCAgent(s) injected");
+    }
+
+    // ------------------------------------------------ wild-animal diagnostics ---
+
+    private static bool _encounterDiagnosticRegistered;
+
+    /// <summary>
+    /// Confirms whether a mod NPCAgent registered in GameManager's agent list actually
+    /// becomes a live, ticking InGameNPC (with a real environment and active duties), or
+    /// whether list-presence alone is not enough to spawn a roaming entity. One-time
+    /// FindObjectsOfTypeAll scan per the framework's performance rule.
+    /// </summary>
+    private static void SurveyLiveInGameNPCs()
+    {
+        if (_modAgents.Count == 0) return;
+        try
+        {
+            var npcType = AccessTools.TypeByName("InGameNPC");
+            if (npcType == null)
+            {
+                Log.Debug("NPCAgentActivation: [DIAGNOSTICS] InGameNPC type not found — cannot survey live agents");
+                return;
+            }
+
+            var allNpcs = UnityEngine.Resources.FindObjectsOfTypeAll(npcType);
+            Log.Debug($"NPCAgentActivation: [DIAGNOSTICS] {allNpcs.Length} total InGameNPC instance(s) found (FindObjectsOfTypeAll)");
+
+            // InGameNPC.NPCModel is an auto-PROPERTY, not a field — AccessTools.Field returns null
+            // (root CLAUDE.md §Harmony Pitfalls). Field-based access left this diagnostic a
+            // permanent false-negative ("NO live InGameNPC" for every agent). Use Property.
+            var modelProp = AccessTools.Property(npcType, "NPCModel");
+            var envField = AccessTools.Field(npcType, "CurrentEnvironment");
+            var dutiesField = AccessTools.Field(npcType, "ActiveDuties");
+
+            foreach (var agent in _modAgents)
+            {
+                object matchedNpc = null;
+                foreach (var npc in allNpcs)
+                {
+                    if (modelProp?.GetValue(npc) as NPCAgent == agent) { matchedNpc = npc; break; }
+                }
+
+                if (matchedNpc == null)
+                {
+                    Log.Debug($"NPCAgentActivation: [DIAGNOSTICS] NO live InGameNPC for {agent.name} ({agent.UniqueID}) — agent sits in AllData/agent-list but is not spawned as a roaming entity");
+                    continue;
+                }
+
+                var env = envField?.GetValue(matchedNpc);
+                var duties = dutiesField?.GetValue(matchedNpc) as IList;
+                Log.Debug($"NPCAgentActivation: [DIAGNOSTICS] live InGameNPC confirmed for {agent.name} ({agent.UniqueID}) — CurrentEnvironment={env}, ActiveDuties.Count={(duties?.Count.ToString() ?? "null")}");
+            }
+        }
+        catch (Exception ex)
+        {
+            Log.Warn($"NPCAgentActivation: SurveyLiveInGameNPCs failed: {Log.ExceptionText(ex)}");
+        }
+    }
+
+    /// <summary>
+    /// Confirms whether each mod NPCAgent's Interactions[].DroppedEncounter reference has
+    /// been resolved by WarpResolver to an actual Encounter instance (vs. left null).
+    /// </summary>
+    private static void SurveyModAgentEncounters()
+    {
+        if (_modAgents.Count == 0) return;
+        try
+        {
+            var interactionsField = AccessTools.Field(typeof(NPCAgent), "Interactions");
+            if (interactionsField == null)
+            {
+                Log.Debug("NPCAgentActivation: [DIAGNOSTICS] NPCAgent.Interactions field not found via reflection");
+                return;
+            }
+
+            foreach (var agent in _modAgents)
+            {
+                if (interactionsField.GetValue(agent) is not Array interactions || interactions.Length == 0)
+                {
+                    Log.Debug($"NPCAgentActivation: [DIAGNOSTICS] {agent.name} has no Interactions");
+                    continue;
+                }
+
+                for (int i = 0; i < interactions.Length; i++)
+                {
+                    var interaction = interactions.GetValue(i);
+                    var encounterField = interaction?.GetType().GetField("DroppedEncounter");
+                    var encounter = encounterField?.GetValue(interaction) as Encounter;
+                    Log.Debug($"NPCAgentActivation: [DIAGNOSTICS] {agent.name} Interactions[{i}].DroppedEncounter = {(encounter != null ? encounter.UniqueID : "NULL (unresolved)")}");
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Log.Warn($"NPCAgentActivation: SurveyModAgentEncounters failed: {Log.ExceptionText(ex)}");
+        }
+    }
+
+    /// <summary>
+    /// Registers a permanent, never-suppressing EncounterGuards predicate purely to log
+    /// when a mod-defined wildlife encounter actually fires through EncounterPopup.StartEncounter —
+    /// the framework's sole StartEncounter prefix, reused here instead of adding a second patch.
+    /// </summary>
+    private static void RegisterEncounterFireDiagnostic()
+    {
+        if (_encounterDiagnosticRegistered) return;
+        _encounterDiagnosticRegistered = true;
+        EncounterGuards.Register("WildAgentDiagnostic", ctx =>
+        {
+            if (!string.IsNullOrEmpty(ctx.EncounterUid) && Loading.JsonDataLoader.AllModUniqueIds.Contains(ctx.EncounterUid))
+            {
+                Log.Debug($"NPCAgentActivation: [DIAGNOSTICS] mod-defined wildlife encounter '{ctx.EncounterUid}' fired via EncounterPopup.StartEncounter");
+            }
+            return false; // diagnostic only — never suppress
+        });
+        Log.Debug("NPCAgentActivation: [DIAGNOSTICS] registered wild-encounter-fire diagnostic guard");
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Reflection;
 using BepInEx.Logging;
+using CSFFModFramework.Api;
 using HarmonyLib;
 
 namespace Skill_Speed_Boost.Patcher;
@@ -14,7 +15,6 @@ namespace Skill_Speed_Boost.Patcher;
 internal static class AreaFamiliarityPatch
 {
     private static ManualLogSource Logger => Plugin.Logger;
-    private static readonly BindingFlags Flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
 
     // Unity coroutines run on the main thread serially within an action chain — plain static is safe.
     private static string _currentLocationUid;
@@ -23,18 +23,13 @@ internal static class AreaFamiliarityPatch
     public static string CurrentLocationUid => _currentLocationUid;
     public static void NoteSkillXpGained() => _skillXpGainedThisAction = true;
 
-    private static FieldInfo _cardModelField;
-    private static PropertyInfo _cardModelProp;
-    private static FieldInfo _uniqueIdField;
-    private static FieldInfo _cardTypeField;
-    private static bool _reflectedCard;
     private static int _receivingCardArgIndex = 1;
 
     public static void ApplyPatch(Harmony harmony)
     {
         try
         {
-            var gmType = AccessTools.TypeByName("GameManager");
+            var gmType = Reflect.TryGetType("GameManager");
             if (gmType == null)
             {
                 Logger.LogWarning("[AreaFamiliarity] GameManager type not found — area familiarity disabled.");
@@ -129,64 +124,19 @@ internal static class AreaFamiliarityPatch
         if (receivingCard == null) return null;
         try
         {
-            EnsureCardReflection(receivingCard.GetType());
-
-            object cardModel = null;
-            if (_cardModelProp != null)
-                cardModel = _cardModelProp.GetValue(receivingCard, null);
-            else if (_cardModelField != null)
-                cardModel = _cardModelField.GetValue(receivingCard);
+            var cardModel = Reflect.GetMember(receivingCard, "CardModel");
             if (cardModel == null) return null;
 
             // Filter to CardType=2 (locations / structures). Item-on-item drag interactions
-            // produce no familiarity gain.
-            if (_cardTypeField != null)
-            {
-                var ctVal = _cardTypeField.GetValue(cardModel);
-                int ct;
-                if (ctVal is int iv) ct = iv;
-                else { try { ct = Convert.ToInt32(ctVal); } catch { return null; } }
-                if (ct != 2) return null;
-            }
+            // produce no familiarity gain. Fallback of 2 (== the target value) replicates the
+            // original behavior of skipping the filter entirely when CardType can't be read.
+            int ct = Reflect.GetInt(cardModel, "CardType", 2);
+            if (ct != 2) return null;
 
-            if (_uniqueIdField != null)
-            {
-                var uid = _uniqueIdField.GetValue(cardModel) as string;
-                return string.IsNullOrWhiteSpace(uid) ? null : uid.Trim();
-            }
+            var uid = Reflect.GetMember(cardModel, "UniqueID") as string;
+            return string.IsNullOrWhiteSpace(uid) ? null : uid.Trim();
         }
         catch { }
         return null;
-    }
-
-    private static void EnsureCardReflection(Type cardType)
-    {
-        if (_reflectedCard) return;
-
-        // CardModel is an auto-property on InGameCardBase; try property first, fall back to backing field.
-        var t = cardType;
-        while (t != null && t != typeof(object))
-        {
-            if (_cardModelProp == null) _cardModelProp = t.GetProperty("CardModel", Flags);
-            if (_cardModelField == null) _cardModelField = t.GetField("CardModel", Flags);
-            if (_cardModelField == null) _cardModelField = t.GetField("<CardModel>k__BackingField", Flags);
-            if (_cardModelProp != null || _cardModelField != null) break;
-            t = t.BaseType;
-        }
-
-        Type cardDataType = null;
-        if (_cardModelProp != null) cardDataType = _cardModelProp.PropertyType;
-        else if (_cardModelField != null) cardDataType = _cardModelField.FieldType;
-
-        if (cardDataType != null)
-        {
-            _uniqueIdField = cardDataType.GetField("UniqueID", Flags);
-            _cardTypeField = cardDataType.GetField("CardType", Flags);
-            // Some game builds back CardType as an auto-property
-            if (_cardTypeField == null)
-                _cardTypeField = cardDataType.GetField("<CardType>k__BackingField", Flags);
-        }
-
-        _reflectedCard = true;
     }
 }

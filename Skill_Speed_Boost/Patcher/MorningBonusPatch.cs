@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Reflection;
 using BepInEx.Logging;
+using CSFFModFramework.Api;
+using CSFFModFramework.Util;
 using HarmonyLib;
 
 namespace Skill_Speed_Boost.Patcher;
@@ -17,48 +19,26 @@ internal static class MorningBonusPatch
     private static ManualLogSource Logger => Plugin.Logger;
     private static readonly BindingFlags Flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static;
 
-    // Stat object reflection (lazily initialised on first call)
-    private static FieldInfo _currentValueField;
-    private static PropertyInfo _currentValueProp;
-    private static MethodInfo _currentValueMethod;
-    private static PropertyInfo _simpleCurrentValueProp;
+    // Modification-type routing fields — StatAccess.SetCurrentValue has no equivalent for
+    // this: InGameStat (EA 0.65g) exposes CurrentValue only as a bool-parameter METHOD, never
+    // as a writable field/property, so every write must land on one of these four raw fields
+    // (chosen by the ChangeStatValue `modification` argument) or fall back to CurrentBaseValue.
+    // This dispatch is specific to hooking ChangeStatValue and has no framework equivalent.
     private static FieldInfo _currentBaseValueField;
     private static FieldInfo _globalModifiedValueField;
     private static FieldInfo _atBaseModifiedValueField;
     private static FieldInfo _currentCompositeValueField;
     private static FieldInfo _temporaryModifiedValueField;
-    private static FieldInfo _maxValueField;
-    private static PropertyInfo _maxValueProp;
-    private static FieldInfo _currentMinMaxValueField;
-    private static PropertyInfo _currentMinMaxValueProp;
-    private static FieldInfo _statModelMinMaxValueField;
-    private static PropertyInfo _statModelMinMaxValueProp;
-    private static FieldInfo _statModelField;
-    private static PropertyInfo _statModelProp;
-    private static FieldInfo _usesNoveltyField;
-    private static PropertyInfo _usesNoveltyProp;
-    private static FieldInfo _uniqueIdField;
-    private static PropertyInfo _uniqueIdProp;
-
-    // GameManager singleton + DayTimePoints
-    private static Type _gmType;
-    private static PropertyInfo _gmInstanceProp;
-    private static FieldInfo _gmInstanceField;
-    private static FieldInfo _gmDtpField;
-    private static PropertyInfo _gmDtpProp;
-    private static FieldInfo _gmNotInBaseField;
-    private static PropertyInfo _gmNotInBaseProp;
+    private static bool _modRoutingReflected;
 
     private static int _statArgIndex = 0;
     private static int _modificationArgIndex = 2;
-
-    private static bool _reflected;
 
     public static void ApplyPatch(Harmony harmony)
     {
         try
         {
-            var gmType = AccessTools.TypeByName("GameManager");
+            var gmType = Reflect.TryGetType("GameManager");
             if (gmType == null)
             {
                 Logger.LogWarning("[MorningBonus] GameManager type not found — morning bonus disabled.");
@@ -98,18 +78,18 @@ internal static class MorningBonusPatch
             yield break;
         }
 
-        EnsureReflection(stat.GetType());
+        EnsureModificationRoutingFields(stat.GetType());
 
-        float before = GetCurrentValue(stat);
+        float before = SafeGetCurrentValue(stat);
         yield return enumerator;                 // let original coroutine run
-        float after = GetCurrentValue(stat);
+        float after = SafeGetCurrentValue(stat);
 
         float delta = after - before;
         if (delta <= 0f) yield break;            // not an XP gain — skip
         if (!IsSkillStat(stat)) yield break;     // not a tracked skill
 
         // Resolve skill identity once — shared by expMult, synergies, and debug logging.
-        var uid = GetUniqueId(stat);
+        var uid = StatAccess.GetUniqueId(stat);
         string resolvedSkillName = null;
         if (!string.IsNullOrEmpty(uid))
             GameLoadPatch.SkillNamesByUniqueId.TryGetValue(uid, out resolvedSkillName);
@@ -161,7 +141,7 @@ internal static class MorningBonusPatch
             }
         }
 
-        float maxVal = GetMaxValue(stat);
+        float maxVal = SafeGetMaxValue(stat);
 
         if (levelScalingOn && maxVal > 0f)
         {
@@ -222,127 +202,68 @@ internal static class MorningBonusPatch
         return args != null && index >= 0 && index < args.Length ? args[index] : null;
     }
 
-    private static void EnsureReflection(Type statType)
+    /// <summary>
+    /// Resolves the four modification-type target fields plus the CurrentBaseValue fallback,
+    /// once per stat type. These have no framework equivalent (StatAccess.SetCurrentValue
+    /// only knows about CurrentValue/CurrentBaseValue — not the Global/AtBase/Composite/
+    /// Temporary split needed to route a ChangeStatValue write correctly).
+    /// </summary>
+    private static void EnsureModificationRoutingFields(Type statType)
     {
-        if (_reflected) return;
-        _reflected = true;
+        if (_modRoutingReflected) return;
+        _modRoutingReflected = true;
 
-        _currentValueField = statType.GetField("CurrentValue", Flags);
-        _currentValueProp  = _currentValueField == null ? statType.GetProperty("CurrentValue", Flags) : null;
-        _currentValueMethod = statType.GetMethod("CurrentValue", Flags, null, new[] { typeof(bool) }, null);
-        _simpleCurrentValueProp = statType.GetProperty("SimpleCurrentValue", Flags);
         _currentBaseValueField = statType.GetField("CurrentBaseValue", Flags);
         _globalModifiedValueField = statType.GetField("GlobalModifiedValue", Flags);
         _atBaseModifiedValueField = statType.GetField("AtBaseModifiedValue", Flags);
         _currentCompositeValueField = statType.GetField("CurrentCompositeValue", Flags);
         _temporaryModifiedValueField = statType.GetField("TemporaryModifiedValue", Flags);
-        _maxValueField     = statType.GetField("MaxValue", Flags);
-        _maxValueProp      = _maxValueField == null ? statType.GetProperty("MaxValue", Flags) : null;
-        _currentMinMaxValueField = statType.GetField("CurrentMinMaxValue", Flags);
-        _currentMinMaxValueProp = _currentMinMaxValueField == null ? statType.GetProperty("CurrentMinMaxValue", Flags) : null;
-        _statModelField = statType.GetField("StatModel", Flags) ?? statType.GetField("Stat", Flags);
-        _statModelProp = _statModelField == null
-            ? (statType.GetProperty("StatModel", Flags) ?? statType.GetProperty("Stat", Flags))
-            : null;
-        _usesNoveltyField  = statType.GetField("UsesNovelty", Flags);
-        _usesNoveltyProp = _usesNoveltyField == null ? statType.GetProperty("UsesNovelty", Flags) : null;
-        _uniqueIdField = statType.GetField("UniqueID", Flags);
-        _uniqueIdProp = _uniqueIdField == null ? statType.GetProperty("UniqueID", Flags) : null;
-
-        var statModelType = GetStatModelType();
-        if (statModelType != null)
-        {
-            _usesNoveltyField ??= statModelType.GetField("UsesNovelty", Flags);
-            _usesNoveltyProp ??= _usesNoveltyField == null ? statModelType.GetProperty("UsesNovelty", Flags) : null;
-            _uniqueIdField ??= statModelType.GetField("UniqueID", Flags);
-            _uniqueIdProp ??= _uniqueIdField == null ? statModelType.GetProperty("UniqueID", Flags) : null;
-            _statModelMinMaxValueField = statModelType.GetField("MinMaxValue", Flags);
-            _statModelMinMaxValueProp = _statModelMinMaxValueField == null ? statModelType.GetProperty("MinMaxValue", Flags) : null;
-        }
-
-        // GameManager singleton (type already confirmed in ApplyPatch; re-resolve here for safety)
-        foreach (var asm in AppDomain.CurrentDomain.GetAssemblies())
-        {
-            try { _gmType ??= asm.GetType("GameManager"); } catch { }
-            if (_gmType != null) break;
-        }
-
-        if (_gmType == null) return;
-
-        _gmInstanceProp = _gmType.GetProperty("Instance", Flags | BindingFlags.FlattenHierarchy);
-        _gmInstanceField = _gmInstanceProp == null ? _gmType.GetField("Instance", Flags | BindingFlags.FlattenHierarchy) : null;
-
-        // DayTimePoints — try several possible names for forward-compat
-        foreach (var name in new[] { "DayTimePoints", "CurrentDayTimePoints", "DaytimePoints" })
-        {
-            _gmDtpField = _gmType.GetField(name, Flags);
-            if (_gmDtpField != null) break;
-            _gmDtpProp = _gmType.GetProperty(name, Flags);
-            if (_gmDtpProp != null) break;
-        }
-
-        _gmNotInBaseField = _gmType.GetField("NotInBase", Flags);
-        _gmNotInBaseProp = _gmNotInBaseField == null ? _gmType.GetProperty("NotInBase", Flags) : null;
     }
 
-    private static Type GetStatModelType()
+    /// <summary>
+    /// StatAccess.GetCurrentValue returns NaN on failure; the reflection scaffolding this
+    /// file replaced returned 0f. Translate at the call site so downstream arithmetic
+    /// (delta computation, adjustment math) keeps its original safe-fallback semantics.
+    /// </summary>
+    private static float SafeGetCurrentValue(object stat)
     {
-        if (_statModelField != null) return _statModelField.FieldType;
-        return _statModelProp?.PropertyType;
+        var v = StatAccess.GetCurrentValue(stat);
+        return float.IsNaN(v) ? 0f : v;
     }
 
-    private static float GetCurrentValue(object stat)
+    /// <summary>
+    /// StatAccess.GetMaxValue returns NaN on failure; the local code it replaced returned
+    /// float.MaxValue (i.e. "uncapped"). Translate at the call site to preserve that.
+    /// </summary>
+    private static float SafeGetMaxValue(object stat)
     {
-        try
-        {
-            if (_currentValueMethod != null) return Convert.ToSingle(_currentValueMethod.Invoke(stat, new object[] { GetNotInBase() }));
-            if (_simpleCurrentValueProp != null) return Convert.ToSingle(_simpleCurrentValueProp.GetValue(stat, null));
-            if (_currentValueField != null) return Convert.ToSingle(_currentValueField.GetValue(stat));
-            if (_currentValueProp  != null) return Convert.ToSingle(_currentValueProp.GetValue(stat, null));
-            if (_currentBaseValueField != null) return Convert.ToSingle(_currentBaseValueField.GetValue(stat));
-        }
-        catch { }
-        return 0f;
-    }
-
-    private static float GetMaxValue(object stat)
-    {
-        try
-        {
-            var minMax = _currentMinMaxValueField != null ? _currentMinMaxValueField.GetValue(stat)
-                : _currentMinMaxValueProp != null ? _currentMinMaxValueProp.GetValue(stat, null)
-                : null;
-            if (TryGetVectorY(minMax, out var currentMax) && currentMax > 0f) return currentMax;
-
-            if (_maxValueField != null) return Convert.ToSingle(_maxValueField.GetValue(stat));
-            if (_maxValueProp  != null) return Convert.ToSingle(_maxValueProp.GetValue(stat, null));
-
-            var statModel = GetStatModel(stat);
-            minMax = _statModelMinMaxValueField != null && statModel != null ? _statModelMinMaxValueField.GetValue(statModel)
-                : _statModelMinMaxValueProp != null && statModel != null ? _statModelMinMaxValueProp.GetValue(statModel, null)
-                : null;
-            if (TryGetVectorY(minMax, out var modelMax) && modelMax > 0f) return modelMax;
-        }
-        catch { }
-        return float.MaxValue;
+        var v = StatAccess.GetMaxValue(stat);
+        return float.IsNaN(v) ? float.MaxValue : v;
     }
 
     private static void SetCurrentValue(object stat, float value, object modification)
     {
         try
         {
-            if (_currentValueField != null) _currentValueField.SetValue(stat, value);
-            else if (_currentValueProp != null && _currentValueProp.CanWrite) _currentValueProp.SetValue(stat, value, null);
-            else
-            {
-                float adjustment = value - GetCurrentValue(stat);
-                if (Math.Abs(adjustment) <= 0.0001f) return;
+            // Simple case: a genuinely writable CurrentValue field/property. Kept for
+            // forward compatibility, but InGameStat in EA 0.65g does NOT have one —
+            // CurrentValue is a bool-parameter METHOD there — so this always falls through
+            // to the modification-type routing below in the current game version.
+            // NOTE: deliberately NOT StatAccess.SetCurrentValue here — that helper also
+            // falls back to writing CurrentBaseValue directly (an absolute set), which
+            // would silently ignore GlobalModifiedValue/CurrentCompositeValue/
+            // TemporaryModifiedValue and desync CurrentValue() from `value`. The adjustment
+            // math below is what actually keeps those terms consistent.
+            if (Reflect.SetMember(stat, "CurrentValue", value))
+                return;
 
-                var targetField = GetValueFieldForModification(modification) ?? _currentBaseValueField;
-                if (targetField == null) return;
-                float current = Convert.ToSingle(targetField.GetValue(stat));
-                targetField.SetValue(stat, current + adjustment);
-            }
+            float adjustment = value - SafeGetCurrentValue(stat);
+            if (Math.Abs(adjustment) <= 0.0001f) return;
+
+            var targetField = GetValueFieldForModification(modification) ?? _currentBaseValueField;
+            if (targetField == null) return;
+            float current = Convert.ToSingle(targetField.GetValue(stat));
+            targetField.SetValue(stat, current + adjustment);
         }
         catch { }
     }
@@ -362,90 +283,14 @@ internal static class MorningBonusPatch
         try
         {
             // Primary: check against the skill UniqueID set populated by GameLoadPatch
-            var uid = GetUniqueId(stat);
+            var uid = StatAccess.GetUniqueId(stat);
             if (!string.IsNullOrEmpty(uid) && GameLoadPatch.SkillUniqueIds.Contains(uid))
                 return true;
 
-            // Fallback: UsesNovelty flag (true only on skill stats)
-            var v = GetMemberValue(stat, GetStatModel(stat), _usesNoveltyField, _usesNoveltyProp);
-            return v is bool b && b;
-        }
-        catch { }
-        return false;
-    }
-
-    private static string GetUniqueId(object stat)
-    {
-        var v = GetMemberValue(stat, GetStatModel(stat), _uniqueIdField, _uniqueIdProp);
-        return v?.ToString()?.Trim();
-    }
-
-    private static object GetStatModel(object stat)
-    {
-        try
-        {
-            if (_statModelField != null) return _statModelField.GetValue(stat);
-            if (_statModelProp != null) return _statModelProp.GetValue(stat, null);
-        }
-        catch { }
-        return null;
-    }
-
-    private static object GetMemberValue(object stat, object statModel, FieldInfo field, PropertyInfo prop)
-    {
-        try
-        {
-            if (field != null)
-            {
-                var target = field.DeclaringType != null && field.DeclaringType.IsInstanceOfType(stat) ? stat : statModel;
-                return target != null ? field.GetValue(target) : null;
-            }
-            if (prop != null)
-            {
-                var target = prop.DeclaringType != null && prop.DeclaringType.IsInstanceOfType(stat) ? stat : statModel;
-                return target != null ? prop.GetValue(target, null) : null;
-            }
-        }
-        catch { }
-        return null;
-    }
-
-    private static bool TryGetVectorY(object vector, out float y)
-    {
-        y = 0f;
-        if (vector == null) return false;
-        try
-        {
-            var type = vector.GetType();
-            var field = type.GetField("y", Flags);
-            if (field != null)
-            {
-                y = Convert.ToSingle(field.GetValue(vector));
-                return true;
-            }
-
-            var prop = type.GetProperty("y", Flags) ?? type.GetProperty("Y", Flags);
-            if (prop != null)
-            {
-                y = Convert.ToSingle(prop.GetValue(vector, null));
-                return true;
-            }
-        }
-        catch { }
-        return false;
-    }
-
-    private static bool GetNotInBase()
-    {
-        try
-        {
-            if (_gmType == null) return false;
-            object gm = _gmInstanceProp != null
-                ? _gmInstanceProp.GetValue(null, null)
-                : _gmInstanceField?.GetValue(null);
-            if (gm == null) return false;
-            if (_gmNotInBaseField != null) return (bool)_gmNotInBaseField.GetValue(gm);
-            if (_gmNotInBaseProp != null) return (bool)_gmNotInBaseProp.GetValue(gm, null);
+            // Fallback: UsesNovelty flag (true only on skill stats) — lives on the
+            // GameStat/StatModel definition, not the runtime InGameStat instance.
+            var statModel = StatAccess.GetStatModel(stat);
+            return Reflect.GetBool(statModel, "UsesNovelty", false);
         }
         catch { }
         return false;
@@ -455,16 +300,12 @@ internal static class MorningBonusPatch
     {
         try
         {
-            if (_gmType == null) return false;
-
-            object gm = _gmInstanceProp != null
-                ? _gmInstanceProp.GetValue(null, null)
-                : _gmInstanceField?.GetValue(null);
+            var gm = CardUtil.GetGameManagerInstance();
             if (gm == null) return false;
 
-            float dtp = _gmDtpField  != null ? Convert.ToSingle(_gmDtpField.GetValue(gm))
-                      : _gmDtpProp   != null ? Convert.ToSingle(_gmDtpProp.GetValue(gm, null))
-                      : -1f;
+            // DayTimePoints — try several possible names for forward-compat.
+            var dtpObj = Reflect.GetMember(gm, "DayTimePoints", "CurrentDayTimePoints", "DaytimePoints");
+            float dtp = dtpObj != null ? CardUtil.ToFloat(dtpObj) : -1f;
             if (dtp < 0f) return false;
 
             // DTP counts down from 96 each day (96 = start of day, 0 = end of day).

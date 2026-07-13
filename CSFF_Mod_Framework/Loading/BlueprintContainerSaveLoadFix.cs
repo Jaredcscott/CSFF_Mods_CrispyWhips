@@ -415,7 +415,7 @@ internal static class BlueprintContainerSaveLoadFix
                 "PurchasableBlueprintCards",
                 "AvailableBlueprintCards");
 
-            Log.Info($"[BlueprintStateFix] RestoreModBlueprintStates: purchasedUids={purchasedUids.Count}, availableUids={availableUids.Count}");
+            Log.Debug($"[BlueprintStateFix] RestoreModBlueprintStates: purchasedUids={purchasedUids.Count}, availableUids={availableUids.Count}");
 
             int added = 0;
             int restored = 0;

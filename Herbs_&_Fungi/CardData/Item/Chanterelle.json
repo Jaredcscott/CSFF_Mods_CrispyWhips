@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_chanterelle",
     "CardName": {
         "ParentObjectID": "herbs_fungi_chanterelle",
-        "LocalizationKey": "herbs_fungi_chanterelle_CardName",
+        "LocalizationKey": "herbsfungichanterelle_CardName",
         "DefaultText": "Chanterelle"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_chanterelle",
-        "LocalizationKey": "herbs_fungi_chanterelle_CardDescription",
+        "LocalizationKey": "herbsfungichanterelle_CardDescription",
         "DefaultText": "A golden, funnel-shaped mushroom prized for its fruity aroma and peppery taste. Found near oak and birch trees during summer and fall. Excellent when cooked."
     },
     "CardType": 0,
@@ -34,12 +34,12 @@
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_chanterelle",
-        "LocalizationKey": "herbs_fungi_chanterelle_SpoilageTime_StatName",
+        "LocalizationKey": "herbsfungichanterelle_SpoilageTime_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_chanterelle",
-            "LocalizationKey": "herbs_fungi_chanterelle_SpoilageTime_StatName",
+            "LocalizationKey": "herbsfungichanterelle_SpoilageTime_StatName",
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
@@ -50,7 +50,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_chanterelle",
-                "LocalizationKey": "herbs_fungi_chanterelle_SpoilageTime_Spoiled",
+                "LocalizationKey": "herbsfungichanterelle_SpoilageTime_Spoiled",
                 "DefaultText": "The chanterelle has spoiled."
             },
             "ReceivingCardChanges": {
@@ -67,12 +67,12 @@
     },
     "UsageDurability": {
         "ParentObjectID": "herbs_fungi_chanterelle",
-        "LocalizationKey": "herbs_fungi_chanterelle_UsageDurability_StatName",
+        "LocalizationKey": "herbsfungichanterelle_UsageDurability_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_chanterelle",
-            "LocalizationKey": "herbs_fungi_chanterelle_UsageDurability_StatName",
+            "LocalizationKey": "herbsfungichanterelle_UsageDurability_StatName",
             "DefaultText": "Dry"
         },
         "MinValue": 0.0,
@@ -83,7 +83,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_chanterelle",
-                "LocalizationKey": "herbs_fungi_chanterelle_UsageDurability_Dried",
+                "LocalizationKey": "herbsfungichanterelle_UsageDurability_Dried",
                 "DefaultText": "The chanterelle has dried out."
             },
             "ReceivingCardChanges": {
@@ -100,12 +100,12 @@
     },
     "SpecialDurability1": {
         "ParentObjectID": "herbs_fungi_chanterelle",
-        "LocalizationKey": "herbs_fungi_chanterelle_SpecialDurability1_StatName",
+        "LocalizationKey": "herbsfungichanterelle_SpecialDurability1_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_chanterelle",
-            "LocalizationKey": "herbs_fungi_chanterelle_SpecialDurability1_StatName",
+            "LocalizationKey": "herbsfungichanterelle_SpecialDurability1_StatName",
             "DefaultText": "Cook"
         },
         "MinValue": 0.0,
@@ -121,7 +121,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_chanterelle",
-                "LocalizationKey": "herbs_fungi_chanterelle_SpecialDurability1_Cooked",
+                "LocalizationKey": "herbsfungichanterelle_SpecialDurability1_Cooked",
                 "DefaultText": "The chanterelle is cooked."
             },
             "ReceivingCardChanges": {
@@ -142,12 +142,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_chanterelle",
-                "LocalizationKey": "herbs_fungi_chanterelle_EatRaw",
+                "LocalizationKey": "herbsfungichanterelle_EatRaw",
                 "DefaultText": "Eat Raw"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_chanterelle",
-                "LocalizationKey": "herbs_fungi_chanterelle_EatRaw_Desc",
+                "LocalizationKey": "herbsfungichanterelle_EatRaw_Desc",
                 "DefaultText": "Eat the chanterelle raw. Edible but better cooked."
             },
             "DaytimeCost": 0,
@@ -517,7 +517,7 @@
                         "FloatValue": 0.0
                     }
                 },
-                "RequiredLiquidQuantity": 140.0,
+                "RequiredLiquidQuantity": 0.0,
                 "RequiredSpecial1Percent": {
                     "Active": false,
                     "FloatValue": 0.0,

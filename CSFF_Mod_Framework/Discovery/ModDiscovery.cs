@@ -9,6 +9,7 @@ internal static class ModDiscovery
         var mods = new List<ModManifest>();
         var frameworkDir = PathUtil.FrameworkDir;
         var skippedForLoader = new List<string>();
+        var reclaimedFromLoader = new List<string>();
 
         foreach (var dir in PathUtil.GetModDirectories())
         {
@@ -26,6 +27,10 @@ internal static class ModDiscovery
                 if (string.IsNullOrEmpty(manifest.Name))
                     manifest.Name = Path.GetFileName(dir);
 
+                // Probe features before the coexistence decision below — it needs
+                // HasFrameworkOnlyMarkers, and LoadOrchestrator needs the rest regardless.
+                ProbeFeatures(manifest);
+
                 // Coexistence rule: Pikachu ModLoader/ModCore load every plugins
                 // folder that has a ModInfo.json themselves (inside a
                 // UniqueIDScriptable.ClearDict prefix at boot). Mods authored for
@@ -35,13 +40,26 @@ internal static class ModDiscovery
                 // reference identity (blueprint research resets on save load,
                 // RequiredCard slots reject crafted items). Without a Pikachu
                 // loader installed, the framework loads them as before.
+                //
+                // Exception: some mods are exported by the ModEditor tool with
+                // ModLoaderVerison stamped in regardless of which loader they
+                // actually target. When the mod ships framework-exclusive
+                // declarative content (BlueprintTabs.json, InjectImprovementInto.json,
+                // etc. — see ModManifest.HasFrameworkOnlyMarkers), it is framework
+                // format content mistagged as ModLoader-native; that content only
+                // works if the framework loads and processes it. Load it anyway —
+                // ForeignInstanceReconciler already neutralizes the duplicate
+                // UniqueIDScriptable instances ModLoader creates for it.
                 if (manifest.IsModLoaderNative && PikachuLoaderName != null)
                 {
-                    skippedForLoader.Add(manifest.Name);
-                    continue;
+                    if (!manifest.HasFrameworkOnlyMarkers)
+                    {
+                        skippedForLoader.Add(manifest.Name);
+                        continue;
+                    }
+                    reclaimedFromLoader.Add(manifest.Name);
                 }
 
-                ProbeFeatures(manifest);
                 mods.Add(manifest);
                 Log.Debug($"Discovered mod: {manifest.Name} v{manifest.Version} by {manifest.Author} @ {dir}");
             }
@@ -54,6 +72,11 @@ internal static class ModDiscovery
         if (skippedForLoader.Count > 0)
             Log.Info($"Skipping {skippedForLoader.Count} ModLoader-native mod(s) owned by installed {PikachuLoaderName}: "
                    + string.Join(", ", skippedForLoader));
+
+        if (reclaimedFromLoader.Count > 0)
+            Log.Info($"Loading {reclaimedFromLoader.Count} mod(s) via framework despite a ModLoaderVerison tag "
+                   + $"(ships framework-only content such as BlueprintTabs.json): "
+                   + string.Join(", ", reclaimedFromLoader));
 
         // Deduplicate mods with the same Name (e.g. stale debug folder + deploy folder).
         // Picks the folder with MORE content (JSON file count across well-known dirs) as primary.
@@ -104,7 +127,16 @@ internal static class ModDiscovery
         }
 
         deduped.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.OrdinalIgnoreCase));
-        Log.Debug($"Discovered {deduped.Count} mod(s) total");
+
+        // Prepend a synthetic manifest for the framework itself so JsonDataLoader picks up
+        // framework-owned content (CardData/Hub/, CharacterPerk/, Localization/) from the
+        // framework directory. The framework dir is intentionally skipped by the main loop
+        // above (it has no ModInfo.json for the user-mod contract), but its JSON must load.
+        var fwManifest = new ModManifest { Name = "CSFFModFramework", DirectoryPath = frameworkDir };
+        ProbeFeatures(fwManifest);
+        deduped.Insert(0, fwManifest);
+
+        Log.Debug($"Discovered {deduped.Count - 1} mod(s) + framework (total slots: {deduped.Count})");
         return deduped;
     }
 
@@ -168,6 +200,8 @@ internal static class ModDiscovery
 
         mod.HasBlueprintTabs = File.Exists(Path.Combine(dir, "BlueprintTabs.json"));
         mod.HasSmeltingRecipes = File.Exists(Path.Combine(dir, "SmeltingRecipes.json"));
+        mod.HasDropInjections  = File.Exists(Path.Combine(dir, "DropInjections.json"));
+        mod.HasImprovementInjections = File.Exists(Path.Combine(dir, "InjectImprovementInto.json"));
 
         mod.HasAudio =
             HasDeclaredAssets(mod.Assets?.Audio) ||
@@ -188,14 +222,22 @@ internal static class ModDiscovery
 
         mod.HasGSMTagOrTypeMatch = HasGSMBulkMatch(dir);
 
+        mod.HasFullMap = File.Exists(Path.Combine(dir, "WorldMap", "FullMap.json"));
+
         mod.HasWorldMapNodes =
-            HasAnyFile(Path.Combine(dir, "WorldMap"), new[] { "MapNodes.json" });
+            HasAnyFile(Path.Combine(dir, "WorldMap"), new[] { "MapNodes.json" }) ||
+            mod.HasFullMap;
 
         mod.HasEncounterGuards =
             HasAnyFile(Path.Combine(dir, "EncounterGuards"), new[] { "*.json" }, SearchOption.TopDirectoryOnly);
 
         mod.HasQuestManifest = File.Exists(Path.Combine(dir, "Quests.json"));
         mod.HasCharacterManifest = File.Exists(Path.Combine(dir, "Characters.json"));
+        mod.HasHubPortals = File.Exists(Path.Combine(dir, "WorldMap", "HubPortals.json"));
+        mod.HasMapMod     = File.Exists(Path.Combine(dir, "MapMod.json"));
+
+        mod.HasAnimals =
+            HasAnyFile(Path.Combine(dir, "Animals"), new[] { "*.json" }, SearchOption.TopDirectoryOnly);
     }
 
     private static bool HasGSMBulkMatch(string modDir)

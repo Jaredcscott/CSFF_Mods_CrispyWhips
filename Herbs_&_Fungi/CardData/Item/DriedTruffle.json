@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_dried_truffle",
     "CardName": {
         "ParentObjectID": "herbs_fungi_dried_truffle",
-        "LocalizationKey": "herbs_fungi_dried_truffle_CardName",
+        "LocalizationKey": "herbsfungidriedtruffle_CardName",
         "DefaultText": "Dried Truffle"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_dried_truffle",
-        "LocalizationKey": "herbs_fungi_dried_truffle_CardDescription",
+        "LocalizationKey": "herbsfungidriedtruffle_CardDescription",
         "DefaultText": "A dried truffle. Keeps far longer than fresh, and the flavor is concentrated. Valuable trade good."
     },
     "CardType": 0,
@@ -30,12 +30,12 @@
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_dried_truffle",
-        "LocalizationKey": "herbs_fungi_dried_truffle_SpoilageTime_CardStatName",
+        "LocalizationKey": "herbsfungidriedtruffle_SpoilageTime_CardStatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_dried_truffle",
-            "LocalizationKey": "herbs_fungi_dried_truffle_SpoilageTime_CardStatName",
+            "LocalizationKey": "herbsfungidriedtruffle_SpoilageTime_CardStatName",
             "DefaultText": "Freshness"
         },
         "MinValue": 0.0,
@@ -49,7 +49,7 @@
         "OnEmpty": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_dried_truffle",
-                "LocalizationKey": "herbs_fungi_dried_truffle_SpoilageTime_OnEmpty",
+                "LocalizationKey": "herbsfungidriedtruffle_SpoilageTime_OnEmpty",
                 "DefaultText": "This has spoiled."
             },
             "ReceivingCardChanges": {
@@ -61,12 +61,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_dried_truffle",
-                "LocalizationKey": "herbs_fungi_dried_truffle_Eat",
+                "LocalizationKey": "herbsfungidriedtruffle_Eat",
                 "DefaultText": "Eat"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_dried_truffle",
-                "LocalizationKey": "herbs_fungi_dried_truffle_Eat_Desc",
+                "LocalizationKey": "herbsfungidriedtruffle_Eat_Desc",
                 "DefaultText": "Eat the concentrated dried truffle."
             },
             "DaytimeCost": 0,
@@ -344,12 +344,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_dried_truffle",
-                "LocalizationKey": "herbs_fungi_dried_truffle_Cut",
+                "LocalizationKey": "herbsfungidriedtruffle_Cut",
                 "DefaultText": "Cut"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_dried_truffle",
-                "LocalizationKey": "herbs_fungi_dried_truffle_Cut_Desc",
+                "LocalizationKey": "herbsfungidriedtruffle_Cut_Desc",
                 "DefaultText": "Slice the dried truffle into thin pieces for seasoning."
             },
             "NoveltyShared": false,
@@ -1022,7 +1022,7 @@
                         "FloatValue": 0.0
                     }
                 },
-                "RequiredLiquidQuantity": 140.0,
+                "RequiredLiquidQuantity": 0.0,
                 "RequiredSpecial1Percent": {
                     "Active": false,
                     "FloatValue": 0.0,

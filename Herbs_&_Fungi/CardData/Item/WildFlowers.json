@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_wild_flowers",
     "CardName": {
         "ParentObjectID": "herbs_fungi_wild_flowers",
-        "LocalizationKey": "herbs_fungi_wild_flowers_CardName",
+        "LocalizationKey": "herbsfungiwildflowers_CardName",
         "DefaultText": "Wild Flowers"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_wild_flowers",
-        "LocalizationKey": "herbs_fungi_wild_flowers_CardDescription",
+        "LocalizationKey": "herbsfungiwildflowers_CardDescription",
         "DefaultText": "A small bundle of colourful wildflowers gathered from a meadow. They won't last long fresh, but dried flowers keep their beauty and can be used in crafting."
     },
     "CardType": 0,
@@ -28,12 +28,12 @@
     "AlwaysUpdate": true,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_wild_flowers",
-        "LocalizationKey": "herbs_fungi_wild_flowers_SpoilageTime_StatName",
+        "LocalizationKey": "herbsfungiwildflowers_SpoilageTime_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_wild_flowers",
-            "LocalizationKey": "herbs_fungi_wild_flowers_SpoilageTime_StatName",
+            "LocalizationKey": "herbsfungiwildflowers_SpoilageTime_StatName",
             "DefaultText": "Freshness"
         },
         "MinValue": 0.0,
@@ -44,7 +44,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_wild_flowers",
-                "LocalizationKey": "herbs_fungi_wild_flowers_SpoilageTime_OnFull",
+                "LocalizationKey": "herbsfungiwildflowers_SpoilageTime_OnFull",
                 "DefaultText": "The flowers have wilted and crumbled."
             },
             "ReceivingCardChanges": {
@@ -61,12 +61,12 @@
     },
     "UsageDurability": {
         "ParentObjectID": "herbs_fungi_wild_flowers",
-        "LocalizationKey": "herbs_fungi_wild_flowers_UsageDurability_StatName",
+        "LocalizationKey": "herbsfungiwildflowers_UsageDurability_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_wild_flowers",
-            "LocalizationKey": "herbs_fungi_wild_flowers_UsageDurability_StatName",
+            "LocalizationKey": "herbsfungiwildflowers_UsageDurability_StatName",
             "DefaultText": "Dry"
         },
         "MinValue": 0.0,
@@ -77,7 +77,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_wild_flowers",
-                "LocalizationKey": "herbs_fungi_wild_flowers_UsageDurability_OnFull",
+                "LocalizationKey": "herbsfungiwildflowers_UsageDurability_OnFull",
                 "DefaultText": "The flowers have dried, preserving their colour and form."
             },
             "ReceivingCardChanges": {

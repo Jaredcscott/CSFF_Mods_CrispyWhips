@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_cooked_truffle",
     "CardName": {
         "ParentObjectID": "herbs_fungi_cooked_truffle",
-        "LocalizationKey": "herbs_fungi_cooked_truffle_CardName",
+        "LocalizationKey": "herbsfungicookedtruffle_CardName",
         "DefaultText": "Cooked Truffle"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_cooked_truffle",
-        "LocalizationKey": "herbs_fungi_cooked_truffle_CardDescription",
+        "LocalizationKey": "herbsfungicookedtruffle_CardDescription",
         "DefaultText": "A perfectly cooked rare truffle. The distinctive aroma and flavor are even more pronounced when heated."
     },
     "CardType": 0,
@@ -31,12 +31,12 @@
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_cooked_truffle",
-        "LocalizationKey": "herbs_fungi_cooked_truffle_SpoilageTime_StatName",
+        "LocalizationKey": "herbsfungicookedtruffle_SpoilageTime_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_cooked_truffle",
-            "LocalizationKey": "herbs_fungi_cooked_truffle_SpoilageTime_StatName",
+            "LocalizationKey": "herbsfungicookedtruffle_SpoilageTime_StatName",
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
@@ -47,7 +47,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_cooked_truffle",
-                "LocalizationKey": "herbs_fungi_cooked_truffle_SpoilageTime_Spoiled",
+                "LocalizationKey": "herbsfungicookedtruffle_SpoilageTime_Spoiled",
                 "DefaultText": "The cooked truffle has spoiled."
             },
             "ReceivingCardChanges": {
@@ -64,12 +64,12 @@
     },
     "UsageDurability": {
         "ParentObjectID": "herbs_fungi_cooked_truffle",
-        "LocalizationKey": "herbs_fungi_cooked_truffle_UsageDurability_StatName",
+        "LocalizationKey": "herbsfungicookedtruffle_UsageDurability_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_cooked_truffle",
-            "LocalizationKey": "herbs_fungi_cooked_truffle_UsageDurability_StatName",
+            "LocalizationKey": "herbsfungicookedtruffle_UsageDurability_StatName",
             "DefaultText": "Dry"
         },
         "MinValue": 0.0,
@@ -80,7 +80,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_cooked_truffle",
-                "LocalizationKey": "herbs_fungi_cooked_truffle_UsageDurability_Dried",
+                "LocalizationKey": "herbsfungicookedtruffle_UsageDurability_Dried",
                 "DefaultText": "The cooked truffle has dried out."
             },
             "ReceivingCardChanges": {
@@ -99,12 +99,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_cooked_truffle",
-                "LocalizationKey": "herbs_fungi_cooked_truffle_Eat",
+                "LocalizationKey": "herbsfungicookedtruffle_Eat",
                 "DefaultText": "Eat"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_cooked_truffle",
-                "LocalizationKey": "herbs_fungi_cooked_truffle_Eat_Desc",
+                "LocalizationKey": "herbsfungicookedtruffle_Eat_Desc",
                 "DefaultText": "Eat the fat-cooked truffle. A masterpiece of flavor — one of the finest things you can put in your mouth."
             },
             "DaytimeCost": 0,
@@ -486,7 +486,7 @@
                         "FloatValue": 0.0
                     }
                 },
-                "RequiredLiquidQuantity": 140.0,
+                "RequiredLiquidQuantity": 0.0,
                 "RequiredSpecial1Percent": {
                     "Active": false,
                     "FloatValue": 0.0,

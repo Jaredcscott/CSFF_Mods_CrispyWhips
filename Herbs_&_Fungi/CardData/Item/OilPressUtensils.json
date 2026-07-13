@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_oil_press_utensils",
     "CardName": {
         "ParentObjectID": "herbs_fungi_oil_press_utensils",
-        "LocalizationKey": "herbs_fungi_oil_press_utensils_CardName",
+        "LocalizationKey": "herbsfungioilpressutensils_CardName",
         "DefaultText": "Oil Press Utensils"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_oil_press_utensils",
-        "LocalizationKey": "herbs_fungi_oil_press_utensils_CardDescription",
+        "LocalizationKey": "herbsfungioilpressutensils_CardDescription",
         "DefaultText": "Wooden scrapers and tools for loading and cleaning the oil press. Part of the oil press kit."
     },
     "CardType": 0,

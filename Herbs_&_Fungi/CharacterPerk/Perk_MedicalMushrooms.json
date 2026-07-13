@@ -1,4 +1,4 @@
-{
+﻿{
     "ActionModifiers": [],
     "ActionObjectives": [],
     "AddedCards": [],
@@ -26,7 +26,7 @@
     ],
     "EquippedCardsWarpType": 3,
     "HiddenUntilUnlocked": false,
-    "MoonsCost": 1,
+    "MoonsCost": 0,
     "NestedObjectives": [],
     "NoSafetyMode": false,
     "NotifyWhenNotChecked": false,
@@ -70,7 +70,7 @@
     "ResetLockInEditor": false,
     "StartUnlocked": false,
     "StatsObjectives": [],
-    "SunsCost": 0,
+    "SunsCost": 15,
     "TagsOnBoardObjectives": [],
     "TimeObjectives": [],
     "UniqueID": "herbs_fungi_perk_medical_mushrooms",

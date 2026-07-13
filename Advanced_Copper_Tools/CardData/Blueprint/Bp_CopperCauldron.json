@@ -68,6 +68,13 @@
           "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
           "RequiredTabGroupWarpData": "GpTag_HammeringToolGeneral",
           "RequiredTabGroupWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "act_tin_solder",
+          "RequiredCardWarpType": 3
         }
       ],
       "StepActionTags": [],

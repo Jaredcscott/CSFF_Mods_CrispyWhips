@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_common_plantain_dried",
     "CardName": {
         "ParentObjectID": "herbs_fungi_common_plantain_dried",
-        "LocalizationKey": "herbs_fungi_common_plantain_dried_CardName",
+        "LocalizationKey": "herbsfungicommonplantaindried_CardName",
         "DefaultText": "Dried Common Plantain"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_common_plantain_dried",
-        "LocalizationKey": "herbs_fungi_common_plantain_dried_CardDescription",
+        "LocalizationKey": "herbsfungicommonplantaindried_CardDescription",
         "DefaultText": "Dried plantain leaves with concentrated medicinal compounds. A key ingredient for wound poultices and anti-inflammatory remedies."
     },
     "CardType": 0,
@@ -27,12 +27,12 @@
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_common_plantain_dried",
-        "LocalizationKey": "herbs_fungi_common_plantain_dried_SpoilageTime_StatName",
+        "LocalizationKey": "herbsfungicommonplantaindried_SpoilageTime_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_common_plantain_dried",
-            "LocalizationKey": "herbs_fungi_common_plantain_dried_SpoilageTime_StatName",
+            "LocalizationKey": "herbsfungicommonplantaindried_SpoilageTime_StatName",
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
@@ -43,7 +43,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_common_plantain_dried",
-                "LocalizationKey": "herbs_fungi_common_plantain_dried_SpoilageTime_OnFull",
+                "LocalizationKey": "herbsfungicommonplantaindried_SpoilageTime_OnFull",
                 "DefaultText": "The dried plantain has crumbled away."
             },
             "ReceivingCardChanges": {

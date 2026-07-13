@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_puffball",
     "CardName": {
         "ParentObjectID": "herbs_fungi_puffball",
-        "LocalizationKey": "herbs_fungi_puffball_CardName",
+        "LocalizationKey": "herbsfungipuffball_CardName",
         "DefaultText": "Giant Puffball"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_puffball",
-        "LocalizationKey": "herbs_fungi_puffball_CardDescription",
+        "LocalizationKey": "herbsfungipuffball_CardDescription",
         "DefaultText": "A large, round white mushroom found in clearings. When young and white inside, it's an excellent food source."
     },
     "CardType": 0,
@@ -33,12 +33,12 @@
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_puffball",
-        "LocalizationKey": "herbs_fungi_puffball_SpoilageTime_StatName",
+        "LocalizationKey": "herbsfungipuffball_SpoilageTime_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_puffball",
-            "LocalizationKey": "herbs_fungi_puffball_SpoilageTime_StatName",
+            "LocalizationKey": "herbsfungipuffball_SpoilageTime_StatName",
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
@@ -49,7 +49,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_puffball",
-                "LocalizationKey": "herbs_fungi_puffball_SpoilageTime_Spoiled",
+                "LocalizationKey": "herbsfungipuffball_SpoilageTime_Spoiled",
                 "DefaultText": "The puffball has turned brown and released its spores."
             },
             "ReceivingCardChanges": {
@@ -66,12 +66,12 @@
     },
     "UsageDurability": {
         "ParentObjectID": "herbs_fungi_puffball",
-        "LocalizationKey": "herbs_fungi_puffball_UsageDurability_StatName",
+        "LocalizationKey": "herbsfungipuffball_UsageDurability_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_puffball",
-            "LocalizationKey": "herbs_fungi_puffball_UsageDurability_StatName",
+            "LocalizationKey": "herbsfungipuffball_UsageDurability_StatName",
             "DefaultText": "Durability"
         },
         "MinValue": 0.0,
@@ -81,12 +81,12 @@
     },
     "SpecialDurability1": {
         "ParentObjectID": "herbs_fungi_puffball",
-        "LocalizationKey": "herbs_fungi_puffball_SpecialDurability1_StatName",
+        "LocalizationKey": "herbsfungipuffball_SpecialDurability1_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_puffball",
-            "LocalizationKey": "herbs_fungi_puffball_SpecialDurability1_StatName",
+            "LocalizationKey": "herbsfungipuffball_SpecialDurability1_StatName",
             "DefaultText": "Cook"
         },
         "MinValue": 0.0,
@@ -98,7 +98,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_puffball",
-                "LocalizationKey": "herbs_fungi_puffball_SpecialDurability1_Cooked",
+                "LocalizationKey": "herbsfungipuffball_SpecialDurability1_Cooked",
                 "DefaultText": "The puffball is nicely browned."
             },
             "ReceivingCardChanges": {
@@ -117,12 +117,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_puffball",
-                "LocalizationKey": "herbs_fungi_puffball_EatRaw",
+                "LocalizationKey": "herbsfungipuffball_EatRaw",
                 "DefaultText": "Eat Raw"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_puffball",
-                "LocalizationKey": "herbs_fungi_puffball_EatRaw_Desc",
+                "LocalizationKey": "herbsfungipuffball_EatRaw_Desc",
                 "DefaultText": "Eat the puffball raw. Mild flavor, very filling."
             },
             "DaytimeCost": 0,
@@ -517,7 +517,7 @@
                         "FloatValue": 0.0
                     }
                 },
-                "RequiredLiquidQuantity": 140.0,
+                "RequiredLiquidQuantity": 0.0,
                 "RequiredSpecial1Percent": {
                     "Active": false,
                     "FloatValue": 0.0,

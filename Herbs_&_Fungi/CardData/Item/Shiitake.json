@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_shiitake",
     "CardName": {
         "ParentObjectID": "herbs_fungi_shiitake",
-        "LocalizationKey": "herbs_fungi_shiitake_CardName",
+        "LocalizationKey": "herbsfungishiitake_CardName",
         "DefaultText": "Shiitake Mushroom"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_shiitake",
-        "LocalizationKey": "herbs_fungi_shiitake_CardDescription",
+        "LocalizationKey": "herbsfungishiitake_CardDescription",
         "DefaultText": "A brown-capped mushroom with a rich, savory flavor. Known for its immune-boosting properties and meaty texture."
     },
     "CardType": 0,
@@ -34,12 +34,12 @@
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_shiitake",
-        "LocalizationKey": "herbs_fungi_shiitake_SpoilageTime_StatName",
+        "LocalizationKey": "herbsfungishiitake_SpoilageTime_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_shiitake",
-            "LocalizationKey": "herbs_fungi_shiitake_SpoilageTime_StatName",
+            "LocalizationKey": "herbsfungishiitake_SpoilageTime_StatName",
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
@@ -50,7 +50,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_shiitake",
-                "LocalizationKey": "herbs_fungi_shiitake_SpoilageTime_Spoiled",
+                "LocalizationKey": "herbsfungishiitake_SpoilageTime_Spoiled",
                 "DefaultText": "The shiitake mushroom has spoiled."
             },
             "ReceivingCardChanges": {
@@ -67,12 +67,12 @@
     },
     "UsageDurability": {
         "ParentObjectID": "herbs_fungi_shiitake",
-        "LocalizationKey": "herbs_fungi_shiitake_UsageDurability_StatName",
+        "LocalizationKey": "herbsfungishiitake_UsageDurability_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_shiitake",
-            "LocalizationKey": "herbs_fungi_shiitake_UsageDurability_StatName",
+            "LocalizationKey": "herbsfungishiitake_UsageDurability_StatName",
             "DefaultText": "Dry"
         },
         "MinValue": 0.0,
@@ -83,7 +83,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_shiitake",
-                "LocalizationKey": "herbs_fungi_shiitake_UsageDurability_Dried",
+                "LocalizationKey": "herbsfungishiitake_UsageDurability_Dried",
                 "DefaultText": "The shiitake mushroom has dried properly."
             },
             "ReceivingCardChanges": {
@@ -100,12 +100,12 @@
     },
     "SpecialDurability1": {
         "ParentObjectID": "herbs_fungi_shiitake",
-        "LocalizationKey": "herbs_fungi_shiitake_SpecialDurability1_StatName",
+        "LocalizationKey": "herbsfungishiitake_SpecialDurability1_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_shiitake",
-            "LocalizationKey": "herbs_fungi_shiitake_SpecialDurability1_StatName",
+            "LocalizationKey": "herbsfungishiitake_SpecialDurability1_StatName",
             "DefaultText": "Cook"
         },
         "MinValue": 0.0,
@@ -117,7 +117,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_shiitake",
-                "LocalizationKey": "herbs_fungi_shiitake_SpecialDurability1_Cooked",
+                "LocalizationKey": "herbsfungishiitake_SpecialDurability1_Cooked",
                 "DefaultText": "The shiitake mushroom is perfectly cooked."
             },
             "ReceivingCardChanges": {
@@ -138,12 +138,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_shiitake",
-                "LocalizationKey": "herbs_fungi_shiitake_EatRaw",
+                "LocalizationKey": "herbsfungishiitake_EatRaw",
                 "DefaultText": "Eat Raw"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_shiitake",
-                "LocalizationKey": "herbs_fungi_shiitake_EatRaw_Desc",
+                "LocalizationKey": "herbsfungishiitake_EatRaw_Desc",
                 "DefaultText": "Eat the shiitake raw. Safe but better when cooked to unlock its full flavor and benefits."
             },
             "DaytimeCost": 0,
@@ -538,7 +538,7 @@
                         "FloatValue": 0.0
                     }
                 },
-                "RequiredLiquidQuantity": 140.0,
+                "RequiredLiquidQuantity": 0.0,
                 "RequiredSpecial1Percent": {
                     "Active": false,
                     "FloatValue": 0.0,

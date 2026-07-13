@@ -3,6 +3,8 @@ using System.Collections;
 using System.Reflection;
 using HarmonyLib;
 using BepInEx.Logging;
+using CSFFModFramework.Api;
+using CSFFModFramework.Util;
 
 namespace Advanced_Copper_Tools.Patcher
 {
@@ -54,8 +56,8 @@ namespace Advanced_Copper_Tools.Patcher
                 if (allData == null) { Logger.LogError("[ACT] Could not access DataBase.AllData"); return; }
 
                 VanillaFireKettlePatch.InjectKettleSlots(allData);
-                PatchLeatherDefaultStats(allData);
                 RepairCopperArmorMultipliers(allData);
+                PatchNailInterchangeability(allData);
             }
             catch (Exception ex)
             {
@@ -63,27 +65,18 @@ namespace Advanced_Copper_Tools.Patcher
             }
         }
 
-        // SkinLeatherSmall spawned by perks starts with all stats at 0.
-        // Blueprint requirements (e.g. Bp_LeatherGreaves) check Special4 (Skin Type) >= 200.
-        // Setting defaults here so perk-spawned leather is immediately usable.
-        private static void PatchLeatherDefaultStats(IEnumerable allData)
+        // Makes every blueprint/improvement element that requires copper nails also accept iron nails.
+        // Delegates to the framework's shared helper (CSFFModFramework.Api.BlueprintAlternates) —
+        // both RequiredCard (copper nail) and RequiredTabGroup (iron nail alt) end up set, so the
+        // game accepts either via BlueprintElement.CompatibleCard's two-branch check.
+        private static void PatchNailInterchangeability(IEnumerable allData)
         {
-            const string LeatherGuid = "669497ecaa30b634c86bea6b61f31e63"; // SkinLeatherSmall
-            const BindingFlags Flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+            const string CopperNailUid = "advanced_copper_tools_copper_nails";
+            const string IronNailUid   = "act_iron_nail";
 
-            foreach (var item in allData)
-            {
-                if (item == null) continue;
-                var uid = AccessTools.Field(item.GetType(), "UniqueID")?.GetValue(item) as string;
-                if (uid != LeatherGuid) continue;
-
-                SetStatFloat(item, "SpecialDurability4", "FloatValue", 250f, Flags); // Skin Type → tier-1 crafting range (200–299)
-                SetStatFloat(item, "SpoilageTime",       "FloatValue", 288f, Flags); // Tannins → full
-                SetStatFloat(item, "UsageDurability",    "FloatValue", 288f, Flags); // Flexibility → full
-                Logger.LogDebug("[ACT] SkinLeatherSmall default stats patched (SkinType=250, Tannins=288, Flex=288).");
-                return;
-            }
-            Logger.LogError("[ACT] PatchLeatherDefaultStats: SkinLeatherSmall not found in AllData.");
+            // BlueprintAlternates already logs its own Info-level summary line.
+            CSFFModFramework.Api.BlueprintAlternates.AddAlternateIngredient(
+                allData, CopperNailUid, IronNailUid, "ACT Copper Nail / Iron Nail");
         }
 
         private static readonly string[] ArmorUids = {
@@ -194,11 +187,9 @@ namespace Advanced_Copper_Tools.Patcher
         {
             try
             {
-                const BindingFlags Flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
-
-                var gameManager = GetMember(__instance, "GM", Flags) ?? GetGameManagerInstance();
-                var graphicsManager = GetMember(__instance, "GraphicsManager", Flags);
-                var characterWindow = GetMember(graphicsManager, "CharacterWindow", Flags);
+                var gameManager = Reflect.GetMember(__instance, "GM") ?? CardUtil.GetGameManagerInstance();
+                var graphicsManager = Reflect.GetMember(__instance, "GraphicsManager");
+                var characterWindow = Reflect.GetMember(graphicsManager, "CharacterWindow");
                 RepairCopperArmorCards(gameManager, characterWindow, "encounter");
             }
             catch (Exception ex)
@@ -243,33 +234,32 @@ namespace Advanced_Copper_Tools.Patcher
                 return;
             }
 
-            RepairCopperArmorCards(GetGameManagerInstance(), null, "save-load");
+            RepairCopperArmorCards(CardUtil.GetGameManagerInstance(), null, "save-load");
         }
 
         private static IEnumerator DeferredRepairCopperArmorCards()
         {
             yield return null;
-            RepairCopperArmorCards(GetGameManagerInstance(), null, "save-load");
+            RepairCopperArmorCards(CardUtil.GetGameManagerInstance(), null, "save-load");
         }
 
         private static int RepairCopperArmorCards(object gameManager, object characterWindow, string phase)
         {
             if (gameManager == null) return 0;
 
-            const BindingFlags Flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
-            var armorCards = GetMember(gameManager, "ArmorCards", Flags) as System.Collections.IList;
+            var armorCards = Reflect.GetMember(gameManager, "ArmorCards") as System.Collections.IList;
             if (armorCards == null) return 0;
 
             if (characterWindow == null)
             {
-                var gameGraphics = GetMember(gameManager, "GameGraphics", Flags) ?? GetMember(gameManager, "GraphicsManager", Flags);
-                characterWindow = GetMember(gameGraphics, "CharacterWindow", Flags);
+                var gameGraphics = Reflect.GetMember(gameManager, "GameGraphics") ?? Reflect.GetMember(gameManager, "GraphicsManager");
+                characterWindow = Reflect.GetMember(gameGraphics, "CharacterWindow");
             }
 
             var copperCards = new System.Collections.Generic.List<object>();
-            int added = AddCopperArmorFromList(GetMember(gameManager, "AllCards", Flags) as IEnumerable, armorCards, copperCards, Flags);
+            int added = AddCopperArmorFromList(Reflect.GetMember(gameManager, "AllCards") as IEnumerable, armorCards, copperCards);
 
-            foreach (var equippedCard in FindEquippedCopperArmorCards(characterWindow, Flags))
+            foreach (var equippedCard in FindEquippedCopperArmorCards(characterWindow))
             {
                 if (equippedCard == null) continue;
                 if (!copperCards.Contains(equippedCard)) copperCards.Add(equippedCard);
@@ -288,7 +278,7 @@ namespace Advanced_Copper_Tools.Patcher
             return added;
         }
 
-        private static int AddCopperArmorFromList(IEnumerable cards, System.Collections.IList armorCards, System.Collections.Generic.List<object> copperCards, BindingFlags flags)
+        private static int AddCopperArmorFromList(IEnumerable cards, System.Collections.IList armorCards, System.Collections.Generic.List<object> copperCards)
         {
             if (cards == null) return 0;
 
@@ -296,7 +286,7 @@ namespace Advanced_Copper_Tools.Patcher
             foreach (var card in cards)
             {
                 if (card == null) continue;
-                var uid = GetCardUid(card, flags);
+                var uid = GetCardUid(card);
                 if (!ArmorUidSet.Contains(uid)) continue;
 
                 if (!copperCards.Contains(card)) copperCards.Add(card);
@@ -326,17 +316,17 @@ namespace Advanced_Copper_Tools.Patcher
             }
         }
 
-        private static System.Collections.Generic.List<object> FindEquippedCopperArmorCards(object characterWindow, BindingFlags flags)
+        private static System.Collections.Generic.List<object> FindEquippedCopperArmorCards(object characterWindow)
         {
             var equippedCards = new System.Collections.Generic.List<object>();
-            var equipmentLine = GetMember(characterWindow, "EquipmentSlotsLine", flags);
-            var slots = GetMember(equipmentLine, "Slots", flags) as System.Collections.IEnumerable;
+            var equipmentLine = Reflect.GetMember(characterWindow, "EquipmentSlotsLine");
+            var slots = Reflect.GetMember(equipmentLine, "Slots") as System.Collections.IEnumerable;
             if (slots == null) return equippedCards;
 
             foreach (var slotObject in slots)
             {
-                var assignedCard = GetMember(slotObject, "AssignedCard", flags);
-                var uid = GetCardUid(assignedCard, flags);
+                var assignedCard = Reflect.GetMember(slotObject, "AssignedCard");
+                var uid = GetCardUid(assignedCard);
                 if (!ArmorUidSet.Contains(uid)) continue;
                 equippedCards.Add(assignedCard);
             }
@@ -360,11 +350,11 @@ namespace Advanced_Copper_Tools.Patcher
             return null;
         }
 
-        private static string FormatInGameCard(object cardObject, object characterWindow, MethodInfo hasEquipped, BindingFlags flags)
+        private static string FormatInGameCard(object cardObject, object characterWindow, MethodInfo hasEquipped)
         {
             if (cardObject == null) return "null";
-            var uid = GetCardUid(cardObject, flags) ?? "<no uid>";
-            var model = GetMember(cardObject, "CardModel", flags) as UnityEngine.Object;
+            var uid = GetCardUid(cardObject) ?? "<no uid>";
+            var model = Reflect.GetMember(cardObject, "CardModel") as UnityEngine.Object;
             var objectId = (cardObject as UnityEngine.Object)?.GetInstanceID();
             var modelName = model != null ? model.name : "<no model>";
 
@@ -386,73 +376,10 @@ namespace Advanced_Copper_Tools.Patcher
             return $"{uid}/{modelName}(#{objectId}) equipped={equipped}";
         }
 
-        private static object GetGameManagerInstance()
+        private static string GetCardUid(object cardObject)
         {
-            var gmType = AccessTools.TypeByName("GameManager");
-            if (gmType == null) return null;
-
-            const BindingFlags Flags = BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy;
-            for (var type = gmType; type != null && type != typeof(object); type = type.BaseType)
-            {
-                var prop = type.GetProperty("Instance", Flags);
-                if (prop != null)
-                {
-                    try
-                    {
-                        var value = prop.GetValue(null, null);
-                        if (value is UnityEngine.Object unityObject && unityObject == null) continue;
-                        if (value != null) return value;
-                    }
-                    catch { }
-                }
-
-                var field = type.GetField("Instance", Flags);
-                if (field != null)
-                {
-                    try
-                    {
-                        var value = field.GetValue(null);
-                        if (value is UnityEngine.Object unityObject && unityObject == null) continue;
-                        if (value != null) return value;
-                    }
-                    catch { }
-                }
-            }
-
-            try
-            {
-                var found = UnityEngine.Object.FindObjectOfType(gmType);
-                if (found != null) return found;
-            }
-            catch { }
-
-            return null;
+            var model = Reflect.GetMember(cardObject, "CardModel");
+            return Reflect.GetMember(model, "UniqueID") as string;
         }
-
-        private static string GetCardUid(object cardObject, BindingFlags flags)
-        {
-            var model = GetMember(cardObject, "CardModel", flags);
-            return GetMember(model, "UniqueID", flags) as string;
-        }
-
-        private static object GetMember(object target, string name, BindingFlags flags)
-        {
-            if (target == null) return null;
-            var type = target.GetType();
-            while (type != null)
-            {
-                var field = type.GetField(name, flags);
-                if (field != null) return field.GetValue(target);
-
-                var property = type.GetProperty(name, flags);
-                if (property != null) return property.GetValue(target, null);
-
-                type = type.BaseType;
-            }
-
-            return null;
-        }
-
-
     }
 }

@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_herbal_salve",
     "CardName": {
         "ParentObjectID": "herbs_fungi_herbal_salve",
-        "LocalizationKey": "herbs_fungi_herbal_salve_CardName",
+        "LocalizationKey": "herbsfungiherbalsalve_CardName",
         "DefaultText": "Herbal Salve"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_herbal_salve",
-        "LocalizationKey": "herbs_fungi_herbal_salve_CardDescription",
+        "LocalizationKey": "herbsfungiherbalsalve_CardDescription",
         "DefaultText": "A topical healing salve made from medicinal herbs and fat. Apply directly to wounds for faster healing."
     },
     "CardType": 0,
@@ -27,12 +27,12 @@
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_herbal_salve",
-        "LocalizationKey": "herbs_fungi_herbal_salve_SpoilageTime_StatName",
+        "LocalizationKey": "herbsfungiherbalsalve_SpoilageTime_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_herbal_salve",
-            "LocalizationKey": "herbs_fungi_herbal_salve_SpoilageTime_StatName",
+            "LocalizationKey": "herbsfungiherbalsalve_SpoilageTime_StatName",
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
@@ -43,7 +43,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_herbal_salve",
-                "LocalizationKey": "herbs_fungi_herbal_salve_SpoilageTime_Spoiled",
+                "LocalizationKey": "herbsfungiherbalsalve_SpoilageTime_Spoiled",
                 "DefaultText": "The herbal salve has spoiled."
             },
             "ReceivingCardChanges": {
@@ -62,12 +62,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_herbal_salve",
-                "LocalizationKey": "herbs_fungi_herbal_salve_Apply",
+                "LocalizationKey": "herbsfungiherbalsalve_Apply",
                 "DefaultText": "Apply Salve"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_herbal_salve",
-                "LocalizationKey": "herbs_fungi_herbal_salve_Apply_Desc",
+                "LocalizationKey": "herbsfungiherbalsalve_Apply_Desc",
                 "DefaultText": "Apply the healing salve to your wounds."
             },
             "DaytimeCost": 1,

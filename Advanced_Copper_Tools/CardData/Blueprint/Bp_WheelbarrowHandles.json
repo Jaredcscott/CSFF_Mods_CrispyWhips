@@ -14,13 +14,13 @@
   "UnlockConditionsDesc": {
     "ParentObjectID": "advanced_copper_tools_bp_handles",
     "LocalizationKey": "Advanced_Copper_Tools_Bp_Handles_UnlockConditionsDesc",
-    "DefaultText": "Copper Sheet Needed"
+    "DefaultText": "Plank Needed"
   },
   "BuildingStatConditions": [],
   "StartUnlocked": false,
   "CardsOnBoard": [
     {
-      "ObjectiveName": "HasCopper",
+      "ObjectiveName": "HasPlank",
       "CompletionWeight": 1,
       "Card": {
         "m_FileID": 0,
@@ -39,7 +39,7 @@
           "m_PathID": 0
         }
       },
-      "CardWarpData": "advanced_copper_tools_metal_sheet",
+      "CardWarpData": "57460207bbf77fa4fb6720aed5d84851",
       "CardWarpType": 3
     }
   ],

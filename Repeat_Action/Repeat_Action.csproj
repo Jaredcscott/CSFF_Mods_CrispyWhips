@@ -40,6 +40,10 @@
             <HintPath>lib\BepInEx.dll</HintPath>
             <Private>False</Private>
         </Reference>
+        <Reference Include="CSFFModFramework">
+            <HintPath>lib\CSFFModFramework.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
 
         <!-- UnityEngine DLLs -->
         <Reference Include="UnityEngine" HintPath="lib\UnityEngine.dll">

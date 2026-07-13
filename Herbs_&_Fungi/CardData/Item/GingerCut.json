@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_ginger_cut",
     "CardName": {
         "ParentObjectID": "herbs_fungi_ginger_cut",
-        "LocalizationKey": "herbs_fungi_ginger_cut_CardName",
+        "LocalizationKey": "herbsfungigingercut_CardName",
         "DefaultText": "Cut Ginger"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_ginger_cut",
-        "LocalizationKey": "herbs_fungi_ginger_cut_CardDescription",
+        "LocalizationKey": "herbsfungigingercut_CardDescription",
         "DefaultText": "Fresh ginger that has been sliced into thin pieces. Ready to be dried for long-term preservation."
     },
     "CardType": 0,
@@ -28,12 +28,12 @@
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_ginger_cut",
-        "LocalizationKey": "herbs_fungi_ginger_cut_SpoilageTime_StatName",
+        "LocalizationKey": "herbsfungigingercut_SpoilageTime_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_ginger_cut",
-            "LocalizationKey": "herbs_fungi_ginger_cut_SpoilageTime_StatName",
+            "LocalizationKey": "herbsfungigingercut_SpoilageTime_StatName",
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
@@ -44,7 +44,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_ginger_cut",
-                "LocalizationKey": "herbs_fungi_ginger_cut_SpoilageTime_Spoiled",
+                "LocalizationKey": "herbsfungigingercut_SpoilageTime_Spoiled",
                 "DefaultText": "The cut ginger has spoiled."
             },
             "ReceivingCardChanges": {
@@ -61,12 +61,12 @@
     },
     "UsageDurability": {
         "ParentObjectID": "herbs_fungi_ginger_cut",
-        "LocalizationKey": "herbs_fungi_ginger_cut_UsageDurability_StatName",
+        "LocalizationKey": "herbsfungigingercut_UsageDurability_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_ginger_cut",
-            "LocalizationKey": "herbs_fungi_ginger_cut_UsageDurability_StatName",
+            "LocalizationKey": "herbsfungigingercut_UsageDurability_StatName",
             "DefaultText": "Dry"
         },
         "MinValue": 0.0,
@@ -77,7 +77,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_ginger_cut",
-                "LocalizationKey": "herbs_fungi_ginger_cut_UsageDurability_Dried",
+                "LocalizationKey": "herbsfungigingercut_UsageDurability_Dried",
                 "DefaultText": "The cut ginger has dried properly."
             },
             "ReceivingCardChanges": {
@@ -92,16 +92,143 @@
             }
         }
     },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_ginger_cut",
+                "LocalizationKey": "",
+                "DefaultText": "Add to Stew"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_ginger_cut",
+                "LocalizationKey": "",
+                "DefaultText": "Drop into the boiling liquid to cook."
+            },
+            "WorksInverted": true,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [
+                    "tag_StewContainer"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "RequiredStatValues": [],
+            "RequiredNPCStatValues": [],
+            "RequiredCardsOnBoard": [],
+            "RequiredTagsOnBoard": [],
+            "RequiredAlreadyVisitedEnvironments": [],
+            "RequiredReceivingContainer": [],
+            "RequiredReceivingContainerTag": [],
+            "RequiredNOTReceivingContainerTag": [],
+            "RequiredReceivingContainerDurabilities": {},
+            "RequiredGivenDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredFuelPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredProgressPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredLiquidQuantity": 0.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "HideActionIfNotMet": true,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": []
+            },
+            "GivenCardChanges": {
+                "ModType": 0
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "ProducedCards": []
+        }
+    ],
     "DismantleActions": [
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_ginger_cut",
-                "LocalizationKey": "herbs_fungi_ginger_cut_Eat",
+                "LocalizationKey": "herbsfungigingercut_Eat",
                 "DefaultText": "Eat"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_ginger_cut",
-                "LocalizationKey": "herbs_fungi_ginger_cut_Eat_Desc",
+                "LocalizationKey": "herbsfungigingercut_Eat_Desc",
                 "DefaultText": "Chew the cut ginger pieces. Spicy and warming."
             },
             "DaytimeCost": 0,

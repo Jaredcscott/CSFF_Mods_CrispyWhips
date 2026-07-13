@@ -409,6 +409,27 @@ internal static class SmeltingRecipeInjector
                 statModField.SetValue(recipe, Array.CreateInstance(elemType, 0));
             }
 
+            // Override: IngredientChanges.ModType = 0 (consume ingredient after smelting).
+            // In a CookingRecipe, IngredientChanges.ModType uses a DIFFERENT enum than
+            // ReceivingCardChanges: 0=consume, 1=modify-in-place, 2=transform-into.
+            // All 25 vanilla consume-and-drop recipes (Make Charcoal, Burn Stone, etc.) use 0.
+            // The cloned template "Heats up Nuggets and Lumps" uses 1 (heat only, keeps item) —
+            // without this override the item is never consumed and drops nuggets every Duration tick forever.
+            var ingredChangesField = AccessTools.Field(recipeType, "IngredientChanges");
+            if (ingredChangesField != null)
+            {
+                object ingredChanges = ingredChangesField.GetValue(recipe);
+                if (ingredChanges != null)
+                {
+                    var modTypeField = ingredChanges.GetType().GetField("ModType", BF);
+                    if (modTypeField != null)
+                    {
+                        modTypeField.SetValue(ingredChanges, 0);
+                        ingredChangesField.SetValue(recipe, ingredChanges);
+                    }
+                }
+            }
+
             return recipe;
         }
         catch (Exception ex)

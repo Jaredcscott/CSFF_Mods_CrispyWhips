@@ -16,13 +16,20 @@ internal static class GifAnimationPatch
 {
     public static void ApplyPatch(Harmony harmony)
     {
-        if (!GifAnimationService.HasDefinitions)
+        try
         {
-            Log.Debug("GifAnimationPatch: no GIF card definitions found — skipping patch registration.");
-            return;
-        }
+            if (!GifAnimationService.HasDefinitions)
+            {
+                Log.Debug("GifAnimationPatch: no GIF card definitions found — skipping patch registration.");
+                return;
+            }
 
-        Plugin.Instance.StartCoroutine(DeferredPatch(harmony));
+            Plugin.Instance.StartCoroutine(DeferredPatch(harmony));
+        }
+        catch (Exception ex)
+        {
+            Log.Warn($"[GifAnimationPatch] ApplyPatch failed: {Log.ExceptionText(ex)}");
+        }
     }
 
     private static System.Collections.IEnumerator DeferredPatch(Harmony harmony)

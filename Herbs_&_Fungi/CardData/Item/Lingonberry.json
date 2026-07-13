@@ -1,15 +1,15 @@
 {
     "UniqueID": "herbs_fungi_lingonberry",
     "CardName": {
-        "LocalizationKey": "herbs_fungi_lingonberry_CardName",
+        "LocalizationKey": "herbsfungilingonberry_CardName",
         "DefaultText": "Lingonberries"
     },
     "CardDescription": {
-        "LocalizationKey": "herbs_fungi_lingonberry_CardDescription",
+        "LocalizationKey": "herbsfungilingonberry_CardDescription",
         "DefaultText": "Small, bright red berries found carpeting the forest floor under pine trees. Tart and slightly bitter raw, but excellent dried or fermented."
     },
     "CardHelpSection": {
-        "LocalizationKey": "herbs_fungi_lingonberry_CardHelpSection",
+        "LocalizationKey": "herbsfungilingonberry_CardHelpSection",
         "DefaultText": "<b>Season:</b> Late Summer to Autumn\n\n<b>Found:</b> Pine forests, northern regions, pine meadows.\n\n<b>Uses:</b> Eat raw, dry for long-term storage, or ferment.\n\n<b>Benefits:</b> Abundant and reliable survival food."
     },
     "CardType": 0,
@@ -36,7 +36,7 @@
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
-            "LocalizationKey": "herbs_fungi_lingonberry_SpoilageTime_CardStatName",
+            "LocalizationKey": "herbsfungilingonberry_SpoilageTime_CardStatName",
             "DefaultText": "Freshness"
         },
         "MaxValue": 576.0,
@@ -44,7 +44,7 @@
         "HasActionOnFull": true,
         "OnFull": {
             "ActionDescription": {
-                "LocalizationKey": "herbs_fungi_lingonberry_SpoilageTime_OnFull",
+                "LocalizationKey": "herbsfungilingonberry_SpoilageTime_OnFull",
                 "DefaultText": "Lingonberries spoiled!"
             },
             "ReceivingCardChanges": {
@@ -60,7 +60,7 @@
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
-            "LocalizationKey": "herbs_fungi_lingonberry_UsageDurability_CardStatName",
+            "LocalizationKey": "herbsfungilingonberry_UsageDurability_CardStatName",
             "DefaultText": "Dryness"
         },
         "MaxValue": 24.0,
@@ -68,7 +68,7 @@
         "HasActionOnFull": true,
         "OnFull": {
             "ActionDescription": {
-                "LocalizationKey": "herbs_fungi_lingonberry_UsageDurability_OnFull",
+                "LocalizationKey": "herbsfungilingonberry_UsageDurability_OnFull",
                 "DefaultText": "Lingonberries dried!"
             },
             "ReceivingCardChanges": {
@@ -135,7 +135,7 @@
                 "RequiredUsagePercent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredFuelPercent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredProgressPercent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
-                "RequiredLiquidQuantity": 140.0,
+                "RequiredLiquidQuantity": 0.0,
                 "RequiredSpecial1Percent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredSpecial2Percent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredSpecial3Percent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
@@ -156,11 +156,11 @@
     "DismantleActions": [
         {
             "ActionName": {
-                "LocalizationKey": "herbs_fungi_lingonberry_Eat_ActionName",
+                "LocalizationKey": "herbsfungilingonberry_Eat_ActionName",
                 "DefaultText": "Eat"
             },
             "ActionDescription": {
-                "LocalizationKey": "herbs_fungi_lingonberry_Eat_ActionDescription",
+                "LocalizationKey": "herbsfungilingonberry_Eat_ActionDescription",
                 "DefaultText": "Eat the lingonberries. Tart but filling."
             },
             "DaytimeCost": 0,

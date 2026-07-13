@@ -1,0 +1,227 @@
+{
+  "UniqueID": "act_iron_vein",
+  "CardName": {
+    "ParentObjectID": "act_iron_vein",
+    "LocalizationKey": "Advanced_Copper_Tools_IronVein_CardName",
+    "DefaultText": "Iron Vein"
+  },
+  "CardDescription": {
+    "ParentObjectID": "act_iron_vein",
+    "LocalizationKey": "Advanced_Copper_Tools_IronVein_CardDescription",
+    "DefaultText": "A seam of bog iron embedded in cave rock. Mine with a pickaxe for best results, or chip away with an axe, hammer, shovel, or antler."
+  },
+  "CanBeRenamed": false,
+  "AlternateNames": [],
+  "LiquidSuffixName": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
+  "CardHelpSection": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardBackground": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "act_iron_vein",
+  "CardImageWarpType": 3,
+  "ShowImageAboveTitle": false,
+  "CardType": 2,
+  "CannotBeTransferred": false,
+  "NotAutoSolvableEvent": false,
+  "ObjectWeight": 0.0,
+  "TradingValue": 0.0,
+  "CardTags": [],
+  "CardTagsWarpData": [ "tag_Structure" ],
+  "CardTagsWarpType": 3,
+  "EquipmentTags": [],
+  "MapStructureType": 0,
+  "FlavourTags": [],
+  "SpiceTags": [],
+  "AlwaysUpdate": false,
+  "CannotBeTrashed": true,
+  "CanBeTrashed": false,
+  "DoesNotPile": true,
+  "ToggleablePiling": false,
+  "DoesNotPinAutomatically": false,
+  "NeedsRoomInLocationToSpawn": false,
+  "WhenCreatedSounds": [],
+  "WhenCreatedSoundsWarpData": [ "StoneAppear" ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": { "Active": false },
+  "UsageDurability": {
+    "Active": true,
+    "FloatValue": 6.0,
+    "CardStatName": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
+    "RandomStartingOffset": 0.0,
+    "MaxValue": 6.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 0,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "OverrideIcon": { "m_FileID": 0, "m_PathID": 0 },
+    "OverrideIconWarpData": "Shield",
+    "OverrideIconWarpType": 3,
+    "SortInverted": false,
+    "ResetWhenLoadedAtZero": false,
+    "HasActionOnZero": true,
+    "RepeatActionOnZero": false,
+    "ShowPopupOnZero": false,
+    "OnZeroNotification": 0,
+    "OnZero": {
+      "ActionName": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
+      "ActionDescription": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ProducedCards": [],
+      "ReceivingCardChanges": { "ModType": 3 }
+    },
+    "CountsForTradingValue": false
+  },
+  "FuelCapacity": { "Active": false },
+  "Progress": { "Active": false },
+  "SpecialDurability1": { "Active": false },
+  "SpecialDurability2": { "Active": false },
+  "SpecialDurability3": { "Active": false },
+  "SpecialDurability4": { "Active": false },
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "act_iron_vein",
+        "LocalizationKey": "Advanced_Copper_Tools_IronVein_Mine_ActionName",
+        "DefaultText": "Mine Iron"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "act_iron_vein",
+        "LocalizationKey": "Advanced_Copper_Tools_IronVein_Mine_ActionDescription",
+        "DefaultText": "Strike the vein with a pickaxe to extract bog iron."
+      },
+      "DaytimeCost": 3,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [ "HittingStone" ],
+      "ActionSoundsWarpType": 3,
+      "RequiredStatValues": [],
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "fd161ef9dac659f458306949689088d2",
+          "a8b3d99a923d83340a2f039617f3dff3"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "GivenCardChanges": {
+        "ModType": 1,
+        "UsageChange": { "x": -4.0, "y": -4.0 }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "UsageChange": { "x": -1.0, "y": -1.0 }
+      },
+      "ProducedCards": [
+        {
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "b9845f4223861e44f96c7815f210f365",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 },
+              "DropChance": { "Active": true, "BaseDropChance": 100.0 }
+            },
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "b9845f4223861e44f96c7815f210f365",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 },
+              "DropChance": { "Active": true, "BaseDropChance": 30.0 }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "act_iron_vein",
+        "LocalizationKey": "Advanced_Copper_Tools_IronVein_MineRough_ActionName",
+        "DefaultText": "Chip Away"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "act_iron_vein",
+        "LocalizationKey": "Advanced_Copper_Tools_IronVein_MineRough_ActionDescription",
+        "DefaultText": "Strike the vein with an axe, hammer, shovel, or antler. Slower than a pickaxe — yields one piece of bog iron per strike."
+      },
+      "DaytimeCost": 8,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [ "HittingStone" ],
+      "ActionSoundsWarpType": 3,
+      "RequiredStatValues": [],
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "5c22db296fcde9a4da7dab850195c04a",
+          "20e72cdaaf2bbc247a6ee0abcc1347a4",
+          "bd517943b89f4e149893ffe4489a96e6",
+          "968d89b358ccf624a9e34f659166a0a1",
+          "634cea69c95dbb5468e9795b067bc623",
+          "5a5b31be26b363c4da6e9cd65750500f",
+          "95da1742320318348b0fa4f03e81c2f3",
+          "e118b8cd90f14b048aab78a0d37e8f61",
+          "2914e01d9af26f24d92ff61389fb0195",
+          "2466c0bf349c4f84db55a4ee8ad67300",
+          "3587432ac7e29784991ff2cccf92891d",
+          "c1681bf59e15f3045aee3cbc58ec9b0c",
+          "8cae876b49f3aef45afc1ad96b1a4628"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "GivenCardChanges": {
+        "ModType": 1,
+        "UsageChange": { "x": -3.0, "y": -3.0 }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "UsageChange": { "x": -1.0, "y": -1.0 }
+      },
+      "ProducedCards": [
+        {
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "b9845f4223861e44f96c7815f210f365",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 },
+              "DropChance": { "Active": true, "BaseDropChance": 100.0 }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "DismantleActions": [],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [],
+  "MaxLiquidCapacity": 0.0,
+  "InventorySlots": [],
+  "InventoryFilter": {
+    "AcceptedCards": [],
+    "AcceptedCardsWarpData": [],
+    "AcceptedCardsWarpType": 3,
+    "AcceptedTypes": [],
+    "AcceptedTags": [],
+    "AcceptedTagsWarpData": [],
+    "AcceptedTagsWarpType": 3,
+    "NOTAcceptedCards": [],
+    "NOTAcceptedTypes": [],
+    "NOTAcceptedTags": [],
+    "CardFilters": [],
+    "TagFilters": []
+  },
+  "SpillsInventoryOnDestroy": false,
+  "CookingRecipes": [],
+  "BlueprintStages": [],
+  "BlueprintResult": [],
+  "IsWeapon": false,
+  "IsArmor": false
+}

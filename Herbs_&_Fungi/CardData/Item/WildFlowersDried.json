@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_wild_flowers_dried",
     "CardName": {
         "ParentObjectID": "herbs_fungi_wild_flowers_dried",
-        "LocalizationKey": "herbs_fungi_wild_flowers_dried_CardName",
+        "LocalizationKey": "herbsfungiwildflowersdried_CardName",
         "DefaultText": "Dried Wild Flowers"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_wild_flowers_dried",
-        "LocalizationKey": "herbs_fungi_wild_flowers_dried_CardDescription",
+        "LocalizationKey": "herbsfungiwildflowersdried_CardDescription",
         "DefaultText": "Carefully dried wildflowers. Their colour is preserved indefinitely. Used in decoration and crafting."
     },
     "CardType": 0,
@@ -26,12 +26,12 @@
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_wild_flowers_dried",
-        "LocalizationKey": "herbs_fungi_wild_flowers_dried_SpoilageTime_StatName",
+        "LocalizationKey": "herbsfungiwildflowersdried_SpoilageTime_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_wild_flowers_dried",
-            "LocalizationKey": "herbs_fungi_wild_flowers_dried_SpoilageTime_StatName",
+            "LocalizationKey": "herbsfungiwildflowersdried_SpoilageTime_StatName",
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
@@ -42,7 +42,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_wild_flowers_dried",
-                "LocalizationKey": "herbs_fungi_wild_flowers_dried_SpoilageTime_OnFull",
+                "LocalizationKey": "herbsfungiwildflowersdried_SpoilageTime_OnFull",
                 "DefaultText": "The dried flowers have finally crumbled to dust."
             },
             "ReceivingCardChanges": {

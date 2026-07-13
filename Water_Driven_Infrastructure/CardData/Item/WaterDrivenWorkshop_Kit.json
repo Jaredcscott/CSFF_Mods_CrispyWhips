@@ -26,7 +26,7 @@
   "ObjectWeight": 4150.0,
   "TradingValue": 2650.0,
   "CardTags": [],
-  "CardTagsWarpData": ["tag_SmeltsAt1100", "tag_Wood", "tag_Copper", "tag_Metal", "tag_CopperBig"],
+  "CardTagsWarpData": ["tag_Wood", "tag_Copper", "tag_Metal"],
   "CardTagsWarpType": 3,
   "DoesNotPile": true,
   "WhenCreatedSounds": [],
@@ -53,65 +53,7 @@
     "OverrideIconWarpData": "Hot",
     "OverrideIconWarpType": 3
   },
-  "Progress": {
-    "Active": true,
-    "FloatValue": 0.0,
-    "CardStatName": {
-      "ParentObjectID": "water_sawmill_workshop_kit",
-      "LocalizationKey": "",
-      "DefaultText": "Smelted"
-    },
-    "MaxValue": 8.0,
-    "RatePerDaytimePoint": 0.0,
-    "HidingOptions": 1,
-    "TextDisplay": 0,
-    "NumberPrecision": 0,
-    "HasActionOnFull": true,
-    "CountsForTradingValue": false,
-    "OverrideIconWarpData": "Cooking",
-    "OverrideIconWarpType": 3,
-    "OnFull": {
-      "ActionName": {
-        "ParentObjectID": "water_sawmill_workshop_kit",
-        "LocalizationKey": "",
-        "DefaultText": ""
-      },
-      "ActionDescription": {
-        "ParentObjectID": "water_sawmill_workshop_kit",
-        "LocalizationKey": "",
-        "DefaultText": "Metal melted!"
-      },
-      "NoveltyShared": false,
-      "UnavailableInDemo": false,
-      "SaveGame": false,
-      "ConfirmPopup": false,
-      "StackCompatible": false,
-      "DaytimeCost": 0,
-      "UseMiniTicks": 0,
-      "ActionSounds": [],
-      "ActionTags": [],
-      "RequiredStatValues": [],
-      "RequiredCardsOnBoard": [],
-      "RequiredTagsOnBoard": [],
-      "ReceivingCardChanges": {
-        "ModType": 2,
-        "TransformInto": {"m_FileID": 0, "m_PathID": 0},
-        "TransformIntoWarpData": "4b0f4937a5ecb90499428c8c10288afc",
-        "TransformIntoWarpType": 3,
-        "TransformToLiquidQuantity": 0.0,
-        "TransferSpoilage": false,
-        "TransferUsage": false,
-        "TransferFuel": false,
-        "TransferCharges": false,
-        "TransferSpecial1": false,
-        "TransferSpecial2": false,
-        "TransferSpecial3": false,
-        "TransferSpecial4": false,
-        "TransferInventory": false
-      },
-      "ProducedCards": []
-    }
-  },
+  "Progress": {"Active": false},
   "SpecialDurability1": {"Active": false},
   "SpecialDurability2": {"Active": false},
   "SpecialDurability3": {"Active": false},
@@ -180,7 +122,7 @@
               "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
               "DroppedCardWarpData": "water_sawmill_forge_kit",
               "DroppedCardWarpType": 3,
-              "Quantity": {"x": 2, "y": 2}
+              "Quantity": {"x": 1, "y": 1}
             },
             {
               "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
@@ -242,87 +184,7 @@
     }
   ],
   "PassiveStatEffects": [],
-  "PassiveEffects": [
-    {
-      "EffectName": "Lose Smelting if not in smelting container",
-      "OnlyWhenEquipped": false,
-      "EquippedOnBodyOnly": false,
-      "OnlyWhenNOTEquipped": false,
-      "OnlyWhenInHand": false,
-      "OnlyOnBaseActions": false,
-      "OnlyOnNOTBaseActions": false,
-      "OnlyWhenNOTInBG": false,
-      "Conditions": {
-        "NotInBackground": false,
-        "InBackground": false,
-        "PlayerUsesCard": 0,
-        "RequiredNOTContainerTagsWarpData": ["tag_SmeltingContainer"],
-        "RequiredNOTContainerTagsWarpType": 3
-      },
-      "StatChanges": [],
-      "ConsumableChargesModifier": {"Active": true, "FloatValue": -1.0}
-    },
-    {
-      "EffectName": "Lose Smelting if smelting container is not hot enough",
-      "OnlyWhenEquipped": false,
-      "EquippedOnBodyOnly": false,
-      "OnlyWhenNOTEquipped": false,
-      "OnlyWhenInHand": false,
-      "OnlyOnBaseActions": false,
-      "OnlyOnNOTBaseActions": false,
-      "OnlyWhenNOTInBG": false,
-      "Conditions": {
-        "NotInBackground": false,
-        "InBackground": false,
-        "PlayerUsesCard": 0,
-        "RequiredContainerTagsWarpData": ["tag_SmeltingContainer"],
-        "RequiredContainerTagsWarpType": 3,
-        "ReceivingContainerRequiredDurabilityRanges": {
-          "SpoilageRange": {"x": 0.0, "y": 1099.0},
-          "UsageRange": {"x": 0.0, "y": 0.0},
-          "FuelRange": {"x": 0.0, "y": 0.0},
-          "ProgressRange": {"x": 0.0, "y": 0.0},
-          "Special1Range": {"x": 0.0, "y": 0.0},
-          "Special2Range": {"x": 0.0, "y": 0.0},
-          "Special3Range": {"x": 0.0, "y": 0.0},
-          "Special4Range": {"x": 0.0, "y": 0.0},
-          "LiquidQuantityRange": {"x": 0.0, "y": 0.0}
-        }
-      },
-      "StatChanges": [],
-      "ConsumableChargesModifier": {"Active": true, "FloatValue": -1.0}
-    },
-    {
-      "EffectName": "Gain Smelting when in hot copper smelting container",
-      "OnlyWhenEquipped": false,
-      "EquippedOnBodyOnly": false,
-      "OnlyWhenNOTEquipped": false,
-      "OnlyWhenInHand": false,
-      "OnlyOnBaseActions": false,
-      "OnlyOnNOTBaseActions": false,
-      "OnlyWhenNOTInBG": false,
-      "Conditions": {
-        "NotInBackground": false,
-        "InBackground": false,
-        "PlayerUsesCard": 0,
-        "RequiredContainerTagsWarpData": ["tag_SmeltingContainer"],
-        "RequiredContainerTagsWarpType": 3,
-        "ReceivingContainerRequiredDurabilityRanges": {
-          "SpoilageRange": {"x": 1100.0, "y": 3000.0},
-          "UsageRange": {"x": 0.0, "y": 0.0},
-          "FuelRange": {"x": 0.0, "y": 0.0},
-          "ProgressRange": {"x": 0.0, "y": 0.0},
-          "Special1Range": {"x": 0.0, "y": 0.0},
-          "Special2Range": {"x": 0.0, "y": 0.0},
-          "Special3Range": {"x": 0.0, "y": 0.0},
-          "Special4Range": {"x": 0.0, "y": 0.0},
-          "LiquidQuantityRange": {"x": 0.0, "y": 0.0}
-        }
-      },
-      "StatChanges": [],
-      "ConsumableChargesModifier": {"Active": true, "FloatValue": 1.0}
-    }
-  ],
+  "PassiveEffects": [],
   "MaxLiquidCapacity": 0.0,
   "InventorySlots": [],
   "CookingConditions": {

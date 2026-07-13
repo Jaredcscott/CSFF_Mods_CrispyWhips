@@ -5,13 +5,13 @@ using HarmonyLib;
 namespace WaterDrivenInfrastructure;
 
 [BepInDependency("crispywhips.CSFFModFramework", BepInDependency.DependencyFlags.SoftDependency)]
-[BepInDependency("crispywhips.advanced_copper_tools", BepInDependency.DependencyFlags.HardDependency)]
+[BepInDependency("crispywhips.advanced_copper_tools", BepInDependency.DependencyFlags.SoftDependency)]
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
 internal class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.waterdriveninfrastructure";
     public const string PluginName = "WaterDrivenInfrastructure";
-    public const string PluginVersion = "1.6.0";
+    public const string PluginVersion = "1.8.2";
 
     internal new static ManualLogSource Logger;
     internal static Plugin Instance { get; private set; }

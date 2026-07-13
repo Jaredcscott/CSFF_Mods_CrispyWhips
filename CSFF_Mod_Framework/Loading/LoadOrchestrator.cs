@@ -2,6 +2,7 @@ using System.Diagnostics;
 using CSFFModFramework.Data;
 using CSFFModFramework.Discovery;
 using CSFFModFramework.Injection;
+using CSFFModFramework.Portal;
 using CSFFModFramework.Reflection;
 using CSFFModFramework.Util;
 
@@ -89,6 +90,18 @@ internal static class LoadOrchestrator
             //     so warps link against the canonical instances.
             RunPhase(sw, "ForeignInstanceReconciler", () => ForeignInstanceReconciler.ReconcileAll());
 
+            // 4c. Extract SpawnStatDefaults blocks from already-loaded card JSON.
+            //     Reads JsonDataLoader.ParsedJsonByUniqueId (in-memory, no I/O) and
+            //     registers defaults with SpawnService so its GiveCard postfix can
+            //     apply them to every matching spawn without per-mod C# postfixes.
+            RunPhase(sw, "SpawnStatDefaultsLoader", () => SpawnStatDefaultsLoader.LoadAll());
+
+            // 4d. Rebuild NPCAgent.AgentActions[].DroppedCards from raw parsed JSON —
+            //     JsonUtility.FromJsonOverwrite leaves this null (array-of-objects nested inside
+            //     another array-of-objects; see class doc). Must run before WarpResolver so the
+            //     rebuilt CardDrop[] targets are plain resolved CardData refs from GameRegistry.
+            RunPhase(sw, "NPCActionDroppedCardsRepair", () => NPCActionDroppedCardsRepair.RepairAll());
+
             // 5. Resolve ALL WarpData references (THE key fix)
             var allData = GetAllData();
 
@@ -128,6 +141,19 @@ internal static class LoadOrchestrator
             else
                 Log.Debug("[Skip] SmeltingRecipeInjector: no mod ships SmeltingRecipes.json");
 
+            // 5e2. Append declarative drops to location card DismantleAction ProducedCards.
+            if (mods.Any(m => m.HasDropInjections))
+                RunPhase(sw, "DropInjector", () => DropInjector.InjectAll(allData, mods));
+            else
+                Log.Debug("[Skip] DropInjector: no mod ships DropInjections.json");
+
+            // 5e3. Append a CT10 improvement to a target CT8's EnvironmentImprovements array —
+            //      declarative alternative to per-mod C# (e.g. CMC's RiverBridgeImprovementPatch).
+            if (mods.Any(m => m.HasImprovementInjections))
+                RunPhase(sw, "ImprovementInjector", () => ImprovementInjector.InjectAll(allData, mods));
+            else
+                Log.Debug("[Skip] ImprovementInjector: no mod ships InjectImprovementInto.json");
+
             // 5f. Load mod-defined spawn triggers (CardData/Trigger/*.json). Runtime firing is
             //     handled by TriggerService via Plugin.Update — no SO injection needed here.
             if (mods.Any(m => m.HasTriggers))
@@ -148,12 +174,40 @@ internal static class LoadOrchestrator
             //     by iterating DataBase.AllData, where JsonDataLoader already registered them.
             RunPhase(sw, "StaActivationService", () => StaActivationService.ValidateAll(allData));
 
+            // 5g2. Animals: build NPCAgent graphs from declarative Animals/*.json manifests and
+            //      queue them for spawn registration (GameManager.Awake prefix appends them to
+            //      WorldSettings.NPCAgents). Runs before NPCAgentActivationService so generated
+            //      agents get its validation/normalization pass. Design:
+            //      Documentation/Design/Animal_System_Plan.md.
+            if (mods.Any(m => m.HasAnimals))
+                RunPhase(sw, "AnimalService", () => Animals.AnimalService.LoadAll(mods));
+            else
+                Log.Debug("[Skip] AnimalService: no mod ships Animals/*.json");
+
             // 5h. Phase 3: Validate mod NPCAgents at load time, then inject any that GameManager
             //     didn't auto-discover into its agent list at OnGMInitialized. NPCDuty/NPCStat/
             //     NPCHidingGroup are loaded into AllData by JsonDataLoader and resolve via WarpData.
             //     A verbose [DIAGNOSTICS] survey of GameManager NPC fields is available at Debug
             //     level (visible with VerboseLogging=true in the BepInEx config).
             RunPhase(sw, "NPCAgentActivationService", () => NPCAgentActivationService.ValidateAll(allData));
+
+            // 5j. HubPortals.json schema removed in v2.8.0 — portal travel handled via portable
+            //     Portal Kit + PortalService (Phase 5k). Phase slot retained for ordering.
+            Log.Debug("[Skip] HubPortalInjector: WorldMap/HubPortals.json schema retired in v2.8.0");
+
+            // 5k. Portal Hub System (the ONE supported portal path — the shared, build-anywhere
+            //     Portal Kit/Hub; see PortalService's class doc, 2026-07-02):
+            //     MapModLoader: parse MapMod.json from each mod; populate PortalRegistry
+            //                  with mod world names and EnvironmentUID/SacredSiteUID targets.
+            //     PortalService.InjectHubTravelDAs runs at phase 5i-b below (one travel DA per
+            //     mod world on the shared csffmfwportalplaced card).
+            //     ActionRouter handlers + hub_exit injection run at OnGMInitialized
+            //     (WorldMapInjector.OnGMInitialized → PortalService.RegisterHubTravelHandlers /
+            //      InjectExitCardsIntoModHubs), after clone envs exist.
+            if (mods.Any(m => m.HasMapMod))
+                RunPhase(sw, "MapModLoader", () => MapModLoader.LoadAll(mods));
+            else
+                Log.Debug("[Skip] MapModLoader: no mod ships MapMod.json");
 
             // 5i. Phase 4: Prepare mod WorldMap/MapNodes.json entries. WorldMapData is a static
             //     plain ScriptableObject (not UniqueIDScriptable) that is NOT loaded into memory
@@ -168,12 +222,20 @@ internal static class LoadOrchestrator
                 RunPhase(sw, "WorldMapInjector", () =>
                 {
                     var mapNodes = WorldMapLoader.LoadAll(mods);
-                    if (mapNodes.Count > 0)
-                        WorldMapInjector.PrepareAll(mapNodes);
+                    var fullMap  = mods.Any(m => m.HasFullMap) ? WorldMapLoader.LoadFullMap(mods) : null;
+                    if (mapNodes.Count > 0 || fullMap != null)
+                        WorldMapInjector.PrepareAll(mapNodes, fullMap);
                 });
             }
             else
-                Log.Debug("[Skip] WorldMapInjector: no mod ships WorldMap/MapNodes.json");
+                Log.Debug("[Skip] WorldMapInjector: no mod ships WorldMap/MapNodes.json or WorldMap/FullMap.json");
+
+            // 5i-b. Inject travel DismantleActions into the shared placed Portal Hub CT2 so
+            //       each registered mod world gets its own "Travel to X" button. Runs after
+            //       MapModLoader (5k) populated PortalRegistry with world names and targets —
+            //       the ONE supported portal mechanism (see PortalService's class doc).
+            if (mods.Any(m => m.HasMapMod))
+                RunPhase(sw, "PortalService.InjectHubTravelDAs", () => PortalService.InjectHubTravelDAs());
 
             // 6. Build DataMap before GameSourceModify — only needed when a mod uses
             //    MatchTagWarpData / MatchTypeWarpData bulk patches.
@@ -191,11 +253,11 @@ internal static class LoadOrchestrator
             // 8a. Resolve sprites for cards and perks
             RunPhase(sw, "SpriteResolver", () => SpriteResolver.ResolveAll(allData, mods));
 
-            // 9. Load localization
-            if (mods.Any(m => m.HasLocalization))
+            // 9. Load localization (framework-owned CSVs load first inside LocalizationLoader)
+            if (LocalizationLoader.HasFrameworkLocalization || mods.Any(m => m.HasLocalization))
                 RunPhase(sw, "LocalizationLoader", () => LocalizationLoader.LoadAll(mods));
             else
-                Log.Debug("[Skip] LocalizationLoader: no mod ships Localization/*.csv");
+                Log.Debug("[Skip] LocalizationLoader: no localization CSV found (framework or mods)");
 
             // 10. Load audio clips from mod directories
             if (mods.Any(m => m.HasAudio))

@@ -1,0 +1,13 @@
+CSFFMFW_HubExit_CardName,Exit
+CSFFMFW_HubExit_DA_Exit,Exit
+CSFFMFW_SacredCave_CardName,Portal Hub
+CSFFMFW_SacredCave_CardDescription,An ancient standing stone etched with glowing runes. Use it to open a gateway to other worlds.
+CSFFMFW_SacredCave_DA_PackUp,Pack Up Portal
+CSFFMFW_PortalKit_CardName,Portal Kit
+CSFFMFW_PortalKit_CardDescription,A kit containing everything needed to raise a Portal Hub. Place it anywhere — then use the portal to travel to other worlds.
+CSFFMFW_PortalKit_DA_Place,Set Up Portal
+CSFFMFW_Perk_Wayfinder_PerkName,Arcane Wayfinder
+CSFFMFW_Perk_Wayfinder_PerkDescription,You begin with a Portal Kit. Place it anywhere to open a gateway to other worlds.
+CSFFMFW_BpPortalKit_CardName,Portal Kit
+CSFFMFW_BpPortalKit_CardDescription,Bind a witch stone into cured hide and dried wolfsbane, sealed with animal fat. Assembles a portable Portal Hub kit.
+CSFFMFW_BpPortalKit_UnlockConditionsDesc,Witch Stone Needed

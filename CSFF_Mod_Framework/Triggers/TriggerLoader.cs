@@ -48,7 +48,7 @@ internal static class TriggerLoader
             }
 
             if (count > 0)
-                Log.Info($"[TriggerLoader] loaded {count} trigger(s) from {mod.Name}");
+                Log.Debug($"[TriggerLoader] loaded {count} trigger(s) from {mod.Name}");
             total += count;
         }
 

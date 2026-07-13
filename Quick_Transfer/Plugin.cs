@@ -4,11 +4,12 @@ using BepInEx.Logging;
 namespace Quick_Transfer;
 
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
+[BepInDependency("crispywhips.CSFFModFramework", BepInDependency.DependencyFlags.SoftDependency)]
 public class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.quick_transfer";
     public const string PluginName = "Quick_Transfer";
-    public const string PluginVersion = "1.7.0";
+    public const string PluginVersion = "1.7.3";
 
     internal new static ManualLogSource Logger;
     private static Harmony _harmony;

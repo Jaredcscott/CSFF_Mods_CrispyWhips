@@ -1,0 +1,24 @@
+{
+  "UniqueID": "653ab779572b47039c856911d02c9d51",
+  "CardType": 2,
+  "CardName": {
+    "ParentObjectID": "653ab779572b47039c856911d02c9d51",
+    "LocalizationKey": "CSFFMFW_HubExit_CardName",
+    "DefaultText": "Exit"
+  },
+  "UniqueOnBoard": true,
+  "CanDragItemsToTravel": true,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "653ab779572b47039c856911d02c9d51",
+        "LocalizationKey": "CSFFMFW_HubExit_DA_Exit",
+        "DefaultText": "Exit"
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 2,
+      "FadeToBlack": 1,
+      "TravelToPreviousEnv": true
+    }
+  ]
+}

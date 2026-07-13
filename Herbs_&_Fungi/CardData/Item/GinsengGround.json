@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_ginseng_ground",
     "CardName": {
         "ParentObjectID": "herbs_fungi_ginseng_ground",
-        "LocalizationKey": "herbs_fungi_ginseng_ground_CardName",
+        "LocalizationKey": "herbsfungiginsengground_CardName",
         "DefaultText": "Ground Ginseng"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_ginseng_ground",
-        "LocalizationKey": "herbs_fungi_ginseng_ground_CardDescription",
+        "LocalizationKey": "herbsfungiginsengground_CardDescription",
         "DefaultText": "Finely ground dried ginseng root powder. Can be consumed directly for potent energy and immune benefits, or mixed with hot water to make revitalizing tea."
     },
     "CardType": 0,
@@ -33,12 +33,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_ginseng_ground",
-                "LocalizationKey": "herbs_fungi_ginseng_ground_Eat",
+                "LocalizationKey": "herbsfungiginsengground_Eat",
                 "DefaultText": "Eat"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_ginseng_ground",
-                "LocalizationKey": "herbs_fungi_ginseng_ground_Eat_Desc",
+                "LocalizationKey": "herbsfungiginsengground_Eat_Desc",
                 "DefaultText": "Eat the concentrated ginseng powder. Provides a powerful boost to energy, vitality and immune function."
             },
             "DaytimeCost": 0,
@@ -361,12 +361,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_ginseng_ground",
-                "LocalizationKey": "herbs_fungi_ginseng_ground_MixTea",
+                "LocalizationKey": "herbsfungiginsengground_MixTea",
                 "DefaultText": "Mix into Hot Water"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_ginseng_ground",
-                "LocalizationKey": "herbs_fungi_ginseng_ground_MixTea_Desc",
+                "LocalizationKey": "herbsfungiginsengground_MixTea_Desc",
                 "DefaultText": "Mix ginseng powder into hot water to create revitalizing tea."
             },
             "DaytimeCost": 1,
@@ -527,6 +527,131 @@
                     "StatWarpType": 3
                 }
             ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_ginseng_ground",
+                "LocalizationKey": "",
+                "DefaultText": "Add to Stew"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_ginseng_ground",
+                "LocalizationKey": "",
+                "DefaultText": "Drop into the boiling liquid to cook."
+            },
+            "WorksInverted": true,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [
+                    "tag_StewContainer"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "RequiredStatValues": [],
+            "RequiredNPCStatValues": [],
+            "RequiredCardsOnBoard": [],
+            "RequiredTagsOnBoard": [],
+            "RequiredAlreadyVisitedEnvironments": [],
+            "RequiredReceivingContainer": [],
+            "RequiredReceivingContainerTag": [],
+            "RequiredNOTReceivingContainerTag": [],
+            "RequiredReceivingContainerDurabilities": {},
+            "RequiredGivenDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredFuelPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredProgressPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredLiquidQuantity": 0.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "HideActionIfNotMet": true,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": []
+            },
+            "GivenCardChanges": {
+                "ModType": 0
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "ProducedCards": []
         }
     ],
     "ObjectWeight": 10,

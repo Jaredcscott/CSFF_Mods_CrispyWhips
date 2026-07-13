@@ -50,47 +50,31 @@ internal static class CardScaleCompat
             return;
         }
 
-        var cfgPath = Path.Combine(Paths.ConfigPath, "Pikachu.CSFF.CardSizeReduce.cfg");
-        if (!File.Exists(cfgPath)) return;
-
         // NOTE: can't use Chainloader.PluginInfos here (CSR loads after us); inspect DLL on disk.
         var csrVersion = FindCsrDllVersion();
 
+        // CSR not installed — do not touch card sizing at all; vanilla sizing applies.
+        // A leftover Pikachu.CSFF.CardSizeReduce.cfg from a prior install is intentionally
+        // ignored here so removing the CSR DLL always restores vanilla card layout.
+        if (csrVersion == null) return;
+
         var scaleCfg = config.Bind(
             "CardScale", "SlotScaleFactor", 0.75f,
-            "Card slot scale factor. 1.0 = default, 0.75 = 75%.");
+            "Scale applied to BaseSlotsLine/LocationSlotsLine when CardSizeReduce is active (CSR owns the other lines). 1.0 = default, 0.75 = 75%.");
         _scale = Mathf.Clamp(scaleCfg.Value, 0.25f, 1f);
 
-        if (csrVersion != null)
-        {
-            // CSR is installed. Fix its broken AccessTools.Field calls so it can read
-            // GameManager.IsInitializing and GameManager.NotInBase (now auto-properties).
-            // Apply the fix synchronously here — CSR's PatchAll runs after our Awake returns.
-            ApplyCsrFieldFix(harmony);
-            // CSR handles Inventory/Explorable/Blueprint scaling (IsAllowScaleDown()=true).
-            // Base and Location lines are excluded by CSR's IsAllowScaleDown()=false.
-            // Run our shim for those two lines so all card rows scale uniformly.
-            _scaledLineNames = new[] { "BaseSlotsLine", "LocationSlotsLine" };
-            _csrSupplementMode = true;
-            if (!Mathf.Approximately(_scale, 1f))
-                Plugin.Instance.StartCoroutine(SetupCompat(harmony));
-            Util.Log.Info($"CardScaleCompat: CSR {csrVersion} detected; AccessTools.Field fix applied, shim active for BaseSlotsLine/LocationSlotsLine (scale={_scale:P0}).");
-            return;
-        }
-
-        // CSR config exists but DLL not found — run our own shim as fallback for all lines.
-        Util.Log.Info("CardScaleCompat: CSR config present but DLL not found; activating fallback scaling shim.");
-
-        var linesCfg = config.Bind(
-            "CardScale", "ScaledLines",
-            "ItemSlotsLine,BaseSlotsLine,LocationSlotsLine,ExplorableSlotsLine,BlueprintSlotsLine",
-            "Comma-separated GraphicsManager CardLine fields to scale (fallback shim, only active when CSR DLL is absent).");
-        _scaledLineNames = SplitCsv(linesCfg.Value);
-
-        if (Mathf.Approximately(_scale, 1f)) return;
-
-        Plugin.Instance.StartCoroutine(SetupCompat(harmony));
-        Util.Log.Info($"CardScaleCompat: fallback shim active - slot scale {_scale:P0}, lines=[{string.Join(",", _scaledLineNames)}]");
+        // CSR is installed. Fix its broken AccessTools.Field calls so it can read
+        // GameManager.IsInitializing and GameManager.NotInBase (now auto-properties).
+        // Apply the fix synchronously here — CSR's PatchAll runs after our Awake returns.
+        ApplyCsrFieldFix(harmony);
+        // CSR handles Inventory/Explorable/Blueprint scaling (IsAllowScaleDown()=true).
+        // Base and Location lines are excluded by CSR's IsAllowScaleDown()=false.
+        // Run our shim for those two lines so all card rows scale uniformly.
+        _scaledLineNames = new[] { "BaseSlotsLine", "LocationSlotsLine" };
+        _csrSupplementMode = true;
+        if (!Mathf.Approximately(_scale, 1f))
+            Plugin.Instance.StartCoroutine(SetupCompat(harmony));
+        Util.Log.Info($"CardScaleCompat: CSR {csrVersion} detected; AccessTools.Field fix applied, shim active for BaseSlotsLine/LocationSlotsLine (scale={_scale:P0}).");
     }
 
     // Patch AccessTools.Field to resolve auto-property backing fields when the plain field name
@@ -182,14 +166,6 @@ internal static class CardScaleCompat
             Util.Log.Debug($"[CSC] FindCsrDllVersion: {Util.Log.ExceptionText(ex)}");
             return null;
         }
-    }
-
-    static string[] SplitCsv(string value)
-    {
-        if (string.IsNullOrWhiteSpace(value)) return Array.Empty<string>();
-        var list = new List<string>();
-        foreach (var p in value.Split(',')) { var t = p.Trim(); if (t.Length > 0) list.Add(t); }
-        return list.ToArray();
     }
 
     static IEnumerator SetupCompat(Harmony harmony)

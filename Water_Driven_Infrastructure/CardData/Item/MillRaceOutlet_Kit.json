@@ -42,6 +42,43 @@
     {
       "ActionName": {
         "ParentObjectID": "water_sawmill_mill_race_outlet_kit",
+        "LocalizationKey": "Water_Sawmill_MillRaceOutletKit_RequiresOutdoors_ActionName",
+        "DefaultText": "Must be Outdoors"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_mill_race_outlet_kit",
+        "LocalizationKey": "Water_Sawmill_MillRaceOutletKit_RequiresOutdoors_ActionDescription",
+        "DefaultText": "The mill race outlet can only be installed in an outdoor environment. Go outside to place it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [],
+      "ActionSoundsWarpType": 3,
+      "RequiredCardsOnBoard": [],
+      "RequiredTagsOnBoard": [
+        {
+          "TriggerTag": {"m_FileID": 0, "m_PathID": 0},
+          "TriggerTagWarpData": "tag_EnvIndoors",
+          "TriggerTagWarpType": 3,
+          "Inverted": false,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ],
+      "HideIfConditionsNotMet": true,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_mill_race_outlet_kit",
         "LocalizationKey": "Water_Sawmill_MillRaceOutletKit_Place_ActionName",
         "DefaultText": "Place"
       },
@@ -71,7 +108,8 @@
           "OnlyEquipped": false
         }
       ],
-      "HideIfConditionsNotMet": true,
+      "HideIfConditionsNotMet": false,
+      "AlternateActionIfConditionsNotMet": {"Active": true, "IntValue": 0},
       "ReceivingCardChanges": {
         "ModType": 2,
         "TransformInto": {"m_FileID": 0, "m_PathID": 0},

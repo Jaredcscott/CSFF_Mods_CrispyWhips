@@ -27,7 +27,7 @@
   "CardTags": [],
   "CardTagsWarpData": [
     "tag_Metal",
-    "tag_SmeltsAt1300"
+    "tag_SmeltsAt1100"
   ],
   "CardTagsWarpType": 3,
   "DoesNotPile": false,
@@ -44,7 +44,23 @@
     "Active": false
   },
   "FuelCapacity": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "water_sawmill_iron_bearing",
+      "LocalizationKey": "",
+      "DefaultText": "Temperature"
+    },
+    "MaxValue": 1300.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 2,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Hot",
+    "OverrideIconWarpType": 3
   },
   "Progress": {
     "Active": true,
@@ -172,7 +188,7 @@
         "ReceivingContainerRequiredDurabilityRanges": {
           "SpoilageRange": {
             "x": 0.0,
-            "y": 1299.0
+            "y": 1099.0
           },
           "UsageRange": {
             "x": 0.0,
@@ -233,7 +249,7 @@
         "RequiredContainerTagsWarpType": 3,
         "ReceivingContainerRequiredDurabilityRanges": {
           "SpoilageRange": {
-            "x": 1300.0,
+            "x": 1100.0,
             "y": 3000.0
           },
           "UsageRange": {

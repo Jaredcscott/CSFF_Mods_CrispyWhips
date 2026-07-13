@@ -1,10 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using HarmonyLib;
 using BepInEx.Logging;
+using CSFFModFramework.Api;
 using CSFFModFramework.Util;
 
 namespace Advanced_Copper_Tools.Patcher
@@ -32,9 +32,6 @@ namespace Advanced_Copper_Tools.Patcher
         private const string GrindingToolTag = "tag_GrindingTool";
         private const string HammerToolTag   = "tag_HammeringToolGeneral";
 
-        // No local reflection caches — CardUtil handles all card identity, inventory, action name,
-        // in-place model swap, and GetFromID lookups.
-
         private static readonly string[] _durabilityCurrentFields =
         {
             "CurrentSpoilage", "CurrentUsageDurability", "CurrentFuel", "CurrentProgress",
@@ -61,61 +58,27 @@ namespace Advanced_Copper_Tools.Patcher
             "LiquidEmpty"
         };
 
-        private static int _lastGrindFrame = -1;
-
-        public static void ApplyPatch(Harmony harmony)
+        public static void ApplyPatch(Harmony _)
         {
             try
             {
-                var gmType = AccessTools.TypeByName("GameManager");
-                if (gmType == null)
+                ActionRouter.Register(new ActionHandler
                 {
-                    Logger?.LogError("[TeaStation] GameManager type not found");
-                    return;
-                }
+                    Name = "TeaGrindAll",
+                    CardPredicate = ctx => ctx.CardUid == StationUnlitID || ctx.CardUid == StationLitID,
+                    ActionNamePrefix = GrindAllName,
+                    Timing = ActionTiming.Cancel,
+                    Before = ctx => { HandleGrindAll(ctx.Card); return true; }
+                });
 
-                var actionRoutine = FindActionRoutine(gmType);
-                var cardOnCardRoutine = FindCardOnCardActionRoutine(gmType);
-                if (actionRoutine != null)
+                ActionRouter.Register(new ActionHandler
                 {
-                    TryPatch(
-                        harmony,
-                        actionRoutine,
-                        "ActionRoutine prefix",
-                        prefix: new HarmonyMethod(typeof(TeaStationPatch), nameof(ActionRoutine_Prefix)) { priority = Priority.High });
-
-                    if (cardOnCardRoutine == null)
-                    {
-                        TryPatch(
-                            harmony,
-                            actionRoutine,
-                            "ActionRoutine postfix",
-                            postfix: new HarmonyMethod(typeof(TeaStationPatch), nameof(ActionRoutine_Postfix)));
-                    }
-                }
-                else
-                {
-                    Logger?.LogError("[TeaStation] ActionRoutine method not found on GameManager");
-                }
-
-                if (cardOnCardRoutine != null)
-                {
-                    TryPatch(
-                        harmony,
-                        cardOnCardRoutine,
-                        "CardOnCardActionRoutine postfix",
-                        postfix: new HarmonyMethod(typeof(TeaStationPatch), nameof(CardOnCardActionRoutine_Postfix)));
-                }
-
-                var stackRoutine = AccessTools.Method(gmType, "PerformStackActionRoutine");
-                if (stackRoutine != null)
-                {
-                    TryPatch(
-                        harmony,
-                        stackRoutine,
-                        "PerformStackActionRoutine prefix",
-                        prefix: new HarmonyMethod(typeof(TeaStationPatch), nameof(PerformStackAction_Prefix)) { priority = Priority.High });
-                }
+                    Name = "TeaDrawBoiledWater",
+                    CardPredicate = ctx => ctx.CardUid == StationUnlitID || ctx.CardUid == StationLitID,
+                    ActionNamePrefix = DrawBoiledWaterName,
+                    Timing = ActionTiming.AfterWrapped,
+                    After = ctx => HandleDrawBoiledWater(ctx.Action, ctx.Card, ctx.GivenCard)
+                });
             }
             catch (Exception ex)
             {
@@ -123,84 +86,10 @@ namespace Advanced_Copper_Tools.Patcher
             }
         }
 
-        private static bool TryPatch(Harmony harmony, MethodInfo method, string label, HarmonyMethod prefix = null, HarmonyMethod postfix = null)
-        {
-            try
-            {
-                harmony.Patch(method, prefix: prefix, postfix: postfix);
-                Logger?.LogDebug($"[TeaStation] {label} patched");
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Logger?.LogError($"[TeaStation] Failed to patch {label}: {FullException(ex)}");
-                return false;
-            }
-        }
-
-        private static MethodInfo FindActionRoutine(Type gmType)
-            => CardUtil.FindMethodBySignature(gmType, "ActionRoutine", "CardAction", "InGameCardBase");
-
-        private static MethodInfo FindCardOnCardActionRoutine(Type gmType)
-            => CardUtil.FindMethodBySignature(gmType, "CardOnCardActionRoutine", "CardOnCardAction", "InGameCardBase", "InGameCardBase");
-
-        // DismantleAction dispatch: PerformStackActionRoutine(CardAction, List<InGameCardBase>, ...)
-        static bool PerformStackAction_Prefix(object __0, object __1)
-        {
-            try
-            {
-                if (__0 == null || __1 == null) return true;
-                var cardList = __1 as IList;
-                if (cardList == null || cardList.Count == 0) return true;
-
-                object receivingCard = cardList[0];
-                if (receivingCard == null) return true;
-                if (!IsGrindAllOnStation(__0, receivingCard)) return true;
-                return HandleGrindAll(receivingCard);
-            }
-            catch (Exception ex)
-            {
-                Logger?.LogError($"[TeaStation] StackPrefix error: {ex}");
-                return true;
-            }
-        }
-
-        // Single-card dispatch fallback: ActionRoutine(CardAction, ReceivingCard, ...)
-        static bool ActionRoutine_Prefix(object __0, object __1)
-        {
-            try
-            {
-                if (__0 == null || __1 == null) return true;
-                if (!IsGrindAllOnStation(__0, __1)) return true;
-                return HandleGrindAll(__1);
-            }
-            catch (Exception ex)
-            {
-                Logger?.LogError($"[TeaStation] ActionRoutine prefix error: {ex}");
-                return true;
-            }
-        }
-
-        private static bool IsGrindAllOnStation(object action, object card)
-        {
-            string actionName = CardUtil.GetActionName(action);
-            if (!string.Equals(actionName, GrindAllName, StringComparison.Ordinal)) return false;
-
-            string uid = CardUtil.GetCardUniqueId(card);
-            return uid == StationUnlitID || uid == StationLitID;
-        }
-
         // ============================================================
         //  GRIND ALL HANDLER
         // ============================================================
         private static bool HandleGrindAll(object station)
-        {
-            if (_lastGrindFrame == UnityEngine.Time.frameCount) return false;
-            _lastGrindFrame = UnityEngine.Time.frameCount;
-            return HandleGrindAllInner(station);
-        }
-
-        private static bool HandleGrindAllInner(object station)
         {
             var inventory = CardUtil.GetInventoryList(station);
             if (inventory == null || inventory.Count == 0)
@@ -490,57 +379,12 @@ namespace Advanced_Copper_Tools.Patcher
         // ============================================================
         //  DRAW BOILED WATER — TEMPERATURE FIX
         // ============================================================
-        // Fix: postfix CardOnCardActionRoutine (EA 0.63+) / ActionRoutine fallback on "Draw Boiled Water" + tea-station-lit
-        // and force the given container's ContainedLiquid.CurrentFuel to max
-        // after the JSON CreatedLiquidInGivenCard path fills the bowl.
-        static IEnumerator CardOnCardActionRoutine_Postfix(
-            IEnumerator enumerator,
-            object _Action,
-            object _GivenCard,
-            object _ReceivingCard,
-            object _User,
-            bool _FastMode,
-            bool _UseReceivingForSlot,
-            bool _DontPlaySounds)
-        {
-            yield return enumerator;
-            HandleDrawBoiledWater(_Action, _ReceivingCard, _GivenCard);
-        }
-
-        static IEnumerator ActionRoutine_Postfix(
-            IEnumerator enumerator,
-            object _Action,
-            object _ReceivingCard,
-            object _User,
-            bool _FastMode,
-            bool _DontPlaySounds,
-            bool _ModifiersAlreadyCollected,
-            object _GivenCard)
-        {
-            // Run the original coroutine to completion first so the liquid is
-            // actually placed in the bowl. Iterating manually with try/catch
-            // would prevent yield through finally; use the proven SkillSpeedBoost
-            // pattern (yield return enumerator).
-            yield return enumerator;
-
-            HandleDrawBoiledWater(_Action, _ReceivingCard, _GivenCard);
-        }
-
         private static void HandleDrawBoiledWater(object action, object receivingCard, object givenCard)
         {
-            // Filter: must be our action on our station, with a target container.
             if (action == null || receivingCard == null || givenCard == null)
                 return;
 
-            string actionName = CardUtil.GetActionName(action);
-            if (!string.Equals(actionName, DrawBoiledWaterName, StringComparison.Ordinal))
-                return;
-
-            string recvUid = CardUtil.GetCardUniqueId(receivingCard);
-            if (recvUid != StationLitID && recvUid != StationUnlitID)
-                return;
-
-            Logger?.LogDebug($"[TeaStation] DrawBoiled fired: action='{actionName}' recv={recvUid}");
+            Logger?.LogDebug("[TeaStation] DrawBoiled fired");
             ApplyBoiledWaterTemperature(givenCard);
             DrainWaterCharge(receivingCard);
         }

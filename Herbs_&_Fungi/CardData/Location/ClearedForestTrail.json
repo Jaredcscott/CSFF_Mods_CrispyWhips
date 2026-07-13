@@ -1,0 +1,96 @@
+{
+  "UniqueID": "herbs_fungi_cleared_forest_trail",
+  "CardName": {
+    "ParentObjectID": "herbs_fungi_cleared_forest_trail",
+    "LocalizationKey": "Herbs_And_Fungi_ClearedForestTrail_CardName",
+    "DefaultText": "Cleared Forest Trail"
+  },
+  "CardDescription": {
+    "ParentObjectID": "herbs_fungi_cleared_forest_trail",
+    "LocalizationKey": "Herbs_And_Fungi_ClearedForestTrail_CardDescription",
+    "DefaultText": "The trail into the foraging forest is open. Left untended, the brush will creep back over it in about ten days — keep a blade handy."
+  },
+  "CanBeRenamed": false,
+  "AlternateNames": [],
+  "CardHelpSection": {
+    "ParentObjectID": "herbs_fungi_cleared_forest_trail",
+    "LocalizationKey": "Herbs_And_Fungi_ClearedForestTrail_CardHelpSection",
+    "DefaultText": "<b>Regrowth:</b> About 10 days. When the Regrowth bar fills, the trail becomes overgrown again and the foot route into the forest closes until you hack it clear once more."
+  },
+  "CardType": 2,
+  "ObjectWeight": 0.0,
+  "TradingValue": 0.0,
+  "CardTags": [],
+  "CardTagsWarpData": [ "tag_Structure" ],
+  "CardTagsWarpType": 3,
+  "EquipmentTags": [],
+  "MapStructureType": 0,
+  "AlwaysUpdate": false,
+  "CannotBeTransferred": true,
+  "CannotBeTrashed": true,
+  "DoesNotPile": true,
+  "NeedsRoomInLocationToSpawn": false,
+  "WhenCreatedSoundsWarpData": [ "Grass" ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": { "Active": false },
+  "UsageDurability": { "Active": false },
+  "FuelCapacity": { "Active": false },
+  "Progress": { "Active": false },
+  "SpecialDurability1": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "herbs_fungi_cleared_forest_trail",
+      "LocalizationKey": "Herbs_And_Fungi_ClearedForestTrail_Regrowth_CardStatName",
+      "DefaultText": "Regrowth"
+    },
+    "RandomStartingOffset": 0.0,
+    "MaxValue": 960.0,
+    "RatePerDaytimePoint": 1.0,
+    "ExtraRateWhenEquipped": 0.0,
+    "PauseRateWhenEnvWeightIsFull": false,
+    "PauseRateWhenInventoryIsFull": false,
+    "HidingOptions": 0,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "ResetWhenLoadedAtZero": false,
+    "HasActionOnZero": false,
+    "ShowPopupOnZero": false,
+    "OnZeroNotification": 0,
+    "HasActionOnFull": true,
+    "ShowPopupOnFull": false,
+    "OnFullNotification": 1,
+    "OnFull": {
+      "ActionDescription": {
+        "ParentObjectID": "herbs_fungi_cleared_forest_trail",
+        "LocalizationKey": "Herbs_And_Fungi_ClearedForestTrail_Regrowth_OnFull_ActionDescription",
+        "DefaultText": "The forest trail has grown over again."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "herbs_fungi_overgrown_forest_trail",
+        "TransformIntoWarpType": 3
+      }
+    },
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Growth",
+    "OverrideIconWarpType": 3
+  },
+  "SpecialDurability2": { "Active": false },
+  "SpecialDurability3": { "Active": false },
+  "SpecialDurability4": { "Active": false },
+  "CardInteractions": [],
+  "DismantleActions": [],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [],
+  "MaxLiquidCapacity": 0.0,
+  "InventorySlots": [],
+  "CookingRecipes": [],
+  "BlueprintStages": [],
+  "BlueprintResult": [],
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "Woods1",
+  "CardImageWarpType": 3,
+  "IsWeapon": false,
+  "IsArmor": false
+}

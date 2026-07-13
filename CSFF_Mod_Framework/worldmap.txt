@@ -1,0 +1,122 @@
+Plan: World Map Replacement (CSFFMFW 2.8.0)
+What "replace the map" means
+Full replacement = a mod ships its own set of nodes + connections. The framework discards the vanilla 123-node graph and builds the runtime WorldMapData.Environments array from the mod's declaration instead. Travel DAs on vanilla CT8 cards that are no longer in the graph are stripped; DAs on mod CT8 cards are injected as usual.
+
+Design decisions
+1. Ownership is exclusive. Only one mod can own a full map replacement per session. If two mods both ship a FullMap, the framework logs an error and falls back to additive mode. No partial merges between replacements.
+
+2. FullMap is a superset of the current MapNodes schema. Nodes are the same MapNodeDefinition struct. The file is a JSON object (not array) with a mode flag.
+
+3. Vanilla nodes can be referenced without re-cloning. A FullMap node with EnvironmentUID set to a vanilla UID (no CloneOfEnvironmentUID) references the vanilla CT4/CT8 directly. The mod doesn't have to re-describe them.
+
+4. Additive mods still use MapNodes.json. FullMap.json is a separate file so the two modes don't collide.
+
+New file: WorldMap/FullMap.json
+
+{
+  "StripVanillaConnections": true,  // default true — remove all vanilla map edges before building new graph
+  "StripOrphanedTravelDAs": true,   // default true — remove travel DAs on CT8s for nodes not in this map
+  "Nodes": [
+    // --- vanilla nodes re-used as-is (no clone) ---
+    {
+      "EnvironmentUID": "2b19b942a09fdd148a43798e942a74eb",  // River Clearing
+      "Coords": {"x": 0, "y": 0, "z": 0},
+      "HideFromMap": false,
+      "Connections": [
+        { "EnvironmentUID": "cmc_env_village_path", "TravelDirection": "East" },
+        { "EnvironmentUID": "54d711f65d6500942b1e5c4041cb0cd5", "TravelDirection": "North" }
+        // west/south left out = those connections don't exist on the new map
+      ]
+    },
+    // --- new clone node ---
+    {
+      "EnvironmentUID": "cmc_env_village_path",
+      "LocationUID": "cmc_loc_village_path",
+      "CloneOfEnvironmentUID": "5af32ab7ce936684d99add01fc56015a",
+      "DisplayName": "Village Path",
+      "Coords": {"x": 10, "y": 0, "z": 0},
+      "Connections": [
+        { "EnvironmentUID": "2b19b942a09fdd148a43798e942a74eb", "TravelDirection": "West" }
+      ]
+    }
+  ]
+}
+StripVanillaConnections: true means the framework ignores all edges baked into the vanilla DefaultWorldMap.json and uses ONLY the connections declared in Nodes[]. This is what makes it a true replacement rather than an overlay.
+
+Implementation — 4 phases
+Phase A — WorldMapLoader (data-load time)
+Add LoadFullMap(mods) alongside the existing LoadAll. Returns a FullMapDefinition (or null if no mod ships FullMap.json):
+
+
+internal sealed class FullMapDefinition
+{
+    public string OwnerMod;
+    public bool StripVanillaConnections;   // default true
+    public bool StripOrphanedTravelDAs;    // default true
+    public List<MapNodeDefinition> Nodes;  // same type as today
+}
+Single-owner enforcement: if two mods ship FullMap.json, log [ERROR] WorldMap full replacement conflict: <ModA> and <ModB> both ship FullMap.json — falling back to additive mode and return null.
+
+Phase B — WorldMapInjector Stage 1 (PrepareAll)
+PrepareAll currently only takes List<MapNodeDefinition> from additive mode. Extend the signature:
+
+
+public static void PrepareAll(List<MapNodeDefinition> additiveNodes, FullMapDefinition fullMap)
+When fullMap != null:
+
+Run clone/register for all FullMap nodes exactly like today's additive path
+Set a _fullMapDef field for Stage 2
+Skip recording Api.WorldMap edges from vanilla nodes — those aren't meaningful until the graph is rebuilt
+Phase C — WorldMapInjector Stage 2 (InjectIntoWorldMap)
+This is where the bulk of the new code lives.
+
+Additive path (today, no _fullMapDef): unchanged — append nodes + inject reverse DAs.
+
+Replacement path (_fullMapDef != null):
+
+Strip vanilla Environments array.
+
+Replace WorldMapData.Environments with an empty collection.
+
+This removes all 123 vanilla nodes from the map graph in one assignment.
+
+Rebuild from FullMap.Nodes.
+
+For each declared node: create a MapEnvData, set Coords/Icon/HideFromMap, set ConnectedEnvironments to only the edges declared in that node's Connections[]. No auto-reverse here — every edge must be explicitly declared on both sides, OR the injector auto-adds reverse edges (same behavior as additive mode; matches current design).
+
+Strip vanilla travel DAs (when StripOrphanedTravelDAs: true).
+
+For every CT8 card in AllData, scan its DismantleActions. Remove any DA with HasExplorationDirection: true whose DroppedCard points to a CT4 card NOT in the FullMap's node list.
+
+This removes the North/South/West buttons from River Clearing when those destinations aren't declared.
+
+Inject travel DAs for declared connections.
+
+Same InjectTravelDA logic as today, but for every connection across all nodes, not just reverse connections.
+
+Record Api.WorldMap edges for WDI / map consumers.
+
+Same RecordEdgeLoadTime calls, but from FullMap edges instead of additive edges.
+
+Phase D — LoadOrchestrator wiring
+One-line change: pass fullMap to PrepareAll:
+
+
+// In LoadOrchestrator, phase 5i (WorldMap):
+var additiveNodes = WorldMapLoader.LoadAll(mods);
+var fullMap       = WorldMapLoader.LoadFullMap(mods);   // new
+WorldMapInjector.PrepareAll(additiveNodes, fullMap);    // signature extended
+Edge cases to handle
+Case	Handling
+Two mods ship FullMap.json	Error + fallback to additive mode
+FullMap mod also has MapNodes.json	Additive nodes are merged into FullMap.Nodes (FullMap mod augmenting itself is valid)
+Vanilla node referenced in FullMap but CT4 not in AllData	Log warn + skip (shouldn't happen)
+FullMap strips a vanilla travel DA, another mod needs it	The other mod ships its own MapNodes.json which re-injects the DA
+StripOrphanedTravelDAs: false	Keep vanilla DAs (user responsibility to avoid stale buttons)
+WDI mill-race: nodes removed from map	Api.WorldMap.InjectedEdges only contains FullMap edges; WDI static edges still work normally
+What this enables
+Total conversion maps: new world from scratch, all custom locations, vanilla locations referenced by UID but fully rewired
+Surgical map edits: keep most of vanilla but remove specific nodes/connections (e.g. make Green Tangle inaccessible from River Clearing)
+Alternative starting zones: move the starting region to a different cluster
+Estimated scope
+~300 lines across WorldMapLoader.cs (new LoadFullMap + FullMapDefinition) and WorldMapInjector.cs (new replacement path in Stage 2 + StripOrphanedTravelDAs). No changes to Api.WorldMap, CardCloneService, or LoadOrchestrator beyond the one-line wiring call. No schema changes to the existing MapNodes.json format — fully backward compatible.

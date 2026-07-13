@@ -28,7 +28,7 @@
             <Private>False</Private>
         </Reference>
         <Reference Include="Assembly-CSharp">
-            <HintPath>lib\Assembly-CSharp-nstrip.dll</HintPath>
+            <HintPath>lib\Assembly-CSharp.dll</HintPath>
             <Private>False</Private>
         </Reference>
         <Reference Include="BepInEx">
@@ -78,6 +78,11 @@
 
     <ItemGroup>
         <Content Include="ModInfo.json" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="BlueprintTabs.json" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="CardData\Hub\**\*" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="CharacterPerk\**\*" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="Localization\**\*" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="Resource\Picture\**\*" CopyToOutputDirectory="PreserveNewest" />
         <Content Include="LICENSE" CopyToOutputDirectory="PreserveNewest" Condition="Exists('LICENSE')" />
         <Content Include="ASSET_CREDITS.md" CopyToOutputDirectory="PreserveNewest" Condition="Exists('ASSET_CREDITS.md')" />
         <Content Include="THIRD_PARTY_LICENSES.md" CopyToOutputDirectory="PreserveNewest" Condition="Exists('THIRD_PARTY_LICENSES.md')" />

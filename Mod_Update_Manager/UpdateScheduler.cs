@@ -10,7 +10,7 @@ namespace mod_update_manager
     public class UpdateScheduler
     {
         private float _checkIntervalSeconds;
-        private float _timeSinceLastCheck;
+        private System.DateTime _lastCheckTime;
         private bool _isEnabled;
         private UpdateChecker _updateChecker;
         private MonoBehaviour _coroutineRunner;
@@ -26,7 +26,7 @@ namespace mod_update_manager
             _updateChecker = updateChecker;
             _coroutineRunner = coroutineRunner;
             _isEnabled = false;
-            _timeSinceLastCheck = 0;
+            _lastCheckTime = System.DateTime.MinValue;
             _isChecking = false;
         }
 
@@ -43,7 +43,7 @@ namespace mod_update_manager
 
             _checkIntervalSeconds = intervalMinutes * 60f;
             _isEnabled = true;
-            _timeSinceLastCheck = 0;
+            _lastCheckTime = System.DateTime.UtcNow;
             Plugin.Logger.LogDebug($"Scheduled update checking started (interval: {intervalMinutes} minutes)");
         }
 
@@ -64,11 +64,9 @@ namespace mod_update_manager
             if (!_isEnabled || _isChecking)
                 return;
 
-            _timeSinceLastCheck += Time.deltaTime;
-
-            if (_timeSinceLastCheck >= _checkIntervalSeconds)
+            if ((System.DateTime.UtcNow - _lastCheckTime).TotalSeconds >= _checkIntervalSeconds)
             {
-                _timeSinceLastCheck = 0;
+                _lastCheckTime = System.DateTime.UtcNow;
                 ExecuteScheduledCheck();
             }
         }
@@ -78,7 +76,7 @@ namespace mod_update_manager
         /// </summary>
         public void ResetTimer()
         {
-            _timeSinceLastCheck = 0;
+            _lastCheckTime = System.DateTime.UtcNow;
         }
 
         /// <summary>
@@ -86,7 +84,7 @@ namespace mod_update_manager
         /// </summary>
         public float GetTimeUntilNextCheck()
         {
-            return Mathf.Max(0, _checkIntervalSeconds - _timeSinceLastCheck);
+            return (float)Math.Max(0, _checkIntervalSeconds - (System.DateTime.UtcNow - _lastCheckTime).TotalSeconds);
         }
 
         /// <summary>

@@ -142,8 +142,17 @@ internal static class BlueprintInjector
         try
         {
             var allData = Loading.LoadOrchestrator.GetAllData();
-            _injected = DoInject(allData, uiRoot);
-            Log.Debug($"[BlueprintInjector] InjectFromUI done: injected={_injected}");
+            bool completed = DoInject(allData, uiRoot);
+            // A pre-UI pass (uiRoot == null, from NewBlueprintContent.Start) can report
+            // completed=true against CardTabGroup instances found via allData/Database/Resources
+            // scans alone. Those aren't guaranteed to be the exact objects the open Blueprint
+            // journal renders (SubGroups may not be WarpResolver-linked yet at that point).
+            // Only a live-UI pass (BlueprintModelsScreen.Show postfix, uiRoot != null) merges the
+            // actual rendered uiRoot.BlueprintTabs tree and can authoritatively latch completion —
+            // per this file's own documented rule (CSFFModFramework/CLAUDE.md, Internal component
+            // notes: "BlueprintInjector must use live UI tabs, not only load-time caches").
+            if (uiRoot != null) _injected = completed;
+            Log.Debug($"[BlueprintInjector] InjectFromUI done: injected={_injected}, completed={completed}, hadUiRoot={uiRoot != null}");
         }
         catch (Exception ex)
         {
@@ -195,7 +204,7 @@ internal static class BlueprintInjector
         if (tabLookup.Count == 0)
             Log.Warn($"BlueprintInjector: tab lookup is empty (merged={tabGroups.Count}, allData={allDataTabCount}, database={databaseTabCount}, resources={resourceTabCount}, ui={uiTabCount}, uiRoot={uiRoot?.GetType().FullName ?? "<none>"})");
         else
-            Log.Info($"[BlueprintInjector] tabLookup: {tabLookup.Count} tabs from {tabGroups.Count} CardTabGroup objects (allData={allDataTabCount}, db={databaseTabCount}, res={resourceTabCount}, ui={uiTabCount})");
+            Log.Debug($"[BlueprintInjector] tabLookup: {tabLookup.Count} tabs from {tabGroups.Count} CardTabGroup objects (allData={allDataTabCount}, db={databaseTabCount}, res={resourceTabCount}, ui={uiTabCount})");
         int injected = 0;
         bool completed = true;
 
@@ -232,7 +241,10 @@ internal static class BlueprintInjector
 
             if (AddBlueprintToTab(targetTab, blueprint, uniqueId, out var added))
             {
-                _doneIds.Add(uniqueId); // resolved — never re-attempt this blueprint
+                // Only a live-UI pass (uiRoot != null) confirms the tab object is the one the
+                // journal actually renders — a pre-UI match may target a stale/duplicate
+                // instance, so don't retire the blueprint from retry until a live pass resolves it.
+                if (uiRoot != null) _doneIds.Add(uniqueId);
                 if (added) injected++;
             }
             else

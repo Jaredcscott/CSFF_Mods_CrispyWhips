@@ -1,4 +1,4 @@
-{
+﻿{
     "ActionModifiers": [],
     "ActionObjectives": [],
     "AddedCards": [],
@@ -70,7 +70,7 @@
     "StartUnlocked": false,
     "StartingStatModifiers": [],
     "StatsObjectives": [],
-    "SunsCost": 5,
+    "SunsCost": 15,
     "TagsOnBoardObjectives": [],
     "TimeObjectives": [],
     "UniqueID": "herbs_fungi_perk_seed_bag",

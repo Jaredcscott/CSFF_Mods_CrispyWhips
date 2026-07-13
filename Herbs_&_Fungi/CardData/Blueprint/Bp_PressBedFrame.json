@@ -2,18 +2,18 @@
     "UniqueID": "herbs_fungi_bp_press_bed_frame",
     "CardName": {
         "ParentObjectID": "herbs_fungi_bp_press_bed_frame",
-        "LocalizationKey": "herbs_fungi_bp_press_bed_frame_CardName",
+        "LocalizationKey": "herbsfungibppressbedframe_CardName",
         "DefaultText": "Press Bed Frame"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_bp_press_bed_frame",
-        "LocalizationKey": "herbs_fungi_bp_press_bed_frame_CardDescription",
+        "LocalizationKey": "herbsfungibppressbedframe_CardDescription",
         "DefaultText": "A stone-reinforced press bed for an oil press. Requires 2 planks, 1 stone, a sharp knife, and a chisel."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {
         "ParentObjectID": "herbs_fungi_bp_press_bed_frame",
-        "LocalizationKey": "herbs_fungi_bp_press_bed_frame_UnlockConditionsDesc",
+        "LocalizationKey": "herbsfungibppressbedframe_UnlockConditionsDesc",
         "DefaultText": "Unlocked after obtaining a plank"
     },
     "BlueprintUnlockTicksCost": 8.0,

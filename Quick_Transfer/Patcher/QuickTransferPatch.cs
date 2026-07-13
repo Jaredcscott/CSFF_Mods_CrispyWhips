@@ -1,6 +1,7 @@
 using System.Reflection;
 using BepInEx.Logging;
 using UnityEngine.EventSystems;
+using CSFFModFramework.Api;
 
 namespace Quick_Transfer.Patcher
 {
@@ -9,7 +10,6 @@ namespace Quick_Transfer.Patcher
         private static ManualLogSource Logger => Plugin.Logger;
 
         private static Type cardGraphicsType;
-        private static readonly Dictionary<(Type, string), MemberInfo> memberCache = new Dictionary<(Type, string), MemberInfo>();
         private static MethodInfo onPointerClickMethod;
 
         // Re-entrancy guard
@@ -25,7 +25,7 @@ namespace Quick_Transfer.Patcher
         {
             try
             {
-                cardGraphicsType = AccessTools.TypeByName("CardGraphics");
+                cardGraphicsType = Reflect.TryGetType("CardGraphics");
 
                 if (cardGraphicsType == null)
                 {
@@ -109,6 +109,7 @@ namespace Quick_Transfer.Patcher
                 string label = totalCount >= 9999 ? "All" : totalCount.ToString();
                 Plugin.ShowNotification($"Quick Transfer: {label}");
 
+                Logger.LogDebug($"[QT] Postfix: starting coroutine for uid={uniqueId}, total={totalCount}, additional={additionalCount}");
                 Plugin.Instance.StartCoroutine(TransferCardsCoroutine(sourceSlot, uniqueId, additionalCount));
             }
             catch (Exception ex)
@@ -124,31 +125,31 @@ namespace Quick_Transfer.Patcher
         }
 
         // Transfers cards from the source slot one per frame.
-        // Scans the scene once at start — all stacked cards exist as separate objects.
-        // Each transfer updates the moved card's slot reference, so re-verify correctly
-        // skips it and advances to the next candidate without a redundant scene scan.
+        // Re-scans for any matching card each iteration to handle both stacked items
+        // (single CardGraphics object representing N cards) and individual card objects.
         static IEnumerator TransferCardsCoroutine(object sourceSlot, string uniqueId, int count)
         {
             int transferred = 0;
             int consecutiveFailures = 0;
             const int MaxConsecutiveFailures = 3;
 
-            var allGraphics = UnityEngine.Object.FindObjectsOfType(cardGraphicsType);
-            var candidates = BuildCandidateList(allGraphics, sourceSlot, uniqueId);
+            object candidate = FindFirstCandidate(sourceSlot, uniqueId);
+            Logger.LogDebug($"[QT] Coroutine start: count={count}, initial candidate={(candidate == null ? "NULL" : "found")}");
 
-            int idx = 0;
-            while (transferred < count && idx < candidates.Count)
+            while (transferred < count)
             {
                 yield return null;
 
-                var candidate = candidates[idx++];
+                // Re-validate cached candidate; re-scan only when it leaves the source slot.
+                if (candidate == null || !IsValidCandidate(candidate, sourceSlot, uniqueId))
+                    candidate = FindFirstCandidate(sourceSlot, uniqueId);
 
-                if (!IsValidCandidate(candidate, sourceSlot, uniqueId))
+                if (candidate == null)
                 {
                     consecutiveFailures++;
                     if (consecutiveFailures >= MaxConsecutiveFailures)
                     {
-                        Logger.LogDebug($"Transferred {1 + transferred} cards (no more matching cards)");
+                        Logger.LogDebug($"[QT] Done: transferred {1 + transferred} cards total (no more matching cards after {transferred} coroutine moves)");
                         yield break;
                     }
                     continue;
@@ -167,7 +168,7 @@ namespace Quick_Transfer.Patcher
                 catch (Exception ex)
                 {
                     Logger.LogError($"Transfer failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
-                    Logger.LogDebug($"Transferred {1 + transferred} cards");
+                    Logger.LogDebug($"[QT] Done (exception): transferred {1 + transferred} cards total");
                     yield break;
                 }
                 finally
@@ -176,19 +177,19 @@ namespace Quick_Transfer.Patcher
                 }
             }
 
-            Logger.LogDebug($"Transferred {1 + transferred} cards");
+            Logger.LogDebug($"[QT] Done: transferred {1 + transferred} cards total (reached requested count)");
         }
 
-        static List<object> BuildCandidateList(object[] allGraphics, object sourceSlot, string uniqueId)
+        static object FindFirstCandidate(object sourceSlot, string uniqueId)
         {
-            var candidates = new List<object>();
-            if (allGraphics == null) return candidates;
+            var allGraphics = UnityEngine.Object.FindObjectsOfType(cardGraphicsType);
+            if (allGraphics == null) return null;
             foreach (var g in allGraphics)
             {
                 if (IsValidCandidate(g, sourceSlot, uniqueId))
-                    candidates.Add(g);
+                    return g;
             }
-            return candidates;
+            return null;
         }
 
         static bool IsValidCandidate(object graphics, object sourceSlot, string uniqueId)
@@ -200,6 +201,10 @@ namespace Quick_Transfer.Patcher
             if (cardSlot == null || !ReferenceEquals(cardSlot, sourceSlot)) return false;
             var cardModel = GetMemberValue(card, "CardModel");
             if (cardModel == null) return false;
+            var cardType = GetMemberValue(cardModel, "CardType");
+            if (cardType != null && Convert.ToInt32(cardType) == 8) return false;
+            var cannotTransfer = GetMemberValue(cardModel, "CannotBeTransferred");
+            if (cannotTransfer is bool ct && ct) return false;
             var cardId = GetMemberValue(cardModel, "UniqueID")?.ToString();
             return cardId == uniqueId;
         }
@@ -221,59 +226,20 @@ namespace Quick_Transfer.Patcher
 
         #region Reflection helpers
 
+        // Delegates the actual property/field resolution + per-(Type,name) caching to the
+        // framework's Reflect API. Preserves the original fallback semantics exactly: try each
+        // candidate name in turn and only fall through to the next name if the resolved value
+        // is null (not merely if the member is absent) — callers rely on this to skip fields
+        // that exist on the type but aren't populated on a given instance (e.g. CurrentSlot vs
+        // ContainerSlot vs ParentSlot).
         private static object GetMemberValue(object obj, params string[] names)
         {
-            if (obj == null) return null;
-            var type = obj.GetType();
-
+            if (obj == null || names == null) return null;
             foreach (var name in names)
             {
-                var key = (type, name);
-
-                if (memberCache.TryGetValue(key, out var cached))
-                {
-                    if (cached == null) continue;
-
-                    try
-                    {
-                        object value = cached is PropertyInfo prop
-                            ? prop.GetValue(obj)
-                            : ((FieldInfo)cached).GetValue(obj);
-                        if (value != null) return value;
-                    }
-                    catch { }
-                    continue;
-                }
-
-                var field = type.GetField(name, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-                if (field != null)
-                {
-                    memberCache[key] = field;
-                    try
-                    {
-                        var value = field.GetValue(obj);
-                        if (value != null) return value;
-                    }
-                    catch { }
-                    continue;
-                }
-
-                var property = AccessTools.Property(type, name);
-                if (property != null)
-                {
-                    memberCache[key] = property;
-                    try
-                    {
-                        var value = property.GetValue(obj);
-                        if (value != null) return value;
-                    }
-                    catch { }
-                    continue;
-                }
-
-                memberCache[key] = null;
+                if (Reflect.TryGetMember(obj, name, out var value) && value != null)
+                    return value;
             }
-
             return null;
         }
 

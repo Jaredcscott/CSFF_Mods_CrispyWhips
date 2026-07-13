@@ -45,6 +45,43 @@
     {
       "ActionName": {
         "ParentObjectID": "water_sawmill_fishpond_kit",
+        "LocalizationKey": "Water_Sawmill_FishpondKit_RequiresWater_ActionName",
+        "DefaultText": "Requires Water"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_fishpond_kit",
+        "LocalizationKey": "Water_Sawmill_FishpondKit_RequiresWater_ActionDescription",
+        "DefaultText": "This kit must be placed at a river or lake. Travel to a water environment to build it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [],
+      "ActionSoundsWarpType": 3,
+      "RequiredCardsOnBoard": [],
+      "RequiredTagsOnBoard": [
+        {
+          "TriggerTag": {"m_FileID": 0, "m_PathID": 0},
+          "TriggerTagWarpData": "tag_River",
+          "TriggerTagWarpType": 3,
+          "Inverted": true,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "OnlyEquipped": false
+        }
+      ],
+      "HideIfConditionsNotMet": true,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_fishpond_kit",
         "LocalizationKey": "Water_Sawmill_FishpondKit_Place_ActionName",
         "DefaultText": "Place"
       },
@@ -64,6 +101,7 @@
       "RequiredCardsOnBoard": [],
       "RequiredTagsOnBoard": ["tag_River"],
       "HideIfConditionsNotMet": false,
+      "AlternateActionIfConditionsNotMet": {"Active": true, "IntValue": 0},
       "ReceivingCardChanges": {
         "ModType": 2,
         "TransformInto": {"m_FileID": 0, "m_PathID": 0},

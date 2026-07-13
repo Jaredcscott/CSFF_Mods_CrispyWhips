@@ -5,6 +5,7 @@ using System.Reflection;
 using HarmonyLib;
 using BepInEx.Logging;
 using UnityEngine;
+using CSFFModFramework.Api;
 using Herbs_And_Fungi;
 
 namespace Herbs_And_Fungi.Patcher
@@ -316,6 +317,9 @@ namespace Herbs_And_Fungi.Patcher
                 object commonPlantain = null;
                 object chamomile = null;
 
+                // Peanuts
+                object peanutPod = null;
+
                 foreach (var item in allDataEnumerable)
                 {
                     if (item == null) continue;
@@ -354,6 +358,8 @@ namespace Herbs_And_Fungi.Patcher
                     else if (uniqueId == "herbs_fungi_dandelion") dandelion = item;
                     else if (uniqueId == "herbs_fungi_common_plantain") commonPlantain = item;
                     else if (uniqueId == "herbs_fungi_chamomile") chamomile = item;
+                    // Peanuts
+                    else if (uniqueId == "herbs_fungi_peanut_pod") peanutPod = item;
                 }
 
                 int locationsModified = 0;
@@ -379,6 +385,7 @@ namespace Herbs_And_Fungi.Patcher
                     // Check if this is a location type we want to modify
                     // Pattern examples: "GroveOak_MossyGrove_CardName", "River_GroveOak_FloodedGrove_CardName"
                     bool isOakGrove = localizationKey.Contains("GroveOak") || localizationKey.Contains("ThicketOak") || localizationKey.Contains("ClearingOak");
+                    bool isAlderWoods = localizationKey.Contains("GroveAlder") || localizationKey.Contains("ThicketAlder") || localizationKey.Contains("ClearingAlder");
                     bool isPineForest = localizationKey.Contains("GrovePine") || localizationKey.Contains("ThicketPine") || localizationKey.Contains("ClearingPine");
                     bool isBirchForest = localizationKey.Contains("Birch") || localizationKey.Contains("GroveBirch") || localizationKey.Contains("ThicketBirch");
                     bool isWillowArea = localizationKey.Contains("Willow") || localizationKey.Contains("GroveWillow") || localizationKey.Contains("ThicketWillow");
@@ -400,10 +407,30 @@ namespace Herbs_And_Fungi.Patcher
                     bool isCaveStillHollow = localizationKey.Contains("CaveStillHollow");
                     bool isUndergroundCave = isCaveOldHollow || isCaveShadyThicket || isCaveStillHollow;
 
-                    if (!isOakGrove && !isPineForest && !isBirchForest && !isWillowArea && !isRiverBank && !isPrimevalWoods && !isClearing && !isWildWoods && !isNorthernRegion && !isPineMeadow && !isUndergroundCave && !isLostWoods && !isGreenGrove && !isGreenGlade && !isOakenGrove) continue;
+                    // H&F's own WorldMap clone environments (HerbsAndFungi/WorldMap/MapNodes.json)
+                    // get a fresh CardName.LocalizationKey ("HF_Env_<Name>_CardName", assigned by
+                    // the framework's CardCloneService) that matches none of the vanilla biome
+                    // patterns above, so their Forage actions were silently skipped and never
+                    // received herb/mushroom drops. Map each clone to the biome bucket of the
+                    // vanilla environment it clones from (verified via CloneOfEnvironmentUID):
+                    // hfEnvForagingPath <- Env_GroveOak_SecretGrove, hfEnvOakClearing <-
+                    // Env_ClearingOak_MossyClearing, hfEnvPineClearing <- Env_ClearingPine_PineClearing,
+                    // hfEnvAlderWoods <- Env_GroveAlder_AlderGrove.
+                    // hfEnvForagingPath/hfEnvAlderWoods clone Groves (not Clearings) so isClearing
+                    // stays false for them, matching what the LocalizationKey match would have
+                    // produced for their vanilla sources; hfEnvOakClearing/hfEnvPineClearing clone
+                    // actual Clearings so isClearing is set true for them.
+                    var envUniqueIdField = AccessTools.Field(item.GetType(), "UniqueID");
+                    var envUniqueId = envUniqueIdField?.GetValue(item) as string;
+                    if (envUniqueId == "hfEnvForagingPath") isOakGrove = true;
+                    else if (envUniqueId == "hfEnvOakClearing") { isOakGrove = true; isClearing = true; }
+                    else if (envUniqueId == "hfEnvAlderWoods") isAlderWoods = true;
+                    else if (envUniqueId == "hfEnvPineClearing") { isPineForest = true; isClearing = true; }
+
+                    if (!isOakGrove && !isAlderWoods && !isPineForest && !isBirchForest && !isWillowArea && !isRiverBank && !isPrimevalWoods && !isClearing && !isWildWoods && !isNorthernRegion && !isPineMeadow && !isUndergroundCave && !isLostWoods && !isGreenGrove && !isGreenGlade && !isOakenGrove) continue;
 
                     // Determine location type for mushroom drop logic
-                    string locationType = isNorthernRegion ? "Northern" : (isPrimevalWoods ? "Primeval" : (isWillowArea ? "Willow" : (isWildWoods ? "WildWoods" : (isPineMeadow ? "PineMeadow" : (isOakGrove ? "Oak" : (isBirchForest ? "Birch" : (isPineForest ? "Pine" : (isUndergroundCave ? "Cave" : "River"))))))));
+                    string locationType = isNorthernRegion ? "Northern" : (isPrimevalWoods ? "Primeval" : (isWillowArea ? "Willow" : (isWildWoods ? "WildWoods" : (isPineMeadow ? "PineMeadow" : (isOakGrove ? "Oak" : (isAlderWoods ? "Alder" : (isBirchForest ? "Birch" : (isPineForest ? "Pine" : (isUndergroundCave ? "Cave" : "River")))))))));
 
                     // Get DismantleActions array
                     var dismantleActionsField = AccessTools.Field(item.GetType(), "DismantleActions");
@@ -443,14 +470,14 @@ namespace Herbs_And_Fungi.Patcher
                         {
                             // === ORIGINAL MUSHROOMS ===
 
-                            // Morels in oak forests and river banks (8% chance)
-                            if ((isOakGrove || isRiverBank) && morelMushroom != null)
+                            // Morels in oak/alder forests and river banks (8% chance)
+                            if ((isOakGrove || isAlderWoods || isRiverBank) && morelMushroom != null)
                             {
                                 AddMushroomDropToAction(producedCards, morelMushroom, 8.0f, true, false);
                             }
 
-                            // Lion's Mane in oak forests (8% chance) - Spring/Summer/Fall only
-                            if (isOakGrove && lionsManeMushroom != null)
+                            // Lion's Mane in oak/alder forests (8% chance) - Spring/Summer/Fall only
+                            if ((isOakGrove || isAlderWoods) && lionsManeMushroom != null)
                             {
                                 AddMushroomDropToAction(producedCards, lionsManeMushroom, 8.0f, false, false, true);
                             }
@@ -468,8 +495,8 @@ namespace Herbs_And_Fungi.Patcher
                                 AddMushroomDropToAction(producedCards, blackTrumpet, 6.0f, false, false, true);
                             }
 
-                            // Oyster mushrooms in oak AND pine forests (King 8%, Golden 14%)
-                            if (isOakGrove || isPineForest)
+                            // Oyster mushrooms in oak/alder AND pine forests (King 8%, Golden 14%)
+                            if (isOakGrove || isAlderWoods || isPineForest)
                             {
                                 if (kingOyster != null)
                                 {
@@ -483,14 +510,14 @@ namespace Herbs_And_Fungi.Patcher
 
                             // === NEW MUSHROOMS ===
 
-                            // Chanterelle in oak AND birch forests (8% chance) - Spring/Summer/Fall only
-                            if ((isOakGrove || isBirchForest) && chanterelle != null)
+                            // Chanterelle in oak/alder AND birch forests (8% chance) - Spring/Summer/Fall only
+                            if ((isOakGrove || isAlderWoods || isBirchForest) && chanterelle != null)
                             {
                                 AddMushroomDropToAction(producedCards, chanterelle, 8.0f, false, false, true);
                             }
 
-                            // Reishi in oak AND pine forests (4% chance - medicinal) - Spring/Summer/Fall only
-                            if ((isOakGrove || isPineForest) && reishi != null)
+                            // Reishi in oak/alder AND pine forests (4% chance - medicinal) - Spring/Summer/Fall only
+                            if ((isOakGrove || isAlderWoods || isPineForest) && reishi != null)
                             {
                                 AddMushroomDropToAction(producedCards, reishi, 4.0f, false, false, true);
                             }
@@ -501,12 +528,12 @@ namespace Herbs_And_Fungi.Patcher
                                 AddMushroomDropToAction(producedCards, puffball, 10.0f, false, false, true);
                             }
 
-                            // Chicken of the Woods near Willow trees (12%) and Oak groves (6%) - Spring/Summer/Fall only
+                            // Chicken of the Woods near Willow trees (12%) and Oak/Alder groves (6%) - Spring/Summer/Fall only
                             if (isWillowArea && chickenOfWoods != null)
                             {
                                 AddMushroomDropToAction(producedCards, chickenOfWoods, 12.0f, false, false, true);
                             }
-                            else if (isOakGrove && chickenOfWoods != null)
+                            else if ((isOakGrove || isAlderWoods) && chickenOfWoods != null)
                             {
                                 AddMushroomDropToAction(producedCards, chickenOfWoods, 6.0f, false, false, true);
                             }
@@ -544,14 +571,14 @@ namespace Herbs_And_Fungi.Patcher
 
                             // === NEWEST MUSHROOMS ===
 
-                            // Black Trumpet in oak groves (6% chance - gourmet) - Spring/Summer/Fall only
-                            if (isOakGrove && blackTrumpet != null)
+                            // Black Trumpet in oak/alder groves (6% chance - gourmet) - Spring/Summer/Fall only
+                            if ((isOakGrove || isAlderWoods) && blackTrumpet != null)
                             {
                                 AddMushroomDropToAction(producedCards, blackTrumpet, 6.0f, false, false, true);
                             }
 
-                            // Shiitake in oak forests and dead wood areas (8% chance - immune boost) - Spring/Summer/Fall only
-                            if ((isOakGrove || isPrimevalWoods) && shiitake != null)
+                            // Shiitake in oak/alder forests and dead wood areas (8% chance - immune boost) - Spring/Summer/Fall only
+                            if ((isOakGrove || isAlderWoods || isPrimevalWoods) && shiitake != null)
                             {
                                 AddMushroomDropToAction(producedCards, shiitake, 8.0f, false, false, true);
                             }
@@ -572,16 +599,16 @@ namespace Herbs_And_Fungi.Patcher
 
                             // === BERRIES ===
 
-                            // Blackcurrant: birch (12%), river banks (8%), oak (5%) - Summer only
+                            // Blackcurrant: birch (12%), river banks (8%), oak/alder (5%) - Summer only
                             if (isBirchForest && blackcurrant != null)
                                 AddMushroomDropToAction(producedCards, blackcurrant, 12.0f, false, false, true);
                             if (isRiverBank && blackcurrant != null)
                                 AddMushroomDropToAction(producedCards, blackcurrant, 8.0f, false, false, true);
-                            if (isOakGrove && blackcurrant != null)
+                            if ((isOakGrove || isAlderWoods) && blackcurrant != null)
                                 AddMushroomDropToAction(producedCards, blackcurrant, 5.0f, false, false, true);
 
-                            // Redcurrant: oak (12%), birch (8%), clearings (6%) - Summer only
-                            if (isOakGrove && redcurrant != null)
+                            // Redcurrant: oak/alder (12%), birch (8%), clearings (6%) - Summer only
+                            if ((isOakGrove || isAlderWoods) && redcurrant != null)
                                 AddMushroomDropToAction(producedCards, redcurrant, 12.0f, false, false, true);
                             if (isBirchForest && redcurrant != null)
                                 AddMushroomDropToAction(producedCards, redcurrant, 8.0f, false, false, true);
@@ -612,12 +639,12 @@ namespace Herbs_And_Fungi.Patcher
                             if (isRiverBank && wildFlowers != null)
                                 AddMushroomDropToAction(producedCards, wildFlowers, 12.0f, false, false, true);
 
-                            // Dandelion: clearings (20%), river banks (14%), oak groves (12%)
+                            // Dandelion: clearings (20%), river banks (14%), oak/alder groves (12%)
                             if (isClearing && dandelion != null)
                                 AddMushroomDropToAction(producedCards, dandelion, 20.0f, false, false, true);
                             if (isRiverBank && dandelion != null)
                                 AddMushroomDropToAction(producedCards, dandelion, 14.0f, false, false, true);
-                            if (isOakGrove && dandelion != null)
+                            if ((isOakGrove || isAlderWoods) && dandelion != null)
                                 AddMushroomDropToAction(producedCards, dandelion, 12.0f, false, false, true);
 
                             // Common Plantain: clearings (16%), river banks (14%), birch (10%)
@@ -635,6 +662,15 @@ namespace Herbs_And_Fungi.Patcher
                                 AddMushroomDropToAction(producedCards, chamomile, 14.0f, false, false, true);
                             if (isBirchForest && chamomile != null)
                                 AddMushroomDropToAction(producedCards, chamomile, 10.0f, false, false, true);
+
+                            // === PEANUTS ===
+                            // Peanut pods: oak/alder (10%), clearings (8%), pine (6%) - Spring/Summer/Fall only
+                            if ((isOakGrove || isAlderWoods) && peanutPod != null)
+                                AddMushroomDropToAction(producedCards, peanutPod, 10.0f, false, false, true);
+                            else if (isClearing && peanutPod != null)
+                                AddMushroomDropToAction(producedCards, peanutPod, 8.0f, false, false, true);
+                            else if (isPineForest && peanutPod != null)
+                                AddMushroomDropToAction(producedCards, peanutPod, 6.0f, false, false, true);
 
                             forageActionsModified++;
                         }
@@ -658,11 +694,17 @@ namespace Herbs_And_Fungi.Patcher
                             {
                                 AddMushroomDropToAction(producedCards, truffle, 1.0f, false, false, true);
                             }
+
+                            // Peanut pods when digging in oak/alder/pine/clearing areas (5%) - peanuts grow underground
+                            if ((isOakGrove || isAlderWoods || isPineForest || isClearing) && peanutPod != null)
+                            {
+                                AddMushroomDropToAction(producedCards, peanutPod, 5.0f, false, false, true);
+                            }
                         }
                     }
 
-                    // Oak locations get a dedicated "Dig for Truffles" action (higher find rate)
-                    if (isOakGrove && truffle != null)
+                    // Oak/Alder locations get a dedicated "Dig for Truffles" action (higher find rate)
+                    if ((isOakGrove || isAlderWoods) && truffle != null)
                     {
                         AddDigForTrufflesAction(item, dismantleActionsField, dismantleActions, truffle);
                     }
@@ -680,8 +722,7 @@ namespace Herbs_And_Fungi.Patcher
         /// <summary>
         /// Adds a mushroom/herb drop to a forage action's ProducedCards list.
         /// </summary>
-        static void AddMushroomDropToAction(IList producedCards, object mushroom, float dropChance,
-            bool allYears = false, bool springSummerOnly = false, bool noBotSpringOnly = false)
+        static void AddMushroomDropToAction(IList producedCards, object mushroom, float dropChance, bool isYearRound = false, bool unused = false, bool isSeasonal = false)
         {
             if (mushroom == null || producedCards == null) return;
 
@@ -965,104 +1006,21 @@ namespace Herbs_And_Fungi.Patcher
         {
             try
             {
-                var flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
-
-                var recipesField = stationCard.GetType().GetField("CookingRecipes", flags);
-                if (recipesField == null)
+                var spec = new RecipeSpec
                 {
-                    Logger?.LogError($"[TendonDry] {label}: CookingRecipes field not found.");
-                    return;
-                }
+                    CompatibleCards = new[] { tendon },
+                    CompatibleTags = Array.Empty<object>(),
+                    ConditionsCard = 0, // no heat required
+                    Duration = 1,
+                    CookerModType = 0, // no change to the station itself
+                    IngredientModType = 1, // modify tendon in place
+                    UsageChange = Vector2.zero,
+                    SpoilageChange = Vector2.zero,
+                    FuelChange = new Vector2(-2f, -2f), // drains Wetness faster
+                };
 
-                var recipeArr = recipesField.GetValue(stationCard) as Array;
-                if (recipeArr == null || recipeArr.Length == 0)
-                {
-                    Logger?.LogError($"[TendonDry] {label}: CookingRecipes is null or empty.");
-                    return;
-                }
-
-                var recipeType = recipeArr.GetType().GetElementType();
-
-                // Idempotency: skip if Tendon recipe already injected
-                var compatCardsField = recipeType.GetField("CompatibleCards", flags);
-                if (compatCardsField != null)
-                {
-                    foreach (var existing in recipeArr)
-                    {
-                        var cc = compatCardsField.GetValue(existing) as Array;
-                        if (cc != null && cc.Length == 1 && cc.GetValue(0) == tendon) return;
-                    }
-                }
-
-                // Clone first recipe as a template for correct type defaults
-                var template  = recipeArr.GetValue(0);
-                var newRecipe = Activator.CreateInstance(recipeType);
-                foreach (var fi in recipeType.GetFields(flags))
-                    fi.SetValue(newRecipe, fi.GetValue(template));
-
-                // CompatibleCards = [tendon]; CompatibleTags = []
-                if (compatCardsField != null)
-                {
-                    var elemType = compatCardsField.FieldType.IsArray
-                        ? compatCardsField.FieldType.GetElementType()
-                        : typeof(object);
-                    var arr = Array.CreateInstance(elemType, 1);
-                    arr.SetValue(tendon, 0);
-                    compatCardsField.SetValue(newRecipe, arr);
-                }
-
-                var compatTagsField = recipeType.GetField("CompatibleTags", flags);
-                if (compatTagsField != null && compatTagsField.FieldType.IsArray)
-                    compatTagsField.SetValue(newRecipe,
-                        Array.CreateInstance(compatTagsField.FieldType.GetElementType(), 0));
-
-                // ConditionsCard = 0 (no heat required), Duration = 1
-                recipeType.GetField("ConditionsCard", flags)?.SetValue(newRecipe, 0);
-                recipeType.GetField("Duration",       flags)?.SetValue(newRecipe, 1);
-
-                // CookerChanges: ModType = 0 (no change to the station itself)
-                var cookerField = recipeType.GetField("CookerChanges", flags);
-                if (cookerField != null)
-                {
-                    var cooker = cookerField.GetValue(newRecipe)
-                                 ?? Activator.CreateInstance(cookerField.FieldType);
-                    cooker.GetType().GetField("ModType", flags)?.SetValue(cooker, 0);
-                    cookerField.SetValue(newRecipe, cooker);
-                }
-
-                // IngredientChanges: ModType=1, FuelChange=-2 (drains faster), zero others
-                var ingField = recipeType.GetField("IngredientChanges", flags);
-                if (ingField == null)
-                {
-                    Logger?.LogError($"[TendonDry] {label}: IngredientChanges field not found.");
-                    return;
-                }
-
-                var ing = ingField.GetValue(newRecipe)
-                          ?? Activator.CreateInstance(ingField.FieldType);
-                var ingType = ing.GetType();
-
-                var fuelChangeField = ingType.GetField("FuelChange", flags);
-                if (fuelChangeField == null)
-                {
-                    Logger?.LogError($"[TendonDry] {label}: FuelChange field not found on IngredientChanges — Tendon recipe not injected.");
-                    return;
-                }
-
-                var zero = new UnityEngine.Vector2(0f, 0f);
-                ingType.GetField("ModType",       flags)?.SetValue(ing, 1);
-                ingType.GetField("UsageChange",   flags)?.SetValue(ing, zero);
-                ingType.GetField("SpoilageChange",flags)?.SetValue(ing, zero);
-                fuelChangeField.SetValue(ing, new UnityEngine.Vector2(-2f, -2f));
-                ingField.SetValue(newRecipe, ing);
-
-                // Append new recipe to the CookingRecipes array
-                var newArr = Array.CreateInstance(recipeType, recipeArr.Length + 1);
-                Array.Copy(recipeArr, newArr, recipeArr.Length);
-                newArr.SetValue(newRecipe, recipeArr.Length);
-                recipesField.SetValue(stationCard, newArr);
-
-                Logger?.LogDebug($"[TendonDry] Injected Tendon drying recipe on {label}.");
+                if (RecipeInjector.InjectCookingRecipe(stationCard, spec, label))
+                    Logger?.LogDebug($"[TendonDry] Injected Tendon drying recipe on {label}.");
             }
             catch (Exception ex)
             {
@@ -1070,24 +1028,9 @@ namespace Herbs_And_Fungi.Patcher
             }
         }
 
-        private static object GetMember(object target, string name)
-        {
-            if (target == null) return null;
-            var t = target.GetType();
-            const BindingFlags f = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
-            try { var p = t.GetProperty(name, f); if (p != null && p.CanRead) return p.GetValue(target, null); } catch { }
-            try { var fi = t.GetField(name, f); if (fi != null) return fi.GetValue(target); } catch { }
-            return null;
-        }
+        private static object GetMember(object target, string name) => Reflect.GetMember(target, name);
 
-        private static void SetMember(object target, string name, object value)
-        {
-            if (target == null) return;
-            var t = target.GetType();
-            const BindingFlags f = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
-            try { var p = t.GetProperty(name, f); if (p != null && p.CanWrite) { p.SetValue(target, value, null); return; } } catch { }
-            try { var fi = t.GetField(name, f); fi?.SetValue(target, value); } catch { }
-        }
+        private static void SetMember(object target, string name, object value) => Reflect.SetMember(target, name, value);
 
         /// <summary>
         /// Patches the vanilla Pouch (description: "ideal for preserving powders") to actually

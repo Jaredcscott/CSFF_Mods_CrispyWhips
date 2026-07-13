@@ -1,15 +1,15 @@
 {
     "UniqueID": "herbs_fungi_mushroom_broth",
     "CardName": {
-        "LocalizationKey": "herbs_fungi_mushroom_broth_CardName",
+        "LocalizationKey": "herbsfungimushroombroth_CardName",
         "DefaultText": "Mushroom Broth"
     },
     "CardDescription": {
-        "LocalizationKey": "herbs_fungi_mushroom_broth_CardDescription",
+        "LocalizationKey": "herbsfungimushroombroth_CardDescription",
         "DefaultText": "A bowl of rich, earthy broth simmered from dried shiitake and king oyster mushrooms. Warming, nourishing, and deeply satisfying."
     },
     "CardHelpSection": {
-        "LocalizationKey": "herbs_fungi_mushroom_broth_CardHelpSection",
+        "LocalizationKey": "herbsfungimushroombroth_CardHelpSection",
         "DefaultText": "<b>Made by:</b> Blueprint: Mushroom Broth\n\n<b>Uses:</b> Drink for strong nutrition and hydration.\n\n<b>Benefits:</b> High hydration, solid satiation, mild stress relief. Earthy and savoury flavor profile."
     },
     "CardType": 0,
@@ -29,7 +29,7 @@
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
-            "LocalizationKey": "herbs_fungi_mushroom_broth_SpoilageTime_StatName",
+            "LocalizationKey": "herbsfungimushroombroth_SpoilageTime_StatName",
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
@@ -39,7 +39,7 @@
         "HasActionOnFull": true,
         "OnFull": {
             "ActionDescription": {
-                "LocalizationKey": "herbs_fungi_mushroom_broth_Spoiled",
+                "LocalizationKey": "herbsfungimushroombroth_Spoiled",
                 "DefaultText": "The mushroom broth has spoiled."
             },
             "ReceivingCardChanges": {
@@ -54,11 +54,11 @@
     "DismantleActions": [
         {
             "ActionName": {
-                "LocalizationKey": "herbs_fungi_mushroom_broth_Drink",
+                "LocalizationKey": "herbsfungimushroombroth_Drink",
                 "DefaultText": "Drink"
             },
             "ActionDescription": {
-                "LocalizationKey": "herbs_fungi_mushroom_broth_Drink_Desc",
+                "LocalizationKey": "herbsfungimushroombroth_Drink_Desc",
                 "DefaultText": "Drink the mushroom broth. Earthy and warming."
             },
             "DaytimeCost": 0,

@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_yarrow_ground",
     "CardName": {
         "ParentObjectID": "herbs_fungi_yarrow_ground",
-        "LocalizationKey": "herbs_fungi_yarrow_ground_CardName",
+        "LocalizationKey": "herbsfungiyarrowground_CardName",
         "DefaultText": "Ground Yarrow"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_yarrow_ground",
-        "LocalizationKey": "herbs_fungi_yarrow_ground_CardDescription",
+        "LocalizationKey": "herbsfungiyarrowground_CardDescription",
         "DefaultText": "Finely ground dried yarrow powder. Can be mixed with hot water to make healing tea, or applied directly to wounds for potent hemostatic effects."
     },
     "CardType": 0,
@@ -33,12 +33,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_yarrow_ground",
-                "LocalizationKey": "herbs_fungi_yarrow_ground_Eat",
+                "LocalizationKey": "herbsfungiyarrowground_Eat",
                 "DefaultText": "Eat"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_yarrow_ground",
-                "LocalizationKey": "herbs_fungi_yarrow_ground_Eat_Desc",
+                "LocalizationKey": "herbsfungiyarrowground_Eat_Desc",
                 "DefaultText": "Eat the concentrated yarrow powder. Very effective at stopping bleeding and fighting infection."
             },
             "DaytimeCost": 0,
@@ -361,12 +361,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_yarrow_ground",
-                "LocalizationKey": "herbs_fungi_yarrow_ground_ApplyWound",
+                "LocalizationKey": "herbsfungiyarrowground_ApplyWound",
                 "DefaultText": "Apply to Wound"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_yarrow_ground",
-                "LocalizationKey": "herbs_fungi_yarrow_ground_ApplyWound_Desc",
+                "LocalizationKey": "herbsfungiyarrowground_ApplyWound_Desc",
                 "DefaultText": "Apply the concentrated yarrow powder directly to wounds. Excellent hemostatic and antiseptic properties."
             },
             "DaytimeCost": 3,
@@ -433,12 +433,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_yarrow_ground",
-                "LocalizationKey": "herbs_fungi_yarrow_ground_ApplyWound",
+                "LocalizationKey": "herbsfungiyarrowground_ApplyWound",
                 "DefaultText": "Apply to Wound"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_yarrow_ground",
-                "LocalizationKey": "herbs_fungi_yarrow_ground_ApplyWound_Desc",
+                "LocalizationKey": "herbsfungiyarrowground_ApplyWound_Desc",
                 "DefaultText": "Apply the concentrated yarrow powder directly to wounds. Excellent hemostatic and antiseptic properties."
             },
             "DaytimeCost": 3,
@@ -522,12 +522,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_yarrow_ground",
-                "LocalizationKey": "herbs_fungi_yarrow_ground_MixTea",
+                "LocalizationKey": "herbsfungiyarrowground_MixTea",
                 "DefaultText": "Mix into Hot Water"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_yarrow_ground",
-                "LocalizationKey": "herbs_fungi_yarrow_ground_MixTea_Desc",
+                "LocalizationKey": "herbsfungiyarrowground_MixTea_Desc",
                 "DefaultText": "Mix yarrow powder into hot water to create healing tea."
             },
             "DaytimeCost": 1,
@@ -640,6 +640,131 @@
                     "StatWarpType": 3
                 }
             ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_yarrow_ground",
+                "LocalizationKey": "",
+                "DefaultText": "Add to Stew"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_yarrow_ground",
+                "LocalizationKey": "",
+                "DefaultText": "Drop into the boiling liquid to cook."
+            },
+            "WorksInverted": true,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [
+                    "tag_StewContainer"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "RequiredStatValues": [],
+            "RequiredNPCStatValues": [],
+            "RequiredCardsOnBoard": [],
+            "RequiredTagsOnBoard": [],
+            "RequiredAlreadyVisitedEnvironments": [],
+            "RequiredReceivingContainer": [],
+            "RequiredReceivingContainerTag": [],
+            "RequiredNOTReceivingContainerTag": [],
+            "RequiredReceivingContainerDurabilities": {},
+            "RequiredGivenDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredFuelPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredProgressPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredLiquidQuantity": 0.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "HideActionIfNotMet": true,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": []
+            },
+            "GivenCardChanges": {
+                "ModType": 0
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "ProducedCards": []
         }
     ],
     "ObjectWeight": 10,

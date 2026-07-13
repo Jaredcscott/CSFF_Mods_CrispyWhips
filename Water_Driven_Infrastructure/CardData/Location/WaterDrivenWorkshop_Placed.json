@@ -13,7 +13,7 @@
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_workshop_placed",
     "LocalizationKey": "Water_Sawmill_WorkshopPlaced_CardHelpSection",
-    "DefaultText": "<b>Requirements:</b> Requires local mill race for water power. Water-powered actions stop when water is frozen in winter.\n\n<b>Operation:</b> Drag firewood or charcoal onto the workshop forge to feed fuel, then light it with embers. The forge naturally heats to about 1000. Use Blast when water is flowing, or drag Bellows onto the lit forge by hand, to push the temperature high enough for smelting. Place heated metal tool blanks or copper parts in the inventory, then press Hammer All to apply one water-hammer strike to each item while water is flowing. Put six copper nuggets in the workshop inventory, then use Hammer Copper Sheet or Forge Copper Nails. The workshop hammer improves metal quality while shaping tools.\n\n<b>Accepts:</b> All heated tool blanks, heated lump of metal, copper gear parts, and any item tagged Heatable or Copper."
+    "DefaultText": "<b>Requirements:</b> Requires local mill race for water power. Water-powered actions stop when water is frozen in winter.\n\n<b>Operation:</b> Drag firewood or charcoal onto the workshop forge to feed fuel, then light it with embers. The forge naturally heats to about 1000. In a windy highland environment, natural wind gradually raises the forge to smelting temperature (1100) on its own. Use Blast when water is flowing, or drag Bellows onto the lit forge by hand, to quickly reach smelting temperature. Place heated metal tool blanks or copper parts in the inventory, then press Hammer All to apply one water-hammer strike to each item while water is flowing. Put six copper nuggets in the workshop inventory, then use Hammer Copper Sheet or Forge Copper Nails. The workshop hammer improves metal quality while shaping tools.\n\n<b>Accepts:</b> All heated tool blanks, heated lump of metal, copper gear parts, and any item tagged Heatable or Copper.\n\n<b>Iron:</b> Iron nuggets and iron blooms heat more slowly than copper. All metal heats once the forge is lit."
   },
   "CardImage": {
     "m_FileID": 0,
@@ -116,20 +116,62 @@
   "MaxWeightCapacity": 5000.0,
   "ContentWeightReduction": 0.0,
   "InventorySlots": [
-    {"m_FileID": 0, "m_PathID": 0},
-    {"m_FileID": 0, "m_PathID": 0},
-    {"m_FileID": 0, "m_PathID": 0},
-    {"m_FileID": 0, "m_PathID": 0},
-    {"m_FileID": 0, "m_PathID": 0},
-    {"m_FileID": 0, "m_PathID": 0},
-    {"m_FileID": 0, "m_PathID": 0},
-    {"m_FileID": 0, "m_PathID": 0},
-    {"m_FileID": 0, "m_PathID": 0},
-    {"m_FileID": 0, "m_PathID": 0},
-    {"m_FileID": 0, "m_PathID": 0},
-    {"m_FileID": 0, "m_PathID": 0},
-    {"m_FileID": 0, "m_PathID": 0},
-    {"m_FileID": 0, "m_PathID": 0}
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    },
+    {
+      "m_FileID": 0,
+      "m_PathID": 0
+    }
   ],
   "InventorySlotsWarpData": [],
   "InventorySlotsWarpType": 3,
@@ -139,7 +181,6 @@
       "efe7a2185c9775e47abd72c80be32768",
       "4b0f4937a5ecb90499428c8c10288afc",
       "492ba87119393c1448fb6d320e371b65",
-      "water_sawmill_workshop_kit",
       "water_sawmill_copper_gear_large",
       "water_sawmill_copper_gear_small",
       "water_sawmill_copper_saw_blade",
@@ -166,7 +207,9 @@
       "water_sawmill_iron_parts",
       "water_sawmill_iron_bearing",
       "water_sawmill_iron_axle",
-      "water_sawmill_iron_wrench"
+      "water_sawmill_iron_wrench",
+      "act_tin_ore",
+      "cef83c7cd50093b489f4f19615bb2ddc"
     ],
     "AcceptedCardsWarpType": 3,
     "AcceptedTypes": [],
@@ -1238,70 +1281,138 @@
       "EffectName": "Gain Temperature",
       "Conditions": {
         "ReceivingRequiredDurabilityRanges": {
-          "SpoilageRange": {"x": 0.0, "y": 780.0},
-          "FuelRange": {"x": 0.01, "y": 1E+09}
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 780.0
+          },
+          "FuelRange": {
+            "x": 0.01,
+            "y": 1000000000.0
+          }
         }
       },
-      "SpoilageRateModifier": {"Active": true, "FloatValue": 100.0}
+      "SpoilageRateModifier": {
+        "Active": true,
+        "FloatValue": 100.0
+      }
     },
     {
       "EffectName": "Gain Temperature",
       "Conditions": {
         "ReceivingRequiredDurabilityRanges": {
-          "SpoilageRange": {"x": 790.0, "y": 950.0},
-          "FuelRange": {"x": 0.01, "y": 1E+09}
+          "SpoilageRange": {
+            "x": 790.0,
+            "y": 950.0
+          },
+          "FuelRange": {
+            "x": 0.01,
+            "y": 1000000000.0
+          }
         }
       },
-      "SpoilageRateModifier": {"Active": true, "FloatValue": 40.0}
+      "SpoilageRateModifier": {
+        "Active": true,
+        "FloatValue": 40.0
+      }
     },
     {
       "EffectName": "Gain Temperature",
       "Conditions": {
         "ReceivingRequiredDurabilityRanges": {
-          "SpoilageRange": {"x": 960.0, "y": 1E+09},
-          "FuelRange": {"x": 0.01, "y": 1E+09}
+          "SpoilageRange": {
+            "x": 960.0,
+            "y": 1000000000.0
+          },
+          "FuelRange": {
+            "x": 0.01,
+            "y": 1000000000.0
+          }
         }
       },
-      "SpoilageRateModifier": {"Active": true, "FloatValue": 10.0}
+      "SpoilageRateModifier": {
+        "Active": true,
+        "FloatValue": 10.0
+      }
     },
     {
       "EffectName": "Stop gaining temperature at 1000",
       "Conditions": {
         "ReceivingRequiredDurabilityRanges": {
-          "SpoilageRange": {"x": 1000.0, "y": 1E+09},
-          "FuelRange": {"x": 0.01, "y": 1E+09}
+          "SpoilageRange": {
+            "x": 1000.0,
+            "y": 1000000000.0
+          },
+          "FuelRange": {
+            "x": 0.01,
+            "y": 1000000000.0
+          }
         }
       },
-      "SpoilageRateModifier": {"Active": true, "FloatValue": -10.0}
+      "SpoilageRateModifier": {
+        "Active": true,
+        "FloatValue": -10.0
+      }
     },
     {
       "EffectName": "High Temperature loss without windflow",
       "Conditions": {
         "ReceivingRequiredDurabilityRanges": {
-          "SpoilageRange": {"x": 1001.0, "y": 1800.0},
-          "Special1Range": {"x": 0.0, "y": 1.0}
+          "SpoilageRange": {
+            "x": 1001.0,
+            "y": 1800.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 1.0
+          }
         }
       },
-      "SpoilageRateModifier": {"Active": true, "FloatValue": -300.0}
+      "SpoilageRateModifier": {
+        "Active": true,
+        "FloatValue": -300.0
+      }
     },
     {
       "EffectName": "Lose Temperature without fuel",
       "Conditions": {
         "ReceivingRequiredDurabilityRanges": {
-          "SpoilageRange": {"x": 1.0, "y": 1E+09},
-          "FuelRange": {"x": 0.0, "y": 0.0}
+          "SpoilageRange": {
+            "x": 1.0,
+            "y": 1000000000.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
         }
       },
-      "SpoilageRateModifier": {"Active": true, "FloatValue": -40.0}
+      "SpoilageRateModifier": {
+        "Active": true,
+        "FloatValue": -40.0
+      }
     },
     {
       "EffectName": "Natural Windflow",
       "Conditions": {
-        "RequiredEnvironmentTagsWarpData": ["tag_Env_Windy"],
-        "RequiredEnvironmentTagsWarpType": 3
+        "RequiredEnvironmentTagsWarpData": [
+          "tag_Env_Windy"
+        ],
+        "RequiredEnvironmentTagsWarpType": 3,
+        "ReceivingRequiredDurabilityRanges": {
+          "FuelRange": {
+            "x": 0.01,
+            "y": 1000000000.0
+          }
+        }
       },
-      "Special1RateModifier": {"Active": true, "FloatValue": 8.0},
-      "SpoilageRateModifier": {"Active": true, "FloatValue": 120.0}
+      "Special1RateModifier": {
+        "Active": true,
+        "FloatValue": 8.0
+      },
+      "SpoilageRateModifier": {
+        "Active": true,
+        "FloatValue": 120.0
+      }
     }
   ],
   "PassiveStatEffects": [],
@@ -1367,7 +1478,7 @@
         "ReceivingRequiredDurabilityRanges": {
           "SpoilageRange": {
             "x": 1100.0,
-            "y": 1E+09
+            "y": 1000000000.0
           },
           "UsageRange": {
             "x": 0.0,
@@ -1605,7 +1716,10 @@
         "NotInBackground": false,
         "InBackground": false,
         "PlayerUsesCard": 0,
-        "RequiredEnvironment": { "m_FileID": 0, "m_PathID": 0 },
+        "RequiredEnvironment": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
         "InvertEnvironmentRequirement": false,
         "RequiredEnvironmentTags": [],
         "RequiredNOTEnvironmentTags": [],
@@ -1625,54 +1739,166 @@
         "RequiredPlayerOwnedCards": [],
         "RequiredPlayerNOTOwnedCards": [],
         "ReceivingRequiredDurabilityRanges": {
-          "SpoilageRange": { "x": 1100.0, "y": 1E+09 },
-          "UsageRange": { "x": 0.0, "y": 0.0 },
-          "FuelRange": { "x": 0.0, "y": 0.0 },
-          "ProgressRange": { "x": 0.0, "y": 0.0 },
-          "Special1Range": { "x": 0.0, "y": 0.0 },
-          "Special2Range": { "x": 0.0, "y": 0.0 },
-          "Special3Range": { "x": 0.0, "y": 0.0 },
-          "Special4Range": { "x": 0.0, "y": 0.0 },
-          "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+          "SpoilageRange": {
+            "x": 1100.0,
+            "y": 1000000000.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
         },
         "GivenRequiredDurabilityRanges": {
-          "SpoilageRange": { "x": 0.0, "y": 0.0 },
-          "UsageRange": { "x": 0.0, "y": 0.0 },
-          "FuelRange": { "x": 0.0, "y": 0.0 },
-          "ProgressRange": { "x": 0.0, "y": 0.0 },
-          "Special1Range": { "x": 0.0, "y": 0.0 },
-          "Special2Range": { "x": 0.0, "y": 0.0 },
-          "Special3Range": { "x": 0.0, "y": 0.0 },
-          "Special4Range": { "x": 0.0, "y": 0.0 },
-          "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
         },
         "ReceivingContainerRequiredDurabilityRanges": {
-          "SpoilageRange": { "x": 0.0, "y": 0.0 },
-          "UsageRange": { "x": 0.0, "y": 0.0 },
-          "FuelRange": { "x": 0.0, "y": 0.0 },
-          "ProgressRange": { "x": 0.0, "y": 0.0 },
-          "Special1Range": { "x": 0.0, "y": 0.0 },
-          "Special2Range": { "x": 0.0, "y": 0.0 },
-          "Special3Range": { "x": 0.0, "y": 0.0 },
-          "Special4Range": { "x": 0.0, "y": 0.0 },
-          "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
         },
         "GivenContainerRequiredDurabilityRanges": {
-          "SpoilageRange": { "x": 0.0, "y": 0.0 },
-          "UsageRange": { "x": 0.0, "y": 0.0 },
-          "FuelRange": { "x": 0.0, "y": 0.0 },
-          "ProgressRange": { "x": 0.0, "y": 0.0 },
-          "Special1Range": { "x": 0.0, "y": 0.0 },
-          "Special2Range": { "x": 0.0, "y": 0.0 },
-          "Special3Range": { "x": 0.0, "y": 0.0 },
-          "Special4Range": { "x": 0.0, "y": 0.0 },
-          "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
         },
         "ReceivingCardTags": [],
         "GivenCardTags": [],
         "ReceivingCardSpices": [],
         "GivenCardSpices": [],
-        "RequiredEnvironmentWeight": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+        "RequiredEnvironmentWeight": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
         "RequiredStatValues": [],
         "RequiredNPCStatValues": [],
         "RequiredInGameTimes": [],
@@ -1680,22 +1906,39 @@
       },
       "Duration": 1,
       "DurationRdmVariation": 0,
-      "CookerChanges": { "ModType": 0 },
+      "CookerChanges": {
+        "ModType": 0
+      },
       "IngredientChanges": {
         "ModType": 1,
-        "ChargesChange": { "x": 1.0, "y": 1.0 }
+        "ChargesChange": {
+          "x": 1.0,
+          "y": 1.0
+        }
       },
       "FeedbackMode": 1,
       "ProgressBar": 3,
       "ProgressTowardsZero": false,
       "HideCookingProgress": false,
-      "HideDurabilities": { "MaskValue": 0 },
+      "HideDurabilities": {
+        "MaskValue": 0
+      },
       "HideResultNotification": false,
       "RandomSingleDrop": false,
-      "CustomCompleteSound": { "m_FileID": 0, "m_PathID": 0 },
+      "CustomCompleteSound": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
       "Notification": 0,
-      "CustomNotification": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
-      "ScaleDropsPerLiquidQuantity": { "Active": false, "FloatValue": 0.0 },
+      "CustomNotification": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "ScaleDropsPerLiquidQuantity": {
+        "Active": false,
+        "FloatValue": 0.0
+      },
       "Drops": [],
       "StatModifications": [],
       "UseCookerForCardDrops": false,
@@ -1707,20 +1950,35 @@
         "LocalizationKey": "Water_Sawmill_ForgePlaced_SmeltIronOre_ActionName",
         "DefaultText": "Smelt High-Heat Ore"
       },
-      "CustomCookingText": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
-      "CannotCookText": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "Temperature must reach 1300 to smelt this ore!" },
+      "CustomCookingText": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "CannotCookText": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": "Temperature must reach 1100 to smelt this ore!"
+      },
       "CompatibleCards": [],
-      "CompatibleCardsWarpData": [],
+      "CompatibleCardsWarpData": [
+        "cef83c7cd50093b489f4f19615bb2ddc"
+      ],
       "CompatibleCardsWarpType": 3,
       "CompatibleTags": [],
-      "CompatibleTagsWarpData": [ "tag_SmeltsAt1300" ],
+      "CompatibleTagsWarpData": [
+        "tag_SmeltsAt1100"
+      ],
       "CompatibleTagsWarpType": 3,
       "ConditionsCard": 0,
       "Conditions": {
         "NotInBackground": false,
         "InBackground": false,
         "PlayerUsesCard": 0,
-        "RequiredEnvironment": { "m_FileID": 0, "m_PathID": 0 },
+        "RequiredEnvironment": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
         "InvertEnvironmentRequirement": false,
         "RequiredEnvironmentTags": [],
         "RequiredNOTEnvironmentTags": [],
@@ -1740,54 +1998,166 @@
         "RequiredPlayerOwnedCards": [],
         "RequiredPlayerNOTOwnedCards": [],
         "ReceivingRequiredDurabilityRanges": {
-          "SpoilageRange": { "x": 1300.0, "y": 1E+09 },
-          "UsageRange": { "x": 0.0, "y": 0.0 },
-          "FuelRange": { "x": 0.0, "y": 0.0 },
-          "ProgressRange": { "x": 0.0, "y": 0.0 },
-          "Special1Range": { "x": 0.0, "y": 0.0 },
-          "Special2Range": { "x": 0.0, "y": 0.0 },
-          "Special3Range": { "x": 0.0, "y": 0.0 },
-          "Special4Range": { "x": 0.0, "y": 0.0 },
-          "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+          "SpoilageRange": {
+            "x": 1100.0,
+            "y": 1000000000.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
         },
         "GivenRequiredDurabilityRanges": {
-          "SpoilageRange": { "x": 0.0, "y": 0.0 },
-          "UsageRange": { "x": 0.0, "y": 0.0 },
-          "FuelRange": { "x": 0.0, "y": 0.0 },
-          "ProgressRange": { "x": 0.0, "y": 0.0 },
-          "Special1Range": { "x": 0.0, "y": 0.0 },
-          "Special2Range": { "x": 0.0, "y": 0.0 },
-          "Special3Range": { "x": 0.0, "y": 0.0 },
-          "Special4Range": { "x": 0.0, "y": 0.0 },
-          "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
         },
         "ReceivingContainerRequiredDurabilityRanges": {
-          "SpoilageRange": { "x": 0.0, "y": 0.0 },
-          "UsageRange": { "x": 0.0, "y": 0.0 },
-          "FuelRange": { "x": 0.0, "y": 0.0 },
-          "ProgressRange": { "x": 0.0, "y": 0.0 },
-          "Special1Range": { "x": 0.0, "y": 0.0 },
-          "Special2Range": { "x": 0.0, "y": 0.0 },
-          "Special3Range": { "x": 0.0, "y": 0.0 },
-          "Special4Range": { "x": 0.0, "y": 0.0 },
-          "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
         },
         "GivenContainerRequiredDurabilityRanges": {
-          "SpoilageRange": { "x": 0.0, "y": 0.0 },
-          "UsageRange": { "x": 0.0, "y": 0.0 },
-          "FuelRange": { "x": 0.0, "y": 0.0 },
-          "ProgressRange": { "x": 0.0, "y": 0.0 },
-          "Special1Range": { "x": 0.0, "y": 0.0 },
-          "Special2Range": { "x": 0.0, "y": 0.0 },
-          "Special3Range": { "x": 0.0, "y": 0.0 },
-          "Special4Range": { "x": 0.0, "y": 0.0 },
-          "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
         },
         "ReceivingCardTags": [],
         "GivenCardTags": [],
         "ReceivingCardSpices": [],
         "GivenCardSpices": [],
-        "RequiredEnvironmentWeight": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+        "RequiredEnvironmentWeight": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
         "RequiredStatValues": [],
         "RequiredNPCStatValues": [],
         "RequiredInGameTimes": [],
@@ -1795,19 +2165,39 @@
       },
       "Duration": 1,
       "DurationRdmVariation": 0,
-      "CookerChanges": { "ModType": 0 },
-      "IngredientChanges": { "ModType": 1, "ChargesChange": { "x": 1.0, "y": 1.0 } },
+      "CookerChanges": {
+        "ModType": 0
+      },
+      "IngredientChanges": {
+        "ModType": 1,
+        "ChargesChange": {
+          "x": 1.0,
+          "y": 1.0
+        }
+      },
       "FeedbackMode": 1,
       "ProgressBar": 3,
       "ProgressTowardsZero": false,
       "HideCookingProgress": false,
-      "HideDurabilities": { "MaskValue": 0 },
+      "HideDurabilities": {
+        "MaskValue": 0
+      },
       "HideResultNotification": false,
       "RandomSingleDrop": false,
-      "CustomCompleteSound": { "m_FileID": 0, "m_PathID": 0 },
+      "CustomCompleteSound": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
       "Notification": 0,
-      "CustomNotification": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
-      "ScaleDropsPerLiquidQuantity": { "Active": false, "FloatValue": 0.0 },
+      "CustomNotification": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "ScaleDropsPerLiquidQuantity": {
+        "Active": false,
+        "FloatValue": 0.0
+      },
       "Drops": [],
       "StatModifications": [],
       "UseCookerForCardDrops": false,
@@ -1819,8 +2209,16 @@
         "LocalizationKey": "Water_Sawmill_ForgePlaced_HeatMetalItems_ActionName",
         "DefaultText": "Heat Metal Items"
       },
-      "CustomCookingText": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
-      "CannotCookText": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
+      "CustomCookingText": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "CannotCookText": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
       "CompatibleCards": [],
       "CompatibleCardsWarpData": [
         "efe7a2185c9775e47abd72c80be32768",
@@ -1839,7 +2237,10 @@
         "NotInBackground": false,
         "InBackground": false,
         "PlayerUsesCard": 0,
-        "RequiredEnvironment": { "m_FileID": 0, "m_PathID": 0 },
+        "RequiredEnvironment": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
         "InvertEnvironmentRequirement": false,
         "RequiredEnvironmentTags": [],
         "RequiredNOTEnvironmentTags": [],
@@ -1859,54 +2260,166 @@
         "RequiredPlayerOwnedCards": [],
         "RequiredPlayerNOTOwnedCards": [],
         "ReceivingRequiredDurabilityRanges": {
-          "SpoilageRange": { "x": 178.0, "y": 1E+09 },
-          "UsageRange": { "x": 0.0, "y": 0.0 },
-          "FuelRange": { "x": 0.0, "y": 0.0 },
-          "ProgressRange": { "x": 0.0, "y": 0.0 },
-          "Special1Range": { "x": 0.0, "y": 0.0 },
-          "Special2Range": { "x": 0.0, "y": 0.0 },
-          "Special3Range": { "x": 0.0, "y": 0.0 },
-          "Special4Range": { "x": 0.0, "y": 0.0 },
-          "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+          "SpoilageRange": {
+            "x": 178.0,
+            "y": 1000000000.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
         },
         "GivenRequiredDurabilityRanges": {
-          "SpoilageRange": { "x": 0.0, "y": 0.0 },
-          "UsageRange": { "x": 0.0, "y": 0.0 },
-          "FuelRange": { "x": 0.0, "y": 0.0 },
-          "ProgressRange": { "x": 0.0, "y": 0.0 },
-          "Special1Range": { "x": 0.0, "y": 0.0 },
-          "Special2Range": { "x": 0.0, "y": 0.0 },
-          "Special3Range": { "x": 0.0, "y": 0.0 },
-          "Special4Range": { "x": 0.0, "y": 0.0 },
-          "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
         },
         "ReceivingContainerRequiredDurabilityRanges": {
-          "SpoilageRange": { "x": 0.0, "y": 0.0 },
-          "UsageRange": { "x": 0.0, "y": 0.0 },
-          "FuelRange": { "x": 0.0, "y": 0.0 },
-          "ProgressRange": { "x": 0.0, "y": 0.0 },
-          "Special1Range": { "x": 0.0, "y": 0.0 },
-          "Special2Range": { "x": 0.0, "y": 0.0 },
-          "Special3Range": { "x": 0.0, "y": 0.0 },
-          "Special4Range": { "x": 0.0, "y": 0.0 },
-          "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
         },
         "GivenContainerRequiredDurabilityRanges": {
-          "SpoilageRange": { "x": 0.0, "y": 0.0 },
-          "UsageRange": { "x": 0.0, "y": 0.0 },
-          "FuelRange": { "x": 0.0, "y": 0.0 },
-          "ProgressRange": { "x": 0.0, "y": 0.0 },
-          "Special1Range": { "x": 0.0, "y": 0.0 },
-          "Special2Range": { "x": 0.0, "y": 0.0 },
-          "Special3Range": { "x": 0.0, "y": 0.0 },
-          "Special4Range": { "x": 0.0, "y": 0.0 },
-          "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
         },
         "ReceivingCardTags": [],
         "GivenCardTags": [],
         "ReceivingCardSpices": [],
         "GivenCardSpices": [],
-        "RequiredEnvironmentWeight": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+        "RequiredEnvironmentWeight": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
         "RequiredStatValues": [],
         "RequiredNPCStatValues": [],
         "RequiredInGameTimes": [],
@@ -1914,19 +2427,39 @@
       },
       "Duration": 1,
       "DurationRdmVariation": 0,
-      "CookerChanges": { "ModType": 0 },
-      "IngredientChanges": { "ModType": 1, "FuelChange": { "x": 400.0, "y": 400.0 } },
+      "CookerChanges": {
+        "ModType": 0
+      },
+      "IngredientChanges": {
+        "ModType": 1,
+        "FuelChange": {
+          "x": 600.0,
+          "y": 600.0
+        }
+      },
       "FeedbackMode": 1,
       "ProgressBar": 3,
       "ProgressTowardsZero": false,
       "HideCookingProgress": false,
-      "HideDurabilities": { "MaskValue": 0 },
+      "HideDurabilities": {
+        "MaskValue": 0
+      },
       "HideResultNotification": false,
       "RandomSingleDrop": false,
-      "CustomCompleteSound": { "m_FileID": 0, "m_PathID": 0 },
+      "CustomCompleteSound": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
       "Notification": 0,
-      "CustomNotification": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
-      "ScaleDropsPerLiquidQuantity": { "Active": false, "FloatValue": 0.0 },
+      "CustomNotification": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "ScaleDropsPerLiquidQuantity": {
+        "Active": false,
+        "FloatValue": 0.0
+      },
       "Drops": [],
       "StatModifications": [],
       "UseCookerForCardDrops": false,
@@ -1938,8 +2471,16 @@
         "LocalizationKey": "Water_Sawmill_ForgePlaced_MeltIronParts_ActionName",
         "DefaultText": "Melt Iron Parts"
       },
-      "CustomCookingText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
-      "CannotCookText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": "Temperature must reach 1300 to melt iron!"},
+      "CustomCookingText": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "CannotCookText": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": "Temperature must reach 1300 to melt iron!"
+      },
       "CompatibleCards": [],
       "CompatibleCardsWarpData": [
         "water_sawmill_iron_parts",
@@ -1956,7 +2497,10 @@
         "NotInBackground": false,
         "InBackground": false,
         "PlayerUsesCard": 0,
-        "RequiredEnvironment": {"m_FileID": 0, "m_PathID": 0},
+        "RequiredEnvironment": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
         "InvertEnvironmentRequirement": false,
         "RequiredEnvironmentTags": [],
         "RequiredNOTEnvironmentTags": [],
@@ -1976,54 +2520,166 @@
         "RequiredPlayerOwnedCards": [],
         "RequiredPlayerNOTOwnedCards": [],
         "ReceivingRequiredDurabilityRanges": {
-          "SpoilageRange": {"x": 1300.0, "y": 1E+09},
-          "UsageRange": {"x": 0.0, "y": 0.0},
-          "FuelRange": {"x": 0.0, "y": 0.0},
-          "ProgressRange": {"x": 0.0, "y": 0.0},
-          "Special1Range": {"x": 0.0, "y": 0.0},
-          "Special2Range": {"x": 0.0, "y": 0.0},
-          "Special3Range": {"x": 0.0, "y": 0.0},
-          "Special4Range": {"x": 0.0, "y": 0.0},
-          "LiquidQuantityRange": {"x": 0.0, "y": 0.0}
+          "SpoilageRange": {
+            "x": 1300.0,
+            "y": 1000000000.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
         },
         "GivenRequiredDurabilityRanges": {
-          "SpoilageRange": {"x": 0.0, "y": 0.0},
-          "UsageRange": {"x": 0.0, "y": 0.0},
-          "FuelRange": {"x": 0.0, "y": 0.0},
-          "ProgressRange": {"x": 0.0, "y": 0.0},
-          "Special1Range": {"x": 0.0, "y": 0.0},
-          "Special2Range": {"x": 0.0, "y": 0.0},
-          "Special3Range": {"x": 0.0, "y": 0.0},
-          "Special4Range": {"x": 0.0, "y": 0.0},
-          "LiquidQuantityRange": {"x": 0.0, "y": 0.0}
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
         },
         "ReceivingContainerRequiredDurabilityRanges": {
-          "SpoilageRange": {"x": 0.0, "y": 0.0},
-          "UsageRange": {"x": 0.0, "y": 0.0},
-          "FuelRange": {"x": 0.0, "y": 0.0},
-          "ProgressRange": {"x": 0.0, "y": 0.0},
-          "Special1Range": {"x": 0.0, "y": 0.0},
-          "Special2Range": {"x": 0.0, "y": 0.0},
-          "Special3Range": {"x": 0.0, "y": 0.0},
-          "Special4Range": {"x": 0.0, "y": 0.0},
-          "LiquidQuantityRange": {"x": 0.0, "y": 0.0}
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
         },
         "GivenContainerRequiredDurabilityRanges": {
-          "SpoilageRange": {"x": 0.0, "y": 0.0},
-          "UsageRange": {"x": 0.0, "y": 0.0},
-          "FuelRange": {"x": 0.0, "y": 0.0},
-          "ProgressRange": {"x": 0.0, "y": 0.0},
-          "Special1Range": {"x": 0.0, "y": 0.0},
-          "Special2Range": {"x": 0.0, "y": 0.0},
-          "Special3Range": {"x": 0.0, "y": 0.0},
-          "Special4Range": {"x": 0.0, "y": 0.0},
-          "LiquidQuantityRange": {"x": 0.0, "y": 0.0}
+          "SpoilageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "UsageRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "FuelRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ProgressRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special1Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special2Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special3Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "Special4Range": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "LiquidQuantityRange": {
+            "x": 0.0,
+            "y": 0.0
+          }
         },
         "ReceivingCardTags": [],
         "GivenCardTags": [],
         "ReceivingCardSpices": [],
         "GivenCardSpices": [],
-        "RequiredEnvironmentWeight": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+        "RequiredEnvironmentWeight": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0
+        },
         "RequiredStatValues": [],
         "RequiredNPCStatValues": [],
         "RequiredInGameTimes": [],
@@ -2031,22 +2687,39 @@
       },
       "Duration": 1,
       "DurationRdmVariation": 0,
-      "CookerChanges": {"ModType": 0},
+      "CookerChanges": {
+        "ModType": 0
+      },
       "IngredientChanges": {
         "ModType": 1,
-        "ChargesChange": {"x": 1.0, "y": 1.0}
+        "ChargesChange": {
+          "x": 1.0,
+          "y": 1.0
+        }
       },
       "FeedbackMode": 1,
       "ProgressBar": 3,
       "ProgressTowardsZero": false,
       "HideCookingProgress": false,
-      "HideDurabilities": {"MaskValue": 0},
+      "HideDurabilities": {
+        "MaskValue": 0
+      },
       "HideResultNotification": false,
       "RandomSingleDrop": false,
-      "CustomCompleteSound": {"m_FileID": 0, "m_PathID": 0},
+      "CustomCompleteSound": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
       "Notification": 0,
-      "CustomNotification": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
-      "ScaleDropsPerLiquidQuantity": {"Active": false, "FloatValue": 0.0},
+      "CustomNotification": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "ScaleDropsPerLiquidQuantity": {
+        "Active": false,
+        "FloatValue": 0.0
+      },
       "Drops": [],
       "StatModifications": [],
       "UseCookerForCardDrops": false,

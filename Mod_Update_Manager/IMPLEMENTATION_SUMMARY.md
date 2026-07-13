@@ -1,7 +1,7 @@
 # Mod Update Manager - Implementation Summary
 
-Date: 2026-06-13
-Version: 2.1.1
+Date: 2026-07-06
+Version: 2.1.2
 
 ## Active Runtime Flow
 
@@ -27,11 +27,11 @@ Version: 2.1.1
 ## Current Safety Boundaries
 
 - The mod never downloads, installs, deletes, updates, or restores player mods automatically.
-- The dashboard does not parse or display release notes; beta compatibility must be stated in published mod release notes.
+- Changelog viewing is on-demand per mod (never fetched at startup); the dashboard does not interpret release notes — beta compatibility must be stated in published mod release notes.
 - Nexus discovery is opt-in and throttled to one request every 90 seconds when enabled.
 - Cache reads/writes respect `CachingEnabled`.
 - Routine startup/status logging is kept mostly at Debug level.
 
 ## Future Work
 
-See `Documentation/Ideas/Mod_Update_Manager/FUTURE_FEATURES.md` for planned backup, rollback, one-click installs, and richer analytics ideas.
+See `Documentation/Ideas/Mod_Update_Manager/IDEAS.md` for planned backup, rollback, one-click installs, and richer analytics ideas.

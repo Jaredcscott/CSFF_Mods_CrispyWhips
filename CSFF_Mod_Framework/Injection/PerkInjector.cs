@@ -9,6 +9,11 @@ internal static class PerkInjector
 {
     private const string SituationalPerkGroupGuid = "72120cda8e1cef540b1b25118dd7edaa";
 
+    // Opt-out token: a mod perk with "CharacterPerkPerkGroup": "None" is kept OUT of every
+    // perk group (invisible at character creation). Used for perks granted only at runtime
+    // via CardAction.AddedInRunPerks (e.g. CMC Academy course "Graduate" perks).
+    private const string HiddenGroupToken = "None";
+
     public static void InjectAll(IEnumerable allData, List<ModManifest> mods)
     {
         // Build lookups from already-loaded game data
@@ -69,6 +74,7 @@ internal static class PerkInjector
 
         int injected = 0;
         int relocated = 0;
+        int hidden = 0;
 
         // Build inverted map: perk UniqueID → group UniqueIDs that currently contain it.
         // Replaces the O(P×G) all-groups scan with a targeted lookup during removal.
@@ -93,24 +99,33 @@ internal static class PerkInjector
             if (!perks.TryGetValue(kvp.Key, out var perk)) continue;
 
             var targetGroupId = kvp.Value;
-            if (!groups.TryGetValue(targetGroupId, out var group))
+            bool keepHidden = HiddenGroupToken.Equals(targetGroupId, StringComparison.OrdinalIgnoreCase);
+
+            if (!keepHidden)
             {
-                // Fallback to Situational
-                if (!groups.TryGetValue(SituationalPerkGroupGuid, out group))
-                    continue;
+                if (!groups.TryGetValue(targetGroupId, out var group))
+                {
+                    // Fallback to Situational
+                    if (!groups.TryGetValue(SituationalPerkGroupGuid, out group))
+                        continue;
+                }
+
+                var containedPerksField = GetContainedPerks(group);
+                if (containedPerksField == null) continue;
+
+                // Add to target group
+                var containedPerks = containedPerksField.GetValue(group) as IList;
+                if (containedPerks != null && !containedPerks.Contains(perk))
+                {
+                    containedPerks.Add(perk);
+                    injected++;
+                    if (group is UniqueIDScriptable uidGroup)
+                        Loading.FrameworkDirtyTracker.MarkDirty(uidGroup);
+                }
             }
-
-            var containedPerksField = GetContainedPerks(group);
-            if (containedPerksField == null) continue;
-
-            // Add to target group
-            var containedPerks = containedPerksField.GetValue(group) as IList;
-            if (containedPerks != null && !containedPerks.Contains(perk))
+            else
             {
-                containedPerks.Add(perk);
-                injected++;
-                if (group is UniqueIDScriptable uidGroup)
-                    Loading.FrameworkDirtyTracker.MarkDirty(uidGroup);
+                hidden++;
             }
 
             // Remove from groups where this perk already appeared (inverted-map lookup)
@@ -135,6 +150,7 @@ internal static class PerkInjector
         }
 
         Log.Debug($"PerkInjector: injected {injected} perks into groups" +
-                 (relocated > 0 ? $", relocated {relocated} from wrong tabs" : ""));
+                 (relocated > 0 ? $", relocated {relocated} from wrong tabs" : "") +
+                 (hidden > 0 ? $", kept {hidden} hidden (group \"None\")" : ""));
     }
 }

@@ -1,0 +1,166 @@
+{
+  "UniqueID": "act_collapsed_wall_copper",
+  "CardName": {
+    "ParentObjectID": "act_collapsed_wall_copper",
+    "LocalizationKey": "Advanced_Copper_Tools_CollapsedWallCopper_CardName",
+    "DefaultText": "Collapsed Rock Face"
+  },
+  "CardDescription": {
+    "ParentObjectID": "act_collapsed_wall_copper",
+    "LocalizationKey": "Advanced_Copper_Tools_CollapsedWallCopper_CardDescription",
+    "DefaultText": "The passage north to the copper vein cave is blocked by fallen rock. Dig through it with a pickaxe, shovel, axe, antler, or knife to open the way — once cleared, it stays open."
+  },
+  "CanBeRenamed": false,
+  "AlternateNames": [],
+  "LiquidSuffixName": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
+  "CardHelpSection": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardBackground": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "act_tin_vein",
+  "CardImageWarpType": 3,
+  "ShowImageAboveTitle": false,
+  "CardType": 2,
+  "CannotBeTransferred": true,
+  "NotAutoSolvableEvent": false,
+  "ObjectWeight": 0.0,
+  "TradingValue": 0.0,
+  "CardTags": [],
+  "CardTagsWarpData": [ "tag_Structure" ],
+  "CardTagsWarpType": 3,
+  "EquipmentTags": [],
+  "MapStructureType": 0,
+  "FlavourTags": [],
+  "SpiceTags": [],
+  "AlwaysUpdate": false,
+  "CannotBeTrashed": true,
+  "CanBeTrashed": false,
+  "DoesNotPile": true,
+  "ToggleablePiling": false,
+  "DoesNotPinAutomatically": false,
+  "NeedsRoomInLocationToSpawn": false,
+  "WhenCreatedSounds": [],
+  "WhenCreatedSoundsWarpData": [ "StoneAppear" ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": { "Active": false },
+  "UsageDurability": {
+    "Active": true,
+    "FloatValue": 3.0,
+    "CardStatName": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
+    "RandomStartingOffset": 0.0,
+    "MaxValue": 3.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 0,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "OverrideIcon": { "m_FileID": 0, "m_PathID": 0 },
+    "OverrideIconWarpData": "Shield",
+    "OverrideIconWarpType": 3,
+    "SortInverted": false,
+    "ResetWhenLoadedAtZero": false,
+    "HasActionOnZero": true,
+    "RepeatActionOnZero": false,
+    "ShowPopupOnZero": false,
+    "OnZeroNotification": 0,
+    "OnZero": {
+      "ActionName": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
+      "ActionDescription": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ProducedCards": [],
+      "ReceivingCardChanges": { "ModType": 3 }
+    },
+    "CountsForTradingValue": false
+  },
+  "FuelCapacity": { "Active": false },
+  "Progress": { "Active": false },
+  "SpecialDurability1": { "Active": false },
+  "SpecialDurability2": { "Active": false },
+  "SpecialDurability3": { "Active": false },
+  "SpecialDurability4": { "Active": false },
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "act_collapsed_wall_copper",
+        "LocalizationKey": "Advanced_Copper_Tools_CollapsedWallCopper_Dig_ActionName",
+        "DefaultText": "Dig Through"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "act_collapsed_wall_copper",
+        "LocalizationKey": "Advanced_Copper_Tools_CollapsedWallCopper_Dig_ActionDescription",
+        "DefaultText": "Break through the collapsed rock with a pickaxe, shovel, axe, antler, or knife. Opens the passage to the copper vein cave."
+      },
+      "DaytimeCost": 8,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [ "HittingStone" ],
+      "ActionSoundsWarpType": 3,
+      "RequiredStatValues": [],
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "c1681bf59e15f3045aee3cbc58ec9b0c"
+        ],
+        "TriggerCardsWarpType": 3,
+        "TriggerTagsWarpData": [ "tag_MiningTool", "tag_Shovel", "tag_Axe", "tag_Cutter" ],
+        "TriggerTagsWarpType": 3
+      },
+      "GivenCardChanges": {
+        "ModType": 1,
+        "UsageChange": { "x": -2.0, "y": -2.0 }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "UsageChange": { "x": -1.0, "y": -1.0 }
+      },
+      "ProducedCards": [
+        {
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "a7384e5147b23a642809451cc4ef24fb",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 3, "y": 3 },
+              "DropChance": { "Active": true, "BaseDropChance": 100.0 }
+            },
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "8695a7aa22521aa45be582d3c1558f78",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 },
+              "DropChance": { "Active": true, "BaseDropChance": 100.0 }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "DismantleActions": [],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [],
+  "MaxLiquidCapacity": 0.0,
+  "InventorySlots": [],
+  "InventoryFilter": {
+    "AcceptedCards": [],
+    "AcceptedCardsWarpData": [],
+    "AcceptedCardsWarpType": 3,
+    "AcceptedTypes": [],
+    "AcceptedTags": [],
+    "AcceptedTagsWarpData": [],
+    "AcceptedTagsWarpType": 3,
+    "NOTAcceptedCards": [],
+    "NOTAcceptedTypes": [],
+    "NOTAcceptedTags": [],
+    "CardFilters": [],
+    "TagFilters": []
+  },
+  "SpillsInventoryOnDestroy": false,
+  "CookingRecipes": [],
+  "BlueprintStages": [],
+  "BlueprintResult": [],
+  "IsWeapon": false,
+  "IsArmor": false
+}

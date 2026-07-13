@@ -18,6 +18,8 @@ internal static class TriggerService
     private static bool _ready;
     private static bool _setupAttempted;
     private static int _lastDayTimePoints = int.MinValue;
+    private static bool _wasInstanced;
+    private static readonly List<TriggerDefinition> _pendingSpawns = new();
 
     private static Type _gameManagerType;
     private static PropertyInfo _gmInstanceProp;
@@ -34,6 +36,8 @@ internal static class TriggerService
         _ready = false;
         _setupAttempted = false;
         _lastDayTimePoints = int.MinValue;
+        _wasInstanced = false;
+        _pendingSpawns.Clear();
         _memberCache.Clear();
     }
 
@@ -46,6 +50,14 @@ internal static class TriggerService
         {
             if (!TryCompleteOneTimeSetup()) return;
         }
+
+        // Drain deferred spawns the moment the player exits an instanced environment.
+        bool isInstanced = Api.GameQuery.IsInInstancedEnvironment;
+        if (_wasInstanced && !isInstanced && _pendingSpawns.Count > 0)
+        {
+            DrainPendingSpawns();
+        }
+        _wasInstanced = isInstanced;
 
         var dtp = ReadDayTimePoints();
         if (dtp < 0) return;
@@ -133,6 +145,7 @@ internal static class TriggerService
 
     private static void OnDayRollover()
     {
+        bool isInstanced = Api.GameQuery.IsInInstancedEnvironment;
         foreach (var def in TriggerLoader.LoadedTriggers)
         {
             def.DaysAccumulated += 1f;
@@ -157,8 +170,37 @@ internal static class TriggerService
                 continue;
             }
 
+            // Outdoor-only triggers defer when the player is inside — fire on outdoor exit.
+            if (def.SpawnLocation > 0 && isInstanced)
+            {
+                if (!_pendingSpawns.Contains(def))
+                {
+                    _pendingSpawns.Add(def);
+                    Log.Debug($"[TriggerService] '{def.UniqueID}': player indoors — spawn deferred until outdoor exit");
+                }
+                continue;
+            }
+
             if (TrySpawn(def))
                 Log.Debug($"[TriggerService] '{def.UniqueID}': spawned '{def.TriggerCardUID}' (roll {roll:F0} < {def.SpawnChancePercent})");
+        }
+    }
+
+    private static void DrainPendingSpawns()
+    {
+        Log.Info($"[TriggerService] player exited indoors — firing {_pendingSpawns.Count} deferred spawn(s)");
+        var toSpawn = new List<TriggerDefinition>(_pendingSpawns);
+        _pendingSpawns.Clear();
+        foreach (var def in toSpawn)
+        {
+            // Re-check MaxOnBoard — another card may have appeared while the player was indoors.
+            if (def.MaxOnBoard > 0 && CountOnBoard(def) >= def.MaxOnBoard)
+            {
+                Log.Debug($"[TriggerService] '{def.UniqueID}': MaxOnBoard={def.MaxOnBoard} reached on drain — skipping");
+                continue;
+            }
+            if (TrySpawn(def))
+                Log.Debug($"[TriggerService] '{def.UniqueID}': deferred spawn fired on outdoor exit");
         }
     }
 
@@ -168,10 +210,11 @@ internal static class TriggerService
     {
         if (_giveCardMethod == null || _gmInstanceProp == null) return false;
 
-        // SpawnLocation > 0 = outdoor only — skip when inside an instanced environment.
+        // SpawnLocation > 0 = outdoor only — safety guard for the drain path (deferred spawns
+        // should not reach here while still indoors, but guard just in case).
         if (def.SpawnLocation > 0 && Api.GameQuery.IsInInstancedEnvironment)
         {
-            Log.Debug($"[TriggerService] '{def.UniqueID}': player is indoors — skipping outdoor-only spawn");
+            Log.Debug($"[TriggerService] '{def.UniqueID}': indoor safety guard — spawn blocked");
             return false;
         }
 

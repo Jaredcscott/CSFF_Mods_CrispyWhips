@@ -97,20 +97,7 @@ namespace mod_update_manager
             try
             {
                 var json = SimpleJson.SerializeMappings(defaultMappings);
-                
-                // Add comment header
-                var header = @"// Mod Update Manager - Mod Mappings
-// This file maps your local mod names to their Nexus Mods IDs
-// 
-// To add a mapping:
-// 1. Find your mod on Nexus Mods (e.g., https://www.nexusmods.com/cardsurvivalfantasyforest/mods/123)
-// 2. The number at the end of the URL is the NexusModId (123 in this example)
-// 3. Add an entry below with your local mod's folder name and the Nexus ID
-//
-// You can also add ""NexusModId"": ""123"" directly to a mod's ModInfo.json file
-//
-";
-                File.WriteAllText(_mappingsPath, header + "\n" + json);
+                File.WriteAllText(_mappingsPath, json);
                 Plugin.Logger.LogDebug($"Created default mod mappings file at: {_mappingsPath}");
             }
             catch (Exception ex)

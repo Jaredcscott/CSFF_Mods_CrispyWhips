@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_cooked_puffball",
     "CardName": {
         "ParentObjectID": "herbs_fungi_cooked_puffball",
-        "LocalizationKey": "herbs_fungi_cooked_puffball_CardName",
+        "LocalizationKey": "herbsfungicookedpuffball_CardName",
         "DefaultText": "Cooked Puffball"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_cooked_puffball",
-        "LocalizationKey": "herbs_fungi_cooked_puffball_CardDescription",
+        "LocalizationKey": "herbsfungicookedpuffball_CardDescription",
         "DefaultText": "Sliced and fried puffball with a texture similar to tofu. Very filling."
     },
     "CardType": 0,
@@ -31,12 +31,12 @@
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_cooked_puffball",
-        "LocalizationKey": "herbs_fungi_cooked_puffball_SpoilageTime_StatName",
+        "LocalizationKey": "herbsfungicookedpuffball_SpoilageTime_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_cooked_puffball",
-            "LocalizationKey": "herbs_fungi_cooked_puffball_SpoilageTime_StatName",
+            "LocalizationKey": "herbsfungicookedpuffball_SpoilageTime_StatName",
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
@@ -47,7 +47,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_cooked_puffball",
-                "LocalizationKey": "herbs_fungi_cooked_puffball_SpoilageTime_Spoiled",
+                "LocalizationKey": "herbsfungicookedpuffball_SpoilageTime_Spoiled",
                 "DefaultText": "The cooked puffball has spoiled."
             },
             "ReceivingCardChanges": {
@@ -66,12 +66,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_cooked_puffball",
-                "LocalizationKey": "herbs_fungi_cooked_puffball_Eat",
+                "LocalizationKey": "herbsfungicookedpuffball_Eat",
                 "DefaultText": "Eat"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_cooked_puffball",
-                "LocalizationKey": "herbs_fungi_cooked_puffball_Eat_Desc",
+                "LocalizationKey": "herbsfungicookedpuffball_Eat_Desc",
                 "DefaultText": "Eat the delicious cooked puffball slices."
             },
             "DaytimeCost": 0,
@@ -465,7 +465,7 @@
                         "FloatValue": 0.0
                     }
                 },
-                "RequiredLiquidQuantity": 140.0,
+                "RequiredLiquidQuantity": 0.0,
                 "RequiredSpecial1Percent": {
                     "Active": false,
                     "FloatValue": 0.0,

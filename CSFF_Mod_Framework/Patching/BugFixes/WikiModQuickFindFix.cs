@@ -26,6 +26,7 @@ internal static class WikiModQuickFindFix
 {
     private static FieldInfo _contextKeyField;
     private static FieldInfo _cardUniqueIdField;
+    private static Type _cardDataType;
     private static bool _loggedBlocker;
     private static bool _loggedContext;
     private static bool _quickFindPatched;
@@ -80,9 +81,12 @@ internal static class WikiModQuickFindFix
         {
             var cardType = Reflection.ReflectionCache.FindType("CardData");
             if (cardType != null)
+            {
+                _cardDataType = cardType;
                 _cardUniqueIdField = AccessTools.Field(cardType, "UniqueID")
                                   ?? cardType.GetField("UniqueID",
                                          BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            }
 
             var processCardFinalizer = new HarmonyMethod(typeof(WikiModQuickFindFix), nameof(ProcessCardDataFinalizer));
             _dataStorePatched = SafePatcher.TryPatch(harmony, "WikiMod.DataStore", "ProcessCardData", finalizer: processCardFinalizer);
@@ -133,9 +137,17 @@ internal static class WikiModQuickFindFix
                 string uid = "(unknown)";
                 try { uid = _cardUniqueIdField?.GetValue(__0) as string ?? uid; }
                 catch { }
-                Util.Log.Warn($"WikiModFix: NullRef in DataStore.ProcessCardData for card '{uid}' — null LocalizedString field; WikiMod skipped this card.");
-                if (_processCardNreCount == MaxProcessCardNreLogs)
-                    Util.Log.Warn("WikiModFix: further ProcessCardData NREs suppressed silently.");
+                bool isCardData = _cardDataType == null || _cardDataType.IsInstanceOfType(__0);
+                if (isCardData)
+                {
+                    Util.Log.Warn($"WikiModFix: NullRef in DataStore.ProcessCardData for card '{uid}' — null LocalizedString field; WikiMod skipped this card.");
+                    if (_processCardNreCount == MaxProcessCardNreLogs)
+                        Util.Log.Warn("WikiModFix: further ProcessCardData NREs suppressed silently.");
+                }
+                else
+                {
+                    Util.Log.Debug($"WikiModFix: DataStore.ProcessCardData skipped non-CardData '{uid}' ({__0?.GetType().Name}).");
+                }
             }
             return null;
         }

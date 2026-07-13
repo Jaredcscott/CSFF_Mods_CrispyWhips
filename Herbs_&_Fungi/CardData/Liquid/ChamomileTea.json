@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_chamomile_tea",
     "CardName": {
         "ParentObjectID": "herbs_fungi_chamomile_tea",
-        "LocalizationKey": "herbs_fungi_chamomile_tea_CardName",
+        "LocalizationKey": "herbsfungichamomiletea_CardName",
         "DefaultText": "Chamomile Tea"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_chamomile_tea",
-        "LocalizationKey": "herbs_fungi_chamomile_tea_CardDescription",
+        "LocalizationKey": "herbsfungichamomiletea_CardDescription",
         "DefaultText": "A calming herbal tea brewed from dried chamomile flowers. Eases stress and soothes the mind."
     },
     "CardType": 0,
@@ -24,12 +24,12 @@
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_chamomile_tea",
-        "LocalizationKey": "herbs_fungi_chamomile_tea_SpoilageTime_StatName",
+        "LocalizationKey": "herbsfungichamomiletea_SpoilageTime_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_chamomile_tea",
-            "LocalizationKey": "herbs_fungi_chamomile_tea_SpoilageTime_StatName",
+            "LocalizationKey": "herbsfungichamomiletea_SpoilageTime_StatName",
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
@@ -40,7 +40,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_chamomile_tea",
-                "LocalizationKey": "herbs_fungi_chamomile_tea_Spoiled",
+                "LocalizationKey": "herbsfungichamomiletea_Spoiled",
                 "DefaultText": "The chamomile tea has spoiled."
             },
             "ReceivingCardChanges": {
@@ -56,12 +56,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_chamomile_tea",
-                "LocalizationKey": "herbs_fungi_chamomile_tea_Drink",
+                "LocalizationKey": "herbsfungichamomiletea_Drink",
                 "DefaultText": "Drink"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_chamomile_tea",
-                "LocalizationKey": "herbs_fungi_chamomile_tea_Drink_Desc",
+                "LocalizationKey": "herbsfungichamomiletea_Drink_Desc",
                 "DefaultText": "Drink the calming chamomile tea. Reduces stress and soothes the spirit."
             },
             "DaytimeCost": 0,

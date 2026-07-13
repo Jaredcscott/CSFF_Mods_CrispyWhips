@@ -211,7 +211,9 @@ namespace mod_update_manager
         /// </summary>
         public List<InstalledModInfo> GetUncheckedMods()
         {
-            return _installedMods.Where(m => m.CheckFailed || string.IsNullOrEmpty(m.LatestVersion)).ToList();
+            return _installedMods.Where(m =>
+                (m.CheckFailed || string.IsNullOrEmpty(m.LatestVersion)) &&
+                !KnownModRegistry.IsSelfMod(m.Name) && !KnownModRegistry.IsSelfMod(m.FolderName)).ToList();
         }
     }
 }

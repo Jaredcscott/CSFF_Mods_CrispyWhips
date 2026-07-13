@@ -31,7 +31,7 @@ internal static class DifficultyProfiles
         var (expMult, staleness) = settings;
         Plugin.SetGlobalExpMultiplier(expMult);
         Plugin.SetEnableSkillStaleness(staleness);
-        Plugin.Logger.LogInfo(
+        Plugin.Logger.LogDebug(
             $"[DifficultyProfiles] Applied '{profileName}': ExpMultiplier={expMult}x, Staleness={staleness}. " +
             "ExpMultiplier applies immediately; staleness change takes effect after reloading a save."
         );

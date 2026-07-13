@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_herbal_tincture",
     "CardName": {
         "ParentObjectID": "herbs_fungi_herbal_tincture",
-        "LocalizationKey": "herbs_fungi_herbal_tincture_CardName",
+        "LocalizationKey": "herbsfungiherbaltincture_CardName",
         "DefaultText": "Herbal Tincture"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_herbal_tincture",
-        "LocalizationKey": "herbs_fungi_herbal_tincture_CardDescription",
+        "LocalizationKey": "herbsfungiherbaltincture_CardDescription",
         "DefaultText": "An alcohol-based extract of medicinal herbs. A potent remedy for various ailments."
     },
     "CardType": 0,
@@ -28,12 +28,12 @@
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_herbal_tincture",
-        "LocalizationKey": "herbs_fungi_herbal_tincture_SpoilageTime_StatName",
+        "LocalizationKey": "herbsfungiherbaltincture_SpoilageTime_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_herbal_tincture",
-            "LocalizationKey": "herbs_fungi_herbal_tincture_SpoilageTime_StatName",
+            "LocalizationKey": "herbsfungiherbaltincture_SpoilageTime_StatName",
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
@@ -44,7 +44,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_herbal_tincture",
-                "LocalizationKey": "herbs_fungi_herbal_tincture_SpoilageTime_Spoiled",
+                "LocalizationKey": "herbsfungiherbaltincture_SpoilageTime_Spoiled",
                 "DefaultText": "The herbal tincture has spoiled."
             },
             "ReceivingCardChanges": {
@@ -63,12 +63,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_herbal_tincture",
-                "LocalizationKey": "herbs_fungi_herbal_tincture_Drink",
+                "LocalizationKey": "herbsfungiherbaltincture_Drink",
                 "DefaultText": "Drink"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_herbal_tincture",
-                "LocalizationKey": "herbs_fungi_herbal_tincture_Drink_Desc",
+                "LocalizationKey": "herbsfungiherbaltincture_Drink_Desc",
                 "DefaultText": "Drink the medicinal tincture. Bitter but effective."
             },
             "DaytimeCost": 0,

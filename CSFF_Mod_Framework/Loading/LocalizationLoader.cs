@@ -9,6 +9,9 @@ internal static class LocalizationLoader
     internal static bool ForceChineseMode = false;
     private static List<ModManifest> _mods;
 
+    internal static bool HasFrameworkLocalization
+        => Directory.Exists(Path.Combine(PathUtil.FrameworkDir, "Localization"));
+
     public static void LoadAll(List<ModManifest> mods)
     {
         _mods = mods;
@@ -34,75 +37,83 @@ internal static class LocalizationLoader
         Log.Info($"LocalizationLoader: language='{langSuffix}' (Cn=Chinese, En=English)");
         int totalStrings = 0;
 
+        // Load framework-owned localization first. ModDiscovery skips the framework's own
+        // directory, so it never appears in `mods` — load it separately here.
+        var fwLocDir = Path.Combine(PathUtil.FrameworkDir, "Localization");
+        if (Directory.Exists(fwLocDir))
+        {
+            int fwCount = LoadLocalizationDir(fwLocDir, langSuffix, currentTexts);
+            if (fwCount > 0)
+                Log.Debug($"LocalizationLoader: loaded {fwCount} strings from framework");
+            totalStrings += fwCount;
+        }
+
         foreach (var mod in mods)
         {
             var locDir = Path.Combine(mod.DirectoryPath, "Localization");
             if (!Directory.Exists(locDir)) continue;
 
-            int modCount = 0;
-            foreach (var file in Directory.GetFiles(locDir, "*.csv"))
-            {
-                var fileName = Path.GetFileNameWithoutExtension(file);
-
-                // Match language by filename
-                bool skipFile = false;
-                if (!string.IsNullOrEmpty(langSuffix))
-                {
-                    if (langSuffix == "En" && fileName.IndexOf("SimpEn", StringComparison.OrdinalIgnoreCase) < 0)
-                        skipFile = true;
-                    if (langSuffix == "Cn" && fileName.IndexOf("SimpCn", StringComparison.OrdinalIgnoreCase) < 0)
-                        skipFile = true;
-                }
-                else
-                {
-                    if (fileName.IndexOf("SimpEn", StringComparison.OrdinalIgnoreCase) < 0)
-                        skipFile = true;
-                }
-                if (skipFile) { Log.Debug($"LocalizationLoader: skip {fileName} (lang={langSuffix})"); continue; }
-                Log.Debug($"LocalizationLoader: reading {fileName} col={((langSuffix == "Cn") ? 2 : 1)}");
-
-                try
-                {
-                    var records = ReadCsvRecords(file);
-                    // No header row — CSV format: Key,English,Chinese
-                    // Determine which column index to use based on language
-                    int valueCol = (langSuffix == "Cn") ? 2 : 1;
-
-                    foreach (var line in records)
-                    {
-                        if (string.IsNullOrWhiteSpace(line)) continue;
-
-                        // Split CSV columns (respecting quoted fields)
-                        var columns = SplitCsvLine(line);
-                        if (columns.Count < 2) continue;
-
-                        var key = columns[0].Trim();
-                        if (string.IsNullOrEmpty(key)) continue;
-
-                        // Pick the requested language column, fall back to English (col 1)
-                        var value = (valueCol < columns.Count && !string.IsNullOrEmpty(columns[valueCol].Trim()))
-                            ? columns[valueCol].Trim()
-                            : columns[1].Trim();
-
-                        if (!string.IsNullOrEmpty(value))
-                        {
-                            currentTexts[key] = value;
-                            modCount++;
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Log.Warn($"LocalizationLoader: failed to load {file}: {Log.ExceptionText(ex)}");
-                }
-            }
-
+            int modCount = LoadLocalizationDir(locDir, langSuffix, currentTexts);
             if (modCount > 0)
                 Log.Debug($"LocalizationLoader: loaded {modCount} strings from {mod.Name} (lang={langSuffix})");
             totalStrings += modCount;
         }
 
         Log.Info($"LocalizationLoader: {totalStrings} total strings loaded");
+    }
+
+    // No header row — CSV format: Key,English[,Chinese]
+    private static int LoadLocalizationDir(string locDir, string langSuffix, Dictionary<string, string> currentTexts)
+    {
+        int count = 0;
+        foreach (var file in Directory.GetFiles(locDir, "*.csv"))
+        {
+            var fileName = Path.GetFileNameWithoutExtension(file);
+
+            bool skipFile = false;
+            if (!string.IsNullOrEmpty(langSuffix))
+            {
+                if (langSuffix == "En" && fileName.IndexOf("SimpEn", StringComparison.OrdinalIgnoreCase) < 0)
+                    skipFile = true;
+                if (langSuffix == "Cn" && fileName.IndexOf("SimpCn", StringComparison.OrdinalIgnoreCase) < 0)
+                    skipFile = true;
+            }
+            else
+            {
+                if (fileName.IndexOf("SimpEn", StringComparison.OrdinalIgnoreCase) < 0)
+                    skipFile = true;
+            }
+            if (skipFile) { Log.Debug($"LocalizationLoader: skip {fileName} (lang={langSuffix})"); continue; }
+            Log.Debug($"LocalizationLoader: reading {fileName} col={((langSuffix == "Cn") ? 2 : 1)}");
+
+            try
+            {
+                var records = ReadCsvRecords(file);
+                int valueCol = (langSuffix == "Cn") ? 2 : 1;
+
+                foreach (var line in records)
+                {
+                    if (string.IsNullOrWhiteSpace(line)) continue;
+                    var columns = SplitCsvLine(line);
+                    if (columns.Count < 2) continue;
+                    var key = columns[0].Trim();
+                    if (string.IsNullOrEmpty(key)) continue;
+                    var value = (valueCol < columns.Count && !string.IsNullOrEmpty(columns[valueCol].Trim()))
+                        ? columns[valueCol].Trim()
+                        : columns[1].Trim();
+                    if (!string.IsNullOrEmpty(value))
+                    {
+                        currentTexts[key] = value;
+                        count++;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Warn($"LocalizationLoader: failed to load {file}: {Log.ExceptionText(ex)}");
+            }
+        }
+        return count;
     }
 
     /// <summary>

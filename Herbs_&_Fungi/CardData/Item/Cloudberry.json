@@ -1,15 +1,15 @@
 {
     "UniqueID": "herbs_fungi_cloudberry",
     "CardName": {
-        "LocalizationKey": "herbs_fungi_cloudberry_CardName",
+        "LocalizationKey": "herbsfungicloudberry_CardName",
         "DefaultText": "Cloudberries"
     },
     "CardDescription": {
-        "LocalizationKey": "herbs_fungi_cloudberry_CardDescription",
+        "LocalizationKey": "herbsfungicloudberry_CardDescription",
         "DefaultText": "Rare golden-orange berries that grow only in the coldest northern bogs and meadows. Sweet, soft, and highly prized as a delicacy."
     },
     "CardHelpSection": {
-        "LocalizationKey": "herbs_fungi_cloudberry_CardHelpSection",
+        "LocalizationKey": "herbsfungicloudberry_CardHelpSection",
         "DefaultText": "<b>Season:</b> Late Summer\n\n<b>Found:</b> Northern regions, pine meadows only.\n\n<b>Uses:</b> Eat raw, dry for long-term storage, or ferment.\n\n<b>Benefits:</b> Excellent nutrition. Rare and rewarding find."
     },
     "CardType": 0,
@@ -36,7 +36,7 @@
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
-            "LocalizationKey": "herbs_fungi_cloudberry_SpoilageTime_CardStatName",
+            "LocalizationKey": "herbsfungicloudberry_SpoilageTime_CardStatName",
             "DefaultText": "Freshness"
         },
         "MaxValue": 576.0,
@@ -44,7 +44,7 @@
         "HasActionOnFull": true,
         "OnFull": {
             "ActionDescription": {
-                "LocalizationKey": "herbs_fungi_cloudberry_SpoilageTime_OnFull",
+                "LocalizationKey": "herbsfungicloudberry_SpoilageTime_OnFull",
                 "DefaultText": "Cloudberries spoiled!"
             },
             "ReceivingCardChanges": {
@@ -60,7 +60,7 @@
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
-            "LocalizationKey": "herbs_fungi_cloudberry_UsageDurability_CardStatName",
+            "LocalizationKey": "herbsfungicloudberry_UsageDurability_CardStatName",
             "DefaultText": "Dryness"
         },
         "MaxValue": 24.0,
@@ -68,7 +68,7 @@
         "HasActionOnFull": true,
         "OnFull": {
             "ActionDescription": {
-                "LocalizationKey": "herbs_fungi_cloudberry_UsageDurability_OnFull",
+                "LocalizationKey": "herbsfungicloudberry_UsageDurability_OnFull",
                 "DefaultText": "Cloudberries dried!"
             },
             "ReceivingCardChanges": {
@@ -135,7 +135,7 @@
                 "RequiredUsagePercent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredFuelPercent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredProgressPercent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
-                "RequiredLiquidQuantity": 140.0,
+                "RequiredLiquidQuantity": 0.0,
                 "RequiredSpecial1Percent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredSpecial2Percent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredSpecial3Percent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
@@ -156,11 +156,11 @@
     "DismantleActions": [
         {
             "ActionName": {
-                "LocalizationKey": "herbs_fungi_cloudberry_Eat_ActionName",
+                "LocalizationKey": "herbsfungicloudberry_Eat_ActionName",
                 "DefaultText": "Eat"
             },
             "ActionDescription": {
-                "LocalizationKey": "herbs_fungi_cloudberry_Eat_ActionDescription",
+                "LocalizationKey": "herbsfungicloudberry_Eat_ActionDescription",
                 "DefaultText": "Eat the cloudberries. Soft, sweet, and highly nutritious."
             },
             "DaytimeCost": 0,

@@ -2,18 +2,18 @@
     "UniqueID": "herbs_fungi_bp_oil_press_utensils",
     "CardName": {
         "ParentObjectID": "herbs_fungi_bp_oil_press_utensils",
-        "LocalizationKey": "herbs_fungi_bp_oil_press_utensils_CardName",
+        "LocalizationKey": "herbsfungibpoilpressutensils_CardName",
         "DefaultText": "Oil Press Utensils"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_bp_oil_press_utensils",
-        "LocalizationKey": "herbs_fungi_bp_oil_press_utensils_CardDescription",
+        "LocalizationKey": "herbsfungibpoilpressutensils_CardDescription",
         "DefaultText": "Wooden scrapers and tools for the oil press. Requires 2 wood and a chisel."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {
         "ParentObjectID": "herbs_fungi_bp_oil_press_utensils",
-        "LocalizationKey": "herbs_fungi_bp_oil_press_utensils_UnlockConditionsDesc",
+        "LocalizationKey": "herbsfungibpoilpressutensils_UnlockConditionsDesc",
         "DefaultText": "Unlocked after obtaining wood"
     },
     "BlueprintUnlockTicksCost": 8.0,

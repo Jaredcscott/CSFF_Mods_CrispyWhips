@@ -17,8 +17,8 @@
   "CheckingNotificationDetails": 0,
   "DebugCompletion": false,
   "SunsCost": 0,
-  "MoonsCost": 8,
-  "StarsCost": 0,
+  "MoonsCost": 0,
+  "StarsCost": 1,
   "ResetLockInEditor": false,
   "PerkName": {
     "ParentObjectID": "water_sawmill_perk_forge_start",

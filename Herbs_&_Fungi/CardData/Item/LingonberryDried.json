@@ -1,11 +1,11 @@
 {
     "UniqueID": "herbs_fungi_lingonberry_dried",
     "CardName": {
-        "LocalizationKey": "herbs_fungi_lingonberry_dried_CardName",
+        "LocalizationKey": "herbsfungilingonberrydried_CardName",
         "DefaultText": "Dried Lingonberries"
     },
     "CardDescription": {
-        "LocalizationKey": "herbs_fungi_lingonberry_dried_CardDescription",
+        "LocalizationKey": "herbsfungilingonberrydried_CardDescription",
         "DefaultText": "Dried lingonberries with a pleasant tartness. A staple of northern survival — durable, lightweight, and nutritious."
     },
     "CardType": 0,
@@ -30,7 +30,7 @@
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
-            "LocalizationKey": "herbs_fungi_lingonberry_dried_SpoilageTime_CardStatName",
+            "LocalizationKey": "herbsfungilingonberrydried_SpoilageTime_CardStatName",
             "DefaultText": "Freshness"
         },
         "MaxValue": 3600.0,
@@ -38,7 +38,7 @@
         "HasActionOnFull": true,
         "OnFull": {
             "ActionDescription": {
-                "LocalizationKey": "herbs_fungi_lingonberry_dried_SpoilageTime_OnFull",
+                "LocalizationKey": "herbsfungilingonberrydried_SpoilageTime_OnFull",
                 "DefaultText": "Dried lingonberries lost their flavor."
             },
             "ReceivingCardChanges": {
@@ -110,7 +110,7 @@
                 "RequiredUsagePercent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredFuelPercent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredProgressPercent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
-                "RequiredLiquidQuantity": 140.0,
+                "RequiredLiquidQuantity": 0.0,
                 "RequiredSpecial1Percent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredSpecial2Percent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredSpecial3Percent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
@@ -131,11 +131,11 @@
     "DismantleActions": [
         {
             "ActionName": {
-                "LocalizationKey": "herbs_fungi_lingonberry_dried_Eat_ActionName",
+                "LocalizationKey": "herbsfungilingonberrydried_Eat_ActionName",
                 "DefaultText": "Eat"
             },
             "ActionDescription": {
-                "LocalizationKey": "herbs_fungi_lingonberry_dried_Eat_ActionDescription",
+                "LocalizationKey": "herbsfungilingonberrydried_Eat_ActionDescription",
                 "DefaultText": "Eat the dried lingonberries. A reliable trail ration."
             },
             "DaytimeCost": 0,

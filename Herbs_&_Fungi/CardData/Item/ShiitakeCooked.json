@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_shiitake_cooked",
     "CardName": {
         "ParentObjectID": "herbs_fungi_shiitake_cooked",
-        "LocalizationKey": "herbs_fungi_shiitake_cooked_CardName",
+        "LocalizationKey": "herbsfungishiitakecooked_CardName",
         "DefaultText": "Cooked Shiitake"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_shiitake_cooked",
-        "LocalizationKey": "herbs_fungi_shiitake_cooked_CardDescription",
+        "LocalizationKey": "herbsfungishiitakecooked_CardDescription",
         "DefaultText": "Perfectly cooked shiitake mushrooms with a meaty texture and rich umami flavor. Known to boost the immune system."
     },
     "CardType": 0,
@@ -31,12 +31,12 @@
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_shiitake_cooked",
-        "LocalizationKey": "herbs_fungi_shiitake_cooked_SpoilageTime_StatName",
+        "LocalizationKey": "herbsfungishiitakecooked_SpoilageTime_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_shiitake_cooked",
-            "LocalizationKey": "herbs_fungi_shiitake_cooked_SpoilageTime_StatName",
+            "LocalizationKey": "herbsfungishiitakecooked_SpoilageTime_StatName",
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
@@ -47,7 +47,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_shiitake_cooked",
-                "LocalizationKey": "herbs_fungi_shiitake_cooked_SpoilageTime_Spoiled",
+                "LocalizationKey": "herbsfungishiitakecooked_SpoilageTime_Spoiled",
                 "DefaultText": "The cooked shiitake has spoiled."
             },
             "ReceivingCardChanges": {
@@ -66,12 +66,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_shiitake_cooked",
-                "LocalizationKey": "herbs_fungi_shiitake_cooked_Eat",
+                "LocalizationKey": "herbsfungishiitakecooked_Eat",
                 "DefaultText": "Eat"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_shiitake_cooked",
-                "LocalizationKey": "herbs_fungi_shiitake_cooked_Eat_Desc",
+                "LocalizationKey": "herbsfungishiitakecooked_Eat_Desc",
                 "DefaultText": "Enjoy the meaty, umami-rich shiitake. Feel your immune system strengthen."
             },
             "DaytimeCost": 0,
@@ -513,7 +513,7 @@
                         "FloatValue": 0.0
                     }
                 },
-                "RequiredLiquidQuantity": 140.0,
+                "RequiredLiquidQuantity": 0.0,
                 "RequiredSpecial1Percent": {
                     "Active": false,
                     "FloatValue": 0.0,

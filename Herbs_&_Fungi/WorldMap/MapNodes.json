@@ -1,0 +1,133 @@
+[
+  {
+    "EnvironmentUID": "hfEnvForagingPath",
+    "LocationUID": "hfLocForagingPath",
+    "CloneOfEnvironmentUID": "28bb87a8ef9ad764eba84409c878d86c",
+    "DisplayName": "Foraging Path",
+    "NameLocalizationKey": "HF_ForagingPath_CardName",
+    "EnvNameLocalizationKey": "HF_Env_ForagingPath_CardName",
+    "Coords": { "x": -70.0, "y": 0.0, "z": 50.0, "w": 0.0 },
+    "HideFromMap": false,
+    "ExtraDropUIDs": [],
+    "StripLegacyBoardUIDs": [
+      "bd614575807e6b54488493417146f749",
+      "14201221856a7b34fb86d602e0359b83"
+    ],
+    "CapacityStats": {
+      "Foraging": { "MaxValue": 1440.0, "InitialValue": 1440.0, "RatePerDTP": -1.0 }
+    },
+    "Connections": [
+      {
+        "EnvironmentUID": "cc2b63c53be07de4d93f0bdbd544be25",
+        "PathCost": 10.0,
+        "TravelDirection": "East",
+        "HideConnection": false
+      }
+    ],
+    "SealableGates": [
+      {
+        "ConnectionUID": "cc2b63c53be07de4d93f0bdbd544be25",
+        "StateModel": "CardPresence",
+        "SealTrigger": { "Type": "PerkEquipped", "UID": "herbs_fungi_perk_forest_scout" },
+        "ChallengeCardUID": "herbs_fungi_overgrown_forest_trail",
+        "ClearActionKeyPrefix": "Herbs_And_Fungi_OvergrownForestTrail_Hack",
+        "ClearedTransformInto": "herbs_fungi_cleared_forest_trail",
+        "SeedOnEnvUIDs": ["cc2b63c53be07de4d93f0bdbd544be25", "hfEnvForagingPath"],
+        "DirectionalGates": [
+          {
+            "WatchEnvUID": "cc2b63c53be07de4d93f0bdbd544be25",
+            "ExcludeCt8Uids": ["hfLocForagingPath", "hfLocPineClearing", "hfLocOakClearing", "hfLocAlderWoods"],
+            "ControlsMapLine": true
+          },
+          {
+            "WatchEnvUID": "hfEnvForagingPath",
+            "Ct8Uid": "hfLocForagingPath",
+            "Direction": "East",
+            "ControlsMapLine": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "hfEnvPineClearing",
+    "LocationUID": "hfLocPineClearing",
+    "CloneOfEnvironmentUID": "95626728d47830e4283b16551e27dcfd",
+    "DisplayName": "Pine Clearing",
+    "NameLocalizationKey": "HF_PineClearing_CardName",
+    "EnvNameLocalizationKey": "HF_Env_PineClearing_CardName",
+    "Coords": { "x": -70.0, "y": 0.0, "z": 60.0, "w": 0.0 },
+    "HideFromMap": false,
+    "ExtraDropUIDs": [],
+    "StripLegacyBoardUIDs": [
+      "27cdcd9c74d2c0548bba4b5d43d37b9e",
+      "41fbf7771da1b9f4ea13af0bc1ea4341",
+      "e8287a79ea2ea4245b4a83ce727c4c9d"
+    ],
+    "CapacityStats": {
+      "Foraging": { "MaxValue": 1800.0, "InitialValue": 1800.0, "RatePerDTP": -1.0 }
+    },
+    "Connections": [
+      {
+        "EnvironmentUID": "hfEnvForagingPath",
+        "PathCost": 10.0,
+        "TravelDirection": "South",
+        "HideConnection": false
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "hfEnvOakClearing",
+    "LocationUID": "hfLocOakClearing",
+    "CloneOfEnvironmentUID": "60402000491626042b116556a55e84f5",
+    "DisplayName": "Oak Clearing",
+    "NameLocalizationKey": "HF_OakClearing_CardName",
+    "EnvNameLocalizationKey": "HF_Env_OakClearing_CardName",
+    "Coords": { "x": -80.0, "y": 0.0, "z": 50.0, "w": 0.0 },
+    "HideFromMap": false,
+    "ExtraDropUIDs": [],
+    "StripLegacyBoardUIDs": [
+      "bd614575807e6b54488493417146f749",
+      "14201221856a7b34fb86d602e0359b83",
+      "e8287a79ea2ea4245b4a83ce727c4c9d",
+      "f27a6838066ae10428aa6df6d6259221"
+    ],
+    "CapacityStats": {
+      "Foraging": { "MaxValue": 1800.0, "InitialValue": 1800.0, "RatePerDTP": -1.0 }
+    },
+    "Connections": [
+      {
+        "EnvironmentUID": "hfEnvForagingPath",
+        "PathCost": 10.0,
+        "TravelDirection": "East",
+        "HideConnection": false
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "hfEnvAlderWoods",
+    "LocationUID": "hfLocAlderWoods",
+    "CloneOfEnvironmentUID": "adff595fdf6158747a05f4fcd7c2f672",
+    "DisplayName": "Alder Woods",
+    "NameLocalizationKey": "HF_AlderWoods_CardName",
+    "EnvNameLocalizationKey": "HF_Env_AlderWoods_CardName",
+    "Coords": { "x": -70.0, "y": 0.0, "z": 40.0, "w": 0.0 },
+    "HideFromMap": false,
+    "ExtraDropUIDs": [],
+    "StripLegacyBoardUIDs": [
+      "0602e2df5cb0a7843b5517326590a915",
+      "3fbe36a6c9ef2e746affc9a5e91ed81a"
+    ],
+    "CapacityStats": {
+      "Foraging": { "MaxValue": 1440.0, "InitialValue": 1440.0, "RatePerDTP": -1.0 }
+    },
+    "Connections": [
+      {
+        "EnvironmentUID": "hfEnvForagingPath",
+        "PathCost": 10.0,
+        "TravelDirection": "North",
+        "HideConnection": false
+      }
+    ]
+  }
+]

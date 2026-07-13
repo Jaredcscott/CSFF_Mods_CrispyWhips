@@ -28,7 +28,12 @@ namespace CSFFModFramework.Api;
 /// </summary>
 public static class SpawnService
 {
-    private const BindingFlags Flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+    // GameManager.GiveCard is a STATIC method in EA 0.64f (Void GiveCard(CardData, bool)).
+    // BindingFlags.Static is REQUIRED — without it GetMethods never returns GiveCard and the
+    // resolver reports "inactive" even though the type and method both exist. (This was the
+    // root cause of the Village Path CT8 not spawning; see Retrospectives/village-path-east-travel.md.)
+    private const BindingFlags Flags = BindingFlags.Instance | BindingFlags.Static
+                                     | BindingFlags.Public | BindingFlags.NonPublic;
 
     private sealed class Pending
     {
@@ -39,6 +44,25 @@ public static class SpawnService
     }
 
     private static readonly List<Pending> _pending = new();
+
+    // Stat defaults registered by SpawnStatDefaultsLoader (from SpawnStatDefaults blocks
+    // in mod card JSON). Applied to every spawn of the matching UID before pending overrides,
+    // so explicit OnNextSpawn calls take priority.
+    private static readonly Dictionary<string, Dictionary<string, float>> _statDefaults
+        = new(StringComparer.OrdinalIgnoreCase);
+
+    /// <summary>
+    /// Register stat defaults for <paramref name="uid"/>. Called by
+    /// <c>SpawnStatDefaultsLoader</c> during load; do not call at runtime.
+    /// </summary>
+    internal static void RegisterStatDefault(string uid, Dictionary<string, float> defaults)
+    {
+        if (string.IsNullOrEmpty(uid) || defaults == null || defaults.Count == 0) return;
+        if (_statDefaults.TryGetValue(uid, out var existing))
+            foreach (var kvp in defaults) existing[kvp.Key] = kvp.Value;
+        else
+            _statDefaults[uid] = new Dictionary<string, float>(defaults, StringComparer.Ordinal);
+    }
 
     private static bool _resolveAttempted;
     private static MethodInfo _giveCardMethod;
@@ -94,8 +118,10 @@ public static class SpawnService
             return null;
         }
 
+        // GiveCard is static in EA 0.64f, so the instance is ignored by Invoke. Still try to
+        // resolve it (harmless, and forward-compatible if a future version makes it instance).
         var gm = CardUtil.GetGameManagerInstance();
-        if (gm == null)
+        if (gm == null && !giveCard.IsStatic)
         {
             Log.Error("[SpawnService] GameManager.Instance is null — spawn aborted.");
             return null;
@@ -115,7 +141,7 @@ public static class SpawnService
                 args[i] = pt == typeof(bool) ? true
                         : pt.IsValueType ? Activator.CreateInstance(pt) : null;
             }
-            spawned = giveCard.Invoke(gm, args);
+            spawned = giveCard.Invoke(giveCard.IsStatic ? null : gm, args);
         }
         catch (Exception ex)
         {
@@ -124,9 +150,23 @@ public static class SpawnService
             return null;
         }
 
+        // EA 0.64f GiveCard returns void: the card is placed on the board as a side effect and
+        // Invoke returns null. That is SUCCESS, not failure — do not treat null as an error.
+        // We have no spawned-instance handle, so stat overrides can't be applied to it here
+        // (known gap — see retrospective). Callers that spawn purely for the side effect
+        // (e.g. WorldMapInjector's CT8 travel target) ignore the return value.
+        bool returnsVoid = giveCard.ReturnType == typeof(void);
         if (spawned == null)
         {
-            Log.Warn("[SpawnService] GiveCard returned null — stat overrides not applied.");
+            if (!returnsVoid)
+            {
+                Log.Warn("[SpawnService] GiveCard returned null — card may not have spawned.");
+                return null;
+            }
+            if (statOverrides != null && statOverrides.Count > 0)
+                Log.Warn("[SpawnService] GiveCard returns void in this game version — stat overrides "
+                       + "were NOT applied to the spawned card (no return instance). Apply via the "
+                       + "CardSpawned event or a pre/post ID-diff if overrides are required.");
             return null;
         }
 
@@ -172,30 +212,57 @@ public static class SpawnService
         if (_resolveAttempted) return _giveCardMethod;
         _resolveAttempted = true;
 
-        var gmType = Reflection.ReflectionCache.FindType("GameManager");
-        var cardDataType = Reflection.ReflectionCache.FindType("CardData");
-        if (gmType == null)
+        // IMPORTANT: Do NOT use ReflectionCache.FindType or AccessTools.TypeByName here.
+        // Both scan all loaded assemblies by type name and may return a mod's shadowing
+        // "GameManager" class (e.g., ModCore 3.3.1) that has either no GiveCard at all or a
+        // GiveCard with incompatible parameter types. The only safe approach is to resolve
+        // both GameManager and CardData directly from Assembly-CSharp, guaranteeing they come
+        // from the same assembly and match the game's actual runtime types.
+        var asmCSharp = AppDomain.CurrentDomain.GetAssemblies()
+            .FirstOrDefault(a => a.GetName().Name == "Assembly-CSharp");
+        if (asmCSharp == null)
         {
-            Log.Warn("[SpawnService] GameManager type not found.");
+            // Last-ditch: try firstpass (some game versions split the assembly).
+            asmCSharp = AppDomain.CurrentDomain.GetAssemblies()
+                .FirstOrDefault(a => a.GetName().Name == "Assembly-CSharp-firstpass");
+        }
+        if (asmCSharp == null)
+        {
+            Log.Warn("[SpawnService] Assembly-CSharp not found — SpawnService inactive.");
             return null;
         }
 
-        // Validate we resolved the real game GameManager (not ModCore.Games etc.).
-        // If no GiveCard overload is present, fall back to an explicit Assembly-CSharp scan.
-        if (!gmType.GetMethods(Flags).Any(m => m.Name == "GiveCard"))
+        Type gmType = null;
+        Type cardDataType = null;
+        try
         {
-            gmType = AppDomain.CurrentDomain.GetAssemblies()
-                .Where(a => { var n = a.GetName().Name; return n == "Assembly-CSharp" || n == "Assembly-CSharp-firstpass"; })
-                .Select(a => a.GetType("GameManager", false))
-                .FirstOrDefault(t => t != null);
-            if (gmType == null)
+            foreach (var t in asmCSharp.GetTypes())
             {
-                Log.Warn("[SpawnService] GameManager not found in Assembly-CSharp — SpawnService inactive.");
-                return null;
+                if (t == null) continue;
+                if (gmType == null && t.Name == "GameManager") gmType = t;
+                if (cardDataType == null && t.Name == "CardData") cardDataType = t;
+                if (gmType != null && cardDataType != null) break;
+            }
+        }
+        catch (ReflectionTypeLoadException rtle)
+        {
+            foreach (var t in rtle.Types ?? Array.Empty<Type>())
+            {
+                if (t == null) continue;
+                if (gmType == null && t.Name == "GameManager") gmType = t;
+                if (cardDataType == null && t.Name == "CardData") cardDataType = t;
             }
         }
 
-        // Exact CardData first param, then any 2-arg non-generic overload (CMC's proven order).
+        Log.Debug($"[SpawnService] Assembly-CSharp scan: GameManager={gmType?.FullName ?? "null"}, CardData={cardDataType?.FullName ?? "null"}");
+
+        if (gmType == null)
+        {
+            Log.Warn("[SpawnService] GameManager not found in Assembly-CSharp — SpawnService inactive.");
+            return null;
+        }
+
+        // Exact CardData first param (preferred), then name-contains fallback for resilience.
         if (cardDataType != null)
         {
             _giveCardMethod = gmType.GetMethods(Flags).FirstOrDefault(m =>
@@ -210,7 +277,9 @@ public static class SpawnService
                 && m.GetParameters()[0].ParameterType.Name.Contains("CardData"));
 
         if (_giveCardMethod == null)
-            Log.Warn("[SpawnService] GameManager.GiveCard not found — SpawnService inactive.");
+            Log.Warn($"[SpawnService] GameManager.GiveCard not found in Assembly-CSharp ({gmType.FullName}) — SpawnService inactive.");
+        else
+            Log.Debug($"[SpawnService] GiveCard resolved: {_giveCardMethod.DeclaringType?.FullName}.{_giveCardMethod.Name}({string.Join(", ", _giveCardMethod.GetParameters().Select(p => p.ParameterType.Name))})");
         return _giveCardMethod;
     }
 
@@ -235,16 +304,25 @@ public static class SpawnService
         }
     }
 
-    private static void GiveCard_Postfix(object __result)
+    // GameManager.GiveCard(CardData _Data, bool _Complete) returns VOID in EA 0.64f, so a
+    // postfix's __result is always null. We read the CardData ARGUMENT (__0) instead — it
+    // carries the UniqueID, which is all the CardSpawned event needs. (Relying on __result
+    // here was why WorldMapInjector.OnCloneEnvCardSpawned never fired and the Village Path
+    // CT8 never spawned; see Retrospectives/village-path-east-travel.md.)
+    private static void GiveCard_Postfix(object __0)
     {
-        if (__result == null) return;
+        if (__0 == null) return;
         string uid = null;
         try
         {
-            uid = CardUtil.GetCardUniqueId(__result);
+            uid = CardUtil.GetCardUniqueId(__0);
             if (uid == null) return;
 
-            if (_pending.Count > 0)
+            // Override application requires the SPAWNED in-game instance, which a void GiveCard
+            // does not return — and __0 is the shared CardData template (mutating it would
+            // corrupt every instance), so overrides are NOT applied here. We still expire stale
+            // pending entries so they cannot leak, and warn once if overrides were expected.
+            if (_pending.Count > 0 || _statDefaults.Count > 0)
             {
                 lock (_pending)
                 {
@@ -253,14 +331,11 @@ public static class SpawnService
                         if (frame > _pending[i].ExpiresAtFrame)
                             _pending.RemoveAt(i);
 
-                    for (int i = 0; i < _pending.Count; i++)
-                    {
-                        var p = _pending[i];
-                        if (!string.Equals(uid, p.Uid, StringComparison.OrdinalIgnoreCase)) continue;
-                        ApplyOverrides(__result, p.Overrides);
-                        if (--p.Remaining <= 0) _pending.RemoveAt(i);
-                        break;
-                    }
+                    bool hasPendingForUid = _pending.Any(p =>
+                        string.Equals(uid, p.Uid, StringComparison.OrdinalIgnoreCase));
+                    if (hasPendingForUid || _statDefaults.ContainsKey(uid))
+                        Log.Debug($"[SpawnService] '{uid}' spawned, but stat overrides cannot be applied "
+                                + "via the void GiveCard postfix in this game version (known gap).");
                 }
             }
         }
@@ -273,7 +348,7 @@ public static class SpawnService
         if (handler == null) return;
         foreach (var d in handler.GetInvocationList())
         {
-            try { ((Action<object, string>)d)(__result, uid); }
+            try { ((Action<object, string>)d)(__0, uid); }
             catch (Exception ex) { Log.Warn($"[SpawnService] CardSpawned subscriber threw: {Log.ExceptionText(ex)}"); }
         }
     }

@@ -2,19 +2,19 @@
     "UniqueID": "herbs_fungi_ginseng_tea",
     "CardName": {
         "ParentObjectID": "herbs_fungi_ginseng_tea",
-        "LocalizationKey": "herbs_fungi_ginseng_tea_CardName",
+        "LocalizationKey": "herbsfungiginsengtea_CardName",
         "DefaultText": "Ginseng Tea"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_ginseng_tea",
-        "LocalizationKey": "herbs_fungi_ginseng_tea_CardDescription",
+        "LocalizationKey": "herbsfungiginsengtea_CardDescription",
         "DefaultText": "A revitalizing herbal tea brewed from ground ginseng root. Reduces fatigue and boosts mental clarity."
     },
     "CanBeRenamed": false,
     "AlternateNames": [],
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_ginseng_tea",
-        "LocalizationKey": "herbs_fungi_ginseng_tea_CardHelpSection",
+        "LocalizationKey": "herbsfungiginsengtea_CardHelpSection",
         "DefaultText": "<b>Preparation:</b> Mix ground ginseng with hot water in a bowl.\n\n<b>Benefits:</b> Reduces fatigue, improves focus, boosts immunity."
     },
     "CardImage": {"m_FileID": 0, "m_PathID": 0},
@@ -40,7 +40,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_ginseng_tea",
-            "LocalizationKey": "herbs_fungi_ginseng_tea_SpoilageTime_CardStatName",
+            "LocalizationKey": "herbsfungiginsengtea_SpoilageTime_CardStatName",
             "DefaultText": "Bacteria"
         },
         "MaxValue": 4800.0,
@@ -55,7 +55,7 @@
             "ActionName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_ginseng_tea",
-                "LocalizationKey": "herbs_fungi_ginseng_tea_SpoilageTime_OnFull_ActionDescription",
+                "LocalizationKey": "herbsfungiginsengtea_SpoilageTime_OnFull_ActionDescription",
                 "DefaultText": "Ginseng Tea Spoiled!"
             },
             "ReceivingCardChanges": {
@@ -73,7 +73,7 @@
         "FloatValue": 100.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_ginseng_tea",
-            "LocalizationKey": "herbs_fungi_ginseng_tea_FuelCapacity_CardStatName",
+            "LocalizationKey": "herbsfungiginsengtea_FuelCapacity_CardStatName",
             "DefaultText": "Liquid Temperature"
         },
         "MaxValue": 200.0,
@@ -92,7 +92,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_ginseng_tea",
-            "LocalizationKey": "herbs_fungi_ginseng_tea_SpecialDurability2_CardStatName",
+            "LocalizationKey": "herbsfungiginsengtea_SpecialDurability2_CardStatName",
             "DefaultText": "Quality"
         },
         "MaxValue": 96.0,
@@ -111,7 +111,7 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_ginseng_tea",
-                "LocalizationKey": "herbs_fungi_ginseng_tea_DismantleActions_Drink_ActionName",
+                "LocalizationKey": "herbsfungiginsengtea_DismantleActions_Drink_ActionName",
                 "DefaultText": "Drink"
             },
             "ActionDescription": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},

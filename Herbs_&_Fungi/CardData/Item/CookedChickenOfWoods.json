@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_cooked_chicken_of_woods",
     "CardName": {
         "ParentObjectID": "herbs_fungi_cooked_chicken_of_woods",
-        "LocalizationKey": "herbs_fungi_cooked_chicken_of_woods_CardName",
+        "LocalizationKey": "herbsfungicookedchickenofwoods_CardName",
         "DefaultText": "Cooked Chicken of the Woods"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_cooked_chicken_of_woods",
-        "LocalizationKey": "herbs_fungi_cooked_chicken_of_woods_CardDescription",
+        "LocalizationKey": "herbsfungicookedchickenofwoods_CardDescription",
         "DefaultText": "Perfectly cooked chicken of the woods. The texture and taste are remarkably similar to actual chicken."
     },
     "CardType": 0,
@@ -31,12 +31,12 @@
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_cooked_chicken_of_woods",
-        "LocalizationKey": "herbs_fungi_cooked_chicken_of_woods_SpoilageTime_StatName",
+        "LocalizationKey": "herbsfungicookedchickenofwoods_SpoilageTime_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_cooked_chicken_of_woods",
-            "LocalizationKey": "herbs_fungi_cooked_chicken_of_woods_SpoilageTime_StatName",
+            "LocalizationKey": "herbsfungicookedchickenofwoods_SpoilageTime_StatName",
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
@@ -47,7 +47,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_cooked_chicken_of_woods",
-                "LocalizationKey": "herbs_fungi_cooked_chicken_of_woods_SpoilageTime_Spoiled",
+                "LocalizationKey": "herbsfungicookedchickenofwoods_SpoilageTime_Spoiled",
                 "DefaultText": "The cooked mushroom has spoiled."
             },
             "ReceivingCardChanges": {
@@ -66,12 +66,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_cooked_chicken_of_woods",
-                "LocalizationKey": "herbs_fungi_cooked_chicken_of_woods_Eat",
+                "LocalizationKey": "herbsfungicookedchickenofwoods_Eat",
                 "DefaultText": "Eat"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_cooked_chicken_of_woods",
-                "LocalizationKey": "herbs_fungi_cooked_chicken_of_woods_Eat_Desc",
+                "LocalizationKey": "herbsfungicookedchickenofwoods_Eat_Desc",
                 "DefaultText": "Enjoy this meaty mushroom - it tastes just like chicken!"
             },
             "DaytimeCost": 0,
@@ -465,7 +465,7 @@
                         "FloatValue": 0.0
                     }
                 },
-                "RequiredLiquidQuantity": 140.0,
+                "RequiredLiquidQuantity": 0.0,
                 "RequiredSpecial1Percent": {
                     "Active": false,
                     "FloatValue": 0.0,

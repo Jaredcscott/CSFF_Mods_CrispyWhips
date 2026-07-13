@@ -2,18 +2,18 @@
     "UniqueID": "herbs_fungi_bp_oil_press_bag_prepared",
     "CardName": {
         "ParentObjectID": "herbs_fungi_bp_oil_press_bag_prepared",
-        "LocalizationKey": "herbs_fungi_bp_oil_press_bag_prepared_CardName",
+        "LocalizationKey": "herbsfungibpoilpressbagprepared_CardName",
         "DefaultText": "Prepared Press Bag"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_bp_oil_press_bag_prepared",
-        "LocalizationKey": "herbs_fungi_bp_oil_press_bag_prepared_CardDescription",
+        "LocalizationKey": "herbsfungibpoilpressbagprepared_CardDescription",
         "DefaultText": "Fit a pressure plate into a pressing bag, ready to receive seeds in the oil press. Requires 1 pressing bag and 1 press plate."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {
         "ParentObjectID": "herbs_fungi_bp_oil_press_bag_prepared",
-        "LocalizationKey": "herbs_fungi_bp_oil_press_bag_prepared_UnlockConditionsDesc",
+        "LocalizationKey": "herbsfungibpoilpressbagprepared_UnlockConditionsDesc",
         "DefaultText": "Unlocked after crafting a Pressing Bag"
     },
     "BlueprintUnlockTicksCost": 8.0,

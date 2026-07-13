@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_chicken_of_woods",
     "CardName": {
         "ParentObjectID": "herbs_fungi_chicken_of_woods",
-        "LocalizationKey": "herbs_fungi_chicken_of_woods_CardName",
+        "LocalizationKey": "herbsfungichickenofwoods_CardName",
         "DefaultText": "Chicken of the Woods"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_chicken_of_woods",
-        "LocalizationKey": "herbs_fungi_chicken_of_woods_CardDescription",
+        "LocalizationKey": "herbsfungichickenofwoods_CardDescription",
         "DefaultText": "A bright orange shelf fungus with a texture remarkably similar to chicken. A prized find for any forager."
     },
     "CardType": 0,
@@ -34,12 +34,12 @@
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_chicken_of_woods",
-        "LocalizationKey": "herbs_fungi_chicken_of_woods_SpoilageTime_StatName",
+        "LocalizationKey": "herbsfungichickenofwoods_SpoilageTime_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_chicken_of_woods",
-            "LocalizationKey": "herbs_fungi_chicken_of_woods_SpoilageTime_StatName",
+            "LocalizationKey": "herbsfungichickenofwoods_SpoilageTime_StatName",
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
@@ -50,7 +50,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_chicken_of_woods",
-                "LocalizationKey": "herbs_fungi_chicken_of_woods_SpoilageTime_Spoiled",
+                "LocalizationKey": "herbsfungichickenofwoods_SpoilageTime_Spoiled",
                 "DefaultText": "The chicken of the woods has spoiled."
             },
             "ReceivingCardChanges": {
@@ -67,12 +67,12 @@
     },
     "UsageDurability": {
         "ParentObjectID": "herbs_fungi_chicken_of_woods",
-        "LocalizationKey": "herbs_fungi_chicken_of_woods_UsageDurability_StatName",
+        "LocalizationKey": "herbsfungichickenofwoods_UsageDurability_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_chicken_of_woods",
-            "LocalizationKey": "herbs_fungi_chicken_of_woods_UsageDurability_StatName",
+            "LocalizationKey": "herbsfungichickenofwoods_UsageDurability_StatName",
             "DefaultText": "Dry"
         },
         "MinValue": 0.0,
@@ -83,7 +83,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_chicken_of_woods",
-                "LocalizationKey": "herbs_fungi_chicken_of_woods_UsageDurability_Dried",
+                "LocalizationKey": "herbsfungichickenofwoods_UsageDurability_Dried",
                 "DefaultText": "The chicken of the woods has dried out."
             },
             "ReceivingCardChanges": {
@@ -100,16 +100,16 @@
     },
     "SpecialDurability1": {
         "ParentObjectID": "herbs_fungi_chicken_of_woods",
-        "LocalizationKey": "herbs_fungi_chicken_of_woods_SpecialDurability1_StatName",
+        "LocalizationKey": "herbsfungichickenofwoods_SpecialDurability1_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_chicken_of_woods",
-            "LocalizationKey": "herbs_fungi_chicken_of_woods_SpecialDurability1_StatName",
+            "LocalizationKey": "herbsfungichickenofwoods_SpecialDurability1_StatName",
             "DefaultText": "Cook"
         },
         "MinValue": 0.0,
-        "MaxValue": 1.5,
+        "MaxValue": 1.0,
         "RatePerDaytimePoint": 0.0,
         "RateMultiplier": 1.0,
         "HidingOptions": 1,
@@ -117,7 +117,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_chicken_of_woods",
-                "LocalizationKey": "herbs_fungi_chicken_of_woods_SpecialDurability1_Cooked",
+                "LocalizationKey": "herbsfungichickenofwoods_SpecialDurability1_Cooked",
                 "DefaultText": "The chicken of the woods is perfectly cooked."
             },
             "ReceivingCardChanges": {
@@ -136,12 +136,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_chicken_of_woods",
-                "LocalizationKey": "herbs_fungi_chicken_of_woods_EatRaw",
+                "LocalizationKey": "herbsfungichickenofwoods_EatRaw",
                 "DefaultText": "Eat Raw"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_chicken_of_woods",
-                "LocalizationKey": "herbs_fungi_chicken_of_woods_EatRaw_Desc",
+                "LocalizationKey": "herbsfungichickenofwoods_EatRaw_Desc",
                 "DefaultText": "Eat raw. Should really be cooked first."
             },
             "DaytimeCost": 0,
@@ -511,7 +511,7 @@
                         "FloatValue": 0.0
                     }
                 },
-                "RequiredLiquidQuantity": 140.0,
+                "RequiredLiquidQuantity": 0.0,
                 "RequiredSpecial1Percent": {
                     "Active": false,
                     "FloatValue": 0.0,

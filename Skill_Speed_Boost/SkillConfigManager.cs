@@ -12,11 +12,18 @@ public static class SkillConfigManager
     private static Dictionary<string, ConfigEntry<bool>>  _skillStalenessToggles   = new();
     private static Dictionary<string, ConfigEntry<float>> _skillStalenessRates     = new();
 
+    // The real GameStat GameName values (verified against the 31 skill stats with
+    // UsesNovelty:true in Documentation/GameData/.../GameStat/Skill_*.json), not
+    // invented names — must match the strings GameLoadPatch resolves at runtime so
+    // pre-registered config entries merge with the dynamically-registered ones.
     public static readonly string[] CoreSkills = new[]
     {
-        "Archery", "Axe", "Blade", "Blunt", "Carpentry", "Cooking",
-        "Dodge", "Firecraft", "Foraging", "Gathering", "Herbal",
-        "Mining", "Smithing", "Spellcraft", "Tailoring", "Tracking", "Trapping"
+        "Archery", "Axe Fighting", "Butchering", "Climbing", "ClubFighting", "Cooking",
+        "Crafting", "Fishing", "Handguns", "Herbalism", "Insight", "Knapping",
+        "Knife Fighting", "Leatherworking", "Metalworking", "Percussion", "Pottery",
+        "Rock Throwing", "Sling", "Smithing", "Socials", "Spear Fighting", "Spear Fishing",
+        "Stealth", "Swimming", "Tailoring", "Tracking", "Trapping", "Weaving",
+        "Wind Instruments", "Woodworking"
     };
 
     public static void Initialize(ConfigFile config)

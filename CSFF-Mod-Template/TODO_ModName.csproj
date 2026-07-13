@@ -1,0 +1,86 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <!-- TODO: Change RootNamespace and AssemblyName to match your mod.
+                   Also RENAME THIS FILE to match AssemblyName (e.g., My_Cool_Mod.csproj).
+                   The filename must match AssemblyName or the build output name won't match. -->
+        <OutputType>Library</OutputType>
+        <RootNamespace>TODO_ModName</RootNamespace>
+        <AssemblyName>TODO_ModName</AssemblyName>
+        <LangVersion>latest</LangVersion>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <Nullable>disable</Nullable>
+        <IsPackable>false</IsPackable>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <TargetFramework>net48</TargetFramework>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <GenerateDependencyFile>false</GenerateDependencyFile>
+        <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    </PropertyGroup>
+
+    <!-- Release: strip debug symbols so no .pdb ends up in the plugin folder. -->
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <DebugType>none</DebugType>
+    </PropertyGroup>
+
+    <!-- Debug: output goes straight to BepInEx plugins so you can test immediately.
+         TODO: Change TODO_ModName in the path to your actual folder name (with underscores).
+               Example: Herbs_And_Fungi -->
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <OutputPath>C:\Program Files (x86)\Steam\steamapps\common\Card Survival Fantasy Forest\BepInEx\plugins\TODO_ModName\</OutputPath>
+    </PropertyGroup>
+
+    <!-- lib/ DLL references — NOT shipped with the mod (Private=False).
+         Populate lib/ from your game install. See README.md § Setup for instructions. -->
+    <ItemGroup>
+        <Reference Include="CSFFModFramework">
+            <HintPath>lib\CSFFModFramework.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="0Harmony">
+            <HintPath>lib\0Harmony.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <!-- Assembly-CSharp-nstrip.dll: a stripped version of the game's Assembly-CSharp.dll.
+             Create it with NStrip: nstrip.exe -cg -p Assembly-CSharp.dll
+             See README.md § Setup for instructions. -->
+        <Reference Include="Assembly-CSharp">
+            <HintPath>lib\Assembly-CSharp-nstrip.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="BepInEx">
+            <HintPath>lib\BepInEx.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="DOTween">
+            <HintPath>lib\DOTween.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <!-- UnityEngine DLLs — copy from game install's Managed/ folder -->
+        <Reference Include="UnityEngine" HintPath="lib\UnityEngine.dll"><Private>False</Private></Reference>
+        <Reference Include="Unity.TextMeshPro" HintPath="lib\Unity.TextMeshPro.dll"><Private>False</Private></Reference>
+        <Reference Include="UnityEngine.CoreModule" HintPath="lib\UnityEngine.CoreModule.dll"><Private>False</Private></Reference>
+        <Reference Include="UnityEngine.AnimationModule" HintPath="lib\UnityEngine.AnimationModule.dll"><Private>False</Private></Reference>
+        <Reference Include="UnityEngine.AssetBundleModule" HintPath="lib\UnityEngine.AssetBundleModule.dll"><Private>False</Private></Reference>
+        <Reference Include="UnityEngine.AudioModule" HintPath="lib\UnityEngine.AudioModule.dll"><Private>False</Private></Reference>
+        <Reference Include="UnityEngine.ImageConversionModule" HintPath="lib\UnityEngine.ImageConversionModule.dll"><Private>False</Private></Reference>
+        <Reference Include="UnityEngine.IMGUIModule" HintPath="lib\UnityEngine.IMGUIModule.dll"><Private>False</Private></Reference>
+        <Reference Include="UnityEngine.InputLegacyModule" HintPath="lib\UnityEngine.InputLegacyModule.dll"><Private>False</Private></Reference>
+        <Reference Include="UnityEngine.InputModule" HintPath="lib\UnityEngine.InputModule.dll"><Private>False</Private></Reference>
+        <Reference Include="UnityEngine.JSONSerializeModule" HintPath="lib\UnityEngine.JSONSerializeModule.dll"><Private>False</Private></Reference>
+        <Reference Include="UnityEngine.TextRenderingModule" HintPath="lib\UnityEngine.TextRenderingModule.dll"><Private>False</Private></Reference>
+        <Reference Include="UnityEngine.UI" HintPath="lib\UnityEngine.UI.dll"><Private>False</Private></Reference>
+        <Reference Include="UnityEngine.UIModule" HintPath="lib\UnityEngine.UIModule.dll"><Private>False</Private></Reference>
+        <Reference Include="UnityEngine.VideoModule" HintPath="lib\UnityEngine.VideoModule.dll"><Private>False</Private></Reference>
+    </ItemGroup>
+
+    <!-- Copy mod content files to build output (the plugin folder). -->
+    <ItemGroup>
+        <Content Include="ModInfo.json" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="BlueprintTabs.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('BlueprintTabs.json')" />
+        <Content Include="LICENSE" CopyToOutputDirectory="PreserveNewest" Condition="Exists('LICENSE')" />
+        <Content Include="CardData\**\*.json" CopyToOutputDirectory="PreserveNewest" Link="CardData\%(RecursiveDir)%(Filename)%(Extension)" />
+        <Content Include="CharacterPerk\*.json" CopyToOutputDirectory="PreserveNewest" Link="CharacterPerk\%(Filename)%(Extension)" />
+        <Content Include="Localization\*.csv" CopyToOutputDirectory="PreserveNewest" Link="Localization\%(Filename)%(Extension)" />
+        <Content Include="Resource\**\*.*" CopyToOutputDirectory="PreserveNewest" Link="Resource\%(RecursiveDir)%(Filename)%(Extension)" />
+    </ItemGroup>
+</Project>

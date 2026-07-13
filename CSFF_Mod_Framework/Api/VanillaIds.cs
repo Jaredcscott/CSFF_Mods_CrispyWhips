@@ -89,7 +89,7 @@ public static class VanillaIds
     /// <summary>Open-storage containers (Basket, Shelf, Sack, DryingRack, ...) raid-able by wildlife.</summary>
     public static IReadOnlyList<string> OpenStorage => Group("OpenStorage");
 
-    /// <summary>Standing water containers animals can drink from (ClayBasin, WateringTrough, RainCistern).</summary>
+    /// <summary>Water containers animals can drink from: ClayBasin, WateringTrough, RainCistern (large) + ClayBowl, ClayJar, CopperBottle, CopperJar, WaterskinWaterProofed_ (portable).</summary>
     public static IReadOnlyList<string> WaterSources => Group("WaterSources");
 
     /// <summary>Carnivore-edible foods: meats, fish, bones.</summary>

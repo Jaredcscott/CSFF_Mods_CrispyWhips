@@ -1,0 +1,95 @@
+{
+  "UniqueID": "csffmfw_bp_portal_kit",
+  "CardName": {
+    "ParentObjectID": "csffmfw_bp_portal_kit",
+    "LocalizationKey": "CSFFMFW_BpPortalKit_CardName",
+    "DefaultText": "Portal Kit"
+  },
+  "CardDescription": {
+    "ParentObjectID": "csffmfw_bp_portal_kit",
+    "LocalizationKey": "CSFFMFW_BpPortalKit_CardDescription",
+    "DefaultText": "Bind a witch stone into cured hide and dried wolfsbane, sealed with animal fat. Assembles a portable Portal Hub kit."
+  },
+  "CardType": 7,
+  "UnlockConditionsDesc": {
+    "ParentObjectID": "csffmfw_bp_portal_kit",
+    "LocalizationKey": "CSFFMFW_BpPortalKit_UnlockConditionsDesc",
+    "DefaultText": "Witch Stone Needed"
+  },
+  "BuildingStatConditions": [],
+  "StartUnlocked": false,
+  "CardsOnBoard": [
+    {
+      "ObjectiveName": "HasWitchstone",
+      "CompletionWeight": 1,
+      "Card": { "m_FileID": 0, "m_PathID": 0 },
+      "Quantity": 1,
+      "ConstantlyChecking": false,
+      "OnlyInEnvironment": { "m_FileID": 0, "m_PathID": 0 },
+      "OnlyIfEquipped": false,
+      "OnlyInContainer": { "Target": { "m_FileID": 0, "m_PathID": 0 } },
+      "CardWarpData": "3ef6130800dfe8544a095da6fb083494",
+      "CardWarpType": 3
+    }
+  ],
+  "TagsOnBoard": [],
+  "StatValues": [],
+  "BlueprintStages": [
+    {
+      "CannotRevertToThisStage": false,
+      "RequiredElements": [
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "3ef6130800dfe8544a095da6fb083494",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "e1a72342438e5e24eb57c2382d81ecea",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 2,
+          "DontSpend": false,
+          "RequiredCardWarpData": "57464dd0e8eb6154bbf88540efa39232",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 2,
+          "DontSpend": false,
+          "RequiredCardWarpData": "0eb3634f696991b4d97b91626270e035",
+          "RequiredCardWarpType": 3
+        }
+      ],
+      "StepActionTags": [],
+      "StepActionTagsWarpData": [],
+      "StepActionTagsWarpType": 3
+    }
+  ],
+  "BuildingDaytimeCost": 6,
+  "DeconstructDaytimeCost": 2,
+  "BlueprintResult": [
+    {
+      "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+      "Quantity": { "x": 1, "y": 1 },
+      "DroppedCardWarpData": "csffmfwportalkit",
+      "DroppedCardWarpType": 3
+    }
+  ],
+  "BlueprintStatModifications": [],
+  "WhenCreatedSoundsWarpData": ["Grass"],
+  "WhenCreatedSoundsWarpType": 3,
+  "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+  "BlueprintActionTagsWarpType": 3,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "Portal_Kit",
+  "CardImageWarpType": 3,
+  "BlueprintUnlockTicksCost": 32.0,
+  "ResearchedNotification": 0
+}

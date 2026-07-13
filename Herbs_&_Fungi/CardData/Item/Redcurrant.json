@@ -1,15 +1,15 @@
 {
     "UniqueID": "herbs_fungi_redcurrant",
     "CardName": {
-        "LocalizationKey": "herbs_fungi_redcurrant_CardName",
+        "LocalizationKey": "herbsfungiredcurrant_CardName",
         "DefaultText": "Redcurrants"
     },
     "CardDescription": {
-        "LocalizationKey": "herbs_fungi_redcurrant_CardDescription",
+        "LocalizationKey": "herbsfungiredcurrant_CardDescription",
         "DefaultText": "Bright red clusters of small, translucent berries with a sweet-tart flavor. Commonly found along oak forest edges and in clearings."
     },
     "CardHelpSection": {
-        "LocalizationKey": "herbs_fungi_redcurrant_CardHelpSection",
+        "LocalizationKey": "herbsfungiredcurrant_CardHelpSection",
         "DefaultText": "<b>Season:</b> Summer\n\n<b>Found:</b> Oak groves, birch forests, clearings.\n\n<b>Uses:</b> Eat raw, dry for long-term storage, or ferment into wine.\n\n<b>Benefits:</b> Good nutrition and hydration."
     },
     "CardType": 0,
@@ -36,7 +36,7 @@
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
-            "LocalizationKey": "herbs_fungi_redcurrant_SpoilageTime_CardStatName",
+            "LocalizationKey": "herbsfungiredcurrant_SpoilageTime_CardStatName",
             "DefaultText": "Freshness"
         },
         "MaxValue": 576.0,
@@ -44,7 +44,7 @@
         "HasActionOnFull": true,
         "OnFull": {
             "ActionDescription": {
-                "LocalizationKey": "herbs_fungi_redcurrant_SpoilageTime_OnFull",
+                "LocalizationKey": "herbsfungiredcurrant_SpoilageTime_OnFull",
                 "DefaultText": "Redcurrants spoiled!"
             },
             "ReceivingCardChanges": {
@@ -60,7 +60,7 @@
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
-            "LocalizationKey": "herbs_fungi_redcurrant_UsageDurability_CardStatName",
+            "LocalizationKey": "herbsfungiredcurrant_UsageDurability_CardStatName",
             "DefaultText": "Dryness"
         },
         "MaxValue": 24.0,
@@ -68,7 +68,7 @@
         "HasActionOnFull": true,
         "OnFull": {
             "ActionDescription": {
-                "LocalizationKey": "herbs_fungi_redcurrant_UsageDurability_OnFull",
+                "LocalizationKey": "herbsfungiredcurrant_UsageDurability_OnFull",
                 "DefaultText": "Redcurrants dried!"
             },
             "ReceivingCardChanges": {
@@ -135,7 +135,7 @@
                 "RequiredUsagePercent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredFuelPercent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredProgressPercent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
-                "RequiredLiquidQuantity": 140.0,
+                "RequiredLiquidQuantity": 0.0,
                 "RequiredSpecial1Percent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredSpecial2Percent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredSpecial3Percent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
@@ -156,11 +156,11 @@
     "DismantleActions": [
         {
             "ActionName": {
-                "LocalizationKey": "herbs_fungi_redcurrant_Eat_ActionName",
+                "LocalizationKey": "herbsfungiredcurrant_Eat_ActionName",
                 "DefaultText": "Eat"
             },
             "ActionDescription": {
-                "LocalizationKey": "herbs_fungi_redcurrant_Eat_ActionDescription",
+                "LocalizationKey": "herbsfungiredcurrant_Eat_ActionDescription",
                 "DefaultText": "Eat the redcurrants. Sweet-tart and refreshing."
             },
             "DaytimeCost": 0,

@@ -1,0 +1,206 @@
+{
+  "_comment": "Edit 'status' to 'Tested' when verified in-game. Edit 'name' to rename a group. Add cards to 'cards' array to reassign them.",
+  "groups": [
+    {
+      "name": "Wild Mushroom Foraging",
+      "status": "Implemented",
+      "cards": [
+        "herbs_fungi_chanterelle", "herbs_fungi_cooked_chanterelle", "herbs_fungi_dried_chanterelle",
+        "herbs_fungi_chicken_of_woods", "herbs_fungi_cooked_chicken_of_woods", "herbs_fungi_dried_chicken_of_woods",
+        "herbs_fungi_puffball", "herbs_fungi_cooked_puffball",
+        "herbs_fungi_black_trumpet", "herbs_fungi_black_trumpet_cooked", "herbs_fungi_black_trumpet_dried",
+        "herbs_fungi_morel_mushroom", "herbs_fungi_morel_mushroom_cooked", "herbs_fungi_morel_mushroom_dried",
+        "herbs_fungi_shiitake", "herbs_fungi_shiitake_cooked", "herbs_fungi_shiitake_dried",
+        "herbs_fungi_lions_mane", "herbs_fungi_lions_mane_cooked", "herbs_fungi_lions_mane_dried", "herbs_fungi_lions_mane_ground",
+        "herbs_fungi_golden_oyster", "herbs_fungi_golden_oyster_cooked", "herbs_fungi_golden_oyster_dried",
+        "herbs_fungi_king_oyster", "herbs_fungi_king_oyster_cooked", "herbs_fungi_king_oyster_dried",
+        "herbs_fungi_reishi", "herbs_fungi_reishi_ground", "herbs_fungi_dried_reishi",
+        "herbs_fungi_death_cap"
+      ]
+    },
+    {
+      "name": "Truffle Chain",
+      "status": "Implemented",
+      "cards": [
+        "herbs_fungi_truffle",
+        "herbs_fungi_dried_truffle",
+        "herbs_fungi_dried_truffle_cut",
+        "herbs_fungi_dried_truffle_cut_fat_coated",
+        "herbs_fungi_cooked_truffle",
+        "herbs_fungi_truffle_oil",
+        "herbs_fungi_bp_oil_press_truffle"
+      ]
+    },
+    {
+      "name": "Foraged Berries",
+      "status": "Implemented",
+      "cards": [
+        "herbs_fungi_blackcurrant", "herbs_fungi_blackcurrant_dried",
+        "herbs_fungi_redcurrant", "herbs_fungi_redcurrant_dried",
+        "herbs_fungi_lingonberry", "herbs_fungi_lingonberry_dried",
+        "herbs_fungi_cloudberry", "herbs_fungi_cloudberry_dried"
+      ]
+    },
+    {
+      "name": "Medicinal Herbs",
+      "status": "Implemented",
+      "cards": [
+        "herbs_fungi_chamomile", "herbs_fungi_chamomile_dried",
+        "herbs_fungi_dandelion", "herbs_fungi_dandelion_dried",
+        "herbs_fungi_ginseng", "herbs_fungi_ginseng_ground", "herbs_fungi_dried_ginseng",
+        "herbs_fungi_yarrow", "herbs_fungi_yarrow_dried", "herbs_fungi_yarrow_ground",
+        "herbs_fungi_common_plantain", "herbs_fungi_common_plantain_dried",
+        "herbs_fungi_ginger", "herbs_fungi_ginger_cut", "herbs_fungi_dried_ginger",
+        "herbs_fungi_wild_flowers", "herbs_fungi_wild_flowers_dried"
+      ]
+    },
+    {
+      "name": "Mushroom Log Cultivation",
+      "status": "Implemented",
+      "cards": [
+        "herbs_fungi_bp_mushroom_log_shiitake", "herbs_fungi_mushroom_log_shiitake_growing", "herbs_fungi_mushroom_log_shiitake_mature",
+        "herbs_fungi_bp_mushroom_log_lions_mane", "herbs_fungi_mushroom_log_lions_mane_growing", "herbs_fungi_mushroom_log_lions_mane_mature",
+        "herbs_fungi_bp_mushroom_log_reishi", "herbs_fungi_mushroom_log_reishi_growing", "herbs_fungi_mushroom_log_reishi_mature",
+        "herbs_fungi_bp_mushroom_log_chicken_of_woods", "herbs_fungi_mushroom_log_chicken_of_woods_growing", "herbs_fungi_mushroom_log_chicken_of_woods_mature",
+        "herbs_fungi_bp_mushroom_log_golden_oyster", "herbs_fungi_mushroom_log_golden_oyster_growing", "herbs_fungi_mushroom_log_golden_oyster_mature",
+        "herbs_fungi_bp_mushroom_log_king_oyster", "herbs_fungi_mushroom_log_king_oyster_growing", "herbs_fungi_mushroom_log_king_oyster_mature"
+      ]
+    },
+    {
+      "name": "Hemp Farming and Products",
+      "status": "Implemented",
+      "cards": [
+        "herbs_fungi_bp_hemp_field", "herbs_fungi_hemp_field_growing", "herbs_fungi_hemp_field_mature",
+        "herbs_fungi_bp_hemp_plant", "herbs_fungi_hemp_plant_growing", "herbs_fungi_hemp_plant_mature",
+        "herbs_fungi_hemp_seeds", "herbs_fungi_hemp_seeds_roasted", "herbs_fungi_hemp_stalks",
+        "herbs_fungi_hemp_flower", "herbs_fungi_hemp_flower_dried", "herbs_fungi_hemp_flower_powder",
+        "herbs_fungi_hemp_seed_oil", "herbs_fungi_bp_oil_press_seeds",
+        "herbs_fungi_hemp_butter", "herbs_fungi_hemp_butter_active", "herbs_fungi_hemp_butter_inactive"
+      ]
+    },
+    {
+      "name": "Drying System",
+      "status": "Implemented",
+      "cards": [
+        "herbs_fungi_bp_drying_tray", "herbs_fungi_drying_tray",
+        "herbs_fungi_bp_drying_stack", "herbs_fungi_drying_stack", "herbs_fungi_drying_stack_placed"
+      ]
+    },
+    {
+      "name": "Wooden Pantry",
+      "status": "Implemented",
+      "cards": [
+        "herbs_fungi_bp_wooden_pantry", "herbs_fungi_wooden_pantry", "herbs_fungi_wooden_pantry_placed"
+      ]
+    },
+    {
+      "name": "Oil Press Station",
+      "status": "Implemented",
+      "cards": [
+        "herbs_fungi_bp_oil_press_kit", "herbs_fungi_oil_press_kit", "herbs_fungi_oil_press",
+        "herbs_fungi_bp_oil_press_legs", "herbs_fungi_oil_press_legs",
+        "herbs_fungi_bp_oil_press_frame", "herbs_fungi_oil_press_frame",
+        "herbs_fungi_bp_press_bed_frame", "herbs_fungi_press_bed_frame",
+        "herbs_fungi_bp_oil_press_screw", "herbs_fungi_oil_press_screw",
+        "herbs_fungi_bp_oil_press_bag", "herbs_fungi_oil_press_bag",
+        "herbs_fungi_bp_oil_press_bag_plate", "herbs_fungi_oil_press_bag_plate",
+        "herbs_fungi_bp_oil_press_bag_prepared", "herbs_fungi_oil_press_bag_prepared",
+        "herbs_fungi_bp_oil_press_utensils", "herbs_fungi_oil_press_utensils"
+      ]
+    },
+    {
+      "name": "Herbal and Seed Oils",
+      "status": "Implemented",
+      "cards": [
+        "herbs_fungi_bp_oil_press_herbal_hemp", "herbs_fungi_herbal_oil_hemp",
+        "herbs_fungi_bp_oil_press_herbal_appleweed", "herbs_fungi_herbal_oil_appleweed",
+        "herbs_fungi_bp_oil_press_herbal_fairyweed", "herbs_fungi_herbal_oil_fairyweed",
+        "herbs_fungi_bp_oil_press_herbal_frostleaf", "herbs_fungi_herbal_oil_frostleaf"
+      ]
+    },
+    {
+      "name": "Pickling System",
+      "status": "Implemented",
+      "cards": [
+        "herbs_fungi_bp_pickling_vat", "herbs_fungi_unfired_pickle_vat", "herbs_fungi_pickling_vat",
+        "herbs_fungi_pickle_brine",
+        "herbs_fungi_bp_pickle_frogs", "herbs_fungi_pickle_vat_closed_frogs", "herbs_fungi_pickle_vat_ready_frogs", "herbs_fungi_pickle_vat_sealed_frogs",
+        "herbs_fungi_bp_pickle_meat", "herbs_fungi_pickle_vat_closed_meat", "herbs_fungi_pickle_vat_ready_meat", "herbs_fungi_pickle_vat_sealed_meat",
+        "herbs_fungi_bp_pickle_mushrooms", "herbs_fungi_pickle_vat_closed_mushrooms", "herbs_fungi_pickle_vat_ready_mushrooms", "herbs_fungi_pickle_vat_sealed_mushrooms",
+        "herbs_fungi_bp_pickle_vegetables", "herbs_fungi_pickle_vat_closed_vegetables", "herbs_fungi_pickle_vat_ready_vegetables", "herbs_fungi_pickle_vat_sealed_vegetables",
+        "herbs_fungi_open_pickle_jar"
+      ]
+    },
+    {
+      "name": "Herb Pipe",
+      "status": "Implemented",
+      "cards": [
+        "herbs_fungi_bp_herb_pipe", "herbs_fungi_herb_pipe",
+        "herbs_fungi_herb_pipe_appleweed", "herbs_fungi_herb_pipe_fairyweed",
+        "herbs_fungi_herb_pipe_frostleaf", "herbs_fungi_herb_pipe_hemp"
+      ]
+    },
+    {
+      "name": "Flower Garland",
+      "status": "Implemented",
+      "cards": [
+        "herbs_fungi_bp_flower_garland", "herbs_fungi_flower_garland",
+        "herbs_fungi_wild_flowers", "herbs_fungi_wild_flowers_dried"
+      ]
+    },
+    {
+      "name": "Herbal Teas and Broth",
+      "status": "Implemented",
+      "cards": [
+        "herbs_fungi_bp_sleep_tea", "herbs_fungi_sleep_tea",
+        "herbs_fungi_bp_anti_nausea_tea", "herbs_fungi_anti_nausea_tea",
+        "herbs_fungi_bp_stimulant_tea", "herbs_fungi_stimulant_tea",
+        "herbs_fungi_bp_mushroom_broth", "herbs_fungi_mushroom_broth",
+        "herbs_fungi_chamomile_tea",
+        "herbs_fungi_dandelion_tea",
+        "herbs_fungi_ginseng_tea",
+        "herbs_fungi_reishi_tea",
+        "herbs_fungi_yarrow_tea",
+        "herbs_fungi_lions_mane_tea"
+      ]
+    },
+    {
+      "name": "Medicinal Preparations",
+      "status": "Implemented",
+      "cards": [
+        "herbs_fungi_bp_pain_relief_powder", "herbs_fungi_pain_relief_powder",
+        "herbs_fungi_bp_herbal_salve", "herbs_fungi_herbal_salve",
+        "herbs_fungi_bp_plantain_poultice", "herbs_fungi_plantain_poultice",
+        "herbs_fungi_bp_herbal_tincture", "herbs_fungi_herbal_tincture",
+        "herbs_fungi_bp_healers_moss_tincture", "herbs_fungi_healers_moss_tincture",
+        "herbs_fungi_bp_death_cap_tincture", "herbs_fungi_death_cap_tincture"
+      ]
+    },
+    {
+      "name": "Foraging Forest WorldMap",
+      "status": "Implemented",
+      "cards": []
+    },
+    {
+      "name": "Character Perks",
+      "status": "Implemented",
+      "cards": [
+        "herbsfungiperkaddfungi",
+        "herbsfungiperkaddhemp",
+        "herbsfungiperkalchemist",
+        "herbsfungiperkapothecary",
+        "herbsfungiperkculinarykit",
+        "herbsfungiperkdryingkit",
+        "herbsfungiperkedibleskit",
+        "herbsfungiperkfungalcultivator",
+        "herbsfungiperkmasterherbalist",
+        "herbsfungiperkmedicalmushrooms",
+        "herbsfungiperkmushroombasket",
+        "herbsfungiperkoilpress",
+        "herbsfungiperkseedbag",
+        "herbsfungiperksmokekit",
+        "herbsfungiperkstoner"
+      ]
+    }
+  ]
+}

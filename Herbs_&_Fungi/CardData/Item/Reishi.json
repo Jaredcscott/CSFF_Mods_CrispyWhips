@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_reishi",
     "CardName": {
         "ParentObjectID": "herbs_fungi_reishi",
-        "LocalizationKey": "herbs_fungi_reishi_CardName",
+        "LocalizationKey": "herbsfungireishi_CardName",
         "DefaultText": "Reishi Mushroom"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_reishi",
-        "LocalizationKey": "herbs_fungi_reishi_CardDescription",
+        "LocalizationKey": "herbsfungireishi_CardDescription",
         "DefaultText": "A tough, woody shelf fungus prized for its medicinal properties. Known to boost immunity and fight infection."
     },
     "CardType": 0,
@@ -35,7 +35,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_reishi",
-            "LocalizationKey": "herbs_fungi_reishi_SpoilageTime_StatName",
+            "LocalizationKey": "herbsfungireishi_SpoilageTime_StatName",
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
@@ -46,7 +46,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_reishi",
-                "LocalizationKey": "herbs_fungi_reishi_SpoilageTime_Spoiled",
+                "LocalizationKey": "herbsfungireishi_SpoilageTime_Spoiled",
                 "DefaultText": "The reishi has dried out and crumbled."
             },
             "ReceivingCardChanges": {
@@ -66,7 +66,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_reishi",
-            "LocalizationKey": "herbs_fungi_reishi_UsageDurability_StatName",
+            "LocalizationKey": "herbsfungireishi_UsageDurability_StatName",
             "DefaultText": "Dry"
         },
         "MinValue": 0.0,
@@ -77,7 +77,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_reishi",
-                "LocalizationKey": "herbs_fungi_reishi_UsageDurability_Dried",
+                "LocalizationKey": "herbsfungireishi_UsageDurability_Dried",
                 "DefaultText": "The reishi has dried properly."
             },
             "ReceivingCardChanges": {
@@ -92,16 +92,143 @@
             }
         }
     },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_reishi",
+                "LocalizationKey": "",
+                "DefaultText": "Add to Stew"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_reishi",
+                "LocalizationKey": "",
+                "DefaultText": "Drop into the boiling liquid to cook."
+            },
+            "WorksInverted": true,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [
+                    "tag_StewContainer"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "RequiredStatValues": [],
+            "RequiredNPCStatValues": [],
+            "RequiredCardsOnBoard": [],
+            "RequiredTagsOnBoard": [],
+            "RequiredAlreadyVisitedEnvironments": [],
+            "RequiredReceivingContainer": [],
+            "RequiredReceivingContainerTag": [],
+            "RequiredNOTReceivingContainerTag": [],
+            "RequiredReceivingContainerDurabilities": {},
+            "RequiredGivenDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredFuelPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredProgressPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredLiquidQuantity": 0.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "HideActionIfNotMet": true,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": []
+            },
+            "GivenCardChanges": {
+                "ModType": 0
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "ProducedCards": []
+        }
+    ],
     "DismantleActions": [
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_reishi",
-                "LocalizationKey": "herbs_fungi_reishi_EatRaw",
+                "LocalizationKey": "herbsfungireishi_EatRaw",
                 "DefaultText": "Eat Raw"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_reishi",
-                "LocalizationKey": "herbs_fungi_reishi_EatRaw_Desc",
+                "LocalizationKey": "herbsfungireishi_EatRaw_Desc",
                 "DefaultText": "Eat the fresh reishi raw. Tough and woody but provides medicinal benefits."
             },
             "DaytimeCost": 0,

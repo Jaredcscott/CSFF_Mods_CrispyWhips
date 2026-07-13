@@ -1,4 +1,4 @@
-{
+﻿{
     "ActionModifiers": [],
     "ActionObjectives": [],
     "AddedCards": [],
@@ -27,7 +27,7 @@
     ],
     "EquippedCardsWarpType": 3,
     "HiddenUntilUnlocked": false,
-    "MoonsCost": 3,
+    "MoonsCost": 0,
     "NestedObjectives": [],
     "NoSafetyMode": false,
     "NotifyWhenNotChecked": false,
@@ -71,7 +71,7 @@
     "StartUnlocked": false,
     "StartingStatModifiers": [],
     "StatsObjectives": [],
-    "SunsCost": 0,
+    "SunsCost": 10,
     "TagsOnBoardObjectives": [],
     "TimeObjectives": [],
     "UniqueID": "herbs_fungi_perk_edibles_kit",

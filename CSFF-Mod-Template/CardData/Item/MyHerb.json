@@ -1,0 +1,118 @@
+{
+    "UniqueID": "TODO_modname_my_herb",
+    "CardName": {
+        "ParentObjectID": "TODO_modname_my_herb",
+        "LocalizationKey": "TODO_ModName_MyHerb_CardName",
+        "DefaultText": "My Herb"
+    },
+    "CardDescription": {
+        "ParentObjectID": "TODO_modname_my_herb",
+        "LocalizationKey": "TODO_ModName_MyHerb_CardDescription",
+        "DefaultText": "A placeholder foraged herb. Replace this description with what your plant actually does."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Vegetable",
+        "tag_Foraged",
+        "tag_HumanFood",
+        "tag_Plateable"
+    ],
+    "CardTagsWarpType": 3,
+    "CardImageWarpData": "TODO_ModName_MyHerb",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "ParentObjectID": "TODO_modname_my_herb",
+        "LocalizationKey": "TODO_ModName_MyHerb_SpoilageTime_StatName",
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "TODO_modname_my_herb",
+            "LocalizationKey": "TODO_ModName_MyHerb_SpoilageTime_StatName",
+            "DefaultText": "Spoilage"
+        },
+        "MinValue": 0.0,
+        "MaxValue": 288.0,
+        "RatePerDaytimePoint": 1.0,
+        "RateMultiplier": 1.0,
+        "HasActionOnFull": true,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "TODO_modname_my_herb",
+                "LocalizationKey": "TODO_ModName_MyHerb_SpoilageTime_Spoiled",
+                "DefaultText": "The herb has spoiled."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": false
+            }
+        }
+    },
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "TODO_modname_my_herb",
+                "LocalizationKey": "TODO_ModName_MyHerb_Eat_ActionName",
+                "DefaultText": "Eat"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "TODO_modname_my_herb",
+                "LocalizationKey": "TODO_ModName_MyHerb_Eat_ActionDescription",
+                "DefaultText": "Eat the herb. Provides a small amount of nutrition."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [
+                {
+                    "Stat": { "m_FileID": 0, "m_PathID": 0 },
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 8, "y": 8 },
+                    "TriggerStat": { "m_FileID": 0, "m_PathID": 0 },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": { "x": 0.0, "y": 0.0 },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": { "m_FileID": 0, "m_PathID": 0 },
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 10, "y": 10 },
+                    "TriggerStat": { "m_FileID": 0, "m_PathID": 0 },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": { "x": 0.0, "y": 0.0 },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": { "m_FileID": 0, "m_PathID": 0 },
+                    "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 6, "y": 6 },
+                    "TriggerStat": { "m_FileID": 0, "m_PathID": 0 },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": { "x": 0.0, "y": 0.0 },
+                    "TriggerStatValueIsMax": false
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
+    "ObjectWeight": 30,
+    "MaxStack": 10,
+    "DroppedCardShadow": 1
+}

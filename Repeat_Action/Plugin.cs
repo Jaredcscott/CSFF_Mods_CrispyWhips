@@ -7,11 +7,12 @@ using UnityEngine;
 namespace Repeat_Action;
 
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
+[BepInDependency("crispywhips.CSFFModFramework", BepInDependency.DependencyFlags.SoftDependency)]
 public class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.repeat_action";
     public const string PluginName = "Repeat_Action";
-    public const string PluginVersion = "1.6.0";
+    public const string PluginVersion = "1.6.4";
 
     internal new static ManualLogSource Logger;
     private static Harmony _harmony;

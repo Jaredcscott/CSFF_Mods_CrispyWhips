@@ -1,0 +1,133 @@
+{
+  "_comment": "Edit 'status' to 'Tested' when verified in-game. Edit 'name' to rename a group. Add cards to 'cards' array to reassign them.",
+  "groups": [
+    {
+      "name": "Mill Race",
+      "status": "Implemented",
+      "cards": [
+        "water_sawmill_mill_race",
+        "water_sawmill_mill_race_east",
+        "water_sawmill_mill_race_north",
+        "water_sawmill_mill_race_south",
+        "water_sawmill_mill_race_west",
+        "water_sawmill_bp_mill_race"
+      ]
+    },
+    {
+      "name": "Mill Race Outlet",
+      "status": "Implemented",
+      "cards": [
+        "water_sawmill_mill_race_outlet_kit",
+        "water_sawmill_mill_race_outlet_placed",
+        "water_sawmill_mill_race_outlet_frozen",
+        "water_sawmill_bp_mill_race_outlet"
+      ]
+    },
+    {
+      "name": "Water-Driven Sawmill",
+      "status": "Implemented",
+      "cards": [
+        "water_sawmill_frame",
+        "water_sawmill_placed",
+        "water_sawmill_bp_water_driven_sawmill",
+        "water_sawmill_perk_sawmill_start"
+      ]
+    },
+    {
+      "name": "Water-Driven Grinding Mill",
+      "status": "Implemented",
+      "cards": [
+        "water_sawmill_grinding_mill_kit",
+        "water_sawmill_grinding_mill_placed",
+        "water_sawmill_bp_grinding_mill",
+        "water_sawmill_perk_grinding_mill_start"
+      ]
+    },
+    {
+      "name": "Water-Driven Forge",
+      "status": "Implemented",
+      "cards": [
+        "water_sawmill_forge_kit",
+        "water_sawmill_forge_placed",
+        "water_sawmill_bp_water_driven_forge",
+        "water_sawmill_perk_forge_start"
+      ]
+    },
+    {
+      "name": "Water-Driven Workshop",
+      "status": "Implemented",
+      "cards": [
+        "water_sawmill_workshop_kit",
+        "water_sawmill_workshop_placed",
+        "water_sawmill_bp_water_driven_workshop_kit"
+      ]
+    },
+    {
+      "name": "Copper Gear / Saw Blade",
+      "status": "Implemented",
+      "cards": [
+        "water_sawmill_copper_gear_large",
+        "water_sawmill_copper_gear_small",
+        "water_sawmill_copper_saw_blade",
+        "water_sawmill_bp_cast_copper_gear_large",
+        "water_sawmill_bp_cast_copper_gear_small",
+        "water_sawmill_bp_cast_copper_saw_blade"
+      ]
+    },
+    {
+      "name": "Iron Parts",
+      "status": "Implemented",
+      "cards": [
+        "water_sawmill_iron_parts",
+        "water_sawmill_iron_bearing",
+        "water_sawmill_iron_axle",
+        "water_sawmill_iron_wrench",
+        "water_sawmill_bp_iron_parts",
+        "water_sawmill_bp_iron_bearing",
+        "water_sawmill_bp_iron_axle",
+        "water_sawmill_bp_iron_wrench"
+      ]
+    },
+    {
+      "name": "Water Mill / Water Wheel",
+      "status": "Implemented",
+      "cards": [
+        "water_sawmill_water_mill",
+        "water_sawmill_water_wheel",
+        "water_sawmill_bp_water_mill",
+        "water_sawmill_bp_water_wheel"
+      ]
+    },
+    {
+      "name": "Ore Sluice",
+      "status": "Implemented",
+      "cards": [
+        "water_sawmill_ore_sluice_empty",
+        "water_sawmill_ore_sluice_kit",
+        "water_sawmill_ore_sluice_placed",
+        "water_sawmill_bp_ore_sluice_empty",
+        "water_sawmill_bp_ore_sluice"
+      ]
+    },
+    {
+      "name": "Fishpond",
+      "status": "Implemented",
+      "cards": [
+        "water_sawmill_fishpond_kit",
+        "water_sawmill_fishpond_filled",
+        "water_sawmill_fishpond_stocked",
+        "water_sawmill_fishpond_winter",
+        "water_sawmill_bp_fishpond"
+      ]
+    },
+    {
+      "name": "Starter Perks",
+      "status": "Implemented",
+      "cards": [
+        "water_sawmill_perk_sawmill_start",
+        "water_sawmill_perk_forge_start",
+        "water_sawmill_perk_grinding_mill_start"
+      ]
+    }
+  ]
+}

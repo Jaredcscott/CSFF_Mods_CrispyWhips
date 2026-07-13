@@ -1,45 +1,34 @@
 using BepInEx;
 using BepInEx.Logging;
+using CSFFModFramework.Api;
 using HarmonyLib;
 
 namespace Herbs_And_Fungi;
 
 [BepInDependency("crispywhips.CSFFModFramework", BepInDependency.DependencyFlags.SoftDependency)]
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
-internal class Plugin : BaseUnityPlugin
+internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.Herbs_And_Fungi";
     public const string PluginName = "Herbs and Fungi";
-    public const string PluginVersion = "1.8.0";
+    public const string PluginVersion = "1.9.5";
 
-    internal new static ManualLogSource Logger;
+    internal new static ManualLogSource Logger { get; private set; }
     internal static Plugin Instance { get; private set; }
-    private static Harmony _harmony;
 
-    private void Awake()
+    protected override void OnModAwake()
     {
         Instance = this;
 
         // Set up logger for static access
         Logger = base.Logger;
-        
-        // Initialize and apply Harmony patches
-        _harmony = new Harmony(PluginGuid);
-        try
-        {
-            Herbs_And_Fungi.Patcher.GameLoadPatch.ApplyPatch(_harmony);
-            Herbs_And_Fungi.Patcher.TruffleFatCookPatch.ApplyPatch(_harmony);
-            Herbs_And_Fungi.Patcher.PickleVatRoutePatch.ApplyPatch(_harmony);
-            Logger.LogInfo($"{PluginName} v{PluginVersion} loaded.");
-        }
-        catch (System.Exception ex)
-        {
-            Logger.LogError($"Failed to apply Harmony patches: {ex}");
-        }
     }
 
-    private void OnDestroy()
+    protected override void RegisterPatches(Harmony harmony)
     {
-        _harmony?.UnpatchSelf();
+        TryApply("GameLoadPatch", () => Herbs_And_Fungi.Patcher.GameLoadPatch.ApplyPatch(harmony));
+        TryApply("PickleVatRoutePatch", () => Herbs_And_Fungi.Patcher.PickleVatRoutePatch.ApplyPatch(harmony));
+        // Forest Scout perk gating moved to WorldMap/MapNodes.json SealableGates (framework
+        // CSFFModFramework.Injection.SealableGateService) — HFForestGatePatch.cs retired.
     }
 }

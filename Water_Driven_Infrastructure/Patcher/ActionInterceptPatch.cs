@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using HarmonyLib;
 using BepInEx.Logging;
+using CSFFModFramework.Api;
 using CSFFModFramework.Util;
 
 namespace WaterDrivenInfrastructure.Patcher
@@ -13,10 +14,12 @@ namespace WaterDrivenInfrastructure.Patcher
     /// <summary>
     /// Intercepts DismantleAction execution on water-driven structures to consume
     /// inventory items that pure JSON DismantleActions cannot handle.
-    /// Patches GameManager.ActionRoutine with a prefix.
+    /// Action interception (drag/DismantleAction dispatch) is registered on the
+    /// framework's ActionRouter (see RegisterActionHandlers) rather than direct
+    /// Harmony patches on ActionRoutine/PerformStackActionRoutine/PerformActionAsEnumerator.
     ///
     /// Handles:
-    ///   Sawmill  "Cut"           - consume one log from inventory
+    ///   Sawmill  "Cut"           - consume one log from inventory (pure JSON, no C# needed)
     ///   Mill     "Grind All"     - let JSON Progress + Mill effect handle conversion
     /// </summary>
     public static class ActionInterceptPatch
@@ -38,8 +41,11 @@ namespace WaterDrivenInfrastructure.Patcher
         private const int    FishCatchPostSpawnTicks = 1;
         private const float  WorkshopMetalQualityBoost = 5f;
         private const string CopperNuggetGUID = "4b0f4937a5ecb90499428c8c10288afc";
-        private const string CopperSheetID    = "advanced_copper_tools_metal_sheet";
-        private const string CopperNailsID    = "advanced_copper_tools_copper_nails";
+        // Prefers ACT's real items when AdvancedCopperTools is installed (feeds its economy);
+        // falls back to WDI-native items otherwise. ActCompat.IsInstalled is detected once at
+        // load (GameLoadPatch), not re-scanned per click. See root CLAUDE.md §WDI/ACT Decoupling.
+        private static string CopperSheetID => ActCompat.IsInstalled ? ActCompat.MetalSheetUid : "water_sawmill_cast_metal_sheet";
+        private static string CopperNailsID => ActCompat.IsInstalled ? ActCompat.CopperNailsUid : "water_sawmill_copper_rivet";
         private const string UnfinishedLumpID = "b92071e54dac7e54db99b48794e737ad";
         private const int   WorkshopNuggetsPerCraft = 6;
         private const int   LumpNuggetsPerCraft     = 4;
@@ -185,19 +191,6 @@ namespace WaterDrivenInfrastructure.Patcher
                 var gmType = AccessTools.TypeByName("GameManager");
                 var cardType = AccessTools.TypeByName("InGameCardBase");
 
-                // CardInteractions (drag card to structure) go through ActionRoutine
-                var actionRoutine = AccessTools.Method(gmType, "ActionRoutine");
-                if (actionRoutine != null)
-                {
-                    harmony.Patch(actionRoutine,
-                        prefix:  new HarmonyMethod(typeof(ActionInterceptPatch), nameof(ActionRoutine_Prefix))  { priority = Priority.High },
-                        postfix: new HarmonyMethod(typeof(ActionInterceptPatch), nameof(ActionRoutine_Postfix)));
-                }
-                else
-                {
-                    Logger?.LogError("[ActionIntercept] GameManager.ActionRoutine not found");
-                }
-
                 var selectedContainedBlueprint = AccessTools.Method(cardType, "GetSelectedContainedBlueprint");
                 if (selectedContainedBlueprint != null)
                 {
@@ -207,26 +200,6 @@ namespace WaterDrivenInfrastructure.Patcher
                 else
                 {
                     Logger?.LogDebug("[ActionIntercept] InGameCardBase.GetSelectedContainedBlueprint not found; workshop storage routing patch unavailable");
-                }
-
-                // DismantleActions (buttons like "Sluice All", "Pack Up") go through PerformStackActionRoutine
-                var stackRoutine = AccessTools.Method(gmType, "PerformStackActionRoutine");
-                if (stackRoutine != null)
-                {
-                    harmony.Patch(stackRoutine,
-                        prefix:  new HarmonyMethod(typeof(ActionInterceptPatch), nameof(PerformStackAction_Prefix))  { priority = Priority.High },
-                        postfix: new HarmonyMethod(typeof(ActionInterceptPatch), nameof(PerformStackAction_Postfix)));
-                }
-                else
-                {
-                    Logger?.LogError("[ActionIntercept] GameManager.PerformStackActionRoutine not found");
-                }
-
-                // Fallback: PerformActionAsEnumerator may handle individual action execution
-                var performAction = AccessTools.Method(gmType, "PerformActionAsEnumerator");
-                if (performAction != null)
-                {
-                    harmony.Patch(performAction, prefix: new HarmonyMethod(typeof(ActionInterceptPatch), nameof(PerformActionAsEnum_Prefix)) { priority = Priority.High });
                 }
 
                 // GiveCard postfix — set Metal Type=200 on MetalBarFinished from iron item OnFull
@@ -243,11 +216,189 @@ namespace WaterDrivenInfrastructure.Patcher
                 {
                     Logger?.LogDebug("[ActionIntercept] GiveCard not found at patch time; iron bar metal type uses fallback");
                 }
+
+                // CardInteractions (drag) + DismantleActions (buttons) are now dispatched via
+                // CSFFModFramework's ActionRouter — ONE Harmony patch set on ActionRoutine /
+                // PerformStackActionRoutine / PerformActionAsEnumerator shared across mods,
+                // instead of WDI's own direct patches on those coroutines.
+                RegisterActionHandlers();
             }
             catch (Exception ex)
             {
                 Logger?.LogError($"[ActionIntercept] Patch failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
+        }
+
+        // ============================================================
+        //  ACTION ROUTER REGISTRATION
+        //  Replaces the former direct Harmony patches + prefix/postfix pending-card
+        //  bookkeeping (ActionRoutine_Prefix/Postfix, PerformStackAction_Prefix/Postfix,
+        //  PerformActionAsEnum_Prefix) with declarative ActionRouter handlers. The
+        //  framework owns the single IEnumerator wrap point and per-handler frame
+        //  dedup, so the old _pendingXxxCard / _xxxDrainDepth / _lastXxxFrame fields
+        //  are gone — see CLAUDE.md §Harmony Patching Pitfalls (iterator composition).
+        // ============================================================
+        private static void RegisterActionHandlers()
+        {
+            // Mill race water-connectivity gate. Registered FIRST so it can cancel an
+            // action before any handler below runs — ActionRouter evaluates matching
+            // handlers for a dispatch in registration order.
+            ActionRouter.Register(new ActionHandler
+            {
+                Name = "MillRaceGate",
+                CardPredicate = _ => true,
+                Timing = ActionTiming.Cancel,
+                Before = ctx =>
+                {
+                    if (!MillRaceNetwork.ShouldBlockAction(ctx.CardUid, ctx.ActionName, ctx.Card)) return false;
+                    Logger?.LogDebug($"[ActionIntercept] Blocked '{ctx.ActionName}' on {ctx.CardUid}: mill race water connection unavailable");
+                    ClearDragState(ctx.GivenCard);
+                    return true;
+                }
+            });
+
+            // Grinding Mill — "Grind All"
+            ActionRouter.Register(new ActionHandler
+            {
+                Name = "MillGrindAll",
+                CardUid = MillID,
+                ActionNamePrefix = "Grind All",
+                Timing = ActionTiming.Cancel,
+                Before = ctx => { HandleGrindAllInner(ctx.Card); ClearDragState(ctx.GivenCard); return true; }
+            });
+
+            // Ore Sluice — "Sluice All"
+            ActionRouter.Register(new ActionHandler
+            {
+                Name = "SluiceAll",
+                CardUid = SluiceID,
+                ActionNamePrefix = "Sluice All",
+                Timing = ActionTiming.Cancel,
+                Before = ctx => { HandleSluiceAllInner(ctx.Card); ClearDragState(ctx.GivenCard); return true; }
+            });
+
+            // Fishpond — record which species was stocked so "Catch Other Fish" can
+            // produce proportionally. JSON still handles Special4Change and destroying
+            // the given fish card.
+            ActionRouter.Register(new ActionHandler
+            {
+                Name = "FishpondStockTracking",
+                CardPredicate = ctx => ctx.CardUid == FishpondFilledID || ctx.CardUid == FishpondStockedID,
+                Timing = ActionTiming.Before,
+                Before = ctx =>
+                {
+                    if (ctx.ActionName == "Stock Sturgeon") IncrementOtherFish(ctx.Card, 1, 0, 0);
+                    else if (ctx.ActionName == "Stock Trout") IncrementOtherFish(ctx.Card, 0, 1, 0);
+                    else if (ctx.ActionName == "Stock Char") IncrementOtherFish(ctx.Card, 0, 0, 1);
+                    return false;
+                }
+            });
+
+            // Fishpond — "Catch Other Fish" picks a result weighted by what was
+            // actually stocked. Cancels the JSON 33/33/33 fallback only when tracking
+            // data is available; otherwise lets JSON run (the FishCatchStats handler
+            // below still fixes up quality/weight afterward).
+            ActionRouter.Register(new ActionHandler
+            {
+                Name = "CatchOtherFishPick",
+                CardPredicate = ctx => ctx.CardUid == FishpondFilledID || ctx.CardUid == FishpondStockedID,
+                ActionNamePrefix = "Catch Other Fish",
+                Timing = ActionTiming.Cancel,
+                Before = ctx => !HandleCatchOtherFish(ctx.Card)
+            });
+
+            // Fishpond — quality/weight fixup for "Catch X" / "Ice Fish X" (and the
+            // vanilla-fallback path of "Catch Other Fish"). ActionRouter's After
+            // callback is synchronous (cannot itself yield an extra frame), so the fix
+            // is applied via the same decoupled StartCoroutine helper already used for
+            // nugget/lump stat initialization.
+            ActionRouter.Register(new ActionHandler
+            {
+                Name = "FishCatchStats",
+                CardPredicate = ctx => ctx.CardUid == FishpondFilledID || ctx.CardUid == FishpondStockedID || ctx.CardUid == FishpondWinterID,
+                Timing = ActionTiming.AfterWrapped,
+                Before = ctx =>
+                {
+                    bool relevant = IsFishCatchAction(ctx.ActionName)
+                        || string.Equals(ctx.ActionName, "Catch Other Fish", StringComparison.Ordinal);
+                    if (relevant) ctx.Tag = SnapshotFishCardIds();
+                    return true;
+                },
+                After = ctx =>
+                {
+                    if (ctx.Tag is HashSet<int> preIds)
+                        StartDelayedFishInitialization(preIds, ctx.Card);
+                }
+            });
+
+            // Workshop — copper-nugget-cost crafts (Hammer Copper Sheet / Forge Copper
+            // Nails / Cast Metal Lump). The gate cancels outright when the workshop
+            // doesn't hold enough nuggets; otherwise Apply consumes them and spawns the
+            // result once the original DaytimeCost timing completes.
+            ActionRouter.Register(new ActionHandler
+            {
+                Name = "WorkshopCraftGate",
+                CardUid = WorkshopID,
+                Timing = ActionTiming.Cancel,
+                Before = ctx =>
+                {
+                    var kind = GetWorkshopCraftKind(ctx.Action);
+                    if (kind == WorkshopCraftKind.None) return false;
+                    int cost = GetCraftCost(kind);
+                    if (CountCopperNuggets(ctx.Card) >= cost) return false;
+                    Logger?.LogDebug($"[ActionIntercept] {kind}: needs {cost} copper nuggets in workshop inventory");
+                    return true;
+                }
+            });
+            ActionRouter.Register(new ActionHandler
+            {
+                Name = "WorkshopCraftApply",
+                CardUid = WorkshopID,
+                Timing = ActionTiming.AfterWrapped,
+                Before = ctx => { ctx.Tag = GetWorkshopCraftKind(ctx.Action); return true; },
+                After = ctx =>
+                {
+                    if (ctx.Tag is WorkshopCraftKind kind && kind != WorkshopCraftKind.None)
+                        HandleWorkshopCraft(ctx.Card, kind);
+                }
+            });
+
+            // Water-Driven Forge / Workshop — "Hammer All"
+            ActionRouter.Register(new ActionHandler
+            {
+                Name = "HammerAll",
+                CardUid = WorkshopID,
+                ActionNamePrefix = "Hammer All",
+                Timing = ActionTiming.AfterWrapped,
+                After = ctx => HandleHammerAllInner(ctx.Card, workshopQualityBoost: true)
+            });
+
+            // Workshop / Forge — "Blast"
+            ActionRouter.Register(new ActionHandler
+            {
+                Name = "BlastAll",
+                CardPredicate = ctx => ctx.CardUid == WorkshopID || ctx.CardUid == ForgeID,
+                ActionNamePrefix = "Blast",
+                Timing = ActionTiming.AfterWrapped,
+                After = ctx => HandleBlastAllInner(ctx.Card)
+            });
+
+            // Iron item OnFull smelting (Parts/Bearing/Axle/Wrench) — snapshot existing
+            // nugget IDs before the action runs so newly spawned iron nuggets can be
+            // identified and typed/quality-fixed afterward. Fires on every action on
+            // these 4 cards (matches the original unconditional-per-action check).
+            ActionRouter.Register(new ActionHandler
+            {
+                Name = "IronSmeltType",
+                CardPredicate = ctx => IronSmeltItemIds.Contains(ctx.CardUid),
+                Timing = ActionTiming.AfterWrapped,
+                Before = ctx => { ctx.Tag = SnapshotCardIdsByUniqueId(CopperNuggetGUID); return true; },
+                After = ctx =>
+                {
+                    if (ctx.Tag is HashSet<int> preIds && ApplyIronBarType(preIds) == 0)
+                        StartDelayedIronBarTypeRetry(preIds);
+                }
+            });
         }
 
         static void GetSelectedContainedBlueprint_Postfix(object __instance, ref object __result)
@@ -287,187 +438,6 @@ namespace WaterDrivenInfrastructure.Patcher
             catch { }
 
             return false;
-        }
-
-        // Prefix for DismantleAction buttons (e.g. "Sluice All", "Pack Up")
-        // Uses positional params (__0, __1) because actual parameter names may differ from docs
-        // Signature: IEnumerator PerformStackActionRoutine(CardAction, List<InGameCardBase>, InGameNPCOrPlayer)
-        static bool PerformStackAction_Prefix(object __0, object __1, ref IEnumerator __result)
-        {
-            try
-            {
-                if (__0 == null || __1 == null) return true;
-
-                // __0 = CardAction, __1 = List<InGameCardBase>
-                var cardList = __1 as IList;
-                if (cardList == null || cardList.Count == 0) return true;
-                object receivingCard = cardList[0];
-                if (receivingCard == null) return true;
-
-                string actionName = CardUtil.GetActionName(__0);
-                string cardId = CardUtil.GetCardUniqueId(receivingCard);
-
-                if (cardId != null && cardId.StartsWith("water_sawmill_", StringComparison.OrdinalIgnoreCase))
-                    Logger?.LogDebug($"[ActionIntercept] StackPrefix: cardId='{cardId}', actionName='{actionName}'");
-
-                if (MillRaceNetwork.ShouldBlockAction(cardId, actionName, receivingCard))
-                {
-                    Logger?.LogDebug($"[ActionIntercept] Blocked '{actionName}' on {cardId}: mill race water connection unavailable");
-                    return SkipOriginalWithResult(ref __result, receivingCard);
-                }
-
-                if (IsSluiceAllAction(__0))
-                {
-                    var sluiceCard = FindSluiceCard(__0, receivingCard);
-                    if (sluiceCard != null)
-                    {
-                        HandleSluiceAll(sluiceCard);
-                        return SkipOriginalWithResult(ref __result, sluiceCard);
-                    }
-                }
-
-                if (string.Equals(cardId, WorkshopID, StringComparison.Ordinal) && IsHammerAllAction(__0) && _hammerDrainDepth == 0)
-                {
-                    // Let the original JSON action run for its DaytimeCost:2 timing and keep the
-                    // menu open (ModType:0 never closes the card popup). The postfix wraps the
-                    // returned IEnumerator to apply hammer after the coroutine completes.
-                    _pendingHammerAllCard = receivingCard;
-                    return true;
-                }
-
-                if ((string.Equals(cardId, WorkshopID, StringComparison.Ordinal) || string.Equals(cardId, ForgeID, StringComparison.Ordinal)) && IsBlastAction(__0))
-                {
-                    // Let original Blast run (temperature/fuel/windflow changes), then process
-                    // smeltable items in inventory via BlastAllAfterAction postfix wrap.
-                    _pendingBlastAllCard = receivingCard;
-                    return true;
-                }
-
-                var workshopCraft = GetWorkshopCraftKind(__0);
-                if (string.Equals(cardId, WorkshopID, StringComparison.Ordinal) && workshopCraft != WorkshopCraftKind.None && _craftDrainDepth == 0)
-                {
-                    int cost = GetCraftCost(workshopCraft);
-                    if (CountCopperNuggets(receivingCard) < cost)
-                    {
-                        Logger?.LogDebug($"[ActionIntercept] {workshopCraft}: needs {cost} copper nuggets in workshop inventory");
-                        return SkipOriginalWithResult(ref __result, receivingCard);
-                    }
-
-                    _pendingWorkshopCraftCard = receivingCard;
-                    _pendingWorkshopCraftKind = workshopCraft;
-                    return true;
-                }
-
-                // Catch Other Fish — pick weighted by what was actually stocked.
-                // Returns false to skip the JSON 33/33/33 produced cards if we have tracking
-                // data; otherwise returns true so JSON fallback fires.
-                if ((cardId == FishpondFilledID || cardId == FishpondStockedID)
-                    && actionName == "Catch Other Fish" && _fishDrainDepth == 0)
-                {
-                    bool allowVanilla = HandleCatchOtherFish(receivingCard);
-                    if (!allowVanilla)
-                        return SkipOriginalWithResult(ref __result, receivingCard);
-                    // allowVanilla == true: JSON 33/33/33 ProducedCards will spawn the fish;
-                    // postfix wrapper will set quality after the action coroutine completes.
-                    _pendingFishCatchCard = receivingCard;
-                    return true;
-                }
-
-                // "Catch X" / "Ice Fish X" DismantleActions — postfix wrapper sets SD2 quality.
-                bool isFishpondAny = cardId == FishpondFilledID || cardId == FishpondStockedID || cardId == FishpondWinterID;
-                if (isFishpondAny && IsFishCatchAction(actionName) && _fishDrainDepth == 0)
-                    _pendingFishCatchCard = receivingCard;
-            }
-            catch (Exception ex)
-            {
-                Logger?.LogError($"[ActionIntercept] StackPrefix error: {ex}");
-            }
-            return true;
-        }
-
-        // Postfix — wraps the IEnumerator returned by PerformStackActionRoutine so that
-        // hammer/blast processing is applied after the original coroutine (DaytimeCost timing) finishes.
-        static void PerformStackAction_Postfix(ref IEnumerator __result)
-        {
-            if (_pendingHammerAllCard != null)
-            {
-                var card = _pendingHammerAllCard;
-                _pendingHammerAllCard = null;
-                var original = __result;
-                __result = HammerAllAfterAction(original, card);
-            }
-            else if (_pendingBlastAllCard != null)
-            {
-                var card = _pendingBlastAllCard;
-                _pendingBlastAllCard = null;
-                var original = __result;
-                __result = BlastAllAfterAction(original, card);
-            }
-            else if (_pendingWorkshopCraftCard != null)
-            {
-                var card = _pendingWorkshopCraftCard;
-                var kind = _pendingWorkshopCraftKind;
-                _pendingWorkshopCraftCard = null;
-                _pendingWorkshopCraftKind = WorkshopCraftKind.None;
-                var original = __result;
-                __result = WorkshopCraftAfterAction(original, card, kind);
-            }
-            else if (_pendingFishCatchCard != null)
-            {
-                var card = _pendingFishCatchCard;
-                _pendingFishCatchCard = null;
-                var original = __result;
-                __result = SetFishStatsAfterCatch(original, card);
-            }
-        }
-
-        private static IEnumerator HammerAllAfterAction(IEnumerator original, object forge)
-        {
-            _hammerDrainDepth++;
-            try
-            {
-                if (original != null)
-                    while (original.MoveNext())
-                        yield return original.Current;
-            }
-            finally { _hammerDrainDepth--; }
-            HandleHammerAll(forge, workshopQualityBoost: true);
-        }
-
-        private static IEnumerator BlastAllAfterAction(IEnumerator original, object workshop)
-        {
-            if (original != null)
-                while (original.MoveNext())
-                    yield return original.Current;
-            HandleBlastAll(workshop);
-        }
-
-        private static IEnumerator WorkshopCraftAfterAction(IEnumerator original, object workshop, WorkshopCraftKind kind)
-        {
-            _craftDrainDepth++;
-            try
-            {
-                if (original != null)
-                    while (original.MoveNext())
-                        yield return original.Current;
-            }
-            finally { _craftDrainDepth--; }
-            HandleWorkshopCraft(workshop, kind);
-        }
-
-        private static bool _blastHandled;
-        private static int  _lastBlastFrame = -1;
-
-        private static void HandleBlastAll(object workshop)
-        {
-            int frame = UnityEngine.Time.frameCount;
-            if (_lastBlastFrame == frame) return;
-            _lastBlastFrame = frame;
-
-            if (_blastHandled) return;
-            _blastHandled = true;
-            try { HandleBlastAllInner(workshop); }
-            finally { _blastHandled = false; }
         }
 
         private static void HandleBlastAllInner(object workshop)
@@ -517,23 +487,22 @@ namespace WaterDrivenInfrastructure.Patcher
             float bestQualityPct = 0f;
             foreach (var (item, _) in toSmelt)
             {
-                float v = GetDurabilityStatValue(item, "SpecialDurability2");
+                float v = CardUtil.GetDurability(item, "SpecialDurability2");
                 if (float.IsNaN(v) || v <= 0f) continue;
-                float m = GetDurabilityStatMaxValue(item, "SpecialDurability2");
+                float m = CardUtil.GetDurabilityMax(item, "SpecialDurability2");
                 float pct = (!float.IsNaN(m) && m > 0f) ? v / m : v / 100f;
                 if (pct > bestQualityPct) bestQualityPct = pct;
             }
 
             Logger?.LogDebug($"[ActionIntercept] BlastAll: smelting {toSmelt.Count} item(s) → {totalNuggets} copper nugget(s), quality {bestQualityPct:P0}");
 
-            InitSpawnReflection();
             for (int i = 0; i < totalNuggets; i++)
             {
-                var nugget = SpawnResultOnBoard(CopperNuggetGUID);
+                var nugget = SpawnService.Spawn(CopperNuggetGUID);
                 if (nugget == null) continue;
                 foreach (var stat in new[] { "SpecialDurability1", "SpecialDurability2", "SpecialDurability3" })
                 {
-                    float max = GetDurabilityStatMaxValue(nugget, stat);
+                    float max = CardUtil.GetDurabilityMax(nugget, stat);
                     if (float.IsNaN(max) || max <= 0f) max = 100f;
                     SetMinimumDurabilityStatValue(nugget, stat, Math.Max(bestQualityPct * max, NuggetSmeltQuality));
                 }
@@ -543,295 +512,11 @@ namespace WaterDrivenInfrastructure.Patcher
             EjectCardsFromStructure(workshop, toSmelt.Select(t => t.item));
         }
 
-        // Fallback prefix for PerformActionAsEnumerator — catches individual action execution
-        // Uses __args to capture all params regardless of signature
-        static bool PerformActionAsEnum_Prefix(object[] __args, ref IEnumerator __result)
-        {
-            try
-            {
-                if (__args == null || __args.Length == 0) return true;
-
-                object action = null;
-                object card = null;
-                bool isSluiceAction = false;
-                foreach (var arg in __args)
-                {
-                    if (arg == null) continue;
-                    string typeName = arg.GetType().Name;
-                    if (typeName.Contains("CardAction") || typeName.Contains("Action"))
-                    {
-                        string name = CardUtil.GetActionName(arg);
-                        if (action == null)
-                            action = arg;
-                        if (name == "Sluice All")
-                        {
-                            action = arg;
-                            isSluiceAction = true;
-                        }
-                    }
-                    if (typeName.Contains("Card") && !typeName.Contains("Action"))
-                    {
-                        string uid = CardUtil.GetCardUniqueId(arg);
-                        if (card == null && uid != null && uid.StartsWith("water_sawmill_", StringComparison.OrdinalIgnoreCase))
-                            card = arg;
-                        if (uid == SluiceID)
-                            card = arg;
-                    }
-                }
-
-                if (action != null && card != null)
-                {
-                    string actionName = CardUtil.GetActionName(action);
-                    string cardId = CardUtil.GetCardUniqueId(card);
-                    if (MillRaceNetwork.ShouldBlockAction(cardId, actionName, card))
-                    {
-                        Logger?.LogDebug($"[ActionIntercept] PerformActionAsEnum blocked '{actionName}' on {cardId}: mill race water connection unavailable");
-                        return SkipOriginalWithResult(ref __result, card);
-                    }
-                }
-
-                if (isSluiceAction && action != null && card != null)
-                {
-                    Logger?.Log(LogLevel.Debug, "[ActionIntercept] PerformActionAsEnum: intercepted Sluice All");
-                    HandleSluiceAll(card);
-                    return SkipOriginalWithResult(ref __result, card);
-                }
-            }
-            catch (Exception ex)
-            {
-                Logger?.LogError($"[ActionIntercept] PerformActionAsEnum error: {ex}");
-            }
-            return true;
-        }
-
-        // ActionRoutine(CardAction _Action, InGameCardBase _ReceivingCard, InGameNPCOrPlayer _User,
-        // bool _FastMode, bool _DontPlaySounds, bool _ModifiersAlreadyCollected = false,
-        // InGameCardBase _GivenCard = null)
-        static bool ActionRoutine_Prefix(object[] __args, ref IEnumerator __result)
-        {
-            try
-            {
-                if (__args == null || __args.Length < 2) return true;
-
-                object action = __args[0];
-                object receivingCard = __args[1];
-                object givenCard = __args.Length > 6 ? __args[6] : null;
-
-                if (action == null || receivingCard == null) return true;
-
-                string cardId = CardUtil.GetCardUniqueId(receivingCard);
-                string actionName = CardUtil.GetActionName(action);
-                if (cardId == null || actionName == null) return true;
-
-                // Diagnostic: log when our mod cards are actioned
-                if (cardId != null && cardId.StartsWith("water_sawmill_", StringComparison.OrdinalIgnoreCase))
-                    Logger?.LogDebug($"[ActionIntercept] Prefix: cardId='{cardId}', actionName='{actionName}', actionType={action.GetType().Name}");
-
-                if (MillRaceNetwork.ShouldBlockAction(cardId, actionName, receivingCard))
-                {
-                    Logger?.LogDebug($"[ActionIntercept] Blocked '{actionName}' on {cardId}: mill race water connection unavailable");
-                    ClearDragState(givenCard);
-                    return SkipOriginalWithResult(ref __result, receivingCard);
-                }
-
-                // Sawmill "Cut" is a CardInteraction — JSON handles it fully:
-                // GivenCardChanges.ModType=3 destroys the log, ProducedCards spawns 8 planks.
-                // No C# intercept needed.
-
-                if (cardId == MillID && actionName == "Grind All")
-                {
-                    HandleGrindAll(receivingCard);
-                    ClearDragState(givenCard);
-                    return SkipOriginalWithResult(ref __result, receivingCard);
-                }
-
-                if (string.Equals(cardId, WorkshopID, StringComparison.Ordinal) && IsHammerAllAction(action) && _hammerDrainDepth == 0)
-                {
-                    // Let the original JSON action run for its DaytimeCost timing and
-                    // to keep the card popup open (ModType:0 never closes it).
-                    // ActionRoutine_Postfix wraps the IEnumerator to apply hammer after completion.
-                    _pendingHammerAllCard = receivingCard;
-                    ClearDragState(givenCard);
-                    return true;
-                }
-
-                var workshopCraft = GetWorkshopCraftKind(action);
-                if (string.Equals(cardId, WorkshopID, StringComparison.Ordinal) && workshopCraft != WorkshopCraftKind.None && _craftDrainDepth == 0)
-                {
-                    int cost = GetCraftCost(workshopCraft);
-                    if (CountCopperNuggets(receivingCard) < cost)
-                    {
-                        Logger?.LogDebug($"[ActionIntercept] {workshopCraft}: needs {cost} copper nuggets in workshop inventory");
-                        ClearDragState(givenCard);
-                        return SkipOriginalWithResult(ref __result, receivingCard);
-                    }
-
-                    _pendingWorkshopCraftCard = receivingCard;
-                    _pendingWorkshopCraftKind = workshopCraft;
-                    ClearDragState(givenCard);
-                    return true;
-                }
-
-                // Stock Sturgeon/Trout/Char — record which species was stocked so
-                // Catch Other Fish can produce proportionally. JSON still handles
-                // Special4Change (+1) and the destroy of the given fish card.
-                if (cardId == FishpondFilledID || cardId == FishpondStockedID)
-                {
-                    if      (actionName == "Stock Sturgeon") IncrementOtherFish(receivingCard, 1, 0, 0);
-                    else if (actionName == "Stock Trout")    IncrementOtherFish(receivingCard, 0, 1, 0);
-                    else if (actionName == "Stock Char")     IncrementOtherFish(receivingCard, 0, 0, 1);
-                }
-
-                // "Catch X" / "Ice Fish X" DismantleActions route through ActionRoutine.
-                // Set pending flag so the postfix wrapper can apply quality after spawn.
-                {
-                    bool isFishpondAny = cardId == FishpondFilledID || cardId == FishpondStockedID || cardId == FishpondWinterID;
-                    if (isFishpondAny && IsFishCatchAction(actionName) && _fishDrainDepth == 0)
-                        _pendingFishCatchCard = receivingCard;
-                }
-
-                if (IsSluiceAllAction(action))
-                {
-                    var sluiceCard = FindSluiceCard(action, receivingCard, givenCard);
-                    if (sluiceCard != null)
-                    {
-                        HandleSluiceAll(sluiceCard);
-                        ClearDragState(givenCard);
-                        return SkipOriginalWithResult(ref __result, sluiceCard);
-                    }
-                }
-
-                // Iron item OnFull fires when Progress=MaxValue; snapshot existing nugget IDs
-                // so the postfix fallback can identify the newly spawned iron nuggets.
-                if (IronSmeltItemIds.Contains(cardId))
-                {
-                    _preIronSmeltBarIds = SnapshotCardIdsByUniqueId(CopperNuggetGUID);
-                    _pendingIronSmelt = true;
-                }
-
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Logger?.LogError($"[ActionIntercept] prefix error: {ex}");
-                return true;
-            }
-        }
-
-        // Postfix — wraps the ActionRoutine IEnumerator when a Hammer All is pending.
-        static void ActionRoutine_Postfix(ref IEnumerator __result)
-        {
-            if (_pendingHammerAllCard != null)
-            {
-                var card = _pendingHammerAllCard;
-                _pendingHammerAllCard = null;
-                var original = __result;
-                __result = HammerAllAfterAction(original, card);
-            }
-            else if (_pendingWorkshopCraftCard != null)
-            {
-                var card = _pendingWorkshopCraftCard;
-                var kind = _pendingWorkshopCraftKind;
-                _pendingWorkshopCraftCard = null;
-                _pendingWorkshopCraftKind = WorkshopCraftKind.None;
-                var original = __result;
-                __result = WorkshopCraftAfterAction(original, card, kind);
-            }
-            else if (_pendingFishCatchCard != null)
-            {
-                var card = _pendingFishCatchCard;
-                _pendingFishCatchCard = null;
-                var original = __result;
-                __result = SetFishStatsAfterCatch(original, card);
-            }
-            else if (_pendingIronSmelt)
-            {
-                _pendingIronSmelt = false;
-                var preIds = _preIronSmeltBarIds;
-                _preIronSmeltBarIds = null;
-                var original = __result;
-                __result = SetIronBarTypeAfterSmelt(original, preIds);
-            }
-        }
-
         // ============================================================
         //  GRINDING MILL - C# Grind All handler
         // ============================================================
         private const string GrindingToolTag = "tag_GrindingTool";
         private const string HammerToolTag   = "tag_HammeringToolGeneral";
-        private static bool _grindHandled;
-
-        private static bool SkipOriginalWithResult(ref IEnumerator result, object receivingCard)
-        {
-            result = FinishHandledAction(receivingCard);
-            return false;
-        }
-
-        private static IEnumerator FinishHandledAction(object receivingCard)
-        {
-            SetGameState("PLAYINGCARD");
-            SetIsPerformingAction(receivingCard, true);
-            yield return null;
-            SetIsPerformingAction(receivingCard, false);
-            SetGameState("SELECT");
-        }
-
-        private static void SetGameState(string stateName)
-        {
-            try
-            {
-                var gm = GetGameManagerInstance();
-                if (gm == null) return;
-
-                var gmType = gm.GetType();
-                var prop = gmType.GetProperty("CurrentGameState", Flags);
-                var field = gmType.GetField("CurrentGameState", Flags);
-                var valueType = prop?.PropertyType ?? field?.FieldType;
-                if (valueType == null || !valueType.IsEnum) return;
-
-                var value = Enum.Parse(valueType, stateName);
-                var setter = prop?.GetSetMethod(nonPublic: true);
-                if (setter != null) setter.Invoke(gm, new[] { value });
-                else field?.SetValue(gm, value);
-            }
-            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] SetGameState({stateName}) failed: {ex.Message}"); }
-        }
-
-        private static void SetIsPerformingAction(object card, bool value)
-        {
-            try
-            {
-                if (card == null) return;
-                var cardType = card.GetType();
-                var prop = cardType.GetProperty("IsPerformingAction", Flags);
-                var setter = prop?.GetSetMethod(nonPublic: true);
-                if (setter != null)
-                {
-                    setter.Invoke(card, new object[] { value });
-                    return;
-                }
-
-                var field = cardType.GetField("IsPerformingAction", Flags);
-                field ??= cardType.GetField("<IsPerformingAction>k__BackingField", Flags);
-                field?.SetValue(card, value);
-            }
-            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] SetIsPerformingAction({value}) failed: {ex.Message}"); }
-        }
-
-        private static object GetGameManagerInstance()
-        {
-            if (_gmType == null) InitSpawnReflection();
-            return _gmType?.GetProperty("Instance", BindingFlags.Public | BindingFlags.Static)?.GetValue(null)
-                ?? (_gmType != null ? UnityEngine.Object.FindObjectOfType(_gmType) : null);
-        }
-
-        private static bool HandleGrindAll(object mill)
-        {
-            if (_grindHandled) return false;
-            _grindHandled = true;
-            try { return HandleGrindAllInner(mill); }
-            finally { _grindHandled = false; }
-        }
 
         private static bool HandleGrindAllInner(object mill)
         {
@@ -873,56 +558,31 @@ namespace WaterDrivenInfrastructure.Patcher
 
             Logger?.Log(LogLevel.Debug, $"[ActionIntercept] GrindAll: grinding {toGrind.Count} item(s)");
 
-            InitSpawnReflection();
-            if (_giveCardMethod != null && _gmType != null)
+            foreach (var (sourceCard, resultId) in toGrind)
             {
-                foreach (var (sourceCard, resultId) in toGrind)
+                string srcUid  = CardUtil.GetCardUniqueId(sourceCard);
+                float srcQ2    = CardUtil.GetDurability(sourceCard, "SpecialDurability2");
+                float srcQ2Max = CardUtil.GetDurabilityMax(sourceCard, "SpecialDurability2");
+                float srcQ3    = CardUtil.GetDurability(sourceCard, "SpecialDurability3");
+                float srcQ3Max = CardUtil.GetDurabilityMax(sourceCard, "SpecialDurability3");
+                Logger?.LogDebug($"[GrindAll] grinding '{srcUid}' → '{resultId}': SD2={srcQ2:F1}/{srcQ2Max:F1}");
+
+                // GiveCard returns void in EA 0.65 — SpawnService.Spawn always returns null.
+                // Snapshot before spawn, then scan for new cards to transfer quality.
+                var preIds = SnapshotCardIdsByUniqueId(resultId);
+                SpawnService.Spawn(resultId);
+                foreach (var newCard in EnumerateKnownCards())
                 {
-                    var spawned = SpawnResultOnBoard(resultId);
-                    if (spawned != null)
-                    {
-                        TransferQualityPercent(sourceCard, spawned, "SpecialDurability2");
-                        TransferQualityPercent(sourceCard, spawned, "SpecialDurability3");
-                        RefreshCardDurabilityVisuals(spawned);
-                    }
+                    if (CardUtil.GetCardUniqueId(newCard) != resultId) continue;
+                    if (newCard is UnityEngine.Object uo && preIds.Contains(uo.GetInstanceID())) continue;
+                    ApplyMinimumQualityPercent(newCard, "SpecialDurability2", srcQ2, srcQ2Max);
+                    ApplyMinimumQualityPercent(newCard, "SpecialDurability3", srcQ3, srcQ3Max);
+                    RefreshCardDurabilityVisuals(newCard);
                 }
             }
 
             EjectSourceCardsFromMill(mill, toGrind);
             return false;
-        }
-
-        private static object SpawnResultOnBoard(string uniqueId)
-        {
-            try
-            {
-                var cardData = CardUtil.GetCardDataById(uniqueId);
-                if (cardData == null)
-                {
-                    Logger?.LogError($"[ActionIntercept] GrindAll: CardData not found for '{uniqueId}'");
-                    return null;
-                }
-                var gm = _gmType.GetProperty("Instance", BindingFlags.Public | BindingFlags.Static)?.GetValue(null)
-                      ?? UnityEngine.Object.FindObjectOfType(_gmType);
-                if (gm == null) { Logger?.LogError("[ActionIntercept] GrindAll: GameManager instance not found"); return null; }
-
-                var parms = _giveCardMethod.GetParameters();
-                var args = new object[parms.Length];
-                args[0] = cardData;
-                for (int i = 1; i < parms.Length; i++)
-                {
-                    var pt = parms[i].ParameterType;
-                    args[i] = pt.IsValueType ? Activator.CreateInstance(pt) : null;
-                }
-                var spawned = _giveCardMethod.Invoke(gm, args);
-                Logger?.Log(LogLevel.Debug, $"[ActionIntercept] GrindAll: spawned '{uniqueId}' on board");
-                return spawned;
-            }
-            catch (Exception ex)
-            {
-                Logger?.LogError($"[ActionIntercept] SpawnResultOnBoard({uniqueId}) failed: {ex.InnerException?.Message ?? ex.Message}");
-                return null;
-            }
         }
 
         private static void EjectSourceCardsFromMill(object mill, List<(object card, string resultId)> toGrind)
@@ -1019,13 +679,28 @@ namespace WaterDrivenInfrastructure.Patcher
                     var rcc = rccField?.GetValue(ci);
                     if (rcc == null) continue;
 
+                    // Path A: TransformInto (most vanilla grind items)
                     var transformField = rcc.GetType().GetField("TransformInto", Flags);
                     var transformCard  = transformField?.GetValue(rcc);
-                    if (transformCard == null) continue;
+                    if (transformCard != null)
+                    {
+                        var uidField = transformCard.GetType().GetField("UniqueID", Flags);
+                        var uid = uidField?.GetValue(transformCard) as string;
+                        if (!string.IsNullOrEmpty(uid)) return uid;
+                    }
 
-                    var uidField = transformCard.GetType().GetField("UniqueID", Flags);
-                    var uid = uidField?.GetValue(transformCard) as string;
-                    if (!string.IsNullOrEmpty(uid)) return uid;
+                    // Path B: ProducedCards[0].DroppedCards[0] fallback
+                    var prodsFieldRcc = ci.GetType().GetField("ProducedCards", Flags);
+                    var prodsRcc = prodsFieldRcc?.GetValue(ci) as IList;
+                    if (prodsRcc == null || prodsRcc.Count == 0) continue;
+                    var collRcc = prodsRcc[0];
+                    var dropsRcc = collRcc?.GetType().GetField("DroppedCards", Flags)?.GetValue(collRcc) as IList;
+                    if (dropsRcc == null || dropsRcc.Count == 0) continue;
+                    var dropRcc = dropsRcc[0];
+                    var dcRcc   = dropRcc?.GetType().GetField("DroppedCard", Flags)?.GetValue(dropRcc);
+                    var uidRcc  = GetUniqueIdFromObject(dcRcc)
+                               ?? dropRcc?.GetType().GetField("DroppedCardWarpData", Flags)?.GetValue(dropRcc) as string;
+                    if (!string.IsNullOrEmpty(uidRcc)) return uidRcc;
                 }
             }
             catch (Exception ex)
@@ -1102,15 +777,14 @@ namespace WaterDrivenInfrastructure.Patcher
                 _otherFish[id] = counts;
 
                 // Decrement the visible Special4 total so the pond stat matches the dict
-                float cur = GetDurabilityStatValue(pond, "SpecialDurability4");
+                float cur = CardUtil.GetDurability(pond, "SpecialDurability4");
                 if (!float.IsNaN(cur))
-                    SetDurabilityStatValue(pond, "SpecialDurability4", Math.Max(0f, cur - 1f));
+                    CardUtil.SetDurability(pond, "SpecialDurability4", Math.Max(0f, cur - 1f));
 
                 // Spawn the picked fish on the board; the handled-action wrapper advances time
                 // once after spawn, then initializes the finalized runtime fish card.
-                InitSpawnReflection();
                 var preIds = SnapshotFishCardIds();
-                SpawnResultOnBoard(pickedGuid);
+                SpawnService.Spawn(pickedGuid);
                 StartDelayedFishInitialization(preIds, pond);
 
                 Logger?.Log(LogLevel.Debug,
@@ -1137,42 +811,11 @@ namespace WaterDrivenInfrastructure.Patcher
                    name.StartsWith("Ice Fish ", StringComparison.Ordinal);
         }
 
-        private static IEnumerator SetFishStatsAfterCatch(IEnumerator original, object pond)
-        {
-            var preIds = SnapshotFishCardIds();
-            _fishDrainDepth++;
-            try
-            {
-                if (original != null)
-                    while (original.MoveNext())
-                        yield return original.Current;
-            }
-            finally { _fishDrainDepth--; }
-
-            // One frame for GiveCard to register the spawned fish in AllCards
-            yield return null;
-
-            // Apply stats immediately so the fish is ready before the tick animates
-            int updated = ApplyFishCaughtStats(preIds, FishCaughtQuality, includeZeroQualityExisting: true);
-            if (updated == 0)
-            {
-                yield return null;
-                updated = ApplyFishCaughtStats(preIds, FishCaughtQuality, includeZeroQualityExisting: true);
-            }
-
-            // Tick runs after stats are set — fish is already at proper quality when time advances
-            yield return SpendFishCatchPostSpawnTime(pond);
-
-            // Final fallback for late-spawn edge cases
-            if (updated == 0)
-                ApplyFishCaughtStats(preIds, FishCaughtQuality, includeZeroQualityExisting: true);
-        }
-
         private static void StartDelayedFishInitialization(HashSet<int> preIds, object pond)
         {
             try
             {
-                var gm = GetGameManagerInstance();
+                var gm = CardUtil.GetGameManagerInstance();
                 if (gm is UnityEngine.MonoBehaviour mb)
                 {
                     mb.StartCoroutine(ApplyFishStatsAfterSpawn(preIds, pond));
@@ -1244,12 +887,12 @@ namespace WaterDrivenInfrastructure.Patcher
         private static bool IsUninitializedPondFish(object card)
         {
             string uniqueId = CardUtil.GetCardUniqueId(card);
-            float quality = GetDurabilityStatValue(card, "SpecialDurability2");
+            float quality = CardUtil.GetDurability(card, "SpecialDurability2");
             if (!float.IsNaN(quality) && quality <= 0.1f) return true;
 
             if (TryGetFreshCaughtFishWeight(uniqueId, out _))
             {
-                float weight = GetDurabilityStatValue(card, "SpecialDurability1");
+                float weight = CardUtil.GetDurability(card, "SpecialDurability1");
                 if (!float.IsNaN(weight) && weight <= 0.1f) return true;
             }
 
@@ -1273,7 +916,7 @@ namespace WaterDrivenInfrastructure.Patcher
         {
             try
             {
-                var gm = GetGameManagerInstance();
+                var gm = CardUtil.GetGameManagerInstance();
                 if (gm == null) return null;
 
                 var method = _spendDaytimePointsMethod ?? gm.GetType().GetMethod("SpendDaytimePoints", Flags);
@@ -1310,10 +953,10 @@ namespace WaterDrivenInfrastructure.Patcher
         private static bool ApplyFishCaughtStatsToCard(object card, float quality)
         {
             string uniqueId = CardUtil.GetCardUniqueId(card);
-            bool changed = SetDurabilityStatValue(card, "SpecialDurability2", quality);
+            bool changed = CardUtil.SetDurability(card, "SpecialDurability2", quality);
             bool hasWeight = TryGetFreshCaughtFishWeight(uniqueId, out float weight);
             if (hasWeight)
-                changed |= SetDurabilityStatValue(card, "SpecialDurability1", weight);
+                changed |= CardUtil.SetDurability(card, "SpecialDurability1", weight);
 
             if (!changed) return false;
 
@@ -1368,7 +1011,7 @@ namespace WaterDrivenInfrastructure.Patcher
         {
             try
             {
-                var gm = GetGameManagerInstance();
+                var gm = CardUtil.GetGameManagerInstance();
                 if (gm is UnityEngine.MonoBehaviour mb)
                 {
                     mb.StartCoroutine(ApplyLumpStatsAfterSpawn(preIds));
@@ -1426,7 +1069,7 @@ namespace WaterDrivenInfrastructure.Patcher
             if (allowExistingCard && !LumpNeedsQualityInitialization(card))
                 return false;
 
-            bool changed = SetDurabilityStatValue(card, "SpecialDurability1", LumpInitialStrikes);
+            bool changed = CardUtil.SetDurability(card, "SpecialDurability1", LumpInitialStrikes);
             changed |= SetMinimumDurabilityStatValue(card, "SpecialDurability2", LumpMinimumQuality);
             changed |= SetMinimumDurabilityStatValue(card, "SpecialDurability3", LumpMinimumQuality);
             if (!changed) return false;
@@ -1438,8 +1081,8 @@ namespace WaterDrivenInfrastructure.Patcher
 
         private static bool LumpNeedsQualityInitialization(object card)
         {
-            float metalQuality = GetDurabilityStatValue(card, "SpecialDurability2");
-            float quality = GetDurabilityStatValue(card, "SpecialDurability3");
+            float metalQuality = CardUtil.GetDurability(card, "SpecialDurability2");
+            float quality = CardUtil.GetDurability(card, "SpecialDurability3");
             return float.IsNaN(metalQuality) || metalQuality < LumpMinimumQuality
                 || float.IsNaN(quality) || quality < LumpMinimumQuality;
         }
@@ -1448,7 +1091,7 @@ namespace WaterDrivenInfrastructure.Patcher
         {
             try
             {
-                var gm = GetGameManagerInstance();
+                var gm = CardUtil.GetGameManagerInstance();
                 if (gm == null) return null;
                 var gmType = gm.GetType();
                 foreach (string listName in new[] { "LatestCreatedCards", "AllCards" })
@@ -1501,7 +1144,7 @@ namespace WaterDrivenInfrastructure.Patcher
             IList cards = null;
             try
             {
-                var gm = GetGameManagerInstance();
+                var gm = CardUtil.GetGameManagerInstance();
                 if (gm != null)
                 {
                     var gmType = gm.GetType();
@@ -1526,22 +1169,22 @@ namespace WaterDrivenInfrastructure.Patcher
         //  ProducedCards spawns MetalNugget x4 at SD4=0; we fix type and quality here.
         // ============================================================
 
-        static void GiveCard_Postfix(object __result)
+        static void GiveCard_Postfix(object __0)  // __0 = CardData; GiveCard returns void, __result is always null
         {
             try
             {
-                if (__result == null) return;
-                if (CardUtil.GetCardUniqueId(__result) != CopperNuggetGUID) return;
+                if (__0 == null) return;
+                if (CardUtil.GetCardUniqueId(__0) != CopperNuggetGUID) return;
 
-                float sd4 = GetDurabilityStatValue(__result, "SpecialDurability4");
+                float sd4 = CardUtil.GetDurability(__0, "SpecialDurability4");
                 if (!float.IsNaN(sd4) && sd4 > 0f) return; // already typed by sluice or other path
 
                 if (IsIronSmeltPending())
                 {
-                    bool ok = SetDurabilityStatValue(__result, "SpecialDurability4", IronBarMetalType);
-                    ok &= SetMinimumDurabilityStatValue(__result, "SpecialDurability1", NuggetSmeltQuality);
-                    ok &= SetMinimumDurabilityStatValue(__result, "SpecialDurability2", NuggetSmeltQuality);
-                    ok &= SetMinimumDurabilityStatValue(__result, "SpecialDurability3", NuggetSmeltQuality);
+                    bool ok = CardUtil.SetDurability(__0, "SpecialDurability4", IronBarMetalType);
+                    ok &= SetMinimumDurabilityStatValue(__0, "SpecialDurability1", NuggetSmeltQuality);
+                    ok &= SetMinimumDurabilityStatValue(__0, "SpecialDurability2", NuggetSmeltQuality);
+                    ok &= SetMinimumDurabilityStatValue(__0, "SpecialDurability3", NuggetSmeltQuality);
                     if (ok) Logger?.LogDebug("[ActionIntercept] IronSmelt (GiveCard): set Type=200 quality=50 on iron nugget");
                 }
             }
@@ -1558,8 +1201,8 @@ namespace WaterDrivenInfrastructure.Patcher
                 foreach (var card in EnumerateKnownCards())
                 {
                     if (!IronSmeltItemIds.Contains(CardUtil.GetCardUniqueId(card))) continue;
-                    float progress = GetDurabilityStatValue(card, "Progress");
-                    float max = GetDurabilityStatMaxValue(card, "Progress");
+                    float progress = CardUtil.GetDurability(card, "Progress");
+                    float max = CardUtil.GetDurabilityMax(card, "Progress");
                     if (!float.IsNaN(progress) && !float.IsNaN(max) && max > 0f && progress >= max)
                         return true;
                 }
@@ -1568,17 +1211,32 @@ namespace WaterDrivenInfrastructure.Patcher
             return false;
         }
 
-        private static IEnumerator SetIronBarTypeAfterSmelt(IEnumerator original, HashSet<int> preIds)
+        // ActionRouter's After callback is synchronous and cannot itself yield an extra
+        // frame, so a failed first attempt (e.g. GiveCard hasn't registered the new
+        // nugget in AllCards yet) is retried via a decoupled one-frame-later coroutine —
+        // the same pattern as StartDelayedNuggetInitialization/StartDelayedLumpInitialization.
+        private static void StartDelayedIronBarTypeRetry(HashSet<int> preIds)
         {
-            if (original != null)
-                while (original.MoveNext())
-                    yield return original.Current;
-
-            if (ApplyIronBarType(preIds) == 0)
+            try
             {
-                yield return null;
-                ApplyIronBarType(preIds);
+                var gm = CardUtil.GetGameManagerInstance();
+                if (gm is UnityEngine.MonoBehaviour mb)
+                {
+                    mb.StartCoroutine(RetryIronBarTypeAfterOneFrame(preIds));
+                    return;
+                }
             }
+            catch (Exception ex)
+            {
+                Logger?.LogError($"[ActionIntercept] StartDelayedIronBarTypeRetry: {ex.Message}");
+            }
+            ApplyIronBarType(preIds);
+        }
+
+        private static IEnumerator RetryIronBarTypeAfterOneFrame(HashSet<int> preIds)
+        {
+            yield return null;
+            ApplyIronBarType(preIds);
         }
 
         private static int ApplyIronBarType(HashSet<int> preIds)
@@ -1591,10 +1249,10 @@ namespace WaterDrivenInfrastructure.Patcher
                     if (CardUtil.GetCardUniqueId(card) != CopperNuggetGUID) continue;
                     if (card is UnityEngine.Object uo && preIds != null && preIds.Contains(uo.GetInstanceID())) continue;
 
-                    float sd4 = GetDurabilityStatValue(card, "SpecialDurability4");
+                    float sd4 = CardUtil.GetDurability(card, "SpecialDurability4");
                     if (!float.IsNaN(sd4) && sd4 > 0f) continue; // already typed
 
-                    bool ok = SetDurabilityStatValue(card, "SpecialDurability4", IronBarMetalType);
+                    bool ok = CardUtil.SetDurability(card, "SpecialDurability4", IronBarMetalType);
                     ok &= SetMinimumDurabilityStatValue(card, "SpecialDurability1", NuggetSmeltQuality);
                     ok &= SetMinimumDurabilityStatValue(card, "SpecialDurability2", NuggetSmeltQuality);
                     ok &= SetMinimumDurabilityStatValue(card, "SpecialDurability3", NuggetSmeltQuality);
@@ -1611,45 +1269,13 @@ namespace WaterDrivenInfrastructure.Patcher
         // ============================================================
         //  WATER-DRIVEN FORGE - apply one hammer strike to all inventory items
         // ============================================================
-        private static bool   _hammerHandled;
-        private static int    _lastHammerFrame = -1;
-        private static object _pendingHammerAllCard = null;
-        private static object _pendingBlastAllCard  = null;
-        private static object _pendingWorkshopCraftCard = null;
-
-        // Drain-depth guards: one button press can route through BOTH
-        // PerformStackActionRoutine and ActionRoutine (the stack routine calls
-        // ActionRoutine internally), and both prefixes would set a pending wrap.
-        // Whether the duplicate handler call survives the frame guard depends on
-        // how vanilla nests the coroutines — doubled strikes when the outer wrapper
-        // finishes a frame later, or a dropped legitimate press in the same frame.
-        // Depth > 0 means an outer wrapper is already draining this press: the
-        // inner routine must not wrap again.
-        private static int _hammerDrainDepth;
-        private static int _craftDrainDepth;
-        private static int _fishDrainDepth;
-        private static WorkshopCraftKind _pendingWorkshopCraftKind = WorkshopCraftKind.None;
-        private static int _lastWorkshopCraftFrame = -1;
-        private static object _pendingFishCatchCard = null;
+        // Frame-level dedup for these action handlers is now owned by ActionRouter
+        // (ActionHandler.LastDispatchFrame) — the same button press firing through
+        // both PerformStackActionRoutine and ActionRoutine no longer needs a local
+        // _xxxDrainDepth / _lastXxxFrame guard here.
         private static readonly HashSet<int> _initializedFishCatchIds = new HashSet<int>();
-        private static bool _pendingIronSmelt = false;
-        private static HashSet<int> _preIronSmeltBarIds = null;
         private static MethodInfo _spendDaytimePointsMethod;
         private static Type _cardBaseType;
-
-        private static bool HandleHammerAll(object forge, bool workshopQualityBoost)
-        {
-            // Dedup: both PerformStackActionRoutine and ActionRoutine can fire for the same button press.
-            // Frame-count guard prevents a second execution in the same rendered frame.
-            int frame = UnityEngine.Time.frameCount;
-            if (_lastHammerFrame == frame) return false;
-            _lastHammerFrame = frame;
-
-            if (_hammerHandled) return false;
-            _hammerHandled = true;
-            try { return HandleHammerAllInner(forge, workshopQualityBoost); }
-            finally { _hammerHandled = false; }
-        }
 
         private static bool HandleHammerAllInner(object forge, bool workshopQualityBoost)
         {
@@ -1740,18 +1366,18 @@ namespace WaterDrivenInfrastructure.Patcher
             // Apply one hit to items that don't finish yet
             foreach (var (card, s1Change, fuelChange) in toAdvance)
             {
-                float cur = GetDurabilityStatValue(card, "SpecialDurability1");
+                float cur = CardUtil.GetDurability(card, "SpecialDurability1");
                 if (!float.IsNaN(cur))
                 {
-                    SetDurabilityStatValue(card, "SpecialDurability1", Math.Max(0f, cur + s1Change));
+                    CardUtil.SetDurability(card, "SpecialDurability1", Math.Max(0f, cur + s1Change));
                     Logger?.Log(LogLevel.Debug,
                         $"[ActionIntercept] HammerAll: Strikes {cur} -> {Math.Max(0f, cur + s1Change)}");
                 }
                 if (fuelChange != 0f)
                 {
-                    float curFuel = GetDurabilityStatValue(card, "FuelCapacity");
+                    float curFuel = CardUtil.GetDurability(card, "FuelCapacity");
                     if (!float.IsNaN(curFuel))
-                        SetDurabilityStatValue(card, "FuelCapacity", Math.Max(0f, curFuel + fuelChange));
+                        CardUtil.SetDurability(card, "FuelCapacity", Math.Max(0f, curFuel + fuelChange));
                 }
                 RefreshCardDurabilityVisuals(card);
             }
@@ -1766,10 +1392,6 @@ namespace WaterDrivenInfrastructure.Patcher
         private static bool HandleWorkshopCraft(object workshop, WorkshopCraftKind kind)
         {
             if (kind == WorkshopCraftKind.None) return false;
-
-            int frame = UnityEngine.Time.frameCount;
-            if (_lastWorkshopCraftFrame == frame) return false;
-            _lastWorkshopCraftFrame = frame;
 
             int cost = GetCraftCost(kind);
             if (!TryConsumeCopperNuggets(workshop, cost))
@@ -1798,13 +1420,12 @@ namespace WaterDrivenInfrastructure.Patcher
                     return false;
             }
 
-            InitSpawnReflection();
             var lumpPreIds = (kind == WorkshopCraftKind.CopperLump)
                 ? SnapshotCardIdsByUniqueId(UnfinishedLumpID)
                 : null;
 
             for (int i = 0; i < resultCount; i++)
-                SpawnResultOnBoard(resultId);
+                SpawnService.Spawn(resultId);
 
             if (lumpPreIds != null)
                 StartDelayedLumpInitialization(lumpPreIds);
@@ -1822,7 +1443,7 @@ namespace WaterDrivenInfrastructure.Patcher
             var hit = GetHammerHitInfo(card);
             if (!hit.canHammer) return;
 
-            float curS1 = GetDurabilityStatValue(card, "SpecialDurability1");
+            float curS1 = CardUtil.GetDurability(card, "SpecialDurability1");
             if (float.IsNaN(curS1)) return;
 
             // Skip items whose SD1 is at 0 — these are spawned with default FloatValue=0.
@@ -1833,7 +1454,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 if (CardUtil.GetCardUniqueId(card) == UnfinishedLumpID)
                 {
                     ApplyLumpSpawnStatsToCard(card, allowExistingCard: true);
-                    curS1 = GetDurabilityStatValue(card, "SpecialDurability1");
+                    curS1 = CardUtil.GetDurability(card, "SpecialDurability1");
                     if (curS1 <= 0f) return;
                 }
                 else
@@ -1851,25 +1472,26 @@ namespace WaterDrivenInfrastructure.Patcher
         {
             try
             {
-                float currentStrikes = GetDurabilityStatValue(card, "SpecialDurability1");
+                float currentStrikes = CardUtil.GetDurability(card, "SpecialDurability1");
                 if (!float.IsNaN(currentStrikes))
-                    SetDurabilityStatValue(card, "SpecialDurability1", Math.Max(0f, currentStrikes + special1Change));
+                    CardUtil.SetDurability(card, "SpecialDurability1", Math.Max(0f, currentStrikes + special1Change));
 
                 if (fuelChange != 0f)
                 {
-                    float currentFuel = GetDurabilityStatValue(card, "FuelCapacity");
+                    float currentFuel = CardUtil.GetDurability(card, "FuelCapacity");
                     if (!float.IsNaN(currentFuel))
-                        SetDurabilityStatValue(card, "FuelCapacity", Math.Max(0f, currentFuel + fuelChange));
+                        CardUtil.SetDurability(card, "FuelCapacity", Math.Max(0f, currentFuel + fuelChange));
                 }
 
                 var transferred = CaptureDurabilityValues(card, transferStats);
                 // Quality (SD2/SD3) is always carried by percentage of max — the
                 // transformed CardData's stat scale can differ from the source's,
                 // and machine processing must never lower quality.
-                float q2Val = GetDurabilityStatValue(card, "SpecialDurability2");
-                float q2Max = GetDurabilityStatMaxValue(card, "SpecialDurability2");
-                float q3Val = GetDurabilityStatValue(card, "SpecialDurability3");
-                float q3Max = GetDurabilityStatMaxValue(card, "SpecialDurability3");
+                float q2Val = CardUtil.GetDurability(card, "SpecialDurability2");
+                float q2Max = CardUtil.GetDurabilityMax(card, "SpecialDurability2");
+                float q3Val = CardUtil.GetDurability(card, "SpecialDurability3");
+                float q3Max = CardUtil.GetDurabilityMax(card, "SpecialDurability3");
+                Logger?.LogDebug($"[HammerDiag] completing '{CardUtil.GetCardUniqueId(card)}' → '{resultId}': q2={q2Val:F1}/{q2Max:F1} q3={q3Val:F1}/{q3Max:F1}");
                 if (!TransformCardInPlace(card, resultId))
                 {
                     Logger?.LogError($"[ActionIntercept] HammerAll: failed to transform completed item into '{resultId}'");
@@ -1878,6 +1500,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 RestoreDurabilityValues(card, transferred);
                 ApplyMinimumQualityPercent(card, "SpecialDurability2", q2Val, q2Max);
                 ApplyMinimumQualityPercent(card, "SpecialDurability3", q3Val, q3Max);
+                Logger?.LogDebug($"[HammerDiag] post-restore: SD2={CardUtil.GetDurability(card, "SpecialDurability2"):F1} SD3={CardUtil.GetDurability(card, "SpecialDurability3"):F1}");
             }
             catch (Exception ex)
             {
@@ -1891,7 +1514,7 @@ namespace WaterDrivenInfrastructure.Patcher
             if (statNames == null) return values;
             foreach (var statName in statNames)
             {
-                float value = GetDurabilityStatValue(card, statName);
+                float value = CardUtil.GetDurability(card, statName);
                 if (!float.IsNaN(value)) values[statName] = value;
             }
             return values;
@@ -1900,23 +1523,23 @@ namespace WaterDrivenInfrastructure.Patcher
         private static void RestoreDurabilityValues(object card, Dictionary<string, float> values)
         {
             foreach (var kvp in values)
-                SetDurabilityStatValue(card, kvp.Key, kvp.Value);
+                CardUtil.SetDurability(card, kvp.Key, kvp.Value);
         }
 
         private static bool ApplyWorkshopQualityBoost(object card)
         {
             if (!IsMetalQualityTool(card)) return false;
 
-            float currentQuality = GetDurabilityStatValue(card, "SpecialDurability2");
+            float currentQuality = CardUtil.GetDurability(card, "SpecialDurability2");
             if (float.IsNaN(currentQuality)) return false;
 
-            float maxQuality = GetDurabilityStatMaxValue(card, "SpecialDurability2");
+            float maxQuality = CardUtil.GetDurabilityMax(card, "SpecialDurability2");
             if (float.IsNaN(maxQuality) || maxQuality <= 0f) maxQuality = 100f;
 
             float newQuality = Math.Min(maxQuality, currentQuality + WorkshopMetalQualityBoost);
             if (newQuality <= currentQuality) return false;
 
-            return SetDurabilityStatValue(card, "SpecialDurability2", newQuality);
+            return CardUtil.SetDurability(card, "SpecialDurability2", newQuality);
         }
 
         // Increments SD1 "Strikes" by +1 for ACT items that accumulate strikes upward
@@ -1936,12 +1559,12 @@ namespace WaterDrivenInfrastructure.Patcher
                 var hasOnZero = sd1Def?.GetType().GetField("HasActionOnZero", Flags)?.GetValue(sd1Def);
                 if (hasOnZero is bool b && b) return; // has on-zero transform — handled by ClassifyHammerItem
 
-                float cur = GetDurabilityStatValue(card, "SpecialDurability1");
+                float cur = CardUtil.GetDurability(card, "SpecialDurability1");
                 if (float.IsNaN(cur)) return;
-                float max = GetDurabilityStatMaxValue(card, "SpecialDurability1");
+                float max = CardUtil.GetDurabilityMax(card, "SpecialDurability1");
                 if (!float.IsNaN(max) && max > 0f && cur >= max) return; // already at max
 
-                SetDurabilityStatValue(card, "SpecialDurability1", cur + 1f);
+                CardUtil.SetDurability(card, "SpecialDurability1", cur + 1f);
             }
             catch { }
         }
@@ -2146,148 +1769,11 @@ namespace WaterDrivenInfrastructure.Patcher
             catch { return null; }
         }
 
-        private static float GetDurabilityStatValue(object card, string statName)
-        {
-            try
-            {
-                var cardType  = card.GetType();
-
-                // EA 0.62b: InGameCardBase exposes raw current values as flat properties/fields.
-                // Try this path first since DurabilityStats no longer exists on the runtime card.
-                var directName = MapStatToRuntimeMember(statName);
-                if (directName != null)
-                {
-                    var dp = cardType.GetProperty(directName, Flags);
-                    if (dp != null && dp.CanRead) return Convert.ToSingle(dp.GetValue(card));
-                    var df = cardType.GetField(directName, Flags);
-                    if (df != null) return Convert.ToSingle(df.GetValue(card));
-                }
-
-                var sf        = cardType.GetField("DurabilityStats", Flags)
-                             ?? cardType.GetField("CardDurabilities", Flags);
-                if (sf == null) return float.NaN;
-                var stats     = sf.GetValue(card);
-                if (stats == null) return float.NaN;
-                var durProp   = stats.GetType().GetProperty(statName, Flags);
-                if (durProp == null) return float.NaN;
-                var dur       = durProp.GetValue(stats);
-                if (dur == null) return float.NaN;
-                var durType   = dur.GetType();
-                var cvProp    = durType.GetProperty("CurrentValue", Flags)
-                             ?? durType.GetProperty("FloatValue",   Flags);
-                if (cvProp != null) return Convert.ToSingle(cvProp.GetValue(dur));
-                // Fall back to direct field (Unity serialized fields are public fields, not properties)
-                var fv = durType.GetField("FloatValue", Flags)
-                      ?? durType.GetField("CurrentValue", Flags);
-                return fv != null ? Convert.ToSingle(fv.GetValue(dur)) : float.NaN;
-            }
-            catch { return float.NaN; }
-        }
-
-        private static float GetDurabilityStatMaxValue(object card, string statName)
-        {
-            try
-            {
-                object cardData = GetCardData(card);
-                var def = cardData?.GetType().GetField(statName, Flags)?.GetValue(cardData);
-                var maxField = def?.GetType().GetField("MaxValue", Flags);
-                if (maxField != null) return Convert.ToSingle(maxField.GetValue(def));
-                var maxProp = def?.GetType().GetProperty("MaxValue", Flags);
-                if (maxProp != null && maxProp.CanRead) return Convert.ToSingle(maxProp.GetValue(def));
-            }
-            catch { }
-            return float.NaN;
-        }
-
-        private static bool SetDurabilityStatValue(object card, string statName, float newValue)
-        {
-            try
-            {
-                var cardType  = card.GetType();
-
-                // EA 0.62b: InGameCardBase exposes raw current values as flat properties/fields.
-                var directName = MapStatToRuntimeMember(statName);
-                if (directName != null)
-                {
-                    var dp = cardType.GetProperty(directName, Flags);
-                    if (dp != null && dp.CanWrite)
-                    {
-                        dp.SetValue(card, newValue);
-                        return true;
-                    }
-                    if (dp != null)
-                    {
-                        var setter = dp.GetSetMethod(nonPublic: true);
-                        if (setter != null) { setter.Invoke(card, new object[] { newValue }); return true; }
-                    }
-                    var df = cardType.GetField(directName, Flags);
-                    if (df != null) { df.SetValue(card, newValue); return true; }
-                }
-
-                var sf        = cardType.GetField("DurabilityStats", Flags)
-                             ?? cardType.GetField("CardDurabilities", Flags);
-                if (sf == null) return false;
-                var stats     = sf.GetValue(card);
-                if (stats == null) return false;
-                var durProp   = stats.GetType().GetProperty(statName, Flags);
-                if (durProp == null) return false;
-                var dur       = durProp.GetValue(stats);
-                if (dur == null) return false;
-                var durType   = dur.GetType();
-
-                // 3-path write: CanWrite → non-public setter → backing field → direct field
-                // (Unity/Mono CanWrite returns false for non-public setters)
-                var cvProp = durType.GetProperty("CurrentValue", Flags)
-                          ?? durType.GetProperty("FloatValue",   Flags);
-                if (cvProp != null)
-                {
-                    if (cvProp.CanWrite)
-                    {
-                        cvProp.SetValue(dur, newValue);
-                    }
-                    else
-                    {
-                        var setter = cvProp.GetSetMethod(nonPublic: true);
-                        if (setter != null)
-                        {
-                            setter.Invoke(dur, new object[] { newValue });
-                        }
-                        else
-                        {
-                            var t = durType;
-                            FieldInfo bf = null;
-                            while (t != null && bf == null)
-                            {
-                                bf = t.GetField($"<{cvProp.Name}>k__BackingField",
-                                    BindingFlags.Instance | BindingFlags.NonPublic);
-                                t = t.BaseType;
-                            }
-                            if (bf == null) return false;
-                            bf.SetValue(dur, newValue);
-                        }
-                    }
-                }
-                else
-                {
-                    // Fall back to direct field (Unity serialized fields are public fields)
-                    var fv = durType.GetField("FloatValue", Flags)
-                          ?? durType.GetField("CurrentValue", Flags);
-                    if (fv == null) return false;
-                    fv.SetValue(dur, newValue);
-                }
-
-                if (dur.GetType().IsValueType)   durProp.SetValue(stats, dur);
-                if (stats.GetType().IsValueType) sf.SetValue(card, stats);
-                return true;
-            }
-            catch { return false; }
-        }
-
         private static bool SetMinimumDurabilityStatValue(object card, string statName, float minimumValue)
         {
-            float current = GetDurabilityStatValue(card, statName);
+            float current = CardUtil.GetDurability(card, statName);
             if (!float.IsNaN(current) && current >= minimumValue) return false;
-            return SetDurabilityStatValue(card, statName, minimumValue);
+            return CardUtil.SetDurability(card, statName, minimumValue);
         }
 
         // Machine processing must never lower quality. Stat MaxValues differ between
@@ -2298,7 +1784,7 @@ namespace WaterDrivenInfrastructure.Patcher
         {
             if (float.IsNaN(srcVal) || srcVal <= 0f) return;
             float pct = (!float.IsNaN(srcMax) && srcMax > 0f) ? srcVal / srcMax : srcVal / 100f;
-            float dstMax = GetDurabilityStatMaxValue(target, statName);
+            float dstMax = CardUtil.GetDurabilityMax(target, statName);
             if (float.IsNaN(dstMax) || dstMax <= 0f)
                 dstMax = (!float.IsNaN(srcMax) && srcMax > 0f) ? srcMax : 100f;
             SetMinimumDurabilityStatValue(target, statName, pct * dstMax);
@@ -2307,8 +1793,8 @@ namespace WaterDrivenInfrastructure.Patcher
         private static void TransferQualityPercent(object source, object target, string statName)
         {
             ApplyMinimumQualityPercent(target, statName,
-                GetDurabilityStatValue(source, statName),
-                GetDurabilityStatMaxValue(source, statName));
+                CardUtil.GetDurability(source, statName),
+                CardUtil.GetDurabilityMax(source, statName));
         }
 
         private static void RefreshCardDurabilityVisuals(object card)
@@ -2321,24 +1807,6 @@ namespace WaterDrivenInfrastructure.Patcher
                 refresh?.Invoke(visuals, null);
             }
             catch { }
-        }
-
-        // EA 0.62b: InGameCardBase exposes raw current durability values as flat
-        // properties/fields, not nested under a DurabilityStats container.
-        private static string MapStatToRuntimeMember(string statName)
-        {
-            switch (statName)
-            {
-                case "Progress":           return "CurrentProgress";
-                case "SpecialDurability1": return "CurrentSpecial1";
-                case "SpecialDurability2": return "CurrentSpecial2";
-                case "SpecialDurability3": return "CurrentSpecial3";
-                case "SpecialDurability4": return "CurrentSpecial4";
-                case "FuelCapacity":       return "CurrentFuel";
-                case "UsageDurability":    return "CurrentUsage";
-                case "SpoilageTime":       return "CurrentSpoilage";
-                default:                   return null;
-            }
         }
 
         private static void EjectCardsFromStructure(object structure, IEnumerable<object> cards)
@@ -2380,17 +1848,6 @@ namespace WaterDrivenInfrastructure.Patcher
         //  ORE SLUICE - process mud piles for greenstone, flint, and stone
         // ============================================================
         private static readonly System.Random _sluiceRng = new System.Random();
-
-        private static bool _sluiceHandled; // guard against double-fire from multiple prefix patches
-
-        private static bool HandleSluiceAll(object sluice)
-        {
-            // Prevent double execution — PerformStackAction and ActionRoutine both fire
-            if (_sluiceHandled) return false;
-            _sluiceHandled = true;
-            try { return HandleSluiceAllInner(sluice); }
-            finally { _sluiceHandled = false; }
-        }
 
         private static bool HandleSluiceAllInner(object sluice)
         {
@@ -2451,7 +1908,6 @@ namespace WaterDrivenInfrastructure.Patcher
 
             // Each drop chance is evaluated independently — a single soil pile can yield
             // multiple items (or nothing).  Nuggets are batched and stat-initialized after spawn.
-            InitSpawnReflection();
 
             int greenstoneCount = 0;
             int flintCount = 0;
@@ -2468,7 +1924,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     foreach (var drop in RollSluiceDrops(sourceUid))
                     {
                         if (drop.NuggetType > 0f) nuggetQueue.Add(drop.NuggetType);
-                        else { SpawnResultOnBoard(drop.Guid); IncrResult(drop.Guid, ref greenstoneCount, ref flintCount, ref stoneCount, ref clayCount); }
+                        else { SpawnService.Spawn(drop.Guid); IncrResult(drop.Guid, ref greenstoneCount, ref flintCount, ref stoneCount, ref clayCount); }
                     }
                     toEject.Add(slot);
                     continue;
@@ -2480,7 +1936,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     foreach (var drop in RollSluiceDrops(sourceUid))
                     {
                         if (drop.NuggetType > 0f) nuggetQueue.Add(drop.NuggetType);
-                        else { SpawnResultOnBoard(drop.Guid); IncrResult(drop.Guid, ref greenstoneCount, ref flintCount, ref stoneCount, ref clayCount); }
+                        else { SpawnService.Spawn(drop.Guid); IncrResult(drop.Guid, ref greenstoneCount, ref flintCount, ref stoneCount, ref clayCount); }
                     }
                     toEject.Add(inner);
                 }
@@ -2493,7 +1949,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 var preIds = SnapshotCardIdsByUniqueId(CopperNuggetGUID);
                 foreach (float t in nuggetQueue)
                 {
-                    SpawnResultOnBoard(CopperNuggetGUID);
+                    SpawnService.Spawn(CopperNuggetGUID);
                     if (t == NuggetIronType)        ironCount++;
                     else if (t == NuggetCopperType) copperCount++;
                     else                            tinCount++;
@@ -2557,7 +2013,7 @@ namespace WaterDrivenInfrastructure.Patcher
         {
             try
             {
-                var gm = GetGameManagerInstance();
+                var gm = CardUtil.GetGameManagerInstance();
                 if (gm is UnityEngine.MonoBehaviour mb)
                 {
                     mb.StartCoroutine(ApplyNuggetStatsAfterSpawn(preIds, nuggetTypes));
@@ -2606,11 +2062,11 @@ namespace WaterDrivenInfrastructure.Patcher
         {
             try
             {
-                bool changed = SetDurabilityStatValue(card, "SpecialDurability4", nuggetType);
-                changed |= SetDurabilityStatValue(card, "SpecialDurability1", NuggetSluiceQuality);
-                changed |= SetDurabilityStatValue(card, "SpecialDurability2", NuggetSluiceQuality);
-                changed |= SetDurabilityStatValue(card, "SpecialDurability3", NuggetSluiceQuality);
-                changed |= SetDurabilityStatValue(card, "FuelCapacity", 0f);
+                bool changed = CardUtil.SetDurability(card, "SpecialDurability4", nuggetType);
+                changed |= CardUtil.SetDurability(card, "SpecialDurability1", NuggetSluiceQuality);
+                changed |= CardUtil.SetDurability(card, "SpecialDurability2", NuggetSluiceQuality);
+                changed |= CardUtil.SetDurability(card, "SpecialDurability3", NuggetSluiceQuality);
+                changed |= CardUtil.SetDurability(card, "FuelCapacity", 0f);
                 if (changed) RefreshCardDurabilityVisuals(card);
                 Logger?.LogDebug($"[ActionIntercept] NuggetInit: type={nuggetType} quality={NuggetSluiceQuality}");
                 return changed;
@@ -2658,6 +2114,7 @@ namespace WaterDrivenInfrastructure.Patcher
         //  is released even when we own the action.
         // ============================================================
         private static bool _dragReflected;
+        private static Type _gmTypeForDrag;
         private static PropertyInfo _dragStateProp;
         private static FieldInfo _dragStateField;
         private static readonly string[] _dragCandidateProps = { "CurrentDraggedCard", "DraggedCard" };
@@ -2675,19 +2132,19 @@ namespace WaterDrivenInfrastructure.Patcher
                 if (!_dragReflected)
                 {
                     _dragReflected = true;
-                    if (_gmType == null) InitSpawnReflection();
-                    if (_gmType != null)
+                    _gmTypeForDrag = CardUtil.FindGameType("GameManager");
+                    if (_gmTypeForDrag != null)
                     {
                         foreach (var n in _dragCandidateProps)
                         {
-                            var p = _gmType.GetProperty(n, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+                            var p = _gmTypeForDrag.GetProperty(n, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
                             if (p != null && p.CanWrite) { _dragStateProp = p; break; }
                         }
                         if (_dragStateProp == null)
                         {
                             foreach (var n in _dragCandidateFields)
                             {
-                                var f = _gmType.GetField(n, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+                                var f = _gmTypeForDrag.GetField(n, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
                                 if (f != null) { _dragStateField = f; break; }
                             }
                         }
@@ -2696,104 +2153,12 @@ namespace WaterDrivenInfrastructure.Patcher
                     }
                 }
                 if (_dragStateProp == null && _dragStateField == null) return;
-                var gm = _gmType?.GetProperty("Instance", BindingFlags.Public | BindingFlags.Static)?.GetValue(null);
+                var gm = CardUtil.GetGameManagerInstance();
                 if (gm == null) return;
                 _dragStateProp?.SetValue(gm, null);
                 _dragStateField?.SetValue(gm, null);
             }
             catch (Exception ex) { Logger?.LogError($"[ActionIntercept] ClearDragState failed: {ex.Message}"); }
-        }
-
-        // Cached reflection handles for GiveCard
-        private static MethodInfo _giveCardMethod;
-        private static Type _cardDataType;
-        private static Type _gmType;
-        private static bool _spawnReflectionInit;
-
-        private static void InitSpawnReflection()
-        {
-            if (_spawnReflectionInit && _giveCardMethod != null) return;
-            _spawnReflectionInit = true;
-
-            try
-            {
-                // Resolve types by scanning loaded assemblies (same approach as H&F)
-                foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
-                {
-                    if (_cardDataType == null)
-                        _cardDataType = assembly.GetType("CardData", false);
-                    if (_gmType == null)
-                        _gmType = assembly.GetType("GameManager", false);
-                }
-
-                Logger?.Log(LogLevel.Debug, $"[ActionIntercept] SpawnInit: CardData={_cardDataType != null}, GameManager={_gmType != null}");
-
-                if (_cardDataType == null || _gmType == null)
-                {
-                    Logger?.LogError("[ActionIntercept] SpawnInit: required types not found");
-                    return;
-                }
-
-                // GameManager.GiveCard(CardData, bool)
-                _giveCardMethod = AccessTools.Method(_gmType, "GiveCard", new[] { _cardDataType, typeof(bool) });
-
-                // If exact signature not found, search all GiveCard overloads
-                if (_giveCardMethod == null)
-                {
-                    var candidates = _gmType.GetMethods(Flags)
-                        .Where(m => m.Name == "GiveCard")
-                        .ToArray();
-                    Logger?.Log(LogLevel.Debug, $"[ActionIntercept] SpawnInit: GiveCard overloads found: {candidates.Length}");
-                    foreach (var m in candidates)
-                    {
-                        var p = m.GetParameters();
-                        Logger?.Log(LogLevel.Debug, $"[ActionIntercept]   GiveCard({string.Join(", ", p.Select(pp => pp.ParameterType.Name))})");
-                        if (p.Length >= 1 && p[0].ParameterType.IsAssignableFrom(_cardDataType))
-                        {
-                            _giveCardMethod = m;
-                            break;
-                        }
-                    }
-                }
-
-                Logger?.Log(LogLevel.Debug, $"[ActionIntercept] SpawnInit: GiveCard={_giveCardMethod != null}");
-            }
-            catch (Exception ex)
-            {
-                Logger?.LogError($"[ActionIntercept] SpawnInit error: {ex.Message}\n{ex.StackTrace}");
-            }
-        }
-
-        // Returns true only for the real "Hammer All" DismantleAction (not "Blast" or other forge actions).
-        // Mirrors IsSluiceAllAction: checks DefaultText first, falls back to LocalizationKey.
-        private static bool IsHammerAllAction(object action)
-        {
-            if (action == null) return false;
-            // Check locKey first — most reliable; explicitly reject Blast.
-            string lk = CardUtil.GetActionLocalizationKey(action);
-            if (lk != null)
-            {
-                if (lk.IndexOf("Blast", StringComparison.OrdinalIgnoreCase) >= 0) return false;
-                if (lk.IndexOf("HammerAll", StringComparison.OrdinalIgnoreCase) >= 0) return true;
-                if (string.Equals(lk, "Water_Sawmill_ForgePlaced_HammerAll_ActionName", StringComparison.Ordinal)) return true;
-            }
-            string dt = CardUtil.GetActionName(action);
-            if (string.Equals(dt, "Blast", StringComparison.OrdinalIgnoreCase)) return false;
-            return string.Equals(dt, "Hammer All", StringComparison.OrdinalIgnoreCase);
-        }
-
-        private static bool IsBlastAction(object action)
-        {
-            if (action == null) return false;
-            string lk = CardUtil.GetActionLocalizationKey(action);
-            if (lk != null)
-            {
-                if (lk.IndexOf("HammerAll", StringComparison.OrdinalIgnoreCase) >= 0) return false;
-                if (lk.IndexOf("Blast", StringComparison.OrdinalIgnoreCase) >= 0) return true;
-            }
-            string dt = CardUtil.GetActionName(action);
-            if (string.Equals(dt, "Hammer All", StringComparison.OrdinalIgnoreCase)) return false;
-            return string.Equals(dt, "Blast", StringComparison.OrdinalIgnoreCase);
         }
 
         private static WorkshopCraftKind GetWorkshopCraftKind(object action)
@@ -2819,82 +2184,6 @@ namespace WaterDrivenInfrastructure.Patcher
             return WorkshopCraftKind.None;
         }
 
-        private static bool IsSluiceAllAction(object action)
-        {
-            string actionName = CardUtil.GetActionName(action);
-            if (string.Equals(actionName, "Sluice All", StringComparison.OrdinalIgnoreCase))
-                return true;
-
-            string locKey = CardUtil.GetActionLocalizationKey(action);
-            if (string.Equals(locKey, "Water_Sawmill_OreSluicePlaced_SluiceAll_ActionName", StringComparison.Ordinal))
-                return true;
-
-            return false;
-        }
-
-        private static object FindSluiceCard(object action, params object[] candidates)
-        {
-            if (candidates != null)
-            {
-                foreach (var candidate in candidates)
-                {
-                    if (candidate == null) continue;
-
-                    if (IsSluiceCard(candidate))
-                        return candidate;
-
-                    if (candidate is IList list)
-                    {
-                        foreach (var item in list)
-                        {
-                            if (item != null && IsSluiceCard(item))
-                                return item;
-                        }
-                    }
-                }
-            }
-
-            // Last fallback: inspect action object fields/properties for card refs.
-            if (action != null)
-            {
-                var t = action.GetType();
-
-                foreach (var f in t.GetFields(Flags))
-                {
-                    try
-                    {
-                        var val = f.GetValue(action);
-                        if (IsSluiceCard(val))
-                            return val;
-                    }
-                    catch { }
-                }
-
-                foreach (var p in t.GetProperties(Flags))
-                {
-                    if (!p.CanRead || p.GetIndexParameters().Length > 0)
-                        continue;
-
-                    try
-                    {
-                        var val = p.GetValue(action, null);
-                        if (IsSluiceCard(val))
-                            return val;
-                    }
-                    catch { }
-                }
-            }
-
-            return null;
-        }
-
-        private static bool IsSluiceCard(object card)
-        {
-            if (card == null) return false;
-            string uid = CardUtil.GetCardUniqueId(card);
-            return string.Equals(uid, SluiceID, StringComparison.Ordinal);
-        }
-
         private static int CountInventoryCards(object container, string uniqueId)
         {
             return FindInventoryCards(container, uniqueId, int.MaxValue).Count;
@@ -2905,7 +2194,7 @@ namespace WaterDrivenInfrastructure.Patcher
         // Iron (200) and Tin (120) nuggets are rejected.
         private static bool IsCopperNugget(object card)
         {
-            float sd4 = GetDurabilityStatValue(card, "SpecialDurability4");
+            float sd4 = CardUtil.GetDurability(card, "SpecialDurability4");
             return float.IsNaN(sd4) || sd4 == 0f || sd4 == NuggetCopperType;
         }
 

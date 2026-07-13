@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_chamomile_dried",
     "CardName": {
         "ParentObjectID": "herbs_fungi_chamomile_dried",
-        "LocalizationKey": "herbs_fungi_chamomile_dried_CardName",
+        "LocalizationKey": "herbsfungichamomiledried_CardName",
         "DefaultText": "Dried Chamomile"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_chamomile_dried",
-        "LocalizationKey": "herbs_fungi_chamomile_dried_CardDescription",
+        "LocalizationKey": "herbsfungichamomiledried_CardDescription",
         "DefaultText": "Dried chamomile flowers. Soothing and slightly calming. Steep in hot water to brew herbal tea. Reduces stress when consumed."
     },
     "CardType": 0,
@@ -29,12 +29,12 @@
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_chamomile_dried",
-        "LocalizationKey": "herbs_fungi_chamomile_dried_SpoilageTime_StatName",
+        "LocalizationKey": "herbsfungichamomiledried_SpoilageTime_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_chamomile_dried",
-            "LocalizationKey": "herbs_fungi_chamomile_dried_SpoilageTime_StatName",
+            "LocalizationKey": "herbsfungichamomiledried_SpoilageTime_StatName",
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
@@ -45,7 +45,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_chamomile_dried",
-                "LocalizationKey": "herbs_fungi_chamomile_dried_SpoilageTime_OnFull",
+                "LocalizationKey": "herbsfungichamomiledried_SpoilageTime_OnFull",
                 "DefaultText": "The dried chamomile has finally crumbled away."
             },
             "ReceivingCardChanges": {
@@ -64,12 +64,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_chamomile_dried",
-                "LocalizationKey": "herbs_fungi_chamomile_dried_MixTea",
+                "LocalizationKey": "herbsfungichamomiledried_MixTea",
                 "DefaultText": "Mix into Hot Water"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_chamomile_dried",
-                "LocalizationKey": "herbs_fungi_chamomile_dried_MixTea_Desc",
+                "LocalizationKey": "herbsfungichamomiledried_MixTea_Desc",
                 "DefaultText": "Steep dried chamomile in hot water to brew a soothing tea."
             },
             "DaytimeCost": 1,
@@ -108,18 +108,143 @@
                 "TransformIntoWarpType": 3,
                 "TransferFuel": true
             }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_chamomile_dried",
+                "LocalizationKey": "",
+                "DefaultText": "Add to Stew"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_chamomile_dried",
+                "LocalizationKey": "",
+                "DefaultText": "Drop into the boiling liquid to cook."
+            },
+            "WorksInverted": true,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [
+                    "tag_StewContainer"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "RequiredStatValues": [],
+            "RequiredNPCStatValues": [],
+            "RequiredCardsOnBoard": [],
+            "RequiredTagsOnBoard": [],
+            "RequiredAlreadyVisitedEnvironments": [],
+            "RequiredReceivingContainer": [],
+            "RequiredReceivingContainerTag": [],
+            "RequiredNOTReceivingContainerTag": [],
+            "RequiredReceivingContainerDurabilities": {},
+            "RequiredGivenDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredFuelPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredProgressPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredLiquidQuantity": 0.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "HideActionIfNotMet": true,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": []
+            },
+            "GivenCardChanges": {
+                "ModType": 0
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "ProducedCards": []
         }
     ],
     "DismantleActions": [
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_chamomile_dried",
-                "LocalizationKey": "herbs_fungi_chamomile_dried_Eat",
+                "LocalizationKey": "herbsfungichamomiledried_Eat",
                 "DefaultText": "Eat"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_chamomile_dried",
-                "LocalizationKey": "herbs_fungi_chamomile_dried_Eat_Desc",
+                "LocalizationKey": "herbsfungichamomiledried_Eat_Desc",
                 "DefaultText": "Consume the dried chamomile. Its soothing properties help ease tension and reduce stress."
             },
             "DaytimeCost": 0,

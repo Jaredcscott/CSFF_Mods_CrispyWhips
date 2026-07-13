@@ -78,6 +78,16 @@
           "DontSpend": false,
           "RequiredCardWarpData": "a7384e5147b23a642809451cc4ef24fb",
           "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "act_tin_solder",
+          "RequiredCardWarpType": 3
         }
       ],
       "StepActionTags": [],
@@ -117,6 +127,6 @@
   },
   "CardImageWarpData": "Copper_Lantern_Unlit",
   "CardImageWarpType": 3,
-  "BlueprintUnlockTicksCost": 12.0,
+  "BlueprintUnlockTicksCost": 16.0,
   "ResearchedNotification": 0
 }

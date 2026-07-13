@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_dried_chanterelle",
     "CardName": {
         "ParentObjectID": "herbs_fungi_dried_chanterelle",
-        "LocalizationKey": "herbs_fungi_dried_chanterelle_CardName",
+        "LocalizationKey": "herbsfungidriedchanterelle_CardName",
         "DefaultText": "Dried Chanterelle"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_dried_chanterelle",
-        "LocalizationKey": "herbs_fungi_dried_chanterelle_CardDescription",
+        "LocalizationKey": "herbsfungidriedchanterelle_CardDescription",
         "DefaultText": "A dried chanterelle with concentrated flavor. Keeps much longer than fresh."
     },
     "CardType": 0,
@@ -33,12 +33,12 @@
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_dried_chanterelle",
-        "LocalizationKey": "herbs_fungi_dried_chanterelle_SpoilageTime_StatName",
+        "LocalizationKey": "herbsfungidriedchanterelle_SpoilageTime_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_dried_chanterelle",
-            "LocalizationKey": "herbs_fungi_dried_chanterelle_SpoilageTime_StatName",
+            "LocalizationKey": "herbsfungidriedchanterelle_SpoilageTime_StatName",
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
@@ -49,7 +49,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_dried_chanterelle",
-                "LocalizationKey": "herbs_fungi_dried_chanterelle_SpoilageTime_Spoiled",
+                "LocalizationKey": "herbsfungidriedchanterelle_SpoilageTime_Spoiled",
                 "DefaultText": "The dried chanterelle has finally spoiled."
             },
             "ReceivingCardChanges": {
@@ -66,12 +66,12 @@
     },
     "SpecialDurability1": {
         "ParentObjectID": "herbs_fungi_dried_chanterelle",
-        "LocalizationKey": "herbs_fungi_dried_chanterelle_SpecialDurability1_StatName",
+        "LocalizationKey": "herbsfungidriedchanterelle_SpecialDurability1_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_dried_chanterelle",
-            "LocalizationKey": "herbs_fungi_dried_chanterelle_SpecialDurability1_StatName",
+            "LocalizationKey": "herbsfungidriedchanterelle_SpecialDurability1_StatName",
             "DefaultText": "Cook"
         },
         "MinValue": 0.0,
@@ -83,7 +83,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_dried_chanterelle",
-                "LocalizationKey": "herbs_fungi_dried_chanterelle_SpecialDurability1_Cooked",
+                "LocalizationKey": "herbsfungidriedchanterelle_SpecialDurability1_Cooked",
                 "DefaultText": "The dried chanterelle is cooked."
             },
             "ReceivingCardChanges": {
@@ -102,12 +102,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_dried_chanterelle",
-                "LocalizationKey": "herbs_fungi_dried_chanterelle_Eat",
+                "LocalizationKey": "herbsfungidriedchanterelle_Eat",
                 "DefaultText": "Eat"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_dried_chanterelle",
-                "LocalizationKey": "herbs_fungi_dried_chanterelle_Eat_Desc",
+                "LocalizationKey": "herbsfungidriedchanterelle_Eat_Desc",
                 "DefaultText": "Eat the dried chanterelle. Chewy but nutritious."
             },
             "DaytimeCost": 0,
@@ -478,7 +478,7 @@
                         "FloatValue": 0.0
                     }
                 },
-                "RequiredLiquidQuantity": 140.0,
+                "RequiredLiquidQuantity": 0.0,
                 "RequiredSpecial1Percent": {
                     "Active": false,
                     "FloatValue": 0.0,

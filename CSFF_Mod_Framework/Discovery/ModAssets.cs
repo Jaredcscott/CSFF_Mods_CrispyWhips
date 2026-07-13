@@ -17,10 +17,16 @@ namespace CSFFModFramework.Discovery;
 /// </summary>
 internal static class ModAssets
 {
-    private static readonly string[] LegacySpriteDirs    = { "Resource/Picture", "Resource/Texture2D" };
-    private static readonly string[] LegacyAudioDirs     = { "Resource/Audio" };
-    private static readonly string[] LegacyGifDirs       = { "Resource/GIF" };
-    private static readonly string[] LegacyMapCacheDirs  = { "Data/MapCaches", "Data/MapCache" };
+    private static readonly string[] LegacySpriteDirs    = {
+        Path.Combine("Resource", "Picture"),
+        Path.Combine("Resource", "Texture2D"),
+    };
+    private static readonly string[] LegacyAudioDirs     = { Path.Combine("Resource", "Audio") };
+    private static readonly string[] LegacyGifDirs       = { Path.Combine("Resource", "GIF") };
+    private static readonly string[] LegacyMapCacheDirs  = {
+        Path.Combine("Data", "MapCaches"),
+        Path.Combine("Data", "MapCache"),
+    };
     private const string LegacyAssetBundleDir            = "Resource";
 
     private static readonly string[] SpriteExts          = { ".png", ".jpg" };

@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_press_bed_frame",
     "CardName": {
         "ParentObjectID": "herbs_fungi_press_bed_frame",
-        "LocalizationKey": "herbs_fungi_press_bed_frame_CardName",
+        "LocalizationKey": "herbsfungipressbedframe_CardName",
         "DefaultText": "Press Bed Frame"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_press_bed_frame",
-        "LocalizationKey": "herbs_fungi_press_bed_frame_CardDescription",
+        "LocalizationKey": "herbsfungipressbedframe_CardDescription",
         "DefaultText": "A flat stone-reinforced bed frame for the oil press. Part of a larger assembly."
     },
     "CardType": 0,

@@ -1,0 +1,120 @@
+[
+  {
+    "EnvironmentUID": "actCopperCaveEnv",
+    "LocationUID": "actCopperCaveLoc",
+    "CloneOfEnvironmentUID": "17d6cfe8ff886b643afee74dc18760a7",
+    "DisplayName": "Copper Vein Cave",
+    "NameLocalizationKey": "Advanced_Copper_Tools_CopperVeinCave_CardName",
+    "EnvNameLocalizationKey": "Advanced_Copper_Tools_Env_CopperVeinCave_CardName",
+    "Coords": { "x": 10.0, "y": 0.0, "z": 40.0, "w": 0.0 },
+    "CardImage": "Mines",
+    "HideFromMap": false,
+    "StripAllInheritedDrops": true,
+    "ExtraDropUIDs": ["act_copper_vein", "act_copper_vein", "act_copper_vein"],
+    "StripLegacyBoardUIDs": [
+      "b956acdc408dbbe498aa17ab8830d5e1",
+      "d65ae569ebecad94c96896687c376fa3",
+      "e02259f0e9b90114484b2c6ec43b546d",
+      "977cc7d7233e1844b8c5aeed108e1e47"
+    ],
+    "Connections": []
+  },
+  {
+    "EnvironmentUID": "actTinCaveEnv",
+    "LocationUID": "actTinCaveLoc",
+    "CloneOfEnvironmentUID": "17d6cfe8ff886b643afee74dc18760a7",
+    "DisplayName": "Metal Mines",
+    "NameLocalizationKey": "Advanced_Copper_Tools_TinVeinCave_CardName",
+    "EnvNameLocalizationKey": "Advanced_Copper_Tools_Env_TinVeinCave_CardName",
+    "Coords": { "x": 10.0, "y": 0.0, "z": 30.0, "w": 0.0 },
+    "CardImage": "Tunnel_1",
+    "HideFromMap": false,
+    "StripAllInheritedDrops": true,
+    "ExtraDropUIDs": ["act_tin_vein", "act_tin_vein", "act_tin_vein"],
+    "StripLegacyBoardUIDs": [
+      "b956acdc408dbbe498aa17ab8830d5e1",
+      "d65ae569ebecad94c96896687c376fa3",
+      "e02259f0e9b90114484b2c6ec43b546d",
+      "977cc7d7233e1844b8c5aeed108e1e47"
+    ],
+    "Connections": [
+      {
+        "EnvironmentUID": "actCopperCaveEnv",
+        "PathCost": 10.0,
+        "TravelDirection": "North",
+        "HideConnection": false
+      }
+    ],
+    "VanillaExits": [
+      {
+        "Direction": "West",
+        "TargetVanillaEnvUID": "17d6cfe8ff886b643afee74dc18760a7",
+        "TargetVanillaLocUID": "b956acdc408dbbe498aa17ab8830d5e1",
+        "Bidirectional": true,
+        "ReverseActionName": "Mines"
+      }
+    ],
+    "SealableGates": [
+      {
+        "ConnectionUID": "actCopperCaveEnv",
+        "Granularity": "Env",
+        "SealTrigger": { "Type": "PerkEquipped", "UID": "advanced_copper_tools_perk_cave_prospector" },
+        "ChallengeCardUID": "act_collapsed_wall_copper",
+        "ClearActionKeyPrefix": "Advanced_Copper_Tools_CollapsedWallCopper_Dig",
+        "MultiHit": true,
+        "MarkerUID": "act_cave_copper_dug",
+        "MarkerEnvUID": "actTinCaveEnv",
+        "SeedOnEnvUIDs": ["actTinCaveEnv"]
+      },
+      {
+        "ConnectionUID": "actIronCaveEnv",
+        "Granularity": "Env",
+        "SealTrigger": { "Type": "PerkEquipped", "UID": "advanced_copper_tools_perk_cave_prospector" },
+        "ChallengeCardUID": "act_collapsed_wall_iron",
+        "ClearActionKeyPrefix": "Advanced_Copper_Tools_CollapsedWallIron_Dig",
+        "MultiHit": true,
+        "MarkerUID": "act_cave_iron_dug",
+        "MarkerEnvUID": "actTinCaveEnv",
+        "SeedOnEnvUIDs": ["actTinCaveEnv"]
+      },
+      {
+        "ConnectionUID": "17d6cfe8ff886b643afee74dc18760a7",
+        "Granularity": "Edge",
+        "SealTrigger": { "Type": "PerkEquipped", "UID": "advanced_copper_tools_perk_cave_prospector" },
+        "ChallengeCardUID": "act_collapsed_wall_tin",
+        "ClearActionKeyPrefix": "Advanced_Copper_Tools_CollapsedWallTin_Dig",
+        "MultiHit": true,
+        "MarkerUID": "act_cave_tin_dug",
+        "MarkerEnvUID": "actTinCaveEnv",
+        "SeedOnEnvUIDs": ["actTinCaveEnv", "17d6cfe8ff886b643afee74dc18760a7"]
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "actIronCaveEnv",
+    "LocationUID": "actIronCaveLoc",
+    "CloneOfEnvironmentUID": "17d6cfe8ff886b643afee74dc18760a7",
+    "DisplayName": "Iron Vein Cave",
+    "NameLocalizationKey": "Advanced_Copper_Tools_IronVeinCave_CardName",
+    "EnvNameLocalizationKey": "Advanced_Copper_Tools_Env_IronVeinCave_CardName",
+    "Coords": { "x": 10.0, "y": 0.0, "z": 20.0, "w": 0.0 },
+    "CardImage": "Tunnel_Shaft",
+    "HideFromMap": false,
+    "StripAllInheritedDrops": true,
+    "ExtraDropUIDs": ["act_iron_vein", "act_iron_vein", "act_iron_vein"],
+    "StripLegacyBoardUIDs": [
+      "b956acdc408dbbe498aa17ab8830d5e1",
+      "d65ae569ebecad94c96896687c376fa3",
+      "e02259f0e9b90114484b2c6ec43b546d",
+      "977cc7d7233e1844b8c5aeed108e1e47"
+    ],
+    "Connections": [
+      {
+        "EnvironmentUID": "actTinCaveEnv",
+        "PathCost": 10.0,
+        "TravelDirection": "North",
+        "HideConnection": false
+      }
+    ]
+  }
+]

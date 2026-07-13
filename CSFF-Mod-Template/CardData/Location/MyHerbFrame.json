@@ -1,0 +1,22 @@
+{
+    "UniqueID": "TODO_modname_my_herb_frame",
+    "CardName": {
+        "ParentObjectID": "TODO_modname_my_herb_frame",
+        "LocalizationKey": "TODO_ModName_MyHerbFrame_CardName",
+        "DefaultText": "Herb Drying Frame"
+    },
+    "CardDescription": {
+        "ParentObjectID": "TODO_modname_my_herb_frame",
+        "LocalizationKey": "TODO_ModName_MyHerbFrame_CardDescription",
+        "DefaultText": "A simple wooden frame for drying herbs. Expand this with DismantleActions or CardInteractions."
+    },
+    "CardType": 2,
+    "CardTagsWarpData": [
+        "tag_Structure"
+    ],
+    "CardTagsWarpType": 3,
+    "CardImageWarpData": "TODO_ModName_MyHerbFrame",
+    "CardImageWarpType": 3,
+    "ObjectWeight": 0,
+    "DroppedCardShadow": 0
+}

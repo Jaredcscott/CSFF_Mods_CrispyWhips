@@ -1,4 +1,4 @@
-{
+﻿{
     "ActionModifiers": [],
     "ActionObjectives": [],
     "AddedCards": [],
@@ -11,14 +11,14 @@
     "DifficultyRating": -800,
     "DisplayPriority": 1900.0,
     "EditorOnly": false,
-    "EquippedCards": [],
-    "EquippedCardsWarpData": [
+    "AddedCardsWarpData": [
         "herbs_fungi_drying_stack",
         "herbs_fungi_drying_tray",
         "herbs_fungi_drying_tray",
         "herbs_fungi_drying_tray"
     ],
-    "EquippedCardsWarpType": 3,
+    "AddedCardsWarpType": 3,
+    "EquippedCards": [],
     "HiddenUntilUnlocked": false,
     "MoonsCost": 0,
     "NestedObjectives": [],
@@ -64,7 +64,7 @@
     "StartUnlocked": false,
     "StartingStatModifiers": [],
     "StatsObjectives": [],
-    "SunsCost": 5,
+    "SunsCost": 15,
     "TagsOnBoardObjectives": [],
     "TimeObjectives": [],
     "UniqueID": "herbs_fungi_perk_drying_kit",

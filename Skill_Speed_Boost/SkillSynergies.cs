@@ -20,27 +20,44 @@ internal static class SkillSynergies
     private static readonly Dictionary<string, (int count, float time)> _groupCombos
         = new(StringComparer.Ordinal);
 
-    // skill name → synergy groups it belongs to (skills can belong to multiple)
+    // skill name → synergy groups it belongs to (skills can belong to multiple).
+    // Keys are the real GameStat GameName values (verified against
+    // Documentation/GameData/CSFF-JsonData_EA_0-65g .../GameStat/Skill_*.json — the
+    // 31 stats with UsesNovelty:true), NOT invented names.
     private static readonly Dictionary<string, string[]> _skillGroups
         = new(StringComparer.OrdinalIgnoreCase)
     {
-        ["Smithing"]   = new[] { "Crafting" },
-        ["Tailoring"]  = new[] { "Crafting" },
-        ["Carpentry"]  = new[] { "Crafting" },
-        ["Cooking"]    = new[] { "Crafting", "Survival" },
-        ["Firecraft"]  = new[] { "Crafting", "Survival" },
-        ["Axe"]        = new[] { "Crafting", "Tools" },
-        ["Foraging"]   = new[] { "Gathering", "Hunting", "Survival" },
-        ["Herbal"]     = new[] { "Gathering", "Survival" },
-        ["Gathering"]  = new[] { "Gathering" },
-        ["Mining"]     = new[] { "Gathering", "Tools" },
-        ["Archery"]    = new[] { "Combat", "Hunting" },
-        ["Blade"]      = new[] { "Combat" },
-        ["Blunt"]      = new[] { "Combat" },
-        ["Dodge"]      = new[] { "Combat" },
-        ["Tracking"]   = new[] { "Hunting" },
-        ["Trapping"]   = new[] { "Hunting" },
-        ["Spellcraft"] = new[] { "Crafting" },
+        ["Smithing"]        = new[] { "Crafting", "Tools" },
+        ["Tailoring"]       = new[] { "Crafting" },
+        ["Weaving"]         = new[] { "Crafting" },
+        ["Woodworking"]     = new[] { "Crafting", "Tools" },
+        ["Leatherworking"]  = new[] { "Crafting" },
+        ["Pottery"]         = new[] { "Crafting" },
+        ["Knapping"]        = new[] { "Crafting", "Tools" },
+        ["Metalworking"]    = new[] { "Crafting", "Tools" },
+        ["Crafting"]        = new[] { "Crafting" },
+        ["Cooking"]         = new[] { "Crafting", "Survival" },
+        ["Herbalism"]       = new[] { "Gathering", "Survival" },
+        ["Climbing"]        = new[] { "Survival" },
+        ["Swimming"]        = new[] { "Survival" },
+        ["Butchering"]      = new[] { "Gathering", "Hunting", "Survival" },
+        ["Fishing"]         = new[] { "Gathering", "Hunting" },
+        ["Spear Fishing"]   = new[] { "Gathering", "Hunting" },
+        ["Trapping"]        = new[] { "Gathering", "Hunting" },
+        ["Tracking"]        = new[] { "Hunting" },
+        ["Stealth"]         = new[] { "Hunting", "Combat" },
+        ["Archery"]         = new[] { "Combat", "Hunting" },
+        ["Axe Fighting"]    = new[] { "Combat" },
+        ["ClubFighting"]    = new[] { "Combat" },
+        ["Knife Fighting"]  = new[] { "Combat" },
+        ["Spear Fighting"]  = new[] { "Combat" },
+        ["Handguns"]        = new[] { "Combat" },
+        ["Rock Throwing"]   = new[] { "Combat" },
+        ["Sling"]           = new[] { "Combat" },
+        ["Socials"]         = new[] { "Social" },
+        ["Insight"]         = new[] { "Social" },
+        ["Percussion"]      = new[] { "Performance" },
+        ["Wind Instruments"] = new[] { "Performance" },
     };
 
     /// <summary>

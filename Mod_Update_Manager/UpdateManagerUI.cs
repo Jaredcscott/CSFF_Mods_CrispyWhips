@@ -25,7 +25,8 @@ namespace mod_update_manager
         private string _statusMessage = "Press Check Updates to scan for mod updates";
         private string _searchFilter = "";
         private int _selectedTab = 0;
-        private string[] _tabNames = { "All Mods", "Updates", "Up to Date", "Unchecked", "Conflicts", "Analytics", "Settings" };
+        private string[] _tabNames = { "Install & Update", "My Mods", "Conflicts", "Settings" };
+        private int _myModsFilterMode = 0; // 0=All, 1=Updates Available, 2=Up to Date, 3=Unmapped
 
         // Styles
         private GUIStyle _headerStyle;
@@ -69,6 +70,14 @@ namespace mod_update_manager
         private string _exportText = "";
         private Vector2 _exportScroll;
 
+        // Suite tab state
+        private HashSet<string> _suiteSelected = new HashSet<string>();
+        private bool _suiteApplying = false;
+        private bool _suitePendingRestart = false;
+        private string _suiteStatusMessage = "";
+        private string _suiteDetailTarget = null;   // FolderName of the row whose details are shown
+        private Vector2 _suiteScroll;
+
         public void Initialize(ModUpdateConfig config, UpdateChecker updateChecker, ModMappingManager mappingManager,
             ConflictDetector conflictDetector, UpdateScheduler updateScheduler, NexusApiClient nexusClient,
             NexusModDiscovery modDiscovery = null, ModPreferences preferences = null)
@@ -96,7 +105,10 @@ namespace mod_update_manager
             {
                 var updates = mods.Count(m => m.NeedsUpdate);
                 if (updates > 0)
+                {
                     _selectedTab = 1;
+                    _myModsFilterMode = 1;
+                }
             };
         }
 
@@ -247,7 +259,7 @@ namespace mod_update_manager
             _selectedTab = GUILayout.Toolbar(_selectedTab, _tabNames);
             GUILayout.Space(5);
 
-            if (_selectedTab < 4)
+            if (_selectedTab == 1)
             {
                 GUILayout.BeginHorizontal();
                 GUILayout.Label("Filter:", GUILayout.Width(50));
@@ -261,13 +273,10 @@ namespace mod_update_manager
 
             switch (_selectedTab)
             {
-                case 0: DrawAllMods(); break;
-                case 1: DrawUpdatesAvailable(); break;
-                case 2: DrawUpToDate(); break;
-                case 3: DrawUnableToCheck(); break;
-                case 4: DrawConflicts(); break;
-                case 5: DrawAnalytics(); break;
-                case 6: DrawSettings(); break;
+                case 0: DrawSuiteTab(); break;
+                case 1: DrawMyMods(); break;
+                case 2: DrawConflicts(); break;
+                case 3: DrawSettingsAndAnalytics(); break;
             }
 
             GUILayout.EndScrollView();
@@ -277,6 +286,23 @@ namespace mod_update_manager
         }
 
         // ── Tabs ────────────────────────────────────────────────────────────
+
+        private void DrawMyMods()
+        {
+            GUILayout.BeginHorizontal();
+            _myModsFilterMode = GUILayout.Toolbar(_myModsFilterMode,
+                new[] { "All", "Updates Available", "Up to Date", "Unmapped" });
+            GUILayout.EndHorizontal();
+            GUILayout.Space(6);
+
+            switch (_myModsFilterMode)
+            {
+                case 0: DrawAllMods(); break;
+                case 1: DrawUpdatesAvailable(); break;
+                case 2: DrawUpToDate(); break;
+                case 3: DrawUnableToCheck(); break;
+            }
+        }
 
         private void DrawAllMods()
         {
@@ -420,6 +446,13 @@ namespace mod_update_manager
                 GUILayout.Label($"  Resolution: {_conflictDetector.GetConflictResolution(conflict)}", _errorStyle);
                 GUILayout.Space(5);
             }
+        }
+
+        private void DrawSettingsAndAnalytics()
+        {
+            DrawAnalytics();
+            GUILayout.Space(20);
+            DrawSettings();
         }
 
         private void DrawAnalytics()
@@ -607,6 +640,160 @@ namespace mod_update_manager
                 var progress = _modDiscovery?.GetProgressInfo() ?? (0, 0);
                 GUILayout.Label($"Discovery progress: scanned through #{progress.LastScannedId}, found {progress.TotalDiscovered}", _errorStyle);
             }
+        }
+
+        // ── Suite tab ────────────────────────────────────────────────────────
+
+        private void DrawSuiteTab()
+        {
+            GUILayout.Label("Crispywhips Mod Suite", _headerStyle);
+            GUILayout.Label("Install or update all included mods in one click. A game restart is required after applying changes.", _summaryStyle);
+            GUILayout.Space(6);
+
+            _suiteScroll = GUILayout.BeginScrollView(_suiteScroll, GUILayout.ExpandHeight(true));
+
+            foreach (var entry in SuiteModRegistry.All)
+            {
+                GUILayout.BeginHorizontal(GUI.skin.box);
+
+                // Checkbox — disabled while applying or after restart pending
+                GUI.enabled = !_suiteApplying && !_suitePendingRestart;
+                bool wasSelected = _suiteSelected.Contains(entry.FolderName);
+                bool isSelected = GUILayout.Toggle(wasSelected, "", GUILayout.Width(20));
+                if (isSelected && !wasSelected) _suiteSelected.Add(entry.FolderName);
+                else if (!isSelected && wasSelected) _suiteSelected.Remove(entry.FolderName);
+                GUI.enabled = true;
+
+                // Name + category
+                GUILayout.Label($"[{entry.Category}]", _summaryStyle, GUILayout.Width(80));
+                GUILayout.Label(entry.DisplayName, _modNameStyle, GUILayout.Width(220));
+
+                // Version columns
+                GUILayout.Label($"Installed: {entry.InstalledVersion}", _summaryStyle, GUILayout.Width(130));
+                GUILayout.Label($"Suite: {entry.EmbeddedVersion}", _summaryStyle, GUILayout.Width(100));
+
+                // Status badge
+                GUIStyle badgeStyle = entry.Status switch
+                {
+                    SuiteInstallStatus.UpToDate => _upToDateStyle,
+                    SuiteInstallStatus.OutOfDate => _updateAvailableStyle,
+                    SuiteInstallStatus.NotInstalled => _errorStyle,
+                    _ => GUI.skin.label
+                };
+                string badgeText = entry.Status switch
+                {
+                    SuiteInstallStatus.UpToDate => "[Up to Date]",
+                    SuiteInstallStatus.OutOfDate => "[Update Available]",
+                    SuiteInstallStatus.NotInstalled => "[Not Installed]",
+                    _ => "[Unknown]"
+                };
+                GUILayout.Label(badgeText, badgeStyle, GUILayout.Width(130));
+
+                // Details toggle
+                if (GUILayout.Button("?", GUILayout.Width(24)))
+                    _suiteDetailTarget = _suiteDetailTarget == entry.FolderName ? null : entry.FolderName;
+
+                GUILayout.EndHorizontal();
+
+                // Details panel
+                if (_suiteDetailTarget == entry.FolderName)
+                {
+                    GUILayout.BeginVertical(GUI.skin.box);
+                    GUILayout.Label(entry.Description, _summaryStyle);
+                    GUILayout.EndVertical();
+                }
+            }
+
+            GUILayout.EndScrollView();
+            GUILayout.Space(4);
+
+            // Pending restart banner
+            if (_suitePendingRestart)
+            {
+                var restartStyle = new GUIStyle(GUI.skin.label) { normal = { textColor = new Color(1f, 0.3f, 0.3f) }, fontStyle = FontStyle.Bold, wordWrap = true };
+                GUILayout.Label("Mods installed. Restart Card Survival: Fantasy Forest to load the changes.", restartStyle);
+                GUILayout.Space(4);
+                if (GUILayout.Button("Quit Game (then relaunch from Steam)"))
+                {
+                    System.Diagnostics.Process.Start("steam://run/1413240");
+                    UnityEngine.Application.Quit();
+                }
+                return;
+            }
+
+            // Status line
+            if (!string.IsNullOrEmpty(_suiteStatusMessage))
+                GUILayout.Label(_suiteStatusMessage, _summaryStyle);
+
+            GUILayout.Space(4);
+
+            // Bottom action bar
+            GUILayout.BeginHorizontal();
+            GUI.enabled = !_suiteApplying;
+            if (GUILayout.Button("Select Out of Date / Not Installed"))
+            {
+                _suiteSelected.Clear();
+                foreach (var e in SuiteModRegistry.All)
+                    if (e.Status == SuiteInstallStatus.OutOfDate || e.Status == SuiteInstallStatus.NotInstalled)
+                        _suiteSelected.Add(e.FolderName);
+            }
+            if (GUILayout.Button("Select All")) { _suiteSelected.Clear(); foreach (var e in SuiteModRegistry.All) _suiteSelected.Add(e.FolderName); }
+            if (GUILayout.Button("Clear")) { _suiteSelected.Clear(); }
+            GUI.enabled = true;
+            GUILayout.EndHorizontal();
+
+            GUILayout.Space(4);
+
+            GUI.enabled = _suiteSelected.Count > 0 && !_suiteApplying;
+            if (GUILayout.Button($"Apply Updates to {_suiteSelected.Count} Selected Mod(s)"))
+                ApplySuiteUpdates();
+            GUI.enabled = true;
+        }
+
+        private void ApplySuiteUpdates()
+        {
+            _suiteApplying = true;
+            int ok = 0, fail = 0;
+
+            // Framework must be first if selected
+            var ordered = new List<SuiteModEntry>();
+            foreach (var e in SuiteModRegistry.All)
+                if (_suiteSelected.Contains(e.FolderName) && e.FolderName == "CSFF_Mod_Framework")
+                    ordered.Add(e);
+            foreach (var e in SuiteModRegistry.All)
+                if (_suiteSelected.Contains(e.FolderName) && e.FolderName != "CSFF_Mod_Framework")
+                    ordered.Add(e);
+
+            foreach (var entry in ordered)
+            {
+                bool result;
+                try
+                {
+                    result = ModSuiteExtractor.Extract(entry, msg => _suiteStatusMessage = msg);
+                }
+                catch (Exception ex)
+                {
+                    Plugin.Logger.LogError($"ModSuiteExtractor.Extract threw for {entry.FolderName}: {ex}");
+                    _suiteStatusMessage = $"FAILED: {entry.DisplayName} — {ex.Message}";
+                    result = false;
+                }
+                if (result) ok++;
+                else fail++;
+            }
+
+            // Refresh version display after installation
+            try
+            {
+                SuiteVersionReader.RefreshAll();
+            }
+            catch (Exception ex)
+            {
+                Plugin.Logger.LogError($"SuiteVersionReader.RefreshAll failed after apply: {ex}");
+            }
+
+            _suiteApplying = false;
+            _suitePendingRestart = ok > 0;
+            _suiteStatusMessage = $"Done: {ok} installed, {fail} failed.";
         }
 
         // ── Mod list helpers ─────────────────────────────────────────────────

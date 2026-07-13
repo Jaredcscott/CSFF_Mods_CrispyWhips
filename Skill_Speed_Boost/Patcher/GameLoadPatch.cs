@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 using HarmonyLib;
 using BepInEx.Logging;
+using CSFFModFramework.Api;
 using UnityEngine;
 
 namespace Skill_Speed_Boost.Patcher
@@ -17,17 +17,6 @@ namespace Skill_Speed_Boost.Patcher
     public static class GameLoadPatch
     {
         private static ManualLogSource Logger => Plugin.Logger;
-        private static readonly BindingFlags InstanceFieldFlags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
-
-        // Per-type field caches for the GameStat config pass.
-        private static readonly Dictionary<Type, FieldInfo> UsesNoveltyFields = new Dictionary<Type, FieldInfo>();
-        private static readonly Dictionary<Type, FieldInfo> GameNameFields = new Dictionary<Type, FieldInfo>();
-        private static readonly Dictionary<Type, FieldInfo> NoveltyCooldownFields = new Dictionary<Type, FieldInfo>();
-        private static readonly Dictionary<Type, FieldInfo> DefaultTextFields = new Dictionary<Type, FieldInfo>();
-        private static readonly Dictionary<Type, FieldInfo> StalenessMultiplierFields = new Dictionary<Type, FieldInfo>();
-        private static readonly Dictionary<Type, FieldInfo> MaxStalenessStackFields = new Dictionary<Type, FieldInfo>();
-        private static readonly Dictionary<Type, FieldInfo> UniqueIdFields = new Dictionary<Type, FieldInfo>();
-        private static readonly Dictionary<Type, Dictionary<string, PropertyInfo>> PropertyCaches = new Dictionary<Type, Dictionary<string, PropertyInfo>>();
 
         // Populated during GameStat scan; consumed by MorningBonusPatch.IsSkillStat and the
         // per-skill multiplier lookup in the same postfix.
@@ -51,7 +40,7 @@ namespace Skill_Speed_Boost.Patcher
         {
             try
             {
-                var gameLoadType = AccessTools.TypeByName("GameLoad");
+                var gameLoadType = Reflect.TryGetType("GameLoad");
                 if (gameLoadType == null)
                 {
                     Logger.LogError("[SkillSpeedBoost] GameLoad type not found");
@@ -88,7 +77,7 @@ namespace Skill_Speed_Boost.Patcher
                 SkillUniqueIds.Clear();
                 SkillNamesByUniqueId.Clear();
 
-                var gameStatType = AccessTools.TypeByName("GameStat");
+                var gameStatType = Reflect.TryGetType("GameStat");
                 if (gameStatType == null)
                 {
                     Logger.LogWarning("[SkillSpeedBoost] GameStat type not found — skill config skipped");
@@ -109,19 +98,18 @@ namespace Skill_Speed_Boost.Patcher
                     try
                     {
                         if (entry == null) continue;
-                        var entryType = entry.GetType();
 
-                        if (!TryGetBoolMember(entry, entryType, "UsesNovelty", UsesNoveltyFields, out var usesNovelty) || !usesNovelty)
+                        if (!Reflect.GetBool(entry, "UsesNovelty", false))
                         {
                             continue;
                         }
 
                         string skillName = "";
-                        if (TryGetMemberValue(entry, entryType, "GameName", GameNameFields, out var gameNameObj) && gameNameObj != null)
+                        if (Reflect.TryGetMember(entry, "GameName", out var gameNameObj) && gameNameObj != null)
                         {
-                            if (TryGetStringMember(gameNameObj, gameNameObj.GetType(), "DefaultText", DefaultTextFields, out var nameText))
+                            if (Reflect.TryGetMember(gameNameObj, "DefaultText", out var nameTextObj) && nameTextObj != null)
                             {
-                                skillName = nameText;
+                                skillName = nameTextObj.ToString() ?? "";
                             }
                         }
 
@@ -130,7 +118,7 @@ namespace Skill_Speed_Boost.Patcher
                             continue;
                         }
 
-                        if (TryGetStringMember(entry, entryType, "UniqueID", UniqueIdFields, out var skillUniqueId)
+                        if (Reflect.TryGetMember(entry, "UniqueID", out var uidObj) && uidObj is string skillUniqueId
                             && !string.IsNullOrWhiteSpace(skillUniqueId))
                         {
                             var uid = skillUniqueId.Trim();
@@ -153,9 +141,9 @@ namespace Skill_Speed_Boost.Patcher
                             // raw deltas with no novelty reduction to multiply. Per-modifier
                             // IgnoreNovelty is no longer needed since the stat-level flag
                             // short-circuits novelty before any modifier evaluates.
-                            TrySetMemberValue(entry, entryType, "UsesNovelty", UsesNoveltyFields, false);
-                            TrySetMemberValue(entry, entryType, "StalenessMultiplier", StalenessMultiplierFields, 0f);
-                            TrySetMemberValue(entry, entryType, "MaxStalenessStack", MaxStalenessStackFields, 0);
+                            Reflect.SetMember(entry, "UsesNovelty", false);
+                            Reflect.SetMember(entry, "StalenessMultiplier", 0f);
+                            Reflect.SetMember(entry, "MaxStalenessStack", 0);
                             disabledStalenessCount++;
                             continue;
                         }
@@ -169,9 +157,9 @@ namespace Skill_Speed_Boost.Patcher
 
                         if (!perSkillUse)
                         {
-                            TrySetMemberValue(entry, entryType, "UsesNovelty", UsesNoveltyFields, false);
-                            TrySetMemberValue(entry, entryType, "StalenessMultiplier", StalenessMultiplierFields, 0f);
-                            TrySetMemberValue(entry, entryType, "MaxStalenessStack", MaxStalenessStackFields, 0);
+                            Reflect.SetMember(entry, "UsesNovelty", false);
+                            Reflect.SetMember(entry, "StalenessMultiplier", 0f);
+                            Reflect.SetMember(entry, "MaxStalenessStack", 0);
                             disabledStalenessCount++;
                             continue;
                         }
@@ -179,7 +167,7 @@ namespace Skill_Speed_Boost.Patcher
                         // Staleness enabled: NoveltyCooldownDuration controls decay speed.
                         // Base = 12 (3 in-game hours, since 1 unit = 15 min).
                         // Rate multiplier scales the cooldown inversely: 2x faster → cooldown/2.
-                        if (!TryGetIntMember(entry, entryType, "NoveltyCooldownDuration", NoveltyCooldownFields, out var currentValue))
+                        if (!Reflect.TryGetMember(entry, "NoveltyCooldownDuration", out var cooldownObj) || cooldownObj is not int currentValue)
                         {
                             continue;
                         }
@@ -187,7 +175,7 @@ namespace Skill_Speed_Boost.Patcher
                         int targetCooldown = (int)Math.Max(1, Math.Round(12.0 / perSkillRate));
                         if (currentValue != targetCooldown)
                         {
-                            TrySetMemberValue(entry, entryType, "NoveltyCooldownDuration", NoveltyCooldownFields, targetCooldown);
+                            Reflect.SetMember(entry, "NoveltyCooldownDuration", targetCooldown);
                             updatedCount++;
                         }
                     }
@@ -206,111 +194,6 @@ namespace Skill_Speed_Boost.Patcher
             {
                 Logger.LogError($"[SkillSpeedBoost] Error modifying skills: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
-        }
-
-        // ── Reflection helpers ────────────────────────────────────────────────────
-
-        private static FieldInfo GetFieldCached(Dictionary<Type, FieldInfo> cache, Type type, string fieldName)
-        {
-            if (type == null) return null;
-
-            if (cache.TryGetValue(type, out var field))
-            {
-                return field;
-            }
-
-            field = type.GetField(fieldName, InstanceFieldFlags);
-            cache[type] = field;
-            return field;
-        }
-
-        private static PropertyInfo GetPropertyCached(Type type, string propertyName)
-        {
-            if (type == null) return null;
-
-            if (!PropertyCaches.TryGetValue(type, out var byName))
-            {
-                byName = new Dictionary<string, PropertyInfo>(StringComparer.Ordinal);
-                PropertyCaches[type] = byName;
-            }
-
-            if (byName.TryGetValue(propertyName, out var property))
-            {
-                return property;
-            }
-
-            property = type.GetProperty(propertyName, InstanceFieldFlags);
-            byName[propertyName] = property;
-            return property;
-        }
-
-        private static bool TryGetMemberValue(object target, Type targetType, string memberName, Dictionary<Type, FieldInfo> fieldCache, out object value)
-        {
-            value = null;
-            if (target == null || targetType == null) return false;
-
-            var field = GetFieldCached(fieldCache, targetType, memberName);
-            if (field != null)
-            {
-                try { value = field.GetValue(target); return true; } catch { return false; }
-            }
-
-            var property = GetPropertyCached(targetType, memberName);
-            if (property != null && property.CanRead && property.GetIndexParameters().Length == 0)
-            {
-                try { value = property.GetValue(target, null); return true; } catch { return false; }
-            }
-
-            return false;
-        }
-
-        private static bool TrySetMemberValue(object target, Type targetType, string memberName, Dictionary<Type, FieldInfo> fieldCache, object value)
-        {
-            if (target == null || targetType == null) return false;
-
-            var field = GetFieldCached(fieldCache, targetType, memberName);
-            if (field != null)
-            {
-                try { field.SetValue(target, value); return true; } catch { return false; }
-            }
-
-            var property = GetPropertyCached(targetType, memberName);
-            if (property != null && property.CanWrite && property.GetIndexParameters().Length == 0)
-            {
-                try { property.SetValue(target, value, null); return true; } catch { return false; }
-            }
-
-            return false;
-        }
-
-        private static bool TryGetBoolMember(object target, Type targetType, string memberName, Dictionary<Type, FieldInfo> fieldCache, out bool value)
-        {
-            value = false;
-            if (!TryGetMemberValue(target, targetType, memberName, fieldCache, out var raw) || !(raw is bool b))
-            {
-                return false;
-            }
-            value = b;
-            return true;
-        }
-
-        private static bool TryGetIntMember(object target, Type targetType, string memberName, Dictionary<Type, FieldInfo> fieldCache, out int value)
-        {
-            value = 0;
-            if (!TryGetMemberValue(target, targetType, memberName, fieldCache, out var raw)) return false;
-            if (raw is int i) { value = i; return true; }
-            return false;
-        }
-
-        private static bool TryGetStringMember(object target, Type targetType, string memberName, Dictionary<Type, FieldInfo> fieldCache, out string value)
-        {
-            value = string.Empty;
-            if (!TryGetMemberValue(target, targetType, memberName, fieldCache, out var raw) || raw == null)
-            {
-                return false;
-            }
-            value = raw.ToString() ?? string.Empty;
-            return true;
         }
     }
 }

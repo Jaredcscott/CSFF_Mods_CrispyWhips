@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_dried_ginger",
     "CardName": {
         "ParentObjectID": "herbs_fungi_dried_ginger",
-        "LocalizationKey": "herbs_fungi_dried_ginger_CardName",
+        "LocalizationKey": "herbsfungidriedginger_CardName",
         "DefaultText": "Dried Ginger"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_dried_ginger",
-        "LocalizationKey": "herbs_fungi_dried_ginger_CardDescription",
+        "LocalizationKey": "herbsfungidriedginger_CardDescription",
         "DefaultText": "Dried ginger root. More concentrated flavor and medicinal properties. Keeps indefinitely."
     },
     "CardType": 0,
@@ -29,12 +29,12 @@
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_dried_ginger",
-        "LocalizationKey": "herbs_fungi_dried_ginger_SpoilageTime_CardStatName",
+        "LocalizationKey": "herbsfungidriedginger_SpoilageTime_CardStatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_dried_ginger",
-            "LocalizationKey": "herbs_fungi_dried_ginger_SpoilageTime_CardStatName",
+            "LocalizationKey": "herbsfungidriedginger_SpoilageTime_CardStatName",
             "DefaultText": "Freshness"
         },
         "MinValue": 0.0,
@@ -48,7 +48,7 @@
         "OnEmpty": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_dried_ginger",
-                "LocalizationKey": "herbs_fungi_dried_ginger_SpoilageTime_OnEmpty",
+                "LocalizationKey": "herbsfungidriedginger_SpoilageTime_OnEmpty",
                 "DefaultText": "This has spoiled."
             },
             "ReceivingCardChanges": {
@@ -56,16 +56,143 @@
             }
         }
     },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_dried_ginger",
+                "LocalizationKey": "",
+                "DefaultText": "Add to Stew"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_dried_ginger",
+                "LocalizationKey": "",
+                "DefaultText": "Drop into the boiling liquid to cook."
+            },
+            "WorksInverted": true,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [
+                    "tag_StewContainer"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "RequiredStatValues": [],
+            "RequiredNPCStatValues": [],
+            "RequiredCardsOnBoard": [],
+            "RequiredTagsOnBoard": [],
+            "RequiredAlreadyVisitedEnvironments": [],
+            "RequiredReceivingContainer": [],
+            "RequiredReceivingContainerTag": [],
+            "RequiredNOTReceivingContainerTag": [],
+            "RequiredReceivingContainerDurabilities": {},
+            "RequiredGivenDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredFuelPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredProgressPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredLiquidQuantity": 0.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "HideActionIfNotMet": true,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": []
+            },
+            "GivenCardChanges": {
+                "ModType": 0
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "ProducedCards": []
+        }
+    ],
     "DismantleActions": [
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_dried_ginger",
-                "LocalizationKey": "herbs_fungi_dried_ginger_Eat",
+                "LocalizationKey": "herbsfungidriedginger_Eat",
                 "DefaultText": "Eat"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_dried_ginger",
-                "LocalizationKey": "herbs_fungi_dried_ginger_Eat_Desc",
+                "LocalizationKey": "herbsfungidriedginger_Eat_Desc",
                 "DefaultText": "Chew the dried ginger. Concentrated flavor and warmth."
             },
             "DaytimeCost": 0,

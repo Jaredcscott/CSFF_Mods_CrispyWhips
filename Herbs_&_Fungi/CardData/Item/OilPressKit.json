@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_oil_press_kit",
     "CardName": {
         "ParentObjectID": "herbs_fungi_oil_press_kit",
-        "LocalizationKey": "herbs_fungi_oil_press_kit_CardName",
+        "LocalizationKey": "herbsfungioilpresskit_CardName",
         "DefaultText": "Oil Press Kit"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_oil_press_kit",
-        "LocalizationKey": "herbs_fungi_oil_press_kit_CardDescription",
+        "LocalizationKey": "herbsfungioilpresskit_CardDescription",
         "DefaultText": "The portable kit form of the oil press. Use the Place action to set it up in your environment."
     },
     "CardType": 0,

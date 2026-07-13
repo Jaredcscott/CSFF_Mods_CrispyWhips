@@ -78,6 +78,16 @@
           "DontSpend": false,
           "RequiredCardWarpData": "3db4c94184af274409f0d3eb16870f64",
           "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "act_tin_solder",
+          "RequiredCardWarpType": 3
         }
       ],
       "StepActionTags": [],

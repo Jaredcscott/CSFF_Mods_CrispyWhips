@@ -213,8 +213,6 @@ namespace mod_update_manager
             _functionalities.Add(("autosort", "inventory management"));
             _functionalities.Add(("smartinventory", "inventory management"));
             _functionalities.Add(("betterinventory", "inventory management"));
-            _functionalities.Add(("herbs", "herbalism"));
-            _functionalities.Add(("fungi", "herbalism"));
             _functionalities.Add(("irrigation", "water mechanics"));
         }
     }

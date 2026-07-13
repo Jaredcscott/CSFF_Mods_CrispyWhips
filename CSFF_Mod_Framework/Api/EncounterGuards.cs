@@ -115,7 +115,7 @@ public static class EncounterGuards
             {
                 if (!g.ShouldSuppress(ctx)) continue;
                 _suppressedFrame = Time.frameCount;
-                Log.Info($"[EncounterGuards] '{g.Name}' suppressed wildlife encounter '{ctx.EncounterUid ?? "?"}'.");
+                Log.Debug($"[EncounterGuards] '{g.Name}' suppressed wildlife encounter '{ctx.EncounterUid ?? "?"}'.");
                 return true;
             }
             catch (Exception ex)

@@ -20,7 +20,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_copper_stove_placed",
     "LocalizationKey": "Advanced_Copper_Tools_CopperStove_Placed_CardHelpSection",
-    "DefaultText": "<b>Usage:</b> A placed copper stove functioning as a fireplace with 2 cooking slots. Accepts oak wood or twigs as fuel. Pick up to move."
+    "DefaultText": "<b>Usage:</b> A placed copper stove functioning as a fireplace with 2 cooking slots. Accepts oak wood, twigs, or charcoal as fuel. Pick up to move."
   },
   "CardImage": {
     "m_FileID": 0,

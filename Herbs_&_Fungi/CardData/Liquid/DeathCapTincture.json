@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_death_cap_tincture",
     "CardName": {
         "ParentObjectID": "herbs_fungi_death_cap_tincture",
-        "LocalizationKey": "herbs_fungi_death_cap_tincture_CardName",
+        "LocalizationKey": "herbsfungideathcaptincture_CardName",
         "DefaultText": "Death Cap Tincture"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_death_cap_tincture",
-        "LocalizationKey": "herbs_fungi_death_cap_tincture_CardDescription",
+        "LocalizationKey": "herbsfungideathcaptincture_CardDescription",
         "DefaultText": "A bitter, murky extract pressed from death caps. The amatoxins that kill a careless forager will also kill gut parasites - at a dose the body can (usually) survive. Expect nausea and a rough day."
     },
     "CardType": 0,
@@ -29,12 +29,12 @@
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_death_cap_tincture",
-        "LocalizationKey": "herbs_fungi_death_cap_tincture_SpoilageTime_StatName",
+        "LocalizationKey": "herbsfungideathcaptincture_SpoilageTime_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_death_cap_tincture",
-            "LocalizationKey": "herbs_fungi_death_cap_tincture_SpoilageTime_StatName",
+            "LocalizationKey": "herbsfungideathcaptincture_SpoilageTime_StatName",
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
@@ -45,7 +45,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_death_cap_tincture",
-                "LocalizationKey": "herbs_fungi_death_cap_tincture_SpoilageTime_Spoiled",
+                "LocalizationKey": "herbsfungideathcaptincture_SpoilageTime_Spoiled",
                 "DefaultText": "The tincture has spoiled - the toxins remain but the therapeutic dose is gone."
             },
             "ReceivingCardChanges": {
@@ -64,12 +64,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_death_cap_tincture",
-                "LocalizationKey": "herbs_fungi_death_cap_tincture_Drink",
+                "LocalizationKey": "herbsfungideathcaptincture_Drink",
                 "DefaultText": "Drink"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_death_cap_tincture",
-                "LocalizationKey": "herbs_fungi_death_cap_tincture_Drink_Desc",
+                "LocalizationKey": "herbsfungideathcaptincture_Drink_Desc",
                 "DefaultText": "Swallow the tincture. Kills gut parasites; causes significant nausea and mild poisoning."
             },
             "DaytimeCost": 0,

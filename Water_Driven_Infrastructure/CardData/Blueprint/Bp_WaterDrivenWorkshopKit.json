@@ -164,7 +164,17 @@
                     },
                     "RequiredQuantity": 8,
                     "DontSpend": false,
-                    "RequiredCardWarpData": "advanced_copper_tools_copper_nails",
+                    "RequiredCardWarpData": "water_sawmill_copper_rivet",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "water_sawmill_alloy_solder",
                     "RequiredCardWarpType": 3
                 }
             ],

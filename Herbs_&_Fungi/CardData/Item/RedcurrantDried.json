@@ -1,11 +1,11 @@
 {
     "UniqueID": "herbs_fungi_redcurrant_dried",
     "CardName": {
-        "LocalizationKey": "herbs_fungi_redcurrant_dried_CardName",
+        "LocalizationKey": "herbsfungiredcurrantdried_CardName",
         "DefaultText": "Dried Redcurrants"
     },
     "CardDescription": {
-        "LocalizationKey": "herbs_fungi_redcurrant_dried_CardDescription",
+        "LocalizationKey": "herbsfungiredcurrantdried_CardDescription",
         "DefaultText": "Tangy dried redcurrants with a pleasant sweet-sour punch. Lightweight travel rations that keep for a very long time."
     },
     "CardType": 0,
@@ -30,7 +30,7 @@
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
-            "LocalizationKey": "herbs_fungi_redcurrant_dried_SpoilageTime_CardStatName",
+            "LocalizationKey": "herbsfungiredcurrantdried_SpoilageTime_CardStatName",
             "DefaultText": "Freshness"
         },
         "MaxValue": 3600.0,
@@ -38,7 +38,7 @@
         "HasActionOnFull": true,
         "OnFull": {
             "ActionDescription": {
-                "LocalizationKey": "herbs_fungi_redcurrant_dried_SpoilageTime_OnFull",
+                "LocalizationKey": "herbsfungiredcurrantdried_SpoilageTime_OnFull",
                 "DefaultText": "Dried redcurrants lost their flavor."
             },
             "ReceivingCardChanges": {
@@ -110,7 +110,7 @@
                 "RequiredUsagePercent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredFuelPercent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredProgressPercent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
-                "RequiredLiquidQuantity": 140.0,
+                "RequiredLiquidQuantity": 0.0,
                 "RequiredSpecial1Percent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredSpecial2Percent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredSpecial3Percent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
@@ -131,11 +131,11 @@
     "DismantleActions": [
         {
             "ActionName": {
-                "LocalizationKey": "herbs_fungi_redcurrant_dried_Eat_ActionName",
+                "LocalizationKey": "herbsfungiredcurrantdried_Eat_ActionName",
                 "DefaultText": "Eat"
             },
             "ActionDescription": {
-                "LocalizationKey": "herbs_fungi_redcurrant_dried_Eat_ActionDescription",
+                "LocalizationKey": "herbsfungiredcurrantdried_Eat_ActionDescription",
                 "DefaultText": "Eat the dried redcurrants. Tangy and satisfying."
             },
             "DaytimeCost": 0,

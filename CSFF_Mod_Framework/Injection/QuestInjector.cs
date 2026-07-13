@@ -35,6 +35,15 @@ namespace CSFFModFramework.Injection;
 /// <para>Save-compat note (Part 4 risk): quests serialize into saves. Removing a
 /// quest mod from an existing save requires the documented add → save → remove →
 /// load test before shipping content built on this.</para>
+///
+/// <para><strong>⚠ KNOWN RISK — DO NOT ENABLE ON A REAL MOD without reading
+/// <c>Documentation/Retrospectives/questinjector-blueprint-reset-risk.md</c> first.</strong>
+/// CMC 1.7.0 (2026-06-17) attached 13 QuestLogs via this exact path and the result was a
+/// user-confirmed blueprint research reset on save load. Disabled 2 days later; root cause
+/// was never diagnosed (the QuestLog attachment was "implicated," not isolated). CMC's Wisp
+/// NPC now uses a custom save-file-free deed tracker instead. This method is shipped but
+/// should be treated as <em>do-not-use</em>, not merely untested, until the retrospective's
+/// Open Unknowns are diagnosed with a controlled single-variable test.</para>
 /// </summary>
 internal static class QuestInjector
 {
@@ -91,6 +100,8 @@ internal static class QuestInjector
 
         if (entries > 0)
             Log.Debug($"[QuestInjector] {entries} manifest entr(ies) processed, {attached} attachment(s).");
+        if (attached > 0)
+            Log.Warn($"[QuestInjector] {attached} vanilla QuestLog(s) attached to PlayerCharacter.Quests — this exact path caused a user-confirmed blueprint research reset in CMC 1.7.0 (see Documentation/Retrospectives/questinjector-blueprint-reset-risk.md). Verify blueprint research survives a save/reload cycle before shipping.");
     }
 
     // ── Manifest ─────────────────────────────────────────────────────────────

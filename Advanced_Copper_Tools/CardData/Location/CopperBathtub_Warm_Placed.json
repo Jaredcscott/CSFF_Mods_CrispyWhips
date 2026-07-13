@@ -638,7 +638,7 @@
           "m_FileID": 0,
           "m_PathID": 0
         },
-        "TransformIntoWarpData": "advanced_copper_tools_copper_bathtub_empty",
+        "TransformIntoWarpData": "advanced_copper_tools_copper_bathtub_full",
         "TransformIntoWarpType": 3,
         "SpawnTransformAtSource": true
       }

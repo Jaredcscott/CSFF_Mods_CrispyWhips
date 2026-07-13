@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_cooked_chanterelle",
     "CardName": {
         "ParentObjectID": "herbs_fungi_cooked_chanterelle",
-        "LocalizationKey": "herbs_fungi_cooked_chanterelle_CardName",
+        "LocalizationKey": "herbsfungicookedchanterelle_CardName",
         "DefaultText": "Cooked Chanterelle"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_cooked_chanterelle",
-        "LocalizationKey": "herbs_fungi_cooked_chanterelle_CardDescription",
+        "LocalizationKey": "herbsfungicookedchanterelle_CardDescription",
         "DefaultText": "A beautifully cooked golden chanterelle with a rich, peppery flavor."
     },
     "CardType": 0,
@@ -31,12 +31,12 @@
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_cooked_chanterelle",
-        "LocalizationKey": "herbs_fungi_cooked_chanterelle_SpoilageTime_StatName",
+        "LocalizationKey": "herbsfungicookedchanterelle_SpoilageTime_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_cooked_chanterelle",
-            "LocalizationKey": "herbs_fungi_cooked_chanterelle_SpoilageTime_StatName",
+            "LocalizationKey": "herbsfungicookedchanterelle_SpoilageTime_StatName",
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
@@ -47,7 +47,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_cooked_chanterelle",
-                "LocalizationKey": "herbs_fungi_cooked_chanterelle_SpoilageTime_Spoiled",
+                "LocalizationKey": "herbsfungicookedchanterelle_SpoilageTime_Spoiled",
                 "DefaultText": "The cooked chanterelle has spoiled."
             },
             "ReceivingCardChanges": {
@@ -66,12 +66,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_cooked_chanterelle",
-                "LocalizationKey": "herbs_fungi_cooked_chanterelle_Eat",
+                "LocalizationKey": "herbsfungicookedchanterelle_Eat",
                 "DefaultText": "Eat"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_cooked_chanterelle",
-                "LocalizationKey": "herbs_fungi_cooked_chanterelle_Eat_Desc",
+                "LocalizationKey": "herbsfungicookedchanterelle_Eat_Desc",
                 "DefaultText": "Enjoy the delicious cooked chanterelle."
             },
             "DaytimeCost": 0,
@@ -465,7 +465,7 @@
                         "FloatValue": 0.0
                     }
                 },
-                "RequiredLiquidQuantity": 140.0,
+                "RequiredLiquidQuantity": 0.0,
                 "RequiredSpecial1Percent": {
                     "Active": false,
                     "FloatValue": 0.0,

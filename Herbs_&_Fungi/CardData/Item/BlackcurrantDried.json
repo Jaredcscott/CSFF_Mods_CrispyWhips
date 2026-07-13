@@ -1,11 +1,11 @@
 {
     "UniqueID": "herbs_fungi_blackcurrant_dried",
     "CardName": {
-        "LocalizationKey": "herbs_fungi_blackcurrant_dried_CardName",
+        "LocalizationKey": "herbsfungiblackcurrantdried_CardName",
         "DefaultText": "Dried Blackcurrants"
     },
     "CardDescription": {
-        "LocalizationKey": "herbs_fungi_blackcurrant_dried_CardDescription",
+        "LocalizationKey": "herbsfungiblackcurrantdried_CardDescription",
         "DefaultText": "Shriveled dark blackcurrants with concentrated flavor and extended shelf life. Dense and chewy, good for long journeys."
     },
     "CardType": 0,
@@ -30,7 +30,7 @@
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
-            "LocalizationKey": "herbs_fungi_blackcurrant_dried_SpoilageTime_CardStatName",
+            "LocalizationKey": "herbsfungiblackcurrantdried_SpoilageTime_CardStatName",
             "DefaultText": "Freshness"
         },
         "MaxValue": 3600.0,
@@ -38,7 +38,7 @@
         "HasActionOnFull": true,
         "OnFull": {
             "ActionDescription": {
-                "LocalizationKey": "herbs_fungi_blackcurrant_dried_SpoilageTime_OnFull",
+                "LocalizationKey": "herbsfungiblackcurrantdried_SpoilageTime_OnFull",
                 "DefaultText": "Dried blackcurrants lost their flavor."
             },
             "ReceivingCardChanges": {
@@ -110,7 +110,7 @@
                 "RequiredUsagePercent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredFuelPercent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredProgressPercent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
-                "RequiredLiquidQuantity": 140.0,
+                "RequiredLiquidQuantity": 0.0,
                 "RequiredSpecial1Percent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredSpecial2Percent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredSpecial3Percent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
@@ -131,11 +131,11 @@
     "DismantleActions": [
         {
             "ActionName": {
-                "LocalizationKey": "herbs_fungi_blackcurrant_dried_Eat_ActionName",
+                "LocalizationKey": "herbsfungiblackcurrantdried_Eat_ActionName",
                 "DefaultText": "Eat"
             },
             "ActionDescription": {
-                "LocalizationKey": "herbs_fungi_blackcurrant_dried_Eat_ActionDescription",
+                "LocalizationKey": "herbsfungiblackcurrantdried_Eat_ActionDescription",
                 "DefaultText": "Eat the dried blackcurrants. Chewy and concentrated."
             },
             "DaytimeCost": 0,

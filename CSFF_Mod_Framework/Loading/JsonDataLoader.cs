@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
+using CSFFModFramework.Api;
 using CSFFModFramework.Data;
 using CSFFModFramework.Discovery;
 using CSFFModFramework.Reflection;
@@ -98,6 +99,14 @@ internal static class JsonDataLoader
     // Track skipped types per mod for batched summary warning.
     private static readonly Dictionary<string, HashSet<string>> _skippedTypes = new();
 
+    // Names WE registered as non-UID ScriptableObjects during the current LoadAll pass.
+    // Lets the collision check tell "another mod loader (ModCore) already scanned this
+    // ScriptableObject/<Type>/ folder and created its own duplicate first" (benign, expected
+    // coexistence — ModCore scans this folder convention on EVERY plugin regardless of manifest
+    // tags, so renaming would just cause it to duplicate the new name too) apart from "two of
+    // OUR OWN mods used the same name" (a real authoring mistake worth a loud warning).
+    private static readonly HashSet<string> _ourNonUidRegistrations = new(StringComparer.OrdinalIgnoreCase);
+
     public static void LoadAll(List<ModManifest> mods)
     {
         JsonByUniqueId.Clear();
@@ -106,6 +115,7 @@ internal static class JsonDataLoader
         UniqueIdToModName.Clear();
         LoadedObjectsByUniqueId.Clear();
         ExtraDataStore.Clear();
+        _ourNonUidRegistrations.Clear();
         _skippedTypes.Clear();
 
         var sw = Stopwatch.StartNew();
@@ -149,6 +159,7 @@ internal static class JsonDataLoader
         long createTicks = 0, fromJsonTicks = 0, initTicks = 0, registerTicks = 0;
         var modCounts = new Dictionary<string, int>(StringComparer.Ordinal);
         int totalLoaded = 0;
+        int nonUidRegistered = 0;
 
         for (int i = 0; i < results.Length; i++)
         {
@@ -234,6 +245,35 @@ internal static class JsonDataLoader
                 RegisterInAllData(uidObj);
                 registerTicks += Stopwatch.GetTimestamp() - t0;
             }
+            else
+            {
+                // Non-UID ScriptableObjects (CardTag, ActionTag, CardTabGroup, WeaponMove, etc.)
+                // loaded from a generic ScriptableObject/<Type>/ folder. Without this, the object
+                // is created and deserialized but never discoverable by name — WarpResolver.Lookup,
+                // Database.GetTypedSO, and Database.AllScriptableObjectDict would all miss it, so
+                // any WarpData reference (e.g. CardData.WeaponMovesWarpData) resolving it by name
+                // would silently fail with zero log output.
+                t0 = Stopwatch.GetTimestamp();
+                bool wasNew = ContentRegistry.Register(obj);
+                // ContentRegistry.Register always overwrites regardless of wasNew — our instance
+                // is canonical in OUR OWN Database dict the moment this line runs, independent of
+                // whatever created the pre-existing entry (WarpResolver.Lookup and Database.GetTypedSO
+                // only ever read from THIS dict, and nothing runs between here and WarpResolver.ResolveAll
+                // that could touch it — see CSFFModFramework/CLAUDE.md "GameSourceModifier ... /
+                // non-UID registration" notes). The distinction below is purely about log signal:
+                // a genuine same-name collision between two of OUR OWN mods (rename-worthy) vs.
+                // ModCore/ModLoader having already scanned the SAME ScriptableObject/<Type>/ folder
+                // and created its own duplicate first (expected, harmless — ModCore scans this
+                // filesystem convention on every plugin regardless of manifest tags; renaming would
+                // just make it duplicate the new name too).
+                if (wasNew) nonUidRegistered++;
+                else if (_ourNonUidRegistrations.Contains(obj.name))
+                    Log.Warn($"JsonDataLoader: '{obj.name}' ({item.TypeName}) name collides with an existing registration — {item.Mod.Name}'s copy overwrites it (rename to avoid shadowing vanilla or another mod)");
+                else
+                    Log.Info($"JsonDataLoader: '{obj.name}' ({item.TypeName}) was already registered by another loader (ModCore/ModLoader independently scanning this folder) — {item.Mod.Name}'s instance is now canonical, no action needed");
+                _ourNonUidRegistrations.Add(obj.name);
+                registerTicks += Stopwatch.GetTimestamp() - t0;
+            }
 
             totalLoaded++;
             modCounts.TryGetValue(item.Mod.Name, out var mc);
@@ -246,6 +286,8 @@ internal static class JsonDataLoader
 
         Log.Debug($"JsonDataLoader: {totalLoaded} total objects loaded"
                  + (ExtraDataStore.Count > 0 ? $", {ExtraDataStore.Count} sidecar extras" : ""));
+        if (nonUidRegistered > 0)
+            Log.Info($"JsonDataLoader: registered {nonUidRegistered} non-UID ScriptableObject(s) by name (CardTag/ActionTag/WeaponMove/etc. from ScriptableObject/<Type>/)");
 
         // Log batched summary of skipped types at Debug level — these are typically
         // third-party mods from other games (e.g. CSTI) whose types CSFF doesn't resolve.

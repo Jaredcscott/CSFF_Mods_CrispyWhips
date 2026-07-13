@@ -2,17 +2,17 @@
   "UniqueID": "herbs_fungi_hemp_field_mature",
   "CardName": {
     "ParentObjectID": "herbs_fungi_hemp_field_mature",
-    "LocalizationKey": "herbs_fungi_hemp_field_mature_CardName",
+    "LocalizationKey": "herbsfungihempfieldmature_CardName",
     "DefaultText": "Mature Hemp Field"
   },
   "CardDescription": {
     "ParentObjectID": "herbs_fungi_hemp_field_mature",
-    "LocalizationKey": "herbs_fungi_hemp_field_mature_CardDescription",
+    "LocalizationKey": "herbsfungihempfieldmature_CardDescription",
     "DefaultText": "A field of mature hemp plants ready for harvest."
   },
   "CardHelpSection": {
     "ParentObjectID": "herbs_fungi_hemp_field_mature",
-    "LocalizationKey": "herbs_fungi_hemp_field_mature_CardHelpSection",
+    "LocalizationKey": "herbsfungihempfieldmature_CardHelpSection",
     "DefaultText": "<b>Harvest:</b> Collect hemp stalks, flowers, and seeds. Harvesting destroys the field."
   },
   "CardType": 2,
@@ -23,12 +23,12 @@
     {
       "ActionName": {
         "ParentObjectID": "herbs_fungi_hemp_field_mature",
-        "LocalizationKey": "herbs_fungi_hemp_field_mature_DismantleActions_0_ActionName",
+        "LocalizationKey": "herbsfungihempfieldmature_DismantleActions_0_ActionName",
         "DefaultText": "Harvest"
       },
       "ActionDescription": {
         "ParentObjectID": "herbs_fungi_hemp_field_mature",
-        "LocalizationKey": "herbs_fungi_hemp_field_mature_DismantleActions_0_ActionDescription",
+        "LocalizationKey": "herbsfungihempfieldmature_DismantleActions_0_ActionDescription",
         "DefaultText": "Harvest hemp stalks, flowers, and seeds from the field."
       },
       "DaytimeCost": 4,

@@ -80,7 +80,7 @@
                     },
                     "RequiredQuantity": 6,
                     "DontSpend": false,
-                    "RequiredCardWarpData": "advanced_copper_tools_copper_nails",
+                    "RequiredCardWarpData": "water_sawmill_copper_rivet",
                     "RequiredCardWarpType": 3
                 },
                 {

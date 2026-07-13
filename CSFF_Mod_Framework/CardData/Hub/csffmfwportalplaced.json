@@ -1,0 +1,47 @@
+{
+  "UniqueID": "csffmfwportalplaced",
+  "CardType": 2,
+  "CardName": {
+    "ParentObjectID": "csffmfwportalplaced",
+    "LocalizationKey": "CSFFMFW_SacredCave_CardName",
+    "DefaultText": "Portal Hub"
+  },
+  "CardDescription": {
+    "ParentObjectID": "csffmfwportalplaced",
+    "LocalizationKey": "CSFFMFW_SacredCave_CardDescription",
+    "DefaultText": "An ancient standing stone etched with glowing runes. Use it to open a gateway to other worlds."
+  },
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "Portal_Placed",
+  "CardImageWarpType": 3,
+  "UniqueOnBoard": true,
+  "CanDragItemsToTravel": false,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "csffmfwportalplaced",
+        "LocalizationKey": "CSFFMFW_SacredCave_DA_PackUp",
+        "DefaultText": "Pack Up Portal"
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 2,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "PackUp",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCardWarpData": "csffmfwportalkit",
+              "DroppedCardWarpType": 3,
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "Quantity": { "x": 1, "y": 1 }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

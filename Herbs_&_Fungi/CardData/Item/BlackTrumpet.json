@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_black_trumpet",
     "CardName": {
         "ParentObjectID": "herbs_fungi_black_trumpet",
-        "LocalizationKey": "herbs_fungi_black_trumpet_CardName",
+        "LocalizationKey": "herbsfungiblacktrumpet_CardName",
         "DefaultText": "Black Trumpet"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_black_trumpet",
-        "LocalizationKey": "herbs_fungi_black_trumpet_CardDescription",
+        "LocalizationKey": "herbsfungiblacktrumpet_CardDescription",
         "DefaultText": "A dark, funnel-shaped mushroom with an intense, smoky flavor. Also called the 'Horn of Plenty'. Prized by foragers for its gourmet qualities."
     },
     "CardType": 0,
@@ -34,12 +34,12 @@
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_black_trumpet",
-        "LocalizationKey": "herbs_fungi_black_trumpet_SpoilageTime_StatName",
+        "LocalizationKey": "herbsfungiblacktrumpet_SpoilageTime_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_black_trumpet",
-            "LocalizationKey": "herbs_fungi_black_trumpet_SpoilageTime_StatName",
+            "LocalizationKey": "herbsfungiblacktrumpet_SpoilageTime_StatName",
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
@@ -50,7 +50,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_black_trumpet",
-                "LocalizationKey": "herbs_fungi_black_trumpet_SpoilageTime_Spoiled",
+                "LocalizationKey": "herbsfungiblacktrumpet_SpoilageTime_Spoiled",
                 "DefaultText": "The black trumpet has spoiled."
             },
             "ReceivingCardChanges": {
@@ -67,12 +67,12 @@
     },
     "UsageDurability": {
         "ParentObjectID": "herbs_fungi_black_trumpet",
-        "LocalizationKey": "herbs_fungi_black_trumpet_UsageDurability_StatName",
+        "LocalizationKey": "herbsfungiblacktrumpet_UsageDurability_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_black_trumpet",
-            "LocalizationKey": "herbs_fungi_black_trumpet_UsageDurability_StatName",
+            "LocalizationKey": "herbsfungiblacktrumpet_UsageDurability_StatName",
             "DefaultText": "Dry"
         },
         "MinValue": 0.0,
@@ -83,7 +83,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_black_trumpet",
-                "LocalizationKey": "herbs_fungi_black_trumpet_UsageDurability_Dried",
+                "LocalizationKey": "herbsfungiblacktrumpet_UsageDurability_Dried",
                 "DefaultText": "The black trumpet has dried properly."
             },
             "ReceivingCardChanges": {
@@ -100,12 +100,12 @@
     },
     "SpecialDurability1": {
         "ParentObjectID": "herbs_fungi_black_trumpet",
-        "LocalizationKey": "herbs_fungi_black_trumpet_SpecialDurability1_StatName",
+        "LocalizationKey": "herbsfungiblacktrumpet_SpecialDurability1_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_black_trumpet",
-            "LocalizationKey": "herbs_fungi_black_trumpet_SpecialDurability1_StatName",
+            "LocalizationKey": "herbsfungiblacktrumpet_SpecialDurability1_StatName",
             "DefaultText": "Cook"
         },
         "MinValue": 0.0,
@@ -117,7 +117,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_black_trumpet",
-                "LocalizationKey": "herbs_fungi_black_trumpet_SpecialDurability1_Cooked",
+                "LocalizationKey": "herbsfungiblacktrumpet_SpecialDurability1_Cooked",
                 "DefaultText": "The black trumpet is perfectly cooked."
             },
             "ReceivingCardChanges": {
@@ -138,12 +138,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_black_trumpet",
-                "LocalizationKey": "herbs_fungi_black_trumpet_EatRaw",
+                "LocalizationKey": "herbsfungiblacktrumpet_EatRaw",
                 "DefaultText": "Eat Raw"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_black_trumpet",
-                "LocalizationKey": "herbs_fungi_black_trumpet_EatRaw_Desc",
+                "LocalizationKey": "herbsfungiblacktrumpet_EatRaw_Desc",
                 "DefaultText": "Eat the black trumpet raw. Safe but better when cooked for full flavor."
             },
             "DaytimeCost": 0,
@@ -538,7 +538,7 @@
                         "FloatValue": 0.0
                     }
                 },
-                "RequiredLiquidQuantity": 140.0,
+                "RequiredLiquidQuantity": 0.0,
                 "RequiredSpecial1Percent": {
                     "Active": false,
                     "FloatValue": 0.0,

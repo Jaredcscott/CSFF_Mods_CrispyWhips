@@ -64,9 +64,17 @@ internal static class GameSourceModifier
                     }
                     else
                     {
-                        // Standard: file name or UniqueID field is the target
+                        // Standard: file name or UniqueID field is the target.
+                        // Try the UID registry first (CardData, CharacterPerk, GameStat, ...),
+                        // then fall back to the non-UID name registry (WeaponMove, DamageType,
+                        // CardTag, ActionTag, ...) — same two-tier lookup WarpResolver.Lookup
+                        // already uses for non-UID types (WarpResolver.cs Lookup()). This is what
+                        // lets a mod patch an existing vanilla WeaponMove/DamageType in place
+                        // instead of only being able to create new ones.
                         var targetUid = PathUtil.QuickExtractString(json, "UniqueID") ?? fileName;
-                        var target = GameRegistry.GetByUid(targetUid);
+                        UnityEngine.Object target = GameRegistry.GetByUid(targetUid);
+                        if (target == null && Database.AllScriptableObjectDict.TryGetValue(targetUid, out var byName))
+                            target = byName;
 
                         if (target != null)
                         {

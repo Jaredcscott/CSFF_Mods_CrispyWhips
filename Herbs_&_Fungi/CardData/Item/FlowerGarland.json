@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_flower_garland",
     "CardName": {
         "ParentObjectID": "herbs_fungi_flower_garland",
-        "LocalizationKey": "herbs_fungi_flower_garland_CardName",
+        "LocalizationKey": "herbsfungiflowergarland_CardName",
         "DefaultText": "Flower Garland"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_flower_garland",
-        "LocalizationKey": "herbs_fungi_flower_garland_CardDescription",
+        "LocalizationKey": "herbsfungiflowergarland_CardDescription",
         "DefaultText": "Dried wild flowers tied into a simple garland. Hang it nearby for a small moment of comfort."
     },
     "CardType": 0,
@@ -35,12 +35,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_flower_garland",
-                "LocalizationKey": "herbs_fungi_flower_garland_Hang",
+                "LocalizationKey": "herbsfungiflowergarland_Hang",
                 "DefaultText": "Hang Garland"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_flower_garland",
-                "LocalizationKey": "herbs_fungi_flower_garland_Hang_Desc",
+                "LocalizationKey": "herbsfungiflowergarland_Hang_Desc",
                 "DefaultText": "Hang the garland and enjoy the color. Eases stress a little."
             },
             "DaytimeCost": 1,

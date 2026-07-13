@@ -24,6 +24,7 @@ public static class GameQuery
     private static PropertyInfo _currentSeasonProp;
     private static FieldInfo _currentWeatherField;
     private static PropertyInfo _currentEnvProp;
+    private static FieldInfo _currentEnvField;
     private static PropertyInfo _leavingEnvProp;
     private static PropertyInfo _envTransitionProp;
     private static FieldInfo _daysPerMoonField;
@@ -94,6 +95,14 @@ public static class GameQuery
             {
                 var season = _currentSeasonProp?.GetValue(gm, null);
                 if (season == null) return null;
+                // EA 0.65: GameManager.CurrentSeason is a plain `Season` class (decompile Season.cs) —
+                // NOT a UniqueIDScriptable and NOT a UnityEngine.Object. Its season-name field is
+                // `SeasonID` ("Spring"/"Summer"/"Autumn"/"Winter", per SeasonsSettings.cs). Read it FIRST,
+                // or all three fallbacks below return null and every season-gated feature silently dies
+                // (ConditionalDropService.GetSeasonIndex → 0 → SeasonRange never matches). See memory:
+                // reference_gamequery_currentseason_null.
+                var seasonId = CardUtil.GetMemberValue(season, "SeasonID") as string;
+                if (!string.IsNullOrEmpty(seasonId)) return seasonId;
                 if (season is UniqueIDScriptable uid) return uid.UniqueID;
                 var uidStr = CardUtil.GetMemberValue(season, "UniqueID") as string;
                 if (!string.IsNullOrEmpty(uidStr)) return uidStr;
@@ -174,15 +183,32 @@ public static class GameQuery
             if (gm == null) return null;
             try
             {
-                var env = _currentEnvProp?.GetValue(gm, null);
+                var env = GetCurrentEnv(gm);
                 if (env == null) return null;
-                var envCard = CardUtil.GetMemberValue(env, "EnvCard");
+                // EnvID (a struct) field name is "MainEnvCard" in EA 0.64f; try "EnvCard" as forward-compat fallback.
+                var envCard = CardUtil.GetMemberValue(env, "MainEnvCard")
+                           ?? CardUtil.GetMemberValue(env, "EnvCard");
                 if (envCard is UniqueIDScriptable uid) return uid.UniqueID;
                 return CardUtil.GetMemberValue(envCard, "UniqueID") as string;
             }
             catch { }
             return null;
         }
+    }
+
+    /// <summary>
+    /// Reads GameManager.CurrentEnvironment (the <c>EnvID</c> struct). It is a field in EA 0.64f;
+    /// the property form is tried as a forward-compat fallback. Returns the boxed struct or null.
+    /// </summary>
+    private static object GetCurrentEnv(object gm)
+    {
+        try
+        {
+            if (_currentEnvField != null) return _currentEnvField.GetValue(gm);
+            if (_currentEnvProp != null) return _currentEnvProp.GetValue(gm, null);
+        }
+        catch { }
+        return null;
     }
 
     /// <summary>
@@ -198,9 +224,10 @@ public static class GameQuery
             if (gm == null) return false;
             try
             {
-                var env = _currentEnvProp?.GetValue(gm, null);
+                var env = GetCurrentEnv(gm);
                 if (env == null) return false;
-                var envCard = CardUtil.GetMemberValue(env, "EnvCard");
+                var envCard = CardUtil.GetMemberValue(env, "MainEnvCard")
+                           ?? CardUtil.GetMemberValue(env, "EnvCard");
                 if (envCard == null) return false;
                 var isInstanced = CardUtil.GetMemberValue(envCard, "InstancedEnvironment");
                 return isInstanced is true;
@@ -330,6 +357,11 @@ public static class GameQuery
         _currentDayProp    = _gmType.GetProperty("CurrentDay", Flags);
         _currentSeasonProp = _gmType.GetProperty("CurrentSeason", Flags);
         _currentWeatherField = _gmType.GetField("CurrentWeatherCard", Flags);
+        // GameManager.CurrentEnvironment is a FIELD (type EnvID), not a property, in EA 0.64f
+        // (confirmed by Mono.Cecil dump). Resolving it as a property only returned null, which
+        // silently broke every env-dependent query (run-start spawn, arrival detection). Resolve
+        // both so a future version that promotes it to a property still works.
+        _currentEnvField   = _gmType.GetField("CurrentEnvironment", Flags);
         _currentEnvProp    = _gmType.GetProperty("CurrentEnvironment", Flags);
         _leavingEnvProp    = _gmType.GetProperty("LeavingEnvironment", Flags);
         _envTransitionProp = _gmType.GetProperty("EnvironmentTransition", Flags);
@@ -371,5 +403,39 @@ public static class GameQuery
         }
         catch { }
         return false;
+    }
+
+    // ── Time manipulation ─────────────────────────────────────────────────────
+
+    /// <summary>
+    /// Decrements DayTimePoints by <paramref name="dtpAmount"/> (one DTP = 15 in-game minutes),
+    /// clamped so DTP never goes below zero. Use this when spawning arrival content that should
+    /// cost the player some travel time — e.g., arriving at a clone env whose CT8 was deferred.
+    /// Does nothing before game init or if DTP reflection is unavailable.
+    /// </summary>
+    internal static void SpendDayTimePoints(int dtpAmount)
+    {
+        if (dtpAmount <= 0) return;
+        if (!TryResolve()) return;
+        var gm = GetGM();
+        if (gm == null) return;
+        try
+        {
+            int current;
+            if (_dtpProp != null)
+            {
+                current = Convert.ToInt32(_dtpProp.GetValue(gm, null));
+                int next = Math.Max(0, current - dtpAmount);
+                _dtpProp.SetValue(gm, Convert.ChangeType(next, _dtpProp.PropertyType));
+                return;
+            }
+            if (_dtpField != null)
+            {
+                current = Convert.ToInt32(_dtpField.GetValue(gm));
+                int next = Math.Max(0, current - dtpAmount);
+                _dtpField.SetValue(gm, Convert.ChangeType(next, _dtpField.FieldType));
+            }
+        }
+        catch (Exception ex) { Log.Debug($"[GameQuery] SpendDayTimePoints error: {ex.Message}"); }
     }
 }

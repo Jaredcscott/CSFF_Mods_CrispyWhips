@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using HarmonyLib;
 using BepInEx.Logging;
+using CSFFModFramework.Api;
 
 namespace WaterDrivenInfrastructure.Patcher
 {
@@ -35,26 +36,75 @@ namespace WaterDrivenInfrastructure.Patcher
         {
             try
             {
+                if (!BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey("crispywhips.CSFFModFramework"))
+                {
+                    Logger?.LogError("[WDI] CSFFModFramework is not installed. WDI requires it to load card data. " +
+                        "Install CSFF_Mod_Framework into BepInEx/plugins/. Stations and improvements will not function.");
+                    return;
+                }
+
                 var gameLoadType = AccessTools.TypeByName("GameLoad");
+                if (gameLoadType == null)
+                {
+                    Logger?.LogError("[WDI] GameLoadPatch: 'GameLoad' type not found via AccessTools.TypeByName — game update may have renamed it. Stations and improvements will not function.");
+                    return;
+                }
+
                 var gameLoad = UnityEngine.Object.FindObjectOfType(gameLoadType);
+                if (gameLoad == null)
+                {
+                    Logger?.LogError("[WDI] GameLoadPatch: no 'GameLoad' instance found in scene at postfix time. Stations and improvements will not function.");
+                    return;
+                }
+
                 var dataBase = AccessTools.Field(gameLoadType, "DataBase")?.GetValue(gameLoad);
+                if (dataBase == null)
+                {
+                    Logger?.LogError("[WDI] GameLoadPatch: 'GameLoad.DataBase' is null at postfix time. Stations and improvements will not function.");
+                    return;
+                }
+
                 var allDataObj = AccessTools.Field(dataBase.GetType(), "AllData")?.GetValue(dataBase);
                 var allData = allDataObj as IEnumerable;
-
-                if (allData != null)
+                if (allData == null)
                 {
-                    CopyKilnRecipesToForge(allData, Logger, "water_sawmill_forge_placed");
-                    CopyKilnRecipesToForge(allData, Logger, "water_sawmill_workshop_placed");
-                    InjectGreenstonePowderSmeltRecipe(allData, Logger, "water_sawmill_forge_placed");
-                    InjectGreenstonePowderSmeltRecipe(allData, Logger, "water_sawmill_workshop_placed");
-                    SuppressWaterDrivenReadyPopups(allData, Logger);
-                    InjectMillRaceImprovements(allDataObj as IList, allData, Logger);
+                    Logger?.LogError("[WDI] GameLoadPatch: 'DataBase.AllData' is null or not enumerable at postfix time. Stations and improvements will not function.");
+                    return;
                 }
+
+                CopyKilnRecipesToForge(allData, Logger, "water_sawmill_forge_placed");
+                CopyKilnRecipesToForge(allData, Logger, "water_sawmill_workshop_placed");
+                InjectGreenstonePowderSmeltRecipe(allData, Logger, "water_sawmill_forge_placed");
+                InjectGreenstonePowderSmeltRecipe(allData, Logger, "water_sawmill_workshop_placed");
+                InjectSmeltingContainerIronTag(allData, Logger);
+                SuppressWaterDrivenReadyPopups(allData, Logger);
+                InjectMillRaceImprovements(allDataObj as IList, allData, Logger);
+                InjectActFastenerAlternates(allData, Logger);
+
+                Logger?.LogInfo("[WDI] GameLoadPatch: LoadMainGameData postfix completed (kiln recipes, greenstone smelt, iron tag, mill race improvements, ACT fastener alternates).");
             }
             catch (Exception ex)
             {
-                Logger.LogError($"Error in WDI LoadMainGameData postfix: {ex.Message}");
+                Logger.LogError($"[WDI] Error in GameLoadPatch LoadMainGameData postfix: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
+        }
+
+        // WDI has no hard dependency on AdvancedCopperTools (root CLAUDE.md §WDI/ACT
+        // Decoupling). This detects ACT once (cached on ActCompat.IsInstalled for
+        // ActionInterceptPatch's Workshop craft output) and, when present, makes the 12
+        // fastener slots repointed to WDI-native items also accept ACT's originals — a
+        // player with both mods installed can use whichever they already have.
+        static void InjectActFastenerAlternates(IEnumerable allData, ManualLogSource logger)
+        {
+            ActCompat.Detect(allData);
+            if (!ActCompat.IsInstalled)
+            {
+                logger?.LogDebug("[WDI] ACT fastener alternates: AdvancedCopperTools not installed; WDI-native fasteners only.");
+                return;
+            }
+
+            BlueprintAlternates.AddAlternateIngredient(allData, "water_sawmill_copper_rivet", ActCompat.CopperNailsUid, "WDI Copper Rivet / ACT Copper Nail");
+            BlueprintAlternates.AddAlternateIngredient(allData, "water_sawmill_alloy_solder", "act_tin_solder", "WDI Alloy Solder / ACT Tin Solder");
         }
 
         static void CopyKilnRecipesToForge(IEnumerable allData, ManualLogSource logger, string targetForgeUid)
@@ -715,6 +765,150 @@ namespace WaterDrivenInfrastructure.Patcher
                 case 2: return 3;
                 case 3: return 2;
                 default: return -1;
+            }
+        }
+
+        // Ensures the WDI forge/workshop have the VANILLA tag_SmeltingContainerIron SO in their CardTags.
+        // WarpResolver resolves the human-readable "tag_SmeltingContainerIron" string, but if the vanilla
+        // SO's runtime .name is the obfuscated asset name "LayoutElement_6968" (not the human-readable form),
+        // WarpResolver creates a NEW SO that won't match the reference MetalNugget PE1 checks at runtime.
+        // PE1 drains FuelCapacity at -300/DTP when the item is NOT in a container tagged with this SO.
+        // Net heat balance without this fix: Kiln +200 - PE1 300 - PE3 100 = -200/tick → iron never heats.
+        // Fix: extract the actual SO from MetalNugget's PE1 RequiredNOTContainerTags and inject it.
+        static void InjectSmeltingContainerIronTag(IEnumerable allData, ManualLogSource logger)
+        {
+            try
+            {
+                const string METAL_NUGGET_UID = "4b0f4937a5ecb90499428c8c10288afc";
+                var wdiForgeUids = new HashSet<string>
+                {
+                    "water_sawmill_forge_placed",
+                    "water_sawmill_workshop_placed"
+                };
+
+                object metalNugget = null;
+                var wdiForges = new List<object>();
+
+                foreach (var entry in allData)
+                {
+                    if (!(entry is UniqueIDScriptable s)) continue;
+                    if (s.UniqueID == METAL_NUGGET_UID) metalNugget = s;
+                    else if (wdiForgeUids.Contains(s.UniqueID)) wdiForges.Add(s);
+                }
+
+                if (metalNugget == null) { logger?.LogError("[IronSmelt] MetalNugget not found"); return; }
+                if (wdiForges.Count == 0) { logger?.LogError("[IronSmelt] WDI forge/workshop not found"); return; }
+
+                var passiveEffectsField = metalNugget.GetType().GetField("PassiveEffects", InstanceFlags);
+                if (passiveEffectsField == null) { logger?.LogError("[IronSmelt] PassiveEffects field not found"); return; }
+
+                var passiveEffects = passiveEffectsField.GetValue(metalNugget) as Array;
+                if (passiveEffects == null || passiveEffects.Length == 0) { logger?.LogError("[IronSmelt] MetalNugget has no PassiveEffects"); return; }
+
+                var peType = passiveEffects.GetType().GetElementType();
+                var conditionsField = peType?.GetField("Conditions", InstanceFlags);
+                if (conditionsField == null) { logger?.LogError("[IronSmelt] Conditions field not found on PassiveEffect"); return; }
+
+                // Extract the vanilla LayoutElement_6968 SO from either:
+                //   PE0.Conditions.RequiredNOTContainerTags (fires when NOT in iron container)
+                //   PE1.Conditions.RequiredContainerTags (fires when IN iron container but cold)
+                object smeltingContainerIronTag = null;
+                for (int i = 0; i < passiveEffects.Length; i++)
+                {
+                    var pe = passiveEffects.GetValue(i);
+                    if (pe == null) continue;
+                    var conditions = conditionsField.GetValue(pe);
+                    if (conditions == null) continue;
+                    var condType = conditions.GetType();
+
+                    // Try RequiredNOTContainerTags first (PE0)
+                    var reqNotField = condType.GetField("RequiredNOTContainerTags", InstanceFlags);
+                    if (reqNotField != null)
+                    {
+                        var notTags = reqNotField.GetValue(conditions) as Array;
+                        if (notTags != null && notTags.Length > 0)
+                        {
+                            smeltingContainerIronTag = notTags.GetValue(0);
+                            if (smeltingContainerIronTag != null) break;
+                        }
+                    }
+
+                    // Fall back to RequiredContainerTags (PE1)
+                    var reqField = condType.GetField("RequiredContainerTags", InstanceFlags);
+                    if (reqField != null)
+                    {
+                        var tags = reqField.GetValue(conditions) as Array;
+                        if (tags != null && tags.Length > 0)
+                        {
+                            smeltingContainerIronTag = tags.GetValue(0);
+                            if (smeltingContainerIronTag != null) break;
+                        }
+                    }
+                }
+
+                if (smeltingContainerIronTag == null)
+                {
+                    logger?.LogError("[IronSmelt] tag_SmeltingContainerIron SO not found in MetalNugget PE RequiredNOTContainerTags");
+                    return;
+                }
+
+                var tagRuntimeName = (smeltingContainerIronTag as UnityEngine.Object)?.name ?? "?";
+                logger?.LogDebug($"[IronSmelt] Vanilla tag_SmeltingContainerIron SO: '{tagRuntimeName}'");
+                if (!tagRuntimeName.Contains("Iron") && !tagRuntimeName.Contains("6968")
+                    && !tagRuntimeName.Contains("1000") && !tagRuntimeName.Contains("Temperature"))
+                {
+                    logger?.LogError($"[IronSmelt] Extracted SO '{tagRuntimeName}' does not look like tag_SmeltingContainerIron — aborting injection");
+                    return;
+                }
+
+                foreach (var forge in wdiForges)
+                {
+                    var uid = (forge as UniqueIDScriptable)?.UniqueID ?? "?";
+                    var cardTagsField = forge.GetType().GetField("CardTags", InstanceFlags);
+                    if (cardTagsField == null) { logger?.LogError($"[IronSmelt] CardTags field not found on {uid}"); continue; }
+
+                    var cardTags = cardTagsField.GetValue(forge) as Array;
+                    int existingLen = cardTags?.Length ?? 0;
+
+                    // Check for exact reference match first
+                    for (int i = 0; i < existingLen; i++)
+                    {
+                        if (ReferenceEquals(cardTags.GetValue(i), smeltingContainerIronTag))
+                        {
+                            logger?.LogDebug($"[IronSmelt] {uid}: already has vanilla SO by reference — no change needed");
+                            goto nextForge;
+                        }
+                    }
+
+                    // Look for a same-name SO to replace (WarpResolver created wrong instance)
+                    for (int i = 0; i < existingLen; i++)
+                    {
+                        var t = cardTags?.GetValue(i) as UnityEngine.Object;
+                        if (t != null && t.name == tagRuntimeName)
+                        {
+                            cardTags.SetValue(smeltingContainerIronTag, i);
+                            logger?.LogDebug($"[IronSmelt] {uid}: replaced wrong '{tagRuntimeName}' instance with vanilla SO at index {i}");
+                            goto nextForge;
+                        }
+                    }
+
+                    // Not present at all — append
+                    {
+                        var elemType = cardTagsField.FieldType.GetElementType() ?? typeof(UnityEngine.Object);
+                        var newTags = Array.CreateInstance(elemType, existingLen + 1);
+                        if (cardTags != null && existingLen > 0)
+                            Array.Copy(cardTags, newTags, existingLen);
+                        newTags.SetValue(smeltingContainerIronTag, existingLen);
+                        cardTagsField.SetValue(forge, newTags);
+                        logger?.LogDebug($"[IronSmelt] {uid}: appended vanilla tag_SmeltingContainerIron SO '{tagRuntimeName}'");
+                    }
+
+                    nextForge:;
+                }
+            }
+            catch (Exception ex)
+            {
+                logger?.LogError($"[IronSmelt] Error: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
         }
 

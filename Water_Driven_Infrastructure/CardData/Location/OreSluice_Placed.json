@@ -13,7 +13,7 @@
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_ore_sluice_placed",
     "LocalizationKey": "Water_Sawmill_OreSluicePlaced_CardHelpSection",
-    "DefaultText": "<b>Operation:</b> Load mud piles, dirt piles, or fine dirt into the sluice, then press Sluice All. Each drop is rolled independently — a single pile can yield multiple items or nothing.\n\nDrop chances (Mud / Dirt / Fine Dirt):\nIron Nugget: 8% / 5% / 1%\nCopper Nugget: 12% / 8% / 1%\nTin Nugget: 8% / 5% / 1%\nGreenstone: 22% / 18% / 12%\nFlint: 30% / 20% / 10%\nStone: 55% / 40% / 10%\nClay: 10% / 20% / 55%\n\nNuggets spawn at 35% quality."
+    "DefaultText": "<b>Operation:</b> Load mud piles, dirt piles, or fine dirt into the sluice, then press Sluice All. Each drop is rolled independently — a single pile can yield multiple items or nothing.\n\nDrop chances (Mud / Dirt / Fine Dirt):\nIron Nugget: 3% / 2% / 1%\nCopper Nugget: 8% / 4% / 1%\nTin Nugget: 3% / 2% / 1%\nGreenstone: 10% / 5% / 3%\nFlint: 30% / 20% / 10%\nStone: 40% / 20% / 10%\nClay: 10% / 20% / 55%\n\nNuggets spawn at 35% quality."
   },
   "CardType": 2,
   "ObjectWeight": 800.0,

@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_death_cap",
     "CardName": {
         "ParentObjectID": "herbs_fungi_death_cap",
-        "LocalizationKey": "herbs_fungi_death_cap_CardName",
+        "LocalizationKey": "herbsfungideathcap_CardName",
         "DefaultText": "Death Cap"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_death_cap",
-        "LocalizationKey": "herbs_fungi_death_cap_CardDescription",
+        "LocalizationKey": "herbsfungideathcap_CardDescription",
         "DefaultText": "A deadly poisonous mushroom often mistaken for edible varieties. A single cap may be survivable if treated immediately with charcoal. Two or more caps will likely be fatal regardless of treatment."
     },
     "CardType": 0,
@@ -30,12 +30,12 @@
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_death_cap",
-        "LocalizationKey": "herbs_fungi_death_cap_SpoilageTime_StatName",
+        "LocalizationKey": "herbsfungideathcap_SpoilageTime_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_death_cap",
-            "LocalizationKey": "herbs_fungi_death_cap_SpoilageTime_StatName",
+            "LocalizationKey": "herbsfungideathcap_SpoilageTime_StatName",
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
@@ -46,7 +46,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_death_cap",
-                "LocalizationKey": "herbs_fungi_death_cap_SpoilageTime_Spoiled",
+                "LocalizationKey": "herbsfungideathcap_SpoilageTime_Spoiled",
                 "DefaultText": "The death cap has decomposed - but is no less dangerous."
             },
             "ReceivingCardChanges": {
@@ -65,12 +65,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_death_cap",
-                "LocalizationKey": "herbs_fungi_death_cap_EatRaw",
+                "LocalizationKey": "herbsfungideathcap_EatRaw",
                 "DefaultText": "Eat (DANGER!)"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_death_cap",
-                "LocalizationKey": "herbs_fungi_death_cap_EatRaw_Desc",
+                "LocalizationKey": "herbsfungideathcap_EatRaw_Desc",
                 "DefaultText": "Eat the death cap. This will poison you severely - likely fatally!"
             },
             "DaytimeCost": 0,
@@ -214,12 +214,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_death_cap",
-                "LocalizationKey": "herbs_fungi_death_cap_ApplyPoison",
+                "LocalizationKey": "herbsfungideathcap_ApplyPoison",
                 "DefaultText": "Apply Poison"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_death_cap",
-                "LocalizationKey": "herbs_fungi_death_cap_ApplyPoison_Desc",
+                "LocalizationKey": "herbsfungideathcap_ApplyPoison_Desc",
                 "DefaultText": "Smear the deadly toxins from the death cap onto a weapon."
             },
             "NoveltyShared": false,

@@ -1,0 +1,146 @@
+{
+    "UniqueID": "herbs_fungi_peanut_pod_washed",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_peanut_pod_washed",
+        "LocalizationKey": "Herbs_And_Fungi_PeanutPodWashed_CardName",
+        "DefaultText": "Washed Peanut Pod"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_peanut_pod_washed",
+        "LocalizationKey": "Herbs_And_Fungi_PeanutPodWashed_CardDescription",
+        "DefaultText": "Clean peanut pods, ready to shell. Crack them open to get the raw peanuts inside."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_peanut_pod_washed",
+        "LocalizationKey": "Herbs_And_Fungi_PeanutPodWashed_CardHelpSection",
+        "DefaultText": "<b>Made from:</b> Rinsing a Peanut Pod with a water container.\n\n<b>Next step:</b> Use Shell to crack open the pods and get raw peanuts. They spoil faster once wet, so shell them promptly."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardBackground": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "PeanutPodWashed",
+    "CardImageWarpType": 3,
+    "ShowImageAboveTitle": false,
+    "CardType": 0,
+    "CannotBeTransferred": false,
+    "NotAutoSolvableEvent": false,
+    "ObjectWeight": 50,
+    "TradingValue": 10.0,
+    "MaxStack": 5,
+    "AlwaysUpdate": false,
+    "CannotBeTrashed": false,
+    "DoesNotPile": false,
+    "ToggleablePiling": false,
+    "DoesNotPinAutomatically": false,
+    "CardTags": [],
+    "EquipmentTags": [],
+    "MapStructureType": 0,
+    "FlavourTags": [],
+    "SpiceTags": [],
+    "WhenCreatedSounds": [],
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_peanut_pod_washed",
+            "LocalizationKey": "Herbs_And_Fungi_PeanutPodWashed_SpoilageTime_CardStatName",
+            "DefaultText": "Spoilage"
+        },
+        "RandomStartingOffset": 0.0,
+        "MaxValue": 480.0,
+        "RatePerDaytimePoint": 1.0,
+        "ExtraRateWhenEquipped": 0.0,
+        "PauseRateWhenEnvWeightIsFull": false,
+        "PauseRateWhenInventoryIsFull": false,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "OverrideIcon": {
+            "m_FileID": 0,
+            "m_PathID": 0
+        },
+        "ResetWhenLoadedAtZero": false,
+        "HasActionOnZero": false,
+        "ShowPopupOnZero": false,
+        "OnZeroNotification": 0,
+        "HasActionOnFull": true,
+        "ShowPopupOnFull": false,
+        "OnFullNotification": 1,
+        "OnFull": {
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_peanut_pod_washed",
+                "LocalizationKey": "Herbs_And_Fungi_PeanutPodWashed_SpoilageTime_OnFull_ActionDescription",
+                "DefaultText": "The wet peanut pods have rotted."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+                "TransformIntoWarpType": 3
+            }
+        },
+        "CountsForTradingValue": false,
+        "TradingValueCustomRanges": [],
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "DurabilitySorting": {
+        "SortingList": []
+    },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_peanut_pod_washed",
+                "LocalizationKey": "Herbs_And_Fungi_PeanutPodWashed_DismantleActions_Shell_ActionName",
+                "DefaultText": "Shell"
+            },
+            "ActionSounds": [],
+            "ActionTags": [],
+            "DaytimeCost": 2,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [],
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransferSpoilage": false,
+                "TransformIntoWarpData": "herbs_fungi_raw_peanuts",
+                "TransformIntoWarpType": 3
+            }
+        }
+    ],
+    "CardTagsWarpData": [
+        "tag_HumanFood"
+    ],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "GrassAppear"
+    ],
+    "WhenCreatedSoundsWarpType": 3
+}

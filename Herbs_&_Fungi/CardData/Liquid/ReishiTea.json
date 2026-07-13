@@ -2,19 +2,19 @@
     "UniqueID": "herbs_fungi_reishi_tea",
     "CardName": {
         "ParentObjectID": "herbs_fungi_reishi_tea",
-        "LocalizationKey": "herbs_fungi_reishi_tea_CardName",
+        "LocalizationKey": "herbsfungireishitea_CardName",
         "DefaultText": "Reishi Tea"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_reishi_tea",
-        "LocalizationKey": "herbs_fungi_reishi_tea_CardDescription",
+        "LocalizationKey": "herbsfungireishitea_CardDescription",
         "DefaultText": "A therapeutic tea brewed from ground reishi mushroom. Powerful immune support and stress relief in a warming cup."
     },
     "CanBeRenamed": false,
     "AlternateNames": [],
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_reishi_tea",
-        "LocalizationKey": "herbs_fungi_reishi_tea_CardHelpSection",
+        "LocalizationKey": "herbsfungireishitea_CardHelpSection",
         "DefaultText": "<b>Preparation:</b> Mix ground reishi with hot water in a bowl.\n\n<b>Benefits:</b> Immune boost, stress relief, promotes calm."
     },
     "CardImage": {"m_FileID": 0, "m_PathID": 0},
@@ -40,7 +40,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_reishi_tea",
-            "LocalizationKey": "herbs_fungi_reishi_tea_SpoilageTime_CardStatName",
+            "LocalizationKey": "herbsfungireishitea_SpoilageTime_CardStatName",
             "DefaultText": "Bacteria"
         },
         "MaxValue": 4800.0,
@@ -55,7 +55,7 @@
             "ActionName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_reishi_tea",
-                "LocalizationKey": "herbs_fungi_reishi_tea_SpoilageTime_OnFull_ActionDescription",
+                "LocalizationKey": "herbsfungireishitea_SpoilageTime_OnFull_ActionDescription",
                 "DefaultText": "Reishi Tea Spoiled!"
             },
             "ReceivingCardChanges": {
@@ -73,7 +73,7 @@
         "FloatValue": 100.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_reishi_tea",
-            "LocalizationKey": "herbs_fungi_reishi_tea_FuelCapacity_CardStatName",
+            "LocalizationKey": "herbsfungireishitea_FuelCapacity_CardStatName",
             "DefaultText": "Liquid Temperature"
         },
         "MaxValue": 200.0,
@@ -92,7 +92,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_reishi_tea",
-            "LocalizationKey": "herbs_fungi_reishi_tea_SpecialDurability2_CardStatName",
+            "LocalizationKey": "herbsfungireishitea_SpecialDurability2_CardStatName",
             "DefaultText": "Quality"
         },
         "MaxValue": 96.0,
@@ -111,7 +111,7 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_reishi_tea",
-                "LocalizationKey": "herbs_fungi_reishi_tea_DismantleActions_Drink_ActionName",
+                "LocalizationKey": "herbsfungireishitea_DismantleActions_Drink_ActionName",
                 "DefaultText": "Drink"
             },
             "ActionDescription": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},

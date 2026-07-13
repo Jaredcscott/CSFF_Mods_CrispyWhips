@@ -1,8 +1,10 @@
 # Quick Transfer
 
-**Version:** 1.7.0
+**Version:** 1.7.3
+**Author:** Jared (crispywhips)
+**For:** Card Survival: Fantasy Forest (EA 0.65)
 
-A **Card Survival: Fantasy Forest** mod that lets you transfer multiple cards at once using modifier key combos + Right-Click.
+A mod that lets you transfer multiple cards at once using modifier key combos + Right-Click.
 
 ## Features
 
@@ -21,19 +23,23 @@ A **Card Survival: Fantasy Forest** mod that lets you transfer multiple cards at
 
 ### Requirements
 - [BepInEx 5.4.23.4+](https://github.com/BepInEx/BepInEx/releases) installed for Card Survival: Fantasy Forest
+- CSFFModFramework (installed in `BepInEx/plugins/CSFF_Mod_Framework/`) — Quick Transfer uses its reflection API to locate the game's card-click handler and will not apply its patch without it
 
 ### Recommended
 - [BepInEx.ConfigurationManager releases](https://github.com/BepInEx/BepInEx.ConfigurationManager/releases)
 
 ### Steps
-1. Download the latest release.
-2. Copy the `Quick_Transfer` folder into your `BepInEx/plugins/` directory.
-3. Launch the game.
+1. Install CSFFModFramework in `BepInEx/plugins/CSFF_Mod_Framework/`.
+2. Download the latest release.
+3. Copy the `Quick_Transfer` folder into your `BepInEx/plugins/` directory.
+4. Launch the game.
 
 Your plugins folder should look like:
 ```
 BepInEx/
   plugins/
+    CSFF_Mod_Framework/
+      CSFFModFramework.dll
     Quick_Transfer/
       Quick_Transfer.dll
       ModInfo.json
@@ -97,7 +103,9 @@ For easy in-game settings, install **BepInEx.ConfigurationManager**:
 - BepInEx 5.4.23.4+
 - Compatible with other mods (does not modify game data, only adds input handling)
 
+**Dependencies:** `CSFFModFramework` only (declared `SoftDependency`). Quick Transfer calls the framework's `Api.Reflect` utility to locate the game's card-click handler at load — the mod still loads without the framework present, but that lookup fails and the transfer patch is not applied. No other mod depends on Quick Transfer, and it has no dependency on any content mod.
+
 ## Credits
 
-Created by (CrispyWhips)
+Created by Jared (crispywhips)
 Built with [BepInEx](https://github.com/BepInEx/BepInEx) and [HarmonyX](https://github.com/BepInEx/HarmonyX)

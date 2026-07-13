@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_dried_chicken_of_woods",
     "CardName": {
         "ParentObjectID": "herbs_fungi_dried_chicken_of_woods",
-        "LocalizationKey": "herbs_fungi_dried_chicken_of_woods_CardName",
+        "LocalizationKey": "herbsfungidriedchickenofwoods_CardName",
         "DefaultText": "Dried Chicken of the Woods"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_dried_chicken_of_woods",
-        "LocalizationKey": "herbs_fungi_dried_chicken_of_woods_CardDescription",
+        "LocalizationKey": "herbsfungidriedchickenofwoods_CardDescription",
         "DefaultText": "Dried chicken of the woods with concentrated flavor. Much longer shelf life than fresh."
     },
     "CardType": 0,
@@ -33,12 +33,12 @@
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_dried_chicken_of_woods",
-        "LocalizationKey": "herbs_fungi_dried_chicken_of_woods_SpoilageTime_StatName",
+        "LocalizationKey": "herbsfungidriedchickenofwoods_SpoilageTime_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_dried_chicken_of_woods",
-            "LocalizationKey": "herbs_fungi_dried_chicken_of_woods_SpoilageTime_StatName",
+            "LocalizationKey": "herbsfungidriedchickenofwoods_SpoilageTime_StatName",
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
@@ -49,7 +49,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_dried_chicken_of_woods",
-                "LocalizationKey": "herbs_fungi_dried_chicken_of_woods_SpoilageTime_Spoiled",
+                "LocalizationKey": "herbsfungidriedchickenofwoods_SpoilageTime_Spoiled",
                 "DefaultText": "The dried chicken of the woods has finally spoiled."
             },
             "ReceivingCardChanges": {
@@ -66,12 +66,12 @@
     },
     "SpecialDurability1": {
         "ParentObjectID": "herbs_fungi_dried_chicken_of_woods",
-        "LocalizationKey": "herbs_fungi_dried_chicken_of_woods_SpecialDurability1_StatName",
+        "LocalizationKey": "herbsfungidriedchickenofwoods_SpecialDurability1_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_dried_chicken_of_woods",
-            "LocalizationKey": "herbs_fungi_dried_chicken_of_woods_SpecialDurability1_StatName",
+            "LocalizationKey": "herbsfungidriedchickenofwoods_SpecialDurability1_StatName",
             "DefaultText": "Cook"
         },
         "MinValue": 0.0,
@@ -83,7 +83,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_dried_chicken_of_woods",
-                "LocalizationKey": "herbs_fungi_dried_chicken_of_woods_SpecialDurability1_Cooked",
+                "LocalizationKey": "herbsfungidriedchickenofwoods_SpecialDurability1_Cooked",
                 "DefaultText": "The dried chicken of the woods is cooked."
             },
             "ReceivingCardChanges": {
@@ -102,12 +102,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_dried_chicken_of_woods",
-                "LocalizationKey": "herbs_fungi_dried_chicken_of_woods_Eat",
+                "LocalizationKey": "herbsfungidriedchickenofwoods_Eat",
                 "DefaultText": "Eat"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_dried_chicken_of_woods",
-                "LocalizationKey": "herbs_fungi_dried_chicken_of_woods_Eat_Desc",
+                "LocalizationKey": "herbsfungidriedchickenofwoods_Eat_Desc",
                 "DefaultText": "Eat the dried chicken of the woods. Chewy but satisfying."
             },
             "DaytimeCost": 0,
@@ -478,7 +478,7 @@
                         "FloatValue": 0.0
                     }
                 },
-                "RequiredLiquidQuantity": 140.0,
+                "RequiredLiquidQuantity": 0.0,
                 "RequiredSpecial1Percent": {
                     "Active": false,
                     "FloatValue": 0.0,

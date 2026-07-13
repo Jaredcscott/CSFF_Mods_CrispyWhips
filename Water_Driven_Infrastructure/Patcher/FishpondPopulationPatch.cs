@@ -1,11 +1,12 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using BepInEx.Logging;
 using HarmonyLib;
 using UnityEngine;
+using CSFFModFramework.Api;
+using CSFFModFramework.Util;
 
 namespace WaterDrivenInfrastructure.Patcher
 {
@@ -17,10 +18,12 @@ namespace WaterDrivenInfrastructure.Patcher
     ///      growth accumulated while count < 2 is floored away each poll.
     ///   2. Threshold swap — when Pike+Perch+Minnow total exceeds 10 the pond transforms
     ///      to Stocked; when it falls below 10 it reverts to Filled. Populations are
-    ///      preserved across the swap via SetupCardSource + manual stat restore.
+    ///      preserved across the swap via CardUtil.TransformInPlacePreservingStats.
     ///
     /// Uses the same EnsureCardReflection / cache pattern as ActionInterceptPatch to avoid
     /// the silent-null failures that plagued the prior direct-GetProperty approach.
+    /// Polling and stat get/set are driven by the framework's TickEvents/CardUtil
+    /// (Centralization Tier 1/2) instead of a local StartCoroutine poll loop.
     /// </summary>
     public static class FishpondPopulationPatch
     {
@@ -29,7 +32,6 @@ namespace WaterDrivenInfrastructure.Patcher
         private const string WinterID   = "water_sawmill_fishpond_winter";
         private const float  StockedThreshold   = 10f;
         private const float  PollIntervalSeconds = 2f;
-        private const float  StartupDelaySeconds = 5f;
 
         private static ManualLogSource Logger => Plugin.Logger;
         private static readonly BindingFlags Flags =
@@ -42,28 +44,18 @@ namespace WaterDrivenInfrastructure.Patcher
 
         // ── pond cache — repopulated every 60 s; iterated every 2 s ──
         private static readonly List<UnityEngine.Object> _pondCache = new List<UnityEngine.Object>();
-        private static float _nextFullScan = 0f;
         private const float FullScanIntervalSeconds = 60f;
-
-        // ── spawn reflection (GetFromID + CardData type) ──
-        private static bool   _spawnInit;
-        private static MethodInfo _getFromIDMethod;
-        private static Type   _cardDataType;
-
-        // ── setup (SetupCardSource) reflection cache ──
-        private static readonly Dictionary<Type, MethodInfo> _setupCache = new Dictionary<Type, MethodInfo>();
 
         public static void ApplyPatch(Harmony harmony)
         {
             try
             {
-                if (Plugin.Instance == null)
-                {
-                    Logger?.LogError("[FishpondPop] Plugin.Instance null — coroutine not started");
-                    return;
-                }
-                Plugin.Instance.StartCoroutine(PollCoroutine());
-                Logger?.LogDebug("[FishpondPop] poll coroutine started");
+                // Framework-owned real-time interval ticks (CSFFModFramework.Api.TickEvents)
+                // replace the local StartCoroutine(WaitForSecondsRealtime) dual-interval loop —
+                // one registration per cadence instead of a single loop checking Time.time.
+                TickEvents.Interval(FullScanIntervalSeconds, RefreshPondCache, "FishpondPop.RefreshPondCache");
+                TickEvents.Interval(PollIntervalSeconds, CheckCachedPonds, "FishpondPop.CheckCachedPonds");
+                Logger?.LogDebug("[FishpondPop] tick intervals registered");
             }
             catch (Exception ex)
             {
@@ -71,29 +63,9 @@ namespace WaterDrivenInfrastructure.Patcher
             }
         }
 
-        // ── poll loop ────────────────────────────────────────────────────────────────
-
-        private static IEnumerator PollCoroutine()
-        {
-            yield return new WaitForSeconds(StartupDelaySeconds);
-            var wait = new WaitForSeconds(PollIntervalSeconds);
-            while (true)
-            {
-                try
-                {
-                    if (Time.time >= _nextFullScan)
-                        RefreshPondCache();
-                    CheckCachedPonds();
-                }
-                catch (Exception ex) { Logger?.LogError($"[FishpondPop] poll error: {ex.Message}"); }
-                yield return wait;
-            }
-        }
-
         // Full scene scan — runs once every 60 s instead of every 2 s.
         private static void RefreshPondCache()
         {
-            _nextFullScan = Time.time + FullScanIntervalSeconds;
             _pondCache.Clear();
 
             if (_cardBaseType == null)
@@ -140,20 +112,12 @@ namespace WaterDrivenInfrastructure.Patcher
 
                 if (isWinter) continue; // winter: no Filled↔Stocked swap
 
-                // ── read populations ──
-                float s1   = GetStat(card, "SpecialDurability1");
-                float s2   = GetStat(card, "SpecialDurability2");
-                float s3   = GetStat(card, "SpecialDurability3");
-                float spo  = GetStat(card, "SpoilageTime");      // Sturgeon
-                float use  = GetStat(card, "UsageDurability");   // Trout
-                float fuel = GetStat(card, "FuelCapacity");      // Char
-                float prog = GetStat(card, "Progress");
-
+                // ── read populations (decides whether to swap; TryTransform re-reads
+                //    fresh values itself via CardUtil.TransformInPlacePreservingStats) ──
+                float s1 = CardUtil.GetDurability(card, "SpecialDurability1");
+                float s2 = CardUtil.GetDurability(card, "SpecialDurability2");
+                float s3 = CardUtil.GetDurability(card, "SpecialDurability3");
                 if (float.IsNaN(s1) || float.IsNaN(s2) || float.IsNaN(s3)) continue;
-                if (float.IsNaN(spo))  spo  = 0f;
-                if (float.IsNaN(use))  use  = 0f;
-                if (float.IsNaN(fuel)) fuel = 0f;
-                if (float.IsNaN(prog)) prog = 0f;
 
                 float total = s1 + s2 + s3;
 
@@ -161,12 +125,12 @@ namespace WaterDrivenInfrastructure.Patcher
                 if (isFilled && total > StockedThreshold)
                 {
                     Logger?.LogDebug($"[FishpondPop] Filled→Stocked (pike={s1:F2} perch={s2:F2} minnow={s3:F2} total={total:F1})");
-                    TryTransform(card, StockedID, s1, s2, s3, spo, use, fuel, prog);
+                    TryTransform(card, StockedID);
                 }
                 else if (isStocked && total < StockedThreshold)
                 {
                     Logger?.LogDebug($"[FishpondPop] Stocked→Filled (pike={s1:F2} perch={s2:F2} minnow={s3:F2} total={total:F1})");
-                    TryTransform(card, FilledID, s1, s2, s3, spo, use, fuel, prog);
+                    TryTransform(card, FilledID);
                 }
             }
         }
@@ -181,87 +145,28 @@ namespace WaterDrivenInfrastructure.Patcher
         /// </summary>
         private static void GateBreedingGrowth(object card, string statName)
         {
-            float cur = GetStat(card, statName);
+            float cur = CardUtil.GetDurability(card, statName);
             if (float.IsNaN(cur) || cur >= 2f) return;          // ≥ 2 → breeding allowed
             float floored = (float)Math.Floor(cur);
             if (Math.Abs(cur - floored) < 0.00001f) return;     // already an integer, nothing to do
-            SetStat(card, statName, floored);
+            CardUtil.SetDurability(card, statName, floored);
         }
 
         // ── transform ─────────────────────────────────────────────────────────────────
 
-        private static void TryTransform(object card, string targetUID,
-                                         float s1, float s2, float s3,
-                                         float spo, float use, float fuel, float prog)
+        // CardUtil.TransformInPlacePreservingStats formalizes exactly this sequence
+        // (capture durability stats → CardModel swap + SetupCardSource/ResetCard reinit →
+        // restore captured stats) — it replaces the hand-rolled GetFromID + CardModel
+        // cache + SetupCardSource reflection that used to live here.
+        private static void TryTransform(object card, string targetUID)
         {
             try
             {
-                EnsureSpawnReflection();
-                if (_getFromIDMethod == null)
+                if (!CardUtil.TransformInPlacePreservingStats(card, targetUID))
                 {
-                    Logger?.LogError("[FishpondPop] GetFromID unavailable — cannot transform");
+                    Logger?.LogError($"[FishpondPop] Transform to '{targetUID}' failed");
                     return;
                 }
-
-                var targetData = _getFromIDMethod.Invoke(null, new object[] { targetUID });
-                if (targetData == null)
-                {
-                    Logger?.LogError($"[FishpondPop] CardData '{targetUID}' not found");
-                    return;
-                }
-
-                Type cardType = card.GetType();
-
-                // Swap CardModel — use cached property (populated by EnsureCardReflection)
-                _cardModelCache.TryGetValue(cardType, out var cmProp);
-                if (cmProp == null)
-                {
-                    Logger?.LogError($"[FishpondPop] CardModel prop not cached for {cardType.Name}");
-                    return;
-                }
-
-                if (!TrySetCardModel(card, cardType, cmProp, targetData))
-                {
-                    Logger?.LogError($"[FishpondPop] CardModel not writable on {cardType.Name}");
-                    return;
-                }
-
-                // Re-initialise derived state (sprite, tags, durability defaults) from new model
-                if (!_setupCache.TryGetValue(cardType, out var setupMethod))
-                {
-                    setupMethod = cardType.GetMethods(Flags)
-                        .FirstOrDefault(m => m.Name == "SetupCardSource"
-                            && m.GetParameters().Length >= 1
-                            && _cardDataType != null
-                            && m.GetParameters()[0].ParameterType.IsAssignableFrom(_cardDataType));
-                    _setupCache[cardType] = setupMethod; // cache null too — avoids repeated scan
-                }
-
-                if (setupMethod != null)
-                {
-                    var parms = setupMethod.GetParameters();
-                    var args  = new object[parms.Length];
-                    args[0]   = targetData;
-                    for (int i = 1; i < parms.Length; i++)
-                    {
-                        var pt = parms[i].ParameterType;
-                        args[i] = pt.IsValueType ? Activator.CreateInstance(pt) : null;
-                    }
-                    setupMethod.Invoke(card, args);
-                }
-                else
-                {
-                    cardType.GetMethod("ResetCard", Flags, null, Type.EmptyTypes, null)?.Invoke(card, null);
-                }
-
-                // Restore per-species populations (SetupCardSource reset them to JSON FloatValue defaults)
-                SetStat(card, "SpecialDurability1", s1);
-                SetStat(card, "SpecialDurability2", s2);
-                SetStat(card, "SpecialDurability3", s3);
-                SetStat(card, "SpoilageTime",       spo);
-                SetStat(card, "UsageDurability",    use);
-                SetStat(card, "FuelCapacity",       fuel);
-                SetStat(card, "Progress",           prog);
 
                 Logger?.LogDebug($"[FishpondPop] transform complete → {targetUID}");
             }
@@ -275,7 +180,7 @@ namespace WaterDrivenInfrastructure.Patcher
 
         /// <summary>
         /// Populates the CardModel property cache for this card's concrete type.
-        /// Must be called before GetUID/GetStat/SetStat so the cache is warm.
+        /// Must be called before GetUID so the cache is warm.
         /// Mirrors the first half of ActionInterceptPatch.EnsureReflection.
         /// </summary>
         private static void EnsureCardReflection(object card)
@@ -328,230 +233,5 @@ namespace WaterDrivenInfrastructure.Patcher
             catch { return null; }
         }
 
-        private static float GetStat(object card, string statName)
-        {
-            try
-            {
-                var cardType = card.GetType();
-
-                // EA 0.62b: InGameCardBase exposes raw current values as flat properties.
-                var directName = MapStatToRuntimeMember(statName);
-                if (directName != null)
-                {
-                    var dp = cardType.GetProperty(directName, Flags);
-                    if (dp != null && dp.CanRead) return Convert.ToSingle(dp.GetValue(card));
-                    var df = cardType.GetField(directName, Flags);
-                    if (df != null) return Convert.ToSingle(df.GetValue(card));
-                }
-
-                var sf = cardType.GetField("DurabilityStats", Flags)
-                      ?? cardType.GetField("CardDurabilities", Flags);
-                if (sf == null) return float.NaN;
-                var stats = sf.GetValue(card);
-                if (stats == null) return float.NaN;
-                var durProp = stats.GetType().GetProperty(statName, Flags);
-                if (durProp == null) return float.NaN;
-                var dur = durProp.GetValue(stats);
-                if (dur == null) return float.NaN;
-                var durType = dur.GetType();
-                var cvProp = durType.GetProperty("CurrentValue", Flags)
-                          ?? durType.GetProperty("FloatValue",   Flags);
-                if (cvProp != null) return Convert.ToSingle(cvProp.GetValue(dur));
-                var fv = durType.GetField("FloatValue", Flags)
-                      ?? durType.GetField("CurrentValue", Flags);
-                return fv != null ? Convert.ToSingle(fv.GetValue(dur)) : float.NaN;
-            }
-            catch { return float.NaN; }
-        }
-
-        private static bool SetStat(object card, string statName, float val)
-        {
-            try
-            {
-                var cardType = card.GetType();
-
-                // EA 0.62b: InGameCardBase exposes raw current values as flat properties.
-                var directName = MapStatToRuntimeMember(statName);
-                if (directName != null)
-                {
-                    var dp = cardType.GetProperty(directName, Flags);
-                    if (dp != null && dp.CanWrite) { dp.SetValue(card, val); return true; }
-                    if (dp != null)
-                    {
-                        var setter = dp.GetSetMethod(nonPublic: true);
-                        if (setter != null) { setter.Invoke(card, new object[] { val }); return true; }
-                    }
-                    var df = cardType.GetField(directName, Flags);
-                    if (df != null) { df.SetValue(card, val); return true; }
-                }
-
-                var sf = cardType.GetField("DurabilityStats", Flags)
-                      ?? cardType.GetField("CardDurabilities", Flags);
-                if (sf == null) return false;
-                var stats = sf.GetValue(card);
-                if (stats == null) return false;
-                var durProp = stats.GetType().GetProperty(statName, Flags);
-                if (durProp == null) return false;
-                var dur = durProp.GetValue(stats);
-                if (dur == null) return false;
-                var durType = dur.GetType();
-
-                var cvProp = durType.GetProperty("CurrentValue", Flags)
-                          ?? durType.GetProperty("FloatValue",   Flags);
-                if (cvProp != null)
-                {
-                    if (cvProp.CanWrite)
-                    {
-                        cvProp.SetValue(dur, val);
-                    }
-                    else
-                    {
-                        var setter = cvProp.GetSetMethod(nonPublic: true);
-                        if (setter != null)
-                        {
-                            setter.Invoke(dur, new object[] { val });
-                        }
-                        else
-                        {
-                            var t  = durType;
-                            FieldInfo bf = null;
-                            while (t != null && bf == null)
-                            {
-                                bf = t.GetField($"<{cvProp.Name}>k__BackingField",
-                                    BindingFlags.Instance | BindingFlags.NonPublic);
-                                t = t.BaseType;
-                            }
-                            if (bf == null) return false;
-                            bf.SetValue(dur, val);
-                        }
-                    }
-                }
-                else
-                {
-                    var fv = durType.GetField("FloatValue", Flags)
-                          ?? durType.GetField("CurrentValue", Flags);
-                    if (fv == null) return false;
-                    fv.SetValue(dur, val);
-                }
-
-                if (dur.GetType().IsValueType)   durProp.SetValue(stats, dur);
-                if (stats.GetType().IsValueType) sf.SetValue(card, stats);
-                return true;
-            }
-            catch { return false; }
-        }
-
-        // EA 0.62b: InGameCardBase exposes raw current durability values as flat
-        // properties/fields, not nested under a DurabilityStats container.
-        private static string MapStatToRuntimeMember(string statName)
-        {
-            switch (statName)
-            {
-                case "Progress":           return "CurrentProgress";
-                case "SpecialDurability1": return "CurrentSpecial1";
-                case "SpecialDurability2": return "CurrentSpecial2";
-                case "SpecialDurability3": return "CurrentSpecial3";
-                case "SpecialDurability4": return "CurrentSpecial4";
-                case "FuelCapacity":       return "CurrentFuel";
-                case "UsageDurability":    return "CurrentUsage";
-                case "SpoilageTime":       return "CurrentSpoilage";
-                default:                   return null;
-            }
-        }
-
-        private static void EnsureSpawnReflection()
-        {
-            if (_spawnInit && _getFromIDMethod != null) return;
-            _spawnInit = true;
-            try
-            {
-                foreach (var asm in AppDomain.CurrentDomain.GetAssemblies())
-                {
-                    if (_cardDataType == null) _cardDataType = asm.GetType("CardData", false);
-                }
-
-                Type uidType = null;
-                foreach (var asm in AppDomain.CurrentDomain.GetAssemblies())
-                {
-                    uidType = asm.GetType("UniqueIDScriptable", false);
-                    if (uidType != null) break;
-                }
-
-                if (uidType != null && _cardDataType != null)
-                {
-                    var generic = uidType.GetMethods(BindingFlags.Public | BindingFlags.Static)
-                        .FirstOrDefault(m => m.Name == "GetFromID" && m.IsGenericMethodDefinition);
-                    if (generic != null)
-                        _getFromIDMethod = generic.MakeGenericMethod(_cardDataType);
-                    else
-                        Logger?.LogError("[FishpondPop] GetFromID generic method not found on UniqueIDScriptable");
-                }
-                else
-                {
-                    Logger?.LogError($"[FishpondPop] EnsureSpawnReflection: uidType={uidType != null} cdType={_cardDataType != null}");
-                }
-
-                if (_getFromIDMethod == null)
-                    Logger?.LogError("[FishpondPop] GetFromID resolution failed");
-                else
-                    Logger?.LogDebug("[FishpondPop] spawn reflection ready");
-            }
-            catch (Exception ex)
-            {
-                Logger?.LogError($"[FishpondPop] EnsureSpawnReflection: {ex.Message}");
-            }
-        }
-
-        // ── CardModel writer with backing-field fallback (matches TeaStationPatch) ──
-        private static readonly Dictionary<Type, FieldInfo> _cardModelBackingCache = new Dictionary<Type, FieldInfo>();
-
-        private static bool TrySetCardModel(object card, Type cardType, PropertyInfo cmProp, object targetData)
-        {
-            // Path 1 — public/writable property
-            try
-            {
-                if (cmProp != null && cmProp.CanWrite)
-                {
-                    cmProp.SetValue(card, targetData);
-                    return true;
-                }
-            }
-            catch (Exception ex) { Logger?.Log(LogLevel.Debug, $"[FishpondPop] prop.SetValue failed: {ex.Message}"); }
-
-            // Path 2 — non-public setter
-            try
-            {
-                var setter = cmProp?.GetSetMethod(nonPublic: true);
-                if (setter != null)
-                {
-                    setter.Invoke(card, new[] { targetData });
-                    return true;
-                }
-            }
-            catch (Exception ex) { Logger?.Log(LogLevel.Debug, $"[FishpondPop] setter.Invoke failed: {ex.Message}"); }
-
-            // Path 3 — auto-property backing field <CardModel>k__BackingField (walk base types)
-            try
-            {
-                if (!_cardModelBackingCache.TryGetValue(cardType, out var bf))
-                {
-                    const string target = "<CardModel>k__BackingField";
-                    for (var t = cardType; t != null && t != typeof(object); t = t.BaseType)
-                    {
-                        bf = t.GetField(target, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
-                        if (bf != null) break;
-                    }
-                    _cardModelBackingCache[cardType] = bf;
-                }
-                if (bf != null)
-                {
-                    bf.SetValue(card, targetData);
-                    return true;
-                }
-            }
-            catch (Exception ex) { Logger?.Log(LogLevel.Debug, $"[FishpondPop] backingField.SetValue failed: {ex.Message}"); }
-
-            return false;
-        }
     }
 }

@@ -89,7 +89,7 @@ namespace mod_update_manager
                 if (!_cachingEnabled || string.IsNullOrEmpty(_diskCachePath)) return;
                 if (!System.IO.File.Exists(_diskCachePath)) return;
                 var json = System.IO.File.ReadAllText(_diskCachePath);
-                foreach (System.Text.RegularExpressions.Match match in System.Text.RegularExpressions.Regex.Matches(json, "\\\"((?:\\\\.|[^\\\"])*)\\\"\\s*:\\s*\\{([^{}]*)\\}"))
+                foreach (System.Text.RegularExpressions.Match match in System.Text.RegularExpressions.Regex.Matches(json, "\\\"((?:\\\\.|[^\\\"])*)\\\"\\s*:\\s*\\{(.*?)\\}", System.Text.RegularExpressions.RegexOptions.Singleline))
                 {
                     var modId = Unescape(match.Groups[1].Value);
                     var body = match.Groups[2].Value;

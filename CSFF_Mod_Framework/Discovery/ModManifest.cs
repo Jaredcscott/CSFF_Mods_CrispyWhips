@@ -47,6 +47,23 @@ internal class ModManifest
     /// <summary>True when the manifest declares the ModLoader/ModCore <c>ModLoaderVerison</c> field.</summary>
     public bool IsModLoaderNative => !string.IsNullOrWhiteSpace(ModLoaderVerison);
 
+    /// <summary>
+    /// True when the mod ships at least one declarative manifest that only the CSFF
+    /// framework's LoadOrchestrator reads — Pikachu ModLoader/ModCore's own loader never
+    /// parses <c>BlueprintTabs.json</c>, <c>SmeltingRecipes.json</c>, <c>DropInjections.json</c>,
+    /// <c>InjectImprovementInto.json</c>, <c>WorldMap/MapNodes.json</c>/<c>FullMap.json</c>,
+    /// <c>EncounterGuards/*.json</c>, <c>Quests.json</c>, <c>Characters.json</c>,
+    /// <c>WorldMap/HubPortals.json</c>, <c>MapMod.json</c>, or <c>Animals/*.json</c>. Some mods are exported by the
+    /// ModEditor tool with <see cref="ModLoaderVerison"/> stamped in regardless of which loader
+    /// they actually target; when one of these framework-exclusive files is present, the mod is
+    /// framework-format content mistagged as ModLoader-native. See ModDiscovery.DiscoverMods,
+    /// which uses this to override the ModLoaderVerison coexistence skip.
+    /// </summary>
+    public bool HasFrameworkOnlyMarkers =>
+        HasBlueprintTabs || HasSmeltingRecipes || HasDropInjections || HasImprovementInjections ||
+        HasWorldMapNodes || HasEncounterGuards || HasQuestManifest || HasCharacterManifest ||
+        HasHubPortals || HasMapMod || HasAnimals;
+
     // ── Feature flags (populated by ModDiscovery after JSON parse; never deserialized) ──
     // These let LoadOrchestrator skip phases whose content isn't present in any mod.
     [NonSerialized] public bool HasSpriteFiles;
@@ -59,10 +76,16 @@ internal class ModManifest
     [NonSerialized] public bool HasTriggers;           // CardData/Trigger/*.json
     [NonSerialized] public bool HasGifContent;         // CardData/Gif/*.json
     [NonSerialized] public bool HasGSMTagOrTypeMatch;  // GameSourceModify/ uses MatchTagWarpData/MatchTypeWarpData
-    [NonSerialized] public bool HasWorldMapNodes;       // WorldMap/MapNodes.json
+    [NonSerialized] public bool HasDropInjections;      // DropInjections.json
+    [NonSerialized] public bool HasImprovementInjections; // InjectImprovementInto.json
+    [NonSerialized] public bool HasWorldMapNodes;       // WorldMap/MapNodes.json or WorldMap/FullMap.json
+    [NonSerialized] public bool HasFullMap;             // WorldMap/FullMap.json (full map replacement)
     [NonSerialized] public bool HasEncounterGuards;     // EncounterGuards/*.json
     [NonSerialized] public bool HasQuestManifest;       // Quests.json
     [NonSerialized] public bool HasCharacterManifest;   // Characters.json
+    [NonSerialized] public bool HasHubPortals;          // WorldMap/HubPortals.json
+    [NonSerialized] public bool HasMapMod;              // MapMod.json (portal world registration)
+    [NonSerialized] public bool HasAnimals;             // Animals/*.json (declarative animal species)
 
     public static ModManifest FromJson(string json, string directoryPath)
     {

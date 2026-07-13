@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_shiitake_dried",
     "CardName": {
         "ParentObjectID": "herbs_fungi_shiitake_dried",
-        "LocalizationKey": "herbs_fungi_shiitake_dried_CardName",
+        "LocalizationKey": "herbsfungishiitakedried_CardName",
         "DefaultText": "Dried Shiitake"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_shiitake_dried",
-        "LocalizationKey": "herbs_fungi_shiitake_dried_CardDescription",
+        "LocalizationKey": "herbsfungishiitakedried_CardDescription",
         "DefaultText": "Dried shiitake mushrooms with concentrated umami flavor. A staple in many cuisines and valued for medicinal properties."
     },
     "CardType": 0,
@@ -33,12 +33,12 @@
     "CardImageWarpType": 3,
     "SpecialDurability1": {
         "ParentObjectID": "herbs_fungi_shiitake_dried",
-        "LocalizationKey": "herbs_fungi_shiitake_dried_SpecialDurability1_StatName",
+        "LocalizationKey": "herbsfungishiitakedried_SpecialDurability1_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_shiitake_dried",
-            "LocalizationKey": "herbs_fungi_shiitake_dried_SpecialDurability1_StatName",
+            "LocalizationKey": "herbsfungishiitakedried_SpecialDurability1_StatName",
             "DefaultText": "Cook"
         },
         "MinValue": 0.0,
@@ -50,7 +50,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_shiitake_dried",
-                "LocalizationKey": "herbs_fungi_shiitake_dried_SpecialDurability1_Cooked",
+                "LocalizationKey": "herbsfungishiitakedried_SpecialDurability1_Cooked",
                 "DefaultText": "The dried shiitake has been cooked."
             },
             "ReceivingCardChanges": {
@@ -71,12 +71,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_shiitake_dried",
-                "LocalizationKey": "herbs_fungi_shiitake_dried_Eat",
+                "LocalizationKey": "herbsfungishiitakedried_Eat",
                 "DefaultText": "Eat"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_shiitake_dried",
-                "LocalizationKey": "herbs_fungi_shiitake_dried_Eat_Desc",
+                "LocalizationKey": "herbsfungishiitakedried_Eat_Desc",
                 "DefaultText": "Chew on the dried shiitake. Tough but rich in umami flavor."
             },
             "DaytimeCost": 0,
@@ -471,7 +471,7 @@
                         "FloatValue": 0.0
                     }
                 },
-                "RequiredLiquidQuantity": 140.0,
+                "RequiredLiquidQuantity": 0.0,
                 "RequiredSpecial1Percent": {
                     "Active": false,
                     "FloatValue": 0.0,
@@ -556,12 +556,12 @@
     ],
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_shiitake_dried",
-        "LocalizationKey": "herbs_fungi_shiitake_dried_SpoilageTime_CardStatName",
+        "LocalizationKey": "herbsfungishiitakedried_SpoilageTime_CardStatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_shiitake_dried",
-            "LocalizationKey": "herbs_fungi_shiitake_dried_SpoilageTime_CardStatName",
+            "LocalizationKey": "herbsfungishiitakedried_SpoilageTime_CardStatName",
             "DefaultText": "Freshness"
         },
         "MinValue": 0.0,
@@ -575,7 +575,7 @@
         "OnEmpty": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_shiitake_dried",
-                "LocalizationKey": "herbs_fungi_shiitake_dried_SpoilageTime_OnEmpty",
+                "LocalizationKey": "herbsfungishiitakedried_SpoilageTime_OnEmpty",
                 "DefaultText": "This has spoiled."
             },
             "ReceivingCardChanges": {

@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_truffle",
     "CardName": {
         "ParentObjectID": "herbs_fungi_truffle",
-        "LocalizationKey": "herbs_fungi_truffle_CardName",
+        "LocalizationKey": "herbsfungitruffle_CardName",
         "DefaultText": "Truffle"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_truffle",
-        "LocalizationKey": "herbs_fungi_truffle_CardDescription",
+        "LocalizationKey": "herbsfungitruffle_CardDescription",
         "DefaultText": "A rare, valuable underground fungus prized for its intoxicating aroma and unique flavor. Found deep in old-growth forests. Extremely rare."
     },
     "CardType": 0,
@@ -32,12 +32,12 @@
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_truffle",
-        "LocalizationKey": "herbs_fungi_truffle_SpoilageTime_StatName",
+        "LocalizationKey": "herbsfungitruffle_SpoilageTime_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_truffle",
-            "LocalizationKey": "herbs_fungi_truffle_SpoilageTime_StatName",
+            "LocalizationKey": "herbsfungitruffle_SpoilageTime_StatName",
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
@@ -48,7 +48,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_truffle",
-                "LocalizationKey": "herbs_fungi_truffle_SpoilageTime_Spoiled",
+                "LocalizationKey": "herbsfungitruffle_SpoilageTime_Spoiled",
                 "DefaultText": "The truffle has spoiled."
             },
             "ReceivingCardChanges": {
@@ -65,12 +65,12 @@
     },
     "UsageDurability": {
         "ParentObjectID": "herbs_fungi_truffle",
-        "LocalizationKey": "herbs_fungi_truffle_UsageDurability_StatName",
+        "LocalizationKey": "herbsfungitruffle_UsageDurability_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_truffle",
-            "LocalizationKey": "herbs_fungi_truffle_UsageDurability_StatName",
+            "LocalizationKey": "herbsfungitruffle_UsageDurability_StatName",
             "DefaultText": "Dry"
         },
         "MinValue": 0.0,
@@ -81,7 +81,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_truffle",
-                "LocalizationKey": "herbs_fungi_truffle_UsageDurability_Dried",
+                "LocalizationKey": "herbsfungitruffle_UsageDurability_Dried",
                 "DefaultText": "The truffle has dried out."
             },
             "ReceivingCardChanges": {
@@ -100,12 +100,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_truffle",
-                "LocalizationKey": "herbs_fungi_truffle_EatRaw",
+                "LocalizationKey": "herbsfungitruffle_EatRaw",
                 "DefaultText": "Eat Raw"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_truffle",
-                "LocalizationKey": "herbs_fungi_truffle_EatRaw_Desc",
+                "LocalizationKey": "herbsfungitruffle_EatRaw_Desc",
                 "DefaultText": "Eat the rare truffle raw. Luxurious and satisfying."
             },
             "DaytimeCost": 0,
@@ -475,7 +475,7 @@
                         "FloatValue": 0.0
                     }
                 },
-                "RequiredLiquidQuantity": 140.0,
+                "RequiredLiquidQuantity": 0.0,
                 "RequiredSpecial1Percent": {
                     "Active": false,
                     "FloatValue": 0.0,

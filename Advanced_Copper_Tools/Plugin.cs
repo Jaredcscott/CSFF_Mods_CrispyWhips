@@ -1,26 +1,25 @@
 using BepInEx;
 using BepInEx.Configuration;
 using BepInEx.Logging;
+using CSFFModFramework.Api;
 using HarmonyLib;
-using System;
 
 namespace Advanced_Copper_Tools;
 
 [BepInDependency("crispywhips.CSFFModFramework", BepInDependency.DependencyFlags.SoftDependency)]
 [BepInDependency("crispywhips.Herbs_And_Fungi", BepInDependency.DependencyFlags.SoftDependency)]
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
-internal class Plugin : BaseUnityPlugin
+internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.advanced_copper_tools";
     public const string PluginName = "Advanced_Copper_Tools";
-    public const string PluginVersion = "1.9.0";
+    public const string PluginVersion = "1.11.7";
 
-    internal new static ManualLogSource Logger;
+    internal new static ManualLogSource Logger { get; private set; }
     internal static Plugin Instance { get; private set; }
     internal static ConfigEntry<bool> EnableLegacyStationLiquidHeater { get; private set; }
-    private static Harmony _harmony;
 
-    private void Awake()
+    protected override void OnModAwake()
     {
         Instance = this;
 
@@ -31,32 +30,30 @@ internal class Plugin : BaseUnityPlugin
             "EnableLegacyStationLiquidHeater",
             false,
             "Enables the old beta fallback that directly heats liquid stored on the lit Tea Station card. Leave disabled for current Tea Station reservoir behavior.");
+    }
 
-        // Initialize and apply Harmony patches
-        _harmony = new Harmony(PluginGuid);
-        try
+    protected override void RegisterPatches(Harmony harmony)
+    {
+        TryApply("SawEffectPatch", () => Advanced_Copper_Tools.Patcher.SawEffectPatch.ApplyPatch(harmony));
+        TryApply("TeaStationPatch", () => Advanced_Copper_Tools.Patcher.TeaStationPatch.ApplyPatch(harmony));
+        TryApply("GameLoadPatch", () => Advanced_Copper_Tools.Patcher.GameLoadPatch.ApplyPatch(harmony));
+        TryApply("IronNailSmeltPatch", () => Advanced_Copper_Tools.Patcher.IronNailSmeltPatch.ApplyPatch(harmony));
+        TryApply("IronVeinQualityPatch", () => Advanced_Copper_Tools.Patcher.IronVeinQualityPatch.ApplyPatch(harmony));
+        // Cave Prospector perk gating moved to WorldMap/MapNodes.json SealableGates (framework
+        // CSFFModFramework.Injection.SealableGateService) — ACTCaveGatePatch.cs retired.
+        if (EnableLegacyStationLiquidHeater.Value)
         {
-            Advanced_Copper_Tools.Patcher.SawEffectPatch.ApplyPatch(_harmony);
-            Advanced_Copper_Tools.Patcher.TeaStationPatch.ApplyPatch(_harmony);
-            Advanced_Copper_Tools.Patcher.GameLoadPatch.ApplyPatch(_harmony);
-            if (EnableLegacyStationLiquidHeater.Value)
-            {
-                Advanced_Copper_Tools.Patcher.HeatHeldLiquidPatch.ApplyPatch(_harmony);
-            }
-            else
-            {
-                Logger.LogDebug("[HeatHeldLiquid] legacy station liquid heater disabled; Tea Station uses its reservoir stats and Draw Boiled Water fix.");
-            }
-            Logger.LogInfo($"{PluginName} v{PluginVersion} loaded.");
+            TryApply("HeatHeldLiquidPatch", () => Advanced_Copper_Tools.Patcher.HeatHeldLiquidPatch.ApplyPatch(harmony));
         }
-        catch (System.Exception ex)
+        else
         {
-            Logger.LogError($"Failed to apply Harmony patches: {ex}");
+            Logger.LogDebug("[HeatHeldLiquid] legacy station liquid heater disabled; Tea Station uses its reservoir stats and Draw Boiled Water fix.");
         }
     }
 
-    private void OnDestroy()
+    protected override void OnModDestroy()
     {
-        _harmony?.UnpatchSelf();
+        Instance = null;
+        Logger = null;
     }
 }

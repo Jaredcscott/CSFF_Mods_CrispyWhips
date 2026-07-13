@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_oil_press_bag_plate",
     "CardName": {
         "ParentObjectID": "herbs_fungi_oil_press_bag_plate",
-        "LocalizationKey": "herbs_fungi_oil_press_bag_plate_CardName",
+        "LocalizationKey": "herbsfungioilpressbagplate_CardName",
         "DefaultText": "Press Plate"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_oil_press_bag_plate",
-        "LocalizationKey": "herbs_fungi_oil_press_bag_plate_CardDescription",
+        "LocalizationKey": "herbsfungioilpressbagplate_CardDescription",
         "DefaultText": "A flat wooden plate that distributes pressure evenly across the pressing bag in an oil press."
     },
     "CardType": 0,

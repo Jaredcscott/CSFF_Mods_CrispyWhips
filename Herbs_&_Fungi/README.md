@@ -1,8 +1,8 @@
 # Herbs and Fungi - Player Guide
 
-**Version:** 1.8.0
+**Version:** 1.9.5
 **Author:** Jared (crispywhips)
-**For:** Card Survival: Fantasy Forest (EA 0.64f)
+**For:** Card Survival: Fantasy Forest (EA 0.65)
 
 ---
 
@@ -31,20 +31,21 @@ Herbs and Fungi adds foraged mushrooms, medicinal herbs, hemp farming, mushroom 
 | **Truffle** | Buried — dig under old-growth oak trees |
 
 ### Berries (Foraged)
-| Berry | Season | Where Found | Notes |
-|-------|--------|-------------|-------|
-| **Blackcurrant** | Summer | Birch forests, river banks, oak groves | Tart, dark berries rich in vitamins; eat raw, dry, or ferment |
-| **Redcurrant** | Summer | Oak groves, birch forests, clearings | Sweet-tart translucent clusters; good raw or dried |
-| **Lingonberry** | Late Summer – Autumn | Pine forests, northern regions | Tart and abundant; best dried or fermented |
-| **Cloudberry** | Late Summer | Pine meadows (rare) | Rare golden-orange delicacy; highest nutrition of the four |
+| Berry | Where Found | Notes |
+|-------|-------------|-------|
+| **Blackcurrant** | Birch forests, river banks, oak groves | Tart, dark berries rich in vitamins; eat raw, dry, or ferment |
+| **Redcurrant** | Oak groves, birch forests, clearings | Sweet-tart translucent clusters; good raw or dried |
+| **Lingonberry** | Pine forests, northern regions | Tart and abundant; best dried or fermented |
+| **Cloudberry** | Pine meadows (rare) | Rare golden-orange delicacy; highest nutrition of the four |
 
 All four berries share the same mechanics: eat raw (DismantleAction), add to any stew container, dry passively into a dried variant, ferment in the pickle vat. Stack up to 20; spoil in ~6 in-game days if left fresh.
 
 ### Herbs & Roots
 - **Yarrow** — Dry and grind into wound-healing powder
 - **Ginseng** — Dry and grind for energy-boosting tea
-- **Wild Ginger** — Foraged spice; dry, slice fresh, or process
+- **Chamomile** — Dry flowers and brew into calming chamomile tea
 - **Dandelion** — Fresh or dried edible herb; dried flowers brew into tea
+- **Wild Ginger** — Foraged spice; dry, slice fresh, or process
 - **Common Plantain** — Dry leaves for plantain poultices
 - **Wild Flowers** — Dry and craft into flower garlands
 
@@ -85,8 +86,10 @@ All four berries share the same mechanics: eat raw (DismantleAction), add to any
 | **Herbal Salve** | Topical wound healing (herbs + fat) |
 | **Plantain Poultice** | Simple topical pain and inflammation relief |
 | **Herbal Tincture** | Alcohol-based herbal extract |
+| **Healer's Moss Tincture** | Potent antiseptic extract from healer's moss; fights infection |
 | **Pain Relief Powder** | Ground herbal analgesic |
 | **Death Cap Tincture** | Bitter amatoxin extract — kills gut parasites |
+| **Mushroom Broth** | Nutritious broth simmered from dried mushrooms |
 | **Pickle Brine** | Fermentation medium for the pickle vat |
 
 ### Herbal Oils (Pressed)
@@ -101,25 +104,26 @@ All four berries share the same mechanics: eat raw (DismantleAction), add to any
 
 ## Character Creation Perks
 
-All 15 perks appear in the **Situational** tab during character creation.
+All 16 perks appear in the **Situational** tab during character creation.
 
 | Perk | Cost | Highlights |
 |------|------|------------|
-| **Seed Bag** | 5 Suns | 2 each of Hemp, Rye, Flax, Pea, Wheat seeds |
-| **Drying Kit** | 5 Suns | Drying Stack + 3 Drying Trays |
-| **Culinary Kit** | 1 Moon | 8 gourmet mushrooms/herbs (King/Golden Oyster, Morel, Black Trumpet, Shiitake, Puffball, Yarrow, Ginseng) |
-| **Medical Mushrooms** | 1 Moon | Lion's Mane, Shiitake, Reishi, Spirit Mushrooms |
-| **Add Fungi** | 2 Moons | Morel, Golden & King Oyster, Lion's Mane |
-| **Apothecary** | 3 Moons | Salves, tinctures, pain powders, anti-nausea & sleep tea |
-| **Fungal Cultivator** | 3 Moons | Chanterelles, Black Trumpets, Shiitake, Puffballs + Ginseng |
-| **Add Hemp** | 3 Moons | 10 Hemp Seeds |
-| **Mushroom Basket** | 3 Moons | Hand basket + bountiful mushroom variety |
-| **Edibles Kit** | 3 Moons | Fat, dried hemp flower, raw meat, clay bowl |
+| **Seed Bag** | 15 Suns | 2 each of Hemp, Rye, Flax, Pea, Wheat seeds |
+| **Drying Kit** | 15 Suns | Drying Stack + 3 Drying Trays |
+| **Culinary Kit** | 10 Suns | 8 gourmet mushrooms/herbs (King/Golden Oyster, Morel, Black Trumpet, Shiitake, Puffball, Yarrow, Ginseng) |
+| **Medical Mushrooms** | 15 Suns | Lion's Mane, Shiitake, Reishi, Spirit Mushrooms |
+| **Add Fungi** | 5 Suns | Morel, Golden & King Oyster, Lion's Mane |
+| **Apothecary** | 1 Moon | Salves, tinctures, pain powders, anti-nausea & sleep tea |
+| **Fungal Cultivator** | 15 Suns | Chanterelles, Black Trumpets, Shiitake, Puffballs + Ginseng |
+| **Add Hemp** | 4 Moons | 10 Hemp Seeds |
+| **Mushroom Basket** | 1 Moon | Hand basket + bountiful mushroom variety |
+| **Edibles Kit** | 10 Suns | Fat, dried hemp flower, raw meat, clay bowl |
 | **Oil Press** | 3 Moons | Oil Press Kit (skips the multi-stage build) |
-| **Alchemist** | 4 Moons | Full alchemist remedy kit + signature teas |
-| **Master Herbalist** | 4 Moons | Ginseng, Reishi, Yarrow — fresh & dried |
-| **Smoke Kit** | 4 Moons | Herb Pipe + 4 each of Hemp/Fairyweed/Appleweed/Frostleaf powder + fiber |
-| **Hemp Farmer** | 4 Moons | Pipe, hemp powder, seeds, fresh & dried flowers, stalks for fiber |
+| **Alchemist** | 10 Suns | Full alchemist remedy kit + signature teas |
+| **Master Herbalist** | 10 Suns | Ginseng, Reishi, Yarrow — fresh & dried |
+| **Smoke Kit** | 1 Moon | Herb Pipe + 4 each of Hemp/Fairyweed/Appleweed/Frostleaf powder + fiber |
+| **Hemp Farmer** | 2 Moons | Pipe, hemp powder, seeds, fresh & dried flowers, stalks for fiber |
+| **Forest Scout** | ★1 Star | Opt-in: an Overgrown Forest Trail gates the Primeval Woods foot route to the foraging forest (clear it with a blade; regrows in ~10 days). A portal always reaches the forest directly. |
 
 ---
 
@@ -165,8 +169,8 @@ A four-variant clay fermentation chain (see CLAUDE.md "4-variant fermentation ch
 2. **Make Brine**: drag salt onto the vat filled with water — water transforms into Pickle Brine in place.
 3. Add fermentable ingredients (Ginger and the vanilla Turnroot/Fireroot are tagged `tag_Fermentable` by this mod; specific pickle blueprints accept others).
 4. **Cap with Clay Bowl** → **Closed Pickle Vat**, then seal it (drag water) → **Sealed Pickle Vat** (placed structure).
-5. Wait — the seal counts down over 7 in-game days (5 days for the generic base vat if you seal without choosing a specific content blueprint).
-6. When the timer expires, the vat becomes a **Ready Pickle Vat**. Harvest to spawn the pickled goods plus an empty fired vat for reuse.
+5. Wait — the seal counts down over 7 in-game days. Choosing a content blueprint (Frogs, Meat, Mushrooms, or Vegetables) is required up front before closing the vat; there is no generic/untyped seal option.
+6. When the timer expires, the vat becomes a **Ready Pickle Vat**. Harvest to spawn the pickled goods, an **Open Pickle Jar** (use "Return Bowl" to reclaim the clay bowl lid), plus an empty fired vat for reuse.
 
 The pickle blueprints (Frogs, Meat, Mushrooms, Vegetables) gate on the vat containing pickle brine — water alone won't satisfy them.
 
@@ -177,7 +181,7 @@ The pickle blueprints (Frogs, Meat, Mushrooms, Vegetables) gate on the vat conta
 - Morels and Chicken of the Woods are toxic raw — always cook them.
 
 ### Truffle Cooking (Special)
-**Dried Truffle Slices** behave specially when heated alongside Fat, Fat Chunks, Butter Chunks, or Milk Butter in the same container: instead of charring to ash, the slice consumes one fat and transforms into a Cooked Truffle. Without fat, the slice burns to ash on the vanilla path.
+**Dried Truffle Slices (cut)** have a **Coat with Fat** hand action — drag Fat, a Fat Chunk, a Butter Chunk, or Milk Butter onto the slice to consume it and turn the slices into **Fat-Coated Dried Truffle Slices** (any char progress already accumulated carries over). Heat the fat-coated slices as normal and they finish cooking into a **Cooked Truffle** instead of charring. Skip the fat coating and heating the raw slices chars them to ash instead.
 
 ---
 
@@ -187,13 +191,30 @@ Mod blueprints are injected into vanilla tabs:
 
 | Tab | Blueprints |
 |-----|-----------|
-| **Support** | Herb Pipe, Drying Tray, Sleep Tea, Anti-Nausea Tea, Stimulant Tea, Pain Relief Powder, Herbal Salve, Plantain Poultice, Flower Garland, Herbal Tincture, Death Cap Tincture |
+| **Support** | Herb Pipe, Drying Tray, Flower Garland |
+| **Cooking** | Mushroom Broth, Sleep Tea, Anti-Nausea Tea, Stimulant Tea |
+| **Medical** | Pain Relief Powder, Herbal Salve, Plantain Poultice, Herbal Tincture, Healer's Moss Tincture, Death Cap Tincture |
 | **Utensils** | Unfired Pickle Vat |
 | **Materials** | Oil Press Legs/Frame, Press Bed Frame, Pressing Screw, Pressing Bag, Press Plate, Oil Press Utensils, Prepared Press Bag |
-| **Farming Agriculture** | Hemp Field, Plant Hemp Seeds, Inoculate Mushroom Logs |
+| **Farming Agriculture** | Hemp Field, Plant Hemp Seeds, Inoculate Shiitake / Lion's Mane / Reishi / Chicken / Golden Oyster / King Oyster Log |
 | **Furniture** | Wooden Pantry, Drying Stack, Oil Press Kit |
 
 The press oil and pickle blueprints appear after their workstations are built and the relevant ingredients are present.
+
+---
+
+## World Map Locations
+
+Herbs and Fungi adds four forest locations to the world map, west of Primeval Woods.
+
+| Location | Access | Description |
+|----------|--------|-------------|
+| **Foraging Path** | West from Primeval Woods | Hub node connecting the three surrounding clearings |
+| **Pine Clearing** | North from Foraging Path | Pine forest — pine mushrooms and lingonberries |
+| **Oak Clearing** | West from Foraging Path | Oak forest — oak mushrooms, truffles, and blackcurrant |
+| **Alder Woods** | South from Foraging Path | Alder forest — alder and birch mushrooms and berries |
+
+Each location is a clone of a vanilla forest environment and inherits its usual tree and forage content. The mill race network (WaterDrivenInfrastructure) automatically integrates these locations when WDI is installed.
 
 ---
 
@@ -208,7 +229,7 @@ The mod injects mushroom drops into vanilla foraging actions across forest biome
 ### Requirements
 - **BepInEx 5.x** — mod loader
 - **CSFFModFramework** (latest) — data loading, perk/blueprint injection, sprite resolution, and runtime tag creation.
-- **Card Survival: Fantasy Forest** EA 0.63
+- **Card Survival: Fantasy Forest** EA 0.65
 
 ### Installation
 1. Install BepInEx 5.x.
@@ -220,18 +241,39 @@ The mod injects mushroom drops into vanilla foraging actions across forest biome
 - Works alongside other CSFF mods (AdvancedCopperTools, WaterDrivenInfrastructure, RepeatAction, etc.).
 - Safe to add to existing saves.
 - Removing mid-save will cause mod items in the world to disappear on load.
+- **Depended on by:** Advanced Copper Tools declares H&F as an optional soft dependency — its `Render Hemp Seed Oil` blueprint consumes an H&F hemp seed oil card. Without H&F installed, that one ACT recipe registers but its ingredient can't be obtained; everything else in ACT is unaffected. H&F has no dependency in the other direction.
 
 ### Custom Harmony Patches (mod-specific logic)
 Patching beyond what the framework provides:
 - **GameLoadPatch** — injects hemp into garden plots/tilled fields, adds mushrooms to vanilla foraging, tags vanilla Turnroot/Fireroot as fermentable, populates pickle GpTag content.
-- **TruffleFatCookPatch** — fat-cooks Dried Truffle Slices instead of letting them burn.
 - **PickleVatRoutePatch** — Make Brine in-place liquid swap and pickle BP brine-required gate.
 
 ---
 
 ## Version History
 
-### v1.7.0 (current)
+### v1.9.3 (current)
+- Restored 30 localization keys that had been mechanically truncated by historical unbalanced-quote records (GoldenOyster/LionsMane/DryingTray/KingOysterCooked/LionsManeDried/WoodenPantry/HerbalOil* help sections, Hemp Field blueprint description) and recovered 28 Chinese translations from git history.
+
+### v1.9.2
+- Fixed corrupted `Localization/SimpEn.csv` and `SimpCn.csv`: both files had accumulated a near-2x duplicate key set plus orphaned junk rows from old malformed CSV quoting. Deduplicated to one clean row per key with zero visible-text changes, and backfilled 19 keys (Healers Moss Tincture item/blueprint, 4 WorldMap locations, dried ginger/truffle names) whose only surviving Chinese translation was about to be deleted.
+- README: corrected the Character Creation Perks section and count to include **Forest Scout** (16 perks total, was showing 15).
+
+### v1.9.1
+- Version sync bump alongside a repo-wide Claude tooling/docs refresh; no HerbsAndFungi content changes.
+
+### v1.9.0
+- New **Forest Scout** perk (★1 star, ±0 difficulty): an opt-in trait. Without it the foraging forest is reachable on foot from Primeval Woods exactly as before; with it, an **Overgrown Forest Trail** appears at Primeval Woods that you must hack clear with a blade to open the foot route. The cleared trail regrows in ~10 days and re-seals the route, so keep a blade handy — or use a portal, which always reaches the forest directly. Non-perk characters are unaffected (save-safe).
+- The Forest Scout perk icon and the Overgrown/Cleared Forest Trail cards reuse the vanilla Green Glade scenery art.
+
+### v1.8.0
+- EA 0.65 compatibility; migrated C# patches to CSFFModFramework Tier 2 runtime APIs (ActionRouter, SpawnService)
+- Fixed food tags on Black Trumpet, Chanterelle, Puffball, Reishi, and Shiitake (and their cooked variants) — mushrooms now properly register as food in stew and cooking systems
+- Pickling: harvest now yields an **Open Pickle Jar** alongside pickled goods; use the "Return Bowl" action to reclaim the clay bowl lid and reduce per-batch clay cost
+- Removed generic Closed Pickle Vat — closing the vat now requires choosing a type (Frogs, Meat, Mushrooms, or Vegetables) up front
+- Minor localization additions
+
+### v1.7.0
 - Added four foraged berries: Blackcurrant, Redcurrant, Lingonberry, and Cloudberry
   - All dryable (passive Dryness stat → dried variant), fermentable (pickle vat), and stackable up to 20
   - Each has Eat and Add to Stew actions; Cloudberry is the rarest and most nutritious

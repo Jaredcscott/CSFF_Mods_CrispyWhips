@@ -27,7 +27,7 @@ internal static class WildlifeRaidService
     private const string StressStatUID = "3b79a4c6d7e151044a1c56fbbd401d78";
 
     /// <summary>
-    /// Fallback container UIDs that gain the NotSafe tag at load time (EA 0.64f values).
+    /// Fallback container UIDs that gain the NotSafe tag at load time (EA 0.65 values).
     /// The live list comes from <see cref="Api.VanillaIds.OpenStorage"/> (regenerated per
     /// game version); this array only covers a missing/empty embedded registry.
     /// </summary>
@@ -36,7 +36,7 @@ internal static class WildlifeRaidService
         "fc102f9646c86fc4d85f25f05713376b", // BasketPlaced
         "ae80b3304fa930748941abc6edc5c884", // HandBasket
         "487c5e8616abfec4198cdf0883135212", // Shelf
-        "deb4eeab547ddd64bb6cbb9659f94066", // Sack
+        "1c62d1f5116b7014e9cc4f7615ecc33c", // ClothSack (Sack removed EA 0.65)
         "a2eabda942140a84fafc371513d4d886", // LeatherSack
         "9fc4843f7d5c97044952b9c14902f431", // RusticBarrelLocation
         "4e2b3e00c88f8d14cb52a614584a66d5", // DryingRack

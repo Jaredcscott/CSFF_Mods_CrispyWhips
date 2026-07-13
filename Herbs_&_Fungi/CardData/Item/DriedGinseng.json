@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_dried_ginseng",
     "CardName": {
         "ParentObjectID": "herbs_fungi_dried_ginseng",
-        "LocalizationKey": "herbs_fungi_dried_ginseng_CardName",
+        "LocalizationKey": "herbsfungidriedginseng_CardName",
         "DefaultText": "Dried Ginseng"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_dried_ginseng",
-        "LocalizationKey": "herbs_fungi_dried_ginseng_CardDescription",
+        "LocalizationKey": "herbsfungidriedginseng_CardDescription",
         "DefaultText": "Properly dried ginseng with concentrated energizing compounds. Highly valued."
     },
     "CardType": 0,
@@ -35,7 +35,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_dried_ginseng",
-            "LocalizationKey": "herbs_fungi_dried_ginseng_SpecialDurability3_CardStatName",
+            "LocalizationKey": "herbsfungidriedginseng_SpecialDurability3_CardStatName",
             "DefaultText": "Mill"
         },
         "MaxValue": 1.0,
@@ -55,12 +55,12 @@
     },
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_dried_ginseng",
-        "LocalizationKey": "herbs_fungi_dried_ginseng_SpoilageTime_StatName",
+        "LocalizationKey": "herbsfungidriedginseng_SpoilageTime_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_dried_ginseng",
-            "LocalizationKey": "herbs_fungi_dried_ginseng_SpoilageTime_StatName",
+            "LocalizationKey": "herbsfungidriedginseng_SpoilageTime_StatName",
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
@@ -71,7 +71,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_dried_ginseng",
-                "LocalizationKey": "herbs_fungi_dried_ginseng_SpoilageTime_Spoiled",
+                "LocalizationKey": "herbsfungidriedginseng_SpoilageTime_Spoiled",
                 "DefaultText": "The dried ginseng has lost its potency."
             },
             "ReceivingCardChanges": {
@@ -90,12 +90,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_dried_ginseng",
-                "LocalizationKey": "herbs_fungi_dried_ginseng_Grind",
+                "LocalizationKey": "herbsfungidriedginseng_Grind",
                 "DefaultText": "Grind"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_dried_ginseng",
-                "LocalizationKey": "herbs_fungi_dried_ginseng_Grind_Desc",
+                "LocalizationKey": "herbsfungidriedginseng_Grind_Desc",
                 "DefaultText": "Grind the dried ginseng into powder using stones or grinding tools."
             },
             "DaytimeCost": 1,
@@ -149,13 +149,138 @@
                 "HandAction"
             ],
             "ActionTagsWarpType": 3
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_dried_ginseng",
+                "LocalizationKey": "",
+                "DefaultText": "Add to Stew"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_dried_ginseng",
+                "LocalizationKey": "",
+                "DefaultText": "Drop into the boiling liquid to cook."
+            },
+            "WorksInverted": true,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [
+                    "tag_StewContainer"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "RequiredStatValues": [],
+            "RequiredNPCStatValues": [],
+            "RequiredCardsOnBoard": [],
+            "RequiredTagsOnBoard": [],
+            "RequiredAlreadyVisitedEnvironments": [],
+            "RequiredReceivingContainer": [],
+            "RequiredReceivingContainerTag": [],
+            "RequiredNOTReceivingContainerTag": [],
+            "RequiredReceivingContainerDurabilities": {},
+            "RequiredGivenDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredFuelPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredProgressPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredLiquidQuantity": 0.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "HideActionIfNotMet": true,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": []
+            },
+            "GivenCardChanges": {
+                "ModType": 0
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "ProducedCards": []
         }
     ],
     "OnStatsChangeActions": [
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_dried_ginseng",
-                "LocalizationKey": "herbs_fungi_dried_ginseng_OnStatsChangeActions[0]_ActionName",
+                "LocalizationKey": "herbsfungidriedginseng_OnStatsChangeActions[0]_ActionName",
                 "DefaultText": "Finish Rotary Quern Grinding"
             },
             "ActionDescription": {
@@ -238,12 +363,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_dried_ginseng",
-                "LocalizationKey": "herbs_fungi_dried_ginseng_Eat",
+                "LocalizationKey": "herbsfungidriedginseng_Eat",
                 "DefaultText": "Eat"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_dried_ginseng",
-                "LocalizationKey": "herbs_fungi_dried_ginseng_Eat_Desc",
+                "LocalizationKey": "herbsfungidriedginseng_Eat_Desc",
                 "DefaultText": "Eat the dried ginseng for a powerful energy boost."
             },
             "DaytimeCost": 0,

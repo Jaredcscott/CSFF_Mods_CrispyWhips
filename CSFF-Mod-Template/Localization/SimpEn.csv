@@ -1,0 +1,13 @@
+TODO_ModName_MyHerb_CardName,My Herb
+TODO_ModName_MyHerb_CardDescription,A placeholder foraged herb. Replace this description with what your plant actually does.
+TODO_ModName_MyHerb_SpoilageTime_StatName,Spoilage
+TODO_ModName_MyHerb_SpoilageTime_Spoiled,The herb has spoiled.
+TODO_ModName_MyHerb_Eat_ActionName,Eat
+TODO_ModName_MyHerb_Eat_ActionDescription,Eat the herb. Provides a small amount of nutrition.
+TODO_ModName_Bp_MyHerbFrame_CardName,Herb Drying Frame
+TODO_ModName_Bp_MyHerbFrame_CardDescription,A simple wooden frame for hanging and drying herbs. Requires planks and a hammer.
+TODO_ModName_Bp_MyHerbFrame_UnlockConditionsDesc,Unlocked after finding My Herb in the wild.
+TODO_ModName_MyHerbFrame_CardName,Herb Drying Frame
+TODO_ModName_MyHerbFrame_CardDescription,A simple wooden frame for drying herbs.
+TODO_ModName_Perk_MyHerbalist_PerkName,Herbalist
+TODO_ModName_Perk_MyHerbalist_PerkDescription,Start with 3 foraged herbs. Useful for early food supply or crafting research.

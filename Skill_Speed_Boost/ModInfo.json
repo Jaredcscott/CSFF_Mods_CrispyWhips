@@ -1,6 +1,6 @@
 {
 	"Name": "Skill Speed Boost",
 	"Author": "Jared",
-	"Version": "1.9.1",
+	"Version": "1.9.4",
 	"Description": "Skill progression control: per-skill XP multipliers (0-10x), staleness decay (global or per-skill rate), morning XP bonus, area familiarity bonuses, difficulty presets (Balanced, Casual, Hardcore, etc.), skill synergies (combo XP for chaining related skills), and level-based XP scaling (higher bonus as skills approach max level)."
 }

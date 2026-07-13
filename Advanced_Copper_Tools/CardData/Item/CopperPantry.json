@@ -157,7 +157,52 @@
     "DefaultText": ""
   },
   "GroupInventoryActions": [],
-  "EffectsToInventoryContent": [],
+  "EffectsToInventoryContent": [
+    {
+      "EffectName": "Preserve - Copper Chest",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTEquipped": false,
+      "OnlyWhenInHand": false,
+      "OnlyOnBaseActions": false,
+      "OnlyOnNOTBaseActions": false,
+      "OnlyWhenNOTInBG": false,
+      "Conditions": {
+        "NotInBackground": false,
+        "InBackground": false,
+        "PlayerUsesCard": 0,
+        "RequiredEnvironment": { "m_FileID": 0, "m_PathID": 0 },
+        "InvertEnvironmentRequirement": false,
+        "RequiredEnvironmentTags": [],
+        "RequiredNOTEnvironmentTags": [],
+        "RequiredContainer": [],
+        "RequiredNOTContainer": [],
+        "RequiredContainerTags": [],
+        "RequiredNOTContainerTags": [],
+        "RequiredCardsOnBoard": [],
+        "RequiredTagsOnBoard": [],
+        "RequiredCardsNOTOnBoard": [],
+        "RequiredTagsNOTOnBoard": [],
+        "RequiredLiquidContainers": [],
+        "RequiredCardsInInventory": [],
+        "RequiredTagsInInventory": [],
+        "CardWasBuiltWith": [],
+        "CardWasNOTBuiltWith": [],
+        "RequiredPlayerOwnedCards": [],
+        "RequiredPlayerNOTOwnedCards": []
+      },
+      "StatModifiers": [],
+      "MultiplySpoilageRate": true,
+      "SpoilageRateModifier": { "Active": true, "FloatValue": 0.20 },
+      "UsageRateModifier": { "Active": false, "FloatValue": 0.0 },
+      "FuelRateModifier": { "Active": false, "FloatValue": 0.0 },
+      "ConsumableChargesModifier": { "Active": false, "FloatValue": 0.0 },
+      "Special1RateModifier": { "Active": false, "FloatValue": 0.0 },
+      "Special2RateModifier": { "Active": false, "FloatValue": 0.0 },
+      "Special3RateModifier": { "Active": false, "FloatValue": 0.0 },
+      "Special4RateModifier": { "Active": false, "FloatValue": 0.0 }
+    }
+  ],
   "CardInteractions": [],
   "DismantleActions": [
     {

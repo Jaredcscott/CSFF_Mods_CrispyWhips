@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_dandelion",
     "CardName": {
         "ParentObjectID": "herbs_fungi_dandelion",
-        "LocalizationKey": "herbs_fungi_dandelion_CardName",
+        "LocalizationKey": "herbsfungidandelion_CardName",
         "DefaultText": "Dandelion"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_dandelion",
-        "LocalizationKey": "herbs_fungi_dandelion_CardDescription",
+        "LocalizationKey": "herbsfungidandelion_CardDescription",
         "DefaultText": "A common but versatile plant. The flowers and young leaves are edible and slightly bitter. Dried flowers can be fermented into wine, and the roots have medicinal uses."
     },
     "CardType": 0,
@@ -32,12 +32,12 @@
     "AlwaysUpdate": true,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_dandelion",
-        "LocalizationKey": "herbs_fungi_dandelion_SpoilageTime_StatName",
+        "LocalizationKey": "herbsfungidandelion_SpoilageTime_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_dandelion",
-            "LocalizationKey": "herbs_fungi_dandelion_SpoilageTime_StatName",
+            "LocalizationKey": "herbsfungidandelion_SpoilageTime_StatName",
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
@@ -48,7 +48,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_dandelion",
-                "LocalizationKey": "herbs_fungi_dandelion_SpoilageTime_OnFull",
+                "LocalizationKey": "herbsfungidandelion_SpoilageTime_OnFull",
                 "DefaultText": "The dandelion has wilted and rotted."
             },
             "ReceivingCardChanges": {
@@ -65,12 +65,12 @@
     },
     "UsageDurability": {
         "ParentObjectID": "herbs_fungi_dandelion",
-        "LocalizationKey": "herbs_fungi_dandelion_UsageDurability_StatName",
+        "LocalizationKey": "herbsfungidandelion_UsageDurability_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_dandelion",
-            "LocalizationKey": "herbs_fungi_dandelion_UsageDurability_StatName",
+            "LocalizationKey": "herbsfungidandelion_UsageDurability_StatName",
             "DefaultText": "Dry"
         },
         "MinValue": 0.0,
@@ -81,7 +81,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_dandelion",
-                "LocalizationKey": "herbs_fungi_dandelion_UsageDurability_OnFull",
+                "LocalizationKey": "herbsfungidandelion_UsageDurability_OnFull",
                 "DefaultText": "The dandelion has dried properly."
             },
             "ReceivingCardChanges": {
@@ -96,17 +96,143 @@
             }
         }
     },
-    "CardInteractions": [],
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_dandelion",
+                "LocalizationKey": "",
+                "DefaultText": "Add to Stew"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_dandelion",
+                "LocalizationKey": "",
+                "DefaultText": "Drop into the boiling liquid to cook."
+            },
+            "WorksInverted": true,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [
+                    "tag_StewContainer"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "RequiredStatValues": [],
+            "RequiredNPCStatValues": [],
+            "RequiredCardsOnBoard": [],
+            "RequiredTagsOnBoard": [],
+            "RequiredAlreadyVisitedEnvironments": [],
+            "RequiredReceivingContainer": [],
+            "RequiredReceivingContainerTag": [],
+            "RequiredNOTReceivingContainerTag": [],
+            "RequiredReceivingContainerDurabilities": {},
+            "RequiredGivenDurabilities": {
+                "RequiredSpoilagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredUsagePercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredFuelPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredProgressPercent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredLiquidQuantity": 0.0,
+                "RequiredSpecial1Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial2Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial3Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "RequiredSpecial4Percent": {
+                    "Active": false,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0,
+                    "ScaleRequirementPerPortionOfLiquid": {
+                        "Active": false,
+                        "FloatValue": 0.0
+                    }
+                },
+                "HideActionIfNotMet": true,
+                "FailMessage": {
+                    "ParentObjectID": "",
+                    "LocalizationKey": "",
+                    "DefaultText": ""
+                },
+                "SpecificFailMessages": []
+            },
+            "GivenCardChanges": {
+                "ModType": 0
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "ProducedCards": []
+        }
+    ],
     "DismantleActions": [
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_dandelion",
-                "LocalizationKey": "herbs_fungi_dandelion_Eat",
+                "LocalizationKey": "herbsfungidandelion_Eat",
                 "DefaultText": "Eat"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_dandelion",
-                "LocalizationKey": "herbs_fungi_dandelion_Eat_Desc",
+                "LocalizationKey": "herbsfungidandelion_Eat_Desc",
                 "DefaultText": "Eat the dandelion. Slightly bitter but nutritious leaves and flowers."
             },
             "DaytimeCost": 0,

@@ -787,7 +787,7 @@ namespace WaterDrivenInfrastructure.Patcher
             var gmType = AccessTools.TypeByName("GameManager");
             if (gmType == null)
                 return null;
-            return gmType.GetProperty("Instance", BindingFlags.Public | BindingFlags.Static)?.GetValue(null, null)
+            return gmType.GetProperty("Instance", BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy)?.GetValue(null, null)
                 ?? UnityEngine.Object.FindObjectOfType(gmType);
         }
 

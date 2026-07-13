@@ -2,18 +2,18 @@
     "UniqueID": "herbs_fungi_bp_oil_press_bag_plate",
     "CardName": {
         "ParentObjectID": "herbs_fungi_bp_oil_press_bag_plate",
-        "LocalizationKey": "herbs_fungi_bp_oil_press_bag_plate_CardName",
+        "LocalizationKey": "herbsfungibpoilpressbagplate_CardName",
         "DefaultText": "Press Plate"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_bp_oil_press_bag_plate",
-        "LocalizationKey": "herbs_fungi_bp_oil_press_bag_plate_CardDescription",
+        "LocalizationKey": "herbsfungibpoilpressbagplate_CardDescription",
         "DefaultText": "A flat wooden pressing plate for even pressure distribution. Requires 1 plank and a sharp axe."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {
         "ParentObjectID": "herbs_fungi_bp_oil_press_bag_plate",
-        "LocalizationKey": "herbs_fungi_bp_oil_press_bag_plate_UnlockConditionsDesc",
+        "LocalizationKey": "herbsfungibpoilpressbagplate_UnlockConditionsDesc",
         "DefaultText": "Unlocked after obtaining a plank"
     },
     "BlueprintUnlockTicksCost": 8.0,

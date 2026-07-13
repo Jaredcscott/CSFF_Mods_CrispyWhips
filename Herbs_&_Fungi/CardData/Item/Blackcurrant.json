@@ -1,15 +1,15 @@
 {
     "UniqueID": "herbs_fungi_blackcurrant",
     "CardName": {
-        "LocalizationKey": "herbs_fungi_blackcurrant_CardName",
+        "LocalizationKey": "herbsfungiblackcurrant_CardName",
         "DefaultText": "Blackcurrants"
     },
     "CardDescription": {
-        "LocalizationKey": "herbs_fungi_blackcurrant_CardDescription",
+        "LocalizationKey": "herbsfungiblackcurrant_CardDescription",
         "DefaultText": "Small, intensely flavored dark berries with a sharp, earthy tartness. Rich in vitamins and antioxidants. Good raw, better dried or fermented."
     },
     "CardHelpSection": {
-        "LocalizationKey": "herbs_fungi_blackcurrant_CardHelpSection",
+        "LocalizationKey": "herbsfungiblackcurrant_CardHelpSection",
         "DefaultText": "<b>Season:</b> Summer\n\n<b>Found:</b> Birch forests, river banks, oak groves.\n\n<b>Uses:</b> Eat raw, dry for long-term storage, or ferment into wine.\n\n<b>Benefits:</b> Good nutrition and hydration."
     },
     "CardType": 0,
@@ -36,7 +36,7 @@
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
-            "LocalizationKey": "herbs_fungi_blackcurrant_SpoilageTime_CardStatName",
+            "LocalizationKey": "herbsfungiblackcurrant_SpoilageTime_CardStatName",
             "DefaultText": "Freshness"
         },
         "MaxValue": 576.0,
@@ -44,7 +44,7 @@
         "HasActionOnFull": true,
         "OnFull": {
             "ActionDescription": {
-                "LocalizationKey": "herbs_fungi_blackcurrant_SpoilageTime_OnFull",
+                "LocalizationKey": "herbsfungiblackcurrant_SpoilageTime_OnFull",
                 "DefaultText": "Blackcurrants spoiled!"
             },
             "ReceivingCardChanges": {
@@ -60,7 +60,7 @@
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
-            "LocalizationKey": "herbs_fungi_blackcurrant_UsageDurability_CardStatName",
+            "LocalizationKey": "herbsfungiblackcurrant_UsageDurability_CardStatName",
             "DefaultText": "Dryness"
         },
         "MaxValue": 24.0,
@@ -68,7 +68,7 @@
         "HasActionOnFull": true,
         "OnFull": {
             "ActionDescription": {
-                "LocalizationKey": "herbs_fungi_blackcurrant_UsageDurability_OnFull",
+                "LocalizationKey": "herbsfungiblackcurrant_UsageDurability_OnFull",
                 "DefaultText": "Blackcurrants dried!"
             },
             "ReceivingCardChanges": {
@@ -135,7 +135,7 @@
                 "RequiredUsagePercent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredFuelPercent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredProgressPercent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
-                "RequiredLiquidQuantity": 140.0,
+                "RequiredLiquidQuantity": 0.0,
                 "RequiredSpecial1Percent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredSpecial2Percent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredSpecial3Percent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
@@ -156,11 +156,11 @@
     "DismantleActions": [
         {
             "ActionName": {
-                "LocalizationKey": "herbs_fungi_blackcurrant_Eat_ActionName",
+                "LocalizationKey": "herbsfungiblackcurrant_Eat_ActionName",
                 "DefaultText": "Eat"
             },
             "ActionDescription": {
-                "LocalizationKey": "herbs_fungi_blackcurrant_Eat_ActionDescription",
+                "LocalizationKey": "herbsfungiblackcurrant_Eat_ActionDescription",
                 "DefaultText": "Eat the blackcurrants. Tart and nutritious."
             },
             "DaytimeCost": 0,

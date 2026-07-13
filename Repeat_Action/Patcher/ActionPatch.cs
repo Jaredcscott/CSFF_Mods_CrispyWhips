@@ -7,6 +7,8 @@ using HarmonyLib;
 using BepInEx.Logging;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using CSFFModFramework.Api;
+using CSFFModFramework.Util;
 
 namespace Repeat_Action.Patcher
 {
@@ -71,7 +73,6 @@ namespace Repeat_Action.Patcher
         private static readonly Dictionary<Type, FieldInfo> _dismantleFieldByType = new Dictionary<Type, FieldInfo>();       // RefreshTravelContext / TryPerformRestAction
         private static readonly Dictionary<Type, FieldInfo> _cardNameFieldByType = new Dictionary<Type, FieldInfo>();        // GetCardDisplayName
         private static readonly Dictionary<Type, FieldInfo> _uniqueIdFieldByType = new Dictionary<Type, FieldInfo>();        // GetCardDisplayName
-        private static readonly Dictionary<Type, object> _defaultTextMemberByType = new Dictionary<Type, object>();          // GetCardDisplayName (FieldInfo or PropertyInfo)
         private static readonly Dictionary<Type, object> _slotMemberByType = new Dictionary<Type, object>();                 // GetCardSlot (first hit wins; stores PropertyInfo or FieldInfo)
         private static readonly Dictionary<Type, object> _cardLogicMemberByType = new Dictionary<Type, object>();            // GetCardSlot
         private static readonly Dictionary<Type, object> _slotOwnerMemberByType = new Dictionary<Type, object>();            // GetCardSlot
@@ -114,7 +115,8 @@ namespace Repeat_Action.Patcher
         private static int lastArGivenIdx = -1;                 // Index of _GivenCard param
 
         // ===== Group inventory action flag =====
-        private static bool lastIsGroupInventoryAction = false;  // True if captured via Gate 2b (Forage/Clear/Harvest)
+        private static bool lastIsGroupInventoryAction = false;  // True ONLY if the UI click itself went through OnGroupInventoryActionClicked (Forage/Clear) — selects replay click method
+        private static bool lastCapturedViaGroupAction = false;  // True whenever Gate 2b (PerformGroupInventoryAction) captured this action, regardless of UI click path — gates the stale-action-object validation skip. DismantleActions with a CollectionName (e.g. "Harvest" on a field) click via OnButtonClicked but still execute through PerformGroupInventoryAction, so their captured CardAction is the same kind of dynamically-generated, validation-hostile object as a true Forage/Clear.
 
         // ===== Repeat state =====
         private static bool isRepeating = false;
@@ -479,6 +481,7 @@ namespace Repeat_Action.Patcher
                     lastCocMethod = null;
                     lastActionRoutineArgs = null;
                     lastActionRoutineMethod = null;
+                    lastCapturedViaGroupAction = false;
                     return;
                 }
 
@@ -495,6 +498,7 @@ namespace Repeat_Action.Patcher
                 // (e.g., "Harvest" on Reed Patch) go through OnButtonClicked -> PerformGroupInventoryAction,
                 // so they must replay via OnButtonClicked, not OnGroupInventoryActionClicked.
                 lastIsGroupInventoryAction = capturedViaGroupActionUI;
+                lastCapturedViaGroupAction = true;
                 savedReceivingUniqueId = GetCardUniqueId(receivingCard);
                 savedGivenUniqueId = null;
 
@@ -598,8 +602,7 @@ namespace Repeat_Action.Patcher
                 // Neither gate triggered - this is a system action, skip it
                 if (!fromPopup && !fromMouseClick)
                 {
-                    string skippedName = GetActionDisplayName(_Action);
-                    Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Capture] SKIPPED system action: {skippedName}");
+                    Logger.LogDebug($"[Capture] SKIPPED system action: {GetActionDisplayName(_Action)}");
                     return;
                 }
 
@@ -644,6 +647,7 @@ namespace Repeat_Action.Patcher
                     lastCocMethod = null;
                     lastActionRoutineArgs = null;
                     lastActionRoutineMethod = null;
+                    lastCapturedViaGroupAction = false;
                     return;
                 }
 
@@ -665,6 +669,7 @@ namespace Repeat_Action.Patcher
                 lastActionIndex = buttonIndex;
                 lastInspectionPopup = popupInstance;
                 lastIsGroupInventoryAction = false; // Regular button actions use OnButtonClicked
+                lastCapturedViaGroupAction = false;
                 savedReceivingUniqueId = GetCardUniqueId(_ReceivingCard);
                 savedGivenUniqueId = _GivenCard != null ? GetCardUniqueId(_GivenCard) : null;
 
@@ -757,6 +762,7 @@ namespace Repeat_Action.Patcher
                     lastCocMethod = null;
                     lastActionRoutineArgs = null;
                     lastActionRoutineMethod = null;
+                    lastCapturedViaGroupAction = false;
                     return;
                 }
 
@@ -769,6 +775,7 @@ namespace Repeat_Action.Patcher
                 lastActionIndex = -99; // Special marker for drag-drop actions
                 lastInspectionPopup = null; // No popup for drag-drop
                 lastIsGroupInventoryAction = false; // Drag-drop actions don't use group inventory
+                lastCapturedViaGroupAction = false;
                 savedReceivingUniqueId = GetCardUniqueId(_ReceivingCard);
                 savedGivenUniqueId = GetCardUniqueId(_GivenCard);
 
@@ -1041,12 +1048,26 @@ namespace Repeat_Action.Patcher
                     else if (completed > 0)
                     {
                         Plugin.ShowNotification($"Card transformed ({completed}/{count})");
-                        Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] Target card consumed/transformed after {completed} iterations");
+                        Logger.LogInfo($"[Repeat] STOP: target card consumed/transformed after {completed} iterations");
                     }
                     else
                     {
-                        Plugin.ShowNotification($"Target missing ({completed}/{count})");
-                        Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] Target card missing at {i + 1}/{count}");
+                        // Check if the card has transformed (vs truly missing)
+                        // This happens for one-shot transform actions like Thresh (only one bundle available)
+                        string currentCardId = lastReceivingCard != null ? GetCardUniqueId(lastReceivingCard) : null;
+                        bool cardTransformedBeforeRepeat = !string.IsNullOrEmpty(currentCardId)
+                            && !string.IsNullOrEmpty(savedReceivingUniqueId)
+                            && !string.Equals(currentCardId, savedReceivingUniqueId, StringComparison.Ordinal);
+                        if (cardTransformedBeforeRepeat)
+                        {
+                            Plugin.ShowNotification($"Done - nothing left to {lastActionName?.ToLower() ?? "process"} ({completed}/{count})");
+                            Logger.LogInfo($"[Repeat] STOP: card transformed before repeat start (no more {savedReceivingUniqueId} cards on board)");
+                        }
+                        else
+                        {
+                            Plugin.ShowNotification($"Target missing ({completed}/{count})");
+                            Logger.LogInfo($"[Repeat] STOP: target card missing at iteration {i + 1}/{count}");
+                        }
                     }
                     break;
                 }
@@ -1147,13 +1168,20 @@ namespace Repeat_Action.Patcher
                 }
 
                 // --- Validate action still available (before executing) ---
-                // Skip validation for group inventory actions (Forage, Clear, Harvest) —
-                // their captured action objects become stale (conditions check fails on
-                // dynamically-generated action lists). The game validates internally when
-                // OnGroupInventoryActionClicked is invoked.
+                // Skip validation for ANY action captured via PerformGroupInventoryAction
+                // (Forage, Clear, and DismantleActions with a CollectionName like "Harvest"
+                // on a field) — their captured action objects come from a dynamically-generated
+                // list and go stale immediately, so SimpleConditionsCheck/QuickRequirementsCheck
+                // fail even when the action is perfectly repeatable. Gate on
+                // lastCapturedViaGroupAction (true for all of the above), NOT
+                // lastIsGroupInventoryAction (true only when the UI click itself went through
+                // OnGroupInventoryActionClicked) — Harvest-style actions click via
+                // OnButtonClicked and were wrongly subjected to this validation. The game
+                // validates internally when the click method (OnButtonClicked or
+                // OnGroupInventoryActionClicked, chosen by lastIsGroupInventoryAction) is invoked.
                 if (isTravelAction)
                     Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] Travel pre-validate: action={lastAction != null}, card={lastReceivingCard != null}, cardless={cardlessAction}, idx={lastActionIndex}");
-                if (!lastIsGroupInventoryAction)
+                if (!lastCapturedViaGroupAction)
                 {
                     bool canPerform = CheckActionAvailable();
                     if (!canPerform && IsChopAction())
@@ -1442,10 +1470,11 @@ namespace Repeat_Action.Patcher
                         }
                     }
 
-                    if (!executed && !lastIsGroupInventoryAction)
+                    if (!executed && !lastCapturedViaGroupAction)
                     {
-                        // Direct execution uses captured ActionRoutine args — skip for group
-                        // inventory actions since their captured action objects become stale.
+                        // Direct execution uses captured ActionRoutine args — skip for any
+                        // action captured via PerformGroupInventoryAction (Forage/Clear/Harvest)
+                        // since their captured action objects become stale.
                         Logger.Log(BepInEx.Logging.LogLevel.Debug, "[Repeat] Popup retries failed, trying direct call");
                         executed = TryDirectExecution(gm as MonoBehaviour);
                         Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] Direct execution: {executed}");
@@ -1841,7 +1870,15 @@ namespace Repeat_Action.Patcher
                             {
                                 cardConsumed = true;
                                 cardTransformed = true;
-                                Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] Card transformed mid-action: '{receivingUniqueId}' -> '{postId}'");
+                                Logger.LogInfo($"[Repeat] Card transformed: '{receivingUniqueId}' -> '{postId}'");
+                            }
+                            else if (!string.IsNullOrEmpty(receivingUniqueId) && string.IsNullOrEmpty(postId))
+                            {
+                                // CardModel briefly null after transform — treat as transformed and let
+                                // TryRefreshReceivingCard on the next iteration resolve the correct target
+                                cardConsumed = true;
+                                cardTransformed = true;
+                                Logger.LogInfo("[Repeat] Card model null post-action (likely mid-transform); treating as transformed");
                             }
                         }
                     }
@@ -2798,21 +2835,24 @@ namespace Repeat_Action.Patcher
             int hydrationThreshold = Plugin.HydrationStopThreshold.Value;
             int staminaThreshold = Plugin.StaminaStopThreshold.Value;
 
+            // GUIDs resolved via the framework's VanillaIds registry (Documentation/CSFF_Reference.md
+            // confirms Satiation/Hydration/Stamina map to these exact GUIDs); the literal is kept as
+            // a fallback in case the embedded registry fails to load.
             if (satiationThreshold > 0)
             {
-                var ratio = GetStatCurrentRatio("930cf914322e9f145af1315d96f85a28");
+                var ratio = GetStatCurrentRatio(VanillaIds.GetStat("Satiation") ?? "930cf914322e9f145af1315d96f85a28");
                 if (ratio.HasValue && ratio.Value * 100f < satiationThreshold)
                     return $"Satiation < {satiationThreshold}%";
             }
             if (hydrationThreshold > 0)
             {
-                var ratio = GetStatCurrentRatio("95ca7c21ffad5e647acc3d9cb5bfcde6");
+                var ratio = GetStatCurrentRatio(VanillaIds.GetStat("Hydration") ?? "95ca7c21ffad5e647acc3d9cb5bfcde6");
                 if (ratio.HasValue && ratio.Value * 100f < hydrationThreshold)
                     return $"Hydration < {hydrationThreshold}%";
             }
             if (staminaThreshold > 0)
             {
-                var ratio = GetStatCurrentRatio("1cfd30cf13b69b949a0ac521f55a59a2");
+                var ratio = GetStatCurrentRatio(VanillaIds.GetStat("Stamina") ?? "1cfd30cf13b69b949a0ac521f55a59a2");
                 if (ratio.HasValue && ratio.Value * 100f < staminaThreshold)
                     return $"Stamina < {staminaThreshold}%";
             }
@@ -3108,7 +3148,7 @@ namespace Repeat_Action.Patcher
                 if (!string.IsNullOrEmpty(currentId) && !string.IsNullOrEmpty(savedReceivingUniqueId)
                     && !string.Equals(currentId, savedReceivingUniqueId, StringComparison.Ordinal))
                 {
-                    Logger.Log(BepInEx.Logging.LogLevel.Debug, $"[Repeat] Receiving card transformed since capture: '{savedReceivingUniqueId}' -> '{currentId}'; refreshing original target");
+                    Logger.LogInfo($"[Repeat] Card transformed since capture ('{savedReceivingUniqueId}'->'{currentId}'); searching for next target");
                 }
 
                 if (string.IsNullOrEmpty(uniqueId))
@@ -3121,7 +3161,7 @@ namespace Repeat_Action.Patcher
                 if (refreshedCard != null)
                 {
                     if (!ReferenceEquals(refreshedCard, lastReceivingCard))
-                        Logger.Log(BepInEx.Logging.LogLevel.Debug, "[Repeat] Refreshed target card reference from scene");
+                        Logger.LogInfo($"[Repeat] Found next target card in scene (uid={uniqueId})");
 
                     lastReceivingCard = refreshedCard;
                     return true;
@@ -3222,7 +3262,7 @@ namespace Repeat_Action.Patcher
                 bool sameType = string.Equals(givenId, receivingId, StringComparison.Ordinal);
 
                 object excludeCard = sameType ? lastReceivingCard : null;
-                var refreshedCard = FindMatchingCardInScene(lastGivenCard, excludeCard, givenId);
+                var refreshedCard = FindMatchingCardInScene(lastGivenCard, excludeCard, givenId, requireTransferable: true);
                 if (refreshedCard != null)
                 {
                     if (!ReferenceEquals(refreshedCard, lastGivenCard))
@@ -3293,14 +3333,19 @@ namespace Repeat_Action.Patcher
             }
         }
 
-        private static object FindMatchingCardInScene(object referenceCard, object excludeCard = null, string overrideUniqueId = null)
+        private static object FindMatchingCardInScene(object referenceCard, object excludeCard = null, string overrideUniqueId = null, bool requireTransferable = false)
         {
-            var graphics = FindMatchingCardGraphics(referenceCard, excludeCard, overrideUniqueId);
+            var graphics = FindMatchingCardGraphics(referenceCard, excludeCard, overrideUniqueId, requireTransferable);
             if (graphics == null) return null;
             return GetCardFromGraphics(graphics);
         }
 
-        private static object FindMatchingCardGraphics(object referenceCard, object excludeCard = null, string overrideUniqueId = null)
+        // requireTransferable: true for candidates that will be programmatically dragged/moved (the "given" card).
+        // Vanilla's CannotBeTransferred guard only runs on the player's own drag path, not on programmatic replay -
+        // this mod must check it independently. Receiving/target cards are not themselves relocated, so they
+        // don't need this check (e.g. a placed structure with CannotBeTransferred=true must still be findable
+        // as a repeat-action target).
+        private static object FindMatchingCardGraphics(object referenceCard, object excludeCard = null, string overrideUniqueId = null, bool requireTransferable = false)
         {
             try
             {
@@ -3329,6 +3374,7 @@ namespace Repeat_Action.Patcher
                         if (string.IsNullOrEmpty(cardUniqueId)) continue;
                         if (!string.Equals(cardUniqueId, targetUniqueId, StringComparison.Ordinal))
                             continue;
+                        if (requireTransferable && IsCardCannotBeTransferred(card)) continue;
 
                         var cardSlot = GetCardSlot(card);
                         if (cardSlot != null && ReferenceEquals(cardSlot, targetSlot))
@@ -3350,6 +3396,7 @@ namespace Repeat_Action.Patcher
                     if (string.IsNullOrEmpty(cardUniqueId)) continue;
                     if (!string.Equals(cardUniqueId, targetUniqueId, StringComparison.Ordinal))
                         continue;
+                    if (requireTransferable && IsCardCannotBeTransferred(card)) continue;
 
                     return graphics;
                 }
@@ -3360,6 +3407,13 @@ namespace Repeat_Action.Patcher
             }
 
             return null;
+        }
+
+        private static bool IsCardCannotBeTransferred(object card)
+        {
+            var cardModel = (igcbCardModelProp ?? AccessTools.Property(card.GetType(), "CardModel"))?.GetValue(card);
+            if (cardModel == null) return false;
+            return GetMemberValueSilent(cardModel, "CannotBeTransferred") is bool ct && ct;
         }
 
         private static object GetCardFromGraphics(object cardGraphicsInstance)
@@ -3398,25 +3452,10 @@ namespace Repeat_Action.Patcher
             return true;
         }
 
-        private static string GetCardUniqueId(object card)
-        {
-            try
-            {
-                if (card == null) return null;
-
-                var t = card.GetType();
-                var cardModelProp = igcbCardModelProp
-                    ?? (igcbCardModelProp = AccessTools.Property(t, "CardModel"));
-                var cardModel = cardModelProp?.GetValue(card);
-                if (cardModel == null) return null;
-
-                return GetMemberValueSilent(cardModel, "UniqueID") as string;
-            }
-            catch
-            {
-                return null;
-            }
-        }
+        // Delegates to the framework's CardUtil, which walks CardModel/CardData -> UniqueID
+        // (with a UniqueIDScriptable fast path) instead of the hand-rolled reflection this
+        // method used to do. Signature/callers unchanged.
+        private static string GetCardUniqueId(object card) => CardUtil.GetCardUniqueId(card);
 
         private static object GetCardSlot(object card)
         {
@@ -3494,27 +3533,10 @@ namespace Repeat_Action.Patcher
             return null;
         }
 
+        // Delegates the property-then-field lookup to the framework's Reflect API, which
+        // additionally caches the resolution per (Type, name) across the whole game session.
         private static object GetMemberValueSilent(object obj, string name)
-        {
-            if (obj == null || string.IsNullOrEmpty(name)) return null;
-
-            try
-            {
-                var flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
-                var type = obj.GetType();
-
-                var prop = type.GetProperty(name, flags);
-                if (prop != null)
-                    return prop.GetValue(obj, null);
-
-                var field = type.GetField(name, flags);
-                if (field != null)
-                    return field.GetValue(obj);
-            }
-            catch { }
-
-            return null;
-        }
+            => Reflect.TryGetMember(obj, name, out var value) ? value : null;
 
         // =====================================================================
         // HELPERS
@@ -3649,9 +3671,9 @@ namespace Repeat_Action.Patcher
                 var locString = GetMemberValueSilent(action, "ActionName");
                 if (locString != null)
                 {
-                    var defaultText = GetMemberValueSilent(locString, "DefaultText");
-                    if (defaultText is string s && !string.IsNullOrEmpty(s))
-                        return s;
+                    var defaultText = LocalizedStringBuilder.GetDefaultText(locString);
+                    if (!string.IsNullOrEmpty(defaultText))
+                        return defaultText;
                 }
 
                 // Try name property
@@ -3691,18 +3713,9 @@ namespace Repeat_Action.Patcher
                         var locString = cardNameField.GetValue(data);
                         if (locString != null)
                         {
-                            var lsType = locString.GetType();
-                            if (!_defaultTextMemberByType.TryGetValue(lsType, out var dtMember))
-                            {
-                                var fi = AccessTools.Field(lsType, "DefaultText");
-                                _defaultTextMemberByType[lsType] = dtMember = (object)fi
-                                    ?? AccessTools.Property(lsType, "DefaultText");
-                            }
-                            object defaultText = dtMember is FieldInfo dtFi
-                                ? dtFi.GetValue(locString)
-                                : (dtMember as PropertyInfo)?.GetValue(locString);
-                            if (defaultText is string s && !string.IsNullOrEmpty(s))
-                                return s;
+                            var defaultText = LocalizedStringBuilder.GetDefaultText(locString);
+                            if (!string.IsNullOrEmpty(defaultText))
+                                return defaultText;
                         }
                     }
 

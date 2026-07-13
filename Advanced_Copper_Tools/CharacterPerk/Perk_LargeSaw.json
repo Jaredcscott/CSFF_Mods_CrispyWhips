@@ -1,4 +1,4 @@
-{
+﻿{
   "ActionModifiers": [],
   "ActionObjectives": [],
   "AddedCards": [],
@@ -19,7 +19,7 @@
   ],
   "EquippedCardsWarpType": 3,
   "HiddenUntilUnlocked": false,
-  "MoonsCost": 3,
+  "MoonsCost": 0,
   "NestedObjectives": [],
   "NoSafetyMode": false,
   "NotifyWhenNotChecked": false,
@@ -63,7 +63,7 @@
   "StartUnlocked": false,
   "StartingStatModifiers": [],
   "StatsObjectives": [],
-  "SunsCost": 0,
+  "SunsCost": 45,
   "TagsOnBoardObjectives": [],
   "TimeObjectives": [],
   "UniqueID": "advanced_copper_tools_perk_large_saw",

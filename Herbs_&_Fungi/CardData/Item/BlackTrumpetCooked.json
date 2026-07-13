@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_black_trumpet_cooked",
     "CardName": {
         "ParentObjectID": "herbs_fungi_black_trumpet_cooked",
-        "LocalizationKey": "herbs_fungi_black_trumpet_cooked_CardName",
+        "LocalizationKey": "herbsfungiblacktrumpetcooked_CardName",
         "DefaultText": "Cooked Black Trumpet"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_black_trumpet_cooked",
-        "LocalizationKey": "herbs_fungi_black_trumpet_cooked_CardDescription",
+        "LocalizationKey": "herbsfungiblacktrumpetcooked_CardDescription",
         "DefaultText": "Expertly cooked black trumpet mushrooms. The smoky, truffle-like flavor is now fully developed. A true gourmet delicacy."
     },
     "CardType": 0,
@@ -31,12 +31,12 @@
     "CardImageWarpType": 3,
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_black_trumpet_cooked",
-        "LocalizationKey": "herbs_fungi_black_trumpet_cooked_SpoilageTime_StatName",
+        "LocalizationKey": "herbsfungiblacktrumpetcooked_SpoilageTime_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_black_trumpet_cooked",
-            "LocalizationKey": "herbs_fungi_black_trumpet_cooked_SpoilageTime_StatName",
+            "LocalizationKey": "herbsfungiblacktrumpetcooked_SpoilageTime_StatName",
             "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
@@ -47,7 +47,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_black_trumpet_cooked",
-                "LocalizationKey": "herbs_fungi_black_trumpet_cooked_SpoilageTime_Spoiled",
+                "LocalizationKey": "herbsfungiblacktrumpetcooked_SpoilageTime_Spoiled",
                 "DefaultText": "The cooked black trumpet has spoiled."
             },
             "ReceivingCardChanges": {
@@ -66,12 +66,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_black_trumpet_cooked",
-                "LocalizationKey": "herbs_fungi_black_trumpet_cooked_Eat",
+                "LocalizationKey": "herbsfungiblacktrumpetcooked_Eat",
                 "DefaultText": "Eat"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_black_trumpet_cooked",
-                "LocalizationKey": "herbs_fungi_black_trumpet_cooked_Eat_Desc",
+                "LocalizationKey": "herbsfungiblacktrumpetcooked_Eat_Desc",
                 "DefaultText": "Savor the smoky, truffle-like flavor of the cooked black trumpet."
             },
             "DaytimeCost": 0,
@@ -489,7 +489,7 @@
                         "FloatValue": 0.0
                     }
                 },
-                "RequiredLiquidQuantity": 140.0,
+                "RequiredLiquidQuantity": 0.0,
                 "RequiredSpecial1Percent": {
                     "Active": false,
                     "FloatValue": 0.0,

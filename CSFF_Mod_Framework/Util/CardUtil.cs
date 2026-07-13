@@ -316,6 +316,77 @@ public static class CardUtil
         return null;
     }
 
+    // ── World-map / gate condition state queries ──────────────────────────────
+    //
+    // Shared by ConnectionGateService, ConditionalDropService, and SealableGateService —
+    // each independently reimplemented these before this consolidation (2026-07-02).
+
+    /// <summary>
+    /// Returns true if the current player character has the given perk UID equipped.
+    /// Walks <c>GameManager.CurrentPlayerCharacter.CharacterPerks</c>. False on any
+    /// missing link (no GameManager, no character, no perks) or reflection failure.
+    /// </summary>
+    public static bool IsPerkEquipped(string perkUID)
+    {
+        if (string.IsNullOrEmpty(perkUID)) return false;
+        try
+        {
+            var gm = GetGameManagerInstance();
+            if (gm == null) return false;
+            var character = GetMemberValue(gm, "CurrentPlayerCharacter");
+            if (character == null) return false;
+            if (GetMemberValue(character, "CharacterPerks") is not IEnumerable perks) return false;
+            foreach (var perk in perks)
+            {
+                if (perk == null) continue;
+                if (perkUID.Equals(GetMemberValue(perk, "UniqueID") as string, StringComparison.Ordinal))
+                    return true;
+            }
+        }
+        catch { }
+        return false;
+    }
+
+    /// <summary>
+    /// Returns true if <paramref name="impUID"/> is present in the <c>CurrentlyBuiltImprovements</c>
+    /// list of the <see cref="GameManager"/>.EnvironmentsData entry for <paramref name="envUID"/>.
+    /// Matches the entry by <c>EnvironmentID</c>, <c>DictionaryKey</c>, or raw dictionary key,
+    /// since different EnvID construction paths populate different fields. False on any
+    /// missing link or reflection failure.
+    /// </summary>
+    public static bool IsImprovementBuilt(string envUID, string impUID)
+    {
+        if (string.IsNullOrEmpty(envUID) || string.IsNullOrEmpty(impUID)) return false;
+        try
+        {
+            var gm = GetGameManagerInstance();
+            if (gm == null) return false;
+            var envDataField = GetCachedField(gm.GetType(), "EnvironmentsData");
+            if (envDataField?.GetValue(gm) is not IDictionary envData) return false;
+
+            foreach (DictionaryEntry entry in envData)
+            {
+                var value = entry.Value;
+                if (value == null) continue;
+                var vt = value.GetType();
+                var envId   = GetCachedField(vt, "EnvironmentID")?.GetValue(value) as string;
+                var dictKey = GetCachedField(vt, "DictionaryKey")?.GetValue(value) as string;
+                bool isTarget =
+                    envUID.Equals(envId,               StringComparison.Ordinal) ||
+                    envUID.Equals(dictKey,             StringComparison.Ordinal) ||
+                    envUID.Equals(entry.Key as string, StringComparison.Ordinal);
+                if (!isTarget) continue;
+
+                // An env can have multiple entries (EnvID constructed differently); scan all matches.
+                if (GetCachedField(vt, "CurrentlyBuiltImprovements")?.GetValue(value) is IEnumerable built)
+                    foreach (var uid in built)
+                        if (impUID.Equals(uid as string, StringComparison.Ordinal)) return true;
+            }
+        }
+        catch { }
+        return false;
+    }
+
     // ── Type conversion helpers ───────────────────────────────────────────────
 
     /// <summary>Converts any boxed numeric value to float. Returns 0 on null or failure.</summary>

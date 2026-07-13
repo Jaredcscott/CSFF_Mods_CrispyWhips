@@ -1,6 +1,6 @@
 ﻿{
     "Version":  "EA_0-64",
-    "GeneratedFrom":  "Documentation/GameData/CSFF-JsonData_EA_0-64/ScriptableObjectJsonDataWithWarpLitAllInOne/WorldMapData/DefaultWorldMap.json",
+    "GeneratedFrom":  "Documentation/GameData/CSFF-JsonData_EA_0-65/ScriptableObjectJsonDataWithWarpLitAllInOne/WorldMapData/DefaultWorldMap.json",
     "Edges":  [
                   {
                       "SourceEnvUid":  "08a396e21153e6c44aef77166346eab4",

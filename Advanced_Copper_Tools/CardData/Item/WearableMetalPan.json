@@ -553,6 +553,68 @@
     {
       "ActionName": {
         "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
+        "LocalizationKey": "Advanced_Copper_Tools_WearableMetalPan_CollectRain_ActionName",
+        "DefaultText": "Collect Rain"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
+        "LocalizationKey": "Advanced_Copper_Tools_WearableMetalPan_CollectRain_ActionDescription",
+        "DefaultText": "Leave the pan out to catch fresh rainwater while it rains."
+      },
+      "StackCompatible": true,
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "773fb34e869224f499d43b441c973c62",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 1.0,
+            "y": 5.0
+          },
+          "NotifyWhenNotMet": false,
+          "HideAllWhenNotMet": false
+        }
+      ],
+      "RequiredReceivingLiquidContent": {
+        "IsActive": true
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "rain",
+          "CreatedLiquid": {
+            "LiquidCard": {
+              "m_FileID": 0,
+              "m_PathID": 0
+            },
+            "LiquidCardWarpData": "425259cb06b869d45be2e7f1b5b54aff",
+            "LiquidCardWarpType": 3,
+            "Quantity": {
+              "x": 50.0,
+              "y": 50.0
+            }
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0,
+        "LiquidQuantityChange": {
+          "x": 10000.0,
+          "y": 0.0
+        }
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_wearable_metal_pan",
         "LocalizationKey": "Advanced_Copper_Tools_WearableMetalPan_Dismantle_ActionName",
         "DefaultText": "Dismantle"
       },

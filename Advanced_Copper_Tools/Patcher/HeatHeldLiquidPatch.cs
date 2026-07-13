@@ -1,8 +1,8 @@
 using System;
-using System.Collections.Generic;
-using System.Reflection;
 using HarmonyLib;
 using BepInEx.Logging;
+using CSFFModFramework.Api;
+using CSFFModFramework.Util;
 
 namespace Advanced_Copper_Tools.Patcher
 {
@@ -21,55 +21,27 @@ namespace Advanced_Copper_Tools.Patcher
         // (30 in-game minutes), matching the player's expectation of "lit kettle".
         private const float HeatPerDtp = 200f;
 
-        private static Type _gmType;
         private static Type _cardBaseType;
-        private static PropertyInfo _gmInstanceProp;
-        private static PropertyInfo _gmDtpProp;
-        private static FieldInfo _gmDtpField;
-        private static FieldInfo _liquidFuelField;
-        private static PropertyInfo _liquidFuelProp;
-        private static FieldInfo _curLiquidQtyField;
-        private static PropertyInfo _curLiquidQtyProp;
-        private static FieldInfo _cardModelField;
-        private static PropertyInfo _cardModelProp;
-        private static FieldInfo _uidField;
-        private static int _lastDtp = int.MinValue;
         private static bool _disabled;
+        private static bool _liquidFuelMissingLogged;
         private static int _logCount;
-
-        private const BindingFlags Flags =
-            BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
 
         public static void ApplyPatch(Harmony harmony)
         {
             try
             {
-                _gmType = AccessTools.TypeByName("GameManager");
-                _cardBaseType = AccessTools.TypeByName("InGameCardBase");
-                if (_gmType == null || _cardBaseType == null)
+                _cardBaseType = CardUtil.FindGameType("InGameCardBase");
+                if (_cardBaseType == null)
                 {
-                    Logger?.LogError("[HeatHeldLiquid] type lookup failed (GameManager/InGameCardBase)");
+                    Logger?.LogError("[HeatHeldLiquid] InGameCardBase type not found");
                     return;
                 }
 
-                // Per-frame hook; gates internally on DayTimePoints change so the work
-                // only fires once per dtp tick.
-                var update = AccessTools.Method(_gmType, "Update")
-                          ?? AccessTools.Method(_gmType, "LateUpdate");
-                if (update == null)
-                {
-                    Logger?.LogError("[HeatHeldLiquid] GameManager.Update/LateUpdate not found");
-                    return;
-                }
-                harmony.Patch(update, postfix: new HarmonyMethod(typeof(HeatHeldLiquidPatch), nameof(Update_Postfix)));
+                // Fires once per in-game DTP change (framework tick gate) instead of a
+                // hand-rolled GameManager.Update patch with manual DTP-change detection.
+                TickEvents.DtpTick += OnDtpTick;
 
-                _gmInstanceProp = _gmType.GetProperty("Instance", BindingFlags.Public | BindingFlags.Static);
-                _gmDtpProp = _gmType.GetProperty("DayTimePoints", Flags)
-                          ?? _gmType.GetProperty("CurrentDayTimePoints", Flags);
-                _gmDtpField = _gmType.GetField("DayTimePoints", Flags)
-                           ?? _gmType.GetField("CurrentDayTimePoints", Flags);
-
-                Logger?.LogDebug($"[HeatHeldLiquid] patched (Instance={_gmInstanceProp != null}, DtpProp={_gmDtpProp != null}, DtpField={_gmDtpField != null})");
+                Logger?.LogDebug("[HeatHeldLiquid] subscribed to TickEvents.DtpTick");
             }
             catch (Exception ex)
             {
@@ -77,15 +49,11 @@ namespace Advanced_Copper_Tools.Patcher
             }
         }
 
-        private static void Update_Postfix()
+        private static void OnDtpTick()
         {
             if (_disabled) return;
             try
             {
-                int dtp = ReadCurrentDtp();
-                if (dtp == int.MinValue) return;
-                if (dtp == _lastDtp) return;
-                _lastDtp = dtp;
                 TickAllLitStations();
             }
             catch (Exception ex)
@@ -93,20 +61,6 @@ namespace Advanced_Copper_Tools.Patcher
                 Logger?.LogError($"[HeatHeldLiquid] tick error: {FullException(ex)}");
                 _disabled = true;
             }
-        }
-
-        private static int ReadCurrentDtp()
-        {
-            try
-            {
-                var gm = _gmInstanceProp?.GetValue(null);
-                if (gm == null) return int.MinValue;
-                object v = _gmDtpProp != null ? _gmDtpProp.GetValue(gm)
-                         : _gmDtpField?.GetValue(gm);
-                if (v == null) return int.MinValue;
-                return Convert.ToInt32(v);
-            }
-            catch { return int.MinValue; }
         }
 
         private static void TickAllLitStations()
@@ -120,62 +74,36 @@ namespace Advanced_Copper_Tools.Patcher
                 if (TryHeat(c)) touched++;
             }
             if (touched > 0 && _logCount++ < 4)
-                Logger?.LogDebug($"[HeatHeldLiquid] heated held liquid on {touched} lit station(s) at dtp={_lastDtp}");
+                Logger?.LogDebug($"[HeatHeldLiquid] heated held liquid on {touched} lit station(s).");
         }
 
         private static bool IsLitStation(object card)
         {
-            try
-            {
-                if (card == null) return false;
-                if (_cardModelProp == null && _cardModelField == null)
-                {
-                    var t = card.GetType();
-                    _cardModelProp = t.GetProperty("CardModel", Flags);
-                    _cardModelField = t.GetField("CardModel", Flags);
-                }
-                object cardData = _cardModelProp?.GetValue(card)
-                               ?? _cardModelField?.GetValue(card);
-                if (cardData == null) return false;
-
-                if (_uidField == null)
-                    _uidField = cardData.GetType().GetField("UniqueID", Flags);
-                var uid = _uidField?.GetValue(cardData) as string;
-                return uid == LitStationUID;
-            }
-            catch { return false; }
+            return card != null && CardUtil.GetCardUniqueId(card) == LitStationUID;
         }
 
         private static bool TryHeat(object card)
         {
             try
             {
-                var t = card.GetType();
-                if (_curLiquidQtyField == null && _curLiquidQtyProp == null)
-                {
-                    _curLiquidQtyField = t.GetField("CurrentLiquidQuantity", Flags);
-                    _curLiquidQtyProp  = t.GetProperty("CurrentLiquidQuantity", Flags);
-                }
-                float qty = ReadFloat(card, _curLiquidQtyField, _curLiquidQtyProp);
+                float qty = Reflect.GetFloat(card, "CurrentLiquidQuantity");
                 if (qty <= 0f) return false; // no liquid held
 
-                if (_liquidFuelField == null && _liquidFuelProp == null)
+                if (!Reflect.TryGetMember(card, "LiquidFuelValue", out var raw))
                 {
-                    _liquidFuelField = t.GetField("LiquidFuelValue", Flags);
-                    _liquidFuelProp  = t.GetProperty("LiquidFuelValue", Flags);
-                    if (_liquidFuelField == null && _liquidFuelProp == null)
+                    if (!_liquidFuelMissingLogged)
                     {
                         Logger?.LogError("[HeatHeldLiquid] LiquidFuelValue not found on InGameCardBase — patch disabled");
+                        _liquidFuelMissingLogged = true;
                         _disabled = true;
-                        return false;
                     }
+                    return false;
                 }
 
-                float current = ReadFloat(card, _liquidFuelField, _liquidFuelProp);
+                float current = CardUtil.ToFloat(raw);
                 if (current >= 200f) return false; // already at max for vanilla heatable liquids
-                float next = current + HeatPerDtp;
-                if (next > 200f) next = 200f;
-                WriteFloat(card, _liquidFuelField, _liquidFuelProp, next);
+                float next = Math.Min(current + HeatPerDtp, 200f);
+                Reflect.SetMember(card, "LiquidFuelValue", next);
                 return true;
             }
             catch (Exception ex)
@@ -183,26 +111,6 @@ namespace Advanced_Copper_Tools.Patcher
                 Logger?.LogError($"[HeatHeldLiquid] TryHeat failed: {FullException(ex)}");
                 return false;
             }
-        }
-
-        private static float ReadFloat(object obj, FieldInfo f, PropertyInfo p)
-        {
-            try
-            {
-                object v = f != null ? f.GetValue(obj) : p?.GetValue(obj);
-                return v == null ? 0f : Convert.ToSingle(v);
-            }
-            catch { return 0f; }
-        }
-
-        private static void WriteFloat(object obj, FieldInfo f, PropertyInfo p, float v)
-        {
-            try
-            {
-                if (f != null) { f.SetValue(obj, v); return; }
-                if (p != null && p.CanWrite) p.SetValue(obj, v);
-            }
-            catch (Exception ex) { Logger?.Log(LogLevel.Debug, $"[HeatHeldLiquid] WriteFloat failed: {FullException(ex)}"); }
         }
 
         private static string FullException(Exception ex)

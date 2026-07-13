@@ -1,16 +1,15 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using BepInEx.Logging;
 using HarmonyLib;
+using CSFFModFramework.Api;
 using CSFFModFramework.Util;
 
 namespace Herbs_And_Fungi.Patcher
 {
     /// <summary>
-    /// Two responsibilities:
+    /// Two responsibilities, now routed through Api.ActionRouter (Tier 2):
     /// 1) On Make Brine: swap the contained liquid (water → pickle brine) using the in-place
     ///    CardModel pattern. Vat itself stays as PicklingVat.
     /// 2) Pickle BP gate: if a player picks a pickle blueprint while the vat's contained liquid
@@ -43,79 +42,40 @@ namespace Herbs_And_Fungi.Patcher
 
         private static ManualLogSource Logger => Plugin.Logger;
 
-        public static void ApplyPatch(Harmony harmony)
+        public static void ApplyPatch(Harmony _harmony)
         {
             try
             {
-                var gmt = AccessTools.TypeByName("GameManager");
-                if (gmt == null) { Logger?.LogError("[PickleVat] GameManager not found"); return; }
+                ActionRouter.Register(new ActionHandler
+                {
+                    Name = "MakeBrine",
+                    CardUid = PicklingVatID,
+                    ActionKeyPrefix = MakeBrineKey,
+                    ActionNamePrefix = "Make Brine",
+                    Timing = ActionTiming.Before,
+                    Before = ctx =>
+                    {
+                        SwapLiquidToBrine(ctx.Card);
+                        return false;
+                    }
+                });
 
-                PatchIfFound(harmony, gmt, "ActionRoutine", nameof(ActionRoutine_Prefix), "CardAction", "InGameCardBase");
-                PatchIfFound(harmony, gmt, "CardOnCardActionRoutine", nameof(CardOnCardActionRoutine_Prefix), "CardOnCardAction", "InGameCardBase", "InGameCardBase");
-                PatchIfFound(harmony, gmt, "PerformStackActionRoutine", nameof(PerformStackActionRoutine_Prefix), "CardAction");
+                ActionRouter.Register(new ActionHandler
+                {
+                    Name = "PickleBpGate",
+                    CardPredicate = ctx => CardUtil.GetCardUniqueId(ctx.Card) == PicklingVatID
+                                       && IsPickleBp(ctx.Action),
+                    Timing = ActionTiming.Cancel,
+                    Before = ctx =>
+                    {
+                        var liquidUid = GetContainedLiquidUid(ctx.Card);
+                        if (liquidUid == BrineID) return false;
+                        Logger?.LogDebug($"[PickleBpGate] Blocked: liquid='{liquidUid ?? "none"}' on {ctx.CardUid} — pickle recipes require brine.");
+                        return true;
+                    }
+                });
             }
             catch (Exception ex) { Logger?.LogError($"[PickleVat] ApplyPatch: {ex.InnerException?.ToString() ?? ex.ToString()}"); }
-        }
-
-        private static void PatchIfFound(Harmony harmony, Type t, string methodName, string prefixName, params string[] paramTypeNames)
-        {
-            var method = CardUtil.FindMethodBySignature(t, methodName, paramTypeNames);
-            if (method == null) { Logger?.LogError($"[PickleVat] {methodName} with expected parameters not found"); return; }
-            harmony.Patch(method, prefix: new HarmonyMethod(typeof(PickleVatRoutePatch), prefixName));
-        }
-
-        // ActionRoutine(CardAction action, InGameCardBase receiving, ...) — most card actions, including BP execution from a contained-blueprint click.
-        private static bool ActionRoutine_Prefix(object __0, object __1)
-        {
-            return Gate(action: __0, receiver: __1);
-        }
-
-        // CardOnCardActionRoutine(action, given, receiving, ...) — drag-drop CIs.
-        private static bool CardOnCardActionRoutine_Prefix(object __0, object __1, object __2)
-        {
-            return Gate(action: __0, receiver: __2);
-        }
-
-        // PerformStackActionRoutine(stackAction, receiving, ...) — stack-based actions.
-        private static bool PerformStackActionRoutine_Prefix(object __0, object __1)
-        {
-            return Gate(action: __0, receiver: GetStackReceiver(__1) ?? __1);
-        }
-
-        private static object GetStackReceiver(object stackCards)
-        {
-            if (stackCards is IList cards && cards.Count > 0) return cards[0];
-            return null;
-        }
-
-        /// <summary>
-        /// Shared dispatch: handles MakeBrine swap, then pickle-BP brine-required gate.
-        /// Returns false to block the original (only when the BP gate trips).
-        /// </summary>
-        private static bool Gate(object action, object receiver)
-        {
-            try
-            {
-                if (action == null) return true;
-
-                // Make Brine: liquid swap (water → brine), allow original to proceed
-                if (receiver != null && IsMakeBrine(action) && CardUtil.GetCardUniqueId(receiver) == PicklingVatID)
-                {
-                    SwapLiquidToBrine(receiver);
-                    return true;
-                }
-
-                // Pickle BP gate: only allow when contained liquid is brine
-                if (IsPickleBp(action))
-                {
-                    var liquidUid = GetContainedLiquidUid(receiver);
-                    if (liquidUid == BrineID) return true;
-                    Logger?.LogDebug($"[PickleBpGate] Blocked: liquid='{liquidUid ?? "none"}' on receiver='{CardUtil.GetCardUniqueId(receiver) ?? "?"}' — pickle recipes require brine.");
-                    return false;
-                }
-            }
-            catch (Exception ex) { Logger?.LogError($"[PickleVat] Gate: {ex.InnerException?.Message ?? ex.Message}"); }
-            return true;
         }
 
         private static bool IsPickleBp(object actionOrCard)
@@ -188,17 +148,6 @@ namespace Herbs_And_Fungi.Patcher
                 setup?.Invoke(visuals, new[] { card });
             }
             catch (Exception ex) { Logger?.LogError($"[MakeBrine] RefreshCardVisuals: {ex.InnerException?.Message ?? ex.Message}"); }
-        }
-
-        private static bool IsMakeBrine(object action)
-        {
-            try
-            {
-                var key = CardUtil.GetActionLocalizationKey(action);
-                if (key == MakeBrineKey) return true;
-                return CardUtil.GetActionName(action) == "Make Brine";
-            }
-            catch { return false; }
         }
     }
 }

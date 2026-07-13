@@ -1,4 +1,4 @@
-{
+﻿{
     "ActionModifiers": [],
     "ActionObjectives": [],
     "AddedCards": [],
@@ -26,7 +26,7 @@
     ],
     "EquippedCardsWarpType": 3,
     "HiddenUntilUnlocked": false,
-    "MoonsCost": 3,
+    "MoonsCost": 4,
     "NestedObjectives": [],
     "NoSafetyMode": false,
     "NotifyWhenNotChecked": false,

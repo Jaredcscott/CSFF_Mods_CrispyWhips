@@ -1,11 +1,11 @@
 {
     "UniqueID": "herbs_fungi_cloudberry_dried",
     "CardName": {
-        "LocalizationKey": "herbs_fungi_cloudberry_dried_CardName",
+        "LocalizationKey": "herbsfungicloudberrydried_CardName",
         "DefaultText": "Dried Cloudberries"
     },
     "CardDescription": {
-        "LocalizationKey": "herbs_fungi_cloudberry_dried_CardDescription",
+        "LocalizationKey": "herbsfungicloudberrydried_CardDescription",
         "DefaultText": "Carefully dried cloudberries with intensified sweetness and remarkable keeping quality. A precious long-term ration from a rare ingredient."
     },
     "CardType": 0,
@@ -30,7 +30,7 @@
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
-            "LocalizationKey": "herbs_fungi_cloudberry_dried_SpoilageTime_CardStatName",
+            "LocalizationKey": "herbsfungicloudberrydried_SpoilageTime_CardStatName",
             "DefaultText": "Freshness"
         },
         "MaxValue": 3600.0,
@@ -38,7 +38,7 @@
         "HasActionOnFull": true,
         "OnFull": {
             "ActionDescription": {
-                "LocalizationKey": "herbs_fungi_cloudberry_dried_SpoilageTime_OnFull",
+                "LocalizationKey": "herbsfungicloudberrydried_SpoilageTime_OnFull",
                 "DefaultText": "Dried cloudberries lost their flavor."
             },
             "ReceivingCardChanges": {
@@ -110,7 +110,7 @@
                 "RequiredUsagePercent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredFuelPercent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredProgressPercent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
-                "RequiredLiquidQuantity": 140.0,
+                "RequiredLiquidQuantity": 0.0,
                 "RequiredSpecial1Percent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredSpecial2Percent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
                 "RequiredSpecial3Percent": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0, "ScaleRequirementPerPortionOfLiquid": {"Active": false, "FloatValue": 0.0}},
@@ -131,11 +131,11 @@
     "DismantleActions": [
         {
             "ActionName": {
-                "LocalizationKey": "herbs_fungi_cloudberry_dried_Eat_ActionName",
+                "LocalizationKey": "herbsfungicloudberrydried_Eat_ActionName",
                 "DefaultText": "Eat"
             },
             "ActionDescription": {
-                "LocalizationKey": "herbs_fungi_cloudberry_dried_Eat_ActionDescription",
+                "LocalizationKey": "herbsfungicloudberrydried_Eat_ActionDescription",
                 "DefaultText": "Eat the dried cloudberries. Sweet and highly sustaining."
             },
             "DaytimeCost": 0,

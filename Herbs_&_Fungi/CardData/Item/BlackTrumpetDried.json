@@ -2,12 +2,12 @@
     "UniqueID": "herbs_fungi_black_trumpet_dried",
     "CardName": {
         "ParentObjectID": "herbs_fungi_black_trumpet_dried",
-        "LocalizationKey": "herbs_fungi_black_trumpet_dried_CardName",
+        "LocalizationKey": "herbsfungiblacktrumpetdried_CardName",
         "DefaultText": "Dried Black Trumpet"
     },
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_black_trumpet_dried",
-        "LocalizationKey": "herbs_fungi_black_trumpet_dried_CardDescription",
+        "LocalizationKey": "herbsfungiblacktrumpetdried_CardDescription",
         "DefaultText": "Dried black trumpet mushrooms. The drying process intensifies their smoky, earthy flavor. Perfect for adding to stews and sauces."
     },
     "CardType": 0,
@@ -32,12 +32,12 @@
     "CardImageWarpType": 3,
     "SpecialDurability1": {
         "ParentObjectID": "herbs_fungi_black_trumpet_dried",
-        "LocalizationKey": "herbs_fungi_black_trumpet_dried_SpecialDurability1_StatName",
+        "LocalizationKey": "herbsfungiblacktrumpetdried_SpecialDurability1_StatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_black_trumpet_dried",
-            "LocalizationKey": "herbs_fungi_black_trumpet_dried_SpecialDurability1_StatName",
+            "LocalizationKey": "herbsfungiblacktrumpetdried_SpecialDurability1_StatName",
             "DefaultText": "Cook"
         },
         "MinValue": 0.0,
@@ -49,7 +49,7 @@
         "OnFull": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_black_trumpet_dried",
-                "LocalizationKey": "herbs_fungi_black_trumpet_dried_SpecialDurability1_Cooked",
+                "LocalizationKey": "herbsfungiblacktrumpetdried_SpecialDurability1_Cooked",
                 "DefaultText": "The dried black trumpet has been cooked."
             },
             "ReceivingCardChanges": {
@@ -70,12 +70,12 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_black_trumpet_dried",
-                "LocalizationKey": "herbs_fungi_black_trumpet_dried_Eat",
+                "LocalizationKey": "herbsfungiblacktrumpetdried_Eat",
                 "DefaultText": "Eat"
             },
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_black_trumpet_dried",
-                "LocalizationKey": "herbs_fungi_black_trumpet_dried_Eat_Desc",
+                "LocalizationKey": "herbsfungiblacktrumpetdried_Eat_Desc",
                 "DefaultText": "Chew on the dried black trumpet. Tough but intensely flavorful."
             },
             "DaytimeCost": 0,
@@ -446,7 +446,7 @@
                         "FloatValue": 0.0
                     }
                 },
-                "RequiredLiquidQuantity": 140.0,
+                "RequiredLiquidQuantity": 0.0,
                 "RequiredSpecial1Percent": {
                     "Active": false,
                     "FloatValue": 0.0,
@@ -540,12 +540,12 @@
     ],
     "SpoilageTime": {
         "ParentObjectID": "herbs_fungi_black_trumpet_dried",
-        "LocalizationKey": "herbs_fungi_black_trumpet_dried_SpoilageTime_CardStatName",
+        "LocalizationKey": "herbsfungiblacktrumpetdried_SpoilageTime_CardStatName",
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_black_trumpet_dried",
-            "LocalizationKey": "herbs_fungi_black_trumpet_dried_SpoilageTime_CardStatName",
+            "LocalizationKey": "herbsfungiblacktrumpetdried_SpoilageTime_CardStatName",
             "DefaultText": "Freshness"
         },
         "MinValue": 0.0,
@@ -559,7 +559,7 @@
         "OnEmpty": {
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_black_trumpet_dried",
-                "LocalizationKey": "herbs_fungi_black_trumpet_dried_SpoilageTime_OnEmpty",
+                "LocalizationKey": "herbsfungiblacktrumpetdried_SpoilageTime_OnEmpty",
                 "DefaultText": "This has spoiled."
             },
             "ReceivingCardChanges": {

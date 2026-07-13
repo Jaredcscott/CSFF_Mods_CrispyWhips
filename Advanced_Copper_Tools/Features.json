@@ -1,0 +1,195 @@
+﻿{
+  "_comment": "Edit 'status' to 'Tested' when verified in-game. Generated 2026-06-20 from v1.10.0.",
+  "groups": [
+    {
+      "name": "Metal Sheet",
+      "status": "Implemented",
+      "cards": [
+        "advanced_copper_tools_metal_sheet",
+        "advanced_copper_tools_bp_metal_sheet"
+      ]
+    },
+    {
+      "name": "Copper Nails",
+      "status": "Implemented",
+      "cards": [
+        "advanced_copper_tools_copper_nails",
+        "advanced_copper_tools_bp_copper_nails"
+      ]
+    },
+    {
+      "name": "Stove Top Mold / Cast Stove Top",
+      "status": "Implemented",
+      "cards": [
+        "advanced_copper_tools_stove_top_mold",
+        "advanced_copper_tools_cast_stove_top",
+        "advanced_copper_tools_bp_cast_stove_top"
+      ]
+    },
+    {
+      "name": "Wearable Metal Pan",
+      "status": "Implemented",
+      "cards": [
+        "advanced_copper_tools_wearable_metal_pan",
+        "advanced_copper_tools_shape_metal_pan",
+        "advanced_copper_tools_bp_pan_blank",
+        "advanced_copper_tools_bp_wearable_metal_pan"
+      ]
+    },
+    {
+      "name": "Oil",
+      "status": "Implemented",
+      "cards": [
+        "advanced_copper_tools_oil",
+        "advanced_copper_tools_bp_oil",
+        "advanced_copper_tools_bp_render_hemp_oil"
+      ]
+    },
+    {
+      "name": "Copper Oil Flask",
+      "status": "Implemented",
+      "cards": [
+        "advanced_copper_tools_copper_oil_flask",
+        "advanced_copper_tools_bp_copper_oil_flask"
+      ]
+    },
+    {
+      "name": "Metal Lantern",
+      "status": "Implemented",
+      "cards": [
+        "advanced_copper_tools_metal_lantern",
+        "advanced_copper_tools_metal_lantern_lit",
+        "advanced_copper_tools_metal_lantern_placed",
+        "advanced_copper_tools_metal_lantern_placed_lit",
+        "advanced_copper_tools_lantern_oilwell",
+        "advanced_copper_tools_bp_metal_lantern",
+        "advanced_copper_tools_bp_lantern_oilwell"
+      ]
+    },
+    {
+      "name": "Copper Brazier",
+      "status": "Implemented",
+      "cards": [
+        "advanced_copper_tools_copper_brazier_kit",
+        "advanced_copper_tools_copper_brazier_placed",
+        "advanced_copper_tools_copper_brazier_placed_lit",
+        "advanced_copper_tools_bp_copper_brazier"
+      ]
+    },
+    {
+      "name": "Large Copper Saw",
+      "status": "Implemented",
+      "cards": [
+        "advanced_copper_tools_large_saw",
+        "advanced_copper_tools_bp_large_saw"
+      ]
+    },
+    {
+      "name": "Wheelbarrow",
+      "status": "Implemented",
+      "cards": [
+        "advanced_copper_tools_wheelbarrow",
+        "advanced_copper_tools_bucket",
+        "advanced_copper_tools_handles",
+        "advanced_copper_tools_wheel_assembly",
+        "advanced_copper_tools_wheel_hub",
+        "advanced_copper_tools_wheel_rim",
+        "advanced_copper_tools_bp_wheelbarrow",
+        "advanced_copper_tools_bp_bucket",
+        "advanced_copper_tools_bp_handles",
+        "advanced_copper_tools_bp_wheel_assembly",
+        "advanced_copper_tools_bp_wheel_hub",
+        "advanced_copper_tools_bp_cast_wheel_hub",
+        "advanced_copper_tools_bp_wheel_rim"
+      ]
+    },
+    {
+      "name": "Copper Tea Kettle",
+      "status": "Implemented",
+      "cards": [
+        "advanced_copper_tools_copper_tea_kettle",
+        "advanced_copper_tools_bp_copper_tea_kettle"
+      ]
+    },
+    {
+      "name": "Copper Cauldron",
+      "status": "Implemented",
+      "cards": [
+        "advanced_copper_tools_copper_cauldron",
+        "advanced_copper_tools_bp_copper_cauldron"
+      ]
+    },
+    {
+      "name": "Copper Stove",
+      "status": "Implemented",
+      "cards": [
+        "advanced_copper_tools_copper_stove",
+        "advanced_copper_tools_copper_stove_placed",
+        "advanced_copper_tools_copper_stove_placed_lit",
+        "advanced_copper_tools_bp_copper_stove"
+      ]
+    },
+    {
+      "name": "Tea Blending Station",
+      "status": "Implemented",
+      "cards": [
+        "advanced_copper_tools_tea_station_kit",
+        "advanced_copper_tools_tea_blending_station",
+        "advanced_copper_tools_tea_blending_station_lit",
+        "advanced_copper_tools_bp_tea_blending_station"
+      ]
+    },
+    {
+      "name": "Copper Bathtub",
+      "status": "Implemented",
+      "cards": [
+        "advanced_copper_tools_copper_bathtub_empty",
+        "advanced_copper_tools_copper_bathtub_full",
+        "advanced_copper_tools_copper_bathtub_warm",
+        "advanced_copper_tools_copper_bathtub_empty_placed",
+        "advanced_copper_tools_copper_bathtub_full_placed",
+        "advanced_copper_tools_copper_bathtub_warm_placed",
+        "advanced_copper_tools_bp_copper_bathtub"
+      ]
+    },
+    {
+      "name": "Copper Pantry",
+      "status": "Implemented",
+      "cards": [
+        "advanced_copper_tools_copper_pantry",
+        "advanced_copper_tools_copper_pantry_placed",
+        "advanced_copper_tools_bp_copper_pantry"
+      ]
+    },
+    {
+      "name": "Copper Armor Set",
+      "status": "Implemented",
+      "cards": [
+        "advanced_copper_tools_copper_helmet",
+        "advanced_copper_tools_copper_gauntlets",
+        "advanced_copper_tools_copper_greaves",
+        "advanced_copper_tools_copper_breastplate",
+        "advanced_copper_tools_bp_copper_helmet",
+        "advanced_copper_tools_bp_copper_gauntlets",
+        "advanced_copper_tools_bp_copper_greaves",
+        "advanced_copper_tools_bp_copper_breastplate"
+      ]
+    },
+    {
+      "name": "Cave System",
+      "status": "Implemented",
+      "cards": [
+        "actCopperCaveLoc",
+        "actTinCaveLoc",
+        "actIronCaveLoc",
+        "act_tin_vein",
+        "act_iron_vein",
+        "act_tin_ore",
+        "act_tin_solder",
+        "act_iron_nail",
+        "advanced_copper_tools_bp_tin_solder",
+        "advanced_copper_tools_bp_iron_nails"
+      ]
+    }
+  ]
+}

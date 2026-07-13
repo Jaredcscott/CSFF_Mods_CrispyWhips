@@ -86,16 +86,16 @@ internal static class BlueprintFlagFix
         try
         {
             int totalModUids = Loading.JsonDataLoader.AllModUniqueIds.Count;
-            Util.Log.Info($"[BlueprintStateFix] FinishInitializing_Prefix fired — {totalModUids} mod UID(s) in registry");
+            Util.Log.Debug($"[BlueprintStateFix] FinishInitializing_Prefix fired — {totalModUids} mod UID(s) in registry");
             var added = RegisterModBlueprintsInAllBlueprintModels(__instance);
             if (added > 0)
-                Util.Log.Info($"[BlueprintStateFix] registered {added} mod blueprint(s) in AllBlueprintModels before save-state restore");
+                Util.Log.Debug($"[BlueprintStateFix] registered {added} mod blueprint(s) in AllBlueprintModels before save-state restore");
             else
                 // Expected: EA 0.64f builds AllBlueprintModels from DataBase.AllData
                 // (every exact-type CardData with CardType==Blueprint) inside
                 // InitializeStatsAndActions, and the Awake postfix already ran — mod
                 // blueprints are normally registered before this prefix fires.
-                Util.Log.Info("[BlueprintStateFix] 0 mod blueprints added (all already registered in AllBlueprintModels — expected)");
+                Util.Log.Debug("[BlueprintStateFix] 0 mod blueprints added (all already registered in AllBlueprintModels — expected)");
         }
         catch (System.Exception ex)
         {
