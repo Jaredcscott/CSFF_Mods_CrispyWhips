@@ -1,6 +1,6 @@
 # Skill Speed Boost
 
-**Version:** 1.9.4
+**Version:** 1.9.5
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.65)
 
@@ -136,7 +136,13 @@ Any skill added by another mod is picked up the same way automatically — no up
 
 ## Version History
 
-### v1.9.2 (current)
+### v1.9.5 (current)
+- **Fixed:** Morning Bonus window was computed as "hours since day start" instead of the actual in-game clock hour, omitting `DaySettings.DayStartingHour`. `MorningStartHour`/`MorningEndHour` are now true clock hours (0 = midnight, 12 = noon) — the default 5–9 window now fires at the advertised early-morning hours instead of 09:00–13:00.
+
+### v1.9.3–v1.9.4
+- Version bumps alongside framework/in-house mod releases; no behavior change.
+
+### v1.9.2
 - Internal refactor: `AreaFamiliarityPatch`, `GameLoadPatch`, and `MorningBonusPatch` migrated their bespoke reflection helpers to the shared `CSFFModFramework.Api.Reflect`/`StatAccess`/`CardUtil` utilities, removing ~320 lines of duplicated per-mod reflection scaffolding. No behavior change.
 - Version bump for release alongside framework 2.9.1 and all in-house mods
 

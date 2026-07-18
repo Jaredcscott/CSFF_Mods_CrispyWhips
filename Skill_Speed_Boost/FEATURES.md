@@ -65,7 +65,7 @@ Set Blade_Multiplier = 3     (fast melee)
 **Settings:**
 - `MorningBonusEnabled` (default: `false`) — Enable morning XP bonus
 - `MorningBonusMultiplier` (default: `1.5`) — Extra multiplier during morning window
-- `MorningStartHour` (default: `5`) — Start of morning window (game-hours, 0–23)
+- `MorningStartHour` (default: `5`) — Start of morning window, matching the in-game clock (0 = midnight, 12 = noon; 0–23)
 - `MorningEndHour` (default: `9`) — End of morning window (exclusive)
 
 **How It Works:**

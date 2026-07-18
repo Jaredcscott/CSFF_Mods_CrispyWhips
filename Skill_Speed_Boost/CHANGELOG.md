@@ -5,6 +5,14 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.9.5] — 2026-07-16
+
+### Fixed
+
+- **Morning Bonus window offset** — `IsMorningWindow` computed "hours since day start" instead of the actual in-game clock hour, omitting `DaySettings.DayStartingHour`. With the vanilla day starting at 04:00, the default `MorningStartHour=5`/`MorningEndHour=9` window was firing 09:00–13:00 instead of the advertised early-morning hours, and the config text's "12 = midday" anchor was wrong. `IsMorningWindow` now reads `DaySettings.DayStartingHour`/`DailyPoints` live and matches `GameManager.HourOfTheDayValue`'s conversion, so `MorningStartHour`/`MorningEndHour` are true clock hours (0 = midnight, 12 = noon).
+
+---
+
 ## [1.9.3] — 2026-07-12
 
 ### Changed

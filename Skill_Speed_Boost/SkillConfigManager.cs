@@ -12,10 +12,12 @@ public static class SkillConfigManager
     private static Dictionary<string, ConfigEntry<bool>>  _skillStalenessToggles   = new();
     private static Dictionary<string, ConfigEntry<float>> _skillStalenessRates     = new();
 
-    // The real GameStat GameName values (verified against the 31 skill stats with
-    // UsesNovelty:true in Documentation/GameData/.../GameStat/Skill_*.json), not
-    // invented names — must match the strings GameLoadPatch resolves at runtime so
-    // pre-registered config entries merge with the dynamically-registered ones.
+    // The real GameStat GameName values (verified against Documentation/GameData/
+    // .../GameStat/*.json), not invented names — must match the strings GameLoadPatch
+    // resolves at runtime so pre-registered config entries merge with the
+    // dynamically-registered ones. 32 stats have UsesNovelty:true; Perception (whose
+    // file lacks the "Skill_" prefix) isn't pre-seeded here but is still picked up and
+    // registered by GameLoadPatch's dynamic scan at load time, same as any mod-added skill.
     public static readonly string[] CoreSkills = new[]
     {
         "Archery", "Axe Fighting", "Butchering", "Climbing", "ClubFighting", "Cooking",

@@ -308,9 +308,20 @@ internal static class MorningBonusPatch
             float dtp = dtpObj != null ? CardUtil.ToFloat(dtpObj) : -1f;
             if (dtp < 0f) return false;
 
-            // DTP counts down from 96 each day (96 = start of day, 0 = end of day).
-            // Convert to hour-within-day (0.0 = day start, 23.99 = day end).
-            float hour = (96f - (dtp % 96f)) / 4f;
+            // DaySettings.DailyPoints/DayStartingHour — read live rather than hardcoding
+            // 96/0. Matches GameManager.HourOfTheDayValue: DayStartingHour + 24 -
+            // dtp*(24/DailyPoints), wrapped to a 0-24 clock hour. DTP counts DOWN from
+            // DailyPoints (start of day) to 0 (end of day). Omitting DayStartingHour here
+            // previously produced an "hours since day start" axis instead of the actual
+            // clock hour the MorningStartHour/MorningEndHour config text promises
+            // (e.g. vanilla DayStartingHour=4 shifted the window 4 hours late).
+            var daySettings = Reflect.GetMember(gm, "DaySettings");
+            float dailyPoints = daySettings != null ? Reflect.GetFloat(daySettings, "DailyPoints", 96f) : 96f;
+            if (dailyPoints <= 0f) dailyPoints = 96f;
+            float dayStartingHour = daySettings != null ? Reflect.GetFloat(daySettings, "DayStartingHour", 0f) : 0f;
+
+            float pointToHours = 24f / dailyPoints;
+            float hour = Mod24(dayStartingHour + 24f - (dtp % dailyPoints) * pointToHours);
 
             float start = Plugin.MorningStartHour;
             float end   = Plugin.MorningEndHour;
@@ -322,5 +333,11 @@ internal static class MorningBonusPatch
         }
         catch { }
         return false;
+    }
+
+    private static float Mod24(float hour)
+    {
+        float h = hour % 24f;
+        return h < 0f ? h + 24f : h;
     }
 }

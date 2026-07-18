@@ -11,7 +11,7 @@ internal class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.skill_speed_boost";
     public const string PluginName = "Skill Speed Boost";
-    public const string PluginVersion = "1.9.4";
+    public const string PluginVersion = "1.9.5";
 
     internal static Plugin Instance { get; private set; }
     internal new static ManualLogSource Logger;
@@ -111,7 +111,7 @@ internal class Plugin : BaseUnityPlugin
             "MorningStartHour",
             5f,
             new ConfigDescription(
-                "Start of morning window in game-hours (0 = day start, 12 = midday). Default 5 = early morning.",
+                "Start of morning window, matching the in-game clock (0 = midnight, 12 = noon). Default 5 = early morning.",
                 new AcceptableValueRange<float>(0f, 23f)
             )
         );
