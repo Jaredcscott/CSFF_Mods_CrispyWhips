@@ -93,6 +93,19 @@ internal static class JsonDataLoader
     internal static Dictionary<string, UniqueIDScriptable> LoadedObjectsByUniqueId { get; }
         = new(StringComparer.OrdinalIgnoreCase);
 
+    /// <summary>
+    /// Non-UID ScriptableObjects (DialogScene, DialogLine, WeaponMove, ...) loaded from a generic
+    /// ScriptableObject/&lt;Type&gt;/ folder, each paired with its parsed JSON tree. These types have
+    /// no UniqueID to key on, so WarpResolver's UID-keyed pass skips them — yet their OWN bodies can
+    /// still carry *WarpData fields (e.g. DialogScene.SceneLinesWarpData, DialogLine PossibleAnswers
+    /// → NextLineWarpData). <see cref="Data.WarpResolver.ResolveAll"/> walks each of these AFTER the
+    /// UID pass so those nested refs resolve onto the SAME instance Lookup returns by name. Without
+    /// this the field stays null and the feature silently no-ops (e.g. an NPC Talk button that opens
+    /// nothing because DialogScene.SceneLines was never populated). First exercised by CMC dialog
+    /// (2.15.1) — registering the object by name (below) is necessary but NOT sufficient.
+    /// </summary>
+    internal static List<(ScriptableObject Obj, Dictionary<string, object> Tree)> NonUidWarpObjects { get; } = new();
+
     // Below this many files, parse serially — thread-pool spin-up isn't worth it.
     private const int ParallelParseThreshold = 24;
 
@@ -114,6 +127,7 @@ internal static class JsonDataLoader
         AllModUniqueIds.Clear();
         UniqueIdToModName.Clear();
         LoadedObjectsByUniqueId.Clear();
+        NonUidWarpObjects.Clear();
         ExtraDataStore.Clear();
         _ourNonUidRegistrations.Clear();
         _skippedTypes.Clear();
@@ -273,6 +287,13 @@ internal static class JsonDataLoader
                     Log.Info($"JsonDataLoader: '{obj.name}' ({item.TypeName}) was already registered by another loader (ModCore/ModLoader independently scanning this folder) — {item.Mod.Name}'s instance is now canonical, no action needed");
                 _ourNonUidRegistrations.Add(obj.name);
                 registerTicks += Stopwatch.GetTimestamp() - t0;
+
+                // Record for WarpResolver's non-UID pass so this SO's OWN *WarpData body fields
+                // (DialogScene.SceneLinesWarpData, DialogLine → NextLineWarpData, ...) get resolved.
+                // Registration by name above only makes it findable BY others; it does not resolve
+                // the refs INSIDE it. See NonUidWarpObjects doc comment.
+                if (r.ParsedTree != null)
+                    NonUidWarpObjects.Add((obj, r.ParsedTree));
             }
 
             totalLoaded++;

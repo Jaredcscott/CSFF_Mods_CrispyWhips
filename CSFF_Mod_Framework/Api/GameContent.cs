@@ -5,8 +5,9 @@ namespace CSFFModFramework.Api;
 /// <summary>
 /// Look up runtime game objects by UniqueID or name. Wraps the game's own
 /// <c>UniqueIDScriptable.GetFromID</c> for <see cref="UniqueIDScriptable"/>
-/// types and the framework's per-type ScriptableObject indexes for non-UID
-/// types (<c>CardTag</c>, <c>ActionTag</c>, etc.).
+/// types, the framework's per-type ScriptableObject indexes for non-UID
+/// types (<c>CardTag</c>, <c>ActionTag</c>, etc.), and the framework's
+/// sprite index (vanilla + mod <c>Resource/Picture</c> art) for <see cref="Sprite"/>.
 ///
 /// Use after <see cref="FrameworkEvents.Loaded"/> has fired — earlier calls
 /// may return null because indexes are not yet built.
@@ -17,11 +18,21 @@ public static class GameContent
     /// Resolve <paramref name="idOrName"/> to a <typeparamref name="T"/>.
     /// For <see cref="UniqueIDScriptable"/> subtypes, <paramref name="idOrName"/>
     /// is treated as a UniqueID. For other ScriptableObject subtypes, it's
-    /// treated as <c>ScriptableObject.name</c>. Returns null if not found.
+    /// treated as <c>ScriptableObject.name</c>. For <see cref="Sprite"/>, it's
+    /// a sprite name (same index WarpResolver uses for Sprite-typed WarpData).
+    /// Returns null if not found.
     /// </summary>
     public static T Find<T>(string idOrName) where T : UnityEngine.Object
     {
         if (string.IsNullOrEmpty(idOrName)) return null;
+
+        // Sprite: not a ScriptableObject — served from the sprite index
+        if (typeof(Sprite).IsAssignableFrom(typeof(T)))
+        {
+            if (Database.SpriteDict.TryGetValue(idOrName, out var sprite) && sprite is T tSprite)
+                return tSprite;
+            return null;
+        }
 
         // UniqueIDScriptable: delegate to the game's own resolver
         if (typeof(UniqueIDScriptable).IsAssignableFrom(typeof(T)))
@@ -50,6 +61,9 @@ public static class GameContent
     public static UnityEngine.Object Find(Type type, string idOrName)
     {
         if (type == null || string.IsNullOrEmpty(idOrName)) return null;
+
+        if (typeof(Sprite).IsAssignableFrom(type))
+            return Database.SpriteDict.TryGetValue(idOrName, out var sprite) ? sprite : null;
 
         if (typeof(UniqueIDScriptable).IsAssignableFrom(type))
         {

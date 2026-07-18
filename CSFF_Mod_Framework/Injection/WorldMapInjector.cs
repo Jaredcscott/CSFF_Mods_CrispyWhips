@@ -221,6 +221,36 @@ internal static class WorldMapInjector
         // on target CT4s is resolved and CardCloneService.FindLocationCardFor works.
         if (_prepared.Count > 0)
         {
+            // Strip inherited travel DAs from ALL clone CT8s BEFORE any injection.
+            // Stripping inside the per-node injection loop broke every connection whose
+            // TARGET node came later in the prepared list: the target's still-present
+            // template DA blocked the reverse DA (same-direction guard), and even when
+            // injection succeeded the target's own strip pass destroyed it afterwards
+            // (e.g. High Grove never received North → Mossy Clearing).
+            //
+            // TryResolveActionTypes MUST run first: StripTravelDAsFromCard silently no-ops
+            // while the DA reflection fields are null, and on a fresh process nothing has
+            // resolved them yet at this point (the 2.16.1 regression — every clone CT8 kept
+            // its template's vanilla travel buttons, e.g. Village Path East → River Clearing).
+            if (!TryResolveActionTypes())
+            {
+                Log.Warn("WorldMapInjector: could not resolve DismantleAction types — inherited travel DAs NOT stripped; clone nodes will keep their template's vanilla travel buttons");
+            }
+            else
+            {
+                int strippedTotal = 0, strippedCards = 0;
+                foreach (var prep in _prepared)
+                {
+                    if (!string.IsNullOrEmpty(prep.Def.CloneOfEnvironmentUID) && prep.LocationCard != null)
+                    {
+                        int stripped = StripTravelDAsFromCard(prep.LocationCard);
+                        if (stripped > 0) { strippedTotal += stripped; strippedCards++; }
+                    }
+                }
+                if (strippedTotal > 0)
+                    Log.Info($"WorldMapInjector: stripped {strippedTotal} inherited travel DA(s) from {strippedCards} clone CT8 location card(s)");
+            }
+
             int daCount = 0;
             foreach (var prep in _prepared)
             {
@@ -243,6 +273,121 @@ internal static class WorldMapInjector
                  "WorldMapData node injection deferred to run start (WorldMapData is not loaded at data-load time)");
 
         TrySubscribeGmInitialized();
+    }
+
+    /// <summary>
+    /// Re-resolve mod-card <c>*WarpData</c> references that point at a clone node's env/location
+    /// UID. Clone CardData (e.g. <c>cmcLocVillage</c>) is created and registered by
+    /// <see cref="PrepareAll"/> — LoadOrchestrator phase 5i — which runs AFTER
+    /// <see cref="Data.WarpResolver.ResolveAll"/> (phase 5). So any mod JSON that references a
+    /// clone UID resolved to <c>null</c> on the main pass. The confirmed casualty is a construction
+    /// blueprint gate: <c>CardsOnBoard[].CardWarpData: "cmcLocVillage"</c> left the unlock
+    /// objective's <c>Card</c> null — the "Have :" tooltip shows no card name, and
+    /// <see cref="CardOnBoardSubObjective.CheckForCompletion"/> can never complete a null-card
+    /// objective, so the blueprint never unlocks even when the player is standing in the cloned
+    /// environment (CMC Miller's/Weaver's Cottage + Village Hall).
+    ///
+    /// <para><see cref="Data.WarpResolver.Walk"/> is idempotent for WarpType 3 (Reference): a
+    /// scalar ref is filled only when it currently needs resolving (null); an already-populated
+    /// list ref is skipped. Re-walking therefore fills exactly the previously-unresolvable clone
+    /// refs and re-sets everything else to the same value. The single exception is WarpType 4/6
+    /// (Add), which APPENDS — re-walking a card that uses an Add-warp would duplicate its
+    /// already-added entries — so such cards are skipped here. No current clone-ref use case needs
+    /// Add (adding a clone card to a list, e.g. EnvironmentImprovements, is handled by the
+    /// dedicated <see cref="ImprovementInjector"/>, which already runs after PrepareAll).</para>
+    ///
+    /// <para>Called from LoadOrchestrator immediately after the WorldMapInjector phase.</para>
+    /// </summary>
+    public static void ResolveDeferredCloneRefs()
+    {
+        if (_prepared.Count == 0) return;
+
+        // UIDs registered by clone nodes this run (CT4 env + CT8 location card).
+        var cloneUids = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        foreach (var prep in _prepared)
+        {
+            if (string.IsNullOrEmpty(prep.Def?.CloneOfEnvironmentUID)) continue; // clone nodes only
+            if (!string.IsNullOrEmpty(prep.Def.EnvironmentUID)) cloneUids.Add(prep.Def.EnvironmentUID);
+            if (!string.IsNullOrEmpty(prep.Def.LocationUID))    cloneUids.Add(prep.Def.LocationUID);
+        }
+        if (cloneUids.Count == 0) return;
+
+        var jsonByUid   = Loading.JsonDataLoader.JsonByUniqueId;
+        var parsedByUid = Loading.JsonDataLoader.ParsedJsonByUniqueId;
+
+        int refsFilled = 0, cardsTouched = 0, skippedAdd = 0;
+        foreach (var kvp in jsonByUid)
+        {
+            var raw = kvp.Value;
+            if (string.IsNullOrEmpty(raw)) continue;
+
+            // Cheap pre-filter: only consider cards whose raw JSON names a clone UID.
+            bool mentionsClone = false;
+            foreach (var uid in cloneUids)
+            {
+                if (raw.IndexOf(uid, StringComparison.OrdinalIgnoreCase) >= 0) { mentionsClone = true; break; }
+            }
+            if (!mentionsClone) continue;
+
+            if (!parsedByUid.TryGetValue(kvp.Key, out var tree) || tree == null)
+            {
+                tree = MiniJson.Parse(raw) as Dictionary<string, object>;
+                if (tree == null) continue;
+            }
+
+            // Re-walking a card with an Add-type warp (WarpType 4/6) would re-append its
+            // already-resolved entries. Skip those — no clone-ref use case needs Add.
+            if (TreeHasAddWarp(tree))
+            {
+                skippedAdd++;
+                Log.Debug($"WorldMapInjector: deferred clone-ref resolve skipped '{kvp.Key}' (uses an Add-type WarpType; re-walk would double-append)");
+                continue;
+            }
+
+            var rtObj = GameRegistry.GetByUid(kvp.Key);
+            if (rtObj == null) continue;
+
+            try
+            {
+                int n = WarpResolver.Walk(rtObj, tree);
+                if (n > 0) { refsFilled += n; cardsTouched++; }
+            }
+            catch (Exception ex)
+            {
+                Log.Warn($"WorldMapInjector: deferred clone-ref resolve failed for '{kvp.Key}': {Log.ExceptionText(ex)}");
+            }
+        }
+
+        if (cardsTouched > 0 || skippedAdd > 0)
+            Log.Info($"WorldMapInjector: deferred clone-ref resolve — {refsFilled} reference(s) filled across {cardsTouched} mod card(s)" +
+                     (skippedAdd > 0 ? $"; {skippedAdd} card(s) skipped (Add-type warp)" : ""));
+    }
+
+    /// <summary>Recursively true if any <c>*WarpType</c> key in the parsed tree has value 4 (Add) or 6 (AddReference).</summary>
+    private static bool TreeHasAddWarp(object node)
+    {
+        switch (node)
+        {
+            case Dictionary<string, object> dict:
+                foreach (var kv in dict)
+                {
+                    if (kv.Key.EndsWith("WarpType", StringComparison.Ordinal))
+                    {
+                        int wt = 0;
+                        if (kv.Value is double d) wt = (int)d;
+                        else if (kv.Value is long l) wt = (int)l;
+                        if (wt == 4 || wt == 6) return true;
+                    }
+                    if (TreeHasAddWarp(kv.Value)) return true;
+                }
+                return false;
+            case List<object> list:
+                foreach (var item in list)
+                    if (TreeHasAddWarp(item)) return true;
+                return false;
+            default:
+                return false;
+        }
     }
 
     /// <summary>Resolves (or clones) the env/location cards for one node. Null on failure.</summary>
@@ -1898,12 +2043,10 @@ internal static class WorldMapInjector
     {
         if (!TryResolveActionTypes()) return 0;
 
-        // Clone CT8s inherit the template's travel DAs pointing to the template's vanilla
-        // neighbours — strip them all first so InjectTravelDA's idempotency guard doesn't
-        // see "same direction already points elsewhere" and block the correct ones.
-        bool isClone = !string.IsNullOrEmpty(prep.Def.CloneOfEnvironmentUID);
-        if (isClone && prep.LocationCard != null)
-            StripTravelDAsFromCard(prep.LocationCard);
+        // NOTE: inherited template travel DAs are stripped from ALL prepared clone CT8s
+        // in a single pass in PrepareAll BEFORE this runs. Stripping here (per node)
+        // destroyed reverse DAs that earlier-processed nodes had already injected onto
+        // this node's CT8.
 
         int count = 0;
         var destEnvCard = prep.EnvCard as CardData;
@@ -2033,13 +2176,15 @@ internal static class WorldMapInjector
     /// Removes all <c>HasExplorationDirection=true</c> DismantleActions from a CT8 card.
     /// Used before injecting correct travel DAs on clone nodes so inherited template DAs
     /// (pointing to the template's vanilla neighbours) don't conflict with the correct ones.
-    /// Non-travel DAs (Forage, Clear, etc.) are preserved.
+    /// Non-travel DAs (Forage, Clear, etc.) are preserved. Returns the number stripped.
+    /// Caller must have run <see cref="TryResolveActionTypes"/> — with the DA reflection
+    /// fields unresolved this method cannot see any DAs and returns 0.
     /// </summary>
-    private static void StripTravelDAsFromCard(CardData card)
+    private static int StripTravelDAsFromCard(CardData card)
     {
-        if (_daField_DismantleActions == null || _daField_HasExpDir == null) return;
+        if (_daField_DismantleActions == null || _daField_HasExpDir == null) return 0;
         var daCollection = _daField_DismantleActions.GetValue(card);
-        if (daCollection == null) return;
+        if (daCollection == null) return 0;
 
         var toKeep = new List<object>();
         bool anyRemoved = false;
@@ -2057,11 +2202,11 @@ internal static class WorldMapInjector
             }
         }
 
-        if (!anyRemoved) return;
+        if (!anyRemoved) return 0;
 
         var daArrType = _daField_DismantleActions.FieldType;
         var elemType  = CollectionElementType(daArrType);
-        if (elemType == null) return;
+        if (elemType == null) return 0;
 
         object newCollection;
         if (daArrType.IsArray)
@@ -2076,11 +2221,12 @@ internal static class WorldMapInjector
             foreach (var da in toKeep) list.Add(da);
             newCollection = list;
         }
-        else return;
+        else return 0;
 
         _daField_DismantleActions.SetValue(card, newCollection);
-        int stripped = (daCollection is ICollection col) ? (col.Count - toKeep.Count) : -1;
+        int stripped = (daCollection is ICollection col) ? (col.Count - toKeep.Count) : 0;
         Log.Debug($"WorldMapInjector: stripped {stripped} inherited travel DA(s) from clone CT8 '{card.UniqueID}'");
+        return stripped;
     }
 
     /// <summary>

@@ -32,6 +32,7 @@ internal static class AnimalService
         }
 
         _species.Clear();
+        AnimalLifecycleTicker.Clear();
         var result = AnimalLoader.LoadAll(mods);
 
         foreach (var manifest in result.Accepted)

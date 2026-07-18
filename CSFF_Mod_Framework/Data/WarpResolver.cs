@@ -109,6 +109,31 @@ internal static class WarpResolver
                 Log.Warn($"WarpResolver: error processing {kvp.Key}: {Log.ExceptionText(ex)}");
             }
         }
+
+        // Non-UID ScriptableObjects (DialogScene, DialogLine, WeaponMove, ...) have no UniqueID, so
+        // the UID loop above never reaches them — but their JSON bodies can still carry *WarpData
+        // fields (DialogScene.SceneLinesWarpData; DialogLine PossibleAnswers → NextLineWarpData).
+        // Walk each registered non-UID instance against its parsed tree so those nested refs resolve
+        // onto the SAME instance Lookup returns by name. Skipping this leaves the field null and the
+        // feature silently no-ops (e.g. an NPC Talk button that opens nothing because
+        // DialogScene.GetStartingLine returns null on an unpopulated SceneLines). Added 2.15.1.
+        foreach (var pair in Loading.JsonDataLoader.NonUidWarpObjects)
+        {
+            var nonUidObj = pair.Obj;
+            var nonUidTree = pair.Tree;
+            if (nonUidObj == null || nonUidTree == null) continue;
+            _currentUid = nonUidObj.name;
+            try
+            {
+                int n = Walk(nonUidObj, nonUidTree);
+                if (n > 0) totalResolved += n;
+                filesProcessed++;
+            }
+            catch (Exception ex)
+            {
+                Log.Warn($"WarpResolver: error processing non-UID SO '{nonUidObj.name}': {Log.ExceptionText(ex)}");
+            }
+        }
         _currentUid = "";
 
         if (_unresolvedAudioClips.Count > 0)

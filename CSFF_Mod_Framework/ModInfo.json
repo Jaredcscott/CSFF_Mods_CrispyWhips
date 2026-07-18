@@ -1,6 +1,6 @@
 {
     "Name": "CSFF Mod Framework",
     "Author": "Jared",
-    "Version": "2.14.2",
+    "Version": "2.17.0",
     "Description": "Standalone framework for CSFF mods. Provides mod discovery, data loading, map cache indexing, WarpData resolution, sprite loading, blueprint/perk injection, localization, STA activation, NPC agent diagnostics, WorldMap node injection, and Portal Hub System (cross-mod world switching via portable Portal Hub)."
 }

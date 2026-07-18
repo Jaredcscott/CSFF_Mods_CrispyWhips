@@ -111,7 +111,10 @@ internal static class PassiveEffectNormalizer
 
                 if (cardFixed) cardsFixed++;
             }
-            catch { }
+            catch (Exception ex)
+            {
+                Log.Debug($"[PassiveEffectNormalizer] skipped {uidItem.UniqueID}: {Log.ExceptionText(ex)}");
+            }
         }
 
         if (cardsFixed > 0 || refsResolved > 0)
@@ -234,7 +237,10 @@ internal static class PassiveEffectNormalizer
                     field.SetValue(target, Activator.CreateInstance(ft, true));
                     count++;
                 }
-                catch { }
+                catch (Exception ex)
+                {
+                    Log.Debug($"[PassiveEffectNormalizer] could not default-construct {type.Name}.{field.Name} ({ft.Name}): {Log.ExceptionText(ex)}");
+                }
             }
         }
         return count;

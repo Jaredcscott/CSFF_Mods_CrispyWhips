@@ -4,7 +4,7 @@ Standalone modding framework for Card Survival: Fantasy Forest. Provides mod dis
 
 ## Status
 
-- **Version:** 2.14.2
+- **Version:** 2.17.0
 - **Game Version**: EA 0.65
 - All in-house mods are maintained against EA 0.65.
 

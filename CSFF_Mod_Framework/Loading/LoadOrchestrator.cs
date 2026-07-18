@@ -147,13 +147,6 @@ internal static class LoadOrchestrator
             else
                 Log.Debug("[Skip] DropInjector: no mod ships DropInjections.json");
 
-            // 5e3. Append a CT10 improvement to a target CT8's EnvironmentImprovements array —
-            //      declarative alternative to per-mod C# (e.g. CMC's RiverBridgeImprovementPatch).
-            if (mods.Any(m => m.HasImprovementInjections))
-                RunPhase(sw, "ImprovementInjector", () => ImprovementInjector.InjectAll(allData, mods));
-            else
-                Log.Debug("[Skip] ImprovementInjector: no mod ships InjectImprovementInto.json");
-
             // 5f. Load mod-defined spawn triggers (CardData/Trigger/*.json). Runtime firing is
             //     handled by TriggerService via Plugin.Update — no SO injection needed here.
             if (mods.Any(m => m.HasTriggers))
@@ -229,6 +222,28 @@ internal static class LoadOrchestrator
             }
             else
                 Log.Debug("[Skip] WorldMapInjector: no mod ships WorldMap/MapNodes.json or WorldMap/FullMap.json");
+
+            // 5i-a1. Re-resolve mod-card *WarpData references that point at a clone node's env/location
+            //        UID. Clone CardData (e.g. cmcLocVillage) is registered by WorldMapInjector.PrepareAll
+            //        (5i) AFTER WarpResolver (phase 5), so a construction-blueprint gate like
+            //        CardsOnBoard[].CardWarpData: "cmcLocVillage" resolved to null on the main pass — the
+            //        unlock objective's Card stayed null, the "Have :" tooltip showed no card, and the gate
+            //        could never complete, so the blueprint never unlocked even at the cloned env (CMC
+            //        Miller's/Weaver's Cottage + Village Hall). This idempotent re-walk fills those deferred
+            //        refs now that the clones exist. Must run after WorldMapInjector (5i).
+            if (mods.Any(m => m.HasWorldMapNodes))
+                RunPhase(sw, "WorldMapInjector.ResolveDeferredCloneRefs", WorldMapInjector.ResolveDeferredCloneRefs);
+
+            // 5i-a2. Append a CT10 improvement to a target CT8's EnvironmentImprovements array —
+            //        declarative alternative to per-mod C# (e.g. CMC's RiverBridgeImprovementPatch).
+            //        MUST run after WorldMapInjector.PrepareAll (5i): a TargetEnvUID may be a mod
+            //        map node's clone CT8 (e.g. CMC's cmcLocVillage well), which only enters the
+            //        registry when PrepareAll clones the env/location pair. Vanilla CT8 targets
+            //        are order-insensitive.
+            if (mods.Any(m => m.HasImprovementInjections))
+                RunPhase(sw, "ImprovementInjector", () => ImprovementInjector.InjectAll(allData, mods));
+            else
+                Log.Debug("[Skip] ImprovementInjector: no mod ships InjectImprovementInto.json");
 
             // 5i-b. Inject travel DismantleActions into the shared placed Portal Hub CT2 so
             //       each registered mod world gets its own "Travel to X" button. Runs after

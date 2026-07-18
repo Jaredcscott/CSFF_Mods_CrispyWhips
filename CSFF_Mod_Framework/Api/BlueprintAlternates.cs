@@ -22,7 +22,11 @@ public static class BlueprintAlternates
     /// Makes every blueprint/improvement element that requires <paramref name="primaryUid"/>
     /// also accept <paramref name="alternateUid"/>. Both UIDs must resolve in
     /// <paramref name="allData"/> — this is what makes the call a no-op (returns 0) when the
-    /// mod shipping the alternate isn't installed. Returns the number of RequiredElements patched.
+    /// mod shipping the alternate isn't installed. Calling this repeatedly for the same
+    /// <paramref name="primaryUid"/> with different alternates accumulates — each call appends
+    /// to the same shared <c>CardTabGroup</c> instead of replacing it, so one primary can end up
+    /// accepting several alternates (e.g. a nail slot accepting iron nails, copper rivets, AND
+    /// iron rivets). Returns the number of RequiredElements patched.
     /// </summary>
     public static int AddAlternateIngredient(IEnumerable allData, string primaryUid, string alternateUid, string label = null)
     {
@@ -46,14 +50,8 @@ public static class BlueprintAlternates
             var tabGroupType = AccessTools.TypeByName("CardTabGroup");
             if (tabGroupType == null) { Log.Warn($"[BlueprintAlternates] {label}: CardTabGroup type not found."); return 0; }
 
-            var altGroup = ScriptableObject.CreateInstance(tabGroupType) as UnityEngine.Object;
-            if (altGroup == null) { Log.Warn($"[BlueprintAlternates] {label}: failed to create CardTabGroup."); return 0; }
-            altGroup.name = $"alt_tab_{primaryUid}";
-
             var fiIncludedCards = tabGroupType.GetField("IncludedCards", BindingFlags.Instance | BindingFlags.Public);
-            var includedCards = fiIncludedCards?.GetValue(altGroup) as IList;
-            if (includedCards == null) { Log.Warn($"[BlueprintAlternates] {label}: CardTabGroup.IncludedCards not accessible."); return 0; }
-            includedCards.Add(alternateData);
+            if (fiIncludedCards == null) { Log.Warn($"[BlueprintAlternates] {label}: CardTabGroup.IncludedCards not accessible."); return 0; }
 
             var elemType = AccessTools.TypeByName("BlueprintElement");
             if (elemType == null) { Log.Warn($"[BlueprintAlternates] {label}: BlueprintElement type not found."); return 0; }
@@ -64,6 +62,14 @@ public static class BlueprintAlternates
                 Log.Warn($"[BlueprintAlternates] {label}: BlueprintElement field reflection failed.");
                 return 0;
             }
+
+            // A primary can accumulate more than one alternate across separate calls (e.g. a
+            // nail slot that accepts iron nails AND copper/iron rivets). Every group this method
+            // creates is named "alt_tab_{primaryUid}" — a later call for the SAME primary reuses
+            // that exact group (appending to IncludedCards) instead of allocating a fresh one and
+            // clobbering the RequiredTabGroup reference an earlier call already set.
+            var groupName = $"alt_tab_{primaryUid}";
+            UnityEngine.Object sharedGroup = null;
 
             int patched = 0;
             foreach (var item in allData)
@@ -93,8 +99,34 @@ public static class BlueprintAlternates
                         object elem = elements.GetValue(i);
                         if (fiRequiredCard.GetValue(elem) != primaryData) continue;
 
-                        fiRequiredTabGroup.SetValue(elem, altGroup);
-                        elements.SetValue(elem, i);
+                        var existingGroup = fiRequiredTabGroup.GetValue(elem) as UnityEngine.Object;
+                        IList includedCards;
+                        if (existingGroup != null && existingGroup.name == groupName)
+                        {
+                            includedCards = fiIncludedCards.GetValue(existingGroup) as IList;
+                        }
+                        else if (existingGroup == null)
+                        {
+                            if (sharedGroup == null)
+                            {
+                                sharedGroup = ScriptableObject.CreateInstance(tabGroupType) as UnityEngine.Object;
+                                if (sharedGroup == null) { Log.Warn($"[BlueprintAlternates] {label}: failed to create CardTabGroup."); continue; }
+                                sharedGroup.name = groupName;
+                            }
+                            fiRequiredTabGroup.SetValue(elem, sharedGroup);
+                            elements.SetValue(elem, i);
+                            includedCards = fiIncludedCards.GetValue(sharedGroup) as IList;
+                        }
+                        else
+                        {
+                            // Slot already carries a foreign, unrelated RequiredTabGroup from JSON
+                            // authoring — never clobber it.
+                            Log.Warn($"[BlueprintAlternates] {label}: element already has an unrelated RequiredTabGroup ('{existingGroup.name}'); skipped to avoid clobbering it.");
+                            continue;
+                        }
+
+                        if (includedCards == null) { Log.Warn($"[BlueprintAlternates] {label}: CardTabGroup.IncludedCards not accessible."); continue; }
+                        if (!includedCards.Contains(alternateData)) includedCards.Add(alternateData);
                         patched++;
                     }
                 }

@@ -4,6 +4,24 @@ All notable changes to CSFFModFramework are documented here.
 
 ---
 
+## [2.16.3] — 2026-07-16
+
+### Fixed
+- **`InjectImprovementInto.json` could never target a mod map node's own location card**: the
+  ImprovementInjector load phase ran before `WorldMapInjector.PrepareAll` created the clone
+  env/location pairs, so a `TargetEnvUID` naming a clone CT8 (e.g. CMC's `cmcLocVillage`) was
+  always "not found in registry — skipped". The phase now runs after map-node preparation
+  (5i-a2); vanilla CT8 targets are order-insensitive and unaffected.
+
+---
+
+## [2.15.2] — 2026-07-16
+
+### Fixed
+- **`CardUtil.GetDurability`/`SetDurability` never worked for `UsageDurability`**: the JSON stat name mapped to a nonexistent `CurrentUsage` runtime member (the real `InGameCardBase` field is `CurrentUsageDurability`), so reads returned NaN and writes silently failed. Player-visible fallout fixed by this: the CMC Academy's Armorer course never charged its 100 tuition enrollment fee (its progress lives on `UsageDurability`), and Sirus companion thirst initialization on spawn was a no-op.
+
+---
+
 ## [2.14.1] — 2026-07-12
 *(Covers framework releases since the last published release on 2026-06-23.)*
 

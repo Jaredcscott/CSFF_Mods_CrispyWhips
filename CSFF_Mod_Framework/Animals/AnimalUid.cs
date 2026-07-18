@@ -16,6 +16,18 @@ internal static class AnimalUid
 {
     public const string PartAgent = "agent";
 
+    // Generated NPCStats (internal agent stats; the world-visible GameStat mirrors land in M5).
+    public const string PartStatExists = "npcstat_exists";
+    public const string PartStatRespawn = "npcstat_respawn";
+    public const string PartStatSuppressRespawn = "npcstat_suppress_respawn";
+
+    // Generated NPCDuties. CustomDuties use PartDutyCustomPrefix + the entry's Name
+    // (renaming a CustomDuty = a new UID; the engine tolerates the dropped in-flight duty).
+    public const string PartDutySeekPlayer = "duty_seekplayer";
+    public const string PartDutyWander = "duty_wander";
+    public const string PartDutyRoost = "duty_roost";
+    public const string PartDutyCustomPrefix = "duty_custom_";
+
     public static string For(string speciesId, string part)
     {
         using var md5 = MD5.Create();

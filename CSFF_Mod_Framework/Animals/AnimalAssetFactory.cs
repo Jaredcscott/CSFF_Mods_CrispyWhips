@@ -6,11 +6,23 @@ using CSFFModFramework.Util;
 namespace CSFFModFramework.Animals;
 
 /// <summary>
-/// Constructs and registers the generated SOs for one species. M1 scope: the NPCAgent shell
-/// with the minimal lifecycle and the optional Approach interaction. Registration mirrors
-/// JsonDataLoader/CardCloneService: first-wins into the game registry + additive AllData, and
-/// the generated UIDs join JsonDataLoader's mod-UID maps so downstream framework passes
-/// (NPCAgentActivationService validation, null compaction) treat them as mod content.
+/// Constructs and registers the generated SOs for one species, then wires the pieces shared by
+/// both paths: generated NPCDuties (<see cref="DutyBuilder"/>) and the lifecycle ticker
+/// (<see cref="AnimalLifecycleTicker"/>).
+///
+/// <para>Generated path (no Agent.Ref): NPCAgent shell + shared vanilla NPCStats
+/// (AgentExists/AgentBlood/AgentSatiation/AgentPoisonResistance/AgentRespawnCounter/AgentCounter
+/// — per-agent NPCStatInstance overrides make sharing safe) + full lifecycle AgentActions
+/// (death/carcass/parking) + optional Approach interaction.</para>
+///
+/// <para>Ref path (Agent.Ref = hand-authored NPCAgent UID): the agent itself is untouched;
+/// the manifest fills the gaps — spawn registration (M1), generated duties + lifecycle
+/// ticker driven by the Agent.Stats UID map (M2).</para>
+///
+/// <para>Registration mirrors JsonDataLoader/CardCloneService: first-wins into the game
+/// registry + additive AllData, and the generated UIDs join JsonDataLoader's mod-UID maps so
+/// downstream framework passes (NPCAgentActivationService validation, null compaction) treat
+/// them as mod content.</para>
 /// </summary>
 internal static class AnimalAssetFactory
 {
@@ -22,25 +34,49 @@ internal static class AnimalAssetFactory
 
     public static NPCAgent BuildAgent(AnimalManifest m)
     {
-        // Escape hatch: hand-authored agent — nothing to generate in M1; SpawnRegistrar
-        // handles the gap this milestone fills.
-        if (m.AgentRef != null)
-            return GameRegistry.GetByUid(m.AgentRef) as NPCAgent;
+        var spiritWorld = GameRegistry.GetByUid<CardData>(SpawnRegistrar.SpiritWorldUid);
+        if (spiritWorld == null)
+        {
+            Log.Error($"Animals: {m.SourceFile}: Env_SpiritWorld ({SpawnRegistrar.SpiritWorldUid}) not found in registry — species skipped");
+            return null;
+        }
+        var roostEnv = ResolveRoost(m, spiritWorld);
 
+        NPCAgent agent;
+        DutyBuilder.SpeciesStats stats;
+
+        if (m.AgentRef != null)
+        {
+            // Escape hatch: hand-authored agent — nothing to generate; the manifest fills the
+            // gaps (spawn registration, generated duties, lifecycle ticker).
+            agent = GameRegistry.GetByUid(m.AgentRef) as NPCAgent;
+            if (agent == null) return null;
+            stats = ResolveRefStats(m);
+        }
+        else
+        {
+            stats = new DutyBuilder.SpeciesStats();
+            agent = BuildGeneratedAgent(m, spiritWorld, stats);
+            if (agent == null) return null;
+        }
+
+        int duties = DutyBuilder.AttachDuties(agent, m, stats, roostEnv);
+        if (duties > 0)
+            Log.Debug($"Animals: {m.SpeciesId}: {duties} generated dut(y/ies) on '{agent.name}'");
+
+        RegisterTicker(m, agent, stats, roostEnv);
+        return agent;
+    }
+
+    // ------------------------------------------------------------ generated path ---
+
+    private static NPCAgent BuildGeneratedAgent(AnimalManifest m, CardData spiritWorld, DutyBuilder.SpeciesStats stats)
+    {
         var uid = AnimalUid.For(m.SpeciesId, AnimalUid.PartAgent);
         var agent = ScriptableObject.CreateInstance<NPCAgent>();
         agent.name = uid;
         agent.hideFlags = HideFlags.DontUnloadUnusedAsset;
-
-        _uidField ??= AccessTools.Field(typeof(UniqueIDScriptable), "UniqueID")
-                   ?? AccessTools.Field(typeof(UniqueIDScriptable), "uniqueID")
-                   ?? AccessTools.Field(typeof(UniqueIDScriptable), "m_UniqueID");
-        if (_uidField == null)
-        {
-            Log.Error("Animals: UniqueIDScriptable.UniqueID field not found — cannot build agents");
-            return null;
-        }
-        _uidField.SetValue(agent, uid);
+        if (!SetUniqueId(agent, uid)) return null;
 
         agent.AgentName = new LocalizedString
         {
@@ -71,30 +107,175 @@ internal static class AnimalAssetFactory
         agent.DismantleActions = Array.Empty<DismantleCardAction>();
         agent.DragAndDropActions = Array.Empty<CardOnCardAction>();
         agent.AmbientSounds = Array.Empty<NPCAmbienceSettings>();
-        agent.AgentStats = Array.Empty<NPCStatInstance>();           // shared-stat wiring lands in M2
-        agent.AgentDuties = Array.Empty<NPCDutyRef>();               // DutyBuilder lands in M2
+        agent.AgentDuties = Array.Empty<NPCDutyRef>();
         agent.AgentPassiveEffects = Array.Empty<PassiveEffect>();
         agent.DebugActionIDs = new List<string>();
-        agent.CannotTrade = true;
+        agent.CannotTrade = true;   // the Attempt-4 lesson: default-on Trade was the "still Trade" bug
         agent.TradingConditions = EmptyCondition();
         agent.StartingInventory = Array.Empty<NPCInventoryElement>();
         agent.TradingModifiers = Array.Empty<NPCTradingValueModifier>();
         agent.ModifyNPCStatsPerTradeValue = Array.Empty<TradingNPCStatInstantModifier>();
         agent.CommissionsBp = Array.Empty<CardData>();
 
-        var homeEnv = GameRegistry.GetByUid<CardData>(m.HomeEnv);
-        var spiritWorld = GameRegistry.GetByUid<CardData>(SpawnRegistrar.SpiritWorldUid);
-        if (spiritWorld == null)
+        agent.AgentStats = BuildSharedStats(m, stats);
+
+        // Hidden while roosting: time-windowed HidingConditions covering the inactive hours.
+        // Mechanism exists in the engine but has zero vanilla users — flagged UNTESTED #3;
+        // the first in-game confirmation closes it.
+        if (m.HiddenWhileRoosting && m.HasActivityWindow)
         {
-            Log.Error($"Animals: {m.SourceFile}: Env_SpiritWorld ({SpawnRegistrar.SpiritWorldUid}) not found in registry — cannot build lifecycle");
-            return null;
+            var hiding = EmptyCondition();
+            SetConditionTimes(ref hiding, m.ActiveEnd, m.ActiveStart);
+            agent.HidingConditions = hiding;
         }
-        agent.AgentActions = LifecycleTemplateBuilder.BuildMinimalLifecycle(m, homeEnv, spiritWorld);
+
+        var homeEnv = GameRegistry.GetByUid<CardData>(m.HomeEnv);
+        var carcass = m.CarcassCard != null ? GameRegistry.GetByUid<CardData>(m.CarcassCard) : null;
+        if (m.CarcassCard != null && carcass == null)
+            Log.Warn($"Animals: {m.SourceFile}: Carcass.Card '{m.CarcassCard}' not found — death action will drop nothing");
+        agent.AgentActions = LifecycleTemplateBuilder.BuildLifecycle(m, homeEnv, spiritWorld, stats, carcass);
 
         agent.Interactions = BuildInteractions(m);
 
         if (!Register(agent, m)) return null;
         return agent;
+    }
+
+    /// <summary>Wires the shared vanilla NPCStats onto the generated agent via per-agent
+    /// NPCStatInstance overrides. AgentExists starts at 1 (default is 0); AgentCounter's
+    /// self-increment rate is zeroed (it serves as the suppressed-respawn timer store);
+    /// AgentRespawnCounter's range is widened to cover Spawn.DeathRespawnTicks (SetStatValue
+    /// clamps to MinMax — a range smaller than the target would stall the timer forever).</summary>
+    private static NPCStatInstance[] BuildSharedStats(AnimalManifest m, DutyBuilder.SpeciesStats stats)
+    {
+        var instances = new List<NPCStatInstance>();
+
+        stats.Exists = AddShared(instances, m, "AgentExists", startOverride: 1f);
+        stats.Blood = AddShared(instances, m, "AgentBlood",
+            startOverride: (float?)m.AgentBlood?.Start ?? 100f,
+            minMaxOverride: new Vector2(0f, (float?)m.AgentBlood?.Max ?? 100f),
+            rateOverride: (float?)m.AgentBlood?.RatePerTick);
+        AddShared(instances, m, "AgentSatiation",
+            startOverride: (float?)m.AgentSatiation?.Start,
+            minMaxOverride: m.AgentSatiation?.Max != null ? new Vector2(0f, (float)m.AgentSatiation.Max) : null,
+            rateOverride: (float?)m.AgentSatiation?.RatePerTick);
+        AddShared(instances, m, "AgentPoisonResistance",
+            startOverride: (float?)m.AgentPoisonResistance?.Start,
+            minMaxOverride: m.AgentPoisonResistance?.Max != null ? new Vector2(0f, (float)m.AgentPoisonResistance.Max) : null,
+            rateOverride: (float?)m.AgentPoisonResistance?.RatePerTick);
+
+        if (m.DeathRespawnTicks > 0)
+            stats.RespawnTimer = AddShared(instances, m, "AgentRespawnCounter",
+                minMaxOverride: new Vector2(0f, m.DeathRespawnTicks));
+        if (m.SuppressWhileCardOnBoard != null)
+            stats.SuppressRespawnTimer = AddShared(instances, m, "AgentCounter",
+                minMaxOverride: new Vector2(0f, Math.Max(1, m.SuppressedRespawnTicks)),
+                rateOverride: 0f);
+
+        return instances.ToArray();
+    }
+
+    private static FieldInfo _overrideStartField;
+    private static FieldInfo _overrideMinMaxField;
+    private static FieldInfo _overrideRateField;
+
+    private static NPCStat AddShared(List<NPCStatInstance> instances, AnimalManifest m, string statName,
+        float? startOverride = null, Vector2? minMaxOverride = null, float? rateOverride = null)
+    {
+        if (Database.GetTypedSO(typeof(NPCStat), statName) is not NPCStat stat)
+        {
+            Log.Error($"Animals: {m.SourceFile}: shared vanilla NPCStat '{statName}' not found — agent stat skipped");
+            return null;
+        }
+
+        var instance = new NPCStatInstance { ModelStat = stat };
+
+        _overrideStartField ??= AccessTools.Field(typeof(NPCStatInstance), "OverrideStartingValue");
+        _overrideMinMaxField ??= AccessTools.Field(typeof(NPCStatInstance), "OverrideMinMaxValue");
+        _overrideRateField ??= AccessTools.Field(typeof(NPCStatInstance), "OverrideRate");
+
+        if (startOverride is { } start)
+            _overrideStartField?.SetValue(instance, new OptionalFloatValue(true, start));
+        if (minMaxOverride is { } minMax)
+            _overrideMinMaxField?.SetValue(instance, new OptionalRangeValue(true, minMax.x, minMax.y));
+        if (rateOverride is { } rate)
+            _overrideRateField?.SetValue(instance, new OptionalFloatValue(true, rate));
+
+        instances.Add(instance);
+        return stat;
+    }
+
+    // ------------------------------------------------------------------ ref path ---
+
+    /// <summary>Ref path: resolves the manifest's Agent.Stats UID map onto real NPCStat refs.
+    /// Unknown roles were already rejected by the validator; unresolvable UIDs too.</summary>
+    private static DutyBuilder.SpeciesStats ResolveRefStats(AnimalManifest m)
+    {
+        var stats = new DutyBuilder.SpeciesStats();
+        if (m.AgentStatMap == null) return stats;
+        stats.Exists = ResolveStat(m, "Exists");
+        stats.Blood = ResolveStat(m, "Blood");
+        stats.RespawnTimer = ResolveStat(m, "RespawnTimer");
+        stats.SuppressRespawnTimer = ResolveStat(m, "SuppressRespawnTimer");
+        return stats;
+    }
+
+    private static NPCStat ResolveStat(AnimalManifest m, string role)
+    {
+        if (m.AgentStatMap == null || !m.AgentStatMap.TryGetValue(role, out var uid)) return null;
+        var stat = GameRegistry.GetByUid<NPCStat>(uid);
+        if (stat == null)
+            Log.Error($"Animals: {m.SourceFile}: Agent.Stats.{role} '{uid}' does not resolve to an NPCStat");
+        return stat;
+    }
+
+    // ---------------------------------------------------------------- shared bits ---
+
+    private static CardData ResolveRoost(AnimalManifest m, CardData spiritWorld)
+    {
+        if (!m.HasActivityWindow || m.Roost == "SpiritWorld") return spiritWorld;
+        var env = GameRegistry.GetByUid<CardData>(m.Roost);
+        if (env == null)
+        {
+            Log.Warn($"Animals: {m.SourceFile}: ActivityWindow.Roost '{m.Roost}' not found — falling back to the Spirit World");
+            return spiritWorld;
+        }
+        return env;
+    }
+
+    private static void RegisterTicker(AnimalManifest m, NPCAgent agent, DutyBuilder.SpeciesStats stats, CardData roostEnv)
+    {
+        bool wantsWindow = m.HasActivityWindow;
+        bool wantsKillTimer = m.DeathRespawnTicks > 0;
+        bool wantsSuppression = m.SuppressWhileCardOnBoard != null;
+        if (!wantsWindow && !wantsKillTimer && !wantsSuppression) return;
+
+        if (wantsKillTimer && (stats.Blood == null || stats.RespawnTimer == null))
+        {
+            Log.Warn($"Animals: {m.SourceFile}: Spawn.DeathRespawnTicks needs Blood + RespawnTimer stats — kill-respawn timer disabled");
+            wantsKillTimer = false;
+        }
+        if (wantsSuppression && (stats.Exists == null || stats.SuppressRespawnTimer == null))
+        {
+            Log.Warn($"Animals: {m.SourceFile}: Spawn.SuppressWhileCardOnBoard needs Exists + SuppressRespawnTimer stats — suppression disabled");
+            wantsSuppression = false;
+        }
+        if (wantsWindow && stats.Exists == null)
+            Log.Warn($"Animals: {m.SourceFile}: ActivityWindow relocation works best with an Exists stat — relocating regardless of retirement state");
+
+        AnimalLifecycleTicker.Register(new AnimalLifecycleTicker.SpeciesLifecycle
+        {
+            SpeciesId = m.SpeciesId,
+            Agent = agent,
+            Stats = stats,
+            HasActivityWindow = wantsWindow,
+            ActiveStart = m.ActiveStart,
+            ActiveEnd = m.ActiveEnd,
+            RoostEnv = roostEnv,
+            DeathRespawnTicks = wantsKillTimer ? m.DeathRespawnTicks : 0,
+            SuppressCardUid = wantsSuppression ? m.SuppressWhileCardOnBoard : null,
+            SuppressedRespawnTicks = m.SuppressedRespawnTicks,
+        });
     }
 
     private static NPCInteractionButton[] BuildInteractions(AnimalManifest m)
@@ -121,6 +302,43 @@ internal static class AnimalAssetFactory
                 SkipEncounterEvent = false,
             },
         };
+    }
+
+    // --------------------------------------------------------------- registration ---
+
+    /// <summary>Stamps a UniqueID onto a freshly created UniqueIDScriptable (the field is
+    /// non-public). Returns false (with one Error) if the field can't be found.</summary>
+    public static bool SetUniqueId(UniqueIDScriptable so, string uid)
+    {
+        _uidField ??= AccessTools.Field(typeof(UniqueIDScriptable), "UniqueID")
+                   ?? AccessTools.Field(typeof(UniqueIDScriptable), "uniqueID")
+                   ?? AccessTools.Field(typeof(UniqueIDScriptable), "m_UniqueID");
+        if (_uidField == null)
+        {
+            Log.Error("Animals: UniqueIDScriptable.UniqueID field not found — cannot build generated objects");
+            return false;
+        }
+        _uidField.SetValue(so, uid);
+        return true;
+    }
+
+    /// <summary>Registers a generated UniqueIDScriptable (duty, stat, …) exactly like the
+    /// agent: game registry + AllData + JsonDataLoader mod-UID maps.</summary>
+    public static void RegisterGenerated(UniqueIDScriptable so, AnimalManifest m)
+    {
+        if (!GameRegistry.TryRegister(so))
+        {
+            var existing = GameRegistry.GetByUid(so.UniqueID);
+            if (!ReferenceEquals(existing, so))
+            {
+                Log.Warn($"Animals: {m.SourceFile}: generated UID '{so.UniqueID}' ({so.name}) already registered to another object — keeping the first registration");
+                return;
+            }
+        }
+        GameRegistry.TryAddToAllData(so);
+        JsonDataLoader.AllModUniqueIds.Add(so.UniqueID);
+        JsonDataLoader.UniqueIdToModName[so.UniqueID] = m.SourceMod;
+        JsonDataLoader.LoadedObjectsByUniqueId[so.UniqueID] = so;
     }
 
     private static bool Register(NPCAgent agent, AnimalManifest m)
@@ -153,9 +371,7 @@ internal static class AnimalAssetFactory
     // ------------------------------------------------- condition construction ---
 
     private static FieldInfo[] _conditionArrayFields;
-    private static FieldInfo _timesField;
     private static FieldInfo _timeTypeField;
-    private static FieldInfo _compareTypeField;
     private static FieldInfo _startValueField;
     private static FieldInfo _endValueField;
 
@@ -175,31 +391,31 @@ internal static class AnimalAssetFactory
         return (GeneralCondition)boxed;
     }
 
-    /// <summary>Adds an [startHour, endHour) wrap-around-capable hour window to a condition.
-    /// InGameTimeCondition's fields are private [SerializeField] — set via reflection on a boxed
-    /// instance (DaysOrHours.HourIs = 0; CompareType is unused on the HourIs path).</summary>
-    public static void SetConditionTimes(ref GeneralCondition condition, int startHour, int endHour)
+    /// <summary>An [startHour, endHour) hour-window condition entry (wrap-around capable).
+    /// InGameTimeCondition's fields are private [SerializeField] — set via reflection on a
+    /// boxed instance (DaysOrHours.HourIs = 0; CompareType is unused on the HourIs path).</summary>
+    public static InGameTimeCondition MakeHourWindow(int startHour, int endHour)
     {
-        _timesField ??= ReflectionCache.GetField(typeof(GeneralCondition), "RequiredInGameTimes");
         _timeTypeField ??= ReflectionCache.GetField(typeof(InGameTimeCondition), "TimeType");
         _startValueField ??= ReflectionCache.GetField(typeof(InGameTimeCondition), "StartValue");
         _endValueField ??= ReflectionCache.GetField(typeof(InGameTimeCondition), "EndValue");
-        if (_timesField == null || _timeTypeField == null || _startValueField == null || _endValueField == null)
+        if (_timeTypeField == null || _startValueField == null || _endValueField == null)
         {
-            Log.Error("Animals: InGameTimeCondition fields not found — hour windows unavailable (agent will be always-active)");
-            return;
+            Log.Error("Animals: InGameTimeCondition fields not found — hour windows unavailable (condition will be always-true)");
+            return default;
         }
 
         object time = new InGameTimeCondition();
         _timeTypeField.SetValue(time, DaysOrHours.HourIs);
         _startValueField.SetValue(time, startHour);
         _endValueField.SetValue(time, endHour);
+        return (InGameTimeCondition)time;
+    }
 
-        var windows = Array.CreateInstance(typeof(InGameTimeCondition), 1);
-        windows.SetValue(time, 0);
-
-        object boxed = condition;
-        _timesField.SetValue(boxed, windows);
-        condition = (GeneralCondition)boxed;
+    /// <summary>Adds an [startHour, endHour) wrap-around-capable hour window to a condition.</summary>
+    public static void SetConditionTimes(ref GeneralCondition condition, int startHour, int endHour)
+    {
+        var windows = new[] { MakeHourWindow(startHour, endHour) };
+        condition.RequiredInGameTimes = windows;
     }
 }

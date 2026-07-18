@@ -387,6 +387,130 @@ public static class CardUtil
         return false;
     }
 
+    /// <summary>
+    /// Adds <paramref name="impUID"/> to the <c>CurrentlyBuiltImprovements</c> list of the
+    /// <c>GameManager.EnvironmentsData</c> entry for <paramref name="envUID"/>, creating that
+    /// entry (via <c>GetEnvSaveData(EnvID, _CreateIfNull:true)</c>) if the env has never been
+    /// visited. Idempotent — a UID already present is not duplicated. Mirrors the write-side of
+    /// <see cref="IsImprovementBuilt"/>; both are consumed by <c>ExplorationPopup.SetupImprovements</c>
+    /// (built-item ordering) and by <c>ConnectionGateService</c>/<c>ConditionalDropService</c>'s
+    /// <c>ImprovementBuilt</c> gate condition. Returns false on any missing link or reflection failure.
+    /// </summary>
+    public static bool MarkImprovementBuilt(string envUID, string impUID)
+    {
+        if (string.IsNullOrEmpty(envUID) || string.IsNullOrEmpty(impUID)) return false;
+        try
+        {
+            var gm = GetGameManagerInstance();
+            if (gm == null) return false;
+
+            var envDataField = GetCachedField(gm.GetType(), "EnvironmentsData");
+            if (envDataField?.GetValue(gm) is IDictionary envData)
+            {
+                foreach (DictionaryEntry entry in envData)
+                {
+                    var value = entry.Value;
+                    if (value == null) continue;
+                    var vt = value.GetType();
+                    var envId   = GetCachedField(vt, "EnvironmentID")?.GetValue(value) as string;
+                    var dictKey = GetCachedField(vt, "DictionaryKey")?.GetValue(value) as string;
+                    bool isTarget =
+                        envUID.Equals(envId,               StringComparison.Ordinal) ||
+                        envUID.Equals(dictKey,             StringComparison.Ordinal) ||
+                        envUID.Equals(entry.Key as string, StringComparison.Ordinal);
+                    if (!isTarget) continue;
+
+                    var cbiField = GetCachedField(vt, "CurrentlyBuiltImprovements");
+                    if (cbiField == null) return false;
+                    if (cbiField.GetValue(value) is not IList built)
+                    {
+                        built = new List<string>();
+                        cbiField.SetValue(value, built);
+                    }
+                    if (!built.Contains(impUID)) built.Add(impUID);
+                    return true;
+                }
+            }
+
+            // Env not yet visited (no EnvironmentsData entry) — create it so the mark persists.
+            var envIdType = FindGameType("EnvID");
+            var getEnvSaveData = gm.GetType().GetMethod("GetEnvSaveData", All);
+            if (envIdType == null || getEnvSaveData == null) return false;
+
+            var envId2 = Activator.CreateInstance(envIdType, new object[] { envUID });
+            var envSaveObj = getEnvSaveData.Invoke(gm, new object[] { envId2, true });
+            if (envSaveObj == null) return false;
+
+            var svt = envSaveObj.GetType();
+            var svtCbi = GetCachedField(svt, "CurrentlyBuiltImprovements");
+            if (svtCbi == null) return false;
+            if (svtCbi.GetValue(envSaveObj) is not IList newBuilt)
+            {
+                newBuilt = new List<string>();
+                svtCbi.SetValue(envSaveObj, newBuilt);
+            }
+            if (!newBuilt.Contains(impUID)) newBuilt.Add(impUID);
+            return true;
+        }
+        catch { }
+        return false;
+    }
+
+    /// <summary>
+    /// Finds the player's live <c>CardUnlockConditions</c> entry for <paramref name="cardUID"/> in
+    /// <c>GameManager.UnlockableCards</c> and calls its public <c>SetStartUnlocked()</c> — bypassing
+    /// that card's <c>CardsOnBoard</c>/<c>TagsOnBoard</c>/etc. discovery gate for this run only (the
+    /// JSON-authored gate is untouched, so players without the triggering condition still discover
+    /// it normally). Returns false if the card has no matching entry or on reflection failure.
+    /// </summary>
+    public static bool ForceUnlockCard(string cardUID)
+    {
+        if (string.IsNullOrEmpty(cardUID)) return false;
+        try
+        {
+            var gm = GetGameManagerInstance();
+            if (gm == null) return false;
+            if (GetMemberValue(gm, "UnlockableCards") is not IEnumerable unlockable) return false;
+
+            foreach (var uc in unlockable)
+            {
+                if (uc == null) continue;
+                var unlockedCard = GetMemberValue(uc, "UnlockedCard");
+                if (unlockedCard == null) continue;
+                if (!cardUID.Equals(GetCardUniqueId(unlockedCard), StringComparison.Ordinal)) continue;
+
+                var setStartUnlocked = uc.GetType().GetMethod("SetStartUnlocked", All);
+                if (setStartUnlocked == null) return false;
+                setStartUnlocked.Invoke(uc, Array.Empty<object>());
+                return true;
+            }
+        }
+        catch { }
+        return false;
+    }
+
+    /// <summary>
+    /// Queues <paramref name="improvement"/> on <c>GameManager.AddImprovementToBuild</c> — the next
+    /// time this CardData spawns as an <c>InGameCardBase</c> (via the normal unlock pipeline, e.g.
+    /// after <see cref="ForceUnlockCard"/>), the engine's own <c>SpawnCard</c> immediately calls
+    /// <c>CompleteImprovement()</c> on it (sets <c>BlueprintData.CurrentStage</c> to fully built)
+    /// instead of leaving it at stage 0 awaiting materials. Returns false on reflection failure.
+    /// </summary>
+    public static bool QueueImprovementAutoComplete(object improvement)
+    {
+        if (improvement == null) return false;
+        try
+        {
+            var gm = GetGameManagerInstance();
+            if (gm == null) return false;
+            var method = gm.GetType().GetMethod("AddImprovementToBuild", All);
+            if (method == null) return false;
+            method.Invoke(gm, new object[] { improvement });
+            return true;
+        }
+        catch { return false; }
+    }
+
     // ── Type conversion helpers ───────────────────────────────────────────────
 
     /// <summary>Converts any boxed numeric value to float. Returns 0 on null or failure.</summary>
@@ -673,7 +797,7 @@ public static class CardUtil
     //
     // One unified path over the two runtime stat shapes:
     //   (a) EA 0.62b+: flat properties on InGameCardBase (CurrentProgress, CurrentSpecial1–4,
-    //       CurrentFuel, CurrentUsage, CurrentSpoilage)
+    //       CurrentFuel, CurrentUsageDurability, CurrentSpoilage)
     //   (b) older / container shape: DurabilityStats|CardDurabilities → <stat> → CurrentValue|FloatValue
     // Lifted from WDI FishpondPopulationPatch GetStat/SetStat (the proven implementation)
     // and CMC QualitySplitPatch. Accepts both JSON stat names ("SpoilageTime") and
@@ -691,7 +815,7 @@ public static class CardUtil
         "SpecialDurability3" => "CurrentSpecial3",
         "SpecialDurability4" => "CurrentSpecial4",
         "FuelCapacity"       => "CurrentFuel",
-        "UsageDurability"    => "CurrentUsage",
+        "UsageDurability"    => "CurrentUsageDurability",
         "SpoilageTime"       => "CurrentSpoilage",
         _                    => statName != null && statName.StartsWith("Current", StringComparison.Ordinal)
                                     ? statName : null,

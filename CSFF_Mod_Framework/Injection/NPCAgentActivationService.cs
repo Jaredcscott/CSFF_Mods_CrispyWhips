@@ -7,14 +7,18 @@ using CSFFModFramework.Util;
 namespace CSFFModFramework.Injection;
 
 /// <summary>
-/// Phase-3 NPCAgent support — load-time validation and run-start injection.
+/// Phase-3 NPCAgent support — load-time validation and run-start diagnostics.
 ///
 /// <para>NPCAgent, NPCDuty, NPCHidingGroup, and NPCStat instances are loaded into AllData
-/// by JsonDataLoader. At OnGMInitialized, this service checks whether mod agents appear in
-/// GameManager's agent list; if absent, it injects them via <see cref="InjectMissingAgents"/>.
-/// A verbose survey of GameManager NPC fields is logged at Debug level and is visible only
-/// when VerboseLogging is enabled in the BepInEx config — it serves as a diagnostic aid
-/// when the NPC system needs investigation, not as routine output.</para>
+/// by JsonDataLoader. A verbose survey of GameManager NPC fields is logged at Debug level
+/// and is visible only when VerboseLogging is enabled in the BepInEx config — it serves as
+/// a diagnostic aid when the NPC system needs investigation, not as routine output.</para>
+///
+/// <para>The former run-start "inject missing agents into a GameManager list" path was a
+/// confirmed no-op (list presence alone never spawns an InGameNPC — spawning requires a
+/// WorldSettings.NPCAgents entry consumed by GameManager.Awake → CreateNPC) and was removed
+/// per the approved Animal System plan; <see cref="Animals.SpawnRegistrar"/> is the real
+/// spawn-registration mechanism.</para>
 ///
 /// <para>Validated at load time: null-array normalization (prevents NRE during GameManager
 /// agent initialization), empty AgentName warning, empty AgentStats warning (agent will
@@ -312,43 +316,20 @@ internal static class NPCAgentActivationService
             if (found) present++; else missing.Add(agent);
         }
 
+        // Diagnostic only — list membership never spawns an InGameNPC, so nothing is
+        // injected here (see class doc). Real spawning: Animals.SpawnRegistrar.
         if (!_firstRunConfirmed)
         {
             _firstRunConfirmed = true;
             if (missing.Count > 0)
-            {
-                Log.Info($"NPCAgentActivation: {present}/{_modAgents.Count} mod NPCAgent(s) in {foundIn}. Missing: {string.Join(", ", missing.Select(a => a.name))}");
-                Log.Debug("NPCAgentActivation: [DIAGNOSTICS] Mod agents NOT auto-discovered — injecting into " + foundIn);
-                InjectMissingAgents(agentList, missing);
-            }
+                Log.Debug($"NPCAgentActivation: {present}/{_modAgents.Count} mod NPCAgent(s) in {foundIn}. Not listed (informational): {string.Join(", ", missing.Select(a => a.name))}");
             else
-            {
-                Log.Info($"NPCAgentActivation: {present}/{_modAgents.Count} mod NPCAgent(s) confirmed in {foundIn} — AllData auto-discovery sufficient");
-            }
+                Log.Debug($"NPCAgentActivation: {present}/{_modAgents.Count} mod NPCAgent(s) confirmed in {foundIn}");
         }
         else
         {
             Log.Debug($"NPCAgentActivation: {present}/{_modAgents.Count} mod NPCAgent(s) in {foundIn}");
         }
-    }
-
-    private static void InjectMissingAgents(IList agentList, List<NPCAgent> missing)
-    {
-        int injected = 0;
-        foreach (var agent in missing)
-        {
-            try
-            {
-                agentList.Add(agent);
-                injected++;
-                Log.Debug($"NPCAgentActivation: injected {agent.name} ({agent.UniqueID}) into GameManager agent list");
-            }
-            catch (Exception ex)
-            {
-                Log.Error($"NPCAgentActivation: failed to inject {agent.name}: {Log.ExceptionText(ex)}");
-            }
-        }
-        Log.Info($"NPCAgentActivation: {injected}/{missing.Count} mod NPCAgent(s) injected");
     }
 
     // ------------------------------------------------ wild-animal diagnostics ---
