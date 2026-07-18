@@ -2,5 +2,5 @@
 	"Name": "RepeatAction",
 	"Author": "Jared",
 	"Version": "1.6.4",
-	"Description": "A quality-of-life mod that repeats your last action with configurable keybinds and safety limits. All player-initiated actions are supported."
+	"Description": "A quality-of-life mod that repeats your last action with configurable keybinds and safety limits. Player-initiated actions are captured by default; a repeat succeeds only while the card and game conditions still match, and stops cleanly when they no longer do."
 }

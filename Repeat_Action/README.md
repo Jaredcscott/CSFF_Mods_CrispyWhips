@@ -107,7 +107,7 @@ Pre-Travel Rest Timeout (seconds) = 15
 
 ## Supported Actions
 
-**All player-initiated actions are supported by default.** The mod captures any action you click in a card's popup or via drag-and-drop, then replays it. If an action can no longer execute (card consumed, conditions not met), it stops cleanly.
+**All player-initiated actions are captured by default.** The mod records any action you click in a card's popup or via drag-and-drop, then replays it. **A repeat succeeds only while the card and game conditions still match the original action's requirements** — if an action can no longer execute (card consumed, location depleted, conditions no longer met), the repeat stops cleanly and the on-screen notification tells you why. Stopping early is expected behavior, not a bug.
 
 Examples of actions that work: Forage, Clear, Eat, Drink, Cook, Boil, Roast, Fry, Bake, Smoke, Dry, Make, Build, Plant, Harvest, Mine, Chop, Craft, Grind, Dig, Butcher, Skin, Tan, Sew, Smith, Repair, Fill, Pour, Brew, Ferment, Wash, Feed, Water, Till, Train, and any mod-added action.
 
@@ -137,11 +137,18 @@ Examples of actions that work: Forage, Clear, Eat, Drink, Cook, Boil, Roast, Fry
 - A notification saying "'ActionName' is not supported" means it matched the mod's short blocklist (currently just the event-popup "Continue" button)
 - Check the config file to verify keybinds
 
-**Q: Repeat stops unexpectedly**
-- If "Stop On Low Stats" is enabled, it may have stopped due to low health/hunger
-- Check if the target card still exists (some actions consume the card)
-- For drag-drop, if the tool breaks the mod will stop with "source exhausted"
+**Q: Repeat stops early / an action "doesn't actually repeat"**
+
+The mod never forces an action through — each iteration re-runs the game's own requirement checks. Stopping early is expected whenever the card or game state no longer matches the original action:
+- The target card was consumed or destroyed (eating the last of an item, burning the last fuel)
+- The location or resource is depleted (Forage/Dig/Clear on an exhausted spot)
+- A required stat dropped too low (check "Stop On Low Stats" and the per-stat threshold settings)
+- The card no longer meets the action's conditions (field not grown, container empty, wrong card state)
+- A one-shot action reached its limit (Skin, Pick Up hide, etc. — these can only happen once per card)
+- For drag-drop, if the tool breaks the mod stops with "source exhausted"
 - For travel, if there's no path in that direction the mod stops with "Can't go [direction]"
+
+In all of these cases the repeat stops cleanly — check the on-screen notification for the specific reason.
 
 **Q: Chopping trees is slow**
 - The mod rests between chops to recover stamina and allow small tree respawns — this is intentional
