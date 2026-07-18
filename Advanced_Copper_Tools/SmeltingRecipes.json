@@ -103,5 +103,40 @@
     "Item": "advanced_copper_tools_copper_cauldron",
     "NuggetReturn": 34,
     "Duration": 8
+  },
+  {
+    "Item": "advanced_copper_tools_copper_watering_can",
+    "NuggetReturn": 10,
+    "Duration": 8
+  },
+  {
+    "Item": "advanced_copper_tools_copper_rim_chamberpot",
+    "NuggetReturn": 6,
+    "Duration": 8
+  },
+  {
+    "Item": "act_iron_sheet",
+    "NuggetReturn": 5,
+    "Duration": 8
+  },
+  {
+    "Item": "act_iron_helmet",
+    "NuggetReturn": 20,
+    "Duration": 8
+  },
+  {
+    "Item": "act_iron_gauntlets",
+    "NuggetReturn": 15,
+    "Duration": 8
+  },
+  {
+    "Item": "act_iron_greaves",
+    "NuggetReturn": 20,
+    "Duration": 8
+  },
+  {
+    "Item": "act_iron_breastplate",
+    "NuggetReturn": 30,
+    "Duration": 8
   }
 ]

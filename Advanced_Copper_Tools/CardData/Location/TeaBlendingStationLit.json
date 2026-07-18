@@ -725,7 +725,7 @@
   ],
   "EffectsToInventoryContent": [],
   "MaxLiquidCapacity": 0.0,
-  "MaxWeightCapacity": 8000.0,
+  "MaxWeightCapacity": 1000.0,
   "InventorySlots": [
     { "m_FileID": 0, "m_PathID": 0 },
     { "m_FileID": 0, "m_PathID": 0 },
@@ -850,6 +850,162 @@
         "tag_QuickDryable",
         "tag_DryingRackSanctuary"
       ],
+      "CompatibleTagsWarpType": 3
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_BrewCalming_ActionName",
+        "DefaultText": "Brew Calming Tea"
+      },
+      "CustomCookingText": { "ParentObjectID": "advanced_copper_tools_tea_blending_station_lit", "LocalizationKey": "", "DefaultText": "" },
+      "CannotCookText": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_BrewNeedsWater_CannotCookText",
+        "DefaultText": "Needs a hot Water Charge in the reservoir"
+      },
+      "CompatibleCards": [],
+      "CompatibleCardsWarpData": [ "9cef8509b7b43cd4894c89615d87469f" ],
+      "CompatibleCardsWarpType": 3,
+      "CompatibleTags": [],
+      "ConditionsCard": 0,
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "Special3Range": { "x": 0.5, "y": 1.0 },
+          "Special4Range": { "x": 0.125, "y": 1.0 }
+        }
+      },
+      "Duration": 2,
+      "DurationRdmVariation": 0,
+      "CookerChanges": {
+        "ModType": 1,
+        "Special4Change": { "x": -1.0, "y": -1.0 }
+      },
+      "IngredientChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "advanced_copper_tools_calming_tea",
+        "TransformIntoWarpType": 3
+      },
+      "FeedbackMode": 1,
+      "ProgressBar": 5,
+      "ProgressTowardsZero": false,
+      "HideCookingProgress": false,
+      "HideDurabilities": { "MaskValue": 0 },
+      "HideResultNotification": false,
+      "RandomSingleDrop": false,
+      "CustomCompleteSound": { "m_FileID": 0, "m_PathID": 0 },
+      "Notification": 0,
+      "CustomNotification": { "ParentObjectID": "advanced_copper_tools_tea_blending_station_lit", "LocalizationKey": "", "DefaultText": "" },
+      "ScaleDropsPerLiquidQuantity": { "Active": false, "FloatValue": 0.0 },
+      "Drops": [],
+      "StatModifications": [],
+      "UseCookerForCardDrops": false,
+      "DropsAsCollection": [],
+      "CompatibleTagsWarpData": [],
+      "CompatibleTagsWarpType": 3
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_BrewWarming_ActionName",
+        "DefaultText": "Brew Warming Tea"
+      },
+      "CustomCookingText": { "ParentObjectID": "advanced_copper_tools_tea_blending_station_lit", "LocalizationKey": "", "DefaultText": "" },
+      "CannotCookText": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_BrewNeedsWater_CannotCookText",
+        "DefaultText": "Needs a hot Water Charge in the reservoir"
+      },
+      "CompatibleCards": [],
+      "CompatibleCardsWarpData": [ "faed37abeaeec544b9c8f770b5fadafb" ],
+      "CompatibleCardsWarpType": 3,
+      "CompatibleTags": [],
+      "ConditionsCard": 0,
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "Special3Range": { "x": 0.5, "y": 1.0 },
+          "Special4Range": { "x": 0.125, "y": 1.0 }
+        }
+      },
+      "Duration": 2,
+      "DurationRdmVariation": 0,
+      "CookerChanges": {
+        "ModType": 1,
+        "Special4Change": { "x": -1.0, "y": -1.0 }
+      },
+      "IngredientChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "advanced_copper_tools_warming_tea",
+        "TransformIntoWarpType": 3
+      },
+      "FeedbackMode": 1,
+      "ProgressBar": 5,
+      "ProgressTowardsZero": false,
+      "HideCookingProgress": false,
+      "HideDurabilities": { "MaskValue": 0 },
+      "HideResultNotification": false,
+      "RandomSingleDrop": false,
+      "CustomCompleteSound": { "m_FileID": 0, "m_PathID": 0 },
+      "Notification": 0,
+      "CustomNotification": { "ParentObjectID": "advanced_copper_tools_tea_blending_station_lit", "LocalizationKey": "", "DefaultText": "" },
+      "ScaleDropsPerLiquidQuantity": { "Active": false, "FloatValue": 0.0 },
+      "Drops": [],
+      "StatModifications": [],
+      "UseCookerForCardDrops": false,
+      "DropsAsCollection": [],
+      "CompatibleTagsWarpData": [],
+      "CompatibleTagsWarpType": 3
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_BrewFocus_ActionName",
+        "DefaultText": "Brew Focus Tea"
+      },
+      "CustomCookingText": { "ParentObjectID": "advanced_copper_tools_tea_blending_station_lit", "LocalizationKey": "", "DefaultText": "" },
+      "CannotCookText": {
+        "ParentObjectID": "advanced_copper_tools_tea_blending_station_lit",
+        "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_BrewNeedsWater_CannotCookText",
+        "DefaultText": "Needs a hot Water Charge in the reservoir"
+      },
+      "CompatibleCards": [],
+      "CompatibleCardsWarpData": [ "68a90a422ba54614a90ba242283bf207" ],
+      "CompatibleCardsWarpType": 3,
+      "CompatibleTags": [],
+      "ConditionsCard": 0,
+      "Conditions": {
+        "ReceivingRequiredDurabilityRanges": {
+          "Special3Range": { "x": 0.5, "y": 1.0 },
+          "Special4Range": { "x": 0.125, "y": 1.0 }
+        }
+      },
+      "Duration": 2,
+      "DurationRdmVariation": 0,
+      "CookerChanges": {
+        "ModType": 1,
+        "Special4Change": { "x": -1.0, "y": -1.0 }
+      },
+      "IngredientChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "advanced_copper_tools_focus_tea",
+        "TransformIntoWarpType": 3
+      },
+      "FeedbackMode": 1,
+      "ProgressBar": 5,
+      "ProgressTowardsZero": false,
+      "HideCookingProgress": false,
+      "HideDurabilities": { "MaskValue": 0 },
+      "HideResultNotification": false,
+      "RandomSingleDrop": false,
+      "CustomCompleteSound": { "m_FileID": 0, "m_PathID": 0 },
+      "Notification": 0,
+      "CustomNotification": { "ParentObjectID": "advanced_copper_tools_tea_blending_station_lit", "LocalizationKey": "", "DefaultText": "" },
+      "ScaleDropsPerLiquidQuantity": { "Active": false, "FloatValue": 0.0 },
+      "Drops": [],
+      "StatModifications": [],
+      "UseCookerForCardDrops": false,
+      "DropsAsCollection": [],
+      "CompatibleTagsWarpData": [],
       "CompatibleTagsWarpType": 3
     }
   ],

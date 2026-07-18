@@ -764,7 +764,7 @@
   "PassiveStatEffects": [],
   "PassiveEffects": [],
   "MaxLiquidCapacity": 0.0,
-  "MaxWeightCapacity": 8000.0,
+  "MaxWeightCapacity": 1000.0,
   "InventorySlots": [
     { "m_FileID": 0, "m_PathID": 0 },
     { "m_FileID": 0, "m_PathID": 0 },

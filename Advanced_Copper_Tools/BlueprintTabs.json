@@ -1,7 +1,8 @@
 {
     "Tab_1_Survival_Subtab_2_Support_TabName": [
         "advanced_copper_tools_bp_oil",
-        "advanced_copper_tools_bp_render_hemp_oil"
+        "advanced_copper_tools_bp_render_hemp_oil",
+        "advanced_copper_tools_bp_render_fish_oil"
     ],
     "Tab_5_MetalAndClay_Subtab_3_MetalCrafts_TabName": [
         "advanced_copper_tools_bp_metal_sheet",
@@ -12,7 +13,8 @@
         "advanced_copper_tools_bp_pan_blank",
         "advanced_copper_tools_bp_cast_wheel_hub",
         "advanced_copper_tools_bp_iron_nails",
-        "advanced_copper_tools_bp_tin_solder"
+        "advanced_copper_tools_bp_tin_solder",
+        "act_bp_iron_sheet"
     ],
     "Tab_2_Construction_Subtab_2_MetalTools_TabName": [
         "advanced_copper_tools_bp_wearable_metal_pan",
@@ -24,7 +26,12 @@
         "advanced_copper_tools_bp_copper_helmet",
         "advanced_copper_tools_bp_copper_gauntlets",
         "advanced_copper_tools_bp_copper_greaves",
-        "advanced_copper_tools_bp_copper_breastplate"
+        "advanced_copper_tools_bp_copper_breastplate",
+        "advanced_copper_tools_bp_copper_watering_can",
+        "act_bp_iron_helmet",
+        "act_bp_iron_gauntlets",
+        "act_bp_iron_greaves",
+        "act_bp_iron_breastplate"
     ],
     "Tab_2_Construction_Subtab_2_AdvancedTools_TabName": [
         "advanced_copper_tools_bp_metal_lantern",
@@ -38,7 +45,8 @@
         "advanced_copper_tools_bp_copper_stove",
         "advanced_copper_tools_bp_tea_blending_station",
         "advanced_copper_tools_bp_copper_pantry",
-        "advanced_copper_tools_bp_copper_brazier"
+        "advanced_copper_tools_bp_copper_brazier",
+        "advanced_copper_tools_bp_copper_rim_chamberpot"
     ],
     "Tab_1_Survival_Subtab_1_Fire_TabName": [
         "advanced_copper_tools_bp_copper_brazier"

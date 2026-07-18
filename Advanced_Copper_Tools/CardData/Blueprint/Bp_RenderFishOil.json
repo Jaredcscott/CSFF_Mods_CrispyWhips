@@ -1,27 +1,26 @@
 {
-    "UniqueID": "advanced_copper_tools_bp_wheelbarrow",
+    "UniqueID": "advanced_copper_tools_bp_render_fish_oil",
     "CardName": {
-        "ParentObjectID": "advanced_copper_tools_bp_wheelbarrow",
-        "LocalizationKey": "Advanced_Copper_Tools_Bp_Wheelbarrow_CardName",
-        "DefaultText": "Wheelbarrow"
+        "ParentObjectID": "advanced_copper_tools_bp_render_fish_oil",
+        "LocalizationKey": "Advanced_Copper_Tools_Bp_RenderFishOil_CardName",
+        "DefaultText": "Rendered Fish Oil"
     },
     "CardDescription": {
-        "ParentObjectID": "advanced_copper_tools_bp_wheelbarrow",
-        "LocalizationKey": "Advanced_Copper_Tools_Bp_Wheelbarrow_CardDescription",
-        "DefaultText": "Construct a wheelbarrow for hauling heavy loads. Requires a bucket, handles, and wheel assembly."
+        "ParentObjectID": "advanced_copper_tools_bp_render_fish_oil",
+        "LocalizationKey": "Advanced_Copper_Tools_Bp_RenderFishOil_CardDescription",
+        "DefaultText": "Render 2 fatty fish meat in a clay bowl over a fire to produce cooking oil and lamp fuel."
     },
     "CardType": 7,
     "UnlockConditionsDesc": {
-        "ParentObjectID": "advanced_copper_tools_bp_wheelbarrow",
-        "LocalizationKey": "Advanced_Copper_Tools_Bp_Wheelbarrow_UnlockConditionsDesc",
-        "DefaultText": "Wheelbarrow Bucket Needed"
+        "ParentObjectID": "advanced_copper_tools_bp_render_fish_oil",
+        "LocalizationKey": "Advanced_Copper_Tools_Bp_RenderFishOil_UnlockConditionsDesc",
+        "DefaultText": "Fatty Fish Meat Needed"
     },
-    "BlueprintUnlockTicksCost": 96.0,
     "BuildingStatConditions": [],
     "StartUnlocked": false,
     "CardsOnBoard": [
         {
-            "ObjectiveName": "HasCopper",
+            "ObjectiveName": "HasFattyFish",
             "CompletionWeight": 1,
             "Card": {
                 "m_FileID": 0,
@@ -40,7 +39,7 @@
                     "m_PathID": 0
                 }
             },
-            "CardWarpData": "advanced_copper_tools_bucket",
+            "CardWarpData": "3103c059d34608a4bb95c426d9ac77e0",
             "CardWarpType": 3
         }
     ],
@@ -55,9 +54,9 @@
                         "m_FileID": 0,
                         "m_PathID": 0
                     },
-                    "RequiredQuantity": 1,
+                    "RequiredQuantity": 2,
                     "DontSpend": false,
-                    "RequiredCardWarpData": "advanced_copper_tools_bucket",
+                    "RequiredCardWarpData": "3103c059d34608a4bb95c426d9ac77e0",
                     "RequiredCardWarpType": 3
                 },
                 {
@@ -67,17 +66,7 @@
                     },
                     "RequiredQuantity": 1,
                     "DontSpend": false,
-                    "RequiredCardWarpData": "advanced_copper_tools_handles",
-                    "RequiredCardWarpType": 3
-                },
-                {
-                    "RequiredCard": {
-                        "m_FileID": 0,
-                        "m_PathID": 0
-                    },
-                    "RequiredQuantity": 1,
-                    "DontSpend": false,
-                    "RequiredCardWarpData": "advanced_copper_tools_wheel_assembly",
+                    "RequiredCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
                     "RequiredCardWarpType": 3
                 }
             ],
@@ -86,8 +75,8 @@
             "StepActionTagsWarpType": 3
         }
     ],
-    "BuildingDaytimeCost": 8,
-    "DeconstructDaytimeCost": 4,
+    "BuildingDaytimeCost": 4,
+    "DeconstructDaytimeCost": 0,
     "BlueprintResult": [
         {
             "DroppedCard": {
@@ -98,26 +87,13 @@
                 "x": 1,
                 "y": 1
             },
-            "DroppedCardWarpData": "advanced_copper_tools_wheelbarrow",
+            "DroppedCardWarpData": "advanced_copper_tools_oil",
             "DroppedCardWarpType": 3
         }
     ],
-    "BlueprintStatModifications": [
-        {
-            "Stat": {
-                "m_FileID": 0,
-                "m_PathID": 0
-            },
-            "ValueModifier": {
-                "x": 2.0,
-                "y": 2.0
-            },
-            "StatWarpData": "d4b67ed3a92b283488db1554bb23270a",
-            "StatWarpType": 3
-        }
-    ],
+    "BlueprintStatModifications": [],
     "WhenCreatedSoundsWarpData": [
-        "Metal"
+        "SmallObject_A"
     ],
     "WhenCreatedSoundsWarpType": 3,
     "BlueprintActionTagsWarpData": [
@@ -129,7 +105,8 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "CardImageWarpData": "WheelBarrowCP",
+    "CardImageWarpData": "FishMeatFattyRaw",
     "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 16.0,
     "ResearchedNotification": 0
 }

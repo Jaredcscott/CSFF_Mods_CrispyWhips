@@ -13,7 +13,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.advanced_copper_tools";
     public const string PluginName = "Advanced_Copper_Tools";
-    public const string PluginVersion = "1.11.7";
+    public const string PluginVersion = "1.14.0";
 
     internal new static ManualLogSource Logger { get; private set; }
     internal static Plugin Instance { get; private set; }
@@ -53,6 +53,9 @@ internal class Plugin : ContentModPlugin
 
     protected override void OnModDestroy()
     {
+        // Remove the manual OnGMInitialized subscription before nulling Logger, so a
+        // post-teardown fire can't NRE against a destroyed instance.
+        Advanced_Copper_Tools.Patcher.GameLoadPatch.Unsubscribe();
         Instance = null;
         Logger = null;
     }

@@ -1,0 +1,107 @@
+{
+  "UniqueID": "act_bp_iron_breastplate",
+  "CardName": {
+    "ParentObjectID": "act_bp_iron_breastplate",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_IronBreastplate_CardName",
+    "DefaultText": "Iron Armor"
+  },
+  "CardDescription": {
+    "ParentObjectID": "act_bp_iron_breastplate",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_IronBreastplate_CardDescription",
+    "DefaultText": "Forge a suit of iron armor for superior torso protection."
+  },
+  "CardType": 7,
+  "UnlockConditionsDesc": {
+    "ParentObjectID": "act_bp_iron_breastplate",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_IronBreastplate_UnlockConditionsDesc",
+    "DefaultText": "Iron Sheet Needed"
+  },
+  "BuildingStatConditions": [],
+  "StartUnlocked": false,
+  "CardsOnBoard": [
+    {
+      "ObjectiveName": "HasIronSheet",
+      "CompletionWeight": 1,
+      "Card": { "m_FileID": 0, "m_PathID": 0 },
+      "Quantity": 1,
+      "ConstantlyChecking": false,
+      "OnlyInEnvironment": { "m_FileID": 0, "m_PathID": 0 },
+      "OnlyIfEquipped": false,
+      "OnlyInContainer": { "Target": { "m_FileID": 0, "m_PathID": 0 } },
+      "CardWarpData": "act_iron_sheet",
+      "CardWarpType": 3
+    }
+  ],
+  "TagsOnBoard": [],
+  "StatValues": [],
+  "BlueprintStages": [
+    {
+      "CannotRevertToThisStage": false,
+      "RequiredElements": [
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 4,
+          "DontSpend": false,
+          "RequiredCardWarpData": "act_iron_sheet",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 4,
+          "DontSpend": false,
+          "RequiredCardWarpData": "act_iron_nail",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "f362a7ba3ad932244b1e9c18569ac98e",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 4,
+          "DontSpend": false,
+          "RequiredCardWarpData": "e2d62c5b98d164745b276da572605efe",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 1,
+          "DontSpend": true,
+          "EffectOnIngredient": {
+            "ModType": 1,
+            "UsageChange": { "x": -8.0, "y": -8.0 }
+          },
+          "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredTabGroupWarpData": "GpTag_HammeringToolGeneral",
+          "RequiredTabGroupWarpType": 3
+        }
+      ],
+      "StepActionTags": [],
+      "StepActionTagsWarpData": [],
+      "StepActionTagsWarpType": 3
+    }
+  ],
+  "BuildingDaytimeCost": 6,
+  "DeconstructDaytimeCost": 2,
+  "BlueprintResult": [
+    {
+      "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+      "Quantity": { "x": 1, "y": 1 },
+      "DroppedCardWarpData": "act_iron_breastplate",
+      "DroppedCardWarpType": 3
+    }
+  ],
+  "BlueprintStatModifications": [],
+  "WhenCreatedSoundsWarpData": [ "Metal" ],
+  "WhenCreatedSoundsWarpType": 3,
+  "BlueprintActionTagsWarpData": [ "HandAction", "CraftAction" ],
+  "BlueprintActionTagsWarpType": 3,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "IronArmor",
+  "CardImageWarpType": 3,
+  "BlueprintUnlockTicksCost": 40.0,
+  "ResearchedNotification": 0
+}

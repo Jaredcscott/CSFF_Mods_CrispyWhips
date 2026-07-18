@@ -1,0 +1,68 @@
+{
+  "UniqueID": "act_iron_sheet",
+  "CardName": {
+    "ParentObjectID": "act_iron_sheet",
+    "LocalizationKey": "Advanced_Copper_Tools_IronSheet_CardName",
+    "DefaultText": "Iron Sheet"
+  },
+  "CardDescription": {
+    "ParentObjectID": "act_iron_sheet",
+    "LocalizationKey": "Advanced_Copper_Tools_IronSheet_CardDescription",
+    "DefaultText": "A flat iron sheet, hammered thin from iron nuggets. Tougher than any copper-tier metal."
+  },
+  "CardType": 0,
+  "ObjectWeight": 170.0,
+  "TradingValue": 500.0,
+  "CardTags": [],
+  "CardTagsWarpData": [ "tag_Metal", "tag_SmeltsAt1100", "tag_CopperBig" ],
+  "CardTagsWarpType": 3,
+  "SpecialDurability4": {
+    "Active": true,
+    "FloatValue": 200.0,
+    "CardStatName": {
+      "ParentObjectID": "act_iron_sheet",
+      "LocalizationKey": "Advanced_Copper_Tools_IronSheet_SpecialDurability4.CardStatName",
+      "DefaultText": "Metal Type"
+    },
+    "MaxValue": 1000.0,
+    "RestrictToSpecificValues": true,
+    "ValidValues": [ 200.0 ],
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "CountsForTradingValue": true
+  },
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "MetalSheet_Iron",
+  "CardImageWarpType": 3,
+  "SpoilageTime": { "Active": false },
+  "UsageDurability": { "Active": false },
+  "FuelCapacity": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "act_iron_sheet",
+      "LocalizationKey": "Advanced_Copper_Tools_IronSheet_FuelCapacity.CardStatName",
+      "DefaultText": "Temperature"
+    },
+    "MaxValue": 1300.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 2,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Hot",
+    "OverrideIconWarpType": 3
+  },
+  "Progress": { "Active": false },
+  "SpecialDurability1": { "Active": false },
+  "CardInteractions": [],
+  "DismantleActions": [],
+  "PassiveEffects": [],
+  "MaxLiquidCapacity": 0.0,
+  "InventorySlots": []
+}

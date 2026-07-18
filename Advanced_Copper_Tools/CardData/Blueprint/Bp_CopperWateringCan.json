@@ -1,22 +1,21 @@
 {
-  "UniqueID": "advanced_copper_tools_bp_copper_cauldron",
+  "UniqueID": "advanced_copper_tools_bp_copper_watering_can",
   "CardName": {
-    "ParentObjectID": "advanced_copper_tools_bp_copper_cauldron",
-    "LocalizationKey": "Advanced_Copper_Tools_Bp_CopperCauldron_CardName",
-    "DefaultText": "Copper Cauldron"
+    "ParentObjectID": "advanced_copper_tools_bp_copper_watering_can",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_CopperWateringCan_CardName",
+    "DefaultText": "Copper Watering Can"
   },
   "CardDescription": {
-    "ParentObjectID": "advanced_copper_tools_bp_copper_cauldron",
-    "LocalizationKey": "Advanced_Copper_Tools_Bp_CopperCauldron_CardDescription",
-    "DefaultText": "Assemble a large copper cauldron from copper sheets, copper nails, and a hammer. Place the finished cauldron on a campfire or fireplace to cook and brew with its 6240 ml basin."
+    "ParentObjectID": "advanced_copper_tools_bp_copper_watering_can",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_CopperWateringCan_CardDescription",
+    "DefaultText": "Hammer two copper sheets into a spouted can with a rope-bound handle. Requires 2 copper sheets, 1 rope, and a hammer."
   },
   "CardType": 7,
   "UnlockConditionsDesc": {
-    "ParentObjectID": "advanced_copper_tools_bp_copper_cauldron",
-    "LocalizationKey": "Advanced_Copper_Tools_Bp_CopperCauldron_UnlockConditionsDesc",
-    "DefaultText": "Metal Sheet Needed"
+    "ParentObjectID": "advanced_copper_tools_bp_copper_watering_can",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_CopperWateringCan_UnlockConditionsDesc",
+    "DefaultText": "Copper Sheet Needed"
   },
-  "BlueprintUnlockTicksCost": 48.0,
   "BuildingStatConditions": [],
   "StartUnlocked": false,
   "CardsOnBoard": [
@@ -28,9 +27,7 @@
       "ConstantlyChecking": false,
       "OnlyInEnvironment": { "m_FileID": 0, "m_PathID": 0 },
       "OnlyIfEquipped": false,
-      "OnlyInContainer": {
-        "Target": { "m_FileID": 0, "m_PathID": 0 }
-      },
+      "OnlyInContainer": { "Target": { "m_FileID": 0, "m_PathID": 0 } },
       "CardWarpData": "advanced_copper_tools_metal_sheet",
       "CardWarpType": 3
     }
@@ -43,19 +40,16 @@
       "RequiredElements": [
         {
           "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
-          "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
-          "RequiredQuantity": 5,
+          "RequiredQuantity": 2,
           "DontSpend": false,
-          "AffectResultDurabilities": { "MaskValue": 256 },
           "RequiredCardWarpData": "advanced_copper_tools_metal_sheet",
           "RequiredCardWarpType": 3
         },
         {
           "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
-          "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
-          "RequiredQuantity": 4,
+          "RequiredQuantity": 1,
           "DontSpend": false,
-          "RequiredCardWarpData": "advanced_copper_tools_copper_nails",
+          "RequiredCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
           "RequiredCardWarpType": 3
         },
         {
@@ -83,31 +77,24 @@
       "StepActionTagsWarpType": 3
     }
   ],
-  "BuildingDaytimeCost": 6,
-  "DeconstructDaytimeCost": 2,
+  "BuildingDaytimeCost": 2,
+  "DeconstructDaytimeCost": 1,
   "BlueprintResult": [
     {
       "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
       "Quantity": { "x": 1, "y": 1 },
-      "TransferRules": { "TransferFromSpecial4": true },
-      "DroppedCardWarpData": "advanced_copper_tools_copper_cauldron",
+      "DroppedCardWarpData": "advanced_copper_tools_copper_watering_can",
       "DroppedCardWarpType": 3
     }
   ],
-  "BlueprintStatModifications": [
-    {
-      "Stat": { "m_FileID": 0, "m_PathID": 0 },
-      "ValueModifier": { "x": 1.0, "y": 1.0 },
-      "StatWarpData": "d4b67ed3a92b283488db1554bb23270a",
-      "StatWarpType": 3
-    }
-  ],
-  "WhenCreatedSoundsWarpData": ["Metal"],
+  "BlueprintStatModifications": [],
+  "WhenCreatedSoundsWarpData": [ "Metal" ],
   "WhenCreatedSoundsWarpType": 3,
-  "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+  "BlueprintActionTagsWarpData": [ "HandAction", "CraftAction" ],
   "BlueprintActionTagsWarpType": 3,
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
-  "CardImageWarpData": "CopperCauldron",
+  "CardImageWarpData": "CopperWateringCan",
   "CardImageWarpType": 3,
+  "BlueprintUnlockTicksCost": 12.0,
   "ResearchedNotification": 0
 }

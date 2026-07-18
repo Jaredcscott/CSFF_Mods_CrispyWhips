@@ -124,7 +124,10 @@
     "NumberPrecision": 0,
     "HasActionOnZero": false,
     "HasActionOnFull": false,
-    "CountsForTradingValue": false
+    "CountsForTradingValue": false,
+    "OverrideIcon": { "m_FileID": 0, "m_PathID": 0 },
+    "OverrideIconWarpData": "Water",
+    "OverrideIconWarpType": 3
   },
   "SpecialDurability3": {
     "Active": false

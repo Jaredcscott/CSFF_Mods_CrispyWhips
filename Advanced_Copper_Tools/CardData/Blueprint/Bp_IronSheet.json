@@ -1,0 +1,87 @@
+{
+  "UniqueID": "act_bp_iron_sheet",
+  "CardName": {
+    "ParentObjectID": "act_bp_iron_sheet",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_IronSheet_CardName",
+    "DefaultText": "Iron Sheet"
+  },
+  "CardDescription": {
+    "ParentObjectID": "act_bp_iron_sheet",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_IronSheet_CardDescription",
+    "DefaultText": "Hammer iron nuggets flat into a sheet, ready for iron-grade tools and armor."
+  },
+  "CardType": 7,
+  "UnlockConditionsDesc": {
+    "ParentObjectID": "act_bp_iron_sheet",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_IronSheet_UnlockConditionsDesc",
+    "DefaultText": "Iron Nugget Needed"
+  },
+  "BuildingStatConditions": [],
+  "StartUnlocked": false,
+  "CardsOnBoard": [
+    {
+      "ObjectiveName": "HasIronNugget",
+      "CompletionWeight": 1,
+      "Card": { "m_FileID": 0, "m_PathID": 0 },
+      "Quantity": 1,
+      "ConstantlyChecking": false,
+      "OnlyInEnvironment": { "m_FileID": 0, "m_PathID": 0 },
+      "OnlyIfEquipped": false,
+      "OnlyInContainer": { "Target": { "m_FileID": 0, "m_PathID": 0 } },
+      "CardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+      "CardWarpType": 3
+    }
+  ],
+  "TagsOnBoard": [],
+  "StatValues": [],
+  "BlueprintStages": [
+    {
+      "CannotRevertToThisStage": false,
+      "RequiredElements": [
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 3,
+          "DontSpend": false,
+          "RequiredCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+          "RequiredCardWarpType": 3,
+          "Special4": { "Active": true, "FloatValue": 200.0, "MaxValue": 200.0 }
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 1,
+          "DontSpend": true,
+          "EffectOnIngredient": {
+            "ModType": 1,
+            "UsageChange": { "x": -8.0, "y": -8.0 }
+          },
+          "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredTabGroupWarpData": "GpTag_HammeringToolGeneral",
+          "RequiredTabGroupWarpType": 3
+        }
+      ],
+      "StepActionTags": [],
+      "StepActionTagsWarpData": [],
+      "StepActionTagsWarpType": 3
+    }
+  ],
+  "BuildingDaytimeCost": 4,
+  "DeconstructDaytimeCost": 0,
+  "BlueprintResult": [
+    {
+      "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+      "Quantity": { "x": 1, "y": 1 },
+      "DroppedCardWarpData": "act_iron_sheet",
+      "DroppedCardWarpType": 3
+    }
+  ],
+  "BlueprintStatModifications": [],
+  "WhenCreatedSoundsWarpData": [ "Metal" ],
+  "WhenCreatedSoundsWarpType": 3,
+  "BlueprintActionTagsWarpData": [ "HandAction", "CraftAction" ],
+  "BlueprintActionTagsWarpType": 3,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "MetalSheet_Iron",
+  "CardImageWarpType": 3,
+  "BlueprintUnlockTicksCost": 16.0,
+  "ResearchedNotification": 0
+}

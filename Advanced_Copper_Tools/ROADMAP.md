@@ -1,13 +1,13 @@
 # Roadmap: Advanced Copper Tools (ACT)
-Version at time of writing: 1.9.0
-Date: 2026-06-13
-Audit score: 8/10 — PASS (0 CRITICAL, 1 DESIGN GAP, 3 WARNING)
+Version at time of writing: 1.12.0
+Date: 2026-07-14 (Phase 2 + additional near-term IDEAS.md batch shipped; see CHANGELOG.md)
+Audit score at v1.9.0: 8/10 — PASS (0 CRITICAL, 1 DESIGN GAP, 3 WARNING). Not re-audited since Phase 2.
 
 ## Current State
 
-**Theme**: A mid-game copper-and-bronze metalworking tier focused on comfort, throughput, and light — for players who have unlocked copper smelting and want quality-of-life infrastructure (cooking, bathing, storage, transport, lighting) plus a light combat/armor option.
+**Theme**: A mid-game copper-and-bronze metalworking tier focused on comfort, throughput, and light — for players who have unlocked copper smelting and want quality-of-life infrastructure (cooking, bathing, storage, transport, lighting) plus a light combat/armor option, now extending into an iron-grade equipment tier.
 
-**Content**: 31 items / 29 blueprints / 12 structures / 8 perks / 34 custom images / 557 localization rows (EN) + SimpCn.csv (ZH)
+**Content** (approximate, post-v1.12.0): ~42 items / ~37 blueprints / ~13 structures / 8 perks / 34 custom images (no new art shipped — new items reuse existing sprites) / ~694 localization rows (EN) + SimpCn.csv (ZH). Recommend running `/audit-mod AdvancedCopperTools` to get exact, verified counts.
 
 **Stability**: 8/10 — SHIP-READY with open warnings. WearableMetalPan 0-durability and README version fixed. Remaining: 2 divergent CSV key pairs (MetalLantern_CardHelpSection + Bp_WheelHub_CardDescription, W1), 2 stale Chinese perk descriptions (W2), Tea Station design gap (no tea output, G1).
 
@@ -36,27 +36,21 @@ Audit score: 8/10 — PASS (0 CRITICAL, 1 DESIGN GAP, 3 WARNING)
 
 ---
 
-## Phase 2: Core Expansion
+## Phase 2: Core Expansion *(completed 2026-07-14, shipped in v1.12.0)*
 
-> The 1–3 highest-impact additions that close ACT's most visible gameplay-loop gaps. All three are pre-scoped in `Documentation/Ideas/AdvancedCopperTools/IDEAS.md`.
+> The 1–3 highest-impact additions that close ACT's most visible gameplay-loop gaps. All three were pre-scoped in `Documentation/Ideas/AdvancedCopperTools/IDEAS.md`; a batch of additional near-term IDEAS.md items shipped alongside them in the same release (see CHANGELOG.md v1.12.0).
 
-### Herbal Tea Beverages (close the Tea Station's dead-end)
-**What**: 3–5 brewed teas (Calming, Warming, Focus) as drinkable CT0 items or liquids with `EdibleStats` + an explicit `Drink` `DismantleAction` (`ModType:3`, `ActionSoundsWarpData:["Drink"]`). Produced via a CookingRecipe in the lit station's slots: dried herb + hot reservoir water → tea.
-**Why**: The Tea Blending Station dries, grinds, heats water, and has "Grind All" — but ships **no actual tea product**. The mod's flagship station is a means with no end. This is the biggest single content gap.
-**Requires**: none (Phase 1 not a hard blocker, but do the ActionRouter migration first so the new recipe logic lands in the routed handler, not another direct patch). Follows `reference_food_ediblestats_pattern`.
-**Complexity**: Medium
+### Herbal Tea Beverages (close the Tea Station's dead-end) — ✅ Shipped
+**What shipped**: Calming Tea (dried willow bark), Warming Tea (dried wild garlic), Focus Tea (dried spirit mushrooms) — CT0 drinkable items with a `Drink` `DismantleAction`. Produced via `IngredientChanges.ModType:2` (Transform) CookingRecipes added to the **lit** Tea Station only, gated on the station's own Water Temp (Special3) and Water Charges (Special4) reservoir stats via `ConditionsCard:0` + `ReceivingRequiredDurabilityRanges`.
+**Why**: The Tea Blending Station dried, ground, heated water, and had "Grind All" — but shipped no actual tea product. G1 audit gap now closed.
 
-### Tool & Armor Repair loop
-**What**: Tool-to-transform CI (drag hammer onto a worn Large Saw / armor piece → restore durability) or a small repair blueprint (worn piece + 1 metal sheet + nails → fresh piece).
-**Why**: Nothing restores `UsageDurability` on the saw or the four armor pieces today — they can only be smelted and re-crafted. A maintenance loop is the natural payoff for investing in a copper armor tier.
-**Requires**: none. Follows `reference_tool_to_transform_pattern`.
-**Complexity**: Medium
+### Tool & Armor Repair loop — ❌ Rejected (built 2026-07-14, reverted same day)
+**What was built and reverted**: A "Repair with Metal Sheet" `CardInteraction` on the Large Saw and all four copper armor pieces. Drag a sheet on to consume it and restore durability.
+**Why reverted**: Per direct user feedback, a drag-to-repair mechanic is not consistent with this game's meta and reads as unrealistic — the intended maintenance loop for worn tools/armor in this game is smelt-and-recraft, not field repair. Do not re-propose a repair-via-material CI/blueprint for tools or armor in this mod.
 
-### Bathtub warm-vs-cold mechanical differentiation
-**What**: Gate an extra `-Stress` / `-Filth` (and/or body-warmth) bonus on the warm tub's Heat (FuelCapacity ≥ threshold) at the "Take Warm Bath" action, so a warm bath measurably out-performs a cold one.
-**Why**: The warm bath is currently mostly narrative. Differentiating it justifies the firewood/heat investment and completes the 3-state bathtub design.
-**Requires**: confirm whether the warm tub already carries a usable heat stat at the bath action or needs one added (quick JSON read).
-**Complexity**: Quick–Medium
+### Bathtub warm-vs-cold mechanical differentiation — ✅ Shipped
+**What shipped**: The warm tub's "Warm Bath" `DismantleAction` gained a `RequiredFuelPercent` range (5–50%) and a sibling **"Hot Bath"** action (`RequiredFuelPercent` 50–100%) with the same base stats plus a bigger Mood bonus and a new Stress-reduction `StatModification` — the first place in the bath that touches the Stress stat at all.
+**Why**: The warm bath fired the exact same stats from 5% heat to 100% previously — no reason to keep the fire stoked. Confirmed via `RequiredFuelPercent`/`OptionalRangeValueWithLiquidScaling.IsInRange` in the decompiled source before shipping (range-gated, not a floor-only check).
 
 ---
 
@@ -109,7 +103,7 @@ ACT's natural endpoint is **the complete copper/bronze metalworking tier** — a
 - **Metal Alloying System** — copper + tin/zinc → bronze/brass with a durability boost, with copper-only recipe lockouts so alloy crafts don't silently eat tin nuggets.
 - **Two-Wheeled Pushcart** — higher-capacity transport above the wheelbarrow.
 
-These (and the smaller deferred items: Copper Mattress-Frame Bed, Bedwarming Pan, Metal Sieve, Copper Watering Can, Copper Cold Cellar) live in `Documentation/Ideas/AdvancedCopperTools/IDEAS.md`. Keep that file as the spec backlog; promote items here as they become justified.
+These (and the smaller deferred items: Bedwarming Pan, Metal Sieve, Copper Sausage Funnel, Metal Hunting Trap, Copper Shield) live in `Documentation/Ideas/AdvancedCopperTools/IDEAS.md`. Keep that file as the spec backlog; promote items here as they become justified.
 
 ---
 

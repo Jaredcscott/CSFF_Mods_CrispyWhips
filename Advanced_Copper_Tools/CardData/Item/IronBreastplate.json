@@ -1,0 +1,171 @@
+{
+  "UniqueID": "act_iron_breastplate",
+  "CardName": {
+    "ParentObjectID": "act_iron_breastplate",
+    "LocalizationKey": "Advanced_Copper_Tools_IronBreastplate_CardName",
+    "DefaultText": "Iron Armor"
+  },
+  "CardDescription": {
+    "ParentObjectID": "act_iron_breastplate",
+    "LocalizationKey": "Advanced_Copper_Tools_IronBreastplate_CardDescription",
+    "DefaultText": "A sturdy suit of iron armor offering superior torso protection to its copper counterpart. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+  },
+  "CardType": 0,
+  "ObjectWeight": 440.0,
+  "WeightReductionWhenEquipped": -440.0,
+  "TradingValue": 170.0,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "IronArmor",
+  "CardImageWarpType": 3,
+  "CardTagsWarpData": [ "tag_Metal", "tag_SmeltsAt1100", "tag_SpiritEnchantable" ],
+  "CardTagsWarpType": 3,
+  "EquipmentTags": [],
+  "EquipmentTagsWarpData": [ "eTag_OuterTorso" ],
+  "EquipmentTagsWarpType": 3,
+  "IsArmor": true,
+  "AffectStatsOnlyWhenEquipped": true,
+  "ArmorValues": {
+    "HeadArmor": 0.0,
+    "HeadArmorModifiers": [],
+    "HeadHitProbabilityModifier": 0.0,
+    "TorsoArmor": 45.0,
+    "TorsoArmorModifiers": [],
+    "TorsoHitProbabilityModifier": 0.0,
+    "LArmArmor": 0.0,
+    "LArmArmorModifiers": [],
+    "LArmHitProbabilityModifier": 0.0,
+    "RArmArmor": 0.0,
+    "RArmArmorModifiers": [],
+    "RArmHitProbabilityModifier": 0.0,
+    "LLegArmor": 0.0,
+    "LLegArmorModifiers": [],
+    "LLegHitProbabilityModifier": 0.0,
+    "RLegArmor": 0.0,
+    "RLegArmorModifiers": [],
+    "RLegHitProbabilityModifier": 0.0
+  },
+  "ArmorValueDurabilitiesMultiplier": [
+    {
+      "InputDurability": 64,
+      "Value": {
+        "Active": true,
+        "InputValueRange": { "x": 0.0, "y": 100.0 },
+        "OutputValueRange": { "x": 1.0, "y": 1.5 },
+        "WhenOutOfRange": 0,
+        "OutOfRangeCustomValue": 0.0
+      }
+    }
+  ],
+  "AlwaysUpdate": true,
+  "WhenCreatedSoundsWarpData": [ "Metal" ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": { "Active": false },
+  "UsageDurability": {
+    "Active": true,
+    "FloatValue": 140.0,
+    "CardStatName": {
+      "ParentObjectID": "act_iron_breastplate",
+      "LocalizationKey": "Advanced_Copper_Tools_IronBreastplate_UsageDurability.CardStatName",
+      "DefaultText": "Durability"
+    },
+    "MaxValue": 140.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 1,
+    "NumberPrecision": 0,
+    "HasActionOnZero": true,
+    "OnZero": {
+      "ActionDescription": { "ParentObjectID": "act_iron_breastplate", "LocalizationKey": "", "DefaultText": "Armor Broken!" },
+      "OnZeroNotification": 1,
+      "ProducedCards": [],
+      "ReceivingCardChanges": { "ModType": 3 }
+    },
+    "CountsForTradingValue": true
+  },
+  "FuelCapacity": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": { "ParentObjectID": "act_iron_breastplate", "LocalizationKey": "", "DefaultText": "Temperature" },
+    "MaxValue": 200.0,
+    "RatePerDaytimePoint": -25.0,
+    "HidingOptions": 3,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": false,
+    "OverrideIconWarpData": "Hot",
+    "OverrideIconWarpType": 3
+  },
+  "Progress": { "Active": false },
+  "SpecialDurability1": { "Active": false },
+  "SpecialDurability2": { "Active": false },
+  "SpecialDurability3": { "Active": false },
+  "SpecialDurability4": { "Active": false },
+  "DurabilitySorting": { "SortingList": [] },
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "act_iron_breastplate",
+        "LocalizationKey": "Advanced_Copper_Tools_IronBreastplate_Dismantle_ActionName",
+        "DefaultText": "Dismantle"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "act_iron_breastplate",
+        "LocalizationKey": "Advanced_Copper_Tools_IronBreastplate_Dismantle_ActionDescription",
+        "DefaultText": "Break apart the armor to recover materials."
+      },
+      "DaytimeCost": 3,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [ "Metal" ],
+      "ActionSoundsWarpType": 3,
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "DroppedCards": [
+            { "DroppedCard": { "m_FileID": 0, "m_PathID": 0 }, "DroppedCardWarpData": "act_iron_sheet", "DroppedCardWarpType": 3, "Quantity": { "x": 4, "y": 4 } },
+            { "DroppedCard": { "m_FileID": 0, "m_PathID": 0 }, "DroppedCardWarpData": "act_iron_nail", "DroppedCardWarpType": 3, "Quantity": { "x": 4, "y": 4 } },
+            { "DroppedCard": { "m_FileID": 0, "m_PathID": 0 }, "DroppedCardWarpData": "f362a7ba3ad932244b1e9c18569ac98e", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 1 } },
+            { "DroppedCard": { "m_FileID": 0, "m_PathID": 0 }, "DroppedCardWarpData": "e2d62c5b98d164745b276da572605efe", "DroppedCardWarpType": 3, "Quantity": { "x": 4, "y": 4 } }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": { "ModType": 3 }
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [
+    {
+      "EffectName": "Armor (+45) interpolated by quality from 1 to 1.5",
+      "OnlyWhenEquipped": true,
+      "EquippedOnBodyOnly": true,
+      "Conditions": {},
+      "StatModifiers": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "b9013a3e77a421b4bb7e4a8293e75382",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 45.0, "y": 45.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "EffectScalesWithDurabilities": {
+        "Active": true,
+        "Inputs": [ { "Durability": 64, "Range": { "x": 0.0, "y": 100.0 } } ],
+        "EffectScalingOutput": { "x": 1.0, "y": 1.5 }
+      }
+    }
+  ]
+}

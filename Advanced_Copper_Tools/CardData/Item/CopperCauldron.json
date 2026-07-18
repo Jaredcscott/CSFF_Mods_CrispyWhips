@@ -11,7 +11,83 @@
     "DefaultText": "A broad copper cauldron with a large open basin. Place it on a campfire or fireplace to heat it up and cook or brew several items at once. Holds 30% more liquid than a clay cauldron. Food stored inside spoils 30% slower than normal."
   },
   "CanBeRenamed": false,
-  "AlternateNames": [],
+  "AlternateNames": [
+    {
+      "Conditions": {
+        "SpoilageRange": { "x": 0.0, "y": 0.0 },
+        "UsageRange": { "x": 0.0, "y": 0.0 },
+        "FuelRange": { "x": 0.0, "y": 0.0 },
+        "ProgressRange": { "x": 0.0, "y": 0.0 },
+        "Special1Range": { "x": 0.0, "y": 0.0 },
+        "Special2Range": { "x": 0.0, "y": 0.0 },
+        "Special3Range": { "x": 0.0, "y": 0.0 },
+        "Special4Range": { "x": 100.0, "y": 100.0 },
+        "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+      },
+      "Name": { "LocalizationKey": "Advanced_Copper_Tools_CopperCauldron_AlternateNames[0].Name", "DefaultText": "Copper Cauldron" },
+      "Art": { "CardImage": { "m_FileID": 0, "m_PathID": 0 }, "CardImageWarpData": "CopperCauldron", "CardImageWarpType": 3 }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": { "x": 0.0, "y": 0.0 },
+        "UsageRange": { "x": 0.0, "y": 0.0 },
+        "FuelRange": { "x": 0.0, "y": 0.0 },
+        "ProgressRange": { "x": 0.0, "y": 0.0 },
+        "Special1Range": { "x": 0.0, "y": 0.0 },
+        "Special2Range": { "x": 0.0, "y": 0.0 },
+        "Special3Range": { "x": 0.0, "y": 0.0 },
+        "Special4Range": { "x": 110.0, "y": 110.0 },
+        "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+      },
+      "Name": { "LocalizationKey": "Advanced_Copper_Tools_CopperCauldron_AlternateNames[1].Name", "DefaultText": "Ghost Bronze Cauldron" },
+      "Art": { "CardImage": { "m_FileID": 0, "m_PathID": 0 }, "CardImageWarpData": "CopperCauldron", "CardImageWarpType": 3 }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": { "x": 0.0, "y": 0.0 },
+        "UsageRange": { "x": 0.0, "y": 0.0 },
+        "FuelRange": { "x": 0.0, "y": 0.0 },
+        "ProgressRange": { "x": 0.0, "y": 0.0 },
+        "Special1Range": { "x": 0.0, "y": 0.0 },
+        "Special2Range": { "x": 0.0, "y": 0.0 },
+        "Special3Range": { "x": 0.0, "y": 0.0 },
+        "Special4Range": { "x": 120.0, "y": 120.0 },
+        "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+      },
+      "Name": { "LocalizationKey": "Advanced_Copper_Tools_CopperCauldron_AlternateNames[2].Name", "DefaultText": "Tin Cauldron" },
+      "Art": { "CardImage": { "m_FileID": 0, "m_PathID": 0 }, "CardImageWarpData": "CopperCauldron", "CardImageWarpType": 3 }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": { "x": 0.0, "y": 0.0 },
+        "UsageRange": { "x": 0.0, "y": 0.0 },
+        "FuelRange": { "x": 0.0, "y": 0.0 },
+        "ProgressRange": { "x": 0.0, "y": 0.0 },
+        "Special1Range": { "x": 0.0, "y": 0.0 },
+        "Special2Range": { "x": 0.0, "y": 0.0 },
+        "Special3Range": { "x": 0.0, "y": 0.0 },
+        "Special4Range": { "x": 130.0, "y": 130.0 },
+        "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+      },
+      "Name": { "LocalizationKey": "Advanced_Copper_Tools_CopperCauldron_AlternateNames[3].Name", "DefaultText": "Tin Bronze Cauldron" },
+      "Art": { "CardImage": { "m_FileID": 0, "m_PathID": 0 }, "CardImageWarpData": "CopperCauldron", "CardImageWarpType": 3 }
+    },
+    {
+      "Conditions": {
+        "SpoilageRange": { "x": 0.0, "y": 0.0 },
+        "UsageRange": { "x": 0.0, "y": 0.0 },
+        "FuelRange": { "x": 0.0, "y": 0.0 },
+        "ProgressRange": { "x": 0.0, "y": 0.0 },
+        "Special1Range": { "x": 0.0, "y": 0.0 },
+        "Special2Range": { "x": 0.0, "y": 0.0 },
+        "Special3Range": { "x": 0.0, "y": 0.0 },
+        "Special4Range": { "x": 140.0, "y": 140.0 },
+        "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
+      },
+      "Name": { "LocalizationKey": "Advanced_Copper_Tools_CopperCauldron_AlternateNames[4].Name", "DefaultText": "White Bronze Cauldron" },
+      "Art": { "CardImage": { "m_FileID": 0, "m_PathID": 0 }, "CardImageWarpData": "CopperCauldron", "CardImageWarpType": 3 }
+    }
+  ],
   "LiquidSuffixName": {
     "ParentObjectID": "advanced_copper_tools_copper_cauldron",
     "LocalizationKey": "",
@@ -110,7 +186,22 @@
     "Active": false
   },
   "SpecialDurability4": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 100.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_copper_cauldron",
+      "LocalizationKey": "Advanced_Copper_Tools_CopperCauldron_SpecialDurability4.CardStatName",
+      "DefaultText": "Metal Type"
+    },
+    "MaxValue": 1000.0,
+    "RestrictToSpecificValues": true,
+    "ValidValues": [ 100.0, 110.0, 120.0, 130.0, 140.0 ],
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "CountsForTradingValue": true
   },
   "CardInteractions": [],
   "DismantleActions": [

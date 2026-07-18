@@ -1,0 +1,93 @@
+{
+  "UniqueID": "advanced_copper_tools_bp_copper_rim_chamberpot",
+  "CardName": {
+    "ParentObjectID": "advanced_copper_tools_bp_copper_rim_chamberpot",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_CopperRimChamberpot_CardName",
+    "DefaultText": "Copper-Rim Chamberpot"
+  },
+  "CardDescription": {
+    "ParentObjectID": "advanced_copper_tools_bp_copper_rim_chamberpot",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_CopperRimChamberpot_CardDescription",
+    "DefaultText": "Hammer a copper rim onto a clay bowl to make a proper chamberpot. Requires 1 clay bowl, 1 copper sheet, and a hammer."
+  },
+  "CardType": 7,
+  "UnlockConditionsDesc": {
+    "ParentObjectID": "advanced_copper_tools_bp_copper_rim_chamberpot",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_CopperRimChamberpot_UnlockConditionsDesc",
+    "DefaultText": "Copper Sheet Needed"
+  },
+  "BuildingStatConditions": [],
+  "StartUnlocked": false,
+  "CardsOnBoard": [
+    {
+      "ObjectiveName": "HasMetalSheet",
+      "CompletionWeight": 1,
+      "Card": { "m_FileID": 0, "m_PathID": 0 },
+      "Quantity": 1,
+      "ConstantlyChecking": false,
+      "OnlyInEnvironment": { "m_FileID": 0, "m_PathID": 0 },
+      "OnlyIfEquipped": false,
+      "OnlyInContainer": { "Target": { "m_FileID": 0, "m_PathID": 0 } },
+      "CardWarpData": "advanced_copper_tools_metal_sheet",
+      "CardWarpType": 3
+    }
+  ],
+  "TagsOnBoard": [],
+  "StatValues": [],
+  "BlueprintStages": [
+    {
+      "CannotRevertToThisStage": false,
+      "RequiredElements": [
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "advanced_copper_tools_metal_sheet",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 1,
+          "DontSpend": true,
+          "EffectOnIngredient": {
+            "ModType": 1,
+            "UsageChange": { "x": -4.0, "y": -4.0 }
+          },
+          "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredTabGroupWarpData": "GpTag_HammeringToolGeneral",
+          "RequiredTabGroupWarpType": 3
+        }
+      ],
+      "StepActionTags": [],
+      "StepActionTagsWarpData": [],
+      "StepActionTagsWarpType": 3
+    }
+  ],
+  "BuildingDaytimeCost": 1,
+  "DeconstructDaytimeCost": 1,
+  "BlueprintResult": [
+    {
+      "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+      "Quantity": { "x": 1, "y": 1 },
+      "DroppedCardWarpData": "advanced_copper_tools_copper_rim_chamberpot",
+      "DroppedCardWarpType": 3
+    }
+  ],
+  "BlueprintStatModifications": [],
+  "WhenCreatedSoundsWarpData": [ "Clay" ],
+  "WhenCreatedSoundsWarpType": 3,
+  "BlueprintActionTagsWarpData": [ "HandAction", "CraftAction" ],
+  "BlueprintActionTagsWarpType": 3,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "CopperRimChamberpot",
+  "CardImageWarpType": 3,
+  "BlueprintUnlockTicksCost": 4.0,
+  "ResearchedNotification": 0
+}

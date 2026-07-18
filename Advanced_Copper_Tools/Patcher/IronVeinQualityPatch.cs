@@ -70,7 +70,7 @@ namespace Advanced_Copper_Tools.Patcher
             }
             catch (Exception ex)
             {
-                Logger.LogError($"[ACT] IronVeinQuality ApplyQuality: {ex.Message}");
+                Logger.LogError($"[ACT] IronVeinQuality ApplyQuality: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
 
             if (updated > 0)
@@ -87,7 +87,10 @@ namespace Advanced_Copper_Tools.Patcher
                     if (card is UnityEngine.Object uo)
                         ids.Add(uo.GetInstanceID());
             }
-            catch { }
+            catch (Exception ex)
+            {
+                Logger?.LogError($"[ACT] IronVeinQuality SnapshotIds: {ex.InnerException?.ToString() ?? ex.ToString()}");
+            }
             return ids;
         }
     }

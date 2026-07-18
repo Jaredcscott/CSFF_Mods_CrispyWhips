@@ -2,6 +2,23 @@
 
 All notable changes to this mod are documented here.
 
+## [1.13.0] — 2026-07-16
+
+### Added
+- **Rendered Fish Oil blueprint** (Survival → Support tab): render 2 fatty fish meat + a clay bowl into the same Rendered Oil the fat and hemp recipes produce — a third lamp-fuel source for fishing playstyles. Unlocks when fatty fish meat is on board (16 ticks research).
+- **Chamberpot waste → Manure**: the Copper-Rim Chamberpot's Empty action now leaves a pile of vanilla Manure, plugging the pot into the vanilla compost/fertilizer chain.
+
+## [1.12.0] — 2026-07-14
+
+### Added
+- **Herbal Tea Beverages**: three brewable teas close the Tea Blending Station's long-standing "no output" gap — Calming Tea (dried willow bark), Warming Tea (dried wild garlic), and Focus Tea (dried spirit mushrooms). Brew any of them at the lit station once the reservoir is hot, consuming one Water Charge.
+- **Bathtub Hot Bath tier**: the warm bathtub's bath action now splits into a lukewarm Warm Bath (5–50% heat) and a genuinely better Hot Bath (≥50% heat) with a bigger mood boost and a real Stress reduction — keeping the fire stoked now matters mechanically, not just narratively.
+- **Bronze-tier Oil Flask & Cauldron**: both items now carry a Metal Type stat and pick up copper/ghost bronze/tin/tin bronze/white bronze naming from whichever metal sheet built them, mirroring the existing Wearable Metal Pan pattern.
+- **Copper Watering Can**: fills from any shallow water source; pours into water containers, douses fires, or serves as an emergency drink.
+- **Copper-Rim Chamberpot**: a small hygiene convenience item — a minor mood bump for four uses before it needs emptying.
+- **Copper Mattress-Frame Bed**: a kit → placed furniture piece with a passive comfort bonus while you're in its environment, better than sleeping on the ground.
+- **Iron-Grade Armor Tier**: a new Iron Sheet (forged from iron nuggets) feeds an iron helmet/bracers/greaves/armor set with higher Armor Values and durability than the copper originals — the Iron Vein Cave now has a genuine equipment payoff beyond nails.
+
 ## [1.11.6] — 2026-07-12
 *(Covers changes since the last published release on 2026-06-23.)*
 

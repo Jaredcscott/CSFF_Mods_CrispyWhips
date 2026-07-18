@@ -1,7 +1,7 @@
 # Advanced Copper Tools
 
 **Quality of Life & Advanced Metalworking**
-**Version:** 1.11.7
+**Version:** 1.14.0
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.65)
 
@@ -19,13 +19,16 @@ Major systems:
 - **Large Copper Saw** — Two-handed saw that drops large trees in 1–2 hits via a Harmony bonus
 - **Copper Armor Set** — Helmet, bracers, greaves, and torso armor crafted from copper sheets and nails
 - **Wheelbarrow** — Wearable cargo container that reduces effective weight
-- **Copper Bathtub** — 3-state placed structure (empty / cold / warm) with deep cleansing and morale benefits
+- **Copper Bathtub** — 3-state placed structure (empty / cold / warm) with deep cleansing and morale benefits; the warm state now splits into a lukewarm **Warm Bath** and a piping-hot **Hot Bath** tier (≥50% heat) with a bigger mood boost and a genuine Stress reduction
 - **Metal Lantern** — 4-variant portable light (item × placed × lit × unlit) running on rendered oil
-- **Oil chain** — Render animal fat (or hemp seed oil with H&F installed) into clean lamp oil; carry it in a Copper Oil Flask
+- **Oil chain** — Render animal fat (or hemp seed oil with H&F installed) into clean lamp oil; carry it in a Copper Oil Flask (now tracks copper-through-white-bronze metal type)
 - **Copper Tea Kettle** — Liquid container that boils water on any fire source
-- **Copper Cauldron** — Fire-placeable batch vessel with six cooking slots and a 6240 ml basin
-- **Tea Blending Station** — 3-variant kit / placed / lit workstation with six herb-and-grinding slots, a built-in 8-bowl water reservoir, passive drying, a "Grind All" action, and a heated reservoir while lit
+- **Copper Cauldron** — Fire-placeable batch vessel with six cooking slots and a 6240 ml basin (now tracks copper-through-white-bronze metal type)
+- **Tea Blending Station** — 3-variant kit / placed / lit workstation with six herb-and-grinding slots, a built-in 8-bowl water reservoir, passive drying, a "Grind All" action, a heated reservoir while lit, and three brewable herbal teas (Calming from willow bark, Warming from wild garlic, Focus from spirit mushrooms)
 - **Copper Chest** (formerly "Copper Pantry") — Sealed, animal-safe storage that slows spoilage to 20% of normal
+- **Iron-Grade Armor** — Iron Sheet forged from iron nuggets feeds a tougher iron helmet/bracers/greaves/armor tier with higher Armor Values and durability than copper
+- **Copper Watering Can** — Fill from any shallow water source; pour into containers, douse fires, or drink in a pinch
+- **Copper-Rim Chamberpot** — Minor hygiene item; small mood bonus for four uses before it needs emptying
 
 ---
 
@@ -37,10 +40,10 @@ Blueprints register into vanilla crafting tabs via `BlueprintTabs.json`:
 |-----|-----------|
 | **Survival → Support** | Rendered Oil, Render Hemp Seed Oil |
 | **Survival → Fire** | Copper Brazier |
-| **Metal & Clay → Metal Crafts** | Metal Sheet, Copper Nail, Forged Pan Blank, Wheel Rim, Wheel Hub (forged), Cast Wheel Hub, Cast Stove Top |
-| **Construction → Metal Tools** | Wearable Metal Pan, Large Saw, Lantern Oilwell, Copper Tea Kettle, Copper Oil Flask, Copper Cauldron, Copper Helmet, Copper Bracers, Copper Greaves, Copper Armor |
+| **Metal & Clay → Metal Crafts** | Metal Sheet, Copper Nail, Forged Pan Blank, Wheel Rim, Wheel Hub (forged), Cast Wheel Hub, Cast Stove Top, Iron Sheet |
+| **Construction → Metal Tools** | Wearable Metal Pan, Large Saw, Lantern Oilwell, Copper Tea Kettle, Copper Oil Flask, Copper Cauldron, Copper Helmet, Copper Bracers, Copper Greaves, Copper Armor, Copper Watering Can, Iron Helmet, Iron Bracers, Iron Greaves, Iron Armor |
 | **Construction → Advanced Tools** | Metal Lantern, Wheelbarrow Bucket, Wheelbarrow Handles, Wheel Assembly, Wheelbarrow |
-| **Construction → Furniture** | Small Copper Stove, Copper Bathtub, Tea Blending Station, Copper Chest, Copper Brazier |
+| **Construction → Furniture** | Small Copper Stove, Copper Bathtub, Tea Blending Station, Copper Chest, Copper Brazier, Copper-Rim Chamberpot |
 
 Time fields throughout this README use the standard CSFF unit: **1 tick = 15 minutes in-game**. `BuildingDaytimeCost` is the build time per stage (capped at 12 to keep stages ≤ 3 hours).
 
@@ -176,7 +179,7 @@ A portable light source with the standard CSFF four-variant pattern: item ↔ pl
 | **Placed Lantern** (unlit) | 2 | no | no (refuel here) |
 | **Placed Lantern** (lit) | 2 | no | yes (area light) |
 
-**Recipe** (build 2 ticks, unlock 12 ticks): 2 metal sheets + 1 lantern oilwell + 1 stone + 1 Tin Solder (forge component pattern).
+**Recipe** (build 2 ticks, unlock 16 ticks): 2 metal sheets + 1 lantern oilwell + 1 stone + 1 Tin Solder (forge component pattern).
 
 **Fuel**: Pour `Oil` directly onto the unlit lantern, or drag a Copper Oil Flask onto it for one charge per drag. Holds 3 charges; each charge burns ~6 hours, total ~18 hours per full tank. Light by dragging a fire source onto the unlit lantern (gated by ≥10% fuel).
 
@@ -368,7 +371,7 @@ These hooks are mod-scoped and filter on this mod's UniqueIDs. The exception is 
 1. Install BepInEx if not already installed.
 2. Install CSFFModFramework in `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. Drop this mod folder at `BepInEx/plugins/Advanced_Copper_Tools/`.
-4. Launch the game — content loads automatically; check `BepInEx/LogOutput.log` for `Advanced_Copper_Tools v1.11.7 loaded.`
+4. Launch the game — content loads automatically; check `BepInEx/LogOutput.log` for `Advanced_Copper_Tools v1.14.0 loaded.`
 
 ### Deployed file structure
 
@@ -408,7 +411,7 @@ Other in-house mods build directly on top of ACT's content:
 
 ## Troubleshooting
 
-**Blueprints not appearing?** Verify CSFFModFramework is loaded — check `LogOutput.log` for `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.11.7 loaded.`
+**Blueprints not appearing?** Verify CSFFModFramework is loaded — check `LogOutput.log` for `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.14.0 loaded.`
 
 **Pan / kettle won't boil?** It must be on a *lit* fire source with fuel remaining. Vanilla water types boil via their own `LiquidFuelValue` OnFull transform; if the liquid isn't a heatable type, nothing happens.
 
@@ -421,6 +424,10 @@ Other in-house mods build directly on top of ACT's content:
 ---
 
 ## Version History
+
+### v1.14.0 (current)
+- Fixed Iron Sheet's card art: it referenced the now-removed `IronSheet.png` sprite (replaced by the image-upgrade pass's `MetalSheet_Iron.png`) on both the item and its blueprint — was silently falling back to a missing-sprite placeholder in-game.
+- **Copper/Iron Sheet now interchangeable with WaterDrivenInfrastructure's Cast Copper/Iron Sheet** (same tier only — Iron Sheet only pairs with Cast Iron Sheet) when WDI is installed. Nails were already cross-mod/cross-tier interchangeable with WDI's rivets (v1.11.5 and earlier); this closes the equivalent gap for sheets, and additionally makes Copper Nail accept WDI's new Iron Rivet. Soft dependency — no behavior change when WDI isn't installed.
 
 ### v1.11.5
 - Internal refactor only: `PatchNailInterchangeability` (iron/copper nail interchangeability) now delegates to the framework's new shared `CSFFModFramework.Api.BlueprintAlternates.AddAlternateIngredient` helper instead of a locally duplicated reflection block. No behavior change — same blueprint slots accept the same alternates as before. Done as part of removing WaterDrivenInfrastructure's hard dependency on this mod, which needed the same pattern.

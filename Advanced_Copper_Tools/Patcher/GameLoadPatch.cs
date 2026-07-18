@@ -58,6 +58,7 @@ namespace Advanced_Copper_Tools.Patcher
                 VanillaFireKettlePatch.InjectKettleSlots(allData);
                 RepairCopperArmorMultipliers(allData);
                 PatchNailInterchangeability(allData);
+                PatchSheetInterchangeability(allData);
             }
             catch (Exception ex)
             {
@@ -65,18 +66,47 @@ namespace Advanced_Copper_Tools.Patcher
             }
         }
 
-        // Makes every blueprint/improvement element that requires copper nails also accept iron nails.
-        // Delegates to the framework's shared helper (CSFFModFramework.Api.BlueprintAlternates) —
-        // both RequiredCard (copper nail) and RequiredTabGroup (iron nail alt) end up set, so the
-        // game accepts either via BlueprintElement.CompatibleCard's two-branch check.
+        // Makes every blueprint/improvement element that requires copper nails also accept iron
+        // nails, and — since WDI's rivets are the same fastener commodity under a different mod
+        // (root CLAUDE.md §Soft-dep doctrine, R-mechanism ALT) — WDI's Copper/Iron Rivet too.
+        // Delegates to the framework's shared helper (CSFFModFramework.Api.BlueprintAlternates),
+        // which accumulates across repeated calls for the same primary (framework 2.17.0+)
+        // instead of clobbering, so all three alternates end up accepted on the same slot. WDI's
+        // UIDs are referenced directly as plain strings — AddAlternateIngredient no-ops (and
+        // logs at Debug) when the alternate doesn't resolve, so this stays a soft dependency even
+        // though WaterDrivenInfrastructure isn't installed.
         private static void PatchNailInterchangeability(IEnumerable allData)
         {
             const string CopperNailUid = "advanced_copper_tools_copper_nails";
-            const string IronNailUid   = "act_iron_nail";
+            const string IronNailUid = "act_iron_nail";
+            const string WdiCopperRivetUid = "water_sawmill_copper_rivet";
+            const string WdiIronRivetUid = "water_sawmill_iron_rivet";
 
             // BlueprintAlternates already logs its own Info-level summary line.
             CSFFModFramework.Api.BlueprintAlternates.AddAlternateIngredient(
                 allData, CopperNailUid, IronNailUid, "ACT Copper Nail / Iron Nail");
+            CSFFModFramework.Api.BlueprintAlternates.AddAlternateIngredient(
+                allData, CopperNailUid, WdiCopperRivetUid, "ACT Copper Nail / WDI Copper Rivet");
+            CSFFModFramework.Api.BlueprintAlternates.AddAlternateIngredient(
+                allData, CopperNailUid, WdiIronRivetUid, "ACT Copper Nail / WDI Iron Rivet");
+        }
+
+        // Same-tier, cross-mod acceptance for sheet material: ACT's Copper/Iron Sheet slots also
+        // accept WDI's Cast Copper/Iron Sheet. Unlike nails (a generic fastener, interchangeable
+        // across tiers by ACT's own design), sheets stay tier-locked — Iron Sheet only pairs with
+        // WDI's Cast Iron Sheet, not the copper one — so iron-tier armor still requires iron-tier
+        // material. Soft: no-ops when WaterDrivenInfrastructure isn't installed.
+        private static void PatchSheetInterchangeability(IEnumerable allData)
+        {
+            const string CopperSheetUid = "advanced_copper_tools_metal_sheet";
+            const string IronSheetUid = "act_iron_sheet";
+            const string WdiCastCopperSheetUid = "water_sawmill_cast_metal_sheet";
+            const string WdiCastIronSheetUid = "water_sawmill_cast_iron_sheet";
+
+            CSFFModFramework.Api.BlueprintAlternates.AddAlternateIngredient(
+                allData, CopperSheetUid, WdiCastCopperSheetUid, "ACT Copper Sheet / WDI Cast Copper Sheet");
+            CSFFModFramework.Api.BlueprintAlternates.AddAlternateIngredient(
+                allData, IronSheetUid, WdiCastIronSheetUid, "ACT Iron Sheet / WDI Cast Iron Sheet");
         }
 
         private static readonly string[] ArmorUids = {
@@ -225,6 +255,32 @@ namespace Advanced_Copper_Tools.Patcher
             }
         }
 
+        // Removes the OnGMInitialized subscription so a post-teardown fire can't run against
+        // a nulled Logger / destroyed Plugin instance. Called from Plugin.OnModDestroy.
+        public static void Unsubscribe()
+        {
+            if (!_subscribedToGmInitialized || _gmInitializedHandler == null) return;
+            try
+            {
+                var gmType = AccessTools.TypeByName("GameManager");
+                var field = gmType?.GetField("OnGMInitialized", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+                if (field != null && field.FieldType == typeof(Action))
+                {
+                    var current = (Action)field.GetValue(null);
+                    field.SetValue(null, (Action)Delegate.Remove(current, _gmInitializedHandler));
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger?.LogError($"[ACT] Failed to remove copper armor save-load repair subscription: {ex.InnerException?.ToString() ?? ex.ToString()}");
+            }
+            finally
+            {
+                _gmInitializedHandler = null;
+                _subscribedToGmInitialized = false;
+            }
+        }
+
         private static void OnGameManagerInitialized()
         {
             var host = Plugin.Instance;
@@ -273,7 +329,7 @@ namespace Advanced_Copper_Tools.Patcher
                 RefreshCopperArmorPassiveEffects(copperCards);
 
             if (added > 0)
-                Logger.LogDebug($"[ACT-Fix] Copper armor combat list repaired ({added} card(s), {phase}).");
+                Logger?.LogDebug($"[ACT-Fix] Copper armor combat list repaired ({added} card(s), {phase}).");
 
             return added;
         }
@@ -312,7 +368,7 @@ namespace Advanced_Copper_Tools.Patcher
                     var routine = update?.Invoke(card, null) as IEnumerator;
                     if (routine != null) host.StartCoroutine(routine);
                 }
-                catch (Exception ex) { Logger.LogError($"[ACT] RefreshPassiveEffects failed: {ex.InnerException?.ToString() ?? ex.ToString()}"); }
+                catch (Exception ex) { Logger?.LogError($"[ACT] RefreshPassiveEffects failed: {ex.InnerException?.ToString() ?? ex.ToString()}"); }
             }
         }
 
@@ -332,48 +388,6 @@ namespace Advanced_Copper_Tools.Patcher
             }
 
             return equippedCards;
-        }
-
-        private static MethodInfo FindHasCardEquipped(object characterWindow)
-        {
-            if (characterWindow == null) return null;
-            const BindingFlags Flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
-
-            foreach (var method in characterWindow.GetType().GetMethods(Flags))
-            {
-                if (method.Name != "HasCardEquipped") continue;
-                var parameters = method.GetParameters();
-                if (parameters.Length == 0) continue;
-                if (parameters[0].ParameterType.Name == "InGameCardBase") return method;
-            }
-
-            return null;
-        }
-
-        private static string FormatInGameCard(object cardObject, object characterWindow, MethodInfo hasEquipped)
-        {
-            if (cardObject == null) return "null";
-            var uid = GetCardUid(cardObject) ?? "<no uid>";
-            var model = Reflect.GetMember(cardObject, "CardModel") as UnityEngine.Object;
-            var objectId = (cardObject as UnityEngine.Object)?.GetInstanceID();
-            var modelName = model != null ? model.name : "<no model>";
-
-            string equipped = "?";
-            if (characterWindow != null && hasEquipped != null)
-            {
-                try
-                {
-                    var parameters = hasEquipped.GetParameters();
-                    var args = parameters.Length == 1 ? new[] { cardObject } : new object[] { cardObject, false };
-                    equipped = Convert.ToString(hasEquipped.Invoke(characterWindow, args));
-                }
-                catch
-                {
-                    equipped = "error";
-                }
-            }
-
-            return $"{uid}/{modelName}(#{objectId}) equipped={equipped}";
         }
 
         private static string GetCardUid(object cardObject)

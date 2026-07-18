@@ -197,7 +197,6 @@ Advanced_Copper_Tools_CopperBathtub_Special1_CardStatName,Ash Amount,灰烬量
 Advanced_Copper_Tools_CopperBathtub_Warm_Bath_ActionDescription,"Soak in the warm water. Very relaxing, cleansing, and warming.",浸泡在温水中。非常放松、清洁且令人温暖。
 Advanced_Copper_Tools_CopperBathtub_Warm_Bath_ActionName,Warm Bath,温水浴
 Advanced_Copper_Tools_CopperBathtub_Warm_CardHelpSection,<b>Usage:</b> Take a warm bath to reduce dirtiness and greatly improve mood. Add more firewood to keep it warm longer.,<b>用途：</b> 洗温水浴可减少肮脏度并大幅改善心情。添加更多柴火以保温更久。
-Advanced_Copper_Tools_CopperBathtub_Warm_Placed_CardHelpSection,<b>Usage:</b> Take a warm bath to reduce dirtiness and greatly improve mood. Add more firewood to keep it warm longer.,<b>用途：</b> 洗温水浴可减少肮脏度并大幅改善心情。添加更多柴火以保温更久。
 Advanced_Copper_Tools_CopperBathtub_Warm_FeedFirewood_ActionName,Feed Firewood,添加柴火
 Advanced_Copper_Tools_CopperBathtub_Warm_OnZero_ActionDescription,The bath water has cooled down.,洗澡水已经冷却了。
 Advanced_Copper_Tools_CopperBathtub_Warm_Place_ActionDescription,Place the bathtub in the environment.,将浴缸放置在环境中。
@@ -611,3 +610,121 @@ Advanced_Copper_Tools_CollapsedWallTin_CardName,Collapsed Rock Face
 Advanced_Copper_Tools_CollapsedWallTin_CardDescription,"A cave-in blocks the eastern passage beyond the waterfall. Dig through it with a pickaxe, shovel, axe, antler, or knife to access the tin, copper, and iron vein caves — once cleared, the passage stays open."
 Advanced_Copper_Tools_CollapsedWallTin_Dig_ActionName,Dig Through
 Advanced_Copper_Tools_CollapsedWallTin_Dig_ActionDescription,"Break through the collapsed rock with a pickaxe, shovel, axe, antler, or knife. Opens the eastern passage to the cave network beyond the falls."
+Advanced_Copper_Tools_CalmingTea_CardName,Calming Tea,安神茶
+Advanced_Copper_Tools_CalmingTea_CardDescription,A soothing brew of dried willow bark steeped in hot water. Quiets the nerves and eases stress.,用干柳树皮在热水中冲泡的舒缓茶饮。能安定神经、缓解压力。
+Advanced_Copper_Tools_CalmingTea_CardHelpSection,"<b>Brewed:</b> At a lit Tea Station — dried willow bark plus a Water Charge, once the reservoir is hot.
+
+<b>Uses:</b> Drink for hydration and a strong Stress reduction.","<b>冲泡：</b>在点燃的茶饮站——需要干柳树皮和一份水量，且水箱已加热。
+
+<b>用途：</b>饮用可补水，并大幅降低压力。"
+Advanced_Copper_Tools_CalmingTea_Drink_ActionName,Drink,饮用
+Advanced_Copper_Tools_WarmingTea_CardName,Warming Tea,暖身茶
+Advanced_Copper_Tools_WarmingTea_CardDescription,A pungent brew of dried wild garlic steeped in hot water. Chases off the cold from the inside.,用干野蒜在热水中冲泡的辛辣茶饮。能从体内驱散寒意。
+Advanced_Copper_Tools_WarmingTea_CardHelpSection,"<b>Brewed:</b> At a lit Tea Station — dried wild garlic plus a Water Charge, once the reservoir is hot.
+
+<b>Uses:</b> Drink for hydration, a little food value, and a Body Temperature boost.","<b>冲泡：</b>在点燃的茶饮站——需要干野蒜和一份水量，且水箱已加热。
+
+<b>用途：</b>饮用可补水、获得少量食物价值，并提升体温。"
+Advanced_Copper_Tools_WarmingTea_Drink_ActionName,Drink,饮用
+Advanced_Copper_Tools_FocusTea_CardName,Focus Tea,凝神茶
+Advanced_Copper_Tools_FocusTea_CardDescription,"A sharp, faintly psychoactive brew of dried spirit mushrooms steeped in hot water. Clears the mind.",用干灵菇在热水中冲泡的辛烈茶饮，带有轻微致幻效果，能让头脑清醒。
+Advanced_Copper_Tools_FocusTea_CardHelpSection,"<b>Brewed:</b> At a lit Tea Station — dried spirit mushrooms plus a Water Charge, once the reservoir is hot.
+
+<b>Uses:</b> Drink for hydration and a Focus and Energy boost.","<b>冲泡：</b>在点燃的茶饮站——需要干灵菇和一份水量，且水箱已加热。
+
+<b>用途：</b>饮用可补水，并提升专注力和精力。"
+Advanced_Copper_Tools_FocusTea_Drink_ActionName,Drink,饮用
+Advanced_Copper_Tools_TeaBlendingStation_BrewCalming_ActionName,Brew Calming Tea,冲泡安神茶
+Advanced_Copper_Tools_TeaBlendingStation_BrewNeedsWater_CannotCookText,Needs a hot Water Charge in the reservoir,水箱中需要一份加热过的水量
+Advanced_Copper_Tools_TeaBlendingStation_BrewWarming_ActionName,Brew Warming Tea,冲泡暖身茶
+Advanced_Copper_Tools_TeaBlendingStation_BrewFocus_ActionName,Brew Focus Tea,冲泡凝神茶
+Advanced_Copper_Tools_CopperBathtub_Warm_HotBath_ActionName,Hot Bath,热水浴
+Advanced_Copper_Tools_CopperBathtub_Warm_HotBath_ActionDescription,"Soak in piping-hot water. Greatly improves mood and body warmth, and melts away stress.",浸泡在滚烫的热水中。大幅提升心情与体温，并消除压力。
+Advanced_Copper_Tools_CopperBathtub_Warm_Placed_CardHelpSection,<b>Usage:</b> Take a warm bath to reduce dirtiness and improve mood. Keep the fire above half heat for a Hot Bath instead — the same benefits plus a bigger mood boost and a genuine Stress reduction. Add more firewood to keep it hot longer.,<b>用法：</b>泡个温水浴可以减少污垢、提升心情。若炉火维持在一半以上的热度，则可改为泡热水浴——效果相同，但心情提升更大，并能真正降低压力。多加柴火可以让水保持更久的高温。
+Advanced_Copper_Tools_CopperOilFlask_AlternateNames[0].Name,Copper Oil Flask,铜制油壶
+Advanced_Copper_Tools_CopperOilFlask_AlternateNames[1].Name,Ghost Bronze Oil Flask,幽灵青铜油壶
+Advanced_Copper_Tools_CopperOilFlask_AlternateNames[2].Name,Tin Oil Flask,锡制油壶
+Advanced_Copper_Tools_CopperOilFlask_AlternateNames[3].Name,Tin Bronze Oil Flask,锡青铜油壶
+Advanced_Copper_Tools_CopperOilFlask_AlternateNames[4].Name,White Bronze Oil Flask,白青铜油壶
+Advanced_Copper_Tools_CopperOilFlask_SpecialDurability4.CardStatName,Metal Type,金属类型
+Advanced_Copper_Tools_CopperCauldron_AlternateNames[0].Name,Copper Cauldron,铜制大锅
+Advanced_Copper_Tools_CopperCauldron_AlternateNames[1].Name,Ghost Bronze Cauldron,幽灵青铜大锅
+Advanced_Copper_Tools_CopperCauldron_AlternateNames[2].Name,Tin Cauldron,锡制大锅
+Advanced_Copper_Tools_CopperCauldron_AlternateNames[3].Name,Tin Bronze Cauldron,锡青铜大锅
+Advanced_Copper_Tools_CopperCauldron_AlternateNames[4].Name,White Bronze Cauldron,白青铜大锅
+Advanced_Copper_Tools_CopperCauldron_SpecialDurability4.CardStatName,Metal Type,金属类型
+Advanced_Copper_Tools_CopperWateringCan_CardName,Copper Watering Can,铜制洒水壶
+Advanced_Copper_Tools_CopperWateringCan_CardDescription,"A hammered copper can with a rope-bound handle and a perforated spout. Carries water for dousing fires, filling other containers, or watering plants.",一只锤打成型的铜壶，带绳绑手柄和带孔壶嘴。可用来装水灭火、给其他容器加水，或浇灌植物。
+Advanced_Copper_Tools_CopperWateringCan_CardHelpSection,"<b>Fill:</b> Drag onto a river, pond, or other shallow water source.
+
+<b>Uses:</b> Pour into any water container (drag the can onto it), douse open flames, or drink in a pinch. Holds 1500 ml.","<b>装水：</b>拖到河流、池塘或其他浅水源上即可。
+
+<b>用途：</b>倒入任何盛水容器（把壶拖到容器上）、浇灭明火，或紧急情况下饮用。容量1500毫升。"
+Advanced_Copper_Tools_CopperWateringCan_Fill_ActionName,Fill from Water,从水源装水
+Advanced_Copper_Tools_CopperWateringCan_Fill_ActionDescription,Dip the can into the water to fill it.,把壶浸入水中装满。
+Advanced_Copper_Tools_CopperWateringCan_Drink_ActionName,Drink,饮用
+Advanced_Copper_Tools_CopperWateringCan_Drink_FailMessage,The can is empty.,壶是空的。
+Advanced_Copper_Tools_CopperWateringCan_Empty_ActionName,Empty Out,倒空
+Advanced_Copper_Tools_CopperWateringCan_Empty_ActionDescription,Pour the water out onto the ground.,把水倒在地上。
+Advanced_Copper_Tools_Bp_CopperWateringCan_CardName,Copper Watering Can,铜制洒水壶
+Advanced_Copper_Tools_Bp_CopperWateringCan_CardDescription,"Hammer two copper sheets into a spouted can with a rope-bound handle. Requires 2 copper sheets, 1 rope, and a hammer.",把两块铜板锤打成带壶嘴的水壶，并绑上绳制手柄。需要2块铜板、1根绳子和一把锤子。
+Advanced_Copper_Tools_Bp_CopperWateringCan_UnlockConditionsDesc,Copper Sheet Needed,需要铜板
+Advanced_Copper_Tools_CopperRimChamberpot_CardName,Copper-Rim Chamberpot,铜边便壶
+Advanced_Copper_Tools_CopperRimChamberpot_CardDescription,A clay chamberpot with a hammered copper rim. Saves a cold trip outside at night. Holds four uses before it needs emptying.,一只带锤打铜边的陶制便壶，能省去夜里外出受冻的麻烦。使用四次后需要倒空。
+Advanced_Copper_Tools_CopperRimChamberpot_CardHelpSection,"<b>Use:</b> A small mood bump for not having to go outside. Fills up after 4 uses.
+
+<b>Empty:</b> Empty it out once full to use it again — the waste makes a pile of manure for the compost bin or fields.","<b>使用：</b>不必外出方便，小幅提升心情。使用4次后装满。
+
+<b>倒空：</b>装满后倒空即可再次使用——排泄物会留下一堆粪肥，可用于堆肥箱或田地。"
+Advanced_Copper_Tools_CopperRimChamberpot_SpecialDurability1.CardStatName,Fullness,充满度
+Advanced_Copper_Tools_CopperRimChamberpot_Use_ActionName,Use,使用
+Advanced_Copper_Tools_CopperRimChamberpot_Use_ActionDescription,No need to brave the cold and dark.,不必冒着严寒黑夜外出了。
+Advanced_Copper_Tools_CopperRimChamberpot_Use_FailMessage,It's full — empty it first.,已经满了——请先倒空。
+Advanced_Copper_Tools_CopperRimChamberpot_Empty_ActionName,Empty,倒空
+Advanced_Copper_Tools_CopperRimChamberpot_Empty_ActionDescription,Empty it out so it can be used again. Leaves a pile of manure.,倒空后即可再次使用。会留下一堆粪肥。
+Advanced_Copper_Tools_CopperRimChamberpot_Empty_FailMessage,Already empty.,已经是空的了。
+Advanced_Copper_Tools_Bp_CopperRimChamberpot_CardName,Copper-Rim Chamberpot,铜边便壶
+Advanced_Copper_Tools_Bp_CopperRimChamberpot_CardDescription,"Hammer a copper rim onto a clay bowl to make a proper chamberpot. Requires 1 clay bowl, 1 copper sheet, and a hammer.",把铜边锤打固定在陶碗上，做成一只合格的便壶。需要1只陶碗、1块铜板和一把锤子。
+Advanced_Copper_Tools_Bp_CopperRimChamberpot_UnlockConditionsDesc,Copper Sheet Needed,需要铜板
+Advanced_Copper_Tools_IronSheet_CardName,Iron Sheet,铁板
+Advanced_Copper_Tools_IronSheet_CardDescription,"A flat iron sheet, hammered thin from iron nuggets. Tougher than any copper-tier metal.",由铁块锤打成的薄铁板，比任何铜系金属都更坚韧。
+Advanced_Copper_Tools_IronSheet_SpecialDurability4.CardStatName,Metal Type,金属类型
+Advanced_Copper_Tools_IronSheet_FuelCapacity.CardStatName,Temperature,温度
+Advanced_Copper_Tools_Bp_IronSheet_CardName,Iron Sheet,铁板
+Advanced_Copper_Tools_Bp_IronSheet_CardDescription,"Hammer iron nuggets flat into a sheet, ready for iron-grade tools and armor.",把铁块锤打成扁平的铁板，可用于打造铁质工具和铠甲。
+Advanced_Copper_Tools_Bp_IronSheet_UnlockConditionsDesc,Iron Nugget Needed,需要铁块
+Advanced_Copper_Tools_IronHelmet_CardName,Iron Helmet,铁头盔
+Advanced_Copper_Tools_IronHelmet_CardDescription,A forged iron helmet offering superior head protection to its copper counterpart. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.,锻造的铁头盔，头部防护优于铜制版本。可在熔炉中回收。必须装备在装备栏才能生效。
+Advanced_Copper_Tools_IronHelmet_UsageDurability.CardStatName,Durability,耐久度
+Advanced_Copper_Tools_IronHelmet_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_IronHelmet_Dismantle_ActionDescription,Break apart the helmet to recover materials.,拆解头盔以回收材料。
+Advanced_Copper_Tools_Bp_IronHelmet_CardName,Iron Helmet,铁头盔
+Advanced_Copper_Tools_Bp_IronHelmet_CardDescription,Forge an iron helmet for superior head protection.,锻造一顶铁头盔，获得更强的头部防护。
+Advanced_Copper_Tools_Bp_IronHelmet_UnlockConditionsDesc,Iron Sheet Needed,需要铁板
+Advanced_Copper_Tools_IronGauntlets_CardName,Iron Bracers,铁护臂
+Advanced_Copper_Tools_IronGauntlets_CardDescription,"Forged iron bracers protecting both arms, tougher than copper. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.",锻造的铁护臂，保护双臂，比铜制版本更坚韧。可在熔炉中回收。必须装备在装备栏才能生效。
+Advanced_Copper_Tools_IronGauntlets_UsageDurability.CardStatName,Durability,耐久度
+Advanced_Copper_Tools_IronGauntlets_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_IronGauntlets_Dismantle_ActionDescription,Break apart the bracers to recover materials.,拆解护臂以回收材料。
+Advanced_Copper_Tools_Bp_IronGauntlets_CardName,Iron Bracers,铁护臂
+Advanced_Copper_Tools_Bp_IronGauntlets_CardDescription,Forge iron bracers for superior arm protection.,锻造铁护臂，获得更强的手臂防护。
+Advanced_Copper_Tools_Bp_IronGauntlets_UnlockConditionsDesc,Iron Sheet Needed,需要铁板
+Advanced_Copper_Tools_IronGreaves_CardName,Iron Greaves,铁护胫
+Advanced_Copper_Tools_IronGreaves_CardDescription,"Forged iron greaves protecting both legs, tougher than copper. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.",锻造的铁护胫，保护双腿，比铜制版本更坚韧。可在熔炉中回收。必须装备在装备栏才能生效。
+Advanced_Copper_Tools_IronGreaves_UsageDurability.CardStatName,Durability,耐久度
+Advanced_Copper_Tools_IronGreaves_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_IronGreaves_Dismantle_ActionDescription,Break apart the greaves to recover materials.,拆解护胫以回收材料。
+Advanced_Copper_Tools_Bp_IronGreaves_CardName,Iron Greaves,铁护胫
+Advanced_Copper_Tools_Bp_IronGreaves_CardDescription,Forge iron greaves for superior leg protection.,锻造铁护胫，获得更强的腿部防护。
+Advanced_Copper_Tools_Bp_IronGreaves_UnlockConditionsDesc,Iron Sheet Needed,需要铁板
+Advanced_Copper_Tools_IronBreastplate_CardName,Iron Armor,铁铠甲
+Advanced_Copper_Tools_IronBreastplate_CardDescription,A sturdy suit of iron armor offering superior torso protection to its copper counterpart. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.,一套坚固的铁铠甲，躯干防护优于铜制版本。可在熔炉中回收。必须装备在装备栏才能生效。
+Advanced_Copper_Tools_IronBreastplate_UsageDurability.CardStatName,Durability,耐久度
+Advanced_Copper_Tools_IronBreastplate_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_IronBreastplate_Dismantle_ActionDescription,Break apart the armor to recover materials.,拆解铠甲以回收材料。
+Advanced_Copper_Tools_Bp_IronBreastplate_CardName,Iron Armor,铁铠甲
+Advanced_Copper_Tools_Bp_IronBreastplate_CardDescription,Forge a suit of iron armor for superior torso protection.,锻造一套铁铠甲，获得更强的躯干防护。
+Advanced_Copper_Tools_Bp_IronBreastplate_UnlockConditionsDesc,Iron Sheet Needed,需要铁板
+Advanced_Copper_Tools_Bp_RenderFishOil_CardName,Rendered Fish Oil,熬制鱼油
+Advanced_Copper_Tools_Bp_RenderFishOil_CardDescription,Render 2 fatty fish meat in a clay bowl over a fire to produce cooking oil and lamp fuel.,在火上用陶碗熬制2块肥鱼肉，制成食用油和灯油。
+Advanced_Copper_Tools_Bp_RenderFishOil_UnlockConditionsDesc,Fatty Fish Meat Needed,需要肥鱼肉

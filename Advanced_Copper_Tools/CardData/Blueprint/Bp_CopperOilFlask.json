@@ -56,6 +56,7 @@
           },
           "RequiredQuantity": 2,
           "DontSpend": false,
+          "AffectResultDurabilities": { "MaskValue": 256 },
           "RequiredCardWarpData": "advanced_copper_tools_metal_sheet",
           "RequiredCardWarpType": 3
         },
@@ -118,6 +119,7 @@
         "x": 1,
         "y": 1
       },
+      "TransferRules": { "TransferFromSpecial4": true },
       "DroppedCardWarpData": "advanced_copper_tools_copper_oil_flask",
       "DroppedCardWarpType": 3
     }

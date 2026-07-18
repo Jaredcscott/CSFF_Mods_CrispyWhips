@@ -100,7 +100,7 @@ namespace Advanced_Copper_Tools.Patcher
             }
             catch (Exception ex)
             {
-                Logger.LogError($"[ACT] NuggetSmelt ApplyOreProperties: {ex.Message}");
+                Logger.LogError($"[ACT] NuggetSmelt ApplyOreProperties: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
 
             if (updated > 0)
@@ -119,7 +119,10 @@ namespace Advanced_Copper_Tools.Patcher
                         ids.Add(uo.GetInstanceID());
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                Logger?.LogError($"[ACT] NuggetSmelt SnapshotNuggetIds: {ex.InnerException?.ToString() ?? ex.ToString()}");
+            }
             return ids;
         }
 

@@ -13,7 +13,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_copper_bathtub_warm_placed",
     "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Warm_Placed_CardHelpSection",
-    "DefaultText": "<b>Usage:</b> Take a warm bath to reduce dirtiness and greatly improve mood. Add more firewood to keep it warm longer."
+    "DefaultText": "<b>Usage:</b> Take a warm bath to reduce dirtiness and improve mood. Keep the fire above half heat for a Hot Bath instead — the same benefits plus a bigger mood boost and a genuine Stress reduction. Add more firewood to keep it hot longer."
   },
   "CardType": 2,
   "MapStructureType": 0,
@@ -193,7 +193,10 @@
     "NumberPrecision": 0,
     "HasActionOnZero": false,
     "HasActionOnFull": false,
-    "CountsForTradingValue": false
+    "CountsForTradingValue": false,
+    "OverrideIcon": { "m_FileID": 0, "m_PathID": 0 },
+    "OverrideIconWarpData": "Water",
+    "OverrideIconWarpType": 3
   },
   "SpecialDurability3": {
     "Active": false
@@ -473,7 +476,12 @@
           "FloatValue": 0.1,
           "MaxValue": 1.0
         },
-        "HideActionIfNotMet": false,
+        "RequiredFuelPercent": {
+          "Active": true,
+          "FloatValue": 0.05,
+          "MaxValue": 0.5
+        },
+        "HideActionIfNotMet": true,
         "FailMessage": {
           "DefaultText": "Need more water in the bathtub."
         }
@@ -597,6 +605,114 @@
             "y": 0.0
           },
           "StatWarpData": "04194353fd841a94ebff8b69af66c8d0",
+          "StatWarpType": 3
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "ModifyLiquid": true,
+        "LiquidQuantityChange": {
+          "x": -300.0,
+          "y": -300.0
+        },
+        "Special2Change": {
+          "x": -300.0,
+          "y": -300.0
+        }
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_copper_bathtub_warm_placed",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Warm_HotBath_ActionName",
+        "DefaultText": "Hot Bath"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_copper_bathtub_warm_placed",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Warm_HotBath_ActionDescription",
+        "DefaultText": "Soak in piping-hot water. Greatly improves mood and body warmth, and melts away stress."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Water"
+      ],
+      "ActionSoundsWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial2Percent": {
+          "Active": true,
+          "FloatValue": 0.1,
+          "MaxValue": 1.0
+        },
+        "RequiredFuelPercent": {
+          "Active": true,
+          "FloatValue": 0.5,
+          "MaxValue": 1.0
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "DefaultText": "The water needs to be hotter and deeper."
+        }
+      },
+      "StatModifications": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "ValueModifier": { "x": -200.0, "y": -200.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+          "StatWarpType": 3
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "ValueModifier": { "x": 60.0, "y": 80.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
+          "StatWarpType": 3
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "ValueModifier": { "x": 30.0, "y": 40.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+          "StatWarpType": 3
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "ValueModifier": { "x": 60.0, "y": 80.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 85.0, "y": 85.0 },
+          "StatWarpData": "888d2d2a99e3f044291c6748a0fa8d78",
+          "StatWarpType": 3
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "ValueModifier": { "x": 20.0, "y": 30.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "StatWarpData": "04194353fd841a94ebff8b69af66c8d0",
+          "StatWarpType": 3
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "ValueModifier": { "x": -20.0, "y": -25.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
           "StatWarpType": 3
         }
       ],
