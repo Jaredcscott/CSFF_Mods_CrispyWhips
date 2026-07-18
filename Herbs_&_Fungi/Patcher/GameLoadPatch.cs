@@ -180,7 +180,7 @@ namespace Herbs_And_Fungi.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"[HempSeeds] Error adding hemp plantation support: {ex.Message}");
+                Logger?.LogError($"[HempSeeds] Error adding hemp plantation support: {ex.Message}\n{ex.StackTrace}");
             }
         }
 
@@ -715,7 +715,7 @@ namespace Herbs_And_Fungi.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"[Forage] Error adding mushroom drops: {ex.Message}");
+                Logger?.LogError($"[Forage] Error adding mushroom drops: {ex.Message}\n{ex.StackTrace}");
             }
         }
 
@@ -790,7 +790,7 @@ namespace Herbs_And_Fungi.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"[Forage] Error adding mushroom drop: {ex.Message}");
+                Logger?.LogError($"[Forage] Error adding mushroom drop: {ex.Message}\n{ex.StackTrace}");
             }
         }
 
@@ -908,7 +908,7 @@ namespace Herbs_And_Fungi.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"[Truffle] Error adding Dig for Truffles action: {ex.Message}");
+                Logger?.LogError($"[Truffle] Error adding Dig for Truffles action: {ex.Message}\n{ex.StackTrace}");
             }
         }
 

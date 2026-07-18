@@ -1467,7 +1467,41 @@ Herbs_And_Fungi_RoastedPeanuts_CardName,Roasted Peanuts
 Herbs_And_Fungi_RoastedPeanuts_CardDescription,"Warm, fragrant peanuts roasted over a fire. Packed with fat and protein — a dense, satisfying meal, though you'll want water nearby."
 Herbs_And_Fungi_RoastedPeanuts_CardHelpSection,"<b>Made from:</b> Roasting Raw Peanuts on a fire (2 hours).
 
-<b>Uses:</b> Eat for a substantial fat and protein boost. High in calories, but very drying — have water on hand. Keeps for over a month."
+<b>Uses:</b> Eat for a substantial fat and protein boost. High in calories, but very drying — have water on hand. Keeps for over a month.
+
+<b>Grind:</b> Grind with any grinding tool into Peanut Butter.
+
+<b>Trail Mix:</b> Combine with dried billberries (Cooking tab) for a travel ration."
 Herbs_And_Fungi_RoastedPeanuts_DismantleActions_Eat_ActionName,Eat
 Herbs_And_Fungi_RoastedPeanuts_SpoilageTime_CardStatName,Spoilage
 Herbs_And_Fungi_RoastedPeanuts_SpoilageTime_OnFull_ActionDescription,The roasted peanuts have gone rancid.
+Herbs_And_Fungi_RoastedPeanuts_Grind_ActionName,Grind
+Herbs_And_Fungi_RoastedPeanuts_Grind_ActionDescription,Grind the roasted peanuts into peanut butter.
+Herbs_And_Fungi_PeanutOil_CardName,Peanut Oil
+Herbs_And_Fungi_PeanutOil_CardDescription,"Cold-pressed oil extracted from raw peanuts, served in a clay bowl. Nutty and rich. Eat it, season food with it, or render it into lamp oil."
+Herbs_And_Fungi_PeanutOil_CardHelpSection,"<b>Crafted:</b> By pressing 3 Raw Peanuts + Clay Bowl on a placed Oil Press.
+
+<b>Uses:</b> Eat directly (returns empty clay bowl), drag onto food to season, or render over a fire into lamp oil."
+Herbs_And_Fungi_PeanutOil_Eat_ActionName,Eat
+Herbs_And_Fungi_Bp_OilPressPeanuts_CardName,Press Peanuts
+Herbs_And_Fungi_Bp_OilPressPeanuts_CardDescription,Crush 3 raw peanuts in the press and collect in a clay bowl to extract peanut oil.
+Herbs_And_Fungi_Bp_OilPressPeanuts_UnlockConditionsDesc,Oil Press Needed
+Herbs_And_Fungi_PeanutButter_CardName,Peanut Butter
+Herbs_And_Fungi_PeanutButter_CardDescription,"Roasted peanuts ground into a thick, rich paste. Dense fat and protein in every bite — sticks to the roof of your mouth, so keep water close."
+Herbs_And_Fungi_PeanutButter_CardHelpSection,"<b>Made from:</b> Grinding Roasted Peanuts with any grinding tool.
+
+<b>Uses:</b> Eat for a hearty fat and protein meal. Very drying — have water on hand. Keeps for two months."
+Herbs_And_Fungi_PeanutButter_DismantleActions_Eat_ActionName,Eat
+Herbs_And_Fungi_PeanutButter_SpoilageTime_CardStatName,Spoilage
+Herbs_And_Fungi_PeanutButter_SpoilageTime_OnFull_ActionDescription,The peanut butter has gone rancid.
+Herbs_And_Fungi_TrailMix_CardName,Forager's Trail Mix
+Herbs_And_Fungi_TrailMix_CardDescription,"Roasted peanuts tossed with dried berries — a light, dense ration made for a day on the trail."
+Herbs_And_Fungi_TrailMix_CardHelpSection,"<b>Made from:</b> 2 Roasted Peanuts + 2 Dried Billberries (Cooking tab).
+
+<b>Uses:</b> Eat on the go — solid calories and fat without the thirst of plain roasted peanuts. Keeps for two months."
+Herbs_And_Fungi_TrailMix_DismantleActions_Eat_ActionName,Eat
+Herbs_And_Fungi_TrailMix_SpoilageTime_CardStatName,Spoilage
+Herbs_And_Fungi_TrailMix_SpoilageTime_OnFull_ActionDescription,The trail mix has gone stale and moldy.
+Herbs_And_Fungi_Bp_TrailMix_CardName,Forager's Trail Mix
+Herbs_And_Fungi_Bp_TrailMix_CardDescription,Toss 2 roasted peanuts with 2 dried billberries to make 2 portions of trail ration.
+Herbs_And_Fungi_Bp_TrailMix_UnlockConditionsDesc,Roasted Peanuts Needed

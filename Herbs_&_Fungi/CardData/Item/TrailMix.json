@@ -1,19 +1,19 @@
 {
-    "UniqueID": "herbs_fungi_roasted_peanuts",
+    "UniqueID": "herbs_fungi_trail_mix",
     "CardName": {
-        "ParentObjectID": "herbs_fungi_roasted_peanuts",
-        "LocalizationKey": "Herbs_And_Fungi_RoastedPeanuts_CardName",
-        "DefaultText": "Roasted Peanuts"
+        "ParentObjectID": "herbs_fungi_trail_mix",
+        "LocalizationKey": "Herbs_And_Fungi_TrailMix_CardName",
+        "DefaultText": "Forager's Trail Mix"
     },
     "CardDescription": {
-        "ParentObjectID": "herbs_fungi_roasted_peanuts",
-        "LocalizationKey": "Herbs_And_Fungi_RoastedPeanuts_CardDescription",
-        "DefaultText": "Warm, fragrant peanuts roasted over a fire. Packed with fat and protein — a dense, satisfying meal, though you'll want water nearby."
+        "ParentObjectID": "herbs_fungi_trail_mix",
+        "LocalizationKey": "Herbs_And_Fungi_TrailMix_CardDescription",
+        "DefaultText": "Roasted peanuts tossed with dried berries — a light, dense ration made for a day on the trail."
     },
     "CardHelpSection": {
-        "ParentObjectID": "herbs_fungi_roasted_peanuts",
-        "LocalizationKey": "Herbs_And_Fungi_RoastedPeanuts_CardHelpSection",
-        "DefaultText": "<b>Made from:</b> Roasting Raw Peanuts on a fire (2 hours).\n\n<b>Uses:</b> Eat for a substantial fat and protein boost. High in calories, but very drying — have water on hand. Keeps for over a month.\n\n<b>Grind:</b> Grind with any grinding tool into Peanut Butter.\n\n<b>Trail Mix:</b> Combine with dried billberries (Cooking tab) for a travel ration."
+        "ParentObjectID": "herbs_fungi_trail_mix",
+        "LocalizationKey": "Herbs_And_Fungi_TrailMix_CardHelpSection",
+        "DefaultText": "<b>Made from:</b> 2 Roasted Peanuts + 2 Dried Billberries (Cooking tab).\n\n<b>Uses:</b> Eat on the go — solid calories and fat without the thirst of plain roasted peanuts. Keeps for two months."
     },
     "CardImage": {
         "m_FileID": 0,
@@ -29,8 +29,8 @@
     "CardType": 0,
     "CannotBeTransferred": false,
     "NotAutoSolvableEvent": false,
-    "ObjectWeight": 20,
-    "TradingValue": 25.0,
+    "ObjectWeight": 25,
+    "TradingValue": 30.0,
     "MaxStack": 10,
     "AlwaysUpdate": false,
     "CannotBeTrashed": false,
@@ -47,12 +47,12 @@
         "Active": true,
         "FloatValue": 0.0,
         "CardStatName": {
-            "ParentObjectID": "herbs_fungi_roasted_peanuts",
-            "LocalizationKey": "Herbs_And_Fungi_RoastedPeanuts_SpoilageTime_CardStatName",
+            "ParentObjectID": "herbs_fungi_trail_mix",
+            "LocalizationKey": "Herbs_And_Fungi_TrailMix_SpoilageTime_CardStatName",
             "DefaultText": "Spoilage"
         },
         "RandomStartingOffset": 0.0,
-        "MaxValue": 4320.0,
+        "MaxValue": 5760.0,
         "RatePerDaytimePoint": 1.0,
         "ExtraRateWhenEquipped": 0.0,
         "PauseRateWhenEnvWeightIsFull": false,
@@ -73,9 +73,9 @@
         "OnFullNotification": 1,
         "OnFull": {
             "ActionDescription": {
-                "ParentObjectID": "herbs_fungi_roasted_peanuts",
-                "LocalizationKey": "Herbs_And_Fungi_RoastedPeanuts_SpoilageTime_OnFull_ActionDescription",
-                "DefaultText": "The roasted peanuts have gone rancid."
+                "ParentObjectID": "herbs_fungi_trail_mix",
+                "LocalizationKey": "Herbs_And_Fungi_TrailMix_SpoilageTime_OnFull_ActionDescription",
+                "DefaultText": "The trail mix has gone stale and moldy."
             },
             "ReceivingCardChanges": {
                 "ModType": 2,
@@ -112,87 +112,12 @@
     "DurabilitySorting": {
         "SortingList": []
     },
-    "CardInteractions": [
-        {
-            "ActionName": {
-                "ParentObjectID": "herbs_fungi_roasted_peanuts",
-                "LocalizationKey": "Herbs_And_Fungi_RoastedPeanuts_Grind_ActionName",
-                "DefaultText": "Grind"
-            },
-            "ActionDescription": {
-                "ParentObjectID": "herbs_fungi_roasted_peanuts",
-                "LocalizationKey": "Herbs_And_Fungi_RoastedPeanuts_Grind_ActionDescription",
-                "DefaultText": "Grind the roasted peanuts into peanut butter."
-            },
-            "DaytimeCost": 1,
-            "UseMiniTicks": 0,
-            "ActionSounds": [],
-            "ActionTags": [],
-            "ActionTagsWarpData": [],
-            "ActionTagsWarpType": 3,
-            "ActionSoundsWarpData": ["Stone"],
-            "ActionSoundsWarpType": 3,
-            "CompatibleCards": {
-                "TriggerCards": [],
-                "TriggerCardsWarpData": [],
-                "TriggerCardsWarpType": 3,
-                "TriggerTags": [],
-                "TriggerTagsWarpData": ["tag_GrindingTool"],
-                "TriggerTagsWarpType": 3
-            },
-            "GivenCardChanges": {
-                "ModType": 0
-            },
-            "ReceivingCardChanges": {
-                "ModType": 2,
-                "TransformInto": {"m_FileID": 0, "m_PathID": 0},
-                "TransformIntoWarpData": "herbs_fungi_peanut_butter",
-                "TransformIntoWarpType": 3
-            }
-        },
-        {
-            "ActionName": {
-                "ParentObjectID": "herbs_fungi_roasted_peanuts",
-                "LocalizationKey": "Herbs_And_Fungi_RoastedPeanuts_Grind_ActionName",
-                "DefaultText": "Grind"
-            },
-            "ActionDescription": {
-                "ParentObjectID": "herbs_fungi_roasted_peanuts",
-                "LocalizationKey": "Herbs_And_Fungi_RoastedPeanuts_Grind_ActionDescription",
-                "DefaultText": "Grind the roasted peanuts into peanut butter."
-            },
-            "DaytimeCost": 1,
-            "UseMiniTicks": 0,
-            "ActionSounds": [],
-            "ActionTags": [],
-            "ActionTagsWarpData": [],
-            "ActionTagsWarpType": 3,
-            "ActionSoundsWarpData": ["Stone"],
-            "ActionSoundsWarpType": 3,
-            "CompatibleCards": {
-                "TriggerCards": [],
-                "TriggerCardsWarpData": ["9f657b781d6e789479bcf3e01f7b61d5"],
-                "TriggerCardsWarpType": 3,
-                "TriggerTags": [],
-                "TriggerTagsWarpData": [],
-                "TriggerTagsWarpType": 3
-            },
-            "GivenCardChanges": {
-                "ModType": 0
-            },
-            "ReceivingCardChanges": {
-                "ModType": 2,
-                "TransformInto": {"m_FileID": 0, "m_PathID": 0},
-                "TransformIntoWarpData": "herbs_fungi_peanut_butter",
-                "TransformIntoWarpType": 3
-            }
-        }
-    ],
+    "CardInteractions": [],
     "DismantleActions": [
         {
             "ActionName": {
-                "ParentObjectID": "herbs_fungi_roasted_peanuts",
-                "LocalizationKey": "Herbs_And_Fungi_RoastedPeanuts_DismantleActions_Eat_ActionName",
+                "ParentObjectID": "herbs_fungi_trail_mix",
+                "LocalizationKey": "Herbs_And_Fungi_TrailMix_DismantleActions_Eat_ActionName",
                 "DefaultText": "Eat"
             },
             "ActionSounds": [],
@@ -211,6 +136,52 @@
                         "m_PathID": 0
                     },
                     "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 30,
+                        "y": 30
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "95ca7c21ffad5e647acc3d9cb5bfcde6",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -4,
+                        "y": -4
+                    },
+                    "TriggerStat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "TriggerStatWarpData": "",
+                    "TriggerStatWarpType": 3,
+                    "TriggerValue": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "TriggerStatValueIsMax": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
                     "StatWarpType": 3,
                     "ValueModifier": {
                         "x": 40,
@@ -233,57 +204,11 @@
                         "m_FileID": 0,
                         "m_PathID": 0
                     },
-                    "StatWarpData": "95ca7c21ffad5e647acc3d9cb5bfcde6",
-                    "StatWarpType": 3,
-                    "ValueModifier": {
-                        "x": -10,
-                        "y": -10
-                    },
-                    "TriggerStat": {
-                        "m_FileID": 0,
-                        "m_PathID": 0
-                    },
-                    "TriggerStatWarpData": "",
-                    "TriggerStatWarpType": 3,
-                    "TriggerValue": {
-                        "x": 0.0,
-                        "y": 0.0
-                    },
-                    "TriggerStatValueIsMax": false
-                },
-                {
-                    "Stat": {
-                        "m_FileID": 0,
-                        "m_PathID": 0
-                    },
-                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
-                    "StatWarpType": 3,
-                    "ValueModifier": {
-                        "x": 50,
-                        "y": 50
-                    },
-                    "TriggerStat": {
-                        "m_FileID": 0,
-                        "m_PathID": 0
-                    },
-                    "TriggerStatWarpData": "",
-                    "TriggerStatWarpType": 3,
-                    "TriggerValue": {
-                        "x": 0.0,
-                        "y": 0.0
-                    },
-                    "TriggerStatValueIsMax": false
-                },
-                {
-                    "Stat": {
-                        "m_FileID": 0,
-                        "m_PathID": 0
-                    },
                     "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
                     "StatWarpType": 3,
                     "ValueModifier": {
-                        "x": 65,
-                        "y": 65
+                        "x": 55,
+                        "y": 55
                     },
                     "TriggerStat": {
                         "m_FileID": 0,

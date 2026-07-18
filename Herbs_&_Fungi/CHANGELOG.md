@@ -4,6 +4,16 @@ All notable changes to this mod. Dates are release dates.
 
 ---
 
+## [1.10.0] — 2026-07-16
+
+### Added
+- **Peanut Oil** — press 3 Raw Peanuts + a Clay Bowl on the Oil Press (new "Press Peanuts" recipe alongside the seed/truffle/herbal pressings). Edible, seasons food, joins the `tag_Oil` lamp-fuel pool.
+- **Peanut Butter** — grind Roasted Peanuts with any grinding tool (mortar & pestle, or batch-process in a grinding station). A dense, very drying fat-and-protein meal that keeps for two months.
+- **Forager's Trail Mix** — new Cooking-tab recipe: 2 Roasted Peanuts + 2 Dried Billberries → 2 portions of travel ration; lighter on thirst than plain roasted peanuts.
+- The peanut cycle no longer dead-ends at "roasted": all three new items consume shipped peanut content.
+
+---
+
 ## [1.9.4] — 2026-07-12
 *(Covers changes since the last published release on 2026-06-23.)*
 
