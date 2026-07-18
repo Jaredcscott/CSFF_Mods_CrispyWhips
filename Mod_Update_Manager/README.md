@@ -1,6 +1,6 @@
 # Mod Update Manager
 
-**Version:** 2.1.10  
+**Version:** 2.1.11  
 **Author:** Jared (crispywhips)  
 **For:** Card Survival: Fantasy Forest (EA 0.65)
 
@@ -118,7 +118,7 @@ For beta-compatible mod releases, include the supported CSFF build in the publis
 **Window does not open with F3**
 - Check `BepInEx/LogOutput.log` for errors.
 - Verify BepInEx is installed correctly.
-- Look for `Mod_Update_Manager v2.1.10 loaded.` in the log.
+- Look for `Mod_Update_Manager v2.1.11 loaded.` in the log.
 
 **Install & Update tab shows "Unknown" status for every mod**
 - The embedded suite ZIPs failed to read (`SuiteVersionReader.RefreshAll` logs an error). Check `LogOutput.log`; this doesn't affect the Nexus-tracking tabs.

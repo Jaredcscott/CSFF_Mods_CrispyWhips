@@ -7,7 +7,7 @@ internal class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.mod_update_manager";
     public const string PluginName = "Mod_Update_Manager";
-    public const string PluginVersion = "2.1.10";
+    public const string PluginVersion = "2.1.11";
 
     internal new static ManualLogSource Logger;
     public static Plugin Instance { get; private set; }
