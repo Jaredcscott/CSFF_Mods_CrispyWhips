@@ -80,8 +80,9 @@ namespace WaterDrivenInfrastructure.Patcher
                 SuppressWaterDrivenReadyPopups(allData, Logger);
                 InjectMillRaceImprovements(allDataObj as IList, allData, Logger);
                 InjectActFastenerAlternates(allData, Logger);
+                InjectVanillaGrindablesIntoMillFilter(allData, Logger);
 
-                Logger?.LogInfo("[WDI] GameLoadPatch: LoadMainGameData postfix completed (kiln recipes, greenstone smelt, iron tag, mill race improvements, ACT fastener alternates).");
+                Logger?.LogInfo("[WDI] GameLoadPatch: LoadMainGameData postfix completed (kiln recipes, greenstone smelt, iron tag, mill race improvements, ACT fastener alternates, mill grindables filter).");
             }
             catch (Exception ex)
             {
@@ -94,8 +95,26 @@ namespace WaterDrivenInfrastructure.Patcher
         // ActionInterceptPatch's Workshop craft output) and, when present, makes the 12
         // fastener slots repointed to WDI-native items also accept ACT's originals — a
         // player with both mods installed can use whichever they already have.
+        //
+        // Iron Rivet is WDI-native (always craftable, no ACT needed) and is wired as an
+        // additional accepted alternate wherever WDI's own Copper Rivet is the primary — nails
+        // and rivets are a generic fastener commodity (root CLAUDE.md §CardInteractions —
+        // AdvancedCopperTools already treats copper/iron nails as interchangeable "in all
+        // constructions"), so all four fastener items (ACT Copper/Iron Nail, WDI Copper/Iron
+        // Rivet) end up accepted in every fastener slot regardless of which mod authored it.
+        // BlueprintAlternates.AddAlternateIngredient accumulates across repeated calls for the
+        // same primary instead of clobbering (framework 2.17.0+), so calling it multiple times
+        // here is safe.
         static void InjectActFastenerAlternates(IEnumerable allData, ManualLogSource logger)
         {
+            const string WdiCopperRivetUid = "water_sawmill_copper_rivet";
+            const string WdiIronRivetUid = "water_sawmill_iron_rivet";
+            const string ActIronNailUid = "act_iron_nail";
+
+            // WDI-internal: Iron Rivet accepted anywhere Copper Rivet is required, independent
+            // of whether ACT is installed.
+            BlueprintAlternates.AddAlternateIngredient(allData, WdiCopperRivetUid, WdiIronRivetUid, "WDI Copper Rivet / WDI Iron Rivet");
+
             ActCompat.Detect(allData);
             if (!ActCompat.IsInstalled)
             {
@@ -103,7 +122,8 @@ namespace WaterDrivenInfrastructure.Patcher
                 return;
             }
 
-            BlueprintAlternates.AddAlternateIngredient(allData, "water_sawmill_copper_rivet", ActCompat.CopperNailsUid, "WDI Copper Rivet / ACT Copper Nail");
+            BlueprintAlternates.AddAlternateIngredient(allData, WdiCopperRivetUid, ActCompat.CopperNailsUid, "WDI Copper Rivet / ACT Copper Nail");
+            BlueprintAlternates.AddAlternateIngredient(allData, WdiCopperRivetUid, ActIronNailUid, "WDI Copper Rivet / ACT Iron Nail");
             BlueprintAlternates.AddAlternateIngredient(allData, "water_sawmill_alloy_solder", "act_tin_solder", "WDI Alloy Solder / ACT Tin Solder");
         }
 
@@ -775,6 +795,99 @@ namespace WaterDrivenInfrastructure.Patcher
         // PE1 drains FuelCapacity at -300/DTP when the item is NOT in a container tagged with this SO.
         // Net heat balance without this fix: Kiln +200 - PE1 300 - PE3 100 = -200/tick → iron never heats.
         // Fix: extract the actual SO from MetalNugget's PE1 RequiredNOTContainerTags and inject it.
+        // The Grinding Mill's inventory filter accepts tag_Millable only — a tag no vanilla
+        // item carries (memory: feedback_grindall_no_millable_gate). Vanilla marks its
+        // grindables (wheat/rye grains, acorns, bone splinters, charcoal, ...) purely via a
+        // CardInteraction triggered by tag_GrindingTool / tag_HammeringToolGeneral — the same
+        // detection HandleGrindAllInner uses. Mirror that detection here and append every
+        // vanilla grindable to the mill filter's AcceptedCards so those items can enter the
+        // mill inventory and be picked up by Grind All (grain→flour, bone splinters→bonemeal).
+        static void InjectVanillaGrindablesIntoMillFilter(IEnumerable allData, ManualLogSource logger)
+        {
+            try
+            {
+                const string MILL_UID = "water_sawmill_grinding_mill_placed";
+                object mill = null;
+                var grindables = new List<object>();
+
+                foreach (var entry in allData)
+                {
+                    if (!(entry is UniqueIDScriptable s)) continue;
+                    if (s.UniqueID == MILL_UID) { mill = s; continue; }
+                    if (HasGrindingToolInteraction(s)) grindables.Add(s);
+                }
+
+                if (mill == null) { logger?.LogError("[MillFilter] grinding mill placed card not found"); return; }
+                if (grindables.Count == 0) { logger?.LogWarning("[MillFilter] no grindable cards detected — filter unchanged"); return; }
+
+                var filterField = mill.GetType().GetField("InventoryFilter", InstanceFlags);
+                var filter = filterField?.GetValue(mill);
+                if (filter == null) { logger?.LogError("[MillFilter] InventoryFilter not found on mill"); return; }
+
+                var acceptedField = filter.GetType().GetField("AcceptedCards", InstanceFlags);
+                if (acceptedField == null) { logger?.LogError("[MillFilter] AcceptedCards field not found on InventoryFilter"); return; }
+
+                var existing = acceptedField.GetValue(filter);
+                int added = 0;
+                if (existing is IList list && !acceptedField.FieldType.IsArray)
+                {
+                    var present = new HashSet<object>();
+                    foreach (var e in list) if (e != null) present.Add(e);
+                    foreach (var g in grindables)
+                        if (!present.Contains(g)) { list.Add(g); added++; }
+                }
+                else
+                {
+                    var merged = new List<object>();
+                    var present = new HashSet<object>();
+                    if (existing is Array old)
+                        foreach (var e in old) { if (e != null) { merged.Add(e); present.Add(e); } }
+                    foreach (var g in grindables)
+                        if (!present.Contains(g)) { merged.Add(g); added++; }
+                    var elemType = acceptedField.FieldType.GetElementType();
+                    if (elemType == null) { logger?.LogError("[MillFilter] AcceptedCards is neither IList nor array"); return; }
+                    var arr = Array.CreateInstance(elemType, merged.Count);
+                    for (int i = 0; i < merged.Count; i++) arr.SetValue(merged[i], i);
+                    acceptedField.SetValue(filter, arr);
+                }
+
+                logger?.LogDebug($"[MillFilter] accepted {added} grindable card(s) into the Grinding Mill inventory filter");
+            }
+            catch (Exception ex)
+            {
+                logger?.LogError($"[MillFilter] error: {ex.InnerException?.ToString() ?? ex.ToString()}");
+            }
+        }
+
+        static bool HasGrindingToolInteraction(object cardData)
+        {
+            try
+            {
+                // CT0 items only — locations/liquids/blueprints never belong in the mill.
+                var ctField = cardData.GetType().GetField("CardType", InstanceFlags);
+                if (ctField == null || Convert.ToInt32(ctField.GetValue(cardData)) != 0) return false;
+
+                var ciField = cardData.GetType().GetField("CardInteractions", InstanceFlags);
+                var interactions = ciField?.GetValue(cardData) as IList;
+                if (interactions == null) return false;
+
+                foreach (var ci in interactions)
+                {
+                    if (ci == null) continue;
+                    var compat = ci.GetType().GetField("CompatibleCards", InstanceFlags)?.GetValue(ci);
+                    var tags = compat?.GetType().GetField("TriggerTags", InstanceFlags)?.GetValue(compat) as IList;
+                    if (tags == null) continue;
+                    foreach (var t in tags)
+                    {
+                        var name = (t as UnityEngine.Object)?.name;
+                        if (name == "tag_GrindingTool" || name == "tag_HammeringToolGeneral") return true;
+                    }
+                }
+                return false;
+            }
+            catch { return false; }
+        }
+
         static void InjectSmeltingContainerIronTag(IEnumerable allData, ManualLogSource logger)
         {
             try

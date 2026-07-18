@@ -1,8 +1,8 @@
 {
 	"Name": "WaterDrivenInfrastructure",
 	"Author": "Jared",
-	"Version": "1.8.2",
-	"Description": "Adds water-powered sawmills, forges, grinding mills, ore sluices, fishponds, and mill race outlets. Build large-scale infrastructure near rivers using water wheels and mill races. Mill Race Outlets provide a steady source of unclean water at any outdoor location — craft a Mill Race, build the outlet anywhere outside, and draw water freely (freezes in winter). Fully standalone (CSFFModFramework only) — AdvancedCopperTools is optional and, when installed, its copper nails, tin solder, and copper sheets are used interchangeably with WDI's own fasteners. Tested with EA 0.65.",
+	"Version": "1.10.0",
+	"Description": "Adds water-powered sawmills, forges, grinding mills, ore sluices, fishponds, and mill race outlets. Build large-scale infrastructure near rivers using water wheels and mill races. Mill Race Outlets provide a steady source of unclean water at any outdoor location — craft a Mill Race, build the outlet anywhere outside, and draw water freely (freezes in winter). Fully standalone (CSFFModFramework only) — ships its own copper AND iron rivets, solder, and cast sheets. AdvancedCopperTools is optional and, when installed, its copper/iron nails and copper/iron sheets are used interchangeably with WDI's own fasteners. Tested with EA 0.65.",
 	"Assets": {
 		"MapCaches": [
 			"Data/MillRaceMapEdges.json"

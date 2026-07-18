@@ -65,7 +65,7 @@ Once your Mill Race is routed, build the power source.
 The Mill Race Outlet taps your Mill Race to provide unlimited unclean water at any outdoor location — no more hauling water from the river.
 
 **Blueprint:** Advanced Tools tab → Mill Race Outlet (unlock 32 ticks)
-**Requires:** 1 Mill Race + 4 Planks
+**Requires:** 1 Mill Race + 4 Planks + 4 Copper Rivets (dismantling the kit returns all of it)
 
 **How to use:**
 1. Build one Mill Race and connect it to your water source.
@@ -74,6 +74,8 @@ The Mill Race Outlet taps your Mill Race to provide unlimited unclean water at a
 4. Water drawn is unclean — purify before drinking (boil it, or use the wearable metal pan on a fire).
 
 **Seasonal behavior:** The outlet **freezes in winter** — no water can be drawn until spring thaw. Plan ahead and stockpile clean water before winter arrives.
+
+**Chip Ice (winter):** While frozen, the outlet offers a **Chip Ice** action (2 daytime) that yields an **Ice Block** — stock an Ice Pit for summer food storage, or melt it for water.
 
 **Pack Up:** 2-daytime action to return to kit form and move elsewhere.
 
@@ -100,7 +102,7 @@ The **Copper Saw Blade** (Metal Crafts tab) is a cast component: Large Molten Cr
 
 1. Place the sawmill near your Mill Race network.
 2. Drag a **log** onto the sawmill to trigger the **Cut** action (2 daytime cost).
-3. The log is consumed and **8 Planks** are produced directly onto the ground/board.
+3. The log is consumed and **8 Planks + 2 Wood Shavings** are produced directly onto the ground/board. The shavings make excellent tinder.
 4. The sawmill has a **6-slot inventory** — pre-load it with logs for batch processing.
 
 ### Pack Up
@@ -136,7 +138,7 @@ Multi-stage build (unlock 64 ticks, requires Water Mill):
 
 1. **Add Fuel:** Drag firewood (+20 fuel), charcoal (+25), or embers (+16) onto the forge.
 2. **Light:** Drag tinder or a torch onto the forge (requires at least some fuel) → +400°.
-3. **Blast:** Use the Blast DismantleAction (4 daytime) → +480° temperature, costs 16 fuel. Use this to reach smelting temperature quickly.
+3. **Blast:** Use the Blast DismantleAction (4 daytime) → +480° temperature, costs 16 fuel. Use this to reach smelting temperature quickly. Each Blast leaves a pile of **Ash** behind (lye and soil uses).
 
 **To reach Greenstone smelting (1100°+):** Light the forge (+400°), then Blast once (+480°) → 880°. Blast again → 1360° (capped at 1300°). Two blasts gets you there.
 
@@ -195,10 +197,10 @@ Blueprint: Furniture tab (unlock 96 ticks, requires Water Mill)
 
 ### Using the Grinding Mill
 
-1. Load up to **18 slots** of `tag_Millable` items into the mill's inventory.
+1. Load up to **18 slots** of grindable items into the mill's inventory.
 2. Use the **Grind All** action (2 daytime) — all contents are ground in one batch.
 
-The mill accepts grain, dried herbs, mushrooms, and any other millable material. No grinding tool needed.
+The mill accepts anything a grinding tool can process: wheat and rye grains (→ flour), edible acorns (→ acorn flour), bone splinters (→ bonemeal — break bones first), charcoal (→ ash), dried herbs, mushrooms, and more. No grinding tool needed.
 
 **Pack Up** (4 daytime) returns the mill to kit form.
 

@@ -99,7 +99,7 @@
       "ActionSoundsWarpData": ["Dirt"],
       "ActionSoundsWarpType": 3,
       "RequiredCardsOnBoard": [],
-      "RequiredTagsOnBoard": ["tag_River"],
+      "RequiredTagsOnBoard": [],
       "HideIfConditionsNotMet": false,
       "AlternateActionIfConditionsNotMet": {"Active": true, "IntValue": 0},
       "ReceivingCardChanges": {

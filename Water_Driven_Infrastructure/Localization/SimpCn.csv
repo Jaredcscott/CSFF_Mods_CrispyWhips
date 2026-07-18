@@ -20,7 +20,7 @@ Water_Sawmill_Placed_CardHelpSection,"<b>Placement:</b> River environments only 
 Water_Sawmill_Placed_PickUp_ActionName,Pack Up,收起
 Water_Sawmill_Placed_PickUp_ActionDescription,Pack up the sawmill back into a transportable kit.,将锯木厂收回为可携带套件。
 Water_Sawmill_Placed_Cut_ActionName,Cut,切割
-Water_Sawmill_Placed_Cut_ActionDescription,Saw one log from the inventory into planks using water power.,利用水力将库存中的一根木料锯成木板。
+Water_Sawmill_Placed_Cut_ActionDescription,Drag a log onto the sawmill to cut it into planks and wood shavings.,将原木拖到锯木厂，切割成木板和刨花。
 Water_Sawmill_MillRace_CardName,Mill Race,引水渠
 Water_Sawmill_MillRace_CardDescription,A channel segment used to carry and direct water flow to river-powered machines.,用于将水流引导至水力机械的渠道段。
 Water_Sawmill_MillRace_CardHelpSection,<b>Use:</b> Build directional between-location races and install local mill race structures.,<b>用途：</b> 建造地点间定向引水渠并安装本地引水渠结构。
@@ -488,9 +488,17 @@ Water_Sawmill_MillRaceOutletPlaced_CardHelpSection,"<b>Fill containers:</b> Drag
 <b>收起：</b>将水道出口收回为可搬运物品以便重新安置。"
 Water_Sawmill_MillRaceOutletFrozen_CardHelpSection,"<b>Frozen:</b> No water can be drawn during winter.
 
+<b>Chip Ice:</b> Chip blocks of ice from the frozen race — store them in an Ice Pit or let them melt for water.
+
+<b>Copper Brazier:</b> A lit Copper Brazier placed in this area provides enough heat to keep the machinery running, even while the outlet is frozen.
+
 <b>Spring thaw:</b> The outlet automatically resumes when winter ends.
 
 <b>Pack Up:</b> Recover the outlet as a portable item for relocation even when frozen.","<b>已结冰：</b>冬季无法取水。
+
+<b>凿冰：</b>可从冰冻的水渠上凿下冰块——存入冰窖或融化取水。
+
+<b>铜火盆：</b>在此区域放置一个点燃的铜火盆，即使出水口结冰也能维持机械运转。
 
 <b>春季解冻：</b>冬季结束时出口自动恢复。
 
@@ -553,19 +561,51 @@ Water_Sawmill_AlloySolder_CardHelpSection,"<b>Crafted:</b> From a copper-grade m
 <b>Uses:</b> Fastener for water-driven construction blueprints.","<b>制作：</b> 用锤子从铜级金属块打造而成。
 
 <b>用途：</b> 水力建筑蓝图的紧固件。"
-Water_Sawmill_CastMetalSheet_CardName,Cast Metal Sheet,铸造金属板
+Water_Sawmill_CastMetalSheet_CardName,Cast Copper Sheet,铸造铜板
 Water_Sawmill_CastMetalSheet_CardDescription,"A flat metal sheet, hammered thin from a heated copper-grade metal bar.",由加热的铜级金属条锻打成薄片的平整金属板。
 Water_Sawmill_CastMetalSheet_CardHelpSection,"<b>Crafted:</b> From a heated copper-grade metal bar with a hammer. 
 
-<b>Uses:</b> Construction and crafting material.","<b>制作：</b> 用锤子从加热的铜级金属条打造而成。
+<b>Uses:</b> Construction and crafting material — accepted anywhere a Cast Iron Sheet is required.","<b>制作：</b> 用锤子从加热的铜级金属条打造而成。
 
-<b>用途：</b> 建筑与制作材料。"
+<b>用途：</b> 建筑与制作材料——可在任何需要铸造铁板的地方使用。"
 Water_Sawmill_Bp_CopperRivet_CardName,Forge Copper Rivet,锻造铜铆钉
 Water_Sawmill_Bp_CopperRivet_CardDescription,Hammer a copper-grade metal nugget into a copper rivet.,将铜级金属块锻打成铜铆钉。
 Water_Sawmill_Bp_CopperRivet_UnlockConditionsDesc,Copper-Grade Metal Nugget Needed,需要铜级金属块
 Water_Sawmill_Bp_AlloySolder_CardName,Forge Alloy Solder,锻造合金焊条
 Water_Sawmill_Bp_AlloySolder_CardDescription,Hammer a copper-grade metal nugget into solder sticks.,将铜级金属块锻打成焊条。
 Water_Sawmill_Bp_AlloySolder_UnlockConditionsDesc,Copper-Grade Metal Nugget Needed,需要铜级金属块
-Water_Sawmill_Bp_CastMetalSheet_CardName,Forge Cast Metal Sheet,锻造金属板
+Water_Sawmill_Bp_CastMetalSheet_CardName,Forge Cast Copper Sheet,锻造铜板
 Water_Sawmill_Bp_CastMetalSheet_CardDescription,Hammer a heated copper-grade metal bar flat into a metal sheet.,将加热的铜级金属条锻打成薄片金属板。
 Water_Sawmill_Bp_CastMetalSheet_UnlockConditionsDesc,Heated Copper-Grade Metal Bar Needed,需要加热的铜级金属条
+Water_Sawmill_MillRaceOutletFrozen_ChipIce_ActionName,Chip Ice,凿冰
+Water_Sawmill_MillRaceOutletFrozen_ChipIce_ActionDescription,Chip a block of ice from the frozen mill race.,从冰冻的引水渠上凿下一块冰。
+Water_Sawmill_Fishpond_DrawWater_ActionName,Draw Unclean Water,取不洁水
+Water_Sawmill_Fishpond_DrawWater_ActionDescription,Draw unclean water from the fishpond into the container.,从鱼塘中取不洁水装入容器。
+Water_Sawmill_Perk_OreSluiceStart_PerkName,Prospector's Start,淘金者起步
+Water_Sawmill_Perk_OreSluiceStart_PerkDescription,Start with an ore sluice kit ready to place beside running water.,携带一个矿石淘洗槽套件开始游戏，可放置在流水旁。
+Water_Sawmill_Perk_FishpondStart_PerkName,Angler's Start,垂钓者起步
+Water_Sawmill_Perk_FishpondStart_PerkDescription,Start with a fishpond kit ready to dig near water.,携带一个鱼塘套件开始游戏，可在水边挖掘。
+Water_Sawmill_Perk_OutletStart_PerkName,Homesteader's Waterworks,家园水利
+Water_Sawmill_Perk_OutletStart_PerkDescription,Start with a mill race outlet kit and a mill race section to bring water anywhere.,携带一个引水渠出水口套件和一段引水渠开始游戏，把水引到任何地方。
+Water_Sawmill_Perk_Millwright_PerkName,Millwright,水车匠
+Water_Sawmill_Perk_Millwright_PerkDescription,Years spent around mills and waterwheels. Begin with a substantial head start in Woodworking.,常年与磨坊水车为伴。开局获得可观的木工技能起点加成。
+Water_Sawmill_IronRivet_CardName,Cast Iron Rivet,铸造铁铆钉
+Water_Sawmill_IronRivet_CardDescription,"A small iron rivet hammered from an iron-grade metal nugget. Stronger than a copper rivet, but interchangeable with it as a fastener in water-driven construction.",用铁级金属块锻打而成的小铁铆钉。比铜铆钉更坚固，但在水力建筑中可作为紧固件与其互换使用。
+Water_Sawmill_IronRivet_CardHelpSection,"<b>Crafted:</b> From an iron-grade metal nugget with a hammer. 
+
+<b>Uses:</b> Fastener for water-driven construction blueprints — accepted anywhere a Copper Rivet is required.","<b>制作：</b> 用锤子从铁级金属块打造而成。
+
+<b>用途：</b> 水力建筑蓝图的紧固件——可在任何需要铜铆钉的地方使用。"
+Water_Sawmill_Bp_IronRivet_CardName,Forge Iron Rivet,锻造铁铆钉
+Water_Sawmill_Bp_IronRivet_CardDescription,Hammer an iron-grade metal nugget into an iron rivet.,将铁级金属块锻打成铁铆钉。
+Water_Sawmill_Bp_IronRivet_UnlockConditionsDesc,Iron-Grade Metal Nugget Needed,需要铁级金属块
+Water_Sawmill_CastIronSheet_CardName,Cast Iron Sheet,铸造铁板
+Water_Sawmill_CastIronSheet_CardDescription,"A flat iron sheet, hammered thin from a heated iron-grade metal bar. Tougher than a cast copper sheet, but interchangeable with it as construction material.",由加热的铁级金属条锻打成薄片的平整铁板。比铸造铜板更坚韧，但可作为建筑材料与其互换使用。
+Water_Sawmill_CastIronSheet_CardHelpSection,"<b>Crafted:</b> From a heated iron-grade metal bar with a hammer. 
+
+<b>Uses:</b> Construction and crafting material — accepted anywhere a Cast Copper Sheet is required.","<b>制作：</b> 用锤子从加热的铁级金属条打造而成。
+
+<b>用途：</b> 建筑与制作材料——可在任何需要铸造铜板的地方使用。"
+Water_Sawmill_Bp_CastIronSheet_CardName,Forge Cast Iron Sheet,锻造铁板
+Water_Sawmill_Bp_CastIronSheet_CardDescription,Hammer a heated iron-grade metal bar flat into a metal sheet.,将加热的铁级金属条锻打成薄片金属板。
+Water_Sawmill_Bp_CastIronSheet_UnlockConditionsDesc,Heated Iron-Grade Metal Bar Needed,需要加热的铁级金属条

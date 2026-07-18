@@ -342,6 +342,57 @@
     {
       "ActionName": {
         "ParentObjectID": "water_sawmill_fishpond_stocked",
+        "LocalizationKey": "Water_Sawmill_Fishpond_DrawWater_ActionName",
+        "DefaultText": "Draw Unclean Water"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_fishpond_stocked",
+        "LocalizationKey": "Water_Sawmill_Fishpond_DrawWater_ActionDescription",
+        "DefaultText": "Draw unclean water from the fishpond into the container."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Water"],
+      "ActionSoundsWarpType": 3,
+      "WorksInverted": false,
+      "StackCompatible": false,
+      "NotBaseAction": true,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerCardsWarpData": [],
+        "TriggerCardsWarpType": 3,
+        "TriggerTags": [],
+        "TriggerTagsWarpData": ["tag_WaterContainer"],
+        "TriggerTagsWarpType": 3
+      },
+      "GivenCardChanges": {
+        "ModType": 0
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "CreatedLiquidInGivenCard": {
+        "LiquidCard": {"m_FileID": 0, "m_PathID": 0},
+        "LiquidCardWarpData": "397594d260e114749ab6e1a76a732fbb",
+        "LiquidCardWarpType": 3,
+        "Quantity": {"x": 100000.0, "y": 100000.0},
+        "Durabilities": {
+          "Spoilage": 0, "Usage": 0, "Fuel": 0, "Progress": 0,
+          "Special1": 0, "Special2": 0, "Special3": 0, "Special4": 0,
+          "SpoilageValue": 0.0, "UsageValue": 0.0, "FuelValue": 0.0, "ProgressValue": 0.0,
+          "Special1Value": 0.0, "Special2Value": 0.0, "Special3Value": 0.0, "Special4Value": 0.0,
+          "SpoilageFrom": 0, "UsageFrom": 0, "FuelFrom": 0, "ProgressFrom": 0,
+          "Special1From": 0, "Special2From": 0, "Special3From": 0, "Special4From": 0
+        }
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_fishpond_stocked",
         "LocalizationKey": "Water_Sawmill_FishpondStocked_StockPike_ActionName",
         "DefaultText": "Stock Pike"
       },

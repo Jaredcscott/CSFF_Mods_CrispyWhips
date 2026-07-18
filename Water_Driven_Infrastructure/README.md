@@ -1,6 +1,6 @@
 # Water Driven Infrastructure
 
-**Version:** 1.8.2
+**Version:** 1.10.0
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.65)
 **Requires:** CSFFModFramework (AdvancedCopperTools optional — enhances, doesn't gate)
@@ -11,9 +11,9 @@
 
 Water Driven Infrastructure adds large-scale, water-powered construction to Card Survival: Fantasy Forest. Build water wheels to harness river power, then connect them to sawmills, forges, grinding mills, ore sluices, and fishponds. Gears and saw blades are cast from copper using WDI's own metalworking pipeline. The Mill Race Outlet lets you tap that water supply to draw unclean water at any outdoor location — no more long treks to the river.
 
-Fully standalone: WDI ships its own copper fasteners (Cast Copper Rivet, Alloy Solder, Cast Metal Sheet) so every blueprint builds with just the framework installed. If **AdvancedCopperTools** is also installed, its Copper Nails, Tin Solder, and Copper Sheet are accepted interchangeably in every fastener slot, and the Workshop's Hammer Copper Sheet / Forge Copper Nails actions produce ACT's real items instead of WDI's.
+Fully standalone: WDI ships its own copper AND iron fasteners (Cast Copper Rivet, Cast Iron Rivet, Alloy Solder, Cast Copper Sheet, Cast Iron Sheet) so every blueprint builds with just the framework installed. If **AdvancedCopperTools** is also installed, its Copper/Iron Nails, Tin Solder, and Copper/Iron Sheet are accepted interchangeably in every fastener slot (same tier for sheets; any tier for nails/rivets, since they're a generic fastener), and the Workshop's Hammer Copper Sheet / Forge Copper Nails actions produce ACT's real items instead of WDI's.
 
-All 18 shipped blueprints are injected into the crafting journal automatically via `BlueprintTabs.json`.
+All 23 shipped blueprints are injected into the crafting journal automatically via `BlueprintTabs.json`.
 
 ---
 
@@ -40,7 +40,7 @@ Water Source (river / lake)
 | Tab | Blueprints |
 |-----|-----------|
 | **Advanced Tools** | Mill Race, Mill Race Outlet, Water Wheel, Water Mill, Ore Sluice (Empty) |
-| **Metal Crafts** | Cast Large Copper Gear, Cast Small Copper Gear, Cast Copper Saw Blade, Forge Iron Parts, Forge Iron Bearing, Forge Iron Axle, Forge Iron Wrench, Forge Copper Rivet, Forge Alloy Solder, Forge Cast Metal Sheet |
+| **Metal Crafts** | Cast Large Copper Gear, Cast Small Copper Gear, Cast Copper Saw Blade, Forge Iron Parts, Forge Iron Bearing, Forge Iron Axle, Forge Iron Wrench, Forge Copper Rivet, Forge Iron Rivet, Forge Alloy Solder, Forge Cast Copper Sheet, Forge Cast Iron Sheet |
 | **Furniture** | Ore Sluice, Water-Driven Grinding Mill, Water-Driven Sawmill, Water-Driven Forge, Water-Driven Workshop Kit |
 | **Farming Agriculture** | Fishpond |
 
@@ -197,14 +197,16 @@ Copper gears, the copper saw blade, iron parts, iron bearings, and the iron wren
 | **Forge Iron Axle** | Wrought Iron Bar (iron-typed) | 8 ticks | 1 wrought iron bar → 1 Iron Axle (no tool needed) |
 | **Forge Iron Wrench** | Wrought Iron Bar (iron-typed) | 8 ticks | 1 wrought iron bar → 1 Iron Wrench (no tool needed) |
 | **Forge Copper Rivet** | Copper-grade Metal Nugget | 8 ticks | 1 nugget + hammer (kept) → 1 Copper Rivet |
+| **Forge Iron Rivet** | Iron-grade Metal Nugget | 8 ticks | 1 nugget + hammer (kept) → 1 Iron Rivet |
 | **Forge Alloy Solder** | Copper-grade Metal Nugget | 8 ticks | 1 nugget + hammer (kept) → 2 Alloy Solder |
-| **Forge Cast Metal Sheet** | Heated Copper-grade Metal Bar | 8 ticks | 1 heated bar + hammer (kept) → 1 Cast Metal Sheet |
+| **Forge Cast Copper Sheet** | Heated Copper-grade Metal Bar | 8 ticks | 1 heated bar + hammer (kept) → 1 Cast Copper Sheet |
+| **Forge Cast Iron Sheet** | Heated Iron-grade Metal Bar | 8 ticks | 1 heated bar + hammer (kept) → 1 Cast Iron Sheet |
 
 **Copper gears and the saw blade** smelt back to copper nuggets in the furnace or WDI Forge (1100°+).
 
 **Iron components** (Parts, Bearing, Axle, Wrench) smelt back into iron-typed metal nuggets (6 per item) in the WDI Forge or Workshop once heated to 1100°+ — the same threshold as copper, not 1300°. The forge is tagged `tag_SmeltingContainerIron` for this purpose; a standard vanilla furnace will not melt iron components.
 
-**\* Fasteners (Copper Rivets / Alloy Solder) — interchangeable with AdvancedCopperTools:** every blueprint slot that calls for a Copper Rivet or Alloy Solder also accepts ACT's Copper Nail / Tin Solder if AdvancedCopperTools is installed — craft whichever you already have. WDI's own Copper Rivet and Alloy Solder blueprints are always researchable, independent of whether ACT is present, and forge from a plain copper-grade Metal Nugget (no tin ore or ACT-exclusive materials required).
+**\* Fasteners (Copper/Iron Rivets, Alloy Solder) — interchangeable with AdvancedCopperTools:** every blueprint slot that calls for a Rivet or Alloy Solder also accepts ACT's Copper/Iron Nail or Tin Solder if AdvancedCopperTools is installed — craft whichever you already have, in whichever tier you have. Rivets are a generic fastener commodity, so copper and iron rivets/nails are all interchangeable with each other regardless of tier or mod. Cast Copper/Iron Sheet stay tier-locked with ACT's Copper/Iron Sheet (same-tier only — an iron-tier build still needs iron-tier sheet). WDI's own fastener blueprints are always researchable, independent of whether ACT is present, and forge from a plain copper- or iron-grade Metal Nugget/Bar (no tin ore or ACT-exclusive materials required).
 
 ---
 
@@ -217,6 +219,10 @@ All perks appear in the **Situational** tab.
 | **Forge Start** | 1 Star | Water-Driven Forge Kit + 1 Mill Race component |
 | **Sawmill Start** | 2 Moons | Water-Driven Sawmill Frame |
 | **Grinding Mill Start** | 2 Moons | Water-Driven Grinding Mill Kit + 1 Mill Race component |
+| **Prospector's Start** | 2 Moons | Ore Sluice Kit |
+| **Angler's Start** | 2 Moons | Fishpond Kit |
+| **Homesteader's Waterworks** | 2 Moons | Mill Race Outlet Kit + 1 Mill Race component |
+| **Millwright** | 30 Suns | +75 Woodworking head start (no items) |
 
 ---
 
@@ -235,7 +241,7 @@ All perks appear in the **Situational** tab.
 2. Deploy CSFFModFramework to `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. (Optional) Deploy AdvancedCopperTools to `BepInEx/plugins/Advanced_Copper_Tools/`.
 4. Extract this mod to `BepInEx/plugins/Water_Driven_Infrastructure/`.
-5. Launch the game — check `BepInEx/LogOutput.log` for `WaterDrivenInfrastructure v1.8.2 loaded.`
+5. Launch the game — check `BepInEx/LogOutput.log` for `WaterDrivenInfrastructure v1.10.0 loaded.`
 
 ### Deployed layout
 
@@ -284,7 +290,7 @@ All patches filter on this mod's UniqueIDs and never modify vanilla cards, drops
 
 ## Troubleshooting
 
-**Blueprints not appearing?** Verify CSFFModFramework is installed and check `LogOutput.log` for `WaterDrivenInfrastructure v1.8.2 loaded.` AdvancedCopperTools is optional.
+**Blueprints not appearing?** Verify CSFFModFramework is installed and check `LogOutput.log` for `WaterDrivenInfrastructure v1.10.0 loaded.` AdvancedCopperTools is optional.
 
 **Forge won't smelt?** Temperature must reach 1100°. Feed charcoal and use the Blast action before attempting to smelt.
 
@@ -300,7 +306,17 @@ All patches filter on this mod's UniqueIDs and never modify vanilla cards, drops
 
 ## Version History
 
-### v1.8.0 (current)
+### v1.10.0 (current)
+- Added Cast Iron Rivet and Cast Iron Sheet (Metal Crafts tab) — WDI-native iron-tier fasteners forged from an iron-grade Metal Nugget/heated Metal Bar, always researchable, no ACT required. Renamed Cast Metal Sheet → Cast Copper Sheet (same UID; cosmetic rename now that an iron sibling exists).
+- Rivets and nails are now fully cross-tier AND cross-mod interchangeable: every fastener slot (in either mod) accepts ACT Copper Nail, ACT Iron Nail, WDI Copper Rivet, and WDI Iron Rivet.
+- Cast Copper/Iron Sheet are now cross-mod interchangeable with ACT's Copper/Iron Sheet, same tier only (a new pairing — the original v1.8.0 decoupling never wired sheet alternates).
+- Framework's `BlueprintAlternates.AddAlternateIngredient` (2.17.0+) now accumulates multiple alternates per primary instead of overwriting the prior one — required for a single fastener slot to accept three or four interchangeable items.
+
+### v1.8.3
+- Removed a stale `CookingRecipes` entry ("Melt Iron Parts") on the Forge and Workshop that gated Iron Parts/Bearing/Axle/Wrench smelting at 1300° with the message "Temperature must reach 1300 to melt iron!" — left over from the pre-v1.7.1 design. Iron components have smelted at 1100° (same as copper) since v1.7.1 via their own passive-effect stat gate and `tag_SmeltsAt1100`; the stale recipe contradicted that (wrong on-screen message) and could double-count smelting charges above 1300°. Also removed the now-unused `tag_SmeltsAt1300` reference from both structures' inventory filters (no item in the mod ever carried it).
+- Fixed the README understating the shipped blueprint count (said 18, actually 21 since v1.8.0's fastener additions).
+
+### v1.8.0
 - **Removed the hard dependency on AdvancedCopperTools.** WDI now loads and is fully playable with only CSFFModFramework installed; ACT is a soft/optional enhancement.
 - Added 3 WDI-native items + blueprints: Cast Copper Rivet, Alloy Solder, Cast Metal Sheet (Metal Crafts tab) — forged from a plain copper-grade Metal Nugget, always researchable.
 - The 12 blueprint slots that previously required ACT's Copper Nail / Tin Solder now require WDI's own Copper Rivet / Alloy Solder instead, and additionally accept ACT's originals interchangeably when ACT is installed.

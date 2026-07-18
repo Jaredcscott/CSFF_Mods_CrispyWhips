@@ -2,6 +2,20 @@
 
 All notable changes to this mod are documented here.
 
+## [1.9.0] — 2026-07-16
+
+### Added
+- **Grinding Mill now accepts every vanilla grindable** (wheat/rye grains → flour, edible acorns → acorn flour, bone splinters → bonemeal, charcoal → ash, and more). The mill's inventory filter previously accepted only `tag_Millable` items — a tag no vanilla item carries — so vanilla grindables could never enter the mill. The filter is now populated at load with every item carrying a grinding-tool interaction, the same detection Grind All already uses.
+- **Chip Ice** action on the frozen Mill Race Outlet — 2 daytime, yields a vanilla Ice Block. The winter freeze is now a resource: stock an Ice Pit or melt for water.
+- **Wood Shavings byproduct**: the Sawmill Cut action now yields 2 vanilla Wood Shavings alongside the 8 Planks — tinder from every log.
+- **Ash byproduct**: every Forge/Workshop Blast leaves a pile of vanilla Ash (lye/soil uses).
+- **Fishpond "Draw Unclean Water"**: drag a water container onto a filled or stocked fishpond to draw unclean water — the PLAYER_GUIDE already promised this; now it works. (Not available while frozen.)
+- **Four new character-creation perks**: Prospector's Start (Ore Sluice Kit, 2 Moons), Angler's Start (Fishpond Kit, 2 Moons), Homesteader's Waterworks (Mill Race Outlet Kit + Mill Race, 2 Moons), and Millwright (+75 Woodworking head start, 30 Suns).
+
+### Fixed
+- **Fishpond Kit could not be placed anywhere** (regression from 1.7.0): the Place action's water requirement was authored in a malformed form that could never be satisfied, so the button always fell back to the "Requires Water" notice — even at a river. The JSON gate is removed; placement is now governed by the same mill-race water-access check as every other station kit (at a water source, or at a location with a connected Mill Race Outlet).
+- **Mill Race Outlet Kit dismantle now returns the full build cost**: added the 4 Copper Rivets that were previously lost (the action already claimed to "recover all materials").
+
 ## [1.8.1] — 2026-07-12
 *(Covers changes since the last published release on 2026-06-23.)*
 

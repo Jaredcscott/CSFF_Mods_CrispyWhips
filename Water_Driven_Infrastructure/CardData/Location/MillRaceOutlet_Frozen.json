@@ -13,7 +13,7 @@
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_mill_race_outlet_frozen",
     "LocalizationKey": "Water_Sawmill_MillRaceOutletFrozen_CardHelpSection",
-    "DefaultText": "<b>Frozen:</b> No water can be drawn during winter.\n\n<b>Copper Brazier:</b> A lit Copper Brazier placed in this area provides enough heat to keep the machinery running, even while the outlet is frozen.\n\n<b>Spring thaw:</b> The outlet automatically resumes when winter ends.\n\n<b>Pack Up:</b> Recover the outlet as a portable item for relocation even when frozen."
+    "DefaultText": "<b>Frozen:</b> No water can be drawn during winter.\n\n<b>Chip Ice:</b> Chip blocks of ice from the frozen race — store them in an Ice Pit or let them melt for water.\n\n<b>Copper Brazier:</b> A lit Copper Brazier placed in this area provides enough heat to keep the machinery running, even while the outlet is frozen.\n\n<b>Spring thaw:</b> The outlet automatically resumes when winter ends.\n\n<b>Pack Up:</b> Recover the outlet as a portable item for relocation even when frozen."
   },
   "CardType": 2,
   "ObjectWeight": 500.0,
@@ -76,6 +76,43 @@
   "EffectsToInventoryContent": [],
   "CardInteractions": [],
   "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "water_sawmill_mill_race_outlet_frozen",
+        "LocalizationKey": "Water_Sawmill_MillRaceOutletFrozen_ChipIce_ActionName",
+        "DefaultText": "Chip Ice"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "water_sawmill_mill_race_outlet_frozen",
+        "LocalizationKey": "Water_Sawmill_MillRaceOutletFrozen_ChipIce_ActionDescription",
+        "DefaultText": "Chip a block of ice from the frozen mill race."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Ice"],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "bb826818fc8e35d43b16d906fa65c8cb",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 1.0, "y": 1.0}
+            }
+          ]
+        }
+      ]
+    },
     {
       "ActionName": {
         "ParentObjectID": "water_sawmill_mill_race_outlet_frozen",

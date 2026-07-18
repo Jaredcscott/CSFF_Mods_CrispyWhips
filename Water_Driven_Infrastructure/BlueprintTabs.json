@@ -15,8 +15,10 @@
         "water_sawmill_bp_iron_axle",
         "water_sawmill_bp_iron_wrench",
         "water_sawmill_bp_copper_rivet",
+        "water_sawmill_bp_iron_rivet",
         "water_sawmill_bp_alloy_solder",
-        "water_sawmill_bp_cast_metal_sheet"
+        "water_sawmill_bp_cast_metal_sheet",
+        "water_sawmill_bp_cast_iron_sheet"
     ],
     "Tab_2_Construction_Subtab_4_Furniture_TabName": [
         "water_sawmill_bp_ore_sluice",

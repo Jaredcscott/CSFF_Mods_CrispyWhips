@@ -1,30 +1,30 @@
 {
-  "UniqueID": "water_sawmill_cast_metal_sheet",
+  "UniqueID": "water_sawmill_iron_rivet",
   "CardName": {
-    "ParentObjectID": "water_sawmill_cast_metal_sheet",
-    "LocalizationKey": "Water_Sawmill_CastMetalSheet_CardName",
-    "DefaultText": "Cast Copper Sheet"
+    "ParentObjectID": "water_sawmill_iron_rivet",
+    "LocalizationKey": "Water_Sawmill_IronRivet_CardName",
+    "DefaultText": "Cast Iron Rivet"
   },
   "CardDescription": {
-    "ParentObjectID": "water_sawmill_cast_metal_sheet",
-    "LocalizationKey": "Water_Sawmill_CastMetalSheet_CardDescription",
-    "DefaultText": "A flat metal sheet, hammered thin from a heated copper-grade metal bar."
+    "ParentObjectID": "water_sawmill_iron_rivet",
+    "LocalizationKey": "Water_Sawmill_IronRivet_CardDescription",
+    "DefaultText": "A small iron rivet hammered from an iron-grade metal nugget. Stronger than a copper rivet, but interchangeable with it as a fastener in water-driven construction."
   },
   "CardHelpSection": {
-    "ParentObjectID": "water_sawmill_cast_metal_sheet",
-    "LocalizationKey": "Water_Sawmill_CastMetalSheet_CardHelpSection",
-    "DefaultText": "<b>Crafted:</b> From a heated copper-grade metal bar with a hammer. \n\n<b>Uses:</b> Construction and crafting material — accepted anywhere a Cast Iron Sheet is required."
+    "ParentObjectID": "water_sawmill_iron_rivet",
+    "LocalizationKey": "Water_Sawmill_IronRivet_CardHelpSection",
+    "DefaultText": "<b>Crafted:</b> From an iron-grade metal nugget with a hammer. \n\n<b>Uses:</b> Fastener for water-driven construction blueprints — accepted anywhere a Copper Rivet is required."
   },
   "CanBeRenamed": false,
   "CardImage": {
     "m_FileID": 0,
     "m_PathID": 0
   },
-  "CardImageWarpData": "CastSheet_Copper",
+  "CardImageWarpData": "IronRivet",
   "CardImageWarpType": 3,
   "CardType": 0,
-  "ObjectWeight": 150.0,
-  "TradingValue": 350.0,
+  "ObjectWeight": 30.0,
+  "TradingValue": 130.0,
   "CardTags": [],
   "CardTagsWarpData": [
     "tag_Metal",
@@ -37,7 +37,7 @@
   "ToggleablePiling": false,
   "WhenCreatedSounds": [],
   "WhenCreatedSoundsWarpData": [
-    "Metal"
+    "SmallObject_A"
   ],
   "WhenCreatedSoundsWarpType": 3,
   "SpoilageTime": {

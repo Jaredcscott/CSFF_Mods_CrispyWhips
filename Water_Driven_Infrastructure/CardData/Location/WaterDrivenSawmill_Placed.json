@@ -91,7 +91,7 @@
       "ActionDescription": {
         "ParentObjectID": "water_sawmill_placed",
         "LocalizationKey": "Water_Sawmill_Placed_Cut_ActionDescription",
-        "DefaultText": "Drag a log onto the sawmill to cut it into planks."
+        "DefaultText": "Drag a log onto the sawmill to cut it into planks and wood shavings."
       },
       "DaytimeCost": 2,
       "UseMiniTicks": 0,
@@ -130,6 +130,12 @@
               "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
               "DroppedCardWarpType": 3,
               "Quantity": {"x": 8.0, "y": 8.0}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "da61c004e1fc3a44b909a56ddded9189",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 2.0, "y": 2.0}
             }
           ]
         }

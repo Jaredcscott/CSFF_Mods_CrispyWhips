@@ -14,7 +14,7 @@
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_mill_race_outlet_kit",
     "LocalizationKey": "Water_Sawmill_MillRaceOutletKit_CardHelpSection",
-    "DefaultText": "<b>Place:</b> Install the outlet outdoors to provide a steady flow of unclean river water.\n\n<b>Dismantle:</b> Break it down to recover some planks."
+    "DefaultText": "<b>Place:</b> Install the outlet outdoors to provide a steady flow of unclean river water.\n\n<b>Dismantle:</b> Break it down to recover all materials."
   },
   "CardImage": {"m_FileID": 0, "m_PathID": 0},
   "CardImageWarpData": "MillRace",
@@ -155,6 +155,12 @@
             {
               "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
               "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+              "DroppedCardWarpType": 3,
+              "Quantity": {"x": 4, "y": 4}
+            },
+            {
+              "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+              "DroppedCardWarpData": "water_sawmill_copper_rivet",
               "DroppedCardWarpType": 3,
               "Quantity": {"x": 4, "y": 4}
             }

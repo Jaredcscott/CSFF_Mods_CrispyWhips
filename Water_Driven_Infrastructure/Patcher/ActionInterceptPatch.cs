@@ -41,6 +41,7 @@ namespace WaterDrivenInfrastructure.Patcher
         private const int    FishCatchPostSpawnTicks = 1;
         private const float  WorkshopMetalQualityBoost = 5f;
         private const string CopperNuggetGUID = "4b0f4937a5ecb90499428c8c10288afc";
+        private const string VanillaAshGUID   = "65f9b26c048cd474d9fb14d1c9e46754"; // vanilla Ash — Blast byproduct
         // Prefers ACT's real items when AdvancedCopperTools is installed (feeds its economy);
         // falls back to WDI-native items otherwise. ActCompat.IsInstalled is detected once at
         // load (GameLoadPatch), not re-scanned per click. See root CLAUDE.md §WDI/ACT Decoupling.
@@ -442,6 +443,10 @@ namespace WaterDrivenInfrastructure.Patcher
 
         private static void HandleBlastAllInner(object workshop)
         {
+            // Every Blast burns a full fuel charge — leave a pile of vanilla Ash behind
+            // (lye/soil uses), whether or not anything was loaded to smelt.
+            SpawnService.Spawn(VanillaAshGUID);
+
             var inventory = CardUtil.GetInventoryList(workshop);
             if (inventory == null || inventory.Count == 0)
             {
