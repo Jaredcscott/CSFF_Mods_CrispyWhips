@@ -32,3 +32,6 @@ _fix_libignore.py
 Mod_Update_Manager/lib/
 Repeat_Action/lib/
 Skill_Speed_Boost/lib/
+
+# Archived legacy standalone nested repos (pre-monorepo era) - local reference only, never pushed
+_archive_*/
