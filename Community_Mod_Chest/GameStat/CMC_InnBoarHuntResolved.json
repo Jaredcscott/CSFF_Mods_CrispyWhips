@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatInnBoarHuntResolved",
+    "GameName": {
+        "LocalizationKey": "CMC_InnBoarHuntResolved_StatName",
+        "DefaultText": "Ash's Boar Hunt Resolved"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_InnBoarHuntResolved_StatDescription",
+        "DefaultText": "Hidden one-shot flag: 1 once the player has defeated a wild boar while Ash was away tracking one, resolving the boar-hunt epilogue. Independent of the Inn Keeper's main quest chain — reveals the Wooden Shield directly."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 1.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

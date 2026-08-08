@@ -1,0 +1,38 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_WeaverTalk_QuestOffer3_Line",
+        "DefaultText": "Bring me a cloth scarf, one you've sewn, not one you've bought off some peddler. I want to see if you've been paying attention to how I put a seam together."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_QuestOffer3_Answer_Accept",
+                "DefaultText": "I'll bring you a scarf."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatWeaverQuestArmed",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": -1.0, "y": -1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_QuestOffer3_Answer_Decline",
+                "DefaultText": "Maybe another time."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

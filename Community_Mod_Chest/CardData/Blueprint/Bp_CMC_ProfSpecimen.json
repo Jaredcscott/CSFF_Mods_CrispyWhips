@@ -1,0 +1,99 @@
+{
+    "UniqueID": "bpcmcprofspecimen",
+    "CardName": {
+        "LocalizationKey": "CMC_ProfSpecimen_CardName",
+        "DefaultText": "Specimen Request: 3 Nettle Leaves"
+    },
+    "CardDescription": {
+        "LocalizationKey": "CMC_ProfSpecimen_CardDescription",
+        "DefaultText": "The Professor could use three nettle leaves for his herbarium presses. A scholar's errand, paid in metal."
+    },
+    "CardImageWarpData": "Nettle_Leaves",
+    "CardImageWarpType": 3,
+    "CardType": 7,
+    "StartUnlocked": false,
+    "BlueprintUnlockTicksCost": 8.0,
+    "BuildingDaytimeCost": 0,
+    "DeconstructDaytimeCost": 1,
+    "BlueprintStages": [
+        {
+            "RequiredElements": [
+                {
+                    "RequiredCardWarpData": "e1525031058fbf34e81a4b825bbe68a0",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 3,
+                    "DontSpend": false
+                }
+            ]
+        }
+    ],
+    "BlueprintResult": [
+        {
+            "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+            "DroppedCardWarpType": 3,
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            }
+        }
+    ],
+    "BlueprintNPCStatConditions": [
+        {
+            "UseAssociatedAgent": false,
+            "TargetAgentWarpData": "cmcProfessorAgent",
+            "TargetAgentWarpType": 3,
+            "TargetStatWarpData": "cmcStatProfSpecimenReady",
+            "TargetStatWarpType": 3,
+            "ConditionRange": {
+                "x": 1.0,
+                "y": 1.0
+            }
+        },
+        {
+            "UseAssociatedAgent": false,
+            "TargetAgentWarpData": "cmcProfessorAgent",
+            "TargetAgentWarpType": 3,
+            "TargetStatWarpData": "cmcStatProfessorPhase",
+            "TargetStatWarpType": 3,
+            "ConditionRange": {
+                "x": 1.0,
+                "y": 1.0
+            }
+        }
+    ],
+    "BlueprintNPCStatModifications": [
+        {
+            "TargetStatWarpData": "cmcStatProfSpecimenReady",
+            "TargetStatWarpType": 3,
+            "UseAssociatedAgent": false,
+            "ValueChange": {
+                "x": -1.0,
+                "y": -1.0
+            },
+            "TargetAgentWarpData": "cmcProfessorAgent",
+            "TargetAgentWarpType": 3
+        },
+        {
+            "TargetStatWarpData": "cmcStatProfessorTrust",
+            "TargetStatWarpType": 3,
+            "UseAssociatedAgent": false,
+            "ValueChange": {
+                "x": 8.0,
+                "y": 8.0
+            },
+            "TargetAgentWarpData": "cmcProfessorAgent",
+            "TargetAgentWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [
+        {
+            "StatWarpData": "cmcStatQuestRenownProfSpecimen",
+            "StatWarpType": 3,
+            "ValueModifier": { "x": 1.0, "y": 1.0 },
+            "InstantModifier": true,
+            "ApplyEachTick": false
+        }
+    ],
+    "BlueprintFinishedDialogWarpData": "CMC_ProfSpecimenThanks",
+    "BlueprintFinishedDialogWarpType": 3
+}

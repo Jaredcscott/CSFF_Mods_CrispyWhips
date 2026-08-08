@@ -1,0 +1,113 @@
+{
+  "UniqueID": "cmcJailCellTunnel",
+  "CardType": 2,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": false,
+  "DoesNotPile": true,
+  "CardName": {
+    "LocalizationKey": "CMC_JailCellTunnel_CardName",
+    "DefaultText": "Hidden Tunnel"
+  },
+  "CardDescription": {
+    "LocalizationKey": "CMC_JailCellTunnel_CardDescription",
+    "DefaultText": "The bed is shoved aside, and a rough dig into the foundation stone shows underneath. Anyone glancing through the door's grille would see it in a heartbeat -- best keep working only while the step outside is empty."
+  },
+  "CardImageWarpData": "MudHut_Outside",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0,
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_JailCellTunnel_DA_MoveBedBack",
+        "DefaultText": "Move the bed back"
+      },
+      "DaytimeCost": 1,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [],
+      "ProducedCards": [],
+      "ReceivingCardChanges": { "ModType": 0 }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_JailCellTunnel_DA_Dig",
+        "DefaultText": "Dig"
+      },
+      "DaytimeCost": 2,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "cmcStatJailUnguarded",
+          "StatWarpType": 3,
+          "TriggerRange": { "x": 0.5, "y": 1.5 }
+        }
+      ],
+      "HideIfConditionsNotMet": true,
+      "StatModifications": [
+        {
+          "StatWarpData": "cmcStatJailTunnelProgress",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 1.0, "y": 1.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        }
+      ],
+      "ProducedCards": [],
+      "ReceivingCardChanges": { "ModType": 0 }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_JailCellTunnel_DA_Crawl",
+        "DefaultText": "Crawl through the tunnel"
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 2,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "FadeToBlack": 1,
+      "FadeMessage": {
+        "LocalizationKey": "CMC_JailCellTunnel_DA_Crawl_Fade",
+        "DefaultText": "You squeeze through the dark, dirt in your teeth, and come up outside the walls..."
+      },
+      "RequiredStatValues": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "cmcStatJailTunnelProgress",
+          "StatWarpType": 3,
+          "TriggerRange": { "x": 5.5, "y": 6.5 }
+        }
+      ],
+      "HideIfConditionsNotMet": true,
+      "MovePlayer": {
+        "MoveOption": 1,
+        "ToEnvWarpData": "cmcEnvVillagePath",
+        "ToEnvWarpType": 3
+      },
+      "StatModifications": [
+        {
+          "StatWarpData": "cmcStatJailSentenceRemaining",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -8.0, "y": -8.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        },
+        {
+          "StatWarpData": "cmcStatVillageCrime",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 15.0, "y": 15.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        }
+      ],
+      "ProducedCards": [],
+      "ReceivingCardChanges": { "ModType": 0 }
+    }
+  ],
+  "DismantleActionsWarpType": 3
+}

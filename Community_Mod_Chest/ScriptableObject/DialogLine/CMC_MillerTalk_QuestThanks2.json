@@ -1,0 +1,52 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatMillerQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+            {"StatWarpData": "cmcStatMillerQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.25, "y": 0.75}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_MillerTalk_QuestThanks2_Line",
+        "DefaultText": "Now that's a proper patch job. Stones'll turn smooth as a millpond now. Here, I've been meaning to put up a hunter's platform out past the fields, figured you'd want the plans more than I would."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_QuestThanks2_Answer_Glad",
+                "DefaultText": "Glad it helped."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatMillerQuestChain",
+                        "StatWarpType": 3,
+                        "ValueModifier": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    },
+                    {
+                        "StatWarpData": "cmcStatMillerQuestArmed",
+                        "StatWarpType": 3,
+                        "ValueModifier": {
+                            "x": -0.5,
+                            "y": -0.5
+                        },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ],
+                "BlueprintsFullUnlockWarpData": [
+                    "hunterscachebphuntingstand"
+                ],
+                "BlueprintsFullUnlockWarpType": 3
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

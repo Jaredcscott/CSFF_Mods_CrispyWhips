@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatQuestRenownMarketStallSales",
+    "GameName": {
+        "LocalizationKey": "CMC_QuestRenownMarketStallSales_StatName",
+        "DefaultText": "Renown: Market Stall Sales Milestone"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_QuestRenownMarketStallSales_StatDescription",
+        "DefaultText": "Hidden one-shot flag: 1 once the Market Stall's Sales Revenue has ever been observed at or above its Renown threshold. Contributes to Village Renown. Latched permanently the first time it's observed (the stall's revenue can only be read while the player is standing at the Village), so the Renown contribution survives being away from the Village afterward."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 10.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

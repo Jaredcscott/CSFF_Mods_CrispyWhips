@@ -1,0 +1,21 @@
+{
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_CourseAckFishing_Line",
+        "DefaultText": "You passed Fishing, and unlike most of my courses this one I actually enjoy grading, mostly because it involves an afternoon by the water instead of a stack of essays. The iron fittings for a proper rod are yours to build now, sturdier than anything whittled from green wood. My uncle's mythical river monster is still out there uncaught, incidentally, should you fancy a rematch on his behalf."
+    },
+    "ActionToPerform": {
+        "NPCStatModifications": [
+            {"TargetStatWarpData": "cmcStatProfCourseAckFishing", "TargetStatWarpType": 3, "UseAssociatedAgent": true, "ValueChange": {"x": 1.0, "y": 1.0}},
+            {"TargetStatWarpData": "cmcStatProfessorTrust", "TargetStatWarpType": 3, "UseAssociatedAgent": true, "ValueChange": {"x": 5.0, "y": 5.0}}
+        ]
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Answer_Ok",
+                "DefaultText": "Thank you, Professor."
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

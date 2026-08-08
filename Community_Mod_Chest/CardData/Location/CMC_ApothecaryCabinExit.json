@@ -1,0 +1,51 @@
+{
+  "UniqueID": "cmcApothecaryCabinExit",
+  "CardType": 2,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": false,
+  "CardName": {
+    "LocalizationKey": "CMC_ApothecaryCabinExit_CardName",
+    "DefaultText": "Cabin Door"
+  },
+  "CardImageWarpData": "VillageDoorInterior",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0,
+  "DoesNotPile": true,
+  "CanDragItemsToTravel": true,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_ApothecaryCabinExit_DA_Exit",
+        "DefaultText": "Exit"
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 2,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "FadeToBlack": 1,
+      "FadeMessage": {
+        "LocalizationKey": "CMC_ApothecaryCabinExit_DA_Exit_Fade",
+        "DefaultText": "Leaving the cabin..."
+      },
+      "AlwaysShow": true,
+      "ProducedCards": [
+        {
+          "CollectionName": "Exit",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "cmcEnvForagingForest",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    }
+  ],
+  "DismantleActionsWarpType": 3
+}

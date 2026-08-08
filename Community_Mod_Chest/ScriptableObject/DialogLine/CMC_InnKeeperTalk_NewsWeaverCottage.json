@@ -1,0 +1,29 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatChronicleWeaverCottageDay", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1000000000.0}},
+            {"StatWarpData": "cmcStatInnWeaverCottageRemarked", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.5}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_NewsWeaverCottage_Line",
+        "DefaultText": "The weaver's cottage went up too, did you see it on your way in? She hung a length of her own cloth over the doorway for a curtain before the paint had even dried, couldn't wait a single day to make the place hers. Between her and the miller both settling proper, this village is starting to look less like a rest stop and more like somewhere people actually mean to stay."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_NewsWeaverCottage_Answer",
+                "DefaultText": "It's coming together nicely."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnWeaverCottageRemarked", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false},
+                    {"StatWarpData": "cmcStatInnFriendship", "StatWarpType": 3, "ValueModifier": {"x": 3.0, "y": 3.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

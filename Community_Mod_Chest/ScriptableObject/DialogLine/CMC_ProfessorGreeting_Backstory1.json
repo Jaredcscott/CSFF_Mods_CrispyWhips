@@ -1,0 +1,28 @@
+{
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_Backstory1_Line",
+        "DefaultText": "I taught in Duros, once: proper halls, proper stipends, proper politics. The politics won. A travelling merchant told me of a village raising an academy out of mud and stubbornness, and I found I preferred the stubbornness."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Answer_GoOn",
+                "DefaultText": "Go on."
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_ProfessorGreeting_Backstory2",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Answer_Ok",
+                "DefaultText": "Noted, Professor."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_AshHuntHint2_Line",
+        "DefaultText": "He can — but a boar doesn't play fair. Follow the game trail east past the old standing stones and you'll reach the Crossing soon enough. Go on."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_AshHuntHint2_Answer_OnMyWay",
+                "DefaultText": "On my way."
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_InnKeeperTalk_Start",
+                "NextLineWarpType": 3
+            }
+        }
+    ]
+}

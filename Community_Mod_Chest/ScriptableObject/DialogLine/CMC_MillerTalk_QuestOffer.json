@@ -1,0 +1,38 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_MillerTalk_QuestOffer_Line",
+        "DefaultText": "Actually, since you're asking. My own store's run thin and the farm's grain hasn't come round yet this week. Bring me a wheat grain and I'll owe you one. Nothing fancy, just don't want the stones sitting idle."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_QuestOffer_Answer_Accept",
+                "DefaultText": "I'll bring you some."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatMillerQuestArmed",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": -1.0, "y": -1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_QuestOffer_Answer_Decline",
+                "DefaultText": "Maybe another time."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

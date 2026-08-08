@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatMillerChestRestockDay",
+    "GameName": {
+        "LocalizationKey": "CMC_MillerChestRestockDay_StatName",
+        "DefaultText": "Miller's Chest Last Restock Day"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_MillerChestRestockDay_StatDescription",
+        "DefaultText": "Hidden tracker: the absolute day the Miller last added to his Copper Chest. 0 = never. The accrual check only runs while the player is standing inside the Miller's cottage interior, so this must persist across sessions rather than living in memory."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 100000.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

@@ -1,0 +1,118 @@
+{
+    "UniqueID": "bpcmcprofappliedherbalism",
+    "CardName": {
+        "LocalizationKey": "CMC_ProfAppliedHerbalism_CardName",
+        "DefaultText": "Applied Herbalism: 4 Dried Nettle Leaves"
+    },
+    "CardDescription": {
+        "LocalizationKey": "CMC_ProfAppliedHerbalism_CardDescription",
+        "DefaultText": "Now that you've graduated Herbalism, the Professor wants to see it put to use — four properly dried nettle leaves, processed by your own hand, for a follow-up lecture."
+    },
+    "CardImageWarpData": "NettleLeavesDried",
+    "CardImageWarpType": 3,
+    "CardType": 7,
+    "StartUnlocked": false,
+    "BlueprintUnlockTicksCost": 8.0,
+    "BuildingDaytimeCost": 0,
+    "DeconstructDaytimeCost": 1,
+    "BlueprintStages": [
+        {
+            "RequiredElements": [
+                {
+                    "RequiredCardWarpData": "c0f1eabb07ab5064bbebd151ae6b9a94",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 4,
+                    "DontSpend": false
+                }
+            ]
+        }
+    ],
+    "BlueprintResult": [
+        {
+            "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+            "DroppedCardWarpType": 3,
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            }
+        },
+        {
+            "DroppedCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
+            "DroppedCardWarpType": 3,
+            "Quantity": {
+                "x": 2,
+                "y": 2
+            }
+        }
+    ],
+    "BlueprintNPCStatConditions": [
+        {
+            "UseAssociatedAgent": false,
+            "TargetAgentWarpData": "cmcProfessorAgent",
+            "TargetAgentWarpType": 3,
+            "TargetStatWarpData": "cmcStatProfEligibleHerbalism",
+            "TargetStatWarpType": 3,
+            "ConditionRange": {
+                "x": 1.0,
+                "y": 1.0
+            }
+        },
+        {
+            "UseAssociatedAgent": false,
+            "TargetAgentWarpData": "cmcProfessorAgent",
+            "TargetAgentWarpType": 3,
+            "TargetStatWarpData": "cmcStatProfAppliedHerbalismClaimed",
+            "TargetStatWarpType": 3,
+            "ConditionRange": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "UseAssociatedAgent": false,
+            "TargetAgentWarpData": "cmcProfessorAgent",
+            "TargetAgentWarpType": 3,
+            "TargetStatWarpData": "cmcStatProfessorPhase",
+            "TargetStatWarpType": 3,
+            "ConditionRange": {
+                "x": 1.0,
+                "y": 1.0
+            }
+        }
+    ],
+    "BlueprintNPCStatModifications": [
+        {
+            "TargetStatWarpData": "cmcStatProfAppliedHerbalismClaimed",
+            "TargetStatWarpType": 3,
+            "UseAssociatedAgent": false,
+            "ValueChange": {
+                "x": 1.0,
+                "y": 1.0
+            },
+            "TargetAgentWarpData": "cmcProfessorAgent",
+            "TargetAgentWarpType": 3
+        },
+        {
+            "TargetStatWarpData": "cmcStatProfessorTrust",
+            "TargetStatWarpType": 3,
+            "UseAssociatedAgent": false,
+            "ValueChange": {
+                "x": 8.0,
+                "y": 8.0
+            },
+            "TargetAgentWarpData": "cmcProfessorAgent",
+            "TargetAgentWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [
+        {
+            "StatWarpData": "cmcStatQuestRenownProfAppliedHerbalism",
+            "StatWarpType": 3,
+            "ValueModifier": { "x": 1.0, "y": 1.0 },
+            "InstantModifier": true,
+            "ApplyEachTick": false
+        }
+    ],
+    "BlueprintFinishedDialogWarpData": "CMC_ProfAppliedHerbalismThanks",
+    "BlueprintFinishedDialogWarpType": 3
+}

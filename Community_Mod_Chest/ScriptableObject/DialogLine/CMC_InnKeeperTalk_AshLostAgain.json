@@ -1,0 +1,20 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_AshLostAgain_Line",
+        "DefaultText": "Gone off again, has he? That's Ash for you \u2014 slips his collar the moment your back's turned. Same as before: try the Foraging Forest off the Village Path, at dusk when he prowls the ferns. Bring a bit of meat or fish and keep still, and he'll pick you a second time. He always does."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_AshLostAgain_Answer_Ok",
+                "DefaultText": "I'll bring him home."
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_InnKeeperTalk_Start",
+                "NextLineWarpType": 3
+            }
+        }
+    ]
+}

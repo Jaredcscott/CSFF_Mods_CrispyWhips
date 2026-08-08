@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatVillagePhase",
+    "GameName": {
+        "LocalizationKey": "CMC_VillagePhase_StatName",
+        "DefaultText": "Village Standing"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_VillagePhase_StatDescription",
+        "DefaultText": "Hidden village-timeline phase gate: 0 = undiscovered (Inn Keeper intro only, Professor redirects, no trade/study, construction projects hidden), 1 = introduced (everything opens). Values 2+ reserved for future capstone phases. Set by the final line of the Inn Keeper's intro conversation; backfilled to 1 on old saves with real village progress (Well Plans or any quest-renown flag) or when the Village Inn trait is equipped."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 10.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

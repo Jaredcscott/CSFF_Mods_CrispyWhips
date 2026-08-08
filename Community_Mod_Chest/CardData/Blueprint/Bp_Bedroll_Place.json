@@ -1,0 +1,69 @@
+{
+    "UniqueID": "comfortbpbedrollplace",
+    "CardName": {
+        "ParentObjectID": "comfortbpbedrollplace",
+        "LocalizationKey": "Comfort_Bp_Bedroll_Place_CardName",
+        "DefaultText": "Place Bedroll"
+    },
+    "CardDescription": {
+        "ParentObjectID": "comfortbpbedrollplace",
+        "LocalizationKey": "Comfort_Bp_Bedroll_Place_CardDescription",
+        "DefaultText": "Unroll and lay out a bedroll on the ground as a sleeping surface. Provides insulation while resting. Roll it back up at any time to carry it with you."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "comfortbpbedrollplace",
+        "LocalizationKey": "Comfort_Bp_Bedroll_Place_UnlockConditionsDesc",
+        "DefaultText": "Bedroll Needed"
+    },
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasBedroll",
+            "CompletionWeight": 1,
+            "Card": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyIfEquipped": false,
+            "CardWarpData": "comfortbedroll",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "comfortbedroll",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 2,
+    "DeconstructDaytimeCost": 1,
+    "NeedsRoomInLocationToSpawn": true,
+    "BlueprintResult": [
+        {
+            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": { "x": 1, "y": 1 },
+            "DroppedCardWarpData": "comfortbedrollplaced",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": ["HandAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImageWarpData": "BedrollPlaced",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 4.0,
+    "ResearchedNotification": 0
+}

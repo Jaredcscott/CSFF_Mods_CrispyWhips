@@ -1,0 +1,76 @@
+{
+    "ActionModifiers": [],
+    "ActionObjectives": [],
+    "AddedCards": [],
+    "AddedCardsWarpData": [
+        "bef002cfd45b3e8459864746f403cf73",
+        "bef002cfd45b3e8459864746f403cf73",
+        "bef002cfd45b3e8459864746f403cf73",
+        "bcc7d7a764978e447bc38b36dcca2055",
+        "bcc7d7a764978e447bc38b36dcca2055",
+        "82c2223daea9801488123f7264fd4527"
+    ],
+    "AddedCardsWarpType": 3,
+    "AddedStartingHours": 0,
+    "CardsOnBoardObjectives": [],
+    "CharacterPerkPerkGroup": "72120cda8e1cef540b1b25118dd7edaa",
+    "CheckingNotificationDetails": 0,
+    "CompleteOnLose": false,
+    "CompleteOnWin": false,
+    "DebugCompletion": false,
+    "DifficultyRating": -200,
+    "DisplayPriority": 2263.0,
+    "EditorOnly": false,
+    "EquippedCards": [],
+    "EquippedCardsWarpData": [],
+    "EquippedCardsWarpType": 3,
+    "HiddenUntilUnlocked": false,
+    "MoonsCost": 0,
+    "NestedObjectives": [],
+    "NoSafetyMode": false,
+    "NotifyWhenNotChecked": false,
+    "OverrideEnvironment": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "OverrideEquipment": false,
+    "OverrideWeather": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "PassiveStatModifiers": [],
+    "PerkDescription": {
+        "DefaultText": "You begin your run at a mineral-rich location. Start with extra flint, two chunks of greenstone ore, and a whetstone to get your stoneworking off to a strong start.",
+        "LocalizationKey": "CharacterTraits_Perk_MineralRich_PerkDescription",
+        "ParentObjectID": "traitsperkmineralrich"
+    },
+    "PerkIcon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "PerkIconWarpData": "Greenstone",
+    "PerkIconWarpType": 3,
+    "PerkName": {
+        "DefaultText": "Mineral Rich",
+        "LocalizationKey": "CharacterTraits_Perk_MineralRich_PerkName",
+        "ParentObjectID": "traitsperkmineralrich"
+    },
+    "PerkUnlockConditions": {
+        "DefaultText": "",
+        "LocalizationKey": "",
+        "ParentObjectID": ""
+    },
+    "PlayedCharacter": [],
+    "RequiredDifficultyScore": {
+        "x": 0,
+        "y": 0
+    },
+    "ResetLockInEditor": false,
+    "StartUnlocked": true,
+    "StartingStatModifiers": [],
+    "StatsObjectives": [],
+    "SunsCost": 5,
+    "TagsOnBoardObjectives": [],
+    "TimeObjectives": [],
+    "UniqueID": "traitsperkmineralrich"
+}

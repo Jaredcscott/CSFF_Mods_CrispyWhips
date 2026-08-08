@@ -1,0 +1,123 @@
+{
+    "UniqueID": "potterysculpturebpherbpaste",
+    "CardName": {
+        "ParentObjectID": "potterysculpturebpherbpaste",
+        "LocalizationKey": "Pottery_Sculpture_Bp_HerbPaste_CardName",
+        "DefaultText": "Herb Paste"
+    },
+    "CardDescription": {
+        "ParentObjectID": "potterysculpturebpherbpaste",
+        "LocalizationKey": "Pottery_Sculpture_Bp_HerbPaste_CardDescription",
+        "DefaultText": "Grind wild garlic and old growth bark together using a stone or hammer. The resulting paste provides nourishment and comfort."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "potterysculpturebpherbpaste",
+        "LocalizationKey": "Pottery_Sculpture_Bp_HerbPaste_UnlockConditionsDesc",
+        "DefaultText": "Help the Apothecary forage three fresh herbs"
+    },
+    "StartUnlocked": false,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [
+        {
+            "ObjectiveName": "ApothQuestChainAtLeast1",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "TriggerRange": { "x": 0.5, "y": 20.0 },
+                "StatWarpData": "cmcStatApothQuestChain",
+                "StatWarpType": 3
+            },
+            "ConstantlyChecking": false
+        }
+    ],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredCardWarpData": "WildGarlicFresh",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredCardWarpData": "cmcoldgrowthbark",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "UsageChange": {
+                            "x": -10.0,
+                            "y": -10.0
+                        }
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroupWarpData": "GpTag_HammeringToolGeneral",
+                    "RequiredTabGroupWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 2,
+    "DeconstructDaytimeCost": 0,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 2,
+                "y": 2
+            },
+            "DroppedCardWarpData": "potterysculptureherbpaste",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "HerbPaste",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 8.0,
+    "ResearchedNotification": 0
+}

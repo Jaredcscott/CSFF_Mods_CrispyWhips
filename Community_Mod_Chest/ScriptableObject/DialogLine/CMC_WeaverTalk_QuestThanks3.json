@@ -1,0 +1,44 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 2.5}},
+            {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.25, "y": 0.75}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_WeaverTalk_QuestThanks3_Line",
+        "DefaultText": "Look at that seam, hardly a pucker in it. You have been paying attention. Here, a hood-and-cape pattern I've been saving, a chaperon, sturdy enough for real work and sharp enough for the village square."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_QuestThanks3_Answer_Glad",
+                "DefaultText": "It's a fine pattern."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatWeaverQuestChain",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": 1.0, "y": 1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    },
+                    {
+                        "StatWarpData": "cmcStatWeaverQuestArmed",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": -0.5, "y": -0.5 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ],
+                "BlueprintsFullUnlockWarpData": ["apparelbpchaperon"],
+                "BlueprintsFullUnlockWarpType": 3
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

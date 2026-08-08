@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatInnErrandState",
+    "GameName": {
+        "LocalizationKey": "CMC_InnErrandState_StatName",
+        "DefaultText": "The Inn Keeper's Errand"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_InnErrandState_StatDescription",
+        "DefaultText": "Hidden tracker: 0 = no errand offered, 1 = accepted (delivery CI now active). Resets each season."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 10.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

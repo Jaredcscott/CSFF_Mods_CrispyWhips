@@ -1,0 +1,41 @@
+{
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_QuizQ_Line",
+        "DefaultText": "Very well. A question from the entrance examination. A student returns from the forest fevered, with an angry wound. Which remedy do you reach for first?"
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Quiz_A_Mushroom",
+                "DefaultText": "Raw spirit mushrooms, chewed slowly."
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_ProfessorGreeting_QuizWrong",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Quiz_A_Poultice",
+                "DefaultText": "A plantain poultice, cleaned and bound."
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_ProfessorGreeting_QuizRight",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Quiz_A_Tea",
+                "DefaultText": "A strong fireroot tea, piping hot."
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_ProfessorGreeting_QuizWrong",
+                "NextLineWarpType": 3
+            }
+        }
+    ]
+}

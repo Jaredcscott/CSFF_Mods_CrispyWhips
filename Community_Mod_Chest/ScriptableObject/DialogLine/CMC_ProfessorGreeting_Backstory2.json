@@ -1,0 +1,17 @@
+{
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_Backstory2_Line",
+        "DefaultText": "The first winter I lectured to three farmers and a goat. The goat left. The farmers stayed; one of them built the desk you've seen me at. You ask why I stay; that desk is why. Now, enough of an old man's history."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Answer_Ok",
+                "DefaultText": "Noted, Professor."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

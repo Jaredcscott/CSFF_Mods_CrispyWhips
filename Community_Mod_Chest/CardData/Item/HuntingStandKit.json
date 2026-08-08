@@ -1,0 +1,68 @@
+{
+  "UniqueID": "hunterscachehuntingstandkit",
+  "CardName": {
+    "ParentObjectID": "hunterscachehuntingstandkit",
+    "LocalizationKey": "Hunters_Cache_HuntingStandKit_CardName",
+    "DefaultText": "Hunting Stand Kit"
+  },
+  "CardDescription": {
+    "ParentObjectID": "hunterscachehuntingstandkit",
+    "LocalizationKey": "Hunters_Cache_HuntingStandKit_CardDescription",
+    "DefaultText": "Planks, poles, and lashings bundled for raising an elevated hunting stand against a tree."
+  },
+  "CardType": 0,
+  "ObjectWeight": 800.0,
+  "TradingValue": 40.0,
+  "MaxStack": 1,
+  "DoesNotPile": true,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "Plank",
+  "CardImageWarpType": 3,
+  "CardTagsWarpData": [
+    "tag_Wood",
+    "tag_Structure"
+  ],
+  "CardTagsWarpType": 3,
+  "WhenCreatedSoundsWarpData": ["Wood"],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": { "Active": false },
+  "UsageDurability": { "Active": false },
+  "FuelCapacity": { "Active": false },
+  "Progress": { "Active": false },
+  "SpecialDurability1": { "Active": false },
+  "SpecialDurability2": { "Active": false },
+  "SpecialDurability3": { "Active": false },
+  "SpecialDurability4": { "Active": false },
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "hunterscachehuntingstandkit",
+        "LocalizationKey": "Hunters_Cache_HuntingStandKit_SetUp_ActionName",
+        "DefaultText": "Set Up"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hunterscachehuntingstandkit",
+        "LocalizationKey": "Hunters_Cache_HuntingStandKit_SetUp_ActionDescription",
+        "DefaultText": "Lash the platform to a sturdy tree at this location."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Wood"],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": { "m_FileID": 0, "m_PathID": 0 },
+        "TransformIntoWarpData": "hunterscachehuntingstand",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": true
+      }
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": []
+}

@@ -1,0 +1,74 @@
+{
+  "UniqueID": "combatandarmorbpclub",
+  "CardName": {
+    "ParentObjectID": "combatandarmorbpclub",
+    "LocalizationKey": "Combat_And_Armor_Bp_Club_CardName",
+    "DefaultText": "Club"
+  },
+  "CardDescription": {
+    "ParentObjectID": "combatandarmorbpclub",
+    "LocalizationKey": "Combat_And_Armor_Bp_Club_CardDescription",
+    "DefaultText": "Carve a stout club from a tree trunk."
+  },
+  "CardType": 7,
+  "UnlockConditionsDesc": {
+    "ParentObjectID": "combatandarmorbpclub",
+    "LocalizationKey": "Combat_And_Armor_Bp_Club_UnlockConditionsDesc",
+    "DefaultText": "Tree Trunk Needed"
+  },
+  "BuildingStatConditions": [],
+  "StartUnlocked": false,
+  "CardsOnBoard": [
+    {
+      "ObjectiveName": "HasTreeLog",
+      "CompletionWeight": 1,
+      "Card": { "m_FileID": 0, "m_PathID": 0 },
+      "Quantity": 1,
+      "ConstantlyChecking": false,
+      "OnlyInEnvironment": { "m_FileID": 0, "m_PathID": 0 },
+      "OnlyIfEquipped": false,
+      "OnlyInContainer": { "Target": { "m_FileID": 0, "m_PathID": 0 } },
+      "CardWarpData": "0ab556ab6af1efc47a2cba5cdf4ace04",
+      "CardWarpType": 3
+    }
+  ],
+  "TagsOnBoard": [],
+  "StatValues": [],
+  "BlueprintStages": [
+    {
+      "CannotRevertToThisStage": false,
+      "RequiredElements": [
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "0ab556ab6af1efc47a2cba5cdf4ace04",
+          "RequiredCardWarpType": 3
+        }
+      ],
+      "StepActionTags": [],
+      "StepActionTagsWarpData": [],
+      "StepActionTagsWarpType": 3
+    }
+  ],
+  "BuildingDaytimeCost": 3,
+  "DeconstructDaytimeCost": 1,
+  "BlueprintResult": [
+    {
+      "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+      "Quantity": { "x": 1, "y": 1 },
+      "DroppedCardWarpData": "combatandarmorclub",
+      "DroppedCardWarpType": 3
+    }
+  ],
+  "BlueprintStatModifications": [],
+  "WhenCreatedSoundsWarpData": ["Wood"],
+  "WhenCreatedSoundsWarpType": 3,
+  "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+  "BlueprintActionTagsWarpType": 3,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "LongStick",
+  "CardImageWarpType": 3,
+  "BlueprintUnlockTicksCost": 4.0,
+  "ResearchedNotification": 0
+}

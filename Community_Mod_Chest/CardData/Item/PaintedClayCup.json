@@ -1,0 +1,128 @@
+{
+    "UniqueID": "potterysculpturepaintedcup",
+    "CardName": {
+        "ParentObjectID": "potterysculpturepaintedcup",
+        "LocalizationKey": "Pottery_PaintedCup_CardName",
+        "DefaultText": "Painted Clay Cup"
+    },
+    "CardDescription": {
+        "ParentObjectID": "potterysculpturepaintedcup",
+        "LocalizationKey": "Pottery_PaintedCup_CardDescription",
+        "DefaultText": "A small painted clay cup, hand-shaped and decorated with natural pigment. Holds a small measure of water, tea, or broth, and looks far better than a plain bowl."
+    },
+    "CardType": 0,
+    "ObjectWeight": 75.0,
+    "TradingValue": 100.0,
+    "DoesNotPile": true,
+    "CardImageWarpData": "PaintedClayCup",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [
+        "tag_WaterContainer"
+    ],
+    "CardTagsWarpType": 3,
+    "IsMiniInventory": true,
+    "MaxLiquidCapacity": 10.0,
+    "WhenCreatedSoundsWarpData": [
+        "Stone"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 500.0,
+        "CardStatName": {
+            "ParentObjectID": "potterysculpturepaintedcup",
+            "LocalizationKey": "Pottery_PaintedCup_UsageDurability",
+            "DefaultText": "Durability"
+        },
+        "MaxValue": 500.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 1,
+        "HasActionOnZero": true,
+        "OnZero": {
+            "ActionDescription": {
+                "ParentObjectID": "potterysculpturepaintedcup",
+                "LocalizationKey": "Pottery_PaintedCup_Broken",
+                "DefaultText": "The painted cup has shattered."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        },
+        "HasActionOnFull": false,
+        "OverrideIconWarpData": "Durability",
+        "OverrideIconWarpType": 3
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "PassiveEffects": [
+        {
+            "EffectName": "Comfort (+5)",
+            "OnlyWhenEquipped": false,
+            "EquippedOnBodyOnly": false,
+            "Conditions": {
+                "NotInBackground": true
+            },
+            "StatModifiers": [
+                {
+                    "Stat": { "m_FileID": 0, "m_PathID": 0 },
+                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 5.0, "y": 5.0 },
+                    "RateModifier": { "x": 0.0, "y": 0.0 },
+                    "MinValueModifier": { "x": 0.0, "y": 0.0 },
+                    "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+                    "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        },
+        {
+            "EffectName": "Gratification (+2)",
+            "OnlyWhenEquipped": false,
+            "EquippedOnBodyOnly": false,
+            "Conditions": {
+                "NotInBackground": true
+            },
+            "StatModifiers": [
+                {
+                    "Stat": { "m_FileID": 0, "m_PathID": 0 },
+                    "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 2.0, "y": 2.0 },
+                    "RateModifier": { "x": 0.0, "y": 0.0 },
+                    "MinValueModifier": { "x": 0.0, "y": 0.0 },
+                    "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+                    "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ]
+}

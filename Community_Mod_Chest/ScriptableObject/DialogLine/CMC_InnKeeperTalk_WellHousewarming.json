@@ -1,0 +1,50 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredCardsOnBoardWarpData": ["cmcimpwell"],
+        "RequiredCardsOnBoardWarpType": 3,
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatInnWellHousewarming", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.5}},
+            {"StatWarpData": "cmcStatInnWellCommented", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 10.0}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_WellHousewarming_Line",
+        "DefaultText": "Actually, glad you're here. We're closing up early tonight and walking out to the well together, whole village, for a proper toast. Won't be long. Care to come, or mind the hearth while we're gone?"
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_WellHousewarming_Answer_Join",
+                "DefaultText": "Wouldn't miss it."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnWellHousewarming", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_InnKeeperTalk_WellHousewarming_Toast",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_WellHousewarming_Answer_Watch",
+                "DefaultText": "Go on. I'll keep an eye on things here."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnWellHousewarming", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_InnKeeperTalk_WellHousewarming_Toast",
+                "NextLineWarpType": 3
+            }
+        }
+    ]
+}

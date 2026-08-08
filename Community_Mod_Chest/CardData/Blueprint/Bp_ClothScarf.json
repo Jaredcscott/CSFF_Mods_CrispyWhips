@@ -1,0 +1,82 @@
+{
+    "UniqueID": "apparelbpclothscarf",
+    "CardName": {
+        "ParentObjectID": "apparelbpclothscarf",
+        "LocalizationKey": "apparel_bp_cloth_scarf_CardName",
+        "DefaultText": "Cloth Scarf"
+    },
+    "CardDescription": {
+        "ParentObjectID": "apparelbpclothscarf",
+        "LocalizationKey": "apparel_bp_cloth_scarf_CardDescription",
+        "DefaultText": "A cloth scarf worn around the neck."
+    },
+    "CardType": 7,
+    "CardImageWarpData": "ClothScarf",
+    "CardImageWarpType": 3,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "apparelbpclothscarf",
+        "LocalizationKey": "apparel_bp_cloth_scarf_UnlockConditionsDesc",
+        "DefaultText": "Earn the Weaver's trust"
+    },
+    "StartUnlocked": false,
+    "CardsOnBoard": [],
+    "StatValues": [
+        {
+            "ObjectiveName": "WeaverTrustAtLeast25",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "TriggerRange": { "x": 25.0, "y": 1000000000.0 },
+                "StatWarpData": "cmcStatWeaverTrustMirror",
+                "StatWarpType": 3
+            },
+            "ConstantlyChecking": false
+        }
+    ],
+    "BlueprintUnlockTicksCost": 4.0,
+    "BuildingDaytimeCost": 2,
+    "DeconstructDaytimeCost": 1,
+    "BlueprintStages": [
+        {
+            "RequiredElements": [
+                {
+                    "RequiredCardWarpData": "aa73d89b9f0f04145adce258403d61d0",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 2,
+                    "DontSpend": false
+                },
+                {
+                    "RequiredCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 4,
+                    "DontSpend": false
+                },
+                {
+                    "RequiredTabGroupWarpData": "GpTag_Needle",
+                    "RequiredTabGroupWarpType": 3,
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "UsageChange": { "x": -8.0, "y": -8.0 }
+                    }
+                }
+            ]
+        }
+    ],
+    "BlueprintResult": [
+        {
+            "DroppedCardWarpData": "apparelclothscarf",
+            "DroppedCardWarpType": 3,
+            "Quantity": {"x": 1, "y": 1}
+        }
+    ],
+    "BlueprintStatModifications": [
+        {
+            "StatWarpData": "e852e093ef8dcd64eb72ab3add261d32",
+            "StatWarpType": 3,
+            "ValueModifier": {"x": 1.0, "y": 1.0}
+        }
+    ],
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+    "BlueprintActionTagsWarpType": 3
+}

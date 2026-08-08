@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatApothPowderProgress",
+    "GameName": {
+        "LocalizationKey": "CMC_ApothPowderProgress_StatName",
+        "DefaultText": "The Apothecary's Powder Request"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_ApothPowderProgress_StatDescription",
+        "DefaultText": "Hidden tracker for A2 (powders and dyes): 0 = not delivered, 1 = one of charcoal/dried flowers delivered, 2 = both delivered, ready to be thanked. Resets to 0 once thanked."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 5.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

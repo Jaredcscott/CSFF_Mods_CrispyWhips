@@ -1,0 +1,108 @@
+{
+    "ActionModifiers": [],
+    "ActionObjectives": [],
+    "AddedCards": [],
+    "AddedCardsWarpData": [
+        "ece4346feb9fd2c46b6703a117d0bd3b",
+        "7ee6dbdbddc8e7e4e9eb065f6a22df39",
+        "367203307c951b44f817c5182fce330b",
+        "760b289cf72d5d94cb79c39e8fee29e6"
+    ],
+    "AddedCardsWarpType": 3,
+    "AddedStartingHours": 0,
+    "CardsOnBoardObjectives": [],
+    "CharacterPerkPerkGroup": "aacb8df12eedb7b48a9801360ae638c7",
+    "CheckingNotificationDetails": 0,
+    "CompleteOnLose": false,
+    "CompleteOnWin": false,
+    "DebugCompletion": false,
+    "DifficultyRating": -200,
+    "DisplayPriority": 2350.0,
+    "EditorOnly": false,
+    "EquippedCards": [],
+    "EquippedCardsWarpData": [],
+    "EquippedCardsWarpType": 3,
+    "HiddenUntilUnlocked": false,
+    "MoonsCost": 0,
+    "NestedObjectives": [],
+    "NoSafetyMode": false,
+    "NotifyWhenNotChecked": false,
+    "OverrideEnvironment": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "OverrideEquipment": false,
+    "OverrideWeather": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "PassiveStatModifiers": [],
+    "PerkDescription": {
+        "DefaultText": "You know how to set a trap and read the land. Start with a Snare Trap, Log Trap, Flint Knife, and Rustic Spear, plus a head start in the Trapping skill.",
+        "LocalizationKey": "CharacterTraits_Perk_Trapper_PerkDescription",
+        "ParentObjectID": "traits_perk_trapper"
+    },
+    "PerkIcon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "PerkIconWarpData": "SnareTrap",
+    "PerkIconWarpType": 3,
+    "PerkName": {
+        "DefaultText": "Trapper",
+        "LocalizationKey": "CharacterTraits_Perk_Trapper_PerkName",
+        "ParentObjectID": "traits_perk_trapper"
+    },
+    "PerkUnlockConditions": {
+        "DefaultText": "",
+        "LocalizationKey": "",
+        "ParentObjectID": ""
+    },
+    "PlayedCharacter": [],
+    "RequiredDifficultyScore": {
+        "x": 0,
+        "y": 0
+    },
+    "ResetLockInEditor": false,
+    "StartUnlocked": true,
+    "StartingStatModifiers": [
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatWarpData": "e096b2d9e7b707a4dab55dbe4e2216ba",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": 75.0,
+                "y": 75.0
+            },
+            "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false
+        }
+    ],
+    "StatsObjectives": [],
+    "SunsCost": 20,
+    "TagsOnBoardObjectives": [],
+    "TimeObjectives": [],
+    "UniqueID": "traits_perk_trapper"
+}

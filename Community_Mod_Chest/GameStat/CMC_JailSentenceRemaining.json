@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatJailSentenceRemaining",
+    "GameName": {
+        "LocalizationKey": "CMC_JailSentenceRemaining_StatName",
+        "DefaultText": "Jail Sentence Remaining"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_JailSentenceRemaining_StatDescription",
+        "DefaultText": "Hidden counter: days still to serve in the Village Jail. Set at arrest from the crime score (Village_Master_Plan.md 10.8.7.2), decremented by one each day rollover by JailPatch, and read by the cell door's Exit DismantleAction, which only appears at 0."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 8.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

@@ -1,0 +1,72 @@
+{
+    "UniqueID": "bpcmcmarketstall",
+    "CardType": 7,
+    "CardName": {
+        "ParentObjectID": "bpcmcmarketstall",
+        "LocalizationKey": "CMC_MarketStall_BP_Name",
+        "DefaultText": "Market Stall"
+    },
+    "CardDescription": {
+        "ParentObjectID": "bpcmcmarketstall",
+        "LocalizationKey": "CMC_MarketStall_BP_Desc",
+        "DefaultText": "Build a market stall using planks, cloth, rope, and a Copper Chest for the coin lockbox. The finished kit can only be assembled in the village."
+    },
+    "CardImageWarpData": "CMC_MarketStall",
+    "CardImageWarpType": 3,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "bpcmcmarketstall",
+        "LocalizationKey": "CMC_MarketStall_BP_UnlockDesc",
+        "DefaultText": "Requires a Copper Chest"
+    },
+    "StartUnlocked": false,
+    "BlueprintUnlockTicksCost": 16,
+    "BuildingDaytimeCost": 8,
+    "DeconstructDaytimeCost": 4,
+    "CardsOnBoard": [
+        {
+            "CardWarpData": "advanced_copper_tools_copper_pantry",
+            "CardWarpType": 3,
+            "ConstantlyChecking": false
+        }
+    ],
+    "CardsOnBoardWarpType": 3,
+    "BlueprintStages": [
+        {
+            "RequiredElements": [
+                {
+                    "RequiredCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 6,
+                    "DontSpend": false
+                },
+                {
+                    "RequiredCardWarpData": "aa73d89b9f0f04145adce258403d61d0",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 4,
+                    "DontSpend": false
+                },
+                {
+                    "RequiredCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 6,
+                    "DontSpend": false
+                },
+                {
+                    "RequiredCardWarpData": "advanced_copper_tools_copper_pantry",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 1,
+                    "DontSpend": false
+                }
+            ]
+        }
+    ],
+    "BlueprintResult": [
+        {
+            "DroppedCardWarpData": "cmcmarketstallkit",
+            "DroppedCardWarpType": 3,
+            "Quantity": { "x": 1, "y": 1 }
+        }
+    ],
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+    "BlueprintActionTagsWarpType": 3
+}

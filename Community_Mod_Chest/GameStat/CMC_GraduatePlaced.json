@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatGraduatePlaced",
+    "GameName": {
+        "LocalizationKey": "CMC_GraduatePlaced_StatName",
+        "DefaultText": "Graduate Courses Backfilled"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_GraduatePlaced_StatDescription",
+        "DefaultText": "Hidden latch: 0 = the Graduate perk's 6 Academy graduate perks have been granted but the Lecture Hall's course-progress stats have not yet been backfilled to match, 1 = backfilled (prevents re-writing them on later visits)."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 1.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

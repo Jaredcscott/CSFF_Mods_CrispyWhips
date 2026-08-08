@@ -1,0 +1,45 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredCardsOnBoardWarpData": ["cmcimpriverbridge"],
+        "RequiredCardsOnBoardWarpType": 3,
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatInnBridgeCommented", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.5}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_BridgeRemark_Line",
+        "DefaultText": "I hear the river's got a proper bridge across it now. Used to be you'd take your chances fording it, or not go at all. Makes this whole valley feel a little smaller, a little friendlier."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_BridgeRemark_Answer_Useful",
+                "DefaultText": "It's saved me a soaking more than once."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnBridgeCommented", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_BridgeRemark_Answer_Agree",
+                "DefaultText": "Smaller and friendlier sounds right."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnBridgeCommented", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

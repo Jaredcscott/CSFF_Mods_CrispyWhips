@@ -1,0 +1,24 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatInnErrandState", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_ErrandActive_Line",
+        "DefaultText": "Still keeping an eye out for that dried wild garlic? No rush, but the stew's counting on you."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_ErrandActive_Answer_Working",
+                "DefaultText": "Working on it."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

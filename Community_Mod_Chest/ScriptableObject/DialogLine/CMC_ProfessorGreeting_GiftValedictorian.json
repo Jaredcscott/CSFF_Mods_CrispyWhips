@@ -1,0 +1,87 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}}
+        ],
+        "RequiredNPCStatValues": [
+            {
+                "UseAssociatedAgent": false,
+                "TargetAgentWarpData": "cmcProfessorAgent",
+                "TargetAgentWarpType": 3,
+                "TargetStatWarpData": "cmcStatProfGradCount",
+                "TargetStatWarpType": 3,
+                "ConditionRange": {
+                    "x": 6.0,
+                    "y": 6.0
+                }
+            },
+            {
+                "UseAssociatedAgent": false,
+                "TargetAgentWarpData": "cmcProfessorAgent",
+                "TargetAgentWarpType": 3,
+                "TargetStatWarpData": "cmcStatProfGiftTier2",
+                "TargetStatWarpType": 3,
+                "ConditionRange": {
+                    "x": 0.0,
+                    "y": 0.0
+                }
+            }
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_GiftVale_Line",
+        "DefaultText": "Stand still a moment. Six courses. Six! In all my years at this lectern nobody has taken every degree the Academy offers. Consider yourself, formally, our first Valedictorian. This purse is the endowment prize; I've been guarding it for someone worth handing it to."
+    },
+    "ActionToPerform": {
+        "NPCStatModifications": [
+            {
+                "TargetStatWarpData": "cmcStatProfGiftTier2",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {
+                    "x": 1.0,
+                    "y": 1.0
+                }
+            },
+            {
+                "TargetStatWarpData": "cmcStatProfessorTrust",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {
+                    "x": 10.0,
+                    "y": 10.0
+                }
+            }
+        ],
+        "DroppedCards": [
+            {
+                "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+                "DroppedCardWarpType": 3,
+                "Quantity": {
+                    "x": 4,
+                    "y": 4
+                }
+            },
+            {
+                "DroppedCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
+                "DroppedCardWarpType": 3,
+                "Quantity": {
+                    "x": 6,
+                    "y": 6
+                }
+            }
+        ]
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_GiftVale_Answer",
+                "DefaultText": "I had good teachers."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

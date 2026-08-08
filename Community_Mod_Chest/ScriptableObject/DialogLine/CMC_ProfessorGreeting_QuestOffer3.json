@@ -1,0 +1,40 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_QuestOffer3_Line",
+        "DefaultText": "There's an old legend the villagers used to tell, a dragon in the hills, more metaphor than beast, I suspect, but a fine subject for a cast figure all the same. Bring me some metal nuggets and I'll see what I can make of it."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_QuestOffer3_Answer_Accept",
+                "DefaultText": "I'll bring you some metal nuggets."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatProfQuestArmed",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": -1.0, "y": -1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_ProfessorGreeting_QuestAccept3",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_QuestOffer3_Answer_Decline",
+                "DefaultText": "Maybe another time."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

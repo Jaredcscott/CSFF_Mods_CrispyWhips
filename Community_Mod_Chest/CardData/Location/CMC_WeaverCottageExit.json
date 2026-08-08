@@ -1,0 +1,51 @@
+{
+  "UniqueID": "cmcWeaverCottageExit",
+  "CardType": 2,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": false,
+  "CardName": {
+    "LocalizationKey": "CMC_WeaverCottageExit_CardName",
+    "DefaultText": "Cottage Door"
+  },
+  "CardImageWarpData": "VillageDoorInterior",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0,
+  "DoesNotPile": true,
+  "CanDragItemsToTravel": true,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_WeaverCottageExit_DA_Exit",
+        "DefaultText": "Exit"
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 2,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "FadeToBlack": 1,
+      "FadeMessage": {
+        "LocalizationKey": "CMC_WeaverCottageExit_DA_Exit_Fade",
+        "DefaultText": "Leaving the cottage..."
+      },
+      "AlwaysShow": true,
+      "ProducedCards": [
+        {
+          "CollectionName": "Exit",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "cmcEnvVillage",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    }
+  ],
+  "DismantleActionsWarpType": 3
+}

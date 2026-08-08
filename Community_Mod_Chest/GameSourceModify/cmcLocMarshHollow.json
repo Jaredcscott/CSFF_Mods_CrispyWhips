@@ -1,0 +1,10 @@
+{
+  "CardDescription": {
+    "LocalizationKey": "CMC_MarshHollow_CardDescription",
+    "DefaultText": "A boggy depression filled with marsh plants, willows, and alder growth, with standing pools of water."
+  },
+  "CardHelpSection": {
+    "LocalizationKey": "CMC_MarshHollow_CardHelpSection",
+    "DefaultText": "<b>Alder Clearing:</b>\n\n<b>Flora:</b> Alders, Willows, Birch, Appleweed, Moss.\n\n<b>Fauna:</b> Mosquitoes."
+  }
+}

@@ -1,0 +1,247 @@
+{
+    "UniqueID": "apparelclothcoat",
+    "TradingValue": 1500,
+    "CardName": {
+        "ParentObjectID": "apparelclothcoat",
+        "LocalizationKey": "apparel_cloth_coat_CardName",
+        "DefaultText": "Cloth Coat"
+    },
+    "CardDescription": {
+        "ParentObjectID": "apparelclothcoat",
+        "LocalizationKey": "apparel_cloth_coat_CardDescription",
+        "DefaultText": "A full-length coat of woven cloth. Lighter than fur but provides decent protection from wind and light rain.\n\n<b>MUST BE EQUIPPED TO WORK</b>"
+    },
+    "CardType": 0,
+    "CardImageWarpData": "ClothCoat",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [
+        "tag_Clothing"
+    ],
+    "CardTagsWarpType": 3,
+    "ObjectWeight": 400.0,
+    "WeightReductionWhenEquipped": -400.0,
+    "EquipmentTagsWarpData": [
+        "eTag_OuterTorso"
+    ],
+    "EquipmentTagsWarpType": 3,
+    "ArmorValues": {
+        "TorsoArmor": 7.0
+    },
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 34560.0,
+        "MaxValue": 34560.0,
+        "ExtraRateWhenEquipped": -0.5,
+        "HidingOptions": 1,
+        "OverrideIconWarpData": "Spoilage",
+        "OverrideIconWarpType": 3,
+        "HasActionOnZero": true,
+        "ShowPopupOnZero": true
+    },
+    "AlwaysUpdate": false,
+    "IsArmor": true,
+    "AffectStatsOnlyWhenEquipped": true,
+    "PassiveEffects": [
+        {
+            "EffectName": "Temperature Perceived (+1.5)",
+            "OnlyWhenEquipped": true,
+            "EquippedOnBodyOnly": true,
+            "Conditions": {},
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "0d5ec8f104b2ba149b4bb2b536bc21a4",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 1.5,
+                        "y": 1.5
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        },
+        {
+            "EffectName": "Rain Protection (+1)",
+            "OnlyWhenEquipped": true,
+            "EquippedOnBodyOnly": true,
+            "Conditions": {},
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "431f76fbfb93e8c4a850de1528ef863a",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        },
+        {
+            "EffectName": "Comfort (+15)",
+            "OnlyWhenEquipped": true,
+            "EquippedOnBodyOnly": true,
+            "Conditions": {},
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 15.0,
+                        "y": 15.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        },
+        {
+            "EffectName": "Armor (+7)",
+            "OnlyWhenEquipped": true,
+            "EquippedOnBodyOnly": true,
+            "Conditions": {},
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "b9013a3e77a421b4bb7e4a8293e75382",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 7.0,
+                        "y": 7.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "apparelclothcoat",
+                "LocalizationKey": "apparel_cloth_coat_DA_RipUp",
+                "DefaultText": "Rip up"
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "aa73d89b9f0f04145adce258403d61d0",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 2
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

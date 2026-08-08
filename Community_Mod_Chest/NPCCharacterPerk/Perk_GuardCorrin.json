@@ -1,0 +1,120 @@
+{
+    "UniqueID": "cmcGuardPerkCorrin",
+    "StartUnlocked": true,
+    "ActionObjectives": [],
+    "CombatObjectives": [],
+    "CardsOnBoardObjectives": [],
+    "TagsOnBoardObjectives": [],
+    "BlueprintsResearchedObjectives": [],
+    "StatsObjectives": [],
+    "TimeObjectives": [],
+    "NestedObjectives": [],
+    "PlayedCharacter": [],
+    "CompleteOnWin": false,
+    "CompleteOnLose": false,
+    "RequiredDifficultyScore": {
+        "x": 0,
+        "y": 0
+    },
+    "EditorOnly": false,
+    "NotifyWhenNotChecked": false,
+    "CheckingNotificationDetails": 0,
+    "SunsCost": 0,
+    "MoonsCost": 0,
+    "StarsCost": 0,
+    "ResetLockInEditor": false,
+    "PerkName": {
+        "ParentObjectID": "cmcGuardPerkCorrin",
+        "LocalizationKey": "CMC_GuardPerk_Corrin_PerkName",
+        "DefaultText": "Farm Watch"
+    },
+    "PerkDescription": {
+        "ParentObjectID": "cmcGuardPerkCorrin",
+        "LocalizationKey": "CMC_GuardPerk_Corrin_PerkDescription",
+        "DefaultText": "Old, weary, and reluctant. Slower to notice trouble than the rest of the Watch, and slower still to want it."
+    },
+    "PerkUnlockConditions": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "DisplayPriority": 0.0,
+    "HiddenUntilUnlocked": false,
+    "AddedCardsInInventory": [],
+    "StartingStatModifiers": [],
+    "PassiveStatModifiers": [],
+    "StartingNPCStatModifiers": [],
+    "PassiveNPCStatModifiers": [],
+    "AddedNPCStats": [
+        {
+            "ModelStatWarpData": "cmcNpcStatSuspicion",
+            "ModelStatWarpType": 3,
+            "OverrideStartingValue": {
+                "Active": true,
+                "FloatValue": 30.0
+            },
+            "OverrideMinMaxValue": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "OverrideRate": {
+                "Active": false,
+                "FloatValue": 0.0
+            },
+            "OverrideMinMaxRate": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "StatAddedPercentageToModifiersOverride": 0,
+            "StatScalingToModifiers": [],
+            "NPCStatAddedPercentageToModifiersOverride": 0,
+            "NPCStatScalingToModifiers": [],
+            "StatusesOverride": 0,
+            "Statuses": [],
+            "OverrideVisibleIcon": false,
+            "StatusDebugMode": false
+        },
+        {
+            "ModelStatWarpData": "cmcNpcStatGuardDowned",
+            "ModelStatWarpType": 3,
+            "OverrideStartingValue": {
+                "Active": true,
+                "FloatValue": 0.0
+            },
+            "OverrideMinMaxValue": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "OverrideRate": {
+                "Active": false,
+                "FloatValue": 0.0
+            },
+            "OverrideMinMaxRate": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "StatAddedPercentageToModifiersOverride": 0,
+            "StatScalingToModifiers": [],
+            "NPCStatAddedPercentageToModifiersOverride": 0,
+            "NPCStatScalingToModifiers": [],
+            "StatusesOverride": 0,
+            "Statuses": [],
+            "OverrideVisibleIcon": false,
+            "StatusDebugMode": false
+        }
+    ],
+    "AddedPreferenceLists": [],
+    "AddedDuties": [],
+    "AddedNPCTags": [],
+    "AddedMaxCarryWeight": {
+        "Active": false,
+        "FloatValue": 0.0
+    },
+    "AddedTradingModifiers": [],
+    "AddedModifyNPCStatsPerTradeValue": [],
+    "AddedCommissionsBp": []
+}

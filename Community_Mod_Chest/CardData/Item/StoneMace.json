@@ -1,0 +1,172 @@
+{
+  "UniqueID": "combatandarmorstonemace",
+  "CardName": {
+    "ParentObjectID": "combatandarmorstonemace",
+    "LocalizationKey": "Combat_And_Armor_StoneMace_CardName",
+    "DefaultText": "Stone Mace"
+  },
+  "CardDescription": {
+    "ParentObjectID": "combatandarmorstonemace",
+    "LocalizationKey": "Combat_And_Armor_StoneMace_CardDescription",
+    "DefaultText": "A stone-headed mace lashed to a stick. Deals heavy blunt damage."
+  },
+  "CardType": 0,
+  "ObjectWeight": 300.0,
+  "TradingValue": 15.0,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "StoneMace",
+  "CardImageWarpType": 3,
+  "CardTagsWarpData": [],
+  "CardTagsWarpType": 3,
+  "EquipmentTags": [],
+  "EquipmentTagsWarpData": [
+    "eTag_Belt"
+  ],
+  "EquipmentTagsWarpType": 3,
+  "InHandWhenEquipped": true,
+  "IsWeapon": true,
+  "WeaponReach": 75.0,
+  "WeaponDamage": { "x": 30.0, "y": 110.0 },
+  "WrestlingDamageBonus": { "x": 0.0, "y": 0.0 },
+  "DamageTypes": [],
+  "DamageTypesWarpData": ["DMG_Blunt"],
+  "DamageTypesWarpType": 3,
+  "WeaponClashStatInfluences": [
+    {
+      "Stat": { "m_FileID": 0, "m_PathID": 0 },
+      "StatWarpData": "cmcSkillMeleeFighting",
+      "StatWarpType": 3,
+      "AddedValue": {
+        "InterpolatedAddedValue": {
+          "Active": true,
+          "InputValueRange": { "x": 0.0, "y": 150.0 },
+          "OutputValueRange": { "x": 0.0, "y": 200.0 },
+          "WhenOutOfRange": 0,
+          "OutOfRangeCustomValue": 0.0
+        },
+        "RandomAddedValue": { "x": 0.0, "y": 0.0 }
+      }
+    }
+  ],
+  "WeaponDamageStatInfluences": [
+    {
+      "Stat": { "m_FileID": 0, "m_PathID": 0 },
+      "StatWarpData": "cmcSkillMeleeFighting",
+      "StatWarpType": 3,
+      "AddedValue": {
+        "InterpolatedAddedValue": {
+          "Active": true,
+          "InputValueRange": { "x": 0.0, "y": 150.0 },
+          "OutputValueRange": { "x": 0.0, "y": 150.0 },
+          "WhenOutOfRange": 0,
+          "OutOfRangeCustomValue": 0.0
+        },
+        "RandomAddedValue": { "x": 0.0, "y": 0.0 }
+      }
+    }
+  ],
+  "WeaponActionStatChanges": [
+    {
+      "Stat": { "m_FileID": 0, "m_PathID": 0 },
+      "StatWarpData": "cmcSkillMeleeFighting",
+      "StatWarpType": 3,
+      "ValueModifier": { "x": 0.5, "y": 0.5 },
+      "RateModifier": { "x": 0.0, "y": 0.0 },
+      "MinValueModifier": { "x": 0.0, "y": 0.0 },
+      "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+      "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+      "ApplyEachTick": false,
+      "InstantModifier": false,
+      "IgnoreNovelty": false,
+      "IsInverse": false
+    }
+  ],
+  "IsArmor": false,
+  "AlwaysUpdate": false,
+  "WhenCreatedSoundsWarpData": ["Stone"],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": { "Active": false },
+  "UsageDurability": {
+    "Active": true,
+    "FloatValue": 80.0,
+    "CardStatName": {
+      "ParentObjectID": "combatandarmorstonemace",
+      "LocalizationKey": "Combat_And_Armor_StoneMace_UsageDurability.CardStatName",
+      "DefaultText": "Durability"
+    },
+    "MaxValue": 80.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 0,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": true,
+    "OnZero": {
+      "ActionDescription": {
+        "ParentObjectID": "combatandarmorstonemace",
+        "LocalizationKey": "Combat_And_Armor_StoneMace_OnZero",
+        "DefaultText": "Stone Mace Broken!"
+      },
+      "OnZeroNotification": 1,
+      "ReceivingCardChanges": { "ModType": 3 }
+    },
+    "HasActionOnFull": false,
+    "CountsForTradingValue": true
+  },
+  "FuelCapacity": { "Active": false },
+  "Progress": { "Active": false },
+  "SpecialDurability1": { "Active": false },
+  "SpecialDurability2": { "Active": false },
+  "SpecialDurability3": { "Active": false },
+  "SpecialDurability4": { "Active": false },
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "combatandarmorstonemace",
+        "LocalizationKey": "Combat_And_Armor_StoneMace_Dismantle_ActionName",
+        "DefaultText": "Dismantle"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "combatandarmorstonemace",
+        "LocalizationKey": "Combat_And_Armor_StoneMace_Dismantle_ActionDescription",
+        "DefaultText": "Break apart the mace to recover materials."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Stone"],
+      "ActionSoundsWarpType": 3,
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "3db4c94184af274409f0d3eb16870f64",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 }
+            },
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "a7384e5147b23a642809451cc4ef24fb",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 }
+            },
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 2, "y": 2 }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": { "ModType": 3 }
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": []
+}

@@ -1,0 +1,18 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_SpecimenPointer_Line",
+        "DefaultText": "As it happens, I've a standing request on the board for nettle leaves, three fresh ones, whenever you've a moment in the forest. Small thing, but my herbarium thanks you all the same."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_SpecimenPointer_Answer_Close",
+                "DefaultText": "I'll keep an eye out."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

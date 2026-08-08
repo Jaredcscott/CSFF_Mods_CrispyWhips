@@ -1,0 +1,111 @@
+{
+    "UniqueID": "comfortwovenwallhanging",
+    "CardName": {
+        "ParentObjectID": "comfortwovenwallhanging",
+        "LocalizationKey": "Comfort_WovenWallHanging_CardName",
+        "DefaultText": "Woven Wall Hanging"
+    },
+    "CardDescription": {
+        "ParentObjectID": "comfortwovenwallhanging",
+        "LocalizationKey": "Comfort_WovenWallHanging_CardDescription",
+        "DefaultText": "A panel of dried rye straw woven into a decorative hanging and dyed with natural pigment. Warm earthy tones make any space feel more like home."
+    },
+    "CardType": 0,
+    "ObjectWeight": 80.0,
+    "TradingValue": 8.0,
+    "MaxStack": 2,
+    "CardImageWarpData": "WovenWallHanging",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [ "tag_Preservable" ],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "Herb"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 192.0,
+        "MaxValue": 192.0,
+        "RatePerDaytimePoint": -1.0,
+        "HidingOptions": 0,
+        "HasActionOnZero": true,
+        "OnZero": {
+            "ActionDescription": {
+                "ParentObjectID": "comfortwovenwallhanging",
+                "LocalizationKey": "Comfort_WovenWallHanging_Weathered",
+                "DefaultText": "The wall hanging has dried out and crumbled away."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "PassiveEffects": [
+        {
+            "EffectName": "Comfort (+8)",
+            "OnlyWhenEquipped": false,
+            "EquippedOnBodyOnly": false,
+            "Conditions": {
+                "NotInBackground": true
+            },
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 8.0,
+                        "y": 8.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ]
+}

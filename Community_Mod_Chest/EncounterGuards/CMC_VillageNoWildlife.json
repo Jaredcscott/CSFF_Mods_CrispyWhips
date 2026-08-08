@@ -1,0 +1,20 @@
+{
+  "Name": "CMC_VillageNoWildlife",
+  "GuardEnvironmentUids": [
+    "cmcEnvVillage",
+    "cmcEnvVillagePath",
+    "cmcEnvVillageHall",
+    "cmcEnvVillageFarm",
+    "cmcEnvHighGrove",
+    "cmcEnvPineTrail",
+    "cmcEnvHuntersCrossing",
+    "cmcEnvDeerMeadow"
+  ],
+  "EncounterUids": [
+    "4ce4b386231d17741aa540b11fd8e832",
+    "d47e145147d460a4c80d739af904fe8a",
+    "e1d6892e60fcc124cb82494be81f2352",
+    "27c2b0c2193750344bf5230e72b11d7c"
+  ],
+  "SuppressChance": 100
+}

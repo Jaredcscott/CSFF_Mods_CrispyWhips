@@ -1,0 +1,38 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_WeaverTalk_QuestOffer_Line",
+        "DefaultText": "If you're passing the farm rows, I've a pattern I've been dying to try, but it wants more flax than my own plot gives up in a season. Bring me a good bundle of dried flax stems and I'll show you something worth the wait."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_QuestOffer_Answer_Accept",
+                "DefaultText": "I'll gather some for you."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatWeaverQuestArmed",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": -1.0, "y": -1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_QuestOffer_Answer_Decline",
+                "DefaultText": "Maybe another time."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

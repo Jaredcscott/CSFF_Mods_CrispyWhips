@@ -1,0 +1,143 @@
+{
+    "ActionModifiers": [],
+    "ActionObjectives": [],
+    "AddedCards": [],
+    "AddedCardsWarpData": [
+        "f8b27d11cd391a341a46c2558f25016b",
+        "4b808ab565a447644a7bd924eb3e3e1f",
+        "fb8f4ceac4b150149a6ccaeace7b9a82",
+        "9b6a1dd5ae3c5574e97cc837d64a2ea9",
+        "a968f3eaffc6b9743b82982b5af2ab8c"
+    ],
+    "AddedCardsWarpType": 3,
+    "AddedStartingHours": 0,
+    "CardsOnBoardObjectives": [],
+    "CharacterPerkPerkGroup": "aacb8df12eedb7b48a9801360ae638c7",
+    "CheckingNotificationDetails": 0,
+    "CompleteOnLose": false,
+    "CompleteOnWin": false,
+    "DebugCompletion": false,
+    "DifficultyRating": -300,
+    "DisplayPriority": 2267.0,
+    "EditorOnly": false,
+    "EquippedCards": [],
+    "EquippedCardsWarpData": [],
+    "EquippedCardsWarpType": 3,
+    "HiddenUntilUnlocked": false,
+    "MoonsCost": 3,
+    "NestedObjectives": [],
+    "NoSafetyMode": false,
+    "NotifyWhenNotChecked": false,
+    "OverrideEnvironment": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "OverrideEquipment": false,
+    "OverrideWeather": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "PassiveStatModifiers": [
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatWarpData": "1cfae8f993bbbce448477637d44b3cb3",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "RateModifier": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false
+        }
+    ],
+    "PerkDescription": {
+        "DefaultText": "Your life before this was one of tending fields and preparing food. Start with turnroot, meadowgrass, and flax seeds, a flint hoe, and a clay bowl, with a head start in Cooking and enhanced foraging aids.",
+        "LocalizationKey": "CharacterTraits_Perk_PeacefulFarmer_PerkDescription",
+        "ParentObjectID": "traits_perk_peaceful_farmer"
+    },
+    "PerkIcon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "PerkIconWarpData": "Hoe_Flint",
+    "PerkIconWarpType": 3,
+    "PerkName": {
+        "DefaultText": "Peaceful Farmer",
+        "LocalizationKey": "CharacterTraits_Perk_PeacefulFarmer_PerkName",
+        "ParentObjectID": "traits_perk_peaceful_farmer"
+    },
+    "PerkUnlockConditions": {
+        "DefaultText": "",
+        "LocalizationKey": "",
+        "ParentObjectID": ""
+    },
+    "PlayedCharacter": [],
+    "RequiredDifficultyScore": {
+        "x": 0,
+        "y": 0
+    },
+    "ResetLockInEditor": false,
+    "StartUnlocked": true,
+    "StartingStatModifiers": [
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatWarpData": "93c4433b9c1640343b87576d355e53b4",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": 50.0,
+                "y": 50.0
+            },
+            "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false
+        }
+    ],
+    "StatsObjectives": [],
+    "SunsCost": 0,
+    "TagsOnBoardObjectives": [],
+    "TimeObjectives": [],
+    "UniqueID": "traits_perk_peaceful_farmer"
+}

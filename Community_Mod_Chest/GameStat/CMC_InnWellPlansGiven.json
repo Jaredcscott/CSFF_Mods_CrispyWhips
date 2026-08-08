@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatInnWellPlansGiven",
+    "GameName": {
+        "LocalizationKey": "CMC_InnWellPlansGiven_StatName",
+        "DefaultText": "The Inn Keeper's Offer"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_InnWellPlansGiven_StatDescription",
+        "DefaultText": "Hidden tracker: 0 = Well Plans not yet offered, 1 = given (claimable exactly once)."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 10.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

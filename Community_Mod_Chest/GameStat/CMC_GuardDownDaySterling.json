@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatGuardDownDaySterling",
+    "GameName": {
+        "LocalizationKey": "CMC_GuardDownDaySterling_StatName",
+        "DefaultText": "Captain Reeve Sterling Down Since"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_GuardDownDaySterling_StatDescription",
+        "DefaultText": "Hidden respawn timer: the in-game day (+1, so 0 means 'not down') on which the player bested Captain Reeve Sterling. Cleared one season later, which also clears the guard's own CMC_GuardDowned marker and lifts their respawn suppression. Player-side rather than an NPCStat so it survives the guard's card being removed entirely."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 999999.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

@@ -1,0 +1,568 @@
+{
+    "UniqueID": "cmcInnKeeperAgent",
+    "AgentName": {
+        "LocalizationKey": "CMC_InnKeeper_AgentName",
+        "DefaultText": "Inn Keeper"
+    },
+    "AgentDescription": {
+        "LocalizationKey": "CMC_InnKeeper_AgentDescription",
+        "DefaultText": "Keeps the Village Inn running: meals, a bed, and a friendly ear."
+    },
+    "AgentImageWarpData": "InnKeeper",
+    "AgentImageWarpType": 3,
+    "MaxCarryWeight": 100000.0,
+    "WeightCategoryWarpData": "Light",
+    "WeightCategoryWarpType": 3,
+    "AgentTags": [],
+    "Interactions": [
+        {
+            "ButtonName": {
+                "LocalizationKey": "CMC_InnKeeper_Talk",
+                "DefaultText": "Talk"
+            },
+            "Conditions": {},
+            "ButtonType": 0,
+            "DialogWarpData": "CMC_InnKeeperTalk",
+            "DialogWarpType": 3
+        }
+    ],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_InnKeeper_Chat_ActionName",
+                "DefaultText": "Chat"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_InnKeeper_Chat_ActionDescription",
+                "DefaultText": "Share a few words with the Inn Keeper over a mug of something warm."
+            },
+            "DaytimeCost": 4,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {"ModType": 0},
+            "StatModifications": [
+                {"StatWarpData": "3dc9b7924c4bec142af1c255f6df235d", "StatWarpType": 3, "ValueModifier": {"x": -20.0, "y": -20.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "04194353fd841a94ebff8b69af66c8d0", "StatWarpType": 3, "ValueModifier": {"x": 30.0, "y": 30.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "ad5665dcf2e21ed49a5817b1b7005b2e", "StatWarpType": 3, "ValueModifier": {"x": -10.0, "y": -10.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff", "StatWarpType": 3, "ValueModifier": {"x": 15.0, "y": 15.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e", "StatWarpType": 3, "ValueModifier": {"x": 15.0, "y": 15.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "59e9ebfecfacb154b8436e93f094b316", "StatWarpType": 3, "ValueModifier": {"x": 2.0, "y": 2.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78", "StatWarpType": 3, "ValueModifier": {"x": -10.0, "y": -10.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "cmcStatInnFriendship", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+            ]
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_InnKeeper_Regular_ActionName",
+                "DefaultText": "Feel at Home"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_InnKeeper_Regular_ActionDescription",
+                "DefaultText": "\"You know,\" the Inn Keeper says, \"you're not a stranger here anymore. This is your table, whenever you need it.\""
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {"ModType": 0},
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatInnFriendship", "StatWarpType": 3, "TriggerRange": {"x": 15.0, "y": 9999.0}},
+                {"StatWarpData": "cmcStatInnRegularGranted", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.5}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "StatModifications": [
+                {"StatWarpData": "cmcStatInnRegularGranted", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "AddedInRunPerksWarpData": ["cmcperkinnregular"],
+            "AddedInRunPerksWarpType": 3,
+            "ProducedCards": []
+        }
+    ],
+    "DragAndDropActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_InnKeeper_Gift_ActionName",
+                "DefaultText": "Gift Wild Garlic"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_InnKeeper_Gift_ActionDescription",
+                "DefaultText": "Hand over a bundle of wild garlic from your own foraging. The Inn Keeper's eyes light up."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatInnGiftGiven", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.5}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatInnGiftGiven", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "cmcStatInnFriendship", "StatWarpType": 3, "ValueModifier": {"x": 2.0, "y": 2.0}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "BlueprintsFullUnlockWarpData": ["bpcmcmarketstall"],
+            "BlueprintsFullUnlockWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["WildGarlicFresh"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_InnKeeper_ErrandDeliver_ActionName",
+                "DefaultText": "Deliver Dried Wild Garlic"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_InnKeeper_ErrandDeliver_ActionDescription",
+                "DefaultText": "Hand over the dried wild garlic the Inn Keeper asked for."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatInnErrandState", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+                {"StatWarpData": "cmcStatInnQuestChain", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatInnErrandState", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "cmcStatInnFriendship", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "cmcStatInnQuestChain", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "BlueprintsFullUnlockWarpData": ["comfortbpheatherwreath"],
+            "BlueprintsFullUnlockWarpType": 3,
+            "ProducedCards": [
+                {
+                    "CollectionName": "Inn errand reward",
+                    "DropCardsInsideInventory": false,
+                    "DroppedCards": [
+                        {"DroppedCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa", "DroppedCardWarpType": 3, "Quantity": {"x": 3, "y": 3}},
+                        {"DroppedCardWarpData": "3772ac4d09c1a034e800fdd229a5a7e4", "DroppedCardWarpType": 3, "Quantity": {"x": 2, "y": 2}}
+                    ]
+                }
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["faed37abeaeec544b9c8f770b5fadafb"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_InnKeeper_ErrandDeliverRepeat_ActionName",
+                "DefaultText": "Deliver Dried Wild Garlic"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_InnKeeper_ErrandDeliverRepeat_ActionDescription",
+                "DefaultText": "Hand over the dried wild garlic the Inn Keeper asked for."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatInnErrandState", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+                {"StatWarpData": "cmcStatInnQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 999999.0}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatInnErrandState", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "cmcStatInnFriendship", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Inn errand reward",
+                    "DropCardsInsideInventory": false,
+                    "DroppedCards": [
+                        {"DroppedCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa", "DroppedCardWarpType": 3, "Quantity": {"x": 3, "y": 3}},
+                        {"DroppedCardWarpData": "3772ac4d09c1a034e800fdd229a5a7e4", "DroppedCardWarpType": 3, "Quantity": {"x": 2, "y": 2}}
+                    ]
+                }
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["faed37abeaeec544b9c8f770b5fadafb"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_InnKeeper_GiveStew_ActionName",
+                "DefaultText": "Give Hot Stew"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_InnKeeper_GiveStew_ActionDescription",
+                "DefaultText": "Hand over a pot of hot cooked stew. The Inn Keeper ladles out a bowl for herself before it even reaches the counter."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatInnQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+                {"StatWarpData": "cmcStatInnQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatInnQuestArmed", "StatWarpType": 3, "ValueModifier": {"x": 0.5, "y": 0.5}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["425259cb06b869d45be2e7f1b5b54aff"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_InnKeeper_GiveAle_ActionName",
+                "DefaultText": "Give Ale"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_InnKeeper_GiveAle_ActionDescription",
+                "DefaultText": "Hand over a batch of ale for brew night. The Inn Keeper sniffs the cask, satisfied."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatInnQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 2.5}},
+                {"StatWarpData": "cmcStatInnQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatInnQuestArmed", "StatWarpType": 3, "ValueModifier": {"x": 0.5, "y": 0.5}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["f513b3c4572e3e44c92f9d4db6439b1d", "87c732418d2f30f4bba36c178d02f42a"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_InnKeeper_GiveWine_ActionName",
+                "DefaultText": "Give Wine"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_InnKeeper_GiveWine_ActionDescription",
+                "DefaultText": "Hand over a bottle for the top shelf. The Inn Keeper holds it up to the firelight, admiring the color."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatInnQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 2.5, "y": 3.5}},
+                {"StatWarpData": "cmcStatInnQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatInnQuestArmed", "StatWarpType": 3, "ValueModifier": {"x": 0.5, "y": 0.5}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["579179d1409cc144a9dab506e3291544", "42c8fbb1a0702a14c9047064661bda63", "fecdce8ba80aa834ea398b72fb26ea06"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_InnKeeper_GiveDriedSpringberries_ActionName",
+                "DefaultText": "Give Dried Springberries"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_InnKeeper_GiveDriedSpringberries_ActionDescription",
+                "DefaultText": "Hand over dried springberries for the winter pantry. The Inn Keeper stacks them with the rest of the stores."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatInnQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 3.5, "y": 4.5}},
+                {"StatWarpData": "cmcStatInnQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatInnQuestArmed", "StatWarpType": 3, "ValueModifier": {"x": 0.5, "y": 0.5}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["0f14d75156adbeb42b1e7616414c236b", "9955af347ce41af4c9e78ee97f008182"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_InnKeeper_GiveFlour_ActionName",
+                "DefaultText": "Give Flour"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_InnKeeper_GiveFlour_ActionDescription",
+                "DefaultText": "Hand over milled flour for baking day. The Inn Keeper dusts a hand through it, testing the grind."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatMillerMoveIn", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 999999.0}},
+                {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+                {"StatWarpData": "cmcStatInterlockS3", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["7900a60c205568640a887f30cc6ff8f9", "730e96f4b2a7540448604cd0c1644e97"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_InnKeeper_GiveHerbPaste_ActionName",
+                "DefaultText": "Give Herb Paste"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_InnKeeper_GiveHerbPaste_ActionDescription",
+                "DefaultText": "Hand over herb paste for the morning-after remedy. The Inn Keeper tucks it behind the bar with a knowing look."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatApothQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 20.0}},
+                {"StatWarpData": "cmcStatInterlockS5", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["potterysculptureherbpaste"],
+                "TriggerCardsWarpType": 3
+            }
+        }
+    ],
+    "AgentDuties": [],
+    "AgentActions": [
+        {
+            "ActionID": "InnKeeperMorningRestock",
+            "ActionLocalizedName": {
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "InnKeeperMorningRestock"
+            },
+            "RepeatOptions": 3,
+            "Conditions": {},
+            "DroppedCards": [
+                {
+                    "CollectionName": "Inn pantry restock",
+                    "DroppedCards": [
+                        {
+                            "DroppedCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 2}
+                        },
+                        {
+                            "DroppedCardWarpData": "3772ac4d09c1a034e800fdd229a5a7e4",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 2}
+                        },
+                        {
+                            "DroppedCardWarpData": "e292e8faac1041f4ab1da9bcf900e751",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 0, "y": 1}
+                        },
+                        {
+                            "DroppedCardWarpData": "faed37abeaeec544b9c8f770b5fadafb",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 0, "y": 1}
+                        }
+                    ],
+                    "DropCardsInsideInventory": true
+                }
+            ]
+        },
+        {
+            "ActionID": "InnKeeperSeasonalRestock_Spring",
+            "ActionLocalizedName": {
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "InnKeeperSeasonalRestock_Spring"
+            },
+            "RepeatOptions": 3,
+            "Conditions": {},
+            "DroppedCards": [
+                {
+                    "CollectionName": "Inn pantry seasonal restock - Spring",
+                    "DroppedCards": [
+                        {"DroppedCardWarpData": "23a36a84fde77434982070864b874f8e", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 2}},
+                        {"DroppedCardWarpData": "0f14d75156adbeb42b1e7616414c236b", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 2}}
+                    ],
+                    "DropCardsInsideInventory": true
+                }
+            ]
+        },
+        {
+            "ActionID": "InnKeeperSeasonalRestock_Summer",
+            "ActionLocalizedName": {
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "InnKeeperSeasonalRestock_Summer"
+            },
+            "RepeatOptions": 3,
+            "Conditions": {},
+            "DroppedCards": [
+                {
+                    "CollectionName": "Inn pantry seasonal restock - Summer",
+                    "DroppedCards": [
+                        {"DroppedCardWarpData": "d615853632d85db458d14016156b1a82", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 2}},
+                        {"DroppedCardWarpData": "faed37abeaeec544b9c8f770b5fadafb", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 1}}
+                    ],
+                    "DropCardsInsideInventory": true
+                }
+            ]
+        },
+        {
+            "ActionID": "InnKeeperSeasonalRestock_Autumn",
+            "ActionLocalizedName": {
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "InnKeeperSeasonalRestock_Autumn"
+            },
+            "RepeatOptions": 3,
+            "Conditions": {},
+            "DroppedCards": [
+                {
+                    "CollectionName": "Inn pantry seasonal restock - Autumn",
+                    "DroppedCards": [
+                        {"DroppedCardWarpData": "640732a090b08814f8f14310d4f4ee77", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 2}},
+                        {"DroppedCardWarpData": "9955af347ce41af4c9e78ee97f008182", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 2}}
+                    ],
+                    "DropCardsInsideInventory": true
+                }
+            ]
+        },
+        {
+            "ActionID": "InnKeeperSeasonalRestock_Winter",
+            "ActionLocalizedName": {
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "InnKeeperSeasonalRestock_Winter"
+            },
+            "RepeatOptions": 3,
+            "Conditions": {},
+            "DroppedCards": [
+                {
+                    "CollectionName": "Inn pantry seasonal restock - Winter",
+                    "DroppedCards": [
+                        {"DroppedCardWarpData": "2f6b2c6d9b63b3b45bc9e92197161c67", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 1}},
+                        {"DroppedCardWarpData": "1e3f5517c9203e74b9c76a7bae1a3920", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 2}}
+                    ],
+                    "DropCardsInsideInventory": true
+                }
+            ]
+        }
+    ],
+    "CannotTrade": false,
+    "TradingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}}
+        ]
+    },
+    "StartingInventory": [
+        {
+            "ItemWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
+            "ItemWarpType": 3,
+            "Quantity": {"x": 4, "y": 6}
+        },
+        {
+            "ItemWarpData": "3772ac4d09c1a034e800fdd229a5a7e4",
+            "ItemWarpType": 3,
+            "Quantity": {"x": 2, "y": 3}
+        },
+        {
+            "ItemWarpData": "e292e8faac1041f4ab1da9bcf900e751",
+            "ItemWarpType": 3,
+            "Quantity": {"x": 1, "y": 2}
+        },
+        {
+            "ItemWarpData": "f4be79e87ba98db41a9c9e31bb76c33d",
+            "ItemWarpType": 3,
+            "Quantity": {"x": 1, "y": 2}
+        },
+        {
+            "ItemWarpData": "23a36a84fde77434982070864b874f8e",
+            "ItemWarpType": 3,
+            "Quantity": {"x": 1, "y": 2}
+        },
+        {
+            "ItemWarpData": "789fdfe66df2f2c419601b1f8b8a9fdf",
+            "ItemWarpType": 3,
+            "Quantity": {"x": 1, "y": 1}
+        },
+        {
+            "ItemWarpData": "0f14d75156adbeb42b1e7616414c236b",
+            "ItemWarpType": 3,
+            "Quantity": {"x": 1, "y": 2}
+        },
+        {
+            "ItemWarpData": "faed37abeaeec544b9c8f770b5fadafb",
+            "ItemWarpType": 3,
+            "Quantity": {"x": 1, "y": 2}
+        },
+        {
+            "ItemWarpData": "b941f67e79be03a4f9e300a0e2e9116d",
+            "ItemWarpType": 3,
+            "Quantity": {"x": 1, "y": 1}
+        },
+        {
+            "ItemWarpData": "1f4a396a0df48af45b9bd9027a08dd3a",
+            "ItemWarpType": 3,
+            "Quantity": {"x": 1, "y": 2}
+        }
+    ],
+    "TradingModifiers": [
+        {
+            "ForTradingDirection": 2,
+            "ModifierMode": 1,
+            "SimpleModifier": 1.5,
+            "GlobalStatModifiers": [
+                {
+                    "StatWarpData": "cmcStatInnFriendship",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 20.0},
+                        "OutputValueRange": {"x": 0.0, "y": -0.3},
+                        "WhenOutOfRange": 1
+                    }
+                }
+            ]
+        },
+        {
+            "ForTradingDirection": 1,
+            "ModifierMode": 1,
+            "SimpleModifier": 0.5,
+            "GlobalStatModifiers": [
+                {
+                    "StatWarpData": "cmcStatInnFriendship",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {"x": 0.0, "y": 20.0},
+                        "OutputValueRange": {"x": 0.0, "y": 0.15},
+                        "WhenOutOfRange": 1
+                    }
+                }
+            ]
+        }
+    ]
+}

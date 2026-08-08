@@ -1,0 +1,212 @@
+{
+    "UniqueID": "combatandarmorwoodenshield",
+    "CardName": {
+        "ParentObjectID": "combatandarmorwoodenshield",
+        "LocalizationKey": "Combat_And_Armor_WoodenShield_CardName",
+        "DefaultText": "Wooden Shield"
+    },
+    "CardDescription": {
+        "ParentObjectID": "combatandarmorwoodenshield",
+        "LocalizationKey": "Combat_And_Armor_WoodenShield_CardDescription",
+        "DefaultText": "Planks lashed together with leather straps and twine. A crude but effective shield worn on the forearm.\n\n<b>MUST BE EQUIPPED TO WORK</b>"
+    },
+    "CardType": 0,
+    "ObjectWeight": 600.0,
+    "WeightReductionWhenEquipped": -600.0,
+    "TradingValue": 20.0,
+    "CardImageWarpData": "WoodenShield",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [
+        "tag_Clothing"
+    ],
+    "CardTagsWarpType": 3,
+    "EquipmentTagsWarpData": [
+        "eTag_Bracers"
+    ],
+    "EquipmentTagsWarpType": 3,
+    "IsArmor": true,
+    "AffectStatsOnlyWhenEquipped": true,
+    "ArmorValues": {
+        "TorsoArmor": 8.0,
+        "LArmArmor": 8.0,
+        "RArmArmor": 8.0
+    },
+    "AlwaysUpdate": true,
+    "WhenCreatedSoundsWarpData": [
+        "Wood"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 80.0,
+        "CardStatName": {
+            "ParentObjectID": "combatandarmorwoodenshield",
+            "LocalizationKey": "Combat_And_Armor_WoodenShield_UsageDurability.CardStatName",
+            "DefaultText": "Durability"
+        },
+        "MaxValue": 80.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 1,
+        "TextDisplay": 1,
+        "NumberPrecision": 0,
+        "HasActionOnZero": true,
+        "OnZero": {
+            "ActionDescription": {
+                "ParentObjectID": "combatandarmorwoodenshield",
+                "LocalizationKey": "Combat_And_Armor_WoodenShield_OnZero",
+                "DefaultText": "Shield Destroyed!"
+            },
+            "OnZeroNotification": 1,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        },
+        "HasActionOnFull": false,
+        "CountsForTradingValue": true
+    },
+    "ArmorValueDurabilitiesMultiplier": [
+        {
+            "InputDurability": 64,
+            "Value": {
+                "Active": true,
+                "InputValueRange": {
+                    "x": 0.0,
+                    "y": 100.0
+                },
+                "OutputValueRange": {
+                    "x": 0.5,
+                    "y": 1.2
+                },
+                "WhenOutOfRange": 0,
+                "OutOfRangeCustomValue": 0.0
+            }
+        }
+    ],
+    "PassiveEffects": [
+        {
+            "EffectName": "Armor (+8) scaled by durability",
+            "OnlyWhenEquipped": true,
+            "EquippedOnBodyOnly": true,
+            "Conditions": {},
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "b9013a3e77a421b4bb7e4a8293e75382",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 8.0,
+                        "y": 8.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectScalesWithDurabilities": {
+                "Active": true,
+                "Inputs": [
+                    {
+                        "Durability": 64,
+                        "Range": {
+                            "x": 0.0,
+                            "y": 100.0
+                        }
+                    }
+                ],
+                "EffectScalingOutput": {
+                    "x": 0.5,
+                    "y": 1.2
+                }
+            }
+        }
+    ],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "combatandarmorwoodenshield",
+                "LocalizationKey": "Combat_And_Armor_WoodenShield_Dismantle_ActionName",
+                "DefaultText": "Dismantle"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "combatandarmorwoodenshield",
+                "LocalizationKey": "Combat_And_Armor_WoodenShield_Dismantle_ActionDescription",
+                "DefaultText": "Break apart the shield to recover materials."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSoundsWarpData": [
+                "Wood"
+            ],
+            "ActionSoundsWarpType": 3,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 3,
+                                "y": 3
+                            }
+                        },
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "7750f89a63e418a41b377b48e88646f1",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        },
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 6,
+                                "y": 6
+                            }
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ]
+}

@@ -1,0 +1,91 @@
+{
+  "UniqueID": "combatandarmorbpquiltedvest",
+  "CardName": {
+    "ParentObjectID": "combatandarmorbpquiltedvest",
+    "LocalizationKey": "Combat_And_Armor_Bp_QuiltedVest_CardName",
+    "DefaultText": "Quilted Vest"
+  },
+  "CardDescription": {
+    "ParentObjectID": "combatandarmorbpquiltedvest",
+    "LocalizationKey": "Combat_And_Armor_Bp_QuiltedVest_CardDescription",
+    "DefaultText": "Stitch layered cloth into a protective vest."
+  },
+  "CardType": 7,
+  "UnlockConditionsDesc": {
+    "ParentObjectID": "combatandarmorbpquiltedvest",
+    "LocalizationKey": "Combat_And_Armor_Bp_QuiltedVest_UnlockConditionsDesc",
+    "DefaultText": "The Weaver and Professor's winter fieldwork"
+  },
+  "BuildingStatConditions": [],
+  "StartUnlocked": false,
+  "CardsOnBoard": [],
+  "TagsOnBoard": [],
+  "StatValues": [
+    {
+      "ObjectiveName": "InterlockS4Done",
+      "CompletionWeight": 1,
+      "StatCondition": {
+        "TriggerRange": { "x": 0.5, "y": 20.0 },
+        "StatWarpData": "cmcStatInterlockS4",
+        "StatWarpType": 3
+      },
+      "ConstantlyChecking": false
+    }
+  ],
+  "BlueprintStages": [
+    {
+      "CannotRevertToThisStage": false,
+      "RequiredElements": [
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 3,
+          "DontSpend": false,
+          "RequiredCardWarpData": "35d6f2a46f2bbc84bbe33e917991c71d",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 4,
+          "DontSpend": false,
+          "RequiredCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 1,
+          "DontSpend": true,
+          "EffectOnIngredient": {
+            "ModType": 1,
+            "UsageChange": { "x": -10.0, "y": -10.0 }
+          },
+          "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredTabGroupWarpData": "GpTag_Needle",
+          "RequiredTabGroupWarpType": 3
+        }
+      ],
+      "StepActionTags": [],
+      "StepActionTagsWarpData": [],
+      "StepActionTagsWarpType": 3
+    }
+  ],
+  "BuildingDaytimeCost": 6,
+  "DeconstructDaytimeCost": 2,
+  "BlueprintResult": [
+    {
+      "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+      "Quantity": { "x": 1, "y": 1 },
+      "DroppedCardWarpData": "combatandarmorquiltedvest",
+      "DroppedCardWarpType": 3
+    }
+  ],
+  "BlueprintStatModifications": [],
+  "WhenCreatedSoundsWarpData": ["Leather"],
+  "WhenCreatedSoundsWarpType": 3,
+  "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+  "BlueprintActionTagsWarpType": 3,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "QuiltedVest",
+  "CardImageWarpType": 3,
+  "BlueprintUnlockTicksCost": 16.0,
+  "ResearchedNotification": 0
+}

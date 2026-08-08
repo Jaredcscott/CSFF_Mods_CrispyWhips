@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatProfQuestChain",
+    "GameName": {
+        "LocalizationKey": "CMC_ProfQuestChain_StatName",
+        "DefaultText": "Professor's Quest Chain"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_ProfQuestChain_StatDescription",
+        "DefaultText": "Hidden tracker: how many of the Professor's main-chain quests have been completed. Quest 1 (specimen commission) advances this via its own repeating-commission mechanism, one-shot; quests 2-4 use the offer/armed flow like the other villagers."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 20.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

@@ -1,0 +1,32 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatInnStoryIndex", "StatWarpType": 3, "TriggerRange": {"x": 3.5, "y": 4.5}},
+            {"StatWarpData": "cmcStatInnStoryStep", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_Miller_1_Line",
+        "DefaultText": "The miller's a proud man about that wheel of his, always has been, and one autumn a traveling grain merchant made the mistake of saying so within earshot. Merchant claimed his own family mill back wherever he hailed from could grind a sack of grain to fine flour faster than any wheel in this whole forest, and the miller near dropped his pipe hearing that. Wager was struck right there in the square before either of them thought better of it: a full cask of the inn's best cider against the merchant's finest travel cloak, first to grind a sack to proper baking flour wins outright. Half the village turned up to watch, more for the spectacle of two stubborn men than any real interest in flour, and the miller wouldn't let anyone near his wheel to help, said a fair contest needed a fair hand, his own."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Miller_1_Answer_GoOn",
+                "DefaultText": "So what happened?"
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnStoryStep", "StatWarpType": 3, "ValueModifier": {"x": 2.0, "y": 2.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_InnKeeperTalk_Miller_3",
+                "NextLineWarpType": 3
+            }
+        }
+    ]
+}

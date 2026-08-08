@@ -1,0 +1,18 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_MillerTalk_Village_Line",
+        "DefaultText": "It's young yet, but it has good bones: a well, honest neighbors, and now a roof of my own. A place worth grinding for. You built a piece of that, you know."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_Village_Answer_Bye",
+                "DefaultText": "Glad to have you here."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

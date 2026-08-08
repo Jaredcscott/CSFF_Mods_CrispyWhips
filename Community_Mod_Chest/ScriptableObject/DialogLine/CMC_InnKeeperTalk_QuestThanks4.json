@@ -1,0 +1,44 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatInnQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 2.5, "y": 3.5}},
+            {"StatWarpData": "cmcStatInnQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.25, "y": 0.75}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_QuestThanks4_Line",
+        "DefaultText": "Now that's a top-shelf pour if I ever saw one, the kind I'll be saving for someone's wedding toast or the day the Village Hall finally got its roof. Here's a painted vase to keep it in until the right occasion comes along, and around here, one always does sooner or later. You've got a good eye for quality, I'll say that for you."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_QuestThanks4_Answer_Glad",
+                "DefaultText": "Save me a glass when it does."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatInnQuestChain",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": 1.0, "y": 1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    },
+                    {
+                        "StatWarpData": "cmcStatInnQuestArmed",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": -0.5, "y": -0.5 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ],
+                "BlueprintsFullUnlockWarpData": ["potterysculpturebppaintedvase"],
+                "BlueprintsFullUnlockWarpType": 3
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

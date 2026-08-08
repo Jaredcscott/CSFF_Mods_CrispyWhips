@@ -1,0 +1,108 @@
+{
+    "UniqueID": "comfortbpcopperbedframe",
+    "CardName": {
+        "ParentObjectID": "comfortbpcopperbedframe",
+        "LocalizationKey": "Comfort_Bp_CopperBedFrame_CardName",
+        "DefaultText": "Copper Bed Frame"
+    },
+    "CardDescription": {
+        "ParentObjectID": "comfortbpcopperbedframe",
+        "LocalizationKey": "Comfort_Bp_CopperBedFrame_CardDescription",
+        "DefaultText": "Build a bed frame from wood planks braced with hammered copper sheet joints. Requires the Copper Sheet blueprint (Advanced Copper Tools)."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "comfortbpcopperbedframe",
+        "LocalizationKey": "Comfort_Bp_CopperBedFrame_UnlockConditionsDesc",
+        "DefaultText": "Earn the Inn Keeper's friendship (30) and a Copper Sheet (Advanced Copper Tools)"
+    },
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasMetalSheet",
+            "CompletionWeight": 1,
+            "Card": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyIfEquipped": false,
+            "CardWarpData": "advanced_copper_tools_metal_sheet",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [
+        {
+            "ObjectiveName": "InnFriendshipAtLeast30",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "TriggerRange": { "x": 30.0, "y": 1000000000.0 },
+                "StatWarpData": "cmcStatInnFriendship",
+                "StatWarpType": 3
+            },
+            "ConstantlyChecking": false
+        }
+    ],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 3,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "advanced_copper_tools_metal_sheet",
+                    "RequiredCardWarpType": 3,
+                    "Special4": { "Active": true, "FloatValue": 100.0, "MaxValue": 100.0 }
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 6,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "692afc638c39e32428629da58f56136a",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "UsageChange": { "x": -8.0, "y": -8.0 }
+                    },
+                    "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredTabGroupWarpData": "GpTag_HammeringToolGeneral",
+                    "RequiredTabGroupWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 6,
+    "DeconstructDaytimeCost": 2,
+    "BlueprintResult": [
+        {
+            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": { "x": 1, "y": 1 },
+            "DroppedCardWarpData": "comfortcopperbedframe",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": ["Wood"],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImageWarpData": "CopperBedFrame",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 20.0,
+    "ResearchedNotification": 0
+}

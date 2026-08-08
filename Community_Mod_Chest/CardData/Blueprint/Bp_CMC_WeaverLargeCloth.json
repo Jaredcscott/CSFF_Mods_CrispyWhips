@@ -1,0 +1,64 @@
+{
+    "UniqueID": "BpCMCWeaverLargeCloth",
+    "CardName": {
+        "ParentObjectID": "BpCMCWeaverLargeCloth",
+        "LocalizationKey": "Bp_CMC_WeaverLargeCloth_CardName",
+        "DefaultText": "Weave Large Cloth"
+    },
+    "CardDescription": {
+        "ParentObjectID": "BpCMCWeaverLargeCloth",
+        "LocalizationKey": "Bp_CMC_WeaverLargeCloth_CardDescription",
+        "DefaultText": "The Weaver works fiber straight into large cloth on the loom for less material than working it alone, for a fee in copper."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "BpCMCWeaverLargeCloth",
+        "LocalizationKey": "Bp_CMC_WeaverLargeCloth_UnlockConditionsDesc",
+        "DefaultText": "Available at the Weaver's Cottage"
+    },
+    "StartUnlocked": true,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 27,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "b8885e78517570b4293c573871625e11",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 3,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 12,
+    "DeconstructDaytimeCost": 0,
+    "NeedsRoomInLocationToSpawn": false,
+    "BlueprintResult": [
+        {
+            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": { "x": 1, "y": 1 },
+            "DroppedCardWarpData": "3e94716876eae304787efa2ae0b43711",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": ["HandAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImageWarpData": "Cloth_Large",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 0.0,
+    "ResearchedNotification": 0
+}

@@ -1,0 +1,64 @@
+{
+    "UniqueID": "BpCMCMillerPlanks",
+    "CardName": {
+        "ParentObjectID": "BpCMCMillerPlanks",
+        "LocalizationKey": "Bp_CMC_MillerPlanks_CardName",
+        "DefaultText": "Mill Logs into Planks"
+    },
+    "CardDescription": {
+        "ParentObjectID": "BpCMCMillerPlanks",
+        "LocalizationKey": "Bp_CMC_MillerPlanks_CardDescription",
+        "DefaultText": "The Miller saws 3 logs' worth of planks (24 Plank) for a small fee in copper."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "BpCMCMillerPlanks",
+        "LocalizationKey": "Bp_CMC_MillerPlanks_UnlockConditionsDesc",
+        "DefaultText": "Available at the Miller's Cottage"
+    },
+    "StartUnlocked": true,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 3,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "0ab556ab6af1efc47a2cba5cdf4ace04",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 4,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 4,
+    "DeconstructDaytimeCost": 0,
+    "NeedsRoomInLocationToSpawn": false,
+    "BlueprintResult": [
+        {
+            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": { "x": 24, "y": 24 },
+            "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": ["HandAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImageWarpData": "Plank",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 0.0,
+    "ResearchedNotification": 0
+}

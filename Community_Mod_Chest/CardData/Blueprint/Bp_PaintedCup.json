@@ -1,0 +1,99 @@
+{
+    "UniqueID": "potterysculpturebppaintedcup",
+    "CardName": {
+        "ParentObjectID": "potterysculpturebppaintedcup",
+        "LocalizationKey": "Pottery_PaintedCup_Bp_CardName",
+        "DefaultText": "Painted Clay Cup"
+    },
+    "CardDescription": {
+        "ParentObjectID": "potterysculpturebppaintedcup",
+        "LocalizationKey": "Pottery_PaintedCup_Bp_CardDescription",
+        "DefaultText": "Paint designs on a small clay bowl to create a decorative drinking cup."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "potterysculpturebppaintedcup",
+        "LocalizationKey": "Pottery_PaintedCup_Bp_UnlockConditionsDesc",
+        "DefaultText": "Bring the Inn Keeper a beer or ale for brew night"
+    },
+    "StartUnlocked": false,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [
+        {
+            "ObjectiveName": "InnQuestChainAtLeast2",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "TriggerRange": { "x": 1.5, "y": 20.0 },
+                "StatWarpData": "cmcStatInnQuestChain",
+                "StatWarpType": 3
+            },
+            "ConstantlyChecking": false
+        }
+    ],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredCardWarpData": "potterysculpturepigment",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "RequiredLiquidContent": {
+                        "IsActive": true,
+                        "RequiredLiquid": { "m_FileID": 0, "m_PathID": 0 },
+                        "RequiredLiquidWarpData": "425259cb06b869d45be2e7f1b5b54aff",
+                        "RequiredLiquidWarpType": 3,
+                        "RequiredGroup": { "m_FileID": 0, "m_PathID": 0 },
+                        "RequiredQuantity": { "x": 210.0, "y": 300.0 }
+                    },
+                    "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+                    "RequiredCardWarpType": 3,
+                    "EffectOnIngredient": {
+                        "ModType": 0,
+                        "ModifyLiquid": true,
+                        "LiquidQuantityChange": { "x": -300.0, "y": -300.0 }
+                    }
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 4,
+    "DeconstructDaytimeCost": 0,
+    "BlueprintResult": [
+        {
+            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": { "x": 1, "y": 1 },
+            "DroppedCardWarpData": "potterysculpturepaintedcup",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction", "PotteryActionMinor"],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+    "CardImageWarpData": "PaintedClayCup",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 8.0,
+    "ResearchedNotification": 0
+}

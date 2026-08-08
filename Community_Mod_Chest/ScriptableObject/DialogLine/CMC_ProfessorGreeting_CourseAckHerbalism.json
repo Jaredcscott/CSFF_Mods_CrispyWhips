@@ -1,0 +1,21 @@
+{
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_CourseAckHerbalism_Line",
+        "DefaultText": "Herbalism, passed! That's the course I'm proudest to teach, truth be told, plants don't lecture back and neither do the students who love them. You've earned the plans for a proper apothecary's cabin now, and the knowledge to mix a real healing draught rather than just crushing leaves and hoping. Go build something with it. The forest's given you enough of itself; it's time you gave a little back."
+    },
+    "ActionToPerform": {
+        "NPCStatModifications": [
+            {"TargetStatWarpData": "cmcStatProfCourseAckHerbalism", "TargetStatWarpType": 3, "UseAssociatedAgent": true, "ValueChange": {"x": 1.0, "y": 1.0}},
+            {"TargetStatWarpData": "cmcStatProfessorTrust", "TargetStatWarpType": 3, "UseAssociatedAgent": true, "ValueChange": {"x": 5.0, "y": 5.0}}
+        ]
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Answer_Ok",
+                "DefaultText": "Thank you, Professor."
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

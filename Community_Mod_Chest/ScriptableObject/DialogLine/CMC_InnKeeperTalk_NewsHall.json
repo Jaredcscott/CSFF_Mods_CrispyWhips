@@ -1,0 +1,29 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatChronicleVillageHallDay", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1000000000.0}},
+            {"StatWarpData": "cmcStatInnHallRemarked", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.5}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_NewsHall_Line",
+        "DefaultText": "We've got ourselves a Village Hall now, notice board and all. Half the village crowded round it the first morning just to watch the paint dry, myself included, I'll admit. My father used to say a settlement isn't really a village until it has somewhere to argue about its own business out loud instead of over ale at my bar. Suppose that makes us official now."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_NewsHall_Answer",
+                "DefaultText": "Your bar's argument monopoly is over, then."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnHallRemarked", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false},
+                    {"StatWarpData": "cmcStatInnFriendship", "StatWarpType": 3, "ValueModifier": {"x": 3.0, "y": 3.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

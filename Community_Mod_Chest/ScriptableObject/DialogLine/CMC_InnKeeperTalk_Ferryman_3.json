@@ -1,0 +1,40 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatInnStoryIndex", "StatWarpType": 3, "TriggerRange": {"x": 4.5, "y": 5.5}},
+            {"StatWarpData": "cmcStatInnStoryStep", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 2.5}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_Ferryman_3_Line",
+        "DefaultText": "A trapper I knew swore he saw a lantern bobbing low over the water one autumn night, right where the old landing used to stand before the river shifted its course. Called out to it, thinking it a traveler in trouble, and the light simply drifted off downstream without a word of answer, faster than any current should carry it. He didn't go back to that stretch of river again, not for trapping, not for anything, and truth be told I don't think anyone else rightly wants to either. Some tales are better left as tales, a light on the water, an old creak of oarlocks, nothing more than that so long as you keep your distance and mind your own crossing. All the same, if you ever find yourself down by that old landing after dark, I'd thank you to walk the long way round instead, just to be safe."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Ferryman_4_Answer_Thanks",
+                "DefaultText": "I'll take the long way round, just in case."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnStoryStep", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {"NextStep": 2}
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Ferryman_4_Answer_Wry",
+                "DefaultText": "Maybe he just wants exact fare."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnStoryStep", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

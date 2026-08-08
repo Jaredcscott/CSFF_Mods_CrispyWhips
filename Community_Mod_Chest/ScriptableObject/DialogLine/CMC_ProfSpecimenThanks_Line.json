@@ -1,0 +1,52 @@
+{
+    "StartingPoint": true,
+    "Line": {
+        "LocalizationKey": "CMC_ProfSpecimenThanks_Line",
+        "DefaultText": "Ah, perfect specimens, barely bruised! These go straight to the presses. Your pay, as promised. Keep an ear out; I'll have another errand within the week."
+    },
+    "PossibleAnswers": [
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatProfQuestChain", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Answer_Ok",
+                "DefaultText": "Noted, Professor."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatProfQuestChain",
+                        "StatWarpType": 3,
+                        "ValueModifier": {"x": 1.0, "y": 1.0},
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    },
+                    {
+                        "StatWarpData": "cmcStatProfQuestArmed",
+                        "StatWarpType": 3,
+                        "ValueModifier": {"x": 1.0, "y": 1.0},
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ],
+                "BlueprintsFullUnlockWarpData": ["combatandarmorbpquiltedcap"],
+                "BlueprintsFullUnlockWarpType": 3
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Answer_Ok",
+                "DefaultText": "Noted, Professor."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatInterlockS5", "StatWarpType": 3, "TriggerRange": {"x": 0.25, "y": 0.75}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_InterlockS5Thanks_Line",
+        "DefaultText": "That'll settle a few stomachs come morning. Tell the Apothecary the whole common room owes her a favor she'll never collect on. Here, a burner pattern for the trouble, might as well have something nice for the bar too."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_InterlockS5Thanks_Answer_Ok",
+                "DefaultText": "I'll pass that along."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatInterlockS5",
+                        "StatWarpType": 3,
+                        "ValueModifier": {"x": 0.5, "y": 0.5},
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ],
+                "BlueprintsFullUnlockWarpData": ["comfortbpincenseburner"],
+                "BlueprintsFullUnlockWarpType": 3
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

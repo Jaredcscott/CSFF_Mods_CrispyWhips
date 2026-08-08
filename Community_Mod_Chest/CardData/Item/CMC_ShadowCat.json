@@ -1,0 +1,77 @@
+{
+    "UniqueID": "cmcShadowCat",
+    "CardType": 0,
+    "CardName": {
+        "LocalizationKey": "CMC_ShadowCat_CardName",
+        "DefaultText": "Shadow the Cat"
+    },
+    "CardDescription": {
+        "LocalizationKey": "CMC_ShadowCat_CardDescription",
+        "DefaultText": "A cat black as pitch, all but invisible until he moves — you almost step on him before he melts back into the dark. He doesn't flinch from you, doesn't beg either. He just watches, ears turning toward the sound of your pack. Something about him seems to be waiting for a particular kind of quiet."
+    },
+    "CardImageWarpData": "CMC_ShadowCat",
+    "CardImageWarpType": 3,
+    "DoesNotPile": true,
+    "CannotBeTrashed": true,
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_ShadowCat_CI_PlayInstrument",
+                "DefaultText": "Play Music"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_ShadowCat_CI_PlayInstrument_Desc",
+                "DefaultText": "A few soft notes, and he stops mid-step to listen."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "cmcShadowCatTamed",
+                "TransformIntoWarpType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 1,
+                "TransformInto": {"m_FileID": 0, "m_PathID": 0},
+                "TransformToLiquidQuantity": 0.0,
+                "TransferSpoilage": false,
+                "TransferUsage": false,
+                "TransferCharges": false,
+                "TransferSpecial1": false,
+                "TransferSpecial2": false,
+                "TransferSpecial3": false,
+                "TransferSpecial4": false,
+                "GetSpoilageFromOtherCard": false,
+                "GetUsageFromOtherCard": false,
+                "GetChargesFromOtherCard": false,
+                "GetSpecial1FromOtherCard": false,
+                "GetSpecial2FromOtherCard": false,
+                "GetSpecial3FromOtherCard": false,
+                "GetSpecial4FromOtherCard": false,
+                "AverageGivenAndReceivingCards": false,
+                "ModifyDurability": false,
+                "ModifyLiquid": false,
+                "DropOnDestroyList": false,
+                "LiquidEffectScaling": 0,
+                "SpoilageChange": {"x": 0.0, "y": 0.0},
+                "UsageChange": {"x": 0.0, "y": 0.0},
+                "FuelChange": {"x": 0.0, "y": 0.0},
+                "ChargesChange": {"x": 0.0, "y": 0.0},
+                "Special1Change": {"x": 0.0, "y": 0.0},
+                "Special2Change": {"x": 0.0, "y": 0.0},
+                "Special3Change": {"x": 0.0, "y": 0.0},
+                "Special4Change": {"x": 0.0, "y": 0.0},
+                "AddedFlavours": [],
+                "AddedSpiceTags": [],
+                "StatInterpolatedDurabilityChanges": [],
+                "DurabilityInterpolatedTransfers": []
+            },
+            "CompatibleCards": {
+                "TriggerCardsWarpData": [
+                    "9bd7f751f1e2bc04f973da0dc13c251f",
+                    "135d998b104c7bb4cb2197bfc8019ab3",
+                    "658ad86629180fa4db5779812f620198"
+                ],
+                "TriggerCardsWarpType": 3
+            }
+        }
+    ]
+}

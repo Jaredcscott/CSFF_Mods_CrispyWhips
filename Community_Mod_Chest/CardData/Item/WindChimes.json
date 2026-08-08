@@ -1,0 +1,177 @@
+{
+    "UniqueID": "comfortwindchimes",
+    "CardName": {
+        "ParentObjectID": "comfortwindchimes",
+        "LocalizationKey": "Comfort_WindChimes_CardName",
+        "DefaultText": "Wind Chimes"
+    },
+    "CardDescription": {
+        "ParentObjectID": "comfortwindchimes",
+        "LocalizationKey": "Comfort_WindChimes_CardDescription",
+        "DefaultText": "Bone fragments strung on twine. Their gentle clatter in the breeze brings a sense of calm and home."
+    },
+    "CardType": 0,
+    "ObjectWeight": 120.0,
+    "TradingValue": 12.0,
+    "MaxStack": 2,
+    "CardImageWarpData": "WindChimes",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "Bone"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 200.0,
+        "CardStatName": {
+            "ParentObjectID": "comfortwindchimes",
+            "LocalizationKey": "Comfort_WindChimes_UsageDurability",
+            "DefaultText": "Durability"
+        },
+        "MaxValue": 200.0,
+        "RatePerDaytimePoint": 0.0,
+        "HasActionOnZero": true,
+        "OnZero": {
+            "ActionDescription": {
+                "ParentObjectID": "comfortwindchimes",
+                "LocalizationKey": "Comfort_WindChimes_Broken",
+                "DefaultText": "The wind chimes have broken apart."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        },
+        "OverrideIconWarpData": "Durability",
+        "OverrideIconWarpType": 3
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "comfortwindchimes",
+                "LocalizationKey": "Comfort_WindChimes_DA_Dismantle",
+                "DefaultText": "Dismantle"
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "674b640f46671f1418af4559b259b442",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 3,
+                                "y": 3
+                            }
+                        },
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 5,
+                                "y": 5
+                            }
+                        },
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "3db4c94184af274409f0d3eb16870f64",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 2,
+                                "y": 2
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "PassiveEffects": [
+        {
+            "EffectName": "Comfort (+20)",
+            "OnlyWhenEquipped": false,
+            "EquippedOnBodyOnly": false,
+            "Conditions": {
+                "NotInBackground": true
+            },
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 20.0,
+                        "y": 20.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "UniqueID": "cmcStatProfBridgeNews",
+    "GameName": {
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "River Bridge news (0=not built 1=built+unheard 2=player heard the line) - scheduler writes 1"
+    },
+    "DefaultStartingValue": 0.0,
+    "DefaultMinMaxValue": {
+        "x": 0.0,
+        "y": 2.0
+    },
+    "DefaultRate": 0.0,
+    "DefaultMinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    }
+}

@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatJailRationDay",
+    "GameName": {
+        "LocalizationKey": "CMC_JailRationDay_StatName",
+        "DefaultText": "Jail Ration Day"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_JailRationDay_StatDescription",
+        "DefaultText": "Hidden record of the in-game day the daily ration (cmcJailRationFood + cmcJailWaterJug) was last placed in the cell, +1-offset so 0 means never. Written by JailPatch; compared against the current day each poll so the ration is granted exactly once per calendar day the sentence is active."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 999999.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

@@ -1,0 +1,18 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_Start_Forage_Line",
+        "DefaultText": "The Foraging Forest off the Village Path is thick with mushrooms and berries most of the year, and the ferns hide more than they let on. Mind you're back before full dark, that's all I ask."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Start_Forage_Answer_Thanks",
+                "DefaultText": "Good to know. Thank you."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

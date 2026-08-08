@@ -1,0 +1,78 @@
+{
+    "UniqueID": "comfortbptricolorwallhanging",
+    "CardName": {
+        "ParentObjectID": "comfortbptricolorwallhanging",
+        "LocalizationKey": "Comfort_TricolorWallHanging_Bp_CardName",
+        "DefaultText": "Tricolor Wall Hanging"
+    },
+    "CardDescription": {
+        "ParentObjectID": "comfortbptricolorwallhanging",
+        "LocalizationKey": "Comfort_TricolorWallHanging_Bp_CardDescription",
+        "DefaultText": "Weave dried reeds into a decorative panel and dye sections with three different natural pigments."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "comfortbptricolorwallhanging",
+        "LocalizationKey": "Comfort_TricolorWallHanging_Bp_UnlockConditionsDesc",
+        "DefaultText": "The Weaver and Apothecary's three colors"
+    },
+    "StartUnlocked": false,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [
+        {
+            "ObjectiveName": "InterlockS1Done",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "TriggerRange": { "x": 1.5, "y": 20.0 },
+                "StatWarpData": "cmcStatInterlockS1",
+                "StatWarpType": 3
+            },
+            "ConstantlyChecking": false
+        }
+    ],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 10,
+                    "DontSpend": false,
+                    "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredCardWarpData": "62ffe49f7b68c2d4b9cd549ac6942ba3",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 3,
+                    "DontSpend": false,
+                    "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredCardWarpData": "potterysculpturepigment",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 6,
+    "DeconstructDaytimeCost": 0,
+    "BlueprintResult": [
+        {
+            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": { "x": 1, "y": 1 },
+            "DroppedCardWarpData": "comforttricolorwallhanging",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+    "CardImageWarpData": "WovenWallHanging_TriColor",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 6.0,
+    "ResearchedNotification": 0
+}

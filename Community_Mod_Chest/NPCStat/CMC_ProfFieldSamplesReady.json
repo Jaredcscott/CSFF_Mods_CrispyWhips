@@ -1,0 +1,17 @@
+{
+    "UniqueID": "cmcStatProfFieldSamplesReady",
+    "GameName": {
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "Field Samples task armed flag (0=not yet day-gated 1=offerable) - one-shot latch by scheduler at day 10"
+    },
+    "DefaultStartingValue": 0.0,
+    "DefaultMinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "DefaultRate": 0.0,
+    "DefaultMinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    }
+}

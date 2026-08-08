@@ -1,0 +1,892 @@
+{
+  "UniqueID": "cmcBoardInnKeeper",
+  "CardType": 2,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": false,
+  "DoesNotPile": true,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "CMC_BoardInnKeeper_CardName",
+    "DefaultText": "Inn Keeper's Board"
+  },
+  "CardDescription": {
+    "LocalizationKey": "CMC_BoardInnKeeper_CardDescription",
+    "DefaultText": "A small board where the Inn Keeper posts news of the Inn."
+  },
+  "CardImageWarpData": "InnKeeper",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Status1_Name",
+        "DefaultText": "Active errand: a hot meal"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Status1_Desc",
+        "DefaultText": "The Inn Keeper could use your help: a hot meal."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInnQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatInnQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Hint1_Name",
+        "DefaultText": "A hint: cook up something warm"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Hint1_Desc",
+        "DefaultText": "A hint: cook up something warm."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInnQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatInnQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Status2_Name",
+        "DefaultText": "Active errand: ale or beer"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Status2_Desc",
+        "DefaultText": "The Inn Keeper could use your help: ale or beer."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInnQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatInnQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Hint2_Name",
+        "DefaultText": "A hint: bring a round for brew night"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Hint2_Desc",
+        "DefaultText": "A hint: bring a round for brew night."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInnQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatInnQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Status3_Name",
+        "DefaultText": "Active errand: a fine wine or a second ale"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Status3_Desc",
+        "DefaultText": "The Inn Keeper could use your help: a fine wine or a second ale."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInnQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 1.5,
+            "y": 2.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatInnQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Hint3_Name",
+        "DefaultText": "A hint: find something worth saving for a good occasion"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Hint3_Desc",
+        "DefaultText": "A hint: find something worth saving for a good occasion."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInnQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 1.5,
+            "y": 2.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatInnQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Status4_Name",
+        "DefaultText": "Active errand: dried mushrooms or berries"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Status4_Desc",
+        "DefaultText": "The Inn Keeper could use your help: dried mushrooms or berries."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInnQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 2.5,
+            "y": 3.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatInnQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Hint4_Name",
+        "DefaultText": "A hint: put a little something by for winter"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Hint4_Desc",
+        "DefaultText": "A hint: put a little something by for winter."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInnQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 2.5,
+            "y": 3.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatInnQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Status5_Name",
+        "DefaultText": "Active errand: news of the woods"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Status5_Desc",
+        "DefaultText": "The Inn Keeper could use your help: news of the woods."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInnQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 3.5,
+            "y": 4.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatInnQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Hint5_Name",
+        "DefaultText": "A hint: see what the forest has been keeping from him"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Hint5_Desc",
+        "DefaultText": "A hint: see what the forest has been keeping from him."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInnQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 3.5,
+            "y": 4.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatInnQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Teaser1_Name",
+        "DefaultText": "Word around the village: something warm from the kitchen"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Teaser1_Desc",
+        "DefaultText": "The Inn Keeper may have another small errand in mind before long — something to do with something warm from the kitchen, if the timing's right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInnQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatInnQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Teaser2_Name",
+        "DefaultText": "Word around the village: a drink for brew night"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Teaser2_Desc",
+        "DefaultText": "The Inn Keeper may have another small errand in mind before long — something to do with a drink for brew night, if the timing's right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInnQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatInnQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Teaser3_Name",
+        "DefaultText": "Word around the village: something worth setting aside"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Teaser3_Desc",
+        "DefaultText": "The Inn Keeper may have another small errand in mind before long — something to do with something worth setting aside, if the timing's right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInnQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 1.5,
+            "y": 2.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatInnQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Teaser4_Name",
+        "DefaultText": "Word around the village: provisions for the pantry"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Teaser4_Desc",
+        "DefaultText": "The Inn Keeper may have another small errand in mind before long — something to do with provisions for the pantry, if the timing's right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInnQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 2.5,
+            "y": 3.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatInnQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Teaser5_Name",
+        "DefaultText": "Word around the village: a story worth telling"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Teaser5_Desc",
+        "DefaultText": "The Inn Keeper may have another small errand in mind before long — something to do with a story worth telling, if the timing's right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInnQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 3.5,
+            "y": 4.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatInnQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_trust_low_Name",
+        "DefaultText": "Standing in the village: trust low"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_trust_low_Desc",
+        "DefaultText": "The Inn Keeper is friendly enough, but this is still mostly business."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInnFriendship",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 14.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_trust_mid_Name",
+        "DefaultText": "Standing in the village: trust mid"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_trust_mid_Desc",
+        "DefaultText": "The Inn Keeper treats you like a regular now, not just another traveler passing through."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInnFriendship",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 14.5,
+            "y": 29.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_trust_high_Name",
+        "DefaultText": "Standing in the village: trust high"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_trust_high_Desc",
+        "DefaultText": "The Inn Keeper counts you among the village's own — you're family at the Inn."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInnFriendship",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 29.5,
+            "y": 9999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Log1_Name",
+        "DefaultText": "A past errand: a hot meal"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Log1_Desc",
+        "DefaultText": "You once helped the inn keeper with a hot meal — and were thanked for it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInnQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 3.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Log2_Name",
+        "DefaultText": "A past errand: ale or beer"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Log2_Desc",
+        "DefaultText": "You once helped the inn keeper with ale or beer — and were thanked for it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInnQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 1.5,
+            "y": 4.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Log3_Name",
+        "DefaultText": "A past errand: a fine wine or a second ale"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Log3_Desc",
+        "DefaultText": "You once helped the inn keeper with a fine wine or a second ale — and were thanked for it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInnQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 2.5,
+            "y": 5.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Log4_Name",
+        "DefaultText": "A past errand: dried mushrooms or berries"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Log4_Desc",
+        "DefaultText": "You once helped the inn keeper with dried mushrooms or berries — and were thanked for it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInnQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 3.5,
+            "y": 6.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Log5_Name",
+        "DefaultText": "A past errand: news of the woods"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_Log5_Desc",
+        "DefaultText": "You once helped the inn keeper with news of the woods — and were thanked for it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInnQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 4.5,
+            "y": 7.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_InterlockS3_Name",
+        "DefaultText": "Word around the village: something baking-related that would need both the Miller's grain and the Inn Keeper's oven"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_InterlockS3_Desc",
+        "DefaultText": "You've heard whispers of something baking-related that would need both the Miller's grain and the Inn Keeper's oven — worth asking both of them about, once the time seems right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInterlockS3",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.95
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_InterlockS5_Name",
+        "DefaultText": "Word around the village: a remedy the Inn Keeper's been asking the Apothecary about"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardInnKeeper_DA_InterlockS5_Desc",
+        "DefaultText": "You've heard whispers of a remedy the Inn Keeper's been asking the Apothecary about — worth asking both of them about, once the time seems right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInterlockS5",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.95
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    }
+  ],
+  "DismantleActionsWarpType": 3
+}

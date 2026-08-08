@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatQuestRenownMillerGrain",
+    "GameName": {
+        "LocalizationKey": "CMC_QuestRenownMillerGrain_StatName",
+        "DefaultText": "Renown: Miller's Errand"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_QuestRenownMillerGrain_StatDescription",
+        "DefaultText": "Hidden one-shot flag: 1 once the Miller's grain errand is completed. Contributes to Village Renown."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 10.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

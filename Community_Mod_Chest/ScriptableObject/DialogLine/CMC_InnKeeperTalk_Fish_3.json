@@ -1,0 +1,40 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatInnStoryIndex", "StatWarpType": 3, "TriggerRange": {"x": 2.5, "y": 3.5}},
+            {"StatWarpData": "cmcStatInnStoryStep", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 2.5}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_Fish_3_Line",
+        "DefaultText": "Just as he had it near the bank, close enough to touch, the line snapped clean through, and the fish gave what he insists was a mocking little flick of its tail before it vanished back under. He came home soaked to the bone, empty handed, and utterly certain it was the finest fish that had ever lived in that river or any other, and nobody else was there to see a scale of it, of course, which he says is exactly the sort of detail a truly legendary fish arranges for itself. Half the village has started calling that stretch of river 'the old man's grief' just to needle him over it. He still fishes that same spot every summer, same rod even, waiting on what he calls a proper rematch. I've long since given up asking whether any of it happened the way he says, a good fish story doesn't need much truth in it to be worth the telling."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Fish_4_Answer_Thanks",
+                "DefaultText": "A tale worth its salt, true or not."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnStoryStep", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {"NextStep": 2}
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Fish_4_Answer_Wry",
+                "DefaultText": "That fish has a story too, I bet."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnStoryStep", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

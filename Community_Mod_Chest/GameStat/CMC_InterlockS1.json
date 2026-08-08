@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatInterlockS1",
+    "GameName": {
+        "LocalizationKey": "CMC_InterlockS1_StatName",
+        "DefaultText": "Interlock: Three Colors"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_InterlockS1_StatDescription",
+        "DefaultText": "Hidden tracker for the Apothecary-to-Weaver interlock quest: 0 = not started, 0.5 = one pigment delivered, 1 = both pigments delivered, 2 = thanked. One-shot, parallel to both villagers' main quest chains."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 5.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

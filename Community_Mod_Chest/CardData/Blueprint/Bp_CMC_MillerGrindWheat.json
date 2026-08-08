@@ -1,0 +1,64 @@
+{
+    "UniqueID": "BpCMCMillerGrindWheat",
+    "CardName": {
+        "ParentObjectID": "BpCMCMillerGrindWheat",
+        "LocalizationKey": "Bp_CMC_MillerGrindWheat_CardName",
+        "DefaultText": "Grind Wheat into Flour"
+    },
+    "CardDescription": {
+        "ParentObjectID": "BpCMCMillerGrindWheat",
+        "LocalizationKey": "Bp_CMC_MillerGrindWheat_CardDescription",
+        "DefaultText": "The Miller grinds a sack of wheat grains into flour, keeping a copper nugget for the work."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "BpCMCMillerGrindWheat",
+        "LocalizationKey": "Bp_CMC_MillerGrindWheat_UnlockConditionsDesc",
+        "DefaultText": "Available at the Miller's Cottage"
+    },
+    "StartUnlocked": true,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 30,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "f0720ce316331f04cb2a5d680c8aab41",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 3,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 4,
+    "DeconstructDaytimeCost": 0,
+    "NeedsRoomInLocationToSpawn": false,
+    "BlueprintResult": [
+        {
+            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": { "x": 30, "y": 30 },
+            "DroppedCardWarpData": "7900a60c205568640a887f30cc6ff8f9",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": ["HandAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImageWarpData": "Flour_Rye",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 0.0,
+    "ResearchedNotification": 0
+}

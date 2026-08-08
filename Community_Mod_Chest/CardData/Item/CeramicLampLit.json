@@ -1,0 +1,163 @@
+{
+    "UniqueID": "ceramiclamplit",
+    "CardName": {
+        "ParentObjectID": "ceramiclamplit",
+        "LocalizationKey": "CeramicLampLit_CardName",
+        "DefaultText": "Lit Ceramic Lamp"
+    },
+    "CardDescription": {
+        "ParentObjectID": "ceramiclamplit",
+        "LocalizationKey": "CeramicLampLit_CardDescription",
+        "DefaultText": "A small clay lamp burning fat for light. Consumes fuel slowly. Extinguish to refuel."
+    },
+    "CardType": 0,
+    "ObjectWeight": 150.0,
+    "TradingValue": 10.0,
+    "DoesNotPile": true,
+    "CardTagsWarpData": [
+        "tag_Preservable",
+        "tag_Light"
+    ],
+    "CardTagsWarpType": 3,
+    "PassiveStatEffects": [
+        {
+            "StatWarpData": "79290cafb08e48f4d871704c20e69b1c",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": 10.0,
+                "y": 10.0
+            }
+        }
+    ],
+    "LightSource": {
+        "IsSourceOfLight": true,
+        "Priority": 30.0,
+        "LightPos": {
+            "x": 0.5,
+            "y": 0.5
+        },
+        "LightSize": {
+            "x": 0.2,
+            "y": 0.3
+        },
+        "LightColor": {
+            "r": 1.0,
+            "g": 0.8,
+            "b": 0.6,
+            "a": 1.0
+        },
+        "LightFlickerFreq": 3.0,
+        "LightFlickerStrength": 0.02
+    },
+    "CardImageWarpData": "CeramicLampLit",
+    "CardImageWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "FireIgnite"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": true,
+        "FloatValue": 48.0,
+        "CardStatName": {
+            "ParentObjectID": "ceramiclamplit",
+            "LocalizationKey": "CeramicLampLit_FuelCapacity_CardStatName",
+            "DefaultText": "Fat"
+        },
+        "MaxValue": 48.0,
+        "RatePerDaytimePoint": -0.5,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "HasActionOnZero": true,
+        "ShowPopupOnZero": true,
+        "HasActionOnFull": false,
+        "ShowPopupOnFull": false,
+        "CountsForTradingValue": false,
+        "OverrideIconWarpData": "Flame",
+        "OverrideIconWarpType": 3,
+        "OnZero": {
+            "ActionName": {
+                "ParentObjectID": "ceramiclamplit",
+                "LocalizationKey": "CeramicLampLit_FuelOut_ActionName",
+                "DefaultText": "Lamp Burns Out"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "ceramiclamplit",
+                "LocalizationKey": "CeramicLampLit_FuelOut_ActionDescription",
+                "DefaultText": "The lamp runs out of fat."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionSoundsWarpData": [
+                "FireExtinguish"
+            ],
+            "ActionSoundsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "ceramiclamp",
+                "TransformIntoWarpType": 3,
+                "TransferFuel": true,
+                "SpawnTransformAtSource": true
+            }
+        }
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "ceramiclamplit",
+                "LocalizationKey": "CeramicLampLit_Extinguish_ActionName",
+                "DefaultText": "Extinguish"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "ceramiclamplit",
+                "LocalizationKey": "CeramicLampLit_Extinguish_ActionDescription",
+                "DefaultText": "Put out the lamp."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [
+                "FireExtinguish"
+            ],
+            "ActionSoundsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "ceramiclamp",
+                "TransformIntoWarpType": 3,
+                "TransferFuel": true,
+                "SpawnTransformAtSource": true
+            }
+        }
+    ]
+}

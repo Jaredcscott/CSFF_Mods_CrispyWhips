@@ -1,0 +1,80 @@
+{
+    "UniqueID": "cmcbpfishingnet",
+    "CardName": {
+        "ParentObjectID": "cmcbpfishingnet",
+        "LocalizationKey": "CMC_FishingNet_Bp_CardName",
+        "DefaultText": "Fishing Net"
+    },
+    "CardDescription": {
+        "ParentObjectID": "cmcbpfishingnet",
+        "LocalizationKey": "CMC_FishingNet_Bp_CardDescription",
+        "DefaultText": "Knot twine into a wide casting net stretched across long sticks."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "cmcbpfishingnet",
+        "LocalizationKey": "CMC_FishingNet_Bp_UnlockConditionsDesc",
+        "DefaultText": "Twine Needed"
+    },
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasTwine",
+            "CompletionWeight": 1,
+            "Card": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": { "m_FileID": 0, "m_PathID": 0 },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": { "Target": { "m_FileID": 0, "m_PathID": 0 } },
+            "CardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 18,
+                    "DontSpend": false,
+                    "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredCardWarpData": "3db4c94184af274409f0d3eb16870f64",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 8,
+    "DeconstructDaytimeCost": 0,
+    "BlueprintResult": [
+        {
+            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": { "x": 1, "y": 1 },
+            "DroppedCardWarpData": "cmcfishingnet",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+    "CardImageWarpData": "FishingNet",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 8.0,
+    "ResearchedNotification": 0
+}

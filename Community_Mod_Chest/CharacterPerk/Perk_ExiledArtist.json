@@ -1,0 +1,108 @@
+{
+    "ActionModifiers": [],
+    "ActionObjectives": [],
+    "AddedCards": [],
+    "AddedCardsWarpData": [
+        "68c14d265ea6c874ba79444d2e1ef7b3",
+        "68c14d265ea6c874ba79444d2e1ef7b3",
+        "51c751469bd15ce46804e399479d1764",
+        "694cdedcfd63f354099aea87a53aa496"
+    ],
+    "AddedCardsWarpType": 3,
+    "AddedStartingHours": 0,
+    "CardsOnBoardObjectives": [],
+    "CharacterPerkPerkGroup": "aacb8df12eedb7b48a9801360ae638c7",
+    "CheckingNotificationDetails": 0,
+    "CompleteOnLose": false,
+    "CompleteOnWin": false,
+    "DebugCompletion": false,
+    "DifficultyRating": -200,
+    "DisplayPriority": 2362.0,
+    "EditorOnly": false,
+    "EquippedCards": [],
+    "EquippedCardsWarpData": [],
+    "EquippedCardsWarpType": 3,
+    "HiddenUntilUnlocked": false,
+    "MoonsCost": 1,
+    "NestedObjectives": [],
+    "NoSafetyMode": false,
+    "NotifyWhenNotChecked": false,
+    "OverrideEnvironment": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "OverrideEquipment": false,
+    "OverrideWeather": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "PassiveStatModifiers": [],
+    "PerkDescription": {
+        "DefaultText": "Forced from your homeland, you carry your craft with you. Start with a head start in Pottery, two lumps of clay for sculpting, charcoal for pigment, and a basket to carry your work.",
+        "LocalizationKey": "CharacterTraits_Perk_ExiledArtist_PerkDescription",
+        "ParentObjectID": "traits_perk_exiled_artist"
+    },
+    "PerkIcon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "PerkIconWarpData": "Bowl_Clay",
+    "PerkIconWarpType": 3,
+    "PerkName": {
+        "DefaultText": "Exiled Artist",
+        "LocalizationKey": "CharacterTraits_Perk_ExiledArtist_PerkName",
+        "ParentObjectID": "traits_perk_exiled_artist"
+    },
+    "PerkUnlockConditions": {
+        "DefaultText": "",
+        "LocalizationKey": "",
+        "ParentObjectID": ""
+    },
+    "PlayedCharacter": [],
+    "RequiredDifficultyScore": {
+        "x": 0,
+        "y": 0
+    },
+    "ResetLockInEditor": false,
+    "StartUnlocked": true,
+    "StartingStatModifiers": [
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatWarpData": "220a38c9e1656f94fb1e3975025f3a7a",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": 75.0,
+                "y": 75.0
+            },
+            "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false
+        }
+    ],
+    "StatsObjectives": [],
+    "SunsCost": 0,
+    "TagsOnBoardObjectives": [],
+    "TimeObjectives": [],
+    "UniqueID": "traits_perk_exiled_artist"
+}

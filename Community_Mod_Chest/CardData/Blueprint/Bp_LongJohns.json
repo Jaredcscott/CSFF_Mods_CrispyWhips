@@ -1,0 +1,79 @@
+{
+  "UniqueID": "apparelbplongjohns",
+  "CardName": {
+    "ParentObjectID": "apparelbplongjohns",
+    "LocalizationKey": "Apparel_Bp_LongJohns_CardName",
+    "DefaultText": "Long Johns"
+  },
+  "CardDescription": {
+    "ParentObjectID": "apparelbplongjohns",
+    "LocalizationKey": "Apparel_Bp_LongJohns_CardDescription",
+    "DefaultText": "Sew snug cloth leggings to wear under trousers."
+  },
+  "CardType": 7,
+  "UnlockConditionsDesc": {
+    "ParentObjectID": "apparelbplongjohns",
+    "LocalizationKey": "Apparel_Bp_LongJohns_UnlockConditionsDesc",
+    "DefaultText": "Bring the Weaver a bundle of wool or fiber"
+  },
+  "BuildingStatConditions": [],
+  "StartUnlocked": false,
+  "CardsOnBoard": [],
+  "TagsOnBoard": [],
+  "StatValues": [
+    {
+      "ObjectiveName": "WeaverQuestChainAtLeast4",
+      "CompletionWeight": 1,
+      "StatCondition": {
+        "TriggerRange": { "x": 3.5, "y": 20.0 },
+        "StatWarpData": "cmcStatWeaverQuestChain",
+        "StatWarpType": 3
+      },
+      "ConstantlyChecking": false
+    }
+  ],
+  "BlueprintStages": [
+    {
+      "CannotRevertToThisStage": false,
+      "RequiredElements": [
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 3,
+          "DontSpend": false,
+          "RequiredCardWarpData": "aa73d89b9f0f04145adce258403d61d0",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
+          "RequiredCardWarpType": 3
+        }
+      ],
+      "StepActionTags": [],
+      "StepActionTagsWarpData": [],
+      "StepActionTagsWarpType": 3
+    }
+  ],
+  "BuildingDaytimeCost": 3,
+  "DeconstructDaytimeCost": 1,
+  "BlueprintResult": [
+    {
+      "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+      "Quantity": { "x": 1, "y": 1 },
+      "DroppedCardWarpData": "apparellongjohns",
+      "DroppedCardWarpType": 3
+    }
+  ],
+  "BlueprintStatModifications": [],
+  "WhenCreatedSoundsWarpData": ["Leather"],
+  "WhenCreatedSoundsWarpType": 3,
+  "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+  "BlueprintActionTagsWarpType": 3,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "LongJohns",
+  "CardImageWarpType": 3,
+  "BlueprintUnlockTicksCost": 8.0,
+  "ResearchedNotification": 0
+}

@@ -1,0 +1,15 @@
+{
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_QuestAccept3_Line",
+        "DefaultText": "Good, good. Every village needs a monster in its hills, it gives the children something to be brave about and the adults something to blame the weather on. Whether the dragon was ever real hardly matters to the casting, metal doesn't care for the difference between history and a good story anyway."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Answer_Ok",
+                "DefaultText": "I'll find you the nuggets."
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

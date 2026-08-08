@@ -1,0 +1,10 @@
+{
+  "CardDescription": {
+    "LocalizationKey": "CMC_MossyClearing_CardDescription",
+    "DefaultText": "A shaded oak clearing where moisture and shade have encouraged thick moss growth on the damp ground."
+  },
+  "CardHelpSection": {
+    "LocalizationKey": "CMC_MossyClearing_CardHelpSection",
+    "DefaultText": "<b>Oak Clearing:</b>\n\n<b>Flora:</b> Oaks, Birch, Appleweed, Healer's Moss, Spirit Mushrooms, Acorns (autumn), Forest Caps.\n\n<b>Fauna:</b> Squirrels, Boars."
+  }
+}

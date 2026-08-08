@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatFounderVillagePlaced",
+    "GameName": {
+        "LocalizationKey": "CMC_FounderVillagePlaced_StatName",
+        "DefaultText": "Founder Village Buildings Placed"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_FounderVillagePlaced_StatDescription",
+        "DefaultText": "Hidden latch: 0 = the Village Founder perk's pre-built Village buildings (Miller's Cottage, Weaver's Cottage, Village Hall) have not yet been placed on the Village board, 1 = placed (prevents re-spawning them if the player later deconstructs one)."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 1.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

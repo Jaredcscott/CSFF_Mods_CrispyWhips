@@ -1,0 +1,58 @@
+{
+    "UniqueID": "cmcGuardThorneAgent",
+    "AgentName": {
+        "ParentObjectID": "cmcGuardThorneAgent",
+        "LocalizationKey": "CMC_GuardThorne_AgentName",
+        "DefaultText": "Guard Nella Thorne"
+    },
+    "AgentDescription": {
+        "ParentObjectID": "cmcGuardThorneAgent",
+        "LocalizationKey": "CMC_GuardThorne_AgentDescription",
+        "DefaultText": "River Watch. Holds the bridge junction where the path meets the village, and does not cross the water."
+    },
+    "AgentImageWarpData": "CMC_Guard_SpearWoman",
+    "AgentImageWarpType": 3,
+    "AlliedWithPlayer": false,
+    "PerksWarpData": [
+        "cmcGuardPerkThorne"
+    ],
+    "PerksWarpType": 3,
+    "MandatoryPerks": [],
+    "WeightCategoryWarpData": "Light",
+    "WeightCategoryWarpType": 3,
+    "HidingConditions": {},
+    "Interactions": [
+        {
+            "ButtonName": {
+                "LocalizationKey": "CMC_GuardThorne_Attack",
+                "DefaultText": "Attack"
+            },
+            "Conditions": {},
+            "ButtonType": 1,
+            "DroppedEncounterWarpData": "cmcEncounterGuardThorne",
+            "DroppedEncounterWarpType": 3,
+            "SkipEncounterEvent": false
+        }
+    ],
+    "DismantleActions": [],
+    "DragAndDropActions": [],
+    "AmbientSounds": [],
+    "AgentStats": [],
+    "ItemPreferences": [],
+    "EquipmentSelectionTags": [],
+    "AgentActions": [],
+    "AgentDuties": [],
+    "AgentPassiveEffects": [],
+    "HasActionOnDelete": false,
+    "MaxCarryWeight": 100000.0,
+    "CannotTrade": true,
+    "TradingConditions": {},
+    "StartingInventory": [],
+    "TradingModifiers": [],
+    "ModifyNPCStatsPerTradeValue": [],
+    "CommissionsBp": [],
+    "AgentTagsWarpData": [
+        "nTag_TownGuard"
+    ],
+    "AgentTagsWarpType": 3
+}

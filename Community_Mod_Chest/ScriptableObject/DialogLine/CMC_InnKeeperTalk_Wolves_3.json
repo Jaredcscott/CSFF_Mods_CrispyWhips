@@ -1,0 +1,40 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatInnStoryIndex", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+            {"StatWarpData": "cmcStatInnStoryStep", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 2.5}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_Wolves_3_Line",
+        "DefaultText": "She called the whole village into the square and had us hang strips of smoked hide and old fish bones along every fence post and gate, thick as bunting at a festival. Ripest the village ever smelled, I'll tell you, half the children held their noses just walking to bed, but by the third night not a single wolf set paw within a stone's throw of the walls. It held clean through to spring, and once the deer wandered back down from the hills the wolves lost interest in us entirely and went back to easier hunting. We still hang a strip of smoked hide over the north gate every winter to this day, more habit now than need, though old Tomas won't sleep a wink without it there. Funny thing, how a bit of good honest stink saved an entire village."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Wolves_4_Answer_Thanks",
+                "DefaultText": "That's a fine tale. Thanks for telling it."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnStoryStep", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {"NextStep": 2}
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Wolves_4_Answer_Wry",
+                "DefaultText": "Noted: avoid the miller's wife at supper."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnStoryStep", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

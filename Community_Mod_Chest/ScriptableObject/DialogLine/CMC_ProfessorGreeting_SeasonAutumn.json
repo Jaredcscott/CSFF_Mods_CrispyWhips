@@ -1,0 +1,28 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}}
+        ],
+        "RequiredInGameTimes": [
+            {"TimeType": 3, "SeasonValue": {"MaskValue": 4}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_SeasonAutumn_Line",
+        "DefaultText": "Autumn: harvest for farmers, examinations for scholars. Both reward preparation. Yes?"
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_Continue_Answer",
+                "DefaultText": "Go on."
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_ProfessorGreeting_Menu",
+                "NextLineWarpType": 3
+            }
+        }
+    ]
+}

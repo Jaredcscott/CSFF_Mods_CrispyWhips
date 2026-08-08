@@ -1,0 +1,71 @@
+{
+    "UniqueID": "cmcAshPartnerAgent",
+    "AgentName": {
+        "LocalizationKey": "CMC_AshPartner_AgentName",
+        "DefaultText": "Ash"
+    },
+    "AgentDescription": {
+        "LocalizationKey": "CMC_AshPartner_AgentDescription",
+        "DefaultText": "No longer content to wait at the Inn — Ash goes where you go."
+    },
+    "AgentImageWarpData": "CMC_InnCat_Lounging",
+    "AgentImageWarpType": 3,
+    "MaxCarryWeight": 0.0,
+    "WeightCategoryWarpData": "Light",
+    "WeightCategoryWarpType": 3,
+    "AgentTags": [],
+    "Interactions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_AshPartner_DebugWander_ActionName",
+                "DefaultText": "[Debug] Start Wandering"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_AshPartner_DebugWander_ActionDescription",
+                "DefaultText": "Phase 0 spike only — forces Ash into his Wander duty to confirm duty-switching works. Remove before shipping."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatAshNeglected", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatAshNeglected", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+            ]
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_AshPartner_DebugFollow_ActionName",
+                "DefaultText": "[Debug] Call Him Back"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_AshPartner_DebugFollow_ActionDescription",
+                "DefaultText": "Phase 0 spike only — forces Ash back into his Follow duty. Remove before shipping."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatAshNeglected", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatAshNeglected", "StatWarpType": 3, "ValueModifier": {"x": -1.0, "y": -1.0}, "InstantModifier": true, "ApplyEachTick": false}
+            ]
+        }
+    ],
+    "DragAndDropActions": [],
+    "AgentDuties": [],
+    "AgentActions": [],
+    "CannotTrade": true,
+    "TradingConditions": {},
+    "StartingInventory": [],
+    "TradingModifiers": []
+}

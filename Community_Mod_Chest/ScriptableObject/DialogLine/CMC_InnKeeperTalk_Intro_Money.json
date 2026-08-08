@@ -1,0 +1,29 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_Intro_Money_Line",
+        "DefaultText": "Simple enough. Minted coin is scarce out here; what the village trusts is salt and metal. Salt, nuggets, coins: all of it spends. Leave a deposit with me and I'll keep you an account, meals and a warm bed drawn against it at fair rates. The Academy across the way runs the same: the Professor draws tuition from a lectern account for his courses. Earn, deposit, spend: that's the whole economy."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Intro_Money_Answer_Projects",
+                "DefaultText": "Anything around here I could help with?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_InnKeeperTalk_Intro_Projects",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Intro_Money_Answer_Later",
+                "DefaultText": "I'll think it over."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

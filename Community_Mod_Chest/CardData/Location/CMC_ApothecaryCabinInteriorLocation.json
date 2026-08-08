@@ -1,0 +1,15 @@
+{
+  "UniqueID": "cmcApothecaryCabinInteriorLocation",
+  "CardType": 8,
+  "InstancedEnvironment": false,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": true,
+  "DoesNotPile": true,
+  "CardName": {
+    "LocalizationKey": "CMC_ApothecaryCabinInteriorLocation_CardName",
+    "DefaultText": "Apothecary's Cabin"
+  },
+  "CardImageWarpData": "CMC_Alch_Cab_Int",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0
+}

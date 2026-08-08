@@ -1,0 +1,24 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_Intro_Close_Line",
+        "DefaultText": "Ha! I knew I liked you. The plans are yours to study whenever you're ready, no rush; the village has waited this long. Ask around, lend a hand where you can, and watch this valley wake up. My door's always open: a meal, a bed, or a look through the pantry."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Intro_Close_Answer_Done",
+                "DefaultText": "(Shake his hand)"
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false},
+                    {"StatWarpData": "cmcStatInnTraitWelcomeGiven", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

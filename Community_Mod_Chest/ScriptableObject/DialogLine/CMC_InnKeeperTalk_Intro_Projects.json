@@ -1,0 +1,20 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_Intro_Projects_Line",
+        "DefaultText": "Now that you ask, this village dreams bigger than its hands. A proper cottage for a miller: there's a man who'd grind grain for the whole valley if he had a roof over his stones. Another for a weaver, so we stop hauling every bolt of cloth in by cart. And a Village Hall, so the place finally has a heart to gather in. Help raise them, and you'll find this village doesn't forget its friends."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Intro_Projects_Answer_In",
+                "DefaultText": "Count me in."
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_InnKeeperTalk_Intro_Close",
+                "NextLineWarpType": 3
+            }
+        }
+    ]
+}

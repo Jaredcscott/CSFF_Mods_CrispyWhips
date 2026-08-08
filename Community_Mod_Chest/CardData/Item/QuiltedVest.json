@@ -1,0 +1,331 @@
+{
+  "UniqueID": "combatandarmorquiltedvest",
+  "CardName": {
+    "ParentObjectID": "combatandarmorquiltedvest",
+    "LocalizationKey": "Combat_And_Armor_QuiltedVest_CardName",
+    "DefaultText": "Quilted Vest"
+  },
+  "CardDescription": {
+    "ParentObjectID": "combatandarmorquiltedvest",
+    "LocalizationKey": "Combat_And_Armor_QuiltedVest_CardDescription",
+    "DefaultText": "A padded cloth vest offering basic torso protection against cuts and blows."
+  },
+  "CardType": 0,
+  "ObjectWeight": 200.0,
+  "WeightReductionWhenEquipped": -200.0,
+  "TradingValue": 20.0,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "QuiltedVest",
+  "CardImageWarpType": 3,
+  "CardTagsWarpData": [
+    "tag_Clothing"
+  ],
+  "CardTagsWarpType": 3,
+  "EquipmentTags": [],
+  "EquipmentTagsWarpData": [
+    "eTag_OuterTorso"
+  ],
+  "EquipmentTagsWarpType": 3,
+  "IsArmor": true,
+  "AffectStatsOnlyWhenEquipped": true,
+  "ArmorValues": {
+    "HeadArmor": 0.0,
+    "HeadArmorModifiers": [],
+    "HeadHitProbabilityModifier": 0.0,
+    "TorsoArmor": 10.0,
+    "TorsoArmorModifiers": [],
+    "TorsoHitProbabilityModifier": 0.0,
+    "LArmArmor": 0.0,
+    "LArmArmorModifiers": [],
+    "LArmHitProbabilityModifier": 0.0,
+    "RArmArmor": 0.0,
+    "RArmArmorModifiers": [],
+    "RArmHitProbabilityModifier": 0.0,
+    "LLegArmor": 0.0,
+    "LLegArmorModifiers": [],
+    "LLegHitProbabilityModifier": 0.0,
+    "RLegArmor": 0.0,
+    "RLegArmorModifiers": [],
+    "RLegHitProbabilityModifier": 0.0
+  },
+  "ArmorValueDurabilitiesMultiplier": [
+    {
+      "InputDurability": 64,
+      "Value": {
+        "Active": true,
+        "InputValueRange": {
+          "x": 0.0,
+          "y": 80.0
+        },
+        "OutputValueRange": {
+          "x": 0.5,
+          "y": 1.0
+        },
+        "WhenOutOfRange": 0,
+        "OutOfRangeCustomValue": 0.0
+      }
+    }
+  ],
+  "AlwaysUpdate": true,
+  "WhenCreatedSoundsWarpData": [
+    "Leather"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": {
+    "Active": false
+  },
+  "UsageDurability": {
+    "Active": true,
+    "FloatValue": 80.0,
+    "CardStatName": {
+      "ParentObjectID": "combatandarmorquiltedvest",
+      "LocalizationKey": "Combat_And_Armor_QuiltedVest_UsageDurability.CardStatName",
+      "DefaultText": "Durability"
+    },
+    "MaxValue": 80.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 1,
+    "NumberPrecision": 0,
+    "HasActionOnZero": true,
+    "OnZero": {
+      "ActionDescription": {
+        "ParentObjectID": "combatandarmorquiltedvest",
+        "LocalizationKey": "Combat_And_Armor_QuiltedVest_OnZero",
+        "DefaultText": "Vest Destroyed!"
+      },
+      "OnZeroNotification": 1,
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    },
+    "HasActionOnFull": false,
+    "CountsForTradingValue": true
+  },
+  "FuelCapacity": {
+    "Active": false
+  },
+  "Progress": {
+    "Active": false
+  },
+  "SpecialDurability1": {
+    "Active": false
+  },
+  "SpecialDurability2": {
+    "Active": false
+  },
+  "SpecialDurability3": {
+    "Active": false
+  },
+  "SpecialDurability4": {
+    "Active": false
+  },
+  "DurabilitySorting": {
+    "SortingList": []
+  },
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "combatandarmorquiltedvest",
+        "LocalizationKey": "Combat_And_Armor_QuiltedVest_Dismantle_ActionName",
+        "DefaultText": "Dismantle"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "combatandarmorquiltedvest",
+        "LocalizationKey": "Combat_And_Armor_QuiltedVest_Dismantle_ActionDescription",
+        "DefaultText": "Take apart the vest to recover cloth and twine."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [
+        "Leather"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "35d6f2a46f2bbc84bbe33e917991c71d",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 3,
+                "y": 3
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 2,
+                "y": 2
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [
+    {
+      "EffectName": "Armor (+10) scaled by durability",
+      "OnlyWhenEquipped": true,
+      "EquippedOnBodyOnly": true,
+      "Conditions": {},
+      "StatModifiers": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "b9013a3e77a421b4bb7e4a8293e75382",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 10.0,
+            "y": 10.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "EffectScalesWithDurabilities": {
+        "Active": true,
+        "Inputs": [
+          {
+            "Durability": 64,
+            "Range": {
+              "x": 0.0,
+              "y": 80.0
+            }
+          }
+        ],
+        "EffectScalingOutput": {
+          "x": 0.5,
+          "y": 1.0
+        }
+      }
+    },
+    {
+      "EffectName": "Temperature Perceived (+1.5)",
+      "OnlyWhenEquipped": true,
+      "EquippedOnBodyOnly": true,
+      "Conditions": {},
+      "StatModifiers": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "0d5ec8f104b2ba149b4bb2b536bc21a4",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 1.5,
+            "y": 1.5
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ]
+    },
+    {
+      "EffectName": "Comfort (+10)",
+      "OnlyWhenEquipped": true,
+      "EquippedOnBodyOnly": true,
+      "Conditions": {},
+      "StatModifiers": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 10.0,
+            "y": 10.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ]
+    }
+  ]
+}

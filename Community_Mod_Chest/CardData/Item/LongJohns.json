@@ -1,0 +1,177 @@
+{
+  "UniqueID": "apparellongjohns",
+  "CardName": {
+    "ParentObjectID": "apparellongjohns",
+    "LocalizationKey": "Apparel_LongJohns_CardName",
+    "DefaultText": "Long Johns"
+  },
+  "CardDescription": {
+    "ParentObjectID": "apparellongjohns",
+    "LocalizationKey": "Apparel_LongJohns_CardDescription",
+    "DefaultText": "Snug cloth leggings worn under trousers. An extra layer between you and the cold, with a little padding besides."
+  },
+  "CardType": 0,
+  "ObjectWeight": 200.0,
+  "WeightReductionWhenEquipped": -200.0,
+  "TradingValue": 15.0,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "LongJohns",
+  "CardImageWarpType": 3,
+  "CardTagsWarpData": [
+    "tag_Clothing"
+  ],
+  "CardTagsWarpType": 3,
+  "EquipmentTags": [],
+  "EquipmentTagsWarpData": [
+    "eTag_Underwear"
+  ],
+  "EquipmentTagsWarpType": 3,
+  "IsArmor": true,
+  "AffectStatsOnlyWhenEquipped": true,
+  "ArmorValues": {
+    "HeadArmor": 0.0,
+    "HeadArmorModifiers": [],
+    "HeadHitProbabilityModifier": 0.0,
+    "TorsoArmor": 0.0,
+    "TorsoArmorModifiers": [],
+    "TorsoHitProbabilityModifier": 0.0,
+    "LArmArmor": 0.0,
+    "LArmArmorModifiers": [],
+    "LArmHitProbabilityModifier": 0.0,
+    "RArmArmor": 0.0,
+    "RArmArmorModifiers": [],
+    "RArmHitProbabilityModifier": 0.0,
+    "LLegArmor": 2.0,
+    "LLegArmorModifiers": [],
+    "LLegHitProbabilityModifier": 0.0,
+    "RLegArmor": 2.0,
+    "RLegArmorModifiers": [],
+    "RLegHitProbabilityModifier": 0.0
+  },
+  "AlwaysUpdate": true,
+  "WhenCreatedSoundsWarpData": ["Leather"],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": { "Active": false },
+  "UsageDurability": {
+    "Active": true,
+    "FloatValue": 34560.0,
+    "CardStatName": {
+      "ParentObjectID": "apparellongjohns",
+      "LocalizationKey": "Apparel_LongJohns_UsageDurability.CardStatName",
+      "DefaultText": "Condition"
+    },
+    "MaxValue": 34560.0,
+    "RatePerDaytimePoint": 0.0,
+    "ExtraRateWhenEquipped": -0.5,
+    "HidingOptions": 1,
+    "TextDisplay": 1,
+    "NumberPrecision": 0,
+    "HasActionOnZero": true,
+    "ShowPopupOnZero": true,
+    "OnZero": {
+      "ActionDescription": {
+        "ParentObjectID": "apparellongjohns",
+        "LocalizationKey": "Apparel_LongJohns_OnZero",
+        "DefaultText": "The long johns have worn through."
+      },
+      "OnZeroNotification": 1,
+      "ProducedCards": [],
+      "ReceivingCardChanges": { "ModType": 3 }
+    },
+    "HasActionOnFull": false,
+    "CountsForTradingValue": true,
+    "OverrideIconWarpData": "Spoilage",
+    "OverrideIconWarpType": 3
+  },
+  "FuelCapacity": { "Active": false },
+  "Progress": { "Active": false },
+  "SpecialDurability1": { "Active": false },
+  "SpecialDurability2": { "Active": false },
+  "SpecialDurability3": { "Active": false },
+  "SpecialDurability4": { "Active": false },
+  "DurabilitySorting": { "SortingList": [] },
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "apparellongjohns",
+        "LocalizationKey": "Apparel_LongJohns_RipUp_ActionName",
+        "DefaultText": "Rip up"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "apparellongjohns",
+        "LocalizationKey": "Apparel_LongJohns_RipUp_ActionDescription",
+        "DefaultText": "Rip the long johns apart to recover the cloth."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Leather"],
+      "ActionSoundsWarpType": 3,
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "aa73d89b9f0f04145adce258403d61d0",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 2, "y": 2 }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": { "ModType": 3 }
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [
+    {
+      "EffectName": "Temperature Perceived (+1.5)",
+      "OnlyWhenEquipped": true,
+      "EquippedOnBodyOnly": true,
+      "Conditions": {},
+      "StatModifiers": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "0d5ec8f104b2ba149b4bb2b536bc21a4",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 1.5, "y": 1.5 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ]
+    },
+    {
+      "EffectName": "Comfort (+4)",
+      "OnlyWhenEquipped": true,
+      "EquippedOnBodyOnly": true,
+      "Conditions": {},
+      "StatModifiers": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 4.0, "y": 4.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_QuestAccept2_Line",
+        "DefaultText": "Bless you, truly. A man can only eat the same thin broth so many nights running before he starts dreaming about it. Take your time, mind, I'd rather wait a week for a proper stew than eat a rushed one tonight."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_QuestAccept2_Answer",
+                "DefaultText": "I'll bring you the best I've got."
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

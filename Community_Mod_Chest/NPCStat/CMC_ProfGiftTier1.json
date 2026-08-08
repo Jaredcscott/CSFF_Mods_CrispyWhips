@@ -1,0 +1,17 @@
+{
+    "UniqueID": "cmcStatProfGiftTier1",
+    "GameName": {
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "First-graduation gift claimed flag (0=unclaimed 1=claimed)"
+    },
+    "DefaultStartingValue": 0.0,
+    "DefaultMinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "DefaultRate": 0.0,
+    "DefaultMinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    }
+}

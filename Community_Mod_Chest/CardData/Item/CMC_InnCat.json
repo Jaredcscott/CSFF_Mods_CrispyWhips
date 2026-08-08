@@ -1,0 +1,286 @@
+{
+    "UniqueID": "cmcInnCat",
+    "CardType": 0,
+    "CardName": {
+        "LocalizationKey": "CMC_InnCat_CardName",
+        "DefaultText": "Ash the Cat"
+    },
+    "CardDescription": {
+        "LocalizationKey": "CMC_InnCat_CardDescription",
+        "DefaultText": "The Village Inn's slate-gray mouser, now quite convinced you belong to him. He takes most of his water from his prey, hunts what he pleases, and sleeps where he pleases, but a fed cat is a loyal one, and his purr is a balm on lonely nights."
+    },
+    "CardImageWarpData": "CMC_InnCat_Lounging",
+    "CardImageWarpType": 3,
+    "CanBeRenamed": true,
+    "DoesNotPile": true,
+    "CannotBeTrashed": true,
+    "SeasonsArt": {
+        "SpringArt": {"CardImageWarpData": "CMC_InnCat_Spring", "CardImageWarpType": 3},
+        "SummerArt": {"CardImageWarpData": "CMC_InnCat_Summer", "CardImageWarpType": 3},
+        "AutumnArt": {"CardImageWarpData": "CMC_InnCat_Autumn", "CardImageWarpType": 3},
+        "WinterArt": {"CardImageWarpData": "CMC_InnCat_Winter", "CardImageWarpType": 3}
+    },
+    "AlternateNames": [
+        {
+            "Conditions": {"Special1Range": {"x": 1.0, "y": 1.0}},
+            "Art": {"CardImageWarpData": "CMC_InnCat_Hunting", "CardImageWarpType": 3}
+        },
+        {
+            "Conditions": {"Special1Range": {"x": 2.0, "y": 2.0}},
+            "Art": {"CardImageWarpData": "CMC_InnCat_Swimming", "CardImageWarpType": 3}
+        },
+        {
+            "Conditions": {"Special1Range": {"x": 3.0, "y": 3.0}},
+            "Art": {"CardImageWarpData": "CMC_InnCat_Lounging", "CardImageWarpType": 3}
+        },
+        {
+            "Conditions": {"Special1Range": {"x": 4.0, "y": 4.0}},
+            "Art": {"CardImageWarpData": "CMC_InnCat_Gift", "CardImageWarpType": 3}
+        },
+        {
+            "Conditions": {"Special1Range": {"x": 5.0, "y": 5.0}},
+            "Art": {"CardImageWarpData": "CMC_InnCat_Greeting", "CardImageWarpType": 3}
+        }
+    ],
+    "SpecialDurability1": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "MaxValue": 5.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 2,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "SortInverted": false,
+        "ResetWhenLoadedAtZero": false,
+        "HasActionOnZero": false,
+        "RepeatActionOnZero": false,
+        "ShowPopupOnZero": false,
+        "OnZeroNotification": 0,
+        "CountsForTradingValue": false
+    },
+    "SpecialDurability2": {
+        "Active": true,
+        "FloatValue": 480.0,
+        "MaxValue": 480.0,
+        "RatePerDaytimePoint": -1.0,
+        "HidingOptions": 2,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "SortInverted": false,
+        "ResetWhenLoadedAtZero": false,
+        "HasActionOnZero": true,
+        "RepeatActionOnZero": false,
+        "ShowPopupOnZero": false,
+        "OnZeroNotification": 0,
+        "CountsForTradingValue": false,
+        "OnZero": {
+            "ActionName": {
+                "LocalizationKey": "CMC_InnCat_BoarHunt_OnZero",
+                "DefaultText": "Goes Hunting"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_InnCat_BoarHunt_OnZero_Desc",
+                "DefaultText": "Ash slips out after dusk, hot on the scent of something in the underbrush."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "cmcAshTrackingBoar",
+                "TransformIntoWarpType": 3
+            }
+        }
+    },
+    "SpecialDurability3": {
+        "Active": true,
+        "FloatValue": 100.0,
+        "CardStatName": {
+            "LocalizationKey": "CMC_InnCat_Care",
+            "DefaultText": "Care"
+        },
+        "MaxValue": 100.0,
+        "RatePerDaytimePoint": 0.0,
+        "OverrideIconWarpData": "Morale2",
+        "OverrideIconWarpType": 3,
+        "NumberPrecision": 0,
+        "HasActionOnZero": true,
+        "OnZero": {
+            "ActionName": {
+                "LocalizationKey": "CMC_InnCat_Care_OnZero",
+                "DefaultText": "Wanders Off"
+            },
+            "StatModifications": [
+                {"StatWarpData": "8e461e8c41bd3294f8c102991f2ff63b", "StatWarpType": 3, "ValueModifier": {"x": 336.0, "y": 336.0}}
+            ],
+            "ReceivingCardChanges": {"ModType": 3}
+        }
+    },
+    "SpecialDurability4": {"Active": false},
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 576.0,
+        "CardStatName": {
+            "LocalizationKey": "CMC_InnCat_Hunger",
+            "DefaultText": "Hunger"
+        },
+        "MaxValue": 576.0,
+        "RatePerDaytimePoint": -1.0,
+        "OverrideIconWarpData": "Hunger_Old",
+        "OverrideIconWarpType": 3,
+        "HasActionOnZero": true,
+        "OnZero": {
+            "ActionName": {
+                "LocalizationKey": "CMC_InnCat_Hunger_OnZero",
+                "DefaultText": "Wanders Off"
+            },
+            "StatModifications": [
+                {"StatWarpData": "8e461e8c41bd3294f8c102991f2ff63b", "StatWarpType": 3, "ValueModifier": {"x": 336.0, "y": 336.0}}
+            ],
+            "ReceivingCardChanges": {"ModType": 3}
+        }
+    },
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 288.0,
+        "CardStatName": {
+            "LocalizationKey": "CMC_InnCat_Thirst",
+            "DefaultText": "Thirst"
+        },
+        "MaxValue": 288.0,
+        "RatePerDaytimePoint": -1.0,
+        "OverrideIconWarpData": "Thirst_Old",
+        "OverrideIconWarpType": 3,
+        "HasActionOnZero": true,
+        "OnZero": {
+            "ActionName": {
+                "LocalizationKey": "CMC_InnCat_Thirst_OnZero",
+                "DefaultText": "Wanders Off"
+            },
+            "StatModifications": [
+                {"StatWarpData": "8e461e8c41bd3294f8c102991f2ff63b", "StatWarpType": 3, "ValueModifier": {"x": 336.0, "y": 336.0}}
+            ],
+            "ReceivingCardChanges": {"ModType": 3}
+        }
+    },
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_InnCat_DA_Pet",
+                "DefaultText": "Pet"
+            },
+            "DaytimeCost": 1,
+            "StatModifications": [
+                {"StatWarpData": "3dc9b7924c4bec142af1c255f6df235d", "StatWarpType": 3, "ValueModifier": {"x": -30.0, "y": -30.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78", "StatWarpType": 3, "ValueModifier": {"x": -25.0, "y": -25.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "4c5ed70723dc40e439720acab06e6af7", "StatWarpType": 3, "ValueModifier": {"x": 8.0, "y": 8.0}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "ReceivingCardChanges": {"ModType": 1, "Special1Change": {"x": 5.0, "y": 5.0}, "Special3Change": {"x": 15.0, "y": 15.0}}
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_InnCat_DA_Play",
+                "DefaultText": "Play"
+            },
+            "DaytimeCost": 2,
+            "StatModifications": [
+                {"StatWarpData": "4c5ed70723dc40e439720acab06e6af7", "StatWarpType": 3, "ValueModifier": {"x": 16.0, "y": 16.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2", "StatWarpType": 3, "ValueModifier": {"x": -10.0, "y": -10.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78", "StatWarpType": 3, "ValueModifier": {"x": -25.0, "y": -25.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "3dc9b7924c4bec142af1c255f6df235d", "StatWarpType": 3, "ValueModifier": {"x": -30.0, "y": -30.0}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "ReceivingCardChanges": {"ModType": 1}
+        }
+    ],
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_InnCat_CI_Feed",
+                "DefaultText": "Feed"
+            },
+            "RequiredReceivingDurabilities": {
+                "RequiredSpoilagePercent": {"Active": true, "MinValue": 0.0, "MaxValue": 0.9},
+                "FailMessage": {
+                    "LocalizationKey": "CMC_InnCat_CI_Feed_Fail",
+                    "DefaultText": "He sniffs it and walks away. Not hungry yet."
+                }
+            },
+            "StatModifications": [
+                {"StatWarpData": "3dc9b7924c4bec142af1c255f6df235d", "StatWarpType": 3, "ValueModifier": {"x": -20.0, "y": -20.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78", "StatWarpType": 3, "ValueModifier": {"x": -10.0, "y": -10.0}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "SpoilageChange": {"x": 288.0, "y": 288.0},
+                "UsageChange": {"x": 96.0, "y": 96.0},
+                "Special1Change": {"x": 4.0, "y": 4.0},
+                "Special3Change": {"x": 20.0, "y": 20.0}
+            },
+            "GivenCardChanges": {"ModType": 3},
+            "CompatibleCards": {
+                "TriggerCardsWarpData": [
+                    "3103c059d34608a4bb95c426d9ac77e0",
+                    "272fe32c20eebef4d82290c7a31ac885",
+                    "be70da939b3b49040817669f6e681ef1",
+                    "fe07d4d800bcc8646a0ff2513c78d5df",
+                    "5dc9560f81be57c4b9e22780f8a5ad78",
+                    "e292e8faac1041f4ab1da9bcf900e751",
+                    "692c88d91a4fdf0498749339ae6d53f8",
+                    "f4be79e87ba98db41a9c9e31bb76c33d",
+                    "cea21fa218c28ee49a49ba2ffc8eba7c",
+                    "fce44510da25a3a4b970c3dffa9468f8",
+                    "e32cb25589e676c49baa6c8f54637fa3",
+                    "e6b341c0770197047a5ad6470476bbd4",
+                    "6f0031502c513cc4085f7c8b912b7a3c",
+                    "b351a3f9131348742bcbf17b6ae10fd5",
+                    "f72ca8f6249870d4b9306c2d779c93a9",
+                    "81766d95f54c99242ab3d18be522db49"
+                ],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_InnCat_CI_GiveWater",
+                "DefaultText": "Give Water"
+            },
+            "RequiredReceivingDurabilities": {
+                "RequiredUsagePercent": {"Active": true, "MinValue": 0.0, "MaxValue": 0.9},
+                "FailMessage": {
+                    "LocalizationKey": "CMC_InnCat_CI_GiveWater_Fail",
+                    "DefaultText": "Not thirsty yet."
+                }
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "UsageChange": {"x": 96.0, "y": 96.0},
+                "Special3Change": {"x": 12.0, "y": 12.0}
+            },
+            "RequiredGivenLiquidContent": {
+                "IsActive": true,
+                "RequiredLiquidWarpData": "425259cb06b869d45be2e7f1b5b54aff",
+                "RequiredLiquidWarpType": 3,
+                "RequiredQuantity": {"x": 1.0, "y": 0.0}
+            },
+            "GivenCardChanges": {
+                "ModifyLiquid": true,
+                "LiquidEffectScaling": 1,
+                "LiquidQuantityChange": {"x": -100.0, "y": -100.0}
+            },
+            "CompatibleCards": {
+                "TriggerCardsWarpData": [
+                    "2ae9292d2b80ccb41a0840ca736e0d12",
+                    "1cecbd7141fa89a4c90686dcd2d92155",
+                    "536f722edbb5e9e4b959b1f3ad25f648"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": ["tag_WaterContainer"],
+                "TriggerTagsWarpType": 3
+            }
+        }
+    ],
+    "PassiveStatEffects": [
+        {
+            "StatWarpData": "3dc9b7924c4bec142af1c255f6df235d",
+            "StatWarpType": 3,
+            "RateModifier": {"x": -2.0, "y": -2.0}
+        }
+    ]
+}

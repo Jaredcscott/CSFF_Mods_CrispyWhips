@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatArrestPending",
+    "GameName": {
+        "LocalizationKey": "CMC_ArrestPending_StatName",
+        "DefaultText": "Arrest Pending"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_ArrestPending_StatDescription",
+        "DefaultText": "Hidden 0/1 marker: 1 when the player lost a fight to a Town Watch guard (the encounter's PlayerDemoralizedEffects sets it declaratively). The arrest-and-sentence chunk (Village_Master_Plan.md §10.8.7.2) consumes this and clears it back to 0; until that ships, GuardOutcomePatch only logs the transition."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

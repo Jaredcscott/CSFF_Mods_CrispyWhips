@@ -1,0 +1,10 @@
+{
+  "CardDescription": {
+    "LocalizationKey": "CMC_HuntersCrossing_CardDescription",
+    "DefaultText": "A natural crossroads in the forest where game trails converge, marked by badger sett-diggings along the banks."
+  },
+  "CardHelpSection": {
+    "LocalizationKey": "CMC_HuntersCrossing_CardHelpSection",
+    "DefaultText": "<b>Pine Clearing:</b>\n\n<b>Conditions:</b> Acidic soil.\n\n<b>Flora:</b> Pines, Birch, Appleweed, Healer's Moss, Fireroot, Pine Nuts (autumn), Fly Agaric, Meadowgrass.\n\n<b>Fauna:</b> Squirrels are the more common sight along this trail; badger setts dug into the banks nearby mark the den the diggers keep to by day."
+  }
+}

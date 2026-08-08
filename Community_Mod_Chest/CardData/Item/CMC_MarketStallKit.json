@@ -1,0 +1,40 @@
+{
+  "UniqueID": "cmcmarketstallkit",
+  "TradingValue": 400,
+  "CardType": 0,
+  "CardName": {
+    "DefaultText": "Market Stall Kit",
+    "LocalizationKey": "CMC_MarketStallKit_CardName"
+  },
+  "CardDescription": {
+    "DefaultText": "A portable market stall. Can only be assembled in the village: merchants need foot traffic to buy your wares. Once placed, drop trade goods into the stall inventory and collect earnings as copper or salt over time.",
+    "LocalizationKey": "CMC_MarketStallKit_CardDesc"
+  },
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "CMC_MarketStallKit",
+  "CardImageWarpType": 3,
+  "CardHelpSection": {
+    "DefaultText": "Market Stall Kit",
+    "LocalizationKey": "CMC_MarketStallKit_Help"
+  },
+  "CardTagsWarpData": ["tag_Structure", "tag_Craftable"],
+  "CardTagsWarpType": 3,
+  "ObjectWeight": 4,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "DefaultText": "Set Up Stall",
+        "LocalizationKey": "CMC_MarketStall_DA_SetUp"
+      },
+      "DaytimeCost": 4,
+      "UseMiniTicks": 0,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "cmcmarketstall",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": true
+      }
+    }
+  ],
+  "DismantleActionsWarpType": 3
+}

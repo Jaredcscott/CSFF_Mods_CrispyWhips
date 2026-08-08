@@ -1,0 +1,76 @@
+{
+    "UniqueID": "cmcGuardVaneAgent",
+    "AgentName": {
+        "ParentObjectID": "cmcGuardVaneAgent",
+        "LocalizationKey": "CMC_GuardVane_AgentName",
+        "DefaultText": "Guard Iris Vane"
+    },
+    "AgentDescription": {
+        "ParentObjectID": "cmcGuardVaneAgent",
+        "LocalizationKey": "CMC_GuardVane_AgentDescription",
+        "DefaultText": "Night Watch. Sleeps through the day and walks the village after dark, which is when she does her best noticing."
+    },
+    "AgentImageWarpData": "CMC_Guard_LanternGuard",
+    "AgentImageWarpType": 3,
+    "AlliedWithPlayer": false,
+    "PerksWarpData": [
+        "cmcGuardPerkVane"
+    ],
+    "PerksWarpType": 3,
+    "MandatoryPerks": [],
+    "WeightCategoryWarpData": "Light",
+    "WeightCategoryWarpType": 3,
+    "HidingConditions": {
+        "RequiredInGameTimes": [
+            {
+                "TimeType": 0,
+                "CompareType": 0,
+                "StartValue": 5,
+                "EndValue": 20,
+                "MomentOfDayValue": {
+                    "MaskValue": 0
+                },
+                "SeasonValue": {
+                    "MaskValue": 0
+                }
+            }
+        ],
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillageCrime", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 59.999}}
+        ]
+    },
+    "Interactions": [
+        {
+            "ButtonName": {
+                "LocalizationKey": "CMC_GuardVane_Attack",
+                "DefaultText": "Attack"
+            },
+            "Conditions": {},
+            "ButtonType": 1,
+            "DroppedEncounterWarpData": "cmcEncounterGuardVane",
+            "DroppedEncounterWarpType": 3,
+            "SkipEncounterEvent": false
+        }
+    ],
+    "DismantleActions": [],
+    "DragAndDropActions": [],
+    "AmbientSounds": [],
+    "AgentStats": [],
+    "ItemPreferences": [],
+    "EquipmentSelectionTags": [],
+    "AgentActions": [],
+    "AgentDuties": [],
+    "AgentPassiveEffects": [],
+    "HasActionOnDelete": false,
+    "MaxCarryWeight": 100000.0,
+    "CannotTrade": true,
+    "TradingConditions": {},
+    "StartingInventory": [],
+    "TradingModifiers": [],
+    "ModifyNPCStatsPerTradeValue": [],
+    "CommissionsBp": [],
+    "AgentTagsWarpData": [
+        "nTag_TownGuard"
+    ],
+    "AgentTagsWarpType": 3
+}

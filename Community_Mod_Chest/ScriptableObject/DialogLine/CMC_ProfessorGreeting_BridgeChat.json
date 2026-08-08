@@ -1,0 +1,30 @@
+{
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_Bridge_Line",
+        "DefaultText": "The river bridge, finished at last! Do you know what a bridge is to a village like this? A thesis in timber, proof we intend to be more than a clearing with opinions. Enrollment will thank you within the season."
+    },
+    "ActionToPerform": {
+        "NPCStatModifications": [
+            {
+                "TargetStatWarpData": "cmcStatProfBridgeNews",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {
+                    "x": 1.0,
+                    "y": 1.0
+                }
+            }
+        ]
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Answer_Ok",
+                "DefaultText": "Noted, Professor."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

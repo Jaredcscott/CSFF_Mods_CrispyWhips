@@ -1,0 +1,58 @@
+{
+    "UniqueID": "cmcGuardCorrinAgent",
+    "AgentName": {
+        "ParentObjectID": "cmcGuardCorrinAgent",
+        "LocalizationKey": "CMC_GuardCorrin_AgentName",
+        "DefaultText": "Guard Old Corrin"
+    },
+    "AgentDescription": {
+        "ParentObjectID": "cmcGuardCorrinAgent",
+        "LocalizationKey": "CMC_GuardCorrin_AgentDescription",
+        "DefaultText": "Farm Watch. Walks the fields and the clay flats trail, a beat the village gave him because they trust him with it."
+    },
+    "AgentImageWarpData": "CMC_Guard_SpearMan",
+    "AgentImageWarpType": 3,
+    "AlliedWithPlayer": false,
+    "PerksWarpData": [
+        "cmcGuardPerkCorrin"
+    ],
+    "PerksWarpType": 3,
+    "MandatoryPerks": [],
+    "WeightCategoryWarpData": "Light",
+    "WeightCategoryWarpType": 3,
+    "HidingConditions": {},
+    "Interactions": [
+        {
+            "ButtonName": {
+                "LocalizationKey": "CMC_GuardCorrin_Attack",
+                "DefaultText": "Attack"
+            },
+            "Conditions": {},
+            "ButtonType": 1,
+            "DroppedEncounterWarpData": "cmcEncounterGuardCorrin",
+            "DroppedEncounterWarpType": 3,
+            "SkipEncounterEvent": false
+        }
+    ],
+    "DismantleActions": [],
+    "DragAndDropActions": [],
+    "AmbientSounds": [],
+    "AgentStats": [],
+    "ItemPreferences": [],
+    "EquipmentSelectionTags": [],
+    "AgentActions": [],
+    "AgentDuties": [],
+    "AgentPassiveEffects": [],
+    "HasActionOnDelete": false,
+    "MaxCarryWeight": 100000.0,
+    "CannotTrade": true,
+    "TradingConditions": {},
+    "StartingInventory": [],
+    "TradingModifiers": [],
+    "ModifyNPCStatsPerTradeValue": [],
+    "CommissionsBp": [],
+    "AgentTagsWarpData": [
+        "nTag_TownGuard"
+    ],
+    "AgentTagsWarpType": 3
+}

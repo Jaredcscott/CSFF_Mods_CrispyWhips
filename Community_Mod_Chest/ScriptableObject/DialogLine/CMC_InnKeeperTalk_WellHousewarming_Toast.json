@@ -1,0 +1,18 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_WellHousewarming_Toast_Line",
+        "DefaultText": "\"To the well,\" he says later, cup raised against the dark, \"and to everyone fool enough to help dig it.\" The whole village laughs and drinks. By the time the fire's died down, he's already talking about what to build next."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_WellHousewarming_Toast_Answer_Exit",
+                "DefaultText": "A fine toast."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

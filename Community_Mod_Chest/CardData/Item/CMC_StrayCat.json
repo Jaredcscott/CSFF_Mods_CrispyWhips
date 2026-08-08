@@ -1,0 +1,62 @@
+{
+    "UniqueID": "cmcStrayCat",
+    "CardType": 0,
+    "CardName": {
+        "LocalizationKey": "CMC_StrayCat_CardName",
+        "DefaultText": "Ash the Stray Cat"
+    },
+    "CardDescription": {
+        "LocalizationKey": "CMC_StrayCat_CardDescription",
+        "DefaultText": "A slate-gray cat with ember-orange eyes, watching from the ferns. This must be Ash, the Village Inn's lost mouser. He keeps his distance, but his nose twitches at your pack. A bit of meat or fish might win his trust."
+    },
+    "CardImageWarpData": "CMC_StrayCat",
+    "CardImageWarpType": 3,
+    "DoesNotPile": true,
+    "CannotBeTrashed": true,
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_StrayCat_CI_OfferFood",
+                "DefaultText": "Offer Food"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_StrayCat_CI_OfferFood_Desc",
+                "DefaultText": "Hold out a morsel and keep very still."
+            },
+            "StatModifications": [
+                {"StatWarpData": "cmcStatLostCat", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e", "StatWarpType": 3, "ValueModifier": {"x": 20.0, "y": 20.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "3dc9b7924c4bec142af1c255f6df235d", "StatWarpType": 3, "ValueModifier": {"x": -20.0, "y": -20.0}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "cmcInnCat",
+                "TransformIntoWarpType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "CompatibleCards": {
+                "TriggerCardsWarpData": [
+                    "3103c059d34608a4bb95c426d9ac77e0",
+                    "272fe32c20eebef4d82290c7a31ac885",
+                    "be70da939b3b49040817669f6e681ef1",
+                    "fe07d4d800bcc8646a0ff2513c78d5df",
+                    "5dc9560f81be57c4b9e22780f8a5ad78",
+                    "e292e8faac1041f4ab1da9bcf900e751",
+                    "692c88d91a4fdf0498749339ae6d53f8",
+                    "f4be79e87ba98db41a9c9e31bb76c33d",
+                    "cea21fa218c28ee49a49ba2ffc8eba7c",
+                    "fce44510da25a3a4b970c3dffa9468f8",
+                    "e32cb25589e676c49baa6c8f54637fa3",
+                    "e6b341c0770197047a5ad6470476bbd4",
+                    "6f0031502c513cc4085f7c8b912b7a3c",
+                    "b351a3f9131348742bcbf17b6ae10fd5",
+                    "f72ca8f6249870d4b9306c2d779c93a9",
+                    "81766d95f54c99242ab3d18be522db49"
+                ],
+                "TriggerCardsWarpType": 3
+            }
+        }
+    ]
+}

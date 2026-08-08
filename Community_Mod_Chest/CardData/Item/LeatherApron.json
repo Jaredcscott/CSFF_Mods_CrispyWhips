@@ -1,0 +1,218 @@
+{
+    "UniqueID": "apparelleatherapron",
+    "TradingValue": 1200,
+    "CardName": {
+        "ParentObjectID": "apparelleatherapron",
+        "LocalizationKey": "apparel_leather_apron_CardName",
+        "DefaultText": "Leather Apron"
+    },
+    "CardDescription": {
+        "ParentObjectID": "apparelleatherapron",
+        "LocalizationKey": "apparel_leather_apron_CardDescription",
+        "DefaultText": "A tough leather apron worn over the torso. Protects against sparks, cuts, and hard work.\n\n<b>MUST BE EQUIPPED TO WORK</b>"
+    },
+    "CardType": 0,
+    "CardImageWarpData": "LeatherApron",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [
+        "tag_Clothing"
+    ],
+    "CardTagsWarpType": 3,
+    "ObjectWeight": 300.0,
+    "WeightReductionWhenEquipped": -300.0,
+    "EquipmentTagsWarpData": [
+        "eTag_Shirt"
+    ],
+    "EquipmentTagsWarpType": 3,
+    "ArmorValues": {
+        "TorsoArmor": 5.0
+    },
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 46080.0,
+        "MaxValue": 46080.0,
+        "ExtraRateWhenEquipped": -1.0,
+        "HidingOptions": 1,
+        "OverrideIconWarpData": "Spoilage",
+        "OverrideIconWarpType": 3,
+        "HasActionOnZero": true,
+        "ShowPopupOnZero": true
+    },
+    "AlwaysUpdate": false,
+    "IsArmor": true,
+    "AffectStatsOnlyWhenEquipped": true,
+    "PassiveEffects": [
+        {
+            "EffectName": "Armor (+5)",
+            "OnlyWhenEquipped": true,
+            "EquippedOnBodyOnly": true,
+            "Conditions": {},
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "b9013a3e77a421b4bb7e4a8293e75382",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 5.0,
+                        "y": 5.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        },
+        {
+            "EffectName": "Temperature Perceived (+1.0)",
+            "OnlyWhenEquipped": true,
+            "EquippedOnBodyOnly": true,
+            "Conditions": {},
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "0d5ec8f104b2ba149b4bb2b536bc21a4",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 1.0,
+                        "y": 1.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        },
+        {
+            "EffectName": "Comfort (+10)",
+            "OnlyWhenEquipped": true,
+            "EquippedOnBodyOnly": true,
+            "Conditions": {},
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 10.0,
+                        "y": 10.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "apparelleatherapron",
+                "LocalizationKey": "apparel_leather_apron_DA_Dismantle",
+                "DefaultText": "Dismantle"
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "7750f89a63e418a41b377b48e88646f1",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 2,
+                                "y": 2
+                            }
+                        },
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 6,
+                                "y": 6
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

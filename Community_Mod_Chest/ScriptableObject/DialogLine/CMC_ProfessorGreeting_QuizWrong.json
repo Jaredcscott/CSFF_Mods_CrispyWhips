@@ -1,0 +1,17 @@
+{
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_QuizWrong_Line",
+        "DefaultText": "Mm. No. Your patient is now feverish AND disappointed. Review your herbals and ask me again. The examination allows retakes; the forest rarely does."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Answer_Ok",
+                "DefaultText": "Noted, Professor."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

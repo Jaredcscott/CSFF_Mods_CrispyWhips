@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatVillageRenown",
+    "GameName": {
+        "LocalizationKey": "CMC_VillageRenown_StatName",
+        "DefaultText": "Village Renown"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_VillageRenown_StatDescription",
+        "DefaultText": "Hidden tracker for the village's civic growth: sums fixed contributions from each built cottage, the Well, the River Bridge, and a Market Stall revenue milestone. Mirrored onto Village Hall's Notice Board (SpecialDurability1) once the Hall exists; drives the Market Stall renown reward once full."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 100.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

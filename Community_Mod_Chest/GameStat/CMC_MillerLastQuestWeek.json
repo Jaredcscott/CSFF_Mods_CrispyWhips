@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatMillerLastQuestWeek",
+    "GameName": {
+        "LocalizationKey": "CMC_MillerLastQuestWeek_StatName",
+        "DefaultText": "Miller's Last Quest Week"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_MillerLastQuestWeek_StatDescription",
+        "DefaultText": "Hidden tracker: the Village Clock week the Miller's most recently completed quest was thanked. 0 = none completed yet. Used to arm the next offer one village-week later."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 10000.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

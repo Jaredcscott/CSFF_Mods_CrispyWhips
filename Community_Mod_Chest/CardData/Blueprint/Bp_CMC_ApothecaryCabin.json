@@ -1,0 +1,144 @@
+{
+    "UniqueID": "BpCMCApothecaryCabin",
+    "CardName": {
+        "ParentObjectID": "BpCMCApothecaryCabin",
+        "LocalizationKey": "Bp_CMC_ApothecaryCabin_CardName",
+        "DefaultText": "Apothecary's Cabin"
+    },
+    "CardDescription": {
+        "ParentObjectID": "BpCMCApothecaryCabin",
+        "LocalizationKey": "Bp_CMC_ApothecaryCabin_CardDescription",
+        "DefaultText": "Raise a small herbalist's cabin among the pines of the Foraging Forest, with drying-racks under the eaves and a lean-to for the roots. Learned only by graduating the Academy's Herbalism course. Can only be built in the Foraging Forest."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "BpCMCApothecaryCabin",
+        "LocalizationKey": "Bp_CMC_ApothecaryCabin_UnlockConditionsDesc",
+        "DefaultText": "Graduate the Academy's Herbalism course"
+    },
+    "StartUnlocked": false,
+    "BlueprintCardConditions": [
+        {
+            "TriggerCard": { "m_FileID": 0, "m_PathID": 0 },
+            "OnlyInHand": false,
+            "NotInHand": false,
+            "ExcludeInventories": false,
+            "Inverted": false,
+            "OnlyEquipped": false,
+            "TriggerCardWarpData": "cmcLocForagingForest",
+            "TriggerCardWarpType": 3
+        }
+    ],
+    "BuildingCardConditions": [
+        {
+            "TriggerCard": { "m_FileID": 0, "m_PathID": 0 },
+            "OnlyInHand": false,
+            "NotInHand": false,
+            "ExcludeInventories": false,
+            "Inverted": false,
+            "OnlyEquipped": false,
+            "TriggerCardWarpData": "cmcLocForagingForest",
+            "TriggerCardWarpType": 3
+        }
+    ],
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "AtForagingForest",
+            "CompletionWeight": 1,
+            "Card": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": { "m_FileID": 0, "m_PathID": 0 },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": { "Target": { "m_FileID": 0, "m_PathID": 0 } },
+            "CardWarpData": "cmcLocForagingForest",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                { "RequiredCard": { "m_FileID": 0, "m_PathID": 0 }, "RequiredQuantity": 6, "DontSpend": false, "RequiredCardWarpData": "8695a7aa22521aa45be582d3c1558f78", "RequiredCardWarpType": 3 },
+                { "RequiredCard": { "m_FileID": 0, "m_PathID": 0 }, "RequiredQuantity": 6, "DontSpend": false, "RequiredCardWarpData": "0ab556ab6af1efc47a2cba5cdf4ace04", "RequiredCardWarpType": 3 }
+            ],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        },
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                { "RequiredCard": { "m_FileID": 0, "m_PathID": 0 }, "RequiredQuantity": 6, "DontSpend": false, "RequiredCardWarpData": "8695a7aa22521aa45be582d3c1558f78", "RequiredCardWarpType": 3 },
+                { "RequiredCard": { "m_FileID": 0, "m_PathID": 0 }, "RequiredQuantity": 6, "DontSpend": false, "RequiredCardWarpData": "0ab556ab6af1efc47a2cba5cdf4ace04", "RequiredCardWarpType": 3 }
+            ],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        },
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                { "RequiredCard": { "m_FileID": 0, "m_PathID": 0 }, "RequiredQuantity": 6, "DontSpend": false, "RequiredCardWarpData": "8695a7aa22521aa45be582d3c1558f78", "RequiredCardWarpType": 3 },
+                { "RequiredCard": { "m_FileID": 0, "m_PathID": 0 }, "RequiredQuantity": 6, "DontSpend": false, "RequiredCardWarpData": "0ab556ab6af1efc47a2cba5cdf4ace04", "RequiredCardWarpType": 3 }
+            ],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        },
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                { "RequiredCard": { "m_FileID": 0, "m_PathID": 0 }, "RequiredQuantity": 6, "DontSpend": false, "RequiredCardWarpData": "8695a7aa22521aa45be582d3c1558f78", "RequiredCardWarpType": 3 },
+                { "RequiredCard": { "m_FileID": 0, "m_PathID": 0 }, "RequiredQuantity": 6, "DontSpend": false, "RequiredCardWarpData": "0ab556ab6af1efc47a2cba5cdf4ace04", "RequiredCardWarpType": 3 }
+            ],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        },
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                { "RequiredCard": { "m_FileID": 0, "m_PathID": 0 }, "RequiredQuantity": 8, "DontSpend": false, "RequiredCardWarpData": "0ab556ab6af1efc47a2cba5cdf4ace04", "RequiredCardWarpType": 3 }
+            ],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        },
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                { "RequiredCard": { "m_FileID": 0, "m_PathID": 0 }, "RequiredQuantity": 10, "DontSpend": false, "RequiredCardWarpData": "57460207bbf77fa4fb6720aed5d84851", "RequiredCardWarpType": 3 }
+            ],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        },
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                { "RequiredCard": { "m_FileID": 0, "m_PathID": 0 }, "RequiredQuantity": 2, "DontSpend": false, "RequiredCardWarpData": "herbs_fungi_hemp_flower_dried", "RequiredCardWarpType": 3 },
+                { "RequiredCard": { "m_FileID": 0, "m_PathID": 0 }, "RequiredQuantity": 2, "DontSpend": false, "RequiredCardWarpData": "herbs_fungi_dried_ginseng", "RequiredCardWarpType": 3 },
+                { "RequiredCard": { "m_FileID": 0, "m_PathID": 0 }, "RequiredQuantity": 2, "DontSpend": false, "RequiredCardWarpData": "herbs_fungi_dried_reishi", "RequiredCardWarpType": 3 },
+                { "RequiredCard": { "m_FileID": 0, "m_PathID": 0 }, "RequiredQuantity": 3, "DontSpend": false, "RequiredCardWarpData": "c0f1eabb07ab5064bbebd151ae6b9a94", "RequiredCardWarpType": 3 },
+                { "RequiredCard": { "m_FileID": 0, "m_PathID": 0 }, "RequiredQuantity": 1, "DontSpend": false, "RequiredCardWarpData": "cmcShadowCatTamed", "RequiredCardWarpType": 3 }
+            ],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 12,
+    "DeconstructDaytimeCost": 3,
+    "NeedsRoomInLocationToSpawn": true,
+    "BlueprintResult": [
+        {
+            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": { "x": 1, "y": 1 },
+            "DroppedCardWarpData": "cmcApothecaryCabin",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction", "LegAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImageWarpData": "CMC_ApothecaryCabin",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 192.0,
+    "ResearchedNotification": 0
+}

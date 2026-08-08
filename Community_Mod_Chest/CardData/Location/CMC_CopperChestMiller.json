@@ -1,0 +1,109 @@
+{
+  "UniqueID": "cmcCopperChestMiller",
+  "CardType": 2,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": false,
+  "CardName": {
+    "LocalizationKey": "CMC_CopperChestMiller_CardName",
+    "DefaultText": "Miller's Copper Chest"
+  },
+  "CardDescription": {
+    "LocalizationKey": "CMC_CopperChestMiller_CardDescription",
+    "DefaultText": "The Miller keeps his savings and a little spare stock in this banded chest. Every week or so he adds to it, until it is as full as a miller's chest ever gets. Drag a valuable item onto the chest to sell it to him - he can only pay what is actually inside. There is nothing stopping you searching it yourself, either, if you are willing to risk being caught."
+  },
+  "CardImageWarpData": "ChestPlaced",
+  "CardImageWarpType": 3,
+  "CardHelpSection": {
+    "LocalizationKey": "CMC_CopperChestMiller_CardHelpSection",
+    "DefaultText": "Copper Chest"
+  },
+  "CardTagsWarpData": ["tag_Structure"],
+  "CardTagsWarpType": 3,
+  "ObjectWeight": 0,
+  "DoesNotPile": true,
+  "MaxWeightCapacity": 50000,
+  "InventorySlots": [
+    { "m_FileID": 0, "m_PathID": 0 },
+    { "m_FileID": 0, "m_PathID": 0 },
+    { "m_FileID": 0, "m_PathID": 0 },
+    { "m_FileID": 0, "m_PathID": 0 },
+    { "m_FileID": 0, "m_PathID": 0 },
+    { "m_FileID": 0, "m_PathID": 0 },
+    { "m_FileID": 0, "m_PathID": 0 },
+    { "m_FileID": 0, "m_PathID": 0 },
+    { "m_FileID": 0, "m_PathID": 0 },
+    { "m_FileID": 0, "m_PathID": 0 }
+  ],
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_CopperChestMiller_CI_Sell",
+        "DefaultText": "Sell to the Miller"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_CopperChestMiller_CI_Sell_Desc",
+        "DefaultText": "Sell the dragged item to the Miller. He pays out of the chest's own coin, so he can only buy what he can currently afford - a freshly settled Miller cannot yet meet the price of anything expensive."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "57460207bbf77fa4fb6720aed5d84851",
+          "a7a58aa687df66e47a42fc13e0fdbeaa",
+          "a968f3eaffc6b9743b82982b5af2ab8c",
+          "14f7ddfe60496b54881d5a25de8abb20",
+          "4405a7e253a29bd40b84c9e21412cde9",
+          "694cdedcfd63f354099aea87a53aa496",
+          "7900a60c205568640a887f30cc6ff8f9",
+          "730e96f4b2a7540448604cd0c1644e97",
+          "ab30197cd1a147746b807e33f5f91fc3"
+        ],
+        "TriggerCardsWarpType": 3,
+        "TriggerTagsWarpData": [
+          "tag_Valuable",
+          "tag_Quality",
+          "tag_TraderInterestX2General",
+          "tag_TraderInterestX4General",
+          "tag_TraderInterestX2Metal",
+          "tag_TraderInterestX4Metal",
+          "tag_TraderInterestX2Animal",
+          "tag_TraderInterestX4Animal"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "ProducedCards": []
+    }
+  ],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_CopperChestMiller_DA_Search",
+        "DefaultText": "Search for valuables"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_CopperChestMiller_DA_Search_Desc",
+        "DefaultText": "Go through the chest and take whatever is inside. Quick work when nobody is home - rather less so when the Miller is."
+      },
+      "DaytimeCost": 4,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": ["HandAction"],
+      "ActionTagsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "ProducedCards": [],
+      "AlwaysShow": true
+    }
+  ],
+  "DismantleActionsWarpType": 3
+}

@@ -1,0 +1,32 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatInnStoryIndex", "StatWarpType": 3, "TriggerRange": {"x": 5.5, "y": 6.5}},
+            {"StatWarpData": "cmcStatInnStoryStep", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_Cat2ndLife_2_Line",
+        "DefaultText": "One hard winter he wandered off into the Old Woods and never came back. We looked, I'll tell you, we looked for weeks. And then for two full years, not a single cat came near the place. Not a stray, not a barn kitten, nothing. It was as if the inn itself was in mourning and wouldn't take another."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Cat2ndLife_2_Answer_GoOn",
+                "DefaultText": "And then Ash turned up?"
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnStoryStep", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_InnKeeperTalk_Cat2ndLife_3",
+                "NextLineWarpType": 3
+            }
+        }
+    ]
+}

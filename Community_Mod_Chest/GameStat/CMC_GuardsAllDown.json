@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatGuardsAllDown",
+    "GameName": {
+        "LocalizationKey": "CMC_GuardsAllDown_StatName",
+        "DefaultText": "Watch Broken"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_GuardsAllDown_StatDescription",
+        "DefaultText": "Hidden 0/1 latch: 1 while all four Town Watch guards are simultaneously down. Set on the transition into that state (which is what clears Village Crime back to 0), cleared as soon as any guard's season timer expires, so the pardon fires once per gauntlet rather than every poll."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

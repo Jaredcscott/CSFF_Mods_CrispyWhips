@@ -1,0 +1,44 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatProfQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+            {"StatWarpData": "cmcStatProfQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.25, "y": 0.75}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_QuestThanks2_Line",
+        "DefaultText": "Marvelous, good workable clay, no grit or shale in it at all. I've spent the evening sketching the castle from memory, towers and all, and I think I've finally got the proportions of that collapsed east wall right after eleven years of guessing. Here, the figurine pattern is yours. It's the least I can offer for humoring an old scholar's nostalgia, and honestly the least of what you've earned for it."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_QuestThanks2_Answer_Ok",
+                "DefaultText": "Happy to humor you, Professor."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatProfQuestChain",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": 1.0, "y": 1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    },
+                    {
+                        "StatWarpData": "cmcStatProfQuestArmed",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": -0.5, "y": -0.5 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ],
+                "BlueprintsFullUnlockWarpData": ["potterysculpturebpfigurinecastle"],
+                "BlueprintsFullUnlockWarpType": 3
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

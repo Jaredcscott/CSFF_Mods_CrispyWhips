@@ -1,0 +1,36 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatInterlockS1", "StatWarpType": 3, "TriggerRange": {"x": 0.75, "y": 1.25}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_WeaverTalk_InterlockS1Thanks_Line",
+        "DefaultText": "Three colors, just like that. The Apothecary always did have a good eye for a shade, better than mine, if I'm honest. Here, the tricolor pattern's yours, tell her I said her powders made it possible."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_InterlockS1Thanks_Answer_Ok",
+                "DefaultText": "I'll pass that along."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatInterlockS1",
+                        "StatWarpType": 3,
+                        "ValueModifier": {"x": 1.0, "y": 1.0},
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ],
+                "BlueprintsFullUnlockWarpData": ["comfortbptricolorwallhanging"],
+                "BlueprintsFullUnlockWarpType": 3
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

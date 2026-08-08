@@ -1,0 +1,470 @@
+{
+  "UniqueID": "cmcInnCounter",
+  "CardType": 2,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": false,
+  "CardName": {
+    "LocalizationKey": "CMC_InnCounter_CardName",
+    "DefaultText": "Inn Counter"
+  },
+  "CardDescription": {
+    "LocalizationKey": "CMC_InnCounter_CardDescription",
+    "DefaultText": "The Inn Keeper serves hot meals and rents out beds from behind this counter. Drag Salt, metal Nuggets, or Duros Coins onto the counter to fund your Inn Account (holds up to 500); a meal or a night's stay draws 50 from that balance. Drag Firewood onto the counter to sell it for Salt. There is usually odd work available too, paid in copper nuggets."
+  },
+  "CardImageWarpData": "VillageInnDesk",
+  "CardImageWarpType": 3,
+  "CardTagsWarpData": ["tag_Structure"],
+  "CardTagsWarpType": 3,
+  "ObjectWeight": 0,
+  "DoesNotPile": true,
+  "SpecialDurability1": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 500.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 2,
+    "NumberPrecision": 0,
+    "OverrideIcon": { "m_FileID": 0, "m_PathID": 0 },
+    "OverrideIconWarpData": "Powder_Fairyweed",
+    "OverrideIconWarpType": 3,
+    "CardStatName": {
+      "LocalizationKey": "CMC_InnCounter_Prog_Account",
+      "DefaultText": "Inn Account"
+    },
+    "HasActionOnZero": false,
+    "HasActionOnFull": false
+  },
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_InnCounter_CI_Deposit",
+        "DefaultText": "Deposit Currency"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_InnCounter_CI_Deposit_Desc",
+        "DefaultText": "Adds the value of the dragged Salt, Nugget, or Duros Coin to the Inn Account (max 500)."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
+          "4b0f4937a5ecb90499428c8c10288afc",
+          "e5f5d2a633f3437780d6198c3d1e9fdd"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1
+      },
+      "ProducedCards": []
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_InnCounter_CI_SellFirewood",
+        "DefaultText": "Sell Firewood"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_InnCounter_CI_SellFirewood_Desc",
+        "DefaultText": "Hand over a bundle of firewood for the hearth. Oak and Alder fetch 2 Salt; Birch, Pine, and Willow fetch 1."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": ["758be01db25eb4649a288d64b7600b9b"],
+        "TriggerCardsWarpType": 3
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "ProducedCards": []
+    }
+  ],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_InnCounter_DA_Meal",
+        "DefaultText": "Purchase Meal"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_InnCounter_DA_Meal_Desc",
+        "DefaultText": "Draws 50 from your Inn Account. Restores Satiation, Thirst, and Fullness. Provides Protein, Iron, and Vitamins. Tastes great."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": ["EatingAction"],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 120.0, "y": 120.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "c589f92d8a479a24c937ea90fa2d1a82",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 150.0, "y": 150.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 60.0, "y": 60.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 200.0, "y": 200.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "09c2ec726d9e9f64f87eb675b8e5f005",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 150.0, "y": 150.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "f1d5fe40048674e408f56be22beaf6ae",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 120.0, "y": 120.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "9824a150f7bc85f4384a0ed026a69f0a",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 120.0, "y": 120.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 20.0, "y": 20.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        }
+      ],
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_InnCounter_DA_Sleep",
+        "DefaultText": "Stay the Night"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_InnCounter_DA_Sleep_Desc",
+        "DefaultText": "Draws 50 from your Inn Account. Rest for up to 6 hours, restoring Wakefulness and Energy. You'll wake early if your vitals reach a critical warning (thirst, temperature, bleeding, illness, or nature's call)."
+      },
+      "DaytimeCost": 24,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": ["SleepAction"],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "ecb835c85d6df5447a38548588f4c9d6",
+          "StatWarpType": 3,
+          "TriggerRange": { "x": 0.0, "y": 0.0 },
+          "NotifyWhenNotMet": true,
+          "HideAllWhenNotMet": false
+        }
+      ],
+      "StatInterruptions": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "10f8c7a1337ed46449f22f24013d26c3",
+          "StatWarpType": 3,
+          "TriggerRange": { "x": 1.0, "y": 1.0 },
+          "Notification": { "LocalizationKey": "", "DefaultText": "" }
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "95ca7c21ffad5e647acc3d9cb5bfcde6",
+          "StatWarpType": 3,
+          "TriggerRange": { "x": 0.0, "y": 30.0 },
+          "Notification": { "LocalizationKey": "CMC_InnCounter_DA_Sleep_Interrupt_Thirsty", "DefaultText": "I'm too thirsty to sleep..." }
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "888d2d2a99e3f044291c6748a0fa8d78",
+          "StatWarpType": 3,
+          "TriggerRange": { "x": 150.0, "y": 200.0 },
+          "Notification": { "LocalizationKey": "CMC_InnCounter_DA_Sleep_Interrupt_Hot", "DefaultText": "I'm too hot to sleep..." }
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "888d2d2a99e3f044291c6748a0fa8d78",
+          "StatWarpType": 3,
+          "TriggerRange": { "x": -100.0, "y": 50.0 },
+          "Notification": { "LocalizationKey": "CMC_InnCounter_DA_Sleep_Interrupt_Cold", "DefaultText": "I'm too cold to sleep..." }
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "94bafb3c1f1d4ae41894051ca1c5c54a",
+          "StatWarpType": 3,
+          "TriggerRange": { "x": 0.0, "y": 30.0 },
+          "Notification": { "LocalizationKey": "CMC_InnCounter_DA_Sleep_Interrupt_Bleeding", "DefaultText": "I'm losing too much blood..." }
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "547f09c7ea6d11d4bbf6714255b0dfd5",
+          "StatWarpType": 3,
+          "TriggerRange": { "x": 20.0, "y": 24.0 },
+          "Notification": { "LocalizationKey": "CMC_InnCounter_DA_Sleep_Interrupt_Nauseous", "DefaultText": "I'm not feeling well..." }
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "16af37a364285d14586629e3e0700e55",
+          "StatWarpType": 3,
+          "TriggerRange": { "x": 0.0, "y": 74.0 },
+          "Notification": { "LocalizationKey": "CMC_InnCounter_DA_Sleep_Interrupt_Underweight", "DefaultText": "I'm not feeling well..." }
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "ecb835c85d6df5447a38548588f4c9d6",
+          "StatWarpType": 3,
+          "TriggerRange": { "x": 12.0, "y": 24.0 },
+          "Notification": { "LocalizationKey": "CMC_InnCounter_DA_Sleep_Interrupt_Storm", "DefaultText": "I can't sleep in the middle of a storm!" }
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "6463ed10fe0942e4993dbdab67c0c5a1",
+          "StatWarpType": 3,
+          "TriggerRange": { "x": 43.0, "y": 48.0 },
+          "Notification": { "LocalizationKey": "CMC_InnCounter_DA_Sleep_Interrupt_Bladder", "DefaultText": "I really need to Pee!" }
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "e75e3b618f3185d4ba088108d39023a2",
+          "StatWarpType": 3,
+          "TriggerRange": { "x": 336.0, "y": 384.0 },
+          "Notification": { "LocalizationKey": "CMC_InnCounter_DA_Sleep_Interrupt_Bowel", "DefaultText": "I really need to Poop!" }
+        }
+      ],
+      "StatModifications": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "10f8c7a1337ed46449f22f24013d26c3",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -1.0, "y": -1.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "ca25b2c02ece6674bae6aaba4a6b8c10",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 23.0, "y": 23.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -0.5, "y": -0.5 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": true,
+          "InstantModifier": false
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "c672b35248e9f2349a084e1514d6c9f8",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 0.5, "y": 0.5 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": true,
+          "InstantModifier": false
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "547f09c7ea6d11d4bbf6714255b0dfd5",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -1.25, "y": -1.25 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": true,
+          "InstantModifier": false
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "07f59e0f9e41a214c85ffa3078273264",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 4.0, "y": 4.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": true,
+          "InstantModifier": false
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "92aae542f8489f643bd9498cc8e077bc",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -4.0, "y": -4.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": true,
+          "InstantModifier": false
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "15cc9a2e63deafa4185a6344a22c442e",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -5.0, "y": -5.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": true,
+          "InstantModifier": false
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "a21c27d9d22cb4b4285157bfe6b3535b",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -6.5, "y": -6.5 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": true,
+          "InstantModifier": false
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "e5f80e034c362b04eb782384fbdccc78",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -9.0, "y": -9.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": true,
+          "InstantModifier": false
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 1.5, "y": 1.5 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": true
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 5.0, "y": 5.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": true
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 2.0, "y": 2.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": true,
+          "InstantModifier": false
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "5c42aacf9a2584f4fb44e69e4da8e369",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -1.0, "y": -1.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": true,
+          "InstantModifier": false
+        }
+      ],
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_InnCounter_DA_Work",
+        "DefaultText": "Work Odd Jobs"
+      },
+      "DaytimeCost": 16,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -20.0, "y": -20.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -15.0, "y": -15.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        }
+      ],
+      "ProducedCards": [
+        {
+          "CollectionName": "Wages",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 2 }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    }
+  ],
+  "DismantleActionsWarpType": 3
+}

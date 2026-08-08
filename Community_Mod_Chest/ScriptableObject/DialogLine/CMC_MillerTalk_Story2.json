@@ -1,0 +1,31 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_MillerTalk_Story2_Line",
+        "DefaultText": "I did, by two full sacks. But here's the thing about a wheel wager: it isn't the arms that win it, it's the water. I'd spent the whole week before quietly clearing the leaves and silt out of my own millrace so the wheel ran free, while his was choking half-shut and he never thought to look."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_Story2_Answer_Fair",
+                "DefaultText": "Did you play fair?"
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatMillerStoryStep",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": 1.0, "y": 1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_MillerTalk_Story3",
+                "NextLineWarpType": 3
+            }
+        }
+    ]
+}

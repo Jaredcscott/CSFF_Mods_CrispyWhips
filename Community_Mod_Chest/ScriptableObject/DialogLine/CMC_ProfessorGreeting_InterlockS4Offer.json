@@ -1,0 +1,25 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 4.5, "y": 20.0}},
+            {"StatWarpData": "cmcStatInterlockS4", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_InterlockS4Offer_Line",
+        "DefaultText": "Winter fieldwork is a misery without the right coat, and I hear the Weaver's cut a fine one lately. If you could bring me one of her cloth coats, I'd finally survey properly instead of shivering through it."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_InterlockS4Offer_Answer_Ok",
+                "DefaultText": "I'll see if she has one to spare."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

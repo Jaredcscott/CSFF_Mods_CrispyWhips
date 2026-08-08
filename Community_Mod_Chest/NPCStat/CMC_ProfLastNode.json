@@ -1,0 +1,17 @@
+{
+    "UniqueID": "cmcStatProfLastNode",
+    "GameName": {
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "Last outdoor node the scheduler wandered to (0=none 1=VillagePath 2=VillageFarm 3=Village 4=ForagingForest)"
+    },
+    "DefaultStartingValue": 0.0,
+    "DefaultMinMaxValue": {
+        "x": 0.0,
+        "y": 4.0
+    },
+    "DefaultRate": 0.0,
+    "DefaultMinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    }
+}

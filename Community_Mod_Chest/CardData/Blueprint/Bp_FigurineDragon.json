@@ -1,0 +1,109 @@
+{
+    "UniqueID": "potterysculpturebpfigurinedragon",
+    "CardName": {
+        "ParentObjectID": "potterysculpturebpfigurinedragon",
+        "LocalizationKey": "Pottery_Sculpture_Bp_FigurineDragon_CardName",
+        "DefaultText": "Dragon Figurine"
+    },
+    "CardDescription": {
+        "ParentObjectID": "potterysculpturebpfigurinedragon",
+        "LocalizationKey": "Pottery_Sculpture_Bp_FigurineDragon_CardDescription",
+        "DefaultText": "Sculpt a small dragon from clay using a knife."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "potterysculpturebpfigurinedragon",
+        "LocalizationKey": "Pottery_Sculpture_Bp_FigurineDragon_UnlockConditionsDesc",
+        "DefaultText": "Bring the Professor metal nuggets for his dragon cast"
+    },
+    "StartUnlocked": false,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [
+        {
+            "ObjectiveName": "ProfQuestChainAtLeast3",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "TriggerRange": { "x": 2.5, "y": 20.0 },
+                "StatWarpData": "cmcStatProfQuestChain",
+                "StatWarpType": 3
+            },
+            "ConstantlyChecking": false
+        }
+    ],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredCardWarpData": "68c14d265ea6c874ba79444d2e1ef7b3",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "UsageChange": {
+                            "x": -5.0,
+                            "y": -5.0
+                        }
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroupWarpData": "GpTag_CuttingTool",
+                    "RequiredTabGroupWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 8,
+    "DeconstructDaytimeCost": 0,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "DroppedCardWarpData": "potterysculpturefigurinedragon",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "FigurineDragon",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 16.0,
+    "ResearchedNotification": 0
+}

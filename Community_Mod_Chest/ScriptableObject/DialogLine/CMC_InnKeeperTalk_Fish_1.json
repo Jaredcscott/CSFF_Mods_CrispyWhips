@@ -1,0 +1,32 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatInnStoryIndex", "StatWarpType": 3, "TriggerRange": {"x": 2.5, "y": 3.5}},
+            {"StatWarpData": "cmcStatInnStoryStep", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_Fish_1_Line",
+        "DefaultText": "Now this one my uncle swears is true, though he swears a great many things are true. Out on the river one summer evening, quiet water, not a ripple, when something took his line so hard it nearly dragged him clean off the bank, bending his rod into a shape no rod ought to bend into. He fought it for the better part of an hour, or so he tells it, and each retelling the hour grows a little longer. Said the fish surfaced once, just once, and looked him square in the eye with an expression he could only describe as disappointed in him personally. By his account it was the size of a rowboat, though the size seems to grow a bit with every winter that passes too."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Fish_1_Answer_GoOn",
+                "DefaultText": "Did he land it?"
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnStoryStep", "StatWarpType": 3, "ValueModifier": {"x": 2.0, "y": 2.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_InnKeeperTalk_Fish_3",
+                "NextLineWarpType": 3
+            }
+        }
+    ]
+}

@@ -1,0 +1,53 @@
+{
+  "UniqueID": "cmcApothecaryHealingPotion",
+  "TradingValue": 350,
+  "CardType": 0,
+  "CardName": {
+    "DefaultText": "Powerful Healing Potion",
+    "LocalizationKey": "CMC_ApothecaryHealingPotion_CardName"
+  },
+  "CardDescription": {
+    "DefaultText": "A dark, bitter brew the Apothecary spent two full days over: ginseng, reishi, and hemp reduced down to something much stronger than any salve. Drink it in dire need.",
+    "LocalizationKey": "CMC_ApothecaryHealingPotion_CardDesc"
+  },
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "CMC_Alchemist_Potions",
+  "CardImageWarpType": 3,
+  "CardHelpSection": {
+    "DefaultText": "Powerful Healing Potion",
+    "LocalizationKey": "CMC_ApothecaryHealingPotion_Help"
+  },
+  "CardTagsWarpData": ["tag_Consumable", "tag_Drinkable", "tag_Medicine", "tag_Preservable"],
+  "CardTagsWarpType": 3,
+  "ObjectWeight": 50.0,
+  "MaxStack": 5,
+  "SpoilageTime": {
+    "Active": true,
+    "MaxValue": 5760.0,
+    "RatePerDaytimePoint": 0.5
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_ApothecaryHealingPotion_Drink",
+        "DefaultText": "Drink"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_ApothecaryHealingPotion_Drink_Desc",
+        "DefaultText": "Drink the potion. It burns going down, then the pain just... stops."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "ActionTagsWarpData": ["EatingAction", "MedicineAction"],
+      "ActionTagsWarpType": 3,
+      "ReceivingCardChanges": { "ModType": 3 },
+      "StatModifications": [
+        { "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b", "StatWarpType": 3, "ValueModifier": { "x": -40.0, "y": -40.0 }, "InstantModifier": true },
+        { "StatWarpData": "547f09c7ea6d11d4bbf6714255b0dfd5", "StatWarpType": 3, "ValueModifier": { "x": -30.0, "y": -30.0 }, "InstantModifier": true },
+        { "StatWarpData": "8080df0dc107caa47b9591fde9347e09", "StatWarpType": 3, "ValueModifier": { "x": -100.0, "y": -100.0 }, "InstantModifier": true },
+        { "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2", "StatWarpType": 3, "ValueModifier": { "x": 30.0, "y": 30.0 }, "InstantModifier": true },
+        { "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78", "StatWarpType": 3, "ValueModifier": { "x": -20.0, "y": -20.0 }, "InstantModifier": true }
+      ]
+    }
+  ]
+}

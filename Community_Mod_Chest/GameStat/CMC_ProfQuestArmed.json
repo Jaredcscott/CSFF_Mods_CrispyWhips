@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatProfQuestArmed",
+    "GameName": {
+        "LocalizationKey": "CMC_ProfQuestArmed_StatName",
+        "DefaultText": "Professor's Next Errand Ready"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_ProfQuestArmed_StatDescription",
+        "DefaultText": "Hidden flag: 1 once a village-week has passed since the Professor's last completed quest, arming the next offer. Starts at 0 (unarmed) since P1 uses a separate commission-cycle mechanism, not the offer/armed flow; the scheduler arms P2 once chain reaches 1."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 1.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

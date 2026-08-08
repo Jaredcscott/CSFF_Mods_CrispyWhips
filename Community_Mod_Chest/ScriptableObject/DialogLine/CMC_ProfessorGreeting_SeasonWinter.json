@@ -1,0 +1,28 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}}
+        ],
+        "RequiredInGameTimes": [
+            {"TimeType": 3, "SeasonValue": {"MaskValue": 8}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_SeasonWinter_Line",
+        "DefaultText": "Bitter out. A good season for study: the cold keeps the mind sharp and the students indoors. What do you need?"
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_Continue_Answer",
+                "DefaultText": "Go on."
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_ProfessorGreeting_Menu",
+                "NextLineWarpType": 3
+            }
+        }
+    ]
+}

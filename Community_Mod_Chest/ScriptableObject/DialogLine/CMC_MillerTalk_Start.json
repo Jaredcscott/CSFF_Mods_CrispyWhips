@@ -1,0 +1,117 @@
+{
+    "StartingPoint": true,
+    "Line": {
+        "LocalizationKey": "CMC_MillerTalk_Start_Line",
+        "DefaultText": "Ah, the builder! I wondered when you'd come knocking. The cottage suits me fine: stout walls, a dry floor, and room enough for the grindstones. The village has a miller again."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_Start_Answer_Work",
+                "DefaultText": "How's the milling trade?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_MillerTalk_Work",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_Start_Answer_Village",
+                "DefaultText": "How do you like the village?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_MillerTalk_Village",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": false,
+                        "TargetAgentWarpData": "cmcMillerAgent",
+                        "TargetAgentWarpType": 3,
+                        "TargetStatWarpData": "cmcStatMillerTrust",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 25.0,
+                            "y": 1000000000.0
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_Start_Answer_Story",
+                "DefaultText": "Got a story for me?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_MillerTalk_Story1",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatMillerQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+                    {"StatWarpData": "cmcStatMillerQuestChain", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_Start_Answer_QuestOffer",
+                "DefaultText": "Anything you need a hand with?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_MillerTalk_QuestOffer",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatMillerQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+                    {"StatWarpData": "cmcStatMillerQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_Start_Answer_QuestOffer2",
+                "DefaultText": "Need anything for the mill?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_MillerTalk_QuestOffer2",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatMillerQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+                    {"StatWarpData": "cmcStatMillerQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 2.5}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_Start_Answer_QuestOffer3",
+                "DefaultText": "Anything else you're short on?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_MillerTalk_QuestOffer3",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_Start_Answer_Bye",
+                "DefaultText": "Just passing through."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

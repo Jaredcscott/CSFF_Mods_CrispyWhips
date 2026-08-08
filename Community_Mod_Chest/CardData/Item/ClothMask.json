@@ -1,0 +1,135 @@
+{
+  "UniqueID": "apparelclothmask",
+  "CardName": {
+    "ParentObjectID": "apparelclothmask",
+    "LocalizationKey": "Apparel_ClothMask_CardName",
+    "DefaultText": "Cloth Mask"
+  },
+  "CardDescription": {
+    "ParentObjectID": "apparelclothmask",
+    "LocalizationKey": "Apparel_ClothMask_CardDescription",
+    "DefaultText": "A simple cloth face covering tied behind the head. Keeps the wind and the worst of the dust off your face."
+  },
+  "CardType": 0,
+  "ObjectWeight": 25.0,
+  "WeightReductionWhenEquipped": -25.0,
+  "TradingValue": 5.0,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "Coif_Cloth",
+  "CardImageWarpType": 3,
+  "CardTagsWarpData": [
+    "tag_Clothing"
+  ],
+  "CardTagsWarpType": 3,
+  "EquipmentTags": [],
+  "EquipmentTagsWarpData": [
+    "eTag_Mask"
+  ],
+  "EquipmentTagsWarpType": 3,
+  "IsArmor": false,
+  "AffectStatsOnlyWhenEquipped": true,
+  "AlwaysUpdate": true,
+  "WhenCreatedSoundsWarpData": ["Leather"],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": { "Active": false },
+  "UsageDurability": {
+    "Active": true,
+    "FloatValue": 11520.0,
+    "CardStatName": {
+      "ParentObjectID": "apparelclothmask",
+      "LocalizationKey": "Apparel_ClothMask_UsageDurability.CardStatName",
+      "DefaultText": "Condition"
+    },
+    "MaxValue": 11520.0,
+    "RatePerDaytimePoint": 0.0,
+    "ExtraRateWhenEquipped": -0.5,
+    "HidingOptions": 1,
+    "TextDisplay": 1,
+    "NumberPrecision": 0,
+    "HasActionOnZero": true,
+    "ShowPopupOnZero": true,
+    "OnZero": {
+      "ActionDescription": {
+        "ParentObjectID": "apparelclothmask",
+        "LocalizationKey": "Apparel_ClothMask_OnZero",
+        "DefaultText": "The cloth mask has fallen apart."
+      },
+      "OnZeroNotification": 1,
+      "ProducedCards": [],
+      "ReceivingCardChanges": { "ModType": 3 }
+    },
+    "HasActionOnFull": false,
+    "CountsForTradingValue": true,
+    "OverrideIconWarpData": "Spoilage",
+    "OverrideIconWarpType": 3
+  },
+  "FuelCapacity": { "Active": false },
+  "Progress": { "Active": false },
+  "SpecialDurability1": { "Active": false },
+  "SpecialDurability2": { "Active": false },
+  "SpecialDurability3": { "Active": false },
+  "SpecialDurability4": { "Active": false },
+  "DurabilitySorting": { "SortingList": [] },
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "apparelclothmask",
+        "LocalizationKey": "Apparel_ClothMask_RipUp_ActionName",
+        "DefaultText": "Rip up"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "apparelclothmask",
+        "LocalizationKey": "Apparel_ClothMask_RipUp_ActionDescription",
+        "DefaultText": "Rip the mask apart to recover the cloth."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Leather"],
+      "ActionSoundsWarpType": 3,
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "aa73d89b9f0f04145adce258403d61d0",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": { "ModType": 3 }
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [
+    {
+      "EffectName": "Temperature Perceived (+0.5)",
+      "OnlyWhenEquipped": true,
+      "EquippedOnBodyOnly": true,
+      "Conditions": {},
+      "StatModifiers": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "0d5ec8f104b2ba149b4bb2b536bc21a4",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 0.5, "y": 0.5 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ]
+    }
+  ]
+}

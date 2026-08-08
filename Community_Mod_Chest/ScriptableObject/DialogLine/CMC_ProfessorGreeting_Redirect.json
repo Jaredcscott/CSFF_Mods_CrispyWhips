@@ -1,0 +1,23 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.5}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_Redirect_Line",
+        "DefaultText": "Hm? Ah, forgive me, I don't lecture strangers. In this valley introductions come first: present yourself to the Keeper at the Inn, let him show you how the village works. Once you're acquainted, my door, and my syllabus, will be open to you."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_Redirect_Answer_Ok",
+                "DefaultText": "I'll go and introduce myself."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

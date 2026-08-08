@@ -1,0 +1,38 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_WeaverTalk_QuestOffer7_Line",
+        "DefaultText": "One more, and then I'll leave your errands be for a while. Bring me a small piece of leather and I'll show you how to make sandals that won't fall apart the first time you cross a river."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_QuestOffer7_Answer_Accept",
+                "DefaultText": "I'll bring you some leather."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatWeaverQuestArmed",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": -1.0, "y": -1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_QuestOffer7_Answer_Decline",
+                "DefaultText": "Maybe another time."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_AboutProfessor_Line",
+        "DefaultText": "The Professor? Sharp as a tack and twice as dry. Comes down from the Academy some evenings for a bowl of stew and to grumble about students who don't read. Good company, once you get a few words out of him."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_AboutProfessor_Answer_Exit",
+                "DefaultText": "Good to know."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

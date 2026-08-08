@@ -1,0 +1,10 @@
+{
+  "CardDescription": {
+    "LocalizationKey": "CMC_VillagePath_CardDescription",
+    "DefaultText": "A tangled thicket of oak trees marked by winding paths and dense undergrowth."
+  },
+  "CardHelpSection": {
+    "LocalizationKey": "CMC_VillagePath_CardHelpSection",
+    "DefaultText": "<b>Oak Thicket:</b>\n\n<b>Flora:</b> Oaks, Healer's Moss, Fireroot, Springberries (spring), Acorns (autumn), Forest Caps.\n\n<b>Fauna:</b> Squirrels, Partridges, Foxes."
+  }
+}

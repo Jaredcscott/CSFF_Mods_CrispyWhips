@@ -1,0 +1,29 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_Forest1_Line",
+        "DefaultText": "Old-timers say this forest was old when the hills were young. Cross the water at the River Clearing and the trees start listening, and past the Green Glade, out in the Old Woods and the Primeval Woods beyond, they do more than listen. My gran swore she watched a great oak pull up its roots by moonlight and stride off between the groves. Folk call it the Wandering Oak, and nobody cuts timber where it's passed."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Forest1_Answer_GoOn",
+                "DefaultText": "Go on."
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_InnKeeperTalk_Forest2",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Forest1_Answer_Enough",
+                "DefaultText": "Maybe another night."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

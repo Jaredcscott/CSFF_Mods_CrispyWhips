@@ -1,0 +1,480 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_Menu_Line",
+        "DefaultText": "Ah, a visitor. Come to see how the village's scholars while away their hours? What's on your mind?"
+    },
+    "PossibleAnswers": [
+        {
+            "Conditions": {
+                "RequiredEnvironmentWarpData": "cmcEnvVillageFarm",
+                "RequiredEnvironmentWarpType": 3
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_Start_Answer_About",
+                "DefaultText": "What is this place?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_ProfessorGreeting_AboutFarm",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredEnvironmentWarpData": "cmcEnvVillage",
+                "RequiredEnvironmentWarpType": 3
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_Start_Answer_About",
+                "DefaultText": "What is this place?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_ProfessorGreeting_AboutVillage",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredEnvironmentWarpData": "cmcEnvForagingForest",
+                "RequiredEnvironmentWarpType": 3
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_Start_Answer_About",
+                "DefaultText": "What is this place?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_ProfessorGreeting_AboutForest",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredEnvironmentWarpData": "cmcEnvVillagePath",
+                "RequiredEnvironmentWarpType": 3
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_Start_Answer_About",
+                "DefaultText": "What is this place?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_ProfessorGreeting_AboutPath",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredEnvironmentWarpData": "cmcInnInterior",
+                "RequiredEnvironmentWarpType": 3
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_Start_Answer_About",
+                "DefaultText": "What is this place?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_ProfessorGreeting_AboutInn",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredEnvironmentWarpData": "cmcAcademyInterior",
+                "RequiredEnvironmentWarpType": 3
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_Start_Answer_About",
+                "DefaultText": "What is this place?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_ProfessorGreeting_AboutAcademy",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredInGameTimes": [
+                    {"TimeType": 1, "CompareType": 2, "StartValue": 3}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_Start_Answer_Report",
+                "DefaultText": "Anything new to report?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_ProfessorGreeting_DayGated",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredNPCStatValues": [
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfessorPhase", "TargetStatWarpType": 3, "ConditionRange": {"x": 1.0, "y": 1.0}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Menu_Trade",
+                "DefaultText": "Got anything for trade?"
+            },
+            "ActionToPerform": {"StartTrading": true},
+            "NewNextLine": {"NextStep": 2}
+        },
+        {
+            "Conditions": {
+                "RequiredNPCStatValues": [
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfLastNode", "TargetStatWarpType": 3, "ConditionRange": {"x": 1.0, "y": 1.0}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Menu_WhereToday",
+                "DefaultText": "Where were your rounds today?"
+            },
+            "NewNextLine": {"NextStep": 0, "NextLineWarpData": "CMC_ProfessorGreeting_NodePath", "NextLineWarpType": 3}
+        },
+        {
+            "Conditions": {
+                "RequiredNPCStatValues": [
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfLastNode", "TargetStatWarpType": 3, "ConditionRange": {"x": 2.0, "y": 2.0}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Menu_WhereToday",
+                "DefaultText": "Where were your rounds today?"
+            },
+            "NewNextLine": {"NextStep": 0, "NextLineWarpData": "CMC_ProfessorGreeting_NodeFarm", "NextLineWarpType": 3}
+        },
+        {
+            "Conditions": {
+                "RequiredNPCStatValues": [
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfLastNode", "TargetStatWarpType": 3, "ConditionRange": {"x": 3.0, "y": 3.0}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Menu_WhereToday",
+                "DefaultText": "Where were your rounds today?"
+            },
+            "NewNextLine": {"NextStep": 0, "NextLineWarpData": "CMC_ProfessorGreeting_NodeVillage", "NextLineWarpType": 3}
+        },
+        {
+            "Conditions": {
+                "RequiredNPCStatValues": [
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfLastNode", "TargetStatWarpType": 3, "ConditionRange": {"x": 4.0, "y": 4.0}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Menu_WhereToday",
+                "DefaultText": "Where were your rounds today?"
+            },
+            "NewNextLine": {"NextStep": 0, "NextLineWarpData": "CMC_ProfessorGreeting_NodeForest", "NextLineWarpType": 3}
+        },
+        {
+            "Conditions": {
+                "RequiredNPCStatValues": [
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfEligibleMetallurgy", "TargetStatWarpType": 3, "ConditionRange": {"x": 1.0, "y": 1.0}},
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfCourseAckMetallurgy", "TargetStatWarpType": 3, "ConditionRange": {"x": 0.0, "y": 0.0}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Menu_CourseMetallurgy",
+                "DefaultText": "I passed your Metallurgy course."
+            },
+            "NewNextLine": {"NextStep": 0, "NextLineWarpData": "CMC_ProfessorGreeting_CourseAckMetallurgy", "NextLineWarpType": 3}
+        },
+        {
+            "Conditions": {
+                "RequiredNPCStatValues": [
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfEligibleHerbalism", "TargetStatWarpType": 3, "ConditionRange": {"x": 1.0, "y": 1.0}},
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfCourseAckHerbalism", "TargetStatWarpType": 3, "ConditionRange": {"x": 0.0, "y": 0.0}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Menu_CourseHerbalism",
+                "DefaultText": "I passed your Herbalism course."
+            },
+            "NewNextLine": {"NextStep": 0, "NextLineWarpData": "CMC_ProfessorGreeting_CourseAckHerbalism", "NextLineWarpType": 3}
+        },
+        {
+            "Conditions": {
+                "RequiredNPCStatValues": [
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfEligibleMedicine", "TargetStatWarpType": 3, "ConditionRange": {"x": 1.0, "y": 1.0}},
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfCourseAckMedicine", "TargetStatWarpType": 3, "ConditionRange": {"x": 0.0, "y": 0.0}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Menu_CourseMedicine",
+                "DefaultText": "I passed your Medicine course."
+            },
+            "NewNextLine": {"NextStep": 0, "NextLineWarpData": "CMC_ProfessorGreeting_CourseAckMedicine", "NextLineWarpType": 3}
+        },
+        {
+            "Conditions": {
+                "RequiredNPCStatValues": [
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfEligibleFishing", "TargetStatWarpType": 3, "ConditionRange": {"x": 1.0, "y": 1.0}},
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfCourseAckFishing", "TargetStatWarpType": 3, "ConditionRange": {"x": 0.0, "y": 0.0}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Menu_CourseFishing",
+                "DefaultText": "I passed your Fishing course."
+            },
+            "NewNextLine": {"NextStep": 0, "NextLineWarpData": "CMC_ProfessorGreeting_CourseAckFishing", "NextLineWarpType": 3}
+        },
+        {
+            "Conditions": {
+                "RequiredNPCStatValues": [
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfEligibleArchitecture", "TargetStatWarpType": 3, "ConditionRange": {"x": 1.0, "y": 1.0}},
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfCourseAckArchitecture", "TargetStatWarpType": 3, "ConditionRange": {"x": 0.0, "y": 0.0}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Menu_CourseArchitecture",
+                "DefaultText": "I passed your Architecture course."
+            },
+            "NewNextLine": {"NextStep": 0, "NextLineWarpData": "CMC_ProfessorGreeting_CourseAckArchitecture", "NextLineWarpType": 3}
+        },
+        {
+            "Conditions": {
+                "RequiredNPCStatValues": [
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfEligibleArmorer", "TargetStatWarpType": 3, "ConditionRange": {"x": 1.0, "y": 1.0}},
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfCourseAckArmorer", "TargetStatWarpType": 3, "ConditionRange": {"x": 0.0, "y": 0.0}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Menu_CourseArmorer",
+                "DefaultText": "I passed your Armorer course."
+            },
+            "NewNextLine": {"NextStep": 0, "NextLineWarpData": "CMC_ProfessorGreeting_CourseAckArmorer", "NextLineWarpType": 3}
+        },
+        {
+            "Conditions": {
+                "RequiredNPCStatValues": [
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfGradCount", "TargetStatWarpType": 3, "ConditionRange": {"x": 0.0, "y": 0.0}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Menu_Studies",
+                "DefaultText": "How am I doing as a student?"
+            },
+            "NewNextLine": {"NextStep": 0, "NextLineWarpData": "CMC_ProfessorGreeting_StudiesNone", "NextLineWarpType": 3}
+        },
+        {
+            "Conditions": {
+                "RequiredNPCStatValues": [
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfGradCount", "TargetStatWarpType": 3, "ConditionRange": {"x": 1.0, "y": 5.0}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Menu_Studies",
+                "DefaultText": "How am I doing as a student?"
+            },
+            "NewNextLine": {"NextStep": 0, "NextLineWarpData": "CMC_ProfessorGreeting_StudiesSome", "NextLineWarpType": 3}
+        },
+        {
+            "Conditions": {
+                "RequiredNPCStatValues": [
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfGradCount", "TargetStatWarpType": 3, "ConditionRange": {"x": 6.0, "y": 6.0}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Menu_Studies",
+                "DefaultText": "How am I doing as a student?"
+            },
+            "NewNextLine": {"NextStep": 0, "NextLineWarpData": "CMC_ProfessorGreeting_StudiesAll", "NextLineWarpType": 3}
+        },
+        {
+            "Conditions": {
+                "RequiredNPCStatValues": [
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfQuizDone", "TargetStatWarpType": 3, "ConditionRange": {"x": 0.0, "y": 0.0}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Menu_Quiz",
+                "DefaultText": "Test me, Professor."
+            },
+            "NewNextLine": {"NextStep": 0, "NextLineWarpData": "CMC_ProfessorGreeting_QuizQ", "NextLineWarpType": 3}
+        },
+        {
+            "Conditions": {
+                "RequiredNPCStatValues": [
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfessorTrust", "TargetStatWarpType": 3, "ConditionRange": {"x": 25.0, "y": 1000000000.0}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Menu_Advice",
+                "DefaultText": "Any advice for a field scholar?"
+            },
+            "NewNextLine": {"NextStep": 0, "NextLineWarpData": "CMC_ProfessorGreeting_Advice", "NextLineWarpType": 3}
+        },
+        {
+            "Conditions": {
+                "RequiredNPCStatValues": [
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfessorTrust", "TargetStatWarpType": 3, "ConditionRange": {"x": 60.0, "y": 1000000000.0}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Menu_Backstory",
+                "DefaultText": "How did you come to teach here?"
+            },
+            "NewNextLine": {"NextStep": 0, "NextLineWarpData": "CMC_ProfessorGreeting_Backstory1", "NextLineWarpType": 3}
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatLostCat", "StatWarpType": 3, "TriggerRange": {"x": 2.5, "y": 1000000000.0}}
+                ],
+                "RequiredNPCStatValues": [
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfAshNews", "TargetStatWarpType": 3, "ConditionRange": {"x": 0.0, "y": 0.0}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Menu_Ash",
+                "DefaultText": "The innkeeper's cat has taken to me."
+            },
+            "NewNextLine": {"NextStep": 0, "NextLineWarpData": "CMC_ProfessorGreeting_AshChat", "NextLineWarpType": 3}
+        },
+        {
+            "Conditions": {
+                "RequiredNPCStatValues": [
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfBridgeNews", "TargetStatWarpType": 3, "ConditionRange": {"x": 1.0, "y": 1.0}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Menu_Bridge",
+                "DefaultText": "The river bridge is finished."
+            },
+            "NewNextLine": {"NextStep": 0, "NextLineWarpData": "CMC_ProfessorGreeting_BridgeChat", "NextLineWarpType": 3}
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatChronicleApothecaryCabinDay", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1000000000.0}}
+                ],
+                "RequiredNPCStatValues": [
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfNewsApothecary", "TargetStatWarpType": 3, "ConditionRange": {"x": 0.0, "y": 0.0}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Menu_NewsApothecary",
+                "DefaultText": "The Apothecary's Cabin is finished."
+            },
+            "NewNextLine": {"NextStep": 0, "NextLineWarpData": "CMC_ProfessorGreeting_NewsApothecary", "NextLineWarpType": 3}
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatChronicleVillageHallDay", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1000000000.0}}
+                ],
+                "RequiredNPCStatValues": [
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfNewsHall", "TargetStatWarpType": 3, "ConditionRange": {"x": 0.0, "y": 0.0}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Menu_NewsHall",
+                "DefaultText": "The Village Hall is finished."
+            },
+            "NewNextLine": {"NextStep": 0, "NextLineWarpData": "CMC_ProfessorGreeting_NewsHall", "NextLineWarpType": 3}
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Menu_Specimen",
+                "DefaultText": "Need anything pressed for your herbarium?"
+            },
+            "NewNextLine": {"NextStep": 0, "NextLineWarpData": "CMC_ProfessorGreeting_SpecimenPointer", "NextLineWarpType": 3}
+        },
+        {
+            "Conditions": {
+                "RequiredNPCStatValues": [
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfFieldSamplesReady", "TargetStatWarpType": 3, "ConditionRange": {"x": 1.0, "y": 1.0}},
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfFieldSamplesClaimed", "TargetStatWarpType": 3, "ConditionRange": {"x": 0.0, "y": 0.0}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Menu_Work",
+                "DefaultText": "Any work for me?"
+            },
+            "NewNextLine": {"NextStep": 0, "NextLineWarpData": "CMC_ProfessorGreeting_FieldSamplesPointer", "NextLineWarpType": 3}
+        },
+        {
+            "Conditions": {
+                "RequiredNPCStatValues": [
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfEligibleHerbalism", "TargetStatWarpType": 3, "ConditionRange": {"x": 1.0, "y": 1.0}},
+                    {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfAppliedHerbalismClaimed", "TargetStatWarpType": 3, "ConditionRange": {"x": 0.0, "y": 0.0}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Menu_Work",
+                "DefaultText": "Any work for me?"
+            },
+            "NewNextLine": {"NextStep": 0, "NextLineWarpData": "CMC_ProfessorGreeting_AppliedHerbalismPointer", "NextLineWarpType": 3}
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatProfQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+                    {"StatWarpData": "cmcStatProfQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_Start_Answer_QuestOffer2",
+                "DefaultText": "You mentioned a ruin once?"
+            },
+            "NewNextLine": {"NextStep": 0, "NextLineWarpData": "CMC_ProfessorGreeting_QuestOffer2", "NextLineWarpType": 3}
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatProfQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+                    {"StatWarpData": "cmcStatProfQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 2.5}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_Start_Answer_QuestOffer3",
+                "DefaultText": "Something cast from legend?"
+            },
+            "NewNextLine": {"NextStep": 0, "NextLineWarpData": "CMC_ProfessorGreeting_QuestOffer3", "NextLineWarpType": 3}
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatProfQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+                    {"StatWarpData": "cmcStatProfQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 2.5, "y": 3.5}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_Start_Answer_QuestOffer4",
+                "DefaultText": "You mentioned historical armor?"
+            },
+            "NewNextLine": {"NextStep": 0, "NextLineWarpData": "CMC_ProfessorGreeting_QuestOffer4", "NextLineWarpType": 3}
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatInterlockS4", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}},
+                    {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 4.5, "y": 20.0}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_Start_Answer_InterlockS4",
+                "DefaultText": "Anything you need for the field?"
+            },
+            "NewNextLine": {"NextStep": 0, "NextLineWarpData": "CMC_ProfessorGreeting_InterlockS4Offer", "NextLineWarpType": 3}
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_Start_Answer_Farewell",
+                "DefaultText": "Farewell."
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

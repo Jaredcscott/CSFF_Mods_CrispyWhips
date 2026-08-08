@@ -1,0 +1,1210 @@
+{
+  "UniqueID": "cmcBoardWeaver",
+  "CardType": 2,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": false,
+  "DoesNotPile": true,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "CMC_BoardWeaver_CardName",
+    "DefaultText": "Weaver's Board"
+  },
+  "CardDescription": {
+    "LocalizationKey": "CMC_BoardWeaver_CardDescription",
+    "DefaultText": "A small board where the Weaver posts news of the Cottage."
+  },
+  "CardImageWarpData": "CMC_Weaver",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Status1_Name",
+        "DefaultText": "Active errand: dried flax stems"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Status1_Desc",
+        "DefaultText": "The Weaver could use your help: dried flax stems."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatWeaverQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Hint1_Name",
+        "DefaultText": "A hint: bring a bundle of dried flax"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Hint1_Desc",
+        "DefaultText": "A hint: bring a bundle of dried flax."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatWeaverQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Status2_Name",
+        "DefaultText": "Active errand: a length of hand-woven cloth"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Status2_Desc",
+        "DefaultText": "The Weaver could use your help: a length of hand-woven cloth."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatWeaverQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Hint2_Name",
+        "DefaultText": "A hint: bring cloth off a loom, any loom"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Hint2_Desc",
+        "DefaultText": "A hint: bring cloth off a loom, any loom."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatWeaverQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Status3_Name",
+        "DefaultText": "Active errand: a cloth scarf you've sewn"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Status3_Desc",
+        "DefaultText": "The Weaver could use your help: a cloth scarf you've sewn."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 1.5,
+            "y": 2.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatWeaverQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Hint3_Name",
+        "DefaultText": "A hint: sew a scarf yourself, not a bought one"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Hint3_Desc",
+        "DefaultText": "A hint: sew a scarf yourself, not a bought one."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 1.5,
+            "y": 2.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatWeaverQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Status4_Name",
+        "DefaultText": "Active errand: wool or fiber"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Status4_Desc",
+        "DefaultText": "The Weaver could use your help: wool or fiber."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 2.5,
+            "y": 3.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatWeaverQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Hint4_Name",
+        "DefaultText": "A hint: bring wool or fiber for the coldest layer"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Hint4_Desc",
+        "DefaultText": "A hint: bring wool or fiber for the coldest layer."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 2.5,
+            "y": 3.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatWeaverQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Status5_Name",
+        "DefaultText": "Active errand: a large piece of cloth"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Status5_Desc",
+        "DefaultText": "The Weaver could use your help: a large piece of cloth."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 3.5,
+            "y": 4.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatWeaverQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Hint5_Name",
+        "DefaultText": "A hint: bring more cloth than a scarf or shirt needs"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Hint5_Desc",
+        "DefaultText": "A hint: bring more cloth than a scarf or shirt needs."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 3.5,
+            "y": 4.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatWeaverQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Status6_Name",
+        "DefaultText": "Active errand: a large piece of leather"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Status6_Desc",
+        "DefaultText": "The Weaver could use your help: a large piece of leather."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 4.5,
+            "y": 5.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatWeaverQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Hint6_Name",
+        "DefaultText": "A hint: bring a big enough piece of leather"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Hint6_Desc",
+        "DefaultText": "A hint: bring a big enough piece of leather."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 4.5,
+            "y": 5.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatWeaverQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Status7_Name",
+        "DefaultText": "Active errand: a small piece of leather"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Status7_Desc",
+        "DefaultText": "The Weaver could use your help: a small piece of leather."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 5.5,
+            "y": 6.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatWeaverQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Hint7_Name",
+        "DefaultText": "A hint: bring a small piece of leather"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Hint7_Desc",
+        "DefaultText": "A hint: bring a small piece of leather."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 5.5,
+            "y": 6.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatWeaverQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Teaser1_Name",
+        "DefaultText": "Word around the village: flax for a pattern she's dying to try"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Teaser1_Desc",
+        "DefaultText": "The Weaver may have another small errand in mind before long — something to do with flax for a pattern she's dying to try, if the timing's right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatWeaverQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Teaser2_Name",
+        "DefaultText": "Word around the village: cloth made by your own hands"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Teaser2_Desc",
+        "DefaultText": "The Weaver may have another small errand in mind before long — something to do with cloth made by your own hands, if the timing's right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatWeaverQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Teaser3_Name",
+        "DefaultText": "Word around the village: a scarf sewn by your own hand"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Teaser3_Desc",
+        "DefaultText": "The Weaver may have another small errand in mind before long — something to do with a scarf sewn by your own hand, if the timing's right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 1.5,
+            "y": 2.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatWeaverQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Teaser4_Name",
+        "DefaultText": "Word around the village: something warm for underneath"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Teaser4_Desc",
+        "DefaultText": "The Weaver may have another small errand in mind before long — something to do with something warm for underneath, if the timing's right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 2.5,
+            "y": 3.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatWeaverQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Teaser5_Name",
+        "DefaultText": "Word around the village: cloth enough for a full coat pattern"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Teaser5_Desc",
+        "DefaultText": "The Weaver may have another small errand in mind before long — something to do with cloth enough for a full coat pattern, if the timing's right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 3.5,
+            "y": 4.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatWeaverQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Teaser6_Name",
+        "DefaultText": "Word around the village: leather for an apron"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Teaser6_Desc",
+        "DefaultText": "The Weaver may have another small errand in mind before long — something to do with leather for an apron, if the timing's right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 4.5,
+            "y": 5.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatWeaverQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Teaser7_Name",
+        "DefaultText": "Word around the village: leather for river-crossing sandals"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Teaser7_Desc",
+        "DefaultText": "The Weaver may have another small errand in mind before long — something to do with leather for river-crossing sandals, if the timing's right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 5.5,
+            "y": 6.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatWeaverQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_trust_low_Name",
+        "DefaultText": "Standing in the village: trust low"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_trust_low_Desc",
+        "DefaultText": "The Weaver is polite but reserved with you still — there's more trust to earn."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverTrustMirror",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 14.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_trust_mid_Name",
+        "DefaultText": "Standing in the village: trust mid"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_trust_mid_Desc",
+        "DefaultText": "The Weaver has warmed to you; you're more than a passing face around here now."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverTrustMirror",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 14.5,
+            "y": 24.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_trust_high_Name",
+        "DefaultText": "Standing in the village: trust high"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_trust_high_Desc",
+        "DefaultText": "The Weaver trusts you as much as anyone in the village — you've more than proven yourself."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverTrustMirror",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 24.5,
+            "y": 9999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Log1_Name",
+        "DefaultText": "A past errand: dried flax stems"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Log1_Desc",
+        "DefaultText": "You once helped the weaver with dried flax stems — and were thanked for it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 3.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Log2_Name",
+        "DefaultText": "A past errand: a length of hand-woven cloth"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Log2_Desc",
+        "DefaultText": "You once helped the weaver with a length of hand-woven cloth — and were thanked for it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 1.5,
+            "y": 4.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Log3_Name",
+        "DefaultText": "A past errand: a cloth scarf you've sewn"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Log3_Desc",
+        "DefaultText": "You once helped the weaver with a cloth scarf you've sewn — and were thanked for it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 2.5,
+            "y": 5.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Log4_Name",
+        "DefaultText": "A past errand: wool or fiber"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Log4_Desc",
+        "DefaultText": "You once helped the weaver with wool or fiber — and were thanked for it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 3.5,
+            "y": 6.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Log5_Name",
+        "DefaultText": "A past errand: a large piece of cloth"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Log5_Desc",
+        "DefaultText": "You once helped the weaver with a large piece of cloth — and were thanked for it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 4.5,
+            "y": 7.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Log6_Name",
+        "DefaultText": "A past errand: a large piece of leather"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Log6_Desc",
+        "DefaultText": "You once helped the weaver with a large piece of leather — and were thanked for it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 5.5,
+            "y": 8.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Log7_Name",
+        "DefaultText": "A past errand: a small piece of leather"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_Log7_Desc",
+        "DefaultText": "You once helped the weaver with a small piece of leather — and were thanked for it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatWeaverQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 6.5,
+            "y": 9.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_InterlockS1_Name",
+        "DefaultText": "Word around the village: some dye-work the Apothecary and the Weaver could do together"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_InterlockS1_Desc",
+        "DefaultText": "You've heard whispers of some dye-work the Apothecary and the Weaver could do together — worth asking both of them about, once the time seems right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInterlockS1",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.95
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_InterlockS2_Name",
+        "DefaultText": "Word around the village: a bit of protective gear the Weaver and the Apothecary have been discussing"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_InterlockS2_Desc",
+        "DefaultText": "You've heard whispers of a bit of protective gear the Weaver and the Apothecary have been discussing — worth asking both of them about, once the time seems right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInterlockS2",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.95
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_InterlockS4_Name",
+        "DefaultText": "Word around the village: a cold-weather favor the Professor's hoping the Weaver can help with"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardWeaver_DA_InterlockS4_Desc",
+        "DefaultText": "You've heard whispers of a cold-weather favor the Professor's hoping the Weaver can help with — worth asking both of them about, once the time seems right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInterlockS4",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.95
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    }
+  ],
+  "DismantleActionsWarpType": 3
+}

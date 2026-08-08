@@ -1,0 +1,6 @@
+{
+    "InGameName": {
+        "LocalizationKey": "CMC_NPCTag_TownGuard",
+        "DefaultText": "Town Watch"
+    }
+}

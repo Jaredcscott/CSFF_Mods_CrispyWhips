@@ -1,0 +1,574 @@
+{
+  "UniqueID": "cmcBoardMiller",
+  "CardType": 2,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": false,
+  "DoesNotPile": true,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "CMC_BoardMiller_CardName",
+    "DefaultText": "Miller's Board"
+  },
+  "CardDescription": {
+    "LocalizationKey": "CMC_BoardMiller_CardDescription",
+    "DefaultText": "A small board where the Miller posts news of the Cottage."
+  },
+  "CardImageWarpData": "CMC_Miller",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardMiller_DA_Status1_Name",
+        "DefaultText": "Active errand: a wheat grain"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardMiller_DA_Status1_Desc",
+        "DefaultText": "The Miller could use your help: a wheat grain."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatMillerQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatMillerQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardMiller_DA_Hint1_Name",
+        "DefaultText": "A hint: bring grain before the stones sit idle"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardMiller_DA_Hint1_Desc",
+        "DefaultText": "A hint: bring grain before the stones sit idle."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatMillerQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatMillerQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardMiller_DA_Status2_Name",
+        "DefaultText": "Active errand: hides or small leather"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardMiller_DA_Status2_Desc",
+        "DefaultText": "The Miller could use your help: hides or small leather."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatMillerQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatMillerQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardMiller_DA_Hint2_Name",
+        "DefaultText": "A hint: find some leather for the worn belts"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardMiller_DA_Hint2_Desc",
+        "DefaultText": "A hint: find some leather for the worn belts."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatMillerQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatMillerQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardMiller_DA_Status3_Name",
+        "DefaultText": "Active errand: spare planks"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardMiller_DA_Status3_Desc",
+        "DefaultText": "The Miller could use your help: spare planks."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatMillerQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 1.5,
+            "y": 2.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatMillerQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardMiller_DA_Hint3_Name",
+        "DefaultText": "A hint: spare a few planks from the sawmill"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardMiller_DA_Hint3_Desc",
+        "DefaultText": "A hint: spare a few planks from the sawmill."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatMillerQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 1.5,
+            "y": 2.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatMillerQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardMiller_DA_Teaser1_Name",
+        "DefaultText": "Word around the village: grain for the stones"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardMiller_DA_Teaser1_Desc",
+        "DefaultText": "The Miller may have another small errand in mind before long — something to do with grain for the stones, if the timing's right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatMillerQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatMillerQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardMiller_DA_Teaser2_Name",
+        "DefaultText": "Word around the village: leather for the grindstone belts"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardMiller_DA_Teaser2_Desc",
+        "DefaultText": "The Miller may have another small errand in mind before long — something to do with leather for the grindstone belts, if the timing's right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatMillerQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatMillerQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardMiller_DA_Teaser3_Name",
+        "DefaultText": "Word around the village: planks for the workbench"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardMiller_DA_Teaser3_Desc",
+        "DefaultText": "The Miller may have another small errand in mind before long — something to do with planks for the workbench, if the timing's right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatMillerQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 1.5,
+            "y": 2.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatMillerQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardMiller_DA_trust_low_Name",
+        "DefaultText": "Standing in the village: trust low"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardMiller_DA_trust_low_Desc",
+        "DefaultText": "The Miller is polite but reserved with you still — there's more trust to earn."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatMillerTrustMirror",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 14.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardMiller_DA_trust_mid_Name",
+        "DefaultText": "Standing in the village: trust mid"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardMiller_DA_trust_mid_Desc",
+        "DefaultText": "The Miller has warmed to you; you're more than a passing face around here now."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatMillerTrustMirror",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 14.5,
+            "y": 24.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardMiller_DA_trust_high_Name",
+        "DefaultText": "Standing in the village: trust high"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardMiller_DA_trust_high_Desc",
+        "DefaultText": "The Miller trusts you as much as anyone in the village — you've more than proven yourself."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatMillerTrustMirror",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 24.5,
+            "y": 9999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardMiller_DA_Log1_Name",
+        "DefaultText": "A past errand: a wheat grain"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardMiller_DA_Log1_Desc",
+        "DefaultText": "You once helped the miller with a wheat grain — and were thanked for it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatMillerQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 3.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardMiller_DA_Log2_Name",
+        "DefaultText": "A past errand: hides or small leather"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardMiller_DA_Log2_Desc",
+        "DefaultText": "You once helped the miller with hides or small leather — and were thanked for it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatMillerQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 1.5,
+            "y": 4.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardMiller_DA_Log3_Name",
+        "DefaultText": "A past errand: spare planks"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardMiller_DA_Log3_Desc",
+        "DefaultText": "You once helped the miller with spare planks — and were thanked for it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatMillerQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 2.5,
+            "y": 5.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardMiller_DA_InterlockS3_Name",
+        "DefaultText": "Word around the village: something baking-related that would need both the Miller's grain and the Inn Keeper's oven"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardMiller_DA_InterlockS3_Desc",
+        "DefaultText": "You've heard whispers of something baking-related that would need both the Miller's grain and the Inn Keeper's oven — worth asking both of them about, once the time seems right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInterlockS3",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.95
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    }
+  ],
+  "DismantleActionsWarpType": 3
+}

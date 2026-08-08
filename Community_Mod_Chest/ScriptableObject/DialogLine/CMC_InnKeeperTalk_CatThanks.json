@@ -1,0 +1,54 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatLostCat", "StatWarpType": 3, "TriggerRange": {"x": 2.0, "y": 2.5}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_CatThanks_Line",
+        "DefaultText": "Ash! Look at him, riding your pack like he owns it. Ha! He's chosen you, then; cats do the choosing, never us. Keep him fed and he'll keep the rats from your stores. Here, supper's on the house, and a little something for the road."
+    },
+    "ActionToPerform": {
+        "StatModifications": [
+            {
+                "StatWarpData": "cmcStatLostCat",
+                "StatWarpType": 3,
+                "ValueModifier": {"x": 1.0, "y": 1.0},
+                "InstantModifier": true,
+                "ApplyEachTick": false
+            }
+        ],
+        "BlueprintsFullUnlockWarpData": ["combatandarmorbpfirehardenedspear"],
+        "BlueprintsFullUnlockWarpType": 3,
+        "DroppedCards": [
+            {
+                "DroppedCardWarpData": "e292e8faac1041f4ab1da9bcf900e751",
+                "DroppedCardWarpType": 3,
+                "Quantity": {"x": 1, "y": 1}
+            },
+            {
+                "DroppedCardWarpData": "3772ac4d09c1a034e800fdd229a5a7e4",
+                "DroppedCardWarpType": 3,
+                "Quantity": {"x": 2, "y": 2}
+            },
+            {
+                "DroppedCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
+                "DroppedCardWarpType": 3,
+                "Quantity": {"x": 3, "y": 3}
+            }
+        ]
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_CatThanks_Answer_Ok",
+                "DefaultText": "He's in good hands. Thank you."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

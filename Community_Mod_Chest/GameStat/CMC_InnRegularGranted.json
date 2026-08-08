@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatInnRegularGranted",
+    "GameName": {
+        "LocalizationKey": "CMC_InnRegularGranted_StatName",
+        "DefaultText": "The Inn Keeper's Regard"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_InnRegularGranted_StatDescription",
+        "DefaultText": "Hidden tracker: 0 = Inn Regular perk not yet granted, 1 = granted (claimable exactly once)."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 10.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

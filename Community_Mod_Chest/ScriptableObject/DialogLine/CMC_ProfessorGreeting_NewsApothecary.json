@@ -1,0 +1,20 @@
+{
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_NewsApothecary_Line",
+        "DefaultText": "You've heard, then, the Apothecary's Cabin stands finished. I taught that woman her Herbalism same as I'm teaching you, and now she's the one mixing draughts instead of me lecturing about them. There's a particular satisfaction in watching a student outgrow the lectern entirely. Do visit her stall if you haven't; between the two of us this village is dangerously well medicated."
+    },
+    "ActionToPerform": {
+        "NPCStatModifications": [
+            {"TargetStatWarpData": "cmcStatProfNewsApothecary", "TargetStatWarpType": 3, "UseAssociatedAgent": true, "ValueChange": {"x": 1.0, "y": 1.0}}
+        ]
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Answer_Ok",
+                "DefaultText": "Noted, Professor."
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

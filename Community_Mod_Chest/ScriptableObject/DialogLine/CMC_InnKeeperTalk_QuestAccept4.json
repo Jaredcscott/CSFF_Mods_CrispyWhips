@@ -1,0 +1,15 @@
+{
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_QuestAccept4_Line",
+        "DefaultText": "Now you're talking. I've been saving the good glassware for exactly this occasion, dust and all, and it's high time I had something worth pouring into it. Don't skimp on the quality, either, my regulars have opinions and they are not shy about sharing them."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_QuestAccept4_Answer",
+                "DefaultText": "Only the good stuff, I promise."
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

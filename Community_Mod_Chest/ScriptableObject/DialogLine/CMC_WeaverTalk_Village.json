@@ -1,0 +1,18 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_WeaverTalk_Village_Line",
+        "DefaultText": "Better than all right. Well water for washing wool, neighbors who wave hello, and a door that latches against the wind. I've thread enough to stay a long while; thank you for the roof, truly."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_Village_Answer_Bye",
+                "DefaultText": "Happy to have you in the village."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

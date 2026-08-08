@@ -1,0 +1,54 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {
+                "StatWarpData": "cmcStatApothecaryHerbQuest",
+                "StatWarpType": 3,
+                "TriggerRange": { "x": 3.25, "y": 3.75 }
+            }
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_ApothecaryTalk_HerbQuestThanks_Line",
+        "DefaultText": "All three, and none of them bruised. You've got a forager's hands, whether you know it or not. Give me a day or so and I'll have something worth more than a tea for it. Here, the recipe's yours too; you've earned the knowing of it."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ApothecaryTalk_HerbQuestThanks_Answer_Thanks",
+                "DefaultText": "Happy to forage for you."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatApothecaryHerbQuest",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": 1.0, "y": 1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    },
+                    {
+                        "StatWarpData": "cmcStatQuestRenownApothecaryHerbs",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": 1.0, "y": 1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    },
+                    {
+                        "StatWarpData": "cmcStatApothQuestChain",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": 1.0, "y": 1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ],
+                "BlueprintsFullUnlockWarpData": ["potterysculpturebpherbpaste"],
+                "BlueprintsFullUnlockWarpType": 3
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

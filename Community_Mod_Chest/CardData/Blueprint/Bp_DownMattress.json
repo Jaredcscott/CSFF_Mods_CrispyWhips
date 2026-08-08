@@ -1,0 +1,101 @@
+{
+    "UniqueID": "comfortbpdownmattress",
+    "CardName": {
+        "ParentObjectID": "comfortbpdownmattress",
+        "LocalizationKey": "Comfort_Bp_DownMattress_CardName",
+        "DefaultText": "Down Mattress"
+    },
+    "CardDescription": {
+        "ParentObjectID": "comfortbpdownmattress",
+        "LocalizationKey": "Comfort_Bp_DownMattress_CardDescription",
+        "DefaultText": "Sew heavy cloth panels and stuff them with down feathers, bound tight with fiber and twine, for a plush sleeping surface."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "comfortbpdownmattress",
+        "LocalizationKey": "Comfort_Bp_DownMattress_UnlockConditionsDesc",
+        "DefaultText": "Large Cloth Needed"
+    },
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasCloth",
+            "CompletionWeight": 1,
+            "Card": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyIfEquipped": false,
+            "CardWarpData": "3e94716876eae304787efa2ae0b43711",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 100,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "ac7fa8419b608d54fa2002aa589d3f94",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 50,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "b8885e78517570b4293c573871625e11",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 4,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "3e94716876eae304787efa2ae0b43711",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 20,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "UsageChange": { "x": -5.0, "y": -5.0 }
+                    },
+                    "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredTabGroupWarpData": "GpTag_Needle",
+                    "RequiredTabGroupWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 8,
+    "DeconstructDaytimeCost": 0,
+    "BlueprintResult": [
+        {
+            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": { "x": 1, "y": 1 },
+            "DroppedCardWarpData": "comfortdownmattress",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImageWarpData": "DownMattress",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 16.0,
+    "ResearchedNotification": 0
+}

@@ -1,0 +1,111 @@
+{
+    "UniqueID": "comfortheatherwreath",
+    "CardName": {
+        "ParentObjectID": "comfortheatherwreath",
+        "LocalizationKey": "Comfort_HeatherWreath_CardName",
+        "DefaultText": "Heather Wreath"
+    },
+    "CardDescription": {
+        "ParentObjectID": "comfortheatherwreath",
+        "LocalizationKey": "Comfort_HeatherWreath_CardDescription",
+        "DefaultText": "A wreath woven from fresh heather blossoms. The gentle fragrance and soft colours lift the spirit while it lasts."
+    },
+    "CardType": 0,
+    "ObjectWeight": 50.0,
+    "TradingValue": 6.0,
+    "MaxStack": 3,
+    "CardImageWarpData": "HeatherWreath",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [ "tag_Preservable" ],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "Herb"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 192.0,
+        "MaxValue": 192.0,
+        "RatePerDaytimePoint": -1.0,
+        "HidingOptions": 0,
+        "HasActionOnZero": true,
+        "OnZero": {
+            "ActionDescription": {
+                "ParentObjectID": "comfortheatherwreath",
+                "LocalizationKey": "Comfort_HeatherWreath_Wilted",
+                "DefaultText": "The heather wreath has wilted and crumbled."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "PassiveEffects": [
+        {
+            "EffectName": "Comfort (+15)",
+            "OnlyWhenEquipped": false,
+            "EquippedOnBodyOnly": false,
+            "Conditions": {
+                "NotInBackground": true
+            },
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 15.0,
+                        "y": 15.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ]
+}

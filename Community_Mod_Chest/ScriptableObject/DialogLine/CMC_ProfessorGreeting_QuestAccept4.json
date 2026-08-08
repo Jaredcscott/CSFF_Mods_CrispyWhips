@@ -1,0 +1,15 @@
+{
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_QuestAccept4_Line",
+        "DefaultText": "Excellent. Most smiths won't touch bone work, too slow, not enough profit in it, but there's a reason it kept people alive for longer than metal's been common in these hills. I want to see the technique survive somewhere other than my own notes before I'm too old to demonstrate the lacing myself."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Answer_Ok",
+                "DefaultText": "I won't let the technique die out."
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

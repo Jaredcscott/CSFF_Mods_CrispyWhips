@@ -1,0 +1,17 @@
+{
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_StudiesAll_Line",
+        "DefaultText": "You've finished everything I can teach. It's an odd feeling, being out of material. Visit anyway; colleagues are rarer than students."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Answer_Ok",
+                "DefaultText": "Noted, Professor."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

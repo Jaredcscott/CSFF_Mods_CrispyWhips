@@ -1,0 +1,52 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatMillerQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 2.5}},
+            {"StatWarpData": "cmcStatMillerQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.25, "y": 0.75}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_MillerTalk_QuestThanks3_Line",
+        "DefaultText": "Perfect, just what the bench needed. You've a good eye for craft, you know. Here's something for the trouble, an old stonecutting trick my father showed me. Might come in handy for flooring."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_QuestThanks3_Answer_Glad",
+                "DefaultText": "Happy to help."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatMillerQuestChain",
+                        "StatWarpType": 3,
+                        "ValueModifier": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    },
+                    {
+                        "StatWarpData": "cmcStatMillerQuestArmed",
+                        "StatWarpType": 3,
+                        "ValueModifier": {
+                            "x": -0.5,
+                            "y": -0.5
+                        },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ],
+                "BlueprintsFullUnlockWarpData": [
+                    "potterysculpturebpstonetiles"
+                ],
+                "BlueprintsFullUnlockWarpType": 3
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

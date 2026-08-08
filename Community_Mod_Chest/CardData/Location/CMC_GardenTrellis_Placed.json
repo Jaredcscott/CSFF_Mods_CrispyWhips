@@ -1,0 +1,127 @@
+{
+    "UniqueID": "cmcgardentrellisplaced",
+    "CardName": {
+        "ParentObjectID": "cmcgardentrellisplaced",
+        "LocalizationKey": "CMC_GardenTrellis_Placed_CardName",
+        "DefaultText": "Garden Trellis"
+    },
+    "CardDescription": {
+        "ParentObjectID": "cmcgardentrellisplaced",
+        "LocalizationKey": "CMC_GardenTrellis_Placed_CardDescription",
+        "DefaultText": "A wooden trellis erected in the garden. Its orderly frame lifts the spirit and makes the space feel tended and alive."
+    },
+    "CardType": 2,
+    "ObjectWeight": 200.0,
+    "TradingValue": 0.0,
+    "CardImageWarpData": "CMC_GardenTrellis",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [ "tag_Preservable" ],
+    "CardTagsWarpType": 3,
+    "UniqueOnBoard": false,
+    "CannotBeTrashed": false,
+    "NeedsRoomInLocationToSpawn": false,
+    "WhenCreatedSoundsWarpData": ["Wood"],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 576.0,
+        "MaxValue": 576.0,
+        "RatePerDaytimePoint": -1.0,
+        "HidingOptions": 0,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "OverrideIconWarpData": "Spoilage",
+        "OverrideIconWarpType": 3,
+        "HasActionOnZero": true,
+        "OnZero": {
+            "ActionName": {
+                "ParentObjectID": "cmcgardentrellisplaced",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "ActionDescription": {
+                "ParentObjectID": "cmcgardentrellisplaced",
+                "LocalizationKey": "CMC_GardenTrellis_Placed_Weathered",
+                "DefaultText": "The garden trellis has rotted away."
+            },
+            "ProducedCards": [],
+            "StatModifications": [],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    },
+    "UsageDurability": { "Active": false },
+    "FuelCapacity": { "Active": false },
+    "Progress": { "Active": false },
+    "SpecialDurability1": { "Active": false },
+    "SpecialDurability2": { "Active": false },
+    "SpecialDurability3": { "Active": false },
+    "SpecialDurability4": { "Active": false },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "cmcgardentrellisplaced",
+                "LocalizationKey": "CMC_GardenTrellis_Placed_DA_Dismantle",
+                "DefaultText": "Dismantle"
+            },
+            "DaytimeCost": 2,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Recovered Materials",
+                    "DropSavedBpIngredients": true,
+                    "DroppedIfNoBpIngredient": [
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "3db4c94184af274409f0d3eb16870f64",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 6, "y": 6 }
+                        },
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 8, "y": 8 }
+                        }
+                    ],
+                    "DroppedCards": []
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
+    "PassiveStatEffects": [],
+    "PassiveEffects": [
+        {
+            "EffectName": "Comfort (+12)",
+            "OnlyWhenEquipped": false,
+            "EquippedOnBodyOnly": false,
+            "Conditions": {
+                "NotInBackground": true
+            },
+            "StatModifiers": [
+                {
+                    "Stat": { "m_FileID": 0, "m_PathID": 0 },
+                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 12.0, "y": 12.0 },
+                    "RateModifier": { "x": 0.0, "y": 0.0 },
+                    "MinValueModifier": { "x": 0.0, "y": 0.0 },
+                    "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+                    "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,63 @@
+{
+  "UniqueID": "cmchomesteadraincisternkit",
+  "CardName": {
+    "ParentObjectID": "cmchomesteadraincisternkit",
+    "LocalizationKey": "CMC_HomesteadRainCisternKit_CardName",
+    "DefaultText": "Rain Cistern Kit"
+  },
+  "CardDescription": {
+    "ParentObjectID": "cmchomesteadraincisternkit",
+    "LocalizationKey": "CMC_HomesteadRainCisternKit_CardDescription",
+    "DefaultText": "A rain cistern, disassembled and bundled for travel. Drop it wherever you want your water source, then use Place to set it up. Can only be placed once."
+  },
+  "CardType": 0,
+  "ObjectWeight": 1200.0,
+  "TradingValue": 150.0,
+  "MaxStack": 1,
+  "DoesNotPile": true,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "Cistern",
+  "CardImageWarpType": 3,
+  "CardTagsWarpData": ["tag_Structure"],
+  "CardTagsWarpType": 3,
+  "SpoilageTime": { "Active": false },
+  "UsageDurability": { "Active": false },
+  "FuelCapacity": { "Active": false },
+  "Progress": { "Active": false },
+  "SpecialDurability1": { "Active": false },
+  "SpecialDurability2": { "Active": false },
+  "SpecialDurability3": { "Active": false },
+  "SpecialDurability4": { "Active": false },
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "cmchomesteadraincisternkit",
+        "LocalizationKey": "CMC_HomesteadRainCisternKit_DA_Place",
+        "DefaultText": "Place"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "cmchomesteadraincisternkit",
+        "LocalizationKey": "CMC_HomesteadRainCisternKit_DA_Place_Desc",
+        "DefaultText": "Set up your rain cistern on this spot."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["LargeObject"],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": { "m_FileID": 0, "m_PathID": 0 },
+        "TransformIntoWarpData": "536f722edbb5e9e4b959b1f3ad25f648",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": true
+      }
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": []
+}

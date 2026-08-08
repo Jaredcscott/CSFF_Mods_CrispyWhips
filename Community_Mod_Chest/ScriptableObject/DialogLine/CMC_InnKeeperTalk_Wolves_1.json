@@ -1,0 +1,32 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatInnStoryIndex", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+            {"StatWarpData": "cmcStatInnStoryStep", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_Wolves_1_Line",
+        "DefaultText": "Coldest winter in memory, that one. The wolves came down out of the high country thin and bold, right up to the fences, and old Tomas swore one of them looked him dead in the eye through his own window glass. Nobody much wanted watch duty after dark that season, and I don't blame them one bit. Traps came up empty three nights running, and torches only bought an hour's peace before the wolves crept back closer each time. It was the miller's wife who noticed something the rest of us had missed: the wolves never came within twenty paces of the smokehouse. Turned out the smell put their noses clean off the scent of anything worth hunting."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Wolves_1_Answer_GoOn",
+                "DefaultText": "So what did she do about it?"
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnStoryStep", "StatWarpType": 3, "ValueModifier": {"x": 2.0, "y": 2.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_InnKeeperTalk_Wolves_3",
+                "NextLineWarpType": 3
+            }
+        }
+    ]
+}

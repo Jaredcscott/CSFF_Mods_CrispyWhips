@@ -1,0 +1,213 @@
+{
+    "StartingPoint": true,
+    "Line": {
+        "LocalizationKey": "CMC_WeaverTalk_Start_Line",
+        "DefaultText": "Oh! Come in out of the wind. You're the one who raised this cottage, aren't you? I've set the loom up by the window, best light in the whole village, if you ask me."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_Start_Answer_Work",
+                "DefaultText": "What are you weaving?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_WeaverTalk_Work",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_Start_Answer_Village",
+                "DefaultText": "Settling in all right?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_WeaverTalk_Village",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": false,
+                        "TargetAgentWarpData": "cmcWeaverAgent",
+                        "TargetAgentWarpType": 3,
+                        "TargetStatWarpData": "cmcStatWeaverTrust",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 25.0,
+                            "y": 1000000000.0
+                        }
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_Start_Answer_Story",
+                "DefaultText": "Got a story for me?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_WeaverTalk_Story1",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+                    {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_Start_Answer_QuestOffer",
+                "DefaultText": "Anything you need a hand with?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_WeaverTalk_QuestOffer",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+                    {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_Start_Answer_QuestOffer2",
+                "DefaultText": "Show me your weave?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_WeaverTalk_QuestOffer2",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+                    {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 2.5}}
+                ],
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": false,
+                        "TargetAgentWarpData": "cmcWeaverAgent",
+                        "TargetAgentWarpType": 3,
+                        "TargetStatWarpData": "cmcStatWeaverTrust",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {"x": 25.0, "y": 1000000000.0}
+                    }
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_Start_Answer_QuestOffer3",
+                "DefaultText": "Want to see my work?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_WeaverTalk_QuestOffer3",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+                    {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 2.5, "y": 3.5}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_Start_Answer_QuestOffer4",
+                "DefaultText": "Need any wool or fiber?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_WeaverTalk_QuestOffer4",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+                    {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 3.5, "y": 4.5}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_Start_Answer_QuestOffer5",
+                "DefaultText": "Anything else you're working toward?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_WeaverTalk_QuestOffer5",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+                    {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 4.5, "y": 5.5}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_Start_Answer_QuestOffer6",
+                "DefaultText": "Got another project in mind?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_WeaverTalk_QuestOffer6",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+                    {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 5.5, "y": 6.5}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_Start_Answer_QuestOffer7",
+                "DefaultText": "One more thing for the loom?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_WeaverTalk_QuestOffer7",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatWeaverMoveIn", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 999999.0}},
+                    {"StatWarpData": "cmcStatApothQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 20.0}},
+                    {"StatWarpData": "cmcStatInterlockS1", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_Start_Answer_InterlockS1",
+                "DefaultText": "Have you heard about the Apothecary's pigments?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_WeaverTalk_InterlockS1Offer",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_Start_Answer_Bye",
+                "DefaultText": "I'll let you get back to it."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

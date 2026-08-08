@@ -1,0 +1,78 @@
+{
+    "UniqueID": "comfortbpstrawmat",
+    "CardName": {
+        "ParentObjectID": "comfortbpstrawmat",
+        "LocalizationKey": "Comfort_StrawMat_Bp_CardName",
+        "DefaultText": "Straw Mat"
+    },
+    "CardDescription": {
+        "ParentObjectID": "comfortbpstrawmat",
+        "LocalizationKey": "Comfort_StrawMat_Bp_CardDescription",
+        "DefaultText": "Weave rye straw into a flat floor mat bound with twine."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "comfortbpstrawmat",
+        "LocalizationKey": "Comfort_StrawMat_Bp_UnlockConditionsDesc",
+        "DefaultText": "Help the Weaver with a bundle of flax"
+    },
+    "StartUnlocked": false,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [
+        {
+            "ObjectiveName": "WeaverQuestChainAtLeast1",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "TriggerRange": { "x": 0.5, "y": 20.0 },
+                "StatWarpData": "cmcStatWeaverQuestChain",
+                "StatWarpType": 3
+            },
+            "ConstantlyChecking": false
+        }
+    ],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 14,
+                    "DontSpend": false,
+                    "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredCardWarpData": "62ffe49f7b68c2d4b9cd549ac6942ba3",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 8,
+                    "DontSpend": false,
+                    "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 2,
+    "DeconstructDaytimeCost": 0,
+    "BlueprintResult": [
+        {
+            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": { "x": 1, "y": 1 },
+            "DroppedCardWarpData": "comfortstrawmatplaced",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+    "CardImageWarpData": "StrawMat",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 4.0,
+    "ResearchedNotification": 0
+}

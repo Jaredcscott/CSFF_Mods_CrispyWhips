@@ -1,0 +1,11 @@
+{
+    "UniqueID": "cmcStatProfEligibleArchitecture",
+    "GameName": {
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "Professor Eligible: Architecture specialty roll - hidden scheduler state, not player-visible"
+    },
+    "DefaultStartingValue": 0.0,
+    "DefaultMinMaxValue": { "x": 0.0, "y": 1.0 },
+    "DefaultRate": 0.0,
+    "DefaultMinMaxRate": { "x": 0.0, "y": 0.0 }
+}

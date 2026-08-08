@@ -1,0 +1,18 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_WeaverTalk_InterlockS1Offer_Line",
+        "DefaultText": "I heard the Apothecary's finally pressing pigment worth using. If you can get me two batches, different shades, I've got a pattern that wants three colors instead of one. Worth the extra trip, I promise you."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_InterlockS1Offer_Answer_Ok",
+                "DefaultText": "I'll see what she's pressing."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

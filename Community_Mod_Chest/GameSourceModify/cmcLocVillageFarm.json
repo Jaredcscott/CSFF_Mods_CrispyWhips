@@ -1,0 +1,10 @@
+{
+  "CardDescription": {
+    "LocalizationKey": "CMC_VillageFarm_CardDescription",
+    "DefaultText": "An expansive cleared field ideal for cultivation, with mixed pine and open grassland."
+  },
+  "CardHelpSection": {
+    "LocalizationKey": "CMC_VillageFarm_CardHelpSection",
+    "DefaultText": "<b>Pine Clearing, Cultivated:</b>\n\n<b>Conditions:</b> Acidic soil.\n\n<b>Flora:</b> Pines, birch, appleweed, healer's moss, fireroot, and meadowgrass border the tilled ground. The farm rotates seasonal fields (flax in spring, turnroot in summer, rye in autumn), and wild garlic grows wild along the margins.\n\n<b>Fauna:</b> Quiet. The worked soil draws little wildlife beyond the odd forager's basket."
+  }
+}

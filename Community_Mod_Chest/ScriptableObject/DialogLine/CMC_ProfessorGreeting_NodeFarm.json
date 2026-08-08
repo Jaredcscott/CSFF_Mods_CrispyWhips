@@ -1,0 +1,17 @@
+{
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_NodeFarm_Line",
+        "DefaultText": "The farmland. Good roots this time of year, if you know where the soil stays soft. The farmer thinks I'm mad, wading about the furrows with a satchel. He may be right."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Answer_Ok",
+                "DefaultText": "Noted, Professor."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

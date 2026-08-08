@@ -1,0 +1,72 @@
+{
+    "UniqueID": "apparelbpleatherapron",
+    "CardName": {
+        "ParentObjectID": "apparelbpleatherapron",
+        "LocalizationKey": "apparel_bp_leather_apron_CardName",
+        "DefaultText": "Leather Apron"
+    },
+    "CardDescription": {
+        "ParentObjectID": "apparelbpleatherapron",
+        "LocalizationKey": "apparel_bp_leather_apron_CardDescription",
+        "DefaultText": "A tough leather apron worn over the torso."
+    },
+    "CardType": 7,
+    "CardImageWarpData": "LeatherApron",
+    "CardImageWarpType": 3,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "apparelbpleatherapron",
+        "LocalizationKey": "apparel_bp_leather_apron_UnlockConditionsDesc",
+        "DefaultText": "Bring the Weaver a large piece of leather"
+    },
+    "StartUnlocked": false,
+    "CardsOnBoard": [],
+    "StatValues": [
+        {
+            "ObjectiveName": "WeaverQuestChainAtLeast6",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "TriggerRange": { "x": 5.5, "y": 20.0 },
+                "StatWarpData": "cmcStatWeaverQuestChain",
+                "StatWarpType": 3
+            },
+            "ConstantlyChecking": false
+        }
+    ],
+    "BlueprintUnlockTicksCost": 16.0,
+    "BuildingDaytimeCost": 6,
+    "DeconstructDaytimeCost": 2,
+    "BlueprintStages": [
+        {
+            "RequiredElements": [
+                {
+                    "RequiredCardWarpData": "7750f89a63e418a41b377b48e88646f1",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 2,
+                    "DontSpend": false
+                },
+                {
+                    "RequiredCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 6,
+                    "DontSpend": false
+                }
+            ]
+        }
+    ],
+    "BlueprintResult": [
+        {
+            "DroppedCardWarpData": "apparelleatherapron",
+            "DroppedCardWarpType": 3,
+            "Quantity": {"x": 1, "y": 1}
+        }
+    ],
+    "BlueprintStatModifications": [
+        {
+            "StatWarpData": "6e10690af4575114681e3eb11163671e",
+            "StatWarpType": 3,
+            "ValueModifier": {"x": 2.0, "y": 2.0}
+        }
+    ],
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+    "BlueprintActionTagsWarpType": 3
+}

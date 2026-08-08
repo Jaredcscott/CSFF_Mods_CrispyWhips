@@ -1,0 +1,97 @@
+{
+    "UniqueID": "cmcApothecaryCabin",
+    "CardName": {
+        "ParentObjectID": "cmcApothecaryCabin",
+        "LocalizationKey": "CMC_ApothecaryCabin_CardName",
+        "DefaultText": "Apothecary's Cabin"
+    },
+    "CardDescription": {
+        "ParentObjectID": "cmcApothecaryCabin",
+        "LocalizationKey": "CMC_ApothecaryCabin_CardDescription",
+        "DefaultText": "A snug herbalist's cabin tucked among the pines. Bundles of drying herbs hang under the eaves and the whole clearing smells faintly of nettle and resin. Pine forest surrounds this protected woodland dwelling where someone has made a home of the forest."
+    },
+    "CardType": 2,
+    "ObjectWeight": 300.0,
+    "TradingValue": 0.0,
+    "CardImageWarpData": "CMC_ApothecaryCabin",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": ["tag_Structure"],
+    "CardTagsWarpType": 3,
+    "UniqueOnBoard": false,
+    "DoesNotPile": true,
+    "CannotBeTrashed": true,
+    "NeedsRoomInLocationToSpawn": false,
+    "WhenCreatedSoundsWarpData": ["StoneAppear"],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": { "Active": false },
+    "UsageDurability": { "Active": false },
+    "FuelCapacity": { "Active": false },
+    "Progress": { "Active": false },
+    "SpecialDurability1": { "Active": false },
+    "SpecialDurability2": { "Active": false },
+    "SpecialDurability3": { "Active": false },
+    "SpecialDurability4": { "Active": false },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_ApothecaryCabin_DA_Enter",
+                "DefaultText": "Enter the Cabin"
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 2,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "FadeToBlack": 1,
+            "FadeMessage": {
+                "LocalizationKey": "CMC_ApothecaryCabin_DA_Enter_Fade",
+                "DefaultText": "Entering the cabin..."
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "Enter",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "cmcApothecaryCabinInterior",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 1, "y": 1 }
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 0
+            }
+        }
+    ],
+    "DismantleActionsWarpType": 3,
+    "PassiveStatEffects": [],
+    "PassiveEffects": [
+        {
+            "EffectName": "Comfort (+12)",
+            "OnlyWhenEquipped": false,
+            "EquippedOnBodyOnly": false,
+            "Conditions": {
+                "NotInBackground": true
+            },
+            "StatModifiers": [
+                {
+                    "Stat": { "m_FileID": 0, "m_PathID": 0 },
+                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 12.0, "y": 12.0 },
+                    "RateModifier": { "x": 0.0, "y": 0.0 },
+                    "MinValueModifier": { "x": 0.0, "y": 0.0 },
+                    "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+                    "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ]
+}

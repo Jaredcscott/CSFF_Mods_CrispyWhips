@@ -1,0 +1,22 @@
+{
+    "UniqueID": "cmcNpcStatSuspicion",
+    "GameName": {
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "Guard suspicion - per-guard detection sensitivity; the tuning knob crime-detection rolls read"
+    },
+    "DefaultStartingValue": 40.0,
+    "DefaultMinMaxValue": {
+        "x": 0.0,
+        "y": 100.0
+    },
+    "DefaultRate": 0.0,
+    "DefaultMinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatScalingToModifiers": [],
+    "NPCStatScalingToModifiers": [],
+    "CompositeStats": [],
+    "Statuses": [],
+    "UsesNovelty": false
+}

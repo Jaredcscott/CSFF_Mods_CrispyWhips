@@ -1,0 +1,125 @@
+{
+    "UniqueID": "comfortstrawmatplaced",
+    "CardName": {
+        "ParentObjectID": "comfortstrawmatplaced",
+        "LocalizationKey": "Comfort_StrawMat_Placed_CardName",
+        "DefaultText": "Straw Mat"
+    },
+    "CardDescription": {
+        "ParentObjectID": "comfortstrawmatplaced",
+        "LocalizationKey": "Comfort_StrawMat_Placed_CardDescription",
+        "DefaultText": "A woven mat of rye straw laid flat on the ground. Simple underfoot comfort, far better than bare earth."
+    },
+    "CardType": 2,
+    "ObjectWeight": 100.0,
+    "TradingValue": 0.0,
+    "CardImageWarpData": "StrawMat",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [ "tag_Preservable" ],
+    "CardTagsWarpType": 3,
+    "UniqueOnBoard": false,
+    "CannotBeTrashed": false,
+    "NeedsRoomInLocationToSpawn": false,
+    "WhenCreatedSoundsWarpData": ["Herb"],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 384.0,
+        "MaxValue": 384.0,
+        "RatePerDaytimePoint": -1.0,
+        "HidingOptions": 0,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "OverrideIconWarpData": "Spoilage",
+        "OverrideIconWarpType": 3,
+        "HasActionOnZero": true,
+        "OnZero": {
+            "ActionName": {
+                "ParentObjectID": "comfortstrawmatplaced",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "ActionDescription": {
+                "ParentObjectID": "comfortstrawmatplaced",
+                "LocalizationKey": "Comfort_StrawMat_Placed_Weathered",
+                "DefaultText": "The straw mat has rotted away."
+            },
+            "ProducedCards": [],
+            "StatModifications": [],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    },
+    "UsageDurability": { "Active": false },
+    "FuelCapacity": { "Active": false },
+    "Progress": { "Active": false },
+    "SpecialDurability1": { "Active": false },
+    "SpecialDurability2": { "Active": false },
+    "SpecialDurability3": { "Active": false },
+    "SpecialDurability4": { "Active": false },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "comfortstrawmatplaced",
+                "LocalizationKey": "Comfort_StrawMat_Placed_DA_RollUp",
+                "DefaultText": "Roll Up"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "comfortstrawmatplaced",
+                "LocalizationKey": "Comfort_StrawMat_Placed_DA_RollUp_Description",
+                "DefaultText": "Roll up the mat and recover some straw."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Recovered Materials",
+                    "DropSavedBpIngredients": false,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "62ffe49f7b68c2d4b9cd549ac6942ba3",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 2, "y": 2 }
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
+    "PassiveStatEffects": [],
+    "PassiveEffects": [
+        {
+            "EffectName": "Comfort (+5)",
+            "OnlyWhenEquipped": false,
+            "EquippedOnBodyOnly": false,
+            "Conditions": {
+                "NotInBackground": true
+            },
+            "StatModifiers": [
+                {
+                    "Stat": { "m_FileID": 0, "m_PathID": 0 },
+                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 5.0, "y": 5.0 },
+                    "RateModifier": { "x": 0.0, "y": 0.0 },
+                    "MinValueModifier": { "x": 0.0, "y": 0.0 },
+                    "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+                    "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ]
+}

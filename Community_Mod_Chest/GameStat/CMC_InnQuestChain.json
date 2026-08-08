@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatInnQuestChain",
+    "GameName": {
+        "LocalizationKey": "CMC_InnQuestChain_StatName",
+        "DefaultText": "Inn's Quest Chain"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_InnQuestChain_StatDescription",
+        "DefaultText": "Hidden tracker: how many of the Inn Keeper's main-chain quests have been completed. Gates the next offer alongside the weekly-armed flag."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 20.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

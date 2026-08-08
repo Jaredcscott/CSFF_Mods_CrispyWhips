@@ -1,0 +1,99 @@
+{
+    "UniqueID": "potterysculpturebppaintedplate",
+    "CardName": {
+        "ParentObjectID": "potterysculpturebppaintedplate",
+        "LocalizationKey": "Pottery_PaintedPlate_Bp_CardName",
+        "DefaultText": "Painted Clay Plate"
+    },
+    "CardDescription": {
+        "ParentObjectID": "potterysculpturebppaintedplate",
+        "LocalizationKey": "Pottery_PaintedPlate_Bp_CardDescription",
+        "DefaultText": "Paint decorative designs onto a clay plate using pigment."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "potterysculpturebppaintedplate",
+        "LocalizationKey": "Pottery_PaintedPlate_Bp_UnlockConditionsDesc",
+        "DefaultText": "The Miller and Inn Keeper's baking day"
+    },
+    "StartUnlocked": false,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [
+        {
+            "ObjectiveName": "InterlockS3Done",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "TriggerRange": { "x": 0.5, "y": 20.0 },
+                "StatWarpData": "cmcStatInterlockS3",
+                "StatWarpType": 3
+            },
+            "ConstantlyChecking": false
+        }
+    ],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredCardWarpData": "7bdd5cd996cb9bc48b537daed777da7c",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredCardWarpData": "potterysculpturepigment",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "RequiredLiquidContent": {
+                        "IsActive": true,
+                        "RequiredLiquid": { "m_FileID": 0, "m_PathID": 0 },
+                        "RequiredLiquidWarpData": "425259cb06b869d45be2e7f1b5b54aff",
+                        "RequiredLiquidWarpType": 3,
+                        "RequiredGroup": { "m_FileID": 0, "m_PathID": 0 },
+                        "RequiredQuantity": { "x": 210.0, "y": 300.0 }
+                    },
+                    "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+                    "RequiredCardWarpType": 3,
+                    "EffectOnIngredient": {
+                        "ModType": 0,
+                        "ModifyLiquid": true,
+                        "LiquidQuantityChange": { "x": -300.0, "y": -300.0 }
+                    }
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 4,
+    "DeconstructDaytimeCost": 0,
+    "BlueprintResult": [
+        {
+            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": { "x": 1, "y": 1 },
+            "DroppedCardWarpData": "potterysculpturepaintedplate",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction", "PotteryActionMinor"],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+    "CardImageWarpData": "PaintedClayPlate",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 8.0,
+    "ResearchedNotification": 0
+}

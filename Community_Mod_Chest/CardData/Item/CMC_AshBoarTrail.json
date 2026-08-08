@@ -1,0 +1,40 @@
+{
+    "UniqueID": "cmcAshBoarTrail",
+    "CardType": 2,
+    "CardName": {
+        "LocalizationKey": "CMC_AshBoarTrail_CardName",
+        "DefaultText": "Ash's Trail"
+    },
+    "CardDescription": {
+        "LocalizationKey": "CMC_AshBoarTrail_CardDescription",
+        "DefaultText": "A tuft of grey fur and a scuff of paw prints in the mud. Ash slipped out after dark — the tracks lead toward Hunter's Crossing."
+    },
+    "CardImageWarpData": "Tracks_ForestBeast",
+    "CardImageWarpType": 3,
+    "CanBeRenamed": false,
+    "ObjectWeight": 0.0,
+    "CannotBeTrashed": true,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 100000.0,
+        "MaxValue": 100000.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 2,
+        "HasActionOnZero": true,
+        "OnZero": {
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    },
+    "UsageDurability": {"Active": false},
+    "FuelCapacity": {"Active": false},
+    "Progress": {"Active": false},
+    "SpecialDurability1": {"Active": false},
+    "SpecialDurability2": {"Active": false},
+    "SpecialDurability3": {"Active": false},
+    "SpecialDurability4": {"Active": false},
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "PassiveStatEffects": []
+}

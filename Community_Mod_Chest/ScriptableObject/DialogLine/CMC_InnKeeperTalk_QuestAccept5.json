@@ -1,0 +1,15 @@
+{
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_QuestAccept5_Line",
+        "DefaultText": "Much obliged. Winter's got a way of catching everyone off guard even when we all know it's coming, same as it does every single year. My mother used to say a full pantry in autumn is worth more than gold come the deep frost, and she was rarely wrong about that sort of thing."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_QuestAccept5_Answer",
+                "DefaultText": "I'll make sure the pantry's stocked."
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

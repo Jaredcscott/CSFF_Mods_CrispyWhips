@@ -1,0 +1,32 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatInnStoryIndex", "StatWarpType": 3, "TriggerRange": {"x": 4.5, "y": 5.5}},
+            {"StatWarpData": "cmcStatInnStoryStep", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_Ferryman_1_Line",
+        "DefaultText": "There's an old crossing further down the river, past where most folk care to wander, where they say a ferryman still waits for passengers who never quite arrive. My grandmother told it first, how on certain fog thick nights you can hear the creak of oarlocks out on the water with no boat in sight to match the sound; she never crossed there after dark again, not once in her whole life. Story goes he ferried travelers across for a fair coin his whole life, honest work, until one crossing in a storm the current took the boat and him with it, and he was never found. Some say he still keeps to his old post out of habit more than haunting, waiting on a fare that drowned along with him. Others say he's simply forgotten he's not needed anymore, and keeps rowing all the same."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Ferryman_1_Answer_GoOn",
+                "DefaultText": "Has anyone seen him?"
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnStoryStep", "StatWarpType": 3, "ValueModifier": {"x": 2.0, "y": 2.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_InnKeeperTalk_Ferryman_3",
+                "NextLineWarpType": 3
+            }
+        }
+    ]
+}

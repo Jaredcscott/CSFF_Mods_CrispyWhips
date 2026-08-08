@@ -1,0 +1,79 @@
+{
+    "Tab_4_Tailoring_Subtab_1_Improvised_TabName": [
+        "apparelbpfootwraps",
+        "apparelbphandwraps",
+        "apparelbpstrawhat",
+        "comfortbpbedroll",
+        "comfortbpdownmattress"
+    ],
+    "Tab_4_Tailoring_Subtab_2_Cloth_TabName": [
+        "apparelbpclothscarf",
+        "apparelbpchaperon",
+        "apparelbpclothcoat",
+        "apparelbpclothmask",
+        "apparelbplongjohns"
+    ],
+    "Tab_4_Tailoring_Subtab_3_Leather_TabName": [
+        "apparelbpleatherapron",
+        "apparelbpleathersandals"
+    ],
+    "Tab_3_Hunting_Subtab_3_CloseCombat_TabName": [
+        "combatandarmorbpstonemace",
+        "combatandarmorbpwoodenshield",
+        "combatandarmorbpfirehardenedspear",
+        "combatandarmorbpclub"
+    ],
+    "Tab_4_Tailoring_Subtab_5_Equipment_TabName": [
+        "combatandarmorbpquiltedvest",
+        "combatandarmorbpquiltedcap",
+        "combatandarmorbpbonelamellar"
+    ],
+    "Tab_5_MetalAndClay_Subtab_1_Utensils_TabName": [
+        "potterysculpturebppigment",
+        "potterysculpturebppaintedbowl",
+        "potterysculpturebppaintedvase",
+        "potterysculpturebppaintedplate",
+        "potterysculpturebppaintedcup",
+        "potterysculpturebpfigurinedragon",
+        "potterysculpturebpfigurinebear",
+        "potterysculpturebpfigurinecastle",
+        "potterysculpturebpclaybeads",
+        "potterysculpturebpstonetiles",
+        "potterysculpturebpglazedplate",
+        "potterysculpturebpherbpaste"
+    ],
+    "Tab_1_Survival_Subtab_5_Cooking_TabName": [
+        "bpcmcapothecaryhealingmixture"
+    ],
+    "Tab_2_Construction_Subtab_5_HouseBuilding_TabName": [
+        "BpCMCCottageMiller",
+        "BpCMCCottageWeaver",
+        "BpCMCVillageHall",
+        "BpCMCApothecaryCabin",
+        "BpCMCVillageWell"
+    ],
+    "Tab_2_Construction_Subtab_4_Furniture_TabName": [
+        "comfortbpbedrollplace",
+        "bpcmcmarketstall",
+        "comfortbpincenseburner",
+        "comfortbpcomfortablebed"
+    ],
+    "Tab_1_Survival_Subtab_4_Entertainment_TabName": [
+        "comfortbpheatherwreath",
+        "comfortbpwindchimes",
+        "comfortbpstrawmat",
+        "comfortbpwovenwallhanging",
+        "comfortbptricolorwallhanging"
+    ],
+    "Tab_1_Survival_Subtab_1_Fire_TabName": [
+        "ceramiclampbp"
+    ],
+    "Tab_3_Hunting_Subtab_1_Fishing_TabName": [
+        "BpCMCIronFishingRod",
+        "cmcbpfishingnet"
+    ],
+    "Tab_5_MetalAndClay_Subtab_3_MetalCrafts_TabName": [
+        "BpCMCIronFishingRodFittings",
+        "comfortbpcopperbedframe"
+    ]
+}

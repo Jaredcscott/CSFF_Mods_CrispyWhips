@@ -1,0 +1,818 @@
+{
+  "UniqueID": "cmcAcademyLectern",
+  "CardType": 2,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": false,
+  "CardName": {
+    "LocalizationKey": "CMC_AcademyLectern_CardName",
+    "DefaultText": "Lecture Hall"
+  },
+  "CardDescription": {
+    "LocalizationKey": "CMC_AcademyLectern_CardDescription",
+    "DefaultText": "The academy masters lecture here. Drag Salt, metal Nuggets, or Duros Coins onto the lectern to fund your Tuition Account (holds up to 1000); each two-hour study session draws 100 from that balance, including the final exam. Choose a subject below to advance its coursework; when only one session remains, sit the final exam to earn your degree."
+  },
+  "CardImageWarpData": "VillageAcademyLectern",
+  "CardImageWarpType": 3,
+  "CardTagsWarpData": ["tag_Structure"],
+  "CardTagsWarpType": 3,
+  "ObjectWeight": 0,
+  "DoesNotPile": true,
+  "SpecialDurability1": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 72.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "OverrideIcon": { "m_FileID": 0, "m_PathID": 0 },
+    "OverrideIconWarpData": "VillageAcademyArchitecture",
+    "OverrideIconWarpType": 3,
+    "CardStatName": {
+      "LocalizationKey": "CMC_AcademyLectern_Prog_Architecture",
+      "DefaultText": "Architecture"
+    },
+    "HasActionOnZero": false,
+    "HasActionOnFull": false
+  },
+  "SpecialDurability2": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 60.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "OverrideIcon": { "m_FileID": 0, "m_PathID": 0 },
+    "OverrideIconWarpData": "VillageAcademyMetallurgy",
+    "OverrideIconWarpType": 3,
+    "CardStatName": {
+      "LocalizationKey": "CMC_AcademyLectern_Prog_Metallurgy",
+      "DefaultText": "Metallurgy"
+    },
+    "HasActionOnZero": false,
+    "HasActionOnFull": false
+  },
+  "SpecialDurability3": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 30.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "OverrideIcon": { "m_FileID": 0, "m_PathID": 0 },
+    "OverrideIconWarpData": "VillageAcademyHerbalism",
+    "OverrideIconWarpType": 3,
+    "CardStatName": {
+      "LocalizationKey": "CMC_AcademyLectern_Prog_Herbalism",
+      "DefaultText": "Herbalism"
+    },
+    "HasActionOnZero": false,
+    "HasActionOnFull": false
+  },
+  "SpecialDurability4": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 1000.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 2,
+    "NumberPrecision": 0,
+    "OverrideIcon": { "m_FileID": 0, "m_PathID": 0 },
+    "OverrideIconWarpData": "Powder_Fairyweed",
+    "OverrideIconWarpType": 3,
+    "CardStatName": {
+      "LocalizationKey": "CMC_AcademyLectern_Prog_Tuition",
+      "DefaultText": "Tuition Account"
+    },
+    "HasActionOnZero": false,
+    "HasActionOnFull": false
+  },
+  "SpoilageTime": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 24.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "OverrideIcon": { "m_FileID": 0, "m_PathID": 0 },
+    "OverrideIconWarpData": "VillageAcademyFishing",
+    "OverrideIconWarpType": 3,
+    "CardStatName": {
+      "LocalizationKey": "CMC_AcademyLectern_Prog_Fishing",
+      "DefaultText": "Fishing"
+    },
+    "HasActionOnZero": false,
+    "HasActionOnFull": false
+  },
+  "UsageDurability": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 24.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "OverrideIcon": { "m_FileID": 0, "m_PathID": 0 },
+    "OverrideIconWarpData": "VillageAcademyArmorer",
+    "OverrideIconWarpType": 3,
+    "CardStatName": {
+      "LocalizationKey": "CMC_AcademyLectern_Prog_Armorer",
+      "DefaultText": "Armorer"
+    },
+    "HasActionOnZero": false,
+    "HasActionOnFull": false
+  },
+  "FuelCapacity": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 24.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "OverrideIcon": { "m_FileID": 0, "m_PathID": 0 },
+    "OverrideIconWarpData": "VillageAcademyMedicine",
+    "OverrideIconWarpType": 3,
+    "CardStatName": {
+      "LocalizationKey": "CMC_AcademyLectern_Prog_Medicine",
+      "DefaultText": "Medicine"
+    },
+    "HasActionOnZero": false,
+    "HasActionOnFull": false
+  },
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_AcademyLectern_CI_Deposit",
+        "DefaultText": "Deposit Currency"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_AcademyLectern_CI_Deposit_Desc",
+        "DefaultText": "Adds the value of the dragged Salt, Nugget, or Duros Coin to the Tuition Account (max 1000)."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
+          "4b0f4937a5ecb90499428c8c10288afc",
+          "e5f5d2a633f3437780d6198c3d1e9fdd"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1
+      },
+      "ProducedCards": []
+    }
+  ],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_Architecture",
+        "DefaultText": "Study Architecture"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_Architecture_Desc",
+        "DefaultText": "A two-hour lecture on load-bearing frames and waterworks. The full course takes 72 hours of study; each session draws 100 from your Tuition Account. When one session remains, the final exam becomes available."
+      },
+      "DaytimeCost": 8,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.0,
+          "MaxValue": 0.958,
+          "ScaleRequirementPerPortionOfLiquid": { "Active": false, "FloatValue": 0.0 }
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "LocalizationKey": "CMC_AcademyLectern_StudyBlocked",
+          "DefaultText": "The coursework is complete; sit the final exam."
+        }
+      },
+      "StatModifications": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -5.0, "y": -5.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -4.0, "y": -4.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        }
+      ],
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": { "x": 2.0, "y": 2.0 }
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_ArchitectureFinal",
+        "DefaultText": "Final Exam: Architecture"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_ArchitectureFinal_Desc",
+        "DefaultText": "The final two-hour examination. Pass it to earn the Architecture degree: unlocks the Water-Driven Sawmill and Grinding Mill blueprints, and, together with a Metallurgy degree, the Water-Driven Forge and Workshop."
+      },
+      "DaytimeCost": 8,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "AddedInRunPerksWarpData": ["cmcperkgradarchitecture"],
+      "AddedInRunPerksWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.96,
+          "MaxValue": 0.99,
+          "ScaleRequirementPerPortionOfLiquid": { "Active": false, "FloatValue": 0.0 }
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "LocalizationKey": "CMC_AcademyLectern_FinalNotReady",
+          "DefaultText": "You are not ready for the final examination."
+        }
+      },
+      "StatModifications": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -5.0, "y": -5.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -4.0, "y": -4.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        }
+      ],
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": { "x": 2.0, "y": 2.0 }
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_Metallurgy",
+        "DefaultText": "Study Metallurgy"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_Metallurgy_Desc",
+        "DefaultText": "A two-hour session at the assay bench. The full course takes 60 hours of study; each session draws 100 from your Tuition Account. When one session remains, the final exam becomes available."
+      },
+      "DaytimeCost": 8,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial2Percent": {
+          "Active": true,
+          "FloatValue": 0.0,
+          "MaxValue": 0.95,
+          "ScaleRequirementPerPortionOfLiquid": { "Active": false, "FloatValue": 0.0 }
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "LocalizationKey": "CMC_AcademyLectern_StudyBlocked",
+          "DefaultText": "The coursework is complete; sit the final exam."
+        }
+      },
+      "StatModifications": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -5.0, "y": -5.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -4.0, "y": -4.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        }
+      ],
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special2Change": { "x": 2.0, "y": 2.0 }
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_MetallurgyFinal",
+        "DefaultText": "Final Exam: Metallurgy"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_MetallurgyFinal_Desc",
+        "DefaultText": "The final two-hour examination. Pass it to earn the Metallurgy degree: unlocks the Copper Sheet recipe, and, together with an Architecture degree, the Water-Driven Forge and Workshop."
+      },
+      "DaytimeCost": 8,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "AddedInRunPerksWarpData": ["cmcperkgradmetallurgy"],
+      "AddedInRunPerksWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial2Percent": {
+          "Active": true,
+          "FloatValue": 0.96,
+          "MaxValue": 0.99,
+          "ScaleRequirementPerPortionOfLiquid": { "Active": false, "FloatValue": 0.0 }
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "LocalizationKey": "CMC_AcademyLectern_FinalNotReady",
+          "DefaultText": "You are not ready for the final examination."
+        }
+      },
+      "StatModifications": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -5.0, "y": -5.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -4.0, "y": -4.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        }
+      ],
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special2Change": { "x": 2.0, "y": 2.0 }
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_Herbalism",
+        "DefaultText": "Study Herbalism"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_Herbalism_Desc",
+        "DefaultText": "A two-hour session among the herb gardens. The full course takes 30 hours of study; each session draws 100 from your Tuition Account. When one session remains, the final exam becomes available."
+      },
+      "DaytimeCost": 8,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial3Percent": {
+          "Active": true,
+          "FloatValue": 0.0,
+          "MaxValue": 0.90,
+          "ScaleRequirementPerPortionOfLiquid": { "Active": false, "FloatValue": 0.0 }
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "LocalizationKey": "CMC_AcademyLectern_StudyBlocked",
+          "DefaultText": "The coursework is complete; sit the final exam."
+        }
+      },
+      "StatModifications": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -5.0, "y": -5.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -4.0, "y": -4.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        }
+      ],
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special3Change": { "x": 2.0, "y": 2.0 }
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_HerbalismFinal",
+        "DefaultText": "Final Exam: Herbalism"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_HerbalismFinal_Desc",
+        "DefaultText": "The final two-hour examination. Pass it to earn the Herbalism degree: from then on you gather twice as much whenever you forage."
+      },
+      "DaytimeCost": 8,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "AddedInRunPerksWarpData": ["cmcperkgradherbalism"],
+      "AddedInRunPerksWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial3Percent": {
+          "Active": true,
+          "FloatValue": 0.92,
+          "MaxValue": 0.99,
+          "ScaleRequirementPerPortionOfLiquid": { "Active": false, "FloatValue": 0.0 }
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "LocalizationKey": "CMC_AcademyLectern_FinalNotReady",
+          "DefaultText": "You are not ready for the final examination."
+        }
+      },
+      "StatModifications": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -5.0, "y": -5.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -4.0, "y": -4.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        }
+      ],
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special3Change": { "x": 2.0, "y": 2.0 }
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_Fishing",
+        "DefaultText": "Study Fishing"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_Fishing_Desc",
+        "DefaultText": "A two-hour session mending nets and reading water. The full course takes 24 hours of study; each session draws 100 from your Tuition Account. When one session remains, the final exam becomes available."
+      },
+      "DaytimeCost": 8,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredSpoilagePercent": {
+          "Active": true,
+          "FloatValue": 0.0,
+          "MaxValue": 0.875,
+          "ScaleRequirementPerPortionOfLiquid": { "Active": false, "FloatValue": 0.0 }
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "LocalizationKey": "CMC_AcademyLectern_StudyBlocked",
+          "DefaultText": "The coursework is complete; sit the final exam."
+        }
+      },
+      "StatModifications": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -5.0, "y": -5.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -4.0, "y": -4.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        }
+      ],
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "SpoilageChange": { "x": 2.0, "y": 2.0 }
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_FishingFinal",
+        "DefaultText": "Final Exam: Fishing"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_FishingFinal_Desc",
+        "DefaultText": "The final two-hour examination. Pass it to earn the Fishing degree: unlocks the Iron Fishing Rod recipe and teaches you to read the water for a better catch."
+      },
+      "DaytimeCost": 8,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "AddedInRunPerksWarpData": ["cmcperkgradfishing"],
+      "AddedInRunPerksWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredSpoilagePercent": {
+          "Active": true,
+          "FloatValue": 0.90,
+          "MaxValue": 0.99,
+          "ScaleRequirementPerPortionOfLiquid": { "Active": false, "FloatValue": 0.0 }
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "LocalizationKey": "CMC_AcademyLectern_FinalNotReady",
+          "DefaultText": "You are not ready for the final examination."
+        }
+      },
+      "StatModifications": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -5.0, "y": -5.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -4.0, "y": -4.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        }
+      ],
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "SpoilageChange": { "x": 2.0, "y": 2.0 }
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_Armorer",
+        "DefaultText": "Study Armorer"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_Armorer_Desc",
+        "DefaultText": "A two-hour session at the armorer's bench, hammering fittings and fitting straps. The full course takes 24 hours of study; each session draws 100 from your Tuition Account. When one session remains, the final exam becomes available."
+      },
+      "DaytimeCost": 8,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredUsagePercent": {
+          "Active": true,
+          "FloatValue": 0.0,
+          "MaxValue": 0.875,
+          "ScaleRequirementPerPortionOfLiquid": { "Active": false, "FloatValue": 0.0 }
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "LocalizationKey": "CMC_AcademyLectern_StudyBlocked",
+          "DefaultText": "The coursework is complete; sit the final exam."
+        }
+      },
+      "StatModifications": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -5.0, "y": -5.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -4.0, "y": -4.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        }
+      ],
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "UsageChange": { "x": 2.0, "y": 2.0 }
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_ArmorerFinal",
+        "DefaultText": "Final Exam: Armorer"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_ArmorerFinal_Desc",
+        "DefaultText": "The final two-hour examination. Pass it to earn the Armorer degree: unlocks the copper and iron armor recipes (Breastplate, Helmet, Greaves, Gauntlets)."
+      },
+      "DaytimeCost": 8,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "AddedInRunPerksWarpData": ["cmcperkgradarmorer"],
+      "AddedInRunPerksWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredUsagePercent": {
+          "Active": true,
+          "FloatValue": 0.90,
+          "MaxValue": 0.99,
+          "ScaleRequirementPerPortionOfLiquid": { "Active": false, "FloatValue": 0.0 }
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "LocalizationKey": "CMC_AcademyLectern_FinalNotReady",
+          "DefaultText": "You are not ready for the final examination."
+        }
+      },
+      "StatModifications": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -5.0, "y": -5.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -4.0, "y": -4.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        }
+      ],
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "UsageChange": { "x": 2.0, "y": 2.0 }
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_Medicine",
+        "DefaultText": "Study Medicine"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_Medicine_Desc",
+        "DefaultText": "A two-hour session studying wound care and pain management. The full course takes 24 hours of study; each session draws 100 from your Tuition Account. When one session remains, the final exam becomes available."
+      },
+      "DaytimeCost": 8,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredFuelPercent": {
+          "Active": true,
+          "FloatValue": 0.0,
+          "MaxValue": 0.875,
+          "ScaleRequirementPerPortionOfLiquid": { "Active": false, "FloatValue": 0.0 }
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "LocalizationKey": "CMC_AcademyLectern_StudyBlocked",
+          "DefaultText": "The coursework is complete; sit the final exam."
+        }
+      },
+      "StatModifications": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -5.0, "y": -5.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -4.0, "y": -4.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        }
+      ],
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "FuelChange": { "x": 2.0, "y": 2.0 }
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_MedicineFinal",
+        "DefaultText": "Final Exam: Medicine"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_AcademyLectern_DA_MedicineFinal_Desc",
+        "DefaultText": "The final two-hour examination. Pass it to earn the Medicine degree: from then on, wounds clot and aches fade noticeably faster."
+      },
+      "DaytimeCost": 8,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "AddedInRunPerksWarpData": ["cmcperkgradmedicine"],
+      "AddedInRunPerksWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredFuelPercent": {
+          "Active": true,
+          "FloatValue": 0.90,
+          "MaxValue": 0.99,
+          "ScaleRequirementPerPortionOfLiquid": { "Active": false, "FloatValue": 0.0 }
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "LocalizationKey": "CMC_AcademyLectern_FinalNotReady",
+          "DefaultText": "You are not ready for the final examination."
+        }
+      },
+      "StatModifications": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -5.0, "y": -5.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -4.0, "y": -4.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        }
+      ],
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "FuelChange": { "x": 2.0, "y": 2.0 }
+      }
+    }
+  ],
+  "DismantleActionsWarpType": 3
+}

@@ -1,0 +1,18 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_Start_StayOrWork_Line",
+        "DefaultText": "Bed's yours for the asking, and there's always some odd job wants doing around the place. See the counter for either one, I keep the accounts there."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Start_StayOrWork_Answer_Ok",
+                "DefaultText": "I'll see to it."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

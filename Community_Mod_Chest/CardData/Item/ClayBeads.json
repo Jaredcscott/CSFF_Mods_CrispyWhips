@@ -1,0 +1,109 @@
+{
+    "UniqueID": "potterysculptureclaybeads",
+    "CardName": {
+        "ParentObjectID": "potterysculptureclaybeads",
+        "LocalizationKey": "Pottery_Sculpture_ClayBeads_CardName",
+        "DefaultText": "Clay Beads"
+    },
+    "CardDescription": {
+        "ParentObjectID": "potterysculptureclaybeads",
+        "LocalizationKey": "Pottery_Sculpture_ClayBeads_CardDescription",
+        "DefaultText": "A string of small handcrafted clay beads strung on twine. Worn as a necklace or traded as decorative goods."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [
+        "tag_Clothing"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "ObjectWeight": 25.0,
+    "WeightReductionWhenEquipped": -25.0,
+    "EquipmentTagsWarpData": [
+        "eTag_Neck"
+    ],
+    "EquipmentTagsWarpType": 3,
+    "AlwaysUpdate": false,
+    "AffectStatsOnlyWhenEquipped": true,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "ClayBeads",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 200.0,
+        "CardStatName": {
+            "ParentObjectID": "potterysculptureclaybeads",
+            "LocalizationKey": "Pottery_Sculpture_ClayBeads_UsageDurability",
+            "DefaultText": "Durability"
+        },
+        "MaxValue": 200.0,
+        "RatePerDaytimePoint": 0.0,
+        "HasActionOnZero": true,
+        "OnZero": {
+            "ActionDescription": {
+                "ParentObjectID": "potterysculptureclaybeads",
+                "LocalizationKey": "Pottery_Sculpture_ClayBeads_Broken",
+                "DefaultText": "The beads have broken apart."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        },
+        "OverrideIconWarpData": "Durability",
+        "OverrideIconWarpType": 3
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "PassiveEffects": [
+        {
+            "EffectName": "Comfort (+10)",
+            "OnlyWhenEquipped": true,
+            "EquippedOnBodyOnly": true,
+            "Conditions": {},
+            "StatModifiers": [
+                {
+                    "Stat": { "m_FileID": 0, "m_PathID": 0 },
+                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 10.0, "y": 10.0 },
+                    "RateModifier": { "x": 0.0, "y": 0.0 },
+                    "MinValueModifier": { "x": 0.0, "y": 0.0 },
+                    "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+                    "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ],
+    "TradingValue": 120.0,
+    "MaxStack": 5,
+    "DroppedCardShadow": 1
+}

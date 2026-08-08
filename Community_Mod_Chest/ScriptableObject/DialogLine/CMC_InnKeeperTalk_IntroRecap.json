@@ -1,0 +1,18 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_IntroRecap_Line",
+        "DefaultText": "The short of it: salt, nuggets, and coins are what spend here. Leave a deposit with me and your meals and bed draw against it; the Professor's lectern takes tuition the same way. And the projects: the Miller's Cottage, the Weaver's Cottage, and the Village Hall. The plans are in your journal; the hope is all ours."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_IntroRecap_Answer_Thanks",
+                "DefaultText": "Thanks for the refresher."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

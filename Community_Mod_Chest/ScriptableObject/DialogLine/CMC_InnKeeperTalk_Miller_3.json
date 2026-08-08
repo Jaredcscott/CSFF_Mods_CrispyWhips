@@ -1,0 +1,40 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatInnStoryIndex", "StatWarpType": 3, "TriggerRange": {"x": 3.5, "y": 4.5}},
+            {"StatWarpData": "cmcStatInnStoryStep", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 2.5}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_Miller_3_Line",
+        "DefaultText": "Merchant's method was all elbow grease and a hand quern he'd hauled along in his cart, fast at first but his arms gave out well before the sack did. The miller, meanwhile, had quietly diverted a touch more water onto his own wheel the night before, swearing up and down it was coincidence and the river was simply generous that week, and nobody quite believed him but nobody could prove otherwise either. Miller finished first by a good margin, flour fine as powder snow, and the merchant handed over that cloak with about as much grace as a man can manage while grumbling the whole time. They shared the cask of cider together that same night, thick as old friends by the time it was empty, and the merchant still stops through every harvest to needle the miller about that river's 'generosity.' Nobody's proven a thing, mind you, but that mill has never once run slow since."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Miller_4_Answer_Thanks",
+                "DefaultText": "Sounds like the miller found a clever edge."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnStoryStep", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {"NextStep": 2}
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Miller_4_Answer_Wry",
+                "DefaultText": "I wonder how generous that river really was."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnStoryStep", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

@@ -1,0 +1,79 @@
+{
+  "UniqueID": "potterysculpturebpglazedplate",
+  "CardName": {
+    "ParentObjectID": "potterysculpturebpglazedplate",
+    "LocalizationKey": "Pottery_Bp_GlazedPlate_CardName",
+    "DefaultText": "Glazed Clay Plate"
+  },
+  "CardDescription": {
+    "ParentObjectID": "potterysculpturebpglazedplate",
+    "LocalizationKey": "Pottery_Bp_GlazedPlate_CardDescription",
+    "DefaultText": "Coat a clay plate in ash glaze and refire it into tough, glossy tableware."
+  },
+  "CardType": 7,
+  "UnlockConditionsDesc": {
+    "ParentObjectID": "potterysculpturebpglazedplate",
+    "LocalizationKey": "Pottery_Bp_GlazedPlate_UnlockConditionsDesc",
+    "DefaultText": "Bring the Inn Keeper dried foragables for the winter pantry"
+  },
+  "BuildingStatConditions": [],
+  "StartUnlocked": false,
+  "CardsOnBoard": [],
+  "TagsOnBoard": [],
+  "StatValues": [
+    {
+      "ObjectiveName": "InnQuestChainAtLeast4",
+      "CompletionWeight": 1,
+      "StatCondition": {
+        "TriggerRange": { "x": 3.5, "y": 20.0 },
+        "StatWarpData": "cmcStatInnQuestChain",
+        "StatWarpType": 3
+      },
+      "ConstantlyChecking": false
+    }
+  ],
+  "BlueprintStages": [
+    {
+      "CannotRevertToThisStage": false,
+      "RequiredElements": [
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "7bdd5cd996cb9bc48b537daed777da7c",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "65f9b26c048cd474d9fb14d1c9e46754",
+          "RequiredCardWarpType": 3
+        }
+      ],
+      "StepActionTags": [],
+      "StepActionTagsWarpData": [],
+      "StepActionTagsWarpType": 3
+    }
+  ],
+  "BuildingDaytimeCost": 4,
+  "DeconstructDaytimeCost": 1,
+  "BlueprintResult": [
+    {
+      "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+      "Quantity": { "x": 1, "y": 1 },
+      "DroppedCardWarpData": "potterysculptureglazedplate",
+      "DroppedCardWarpType": 3
+    }
+  ],
+  "BlueprintStatModifications": [],
+  "WhenCreatedSoundsWarpData": ["Stone"],
+  "WhenCreatedSoundsWarpType": 3,
+  "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+  "BlueprintActionTagsWarpType": 3,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "Plate_Clay",
+  "CardImageWarpType": 3,
+  "BlueprintUnlockTicksCost": 16.0,
+  "ResearchedNotification": 0
+}

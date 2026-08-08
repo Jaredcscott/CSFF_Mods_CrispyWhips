@@ -1,0 +1,17 @@
+{
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_NodePath_Line",
+        "DefaultText": "The path today: mostly gravel and gossip, but I picked up a few useful stones. Mind the ruts by the old fencepost if you head that way."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Answer_Ok",
+                "DefaultText": "Noted, Professor."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

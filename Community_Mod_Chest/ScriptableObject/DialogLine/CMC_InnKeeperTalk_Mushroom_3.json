@@ -1,0 +1,40 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatInnStoryIndex", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 2.5}},
+            {"StatWarpData": "cmcStatInnStoryStep", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 2.5}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_Mushroom_3_Line",
+        "DefaultText": "He tried to trade his boots to the cat for what he called 'safe passage through the badger kingdom,' and the cat, being a sensible creature, wanted nothing to do with any of it. Somewhere in there he became convinced his own shadow was following him with intent to rob him, and spent a solid hour negotiating with it in the corner while my father just kept refilling water and moving the sharp objects out of reach. Come sunrise he woke up on the floor, boots still on his feet, utterly baffled why every soul in the inn was grinning at him over breakfast. Swore off foraging for himself forever after, and paid double for a proper forager's basket before he left, no questions asked. To this day I tell every newcomer: if you don't know the mushroom, ask before you eat it, that peddler's shadow is still owed an apology somewhere."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Mushroom_4_Answer_Thanks",
+                "DefaultText": "I'll be sure to ask first."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnStoryStep", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {"NextStep": 2}
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Mushroom_4_Answer_Wry",
+                "DefaultText": "Honorary badger. I like that title."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnStoryStep", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

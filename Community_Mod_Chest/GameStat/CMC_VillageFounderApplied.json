@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatVillageFounderApplied",
+    "GameName": {
+        "LocalizationKey": "CMC_VillageFounderApplied_StatName",
+        "DefaultText": "Village Founder Applied"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_VillageFounderApplied_StatDescription",
+        "DefaultText": "Hidden latch: 0 = the Village Founder perk's one-time fast-forward has not yet run this save, 1 = it has already run (prevents re-applying on every Village visit)."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 1.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

@@ -1,0 +1,60 @@
+{
+  "UniqueID": "cmcAcademy",
+  "CardType": 2,
+  "AlwaysUpdate": false,
+  "CardName": {
+    "LocalizationKey": "CMC_Academy_CardName",
+    "DefaultText": "Village Academy"
+  },
+  "CardDescription": {
+    "LocalizationKey": "CMC_Academy_CardDescription",
+    "DefaultText": "A stone hall of learning where the village masters teach their trades. Step inside to enroll in courses on architecture, metallurgy, or herbalism. Protected by village walls and community presence."
+  },
+  "CardHelpSection": {
+    "LocalizationKey": "CMC_Academy_Help",
+    "DefaultText": "Academy"
+  },
+  "CardImageWarpData": "VillageAcademy",
+  "CardImageWarpType": 3,
+  "CardTagsWarpData": ["tag_Structure"],
+  "CardTagsWarpType": 3,
+  "ObjectWeight": 0,
+  "DoesNotPile": true,
+  "MapStructureType": 1,
+  "CanDragItemsToTravel": true,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_Academy_DA_Enter",
+        "DefaultText": "Enter the Academy"
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 2,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "FadeToBlack": 1,
+      "FadeMessage": {
+        "LocalizationKey": "CMC_Academy_DA_Enter_Fade",
+        "DefaultText": "Entering the academy..."
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "Enter",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "cmcAcademyInterior",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    }
+  ],
+  "DismantleActionsWarpType": 3
+}

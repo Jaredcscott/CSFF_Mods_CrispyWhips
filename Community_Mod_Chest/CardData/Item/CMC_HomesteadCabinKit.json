@@ -1,0 +1,63 @@
+{
+  "UniqueID": "cmchomesteadcabinkit",
+  "CardName": {
+    "ParentObjectID": "cmchomesteadcabinkit",
+    "LocalizationKey": "CMC_HomesteadCabinKit_CardName",
+    "DefaultText": "Cabin Kit"
+  },
+  "CardDescription": {
+    "ParentObjectID": "cmchomesteadcabinkit",
+    "LocalizationKey": "CMC_HomesteadCabinKit_CardDescription",
+    "DefaultText": "Your cabin, bundled for travel. Drop it wherever you want to settle, then use Place to raise it on the spot. Can only be placed once."
+  },
+  "CardType": 0,
+  "ObjectWeight": 6000.0,
+  "TradingValue": 500.0,
+  "MaxStack": 1,
+  "DoesNotPile": true,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "Cabin_Outside",
+  "CardImageWarpType": 3,
+  "CardTagsWarpData": ["tag_Structure"],
+  "CardTagsWarpType": 3,
+  "SpoilageTime": { "Active": false },
+  "UsageDurability": { "Active": false },
+  "FuelCapacity": { "Active": false },
+  "Progress": { "Active": false },
+  "SpecialDurability1": { "Active": false },
+  "SpecialDurability2": { "Active": false },
+  "SpecialDurability3": { "Active": false },
+  "SpecialDurability4": { "Active": false },
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "cmchomesteadcabinkit",
+        "LocalizationKey": "CMC_HomesteadCabinKit_DA_Place",
+        "DefaultText": "Place"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "cmchomesteadcabinkit",
+        "LocalizationKey": "CMC_HomesteadCabinKit_DA_Place_Desc",
+        "DefaultText": "Raise your cabin on this spot."
+      },
+      "DaytimeCost": 4,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["LargeObject"],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": { "m_FileID": 0, "m_PathID": 0 },
+        "TransformIntoWarpData": "7042e3f52e632a2408319de344a3aa0c",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": true
+      }
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": []
+}

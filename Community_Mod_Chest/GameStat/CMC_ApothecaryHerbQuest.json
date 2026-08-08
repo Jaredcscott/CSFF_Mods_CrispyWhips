@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatApothecaryHerbQuest",
+    "GameName": {
+        "LocalizationKey": "CMC_ApothecaryHerbQuest_StatName",
+        "DefaultText": "The Apothecary's Herb Request"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_ApothecaryHerbQuest_StatDescription",
+        "DefaultText": "Hidden tracker: 0 = not offered, 0.5 = accepted, then +1 per fresh herb delivered (billberries, springberries, spirit mushrooms); 3.5 = all three in, 4.5 = thanked and cleared."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 10.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

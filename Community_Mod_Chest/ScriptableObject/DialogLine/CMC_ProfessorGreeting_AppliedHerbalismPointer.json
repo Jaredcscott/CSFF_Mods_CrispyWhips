@@ -1,0 +1,18 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_AppliedHerbalismPointer_Line",
+        "DefaultText": "Now that you've graduated Herbalism, put the diploma to use — bring me four properly dried nettle leaves, and I'll show the class what real fieldwork looks like."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_AppliedHerbalismPointer_Answer_Close",
+                "DefaultText": "Consider it done."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

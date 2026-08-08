@@ -1,0 +1,72 @@
+{
+  "UniqueID": "combatandarmorbpfirehardenedspear",
+  "CardName": {
+    "ParentObjectID": "combatandarmorbpfirehardenedspear",
+    "LocalizationKey": "Combat_And_Armor_Bp_FireHardenedSpear_CardName",
+    "DefaultText": "Fire-Hardened Spear"
+  },
+  "CardDescription": {
+    "ParentObjectID": "combatandarmorbpfirehardenedspear",
+    "LocalizationKey": "Combat_And_Armor_Bp_FireHardenedSpear_CardDescription",
+    "DefaultText": "Sharpen a stick and harden the point over a fire."
+  },
+  "CardType": 7,
+  "UnlockConditionsDesc": {
+    "ParentObjectID": "combatandarmorbpfirehardenedspear",
+    "LocalizationKey": "Combat_And_Armor_Bp_FireHardenedSpear_UnlockConditionsDesc",
+    "DefaultText": "Find Ash and bring him home"
+  },
+  "BuildingStatConditions": [],
+  "StartUnlocked": false,
+  "CardsOnBoard": [],
+  "TagsOnBoard": [],
+  "StatValues": [
+    {
+      "ObjectiveName": "LostCatThanked",
+      "CompletionWeight": 1,
+      "StatCondition": {
+        "TriggerRange": { "x": 2.5, "y": 20.0 },
+        "StatWarpData": "cmcStatLostCat",
+        "StatWarpType": 3
+      },
+      "ConstantlyChecking": false
+    }
+  ],
+  "BlueprintStages": [
+    {
+      "CannotRevertToThisStage": false,
+      "RequiredElements": [
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "3db4c94184af274409f0d3eb16870f64",
+          "RequiredCardWarpType": 3
+        }
+      ],
+      "StepActionTags": [],
+      "StepActionTagsWarpData": [],
+      "StepActionTagsWarpType": 3
+    }
+  ],
+  "BuildingDaytimeCost": 2,
+  "DeconstructDaytimeCost": 1,
+  "BlueprintResult": [
+    {
+      "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+      "Quantity": { "x": 1, "y": 1 },
+      "DroppedCardWarpData": "combatandarmorfirehardenedspear",
+      "DroppedCardWarpType": 3
+    }
+  ],
+  "BlueprintStatModifications": [],
+  "WhenCreatedSoundsWarpData": ["Wood"],
+  "WhenCreatedSoundsWarpType": 3,
+  "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+  "BlueprintActionTagsWarpType": 3,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "Spear_Rustic",
+  "CardImageWarpType": 3,
+  "BlueprintUnlockTicksCost": 6.0,
+  "ResearchedNotification": 0
+}

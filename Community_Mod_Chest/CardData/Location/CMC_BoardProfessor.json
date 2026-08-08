@@ -1,0 +1,718 @@
+{
+  "UniqueID": "cmcBoardProfessor",
+  "CardType": 2,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": false,
+  "DoesNotPile": true,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "CMC_BoardProfessor_CardName",
+    "DefaultText": "Professor's Board"
+  },
+  "CardDescription": {
+    "LocalizationKey": "CMC_BoardProfessor_CardDescription",
+    "DefaultText": "A small board where the Professor posts news of the Academy."
+  },
+  "CardImageWarpData": "Professor_Indoors_Academy",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Status1_Name",
+        "DefaultText": "Active errand: a specimen for his weekly commission"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Status1_Desc",
+        "DefaultText": "The Professor could use your help: a specimen for his weekly commission."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatProfQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatProfQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Hint1_Name",
+        "DefaultText": "A hint: bring him whatever specimen he's asked for this week"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Hint1_Desc",
+        "DefaultText": "A hint: bring him whatever specimen he's asked for this week."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatProfQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatProfQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Status2_Name",
+        "DefaultText": "Active errand: clay"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Status2_Desc",
+        "DefaultText": "The Professor could use your help: clay."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatProfQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatProfQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Hint2_Name",
+        "DefaultText": "A hint: bring clay for his ruin miniature"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Hint2_Desc",
+        "DefaultText": "A hint: bring clay for his ruin miniature."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatProfQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatProfQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Status3_Name",
+        "DefaultText": "Active errand: metal nuggets"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Status3_Desc",
+        "DefaultText": "The Professor could use your help: metal nuggets."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatProfQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 1.5,
+            "y": 2.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatProfQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Hint3_Name",
+        "DefaultText": "A hint: bring metal nuggets for his figure"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Hint3_Desc",
+        "DefaultText": "A hint: bring metal nuggets for his figure."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatProfQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 1.5,
+            "y": 2.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatProfQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Status4_Name",
+        "DefaultText": "Active errand: bones or antler"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Status4_Desc",
+        "DefaultText": "The Professor could use your help: bones or antler."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatProfQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 2.5,
+            "y": 3.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatProfQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Hint4_Name",
+        "DefaultText": "A hint: bring bones or antler"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Hint4_Desc",
+        "DefaultText": "A hint: bring bones or antler."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatProfQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 2.5,
+            "y": 3.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatProfQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Teaser1_Name",
+        "DefaultText": "Word around the village: his standing commission"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Teaser1_Desc",
+        "DefaultText": "The Professor may have another small errand in mind before long — something to do with his standing commission, if the timing's right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatProfQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatProfQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Teaser2_Name",
+        "DefaultText": "Word around the village: material for a miniature reconstruction"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Teaser2_Desc",
+        "DefaultText": "The Professor may have another small errand in mind before long — something to do with material for a miniature reconstruction, if the timing's right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatProfQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatProfQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Teaser3_Name",
+        "DefaultText": "Word around the village: material for a cast figure"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Teaser3_Desc",
+        "DefaultText": "The Professor may have another small errand in mind before long — something to do with material for a cast figure, if the timing's right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatProfQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 1.5,
+            "y": 2.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatProfQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Teaser4_Name",
+        "DefaultText": "Word around the village: material for old lamellar work"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Teaser4_Desc",
+        "DefaultText": "The Professor may have another small errand in mind before long — something to do with material for old lamellar work, if the timing's right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatProfQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 2.5,
+            "y": 3.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatProfQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_trust_low_Name",
+        "DefaultText": "Standing in the village: trust low"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_trust_low_Desc",
+        "DefaultText": "The Professor is polite but reserved with you still — there's more trust to earn."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatProfessorTrustMirror",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 14.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_trust_mid_Name",
+        "DefaultText": "Standing in the village: trust mid"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_trust_mid_Desc",
+        "DefaultText": "The Professor has warmed to you; you're more than a passing face around here now."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatProfessorTrustMirror",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 14.5,
+            "y": 24.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_trust_high_Name",
+        "DefaultText": "Standing in the village: trust high"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_trust_high_Desc",
+        "DefaultText": "The Professor trusts you as much as anyone in the village — you've more than proven yourself."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatProfessorTrustMirror",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 24.5,
+            "y": 9999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Log1_Name",
+        "DefaultText": "A past errand: a specimen for his weekly commission"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Log1_Desc",
+        "DefaultText": "You once helped the professor with a specimen for his weekly commission — and were thanked for it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatProfQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 3.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Log2_Name",
+        "DefaultText": "A past errand: clay"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Log2_Desc",
+        "DefaultText": "You once helped the professor with clay — and were thanked for it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatProfQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 1.5,
+            "y": 4.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Log3_Name",
+        "DefaultText": "A past errand: metal nuggets"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Log3_Desc",
+        "DefaultText": "You once helped the professor with metal nuggets — and were thanked for it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatProfQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 2.5,
+            "y": 5.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Log4_Name",
+        "DefaultText": "A past errand: bones or antler"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_Log4_Desc",
+        "DefaultText": "You once helped the professor with bones or antler — and were thanked for it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatProfQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 3.5,
+            "y": 6.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_InterlockS4_Name",
+        "DefaultText": "Word around the village: a cold-weather favor the Professor's hoping the Weaver can help with"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardProfessor_DA_InterlockS4_Desc",
+        "DefaultText": "You've heard whispers of a cold-weather favor the Professor's hoping the Weaver can help with — worth asking both of them about, once the time seems right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInterlockS4",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.95
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    }
+  ],
+  "DismantleActionsWarpType": 3
+}

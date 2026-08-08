@@ -1,0 +1,15 @@
+{
+  "UniqueID": "cmcInnInteriorLocation",
+  "CardType": 8,
+  "InstancedEnvironment": false,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": true,
+  "DoesNotPile": true,
+  "CardName": {
+    "LocalizationKey": "CMC_InnInteriorLocation_CardName",
+    "DefaultText": "Village Inn"
+  },
+  "CardImageWarpData": "VillageInnInterior",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0
+}

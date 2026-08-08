@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatAshBoarHuntSpot",
+    "GameName": {
+        "LocalizationKey": "CMC_AshBoarHuntSpot_StatName",
+        "DefaultText": "Ash's Hunting Ground"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_AshBoarHuntSpot_StatDescription",
+        "DefaultText": "Hidden tracker: 0 = Ash is home, 1 = Ash has departed (trail left, awaiting spawn at Hunter's Crossing), 2 = Ash placed at Hunter's Crossing."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 2.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

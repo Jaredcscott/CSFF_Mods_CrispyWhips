@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatProfessorTrustMirror",
+    "GameName": {
+        "LocalizationKey": "CMC_ProfessorTrustMirror_StatName",
+        "DefaultText": "Professor's Trust (player copy)"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_ProfessorTrustMirror_StatDescription",
+        "DefaultText": "Hidden player-side copy of the Professor's NPCStat trust value (cmcStatProfessorTrust), refreshed every 5s by QuestChainSchedulePatch. Blueprint StatValues gates can only read player GameStats, never NPCStats, so this mirror exists purely to let a trust-threshold blueprint reveal (e.g. a Bear Figurine) gate on it."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 100.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

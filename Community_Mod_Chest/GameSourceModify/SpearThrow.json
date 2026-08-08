@@ -1,0 +1,9 @@
+{
+  "ActionSuccessLog": {
+    "LogText": {
+      "ParentObjectID": "8541ea32f7a245f4591bbefbdd70a605",
+      "LocalizationKey": "SpearThrow_ActionSuccessLog.LogText",
+      "DefaultText": "you hurl your {1} and it finds its mark in {0} with a satisfying thud!"
+    }
+  }
+}

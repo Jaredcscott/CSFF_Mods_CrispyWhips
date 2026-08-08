@@ -1,0 +1,29 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatChronicleMillerCottageDay", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1000000000.0}},
+            {"StatWarpData": "cmcStatInnMillerCottageRemarked", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.5}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_NewsMillerCottage_Line",
+        "DefaultText": "Did you hear? The miller's got a proper roof over his head at last, instead of sleeping next to that wheel of his like it might wander off in the night. Known the man twenty years and I don't think I've ever seen him build anything for himself before, always some neighbor's fence or someone else's barn first. Glad to see him finally spend the effort on his own walls."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_NewsMillerCottage_Answer",
+                "DefaultText": "Well earned, from what I hear of him."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnMillerCottageRemarked", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false},
+                    {"StatWarpData": "cmcStatInnFriendship", "StatWarpType": 3, "ValueModifier": {"x": 3.0, "y": 3.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatMillerGrainQuest",
+    "GameName": {
+        "LocalizationKey": "CMC_MillerGrainQuest_StatName",
+        "DefaultText": "The Miller's Grain Errand"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_MillerGrainQuest_StatDescription",
+        "DefaultText": "Legacy flavor counter for the Miller's grain errand. Errand progress is tracked by QuestArmed (0.5 = grain delivered) and QuestChain, matching the leather and plank errands."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 10.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

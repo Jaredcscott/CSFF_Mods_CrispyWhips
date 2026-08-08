@@ -1,0 +1,78 @@
+{
+    "UniqueID": "comfortbpcomfortablebed",
+    "CardName": {
+        "ParentObjectID": "comfortbpcomfortablebed",
+        "LocalizationKey": "Comfort_Bp_ComfortableBed_CardName",
+        "DefaultText": "Comfortable Bed"
+    },
+    "CardDescription": {
+        "ParentObjectID": "comfortbpcomfortablebed",
+        "LocalizationKey": "Comfort_Bp_ComfortableBed_CardDescription",
+        "DefaultText": "Mount a down-stuffed mattress onto a copper-braced bed frame. The most comfortable sleeping surface you can build."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "comfortbpcomfortablebed",
+        "LocalizationKey": "Comfort_Bp_ComfortableBed_UnlockConditionsDesc",
+        "DefaultText": "Earn the Inn Keeper's friendship (15)"
+    },
+    "StartUnlocked": false,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [
+        {
+            "ObjectiveName": "InnFriendshipAtLeast15",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "TriggerRange": { "x": 15.0, "y": 1000000000.0 },
+                "StatWarpData": "cmcStatInnFriendship",
+                "StatWarpType": 3
+            },
+            "ConstantlyChecking": false
+        }
+    ],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "comfortdownmattress",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "comfortcopperbedframe",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 4,
+    "DeconstructDaytimeCost": 2,
+    "NeedsRoomInLocationToSpawn": true,
+    "BlueprintResult": [
+        {
+            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": { "x": 1, "y": 1 },
+            "DroppedCardWarpData": "comfortablebedplaced",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": ["Wood"],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": ["HandAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImageWarpData": "ComfortableBed",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 8.0,
+    "ResearchedNotification": 0
+}

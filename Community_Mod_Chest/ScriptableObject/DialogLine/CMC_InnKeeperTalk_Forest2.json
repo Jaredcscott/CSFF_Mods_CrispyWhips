@@ -1,0 +1,20 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_Forest2_Line",
+        "DefaultText": "Mind you, not everything walking those woods is timber. Shepherds up by the Moon Hills tell of the Humming Widow's lullaby drifting down after dusk, and away south in the Black Mire squats the Hag, she'll trade you wonders, sure, but her bargains cost dearer than salt. And on the coldest nights, when every wolf in the forest goes quiet at once? That's the Primeval Wolf passing through, and even the bears in the Bear Cave hold their breath."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Forest2_Answer_True",
+                "DefaultText": "Is any of it true?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_InnKeeperTalk_Forest3",
+                "NextLineWarpType": 3
+            }
+        }
+    ]
+}

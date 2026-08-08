@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatApothQuestChain",
+    "GameName": {
+        "LocalizationKey": "CMC_ApothecaryQuestChain_StatName",
+        "DefaultText": "Apothecary's Quest Chain"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_ApothecaryQuestChain_StatDescription",
+        "DefaultText": "Hidden tracker: how many of the Apothecary's main-chain quests have been completed. Gates the next offer alongside the weekly-armed flag."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 20.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

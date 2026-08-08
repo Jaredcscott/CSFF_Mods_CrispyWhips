@@ -1,0 +1,36 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatInterlockS4", "StatWarpType": 3, "TriggerRange": {"x": 0.25, "y": 0.75}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_InterlockS4Thanks_Line",
+        "DefaultText": "Warm as promised, good stitching too. Tell the Weaver a scholar's gratitude keeps him from freezing in a ditch this winter. Here, a vest pattern, quilted the same way, in case you ever need one yourself."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_InterlockS4Thanks_Answer_Ok",
+                "DefaultText": "I'll pass that along, Professor."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatInterlockS4",
+                        "StatWarpType": 3,
+                        "ValueModifier": {"x": 0.5, "y": 0.5},
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ],
+                "BlueprintsFullUnlockWarpData": ["combatandarmorbpquiltedvest"],
+                "BlueprintsFullUnlockWarpType": 3
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

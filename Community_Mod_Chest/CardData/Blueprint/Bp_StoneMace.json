@@ -1,0 +1,86 @@
+{
+  "UniqueID": "combatandarmorbpstonemace",
+  "CardName": {
+    "ParentObjectID": "combatandarmorbpstonemace",
+    "LocalizationKey": "Combat_And_Armor_Bp_StoneMace_CardName",
+    "DefaultText": "Stone Mace"
+  },
+  "CardDescription": {
+    "ParentObjectID": "combatandarmorbpstonemace",
+    "LocalizationKey": "Combat_And_Armor_Bp_StoneMace_CardDescription",
+    "DefaultText": "Craft a stone mace from a long stick and stone."
+  },
+  "CardType": 7,
+  "UnlockConditionsDesc": {
+    "ParentObjectID": "combatandarmorbpstonemace",
+    "LocalizationKey": "Combat_And_Armor_Bp_StoneMace_UnlockConditionsDesc",
+    "DefaultText": "The village armory opens (Renown 50)"
+  },
+  "BuildingStatConditions": [],
+  "StartUnlocked": false,
+  "CardsOnBoard": [],
+  "TagsOnBoard": [],
+  "StatValues": [
+    {
+      "ObjectiveName": "VillageRenownAtLeast50",
+      "CompletionWeight": 1,
+      "StatCondition": {
+        "TriggerRange": { "x": 50.0, "y": 1000000000.0 },
+        "StatWarpData": "cmcStatVillageRenown",
+        "StatWarpType": 3
+      },
+      "ConstantlyChecking": false
+    }
+  ],
+  "BlueprintStages": [
+    {
+      "CannotRevertToThisStage": false,
+      "RequiredElements": [
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "3db4c94184af274409f0d3eb16870f64",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "a7384e5147b23a642809451cc4ef24fb",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+          "RequiredCardWarpType": 3
+        }
+      ],
+      "StepActionTags": [],
+      "StepActionTagsWarpData": [],
+      "StepActionTagsWarpType": 3
+    }
+  ],
+  "BuildingDaytimeCost": 3,
+  "DeconstructDaytimeCost": 1,
+  "BlueprintResult": [
+    {
+      "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+      "Quantity": { "x": 1, "y": 1 },
+      "DroppedCardWarpData": "combatandarmorstonemace",
+      "DroppedCardWarpType": 3
+    }
+  ],
+  "BlueprintStatModifications": [],
+  "WhenCreatedSoundsWarpData": ["Stone"],
+  "WhenCreatedSoundsWarpType": 3,
+  "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+  "BlueprintActionTagsWarpType": 3,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "StoneMace",
+  "CardImageWarpType": 3,
+  "BlueprintUnlockTicksCost": 8.0,
+  "ResearchedNotification": 0
+}

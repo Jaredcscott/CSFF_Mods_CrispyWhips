@@ -1,0 +1,61 @@
+{
+    "UniqueID": "cmcAshTrackingBoar",
+    "CardType": 0,
+    "CardName": {
+        "LocalizationKey": "CMC_AshTrackingBoar_CardName",
+        "DefaultText": "Ash, On the Hunt"
+    },
+    "CardDescription": {
+        "LocalizationKey": "CMC_AshTrackingBoar_CardDescription",
+        "DefaultText": "Ash didn't come home. He's gone to Hunter's Crossing — head there to find him. Once you do, he'll have a boar cornered in the thicket."
+    },
+    "CardImageWarpData": "CMC_InnCat_Wary",
+    "CardImageWarpType": 3,
+    "CanBeRenamed": false,
+    "DoesNotPile": true,
+    "CannotBeTrashed": true,
+    "SpoilageTime": { "Active": false },
+    "UsageDurability": { "Active": false },
+    "FuelCapacity": { "Active": false },
+    "Progress": { "Active": false },
+    "SpecialDurability1": { "Active": false },
+    "SpecialDurability2": { "Active": false },
+    "SpecialDurability3": { "Active": false },
+    "SpecialDurability4": { "Active": false },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_AshTrackingBoar_DA_CornerBoar",
+                "DefaultText": "Corner the Boar"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_AshTrackingBoar_DA_CornerBoar_Desc",
+                "DefaultText": "Ash has the boar pinned in the thicket. Move in together and force the fight."
+            },
+            "DaytimeCost": 1,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": {"m_FileID": 0, "m_PathID": 0},
+                    "TriggerCardWarpData": "cmcLocHuntersCrossing",
+                    "TriggerCardWarpType": 3,
+                    "RequiredQuantity": 1,
+                    "ConstantlyChecking": false
+                }
+            ],
+            "HideIfConditionsNotMet": true,
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [],
+                    "DroppedEncounter": {"m_FileID": 0, "m_PathID": 0},
+                    "DroppedEncounterWarpData": "919913fdcc78e6845940f420fd273bb3",
+                    "DroppedEncounterWarpType": 3
+                }
+            ],
+            "ReceivingCardChanges": {"ModType": 0}
+        }
+    ],
+    "PassiveStatEffects": []
+}

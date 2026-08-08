@@ -1,0 +1,10 @@
+{
+  "CardDescription": {
+    "LocalizationKey": "CMC_PineTrail_CardDescription",
+    "DefaultText": "A narrow path winding through dense pine forest, its floor soft with needles and moss."
+  },
+  "CardHelpSection": {
+    "LocalizationKey": "CMC_PineTrail_CardHelpSection",
+    "DefaultText": "<b>Pine Grove:</b>\n\n<b>Conditions:</b> Acidic soil.\n\n<b>Flora:</b> Pines, Healer's Moss, Fireroot, Bilberries (summer), Pine Nuts (autumn), Fly Agaric.\n\n<b>Fauna:</b> Squirrels."
+  }
+}

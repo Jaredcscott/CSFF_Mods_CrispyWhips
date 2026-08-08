@@ -1,0 +1,41 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_MillerTalk_QuestOffer2_Line",
+        "DefaultText": "Truth be told, the belts on the grindstone are worn thin as paper. Bring me some hides, small leather will do fine, and I can patch them up proper instead of praying every morning."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_QuestOffer2_Answer_Accept",
+                "DefaultText": "I'll bring you some leather."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatMillerQuestArmed",
+                        "StatWarpType": 3,
+                        "ValueModifier": {
+                            "x": -1.0,
+                            "y": -1.0
+                        },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_QuestOffer2_Answer_Decline",
+                "DefaultText": "Maybe another time."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

@@ -1,0 +1,40 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_QuestOffer4_Line",
+        "DefaultText": "One more project, if you'll indulge me. I've been reconstructing an old armor style from bone and antler, lamellar work, older than anything smithed. Bring me bones or antler and I'll show you how it was done."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_QuestOffer4_Answer_Accept",
+                "DefaultText": "I'll bring you bones or antler."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatProfQuestArmed",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": -1.0, "y": -1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_ProfessorGreeting_QuestAccept4",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_QuestOffer4_Answer_Decline",
+                "DefaultText": "Maybe another time."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

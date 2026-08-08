@@ -1,0 +1,18 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_AboutAcademy_Line",
+        "DefaultText": "The Academy. A stone hall of learning, built so the village's trades don't have to be relearned from scratch by every generation. Architecture, metallurgy, herbalism, and more. Sit long enough at the lectern and you'll graduate knowing something useful."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_AboutAcademy_Answer_Ok",
+                "DefaultText": "I see."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

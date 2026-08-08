@@ -1,0 +1,78 @@
+{
+    "UniqueID": "bpcmcapothecaryhealingmixture",
+    "CardType": 7,
+    "CardName": {
+        "ParentObjectID": "bpcmcapothecaryhealingmixture",
+        "LocalizationKey": "CMC_ApothecaryHealingMixture_BP_Name",
+        "DefaultText": "Rare Herb Mixture"
+    },
+    "CardDescription": {
+        "ParentObjectID": "bpcmcapothecaryhealingmixture",
+        "LocalizationKey": "CMC_ApothecaryHealingMixture_BP_Desc",
+        "DefaultText": "Bundle together the rarest herbs the forest and its herb-gardens have to offer: dried ginseng, dried reishi, and dried hemp flower, bound with a handful of dried nettle. The Apothecary knows exactly what to do with it."
+    },
+    "CardImageWarpData": "CMC_Alchemist_Potions",
+    "CardImageWarpType": 3,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "bpcmcapothecaryhealingmixture",
+        "LocalizationKey": "CMC_ApothecaryHealingMixture_BP_UnlockDesc",
+        "DefaultText": "Graduate the Academy's Herbalism course"
+    },
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "AtForagingForest",
+            "CompletionWeight": 1,
+            "Card": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": { "m_FileID": 0, "m_PathID": 0 },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": { "Target": { "m_FileID": 0, "m_PathID": 0 } },
+            "CardWarpData": "cmcLocForagingForest",
+            "CardWarpType": 3
+        }
+    ],
+    "BlueprintUnlockTicksCost": 8,
+    "BuildingDaytimeCost": 2,
+    "DeconstructDaytimeCost": 1,
+    "BlueprintStages": [
+        {
+            "RequiredElements": [
+                {
+                    "RequiredCardWarpData": "herbs_fungi_hemp_flower_dried",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 2,
+                    "DontSpend": false
+                },
+                {
+                    "RequiredCardWarpData": "herbs_fungi_dried_ginseng",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 2,
+                    "DontSpend": false
+                },
+                {
+                    "RequiredCardWarpData": "herbs_fungi_dried_reishi",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 2,
+                    "DontSpend": false
+                },
+                {
+                    "RequiredCardWarpData": "c0f1eabb07ab5064bbebd151ae6b9a94",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 3,
+                    "DontSpend": false
+                }
+            ]
+        }
+    ],
+    "BlueprintResult": [
+        {
+            "DroppedCardWarpData": "cmcApothecaryHealingMixture",
+            "DroppedCardWarpType": 3,
+            "Quantity": { "x": 1, "y": 1 }
+        }
+    ],
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+    "BlueprintActionTagsWarpType": 3
+}

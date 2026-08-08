@@ -1,0 +1,67 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {
+                "StatWarpData": "cmcStatMillerQuestChain",
+                "StatWarpType": 3,
+                "TriggerRange": { "x": -0.5, "y": 0.5 }
+            },
+            {
+                "StatWarpData": "cmcStatMillerQuestArmed",
+                "StatWarpType": 3,
+                "TriggerRange": { "x": 0.25, "y": 0.75 }
+            }
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_MillerTalk_QuestThanks_Line",
+        "DefaultText": "There we are. Stones'll sing again by morning. I won't forget this, you're the sort of neighbor this village needed, and didn't know it yet."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_QuestThanks_Answer_Glad",
+                "DefaultText": "Glad to help."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatMillerQuestChain",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": 1.0, "y": 1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    },
+                    {
+                        "StatWarpData": "cmcStatMillerQuestArmed",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": -0.5, "y": -0.5 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    },
+                    {
+                        "StatWarpData": "cmcStatQuestRenownMillerGrain",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": 1.0, "y": 1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ],
+                "NPCStatModifications": [
+                    {
+                        "TargetStatWarpData": "cmcStatMillerTrust",
+                        "TargetStatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "ValueChange": { "x": 15.0, "y": 15.0 }
+                    }
+                ],
+                "BlueprintsFullUnlockWarpData": ["BpCMCGardenTrellis"],
+                "BlueprintsFullUnlockWarpType": 3
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

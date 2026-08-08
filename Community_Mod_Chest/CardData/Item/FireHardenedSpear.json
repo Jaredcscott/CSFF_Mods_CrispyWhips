@@ -1,0 +1,120 @@
+{
+  "UniqueID": "combatandarmorfirehardenedspear",
+  "CardName": {
+    "ParentObjectID": "combatandarmorfirehardenedspear",
+    "LocalizationKey": "Combat_And_Armor_FireHardenedSpear_CardName",
+    "DefaultText": "Fire-Hardened Spear"
+  },
+  "CardDescription": {
+    "ParentObjectID": "combatandarmorfirehardenedspear",
+    "LocalizationKey": "Combat_And_Armor_FireHardenedSpear_CardDescription",
+    "DefaultText": "A simple wooden spear whose point has been hardened in fire. Crude, but deadly in trained hands."
+  },
+  "CardType": 0,
+  "ObjectWeight": 200.0,
+  "TradingValue": 8.0,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "Spear_Rustic",
+  "CardImageWarpType": 3,
+  "CardTagsWarpData": ["tag_Spear"],
+  "CardTagsWarpType": 3,
+  "EquipmentTags": [],
+  "InHandWhenEquipped": true,
+  "IsWeapon": true,
+  "WeaponReach": 100.0,
+  "WeaponDamage": { "x": 0.0, "y": 0.0 },
+  "WrestlingDamageBonus": { "x": 0.0, "y": 0.0 },
+  "DamageTypes": [],
+  "ActionRange": 0,
+  "AmmoNeeded": [],
+  "AmmoUsageCost": 0.0,
+  "WeaponMoves": [],
+  "WeaponMovesWarpData": [
+    "SpearBlock",
+    "SpearBrace",
+    "SpearFeint",
+    "SpearPoke",
+    "SpearShove",
+    "SpearThrow",
+    "SpearThrust",
+    "SpearTrip",
+    "CharredTipStrike"
+  ],
+  "WeaponMovesWarpType": 4,
+  "IsArmor": false,
+  "AlwaysUpdate": false,
+  "WhenCreatedSoundsWarpData": ["Wood"],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": { "Active": false },
+  "UsageDurability": {
+    "Active": true,
+    "FloatValue": 50.0,
+    "CardStatName": {
+      "ParentObjectID": "combatandarmorfirehardenedspear",
+      "LocalizationKey": "Combat_And_Armor_FireHardenedSpear_UsageDurability.CardStatName",
+      "DefaultText": "Durability"
+    },
+    "MaxValue": 50.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 0,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": true,
+    "OnZero": {
+      "ActionDescription": {
+        "ParentObjectID": "combatandarmorfirehardenedspear",
+        "LocalizationKey": "Combat_And_Armor_FireHardenedSpear_OnZero",
+        "DefaultText": "Fire-Hardened Spear Broken!"
+      },
+      "OnZeroNotification": 1,
+      "ReceivingCardChanges": { "ModType": 3 }
+    },
+    "HasActionOnFull": false,
+    "CountsForTradingValue": true
+  },
+  "FuelCapacity": { "Active": false },
+  "Progress": { "Active": false },
+  "SpecialDurability1": { "Active": false },
+  "SpecialDurability2": { "Active": false },
+  "SpecialDurability3": { "Active": false },
+  "SpecialDurability4": { "Active": false },
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "combatandarmorfirehardenedspear",
+        "LocalizationKey": "Combat_And_Armor_FireHardenedSpear_Dismantle_ActionName",
+        "DefaultText": "Dismantle"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "combatandarmorfirehardenedspear",
+        "LocalizationKey": "Combat_And_Armor_FireHardenedSpear_Dismantle_ActionDescription",
+        "DefaultText": "Break the spear apart to recover the shaft."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Wood"],
+      "ActionSoundsWarpType": 3,
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "3db4c94184af274409f0d3eb16870f64",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": { "ModType": 3 }
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": []
+}

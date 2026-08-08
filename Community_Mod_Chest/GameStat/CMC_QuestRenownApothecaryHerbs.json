@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatQuestRenownApothecaryHerbs",
+    "GameName": {
+        "LocalizationKey": "CMC_QuestRenownApothecaryHerbs_StatName",
+        "DefaultText": "Renown: Apothecary's Herbs"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_QuestRenownApothecaryHerbs_StatDescription",
+        "DefaultText": "Hidden one-shot flag: 1 once the Apothecary's herb request is completed. Contributes to Village Renown."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 10.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

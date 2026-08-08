@@ -1,0 +1,18 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_ApothecaryTalk_StallThanks_Line",
+        "DefaultText": "The stall's a joy: I set it up in the square each morning and walk back here at dusk. Folk who'd never brave the forest for a remedy will happily buy one over a market counter. You did me a real kindness with that. Come find me there if the cabin's empty."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ApothecaryTalk_StallThanks_Answer_Bye",
+                "DefaultText": "Glad it's working out."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

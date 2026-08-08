@@ -1,0 +1,22 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_ApothecaryTalk_StallAsk_Line",
+        "DefaultText": "Funny you should say it, I've been thinking the same. The forest keeps me stocked but nobody walks all this way for a tea. If you could build one of those market stalls for the village square, I'd tend it myself between pressings. Build one and bring it to me."
+    },
+    "ActionToPerform": {
+        "BlueprintsFullUnlockWarpData": ["bpcmcmarketstall"],
+        "BlueprintsFullUnlockWarpType": 3
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ApothecaryTalk_StallAsk_Answer_Accept",
+                "DefaultText": "I'll build it and bring it to you."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

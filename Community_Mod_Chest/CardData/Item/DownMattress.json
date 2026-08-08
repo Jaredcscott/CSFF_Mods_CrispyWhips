@@ -1,0 +1,89 @@
+{
+    "UniqueID": "comfortdownmattress",
+    "CardName": {
+        "ParentObjectID": "comfortdownmattress",
+        "LocalizationKey": "Comfort_DownMattress_CardName",
+        "DefaultText": "Down Mattress"
+    },
+    "CardDescription": {
+        "ParentObjectID": "comfortdownmattress",
+        "LocalizationKey": "Comfort_DownMattress_CardDescription",
+        "DefaultText": "A thick mattress of heavy cloth panels stuffed full of down feathers, bound tight with fiber and twine. Far softer than any bedroll."
+    },
+    "CardType": 0,
+    "ObjectWeight": 1500.0,
+    "TradingValue": 80.0,
+    "DoesNotPile": true,
+    "CardImageWarpData": "DownMattress",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": ["Cloth"],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": { "Active": false },
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 400.0,
+        "CardStatName": {
+            "ParentObjectID": "comfortdownmattress",
+            "LocalizationKey": "Comfort_DownMattress_UsageDurability",
+            "DefaultText": "Durability"
+        },
+        "MaxValue": 400.0,
+        "RatePerDaytimePoint": -0.05,
+        "HidingOptions": 1,
+        "HasActionOnZero": true,
+        "OnZero": {
+            "ActionDescription": {
+                "ParentObjectID": "comfortdownmattress",
+                "LocalizationKey": "Comfort_DownMattress_WornOut",
+                "DefaultText": "The mattress has worn through and the down has scattered."
+            },
+            "ReceivingCardChanges": { "ModType": 3 }
+        },
+        "OverrideIconWarpData": "Durability",
+        "OverrideIconWarpType": 3
+    },
+    "FuelCapacity": { "Active": false },
+    "Progress": { "Active": false },
+    "SpecialDurability1": { "Active": false },
+    "SpecialDurability2": { "Active": false },
+    "SpecialDurability3": { "Active": false },
+    "SpecialDurability4": { "Active": false },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "comfortdownmattress",
+                "LocalizationKey": "Comfort_DownMattress_DA_Dismantle",
+                "DefaultText": "Dismantle"
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": { "ModType": 3 },
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "ac7fa8419b608d54fa2002aa589d3f94",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 100, "y": 100 }
+                        },
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "3e94716876eae304787efa2ae0b43711",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 4, "y": 4 }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "PassiveEffects": [],
+    "MaxStack": 1
+}

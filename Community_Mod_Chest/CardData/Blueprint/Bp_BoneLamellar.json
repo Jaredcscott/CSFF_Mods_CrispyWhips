@@ -1,0 +1,105 @@
+{
+  "UniqueID": "combatandarmorbpbonelamellar",
+  "CardName": {
+    "ParentObjectID": "combatandarmorbpbonelamellar",
+    "LocalizationKey": "Combat_And_Armor_Bp_BoneLamellar_CardName",
+    "DefaultText": "Bone Lamellar Armor"
+  },
+  "CardDescription": {
+    "ParentObjectID": "combatandarmorbpbonelamellar",
+    "LocalizationKey": "Combat_And_Armor_Bp_BoneLamellar_CardDescription",
+    "DefaultText": "Lace antler plates onto a leather backing to form lamellar armor."
+  },
+  "CardType": 7,
+  "UnlockConditionsDesc": {
+    "ParentObjectID": "combatandarmorbpbonelamellar",
+    "LocalizationKey": "Combat_And_Armor_Bp_BoneLamellar_UnlockConditionsDesc",
+    "DefaultText": "Bring the Professor bones or antler for his reconstruction"
+  },
+  "BuildingStatConditions": [],
+  "StartUnlocked": false,
+  "CardsOnBoard": [],
+  "TagsOnBoard": [],
+  "StatValues": [
+    {
+      "ObjectiveName": "ProfQuestChainAtLeast4",
+      "CompletionWeight": 1,
+      "StatCondition": {
+        "TriggerRange": { "x": 3.5, "y": 20.0 },
+        "StatWarpData": "cmcStatProfQuestChain",
+        "StatWarpType": 3
+      },
+      "ConstantlyChecking": false
+    }
+  ],
+  "BlueprintStages": [
+    {
+      "CannotRevertToThisStage": false,
+      "RequiredElements": [
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 3,
+          "DontSpend": false,
+          "RequiredCardWarpData": "8cae876b49f3aef45afc1ad96b1a4628",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "669497ecaa30b634c86bea6b61f31e63",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 2,
+          "DontSpend": false,
+          "RequiredCardWarpData": "e2d62c5b98d164745b276da572605efe",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 6,
+          "DontSpend": false,
+          "RequiredCardWarpData": "674b640f46671f1418af4559b259b442",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 1,
+          "DontSpend": true,
+          "EffectOnIngredient": {
+            "ModType": 1,
+            "UsageChange": { "x": -15.0, "y": -15.0 }
+          },
+          "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredTabGroupWarpData": "GpTag_Needle",
+          "RequiredTabGroupWarpType": 3
+        }
+      ],
+      "StepActionTags": [],
+      "StepActionTagsWarpData": [],
+      "StepActionTagsWarpType": 3
+    }
+  ],
+  "BuildingDaytimeCost": 8,
+  "DeconstructDaytimeCost": 3,
+  "BlueprintResult": [
+    {
+      "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+      "Quantity": { "x": 1, "y": 1 },
+      "DroppedCardWarpData": "combatandarmorbonelamellar",
+      "DroppedCardWarpType": 3
+    }
+  ],
+  "BlueprintStatModifications": [],
+  "WhenCreatedSoundsWarpData": ["Bone"],
+  "WhenCreatedSoundsWarpType": 3,
+  "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+  "BlueprintActionTagsWarpType": 3,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "BoneLamellar",
+  "CardImageWarpType": 3,
+  "BlueprintUnlockTicksCost": 24.0,
+  "ResearchedNotification": 0
+}

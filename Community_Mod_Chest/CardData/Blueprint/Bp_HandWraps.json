@@ -1,0 +1,69 @@
+{
+    "UniqueID": "apparelbphandwraps",
+    "CardName": {
+        "ParentObjectID": "apparelbphandwraps",
+        "LocalizationKey": "apparel_bp_hand_wraps_CardName",
+        "DefaultText": "Hand Wraps"
+    },
+    "CardDescription": {
+        "ParentObjectID": "apparelbphandwraps",
+        "LocalizationKey": "apparel_bp_hand_wraps_CardDescription",
+        "DefaultText": "Cloth strips wrapped around the hands. Minimal but better than nothing."
+    },
+    "CardType": 7,
+    "CardImageWarpData": "HandWraps",
+    "CardImageWarpType": 3,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "apparelbphandwraps",
+        "LocalizationKey": "apparel_bp_hand_wraps_UnlockConditionsDesc",
+        "DefaultText": "Small Cloth Needed"
+    },
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasCloth",
+            "CompletionWeight": 1,
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "CardWarpData": "aa73d89b9f0f04145adce258403d61d0",
+            "CardWarpType": 3
+        }
+    ],
+    "BlueprintUnlockTicksCost": 2.0,
+    "BuildingDaytimeCost": 2,
+    "DeconstructDaytimeCost": 1,
+    "BlueprintStages": [
+        {
+            "RequiredElements": [
+                {
+                    "RequiredCardWarpData": "aa73d89b9f0f04145adce258403d61d0",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 2,
+                    "DontSpend": false
+                },
+                {
+                    "RequiredCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 2,
+                    "DontSpend": false
+                }
+            ]
+        }
+    ],
+    "BlueprintResult": [
+        {
+            "DroppedCardWarpData": "apparelhandwraps",
+            "DroppedCardWarpType": 3,
+            "Quantity": {"x": 1, "y": 1}
+        }
+    ],
+    "BlueprintStatModifications": [
+        {
+            "StatWarpData": "e852e093ef8dcd64eb72ab3add261d32",
+            "StatWarpType": 3,
+            "ValueModifier": {"x": 1.0, "y": 1.0}
+        }
+    ],
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+    "BlueprintActionTagsWarpType": 3
+}

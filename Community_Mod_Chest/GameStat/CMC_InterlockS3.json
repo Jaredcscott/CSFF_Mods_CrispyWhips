@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatInterlockS3",
+    "GameName": {
+        "LocalizationKey": "CMC_InterlockS3_StatName",
+        "DefaultText": "Interlock: Baking Day"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_InterlockS3_StatDescription",
+        "DefaultText": "Hidden tracker for the Miller-to-Inn-Keeper interlock quest: 0 = not started, 1 = thanked. One-shot, parallel to the villagers' main quest chains."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 5.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

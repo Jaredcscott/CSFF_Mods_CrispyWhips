@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatGuardsSummoned",
+    "GameName": {
+        "LocalizationKey": "CMC_GuardsSummoned_StatName",
+        "DefaultText": "Guards Summoned"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_GuardsSummoned_StatDescription",
+        "DefaultText": "Hidden 0/1 marker: 1 once Guard Vane's cross-map seek duty reaches the player and calls in the Town Watch (Village_Master_Plan.md §10.8.11.2). Captain Sterling's Duty_SterlingRespondToSummon reads this and his own Encounter clears it back to 0 once it resolves. Distinct from cmcStatArrestPending, which self-clears the same tick it fires and cannot hold a durable state across a multi-hour walk."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

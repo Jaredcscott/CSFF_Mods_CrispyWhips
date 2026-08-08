@@ -1,0 +1,29 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_WeaverTalk_Story4_Line",
+        "DefaultText": "I wove it into the hem of the shawl I wear every winter, this one, here. You'd never pick it out from the rest, and that's the point. She's a single thread running through the whole of it, holding, not breaking. So when I tell you a good thread is worth waiting a year for, you understand I mean it more than one way."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_Story4_Answer_Close",
+                "DefaultText": "That's the finest thing I've heard in a long while."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatWeaverStoryStep",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": 1.0, "y": 1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

@@ -1,0 +1,120 @@
+{
+    "UniqueID": "cmcGuardPerkThorne",
+    "StartUnlocked": true,
+    "ActionObjectives": [],
+    "CombatObjectives": [],
+    "CardsOnBoardObjectives": [],
+    "TagsOnBoardObjectives": [],
+    "BlueprintsResearchedObjectives": [],
+    "StatsObjectives": [],
+    "TimeObjectives": [],
+    "NestedObjectives": [],
+    "PlayedCharacter": [],
+    "CompleteOnWin": false,
+    "CompleteOnLose": false,
+    "RequiredDifficultyScore": {
+        "x": 0,
+        "y": 0
+    },
+    "EditorOnly": false,
+    "NotifyWhenNotChecked": false,
+    "CheckingNotificationDetails": 0,
+    "SunsCost": 0,
+    "MoonsCost": 0,
+    "StarsCost": 0,
+    "ResetLockInEditor": false,
+    "PerkName": {
+        "ParentObjectID": "cmcGuardPerkThorne",
+        "LocalizationKey": "CMC_GuardPerk_Thorne_PerkName",
+        "DefaultText": "River Watch"
+    },
+    "PerkDescription": {
+        "ParentObjectID": "cmcGuardPerkThorne",
+        "LocalizationKey": "CMC_GuardPerk_Thorne_PerkDescription",
+        "DefaultText": "Eager and quick to escalate. Works the river crossing and shouts after anyone who runs for it."
+    },
+    "PerkUnlockConditions": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "DisplayPriority": 0.0,
+    "HiddenUntilUnlocked": false,
+    "AddedCardsInInventory": [],
+    "StartingStatModifiers": [],
+    "PassiveStatModifiers": [],
+    "StartingNPCStatModifiers": [],
+    "PassiveNPCStatModifiers": [],
+    "AddedNPCStats": [
+        {
+            "ModelStatWarpData": "cmcNpcStatSuspicion",
+            "ModelStatWarpType": 3,
+            "OverrideStartingValue": {
+                "Active": true,
+                "FloatValue": 45.0
+            },
+            "OverrideMinMaxValue": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "OverrideRate": {
+                "Active": false,
+                "FloatValue": 0.0
+            },
+            "OverrideMinMaxRate": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "StatAddedPercentageToModifiersOverride": 0,
+            "StatScalingToModifiers": [],
+            "NPCStatAddedPercentageToModifiersOverride": 0,
+            "NPCStatScalingToModifiers": [],
+            "StatusesOverride": 0,
+            "Statuses": [],
+            "OverrideVisibleIcon": false,
+            "StatusDebugMode": false
+        },
+        {
+            "ModelStatWarpData": "cmcNpcStatGuardDowned",
+            "ModelStatWarpType": 3,
+            "OverrideStartingValue": {
+                "Active": true,
+                "FloatValue": 0.0
+            },
+            "OverrideMinMaxValue": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "OverrideRate": {
+                "Active": false,
+                "FloatValue": 0.0
+            },
+            "OverrideMinMaxRate": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "StatAddedPercentageToModifiersOverride": 0,
+            "StatScalingToModifiers": [],
+            "NPCStatAddedPercentageToModifiersOverride": 0,
+            "NPCStatScalingToModifiers": [],
+            "StatusesOverride": 0,
+            "Statuses": [],
+            "OverrideVisibleIcon": false,
+            "StatusDebugMode": false
+        }
+    ],
+    "AddedPreferenceLists": [],
+    "AddedDuties": [],
+    "AddedNPCTags": [],
+    "AddedMaxCarryWeight": {
+        "Active": false,
+        "FloatValue": 0.0
+    },
+    "AddedTradingModifiers": [],
+    "AddedModifyNPCStatsPerTradeValue": [],
+    "AddedCommissionsBp": []
+}

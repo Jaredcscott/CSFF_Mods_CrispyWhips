@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatGraduateApplied",
+    "GameName": {
+        "LocalizationKey": "CMC_GraduateApplied_StatName",
+        "DefaultText": "Graduate Applied"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_GraduateApplied_StatDescription",
+        "DefaultText": "Hidden latch: 0 = the Graduate perk's one-time Academy grant has not yet run this save, 1 = it has already run (prevents re-granting the 6 graduate perks every tick)."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 1.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

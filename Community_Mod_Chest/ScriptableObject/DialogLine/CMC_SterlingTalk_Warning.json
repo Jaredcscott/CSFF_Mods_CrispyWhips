@@ -1,0 +1,43 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillageCrime", "StatWarpType": 3, "TriggerRange": {"x": 1.0, "y": 999999.0}},
+            {"StatWarpData": "cmcStatSterlingWarningGiven", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_SterlingTalk_Warning_Line",
+        "DefaultText": "A word, before we go any further. I've heard what's been said about you, and I'll not pretend I haven't. I'm not hauling you in over it -- not yet. But hear this once, because I won't say it twice: keep on, and the Watch stops giving you the benefit of the doubt. Keep on past that, and you're not welcome inside these walls at all. Mind yourself."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_SterlingTalk_Warning_Answer_Understood",
+                "DefaultText": "Understood, Captain."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatSterlingWarningGiven", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_SterlingTalk_Warning_Answer_Deny",
+                "DefaultText": "I haven't done anything wrong."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatSterlingWarningGiven", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

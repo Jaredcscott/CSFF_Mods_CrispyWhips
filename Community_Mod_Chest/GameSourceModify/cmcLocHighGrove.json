@@ -1,0 +1,10 @@
+{
+  "CardDescription": {
+    "LocalizationKey": "CMC_HighGrove_CardDescription",
+    "DefaultText": "An elevated pine grove with tall, straight trees spaced among moss-covered rocks, offering clear views across the surrounding landscape."
+  },
+  "CardHelpSection": {
+    "LocalizationKey": "CMC_HighGrove_CardHelpSection",
+    "DefaultText": "<b>Pine Grove:</b>\n\n<b>Conditions:</b> Acidic soil. Windy.\n\n<b>Flora:</b> Pines, Healer's Moss, Fireroot, Bilberries (summer), Pine Nuts (autumn), Fly Agaric.\n\n<b>Fauna:</b> Squirrels, Partridges, Foxes, Does, Stags, Wolves."
+  }
+}

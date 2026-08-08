@@ -1,0 +1,377 @@
+{
+    "UniqueID": "cmcApothecaryAgent",
+    "AgentName": {
+        "LocalizationKey": "CMC_Apothecary_AgentName",
+        "DefaultText": "The Apothecary"
+    },
+    "AgentDescription": {
+        "LocalizationKey": "CMC_Apothecary_AgentDescription",
+        "DefaultText": "A wandering herbalist who settled into a cabin at the edge of the Foraging Forest. Trades in salves, teas, and dried herbs, and knows every root within a day's walk."
+    },
+    "AgentImageWarpData": "CMC_Apothecary",
+    "AgentImageWarpType": 3,
+    "MaxCarryWeight": 100000.0,
+    "WeightCategoryWarpData": "Light",
+    "WeightCategoryWarpType": 3,
+    "AgentTags": [],
+    "Interactions": [
+        {
+            "ButtonName": {
+                "LocalizationKey": "CMC_Apothecary_Talk",
+                "DefaultText": "Talk"
+            },
+            "Conditions": {},
+            "ButtonType": 0,
+            "DialogWarpData": "CMC_ApothecaryTalk",
+            "DialogWarpType": 3
+        }
+    ],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Apothecary_Chat_ActionName",
+                "DefaultText": "Chat"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Apothecary_Chat_ActionDescription",
+                "DefaultText": "Swap news of the woods and the weather while she sorts the day's cuttings."
+            },
+            "DaytimeCost": 4,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {"ModType": 0},
+            "StatModifications": [
+                {"StatWarpData": "3dc9b7924c4bec142af1c255f6df235d", "StatWarpType": 3, "ValueModifier": {"x": -20.0, "y": -20.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "04194353fd841a94ebff8b69af66c8d0", "StatWarpType": 3, "ValueModifier": {"x": 30.0, "y": 30.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "ad5665dcf2e21ed49a5817b1b7005b2e", "StatWarpType": 3, "ValueModifier": {"x": -10.0, "y": -10.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff", "StatWarpType": 3, "ValueModifier": {"x": 15.0, "y": 15.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e", "StatWarpType": 3, "ValueModifier": {"x": 15.0, "y": 15.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "59e9ebfecfacb154b8436e93f094b316", "StatWarpType": 3, "ValueModifier": {"x": 2.0, "y": 2.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78", "StatWarpType": 3, "ValueModifier": {"x": -10.0, "y": -10.0}, "InstantModifier": true, "ApplyEachTick": false}
+            ]
+        }
+    ],
+    "DragAndDropActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Apothecary_GiveStallKit_ActionName",
+                "DefaultText": "Give Market Stall Kit"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Apothecary_GiveStallKit_ActionDescription",
+                "DefaultText": "Hand over the market stall kit you built for her. She turns it over in her hands, delighted; she'll set it up in the village square."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatApothecaryStallGifted", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.5}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatApothecaryStallGifted", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["cmcmarketstallkit"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Apothecary_GiveHealingMixture_ActionName",
+                "DefaultText": "Give Herb Mixture"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Apothecary_GiveHealingMixture_ActionDescription",
+                "DefaultText": "Hand over the rare herb mixture. She sets everything else aside; this is going to take her a couple of days to get right."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatApothecaryPotionCraftDay", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.25}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatApothecaryPotionCraftDay", "StatWarpType": 3, "ValueModifier": {"x": 0.5, "y": 0.5}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["cmcApothecaryHealingMixture"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Apothecary_GiveBillberries_ActionName",
+                "DefaultText": "Give Billberries"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Apothecary_GiveBillberries_ActionDescription",
+                "DefaultText": "Hand over a handful of fresh billberries for the Apothecary's request. She checks them for bruising and sets them in a clean bowl."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatApothecaryHerbQuest", "StatWarpType": 3, "TriggerRange": {"x": 0.25, "y": 3.25}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatApothecaryHerbQuest", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["d615853632d85db458d14016156b1a82"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Apothecary_GiveSpringberries_ActionName",
+                "DefaultText": "Give Springberries"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Apothecary_GiveSpringberries_ActionDescription",
+                "DefaultText": "Hand over a handful of fresh springberries for the Apothecary's request. She nods, pleased they're still firm."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatApothecaryHerbQuest", "StatWarpType": 3, "TriggerRange": {"x": 0.25, "y": 3.25}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatApothecaryHerbQuest", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["2bfd683e2c81d9e4ea993221475673ee"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Apothecary_GiveSpiritMushrooms_ActionName",
+                "DefaultText": "Give Spirit Mushrooms"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Apothecary_GiveSpiritMushrooms_ActionDescription",
+                "DefaultText": "Hand over fresh spirit mushrooms for the Apothecary's request. She handles them carefully, murmuring about how rarely they come in unspoiled."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatApothecaryHerbQuest", "StatWarpType": 3, "TriggerRange": {"x": 0.25, "y": 3.25}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatApothecaryHerbQuest", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["e41ab416339b3c9459a37b4942f8f57b"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Apothecary_GiveCharcoal_ActionName",
+                "DefaultText": "Give Charcoal"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Apothecary_GiveCharcoal_ActionDescription",
+                "DefaultText": "Hand over a piece of charcoal for the Apothecary's powder work. She sets it aside with the rest of her grinding stock."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatApothQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+                {"StatWarpData": "cmcStatApothPowderProgress", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 1.5}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatApothPowderProgress", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["51c751469bd15ce46804e399479d1764"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Apothecary_GiveDriedFlowers_ActionName",
+                "DefaultText": "Give Dried Heather Flowers"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Apothecary_GiveDriedFlowers_ActionDescription",
+                "DefaultText": "Hand over dried heather flowers for the Apothecary's powder work. She crumbles a petal between her fingers, testing the dryness."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatApothQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+                {"StatWarpData": "cmcStatApothPowderProgress", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 1.5}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatApothPowderProgress", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["bb2b60e54f65da4449a62faa8c84654a"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Apothecary_GiveClothForMask_ActionName",
+                "DefaultText": "Give Cloth"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Apothecary_GiveClothForMask_ActionDescription",
+                "DefaultText": "Hand over a length of cloth for a dust mask. She holds it up to her face to check the fit."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatApothecaryMoveIn", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 999999.0}},
+                {"StatWarpData": "cmcStatWeaverMoveIn", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 999999.0}},
+                {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 20.0}},
+                {"StatWarpData": "cmcStatInterlockS2", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["35d6f2a46f2bbc84bbe33e917991c71d"],
+                "TriggerCardsWarpType": 3
+            }
+        }
+    ],
+    "AgentDuties": [],
+    "AgentActions": [
+        {
+            "ActionID": "ApothecaryRestock",
+            "ActionLocalizedName": {
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "ApothecaryRestock"
+            },
+            "RepeatOptions": 3,
+            "Conditions": {},
+            "DroppedCards": [
+                {
+                    "CollectionName": "Apothecary shelf restock",
+                    "DroppedCards": [
+                        {"DroppedCardWarpData": "8486fa421f3930a428cc4d650dc55859", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 2}},
+                        {"DroppedCardWarpData": "9c66dd9251eb1e446b70958f82585af6", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 2}},
+                        {"DroppedCardWarpData": "aa9bd5a17e9e8434cbd5ca6b90e6da39", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 2}},
+                        {"DroppedCardWarpData": "33c509d114eb34140a380bc8cfe8e709", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 2}},
+                        {"DroppedCardWarpData": "46654e0eb892126429a470e90f1bbf55", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 2}},
+                        {"DroppedCardWarpData": "322e42ea161bf2e4bb94747882d1285a", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 2}},
+                        {"DroppedCardWarpData": "c0f1eabb07ab5064bbebd151ae6b9a94", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 3}},
+                        {"DroppedCardWarpData": "9cef8509b7b43cd4894c89615d87469f", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 3}},
+                        {"DroppedCardWarpData": "bb2b60e54f65da4449a62faa8c84654a", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 3}},
+                        {"DroppedCardWarpData": "WildGarlicFresh", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 2}},
+                        {"DroppedCardWarpData": "cmcoldgrowthbark", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 2}},
+                        {"DroppedCardWarpData": "potterysculptureherbpaste", "DroppedCardWarpType": 3, "Quantity": {"x": 0, "y": 1}}
+                    ],
+                    "DropCardsInsideInventory": true
+                }
+            ]
+        },
+        {
+            "ActionID": "ApothecaryBrewPotion",
+            "ActionLocalizedName": {
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "ApothecaryBrewPotion"
+            },
+            "RepeatOptions": 3,
+            "Conditions": {},
+            "DroppedCards": [
+                {
+                    "CollectionName": "Powerful Healing Potion, brewed",
+                    "DroppedCards": [
+                        {"DroppedCardWarpData": "cmcApothecaryHealingPotion", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 1}}
+                    ],
+                    "DropCardsInsideInventory": true
+                }
+            ]
+        },
+        {
+            "ActionID": "ApothecaryRestock_HF",
+            "ActionLocalizedName": {
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "ApothecaryRestock_HF"
+            },
+            "RepeatOptions": 3,
+            "Conditions": {},
+            "DroppedCards": [
+                {
+                    "CollectionName": "Apothecary shelf restock - Herbs & Fungi",
+                    "DroppedCards": [
+                        {"DroppedCardWarpData": "herbs_fungi_herbal_tincture", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 2}},
+                        {"DroppedCardWarpData": "herbs_fungi_healers_moss_tincture", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 2}},
+                        {"DroppedCardWarpData": "herbs_fungi_herbal_salve", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 2}},
+                        {"DroppedCardWarpData": "herbs_fungi_chamomile_tea", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 2}},
+                        {"DroppedCardWarpData": "herbs_fungi_yarrow_tea", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 2}},
+                        {"DroppedCardWarpData": "herbs_fungi_plantain_poultice", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 2}}
+                    ],
+                    "DropCardsInsideInventory": true
+                }
+            ]
+        }
+    ],
+    "CannotTrade": false,
+    "StartingInventory": [
+        {"ItemWarpData": "8486fa421f3930a428cc4d650dc55859", "ItemWarpType": 3, "Quantity": {"x": 1, "y": 2}},
+        {"ItemWarpData": "9c66dd9251eb1e446b70958f82585af6", "ItemWarpType": 3, "Quantity": {"x": 1, "y": 2}},
+        {"ItemWarpData": "aa9bd5a17e9e8434cbd5ca6b90e6da39", "ItemWarpType": 3, "Quantity": {"x": 1, "y": 2}},
+        {"ItemWarpData": "33c509d114eb34140a380bc8cfe8e709", "ItemWarpType": 3, "Quantity": {"x": 1, "y": 2}},
+        {"ItemWarpData": "46654e0eb892126429a470e90f1bbf55", "ItemWarpType": 3, "Quantity": {"x": 1, "y": 2}},
+        {"ItemWarpData": "322e42ea161bf2e4bb94747882d1285a", "ItemWarpType": 3, "Quantity": {"x": 1, "y": 2}},
+        {"ItemWarpData": "c0f1eabb07ab5064bbebd151ae6b9a94", "ItemWarpType": 3, "Quantity": {"x": 1, "y": 3}},
+        {"ItemWarpData": "9cef8509b7b43cd4894c89615d87469f", "ItemWarpType": 3, "Quantity": {"x": 1, "y": 3}},
+        {"ItemWarpData": "bb2b60e54f65da4449a62faa8c84654a", "ItemWarpType": 3, "Quantity": {"x": 1, "y": 3}},
+        {"ItemWarpData": "WildGarlicFresh", "ItemWarpType": 3, "Quantity": {"x": 1, "y": 2}},
+        {"ItemWarpData": "cmcoldgrowthbark", "ItemWarpType": 3, "Quantity": {"x": 1, "y": 2}},
+        {"ItemWarpData": "potterysculptureherbpaste", "ItemWarpType": 3, "Quantity": {"x": 0, "y": 1}}
+    ],
+    "TradingModifiers": [
+        {
+            "ForTradingDirection": 2,
+            "ModifierMode": 1,
+            "SimpleModifier": 1.5,
+            "GlobalStatModifiers": []
+        },
+        {
+            "ForTradingDirection": 1,
+            "ModifierMode": 1,
+            "SimpleModifier": 0.5,
+            "GlobalStatModifiers": []
+        }
+    ]
+}

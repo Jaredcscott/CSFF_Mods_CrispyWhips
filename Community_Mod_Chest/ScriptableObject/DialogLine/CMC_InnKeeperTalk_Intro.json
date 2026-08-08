@@ -1,0 +1,34 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.5}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_Intro_Line",
+        "DefaultText": "Well now, come in, come in. A new face in the valley is rarer than a dry spring. Sit; the fire doesn't charge. I keep this inn, and if you mean to last in these woods, you and I ought to get acquainted first."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Intro_Answer_How",
+                "DefaultText": "How do things work around here?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_InnKeeperTalk_Intro_Money",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Intro_Answer_Leave",
+                "DefaultText": "Just warming my hands for now."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

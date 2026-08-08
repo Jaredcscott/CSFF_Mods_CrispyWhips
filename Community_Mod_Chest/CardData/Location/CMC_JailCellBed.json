@@ -1,0 +1,2050 @@
+{
+  "UniqueID": "cmcJailCellBed",
+  "CardType": 2,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": false,
+  "DoesNotPile": true,
+  "CardName": {
+    "LocalizationKey": "CMC_JailCellBed_CardName",
+    "DefaultText": "Cell Bed"
+  },
+  "CardDescription": {
+    "LocalizationKey": "CMC_JailCellBed_CardDescription",
+    "DefaultText": "A hard straw pallet against the wall. It scrapes easily across the stone floor."
+  },
+  "CardImageWarpData": "BedrollPlaced",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0,
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_JailCellBed_DA_MoveBed",
+        "DefaultText": "Move the bed"
+      },
+      "DaytimeCost": 1,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [],
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+        "LocalizationKey": "BedRoll_DismantleActions[0].ActionName",
+        "DefaultText": "Nap"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "NoveltyShared": false,
+      "VictorySettings": {
+        "Victory": false,
+        "SpecialEnding": false,
+        "VictoryMessage": {
+          "ParentObjectID": "",
+          "LocalizationKey": "",
+          "DefaultText": ""
+        }
+      },
+      "UnavailableInDemo": false,
+      "SaveGame": false,
+      "ConfirmPopup": false,
+      "CustomConfirmText": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "NotInterruptedByEncounters": false,
+      "StackCompatible": false,
+      "DaytimeCost": 16,
+      "UseMiniTicks": 0,
+      "MinDaytimeCost": {
+        "Active": false,
+        "IntValue": 0
+      },
+      "ActionSounds": [],
+      "ActionSoundsWarpData": [
+        "Sleep1",
+        "Sleep2"
+      ],
+      "ActionSoundsWarpType": 3,
+      "DisablePitchVariation": false,
+      "CompatibleNPCDuties": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [
+        "Image (2)"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "ecb835c85d6df5447a38548588f4c9d6",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "NotifyWhenNotMet": true,
+          "HideAllWhenNotMet": false
+        }
+      ],
+      "RequiredNPCStatValues": [],
+      "RequiredCardsOnBoard": [],
+      "RequiredTagsOnBoard": [],
+      "RequiredAlreadyVisitedEnvironments": [],
+      "RequiredReceivingContainer": [],
+      "RequiredReceivingContainerTag": [],
+      "RequiredNOTReceivingContainerTag": [],
+      "RequiredReceivingContainerDurabilities": {
+        "RequiredSpoilagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredUsagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredFuelPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredProgressPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredLiquidQuantity": 0.0,
+        "RequiredSpecial1Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredSpecial2Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredSpecial3Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredSpecial4Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "HideActionIfNotMet": false,
+        "FailMessage": {
+          "ParentObjectID": "",
+          "LocalizationKey": "",
+          "DefaultText": ""
+        },
+        "SpecificFailMessages": []
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpoilagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredUsagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredFuelPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredProgressPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredLiquidQuantity": 0.0,
+        "RequiredSpecial1Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredSpecial2Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredSpecial3Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredSpecial4Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "HideActionIfNotMet": false,
+        "FailMessage": {
+          "ParentObjectID": "",
+          "LocalizationKey": "",
+          "DefaultText": ""
+        },
+        "SpecificFailMessages": []
+      },
+      "RequiredReceivingLiquidContent": {
+        "IsActive": false,
+        "RequiredLiquid": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "RequiredGroup": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "RequiredQuantity": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "RequiredActiveHidingGroups": [],
+      "HideIfConditionsNotMet": false,
+      "NotBaseAction": false,
+      "Cancellable": false,
+      "InstantStatModifications": false,
+      "LocksCardsForUse": false,
+      "DontDoStatModificationsOnCancel": false,
+      "InstantDurabilityModifications": false,
+      "ReceivingCardFlavourBonus": false,
+      "GivenCardFlavourBonus": false,
+      "ResetWhenDone": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "ResetWhenDoneWarpData": "ca25b2c02ece6674bae6aaba4a6b8c10",
+      "ResetWhenDoneWarpType": 3,
+      "StatInterruptions": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "10f8c7a1337ed46449f22f24013d26c3",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "Notification": {
+            "ParentObjectID": "",
+            "LocalizationKey": "",
+            "DefaultText": ""
+          }
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "95ca7c21ffad5e647acc3d9cb5bfcde6",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.0,
+            "y": 30.0
+          },
+          "Notification": {
+            "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+            "LocalizationKey": "BedRoll_DismantleActions[0].StatInterruptions[1].Notification",
+            "DefaultText": "I'm too thirsty to sleep..."
+          }
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "888d2d2a99e3f044291c6748a0fa8d78",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 150.0,
+            "y": 200.0
+          },
+          "Notification": {
+            "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+            "LocalizationKey": "BedRoll_DismantleActions[0].StatInterruptions[2].Notification",
+            "DefaultText": "I'm too hot to sleep..."
+          }
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "888d2d2a99e3f044291c6748a0fa8d78",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -100.0,
+            "y": 50.0
+          },
+          "Notification": {
+            "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+            "LocalizationKey": "BedRoll_DismantleActions[0].StatInterruptions[3].Notification",
+            "DefaultText": "I'm too cold to sleep..."
+          }
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "94bafb3c1f1d4ae41894051ca1c5c54a",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.0,
+            "y": 30.0
+          },
+          "Notification": {
+            "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+            "LocalizationKey": "BedRoll_DismantleActions[0].StatInterruptions[4].Notification",
+            "DefaultText": "I'm losing too much blood..."
+          }
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "547f09c7ea6d11d4bbf6714255b0dfd5",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 20.0,
+            "y": 24.0
+          },
+          "Notification": {
+            "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+            "LocalizationKey": "BedRoll_DismantleActions[0].StatInterruptions[5].Notification",
+            "DefaultText": "I'm not feeling well..."
+          }
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "16af37a364285d14586629e3e0700e55",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.0,
+            "y": 74.0
+          },
+          "Notification": {
+            "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+            "LocalizationKey": "BedRoll_DismantleActions[0].StatInterruptions[6].Notification",
+            "DefaultText": "I'm not feeling well..."
+          }
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "ecb835c85d6df5447a38548588f4c9d6",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 12.0,
+            "y": 24.0
+          },
+          "Notification": {
+            "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+            "LocalizationKey": "BedRoll_DismantleActions[0].StatInterruptions[7].Notification",
+            "DefaultText": "I can't sleep in the middle of a storm!"
+          }
+        }
+      ],
+      "StartDialog": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "ProducedCards": [],
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "10f8c7a1337ed46449f22f24013d26c3",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -1.0,
+            "y": -1.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": true,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "ca25b2c02ece6674bae6aaba4a6b8c10",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 15.0,
+            "y": 15.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": true,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "bbf02bb0a49d7d94a8efe6cee8cf18fe",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 15.0,
+            "y": 15.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": true,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -1.5,
+            "y": -1.5
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "c672b35248e9f2349a084e1514d6c9f8",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 1.25,
+            "y": 1.25
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "547f09c7ea6d11d4bbf6714255b0dfd5",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -1.5,
+            "y": -1.5
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "07f59e0f9e41a214c85ffa3078273264",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 6.0,
+            "y": 6.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 1.2,
+            "y": 1.2
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": true,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 5.0,
+            "y": 5.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": true,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 2.0,
+            "y": 2.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "5c42aacf9a2584f4fb44e69e4da8e369",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -1.0,
+            "y": -1.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "InterpolatedStatModifications": [],
+      "NPCStatModifications": [],
+      "NPCSetDuties": [],
+      "TemporaryStatModifications": [],
+      "MovePlayer": {
+        "MoveOption": 0,
+        "ToEnv": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "Pathfinding": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "Direction": 0
+      },
+      "MoveReceivingCard": {
+        "Card": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "UseCardinalDirection": false,
+        "MoveInDirection": 0,
+        "Pathfinding": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        }
+      },
+      "SpawnNPCS": [],
+      "DeleteNPCS": [],
+      "MoveNPC": [],
+      "SetNPCHome": [],
+      "ExtraDurabilityModifications": [],
+      "BlueprintsFullUnlock": [],
+      "CompletedImprovements": [],
+      "AddedInRunPerks": [],
+      "DontShowDestroyMessage": false,
+      "CustomDestroyMessage": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "NoCardsAffectedMessage": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformToLiquidQuantity": 0.0,
+        "TransferSpoilage": false,
+        "TransferUsage": false,
+        "TransferFuel": false,
+        "TransferCharges": false,
+        "TransferSpecial1": false,
+        "TransferSpecial2": false,
+        "TransferSpecial3": false,
+        "TransferSpecial4": false,
+        "TransferInventory": false,
+        "TransferSavedIngredients": false,
+        "AverageGivenAndReceivingCards": false,
+        "TransferLiquid": false,
+        "SpoilageTransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "UsageTransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "FuelTransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "ProgressTransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "Special1TransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "Special2TransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "Special3TransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "Special4TransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "ModifyDurability": false,
+        "ModifyLiquid": false,
+        "DropOnDestroyList": false,
+        "LiquidEffectScaling": 0,
+        "AddFlavoursFromTargetCard": false,
+        "AddFlavoursFromOtherCard": false,
+        "AddSpicesFromTargetCard": false,
+        "AddSpicesFromOtherCard": false,
+        "AddedFlavours": [],
+        "AddedSpiceTags": [],
+        "SpoilageChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetSpoilageFromOtherCard": false,
+        "UsageChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetUsageFromOtherCard": false,
+        "FuelChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetFuelFromOtherCard": false,
+        "ChargesChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetProgressFromOtherCard": false,
+        "LiquidQuantityChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetSpecial1FromOtherCard": false,
+        "Special2Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetSpecial2FromOtherCard": false,
+        "Special3Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetSpecial3FromOtherCard": false,
+        "Special4Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetSpecial4FromOtherCard": false,
+        "StatInterpolatedDurabilityChanges": [],
+        "DurabilityInterpolatedTransfers": [],
+        "ScaleChangesPerPortionOfLiquid": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "UseOtherCardForLiquidQuantity": false
+      },
+      "CustomWindowPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "OpenQuestLog": false,
+      "OpenMap": false,
+      "UpdateMap": false,
+      "EditDescription": false,
+      "FadeToBlack": 2,
+      "FadeMessage": {
+        "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+        "LocalizationKey": "BedRoll_DismantleActions[0].FadeMessage",
+        "DefaultText": "Taking a nap..."
+      },
+      "FadeTips": false,
+      "TravelToPreviousEnv": false,
+      "TravelToOtherRoom": false,
+      "RoomDirection": 0,
+      "ExitDirection": 0,
+      "MinMaxExplorationDrops": {
+        "x": 0,
+        "y": 0
+      },
+      "ExplorationValue": 0.0,
+      "HasExplorationDirection": false,
+      "ExplorationDirection": 0,
+      "DontShowOnCompass": false,
+      "DontShowOnInGameMap": false,
+      "PerformUponInspection": false,
+      "DontCloseInspectionWindow": false,
+      "AlwaysShow": false,
+      "AppearsOnCardsInInventory": false,
+      "VisibilityWithInventory": 0,
+      "AlternateActionIfConditionsNotMet": {
+        "Active": false,
+        "IntValue": 0
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+        "LocalizationKey": "BedRoll_DismantleActions[1].ActionName",
+        "DefaultText": "Sleep"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "NoveltyShared": false,
+      "VictorySettings": {
+        "Victory": false,
+        "SpecialEnding": false,
+        "VictoryMessage": {
+          "ParentObjectID": "",
+          "LocalizationKey": "",
+          "DefaultText": ""
+        }
+      },
+      "UnavailableInDemo": false,
+      "SaveGame": false,
+      "ConfirmPopup": false,
+      "CustomConfirmText": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "NotInterruptedByEncounters": false,
+      "StackCompatible": false,
+      "DaytimeCost": 32,
+      "UseMiniTicks": 0,
+      "MinDaytimeCost": {
+        "Active": false,
+        "IntValue": 0
+      },
+      "ActionSounds": [],
+      "ActionSoundsWarpData": [
+        "Sleep1",
+        "Sleep2"
+      ],
+      "ActionSoundsWarpType": 3,
+      "DisablePitchVariation": false,
+      "CompatibleNPCDuties": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [
+        "Image (2)"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "ecb835c85d6df5447a38548588f4c9d6",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "NotifyWhenNotMet": true,
+          "HideAllWhenNotMet": false
+        }
+      ],
+      "RequiredNPCStatValues": [],
+      "RequiredCardsOnBoard": [],
+      "RequiredTagsOnBoard": [],
+      "RequiredAlreadyVisitedEnvironments": [],
+      "RequiredReceivingContainer": [],
+      "RequiredReceivingContainerTag": [],
+      "RequiredNOTReceivingContainerTag": [],
+      "RequiredReceivingContainerDurabilities": {
+        "RequiredSpoilagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredUsagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredFuelPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredProgressPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredLiquidQuantity": 0.0,
+        "RequiredSpecial1Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredSpecial2Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredSpecial3Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredSpecial4Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "HideActionIfNotMet": false,
+        "FailMessage": {
+          "ParentObjectID": "",
+          "LocalizationKey": "",
+          "DefaultText": ""
+        },
+        "SpecificFailMessages": []
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpoilagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredUsagePercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredFuelPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredProgressPercent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredLiquidQuantity": 0.0,
+        "RequiredSpecial1Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredSpecial2Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredSpecial3Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "RequiredSpecial4Percent": {
+          "Active": false,
+          "FloatValue": 0.0,
+          "MaxValue": 0.0,
+          "ScaleRequirementPerPortionOfLiquid": {
+            "Active": false,
+            "FloatValue": 0.0
+          }
+        },
+        "HideActionIfNotMet": false,
+        "FailMessage": {
+          "ParentObjectID": "",
+          "LocalizationKey": "",
+          "DefaultText": ""
+        },
+        "SpecificFailMessages": []
+      },
+      "RequiredReceivingLiquidContent": {
+        "IsActive": false,
+        "RequiredLiquid": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "RequiredGroup": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "RequiredQuantity": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      "RequiredActiveHidingGroups": [],
+      "HideIfConditionsNotMet": false,
+      "NotBaseAction": false,
+      "Cancellable": false,
+      "InstantStatModifications": false,
+      "LocksCardsForUse": false,
+      "DontDoStatModificationsOnCancel": false,
+      "InstantDurabilityModifications": false,
+      "ReceivingCardFlavourBonus": false,
+      "GivenCardFlavourBonus": false,
+      "ResetWhenDone": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "ResetWhenDoneWarpData": "ca25b2c02ece6674bae6aaba4a6b8c10",
+      "ResetWhenDoneWarpType": 3,
+      "StatInterruptions": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "10f8c7a1337ed46449f22f24013d26c3",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "Notification": {
+            "ParentObjectID": "",
+            "LocalizationKey": "",
+            "DefaultText": ""
+          }
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "95ca7c21ffad5e647acc3d9cb5bfcde6",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.0,
+            "y": 30.0
+          },
+          "Notification": {
+            "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+            "LocalizationKey": "BedRoll_DismantleActions[1].StatInterruptions[1].Notification",
+            "DefaultText": "I'm too thirsty to sleep..."
+          }
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "888d2d2a99e3f044291c6748a0fa8d78",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 150.0,
+            "y": 200.0
+          },
+          "Notification": {
+            "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+            "LocalizationKey": "BedRoll_DismantleActions[1].StatInterruptions[2].Notification",
+            "DefaultText": "I'm too hot to sleep..."
+          }
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "888d2d2a99e3f044291c6748a0fa8d78",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -100.0,
+            "y": 50.0
+          },
+          "Notification": {
+            "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+            "LocalizationKey": "BedRoll_DismantleActions[1].StatInterruptions[3].Notification",
+            "DefaultText": "I'm too cold to sleep..."
+          }
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "94bafb3c1f1d4ae41894051ca1c5c54a",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.0,
+            "y": 30.0
+          },
+          "Notification": {
+            "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+            "LocalizationKey": "BedRoll_DismantleActions[1].StatInterruptions[4].Notification",
+            "DefaultText": "I'm losing too much blood..."
+          }
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "547f09c7ea6d11d4bbf6714255b0dfd5",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 20.0,
+            "y": 24.0
+          },
+          "Notification": {
+            "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+            "LocalizationKey": "BedRoll_DismantleActions[1].StatInterruptions[5].Notification",
+            "DefaultText": "I'm not feeling well..."
+          }
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "16af37a364285d14586629e3e0700e55",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.0,
+            "y": 74.0
+          },
+          "Notification": {
+            "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+            "LocalizationKey": "BedRoll_DismantleActions[1].StatInterruptions[6].Notification",
+            "DefaultText": "I'm not feeling well..."
+          }
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "ecb835c85d6df5447a38548588f4c9d6",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 12.0,
+            "y": 24.0
+          },
+          "Notification": {
+            "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+            "LocalizationKey": "BedRoll_DismantleActions[1].StatInterruptions[7].Notification",
+            "DefaultText": "I can't sleep in the middle of a storm!"
+          }
+        }
+      ],
+      "StartDialog": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "ProducedCards": [],
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "10f8c7a1337ed46449f22f24013d26c3",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -1.0,
+            "y": -1.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": true,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "bbf02bb0a49d7d94a8efe6cee8cf18fe",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 31.0,
+            "y": 31.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": true,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "ca25b2c02ece6674bae6aaba4a6b8c10",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 31.0,
+            "y": 31.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": true,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -2.0,
+            "y": -2.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "c672b35248e9f2349a084e1514d6c9f8",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 2.0,
+            "y": 2.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 1.25,
+            "y": 1.25
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "547f09c7ea6d11d4bbf6714255b0dfd5",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -1.5,
+            "y": -1.5
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "07f59e0f9e41a214c85ffa3078273264",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 6.0,
+            "y": 6.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 1.2,
+            "y": 1.2
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": true,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 5.0,
+            "y": 5.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": true,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 2.0,
+            "y": 2.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "5c42aacf9a2584f4fb44e69e4da8e369",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -1.0,
+            "y": -1.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "InterpolatedStatModifications": [],
+      "NPCStatModifications": [],
+      "NPCSetDuties": [],
+      "TemporaryStatModifications": [],
+      "MovePlayer": {
+        "MoveOption": 0,
+        "ToEnv": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "Pathfinding": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "Direction": 0
+      },
+      "MoveReceivingCard": {
+        "Card": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "UseCardinalDirection": false,
+        "MoveInDirection": 0,
+        "Pathfinding": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        }
+      },
+      "SpawnNPCS": [],
+      "DeleteNPCS": [],
+      "MoveNPC": [],
+      "SetNPCHome": [],
+      "ExtraDurabilityModifications": [],
+      "BlueprintsFullUnlock": [],
+      "CompletedImprovements": [],
+      "AddedInRunPerks": [],
+      "DontShowDestroyMessage": false,
+      "CustomDestroyMessage": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "NoCardsAffectedMessage": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0,
+        "TransformInto": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TransformToLiquidQuantity": 0.0,
+        "TransferSpoilage": false,
+        "TransferUsage": false,
+        "TransferFuel": false,
+        "TransferCharges": false,
+        "TransferSpecial1": false,
+        "TransferSpecial2": false,
+        "TransferSpecial3": false,
+        "TransferSpecial4": false,
+        "TransferInventory": false,
+        "TransferSavedIngredients": false,
+        "AverageGivenAndReceivingCards": false,
+        "TransferLiquid": false,
+        "SpoilageTransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "UsageTransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "FuelTransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "ProgressTransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "Special1TransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "Special2TransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "Special3TransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "Special4TransferScale": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "ModifyDurability": false,
+        "ModifyLiquid": false,
+        "DropOnDestroyList": false,
+        "LiquidEffectScaling": 0,
+        "AddFlavoursFromTargetCard": false,
+        "AddFlavoursFromOtherCard": false,
+        "AddSpicesFromTargetCard": false,
+        "AddSpicesFromOtherCard": false,
+        "AddedFlavours": [],
+        "AddedSpiceTags": [],
+        "SpoilageChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetSpoilageFromOtherCard": false,
+        "UsageChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetUsageFromOtherCard": false,
+        "FuelChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetFuelFromOtherCard": false,
+        "ChargesChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetProgressFromOtherCard": false,
+        "LiquidQuantityChange": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "Special1Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetSpecial1FromOtherCard": false,
+        "Special2Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetSpecial2FromOtherCard": false,
+        "Special3Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetSpecial3FromOtherCard": false,
+        "Special4Change": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "GetSpecial4FromOtherCard": false,
+        "StatInterpolatedDurabilityChanges": [],
+        "DurabilityInterpolatedTransfers": [],
+        "ScaleChangesPerPortionOfLiquid": {
+          "Active": false,
+          "FloatValue": 0.0
+        },
+        "UseOtherCardForLiquidQuantity": false
+      },
+      "CustomWindowPrefab": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "OpenQuestLog": false,
+      "OpenMap": false,
+      "UpdateMap": false,
+      "EditDescription": false,
+      "FadeToBlack": 2,
+      "FadeMessage": {
+        "ParentObjectID": "aa2efd9ef5bb3e64293e901308a9641a",
+        "LocalizationKey": "BedRoll_DismantleActions[1].FadeMessage",
+        "DefaultText": "Sleeping..."
+      },
+      "FadeTips": false,
+      "TravelToPreviousEnv": false,
+      "TravelToOtherRoom": false,
+      "RoomDirection": 0,
+      "ExitDirection": 0,
+      "MinMaxExplorationDrops": {
+        "x": 0,
+        "y": 0
+      },
+      "ExplorationValue": 0.0,
+      "HasExplorationDirection": false,
+      "ExplorationDirection": 0,
+      "DontShowOnCompass": false,
+      "DontShowOnInGameMap": false,
+      "PerformUponInspection": false,
+      "DontCloseInspectionWindow": false,
+      "AlwaysShow": false,
+      "AppearsOnCardsInInventory": false,
+      "VisibilityWithInventory": 0,
+      "AlternateActionIfConditionsNotMet": {
+        "Active": false,
+        "IntValue": 0
+      }
+    }
+  ],
+  "DismantleActionsWarpType": 3
+}

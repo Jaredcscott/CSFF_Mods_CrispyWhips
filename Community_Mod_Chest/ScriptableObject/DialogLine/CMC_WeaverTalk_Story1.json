@@ -1,0 +1,31 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_WeaverTalk_Story1_Line",
+        "DefaultText": "A story. Let me think. My mother wove before me, and hers before her. The last winter she was well, she was spinning a spindle of nettle-fiber thread by the fire, thin as a hair and twice as stubborn. She said nettle punishes a lazy hand but never a patient one."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_Story1_Answer_GoOn",
+                "DefaultText": "What happened to it?"
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatWeaverStoryStep",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": 1.0, "y": 1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_WeaverTalk_Story2",
+                "NextLineWarpType": 3
+            }
+        }
+    ]
+}

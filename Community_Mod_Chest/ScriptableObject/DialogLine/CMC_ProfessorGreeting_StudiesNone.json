@@ -1,0 +1,17 @@
+{
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_StudiesNone_Line",
+        "DefaultText": "Frankly? You've yet to sit a single final. The lectern takes deposits of salt, nuggets, or coin, and I promise the hours pass faster than you fear. Come. Ignorance is curable."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Answer_Ok",
+                "DefaultText": "Noted, Professor."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

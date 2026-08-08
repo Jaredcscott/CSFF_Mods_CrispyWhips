@@ -1,0 +1,18 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_SterlingTalk_Duties_Line",
+        "DefaultText": "Thorne and Corrin hold the square by day, Vane takes the night. We rotate the jail step between the four of us so it's never left unwatched. Quiet work, mostly -- and I intend to keep it that way."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_SterlingTalk_Duties_Answer_Bye",
+                "DefaultText": "Good to know, Captain."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

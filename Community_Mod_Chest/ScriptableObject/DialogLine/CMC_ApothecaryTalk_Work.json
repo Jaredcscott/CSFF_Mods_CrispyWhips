@@ -1,0 +1,18 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_ApothecaryTalk_Work_Line",
+        "DefaultText": "Salves, mostly: healing and soothing both, and teas for whatever the season throws at you. Dry the willow bark right and it'll take the edge off any ache. Bring me herbs I don't have to walk for and I'll always find you a fair trade."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ApothecaryTalk_Work_Answer_Bye",
+                "DefaultText": "I'll keep that in mind."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

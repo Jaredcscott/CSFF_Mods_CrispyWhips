@@ -1,0 +1,41 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_MillerTalk_QuestOffer3_Line",
+        "DefaultText": "One more thing, since you're clearly the helpful sort. My workbench is missing a good few planks, don't suppose you've got any spare from that sawmill of yours?"
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_QuestOffer3_Answer_Accept",
+                "DefaultText": "I'll bring you some planks."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatMillerQuestArmed",
+                        "StatWarpType": 3,
+                        "ValueModifier": {
+                            "x": -1.0,
+                            "y": -1.0
+                        },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_QuestOffer3_Answer_Decline",
+                "DefaultText": "Maybe another time."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

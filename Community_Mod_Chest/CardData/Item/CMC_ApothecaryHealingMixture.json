@@ -1,0 +1,23 @@
+{
+  "UniqueID": "cmcApothecaryHealingMixture",
+  "TradingValue": 200,
+  "CardType": 0,
+  "CardName": {
+    "DefaultText": "Rare Herb Mixture",
+    "LocalizationKey": "CMC_ApothecaryHealingMixture_CardName"
+  },
+  "CardDescription": {
+    "DefaultText": "A mortar-bundle of the rarest herbs the forest and its herb-gardens have to offer, bound together for the Apothecary. It isn't much use to anyone else; carry it to her cabin and give it to her.",
+    "LocalizationKey": "CMC_ApothecaryHealingMixture_CardDesc"
+  },
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "CMC_Alchemist_Potions",
+  "CardImageWarpType": 3,
+  "CardHelpSection": {
+    "DefaultText": "Rare Herb Mixture",
+    "LocalizationKey": "CMC_ApothecaryHealingMixture_Help"
+  },
+  "CardTagsWarpData": ["tag_Craftable"],
+  "CardTagsWarpType": 3,
+  "ObjectWeight": 2
+}

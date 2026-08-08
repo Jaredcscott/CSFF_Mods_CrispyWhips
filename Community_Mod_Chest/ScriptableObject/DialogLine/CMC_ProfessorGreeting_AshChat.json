@@ -1,0 +1,30 @@
+{
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_Ash_Line",
+        "DefaultText": "So YOU'RE the one Ash chose. That cat used to prowl my lecture hall as if he held the deed to it. Mind he doesn't sleep on your notes; he has a scholar's instinct for the exact page you need."
+    },
+    "ActionToPerform": {
+        "NPCStatModifications": [
+            {
+                "TargetStatWarpData": "cmcStatProfAshNews",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {
+                    "x": 1.0,
+                    "y": 1.0
+                }
+            }
+        ]
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Answer_Ok",
+                "DefaultText": "Noted, Professor."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

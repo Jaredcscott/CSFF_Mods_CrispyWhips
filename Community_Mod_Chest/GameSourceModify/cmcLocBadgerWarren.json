@@ -1,0 +1,10 @@
+{
+  "CardDescription": {
+    "LocalizationKey": "CMC_BadgerWarren_CardDescription",
+    "DefaultText": "A pine-covered hillside pockmarked with sett-diggings and burrow entrances."
+  },
+  "CardHelpSection": {
+    "LocalizationKey": "CMC_BadgerWarren_CardHelpSection",
+    "DefaultText": "<b>Pine Clearing:</b>\n\n<b>Conditions:</b> Acidic soil.\n\n<b>Flora:</b> Pines, Birch, Appleweed, Healer's Moss, Fireroot, Pine Nuts (autumn), Fly Agaric, Meadowgrass.\n\n<b>Fauna:</b> Sett-diggings and burrows pockmark the hillside; the badger colony the warren is named for keeps mostly out of sight by day."
+  }
+}

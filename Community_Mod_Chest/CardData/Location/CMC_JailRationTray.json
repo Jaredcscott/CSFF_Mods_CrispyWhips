@@ -1,0 +1,21 @@
+{
+  "UniqueID": "cmcJailRationTray",
+  "CardType": 2,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": false,
+  "DoesNotPile": true,
+  "CardName": {
+    "LocalizationKey": "CMC_JailRationTray_CardName",
+    "DefaultText": "Ration Tray"
+  },
+  "CardDescription": {
+    "LocalizationKey": "CMC_JailRationTray_CardDescription",
+    "DefaultText": "A wooden tray, pushed through the low slot in the door each morning. Whatever it holds today is already sitting on the cell floor."
+  },
+  "CardImageWarpData": "Plate_Clay",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0,
+  "CardInteractions": [],
+  "DismantleActions": [],
+  "DismantleActionsWarpType": 3
+}

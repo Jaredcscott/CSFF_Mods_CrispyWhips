@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatInnTraitWelcomeGiven",
+    "GameName": {
+        "LocalizationKey": "CMC_InnTraitWelcomeGiven_StatName",
+        "DefaultText": "Inn Trait Welcome Given"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_InnTraitWelcomeGiven_StatDescription",
+        "DefaultText": "Hidden tracker: 0 = the Village Inn trait's one-time welcome line has not played, 1 = played (claimable exactly once). Also set when a player completes the normal Intro conversation, so that path never sees the trait welcome redundantly."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 10.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

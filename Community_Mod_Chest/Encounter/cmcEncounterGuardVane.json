@@ -1,0 +1,7709 @@
+{
+ "UniqueID": "cmcEncounterGuardVane",
+ "EncounterTitle": {
+  "ParentObjectID": "cmcEncounterGuardVane",
+  "LocalizationKey": "",
+  "DefaultText": "Guard Iris Vane"
+ },
+ "EncounterStartingLog": {
+  "LogText": {
+   "ParentObjectID": "cmcEncounterGuardVane",
+   "LocalizationKey": "",
+   "DefaultText": ""
+  },
+  "AlternateLogTexts": [],
+  "TextSettings": {
+   "Active": false,
+   "Bold": false,
+   "Italics": false,
+   "Underlined": false
+  },
+  "TextAlignment": {
+   "Active": false,
+   "Alignment": 0
+  },
+  "TextColor": {
+   "Active": false,
+   "ColorValue": {
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
+   }
+  },
+  "ScreenShake": false,
+  "SoundEffects": []
+ },
+ "EncounterImage": {
+  "m_FileID": 0,
+  "m_PathID": 0
+ },
+ "EncounterImageWarpData": "SwampHag",
+ "EncounterImageWarpType": 3,
+ "EnemyName": {
+  "ParentObjectID": "cmcEncounterGuardVane",
+  "LocalizationKey": "",
+  "DefaultText": "Vane"
+ },
+ "UsesPlural": false,
+ "EnemyCover": {
+  "x": 75.0,
+  "y": 75.0
+ },
+ "PlayerCover": {
+  "x": 75.0,
+  "y": 75.0
+ },
+ "EnemyStealth": {
+  "x": 0.0,
+  "y": 0.0
+ },
+ "EnemyAwareness": {
+  "x": 1000.0,
+  "y": 1000.0
+ },
+ "NoStealthCalculation": true,
+ "EnemySize": {
+  "x": 100.0,
+  "y": 100.0
+ },
+ "EnemyBodyTemplate": {
+  "m_FileID": 0,
+  "m_PathID": 0
+ },
+ "EnemyBodyTemplateWarpData": "Combat_ BTHuntsman",
+ "EnemyBodyTemplateWarpType": 3,
+ "EnemyArmor": {
+  "HeadArmor": 0.0,
+  "HeadArmorModifiers": [],
+  "HeadHitProbabilityModifier": 0.0,
+  "TorsoArmor": 10.0,
+  "TorsoArmorModifiers": [],
+  "TorsoHitProbabilityModifier": 0.0,
+  "LArmArmor": 5.0,
+  "LArmArmorModifiers": [],
+  "LArmHitProbabilityModifier": 0.0,
+  "RArmArmor": 5.0,
+  "RArmArmorModifiers": [],
+  "RArmHitProbabilityModifier": 0.0,
+  "LLegArmor": 5.0,
+  "LLegArmorModifiers": [],
+  "LLegHitProbabilityModifier": 0.0,
+  "RLegArmor": 5.0,
+  "RLegArmorModifiers": [],
+  "RLegHitProbabilityModifier": 0.0
+ },
+ "DamageTypeAddedClash": [],
+ "DamageTypeAddedDmg": [],
+ "MeleeSkill": {
+  "Name": "Melee Skill",
+  "StartingValue": {
+   "x": 115.0,
+   "y": 115.0
+  },
+  "LoadedFromNPCStat": {
+   "m_FileID": 0,
+   "m_PathID": 0
+  },
+  "TriggerLoadStat": 1,
+  "MaxValue": 115.0,
+  "OnZeroEncounterResult": 0
+ },
+ "RangedSkill": {
+  "Name": "",
+  "StartingValue": {
+   "x": 0.0,
+   "y": 0.0
+  },
+  "LoadedFromNPCStat": {
+   "m_FileID": 0,
+   "m_PathID": 0
+  },
+  "TriggerLoadStat": 1,
+  "MaxValue": 0.0,
+  "OnZeroEncounterResult": 0
+ },
+ "Blood": {
+  "Name": "Blood",
+  "StartingValue": {
+   "x": 130.0,
+   "y": 130.0
+  },
+  "LoadedFromNPCStat": {
+   "m_FileID": 0,
+   "m_PathID": 0
+  },
+  "TriggerLoadStat": 1,
+  "MaxValue": 130.0,
+  "OnZeroEncounterResult": 1
+ },
+ "Stamina": {
+  "Name": "Stamina",
+  "StartingValue": {
+   "x": 100.0,
+   "y": 100.0
+  },
+  "LoadedFromNPCStat": {
+   "m_FileID": 0,
+   "m_PathID": 0
+  },
+  "TriggerLoadStat": 1,
+  "MaxValue": 100.0,
+  "OnZeroEncounterResult": 0
+ },
+ "Morale": {
+  "Name": "Morale",
+  "StartingValue": {
+   "x": 90.0,
+   "y": 90.0
+  },
+  "LoadedFromNPCStat": {
+   "m_FileID": 0,
+   "m_PathID": 0
+  },
+  "TriggerLoadStat": 1,
+  "MaxValue": 90.0,
+  "OnZeroEncounterResult": 2
+ },
+ "Value1": {
+  "Name": "",
+  "StartingValue": {
+   "x": 0.0,
+   "y": 0.0
+  },
+  "LoadedFromNPCStat": {
+   "m_FileID": 0,
+   "m_PathID": 0
+  },
+  "TriggerLoadStat": 1,
+  "MaxValue": 0.0,
+  "OnZeroEncounterResult": 0
+ },
+ "Value2": {
+  "Name": "",
+  "StartingValue": {
+   "x": 0.0,
+   "y": 0.0
+  },
+  "LoadedFromNPCStat": {
+   "m_FileID": 0,
+   "m_PathID": 0
+  },
+  "TriggerLoadStat": 1,
+  "MaxValue": 0.0,
+  "OnZeroEncounterResult": 0
+ },
+ "Value3": {
+  "Name": "0",
+  "StartingValue": {
+   "x": 0.0,
+   "y": 0.0
+  },
+  "LoadedFromNPCStat": {
+   "m_FileID": 0,
+   "m_PathID": 0
+  },
+  "TriggerLoadStat": 1,
+  "MaxValue": 0.0,
+  "OnZeroEncounterResult": 0
+ },
+ "Value4": {
+  "Name": "0",
+  "StartingValue": {
+   "x": 0.0,
+   "y": 0.0
+  },
+  "LoadedFromNPCStat": {
+   "m_FileID": 0,
+   "m_PathID": 0
+  },
+  "TriggerLoadStat": 1,
+  "MaxValue": 0.0,
+  "OnZeroEncounterResult": 0
+ },
+ "EnemyActions": [
+  {
+   "ActionLog": {
+    "LogText": {
+     "ParentObjectID": "cmcEncounterGuardVane",
+     "LocalizationKey": "",
+     "DefaultText": "Guard Iris Vane thrusts her spear at you!"
+    },
+    "AlternateLogTexts": [
+     {
+      "ParentObjectID": "cmcEncounterGuardVane",
+      "LocalizationKey": "",
+      "DefaultText": "Vane jabs at you with the spear!"
+     },
+     {
+      "ParentObjectID": "cmcEncounterGuardVane",
+      "LocalizationKey": "",
+      "DefaultText": "Vane swings the spear at your head!"
+     }
+    ],
+    "TextSettings": {
+     "Active": false,
+     "Bold": false,
+     "Italics": false,
+     "Underlined": false
+    },
+    "TextAlignment": {
+     "Active": false,
+     "Alignment": 0
+    },
+    "TextColor": {
+     "Active": false,
+     "ColorValue": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+     }
+    },
+    "ScreenShake": false,
+    "SoundEffects": []
+   },
+   "SuccessLog": {
+    "LogText": {
+     "ParentObjectID": "cmcEncounterGuardVane",
+     "LocalizationKey": "",
+     "DefaultText": "You fail to get clear and the spear connects..."
+    },
+    "AlternateLogTexts": [],
+    "TextSettings": {
+     "Active": false,
+     "Bold": false,
+     "Italics": false,
+     "Underlined": false
+    },
+    "TextAlignment": {
+     "Active": false,
+     "Alignment": 0
+    },
+    "TextColor": {
+     "Active": false,
+     "ColorValue": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+     }
+    },
+    "ScreenShake": true,
+    "SoundEffects": []
+   },
+   "FailureLog": {
+    "LogText": {
+     "ParentObjectID": "cmcEncounterGuardVane",
+     "LocalizationKey": "",
+     "DefaultText": "You get out of the way in time..."
+    },
+    "AlternateLogTexts": [],
+    "TextSettings": {
+     "Active": false,
+     "Bold": false,
+     "Italics": false,
+     "Underlined": false
+    },
+    "TextAlignment": {
+     "Active": false,
+     "Alignment": 0
+    },
+    "TextColor": {
+     "Active": false,
+     "ColorValue": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+     }
+    },
+    "ScreenShake": false,
+    "SoundEffects": []
+   },
+   "RequiredDistance": 0,
+   "RequiredWrestlingState": 2,
+   "RequiresAmbushState": 0,
+   "RequiredSelfVulnerableState": 0,
+   "RequiredOpponentVulnerableState": 0,
+   "BaseWeight": 100,
+   "DistanceWeightModifier": 0,
+   "CloseRangeWeightModifier": 0,
+   "EnemyHiddenWeightModifier": 0,
+   "PlayerHiddenWeightModifier": 0,
+   "WrestlingWeightModifier": 0,
+   "NOTWrestlingWeightModifier": 0,
+   "SelfVulnerableWeightModifier": 0,
+   "SelfNOTVulnerableWeightModifier": 0,
+   "OpponentVulnerableWeightModifier": 0,
+   "OpponentNOTVulnerableWeightModifier": 0,
+   "CardsOnBoardWeightModifiers": [],
+   "StatsWeightModifiers": [],
+   "ValuesWeightModifiers": {
+    "WeightPerMeleeSkill": {
+     "Active": false,
+     "DurabilityRange": {
+      "x": 0.0,
+      "y": 0.0
+     },
+     "InterpWeightRange": {
+      "x": 0,
+      "y": 0
+     },
+     "WhenOutOfRange": 0
+    },
+    "WeightPerRangedSkill": {
+     "Active": false,
+     "DurabilityRange": {
+      "x": 0.0,
+      "y": 0.0
+     },
+     "InterpWeightRange": {
+      "x": 0,
+      "y": 0
+     },
+     "WhenOutOfRange": 0
+    },
+    "WeightPerBlood": {
+     "Active": false,
+     "DurabilityRange": {
+      "x": 0.0,
+      "y": 0.0
+     },
+     "InterpWeightRange": {
+      "x": 0,
+      "y": 0
+     },
+     "WhenOutOfRange": 0
+    },
+    "WeightPerStamina": {
+     "Active": true,
+     "DurabilityRange": {
+      "x": 0.0,
+      "y": 0.0
+     },
+     "InterpWeightRange": {
+      "x": -100,
+      "y": -100
+     },
+     "WhenOutOfRange": 0
+    },
+    "WeightPerMorale": {
+     "Active": false,
+     "DurabilityRange": {
+      "x": 0.0,
+      "y": 0.0
+     },
+     "InterpWeightRange": {
+      "x": -1,
+      "y": -1
+     },
+     "WhenOutOfRange": 0
+    },
+    "WeightPerValue1": {
+     "Active": false,
+     "DurabilityRange": {
+      "x": 1.0,
+      "y": 1.0
+     },
+     "InterpWeightRange": {
+      "x": -1000,
+      "y": -1000
+     },
+     "WhenOutOfRange": 0
+    },
+    "WeightPerValue2": {
+     "Active": false,
+     "DurabilityRange": {
+      "x": 0.0,
+      "y": 0.0
+     },
+     "InterpWeightRange": {
+      "x": 0,
+      "y": 0
+     },
+     "WhenOutOfRange": 0
+    },
+    "WeightPerValue3": {
+     "Active": false,
+     "DurabilityRange": {
+      "x": 0.0,
+      "y": 0.0
+     },
+     "InterpWeightRange": {
+      "x": 0,
+      "y": 0
+     },
+     "WhenOutOfRange": 0
+    },
+    "WeightPerValue4": {
+     "Active": false,
+     "DurabilityRange": {
+      "x": 0.0,
+      "y": 0.0
+     },
+     "InterpWeightRange": {
+      "x": 0,
+      "y": 0
+     },
+     "WhenOutOfRange": 0
+    }
+   },
+   "WoundsWeightModifiers": {
+    "WeightPerAllWounds": {
+     "Active": false,
+     "DurabilityRange": {
+      "x": 0.0,
+      "y": 0.0
+     },
+     "InterpWeightRange": {
+      "x": 0,
+      "y": 0
+     },
+     "WhenOutOfRange": 0
+    },
+    "WeightPerHeadWounds": {
+     "Active": false,
+     "DurabilityRange": {
+      "x": 0.0,
+      "y": 0.0
+     },
+     "InterpWeightRange": {
+      "x": 0,
+      "y": 0
+     },
+     "WhenOutOfRange": 0
+    },
+    "WeightPerTorsoWounds": {
+     "Active": false,
+     "DurabilityRange": {
+      "x": 0.0,
+      "y": 0.0
+     },
+     "InterpWeightRange": {
+      "x": 0,
+      "y": 0
+     },
+     "WhenOutOfRange": 0
+    },
+    "WeightPerLArmWounds": {
+     "Active": false,
+     "DurabilityRange": {
+      "x": 0.0,
+      "y": 0.0
+     },
+     "InterpWeightRange": {
+      "x": 0,
+      "y": 0
+     },
+     "WhenOutOfRange": 0
+    },
+    "WeightPerRArmWounds": {
+     "Active": false,
+     "DurabilityRange": {
+      "x": 0.0,
+      "y": 0.0
+     },
+     "InterpWeightRange": {
+      "x": 0,
+      "y": 0
+     },
+     "WhenOutOfRange": 0
+    },
+    "WeightPerLLegWounds": {
+     "Active": false,
+     "DurabilityRange": {
+      "x": 0.0,
+      "y": 0.0
+     },
+     "InterpWeightRange": {
+      "x": 0,
+      "y": 0
+     },
+     "WhenOutOfRange": 0
+    },
+    "WeightPerRLegWounds": {
+     "Active": false,
+     "DurabilityRange": {
+      "x": 0.0,
+      "y": 0.0
+     },
+     "InterpWeightRange": {
+      "x": 0,
+      "y": 0
+     },
+     "WhenOutOfRange": 0
+    }
+   },
+   "ActionRange": 0,
+   "Reach": 125.0,
+   "PreClashDistanceChange": 0,
+   "ImmuneToCancelling": [],
+   "CannotFailClash": false,
+   "CustomClashAgainstValue": {
+    "Active": false,
+    "FloatValue": 0.0,
+    "MaxValue": 0.0
+   },
+   "DoesNotAttack": false,
+   "CannotBeDodged": false,
+   "IsEscapeAction": false,
+   "IsChargingAction": false,
+   "IgnoreEnemySkillForClash": false,
+   "BaseClashValue": 0.0,
+   "ClashRangedInaccuracy": {
+    "x": 0.0,
+    "y": 0.0
+   },
+   "ClashStealthBonus": {
+    "x": 150.0,
+    "y": 150.0
+   },
+   "IneffectiveRangeMalus": {
+    "x": 0.0,
+    "y": 0.0
+   },
+   "ClashVsEscapeModifier": {
+    "x": 0.0,
+    "y": 0.0
+   },
+   "ClashVsVulnerableModifier": {
+    "x": 0.0,
+    "y": 0.0
+   },
+   "WrestlingClashModifier": {
+    "x": 0.0,
+    "y": 0.0
+   },
+   "EnemyValuesClashModifier": {
+    "EnemyMeleeSkillMod": {
+     "InterpolatedAddedValue": {
+      "Active": true,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 100.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 100.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyRangedSkillMod": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyBloodMod": {
+     "InterpolatedAddedValue": {
+      "Active": true,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 100.0
+      },
+      "OutputValueRange": {
+       "x": -100.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyStaminaMod": {
+     "InterpolatedAddedValue": {
+      "Active": true,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 100.0
+      },
+      "OutputValueRange": {
+       "x": -50.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyMoraleMod": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyValue1Mod": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyValue2Mod": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyValue3Mod": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyValue4Mod": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    }
+   },
+   "EnemyWoundClashModifier": {
+    "AllWoundModifier": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 18.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": -150.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "HeadWoundModifier": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "TorsoWoundModifier": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "LArmWoundModifier": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "RArmWoundModifier": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "LLegWoundModifier": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "RLegWoundModifier": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    }
+   },
+   "EnemyStatsClashModifiers": [],
+   "Damage": {
+    "x": 25.0,
+    "y": 75.0
+   },
+   "DmgVsVulnerableModifier": {
+    "x": 0.0,
+    "y": 0.0
+   },
+   "WrestlingDamageModifier": {
+    "x": 0.0,
+    "y": 0.0
+   },
+   "DamageTypes": [],
+   "DamageTypesWarpData": [
+    "DMG_Piercing"
+   ],
+   "DamageTypesWarpType": 3,
+   "EnemyValuesDamageModifier": {
+    "EnemyMeleeSkillMod": {
+     "InterpolatedAddedValue": {
+      "Active": true,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 100.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 50.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyRangedSkillMod": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyBloodMod": {
+     "InterpolatedAddedValue": {
+      "Active": true,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 100.0
+      },
+      "OutputValueRange": {
+       "x": -75.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyStaminaMod": {
+     "InterpolatedAddedValue": {
+      "Active": true,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 100.0
+      },
+      "OutputValueRange": {
+       "x": -25.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyMoraleMod": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyValue1Mod": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyValue2Mod": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyValue3Mod": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyValue4Mod": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    }
+   },
+   "EnemyWoundDamageModifier": {
+    "AllWoundModifier": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 25.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "HeadWoundModifier": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "TorsoWoundModifier": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "LArmWoundModifier": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "RArmWoundModifier": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "LLegWoundModifier": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "RLegWoundModifier": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    }
+   },
+   "EnemyStatsDamageModifier": [],
+   "DmgVsEscapeModifier": {
+    "x": 0.0,
+    "y": 0.0
+   },
+   "AddedPlayerLocationHitProbabilities": {
+    "TorsoHitProbabilityModifier": 0.0,
+    "HeadHitProbabilityModifier": -1000.0,
+    "LArmHitProbabilityModifier": 0.0,
+    "RArmHitProbabilityModifier": 0.0,
+    "LLegHitProbabilityModifier": 0.0,
+    "RLegHitProbabilityModifier": 0.0
+   },
+   "ArmorDurabilityDamage": {
+    "Active": false,
+    "FloatValue": 0.0
+   },
+   "EnemyValueChanges": {
+    "MeleeApplies": 0,
+    "MeleeSkillModifier": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "RangedApplies": 0,
+    "RangedSkillModifier": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "BloodApplies": 0,
+    "BloodModifier": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "StaminaApplies": 0,
+    "StaminaModifier": {
+     "x": -20.0,
+     "y": -20.0
+    },
+    "MoraleApplies": 0,
+    "MoraleModifier": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "Value1Applies": 0,
+    "Value1Modifier": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "Value2Applies": 0,
+    "Value2Modifier": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "Value3Applies": 0,
+    "Value3Modifier": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "Value4Applies": 0,
+    "Value4Modifier": {
+     "x": 0.0,
+     "y": 0.0
+    }
+   },
+   "WrestlingStateChange": {
+    "WrestlingStateChange": 0,
+    "ChangeApplies": 0
+   },
+   "SelfVulnerableStateChange": {
+    "Change": 0,
+    "PercentageChance": {
+     "UseChance": false,
+     "ChanceValue": 0.0
+    }
+   },
+   "OpponentVulnerableStateChange": {
+    "Change": 0,
+    "PercentageChance": {
+     "UseChance": false,
+     "ChanceValue": 0.0
+    }
+   },
+   "PlayerWounds": {
+    "UnharmedResults": [
+     {
+      "WoundLog": {
+       "LogText": {
+        "ParentObjectID": "cmcEncounterGuardVane",
+        "LocalizationKey": "",
+        "DefaultText": "Fortunately, the attack wasn't enough to hurt you."
+       },
+       "AlternateLogTexts": [],
+       "TextSettings": {
+        "Active": false,
+        "Bold": false,
+        "Italics": false,
+        "Underlined": false
+       },
+       "TextAlignment": {
+        "Active": false,
+        "Alignment": 0
+       },
+       "TextColor": {
+        "Active": false,
+        "ColorValue": {
+         "r": 0.0,
+         "g": 0.0,
+         "b": 0.0,
+         "a": 0.0
+        }
+       },
+       "ScreenShake": false,
+       "SoundEffects": []
+      },
+      "LocationFilter": {
+       "Head": false,
+       "Torso": false,
+       "LArm": false,
+       "RArm": false,
+       "LLeg": false,
+       "RLeg": false
+      },
+      "DroppedCards": [],
+      "StatChanges": [],
+      "WoundSelectionWeight": 0.0,
+      "EncounterResult": 0
+     }
+    ],
+    "MinorWounds": [
+     {
+      "WoundLog": {
+       "LogText": {
+        "ParentObjectID": "cmcEncounterGuardVane",
+        "LocalizationKey": "",
+        "DefaultText": "The spear grazed you, leaving a shallow cut."
+       },
+       "AlternateLogTexts": [],
+       "TextSettings": {
+        "Active": false,
+        "Bold": false,
+        "Italics": false,
+        "Underlined": false
+       },
+       "TextAlignment": {
+        "Active": false,
+        "Alignment": 0
+       },
+       "TextColor": {
+        "Active": false,
+        "ColorValue": {
+         "r": 0.0,
+         "g": 0.0,
+         "b": 0.0,
+         "a": 0.0
+        }
+       },
+       "ScreenShake": false,
+       "SoundEffects": []
+      },
+      "LocationFilter": {
+       "Head": false,
+       "Torso": false,
+       "LArm": false,
+       "RArm": false,
+       "LLeg": false,
+       "RLeg": false
+      },
+      "DroppedCards": [],
+      "StatChanges": [
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": -17.0,
+         "y": -17.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       }
+      ],
+      "WoundSelectionWeight": 1.0,
+      "EncounterResult": 0
+     },
+     {
+      "WoundLog": {
+       "LogText": {
+        "ParentObjectID": "cmcEncounterGuardVane",
+        "LocalizationKey": "",
+        "DefaultText": "The spear nicked your flesh."
+       },
+       "AlternateLogTexts": [],
+       "TextSettings": {
+        "Active": false,
+        "Bold": false,
+        "Italics": false,
+        "Underlined": false
+       },
+       "TextAlignment": {
+        "Active": false,
+        "Alignment": 0
+       },
+       "TextColor": {
+        "Active": false,
+        "ColorValue": {
+         "r": 0.0,
+         "g": 0.0,
+         "b": 0.0,
+         "a": 0.0
+        }
+       },
+       "ScreenShake": false,
+       "SoundEffects": []
+      },
+      "LocationFilter": {
+       "Head": false,
+       "Torso": false,
+       "LArm": false,
+       "RArm": false,
+       "LLeg": false,
+       "RLeg": false
+      },
+      "DroppedCards": [],
+      "StatChanges": [
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": -17.0,
+         "y": -17.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       }
+      ],
+      "WoundSelectionWeight": 1.0,
+      "EncounterResult": 0
+     },
+     {
+      "WoundLog": {
+       "LogText": {
+        "ParentObjectID": "cmcEncounterGuardVane",
+        "LocalizationKey": "",
+        "DefaultText": "You suffered a small puncture wound."
+       },
+       "AlternateLogTexts": [],
+       "TextSettings": {
+        "Active": false,
+        "Bold": false,
+        "Italics": false,
+        "Underlined": false
+       },
+       "TextAlignment": {
+        "Active": false,
+        "Alignment": 0
+       },
+       "TextColor": {
+        "Active": false,
+        "ColorValue": {
+         "r": 0.0,
+         "g": 0.0,
+         "b": 0.0,
+         "a": 0.0
+        }
+       },
+       "ScreenShake": false,
+       "SoundEffects": []
+      },
+      "LocationFilter": {
+       "Head": false,
+       "Torso": false,
+       "LArm": false,
+       "RArm": false,
+       "LLeg": false,
+       "RLeg": false
+      },
+      "DroppedCards": [],
+      "StatChanges": [
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": -17.0,
+         "y": -17.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       }
+      ],
+      "WoundSelectionWeight": 1.0,
+      "EncounterResult": 0
+     }
+    ],
+    "MediumWounds": [
+     {
+      "WoundLog": {
+       "LogText": {
+        "ParentObjectID": "cmcEncounterGuardVane",
+        "LocalizationKey": "",
+        "DefaultText": "The spear drove into you, drawing blood."
+       },
+       "AlternateLogTexts": [],
+       "TextSettings": {
+        "Active": false,
+        "Bold": false,
+        "Italics": false,
+        "Underlined": false
+       },
+       "TextAlignment": {
+        "Active": false,
+        "Alignment": 0
+       },
+       "TextColor": {
+        "Active": false,
+        "ColorValue": {
+         "r": 0.0,
+         "g": 0.0,
+         "b": 0.0,
+         "a": 0.0
+        }
+       },
+       "ScreenShake": false,
+       "SoundEffects": []
+      },
+      "LocationFilter": {
+       "Head": false,
+       "Torso": false,
+       "LArm": false,
+       "RArm": false,
+       "LLeg": false,
+       "RLeg": false
+      },
+      "DroppedCards": [],
+      "StatChanges": [
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": -34.0,
+         "y": -34.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       }
+      ],
+      "WoundSelectionWeight": 1.0,
+      "EncounterResult": 0
+     },
+     {
+      "WoundLog": {
+       "LogText": {
+        "ParentObjectID": "cmcEncounterGuardVane",
+        "LocalizationKey": "",
+        "DefaultText": "The spear struck true and tore into your flesh."
+       },
+       "AlternateLogTexts": [],
+       "TextSettings": {
+        "Active": false,
+        "Bold": false,
+        "Italics": false,
+        "Underlined": false
+       },
+       "TextAlignment": {
+        "Active": false,
+        "Alignment": 0
+       },
+       "TextColor": {
+        "Active": false,
+        "ColorValue": {
+         "r": 0.0,
+         "g": 0.0,
+         "b": 0.0,
+         "a": 0.0
+        }
+       },
+       "ScreenShake": false,
+       "SoundEffects": []
+      },
+      "LocationFilter": {
+       "Head": false,
+       "Torso": false,
+       "LArm": false,
+       "RArm": false,
+       "LLeg": false,
+       "RLeg": false
+      },
+      "DroppedCards": [],
+      "StatChanges": [
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": -34.0,
+         "y": -34.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       }
+      ],
+      "WoundSelectionWeight": 1.0,
+      "EncounterResult": 0
+     },
+     {
+      "WoundLog": {
+       "LogText": {
+        "ParentObjectID": "cmcEncounterGuardVane",
+        "LocalizationKey": "",
+        "DefaultText": "You suffered a painful spear wound."
+       },
+       "AlternateLogTexts": [],
+       "TextSettings": {
+        "Active": false,
+        "Bold": false,
+        "Italics": false,
+        "Underlined": false
+       },
+       "TextAlignment": {
+        "Active": false,
+        "Alignment": 0
+       },
+       "TextColor": {
+        "Active": false,
+        "ColorValue": {
+         "r": 0.0,
+         "g": 0.0,
+         "b": 0.0,
+         "a": 0.0
+        }
+       },
+       "ScreenShake": false,
+       "SoundEffects": []
+      },
+      "LocationFilter": {
+       "Head": false,
+       "Torso": false,
+       "LArm": false,
+       "RArm": false,
+       "LLeg": false,
+       "RLeg": false
+      },
+      "DroppedCards": [],
+      "StatChanges": [
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": -34.0,
+         "y": -34.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       }
+      ],
+      "WoundSelectionWeight": 1.0,
+      "EncounterResult": 0
+     }
+    ],
+    "SeriousWounds": [
+     {
+      "WoundLog": {
+       "LogText": {
+        "ParentObjectID": "cmcEncounterGuardVane",
+        "LocalizationKey": "",
+        "DefaultText": "The spear pierced you with brutal force."
+       },
+       "AlternateLogTexts": [],
+       "TextSettings": {
+        "Active": false,
+        "Bold": false,
+        "Italics": false,
+        "Underlined": false
+       },
+       "TextAlignment": {
+        "Active": false,
+        "Alignment": 0
+       },
+       "TextColor": {
+        "Active": false,
+        "ColorValue": {
+         "r": 0.0,
+         "g": 0.0,
+         "b": 0.0,
+         "a": 0.0
+        }
+       },
+       "ScreenShake": false,
+       "SoundEffects": []
+      },
+      "LocationFilter": {
+       "Head": false,
+       "Torso": false,
+       "LArm": false,
+       "RArm": false,
+       "LLeg": false,
+       "RLeg": false
+      },
+      "DroppedCards": [],
+      "StatChanges": [
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": -68.0,
+         "y": -68.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       }
+      ],
+      "WoundSelectionWeight": 1.0,
+      "EncounterResult": 0
+     },
+     {
+      "WoundLog": {
+       "LogText": {
+        "ParentObjectID": "cmcEncounterGuardVane",
+        "LocalizationKey": "",
+        "DefaultText": "The spear sinks deep, leaving a terrible wound."
+       },
+       "AlternateLogTexts": [],
+       "TextSettings": {
+        "Active": false,
+        "Bold": false,
+        "Italics": false,
+        "Underlined": false
+       },
+       "TextAlignment": {
+        "Active": false,
+        "Alignment": 0
+       },
+       "TextColor": {
+        "Active": false,
+        "ColorValue": {
+         "r": 0.0,
+         "g": 0.0,
+         "b": 0.0,
+         "a": 0.0
+        }
+       },
+       "ScreenShake": false,
+       "SoundEffects": []
+      },
+      "LocationFilter": {
+       "Head": false,
+       "Torso": false,
+       "LArm": false,
+       "RArm": false,
+       "LLeg": false,
+       "RLeg": false
+      },
+      "DroppedCards": [],
+      "StatChanges": [
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": -68.0,
+         "y": -68.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       }
+      ],
+      "WoundSelectionWeight": 1.0,
+      "EncounterResult": 0
+     }
+    ]
+   },
+   "TemporaryEffects": [],
+   "EncounterResult": 0,
+   "TransferValuesToStats": []
+  },
+  {
+   "ActionLog": {
+    "LogText": {
+     "ParentObjectID": "cmcEncounterGuardVane",
+     "LocalizationKey": "",
+     "DefaultText": "Vane presses forward with the spear, breathing hard!"
+    },
+    "AlternateLogTexts": [
+     {
+      "ParentObjectID": "cmcEncounterGuardVane",
+      "LocalizationKey": "",
+      "DefaultText": "Vane makes a tired swing with the spear."
+     },
+     {
+      "ParentObjectID": "cmcEncounterGuardVane",
+      "LocalizationKey": "",
+      "DefaultText": "Vane lunges clumsily with the spear."
+     }
+    ],
+    "TextSettings": {
+     "Active": false,
+     "Bold": false,
+     "Italics": false,
+     "Underlined": false
+    },
+    "TextAlignment": {
+     "Active": false,
+     "Alignment": 0
+    },
+    "TextColor": {
+     "Active": false,
+     "ColorValue": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+     }
+    },
+    "ScreenShake": false,
+    "SoundEffects": []
+   },
+   "SuccessLog": {
+    "LogText": {
+     "ParentObjectID": "cmcEncounterGuardVane",
+     "LocalizationKey": "",
+     "DefaultText": "You fail to get clear and the spear connects..."
+    },
+    "AlternateLogTexts": [],
+    "TextSettings": {
+     "Active": false,
+     "Bold": false,
+     "Italics": false,
+     "Underlined": false
+    },
+    "TextAlignment": {
+     "Active": false,
+     "Alignment": 0
+    },
+    "TextColor": {
+     "Active": false,
+     "ColorValue": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+     }
+    },
+    "ScreenShake": true,
+    "SoundEffects": []
+   },
+   "FailureLog": {
+    "LogText": {
+     "ParentObjectID": "cmcEncounterGuardVane",
+     "LocalizationKey": "",
+     "DefaultText": "You get out of the way in time..."
+    },
+    "AlternateLogTexts": [],
+    "TextSettings": {
+     "Active": false,
+     "Bold": false,
+     "Italics": false,
+     "Underlined": false
+    },
+    "TextAlignment": {
+     "Active": false,
+     "Alignment": 0
+    },
+    "TextColor": {
+     "Active": false,
+     "ColorValue": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+     }
+    },
+    "ScreenShake": false,
+    "SoundEffects": []
+   },
+   "RequiredDistance": 0,
+   "RequiredWrestlingState": 2,
+   "RequiresAmbushState": 0,
+   "RequiredSelfVulnerableState": 0,
+   "RequiredOpponentVulnerableState": 0,
+   "BaseWeight": 0,
+   "DistanceWeightModifier": 0,
+   "CloseRangeWeightModifier": 0,
+   "EnemyHiddenWeightModifier": 0,
+   "PlayerHiddenWeightModifier": 0,
+   "WrestlingWeightModifier": 0,
+   "NOTWrestlingWeightModifier": 0,
+   "SelfVulnerableWeightModifier": 0,
+   "SelfNOTVulnerableWeightModifier": 0,
+   "OpponentVulnerableWeightModifier": 0,
+   "OpponentNOTVulnerableWeightModifier": 0,
+   "CardsOnBoardWeightModifiers": [],
+   "StatsWeightModifiers": [],
+   "ValuesWeightModifiers": {
+    "WeightPerMeleeSkill": {
+     "Active": false,
+     "DurabilityRange": {
+      "x": 0.0,
+      "y": 0.0
+     },
+     "InterpWeightRange": {
+      "x": 0,
+      "y": 0
+     },
+     "WhenOutOfRange": 0
+    },
+    "WeightPerRangedSkill": {
+     "Active": false,
+     "DurabilityRange": {
+      "x": 0.0,
+      "y": 0.0
+     },
+     "InterpWeightRange": {
+      "x": 0,
+      "y": 0
+     },
+     "WhenOutOfRange": 0
+    },
+    "WeightPerBlood": {
+     "Active": false,
+     "DurabilityRange": {
+      "x": 0.0,
+      "y": 0.0
+     },
+     "InterpWeightRange": {
+      "x": 0,
+      "y": 0
+     },
+     "WhenOutOfRange": 0
+    },
+    "WeightPerStamina": {
+     "Active": true,
+     "DurabilityRange": {
+      "x": 0.0,
+      "y": 0.0
+     },
+     "InterpWeightRange": {
+      "x": 100,
+      "y": 100
+     },
+     "WhenOutOfRange": 0
+    },
+    "WeightPerMorale": {
+     "Active": false,
+     "DurabilityRange": {
+      "x": 0.0,
+      "y": 0.0
+     },
+     "InterpWeightRange": {
+      "x": -1,
+      "y": -1
+     },
+     "WhenOutOfRange": 0
+    },
+    "WeightPerValue1": {
+     "Active": false,
+     "DurabilityRange": {
+      "x": 1.0,
+      "y": 1.0
+     },
+     "InterpWeightRange": {
+      "x": -1000,
+      "y": -1000
+     },
+     "WhenOutOfRange": 0
+    },
+    "WeightPerValue2": {
+     "Active": false,
+     "DurabilityRange": {
+      "x": 0.0,
+      "y": 0.0
+     },
+     "InterpWeightRange": {
+      "x": 0,
+      "y": 0
+     },
+     "WhenOutOfRange": 0
+    },
+    "WeightPerValue3": {
+     "Active": false,
+     "DurabilityRange": {
+      "x": 0.0,
+      "y": 0.0
+     },
+     "InterpWeightRange": {
+      "x": 0,
+      "y": 0
+     },
+     "WhenOutOfRange": 0
+    },
+    "WeightPerValue4": {
+     "Active": false,
+     "DurabilityRange": {
+      "x": 0.0,
+      "y": 0.0
+     },
+     "InterpWeightRange": {
+      "x": 0,
+      "y": 0
+     },
+     "WhenOutOfRange": 0
+    }
+   },
+   "WoundsWeightModifiers": {
+    "WeightPerAllWounds": {
+     "Active": false,
+     "DurabilityRange": {
+      "x": 0.0,
+      "y": 0.0
+     },
+     "InterpWeightRange": {
+      "x": 0,
+      "y": 0
+     },
+     "WhenOutOfRange": 0
+    },
+    "WeightPerHeadWounds": {
+     "Active": false,
+     "DurabilityRange": {
+      "x": 0.0,
+      "y": 0.0
+     },
+     "InterpWeightRange": {
+      "x": 0,
+      "y": 0
+     },
+     "WhenOutOfRange": 0
+    },
+    "WeightPerTorsoWounds": {
+     "Active": false,
+     "DurabilityRange": {
+      "x": 0.0,
+      "y": 0.0
+     },
+     "InterpWeightRange": {
+      "x": 0,
+      "y": 0
+     },
+     "WhenOutOfRange": 0
+    },
+    "WeightPerLArmWounds": {
+     "Active": false,
+     "DurabilityRange": {
+      "x": 0.0,
+      "y": 0.0
+     },
+     "InterpWeightRange": {
+      "x": 0,
+      "y": 0
+     },
+     "WhenOutOfRange": 0
+    },
+    "WeightPerRArmWounds": {
+     "Active": false,
+     "DurabilityRange": {
+      "x": 0.0,
+      "y": 0.0
+     },
+     "InterpWeightRange": {
+      "x": 0,
+      "y": 0
+     },
+     "WhenOutOfRange": 0
+    },
+    "WeightPerLLegWounds": {
+     "Active": false,
+     "DurabilityRange": {
+      "x": 0.0,
+      "y": 0.0
+     },
+     "InterpWeightRange": {
+      "x": 0,
+      "y": 0
+     },
+     "WhenOutOfRange": 0
+    },
+    "WeightPerRLegWounds": {
+     "Active": false,
+     "DurabilityRange": {
+      "x": 0.0,
+      "y": 0.0
+     },
+     "InterpWeightRange": {
+      "x": 0,
+      "y": 0
+     },
+     "WhenOutOfRange": 0
+    }
+   },
+   "ActionRange": 0,
+   "Reach": 125.0,
+   "PreClashDistanceChange": 0,
+   "ImmuneToCancelling": [],
+   "CannotFailClash": false,
+   "CustomClashAgainstValue": {
+    "Active": false,
+    "FloatValue": 0.0,
+    "MaxValue": 0.0
+   },
+   "DoesNotAttack": false,
+   "CannotBeDodged": false,
+   "IsEscapeAction": false,
+   "IsChargingAction": false,
+   "IgnoreEnemySkillForClash": false,
+   "BaseClashValue": 0.0,
+   "ClashRangedInaccuracy": {
+    "x": 0.0,
+    "y": 0.0
+   },
+   "ClashStealthBonus": {
+    "x": 150.0,
+    "y": 150.0
+   },
+   "IneffectiveRangeMalus": {
+    "x": 0.0,
+    "y": 0.0
+   },
+   "ClashVsEscapeModifier": {
+    "x": 0.0,
+    "y": 0.0
+   },
+   "ClashVsVulnerableModifier": {
+    "x": 0.0,
+    "y": 0.0
+   },
+   "WrestlingClashModifier": {
+    "x": 0.0,
+    "y": 0.0
+   },
+   "EnemyValuesClashModifier": {
+    "EnemyMeleeSkillMod": {
+     "InterpolatedAddedValue": {
+      "Active": true,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 100.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 100.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyRangedSkillMod": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyBloodMod": {
+     "InterpolatedAddedValue": {
+      "Active": true,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 100.0
+      },
+      "OutputValueRange": {
+       "x": -100.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyStaminaMod": {
+     "InterpolatedAddedValue": {
+      "Active": true,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 100.0
+      },
+      "OutputValueRange": {
+       "x": -50.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyMoraleMod": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyValue1Mod": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyValue2Mod": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyValue3Mod": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyValue4Mod": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    }
+   },
+   "EnemyWoundClashModifier": {
+    "AllWoundModifier": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 18.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": -150.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "HeadWoundModifier": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "TorsoWoundModifier": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "LArmWoundModifier": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "RArmWoundModifier": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "LLegWoundModifier": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "RLegWoundModifier": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    }
+   },
+   "EnemyStatsClashModifiers": [],
+   "Damage": {
+    "x": 25.0,
+    "y": 75.0
+   },
+   "DmgVsVulnerableModifier": {
+    "x": 0.0,
+    "y": 0.0
+   },
+   "WrestlingDamageModifier": {
+    "x": 0.0,
+    "y": 0.0
+   },
+   "DamageTypes": [],
+   "DamageTypesWarpData": [
+    "DMG_Piercing"
+   ],
+   "DamageTypesWarpType": 3,
+   "EnemyValuesDamageModifier": {
+    "EnemyMeleeSkillMod": {
+     "InterpolatedAddedValue": {
+      "Active": true,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 100.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 50.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyRangedSkillMod": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyBloodMod": {
+     "InterpolatedAddedValue": {
+      "Active": true,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 100.0
+      },
+      "OutputValueRange": {
+       "x": -75.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyStaminaMod": {
+     "InterpolatedAddedValue": {
+      "Active": true,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 100.0
+      },
+      "OutputValueRange": {
+       "x": -25.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyMoraleMod": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyValue1Mod": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyValue2Mod": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyValue3Mod": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "EnemyValue4Mod": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    }
+   },
+   "EnemyWoundDamageModifier": {
+    "AllWoundModifier": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 25.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "HeadWoundModifier": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "TorsoWoundModifier": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "LArmWoundModifier": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "RArmWoundModifier": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "LLegWoundModifier": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    },
+    "RLegWoundModifier": {
+     "InterpolatedAddedValue": {
+      "Active": false,
+      "InputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "OutputValueRange": {
+       "x": 0.0,
+       "y": 0.0
+      },
+      "WhenOutOfRange": 0,
+      "OutOfRangeCustomValue": 0.0
+     },
+     "RandomAddedValue": {
+      "x": 0.0,
+      "y": 0.0
+     }
+    }
+   },
+   "EnemyStatsDamageModifier": [],
+   "DmgVsEscapeModifier": {
+    "x": 0.0,
+    "y": 0.0
+   },
+   "AddedPlayerLocationHitProbabilities": {
+    "TorsoHitProbabilityModifier": 0.0,
+    "HeadHitProbabilityModifier": -1000.0,
+    "LArmHitProbabilityModifier": 0.0,
+    "RArmHitProbabilityModifier": 0.0,
+    "LLegHitProbabilityModifier": 0.0,
+    "RLegHitProbabilityModifier": 0.0
+   },
+   "ArmorDurabilityDamage": {
+    "Active": false,
+    "FloatValue": 0.0
+   },
+   "EnemyValueChanges": {
+    "MeleeApplies": 0,
+    "MeleeSkillModifier": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "RangedApplies": 0,
+    "RangedSkillModifier": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "BloodApplies": 0,
+    "BloodModifier": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "StaminaApplies": 0,
+    "StaminaModifier": {
+     "x": -20.0,
+     "y": -20.0
+    },
+    "MoraleApplies": 0,
+    "MoraleModifier": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "Value1Applies": 0,
+    "Value1Modifier": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "Value2Applies": 0,
+    "Value2Modifier": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "Value3Applies": 0,
+    "Value3Modifier": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "Value4Applies": 0,
+    "Value4Modifier": {
+     "x": 0.0,
+     "y": 0.0
+    }
+   },
+   "WrestlingStateChange": {
+    "WrestlingStateChange": 0,
+    "ChangeApplies": 0
+   },
+   "SelfVulnerableStateChange": {
+    "Change": 0,
+    "PercentageChance": {
+     "UseChance": false,
+     "ChanceValue": 0.0
+    }
+   },
+   "OpponentVulnerableStateChange": {
+    "Change": 0,
+    "PercentageChance": {
+     "UseChance": false,
+     "ChanceValue": 0.0
+    }
+   },
+   "PlayerWounds": {
+    "UnharmedResults": [
+     {
+      "WoundLog": {
+       "LogText": {
+        "ParentObjectID": "cmcEncounterGuardVane",
+        "LocalizationKey": "",
+        "DefaultText": "Fortunately, the attack wasn't enough to hurt you."
+       },
+       "AlternateLogTexts": [],
+       "TextSettings": {
+        "Active": false,
+        "Bold": false,
+        "Italics": false,
+        "Underlined": false
+       },
+       "TextAlignment": {
+        "Active": false,
+        "Alignment": 0
+       },
+       "TextColor": {
+        "Active": false,
+        "ColorValue": {
+         "r": 0.0,
+         "g": 0.0,
+         "b": 0.0,
+         "a": 0.0
+        }
+       },
+       "ScreenShake": false,
+       "SoundEffects": []
+      },
+      "LocationFilter": {
+       "Head": false,
+       "Torso": false,
+       "LArm": false,
+       "RArm": false,
+       "LLeg": false,
+       "RLeg": false
+      },
+      "DroppedCards": [],
+      "StatChanges": [],
+      "WoundSelectionWeight": 0.0,
+      "EncounterResult": 0
+     }
+    ],
+    "MinorWounds": [
+     {
+      "WoundLog": {
+       "LogText": {
+        "ParentObjectID": "cmcEncounterGuardVane",
+        "LocalizationKey": "",
+        "DefaultText": "The spear grazed you, leaving a shallow cut."
+       },
+       "AlternateLogTexts": [],
+       "TextSettings": {
+        "Active": false,
+        "Bold": false,
+        "Italics": false,
+        "Underlined": false
+       },
+       "TextAlignment": {
+        "Active": false,
+        "Alignment": 0
+       },
+       "TextColor": {
+        "Active": false,
+        "ColorValue": {
+         "r": 0.0,
+         "g": 0.0,
+         "b": 0.0,
+         "a": 0.0
+        }
+       },
+       "ScreenShake": false,
+       "SoundEffects": []
+      },
+      "LocationFilter": {
+       "Head": false,
+       "Torso": false,
+       "LArm": false,
+       "RArm": false,
+       "LLeg": false,
+       "RLeg": false
+      },
+      "DroppedCards": [],
+      "StatChanges": [
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": -17.0,
+         "y": -17.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       }
+      ],
+      "WoundSelectionWeight": 1.0,
+      "EncounterResult": 0
+     },
+     {
+      "WoundLog": {
+       "LogText": {
+        "ParentObjectID": "cmcEncounterGuardVane",
+        "LocalizationKey": "",
+        "DefaultText": "The spear nicked your flesh."
+       },
+       "AlternateLogTexts": [],
+       "TextSettings": {
+        "Active": false,
+        "Bold": false,
+        "Italics": false,
+        "Underlined": false
+       },
+       "TextAlignment": {
+        "Active": false,
+        "Alignment": 0
+       },
+       "TextColor": {
+        "Active": false,
+        "ColorValue": {
+         "r": 0.0,
+         "g": 0.0,
+         "b": 0.0,
+         "a": 0.0
+        }
+       },
+       "ScreenShake": false,
+       "SoundEffects": []
+      },
+      "LocationFilter": {
+       "Head": false,
+       "Torso": false,
+       "LArm": false,
+       "RArm": false,
+       "LLeg": false,
+       "RLeg": false
+      },
+      "DroppedCards": [],
+      "StatChanges": [
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": -17.0,
+         "y": -17.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       }
+      ],
+      "WoundSelectionWeight": 1.0,
+      "EncounterResult": 0
+     },
+     {
+      "WoundLog": {
+       "LogText": {
+        "ParentObjectID": "cmcEncounterGuardVane",
+        "LocalizationKey": "",
+        "DefaultText": "You suffered a small puncture wound."
+       },
+       "AlternateLogTexts": [],
+       "TextSettings": {
+        "Active": false,
+        "Bold": false,
+        "Italics": false,
+        "Underlined": false
+       },
+       "TextAlignment": {
+        "Active": false,
+        "Alignment": 0
+       },
+       "TextColor": {
+        "Active": false,
+        "ColorValue": {
+         "r": 0.0,
+         "g": 0.0,
+         "b": 0.0,
+         "a": 0.0
+        }
+       },
+       "ScreenShake": false,
+       "SoundEffects": []
+      },
+      "LocationFilter": {
+       "Head": false,
+       "Torso": false,
+       "LArm": false,
+       "RArm": false,
+       "LLeg": false,
+       "RLeg": false
+      },
+      "DroppedCards": [],
+      "StatChanges": [
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": -17.0,
+         "y": -17.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       }
+      ],
+      "WoundSelectionWeight": 1.0,
+      "EncounterResult": 0
+     }
+    ],
+    "MediumWounds": [
+     {
+      "WoundLog": {
+       "LogText": {
+        "ParentObjectID": "cmcEncounterGuardVane",
+        "LocalizationKey": "",
+        "DefaultText": "The spear drove into you, drawing blood."
+       },
+       "AlternateLogTexts": [],
+       "TextSettings": {
+        "Active": false,
+        "Bold": false,
+        "Italics": false,
+        "Underlined": false
+       },
+       "TextAlignment": {
+        "Active": false,
+        "Alignment": 0
+       },
+       "TextColor": {
+        "Active": false,
+        "ColorValue": {
+         "r": 0.0,
+         "g": 0.0,
+         "b": 0.0,
+         "a": 0.0
+        }
+       },
+       "ScreenShake": false,
+       "SoundEffects": []
+      },
+      "LocationFilter": {
+       "Head": false,
+       "Torso": false,
+       "LArm": false,
+       "RArm": false,
+       "LLeg": false,
+       "RLeg": false
+      },
+      "DroppedCards": [],
+      "StatChanges": [
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": -34.0,
+         "y": -34.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       }
+      ],
+      "WoundSelectionWeight": 1.0,
+      "EncounterResult": 0
+     },
+     {
+      "WoundLog": {
+       "LogText": {
+        "ParentObjectID": "cmcEncounterGuardVane",
+        "LocalizationKey": "",
+        "DefaultText": "The spear struck true and tore into your flesh."
+       },
+       "AlternateLogTexts": [],
+       "TextSettings": {
+        "Active": false,
+        "Bold": false,
+        "Italics": false,
+        "Underlined": false
+       },
+       "TextAlignment": {
+        "Active": false,
+        "Alignment": 0
+       },
+       "TextColor": {
+        "Active": false,
+        "ColorValue": {
+         "r": 0.0,
+         "g": 0.0,
+         "b": 0.0,
+         "a": 0.0
+        }
+       },
+       "ScreenShake": false,
+       "SoundEffects": []
+      },
+      "LocationFilter": {
+       "Head": false,
+       "Torso": false,
+       "LArm": false,
+       "RArm": false,
+       "LLeg": false,
+       "RLeg": false
+      },
+      "DroppedCards": [],
+      "StatChanges": [
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": -34.0,
+         "y": -34.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       }
+      ],
+      "WoundSelectionWeight": 1.0,
+      "EncounterResult": 0
+     },
+     {
+      "WoundLog": {
+       "LogText": {
+        "ParentObjectID": "cmcEncounterGuardVane",
+        "LocalizationKey": "",
+        "DefaultText": "You suffered a painful spear wound."
+       },
+       "AlternateLogTexts": [],
+       "TextSettings": {
+        "Active": false,
+        "Bold": false,
+        "Italics": false,
+        "Underlined": false
+       },
+       "TextAlignment": {
+        "Active": false,
+        "Alignment": 0
+       },
+       "TextColor": {
+        "Active": false,
+        "ColorValue": {
+         "r": 0.0,
+         "g": 0.0,
+         "b": 0.0,
+         "a": 0.0
+        }
+       },
+       "ScreenShake": false,
+       "SoundEffects": []
+      },
+      "LocationFilter": {
+       "Head": false,
+       "Torso": false,
+       "LArm": false,
+       "RArm": false,
+       "LLeg": false,
+       "RLeg": false
+      },
+      "DroppedCards": [],
+      "StatChanges": [
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": -34.0,
+         "y": -34.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       }
+      ],
+      "WoundSelectionWeight": 1.0,
+      "EncounterResult": 0
+     }
+    ],
+    "SeriousWounds": [
+     {
+      "WoundLog": {
+       "LogText": {
+        "ParentObjectID": "cmcEncounterGuardVane",
+        "LocalizationKey": "",
+        "DefaultText": "The spear pierced you with brutal force."
+       },
+       "AlternateLogTexts": [],
+       "TextSettings": {
+        "Active": false,
+        "Bold": false,
+        "Italics": false,
+        "Underlined": false
+       },
+       "TextAlignment": {
+        "Active": false,
+        "Alignment": 0
+       },
+       "TextColor": {
+        "Active": false,
+        "ColorValue": {
+         "r": 0.0,
+         "g": 0.0,
+         "b": 0.0,
+         "a": 0.0
+        }
+       },
+       "ScreenShake": false,
+       "SoundEffects": []
+      },
+      "LocationFilter": {
+       "Head": false,
+       "Torso": false,
+       "LArm": false,
+       "RArm": false,
+       "LLeg": false,
+       "RLeg": false
+      },
+      "DroppedCards": [],
+      "StatChanges": [
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": -68.0,
+         "y": -68.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       }
+      ],
+      "WoundSelectionWeight": 1.0,
+      "EncounterResult": 0
+     },
+     {
+      "WoundLog": {
+       "LogText": {
+        "ParentObjectID": "cmcEncounterGuardVane",
+        "LocalizationKey": "",
+        "DefaultText": "The spear pierced you with brutal force."
+       },
+       "AlternateLogTexts": [],
+       "TextSettings": {
+        "Active": false,
+        "Bold": false,
+        "Italics": false,
+        "Underlined": false
+       },
+       "TextAlignment": {
+        "Active": false,
+        "Alignment": 0
+       },
+       "TextColor": {
+        "Active": false,
+        "ColorValue": {
+         "r": 0.0,
+         "g": 0.0,
+         "b": 0.0,
+         "a": 0.0
+        }
+       },
+       "ScreenShake": false,
+       "SoundEffects": []
+      },
+      "LocationFilter": {
+       "Head": false,
+       "Torso": false,
+       "LArm": false,
+       "RArm": false,
+       "LLeg": false,
+       "RLeg": false
+      },
+      "DroppedCards": [],
+      "StatChanges": [
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": -68.0,
+         "y": -68.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       }
+      ],
+      "WoundSelectionWeight": 1.0,
+      "EncounterResult": 0
+     }
+    ]
+   },
+   "TemporaryEffects": [],
+   "EncounterResult": 0,
+   "TransferValuesToStats": []
+  }
+ ],
+ "EnemyGettingCloseLog": {
+  "LogText": {
+   "ParentObjectID": "cmcEncounterGuardVane",
+   "LocalizationKey": "",
+   "DefaultText": "Vane steps out of the dark at you..."
+  },
+  "AlternateLogTexts": [],
+  "TextSettings": {
+   "Active": false,
+   "Bold": false,
+   "Italics": false,
+   "Underlined": false
+  },
+  "TextAlignment": {
+   "Active": false,
+   "Alignment": 0
+  },
+  "TextColor": {
+   "Active": false,
+   "ColorValue": {
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
+   }
+  },
+  "ScreenShake": false,
+  "SoundEffects": []
+ },
+ "PlayerActions": [],
+ "OverrideEscapeActionName": {
+  "ParentObjectID": "cmcEncounterGuardVane",
+  "LocalizationKey": "",
+  "DefaultText": ""
+ },
+ "OverrideEscapeActionLog": {
+  "LogText": {
+   "ParentObjectID": "cmcEncounterGuardVane",
+   "LocalizationKey": "",
+   "DefaultText": ""
+  },
+  "AlternateLogTexts": [],
+  "TextSettings": {
+   "Active": false,
+   "Bold": false,
+   "Italics": false,
+   "Underlined": false
+  },
+  "TextAlignment": {
+   "Active": false,
+   "Alignment": 0
+  },
+  "TextColor": {
+   "Active": false,
+   "ColorValue": {
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
+   }
+  },
+  "ScreenShake": false,
+  "SoundEffects": []
+ },
+ "OverrideBreakFreeActionName": {
+  "ParentObjectID": "cmcEncounterGuardVane",
+  "LocalizationKey": "",
+  "DefaultText": ""
+ },
+ "OverrideBreakFreeSuccessLog": {
+  "LogText": {
+   "ParentObjectID": "cmcEncounterGuardVane",
+   "LocalizationKey": "",
+   "DefaultText": ""
+  },
+  "AlternateLogTexts": [],
+  "TextSettings": {
+   "Active": false,
+   "Bold": false,
+   "Italics": false,
+   "Underlined": false
+  },
+  "TextAlignment": {
+   "Active": false,
+   "Alignment": 0
+  },
+  "TextColor": {
+   "Active": false,
+   "ColorValue": {
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
+   }
+  },
+  "ScreenShake": false,
+  "SoundEffects": []
+ },
+ "OverrideBreakFreeFailureLog": {
+  "LogText": {
+   "ParentObjectID": "cmcEncounterGuardVane",
+   "LocalizationKey": "",
+   "DefaultText": ""
+  },
+  "AlternateLogTexts": [],
+  "TextSettings": {
+   "Active": false,
+   "Bold": false,
+   "Italics": false,
+   "Underlined": false
+  },
+  "TextAlignment": {
+   "Active": false,
+   "Alignment": 0
+  },
+  "TextColor": {
+   "Active": false,
+   "ColorValue": {
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
+   }
+  },
+  "ScreenShake": false,
+  "SoundEffects": []
+ },
+ "OverrideRecoverActionName": {
+  "ParentObjectID": "cmcEncounterGuardVane",
+  "LocalizationKey": "",
+  "DefaultText": ""
+ },
+ "OverrideRecoverSuccessLog": {
+  "LogText": {
+   "ParentObjectID": "cmcEncounterGuardVane",
+   "LocalizationKey": "",
+   "DefaultText": ""
+  },
+  "AlternateLogTexts": [],
+  "TextSettings": {
+   "Active": false,
+   "Bold": false,
+   "Italics": false,
+   "Underlined": false
+  },
+  "TextAlignment": {
+   "Active": false,
+   "Alignment": 0
+  },
+  "TextColor": {
+   "Active": false,
+   "ColorValue": {
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
+   }
+  },
+  "ScreenShake": false,
+  "SoundEffects": []
+ },
+ "OverrideRecoverRecoverFailureLog": {
+  "LogText": {
+   "ParentObjectID": "cmcEncounterGuardVane",
+   "LocalizationKey": "",
+   "DefaultText": ""
+  },
+  "AlternateLogTexts": [],
+  "TextSettings": {
+   "Active": false,
+   "Bold": false,
+   "Italics": false,
+   "Underlined": false
+  },
+  "TextAlignment": {
+   "Active": false,
+   "Alignment": 0
+  },
+  "TextColor": {
+   "Active": false,
+   "ColorValue": {
+    "r": 0.0,
+    "g": 0.0,
+    "b": 0.0,
+    "a": 0.0
+   }
+  },
+  "ScreenShake": false,
+  "SoundEffects": []
+ },
+ "DefaultPlayerWounds": {
+  "UnharmedResults": [],
+  "MinorWounds": [],
+  "MediumWounds": [],
+  "SeriousWounds": []
+ },
+ "EnemyDefeatedEffects": {
+  "OnlyTriggerOnMainActions": false,
+  "ResultLog": {
+   "LogText": {
+    "ParentObjectID": "cmcEncounterGuardVane",
+    "LocalizationKey": "",
+    "DefaultText": "Vane goes down and does not get back up.\n<b>You have killed a guard of the village Watch.</b>"
+   },
+   "AlternateLogTexts": [],
+   "TextSettings": {
+    "Active": false,
+    "Bold": false,
+    "Italics": false,
+    "Underlined": false
+   },
+   "TextAlignment": {
+    "Active": false,
+    "Alignment": 0
+   },
+   "TextColor": {
+    "Active": false,
+    "ColorValue": {
+     "r": 0.0,
+     "g": 0.0,
+     "b": 0.0,
+     "a": 0.0
+    }
+   },
+   "ScreenShake": false,
+   "SoundEffects": []
+  },
+  "DroppedCards": [],
+  "StatChanges": [
+   {
+    "Stat": {
+     "m_FileID": 0,
+     "m_PathID": 0
+    },
+    "StatWarpData": "cmcStatVillageCrime",
+    "StatWarpType": 3,
+    "ValueModifier": {
+     "x": 100.0,
+     "y": 100.0
+    },
+    "RateModifier": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "MinValueModifier": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "MaxValueModifier": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "CannotModifyBeyond": {
+     "Active": false,
+     "FloatValue": 0.0,
+     "MaxValue": 0.0
+    },
+    "ApplyEachTick": false,
+    "InstantModifier": false,
+    "IgnoreNovelty": true,
+    "IsInverse": false
+   }
+  ],
+  "NPCStatChanges": [
+   {
+    "TargetStat": {
+     "m_FileID": 0,
+     "m_PathID": 0
+    },
+    "TargetStatWarpData": "cmcNpcStatGuardDowned",
+    "TargetStatWarpType": 3,
+    "UseAssociatedAgent": true,
+    "TargetAgent": {
+     "m_FileID": 0,
+     "m_PathID": 0
+    },
+    "ValueChange": {
+     "x": 1.0,
+     "y": 1.0
+    },
+    "IgnoreNovelty": true
+   }
+  ],
+  "TransferValuesToStats": [],
+  "AmmoRecovery": 0,
+  "ChaseNPC": {
+   "Active": false,
+   "AddedEnemyEscapeModifiers": {
+    "BaseEnemyEscapeValue": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "EnemyValuesModifiers": {
+     "EnemyMeleeSkillMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyRangedSkillMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyBloodMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyStaminaMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyMoraleMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue1Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue2Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue3Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue4Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     }
+    },
+    "EnemyWoundModifiers": {
+     "AllWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "HeadWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "TorsoWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "LArmWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "RArmWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "LLegWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "RLegWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     }
+    },
+    "StatsModifiers": []
+   },
+   "OverrideInitiatingChaseLog": {
+    "LogText": {
+     "ParentObjectID": "cmcEncounterGuardVane",
+     "LocalizationKey": "",
+     "DefaultText": ""
+    },
+    "AlternateLogTexts": [],
+    "TextSettings": {
+     "Active": false,
+     "Bold": false,
+     "Italics": false,
+     "Underlined": false
+    },
+    "TextAlignment": {
+     "Active": false,
+     "Alignment": 0
+    },
+    "TextColor": {
+     "Active": false,
+     "ColorValue": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+     }
+    },
+    "ScreenShake": false,
+    "SoundEffects": []
+   },
+   "OverrideChaseSuccessfulLog": {
+    "LogText": {
+     "ParentObjectID": "cmcEncounterGuardVane",
+     "LocalizationKey": "",
+     "DefaultText": ""
+    },
+    "AlternateLogTexts": [],
+    "TextSettings": {
+     "Active": false,
+     "Bold": false,
+     "Italics": false,
+     "Underlined": false
+    },
+    "TextAlignment": {
+     "Active": false,
+     "Alignment": 0
+    },
+    "TextColor": {
+     "Active": false,
+     "ColorValue": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+     }
+    },
+    "ScreenShake": false,
+    "SoundEffects": []
+   },
+   "OverrideChaseFailedLog": {
+    "LogText": {
+     "ParentObjectID": "cmcEncounterGuardVane",
+     "LocalizationKey": "",
+     "DefaultText": ""
+    },
+    "AlternateLogTexts": [],
+    "TextSettings": {
+     "Active": false,
+     "Bold": false,
+     "Italics": false,
+     "Underlined": false
+    },
+    "TextAlignment": {
+     "Active": false,
+     "Alignment": 0
+    },
+    "TextColor": {
+     "Active": false,
+     "ColorValue": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+     }
+    },
+    "ScreenShake": false,
+    "SoundEffects": []
+   }
+  },
+  "MovePlayer": 0,
+  "MovePlayerToSpecificEnvironment": [],
+  "MoveDuration": 0,
+  "MoveNPC": 0,
+  "MoveNPCToSpecificEnvironment": [],
+  "MoveNPCPathfindingAction": {
+   "m_FileID": 0,
+   "m_PathID": 0
+  },
+  "SaveEncounterToNPC": false
+ },
+ "EnemyEscapedEffects": {
+  "OnlyTriggerOnMainActions": true,
+  "ResultLog": {
+   "LogText": {
+    "ParentObjectID": "cmcEncounterGuardVane",
+    "LocalizationKey": "",
+    "DefaultText": "Vane pulls back into the dark, still watching you, and does not stop watching. She is beaten, but she is not dead."
+   },
+   "AlternateLogTexts": [],
+   "TextSettings": {
+    "Active": false,
+    "Bold": false,
+    "Italics": false,
+    "Underlined": false
+   },
+   "TextAlignment": {
+    "Active": false,
+    "Alignment": 0
+   },
+   "TextColor": {
+    "Active": false,
+    "ColorValue": {
+     "r": 0.0,
+     "g": 0.0,
+     "b": 0.0,
+     "a": 0.0
+    }
+   },
+   "ScreenShake": false,
+   "SoundEffects": []
+  },
+  "DroppedCards": [],
+  "StatChanges": [],
+  "NPCStatChanges": [
+   {
+    "TargetStat": {
+     "m_FileID": 0,
+     "m_PathID": 0
+    },
+    "TargetStatWarpData": "cmcNpcStatGuardDowned",
+    "TargetStatWarpType": 3,
+    "UseAssociatedAgent": true,
+    "TargetAgent": {
+     "m_FileID": 0,
+     "m_PathID": 0
+    },
+    "ValueChange": {
+     "x": 1.0,
+     "y": 1.0
+    },
+    "IgnoreNovelty": true
+   }
+  ],
+  "TransferValuesToStats": [],
+  "AmmoRecovery": 0,
+  "ChaseNPC": {
+   "Active": false,
+   "AddedEnemyEscapeModifiers": {
+    "BaseEnemyEscapeValue": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "EnemyValuesModifiers": {
+     "EnemyMeleeSkillMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyRangedSkillMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyBloodMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyStaminaMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyMoraleMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue1Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue2Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue3Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue4Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     }
+    },
+    "EnemyWoundModifiers": {
+     "AllWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "HeadWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "TorsoWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "LArmWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "RArmWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "LLegWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "RLegWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     }
+    },
+    "StatsModifiers": []
+   },
+   "OverrideInitiatingChaseLog": {
+    "LogText": {
+     "ParentObjectID": "cmcEncounterGuardVane",
+     "LocalizationKey": "",
+     "DefaultText": ""
+    },
+    "AlternateLogTexts": [],
+    "TextSettings": {
+     "Active": false,
+     "Bold": false,
+     "Italics": false,
+     "Underlined": false
+    },
+    "TextAlignment": {
+     "Active": false,
+     "Alignment": 0
+    },
+    "TextColor": {
+     "Active": false,
+     "ColorValue": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+     }
+    },
+    "ScreenShake": false,
+    "SoundEffects": []
+   },
+   "OverrideChaseSuccessfulLog": {
+    "LogText": {
+     "ParentObjectID": "cmcEncounterGuardVane",
+     "LocalizationKey": "",
+     "DefaultText": ""
+    },
+    "AlternateLogTexts": [],
+    "TextSettings": {
+     "Active": false,
+     "Bold": false,
+     "Italics": false,
+     "Underlined": false
+    },
+    "TextAlignment": {
+     "Active": false,
+     "Alignment": 0
+    },
+    "TextColor": {
+     "Active": false,
+     "ColorValue": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+     }
+    },
+    "ScreenShake": false,
+    "SoundEffects": []
+   },
+   "OverrideChaseFailedLog": {
+    "LogText": {
+     "ParentObjectID": "cmcEncounterGuardVane",
+     "LocalizationKey": "",
+     "DefaultText": ""
+    },
+    "AlternateLogTexts": [],
+    "TextSettings": {
+     "Active": false,
+     "Bold": false,
+     "Italics": false,
+     "Underlined": false
+    },
+    "TextAlignment": {
+     "Active": false,
+     "Alignment": 0
+    },
+    "TextColor": {
+     "Active": false,
+     "ColorValue": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+     }
+    },
+    "ScreenShake": false,
+    "SoundEffects": []
+   }
+  },
+  "MovePlayer": 0,
+  "MovePlayerToSpecificEnvironment": [],
+  "MoveDuration": 0,
+  "MoveNPC": 4,
+  "MoveNPCToSpecificEnvironment": [],
+  "MoveNPCPathfindingAction": {
+   "m_FileID": 0,
+   "m_PathID": 0
+  },
+  "SaveEncounterToNPC": true
+ },
+ "PlayerEscapedEffects": {
+  "OnlyTriggerOnMainActions": false,
+  "ResultLog": {
+   "LogText": {
+    "ParentObjectID": "cmcEncounterGuardVane",
+    "LocalizationKey": "",
+    "DefaultText": "You break away from Vane and run."
+   },
+   "AlternateLogTexts": [],
+   "TextSettings": {
+    "Active": false,
+    "Bold": false,
+    "Italics": false,
+    "Underlined": false
+   },
+   "TextAlignment": {
+    "Active": false,
+    "Alignment": 0
+   },
+   "TextColor": {
+    "Active": false,
+    "ColorValue": {
+     "r": 0.0,
+     "g": 0.0,
+     "b": 0.0,
+     "a": 0.0
+    }
+   },
+   "ScreenShake": false,
+   "SoundEffects": []
+  },
+  "DroppedCards": [],
+  "StatChanges": [],
+  "NPCStatChanges": [],
+  "TransferValuesToStats": [],
+  "AmmoRecovery": 0,
+  "ChaseNPC": {
+   "Active": false,
+   "AddedEnemyEscapeModifiers": {
+    "BaseEnemyEscapeValue": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "EnemyValuesModifiers": {
+     "EnemyMeleeSkillMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyRangedSkillMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyBloodMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyStaminaMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyMoraleMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue1Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue2Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue3Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue4Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     }
+    },
+    "EnemyWoundModifiers": {
+     "AllWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "HeadWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "TorsoWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "LArmWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "RArmWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "LLegWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "RLegWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     }
+    },
+    "StatsModifiers": []
+   },
+   "OverrideInitiatingChaseLog": {
+    "LogText": {
+     "ParentObjectID": "cmcEncounterGuardVane",
+     "LocalizationKey": "",
+     "DefaultText": ""
+    },
+    "AlternateLogTexts": [],
+    "TextSettings": {
+     "Active": false,
+     "Bold": false,
+     "Italics": false,
+     "Underlined": false
+    },
+    "TextAlignment": {
+     "Active": false,
+     "Alignment": 0
+    },
+    "TextColor": {
+     "Active": false,
+     "ColorValue": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+     }
+    },
+    "ScreenShake": false,
+    "SoundEffects": []
+   },
+   "OverrideChaseSuccessfulLog": {
+    "LogText": {
+     "ParentObjectID": "cmcEncounterGuardVane",
+     "LocalizationKey": "",
+     "DefaultText": ""
+    },
+    "AlternateLogTexts": [],
+    "TextSettings": {
+     "Active": false,
+     "Bold": false,
+     "Italics": false,
+     "Underlined": false
+    },
+    "TextAlignment": {
+     "Active": false,
+     "Alignment": 0
+    },
+    "TextColor": {
+     "Active": false,
+     "ColorValue": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+     }
+    },
+    "ScreenShake": false,
+    "SoundEffects": []
+   },
+   "OverrideChaseFailedLog": {
+    "LogText": {
+     "ParentObjectID": "cmcEncounterGuardVane",
+     "LocalizationKey": "",
+     "DefaultText": ""
+    },
+    "AlternateLogTexts": [],
+    "TextSettings": {
+     "Active": false,
+     "Bold": false,
+     "Italics": false,
+     "Underlined": false
+    },
+    "TextAlignment": {
+     "Active": false,
+     "Alignment": 0
+    },
+    "TextColor": {
+     "Active": false,
+     "ColorValue": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+     }
+    },
+    "ScreenShake": false,
+    "SoundEffects": []
+   }
+  },
+  "MovePlayer": 0,
+  "MovePlayerToSpecificEnvironment": [],
+  "MoveDuration": 0,
+  "MoveNPC": 0,
+  "MoveNPCToSpecificEnvironment": [],
+  "MoveNPCPathfindingAction": {
+   "m_FileID": 0,
+   "m_PathID": 0
+  },
+  "SaveEncounterToNPC": true
+ },
+ "PlayerDemoralizedEffects": {
+  "OnlyTriggerOnMainActions": false,
+  "ResultLog": {
+   "LogText": {
+    "ParentObjectID": "cmcEncounterGuardVane",
+    "LocalizationKey": "",
+    "DefaultText": "You have nothing left. You stop fighting and let Vane take you."
+   },
+   "AlternateLogTexts": [],
+   "TextSettings": {
+    "Active": false,
+    "Bold": false,
+    "Italics": false,
+    "Underlined": false
+   },
+   "TextAlignment": {
+    "Active": false,
+    "Alignment": 0
+   },
+   "TextColor": {
+    "Active": false,
+    "ColorValue": {
+     "r": 0.0,
+     "g": 0.0,
+     "b": 0.0,
+     "a": 0.0
+    }
+   },
+   "ScreenShake": false,
+   "SoundEffects": []
+  },
+  "DroppedCards": [],
+  "StatChanges": [
+   {
+    "Stat": {
+     "m_FileID": 0,
+     "m_PathID": 0
+    },
+    "StatWarpData": "cmcStatArrestPending",
+    "StatWarpType": 3,
+    "ValueModifier": {
+     "x": 1.0,
+     "y": 1.0
+    },
+    "RateModifier": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "MinValueModifier": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "MaxValueModifier": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "CannotModifyBeyond": {
+     "Active": false,
+     "FloatValue": 0.0,
+     "MaxValue": 0.0
+    },
+    "ApplyEachTick": false,
+    "InstantModifier": false,
+    "IgnoreNovelty": true,
+    "IsInverse": false
+   }
+  ],
+  "NPCStatChanges": [],
+  "TransferValuesToStats": [],
+  "AmmoRecovery": 0,
+  "ChaseNPC": {
+   "Active": false,
+   "AddedEnemyEscapeModifiers": {
+    "BaseEnemyEscapeValue": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "EnemyValuesModifiers": {
+     "EnemyMeleeSkillMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyRangedSkillMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyBloodMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyStaminaMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyMoraleMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue1Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue2Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue3Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue4Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     }
+    },
+    "EnemyWoundModifiers": {
+     "AllWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "HeadWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "TorsoWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "LArmWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "RArmWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "LLegWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "RLegWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     }
+    },
+    "StatsModifiers": []
+   },
+   "OverrideInitiatingChaseLog": {
+    "LogText": {
+     "ParentObjectID": "cmcEncounterGuardVane",
+     "LocalizationKey": "",
+     "DefaultText": ""
+    },
+    "AlternateLogTexts": [],
+    "TextSettings": {
+     "Active": false,
+     "Bold": false,
+     "Italics": false,
+     "Underlined": false
+    },
+    "TextAlignment": {
+     "Active": false,
+     "Alignment": 0
+    },
+    "TextColor": {
+     "Active": false,
+     "ColorValue": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+     }
+    },
+    "ScreenShake": false,
+    "SoundEffects": []
+   },
+   "OverrideChaseSuccessfulLog": {
+    "LogText": {
+     "ParentObjectID": "cmcEncounterGuardVane",
+     "LocalizationKey": "",
+     "DefaultText": ""
+    },
+    "AlternateLogTexts": [],
+    "TextSettings": {
+     "Active": false,
+     "Bold": false,
+     "Italics": false,
+     "Underlined": false
+    },
+    "TextAlignment": {
+     "Active": false,
+     "Alignment": 0
+    },
+    "TextColor": {
+     "Active": false,
+     "ColorValue": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+     }
+    },
+    "ScreenShake": false,
+    "SoundEffects": []
+   },
+   "OverrideChaseFailedLog": {
+    "LogText": {
+     "ParentObjectID": "cmcEncounterGuardVane",
+     "LocalizationKey": "",
+     "DefaultText": ""
+    },
+    "AlternateLogTexts": [],
+    "TextSettings": {
+     "Active": false,
+     "Bold": false,
+     "Italics": false,
+     "Underlined": false
+    },
+    "TextAlignment": {
+     "Active": false,
+     "Alignment": 0
+    },
+    "TextColor": {
+     "Active": false,
+     "ColorValue": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+     }
+    },
+    "ScreenShake": false,
+    "SoundEffects": []
+   }
+  },
+  "MovePlayer": 2,
+  "MovePlayerToSpecificEnvironment": [],
+  "MovePlayerToSpecificEnvironmentWarpData": [
+   "cmcEnvJailCell"
+  ],
+  "MovePlayerToSpecificEnvironmentWarpType": 3,
+  "MoveDuration": 4,
+  "MoveNPC": 0,
+  "MoveNPCToSpecificEnvironment": [],
+  "MoveNPCPathfindingAction": {
+   "m_FileID": 0,
+   "m_PathID": 0
+  },
+  "SaveEncounterToNPC": true
+ },
+ "Special1Effects": {
+  "OnlyTriggerOnMainActions": false,
+  "ResultLog": {
+   "LogText": {
+    "ParentObjectID": "cmcEncounterGuardVane",
+    "LocalizationKey": "",
+    "DefaultText": ""
+   },
+   "AlternateLogTexts": [],
+   "TextSettings": {
+    "Active": false,
+    "Bold": false,
+    "Italics": false,
+    "Underlined": false
+   },
+   "TextAlignment": {
+    "Active": false,
+    "Alignment": 0
+   },
+   "TextColor": {
+    "Active": false,
+    "ColorValue": {
+     "r": 0.0,
+     "g": 0.0,
+     "b": 0.0,
+     "a": 0.0
+    }
+   },
+   "ScreenShake": false,
+   "SoundEffects": []
+  },
+  "DroppedCards": [],
+  "StatChanges": [],
+  "NPCStatChanges": [],
+  "TransferValuesToStats": [],
+  "AmmoRecovery": 0,
+  "ChaseNPC": {
+   "Active": false,
+   "AddedEnemyEscapeModifiers": {
+    "BaseEnemyEscapeValue": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "EnemyValuesModifiers": {
+     "EnemyMeleeSkillMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyRangedSkillMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyBloodMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyStaminaMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyMoraleMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue1Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue2Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue3Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue4Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     }
+    },
+    "EnemyWoundModifiers": {
+     "AllWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "HeadWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "TorsoWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "LArmWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "RArmWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "LLegWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "RLegWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     }
+    },
+    "StatsModifiers": []
+   },
+   "OverrideInitiatingChaseLog": {
+    "LogText": {
+     "ParentObjectID": "cmcEncounterGuardVane",
+     "LocalizationKey": "",
+     "DefaultText": ""
+    },
+    "AlternateLogTexts": [],
+    "TextSettings": {
+     "Active": false,
+     "Bold": false,
+     "Italics": false,
+     "Underlined": false
+    },
+    "TextAlignment": {
+     "Active": false,
+     "Alignment": 0
+    },
+    "TextColor": {
+     "Active": false,
+     "ColorValue": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+     }
+    },
+    "ScreenShake": false,
+    "SoundEffects": []
+   },
+   "OverrideChaseSuccessfulLog": {
+    "LogText": {
+     "ParentObjectID": "cmcEncounterGuardVane",
+     "LocalizationKey": "",
+     "DefaultText": ""
+    },
+    "AlternateLogTexts": [],
+    "TextSettings": {
+     "Active": false,
+     "Bold": false,
+     "Italics": false,
+     "Underlined": false
+    },
+    "TextAlignment": {
+     "Active": false,
+     "Alignment": 0
+    },
+    "TextColor": {
+     "Active": false,
+     "ColorValue": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+     }
+    },
+    "ScreenShake": false,
+    "SoundEffects": []
+   },
+   "OverrideChaseFailedLog": {
+    "LogText": {
+     "ParentObjectID": "cmcEncounterGuardVane",
+     "LocalizationKey": "",
+     "DefaultText": ""
+    },
+    "AlternateLogTexts": [],
+    "TextSettings": {
+     "Active": false,
+     "Bold": false,
+     "Italics": false,
+     "Underlined": false
+    },
+    "TextAlignment": {
+     "Active": false,
+     "Alignment": 0
+    },
+    "TextColor": {
+     "Active": false,
+     "ColorValue": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+     }
+    },
+    "ScreenShake": false,
+    "SoundEffects": []
+   }
+  },
+  "MovePlayer": 0,
+  "MovePlayerToSpecificEnvironment": [],
+  "MoveDuration": 0,
+  "MoveNPC": 0,
+  "MoveNPCToSpecificEnvironment": [],
+  "MoveNPCPathfindingAction": {
+   "m_FileID": 0,
+   "m_PathID": 0
+  },
+  "SaveEncounterToNPC": false
+ },
+ "Special2Effects": {
+  "OnlyTriggerOnMainActions": false,
+  "ResultLog": {
+   "LogText": {
+    "ParentObjectID": "cmcEncounterGuardVane",
+    "LocalizationKey": "",
+    "DefaultText": ""
+   },
+   "AlternateLogTexts": [],
+   "TextSettings": {
+    "Active": false,
+    "Bold": false,
+    "Italics": false,
+    "Underlined": false
+   },
+   "TextAlignment": {
+    "Active": false,
+    "Alignment": 0
+   },
+   "TextColor": {
+    "Active": false,
+    "ColorValue": {
+     "r": 0.0,
+     "g": 0.0,
+     "b": 0.0,
+     "a": 0.0
+    }
+   },
+   "ScreenShake": false,
+   "SoundEffects": []
+  },
+  "DroppedCards": [],
+  "StatChanges": [],
+  "NPCStatChanges": [],
+  "TransferValuesToStats": [],
+  "AmmoRecovery": 0,
+  "ChaseNPC": {
+   "Active": false,
+   "AddedEnemyEscapeModifiers": {
+    "BaseEnemyEscapeValue": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "EnemyValuesModifiers": {
+     "EnemyMeleeSkillMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyRangedSkillMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyBloodMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyStaminaMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyMoraleMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue1Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue2Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue3Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue4Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     }
+    },
+    "EnemyWoundModifiers": {
+     "AllWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "HeadWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "TorsoWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "LArmWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "RArmWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "LLegWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "RLegWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     }
+    },
+    "StatsModifiers": []
+   },
+   "OverrideInitiatingChaseLog": {
+    "LogText": {
+     "ParentObjectID": "cmcEncounterGuardVane",
+     "LocalizationKey": "",
+     "DefaultText": ""
+    },
+    "AlternateLogTexts": [],
+    "TextSettings": {
+     "Active": false,
+     "Bold": false,
+     "Italics": false,
+     "Underlined": false
+    },
+    "TextAlignment": {
+     "Active": false,
+     "Alignment": 0
+    },
+    "TextColor": {
+     "Active": false,
+     "ColorValue": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+     }
+    },
+    "ScreenShake": false,
+    "SoundEffects": []
+   },
+   "OverrideChaseSuccessfulLog": {
+    "LogText": {
+     "ParentObjectID": "cmcEncounterGuardVane",
+     "LocalizationKey": "",
+     "DefaultText": ""
+    },
+    "AlternateLogTexts": [],
+    "TextSettings": {
+     "Active": false,
+     "Bold": false,
+     "Italics": false,
+     "Underlined": false
+    },
+    "TextAlignment": {
+     "Active": false,
+     "Alignment": 0
+    },
+    "TextColor": {
+     "Active": false,
+     "ColorValue": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+     }
+    },
+    "ScreenShake": false,
+    "SoundEffects": []
+   },
+   "OverrideChaseFailedLog": {
+    "LogText": {
+     "ParentObjectID": "cmcEncounterGuardVane",
+     "LocalizationKey": "",
+     "DefaultText": ""
+    },
+    "AlternateLogTexts": [],
+    "TextSettings": {
+     "Active": false,
+     "Bold": false,
+     "Italics": false,
+     "Underlined": false
+    },
+    "TextAlignment": {
+     "Active": false,
+     "Alignment": 0
+    },
+    "TextColor": {
+     "Active": false,
+     "ColorValue": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+     }
+    },
+    "ScreenShake": false,
+    "SoundEffects": []
+   }
+  },
+  "MovePlayer": 0,
+  "MovePlayerToSpecificEnvironment": [],
+  "MoveDuration": 0,
+  "MoveNPC": 0,
+  "MoveNPCToSpecificEnvironment": [],
+  "MoveNPCPathfindingAction": {
+   "m_FileID": 0,
+   "m_PathID": 0
+  },
+  "SaveEncounterToNPC": false
+ },
+ "Special3Effects": {
+  "OnlyTriggerOnMainActions": false,
+  "ResultLog": {
+   "LogText": {
+    "ParentObjectID": "cmcEncounterGuardVane",
+    "LocalizationKey": "",
+    "DefaultText": ""
+   },
+   "AlternateLogTexts": [],
+   "TextSettings": {
+    "Active": false,
+    "Bold": false,
+    "Italics": false,
+    "Underlined": false
+   },
+   "TextAlignment": {
+    "Active": false,
+    "Alignment": 0
+   },
+   "TextColor": {
+    "Active": false,
+    "ColorValue": {
+     "r": 0.0,
+     "g": 0.0,
+     "b": 0.0,
+     "a": 0.0
+    }
+   },
+   "ScreenShake": false,
+   "SoundEffects": []
+  },
+  "DroppedCards": [],
+  "StatChanges": [],
+  "NPCStatChanges": [],
+  "TransferValuesToStats": [],
+  "AmmoRecovery": 0,
+  "ChaseNPC": {
+   "Active": false,
+   "AddedEnemyEscapeModifiers": {
+    "BaseEnemyEscapeValue": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "EnemyValuesModifiers": {
+     "EnemyMeleeSkillMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyRangedSkillMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyBloodMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyStaminaMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyMoraleMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue1Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue2Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue3Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue4Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     }
+    },
+    "EnemyWoundModifiers": {
+     "AllWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "HeadWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "TorsoWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "LArmWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "RArmWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "LLegWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "RLegWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     }
+    },
+    "StatsModifiers": []
+   },
+   "OverrideInitiatingChaseLog": {
+    "LogText": {
+     "ParentObjectID": "cmcEncounterGuardVane",
+     "LocalizationKey": "",
+     "DefaultText": ""
+    },
+    "AlternateLogTexts": [],
+    "TextSettings": {
+     "Active": false,
+     "Bold": false,
+     "Italics": false,
+     "Underlined": false
+    },
+    "TextAlignment": {
+     "Active": false,
+     "Alignment": 0
+    },
+    "TextColor": {
+     "Active": false,
+     "ColorValue": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+     }
+    },
+    "ScreenShake": false,
+    "SoundEffects": []
+   },
+   "OverrideChaseSuccessfulLog": {
+    "LogText": {
+     "ParentObjectID": "cmcEncounterGuardVane",
+     "LocalizationKey": "",
+     "DefaultText": ""
+    },
+    "AlternateLogTexts": [],
+    "TextSettings": {
+     "Active": false,
+     "Bold": false,
+     "Italics": false,
+     "Underlined": false
+    },
+    "TextAlignment": {
+     "Active": false,
+     "Alignment": 0
+    },
+    "TextColor": {
+     "Active": false,
+     "ColorValue": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+     }
+    },
+    "ScreenShake": false,
+    "SoundEffects": []
+   },
+   "OverrideChaseFailedLog": {
+    "LogText": {
+     "ParentObjectID": "cmcEncounterGuardVane",
+     "LocalizationKey": "",
+     "DefaultText": ""
+    },
+    "AlternateLogTexts": [],
+    "TextSettings": {
+     "Active": false,
+     "Bold": false,
+     "Italics": false,
+     "Underlined": false
+    },
+    "TextAlignment": {
+     "Active": false,
+     "Alignment": 0
+    },
+    "TextColor": {
+     "Active": false,
+     "ColorValue": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+     }
+    },
+    "ScreenShake": false,
+    "SoundEffects": []
+   }
+  },
+  "MovePlayer": 0,
+  "MovePlayerToSpecificEnvironment": [],
+  "MoveDuration": 0,
+  "MoveNPC": 0,
+  "MoveNPCToSpecificEnvironment": [],
+  "MoveNPCPathfindingAction": {
+   "m_FileID": 0,
+   "m_PathID": 0
+  },
+  "SaveEncounterToNPC": false
+ },
+ "Special4Effects": {
+  "OnlyTriggerOnMainActions": false,
+  "ResultLog": {
+   "LogText": {
+    "ParentObjectID": "cmcEncounterGuardVane",
+    "LocalizationKey": "",
+    "DefaultText": ""
+   },
+   "AlternateLogTexts": [],
+   "TextSettings": {
+    "Active": false,
+    "Bold": false,
+    "Italics": false,
+    "Underlined": false
+   },
+   "TextAlignment": {
+    "Active": false,
+    "Alignment": 0
+   },
+   "TextColor": {
+    "Active": false,
+    "ColorValue": {
+     "r": 0.0,
+     "g": 0.0,
+     "b": 0.0,
+     "a": 0.0
+    }
+   },
+   "ScreenShake": false,
+   "SoundEffects": []
+  },
+  "DroppedCards": [],
+  "StatChanges": [],
+  "NPCStatChanges": [],
+  "TransferValuesToStats": [],
+  "AmmoRecovery": 0,
+  "ChaseNPC": {
+   "Active": false,
+   "AddedEnemyEscapeModifiers": {
+    "BaseEnemyEscapeValue": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "EnemyValuesModifiers": {
+     "EnemyMeleeSkillMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyRangedSkillMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyBloodMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyStaminaMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyMoraleMod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue1Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue2Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue3Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "EnemyValue4Mod": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     }
+    },
+    "EnemyWoundModifiers": {
+     "AllWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "HeadWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "TorsoWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "LArmWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "RArmWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "LLegWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     },
+     "RLegWoundModifier": {
+      "InterpolatedAddedValue": {
+       "Active": false,
+       "InputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "OutputValueRange": {
+        "x": 0.0,
+        "y": 0.0
+       },
+       "WhenOutOfRange": 0,
+       "OutOfRangeCustomValue": 0.0
+      },
+      "RandomAddedValue": {
+       "x": 0.0,
+       "y": 0.0
+      }
+     }
+    },
+    "StatsModifiers": []
+   },
+   "OverrideInitiatingChaseLog": {
+    "LogText": {
+     "ParentObjectID": "cmcEncounterGuardVane",
+     "LocalizationKey": "",
+     "DefaultText": ""
+    },
+    "AlternateLogTexts": [],
+    "TextSettings": {
+     "Active": false,
+     "Bold": false,
+     "Italics": false,
+     "Underlined": false
+    },
+    "TextAlignment": {
+     "Active": false,
+     "Alignment": 0
+    },
+    "TextColor": {
+     "Active": false,
+     "ColorValue": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+     }
+    },
+    "ScreenShake": false,
+    "SoundEffects": []
+   },
+   "OverrideChaseSuccessfulLog": {
+    "LogText": {
+     "ParentObjectID": "cmcEncounterGuardVane",
+     "LocalizationKey": "",
+     "DefaultText": ""
+    },
+    "AlternateLogTexts": [],
+    "TextSettings": {
+     "Active": false,
+     "Bold": false,
+     "Italics": false,
+     "Underlined": false
+    },
+    "TextAlignment": {
+     "Active": false,
+     "Alignment": 0
+    },
+    "TextColor": {
+     "Active": false,
+     "ColorValue": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+     }
+    },
+    "ScreenShake": false,
+    "SoundEffects": []
+   },
+   "OverrideChaseFailedLog": {
+    "LogText": {
+     "ParentObjectID": "cmcEncounterGuardVane",
+     "LocalizationKey": "",
+     "DefaultText": ""
+    },
+    "AlternateLogTexts": [],
+    "TextSettings": {
+     "Active": false,
+     "Bold": false,
+     "Italics": false,
+     "Underlined": false
+    },
+    "TextAlignment": {
+     "Active": false,
+     "Alignment": 0
+    },
+    "TextColor": {
+     "Active": false,
+     "ColorValue": {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+     }
+    },
+    "ScreenShake": false,
+    "SoundEffects": []
+   }
+  },
+  "MovePlayer": 0,
+  "MovePlayerToSpecificEnvironment": [],
+  "MoveDuration": 0,
+  "MoveNPC": 0,
+  "MoveNPCToSpecificEnvironment": [],
+  "MoveNPCPathfindingAction": {
+   "m_FileID": 0,
+   "m_PathID": 0
+  },
+  "SaveEncounterToNPC": false
+ },
+ "ChaseNPCPathfinding": {
+  "m_FileID": 0,
+  "m_PathID": 0
+ },
+ "StartingOptions": {
+  "CannotInterruptActions": false,
+  "EventTitle": {
+   "ParentObjectID": "cmcEncounterGuardVane",
+   "LocalizationKey": "",
+   "DefaultText": "Attack Guard Iris Vane?"
+  },
+  "EventDescription": {
+   "ParentObjectID": "cmcEncounterGuardVane",
+   "LocalizationKey": "",
+   "DefaultText": "She noticed you before you noticed her, and she is the one who reports things. Striking her is a crime whether you win or not."
+  },
+  "EncounterSounds": [],
+  "EventSetup": 0,
+  "MoveNPCOnCancel": {
+   "ToEnv": {
+    "m_FileID": 0,
+    "m_PathID": 0
+   },
+   "ToPlayerEnv": false,
+   "ToHome": false,
+   "ToRandomConnectedArea": false
+  },
+  "EscapeOptionText": {
+   "ParentObjectID": "cmcEncounterGuardVane",
+   "LocalizationKey": "",
+   "DefaultText": "Think better of it"
+  },
+  "EscapeOptionStatChanges": [],
+  "EscapeOptionNPCStatChanges": [],
+  "FightOptionText": {
+   "ParentObjectID": "cmcEncounterGuardVane",
+   "LocalizationKey": "",
+   "DefaultText": "Attack"
+  },
+  "FightOptionStatChanges": [
+   {
+    "Stat": {
+     "m_FileID": 0,
+     "m_PathID": 0
+    },
+    "StatWarpData": "cmcStatVillageCrime",
+    "StatWarpType": 3,
+    "ValueModifier": {
+     "x": 35.0,
+     "y": 35.0
+    },
+    "RateModifier": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "MinValueModifier": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "MaxValueModifier": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "CannotModifyBeyond": {
+     "Active": false,
+     "FloatValue": 0.0,
+     "MaxValue": 0.0
+    },
+    "ApplyEachTick": false,
+    "InstantModifier": false,
+    "IgnoreNovelty": true,
+    "IsInverse": false
+   }
+  ],
+  "FightOptionNPCStatChanges": [],
+  "CustomOptions": []
+ }
+}

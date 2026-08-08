@@ -1,0 +1,10 @@
+{
+  "CardDescription": {
+    "LocalizationKey": "CMC_DeerMeadow_CardDescription",
+    "DefaultText": "A pine grove meadow centered on a still pond, where deer come to drink and graze."
+  },
+  "CardHelpSection": {
+    "LocalizationKey": "CMC_DeerMeadow_CardHelpSection",
+    "DefaultText": "<b>Pine Grove, Pond:</b>\n\n<b>Conditions:</b> Acidic soil.\n\n<b>Flora:</b> Pines, Healer's Moss, Fireroot, Bilberries (summer), Pine Nuts (autumn), around a still pond.\n\n<b>Fauna:</b> Partridges, Foxes, Does, Stags, and Wolves; the deer that give this meadow its name are a common sight grazing near the water."
+  }
+}

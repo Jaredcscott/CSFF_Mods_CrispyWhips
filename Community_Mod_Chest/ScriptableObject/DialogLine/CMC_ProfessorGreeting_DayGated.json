@@ -1,0 +1,18 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_DayGated_Line",
+        "DefaultText": "Since you ask, the lecture hall has been busy. Given a few more days I expect I'll have proper work for a pair of willing hands."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_DayGated_Answer_Ok",
+                "DefaultText": "I'll keep that in mind."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

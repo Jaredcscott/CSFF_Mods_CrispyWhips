@@ -1,0 +1,28 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}}
+        ],
+        "RequiredInGameTimes": [
+            {"TimeType": 3, "SeasonValue": {"MaskValue": 1}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_SeasonSpring_Line",
+        "DefaultText": "Spring again. The forest floor is a syllabus all its own, every seedling a footnote. What can I do for you?"
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_Continue_Answer",
+                "DefaultText": "Go on."
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_ProfessorGreeting_Menu",
+                "NextLineWarpType": 3
+            }
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatWeaverFlaxQuest",
+    "GameName": {
+        "LocalizationKey": "CMC_WeaverFlaxQuest_StatName",
+        "DefaultText": "The Weaver's Flax Errand"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_WeaverFlaxQuest_StatDescription",
+        "DefaultText": "Hidden tracker: 0 = not offered, 1 = active (bring dried flax stems), 2 = delivered and thanked."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 10.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

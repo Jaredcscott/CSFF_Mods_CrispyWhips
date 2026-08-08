@@ -1,0 +1,20 @@
+{
+    "SceneTitle": {
+        "LocalizationKey": "CMC_ApothecaryTalk_SceneTitle",
+        "DefaultText": "The Apothecary"
+    },
+    "SceneLinesWarpData": [
+        "CMC_ApothecaryTalk_Start",
+        "CMC_ApothecaryTalk_Work",
+        "CMC_ApothecaryTalk_Home",
+        "CMC_ApothecaryTalk_StallAsk",
+        "CMC_ApothecaryTalk_StallThanks",
+        "CMC_ApothecaryTalk_HerbQuestOffer",
+        "CMC_ApothecaryTalk_HerbQuestThanks",
+        "CMC_ApothecaryTalk_PowderQuestOffer",
+        "CMC_ApothecaryTalk_PowderQuestThanks",
+        "CMC_ApothecaryTalk_InterlockS2Offer",
+        "CMC_ApothecaryTalk_InterlockS2Thanks"
+    ],
+    "SceneLinesWarpType": 3
+}

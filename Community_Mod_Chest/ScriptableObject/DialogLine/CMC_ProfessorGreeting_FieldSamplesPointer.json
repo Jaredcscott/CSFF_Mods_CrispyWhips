@@ -1,0 +1,18 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_FieldSamplesPointer_Line",
+        "DefaultText": "Since you've been at this a while now, I've put in a standing request on the board — five fresh billberries, whole and undamaged, for the Academy's field collection."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_FieldSamplesPointer_Answer_Close",
+                "DefaultText": "I'll bring some by."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

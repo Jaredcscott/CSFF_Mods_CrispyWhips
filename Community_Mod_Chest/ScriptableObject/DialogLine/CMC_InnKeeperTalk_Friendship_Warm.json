@@ -1,0 +1,69 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatInnFriendship", "StatWarpType": 3, "TriggerRange": {"x": 15.0, "y": 9999.0}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_Friendship_Warm_Line",
+        "DefaultText": "There you are. Sit, sit. I've been saving the good chair for whoever wandered in looking like they needed it most, and lately that's usually you."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Start_Answer_Tale",
+                "DefaultText": "Tell me a tale of the forest."
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_InnKeeperTalk_Forest1",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Start_Answer_Forage",
+                "DefaultText": "Any good foraging nearby?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_InnKeeperTalk_Start_Forage",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_AboutProfessor_Answer_Ask",
+                "DefaultText": "The Professor at the Academy?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_InnKeeperTalk_AboutProfessor",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Start_Answer_Trade",
+                "DefaultText": "Let's see your pantry."
+            },
+            "ActionToPerform": {
+                "StartTrading": true
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Start_Answer_Leave",
+                "DefaultText": "Just warming my hands."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

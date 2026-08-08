@@ -1,0 +1,125 @@
+{
+  "UniqueID": "cmcimpriverbridge",
+  "CardName": {
+    "ParentObjectID": "cmcimpriverbridge",
+    "LocalizationKey": "CMC_Imp_RiverBridge_CardName",
+    "DefaultText": "River Bridge"
+  },
+  "CardDescription": {
+    "ParentObjectID": "cmcimpriverbridge",
+    "LocalizationKey": "CMC_Imp_RiverBridge_CardDescription",
+    "DefaultText": "A sturdy wooden bridge spanning the river at the clearing. Build this at the River Clearing to open the eastern path toward the village. Requires the Advanced Copper Tools mod."
+  },
+  "CardType": 10,
+  "CardsOnBoard": [
+    {
+      "ObjectiveName": "HasPlank",
+      "CompletionWeight": 1,
+      "Card": { "m_FileID": 0, "m_PathID": 0 },
+      "CardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+      "CardWarpType": 3,
+      "Quantity": 1,
+      "ConstantlyChecking": false,
+      "OnlyInEnvironment": { "m_FileID": 0, "m_PathID": 0 },
+      "OnlyIfEquipped": false,
+      "OnlyInContainer": { "Target": { "m_FileID": 0, "m_PathID": 0 } }
+    }
+  ],
+  "ObjectWeight": 0.0,
+  "TradingValue": 0.0,
+  "AlwaysUpdate": false,
+  "CardTagsWarpData": [
+    "tag_Wood",
+    "tag_Structure"
+  ],
+  "CardTagsWarpType": 3,
+  "DoesNotPile": true,
+  "CannotBeTrashed": true,
+  "WhenCreatedSoundsWarpData": [
+    "Wood"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": { "Active": false },
+  "UsageDurability": { "Active": false },
+  "FuelCapacity": { "Active": false },
+  "Progress": { "Active": false },
+  "SpecialDurability1": { "Active": false },
+  "SpecialDurability2": { "Active": false },
+  "SpecialDurability3": { "Active": false },
+  "SpecialDurability4": { "Active": false },
+  "InventorySlots": [],
+  "InventorySlotsWarpData": [],
+  "InventorySlotsWarpType": 3,
+  "CardInteractions": [],
+  "DismantleActions": [],
+  "BlueprintCardConditions": [],
+  "BlueprintTagConditions": [],
+  "BlueprintStatConditions": [],
+  "BuildingCardConditions": [],
+  "BuildingTagConditions": [],
+  "BuildingStatConditions": [],
+  "BlueprintStages": [
+    {
+      "CannotRevertToThisStage": false,
+      "RequiredElements": [
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 12,
+          "DontSpend": false,
+          "RequiredCardWarpData": "0ab556ab6af1efc47a2cba5cdf4ace04",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 40,
+          "DontSpend": false,
+          "RequiredCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 1,
+          "DontSpend": true,
+          "RequiredCardWarpData": "9898b84ebd1a7e24e8ab12e579899c1b",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 1,
+          "DontSpend": true,
+          "RequiredCardWarpData": "e118b8cd90f14b048aab78a0d37e8f61",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 40,
+          "DontSpend": false,
+          "RequiredCardWarpData": "advanced_copper_tools_copper_nails",
+          "RequiredCardWarpType": 3
+        }
+      ],
+      "StepActionTagsWarpData": [],
+      "StepActionTagsWarpType": 3
+    }
+  ],
+  "BuildingDaytimeCost": 8,
+  "BuildingMiniTicks": 0,
+  "DeconstructDaytimeCost": 4,
+  "DeconstructMiniTicks": 0,
+  "BlueprintActionTagsWarpData": [
+    "HandAction",
+    "CraftAction",
+    "LegAction"
+  ],
+  "BlueprintActionTagsWarpType": 3,
+  "BlueprintResult": [],
+  "BlueprintStatModifications": [],
+  "BlueprintCardModifications": [],
+  "BlueprintBuiltImmediates": [],
+  "IsWorldRoad": false,
+  "RoadDirection": 0,
+  "PassiveEffects": [],
+  "CookingRecipes": [],
+  "CardImageWarpData": "VillageBridge",
+  "CardImageWarpType": 3
+}

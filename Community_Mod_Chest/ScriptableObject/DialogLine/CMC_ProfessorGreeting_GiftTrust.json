@@ -1,0 +1,70 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}}
+        ],
+        "RequiredNPCStatValues": [
+            {
+                "UseAssociatedAgent": false,
+                "TargetAgentWarpData": "cmcProfessorAgent",
+                "TargetAgentWarpType": 3,
+                "TargetStatWarpData": "cmcStatProfessorTrust",
+                "TargetStatWarpType": 3,
+                "ConditionRange": {
+                    "x": 80.0,
+                    "y": 1000000000.0
+                }
+            },
+            {
+                "UseAssociatedAgent": false,
+                "TargetAgentWarpData": "cmcProfessorAgent",
+                "TargetAgentWarpType": 3,
+                "TargetStatWarpData": "cmcStatProfGiftTrust",
+                "TargetStatWarpType": 3,
+                "ConditionRange": {
+                    "x": 0.0,
+                    "y": 0.0
+                }
+            }
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_GiftTrust_Line",
+        "DefaultText": "Come here a moment — I've meant to give you this for a while now. Not every visitor to this valley earns a scholar's confidence, but you have, time and again. A crate of the Academy's own fired stone tiles, out of the old teaching kilns. Better used underfoot than gathering dust in a storeroom."
+    },
+    "ActionToPerform": {
+        "NPCStatModifications": [
+            {
+                "TargetStatWarpData": "cmcStatProfGiftTrust",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {
+                    "x": 1.0,
+                    "y": 1.0
+                }
+            }
+        ],
+        "DroppedCards": [
+            {
+                "DroppedCardWarpData": "potterysculpturestonetiles",
+                "DroppedCardWarpType": 3,
+                "Quantity": {
+                    "x": 4,
+                    "y": 4
+                }
+            }
+        ]
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_GiftTrust_Answer",
+                "DefaultText": "I'm honored, Professor."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

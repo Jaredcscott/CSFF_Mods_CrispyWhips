@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatJailWardenGap",
+    "GameName": {
+        "LocalizationKey": "CMC_JailWardenGap_StatName",
+        "DefaultText": "Warden Gap"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_JailWardenGap_StatDescription",
+        "DefaultText": "Hidden countdown, in hours, of the current warden-absence window (10.8.8.2). While it is above 0 every guard's Duty_JailWarden fails its DutyConditions, so the whole Watch really does leave the jail rather than the flag merely claiming they did. JailPatch rolls for a new window each hour."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 4.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

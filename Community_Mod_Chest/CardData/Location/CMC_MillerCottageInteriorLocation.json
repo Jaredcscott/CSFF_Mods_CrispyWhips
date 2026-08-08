@@ -1,0 +1,15 @@
+{
+  "UniqueID": "cmcMillerCottageInteriorLocation",
+  "CardType": 8,
+  "InstancedEnvironment": false,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": true,
+  "DoesNotPile": true,
+  "CardName": {
+    "LocalizationKey": "CMC_MillerCottageInteriorLocation_CardName",
+    "DefaultText": "Miller's Cottage"
+  },
+  "CardImageWarpData": "CMC_Alch_Cab_Int",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0
+}

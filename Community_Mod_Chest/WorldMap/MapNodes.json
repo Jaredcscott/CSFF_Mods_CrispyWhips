@@ -1,0 +1,380 @@
+[
+  {
+    "EnvironmentUID": "cmcEnvVillagePath",
+    "LocationUID": "cmcLocVillagePath",
+    "CloneOfEnvironmentUID": "5af32ab7ce936684d99add01fc56015a",
+    "DisplayName": "Village Path",
+    "NameLocalizationKey": "CMC_VillagePath_CardName",
+    "EnvNameLocalizationKey": "CMC_Env_VillagePath_CardName",
+    "Coords": { "x": 10.0, "y": 0.0, "z": 0.0, "w": 0.0 },
+    "CardImage": "VillagePath",
+    "HideFromMap": false,
+    "ExtraDropUIDs": [],
+    "StripLegacyBoardUIDs": [
+      "14201221856a7b34fb86d602e0359b83",
+      "bd614575807e6b54488493417146f749"
+    ],
+    "Connections": [
+      {
+        "EnvironmentUID": "2b19b942a09fdd148a43798e942a74eb",
+        "PathCost": 10.0,
+        "TravelDirection": "West",
+        "HideConnection": false
+      }
+    ],
+    "ConnectionGates": [
+      {
+        "ConnectionUID": "cmcEnvVillagePath",
+        "GateConditions": [
+          {
+            "Type": "ImprovementBuilt",
+            "EnvUID": "2b19b942a09fdd148a43798e942a74eb",
+            "UID": "cmcimpriverbridge"
+          },
+          {
+            "Type": "PerkEquipped",
+            "UID": "traitsperkvillagepath"
+          }
+        ],
+        "GateLogic": "ANY",
+        "LockConditions": [
+          {
+            "Type": "StatThreshold",
+            "UID": "cmcStatVillageCrime",
+            "Value": 60,
+            "Comparison": "GreaterOrEqual"
+          }
+        ],
+        "HideTravelDA": true,
+        "RestoreDAOnUnlock": true,
+        "NeighborCt8UID": "3c7144d78a55ebb45b0fdf1598cf6a04"
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "cmcEnvHighGrove",
+    "LocationUID": "cmcLocHighGrove",
+    "CloneOfEnvironmentUID": "f243b5e9ae48c884296c6c2ecc294bdf",
+    "DisplayName": "High Grove",
+    "NameLocalizationKey": "CMC_HighGrove_CardName",
+    "EnvNameLocalizationKey": "CMC_Env_HighGrove_CardName",
+    "Coords": { "x": 20.0, "y": 0.0, "z": 0.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "cmcEnvVillagePath",
+        "PathCost": 10.0,
+        "TravelDirection": "West",
+        "HideConnection": false
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "cmcEnvPineTrail",
+    "LocationUID": "cmcLocPineTrail",
+    "CloneOfEnvironmentUID": "654e8fa8e5ead544f8a7def1746c3f5f",
+    "DisplayName": "Pine Trail",
+    "NameLocalizationKey": "CMC_PineTrail_CardName",
+    "EnvNameLocalizationKey": "CMC_Env_PineTrail_CardName",
+    "Coords": { "x": 20.0, "y": 0.0, "z": 10.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "cmcEnvHighGrove",
+        "PathCost": 10.0,
+        "TravelDirection": "South",
+        "HideConnection": false
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "cmcEnvVillage",
+    "LocationUID": "cmcLocVillage",
+    "CloneOfEnvironmentUID": "b791dfa6bad821e4e91d7c4210ec3ea3",
+    "DisplayName": "Village",
+    "NameLocalizationKey": "CMC_Village_CardName",
+    "EnvNameLocalizationKey": "CMC_Env_Village_CardName",
+    "Coords": { "x": 20.0, "y": 0.0, "z": 20.0, "w": 0.0 },
+    "CardImage": "Village",
+    "HideFromMap": false,
+    "ExtraDropUIDs": [],
+    "StripLegacyBoardUIDs": [
+      "14201221856a7b34fb86d602e0359b83",
+      "bd614575807e6b54488493417146f749",
+      "e8287a79ea2ea4245b4a83ce727c4c9d",
+      "a5449ba74858e304fbc82830aa9b16e1",
+      "d7bcd964194bdd3429f78afc19b2ed72"
+    ],
+    "ConditionalDrops": [
+      {
+        "UID": "cmcInn",
+        "MaxOnBoard": 1,
+        "ForceStay": true,
+        "Condition": { "Type": "AlwaysTrue" }
+      },
+      {
+        "UID": "cmcAcademy",
+        "MaxOnBoard": 1,
+        "ForceStay": true,
+        "Condition": { "Type": "AlwaysTrue" }
+      },
+      {
+        "UID": "cmcJail",
+        "MaxOnBoard": 1,
+        "ForceStay": true,
+        "Condition": { "Type": "AlwaysTrue" }
+      }
+    ],
+    "Connections": [
+      {
+        "EnvironmentUID": "cmcEnvPineTrail",
+        "PathCost": 10.0,
+        "TravelDirection": "South",
+        "HideConnection": false
+      }
+    ],
+    "SealableGates": [
+      {
+        "ConnectionUID": "cmcEnvDeerMeadow",
+        "Granularity": "Edge",
+        "SealTrigger": { "Type": "Season", "UID": "Winter" },
+        "ChallengeCardUID": "cmcSnowDriftNorth",
+        "ClearActionKeyPrefix": "CMC_SnowDriftNorth_CI_Dig",
+        "MultiHit": true,
+        "MarkerUID": "cmc_village_snow_north_cleared",
+        "MarkerEnvUID": "cmcEnvVillage",
+        "SeedOnEnvUIDs": ["cmcEnvVillage", "cmcEnvDeerMeadow"],
+        "ResealCondition": { "Type": "TimerRegrowth", "Days": 60 }
+      },
+      {
+        "ConnectionUID": "cmcEnvPineTrail",
+        "Granularity": "Edge",
+        "SealTrigger": { "Type": "Season", "UID": "Winter" },
+        "ChallengeCardUID": "cmcSnowDriftSouth",
+        "ClearActionKeyPrefix": "CMC_SnowDriftSouth_CI_Dig",
+        "MultiHit": true,
+        "MarkerUID": "cmc_village_snow_south_cleared",
+        "MarkerEnvUID": "cmcEnvVillage",
+        "SeedOnEnvUIDs": ["cmcEnvVillage", "cmcEnvPineTrail"],
+        "ResealCondition": { "Type": "TimerRegrowth", "Days": 60 }
+      },
+      {
+        "ConnectionUID": "cmcEnvVillageFarm",
+        "Granularity": "Edge",
+        "SealTrigger": { "Type": "Season", "UID": "Winter" },
+        "ChallengeCardUID": "cmcSnowDriftEast",
+        "ClearActionKeyPrefix": "CMC_SnowDriftEast_CI_Dig",
+        "MultiHit": true,
+        "MarkerUID": "cmc_village_snow_east_cleared",
+        "MarkerEnvUID": "cmcEnvVillage",
+        "SeedOnEnvUIDs": ["cmcEnvVillage", "cmcEnvVillageFarm"],
+        "ResealCondition": { "Type": "TimerRegrowth", "Days": 60 }
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "cmcEnvVillageFarm",
+    "LocationUID": "cmcLocVillageFarm",
+    "CloneOfEnvironmentUID": "ca60012d0c6a8394f9bc5cef2e1794ad",
+    "DisplayName": "Village Farm",
+    "NameLocalizationKey": "CMC_VillageFarm_CardName",
+    "EnvNameLocalizationKey": "CMC_Env_VillageFarm_CardName",
+    "Coords": { "x": 30.0, "y": 0.0, "z": 20.0, "w": 0.0 },
+    "CardImage": "VillageFarm",
+    "HideFromMap": false,
+    "StripLegacyBoardUIDs": [
+      "41fbf7771da1b9f4ea13af0bc1ea4341",
+      "e8287a79ea2ea4245b4a83ce727c4c9d",
+      "27cdcd9c74d2c0548bba4b5d43d37b9e",
+      "77ad4538d55bd774caea034c7dcfd578"
+    ],
+    "ConditionalDrops": [
+      {
+        "UID": "cmcvillagefieldflax",
+        "MaxOnBoard": 1,
+        "ForceStay": true,
+        "Condition": { "Type": "SeasonRange", "From": 1, "To": 1 }
+      },
+      {
+        "UID": "cmcvillagefieldturnroot",
+        "MaxOnBoard": 1,
+        "ForceStay": true,
+        "Condition": { "Type": "SeasonRange", "From": 2, "To": 2 }
+      },
+      {
+        "UID": "cmcvillagefieldrye",
+        "MaxOnBoard": 1,
+        "ForceStay": true,
+        "Condition": { "Type": "SeasonRange", "From": 3, "To": 3 }
+      }
+    ],
+    "Connections": [
+      {
+        "EnvironmentUID": "cmcEnvVillage",
+        "PathCost": 10.0,
+        "TravelDirection": "West",
+        "HideConnection": false
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "cmcEnvClayFlats",
+    "LocationUID": "cmcLocClayFlats",
+    "CloneOfEnvironmentUID": "d9cc5a271bede014c8b27517c62abe5f",
+    "DisplayName": "Clay Flats",
+    "NameLocalizationKey": "CMC_ClayFlats_CardName",
+    "EnvNameLocalizationKey": "CMC_Env_ClayFlats_CardName",
+    "Coords": { "x": 10.0, "y": 0.0, "z": -10.0, "w": 0.0 },
+    "HideFromMap": false,
+    "ExtraDropUIDs": ["afbe6bee3cb0fa04f9ae3ec45cd888ca"],
+    "Connections": [
+      {
+        "EnvironmentUID": "cmcEnvVillagePath",
+        "PathCost": 10.0,
+        "TravelDirection": "North",
+        "HideConnection": false
+      },
+      {
+        "EnvironmentUID": "cmcEnvMossyClearing",
+        "PathCost": 10.0,
+        "TravelDirection": "East",
+        "HideConnection": false
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "cmcEnvMarshHollow",
+    "LocationUID": "cmcLocMarshHollow",
+    "CloneOfEnvironmentUID": "71e894a03cb89164796b8e21c3c0ff3c",
+    "DisplayName": "Marsh Hollow",
+    "NameLocalizationKey": "CMC_MarshHollow_CardName",
+    "EnvNameLocalizationKey": "CMC_Env_MarshHollow_CardName",
+    "Coords": { "x": 10.0, "y": 0.0, "z": -20.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "cmcEnvClayFlats",
+        "PathCost": 10.0,
+        "TravelDirection": "North",
+        "HideConnection": false
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "cmcEnvMossyClearing",
+    "LocationUID": "cmcLocMossyClearing",
+    "CloneOfEnvironmentUID": "60402000491626042b116556a55e84f5",
+    "DisplayName": "Mossy Clearing",
+    "NameLocalizationKey": "CMC_MossyClearing_CardName",
+    "EnvNameLocalizationKey": "CMC_Env_MossyClearing_CardName",
+    "Coords": { "x": 20.0, "y": 0.0, "z": -10.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "cmcEnvHighGrove",
+        "PathCost": 10.0,
+        "TravelDirection": "North",
+        "HideConnection": false
+      },
+      {
+        "EnvironmentUID": "cmcEnvForagingForest",
+        "PathCost": 10.0,
+        "TravelDirection": "South",
+        "HideConnection": false
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "cmcEnvForagingForest",
+    "LocationUID": "cmcLocForagingForest",
+    "CloneOfEnvironmentUID": "5fb1552d03e1d0c4fa6e1514928b5a5e",
+    "DisplayName": "Foraging Forest",
+    "NameLocalizationKey": "CMC_ForagingForest_CardName",
+    "EnvNameLocalizationKey": "CMC_Env_ForagingForest_CardName",
+    "Coords": { "x": 20.0, "y": 0.0, "z": -20.0, "w": 0.0 },
+    "CardImage": "ForagingForest",
+    "HideFromMap": false,
+    "StripLegacyBoardUIDs": [
+      "14201221856a7b34fb86d602e0359b83",
+      "bd614575807e6b54488493417146f749"
+    ],
+    "CapacityStats": {
+      "Foraging": { "MaxValue": 1440.0, "InitialValue": 1440.0, "RatePerDTP": -1.0 }
+    },
+    "Connections": [
+      {
+        "EnvironmentUID": "cmcEnvMarshHollow",
+        "PathCost": 10.0,
+        "TravelDirection": "West",
+        "HideConnection": false
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "cmcEnvHuntersCrossing",
+    "LocationUID": "cmcLocHuntersCrossing",
+    "CloneOfEnvironmentUID": "0dc7431ce6e2eda4fac5be625525108a",
+    "DisplayName": "Hunter's Crossing",
+    "NameLocalizationKey": "CMC_HuntersCrossing_CardName",
+    "EnvNameLocalizationKey": "CMC_Env_HuntersCrossing_CardName",
+    "Coords": { "x": 10.0, "y": 0.0, "z": 10.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "cmcEnvVillagePath",
+        "PathCost": 10.0,
+        "TravelDirection": "South",
+        "HideConnection": false
+      },
+      {
+        "EnvironmentUID": "cmcEnvPineTrail",
+        "PathCost": 10.0,
+        "TravelDirection": "East",
+        "HideConnection": false
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "cmcEnvDeerMeadow",
+    "LocationUID": "cmcLocDeerMeadow",
+    "CloneOfEnvironmentUID": "5fb1552d03e1d0c4fa6e1514928b5a5e",
+    "DisplayName": "Deer Meadow",
+    "NameLocalizationKey": "CMC_DeerMeadow_CardName",
+    "EnvNameLocalizationKey": "CMC_Env_DeerMeadow_CardName",
+    "Coords": { "x": 20.0, "y": 0.0, "z": 30.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "cmcEnvVillage",
+        "PathCost": 10.0,
+        "TravelDirection": "South",
+        "HideConnection": false
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "cmcEnvBadgerWarren",
+    "LocationUID": "cmcLocBadgerWarren",
+    "CloneOfEnvironmentUID": "0dc7431ce6e2eda4fac5be625525108a",
+    "DisplayName": "Badger Warren",
+    "NameLocalizationKey": "CMC_BadgerWarren_CardName",
+    "EnvNameLocalizationKey": "CMC_Env_BadgerWarren_CardName",
+    "Coords": { "x": 20.0, "y": 0.0, "z": 40.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "cmcEnvDeerMeadow",
+        "PathCost": 10.0,
+        "TravelDirection": "South",
+        "HideConnection": false
+      }
+    ],
+    "VanillaExits": [
+      {
+        "Direction": "West",
+        "TargetVanillaEnvUID": "0c7cd381f10689b49b2ca9ec8819380c",
+        "Bidirectional": false
+      }
+    ]
+  }
+]

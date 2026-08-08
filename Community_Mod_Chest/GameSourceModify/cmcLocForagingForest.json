@@ -1,0 +1,10 @@
+{
+  "CardDescription": {
+    "LocalizationKey": "CMC_ForagingForest_CardDescription",
+    "DefaultText": "A dense pine forest with abundant undergrowth of ferns, mushrooms, and wild plants surrounding a still pond."
+  },
+  "CardHelpSection": {
+    "LocalizationKey": "CMC_ForagingForest_CardHelpSection",
+    "DefaultText": "<b>Pine Grove, Pond:</b>\n\n<b>Conditions:</b> Acidic soil.\n\n<b>Flora:</b> Pines, Healer's Moss, Fireroot, Bilberries (summer), and Pine Nuts (autumn) ring a still pond. This is the richest foraging ground in the valley: bracket fungus, forest caps, spirit mushrooms, fairyweed, wolfsbane, and wild garlic turn up regularly, with the occasional acorn cache or bird nest.\n\n<b>Fauna:</b> Partridges, Foxes, Does, Stags, and Wolves range through the trees, with frogs at the pond's edge. A stray cat is sometimes seen prowling here around dusk."
+  }
+}

@@ -1,0 +1,36 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatInterlockS3", "StatWarpType": 3, "TriggerRange": {"x": 0.25, "y": 0.75}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_InterlockS3Thanks_Line",
+        "DefaultText": "Good fine grind, the Miller knows his stones. Baking day's on for certain now. Tell him the whole Inn will smell like bread by supper, that ought to please him. Here, a plate pattern for the trouble, freshly painted to match the occasion."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_InterlockS3Thanks_Answer_Ok",
+                "DefaultText": "I'll pass that along."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatInterlockS3",
+                        "StatWarpType": 3,
+                        "ValueModifier": {"x": 0.5, "y": 0.5},
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ],
+                "BlueprintsFullUnlockWarpData": ["potterysculpturebppaintedplate"],
+                "BlueprintsFullUnlockWarpType": 3
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

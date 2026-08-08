@@ -1,0 +1,156 @@
+{
+  "UniqueID": "cmcSnowDriftSouth",
+  "CardName": {
+    "ParentObjectID": "cmcSnowDriftSouth",
+    "LocalizationKey": "CMC_SnowDriftSouth_CardName",
+    "DefaultText": "Snow Drift"
+  },
+  "CardDescription": {
+    "ParentObjectID": "cmcSnowDriftSouth",
+    "LocalizationKey": "CMC_SnowDriftSouth_CardDescription",
+    "DefaultText": "Deep winter snow has drifted across the southern road to Pine Trail, burying the path. Dig through it with a shovel to clear the way — once cleared, it stays open for the rest of the winter."
+  },
+  "CanBeRenamed": false,
+  "AlternateNames": [],
+  "LiquidSuffixName": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
+  "CardHelpSection": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardBackground": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "SnowPile",
+  "CardImageWarpType": 3,
+  "ShowImageAboveTitle": false,
+  "CardType": 2,
+  "CannotBeTransferred": true,
+  "NotAutoSolvableEvent": false,
+  "ObjectWeight": 0.0,
+  "TradingValue": 0.0,
+  "CardTags": [],
+  "CardTagsWarpData": [ "tag_Structure" ],
+  "CardTagsWarpType": 3,
+  "EquipmentTags": [],
+  "MapStructureType": 0,
+  "FlavourTags": [],
+  "SpiceTags": [],
+  "AlwaysUpdate": false,
+  "CannotBeTrashed": true,
+  "CanBeTrashed": false,
+  "DoesNotPile": true,
+  "ToggleablePiling": false,
+  "DoesNotPinAutomatically": false,
+  "NeedsRoomInLocationToSpawn": false,
+  "SpoilageTime": { "Active": false },
+  "UsageDurability": {
+    "Active": true,
+    "FloatValue": 3.0,
+    "CardStatName": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
+    "RandomStartingOffset": 0.0,
+    "MaxValue": 3.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 0,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "OverrideIcon": { "m_FileID": 0, "m_PathID": 0 },
+    "OverrideIconWarpData": "Snowflake_Old",
+    "OverrideIconWarpType": 3,
+    "SortInverted": false,
+    "ResetWhenLoadedAtZero": false,
+    "HasActionOnZero": true,
+    "RepeatActionOnZero": false,
+    "ShowPopupOnZero": false,
+    "OnZeroNotification": 0,
+    "OnZero": {
+      "ActionName": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
+      "ActionDescription": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ProducedCards": [],
+      "ReceivingCardChanges": { "ModType": 3 }
+    },
+    "CountsForTradingValue": false
+  },
+  "FuelCapacity": { "Active": false },
+  "Progress": { "Active": false },
+  "SpecialDurability1": { "Active": false },
+  "SpecialDurability2": { "Active": false },
+  "SpecialDurability3": { "Active": false },
+  "SpecialDurability4": { "Active": false },
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "cmcSnowDriftSouth",
+        "LocalizationKey": "CMC_SnowDriftSouth_CI_Dig_ActionName",
+        "DefaultText": "Dig Through the Snow Drift"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "cmcSnowDriftSouth",
+        "LocalizationKey": "CMC_SnowDriftSouth_CI_Dig_ActionDescription",
+        "DefaultText": "Shovel a path through the drift. Clears the road to Pine Trail once fully dug through."
+      },
+      "DaytimeCost": 8,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [],
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "3587432ac7e29784991ff2cccf92891d",
+          "c1681bf59e15f3045aee3cbc58ec9b0c",
+          "2466c0bf349c4f84db55a4ee8ad67300"
+        ],
+        "TriggerCardsWarpType": 3,
+        "TriggerTagsWarpData": [ "tag_Shovel" ],
+        "TriggerTagsWarpType": 3
+      },
+      "GivenCardChanges": {
+        "ModType": 1,
+        "UsageChange": { "x": -2.0, "y": -2.0 }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "UsageChange": { "x": -1.0, "y": -1.0 }
+      },
+      "ProducedCards": [
+        {
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "ba39a8f65c6b02745bab30888ca1ee19",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 2 },
+              "DropChance": { "Active": true, "BaseDropChance": 100.0 }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "DismantleActions": [],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [],
+  "MaxLiquidCapacity": 0.0,
+  "InventorySlots": [],
+  "InventoryFilter": {
+    "AcceptedCards": [],
+    "AcceptedCardsWarpData": [],
+    "AcceptedCardsWarpType": 3,
+    "AcceptedTypes": [],
+    "AcceptedTags": [],
+    "AcceptedTagsWarpData": [],
+    "AcceptedTagsWarpType": 3,
+    "NOTAcceptedCards": [],
+    "NOTAcceptedTypes": [],
+    "NOTAcceptedTags": [],
+    "CardFilters": [],
+    "TagFilters": []
+  },
+  "SpillsInventoryOnDestroy": false,
+  "CookingRecipes": [],
+  "BlueprintStages": [],
+  "BlueprintResult": [],
+  "IsWeapon": false,
+  "IsArmor": false
+}

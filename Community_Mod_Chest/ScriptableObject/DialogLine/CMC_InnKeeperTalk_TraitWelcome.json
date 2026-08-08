@@ -1,0 +1,29 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatInnTraitWelcomeGiven", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.5}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_TraitWelcome_Line",
+        "DefaultText": "There you are! I'd have sworn we'd met before you ever walked in, word travels, and I already think of you as one of ours. Save the two of us the formal introductions, then: this inn is yours to use, meals and a bed both, the village's projects are open for the helping, and the Academy across the way will take you as a student any day you like. Ask around and settle in."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_TraitWelcome_Answer_Thanks",
+                "DefaultText": "Good to finally meet you properly."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnTraitWelcomeGiven", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

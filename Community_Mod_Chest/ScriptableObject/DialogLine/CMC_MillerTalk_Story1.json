@@ -1,0 +1,31 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_MillerTalk_Story1_Line",
+        "DefaultText": "A story? Ha. All right, since you built me the roof. Years back, before I ever came here, I milled in a town three valleys over. There was another miller across the river, proud man, and one harvest we made a wager: whoever ground a full cart of grain fastest by sundown kept the other's best grindstone."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_Story1_Answer_GoOn",
+                "DefaultText": "And? Who won?"
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatMillerStoryStep",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": 1.0, "y": 1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_MillerTalk_Story2",
+                "NextLineWarpType": 3
+            }
+        }
+    ]
+}

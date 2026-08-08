@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatAshNeglected",
+    "GameName": {
+        "LocalizationKey": "CMC_AshNeglected_StatName",
+        "DefaultText": "Ash Neglected"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_AshNeglected_StatDescription",
+        "DefaultText": "Hidden latch driving Ash's Partner duty selection: 0 = follows the player, 1 = has wandered off and must be found and coaxed back with Feed/Play/Pet. Phase 0: toggled manually by a debug action. Phase 1: driven automatically by his Hunger/Thirst/Care thresholds."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 1.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

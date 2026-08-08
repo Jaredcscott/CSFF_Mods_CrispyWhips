@@ -1,0 +1,22 @@
+{
+    "UniqueID": "cmcNpcStatGuardDowned",
+    "GameName": {
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "Guard downed - 1 once the player has bested this guard (killed or routed); 0 otherwise. Clamped marker, never a counter."
+    },
+    "DefaultStartingValue": 0.0,
+    "DefaultMinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "DefaultRate": 0.0,
+    "DefaultMinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatScalingToModifiers": [],
+    "NPCStatScalingToModifiers": [],
+    "CompositeStats": [],
+    "Statuses": [],
+    "UsesNovelty": false
+}

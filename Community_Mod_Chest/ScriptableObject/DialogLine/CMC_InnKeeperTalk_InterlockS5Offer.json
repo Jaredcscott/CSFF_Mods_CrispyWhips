@@ -1,0 +1,18 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_InterlockS5Offer_Line",
+        "DefaultText": "Between you and me, some of my regulars overdo it on brew night and I'm tired of hearing about it the morning after. The Apothecary's herb paste settles a stomach better than anything I've tried. Bring me some and I'll keep it behind the bar."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_InterlockS5Offer_Answer_Ok",
+                "DefaultText": "I'll see what she's got."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

@@ -1,0 +1,64 @@
+{
+    "UniqueID": "BpCMCWeaverProcessFlax",
+    "CardName": {
+        "ParentObjectID": "BpCMCWeaverProcessFlax",
+        "LocalizationKey": "Bp_CMC_WeaverProcessFlax_CardName",
+        "DefaultText": "Process Flax Stems into Fiber"
+    },
+    "CardDescription": {
+        "ParentObjectID": "BpCMCWeaverProcessFlax",
+        "LocalizationKey": "Bp_CMC_WeaverProcessFlax_CardDescription",
+        "DefaultText": "The Weaver processes a bundle of dry flax stems into fiber, for a fee in copper."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "BpCMCWeaverProcessFlax",
+        "LocalizationKey": "Bp_CMC_WeaverProcessFlax_UnlockConditionsDesc",
+        "DefaultText": "Available at the Weaver's Cottage"
+    },
+    "StartUnlocked": true,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 30,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "2f56efb019391074190194b699d612c5",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 4,
+    "DeconstructDaytimeCost": 0,
+    "NeedsRoomInLocationToSpawn": false,
+    "BlueprintResult": [
+        {
+            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": { "x": 120, "y": 120 },
+            "DroppedCardWarpData": "b8885e78517570b4293c573871625e11",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": ["HandAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImageWarpData": "Fibers",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 0.0,
+    "ResearchedNotification": 0
+}

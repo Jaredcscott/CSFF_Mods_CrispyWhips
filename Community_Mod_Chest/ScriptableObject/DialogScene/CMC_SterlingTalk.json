@@ -1,0 +1,12 @@
+{
+    "SceneTitle": {
+        "LocalizationKey": "CMC_SterlingTalk_SceneTitle",
+        "DefaultText": "Captain Reeve Sterling"
+    },
+    "SceneLinesWarpData": [
+        "CMC_SterlingTalk_Warning",
+        "CMC_SterlingTalk_Wanted",
+        "CMC_SterlingTalk_Start"
+    ],
+    "SceneLinesWarpType": 3
+}

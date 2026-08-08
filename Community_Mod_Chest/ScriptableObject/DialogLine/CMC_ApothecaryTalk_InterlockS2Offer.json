@@ -1,0 +1,18 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_ApothecaryTalk_InterlockS2Offer_Line",
+        "DefaultText": "Grinding powders kicks up more dust than you'd think, gets in the eyes, the nose, everywhere. If the Weaver can spare a length of cloth, I could sew myself a proper mask instead of tying a rag over my face like some bandit."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ApothecaryTalk_InterlockS2Offer_Answer_Ok",
+                "DefaultText": "I'll see what she can spare."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

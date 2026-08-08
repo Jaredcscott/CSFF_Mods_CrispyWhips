@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatSterlingWarningGiven",
+    "GameName": {
+        "LocalizationKey": "CMC_SterlingWarningGiven_StatName",
+        "DefaultText": "Warned by the Captain"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_SterlingWarningGiven_StatDescription",
+        "DefaultText": "Hidden 0/1 marker: 1 once Captain Sterling has given his one-time warning the first time cmcStatVillageCrime enters the Suspected band (Village_Master_Plan.md §10.8.1/§10.8.2). Latched permanently -- never cleared -- so the warning line is delivered exactly once per run."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

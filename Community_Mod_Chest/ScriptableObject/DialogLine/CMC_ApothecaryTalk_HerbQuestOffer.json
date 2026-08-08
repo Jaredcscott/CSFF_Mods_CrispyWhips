@@ -1,0 +1,45 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_ApothecaryTalk_HerbQuestOffer_Line",
+        "DefaultText": "Since you're forever in those woods anyway, there are three things I've never enough of on hand: billberries, springberries, and spirit mushrooms, all fresh, mind, not dried. Bring me all three together and I'll finally have what I need for something stronger than what I sell."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ApothecaryTalk_HerbQuestOffer_Answer_Accept",
+                "DefaultText": "I'll keep an eye out for all three."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatApothecaryHerbQuest",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": 0.5, "y": 0.5 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    },
+                    {
+                        "StatWarpData": "cmcStatApothQuestArmed",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": -1.0, "y": -1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ApothecaryTalk_HerbQuestOffer_Answer_Decline",
+                "DefaultText": "I'll see what I can do."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

@@ -1,0 +1,160 @@
+{
+  "UniqueID": "combatandarmorclub",
+  "CardName": {
+    "ParentObjectID": "combatandarmorclub",
+    "LocalizationKey": "Combat_And_Armor_Club_CardName",
+    "DefaultText": "Club"
+  },
+  "CardDescription": {
+    "ParentObjectID": "combatandarmorclub",
+    "LocalizationKey": "Combat_And_Armor_Club_CardDescription",
+    "DefaultText": "A stout hardwood club carved from a tree trunk. Crude, but dependable blunt power."
+  },
+  "CardType": 0,
+  "ObjectWeight": 150.0,
+  "TradingValue": 8.0,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "LongStick",
+  "CardImageWarpType": 3,
+  "CardTagsWarpData": [],
+  "CardTagsWarpType": 3,
+  "EquipmentTags": [],
+  "EquipmentTagsWarpData": [
+    "eTag_Belt"
+  ],
+  "EquipmentTagsWarpType": 3,
+  "InHandWhenEquipped": true,
+  "IsWeapon": true,
+  "WeaponReach": 75.0,
+  "WeaponDamage": { "x": 20.0, "y": 80.0 },
+  "WrestlingDamageBonus": { "x": 0.0, "y": 0.0 },
+  "DamageTypes": [],
+  "DamageTypesWarpData": ["DMG_Blunt"],
+  "DamageTypesWarpType": 3,
+  "WeaponClashStatInfluences": [
+    {
+      "Stat": { "m_FileID": 0, "m_PathID": 0 },
+      "StatWarpData": "cmcSkillMeleeFighting",
+      "StatWarpType": 3,
+      "AddedValue": {
+        "InterpolatedAddedValue": {
+          "Active": true,
+          "InputValueRange": { "x": 0.0, "y": 150.0 },
+          "OutputValueRange": { "x": 0.0, "y": 170.0 },
+          "WhenOutOfRange": 0,
+          "OutOfRangeCustomValue": 0.0
+        },
+        "RandomAddedValue": { "x": 0.0, "y": 0.0 }
+      }
+    }
+  ],
+  "WeaponDamageStatInfluences": [
+    {
+      "Stat": { "m_FileID": 0, "m_PathID": 0 },
+      "StatWarpData": "cmcSkillMeleeFighting",
+      "StatWarpType": 3,
+      "AddedValue": {
+        "InterpolatedAddedValue": {
+          "Active": true,
+          "InputValueRange": { "x": 0.0, "y": 150.0 },
+          "OutputValueRange": { "x": 0.0, "y": 120.0 },
+          "WhenOutOfRange": 0,
+          "OutOfRangeCustomValue": 0.0
+        },
+        "RandomAddedValue": { "x": 0.0, "y": 0.0 }
+      }
+    }
+  ],
+  "WeaponActionStatChanges": [
+    {
+      "Stat": { "m_FileID": 0, "m_PathID": 0 },
+      "StatWarpData": "cmcSkillMeleeFighting",
+      "StatWarpType": 3,
+      "ValueModifier": { "x": 0.5, "y": 0.5 },
+      "RateModifier": { "x": 0.0, "y": 0.0 },
+      "MinValueModifier": { "x": 0.0, "y": 0.0 },
+      "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+      "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+      "ApplyEachTick": false,
+      "InstantModifier": false,
+      "IgnoreNovelty": false,
+      "IsInverse": false
+    }
+  ],
+  "IsArmor": false,
+  "AlwaysUpdate": false,
+  "WhenCreatedSoundsWarpData": ["Wood"],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": { "Active": false },
+  "UsageDurability": {
+    "Active": true,
+    "FloatValue": 60.0,
+    "CardStatName": {
+      "ParentObjectID": "combatandarmorclub",
+      "LocalizationKey": "Combat_And_Armor_Club_UsageDurability.CardStatName",
+      "DefaultText": "Durability"
+    },
+    "MaxValue": 60.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 0,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": true,
+    "OnZero": {
+      "ActionDescription": {
+        "ParentObjectID": "combatandarmorclub",
+        "LocalizationKey": "Combat_And_Armor_Club_OnZero",
+        "DefaultText": "Club Broken!"
+      },
+      "OnZeroNotification": 1,
+      "ReceivingCardChanges": { "ModType": 3 }
+    },
+    "HasActionOnFull": false,
+    "CountsForTradingValue": true
+  },
+  "FuelCapacity": { "Active": false },
+  "Progress": { "Active": false },
+  "SpecialDurability1": { "Active": false },
+  "SpecialDurability2": { "Active": false },
+  "SpecialDurability3": { "Active": false },
+  "SpecialDurability4": { "Active": false },
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "combatandarmorclub",
+        "LocalizationKey": "Combat_And_Armor_Club_Dismantle_ActionName",
+        "DefaultText": "Carve Down"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "combatandarmorclub",
+        "LocalizationKey": "Combat_And_Armor_Club_Dismantle_ActionDescription",
+        "DefaultText": "Carve the club down into a usable long stick."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Wood"],
+      "ActionSoundsWarpType": 3,
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "3db4c94184af274409f0d3eb16870f64",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": { "ModType": 3 }
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": []
+}

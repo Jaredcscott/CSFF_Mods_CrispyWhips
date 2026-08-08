@@ -1,0 +1,29 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatVillageRenown", "StatWarpType": 3, "TriggerRange": {"x": 50.0, "y": 1000000000.0}},
+            {"StatWarpData": "cmcStatInnRenownHalfRemarked", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.5}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_NewsRenownHalf_Line",
+        "DefaultText": "Somewhere along the way this stopped feeling like a handful of buildings and started feeling like a village people actually talk about. Travelers passing through ask after us by name now, instead of just squinting at the map wondering if there's anything worth the detour. Halfway to somewhere, I'd say, and I mean to see the rest of it built before I'm too old to pour the celebration ale myself."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_NewsRenownHalf_Answer",
+                "DefaultText": "You've built something worth talking about."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnRenownHalfRemarked", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false},
+                    {"StatWarpData": "cmcStatInnFriendship", "StatWarpType": 3, "ValueModifier": {"x": 3.0, "y": 3.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

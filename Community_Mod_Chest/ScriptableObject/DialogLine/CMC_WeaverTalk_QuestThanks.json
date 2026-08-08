@@ -1,0 +1,59 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}},
+            {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.25, "y": 0.75}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_WeaverTalk_QuestThanks_Line",
+        "DefaultText": "Oh, this'll do nicely. Here, I sketched a wall hanging out ages ago and never had the flax to spare for a first try. The pattern's yours now, same as the idea was. Loom's always warm if you want to see it made."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_QuestThanks_Answer_Thanks",
+                "DefaultText": "Thank you, I'll treasure it."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatQuestRenownWeaverFlax",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": 1.0, "y": 1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    },
+                    {
+                        "StatWarpData": "cmcStatWeaverQuestChain",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": 1.0, "y": 1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    },
+                    {
+                        "StatWarpData": "cmcStatWeaverQuestArmed",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": -0.5, "y": -0.5 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ],
+                "NPCStatModifications": [
+                    {
+                        "TargetStatWarpData": "cmcStatWeaverTrust",
+                        "TargetStatWarpType": 3,
+                        "UseAssociatedAgent": true,
+                        "ValueChange": { "x": 15.0, "y": 15.0 }
+                    }
+                ],
+                "BlueprintsFullUnlockWarpData": ["comfortbpstrawmat"],
+                "BlueprintsFullUnlockWarpType": 3
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

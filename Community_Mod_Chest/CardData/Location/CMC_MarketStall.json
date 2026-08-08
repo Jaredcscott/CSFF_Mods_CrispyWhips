@@ -1,0 +1,86 @@
+{
+  "UniqueID": "cmcmarketstall",
+  "CardType": 2,
+  "CardName": {
+    "DefaultText": "Market Stall"
+  },
+  "CardDescription": {
+    "DefaultText": "A small trading post set up in the village. Drop trade goods into the stall; merchants will purchase one item per day, building up your Sales Revenue bar. Collect earnings as copper nuggets (50 revenue each) or salt (30 revenue each). Thieves occasionally target unattended stalls.",
+    "LocalizationKey": "CMC_MarketStall_CardDesc"
+  },
+  "CardImage": "CMC_MarketStall",
+  "CardImageWarpData": "CMC_MarketStall",
+  "CardImageWarpType": 3,
+  "CardHelpSection": {
+    "DefaultText": "Market Stall"
+  },
+  "CardTagsWarpData": ["tag_Structure"],
+  "CardTagsWarpType": 3,
+  "ObjectWeight": 0,
+  "DoesNotPile": true,
+  "MaxWeightCapacity": 50000,
+  "InventorySlots": [
+    { "m_FileID": 0, "m_PathID": 0 },
+    { "m_FileID": 0, "m_PathID": 0 },
+    { "m_FileID": 0, "m_PathID": 0 },
+    { "m_FileID": 0, "m_PathID": 0 },
+    { "m_FileID": 0, "m_PathID": 0 },
+    { "m_FileID": 0, "m_PathID": 0 }
+  ],
+  "SpecialDurability1": {
+    "CardStatName": {
+      "DefaultText": "Sales Revenue",
+      "LocalizationKey": "CMC_MarketStall_SD1_Name"
+    },
+    "MaxValue": 480,
+    "FloatValue": 0,
+    "ShowAsBar": true,
+    "RatePerDaytimePoint": 0
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "DefaultText": "Collect as Copper",
+        "LocalizationKey": "CMC_MarketStall_DA_CollectCopper"
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "DefaultText": "Collect as Salt",
+        "LocalizationKey": "CMC_MarketStall_DA_CollectSalt"
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "DefaultText": "Pack Up Stall",
+        "LocalizationKey": "CMC_MarketStall_DA_PackUp"
+      },
+      "DaytimeCost": 4,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 3,
+        "DroppedCardWarpData": "cmcmarketstallkit",
+        "DroppedCardWarpType": 3
+      }
+    }
+  ],
+  "DismantleActionsWarpType": 3
+}

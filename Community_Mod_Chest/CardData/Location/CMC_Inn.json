@@ -1,0 +1,60 @@
+{
+  "UniqueID": "cmcInn",
+  "CardType": 2,
+  "AlwaysUpdate": false,
+  "CardName": {
+    "LocalizationKey": "CMC_Inn_CardName",
+    "DefaultText": "Village Inn"
+  },
+  "CardDescription": {
+    "LocalizationKey": "CMC_Inn_CardDescription",
+    "DefaultText": "A warm inn kept by a friendly innkeeper. Step inside for a meal, a bed for the night, or some paying work. Nestled in the village center among protective structures and habitations."
+  },
+  "CardHelpSection": {
+    "LocalizationKey": "CMC_Inn_Help",
+    "DefaultText": "Inn"
+  },
+  "CardImageWarpData": "VillageInn",
+  "CardImageWarpType": 3,
+  "CardTagsWarpData": ["tag_Structure"],
+  "CardTagsWarpType": 3,
+  "ObjectWeight": 0,
+  "DoesNotPile": true,
+  "MapStructureType": 1,
+  "CanDragItemsToTravel": true,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_Inn_DA_Enter",
+        "DefaultText": "Enter the Inn"
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 2,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "FadeToBlack": 1,
+      "FadeMessage": {
+        "LocalizationKey": "CMC_Inn_DA_Enter_Fade",
+        "DefaultText": "Entering the inn..."
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "Enter",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "cmcInnInterior",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    }
+  ],
+  "DismantleActionsWarpType": 3
+}

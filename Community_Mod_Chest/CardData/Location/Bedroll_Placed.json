@@ -1,0 +1,203 @@
+{
+    "UniqueID": "comfortbedrollplaced",
+    "CardName": {
+        "ParentObjectID": "comfortbedrollplaced",
+        "LocalizationKey": "Comfort_Bedroll_Placed_CardName",
+        "DefaultText": "Bedroll"
+    },
+    "CardDescription": {
+        "ParentObjectID": "comfortbedrollplaced",
+        "LocalizationKey": "Comfort_Bedroll_Placed_CardDescription",
+        "DefaultText": "A sleeping mat laid out on the ground. Provides insulation while resting on it. Needs occasional maintenance or it will fall apart.\n\nRoll it back up to carry it with you."
+    },
+    "CardType": 2,
+    "ObjectWeight": 250.0,
+    "TradingValue": 0.0,
+    "CardImageWarpData": "BedrollPlaced",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [ "tag_Preservable" ],
+    "CardTagsWarpType": 3,
+    "UniqueOnBoard": true,
+    "CannotBeTrashed": true,
+    "NeedsRoomInLocationToSpawn": false,
+    "WhenCreatedSoundsWarpData": ["Cloth"],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 576.0,
+        "MaxValue": 576.0,
+        "RatePerDaytimePoint": -1.0,
+        "HidingOptions": 0,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "OverrideIconWarpData": "Spoilage",
+        "OverrideIconWarpType": 3,
+        "HasActionOnZero": true,
+        "OnZero": {
+            "ActionName": {
+                "ParentObjectID": "comfortbedrollplaced",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "ActionDescription": {
+                "ParentObjectID": "comfortbedrollplaced",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "Recovered Materials",
+                    "DropSavedBpIngredients": true,
+                    "DroppedIfNoBpIngredient": [
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "comfortbedroll",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 1, "y": 1 }
+                        }
+                    ],
+                    "DroppedCards": []
+                }
+            ],
+            "StatModifications": [],
+            "ReceivingCardChanges": { "ModType": 3 }
+        }
+    },
+    "UsageDurability": { "Active": false },
+    "FuelCapacity": { "Active": false },
+    "Progress": { "Active": false },
+    "SpecialDurability1": { "Active": false },
+    "SpecialDurability2": { "Active": false },
+    "SpecialDurability3": { "Active": false },
+    "SpecialDurability4": { "Active": false },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "comfortbedrollplaced",
+                "LocalizationKey": "Comfort_Bedroll_Placed_DA_Nap",
+                "DefaultText": "Nap"
+            },
+            "DaytimeCost": 16,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [
+                { "StatWarpData": "10f8c7a1337ed46449f22f24013d26c3", "StatWarpType": 3, "ValueModifier": { "x": -1.0, "y": -1.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
+                { "StatWarpData": "ca25b2c02ece6674bae6aaba4a6b8c10", "StatWarpType": 3, "ValueModifier": { "x": 15.0, "y": 15.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
+                { "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78", "StatWarpType": 3, "ValueModifier": { "x": -0.5, "y": -0.5 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
+                { "StatWarpData": "c672b35248e9f2349a084e1514d6c9f8", "StatWarpType": 3, "ValueModifier": { "x": 0.5, "y": 0.5 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
+                { "StatWarpData": "547f09c7ea6d11d4bbf6714255b0dfd5", "StatWarpType": 3, "ValueModifier": { "x": -1.25, "y": -1.25 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
+                { "StatWarpData": "07f59e0f9e41a214c85ffa3078273264", "StatWarpType": 3, "ValueModifier": { "x": 4.0, "y": 4.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
+                { "StatWarpData": "92aae542f8489f643bd9498cc8e077bc", "StatWarpType": 3, "ValueModifier": { "x": -4.0, "y": -4.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
+                { "StatWarpData": "15cc9a2e63deafa4185a6344a22c442e", "StatWarpType": 3, "ValueModifier": { "x": -5.0, "y": -5.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
+                { "StatWarpData": "a21c27d9d22cb4b4285157bfe6b3535b", "StatWarpType": 3, "ValueModifier": { "x": -6.5, "y": -6.5 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
+                { "StatWarpData": "e5f80e034c362b04eb782384fbdccc78", "StatWarpType": 3, "ValueModifier": { "x": -9.0, "y": -9.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
+                { "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503", "StatWarpType": 3, "ValueModifier": { "x": 1.0, "y": 1.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
+                { "StatWarpData": "4c5ed70723dc40e439720acab06e6af7", "StatWarpType": 3, "ValueModifier": { "x": 5.0, "y": 5.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
+                { "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e", "StatWarpType": 3, "ValueModifier": { "x": 2.0, "y": 2.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
+                { "StatWarpData": "5c42aacf9a2584f4fb44e69e4da8e369", "StatWarpType": 3, "ValueModifier": { "x": -1.0, "y": -1.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true }
+            ],
+            "ProducedCards": [],
+            "ReceivingCardChanges": { "ModType": 0 }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "comfortbedrollplaced",
+                "LocalizationKey": "Comfort_Bedroll_Placed_DA_Sleep",
+                "DefaultText": "Sleep"
+            },
+            "DaytimeCost": 32,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [
+                { "StatWarpData": "10f8c7a1337ed46449f22f24013d26c3", "StatWarpType": 3, "ValueModifier": { "x": -1.0, "y": -1.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
+                { "StatWarpData": "ca25b2c02ece6674bae6aaba4a6b8c10", "StatWarpType": 3, "ValueModifier": { "x": 31.0, "y": 31.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
+                { "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78", "StatWarpType": 3, "ValueModifier": { "x": -0.5, "y": -0.5 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
+                { "StatWarpData": "c672b35248e9f2349a084e1514d6c9f8", "StatWarpType": 3, "ValueModifier": { "x": 0.5, "y": 0.5 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
+                { "StatWarpData": "547f09c7ea6d11d4bbf6714255b0dfd5", "StatWarpType": 3, "ValueModifier": { "x": -1.25, "y": -1.25 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
+                { "StatWarpData": "07f59e0f9e41a214c85ffa3078273264", "StatWarpType": 3, "ValueModifier": { "x": 4.0, "y": 4.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
+                { "StatWarpData": "92aae542f8489f643bd9498cc8e077bc", "StatWarpType": 3, "ValueModifier": { "x": -4.0, "y": -4.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
+                { "StatWarpData": "15cc9a2e63deafa4185a6344a22c442e", "StatWarpType": 3, "ValueModifier": { "x": -5.0, "y": -5.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
+                { "StatWarpData": "a21c27d9d22cb4b4285157bfe6b3535b", "StatWarpType": 3, "ValueModifier": { "x": -6.5, "y": -6.5 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
+                { "StatWarpData": "e5f80e034c362b04eb782384fbdccc78", "StatWarpType": 3, "ValueModifier": { "x": -9.0, "y": -9.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
+                { "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503", "StatWarpType": 3, "ValueModifier": { "x": 1.0, "y": 1.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
+                { "StatWarpData": "4c5ed70723dc40e439720acab06e6af7", "StatWarpType": 3, "ValueModifier": { "x": 5.0, "y": 5.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
+                { "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e", "StatWarpType": 3, "ValueModifier": { "x": 2.0, "y": 2.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true },
+                { "StatWarpData": "5c42aacf9a2584f4fb44e69e4da8e369", "StatWarpType": 3, "ValueModifier": { "x": -1.0, "y": -1.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "ApplyEachTick": false, "InstantModifier": true }
+            ],
+            "ProducedCards": [],
+            "ReceivingCardChanges": { "ModType": 0 }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "comfortbedrollplaced",
+                "LocalizationKey": "Comfort_Bedroll_Placed_DA_Dismantle",
+                "DefaultText": "Roll Up"
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Recovered Materials",
+                    "DropSavedBpIngredients": true,
+                    "DroppedIfNoBpIngredient": [
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "comfortbedroll",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 1, "y": 1 }
+                        }
+                    ],
+                    "DroppedCards": []
+                }
+            ],
+            "ReceivingCardChanges": { "ModType": 3 }
+        }
+    ],
+    "PassiveStatEffects": [],
+    "PassiveEffects": [
+        {
+            "EffectName": "Insulation",
+            "OnlyWhenEquipped": false,
+            "EquippedOnBodyOnly": false,
+            "OnlyOnBaseActions": true,
+            "Conditions": {
+                "PlayerUsesCard": 1,
+                "RequiredStatValues": [
+                    {
+                        "Stat": { "m_FileID": 0, "m_PathID": 0 },
+                        "StatWarpData": "888d2d2a99e3f044291c6748a0fa8d78",
+                        "StatWarpType": 3,
+                        "TriggerRange": { "x": -100.0, "y": 100.0 },
+                        "NotifyWhenNotMet": false,
+                        "HideAllWhenNotMet": false
+                    },
+                    {
+                        "Stat": { "m_FileID": 0, "m_PathID": 0 },
+                        "StatWarpData": "ca25b2c02ece6674bae6aaba4a6b8c10",
+                        "StatWarpType": 3,
+                        "TriggerRange": { "x": 1.0, "y": 999.0 },
+                        "NotifyWhenNotMet": false,
+                        "HideAllWhenNotMet": false
+                    }
+                ]
+            },
+            "StatModifiers": [
+                {
+                    "Stat": { "m_FileID": 0, "m_PathID": 0 },
+                    "StatWarpData": "0d5ec8f104b2ba149b4bb2b536bc21a4",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 1.0, "y": 1.0 },
+                    "RateModifier": { "x": 0.0, "y": 0.0 },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false
+                }
+            ]
+        }
+    ]
+}

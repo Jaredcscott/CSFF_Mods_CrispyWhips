@@ -1,0 +1,116 @@
+{
+    "UniqueID": "BpCMCVillageWell",
+    "CardName": {
+        "ParentObjectID": "BpCMCVillageWell",
+        "LocalizationKey": "Bp_CMC_VillageWell_CardName",
+        "DefaultText": "Village Well"
+    },
+    "CardDescription": {
+        "ParentObjectID": "BpCMCVillageWell",
+        "LocalizationKey": "Bp_CMC_VillageWell_CardDescription",
+        "DefaultText": "Dig a deep, stone-lined well in the village, twice the depth of the Inn's old root cellar, following the Inn Keeper's charcoal sketch. Can only be built at the Village."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "BpCMCVillageWell",
+        "LocalizationKey": "Bp_CMC_VillageWell_UnlockConditionsDesc",
+        "DefaultText": "Have the Inn Keeper's well plans in hand while at the Village"
+    },
+    "StartUnlocked": false,
+    "BlueprintCardConditions": [
+        {
+            "TriggerCard": { "m_FileID": 0, "m_PathID": 0 },
+            "OnlyInHand": false,
+            "NotInHand": false,
+            "ExcludeInventories": false,
+            "Inverted": false,
+            "OnlyEquipped": false,
+            "TriggerCardWarpData": "cmcLocVillage",
+            "TriggerCardWarpType": 3
+        }
+    ],
+    "BuildingCardConditions": [
+        {
+            "TriggerCard": { "m_FileID": 0, "m_PathID": 0 },
+            "OnlyInHand": false,
+            "NotInHand": false,
+            "ExcludeInventories": false,
+            "Inverted": false,
+            "OnlyEquipped": false,
+            "TriggerCardWarpData": "cmcLocVillage",
+            "TriggerCardWarpType": 3
+        }
+    ],
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "AtVillage",
+            "CompletionWeight": 1,
+            "Card": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": { "m_FileID": 0, "m_PathID": 0 },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": { "Target": { "m_FileID": 0, "m_PathID": 0 } },
+            "CardWarpData": "cmcLocVillage",
+            "CardWarpType": 3
+        },
+        {
+            "ObjectiveName": "HasWellPlans",
+            "CompletionWeight": 1,
+            "Card": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": { "m_FileID": 0, "m_PathID": 0 },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": { "Target": { "m_FileID": 0, "m_PathID": 0 } },
+            "CardWarpData": "cmcWellPlans",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [
+        {
+            "ObjectiveName": "VillageIntroDone",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "TriggerRange": { "x": 0.5, "y": 9999.0 },
+                "StatWarpData": "cmcStatVillagePhase",
+                "StatWarpType": 3
+            },
+            "ConstantlyChecking": false
+        }
+    ],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                { "RequiredCard": { "m_FileID": 0, "m_PathID": 0 }, "RequiredQuantity": 60, "DontSpend": false, "RequiredCardWarpData": "a7384e5147b23a642809451cc4ef24fb", "RequiredCardWarpType": 3 },
+                { "RequiredCard": { "m_FileID": 0, "m_PathID": 0 }, "RequiredQuantity": 20, "DontSpend": false, "RequiredCardWarpData": "8695a7aa22521aa45be582d3c1558f78", "RequiredCardWarpType": 3 },
+                { "RequiredCard": { "m_FileID": 0, "m_PathID": 0 }, "RequiredQuantity": 24, "DontSpend": false, "RequiredCardWarpData": "c8de2fee0c31ea64583a2f833a6d0a22", "RequiredCardWarpType": 3 },
+                { "RequiredCard": { "m_FileID": 0, "m_PathID": 0 }, "RequiredQuantity": 22, "DontSpend": false, "RequiredCardWarpData": "68c14d265ea6c874ba79444d2e1ef7b3", "RequiredCardWarpType": 3 },
+                { "RequiredCard": { "m_FileID": 0, "m_PathID": 0 }, "RequiredQuantity": 8, "DontSpend": false, "RequiredCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338", "RequiredCardWarpType": 3 },
+                { "RequiredCard": { "m_FileID": 0, "m_PathID": 0 }, "RequiredQuantity": 1, "DontSpend": false, "RequiredCardWarpData": "cmcWellPlans", "RequiredCardWarpType": 3 }
+            ],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 12,
+    "DeconstructDaytimeCost": 6,
+    "NeedsRoomInLocationToSpawn": true,
+    "BlueprintResult": [
+        {
+            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": { "x": 1, "y": 1 },
+            "DroppedCardWarpData": "cmcimpwell",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction", "LegAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImageWarpData": "Well",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 192.0,
+    "ResearchedNotification": 0
+}

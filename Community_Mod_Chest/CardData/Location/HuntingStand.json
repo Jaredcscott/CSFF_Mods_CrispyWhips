@@ -1,0 +1,116 @@
+{
+  "UniqueID": "hunterscachehuntingstand",
+  "CardName": {
+    "ParentObjectID": "hunterscachehuntingstand",
+    "LocalizationKey": "Hunters_Cache_HuntingStand_CardName",
+    "DefaultText": "Hunting Stand"
+  },
+  "CardDescription": {
+    "ParentObjectID": "hunterscachehuntingstand",
+    "LocalizationKey": "Hunters_Cache_HuntingStand_CardDescription",
+    "DefaultText": "A simple elevated platform lashed to a tree. Being off the ground makes you much harder for predators to detect."
+  },
+  "CardHelpSection": {
+    "ParentObjectID": "hunterscachehuntingstand",
+    "LocalizationKey": "Hunters_Cache_HuntingStand_CardHelpSection",
+    "DefaultText": "<b>Effect:</b> While this stand is at a location, wild-animal encounters there have a ~45% chance to be averted.\n\n<b>Take Down:</b> Recover the stand as a portable kit.\n\n<b>Dismantle:</b> Break it down into planks and sticks."
+  },
+  "CardType": 2,
+  "ObjectWeight": 800.0,
+  "TradingValue": 40.0,
+  "MaxStack": 1,
+  "DoesNotPile": true,
+  "AlwaysUpdate": false,
+  "IsEnvironment": false,
+  "IsAttachedToEnvironment": true,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "Plank",
+  "CardImageWarpType": 3,
+  "CardTagsWarpData": [
+    "tag_Structure",
+    "tag_Wood"
+  ],
+  "CardTagsWarpType": 3,
+  "WhenCreatedSoundsWarpData": ["Wood"],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": { "Active": false },
+  "UsageDurability": { "Active": false },
+  "FuelCapacity": { "Active": false },
+  "Progress": { "Active": false },
+  "SpecialDurability1": { "Active": false },
+  "SpecialDurability2": { "Active": false },
+  "SpecialDurability3": { "Active": false },
+  "SpecialDurability4": { "Active": false },
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "hunterscachehuntingstand",
+        "LocalizationKey": "Hunters_Cache_HuntingStand_TakeDown_ActionName",
+        "DefaultText": "Take Down"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hunterscachehuntingstand",
+        "LocalizationKey": "Hunters_Cache_HuntingStand_TakeDown_ActionDescription",
+        "DefaultText": "Unlash the platform and bundle it back into a portable kit."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Wood"],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": { "m_FileID": 0, "m_PathID": 0 },
+        "TransformIntoWarpData": "hunterscachehuntingstandkit",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": true
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "hunterscachehuntingstand",
+        "LocalizationKey": "Hunters_Cache_HuntingStand_Dismantle_ActionName",
+        "DefaultText": "Dismantle"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hunterscachehuntingstand",
+        "LocalizationKey": "Hunters_Cache_HuntingStand_Dismantle_ActionDescription",
+        "DefaultText": "Break the stand down into planks and sticks."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Wood"],
+      "ActionSoundsWarpType": 3,
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 2, "y": 2 }
+            },
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "3db4c94184af274409f0d3eb16870f64",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 2, "y": 2 }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": { "ModType": 3 }
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": []
+}

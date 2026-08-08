@@ -1,0 +1,17 @@
+{
+    "UniqueID": "cmcStatProfQuizDone",
+    "GameName": {
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "Entrance-exam quiz passed flag (0=not yet 1=passed, reward claimed)"
+    },
+    "DefaultStartingValue": 0.0,
+    "DefaultMinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "DefaultRate": 0.0,
+    "DefaultMinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    }
+}

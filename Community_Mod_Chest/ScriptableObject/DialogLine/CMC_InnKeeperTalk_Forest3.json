@@ -1,0 +1,18 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_Forest3_Line",
+        "DefaultText": "True enough that I keep salt on the sill and the fire lit. The forest gives: mushrooms, game, timber, and it takes. House rule: respect the groves, mind the mire, and be indoors by full dark."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Forest3_Answer_Thanks",
+                "DefaultText": "A fine tale. Thanks for the telling."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

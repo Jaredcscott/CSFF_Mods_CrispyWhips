@@ -1,0 +1,79 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}}
+        ],
+        "RequiredNPCStatValues": [
+            {
+                "UseAssociatedAgent": false,
+                "TargetAgentWarpData": "cmcProfessorAgent",
+                "TargetAgentWarpType": 3,
+                "TargetStatWarpData": "cmcStatProfGradCount",
+                "TargetStatWarpType": 3,
+                "ConditionRange": {
+                    "x": 1.0,
+                    "y": 1000000000.0
+                }
+            },
+            {
+                "UseAssociatedAgent": false,
+                "TargetAgentWarpData": "cmcProfessorAgent",
+                "TargetAgentWarpType": 3,
+                "TargetStatWarpData": "cmcStatProfGiftTier1",
+                "TargetStatWarpType": 3,
+                "ConditionRange": {
+                    "x": 0.0,
+                    "y": 0.0
+                }
+            }
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_GiftFirst_Line",
+        "DefaultText": "One moment, before anything else. You've passed your first course. Do you know how few villagers ever finish one? Here, a small prize from the Academy's coffers. Put it toward your next enrollment, or don't; it's yours."
+    },
+    "ActionToPerform": {
+        "NPCStatModifications": [
+            {
+                "TargetStatWarpData": "cmcStatProfGiftTier1",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {
+                    "x": 1.0,
+                    "y": 1.0
+                }
+            },
+            {
+                "TargetStatWarpData": "cmcStatProfessorTrust",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {
+                    "x": 5.0,
+                    "y": 5.0
+                }
+            }
+        ],
+        "DroppedCards": [
+            {
+                "DroppedCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+                "DroppedCardWarpType": 3,
+                "Quantity": {
+                    "x": 2,
+                    "y": 2
+                }
+            }
+        ]
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_GiftFirst_Answer",
+                "DefaultText": "Thank you, Professor."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "SceneTitle": {
+        "LocalizationKey": "CMC_ProfessorGreeting_SceneTitle",
+        "DefaultText": "The Professor"
+    },
+    "SceneLinesWarpData": [
+        "CMC_ProfAppliedHerbalismThanks_Line"
+    ],
+    "SceneLinesWarpType": 3
+}

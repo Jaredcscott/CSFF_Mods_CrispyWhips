@@ -1,0 +1,91 @@
+{
+  "UniqueID": "combatandarmorbpquiltedcap",
+  "CardName": {
+    "ParentObjectID": "combatandarmorbpquiltedcap",
+    "LocalizationKey": "Combat_And_Armor_Bp_QuiltedCap_CardName",
+    "DefaultText": "Quilted Cap"
+  },
+  "CardDescription": {
+    "ParentObjectID": "combatandarmorbpquiltedcap",
+    "LocalizationKey": "Combat_And_Armor_Bp_QuiltedCap_CardDescription",
+    "DefaultText": "Stitch layered cloth into a padded cap."
+  },
+  "CardType": 7,
+  "UnlockConditionsDesc": {
+    "ParentObjectID": "combatandarmorbpquiltedcap",
+    "LocalizationKey": "Combat_And_Armor_Bp_QuiltedCap_UnlockConditionsDesc",
+    "DefaultText": "Complete the Professor's first specimen commission"
+  },
+  "BuildingStatConditions": [],
+  "StartUnlocked": false,
+  "CardsOnBoard": [],
+  "TagsOnBoard": [],
+  "StatValues": [
+    {
+      "ObjectiveName": "ProfQuestChainAtLeast1",
+      "CompletionWeight": 1,
+      "StatCondition": {
+        "TriggerRange": { "x": 0.5, "y": 20.0 },
+        "StatWarpData": "cmcStatProfQuestChain",
+        "StatWarpType": 3
+      },
+      "ConstantlyChecking": false
+    }
+  ],
+  "BlueprintStages": [
+    {
+      "CannotRevertToThisStage": false,
+      "RequiredElements": [
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 2,
+          "DontSpend": false,
+          "RequiredCardWarpData": "aa73d89b9f0f04145adce258403d61d0",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 1,
+          "DontSpend": true,
+          "EffectOnIngredient": {
+            "ModType": 1,
+            "UsageChange": { "x": -8.0, "y": -8.0 }
+          },
+          "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredTabGroupWarpData": "GpTag_Needle",
+          "RequiredTabGroupWarpType": 3
+        }
+      ],
+      "StepActionTags": [],
+      "StepActionTagsWarpData": [],
+      "StepActionTagsWarpType": 3
+    }
+  ],
+  "BuildingDaytimeCost": 4,
+  "DeconstructDaytimeCost": 1,
+  "BlueprintResult": [
+    {
+      "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+      "Quantity": { "x": 1, "y": 1 },
+      "DroppedCardWarpData": "combatandarmorquiltedcap",
+      "DroppedCardWarpType": 3
+    }
+  ],
+  "BlueprintStatModifications": [],
+  "WhenCreatedSoundsWarpData": ["Leather"],
+  "WhenCreatedSoundsWarpType": 3,
+  "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+  "BlueprintActionTagsWarpType": 3,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "QuiltedCap",
+  "CardImageWarpType": 3,
+  "BlueprintUnlockTicksCost": 8.0,
+  "ResearchedNotification": 0
+}

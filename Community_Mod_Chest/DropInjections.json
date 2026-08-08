@@ -1,0 +1,225 @@
+[
+  {
+    "Locations": { "Uids": ["cmcLocVillageFarm"] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "WildGarlicFresh",                "Chance": 15.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_ginseng",          "Chance": 8.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_yarrow",           "Chance": 8.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_chamomile",        "Chance": 8.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_common_plantain",  "Chance": 8.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_wild_flowers",     "Chance": 10.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_dandelion",        "Chance": 10.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_hemp_seeds",       "Chance": 6.0,  "Quantity": [1, 1] }
+    ]
+  },
+  {
+    "Locations": { "Uids": ["cmcLocVillagePath"] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_ginseng",         "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_yarrow",          "Chance": 8.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_chamomile",       "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_common_plantain", "Chance": 8.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_wild_flowers",    "Chance": 8.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_puffball",        "Chance": 5.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_death_cap",       "Chance": 2.0,  "Quantity": [1, 1] }
+    ]
+  },
+  {
+    "Locations": { "Uids": ["cmcLocVillage"] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_ginseng",         "Chance": 5.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_yarrow",          "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_chamomile",       "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_dandelion",       "Chance": 8.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_wild_flowers",    "Chance": 8.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_hemp_seeds",      "Chance": 4.0,  "Quantity": [1, 1] }
+    ]
+  },
+  {
+    "Locations": { "Uids": ["cmcLocHighGrove"] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_ginseng",    "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_ginger",     "Chance": 5.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_yarrow",     "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_hemp_seeds", "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_chanterelle","Chance": 8.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_puffball",   "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_lingonberry","Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_cloudberry", "Chance": 5.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_death_cap",  "Chance": 2.0,  "Quantity": [1, 1] }
+    ]
+  },
+  {
+    "Locations": { "Uids": ["cmcLocPineTrail"] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_ginseng",    "Chance": 5.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_ginger",     "Chance": 5.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_yarrow",     "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_hemp_seeds", "Chance": 8.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_chanterelle","Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_cloudberry", "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_lingonberry","Chance": 5.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_death_cap",  "Chance": 2.0,  "Quantity": [1, 1] }
+    ]
+  },
+  {
+    "Locations": { "Uids": ["cmcLocClayFlats"] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_ginseng",         "Chance": 5.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_yarrow",          "Chance": 8.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_chamomile",       "Chance": 8.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_common_plantain", "Chance": 10.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_wild_flowers",    "Chance": 8.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_reishi",          "Chance": 5.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_black_trumpet",   "Chance": 4.0,  "Quantity": [1, 1] }
+    ]
+  },
+  {
+    "Locations": { "Uids": ["cmcLocMarshHollow"] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_ginseng",         "Chance": 5.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_yarrow",          "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_common_plantain", "Chance": 8.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_reishi",          "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_black_trumpet",   "Chance": 5.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_puffball",        "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_cloudberry",      "Chance": 4.0,  "Quantity": [1, 1] }
+    ]
+  },
+  {
+    "Locations": { "Uids": ["cmcLocMossyClearing"] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_ginseng",         "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_ginger",          "Chance": 5.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_wild_flowers",    "Chance": 8.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_morel_mushroom",  "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_chanterelle",     "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_reishi",          "Chance": 5.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_chicken_of_woods","Chance": 5.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_lions_mane",      "Chance": 4.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_black_trumpet",   "Chance": 5.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_blackcurrant",    "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_death_cap",       "Chance": 2.0,  "Quantity": [1, 1] }
+    ]
+  },
+  {
+    "Locations": { "Uids": ["cmcLocHuntersCrossing"] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_ginseng",    "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_ginger",     "Chance": 5.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_yarrow",     "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_hemp_seeds", "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_chanterelle","Chance": 5.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_cloudberry", "Chance": 5.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_lingonberry","Chance": 5.0,  "Quantity": [1, 1] }
+    ]
+  },
+  {
+    "Locations": { "Uids": ["cmcLocDeerMeadow"] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_ginseng",       "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_ginger",        "Chance": 5.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_wild_flowers",  "Chance": 10.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_chamomile",     "Chance": 8.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_hemp_seeds",    "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_morel_mushroom","Chance": 5.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_chanterelle",   "Chance": 5.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_blackcurrant",  "Chance": 5.0,  "Quantity": [1, 1] }
+    ]
+  },
+  {
+    "Locations": { "Uids": ["cmcLocBadgerWarren"] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_ginseng",         "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_ginger",          "Chance": 5.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_common_plantain", "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_puffball",        "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_hemp_seeds",      "Chance": 5.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_truffle",         "Chance": 4.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_lingonberry",     "Chance": 5.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_cloudberry",      "Chance": 4.0,  "Quantity": [1, 1] }
+    ]
+  },
+  {
+    "Locations": { "Uids": ["cmcLocForagingForest"] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "cmcoldgrowthbark", "Chance": 10.0, "Quantity": [1, 1] },
+      { "Card": "WildGarlicFresh", "Chance": 8.0, "Quantity": [1, 1] },
+
+      { "Card": "fa8834c3111a71f47bdd23d66b33cf61", "Chance": 12.0, "Quantity": [1, 1] },
+      { "Card": "a934d56f01b147649bbe8e0e93a86048", "Chance": 8.0, "Quantity": [1, 1] },
+      { "Card": "64c4dd2e834526541935792cbbdd7f87", "Chance": 8.0, "Quantity": [1, 1] },
+      { "Card": "2373beb4187dba040be0e93f0586321e", "Chance": 8.0, "Quantity": [1, 1] },
+      { "Card": "33a8fa532b48ca040a368f63c0cb68ff", "Chance": 6.0, "Quantity": [1, 1] },
+      { "Card": "a07b58829bd83d441ab96b4d33197aa6", "Chance": 6.0, "Quantity": [1, 1] },
+      { "Card": "d615853632d85db458d14016156b1a82", "Chance": 6.0, "Quantity": [1, 1] },
+      { "Card": "2bfd683e2c81d9e4ea993221475673ee", "Chance": 6.0, "Quantity": [1, 1] },
+      { "Card": "322e42ea161bf2e4bb94747882d1285a", "Chance": 6.0, "Quantity": [1, 1] },
+      { "Card": "e41ab416339b3c9459a37b4942f8f57b", "Chance": 6.0, "Quantity": [1, 1] },
+      { "Card": "6f0031502c513cc4085f7c8b912b7a3c", "Chance": 5.0, "Quantity": [1, 1] },
+      { "Card": "c324f662484d721469d7565b7bfb3e65", "Chance": 5.0, "Quantity": [1, 1] },
+      { "Card": "ac174c399999d14489fb3788c8931e93", "Chance": 5.0, "Quantity": [1, 1] },
+      { "Card": "ac0e762e7e085914c8b4751a8485cb65", "Chance": 5.0, "Quantity": [1, 1] },
+      { "Card": "283c5cf6e29e618479a4e768acc4a639", "Chance": 5.0, "Quantity": [1, 1] },
+      { "Card": "22bcbfab690575846ab4bb3b81da3635", "Chance": 5.0, "Quantity": [1, 1] },
+      { "Card": "ecff0e5482448a54e9e54c4f788286ef", "Chance": 5.0, "Quantity": [1, 1] },
+      { "Card": "5ad63f32ed767c64190a64d79841d023", "Chance": 4.0, "Quantity": [1, 1] },
+      { "Card": "4b15494036b7cb74d8eebfde424f9889", "Chance": 4.0, "Quantity": [1, 1] },
+      { "Card": "e22fe4f807c54b04c98d6e8af2a92acc", "Chance": 4.0, "Quantity": [1, 1] },
+      { "Card": "2105d96d97f2a434f974cb76bbeecdf2", "Chance": 4.0, "Quantity": [1, 1] },
+      { "Card": "a1da115fe6aad774683492f7317850aa", "Chance": 4.0, "Quantity": [1, 1] },
+      { "Card": "6bf0b76f386758847848c162edcf1f9e", "Chance": 4.0, "Quantity": [1, 1] },
+      { "Card": "ffbc6fdc5dc0eec43b100d0feb63b70d", "Chance": 3.0, "Quantity": [1, 1] },
+      { "Card": "554e6bf7267da2a44b98109c7fd7d7dc", "Chance": 3.0, "Quantity": [1, 1] },
+
+      { "Card": "herbs_fungi_shiitake", "Chance": 8.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_chanterelle", "Chance": 8.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_morel_mushroom", "Chance": 8.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_dandelion", "Chance": 8.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_puffball", "Chance": 6.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_chicken_of_woods", "Chance": 6.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_black_trumpet", "Chance": 6.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_yarrow", "Chance": 6.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_chamomile", "Chance": 6.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_common_plantain", "Chance": 6.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_wild_flowers", "Chance": 6.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_blackcurrant", "Chance": 6.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_redcurrant", "Chance": 6.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_reishi", "Chance": 5.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_king_oyster", "Chance": 5.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_golden_oyster", "Chance": 5.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_lions_mane", "Chance": 5.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_ginseng", "Chance": 10.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_ginger", "Chance": 5.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_lingonberry", "Chance": 5.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_hemp_seeds", "Chance": 5.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_cloudberry", "Chance": 4.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_death_cap", "Chance": 3.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_truffle", "Chance": 3.0, "Quantity": [1, 1] }
+    ]
+  }
+]

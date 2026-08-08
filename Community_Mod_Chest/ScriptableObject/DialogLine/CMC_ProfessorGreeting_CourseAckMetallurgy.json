@@ -1,0 +1,21 @@
+{
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_CourseAckMetallurgy_Line",
+        "DefaultText": "Passed, and properly, not a squeak of luck in it. Metallurgy is the course that weeds out the impatient, half my students give up the moment the ore refuses to cooperate. You didn't. Sheet metal will behave itself for you from here on, worked thin and even instead of cracking under the hammer, and I expect you already have a project or two in mind for it."
+    },
+    "ActionToPerform": {
+        "NPCStatModifications": [
+            {"TargetStatWarpData": "cmcStatProfCourseAckMetallurgy", "TargetStatWarpType": 3, "UseAssociatedAgent": true, "ValueChange": {"x": 1.0, "y": 1.0}},
+            {"TargetStatWarpData": "cmcStatProfessorTrust", "TargetStatWarpType": 3, "UseAssociatedAgent": true, "ValueChange": {"x": 5.0, "y": 5.0}}
+        ]
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Answer_Ok",
+                "DefaultText": "Thank you, Professor."
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

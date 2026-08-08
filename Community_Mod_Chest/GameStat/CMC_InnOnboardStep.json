@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatInnOnboardStep",
+    "GameName": {
+        "LocalizationKey": "CMC_InnOnboardStep_StatName",
+        "DefaultText": "The Inn Keeper's Onboarding"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_InnOnboardStep_StatDescription",
+        "DefaultText": "Hidden anti-collapse sequencer for the Inn Keeper's weekly onboarding beats: 0 = Week-2 line not yet heard (it gates on step 0 AND week >= 2), 1 = Week-2 heard (Week-3 backstory gates on step 1 AND week >= 3), 2 = Week-3 heard. Catch-up players binge at most one beat per conversation; backfilled to 2 on old saves that already received the Well Plans."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 10.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

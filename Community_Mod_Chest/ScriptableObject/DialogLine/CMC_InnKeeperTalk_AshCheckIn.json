@@ -1,0 +1,80 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatLostCat", "StatWarpType": 3, "TriggerRange": {"x": 2.5, "y": 10.5}},
+            {"StatWarpData": "cmcStatAshBoarHuntSpot", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.5}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_AshCheckIn_Line",
+        "DefaultText": "Ash treating you well? That cat's got more opinions than the miller's wife, but he's happier for having you."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_AshCheckIn_Answer_Mouser",
+                "DefaultText": "Never better. Catches mice every night."
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_InnKeeperTalk_Start",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_AshCheckIn_Answer_Lazy",
+                "DefaultText": "Sleeps most of the day. Spoiled rotten."
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_InnKeeperTalk_Start",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_AshCheckIn_Answer_Pack",
+                "DefaultText": "He's decided he owns my pack now."
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_InnKeeperTalk_Start",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_AshCheckIn_Answer_Company",
+                "DefaultText": "Keeps me company on the cold nights."
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_InnKeeperTalk_Start",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_AshCheckIn_Answer_Gone",
+                "DefaultText": "Truth is\u2026 he wandered off. Haven't seen him in days."
+            },
+            "Conditions": {
+                "RequiredCardsNOTOnBoardWarpData": ["cmcInnCat"],
+                "RequiredCardsNOTOnBoardWarpType": 3
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatLostCat", "StatWarpType": 3, "ValueModifier": {"x": -2.0, "y": -2.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_InnKeeperTalk_AshLostAgain",
+                "NextLineWarpType": 3
+            }
+        }
+    ]
+}

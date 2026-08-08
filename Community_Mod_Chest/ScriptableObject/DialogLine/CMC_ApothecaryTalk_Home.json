@@ -1,0 +1,18 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_ApothecaryTalk_Home_Line",
+        "DefaultText": "Quiet, and I like it quiet. The wolves keep their distance and the pines keep the wind off. I trained at the Academy same as you might have, but a herbalist belongs where the herbs grow, not behind a lectern. This clearing is exactly where I ought to be."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ApothecaryTalk_Home_Answer_Bye",
+                "DefaultText": "It suits you."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

@@ -1,0 +1,176 @@
+{
+    "UniqueID": "cmcfishingnet",
+    "CardName": {
+        "ParentObjectID": "cmcfishingnet",
+        "LocalizationKey": "CMC_FishingNet_CardName",
+        "DefaultText": "Fishing Net"
+    },
+    "CardDescription": {
+        "ParentObjectID": "cmcfishingnet",
+        "LocalizationKey": "CMC_FishingNet_CardDescription",
+        "DefaultText": "A hand-thrown casting net knotted from twine and stretched on sticks. Heave it into the water to catch several fish at once. Wears out after repeated use."
+    },
+    "CardType": 0,
+    "ObjectWeight": 400.0,
+    "TradingValue": 40.0,
+    "DoesNotPile": true,
+    "CardImageWarpData": "FishingNet",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "SticksAppear"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 10.0,
+        "CardStatName": {
+            "ParentObjectID": "cmcfishingnet",
+            "LocalizationKey": "CMC_FishingNet_UsageDurability_CardStatName",
+            "DefaultText": "Casts"
+        },
+        "MaxValue": 10.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 1,
+        "TextDisplay": 1,
+        "NumberPrecision": 0,
+        "HasActionOnZero": true,
+        "ShowPopupOnZero": true,
+        "OnZero": {
+            "ActionDescription": {
+                "ParentObjectID": "cmcfishingnet",
+                "LocalizationKey": "CMC_FishingNet_WornOut",
+                "DefaultText": "The fishing net has worn through and can no longer be cast."
+            },
+            "OnZeroNotification": 1,
+            "ProducedCards": [],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        },
+        "HasActionOnFull": false,
+        "CountsForTradingValue": true
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "cmcfishingnet",
+                "LocalizationKey": "CMC_FishingNet_DA_CastNet",
+                "DefaultText": "Cast Net"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "cmcfishingnet",
+                "LocalizationKey": "CMC_FishingNet_DA_CastNet_Description",
+                "DefaultText": "Throw the net into the water and haul it back with fish."
+            },
+            "DaytimeCost": 2,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredTagsOnBoardWarpData": ["tag_River"],
+            "RequiredTagsOnBoardWarpType": 3,
+            "ProducedCards": [
+                {
+                    "CollectionName": "Small Catch",
+                    "CollectionWeight": 2000,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "992cc6a7e92f4c5438c766327a3cbfcb",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 2, "y": 2 }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Good Catch",
+                    "CollectionWeight": 1500,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "992cc6a7e92f4c5438c766327a3cbfcb",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 1, "y": 1 }
+                        },
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "e64237c9a44ea3945bc75b8b9f4735c0",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 1, "y": 1 }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Great Catch",
+                    "CollectionWeight": 1000,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "992cc6a7e92f4c5438c766327a3cbfcb",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 2, "y": 2 }
+                        },
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "e64237c9a44ea3945bc75b8b9f4735c0",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 1, "y": 1 }
+                        }
+                    ]
+                },
+                {
+                    "CollectionName": "Lucky Catch",
+                    "CollectionWeight": 500,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "e64237c9a44ea3945bc75b8b9f4735c0",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 1, "y": 1 }
+                        },
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "f4972170adc8b3d4f9d4bc09c6e7f760",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 1, "y": 1 }
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 0,
+                "ModifyDurability": true,
+                "UsageChange": { "x": -1.0, "y": -1.0 }
+            }
+        }
+    ],
+    "PassiveStatEffects": [],
+    "PassiveEffects": []
+}

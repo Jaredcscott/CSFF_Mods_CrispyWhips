@@ -1,0 +1,117 @@
+{
+    "UniqueID": "cmcvillagefieldturnroot",
+    "CardName": {
+        "ParentObjectID": "cmcvillagefieldturnroot",
+        "LocalizationKey": "CMC_VillageField_Turnroot_CardName",
+        "DefaultText": "Turnroot Field"
+    },
+    "CardDescription": {
+        "ParentObjectID": "cmcvillagefieldturnroot",
+        "LocalizationKey": "CMC_VillageField_Turnroot_CardDescription",
+        "DefaultText": "Rows of turnroot swelling in the summer soil of the old village farm. They can be pulled through the season, but the patch is spent once the ground is bare."
+    },
+    "CardType": 2,
+    "AlwaysUpdate": false,
+    "ObjectWeight": 400000.0,
+    "TradingValue": 0.0,
+    "CardImageWarpData": "Field_Tilled",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "UniqueOnBoard": false,
+    "CannotBeTrashed": true,
+    "NeedsRoomInLocationToSpawn": false,
+    "WhenCreatedSoundsWarpData": ["Plant"],
+    "WhenCreatedSoundsWarpType": 3,
+    "UsageDurability": { "Active": false },
+    "SpoilageTime": { "Active": false },
+    "FuelCapacity": { "Active": false },
+    "Progress": { "Active": false },
+    "SpecialDurability1": { "Active": false },
+    "SpecialDurability2": {
+        "Active": true,
+        "FloatValue": 96.0,
+        "MaxValue": 96.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "OverrideIconWarpData": "Health",
+        "OverrideIconWarpType": 3,
+        "CardStatName": {
+            "ParentObjectID": "cmcvillagefieldturnroot",
+            "LocalizationKey": "CMC_VillageField_HealthStat",
+            "DefaultText": "Health"
+        },
+        "HasActionOnZero": false,
+        "HasActionOnFull": false
+    },
+    "SpecialDurability3": {
+        "Active": true,
+        "FloatValue": 5760.0,
+        "MaxValue": 5760.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 0,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "OverrideIconWarpData": "SaturationBerries",
+        "OverrideIconWarpType": 3,
+        "CardStatName": {
+            "ParentObjectID": "cmcvillagefieldturnroot",
+            "LocalizationKey": "CMC_VillageField_YieldStat",
+            "DefaultText": "Yield"
+        },
+        "HasActionOnZero": false,
+        "HasActionOnFull": false
+    },
+    "SpecialDurability4": { "Active": false },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "cmcvillagefieldturnroot",
+                "LocalizationKey": "CMC_VillageField_Turnroot_DA_Harvest",
+                "DefaultText": "Harvest Turnroot"
+            },
+            "DaytimeCost": 2,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "RequiredReceivingDurabilities": {
+                "RequiredSpecial3Percent": {
+                    "Active": true,
+                    "FloatValue": 0.05,
+                    "MaxValue": 1.0,
+                    "ScaleRequirementPerPortionOfLiquid": { "Active": false, "FloatValue": 0.0 }
+                },
+                "HideActionIfNotMet": true,
+                "FailMessage": {
+                    "ParentObjectID": "cmcvillagefieldturnroot",
+                    "LocalizationKey": "CMC_VillageField_Turnroot_Spent",
+                    "DefaultText": "The turnroot patch has given all it can this season."
+                }
+            },
+            "StatModifications": [],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Turnroot Harvest",
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "ac174c399999d14489fb3788c8931e93",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 3, "y": 3 },
+                            "TransferRules": { "Special2": 1 }
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "Special3Change": { "x": -288.0, "y": -288.0 }
+            }
+        }
+    ],
+    "PassiveStatEffects": [],
+    "PassiveEffects": []
+}

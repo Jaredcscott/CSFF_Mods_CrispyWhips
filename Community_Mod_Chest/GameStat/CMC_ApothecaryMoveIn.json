@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatApothecaryMoveIn",
+    "GameName": {
+        "LocalizationKey": "CMC_ApothecaryMoveIn_StatName",
+        "DefaultText": "Apothecary Move-In Day"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_ApothecaryMoveIn_StatDescription",
+        "DefaultText": "Hidden tracker for the day the Apothecary moves into the finished cabin at the Foraging Forest."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 100000.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

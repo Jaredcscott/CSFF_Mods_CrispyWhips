@@ -1,0 +1,53 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_MillerTalk_Story3_Line",
+        "DefaultText": "Fair? I kept my own house in order and he didn't, that's all. Nothing in the wager said a word about whose race ran cleaner. Still, I'll grant you it wasn't the whole of it, and I've never quite told it straight to anyone until now."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_Story3_Answer_Admit",
+                "DefaultText": "So you admit it."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatMillerStoryStep",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": 1.0, "y": 1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_MillerTalk_Story4",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_Story3_Answer_Secret",
+                "DefaultText": "Your secret's safe with me."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatMillerStoryStep",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": 1.0, "y": 1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_MillerTalk_Story4",
+                "NextLineWarpType": 3
+            }
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}}
+        ],
+        "RequiredNPCStatValues": [
+            {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfessorTrust", "TargetStatWarpType": 3, "ConditionRange": {"x": 25.0, "y": 1000000000.0}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_TrustMid_Line",
+        "DefaultText": "Ah, my favorite irregular student. I was hoping you'd stop by. What shall it be today?"
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ProfessorGreeting_Continue_Answer",
+                "DefaultText": "Go on."
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_ProfessorGreeting_Menu",
+                "NextLineWarpType": 3
+            }
+        }
+    ]
+}

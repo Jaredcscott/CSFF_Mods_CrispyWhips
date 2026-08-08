@@ -1,0 +1,217 @@
+{
+    "UniqueID": "cmcMillerAgent",
+    "AgentName": {
+        "LocalizationKey": "CMC_Miller_AgentName",
+        "DefaultText": "The Miller"
+    },
+    "AgentDescription": {
+        "LocalizationKey": "CMC_Miller_AgentDescription",
+        "DefaultText": "Moved into the Miller's Cottage a week after it was finished. Grinds the village's grain and keeps a pinch of every sack."
+    },
+    "AgentImageWarpData": "CMC_Miller",
+    "AgentImageWarpType": 3,
+    "MaxCarryWeight": 100000.0,
+    "WeightCategoryWarpData": "Light",
+    "WeightCategoryWarpType": 3,
+    "AgentTags": [],
+    "Interactions": [
+        {
+            "ButtonName": {
+                "LocalizationKey": "CMC_Miller_Talk",
+                "DefaultText": "Talk"
+            },
+            "Conditions": {},
+            "ButtonType": 0,
+            "DialogWarpData": "CMC_MillerTalk",
+            "DialogWarpType": 3
+        }
+    ],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Miller_Chat_ActionName",
+                "DefaultText": "Chat"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Miller_Chat_ActionDescription",
+                "DefaultText": "Trade a little village gossip while the grindstones turn."
+            },
+            "DaytimeCost": 4,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {"ModType": 0},
+            "StatModifications": [
+                {"StatWarpData": "3dc9b7924c4bec142af1c255f6df235d", "StatWarpType": 3, "ValueModifier": {"x": -20.0, "y": -20.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "04194353fd841a94ebff8b69af66c8d0", "StatWarpType": 3, "ValueModifier": {"x": 30.0, "y": 30.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "ad5665dcf2e21ed49a5817b1b7005b2e", "StatWarpType": 3, "ValueModifier": {"x": -10.0, "y": -10.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff", "StatWarpType": 3, "ValueModifier": {"x": 15.0, "y": 15.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e", "StatWarpType": 3, "ValueModifier": {"x": 15.0, "y": 15.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "59e9ebfecfacb154b8436e93f094b316", "StatWarpType": 3, "ValueModifier": {"x": 2.0, "y": 2.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78", "StatWarpType": 3, "ValueModifier": {"x": -10.0, "y": -10.0}, "InstantModifier": true, "ApplyEachTick": false}
+            ]
+        }
+    ],
+    "DragAndDropActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Miller_GiveWheatGrain_ActionName",
+                "DefaultText": "Give Wheat Grain"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Miller_GiveWheatGrain_ActionDescription",
+                "DefaultText": "Hand over a wheat grain for the Miller's errand. He tips it straight onto the hopper, pleased the stones won't sit idle."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatMillerQuestChain", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}},
+                {"StatWarpData": "cmcStatMillerQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatMillerQuestArmed", "StatWarpType": 3, "ValueModifier": {"x": 0.5, "y": 0.5}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["f0720ce316331f04cb2a5d680c8aab41"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Miller_GiveLeather_ActionName",
+                "DefaultText": "Give Small Leather"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Miller_GiveLeather_ActionDescription",
+                "DefaultText": "Hand over a small piece of leather for the Miller's grindstone belts. He turns it over, testing the give in it, and nods."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatMillerQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+                {"StatWarpData": "cmcStatMillerQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatMillerQuestArmed", "StatWarpType": 3, "ValueModifier": {"x": 0.5, "y": 0.5}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["669497ecaa30b634c86bea6b61f31e63"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Miller_GivePlanks_ActionName",
+                "DefaultText": "Give Planks"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Miller_GivePlanks_ActionDescription",
+                "DefaultText": "Hand over a stack of planks for the Miller's workbench. He sets them against the wall, already planning what to build."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatMillerQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 2.5}},
+                {"StatWarpData": "cmcStatMillerQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatMillerQuestArmed", "StatWarpType": 3, "ValueModifier": {"x": 0.5, "y": 0.5}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["57460207bbf77fa4fb6720aed5d84851"],
+                "TriggerCardsWarpType": 3
+            }
+        }
+    ],
+    "AgentDuties": [],
+    "AgentActions": [
+        {
+            "ActionID": "MillerChestCurrency",
+            "ActionLocalizedName": {
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "MillerChestCurrency"
+            },
+            "RepeatOptions": 3,
+            "Conditions": {},
+            "DroppedCards": [
+                {
+                    "CollectionName": "Miller chest savings",
+                    "DroppedCards": [
+                        { "DroppedCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa", "DroppedCardWarpType": 3, "Quantity": { "x": 3, "y": 3 } }
+                    ],
+                    "DropCardsInsideInventory": true
+                }
+            ]
+        },
+        {
+            "ActionID": "MillerChestGoods",
+            "ActionLocalizedName": {
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "MillerChestGoods"
+            },
+            "RepeatOptions": 3,
+            "Conditions": {},
+            "DroppedCards": [
+                {
+                    "CollectionName": "Miller chest stock",
+                    "DroppedCards": [
+                        { "DroppedCardWarpData": "7900a60c205568640a887f30cc6ff8f9", "DroppedCardWarpType": 3, "Quantity": { "x": 2, "y": 2 } }
+                    ],
+                    "DropCardsInsideInventory": true
+                }
+            ]
+        }
+    ],
+    "CannotTrade": false,
+    "TradingModifiers": [
+        {
+            "ForTradingDirection": 2,
+            "ModifierMode": 1,
+            "SimpleModifier": 1.5,
+            "GlobalStatModifiers": []
+        },
+        {
+            "ForTradingDirection": 1,
+            "ModifierMode": 1,
+            "SimpleModifier": 0.5,
+            "GlobalStatModifiers": []
+        }
+    ],
+    "StartingInventory": [
+        {
+            "ItemWarpData": "57460207bbf77fa4fb6720aed5d84851",
+            "ItemWarpType": 3,
+            "Quantity": { "x": 5, "y": 8 }
+        },
+        {
+            "ItemWarpData": "7900a60c205568640a887f30cc6ff8f9",
+            "ItemWarpType": 3,
+            "Quantity": { "x": 5, "y": 8 }
+        },
+        {
+            "ItemWarpData": "730e96f4b2a7540448604cd0c1644e97",
+            "ItemWarpType": 3,
+            "Quantity": { "x": 5, "y": 8 }
+        },
+        {
+            "ItemWarpData": "ab30197cd1a147746b807e33f5f91fc3",
+            "ItemWarpType": 3,
+            "Quantity": { "x": 5, "y": 8 }
+        }
+    ]
+}

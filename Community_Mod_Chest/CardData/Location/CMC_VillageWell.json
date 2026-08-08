@@ -1,0 +1,79 @@
+{
+    "UniqueID": "cmcimpwell",
+    "CardName": {
+        "ParentObjectID": "cmcimpwell",
+        "LocalizationKey": "CMC_VillageWell_CardName",
+        "DefaultText": "Village Well"
+    },
+    "CardDescription": {
+        "ParentObjectID": "cmcimpwell",
+        "LocalizationKey": "CMC_VillageWell_CardDescription",
+        "DefaultText": "A deep, stone-lined well sunk twice as deep as the Inn's root cellar. Draw water here any time by dragging an empty container to it."
+    },
+    "CardType": 2,
+    "ObjectWeight": 0.0,
+    "TradingValue": 0.0,
+    "CardImageWarpData": "CMC_WellPlans",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": ["tag_Structure"],
+    "CardTagsWarpType": 3,
+    "UniqueOnBoard": true,
+    "DoesNotPile": true,
+    "CannotBeTrashed": true,
+    "NeedsRoomInLocationToSpawn": false,
+    "WhenCreatedSoundsWarpData": ["StoneAppear"],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": { "Active": false },
+    "UsageDurability": { "Active": false },
+    "FuelCapacity": { "Active": false },
+    "Progress": { "Active": false },
+    "SpecialDurability1": { "Active": false },
+    "SpecialDurability2": { "Active": false },
+    "SpecialDurability3": { "Active": false },
+    "SpecialDurability4": { "Active": false },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "cmcimpwell",
+                "LocalizationKey": "CMC_VillageWell_CI_Draw_ActionName",
+                "DefaultText": "Draw Water"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "cmcimpwell",
+                "LocalizationKey": "CMC_VillageWell_CI_Draw_ActionDescription",
+                "DefaultText": "Fill an empty container from the well."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerTagsWarpData": ["tag_WaterContainer"],
+                "TriggerTagsWarpType": 3
+            },
+            "GivenCardChanges": { "ModType": 0 },
+            "ReceivingCardChanges": { "ModType": 0 },
+            "CreatedLiquidInGivenCard": {
+                "LiquidCard": { "m_FileID": 0, "m_PathID": 0 },
+                "LiquidCardWarpData": "425259cb06b869d45be2e7f1b5b54aff",
+                "LiquidCardWarpType": 3,
+                "Quantity": { "x": 100000.0, "y": 100000.0 },
+                "Durabilities": {
+                    "Spoilage": 0, "Usage": 0, "Fuel": 0, "Progress": 0,
+                    "Special1": 0, "Special2": 0, "Special3": 0, "Special4": 0,
+                    "SpoilageValue": 0.0, "UsageValue": 0.0, "FuelValue": 0.0, "ProgressValue": 0.0,
+                    "Special1Value": 0.0, "Special2Value": 0.0, "Special3Value": 0.0, "Special4Value": 0.0,
+                    "SpoilageFrom": 0, "UsageFrom": 0, "FuelFrom": 0, "ProgressFrom": 0,
+                    "Special1From": 0, "Special2From": 0, "Special3From": 0, "Special4From": 0
+                }
+            }
+        }
+    ],
+    "DismantleActions": [],
+    "PassiveStatEffects": [],
+    "PassiveEffects": []
+}

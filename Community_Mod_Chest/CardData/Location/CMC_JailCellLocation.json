@@ -1,0 +1,90 @@
+{
+  "UniqueID": "cmcJailCellLocation",
+  "CardType": 8,
+  "InstancedEnvironment": false,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": true,
+  "DoesNotPile": true,
+  "CardName": {
+    "LocalizationKey": "CMC_JailCellLocation_CardName",
+    "DefaultText": "Jail Cell"
+  },
+  "CardImageWarpData": "CMC_JailCellInterior",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_JailCellLocation_DA_Meditate",
+        "DefaultText": "Meditate"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_JailCellLocation_DA_Meditate_Desc",
+        "DefaultText": "Sit still and let the hours pass."
+      },
+      "DaytimeCost": 8,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [],
+      "ProducedCards": [],
+      "ReceivingCardChanges": { "ModType": 0 }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_JailCellLocation_DA_CountStones",
+        "DefaultText": "Count the stones"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_JailCellLocation_DA_CountStones_Desc",
+        "DefaultText": "One. Two. Three. You've lost count before, but not this time."
+      },
+      "DaytimeCost": 1,
+      "AlwaysShow": true,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "cmcStatJailStonesCounted",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 1.0, "y": 1.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ProducedCards": [],
+      "ReceivingCardChanges": { "ModType": 0 }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_JailCellLocation_DA_StonesMilestone",
+        "DefaultText": "You know this cell by heart now"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_JailCellLocation_DA_StonesMilestone_Desc",
+        "DefaultText": "One hundred and counting. Every crack, every stain, every stone in this floor -- you could draw it blind."
+      },
+      "DaytimeCost": 0,
+      "RequiredStatValues": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "cmcStatJailStonesCounted",
+          "StatWarpType": 3,
+          "TriggerRange": { "x": 100.0, "y": 999999.0 }
+        }
+      ],
+      "AlwaysShow": true,
+      "HideIfConditionsNotMet": true,
+      "StatModifications": [],
+      "ProducedCards": [],
+      "ReceivingCardChanges": { "ModType": 0 }
+    }
+  ],
+  "DismantleActionsWarpType": 3
+}

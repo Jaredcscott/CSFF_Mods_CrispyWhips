@@ -1,0 +1,78 @@
+{
+    "UniqueID": "comfortbpwovenwallhanging",
+    "CardName": {
+        "ParentObjectID": "comfortbpwovenwallhanging",
+        "LocalizationKey": "Comfort_WovenWallHanging_Bp_CardName",
+        "DefaultText": "Woven Wall Hanging"
+    },
+    "CardDescription": {
+        "ParentObjectID": "comfortbpwovenwallhanging",
+        "LocalizationKey": "Comfort_WovenWallHanging_Bp_CardDescription",
+        "DefaultText": "Weave dried rye straw into a decorative panel and dye it with natural pigment."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "comfortbpwovenwallhanging",
+        "LocalizationKey": "Comfort_WovenWallHanging_Bp_UnlockConditionsDesc",
+        "DefaultText": "Show the Weaver your own weave"
+    },
+    "StartUnlocked": false,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [
+        {
+            "ObjectiveName": "WeaverQuestChainAtLeast2",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "TriggerRange": { "x": 1.5, "y": 20.0 },
+                "StatWarpData": "cmcStatWeaverQuestChain",
+                "StatWarpType": 3
+            },
+            "ConstantlyChecking": false
+        }
+    ],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 6,
+                    "DontSpend": false,
+                    "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredCardWarpData": "62ffe49f7b68c2d4b9cd549ac6942ba3",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredCardWarpData": "potterysculpturepigment",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 4,
+    "DeconstructDaytimeCost": 0,
+    "BlueprintResult": [
+        {
+            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": { "x": 1, "y": 1 },
+            "DroppedCardWarpData": "comfortwovenwallhanging",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+    "CardImageWarpData": "WovenWallHanging",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 4.0,
+    "ResearchedNotification": 0
+}

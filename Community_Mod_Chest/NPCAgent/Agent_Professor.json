@@ -1,0 +1,1369 @@
+{
+    "UniqueID": "cmcProfessorAgent",
+    "AgentName": {
+        "LocalizationKey": "CMC_Professor_AgentName",
+        "DefaultText": "The Professor"
+    },
+    "AgentDescription": {
+        "LocalizationKey": "CMC_Professor_AgentDescription",
+        "DefaultText": "Teaches the Academy's courses and keeps the lecture hall in order."
+    },
+    "AgentImageWarpData": "Professor_Indoors_Academy",
+    "AgentImageWarpType": 3,
+    "MaxCarryWeight": 100000.0,
+    "WeightCategoryWarpData": "Light",
+    "WeightCategoryWarpType": 3,
+    "AgentTags": [],
+    "AgentStats": [
+        {
+            "ModelStatWarpData": "cmcStatProfessorPhase",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatProfEligibleMetallurgy",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatProfEligibleHerbalism",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatProfEligibleMedicine",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatProfEligibleFishing",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatProfEligibleArchitecture",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatProfEligibleArmorer",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatProfessorTrust",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatProfLastNode",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatProfGradCount",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatProfGiftTier1",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatProfGiftTier2",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatProfGiftTrust",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatProfQuizDone",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatProfBridgeNews",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatProfAshNews",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatProfSpecimenReady",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatProfSpecimenNextDay",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatProfFieldSamplesReady",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatProfFieldSamplesClaimed",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatProfAppliedHerbalismClaimed",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatProfCourseAckMetallurgy",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatProfCourseAckHerbalism",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatProfCourseAckMedicine",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatProfCourseAckFishing",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatProfCourseAckArchitecture",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatProfCourseAckArmorer",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatProfNewsApothecary",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cmcStatProfNewsHall",
+            "ModelStatWarpType": 3
+        }
+    ],
+    "Interactions": [
+        {
+            "ButtonName": {
+                "LocalizationKey": "CMC_Professor_Talk",
+                "DefaultText": "Talk"
+            },
+            "Conditions": {},
+            "ButtonType": 0,
+            "DialogWarpData": "CMC_ProfessorGreeting",
+            "DialogWarpType": 3
+        }
+    ],
+    "DismantleActions": [],
+    "DragAndDropActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Professor_GiveClay_ActionName",
+                "DefaultText": "Give Clay"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Professor_GiveClay_ActionDescription",
+                "DefaultText": "Hand over a lump of clay for the Professor's ruined castle. He turns it over, already sketching towers in his mind."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {
+                    "StatWarpData": "cmcStatProfQuestChain",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.5,
+                        "y": 1.5
+                    }
+                },
+                {
+                    "StatWarpData": "cmcStatProfQuestArmed",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": -0.5,
+                        "y": 0.25
+                    }
+                }
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {
+                "ModType": 0
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "cmcStatProfQuestArmed",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 0.5,
+                        "y": 0.5
+                    },
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": [
+                    "68c14d265ea6c874ba79444d2e1ef7b3"
+                ],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Professor_GiveMetalNuggets_ActionName",
+                "DefaultText": "Give Metal Nuggets"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Professor_GiveMetalNuggets_ActionDescription",
+                "DefaultText": "Hand over metal nuggets for the Professor's dragon cast. He weighs them in his palm, pleased at the heft."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {
+                    "StatWarpData": "cmcStatProfQuestChain",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 1.5,
+                        "y": 2.5
+                    }
+                },
+                {
+                    "StatWarpData": "cmcStatProfQuestArmed",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": -0.5,
+                        "y": 0.25
+                    }
+                }
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {
+                "ModType": 0
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "cmcStatProfQuestArmed",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 0.5,
+                        "y": 0.5
+                    },
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": [
+                    "4b0f4937a5ecb90499428c8c10288afc"
+                ],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Professor_GiveBonesOrAntler_ActionName",
+                "DefaultText": "Give Bones or Antler"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Professor_GiveBonesOrAntler_ActionDescription",
+                "DefaultText": "Hand over bones or antler for the Professor's armor reconstruction. He lays the piece out on the table, comparing it to a sketch."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {
+                    "StatWarpData": "cmcStatProfQuestChain",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 2.5,
+                        "y": 3.5
+                    }
+                },
+                {
+                    "StatWarpData": "cmcStatProfQuestArmed",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": -0.5,
+                        "y": 0.25
+                    }
+                }
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {
+                "ModType": 0
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "cmcStatProfQuestArmed",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 0.5,
+                        "y": 0.5
+                    },
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": [
+                    "674b640f46671f1418af4559b259b442",
+                    "8cae876b49f3aef45afc1ad96b1a4628"
+                ],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Professor_GiveClothCoat_ActionName",
+                "DefaultText": "Give Cloth Coat"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Professor_GiveClothCoat_ActionDescription",
+                "DefaultText": "Hand over a cloth coat for winter fieldwork. He shrugs it on immediately, testing the warmth."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {
+                    "StatWarpData": "cmcStatVillagePhase",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 0.5,
+                        "y": 9999.0
+                    }
+                },
+                {
+                    "StatWarpData": "cmcStatWeaverQuestChain",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": 4.5,
+                        "y": 20.0
+                    }
+                },
+                {
+                    "StatWarpData": "cmcStatInterlockS4",
+                    "StatWarpType": 3,
+                    "TriggerRange": {
+                        "x": -0.5,
+                        "y": 0.25
+                    }
+                }
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {
+                "ModType": 0
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "CompatibleCards": {
+                "TriggerCardsWarpData": [
+                    "apparelclothcoat"
+                ],
+                "TriggerCardsWarpType": 3
+            }
+        }
+    ],
+    "AgentDuties": [],
+    "AgentActions": [
+        {
+            "ActionID": "ProfessorForage_VillagePath",
+            "RepeatOptions": 3,
+            "Conditions": {
+                "RequiredEnvironmentWarpData": "cmcEnvVillagePath",
+                "RequiredEnvironmentWarpType": 3
+            },
+            "DroppedCards": [
+                {
+                    "CollectionName": "Professor forage - Village Path",
+                    "DropCardsInsideInventory": true,
+                    "DroppedCards": [
+                        {
+                            "DroppedCardWarpData": "692afc638c39e32428629da58f56136a",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 55.0
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "a7384e5147b23a642809451cc4ef24fb",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 55.0
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 45.0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionID": "ProfessorForage_Village",
+            "RepeatOptions": 3,
+            "Conditions": {
+                "RequiredEnvironmentWarpData": "cmcEnvVillage",
+                "RequiredEnvironmentWarpType": 3
+            },
+            "DroppedCards": [
+                {
+                    "CollectionName": "Professor forage - Village",
+                    "DropCardsInsideInventory": true,
+                    "DroppedCards": [
+                        {
+                            "DroppedCardWarpData": "a7384e5147b23a642809451cc4ef24fb",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 55.0
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 45.0
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 45.0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionID": "ProfessorForage_VillageFarm",
+            "RepeatOptions": 3,
+            "Conditions": {
+                "RequiredEnvironmentWarpData": "cmcEnvVillageFarm",
+                "RequiredEnvironmentWarpType": 3
+            },
+            "DroppedCards": [
+                {
+                    "CollectionName": "Professor forage - Village Farm",
+                    "DropCardsInsideInventory": true,
+                    "DroppedCards": [
+                        {
+                            "DroppedCardWarpData": "ac174c399999d14489fb3788c8931e93",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 65.0
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "5ad63f32ed767c64190a64d79841d023",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 60.0
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "1081a6a982382714781f035228e795ed",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 55.0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionID": "ProfessorForage_ForagingForest",
+            "RepeatOptions": 3,
+            "Conditions": {
+                "RequiredEnvironmentWarpData": "cmcEnvForagingForest",
+                "RequiredEnvironmentWarpType": 3
+            },
+            "DroppedCards": [
+                {
+                    "CollectionName": "Professor forage - Foraging Forest",
+                    "DropCardsInsideInventory": true,
+                    "DroppedCards": [
+                        {
+                            "DroppedCardWarpData": "d615853632d85db458d14016156b1a82",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 65.0
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "2bfd683e2c81d9e4ea993221475673ee",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 65.0
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "e41ab416339b3c9459a37b4942f8f57b",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 50.0
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "e1525031058fbf34e81a4b825bbe68a0",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 55.0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionID": "ProfessorSpecialty_Metallurgy",
+            "RepeatOptions": 3,
+            "Conditions": {
+                "RequiredEnvironmentWarpData": "cmcAcademyInterior",
+                "RequiredEnvironmentWarpType": 3,
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "cmcStatProfEligibleMetallurgy",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 1.0,
+                            "y": 1.0
+                        }
+                    }
+                ]
+            },
+            "DroppedCards": [
+                {
+                    "CollectionName": "Professor specialty stock - Metallurgy",
+                    "DropCardsInsideInventory": true,
+                    "DroppedCards": [
+                        {
+                            "DroppedCardWarpData": "advanced_copper_tools_copper_tea_kettle",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 1.5
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "advanced_copper_tools_metal_lantern",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 1.5
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "advanced_copper_tools_copper_oil_flask",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 1.5
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "advanced_copper_tools_copper_watering_can",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 1.5
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "advanced_copper_tools_copper_cauldron",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 1.5
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "act_tin_solder",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 1.5
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "water_sawmill_copper_gear_small",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 1.5
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "water_sawmill_copper_rivet",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 1.5
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionID": "ProfessorSpecialty_Herbalism",
+            "RepeatOptions": 3,
+            "Conditions": {
+                "RequiredEnvironmentWarpData": "cmcAcademyInterior",
+                "RequiredEnvironmentWarpType": 3,
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "cmcStatProfEligibleHerbalism",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 1.0,
+                            "y": 1.0
+                        }
+                    }
+                ]
+            },
+            "DroppedCards": [
+                {
+                    "CollectionName": "Professor specialty stock - Herbalism",
+                    "DropCardsInsideInventory": true,
+                    "DroppedCards": [
+                        {
+                            "DroppedCardWarpData": "555bacff1fadd9a418c7324a8fdc568d",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 1.7
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "herbs_fungi_herb_pipe",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 1.7
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "herbs_fungi_drying_tray",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 1.7
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "herbs_fungi_dried_reishi",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 1.7
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "herbs_fungi_flower_garland",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 1.7
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "advanced_copper_tools_focus_tea",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 1.7
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "potterysculptureherbpaste",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 1.7
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionID": "ProfessorSpecialty_Medicine",
+            "RepeatOptions": 3,
+            "Conditions": {
+                "RequiredEnvironmentWarpData": "cmcAcademyInterior",
+                "RequiredEnvironmentWarpType": 3,
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "cmcStatProfEligibleMedicine",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 1.0,
+                            "y": 1.0
+                        }
+                    }
+                ]
+            },
+            "DroppedCards": [
+                {
+                    "CollectionName": "Professor specialty stock - Medicine",
+                    "DropCardsInsideInventory": true,
+                    "DroppedCards": [
+                        {
+                            "DroppedCardWarpData": "herbs_fungi_plantain_poultice",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 2.0
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "herbs_fungi_dried_ginseng",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 2.0
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "sh_lanolin_salve",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 2.0
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "advanced_copper_tools_calming_tea",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 2.0
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "advanced_copper_tools_warming_tea",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 2.0
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "83f75985c19c9ba46a282072a84a05a4",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 2.0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionID": "ProfessorSpecialty_Fishing",
+            "RepeatOptions": 3,
+            "Conditions": {
+                "RequiredEnvironmentWarpData": "cmcAcademyInterior",
+                "RequiredEnvironmentWarpType": 3,
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "cmcStatProfEligibleFishing",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 1.0,
+                            "y": 1.0
+                        }
+                    }
+                ]
+            },
+            "DroppedCards": [
+                {
+                    "CollectionName": "Professor specialty stock - Fishing",
+                    "DropCardsInsideInventory": true,
+                    "DroppedCards": [
+                        {
+                            "DroppedCardWarpData": "cmcfishingnet",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 3.0
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "CMCIronFishingRodFittings",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 3.0
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "CMCIronFishingRod",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 3.0
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "e3a3984267c59214cbf0ab931a9e7f23",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 3.0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionID": "ProfessorSpecialty_Architecture",
+            "RepeatOptions": 3,
+            "Conditions": {
+                "RequiredEnvironmentWarpData": "cmcAcademyInterior",
+                "RequiredEnvironmentWarpType": 3,
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "cmcStatProfEligibleArchitecture",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 1.0,
+                            "y": 1.0
+                        }
+                    }
+                ]
+            },
+            "DroppedCards": [
+                {
+                    "CollectionName": "Professor specialty stock - Architecture",
+                    "DropCardsInsideInventory": true,
+                    "DroppedCards": [
+                        {
+                            "DroppedCardWarpData": "advanced_copper_tools_wheelbarrow",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 2.0
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "advanced_copper_tools_large_saw",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 2.0
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "advanced_copper_tools_copper_nails",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 2.0
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "act_iron_nail",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 2.0
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "potterysculpturestonetiles",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 2.0
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "water_sawmill_iron_wrench",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 2.0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "ActionID": "ProfessorSpecialty_Armorer",
+            "RepeatOptions": 3,
+            "Conditions": {
+                "RequiredEnvironmentWarpData": "cmcAcademyInterior",
+                "RequiredEnvironmentWarpType": 3,
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "cmcStatProfEligibleArmorer",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 1.0,
+                            "y": 1.0
+                        }
+                    }
+                ]
+            },
+            "DroppedCards": [
+                {
+                    "CollectionName": "Professor specialty stock - Armorer",
+                    "DropCardsInsideInventory": true,
+                    "DroppedCards": [
+                        {
+                            "DroppedCardWarpData": "combatandarmorquiltedcap",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 1.7
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "combatandarmorquiltedvest",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 1.7
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "combatandarmorbonelamellar",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 1.7
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "combatandarmorwoodenshield",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 1.7
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "advanced_copper_tools_copper_helmet",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 1.7
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "advanced_copper_tools_copper_gauntlets",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 1.7
+                            }
+                        },
+                        {
+                            "DroppedCardWarpData": "advanced_copper_tools_wearable_metal_pan",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "DropChance": {
+                                "Active": true,
+                                "BaseDropChance": 1.7
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "CannotTrade": false,
+    "TradingConditions": {
+        "RequiredStatValues": [
+            {
+                "StatWarpData": "cmcStatVillagePhase",
+                "StatWarpType": 3,
+                "TriggerRange": {
+                    "x": 0.5,
+                    "y": 9999.0
+                }
+            }
+        ]
+    },
+    "TradingModifiers": [
+        {
+            "ForTradingDirection": 2,
+            "ModifierMode": 1,
+            "SimpleModifier": 1.5,
+            "NPCStatModifiers": [
+                {
+                    "StatWarpData": "cmcStatProfessorTrust",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {
+                            "x": 0.0,
+                            "y": 100.0
+                        },
+                        "OutputValueRange": {
+                            "x": 0.0,
+                            "y": -0.4
+                        },
+                        "WhenOutOfRange": 1,
+                        "OutOfRangeCustomValue": 0.0
+                    }
+                }
+            ]
+        },
+        {
+            "ForTradingDirection": 1,
+            "ModifierMode": 1,
+            "SimpleModifier": 0.5,
+            "NPCStatModifiers": [
+                {
+                    "StatWarpData": "cmcStatProfessorTrust",
+                    "StatWarpType": 3,
+                    "Modifier": {
+                        "Active": true,
+                        "InputValueRange": {
+                            "x": 0.0,
+                            "y": 100.0
+                        },
+                        "OutputValueRange": {
+                            "x": 0.0,
+                            "y": 0.25
+                        },
+                        "WhenOutOfRange": 1,
+                        "OutOfRangeCustomValue": 0.0
+                    }
+                }
+            ]
+        }
+    ],
+    "ModifyNPCStatsPerTradeValue": [
+        {
+            "Type": 1,
+            "ModifierMinMaxValue": {
+                "x": 0.0,
+                "y": 6.0
+            },
+            "Modifier": {
+                "TargetStatWarpData": "cmcStatProfessorTrust",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {
+                    "x": 0.08,
+                    "y": 0.08
+                }
+            }
+        },
+        {
+            "Type": 2,
+            "ModifierMinMaxValue": {
+                "x": 0.0,
+                "y": 6.0
+            },
+            "Modifier": {
+                "TargetStatWarpData": "cmcStatProfessorTrust",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {
+                    "x": 0.08,
+                    "y": 0.08
+                }
+            }
+        }
+    ],
+    "CommissionsBpWarpData": [
+        "bpcmcprofspecimen",
+        "bpcmcproffieldsamples",
+        "bpcmcprofappliedherbalism"
+    ],
+    "CommissionsBpWarpType": 3,
+    "StartingInventory": [
+        {
+            "ItemWarpData": "a7384e5147b23a642809451cc4ef24fb",
+            "ItemWarpType": 3,
+            "Quantity": {
+                "x": 1,
+                "y": 2
+            }
+        },
+        {
+            "ItemWarpData": "d615853632d85db458d14016156b1a82",
+            "ItemWarpType": 3,
+            "Quantity": {
+                "x": 1,
+                "y": 2
+            }
+        },
+        {
+            "ItemWarpData": "2bfd683e2c81d9e4ea993221475673ee",
+            "ItemWarpType": 3,
+            "Quantity": {
+                "x": 1,
+                "y": 2
+            }
+        },
+        {
+            "ItemWarpData": "e1525031058fbf34e81a4b825bbe68a0",
+            "ItemWarpType": 3,
+            "Quantity": {
+                "x": 1,
+                "y": 2
+            }
+        },
+        {
+            "ItemWarpData": "ac174c399999d14489fb3788c8931e93",
+            "ItemWarpType": 3,
+            "Quantity": {
+                "x": 1,
+                "y": 2
+            }
+        },
+        {
+            "ItemWarpData": "5ad63f32ed767c64190a64d79841d023",
+            "ItemWarpType": 3,
+            "Quantity": {
+                "x": 1,
+                "y": 2
+            }
+        }
+    ]
+}

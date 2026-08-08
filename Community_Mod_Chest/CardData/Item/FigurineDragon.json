@@ -1,0 +1,126 @@
+{
+    "UniqueID": "potterysculpturefigurinedragon",
+    "CardName": {
+        "ParentObjectID": "potterysculpturefigurinedragon",
+        "LocalizationKey": "Pottery_Sculpture_FigurineDragon_CardName",
+        "DefaultText": "Dragon Figurine"
+    },
+    "CardDescription": {
+        "ParentObjectID": "potterysculpturefigurinedragon",
+        "LocalizationKey": "Pottery_Sculpture_FigurineDragon_CardDescription",
+        "DefaultText": "A small clay figurine sculpted into the shape of a dragon. Intricately detailed and valuable for trade."
+    },
+    "CardType": 0,
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "FigurineDragon",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 300.0,
+        "CardStatName": {
+            "ParentObjectID": "potterysculpturefigurinedragon",
+            "LocalizationKey": "Pottery_Sculpture_FigurineDragon_UsageDurability",
+            "DefaultText": "Durability"
+        },
+        "MaxValue": 300.0,
+        "RatePerDaytimePoint": 0.0,
+        "HasActionOnZero": true,
+        "OnZero": {
+            "ActionDescription": {
+                "ParentObjectID": "potterysculpturefigurinedragon",
+                "LocalizationKey": "Pottery_Sculpture_FigurineDragon_Broken",
+                "DefaultText": "The dragon figurine has crumbled."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        },
+        "OverrideIconWarpData": "Durability",
+        "OverrideIconWarpType": 3
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "PassiveEffects": [
+        {
+            "EffectName": "Comfort (+10)",
+            "OnlyWhenEquipped": false,
+            "EquippedOnBodyOnly": false,
+            "Conditions": {
+                "NotInBackground": true
+            },
+            "StatModifiers": [
+                {
+                    "Stat": { "m_FileID": 0, "m_PathID": 0 },
+                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 10.0, "y": 10.0 },
+                    "RateModifier": { "x": 0.0, "y": 0.0 },
+                    "MinValueModifier": { "x": 0.0, "y": 0.0 },
+                    "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+                    "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        },
+        {
+            "EffectName": "Gratification (+3)",
+            "OnlyWhenEquipped": false,
+            "EquippedOnBodyOnly": false,
+            "Conditions": {
+                "NotInBackground": true
+            },
+            "StatModifiers": [
+                {
+                    "Stat": { "m_FileID": 0, "m_PathID": 0 },
+                    "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 3.0, "y": 3.0 },
+                    "RateModifier": { "x": 0.0, "y": 0.0 },
+                    "MinValueModifier": { "x": 0.0, "y": 0.0 },
+                    "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+                    "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ],
+    "ObjectWeight": 50.0,
+    "TradingValue": 300.0,
+    "MaxStack": 5,
+    "DroppedCardShadow": 1
+}

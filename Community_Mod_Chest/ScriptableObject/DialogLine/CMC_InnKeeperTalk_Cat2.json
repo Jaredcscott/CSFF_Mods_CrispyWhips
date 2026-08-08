@@ -1,0 +1,25 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_Cat2_Line",
+        "DefaultText": "Bless you. Dusk, mind, he never prowls by daylight. And he won't come to calling; hold out a bit of meat or fish and keep very still. Bring him home safe, or keep him fed, and he'll keep you."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Cat2_Answer_Ok",
+                "DefaultText": "I will."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatAshTakeover", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_InnKeeperTalk_Start",
+                "NextLineWarpType": 3
+            }
+        }
+    ]
+}

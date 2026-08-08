@@ -1,0 +1,54 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_Week3_Backstory2_Line",
+        "DefaultText": "My father dug the cellar with his own two hands, and my mother never turned a traveler from the door once the dark caught them out. Word spread. More came to stay than we had room for, so we raised walls around the hearth, then a roof, then the Inn you're sitting in now. I've been thinking it's time this place grew again. The village could use more hands, and truth is, I could use help seeing it done."
+    },
+    "PossibleAnswers": [
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatInnWellPlansGiven", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.5}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Week3_Backstory2_Answer_Help",
+                "DefaultText": "I'll help however I can."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnWellPlansGiven", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ],
+                "DroppedCards": [
+                    {"DroppedCardWarpData": "cmcWellPlans", "DroppedCardWarpType": 3, "Quantity": {"x": 1, "y": 1}}
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatInnWellPlansGiven", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 10.0}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Week3_Backstory2_Answer_Progress",
+                "DefaultText": "How's the well coming along?"
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Week3_Backstory2_Answer_Later",
+                "DefaultText": "Some other day."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

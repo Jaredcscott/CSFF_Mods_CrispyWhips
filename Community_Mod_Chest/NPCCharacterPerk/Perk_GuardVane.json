@@ -1,0 +1,120 @@
+{
+    "UniqueID": "cmcGuardPerkVane",
+    "StartUnlocked": true,
+    "ActionObjectives": [],
+    "CombatObjectives": [],
+    "CardsOnBoardObjectives": [],
+    "TagsOnBoardObjectives": [],
+    "BlueprintsResearchedObjectives": [],
+    "StatsObjectives": [],
+    "TimeObjectives": [],
+    "NestedObjectives": [],
+    "PlayedCharacter": [],
+    "CompleteOnWin": false,
+    "CompleteOnLose": false,
+    "RequiredDifficultyScore": {
+        "x": 0,
+        "y": 0
+    },
+    "EditorOnly": false,
+    "NotifyWhenNotChecked": false,
+    "CheckingNotificationDetails": 0,
+    "SunsCost": 0,
+    "MoonsCost": 0,
+    "StarsCost": 0,
+    "ResetLockInEditor": false,
+    "PerkName": {
+        "ParentObjectID": "cmcGuardPerkVane",
+        "LocalizationKey": "CMC_GuardPerk_Vane_PerkName",
+        "DefaultText": "Night Watch"
+    },
+    "PerkDescription": {
+        "ParentObjectID": "cmcGuardPerkVane",
+        "LocalizationKey": "CMC_GuardPerk_Vane_PerkDescription",
+        "DefaultText": "Sharp-eyed and suspicious by default. Notices what the day shift misses, and is on her feet when thieves are."
+    },
+    "PerkUnlockConditions": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "DisplayPriority": 0.0,
+    "HiddenUntilUnlocked": false,
+    "AddedCardsInInventory": [],
+    "StartingStatModifiers": [],
+    "PassiveStatModifiers": [],
+    "StartingNPCStatModifiers": [],
+    "PassiveNPCStatModifiers": [],
+    "AddedNPCStats": [
+        {
+            "ModelStatWarpData": "cmcNpcStatSuspicion",
+            "ModelStatWarpType": 3,
+            "OverrideStartingValue": {
+                "Active": true,
+                "FloatValue": 70.0
+            },
+            "OverrideMinMaxValue": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "OverrideRate": {
+                "Active": false,
+                "FloatValue": 0.0
+            },
+            "OverrideMinMaxRate": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "StatAddedPercentageToModifiersOverride": 0,
+            "StatScalingToModifiers": [],
+            "NPCStatAddedPercentageToModifiersOverride": 0,
+            "NPCStatScalingToModifiers": [],
+            "StatusesOverride": 0,
+            "Statuses": [],
+            "OverrideVisibleIcon": false,
+            "StatusDebugMode": false
+        },
+        {
+            "ModelStatWarpData": "cmcNpcStatGuardDowned",
+            "ModelStatWarpType": 3,
+            "OverrideStartingValue": {
+                "Active": true,
+                "FloatValue": 0.0
+            },
+            "OverrideMinMaxValue": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "OverrideRate": {
+                "Active": false,
+                "FloatValue": 0.0
+            },
+            "OverrideMinMaxRate": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "StatAddedPercentageToModifiersOverride": 0,
+            "StatScalingToModifiers": [],
+            "NPCStatAddedPercentageToModifiersOverride": 0,
+            "NPCStatScalingToModifiers": [],
+            "StatusesOverride": 0,
+            "Statuses": [],
+            "OverrideVisibleIcon": false,
+            "StatusDebugMode": false
+        }
+    ],
+    "AddedPreferenceLists": [],
+    "AddedDuties": [],
+    "AddedNPCTags": [],
+    "AddedMaxCarryWeight": {
+        "Active": false,
+        "FloatValue": 0.0
+    },
+    "AddedTradingModifiers": [],
+    "AddedModifyNPCStatsPerTradeValue": [],
+    "AddedCommissionsBp": []
+}

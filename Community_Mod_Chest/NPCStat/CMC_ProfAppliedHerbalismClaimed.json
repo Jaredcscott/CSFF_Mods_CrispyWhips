@@ -1,0 +1,17 @@
+{
+    "UniqueID": "cmcStatProfAppliedHerbalismClaimed",
+    "GameName": {
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "Applied Herbalism task completed flag (0=not yet done 1=done, never re-offered)"
+    },
+    "DefaultStartingValue": 0.0,
+    "DefaultMinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "DefaultRate": 0.0,
+    "DefaultMinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    }
+}

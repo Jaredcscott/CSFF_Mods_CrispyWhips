@@ -1,0 +1,21 @@
+{
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_CourseAckArchitecture_Line",
+        "DefaultText": "Architecture, passed with a design I'll admit I stole a diagram from for next term's lecture. Water doesn't forgive a bad angle the way earth does, but you found the right one. A water-driven sawmill and grinding mill are within your skill now, real ones, not the toy models I sketch on the board. Combine it with a Metallurgy degree and you'll be casting your own forge fittings before the season turns."
+    },
+    "ActionToPerform": {
+        "NPCStatModifications": [
+            {"TargetStatWarpData": "cmcStatProfCourseAckArchitecture", "TargetStatWarpType": 3, "UseAssociatedAgent": true, "ValueChange": {"x": 1.0, "y": 1.0}},
+            {"TargetStatWarpData": "cmcStatProfessorTrust", "TargetStatWarpType": 3, "UseAssociatedAgent": true, "ValueChange": {"x": 5.0, "y": 5.0}}
+        ]
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Answer_Ok",
+                "DefaultText": "Thank you, Professor."
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

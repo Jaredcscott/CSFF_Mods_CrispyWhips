@@ -1,0 +1,164 @@
+{
+    "UniqueID": "comfortincenseburner",
+    "CardName": {
+        "ParentObjectID": "comfortincenseburner",
+        "LocalizationKey": "IncenseBurner_CardName",
+        "DefaultText": "Incense Burner"
+    },
+    "CardDescription": {
+        "ParentObjectID": "comfortincenseburner",
+        "LocalizationKey": "IncenseBurner_CardDescription",
+        "DefaultText": "A small clay vessel shaped to hold smoldering dried grass. Fill with rye straw and light from a fire to release a calming, grassy fragrance."
+    },
+    "CardType": 0,
+    "ObjectWeight": 150.0,
+    "TradingValue": 8.0,
+    "DoesNotPile": true,
+    "CardImageWarpData": "IncenseBurner",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "Stone"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "comfortincenseburner",
+            "LocalizationKey": "IncenseBurner_FuelCapacity_CardStatName",
+            "DefaultText": "Straw"
+        },
+        "MaxValue": 48.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "HasActionOnZero": false,
+        "HasActionOnFull": false,
+        "CountsForTradingValue": false,
+        "OverrideIconWarpData": "Flame",
+        "OverrideIconWarpType": 3
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "comfortincenseburner",
+                "LocalizationKey": "IncenseBurner_Refuel_ActionName",
+                "DefaultText": "Fill with Straw"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "comfortincenseburner",
+                "LocalizationKey": "IncenseBurner_Refuel_ActionDescription",
+                "DefaultText": "Pack dried rye straw into the burner vessel."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [
+                "Herb"
+            ],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "62ffe49f7b68c2d4b9cd549ac6942ba3"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "StackCompatible": true,
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "FuelChange": {
+                    "x": 24.0,
+                    "y": 24.0
+                }
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "comfortincenseburner",
+                "LocalizationKey": "IncenseBurner_Light_ActionName",
+                "DefaultText": "Light Incense"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "comfortincenseburner",
+                "LocalizationKey": "IncenseBurner_Light_ActionDescription",
+                "DefaultText": "Touch a flame to the straw to start it smoldering."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [
+                "FireIgnite"
+            ],
+            "ActionSoundsWarpType": 3,
+            "RequiredReceivingDurabilities": {
+                "RequiredFuelPercent": {
+                    "Active": true,
+                    "FloatValue": 0.1,
+                    "MaxValue": 100.0
+                },
+                "HideActionIfNotMet": true,
+                "FailMessage": {
+                    "ParentObjectID": "comfortincenseburner",
+                    "LocalizationKey": "IncenseBurner_NeedsFuel",
+                    "DefaultText": "The burner needs straw first."
+                }
+            },
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [
+                    "tag_Fire",
+                    "tag_FireSource"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "StackCompatible": false,
+            "GivenCardChanges": {
+                "ModType": 0
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "comfortincenseburnerlit",
+                "TransformIntoWarpType": 3,
+                "TransferFuel": true,
+                "SpawnTransformAtSource": true
+            }
+        }
+    ],
+    "DismantleActions": []
+}

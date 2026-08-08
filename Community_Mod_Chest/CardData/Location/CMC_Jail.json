@@ -1,0 +1,60 @@
+{
+  "UniqueID": "cmcJail",
+  "CardType": 2,
+  "AlwaysUpdate": false,
+  "CardName": {
+    "LocalizationKey": "CMC_Jail_CardName",
+    "DefaultText": "Village Jail"
+  },
+  "CardDescription": {
+    "LocalizationKey": "CMC_Jail_CardDescription",
+    "DefaultText": "A squat stone lock-up beside the Village Hall, with one barred window and one heavy door. The Town Watch keeps a warden on the step most hours of the day. Anyone the Watch brings in serves their days inside before they walk back out."
+  },
+  "CardHelpSection": {
+    "LocalizationKey": "CMC_Jail_Help",
+    "DefaultText": "Jail"
+  },
+  "CardImageWarpData": "MudHut_Outside",
+  "CardImageWarpType": 3,
+  "CardTagsWarpData": ["tag_Structure"],
+  "CardTagsWarpType": 3,
+  "ObjectWeight": 0,
+  "DoesNotPile": true,
+  "MapStructureType": 1,
+  "CanDragItemsToTravel": true,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_Jail_DA_Enter",
+        "DefaultText": "Step into the Jail"
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 2,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "FadeToBlack": 1,
+      "FadeMessage": {
+        "LocalizationKey": "CMC_Jail_DA_Enter_Fade",
+        "DefaultText": "The warden waves you through..."
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "Enter",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "cmcEnvJailCell",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    }
+  ],
+  "DismantleActionsWarpType": 3
+}

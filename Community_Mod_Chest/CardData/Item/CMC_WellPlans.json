@@ -1,0 +1,47 @@
+{
+    "UniqueID": "cmcWellPlans",
+    "CardType": 0,
+    "CardName": {
+        "LocalizationKey": "CMC_WellPlans_CardName",
+        "DefaultText": "Well Plans"
+    },
+    "CardDescription": {
+        "LocalizationKey": "CMC_WellPlans_CardDescription",
+        "DefaultText": "A charcoal sketch of a stone-lined well, twice the depth of the Inn's old root cellar. The Inn Keeper drew it from memory, the way his father once dug the cellar by hand. Keep it on hand to start the dig in the Village."
+    },
+    "CardImageWarpData": "CMC_WellPlans",
+    "CardImageWarpType": 3,
+    "DoesNotPile": true,
+    "CannotBeTrashed": true,
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_WellPlans_DA_Discard_ActionName",
+                "DefaultText": "Discard the Old Sketch"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_WellPlans_DA_Discard_ActionDescription",
+                "DefaultText": "The well stands finished in the village. The Inn Keeper's sketch has served its purpose."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "RequiredCardsOnBoard": [
+                {
+                    "TriggerCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "Inverted": false,
+                    "OnlyEquipped": false,
+                    "TriggerCardWarpData": "cmcimpwell",
+                    "TriggerCardWarpType": 3
+                }
+            ],
+            "ReceivingCardChanges": { "ModType": 3 }
+        }
+    ]
+}

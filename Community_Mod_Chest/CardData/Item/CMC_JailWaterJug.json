@@ -1,0 +1,63 @@
+{
+  "UniqueID": "cmcJailWaterJug",
+  "CardType": 0,
+  "CardName": {
+    "LocalizationKey": "CMC_JailWaterJug_CardName",
+    "DefaultText": "Water Jug"
+  },
+  "CardDescription": {
+    "LocalizationKey": "CMC_JailWaterJug_CardDescription",
+    "DefaultText": "A chipped clay jug, filled once a day along with the ration bowl. Not much, but enough to keep you going."
+  },
+  "CardImageWarpData": "Waterskin",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 1,
+  "DoesNotPile": true,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_JailWaterJug_DA_Drink",
+        "DefaultText": "Drink"
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "ActionSoundsWarpData": ["Drink"],
+      "ActionSoundsWarpType": 3,
+      "ActionTagsWarpData": ["DrinkingAction"],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "95ca7c21ffad5e647acc3d9cb5bfcde6",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 150.0, "y": 150.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "c589f92d8a479a24c937ea90fa2d1a82",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 150.0, "y": 150.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ProducedCards": [],
+      "ReceivingCardChanges": { "ModType": 3 }
+    }
+  ],
+  "DismantleActionsWarpType": 3
+}

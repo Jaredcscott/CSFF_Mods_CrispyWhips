@@ -1,0 +1,370 @@
+{
+    "UniqueID": "cmcWeaverAgent",
+    "AgentName": {
+        "LocalizationKey": "CMC_Weaver_AgentName",
+        "DefaultText": "The Weaver"
+    },
+    "AgentDescription": {
+        "LocalizationKey": "CMC_Weaver_AgentDescription",
+        "DefaultText": "Moved into the Weaver's Cottage a week after it was finished. Keeps a loom by the window and the village in cloth."
+    },
+    "AgentImageWarpData": "CMC_Weaver",
+    "AgentImageWarpType": 3,
+    "MaxCarryWeight": 100000.0,
+    "WeightCategoryWarpData": "Light",
+    "WeightCategoryWarpType": 3,
+    "AgentTags": [],
+    "Interactions": [
+        {
+            "ButtonName": {
+                "LocalizationKey": "CMC_Weaver_Talk",
+                "DefaultText": "Talk"
+            },
+            "Conditions": {},
+            "ButtonType": 0,
+            "DialogWarpData": "CMC_WeaverTalk",
+            "DialogWarpType": 3
+        }
+    ],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Weaver_Chat_ActionName",
+                "DefaultText": "Chat"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Weaver_Chat_ActionDescription",
+                "DefaultText": "Pass the time to the clack of the loom and a bit of easy talk."
+            },
+            "DaytimeCost": 4,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {"ModType": 0},
+            "StatModifications": [
+                {"StatWarpData": "3dc9b7924c4bec142af1c255f6df235d", "StatWarpType": 3, "ValueModifier": {"x": -20.0, "y": -20.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "04194353fd841a94ebff8b69af66c8d0", "StatWarpType": 3, "ValueModifier": {"x": 30.0, "y": 30.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "ad5665dcf2e21ed49a5817b1b7005b2e", "StatWarpType": 3, "ValueModifier": {"x": -10.0, "y": -10.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff", "StatWarpType": 3, "ValueModifier": {"x": 15.0, "y": 15.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e", "StatWarpType": 3, "ValueModifier": {"x": 15.0, "y": 15.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "59e9ebfecfacb154b8436e93f094b316", "StatWarpType": 3, "ValueModifier": {"x": 2.0, "y": 2.0}, "InstantModifier": true, "ApplyEachTick": false},
+                {"StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78", "StatWarpType": 3, "ValueModifier": {"x": -10.0, "y": -10.0}, "InstantModifier": true, "ApplyEachTick": false}
+            ]
+        }
+    ],
+    "DragAndDropActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Weaver_GiveFlaxStems_ActionName",
+                "DefaultText": "Give Dried Flax Stems"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Weaver_GiveFlaxStems_ActionDescription",
+                "DefaultText": "Hand over a bundle of dried flax stems for the Weaver's errand. Her eyes light up; she already knows the pattern she'll try."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}},
+                {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "ValueModifier": {"x": 0.5, "y": 0.5}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["2f56efb019391074190194b699d612c5"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Weaver_GiveCloth_ActionName",
+                "DefaultText": "Give Cloth"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Weaver_GiveCloth_ActionDescription",
+                "DefaultText": "Hand over a length of cloth you wove yourself. The Weaver runs it between her fingers, checking the weft."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+                {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "ValueModifier": {"x": 0.5, "y": 0.5}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["35d6f2a46f2bbc84bbe33e917991c71d"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Weaver_GiveClothScarf_ActionName",
+                "DefaultText": "Give Cloth Scarf"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Weaver_GiveClothScarf_ActionDescription",
+                "DefaultText": "Hand over a cloth scarf you sewed yourself. The Weaver checks the seams closely, then nods."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 2.5}},
+                {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "ValueModifier": {"x": 0.5, "y": 0.5}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["apparelclothscarf"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Weaver_GiveFiberBundle_ActionName",
+                "DefaultText": "Give Fiber Bundle"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Weaver_GiveFiberBundle_ActionDescription",
+                "DefaultText": "Hand over a bundle of fiber for the Weaver's winter project. She sets it by the loom, pleased at the weight of it."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 2.5, "y": 3.5}},
+                {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "ValueModifier": {"x": 0.5, "y": 0.5}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["b8885e78517570b4293c573871625e11"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Weaver_GiveLargeCloth_ActionName",
+                "DefaultText": "Give Large Cloth"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Weaver_GiveLargeCloth_ActionDescription",
+                "DefaultText": "Hand over a large piece of cloth for the coat pattern. The Weaver spreads it out across the table to measure it."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 3.5, "y": 4.5}},
+                {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "ValueModifier": {"x": 0.5, "y": 0.5}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["3e94716876eae304787efa2ae0b43711"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Weaver_GiveLargeLeather_ActionName",
+                "DefaultText": "Give Large Leather"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Weaver_GiveLargeLeather_ActionDescription",
+                "DefaultText": "Hand over a large piece of leather for the apron pattern. The Weaver runs a hand across the hide, testing its give."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 4.5, "y": 5.5}},
+                {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "ValueModifier": {"x": 0.5, "y": 0.5}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["7750f89a63e418a41b377b48e88646f1"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Weaver_GiveSmallLeather_ActionName",
+                "DefaultText": "Give Small Leather"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Weaver_GiveSmallLeather_ActionDescription",
+                "DefaultText": "Hand over a small piece of leather for the sandal pattern. The Weaver holds it up to the light and nods."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 5.5, "y": 6.5}},
+                {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "ValueModifier": {"x": 0.5, "y": 0.5}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["669497ecaa30b634c86bea6b61f31e63"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Weaver_GivePigmentFirst_ActionName",
+                "DefaultText": "Give Pigment"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Weaver_GivePigmentFirst_ActionDescription",
+                "DefaultText": "Hand over a batch of pigment from the Apothecary's press. The Weaver's eyes light up, but she says she'll need a second batch, a different shade, before she has her three colors."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatWeaverMoveIn", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 999999.0}},
+                {"StatWarpData": "cmcStatApothQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 20.0}},
+                {"StatWarpData": "cmcStatInterlockS1", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatInterlockS1", "StatWarpType": 3, "ValueModifier": {"x": 0.5, "y": 0.5}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["potterysculpturepigment"],
+                "TriggerCardsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_Weaver_GivePigmentSecond_ActionName",
+                "DefaultText": "Give Second Pigment"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_Weaver_GivePigmentSecond_ActionDescription",
+                "DefaultText": "Hand over the second batch of pigment. The Weaver lines the two colors up against a scrap of undyed cloth, already picturing the third."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "RequiredStatValues": [
+                {"StatWarpData": "cmcStatInterlockS1", "StatWarpType": 3, "TriggerRange": {"x": 0.25, "y": 0.75}}
+            ],
+            "HideIfConditionsNotMet": true,
+            "ReceivingCardChanges": {"ModType": 0},
+            "GivenCardChanges": {"ModType": 3},
+            "StatModifications": [
+                {"StatWarpData": "cmcStatInterlockS1", "StatWarpType": 3, "ValueModifier": {"x": 0.5, "y": 0.5}, "InstantModifier": true, "ApplyEachTick": false}
+            ],
+            "CompatibleCards": {
+                "TriggerCardsWarpData": ["potterysculpturepigment"],
+                "TriggerCardsWarpType": 3
+            }
+        }
+    ],
+    "AgentDuties": [],
+    "AgentActions": [
+        {
+            "ActionID": "WeaverWeeklyRestock",
+            "ActionLocalizedName": {
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "WeaverWeeklyRestock"
+            },
+            "RepeatOptions": 3,
+            "Conditions": {},
+            "DroppedCards": [
+                {
+                    "CollectionName": "Weaver stock restock",
+                    "DroppedCards": [
+                        { "DroppedCardWarpData": "90ec9637a29a17541a12467c99e73067", "DroppedCardWarpType": 3, "Quantity": { "x": 5, "y": 5 } },
+                        { "DroppedCardWarpData": "6286bd90f6ab28f41bc4fa7f08e4fe0d", "DroppedCardWarpType": 3, "Quantity": { "x": 5, "y": 5 } },
+                        { "DroppedCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338", "DroppedCardWarpType": 3, "Quantity": { "x": 5, "y": 5 } },
+                        { "DroppedCardWarpData": "7adecfbfd3ccd8c4aa34cd61d8c98076", "DroppedCardWarpType": 3, "Quantity": { "x": 5, "y": 5 } }
+                    ],
+                    "DropCardsInsideInventory": true
+                }
+            ]
+        }
+    ],
+    "CannotTrade": false,
+    "TradingModifiers": [
+        {
+            "ForTradingDirection": 2,
+            "ModifierMode": 1,
+            "SimpleModifier": 1.5,
+            "GlobalStatModifiers": []
+        },
+        {
+            "ForTradingDirection": 1,
+            "ModifierMode": 1,
+            "SimpleModifier": 0.5,
+            "GlobalStatModifiers": []
+        }
+    ],
+    "StartingInventory": [
+        {
+            "ItemWarpData": "90ec9637a29a17541a12467c99e73067",
+            "ItemWarpType": 3,
+            "Quantity": { "x": 5, "y": 8 }
+        },
+        {
+            "ItemWarpData": "6286bd90f6ab28f41bc4fa7f08e4fe0d",
+            "ItemWarpType": 3,
+            "Quantity": { "x": 5, "y": 8 }
+        },
+        {
+            "ItemWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
+            "ItemWarpType": 3,
+            "Quantity": { "x": 5, "y": 8 }
+        },
+        {
+            "ItemWarpData": "7adecfbfd3ccd8c4aa34cd61d8c98076",
+            "ItemWarpType": 3,
+            "Quantity": { "x": 5, "y": 8 }
+        }
+    ]
+}

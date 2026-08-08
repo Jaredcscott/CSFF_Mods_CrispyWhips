@@ -1,0 +1,21 @@
+{
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_CourseAckArmorer_Line",
+        "DefaultText": "Armorer, passed, and passed properly, no student of mine gets a breastplate pattern without proving they understand why the rivets go where they go. Copper will do in a pinch, but iron will actually keep you alive out past the tree line, helm, greaves, gauntlets, the full set is yours to make now. I'd rather you never need it. I'd rather you have it anyway."
+    },
+    "ActionToPerform": {
+        "NPCStatModifications": [
+            {"TargetStatWarpData": "cmcStatProfCourseAckArmorer", "TargetStatWarpType": 3, "UseAssociatedAgent": true, "ValueChange": {"x": 1.0, "y": 1.0}},
+            {"TargetStatWarpData": "cmcStatProfessorTrust", "TargetStatWarpType": 3, "UseAssociatedAgent": true, "ValueChange": {"x": 5.0, "y": 5.0}}
+        ]
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Answer_Ok",
+                "DefaultText": "Thank you, Professor."
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

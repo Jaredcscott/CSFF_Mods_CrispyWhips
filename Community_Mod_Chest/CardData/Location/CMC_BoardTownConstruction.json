@@ -1,0 +1,442 @@
+{
+  "UniqueID": "cmcBoardTownConstruction",
+  "CardType": 2,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": false,
+  "DoesNotPile": true,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "CMC_BoardTownConstruction_CardName",
+    "DefaultText": "Village Projects"
+  },
+  "CardDescription": {
+    "LocalizationKey": "CMC_BoardTownConstruction_CardDescription",
+    "DefaultText": "A planning board listing which civic projects are still ahead and which have already been finished."
+  },
+  "CardImageWarpData": "CMC_VillageHall",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardTownConstruction_DA_struct_miller_NotBegun_Name",
+        "DefaultText": "Construction status: Miller's Cottage - not yet begun"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardTownConstruction_DA_struct_miller_NotBegun_Desc",
+        "DefaultText": "Miller's Cottage: not yet begun."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatChronicleMillerCottageDay",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardTownConstruction_DA_struct_miller_Complete_Name",
+        "DefaultText": "Construction status: Miller's Cottage - complete"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardTownConstruction_DA_struct_miller_Complete_Desc",
+        "DefaultText": "Miller's Cottage: complete."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatChronicleMillerCottageDay",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 999999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardTownConstruction_DA_struct_weaver_NotBegun_Name",
+        "DefaultText": "Construction status: Weaver's Cottage - not yet begun"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardTownConstruction_DA_struct_weaver_NotBegun_Desc",
+        "DefaultText": "Weaver's Cottage: not yet begun."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatChronicleWeaverCottageDay",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardTownConstruction_DA_struct_weaver_Complete_Name",
+        "DefaultText": "Construction status: Weaver's Cottage - complete"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardTownConstruction_DA_struct_weaver_Complete_Desc",
+        "DefaultText": "Weaver's Cottage: complete."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatChronicleWeaverCottageDay",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 999999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardTownConstruction_DA_struct_apothecary_NotBegun_Name",
+        "DefaultText": "Construction status: Apothecary's Cabin - not yet begun"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardTownConstruction_DA_struct_apothecary_NotBegun_Desc",
+        "DefaultText": "Apothecary's Cabin: not yet begun."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatChronicleApothecaryCabinDay",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardTownConstruction_DA_struct_apothecary_Complete_Name",
+        "DefaultText": "Construction status: Apothecary's Cabin - complete"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardTownConstruction_DA_struct_apothecary_Complete_Desc",
+        "DefaultText": "Apothecary's Cabin: complete."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatChronicleApothecaryCabinDay",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 999999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardTownConstruction_DA_struct_hall_NotBegun_Name",
+        "DefaultText": "Construction status: Village Hall - not yet begun"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardTownConstruction_DA_struct_hall_NotBegun_Desc",
+        "DefaultText": "Village Hall: not yet begun."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatChronicleVillageHallDay",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardTownConstruction_DA_struct_hall_Complete_Name",
+        "DefaultText": "Construction status: Village Hall - complete"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardTownConstruction_DA_struct_hall_Complete_Desc",
+        "DefaultText": "Village Hall: complete."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatChronicleVillageHallDay",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 999999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardTownConstruction_DA_struct_well_NotBegun_Name",
+        "DefaultText": "Construction status: Village Well - not yet begun"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardTownConstruction_DA_struct_well_NotBegun_Desc",
+        "DefaultText": "Village Well: not yet begun."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatChronicleWellDay",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardTownConstruction_DA_struct_well_Complete_Name",
+        "DefaultText": "Construction status: Village Well - complete"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardTownConstruction_DA_struct_well_Complete_Desc",
+        "DefaultText": "Village Well: complete."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatChronicleWellDay",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 999999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardTownConstruction_DA_struct_bridge_NotBegun_Name",
+        "DefaultText": "Construction status: River Bridge - not yet begun"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardTownConstruction_DA_struct_bridge_NotBegun_Desc",
+        "DefaultText": "River Bridge: not yet begun."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatChronicleRiverBridgeDay",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardTownConstruction_DA_struct_bridge_Complete_Name",
+        "DefaultText": "Construction status: River Bridge - complete"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardTownConstruction_DA_struct_bridge_Complete_Desc",
+        "DefaultText": "River Bridge: complete."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatChronicleRiverBridgeDay",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 999999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardTownConstruction_DA_struct_stall_NotBegun_Name",
+        "DefaultText": "Construction status: Market Stall - not yet begun"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardTownConstruction_DA_struct_stall_NotBegun_Desc",
+        "DefaultText": "Market Stall: not yet begun."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatChronicleMarketStallDay",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardTownConstruction_DA_struct_stall_Complete_Name",
+        "DefaultText": "Construction status: Market Stall - complete"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardTownConstruction_DA_struct_stall_Complete_Desc",
+        "DefaultText": "Market Stall: complete."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatChronicleMarketStallDay",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 999999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    }
+  ],
+  "DismantleActionsWarpType": 3
+}

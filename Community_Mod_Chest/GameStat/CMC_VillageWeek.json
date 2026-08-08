@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatVillageWeek",
+    "GameName": {
+        "LocalizationKey": "CMC_VillageWeek_StatName",
+        "DefaultText": "Village Week"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_VillageWeek_StatDescription",
+        "DefaultText": "Hidden Village Clock week counter: ((CurrentDay - (epoch - 1)) / 7) + 1, recomputed every poll from cmcStatVillageEpochDay — derived and reload-safe, 0 until the intro is done. Week 1 is the intro week; dialog beats gate on week thresholds (Week-2 line at week 2, backstory at week 3, story pool at week 4, Ash arming at week 6)."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 10000.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

@@ -1,0 +1,157 @@
+{
+  "UniqueID": "cmcInnInterior",
+  "CardType": 4,
+  "InstancedEnvironment": false,
+  "AlwaysUpdate": false,
+  "CardName": {
+    "LocalizationKey": "CMC_InnInterior_CardName",
+    "DefaultText": "Village Inn"
+  },
+  "CardImageWarpData": "VillageInnInterior",
+  "CardImageWarpType": 3,
+  "CardBackgroundWarpData": "VillageInnInterior",
+  "CardBackgroundWarpType": 3,
+  "MaxWeightCapacity": 12000,
+  "DefaultEnvCardDrops": [
+    {
+      "DroppedCardWarpData": "cmcInnInteriorLocation",
+      "DroppedCardWarpType": 3,
+      "Quantity": { "x": 1, "y": 1 }
+    },
+    {
+      "DroppedCardWarpData": "cmcInnExit",
+      "DroppedCardWarpType": 3,
+      "Quantity": { "x": 1, "y": 1 }
+    },
+    {
+      "DroppedCardWarpData": "cmcInnCounter",
+      "DroppedCardWarpType": 3,
+      "Quantity": { "x": 1, "y": 1 }
+    },
+    {
+      "DroppedCardWarpData": "e50543ef8a7e7d543a42e199adeee963",
+      "DroppedCardWarpType": 3,
+      "Quantity": { "x": 1, "y": 1 }
+    }
+  ],
+  "PassiveEffects": [
+    {
+      "EffectName": "Sheltered from the Elements",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "Conditions": {
+        "NotInBackground": true
+      },
+      "StatModifiers": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "431f76fbfb93e8c4a850de1528ef863a",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 5.0, "y": 5.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "0b9d0c63229f413439aeb1a96c9bd29f",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 6.0, "y": 6.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 1.0, "y": 1.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "ec625eaefee93cc4c8112d8c9046a81c",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -480.0, "y": -480.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "62c4a02a49efd9543b05b069294b3712",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 0.0, "y": 0.0 },
+          "RateModifier": { "x": -0.5, "y": -0.5 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "a6a28a688003e064eb65bb3334c8fc54",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 0.0, "y": 0.0 },
+          "RateModifier": { "x": -1.0, "y": -1.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ]
+    },
+    {
+      "EffectName": "Hearth-Warmed Inn",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "Conditions": {
+        "NotInBackground": true
+      },
+      "StatModifiers": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "888d2d2a99e3f044291c6748a0fa8d78",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 0.0, "y": 0.0 },
+          "RateModifier": { "x": 15.0, "y": 15.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ]
+    }
+  ]
+}

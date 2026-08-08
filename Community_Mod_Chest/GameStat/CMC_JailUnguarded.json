@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatJailUnguarded",
+    "GameName": {
+        "LocalizationKey": "CMC_JailUnguarded_StatName",
+        "DefaultText": "Jail Unguarded"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_JailUnguarded_StatDescription",
+        "DefaultText": "Hidden 0/1 flag: 1 while no Town Watch guard is actually standing warden. Written by JailPatch's poll from each guard's live CurrentPerformingDuty; the hidden tunnel's Dig action (10.8.8) gates on it."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

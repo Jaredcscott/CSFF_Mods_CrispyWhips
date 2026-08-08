@@ -1,0 +1,37 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatAshBoarHuntSpot", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 2.5}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_AshHuntHint_Line",
+        "DefaultText": "Haven't seen that cat of yours since yesterday's dusk. He had the look — ears up, tail low, nose testing the wind — then slipped off toward Hunter's Crossing when the light went. When Ash moves like that, there's quarry involved and he means to see it through. You need to get to Hunter's Crossing soon; he'll have tracked something dangerous into the thicket and he won't want to face a boar alone."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_AshHuntHint_Answer_Go",
+                "DefaultText": "I'll go find him."
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_InnKeeperTalk_AshHuntHint2",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_AshHuntHint_Answer_Manage",
+                "DefaultText": "He can hold his own."
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_InnKeeperTalk_AshHuntHint2",
+                "NextLineWarpType": 3
+            }
+        }
+    ]
+}

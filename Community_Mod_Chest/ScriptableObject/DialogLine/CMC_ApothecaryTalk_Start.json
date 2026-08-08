@@ -1,0 +1,126 @@
+{
+    "StartingPoint": true,
+    "Line": {
+        "LocalizationKey": "CMC_ApothecaryTalk_Start_Line",
+        "DefaultText": "Ah, the one who built me this cabin, come in, mind the drying racks. The forest's been good to me: nettle by the stream, moss on the north stones, more roots than I can press in a day. It's the finest workshop I've ever kept."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ApothecaryTalk_Start_Answer_Work",
+                "DefaultText": "What are you brewing these days?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_ApothecaryTalk_Work",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ApothecaryTalk_Start_Answer_Home",
+                "DefaultText": "How do you find life out here in the forest?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_ApothecaryTalk_Home",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatApothecaryStallGifted", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.5}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_ApothecaryTalk_Start_Answer_Stall",
+                "DefaultText": "Thought about selling in the village?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_ApothecaryTalk_StallAsk",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatApothecaryStallGifted", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 999999.0}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_ApothecaryTalk_Start_Answer_Thanks",
+                "DefaultText": "How's the village stall treating you?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_ApothecaryTalk_StallThanks",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatApothecaryStallGifted", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 999999.0}},
+                    {"StatWarpData": "cmcStatApothQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+                    {"StatWarpData": "cmcStatApothQuestChain", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_ApothecaryTalk_Start_Answer_HerbQuest",
+                "DefaultText": "Anything else you're short on?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_ApothecaryTalk_HerbQuestOffer",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatApothQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
+                    {"StatWarpData": "cmcStatApothQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_ApothecaryTalk_Start_Answer_PowderQuest",
+                "DefaultText": "What about powders and dyes?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_ApothecaryTalk_PowderQuestOffer",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatApothecaryMoveIn", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 999999.0}},
+                    {"StatWarpData": "cmcStatWeaverMoveIn", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 999999.0}},
+                    {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 20.0}},
+                    {"StatWarpData": "cmcStatInterlockS2", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
+                ]
+            },
+            "Answer": {
+                "LocalizationKey": "CMC_ApothecaryTalk_Start_Answer_InterlockS2",
+                "DefaultText": "Could the Weaver help with your dust problem?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_ApothecaryTalk_InterlockS2Offer",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ApothecaryTalk_Start_Answer_Bye",
+                "DefaultText": "Just looking in on you."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

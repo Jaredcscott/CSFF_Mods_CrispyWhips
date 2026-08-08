@@ -1,0 +1,29 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_MillerTalk_Story4_Line",
+        "DefaultText": "He took it in good humor in the end, once his temper cooled. Told me a miller who watches his water deserves the wheel, and gave me the grindstone without another word. I've cleared my race every week since, out of respect for him as much as habit. Just don't go repeating the water part around the village, eh?"
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_MillerTalk_Story4_Answer_Close",
+                "DefaultText": "Wouldn't dream of it."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatMillerStoryStep",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": 1.0, "y": 1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

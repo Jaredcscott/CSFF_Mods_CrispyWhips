@@ -1,0 +1,69 @@
+{
+    "UniqueID": "comfortcopperbedframe",
+    "CardName": {
+        "ParentObjectID": "comfortcopperbedframe",
+        "LocalizationKey": "Comfort_CopperBedFrame_CardName",
+        "DefaultText": "Copper Bed Frame"
+    },
+    "CardDescription": {
+        "ParentObjectID": "comfortcopperbedframe",
+        "LocalizationKey": "Comfort_CopperBedFrame_CardDescription",
+        "DefaultText": "A sturdy wooden bed frame reinforced with hammered copper joints. Needs a mattress before it's worth sleeping on."
+    },
+    "CardType": 0,
+    "ObjectWeight": 700.0,
+    "TradingValue": 200.0,
+    "DoesNotPile": true,
+    "CardImageWarpData": "CopperBedFrame",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": ["tag_Metal", "tag_CopperSmall", "tag_Preservable"],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": ["Wood"],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": { "Active": false },
+    "UsageDurability": { "Active": false },
+    "FuelCapacity": { "Active": false },
+    "Progress": { "Active": false },
+    "SpecialDurability1": { "Active": false },
+    "SpecialDurability2": { "Active": false },
+    "SpecialDurability3": { "Active": false },
+    "SpecialDurability4": { "Active": false },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "comfortcopperbedframe",
+                "LocalizationKey": "Comfort_CopperBedFrame_DA_Dismantle",
+                "DefaultText": "Dismantle"
+            },
+            "DaytimeCost": 3,
+            "UseMiniTicks": 0,
+            "ActionSoundsWarpData": ["Wood"],
+            "ActionSoundsWarpType": 3,
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": { "ModType": 3 },
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "advanced_copper_tools_metal_sheet",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 2, "y": 2 }
+                        },
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "692afc638c39e32428629da58f56136a",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 4, "y": 4 }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "PassiveEffects": [],
+    "MaxStack": 1
+}

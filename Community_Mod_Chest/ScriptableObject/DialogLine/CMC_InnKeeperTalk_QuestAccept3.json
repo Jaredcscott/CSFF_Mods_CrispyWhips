@@ -1,0 +1,15 @@
+{
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_QuestAccept3_Line",
+        "DefaultText": "Good, good, brew night without proper ale is just a room full of disappointed regulars, and I'd rather not test how disappointed they can get. Bring it when you're ready, no rush, though if you happen to pass by on a brew night itself I won't turn away an early delivery."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_QuestAccept3_Answer",
+                "DefaultText": "I'll have it here in time."
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

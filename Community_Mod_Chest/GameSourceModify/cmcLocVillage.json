@@ -1,0 +1,10 @@
+{
+  "CardDescription": {
+    "LocalizationKey": "CMC_Village_CardDescription",
+    "DefaultText": "A settled oak clearing transformed into a thriving village, its stone and timber structures forming the heart of the settlement."
+  },
+  "CardHelpSection": {
+    "LocalizationKey": "CMC_Village_CardHelpSection",
+    "DefaultText": "<b>Oak Clearing, Settled:</b>\n\n<b>Flora:</b> Oaks and birch still ring the square, with appleweed, fireroot, and turnroot holding on at the clearing's edge, though most of the original ground has given way to the Inn, Academy, Market Stall, and cottages.\n\n<b>Fauna:</b> Squirrels, foxes, and does still pass along the treeline at dusk, kept well clear of the buildings by the daily bustle."
+  }
+}

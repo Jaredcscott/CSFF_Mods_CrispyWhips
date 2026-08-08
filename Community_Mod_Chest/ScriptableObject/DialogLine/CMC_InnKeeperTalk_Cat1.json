@@ -1,0 +1,41 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatAshTakeover", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_Cat1_Line",
+        "DefaultText": "Aye, it's our Ash. The inn's cat, gray as woodsmoke, eyes like embers, best mouser this side of the river. He slipped out three nights back and hasn't come home. A forager swears she saw him in the Foraging Forest, off the Village Path, prowling the ferns at dusk. Those trees are the Old Woods' little sister, no place for a house cat after dark."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Cat1_Answer_Help",
+                "DefaultText": "I'll keep an eye out for him."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatAshTakeover", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false},
+                    {"StatWarpData": "cmcStatLostCat", "StatWarpType": 3, "ValueModifier": {"x": 1.0, "y": 1.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_InnKeeperTalk_Cat2",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Cat1_Answer_Decline",
+                "DefaultText": "Cats find their own way home."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

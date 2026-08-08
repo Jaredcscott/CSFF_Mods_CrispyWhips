@@ -1,0 +1,164 @@
+{
+    "UniqueID": "ceramiclamp",
+    "CardName": {
+        "ParentObjectID": "ceramiclamp",
+        "LocalizationKey": "CeramicLamp_CardName",
+        "DefaultText": "Ceramic Lamp"
+    },
+    "CardDescription": {
+        "ParentObjectID": "ceramiclamp",
+        "LocalizationKey": "CeramicLamp_CardDescription",
+        "DefaultText": "A small open clay lamp with a wick channel. Burns fat for steady light. Fill with fat then light from a fire source."
+    },
+    "CardType": 0,
+    "ObjectWeight": 150.0,
+    "TradingValue": 8.0,
+    "DoesNotPile": true,
+    "CardImageWarpData": "CeramicLamp",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "Stone"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "ceramiclamp",
+            "LocalizationKey": "CeramicLamp_FuelCapacity_CardStatName",
+            "DefaultText": "Fat"
+        },
+        "MaxValue": 48.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "HasActionOnZero": false,
+        "HasActionOnFull": false,
+        "CountsForTradingValue": false,
+        "OverrideIconWarpData": "Flame",
+        "OverrideIconWarpType": 3
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "ceramiclamp",
+                "LocalizationKey": "CeramicLamp_Refuel_ActionName",
+                "DefaultText": "Refuel with Fat"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "ceramiclamp",
+                "LocalizationKey": "CeramicLamp_Refuel_ActionDescription",
+                "DefaultText": "Add fat to the lamp's reservoir."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [
+                "Drink"
+            ],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "0eb3634f696991b4d97b91626270e035"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "StackCompatible": true,
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "FuelChange": {
+                    "x": 24.0,
+                    "y": 24.0
+                }
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "ceramiclamp",
+                "LocalizationKey": "CeramicLamp_Light_ActionName",
+                "DefaultText": "Light Lamp"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "ceramiclamp",
+                "LocalizationKey": "CeramicLamp_Light_ActionDescription",
+                "DefaultText": "Light the lamp from a fire source."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [
+                "FireIgnite"
+            ],
+            "ActionSoundsWarpType": 3,
+            "RequiredReceivingDurabilities": {
+                "RequiredFuelPercent": {
+                    "Active": true,
+                    "FloatValue": 0.1,
+                    "MaxValue": 100.0
+                },
+                "HideActionIfNotMet": true,
+                "FailMessage": {
+                    "ParentObjectID": "ceramiclamp",
+                    "LocalizationKey": "CeramicLamp_NeedsFuel",
+                    "DefaultText": "The lamp needs fat first."
+                }
+            },
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [
+                    "tag_Fire",
+                    "tag_FireSource"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "StackCompatible": false,
+            "GivenCardChanges": {
+                "ModType": 0
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "ceramiclamplit",
+                "TransformIntoWarpType": 3,
+                "TransferFuel": true,
+                "SpawnTransformAtSource": true
+            }
+        }
+    ],
+    "DismantleActions": []
+}

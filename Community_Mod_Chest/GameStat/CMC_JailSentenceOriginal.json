@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatJailSentenceOriginal",
+    "GameName": {
+        "LocalizationKey": "CMC_JailSentenceOriginal_StatName",
+        "DefaultText": "Jail Sentence Length"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_JailSentenceOriginal_StatDescription",
+        "DefaultText": "Hidden record of the sentence length as handed down at arrest. Kept separate from the remaining count because the escape-recapture penalty (10.8.8.3) is defined as a fraction of the ORIGINAL sentence and cannot recover it from the decremented value."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 8.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

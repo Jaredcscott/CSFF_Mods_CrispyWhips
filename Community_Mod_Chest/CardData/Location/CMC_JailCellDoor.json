@@ -1,0 +1,275 @@
+{
+  "UniqueID": "cmcJailCellDoor",
+  "CardType": 2,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": false,
+  "CardName": {
+    "LocalizationKey": "CMC_JailCellDoor_CardName",
+    "DefaultText": "Cell Door"
+  },
+  "CardDescription": {
+    "LocalizationKey": "CMC_JailCellDoor_CardDescription",
+    "DefaultText": "Banded oak with an iron grille at eye height. It is barred from the outside while you have days left to serve, and the warden opens it the morning your sentence runs out."
+  },
+  "CardImageWarpData": "VillageDoorInterior",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0,
+  "DoesNotPile": true,
+  "CanDragItemsToTravel": true,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_JailCellDoor_DA_Days1",
+        "DefaultText": "Your sentence: 1 more day"
+      },
+      "DaytimeCost": 0,
+      "RequiredStatValues": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "cmcStatJailSentenceRemaining",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "AlwaysShow": true,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_JailCellDoor_DA_Days2",
+        "DefaultText": "Your sentence: 2 more days"
+      },
+      "DaytimeCost": 0,
+      "RequiredStatValues": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "cmcStatJailSentenceRemaining",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 1.5,
+            "y": 2.5
+          }
+        }
+      ],
+      "AlwaysShow": true,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_JailCellDoor_DA_Days3",
+        "DefaultText": "Your sentence: 3 more days"
+      },
+      "DaytimeCost": 0,
+      "RequiredStatValues": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "cmcStatJailSentenceRemaining",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 2.5,
+            "y": 3.5
+          }
+        }
+      ],
+      "AlwaysShow": true,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_JailCellDoor_DA_Days4",
+        "DefaultText": "Your sentence: 4 more days"
+      },
+      "DaytimeCost": 0,
+      "RequiredStatValues": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "cmcStatJailSentenceRemaining",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 3.5,
+            "y": 4.5
+          }
+        }
+      ],
+      "AlwaysShow": true,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_JailCellDoor_DA_Days5",
+        "DefaultText": "Your sentence: 5 more days"
+      },
+      "DaytimeCost": 0,
+      "RequiredStatValues": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "cmcStatJailSentenceRemaining",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 4.5,
+            "y": 5.5
+          }
+        }
+      ],
+      "AlwaysShow": true,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_JailCellDoor_DA_Days6",
+        "DefaultText": "Your sentence: 6 more days"
+      },
+      "DaytimeCost": 0,
+      "RequiredStatValues": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "cmcStatJailSentenceRemaining",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 5.5,
+            "y": 6.5
+          }
+        }
+      ],
+      "AlwaysShow": true,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_JailCellDoor_DA_Days7",
+        "DefaultText": "Your sentence: 7 more days"
+      },
+      "DaytimeCost": 0,
+      "RequiredStatValues": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "cmcStatJailSentenceRemaining",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 6.5,
+            "y": 7.5
+          }
+        }
+      ],
+      "AlwaysShow": true,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_JailCellDoor_DA_Days8",
+        "DefaultText": "Your sentence: 8 more days"
+      },
+      "DaytimeCost": 0,
+      "RequiredStatValues": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "cmcStatJailSentenceRemaining",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 7.5,
+            "y": 8.5
+          }
+        }
+      ],
+      "AlwaysShow": true,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_JailCellDoor_DA_Exit",
+        "DefaultText": "Walk out"
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 2,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "FadeToBlack": 1,
+      "FadeMessage": {
+        "LocalizationKey": "CMC_JailCellDoor_DA_Exit_Fade",
+        "DefaultText": "The warden unbars the door..."
+      },
+      "RequiredStatValues": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "cmcStatJailSentenceRemaining",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "HideIfConditionsNotMet": true,
+      "ProducedCards": [
+        {
+          "CollectionName": "Exit",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "cmcEnvVillage",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    }
+  ],
+  "DismantleActionsWarpType": 3
+}

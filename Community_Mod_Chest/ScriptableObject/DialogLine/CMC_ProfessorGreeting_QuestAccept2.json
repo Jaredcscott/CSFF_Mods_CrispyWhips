@@ -1,0 +1,15 @@
+{
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_QuestAccept2_Line",
+        "DefaultText": "Wonderful, truly. I've had that ruin's floor plan sketched on the same scrap of parchment for eleven years now, waiting on someone patient enough to indulge me. Don't rush the clay-gathering on my account, but I'll admit I'll be watching the door a little more eagerly than usual until you're back."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Answer_Ok",
+                "DefaultText": "I'll be back before you know it."
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

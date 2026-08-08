@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatVillageEpochDay",
+    "GameName": {
+        "LocalizationKey": "CMC_VillageEpochDay_StatName",
+        "DefaultText": "Village Epoch Day"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_VillageEpochDay_StatDescription",
+        "DefaultText": "Hidden Village Clock anchor: CurrentDay + 1 stamped once on first observing village phase 1 (0 = unset; the +1 offset keeps 0 meaning 'never stamped'). All Inn Keeper onboarding beats pace from this day, never from the absolute world clock."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 100000.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

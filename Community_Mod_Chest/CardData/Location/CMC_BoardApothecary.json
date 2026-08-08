@@ -1,0 +1,400 @@
+{
+  "UniqueID": "cmcBoardApothecary",
+  "CardType": 2,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": false,
+  "DoesNotPile": true,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "CMC_BoardApothecary_CardName",
+    "DefaultText": "Apothecary's Board"
+  },
+  "CardDescription": {
+    "LocalizationKey": "CMC_BoardApothecary_CardDescription",
+    "DefaultText": "A small board where the Apothecary posts news of the Cabin."
+  },
+  "CardImageWarpData": "CMC_Apothecary",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardApothecary_DA_Status1_Name",
+        "DefaultText": "Active errand: fresh billberries, springberries, and spirit mushrooms"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardApothecary_DA_Status1_Desc",
+        "DefaultText": "The Apothecary could use your help: fresh billberries, springberries, and spirit mushrooms."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatApothQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatApothQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardApothecary_DA_Hint1_Name",
+        "DefaultText": "A hint: bring billberries, springberries, and spirit mushrooms fresh, not dried"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardApothecary_DA_Hint1_Desc",
+        "DefaultText": "A hint: bring billberries, springberries, and spirit mushrooms fresh, not dried."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatApothQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatApothQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardApothecary_DA_Status2_Name",
+        "DefaultText": "Active errand: charcoal and dried heather flowers"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardApothecary_DA_Status2_Desc",
+        "DefaultText": "The Apothecary could use your help: charcoal and dried heather flowers."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatApothQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatApothQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardApothecary_DA_Hint2_Name",
+        "DefaultText": "A hint: bring charcoal and dried heather flowers"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardApothecary_DA_Hint2_Desc",
+        "DefaultText": "A hint: bring charcoal and dried heather flowers."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatApothQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatApothQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardApothecary_DA_Teaser1_Name",
+        "DefaultText": "Word around the village: fresh forage, all three together"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardApothecary_DA_Teaser1_Desc",
+        "DefaultText": "The Apothecary may have another small errand in mind before long — something to do with fresh forage, all three together, if the timing's right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatApothQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatApothQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardApothecary_DA_Teaser2_Name",
+        "DefaultText": "Word around the village: the makings of a pigment"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardApothecary_DA_Teaser2_Desc",
+        "DefaultText": "The Apothecary may have another small errand in mind before long — something to do with the makings of a pigment, if the timing's right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatApothQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 1.5
+          }
+        },
+        {
+          "StatWarpData": "cmcStatApothQuestArmed",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardApothecary_DA_Log1_Name",
+        "DefaultText": "A past errand: fresh billberries, springberries, and spirit mushrooms"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardApothecary_DA_Log1_Desc",
+        "DefaultText": "You once helped the apothecary with fresh billberries, springberries, and spirit mushrooms — and were thanked for it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatApothQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 3.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardApothecary_DA_Log2_Name",
+        "DefaultText": "A past errand: charcoal and dried heather flowers"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardApothecary_DA_Log2_Desc",
+        "DefaultText": "You once helped the apothecary with charcoal and dried heather flowers — and were thanked for it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatApothQuestChain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 1.5,
+            "y": 4.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardApothecary_DA_InterlockS1_Name",
+        "DefaultText": "Word around the village: some dye-work the Apothecary and the Weaver could do together"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardApothecary_DA_InterlockS1_Desc",
+        "DefaultText": "You've heard whispers of some dye-work the Apothecary and the Weaver could do together — worth asking both of them about, once the time seems right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInterlockS1",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.95
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardApothecary_DA_InterlockS2_Name",
+        "DefaultText": "Word around the village: a bit of protective gear the Weaver and the Apothecary have been discussing"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardApothecary_DA_InterlockS2_Desc",
+        "DefaultText": "You've heard whispers of a bit of protective gear the Weaver and the Apothecary have been discussing — worth asking both of them about, once the time seems right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInterlockS2",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.95
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardApothecary_DA_InterlockS5_Name",
+        "DefaultText": "Word around the village: a remedy the Inn Keeper's been asking the Apothecary about"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardApothecary_DA_InterlockS5_Desc",
+        "DefaultText": "You've heard whispers of a remedy the Inn Keeper's been asking the Apothecary about — worth asking both of them about, once the time seems right."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatInterlockS5",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.95
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    }
+  ],
+  "DismantleActionsWarpType": 3
+}

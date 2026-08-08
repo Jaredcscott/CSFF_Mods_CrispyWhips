@@ -1,0 +1,292 @@
+{
+  "UniqueID": "cmcBoardTown",
+  "CardType": 2,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": false,
+  "DoesNotPile": true,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "CMC_BoardTown_CardName",
+    "DefaultText": "Village Standing"
+  },
+  "CardDescription": {
+    "LocalizationKey": "CMC_BoardTown_CardDescription",
+    "DefaultText": "A civic board summarizing the village's current standing and the finished works that now count toward it."
+  },
+  "CardImageWarpData": "CMC_VillageHall",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardTown_DA_renown_low_Name",
+        "DefaultText": "Village standing: renown low"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardTown_DA_renown_low_Desc",
+        "DefaultText": "The village is barely known beyond its own fields."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatVillageRenown",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 24.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardTown_DA_renown_mid_Name",
+        "DefaultText": "Village standing: renown mid"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardTown_DA_renown_mid_Desc",
+        "DefaultText": "The village is earning a name among travelers."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatVillageRenown",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 24.5,
+            "y": 49.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardTown_DA_renown_high_Name",
+        "DefaultText": "Village standing: renown high"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardTown_DA_renown_high_Desc",
+        "DefaultText": "The village has become a respected stop on the road."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatVillageRenown",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 49.5,
+            "y": 74.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardTown_DA_renown_top_Name",
+        "DefaultText": "Village standing: renown top"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardTown_DA_renown_top_Desc",
+        "DefaultText": "The village is known across the region."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatVillageRenown",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 74.5,
+            "y": 999999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardTown_DA_contrib_miller_Name",
+        "DefaultText": "Contribution: Miller's Cottage"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardTown_DA_contrib_miller_Desc",
+        "DefaultText": "The Miller's Cottage adds to the village's standing."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatChronicleMillerCottageDay",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 999999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardTown_DA_contrib_weaver_Name",
+        "DefaultText": "Contribution: Weaver's Cottage"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardTown_DA_contrib_weaver_Desc",
+        "DefaultText": "The Weaver's Cottage adds to the village's standing."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatChronicleWeaverCottageDay",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 999999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardTown_DA_contrib_well_Name",
+        "DefaultText": "Contribution: Village Well"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardTown_DA_contrib_well_Desc",
+        "DefaultText": "The Village Well adds to the village's standing."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatChronicleWellDay",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 999999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardTown_DA_contrib_bridge_Name",
+        "DefaultText": "Contribution: River Bridge"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardTown_DA_contrib_bridge_Desc",
+        "DefaultText": "The River Bridge adds to the village's standing."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatChronicleRiverBridgeDay",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 999999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardTown_DA_contrib_stall_Name",
+        "DefaultText": "Contribution: thriving Market Stall"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardTown_DA_contrib_stall_Desc",
+        "DefaultText": "A thriving Market Stall adds to the village's standing."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatChronicleMarketStallDay",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 999999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    }
+  ],
+  "DismantleActionsWarpType": 3
+}

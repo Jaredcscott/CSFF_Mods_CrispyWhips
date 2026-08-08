@@ -1,0 +1,18 @@
+{
+    "StartingPoint": true,
+    "Line": {
+        "LocalizationKey": "CMC_ProfAppliedHerbalismThanks_Line",
+        "DefaultText": "Properly dried, properly cured — a diploma means something when the hands behind it can prove the theory. I'll use these in the next lecture, with your name attached."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Answer_Ok",
+                "DefaultText": "Noted, Professor."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

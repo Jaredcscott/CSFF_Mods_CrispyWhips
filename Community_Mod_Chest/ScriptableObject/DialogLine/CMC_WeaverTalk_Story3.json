@@ -1,0 +1,31 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_WeaverTalk_Story3_Line",
+        "DefaultText": "A full year later, on the first cold night, I finally sat down and spun the rest of it. My hands remembered hers, somehow. The thread came out even, no knots, no breaks, the whole length of it. I still don't know how, patient hand or not. I keep telling myself I made it. Truthfully I think we made it together."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_Story3_Answer_GoOn",
+                "DefaultText": "What did you do with the thread?"
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatWeaverStoryStep",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": 1.0, "y": 1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_WeaverTalk_Story4",
+                "NextLineWarpType": 3
+            }
+        }
+    ]
+}

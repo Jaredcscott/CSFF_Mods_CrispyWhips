@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatInnFriendship",
+    "GameName": {
+        "LocalizationKey": "CMC_InnFriendship_StatName",
+        "DefaultText": "Inn Keeper Friendship"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_InnFriendship_StatDescription",
+        "DefaultText": "Hidden tracker: rises with each Chat. Gates warmer dialog and better trade prices at the Inn."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 30.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

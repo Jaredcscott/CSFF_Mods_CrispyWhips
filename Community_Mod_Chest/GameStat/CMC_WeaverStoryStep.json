@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatWeaverStoryStep",
+    "GameName": {
+        "LocalizationKey": "CMC_WeaverStoryStep_StatName",
+        "DefaultText": "The Weaver's Tale Progress"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_WeaverStoryStep_StatDescription",
+        "DefaultText": "Hidden tracker for how far into the Weaver's four-part tale (0-4) the player has heard."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 10.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

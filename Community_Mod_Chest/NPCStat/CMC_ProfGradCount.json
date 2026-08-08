@@ -1,0 +1,17 @@
+{
+    "UniqueID": "cmcStatProfGradCount",
+    "GameName": {
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "Count of Academy courses the player has graduated - written by scheduler, gates dialog + gifts"
+    },
+    "DefaultStartingValue": 0.0,
+    "DefaultMinMaxValue": {
+        "x": 0.0,
+        "y": 6.0
+    },
+    "DefaultRate": 0.0,
+    "DefaultMinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    }
+}

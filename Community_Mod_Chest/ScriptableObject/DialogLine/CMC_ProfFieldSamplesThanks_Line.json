@@ -1,0 +1,18 @@
+{
+    "StartingPoint": true,
+    "Line": {
+        "LocalizationKey": "CMC_ProfFieldSamplesThanks_Line",
+        "DefaultText": "Undamaged, every one — this is exactly the kind of specimen work I hoped a student of the outskirts could manage. The Academy's collection is better for it."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Answer_Ok",
+                "DefaultText": "Noted, Professor."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

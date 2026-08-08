@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatApothecaryPotionCraftDay",
+    "GameName": {
+        "LocalizationKey": "CMC_ApothecaryPotionCraftDay_StatName",
+        "DefaultText": "The Apothecary's Brewing"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_ApothecaryPotionCraftDay_StatDescription",
+        "DefaultText": "Hidden tracker: 0 = not brewing. A small in-between value marks a just-gifted mixture pending C# arming. 1 or more = the absolute day the Powerful Healing Potion will be ready."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 100000.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

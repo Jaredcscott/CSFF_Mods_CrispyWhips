@@ -1,0 +1,85 @@
+{
+  "UniqueID": "hunterscachebphuntingstand",
+  "CardName": {
+    "ParentObjectID": "hunterscachebphuntingstand",
+    "LocalizationKey": "Hunters_Cache_Bp_HuntingStand_CardName",
+    "DefaultText": "Hunting Stand"
+  },
+  "CardDescription": {
+    "ParentObjectID": "hunterscachebphuntingstand",
+    "LocalizationKey": "Hunters_Cache_Bp_HuntingStand_CardDescription",
+    "DefaultText": "Build an elevated tree platform that keeps you out of predators' sight. Wild-animal encounters at its location are often averted."
+  },
+  "CardType": 7,
+  "UnlockConditionsDesc": {
+    "LocalizationKey": "IGNOREKEY",
+    "DefaultText": ""
+  },
+  "BuildingStatConditions": [],
+  "StartUnlocked": false,
+  "CardsOnBoard": [],
+  "TagsOnBoard": [],
+  "StatValues": [
+    {
+      "ObjectiveName": "MillerQuestChainAtLeast2",
+      "CompletionWeight": 1,
+      "StatCondition": {
+        "TriggerRange": { "x": 1.5, "y": 20.0 },
+        "StatWarpData": "cmcStatMillerQuestChain",
+        "StatWarpType": 3
+      },
+      "ConstantlyChecking": false
+    }
+  ],
+  "BlueprintStages": [
+    {
+      "CannotRevertToThisStage": false,
+      "RequiredElements": [
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 3,
+          "DontSpend": false,
+          "RequiredCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 4,
+          "DontSpend": false,
+          "RequiredCardWarpData": "3db4c94184af274409f0d3eb16870f64",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 2,
+          "DontSpend": false,
+          "RequiredCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+          "RequiredCardWarpType": 3
+        }
+      ],
+      "StepActionTags": [],
+      "StepActionTagsWarpData": [],
+      "StepActionTagsWarpType": 3
+    }
+  ],
+  "BuildingDaytimeCost": 6,
+  "DeconstructDaytimeCost": 2,
+  "BlueprintResult": [
+    {
+      "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+      "Quantity": { "x": 1, "y": 1 },
+      "DroppedCardWarpData": "hunterscachehuntingstandkit",
+      "DroppedCardWarpType": 3
+    }
+  ],
+  "BlueprintStatModifications": [],
+  "WhenCreatedSoundsWarpData": ["Wood"],
+  "WhenCreatedSoundsWarpType": 3,
+  "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+  "BlueprintActionTagsWarpType": 3,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "Plank",
+  "CardImageWarpType": 3,
+  "BlueprintUnlockTicksCost": 8.0,
+  "ResearchedNotification": 0
+}

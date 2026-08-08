@@ -1,0 +1,88 @@
+{
+    "UniqueID": "apparelbpclothcoat",
+    "CardName": {
+        "ParentObjectID": "apparelbpclothcoat",
+        "LocalizationKey": "apparel_bp_cloth_coat_CardName",
+        "DefaultText": "Cloth Coat"
+    },
+    "CardDescription": {
+        "ParentObjectID": "apparelbpclothcoat",
+        "LocalizationKey": "apparel_bp_cloth_coat_CardDescription",
+        "DefaultText": "A full-length woven cloth coat."
+    },
+    "CardType": 7,
+    "CardImageWarpData": "ClothCoat",
+    "CardImageWarpType": 3,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "apparelbpclothcoat",
+        "LocalizationKey": "apparel_bp_cloth_coat_UnlockConditionsDesc",
+        "DefaultText": "Bring the Weaver a large cloth"
+    },
+    "StartUnlocked": false,
+    "CardsOnBoard": [],
+    "StatValues": [
+        {
+            "ObjectiveName": "WeaverQuestChainAtLeast5",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "TriggerRange": { "x": 4.5, "y": 20.0 },
+                "StatWarpData": "cmcStatWeaverQuestChain",
+                "StatWarpType": 3
+            },
+            "ConstantlyChecking": false
+        }
+    ],
+    "BlueprintUnlockTicksCost": 16.0,
+    "BuildingDaytimeCost": 6,
+    "DeconstructDaytimeCost": 2,
+    "BlueprintStages": [
+        {
+            "RequiredElements": [
+                {
+                    "RequiredCardWarpData": "3e94716876eae304787efa2ae0b43711",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 2,
+                    "DontSpend": false
+                },
+                {
+                    "RequiredCardWarpData": "35d6f2a46f2bbc84bbe33e917991c71d",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 4,
+                    "DontSpend": false
+                },
+                {
+                    "RequiredCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 8,
+                    "DontSpend": false
+                },
+                {
+                    "RequiredTabGroupWarpData": "GpTag_Needle",
+                    "RequiredTabGroupWarpType": 3,
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "EffectOnIngredient": {
+                        "ModType": 1,
+                        "UsageChange": { "x": -16.0, "y": -16.0 }
+                    }
+                }
+            ]
+        }
+    ],
+    "BlueprintResult": [
+        {
+            "DroppedCardWarpData": "apparelclothcoat",
+            "DroppedCardWarpType": 3,
+            "Quantity": {"x": 1, "y": 1}
+        }
+    ],
+    "BlueprintStatModifications": [
+        {
+            "StatWarpData": "e852e093ef8dcd64eb72ab3add261d32",
+            "StatWarpType": 3,
+            "ValueModifier": {"x": 3.0, "y": 3.0}
+        }
+    ],
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+    "BlueprintActionTagsWarpType": 3
+}

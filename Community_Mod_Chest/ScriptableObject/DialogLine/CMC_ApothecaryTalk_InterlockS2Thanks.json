@@ -1,0 +1,36 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatInterlockS2", "StatWarpType": 3, "TriggerRange": {"x": 0.25, "y": 0.75}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_ApothecaryTalk_InterlockS2Thanks_Line",
+        "DefaultText": "Good weave, tight enough to keep the worst of the dust out. Tell the Weaver her cloth's finally doing honest work for someone other than herself. Here, the pattern's yours, in case you've a dusty errand of your own someday."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ApothecaryTalk_InterlockS2Thanks_Answer_Ok",
+                "DefaultText": "I'll pass that along."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatInterlockS2",
+                        "StatWarpType": 3,
+                        "ValueModifier": {"x": 0.5, "y": 0.5},
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ],
+                "BlueprintsFullUnlockWarpData": ["apparelbpclothmask"],
+                "BlueprintsFullUnlockWarpType": 3
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_NewsHall_Line",
+        "DefaultText": "The Village Hall, up at last. I stopped by to see it and found myself lecturing the notice board out of old habit before I caught myself. It's a strange thing, watching a settlement decide it's permanent enough to need a civic building. Ten years ago this was a clearing with a fire pit and my own stubborn refusal to leave. Now it has a Hall. Write that down somewhere, it's the sort of thing histories forget to mention."
+    },
+    "ActionToPerform": {
+        "NPCStatModifications": [
+            {"TargetStatWarpData": "cmcStatProfNewsHall", "TargetStatWarpType": 3, "UseAssociatedAgent": true, "ValueChange": {"x": 1.0, "y": 1.0}}
+        ]
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Answer_Ok",
+                "DefaultText": "Noted, Professor."
+            },
+            "NewNextLine": {"NextStep": 2}
+        }
+    ]
+}

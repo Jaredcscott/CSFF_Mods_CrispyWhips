@@ -1,0 +1,38 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_ApothecaryTalk_PowderQuestOffer_Line",
+        "DefaultText": "Since you're asking, I could use charcoal and a good handful of dried heather flowers. Grind them right and you get a pigment worth more than the sum of its parts, dyes, paints, all sorts of uses."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ApothecaryTalk_PowderQuestOffer_Answer_Accept",
+                "DefaultText": "I'll bring you both."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatApothQuestArmed",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": -1.0, "y": -1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ApothecaryTalk_PowderQuestOffer_Answer_Decline",
+                "DefaultText": "I'll see what I can find."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

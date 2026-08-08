@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatChronicleVillageHallDay",
+    "GameName": {
+        "LocalizationKey": "CMC_ChronicleVillageHall_StatName",
+        "DefaultText": "Village Hall Completion Day"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_ChronicleVillageHall_StatDescription",
+        "DefaultText": "Hidden tracker: the day (CurrentDay + 1, so 0 stays 'unbuilt') the Village Hall was completed. Read by the Town/Construction Board's construction-status entries. Written once by VillageChroniclePatch on the 0->done transition."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 100000.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

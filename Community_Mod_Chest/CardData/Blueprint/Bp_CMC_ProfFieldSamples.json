@@ -1,0 +1,110 @@
+{
+    "UniqueID": "bpcmcproffieldsamples",
+    "CardName": {
+        "LocalizationKey": "CMC_ProfFieldSamples_CardName",
+        "DefaultText": "Field Samples: 5 Billberries"
+    },
+    "CardDescription": {
+        "LocalizationKey": "CMC_ProfFieldSamples_CardDescription",
+        "DefaultText": "The Professor wants a proper set of field samples for the Academy's collection — five fresh billberries, undamaged, will do nicely."
+    },
+    "CardImageWarpData": "BillberriesFresh",
+    "CardImageWarpType": 3,
+    "CardType": 7,
+    "StartUnlocked": false,
+    "BlueprintUnlockTicksCost": 8.0,
+    "BuildingDaytimeCost": 0,
+    "DeconstructDaytimeCost": 1,
+    "BlueprintStages": [
+        {
+            "RequiredElements": [
+                {
+                    "RequiredCardWarpData": "d615853632d85db458d14016156b1a82",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 5,
+                    "DontSpend": false
+                }
+            ]
+        }
+    ],
+    "BlueprintResult": [
+        {
+            "DroppedCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
+            "DroppedCardWarpType": 3,
+            "Quantity": {
+                "x": 2,
+                "y": 2
+            }
+        }
+    ],
+    "BlueprintNPCStatConditions": [
+        {
+            "UseAssociatedAgent": false,
+            "TargetAgentWarpData": "cmcProfessorAgent",
+            "TargetAgentWarpType": 3,
+            "TargetStatWarpData": "cmcStatProfFieldSamplesReady",
+            "TargetStatWarpType": 3,
+            "ConditionRange": {
+                "x": 1.0,
+                "y": 1.0
+            }
+        },
+        {
+            "UseAssociatedAgent": false,
+            "TargetAgentWarpData": "cmcProfessorAgent",
+            "TargetAgentWarpType": 3,
+            "TargetStatWarpData": "cmcStatProfFieldSamplesClaimed",
+            "TargetStatWarpType": 3,
+            "ConditionRange": {
+                "x": 0.0,
+                "y": 0.0
+            }
+        },
+        {
+            "UseAssociatedAgent": false,
+            "TargetAgentWarpData": "cmcProfessorAgent",
+            "TargetAgentWarpType": 3,
+            "TargetStatWarpData": "cmcStatProfessorPhase",
+            "TargetStatWarpType": 3,
+            "ConditionRange": {
+                "x": 1.0,
+                "y": 1.0
+            }
+        }
+    ],
+    "BlueprintNPCStatModifications": [
+        {
+            "TargetStatWarpData": "cmcStatProfFieldSamplesClaimed",
+            "TargetStatWarpType": 3,
+            "UseAssociatedAgent": false,
+            "ValueChange": {
+                "x": 1.0,
+                "y": 1.0
+            },
+            "TargetAgentWarpData": "cmcProfessorAgent",
+            "TargetAgentWarpType": 3
+        },
+        {
+            "TargetStatWarpData": "cmcStatProfessorTrust",
+            "TargetStatWarpType": 3,
+            "UseAssociatedAgent": false,
+            "ValueChange": {
+                "x": 6.0,
+                "y": 6.0
+            },
+            "TargetAgentWarpData": "cmcProfessorAgent",
+            "TargetAgentWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [
+        {
+            "StatWarpData": "cmcStatQuestRenownProfFieldSamples",
+            "StatWarpType": 3,
+            "ValueModifier": { "x": 1.0, "y": 1.0 },
+            "InstantModifier": true,
+            "ApplyEachTick": false
+        }
+    ],
+    "BlueprintFinishedDialogWarpData": "CMC_ProfFieldSamplesThanks",
+    "BlueprintFinishedDialogWarpType": 3
+}

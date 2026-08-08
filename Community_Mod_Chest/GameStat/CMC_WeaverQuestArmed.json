@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatWeaverQuestArmed",
+    "GameName": {
+        "LocalizationKey": "CMC_WeaverQuestArmed_StatName",
+        "DefaultText": "Weaver's Next Errand Ready"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_WeaverQuestArmed_StatDescription",
+        "DefaultText": "Hidden flag: 1 once a village-week has passed since the Weaver's last completed quest, arming the next offer. Starts armed (1) so the first quest is available immediately."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 1.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

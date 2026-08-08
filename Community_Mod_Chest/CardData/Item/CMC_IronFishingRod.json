@@ -1,0 +1,161 @@
+{
+  "UniqueID": "CMCIronFishingRod",
+  "CardName": {
+    "ParentObjectID": "CMCIronFishingRod",
+    "LocalizationKey": "CMC_IronFishingRod_CardName",
+    "DefaultText": "Iron Fishing Rod"
+  },
+  "CardDescription": {
+    "ParentObjectID": "CMCIronFishingRod",
+    "LocalizationKey": "CMC_IronFishingRod_CardDescription",
+    "DefaultText": "A well-crafted rod with iron fittings, a long stick, and rustic line. Provides a fishing advantage and aids stamina recovery while carried. Use with a fishing line and bait for best results."
+  },
+  "CardType": 0,
+  "ObjectWeight": 300.0,
+  "TradingValue": 120.0,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "FishingRod",
+  "CardImageWarpType": 3,
+  "AlwaysUpdate": true,
+  "WhenCreatedSoundsWarpData": ["SticksAppear"],
+  "WhenCreatedSoundsWarpType": 3,
+  "SpoilageTime": { "Active": false },
+  "UsageDurability": {
+    "Active": true,
+    "FloatValue": 600.0,
+    "CardStatName": {
+      "ParentObjectID": "CMCIronFishingRod",
+      "LocalizationKey": "CMC_IronFishingRod_UsageDurability",
+      "DefaultText": "Durability"
+    },
+    "MaxValue": 600.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 1,
+    "NumberPrecision": 0,
+    "HasActionOnZero": true,
+    "OnZero": {
+      "ActionDescription": {
+        "ParentObjectID": "CMCIronFishingRod",
+        "LocalizationKey": "CMC_IronFishingRod_OnZero",
+        "DefaultText": "Rod Broken!"
+      },
+      "OnZeroNotification": 1,
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    },
+    "HasActionOnFull": false,
+    "CountsForTradingValue": true
+  },
+  "FuelCapacity": { "Active": false },
+  "Progress": { "Active": false },
+  "SpecialDurability1": { "Active": false },
+  "SpecialDurability2": { "Active": false },
+  "SpecialDurability3": { "Active": false },
+  "SpecialDurability4": { "Active": false },
+  "CardTags": [],
+  "CardTagsWarpData": ["tag_FishingLine"],
+  "CardTagsWarpType": 3,
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "CMCIronFishingRod",
+        "LocalizationKey": "CMC_IronFishingRod_Dismantle_ActionName",
+        "DefaultText": "Dismantle"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "CMCIronFishingRod",
+        "LocalizationKey": "CMC_IronFishingRod_Dismantle_ActionDescription",
+        "DefaultText": "Take the rod apart to recover the iron fittings, long stick, and fishing line."
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["Metal"],
+      "ActionSoundsWarpType": 3,
+      "ProducedCards": [
+        {
+          "CollectionName": "",
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "CMCIronFishingRodFittings",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 }
+            },
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "3db4c94184af274409f0d3eb16870f64",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 }
+            },
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "bcea726d38311bf48981a3a2bb5a3054",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": [
+    {
+      "EffectName": "Fishing Aid",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenInHand": true,
+      "Conditions": {},
+      "StatModifiers": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "a9fcbc0dc62b1d645817f8cb7569f95a",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 0.0, "y": 0.0 },
+          "RateModifier": { "x": 2.0, "y": 2.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ]
+    },
+    {
+      "EffectName": "Stamina Recovery",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenInHand": true,
+      "Conditions": {},
+      "StatModifiers": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "f51012220577e6e41b66da9331733c9d",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 5.0, "y": 5.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatInnStoryIndex", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 2.5}},
+            {"StatWarpData": "cmcStatInnStoryStep", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_Mushroom_1_Line",
+        "DefaultText": "Had a peddler come through one autumn, sharp dressed fellow, full of opinions about foraging he had no business holding. Insisted he knew his mushrooms better than any village forager, picked himself a nice fat cap out past the tree line, and ate it raw before anyone could stop him, wrong cap as it turned out, and wrong by quite a margin. Within the hour he was convinced the inn's rafters were speaking to him in verse, and not bad verse either, by his own account. He climbed up on this very table, arms out like a scarecrow, and announced to the whole common room that he'd been made an honorary badger, then spent a good twenty minutes bowing to the fireplace, calling it 'Your Grace.'"
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_Mushroom_1_Answer_GoOn",
+                "DefaultText": "How did the night end?"
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatInnStoryStep", "StatWarpType": 3, "ValueModifier": {"x": 2.0, "y": 2.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_InnKeeperTalk_Mushroom_3",
+                "NextLineWarpType": 3
+            }
+        }
+    ]
+}

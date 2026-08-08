@@ -1,0 +1,15 @@
+{
+  "UniqueID": "cmcVillageHallInteriorLocation",
+  "CardType": 8,
+  "InstancedEnvironment": false,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": true,
+  "DoesNotPile": true,
+  "CardName": {
+    "LocalizationKey": "CMC_VillageHallInteriorLocation_CardName",
+    "DefaultText": "Village Hall"
+  },
+  "CardImageWarpData": "VillageAcademyInterior",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0
+}

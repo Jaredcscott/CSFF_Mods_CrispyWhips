@@ -1,0 +1,32 @@
+{
+    "SceneTitle": {
+        "LocalizationKey": "CMC_WeaverTalk_SceneTitle",
+        "DefaultText": "The Weaver"
+    },
+    "SceneLinesWarpData": [
+        "CMC_WeaverTalk_Start",
+        "CMC_WeaverTalk_Work",
+        "CMC_WeaverTalk_Village",
+        "CMC_WeaverTalk_QuestOffer",
+        "CMC_WeaverTalk_QuestThanks",
+        "CMC_WeaverTalk_QuestOffer2",
+        "CMC_WeaverTalk_QuestThanks2",
+        "CMC_WeaverTalk_QuestOffer3",
+        "CMC_WeaverTalk_QuestThanks3",
+        "CMC_WeaverTalk_QuestOffer4",
+        "CMC_WeaverTalk_QuestThanks4",
+        "CMC_WeaverTalk_QuestOffer5",
+        "CMC_WeaverTalk_QuestThanks5",
+        "CMC_WeaverTalk_QuestOffer6",
+        "CMC_WeaverTalk_QuestThanks6",
+        "CMC_WeaverTalk_QuestOffer7",
+        "CMC_WeaverTalk_QuestThanks7",
+        "CMC_WeaverTalk_InterlockS1Offer",
+        "CMC_WeaverTalk_InterlockS1Thanks",
+        "CMC_WeaverTalk_Story1",
+        "CMC_WeaverTalk_Story2",
+        "CMC_WeaverTalk_Story3",
+        "CMC_WeaverTalk_Story4"
+    ],
+    "SceneLinesWarpType": 3
+}

@@ -1,0 +1,22 @@
+{
+    "SceneTitle": {
+        "LocalizationKey": "CMC_MillerTalk_SceneTitle",
+        "DefaultText": "The Miller"
+    },
+    "SceneLinesWarpData": [
+        "CMC_MillerTalk_Start",
+        "CMC_MillerTalk_Work",
+        "CMC_MillerTalk_Village",
+        "CMC_MillerTalk_QuestOffer",
+        "CMC_MillerTalk_QuestThanks",
+        "CMC_MillerTalk_QuestOffer2",
+        "CMC_MillerTalk_QuestThanks2",
+        "CMC_MillerTalk_QuestOffer3",
+        "CMC_MillerTalk_QuestThanks3",
+        "CMC_MillerTalk_Story1",
+        "CMC_MillerTalk_Story2",
+        "CMC_MillerTalk_Story3",
+        "CMC_MillerTalk_Story4"
+    ],
+    "SceneLinesWarpType": 3
+}

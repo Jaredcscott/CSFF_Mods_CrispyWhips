@@ -1,0 +1,31 @@
+{
+    "StartingPoint": false,
+    "Line": {
+        "LocalizationKey": "CMC_WeaverTalk_Story2_Line",
+        "DefaultText": "She never finished it. She got too weak to hold the spindle steady, and it sat on the shelf half-spun through the whole of that last spring. I couldn't bring myself to touch it. It felt like finishing it would mean she was really gone."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_Story2_Answer_GoOn",
+                "DefaultText": "Did you ever pick it up?"
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatWeaverStoryStep",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": 1.0, "y": 1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_WeaverTalk_Story3",
+                "NextLineWarpType": 3
+            }
+        }
+    ]
+}

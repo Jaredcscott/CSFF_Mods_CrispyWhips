@@ -1,0 +1,49 @@
+{
+    "Line": {
+        "LocalizationKey": "CMC_ProfessorGreeting_QuizRight_Line",
+        "DefaultText": "Precisely. Clean it, draw it, bind it; the poultice does the arguing. Full marks. The Academy awards small prizes for sound fundamentals; here."
+    },
+    "ActionToPerform": {
+        "NPCStatModifications": [
+            {
+                "TargetStatWarpData": "cmcStatProfQuizDone",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {
+                    "x": 1.0,
+                    "y": 1.0
+                }
+            },
+            {
+                "TargetStatWarpData": "cmcStatProfessorTrust",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {
+                    "x": 5.0,
+                    "y": 5.0
+                }
+            }
+        ],
+        "DroppedCards": [
+            {
+                "DroppedCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
+                "DroppedCardWarpType": 3,
+                "Quantity": {
+                    "x": 2,
+                    "y": 2
+                }
+            }
+        ]
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_Professor_Answer_Ok",
+                "DefaultText": "Noted, Professor."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

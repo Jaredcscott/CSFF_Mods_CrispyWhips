@@ -1,0 +1,29 @@
+{
+    "StartingPoint": true,
+    "Line": {
+        "LocalizationKey": "CMC_SterlingTalk_Start_Line",
+        "DefaultText": "Captain. Reeve Sterling, of the Town Watch. Hall, market, and the well -- that's my beat, most days. Village keeps quiet enough, and I'd like to keep it that way."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_SterlingTalk_Start_Answer_Duties",
+                "DefaultText": "How fares the Watch?"
+            },
+            "NewNextLine": {
+                "NextStep": 0,
+                "NextLineWarpData": "CMC_SterlingTalk_Duties",
+                "NextLineWarpType": 3
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_SterlingTalk_Start_Answer_Bye",
+                "DefaultText": "Just passing through, Captain."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

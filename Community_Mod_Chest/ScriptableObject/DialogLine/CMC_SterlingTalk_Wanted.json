@@ -1,0 +1,32 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatVillageCrime", "StatWarpType": 3, "TriggerRange": {"x": 25.0, "y": 59.999}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_SterlingTalk_Wanted_Line",
+        "DefaultText": "You've had your warning, and you didn't heed it. The Watch has its eye on you now -- every one of us. I won't set the square on you standing here talking, but don't mistake that for welcome. Push this any further and it stops being a conversation."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_SterlingTalk_Wanted_Answer_Leave",
+                "DefaultText": "I'll watch myself, Captain."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_SterlingTalk_Wanted_Answer_Defiant",
+                "DefaultText": "Noted."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}
