@@ -68,7 +68,7 @@ internal static class AutoSaveDiagnostics
 
         string intValue;
         try { intValue = System.Convert.ToInt64(value).ToString(); }
-        catch { intValue = "?"; }
+        catch (System.Exception ex) { Util.Log.Debug($"AutoSaveDiagnostics: int64 conversion failed for value '{value}': {ex.GetType().Name} {ex.Message}"); intValue = "?"; }
 
         return $"{value.GetType().Name}.{value} (int={intValue})";
     }

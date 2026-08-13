@@ -121,7 +121,7 @@ internal static class NPCAgentActivationService
         if (_subscribed) return;
         try
         {
-            var gmType = AccessTools.TypeByName("GameManager");
+            var gmType = Reflection.ReflectionCache.FindTypeInAssemblyCSharp("GameManager");
             var field = gmType?.GetField("OnGMInitialized", SBF);
             if (field == null || field.FieldType != typeof(Action))
             {
@@ -145,7 +145,7 @@ internal static class NPCAgentActivationService
     {
         try
         {
-            var gmType = AccessTools.TypeByName("GameManager");
+            var gmType = Reflection.ReflectionCache.FindTypeInAssemblyCSharp("GameManager");
             var gm = GetGameManagerInstance(gmType);
             if (gm == null)
             {
@@ -189,7 +189,8 @@ internal static class NPCAgentActivationService
                 BindingFlags.Static | BindingFlags.Public | BindingFlags.FlattenHierarchy);
             if (prop?.CanRead == true)
             {
-                try { return prop.GetValue(null); } catch { }
+                try { return prop.GetValue(null); }
+                catch (Exception ex) { Log.Debug($"NPCAgentActivation: Instance property read failed on {t.Name}: {ex.GetType().Name} {ex.Message}"); }
             }
         }
         return null;
@@ -217,7 +218,8 @@ internal static class NPCAgentActivationService
             {
                 if (!prop.CanRead || !IsNpcCollectionType(prop.PropertyType, npcAgentType)) continue;
                 object val = null;
-                try { val = prop.GetValue(gm, null); } catch { }
+                try { val = prop.GetValue(gm, null); }
+                catch (Exception ex) { Log.Debug($"NPCAgentActivation: property read failed for {t.Name}.{prop.Name}: {ex.GetType().Name} {ex.Message}"); }
                 found.Add($"  prop  {t.Name}.{prop.Name} ({prop.PropertyType.Name}) {ReadCountStr(val)}");
             }
         }
@@ -277,7 +279,7 @@ internal static class NPCAgentActivationService
                     }
                 }
             }
-            catch { }
+            catch (Exception ex) { Log.Debug($"NPCAgentActivation: SurveyNpcManagerComponent failed for {candidateName}: {ex.GetType().Name} {ex.Message}"); }
         }
     }
 

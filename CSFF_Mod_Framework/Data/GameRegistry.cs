@@ -120,7 +120,7 @@ internal static class GameRegistry
             if (!_typedGenericCache.TryGetValue(typeof(T), out var method))
             {
                 try { method = _getFromIdGeneric.MakeGenericMethod(typeof(T)); }
-                catch { method = null; }
+                catch (Exception ex) { Log.Debug($"GameRegistry: MakeGenericMethod failed for {typeof(T).Name}: {ex.GetType().Name} {ex.Message}"); method = null; }
                 _typedGenericCache[typeof(T)] = method;
             }
 

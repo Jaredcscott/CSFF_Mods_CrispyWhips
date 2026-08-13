@@ -119,7 +119,7 @@ internal static class WikiModQuickFindFix
                 if (_contextKeyField?.GetValue(__instance) == null)
                     _contextKeyField?.SetValue(__instance, "");
             }
-            catch { }
+            catch (Exception ex) { Util.Log.Debug($"WikiModQuickFindFix: _contextKey reset failed: {ex.GetType().Name} {ex.Message}"); }
 
             return null;
         }
@@ -136,7 +136,7 @@ internal static class WikiModQuickFindFix
             {
                 string uid = "(unknown)";
                 try { uid = _cardUniqueIdField?.GetValue(__0) as string ?? uid; }
-                catch { }
+                catch (Exception ex) { Util.Log.Debug($"WikiModQuickFindFix: UniqueID read failed on card for NRE diagnostic: {ex.GetType().Name} {ex.Message}"); }
                 bool isCardData = _cardDataType == null || _cardDataType.IsInstanceOfType(__0);
                 if (isCardData)
                 {

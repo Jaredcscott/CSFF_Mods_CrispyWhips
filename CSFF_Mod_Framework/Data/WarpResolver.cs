@@ -143,7 +143,7 @@ internal static class WarpResolver
         foreach (var kv in _unresolvedByMod.OrderBy(x => x.Key))
         {
             totalUnresolved += kv.Value.Count;
-            Log.Debug($"WarpResolver: [{kv.Key}] unresolved: {string.Join(", ", kv.Value)}");
+            Log.Info($"WarpResolver: [{kv.Key}] unresolved: {string.Join(", ", kv.Value)}");
         }
 
         Log.Debug($"WarpResolver: processed {filesProcessed} files, resolved {totalResolved} references, created {_runtimeCreatedCount} runtime tags, {_triggerResolveCount} trigger refs, {totalUnresolved} unresolved");
@@ -392,7 +392,7 @@ internal static class WarpResolver
                 if (rtNested == null && IsSerializableType(field.FieldType))
                 {
                     try { rtNested = Activator.CreateInstance(field.FieldType); field.SetValue(rtObj, rtNested); resolved++; }
-                    catch { continue; }
+                    catch (Exception ex) { Log.Debug($"WarpResolver: failed to create nested {field.FieldType.Name} for '{_currentUid}': {ex.GetType().Name} {ex.Message}"); continue; }
                 }
                 if (rtNested != null)
                 {
@@ -431,7 +431,7 @@ internal static class WarpResolver
                             if (elem == null && IsSerializableType(eType))
                             {
                                 try { elem = Activator.CreateInstance(eType); rtArr.SetValue(elem, i); resolved++; }
-                                catch { continue; }
+                                catch (Exception ex) { Log.Debug($"WarpResolver: failed to create array element {eType.Name} for '{_currentUid}': {ex.GetType().Name} {ex.Message}"); continue; }
                             }
                             if (elem == null) continue;
                             int r = Walk(elem, elemDict);
@@ -450,7 +450,7 @@ internal static class WarpResolver
                         for (int i = rtList.Count; i < jsonArr.Count; i++)
                         {
                             try { rtList.Add(Activator.CreateInstance(listElemType)); resolved++; }
-                            catch { break; }
+                            catch (Exception ex) { Log.Debug($"WarpResolver: failed to create list element {listElemType.Name} for '{_currentUid}', aborting expansion: {ex.GetType().Name} {ex.Message}"); break; }
                         }
                     }
 

@@ -73,7 +73,7 @@ public static class ContainerSort
             for (int i = 0; i < items.Count; i++)
             {
                 try { slots[i] = items[i]; }
-                catch (NotSupportedException) { return; } // read-only list; give up
+                catch (NotSupportedException ex) { Log.Debug($"[ContainerSort] slot write-back failed at index {i} — read-only list, giving up: {ex.Message}"); return; }
             }
         }
         catch (Exception ex) { Log.Debug($"[ContainerSort] sort failed: {ex.GetType().Name} {ex.Message}"); }
@@ -131,7 +131,7 @@ public static class ContainerSort
                        : null;
             return val != null ? Convert.ToSingle(val) : 0f;
         }
-        catch { return 0f; }
+        catch (Exception ex) { Log.Debug($"[ContainerSort] ReadDurability failed for axis {axis} on {card.GetType().Name}: {ex.GetType().Name} {ex.Message}"); return 0f; }
     }
 
     private static MemberInfo FindDurabilityMember(Type t, Axis axis)
@@ -160,6 +160,6 @@ public static class ContainerSort
     private static float TryKey(Func<object, float> fn, object slot)
     {
         try { return fn(slot); }
-        catch { return 0f; }
+        catch (Exception ex) { Log.Debug($"[ContainerSort] custom key selector threw: {ex.GetType().Name} {ex.Message}"); return 0f; }
     }
 }

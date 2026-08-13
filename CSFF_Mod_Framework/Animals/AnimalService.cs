@@ -4,7 +4,7 @@ using CSFFModFramework.Util;
 namespace CSFFModFramework.Animals;
 
 /// <summary>
-/// Declarative animal system orchestrator (design: Documentation/Design/Animal_System_Plan.md,
+/// Declarative animal system orchestrator (design: Documentation/Plans/CSFFModFramework/Animal_System_Plan.md,
 /// schema: Documentation/Design/Animals_Schema.md). Mods ship Animals/&lt;Species&gt;.json +
 /// PNGs; the framework generates the NPCAgent graph and registers spawning — zero mod C#.
 ///

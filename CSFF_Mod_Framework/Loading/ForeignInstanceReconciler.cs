@@ -59,7 +59,8 @@ internal static class ForeignInstanceReconciler
             if (!dict.Contains(uid))
             {
                 // TryRegister normally already added it; cover the gap defensively.
-                try { dict.Add(uid, ours); lateRegistered++; } catch { }
+                try { dict.Add(uid, ours); lateRegistered++; }
+                catch (Exception ex) { Log.Debug($"[LoaderCoexistence] late dict.Add failed for uid '{uid}': {ex.GetType().Name} {ex.Message}"); }
                 continue;
             }
 
@@ -73,7 +74,8 @@ internal static class ForeignInstanceReconciler
 
             // Our instance lost the earlier Init() race and sits in the game's
             // Duplicates list; it is the registered instance now — drop the marker.
-            try { UniqueIDScriptable.Duplicates?.Remove(ours); } catch { }
+            try { UniqueIDScriptable.Duplicates?.Remove(ours); }
+            catch (Exception ex) { Log.Debug($"[LoaderCoexistence] Duplicates.Remove failed for uid '{uid}': {ex.GetType().Name} {ex.Message}"); }
         }
 
         if (rebound == 0)

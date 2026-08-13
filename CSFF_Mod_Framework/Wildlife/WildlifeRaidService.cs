@@ -421,8 +421,8 @@ internal static class WildlifeRaidService
             member = (MemberInfo)t.GetProperty(name, Flags) ?? t.GetField(name, Flags);
             _memberCache[key] = member;
         }
-        if (member is PropertyInfo pi && pi.CanRead) { try { return pi.GetValue(target, null); } catch { } }
-        if (member is FieldInfo fi) { try { return fi.GetValue(target); } catch { } }
+        if (member is PropertyInfo pi && pi.CanRead) { try { return pi.GetValue(target, null); } catch (Exception ex) { Log.Debug($"[WildlifeRaid] '{name}' property read threw: {Log.ExceptionText(ex)}"); } }
+        if (member is FieldInfo fi) { try { return fi.GetValue(target); } catch (Exception ex) { Log.Debug($"[WildlifeRaid] '{name}' field read threw: {Log.ExceptionText(ex)}"); } }
         return null;
     }
 }

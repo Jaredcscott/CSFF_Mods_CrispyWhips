@@ -52,6 +52,13 @@ internal static class SealableGateService
         // back" report — the second copy sits on the board at full durability after the first is
         // cleared and the passage is already open, reading to the player as an infinite respawn.
         public HashSet<string> SeedRequestedEnvUIDs = new();
+
+        // Tracks the last-known result of EvalTrigger(Def.SealTrigger) so OnPoll can detect a
+        // true→false transition (e.g. a Season SealTrigger ending) even though the rest of this
+        // gate's per-tick body is intentionally skipped while ungated. Default false is safe: a
+        // gate that starts ungated produces no spurious transition until it has actually gone
+        // true→false at least once.
+        public bool TriggerWasActive;
     }
 
     private static readonly List<GateState> _gates = new();
@@ -79,6 +86,7 @@ internal static class SealableGateService
             {
                 state.ClearedThisSession = false;
                 state.SeedRequestedEnvUIDs.Clear();
+                state.TriggerWasActive = false;
             }
             if (_gates.Count > 0) ConnectionGateService.EvaluateAll();
             return;
@@ -155,7 +163,8 @@ internal static class SealableGateService
         {
             // The action's own ReceivingCardChanges/transform already changed the card on the
             // board natively — just re-sync DA/map-line state to match the new presence.
-            Log.Info($"SealableGateService: '{g.ChallengeCardUID}' clear action fired (CardPresence) — re-syncing '{state.OwnerEnvUID}'");
+            Log.Info($"SealableGateService: '{g.ChallengeCardUID}' clear action fired (CardPresence) — re-syncing '{state.OwnerEnvUID}' "
+                + $"[DIAG route={ctx?.Route} actionKey={ctx?.ActionKey} actionName={ctx?.ActionName} receivingCardUid={ctx?.CardUid}]");
             SyncCardPresenceGate(state);
             return;
         }
@@ -181,7 +190,8 @@ internal static class SealableGateService
             var val = CardUtil.GetMemberValue(card, "CurrentUsageDurability");
             if (val != null)
             {
-                try { return Convert.ToSingle(val) <= 0f; } catch { /* fall through */ }
+                try { return Convert.ToSingle(val) <= 0f; }
+                catch (Exception ex) { Log.Debug($"SealableGateService: CurrentUsageDurability conversion failed for '{wallUid}' — falling through: {ex.GetType().Name} {ex.Message}"); }
             }
         }
         // Card is gone (destroyed by its own OnZero mechanic) ⟹ cleared.
@@ -223,8 +233,14 @@ internal static class SealableGateService
         var g = state.Def;
         if (g.ResealCondition == null) return;
         if (!"TimerRegrowth".Equals(g.ResealCondition.Type, StringComparison.OrdinalIgnoreCase)) return;
-        if (state.ClearedThisSession) return;   // avoid resealing within the same session it was cleared
 
+        // NOTE: deliberately no early-return on state.ClearedThisSession here. That flag is only
+        // ever reset to false on a full game restart (Initialize's _initialized branch) — for a
+        // non-monotonic (e.g. Season) SealTrigger it stays true for the rest of a continuous
+        // session after the FIRST clear, which made RemoveMarker below permanently unreachable
+        // and this gate unable to ever reseal without the player reloading a save. The
+        // elapsed-day check right below already fully covers "not enough time has passed yet"
+        // on its own.
         int clearedDay = ReadMarkerDay(g);
         if (clearedDay < 0) return;   // not cleared, or unreadable
 
@@ -232,6 +248,9 @@ internal static class SealableGateService
         if (elapsed < g.ResealCondition.Days) return;
 
         RemoveMarker(g);
+        state.ClearedThisSession = false;
+        if (g.SeedOnEnvUIDs != null)
+            foreach (var env in g.SeedOnEnvUIDs) state.SeedRequestedEnvUIDs.Remove(env);
         Log.Info($"SealableGateService: '{g.ConnectionUID}' reseal timer elapsed ({elapsed}d) — resealing '{g.ResealCondition.TransformInto}'");
         ConnectionGateService.EvaluateAll();
     }
@@ -248,6 +267,7 @@ internal static class SealableGateService
 
         bool gated = EvalTrigger(g.SealTrigger);
         var worldMapSo = WorldMapInjector.GetWorldMapSo();
+        Log.Debug($"SealableGateService: [DIAG] SyncCardPresenceGate '{g.ChallengeCardUID}' gated={gated} sides={g.DirectionalGates.Count}");
 
         for (int i = 0; i < g.DirectionalGates.Count; i++)
         {
@@ -255,8 +275,12 @@ internal static class SealableGateService
             bool sealedHere = gated && IsSealedAt(side.WatchEnvUID, g.ChallengeCardUID, g.ClearedTransformInto);
 
             var ct8 = ResolveSideCt8(state, i, side);
+            string ct8Uid = ct8 != null ? CardUtil.GetCardUniqueId(ct8) : null;
+            bool mutated = false;
             if (ct8 is CardData ct8Card)
-                SetDaPresence(ct8Card, state, side, g, present: !sealedHere);
+                mutated = SetDaPresence(ct8Card, state, side, g, present: !sealedHere);
+            Log.Debug($"SealableGateService: [DIAG] side[{i}] WatchEnvUID={side.WatchEnvUID} sealedHere={sealedHere} "
+                + $"resolvedCt8={ct8Uid ?? "NULL"} present={!sealedHere} mutated={mutated} ControlsMapLine={side.ControlsMapLine}");
 
             if (side.ControlsMapLine && worldMapSo != null)
                 ConnectionGateService.ToggleEdgeBidirectional(state.OwnerEnvUID, g.ConnectionUID, sealedHere, worldMapSo);
@@ -331,7 +355,7 @@ internal static class SealableGateService
                 {
                     if (da != null && DaTravelsTo(da, targetEnvUid, targetLocUid))
                     {
-                        Log.Debug($"SealableGateService: resolved neighbor CT8 '{uid}' traveling to '{targetEnvUid}'");
+                        Log.Debug($"SealableGateService: [DIAG] resolved neighbor CT8 '{uid}' traveling to '{targetEnvUid}'");
                         return obj;
                     }
                 }
@@ -348,7 +372,8 @@ internal static class SealableGateService
         try
         {
             var daList = ConnectionGateService.GetDaList(ct8);
-            if (daList == null) return false;
+            if (daList == null)
+            { Log.Debug($"SealableGateService: [DIAG] SetDaPresence on '{CardUtil.GetCardUniqueId(ct8)}' — GetDaList returned NULL, silent no-op"); return false; }
 
             Func<object, bool> match = side.Direction.HasValue
                 ? da => DaIsDirection(da, side.Direction.Value)
@@ -358,20 +383,23 @@ internal static class SealableGateService
             var ct8Uid = CardUtil.GetCardUniqueId(ct8);
             if (present)
             {
-                if (FindDaIndex(daList, match) >= 0) return false;   // already present
-                if (!_strippedDaCache.TryGetValue(cacheKey, out var stored) || stored == null) return false;
+                if (FindDaIndex(daList, match) >= 0)
+                { Log.Debug($"SealableGateService: [DIAG] SetDaPresence present=true on '{ct8Uid}' — already present, no-op"); return false; }
+                if (!_strippedDaCache.TryGetValue(cacheKey, out var stored) || stored == null)
+                { Log.Debug($"SealableGateService: [DIAG] SetDaPresence present=true on '{ct8Uid}' — NO cached DA for key '{cacheKey}' (cache has {_strippedDaCache.Count} entries: [{string.Join(", ", _strippedDaCache.Keys)}]) — cannot restore, silent no-op"); return false; }
                 daList.Add(stored);
                 _strippedDaCache.Remove(cacheKey);
-                Log.Debug($"SealableGateService: restored DA on '{ct8Uid}' (key '{cacheKey}')");
+                Log.Debug($"SealableGateService: [DIAG] restored DA on '{ct8Uid}' (key '{cacheKey}')");
                 ConnectionGateService.ResyncInGameDaCacheIfPresent(ct8Uid);
                 return true;
             }
 
             int idx = FindDaIndex(daList, match);
-            if (idx < 0) return false;   // already stripped or never present
+            if (idx < 0)
+            { Log.Debug($"SealableGateService: [DIAG] SetDaPresence present=false on '{ct8Uid}' — no matching DA found in daList (count={daList.Count}) — already stripped or never present, silent no-op"); return false; }
             _strippedDaCache[cacheKey] = daList[idx];
             daList.RemoveAt(idx);
-            Log.Debug($"SealableGateService: stripped DA on '{ct8Uid}' (key '{cacheKey}')");
+            Log.Debug($"SealableGateService: [DIAG] stripped DA on '{ct8Uid}' (key '{cacheKey}')");
             ConnectionGateService.ResyncInGameDaCacheIfPresent(ct8Uid);
             return true;
         }
@@ -439,7 +467,7 @@ internal static class SealableGateService
                 (destUid.Equals(targetEnvUid, StringComparison.Ordinal) ||
                  (targetLocUid != null && destUid.Equals(targetLocUid, StringComparison.Ordinal)));
         }
-        catch { return false; }
+        catch (Exception ex) { Log.Debug($"SealableGateService: drop-target check threw: {Log.ExceptionText(ex)}"); return false; }
     }
 
     // ── poll ─────────────────────────────────────────────────────────────────
@@ -449,10 +477,27 @@ internal static class SealableGateService
         try
         {
             bool anyMarkerActive = false;
+            bool anyTriggerJustDeactivated = false;
             foreach (var state in _gates)
             {
                 var g = state.Def;
-                if (!EvalTrigger(g.SealTrigger)) continue;   // never gated for this player
+                bool triggerActive = EvalTrigger(g.SealTrigger);
+                if (!triggerActive)
+                {
+                    // True→false transition (e.g. a Season SealTrigger ending, such as winter
+                    // giving way to spring): force one more EvaluateAll() below so the map/DA
+                    // state catches up to the closure's already-correct "unlocked" answer.
+                    // Without this, a gate whose trigger doesn't reactivate soon never gets
+                    // another EvaluateAll() call and stays showing LOCKED indefinitely — only a
+                    // full game restart's Initialize()-time EvaluateAll() would ever fix it.
+                    // No-op for monotonic triggers (PerkEquipped/ImprovementBuilt): they never
+                    // flip true→false in normal play, so this branch never fires for existing
+                    // gates.
+                    if (state.TriggerWasActive) anyTriggerJustDeactivated = true;
+                    state.TriggerWasActive = false;
+                    continue;   // never gated (or no longer gated) for this player — nothing to do
+                }
+                state.TriggerWasActive = true;
 
                 if (IsCardPresence(g))
                 {
@@ -469,8 +514,10 @@ internal static class SealableGateService
             // Marker-model DA strip/restore goes through ConnectionGateService.RegisterGate/
             // RegisterEdgeGate, which already resyncs the InGameCardBase cache on every mutation
             // (see ConnectionGateService.ResyncInGameDaCacheIfPresent) — re-evaluating here is
-            // enough to pick up any trigger/marker state change since the last tick.
-            if (anyMarkerActive) ConnectionGateService.EvaluateAll();
+            // enough to pick up any trigger/marker state change since the last tick, including a
+            // trigger that just went false (anyTriggerJustDeactivated) even though no gate is
+            // "active" this tick.
+            if (anyMarkerActive || anyTriggerJustDeactivated) ConnectionGateService.EvaluateAll();
         }
         catch (Exception ex) { Log.Warn($"SealableGateService: poll error: {ex.Message}"); }
     }
@@ -557,7 +604,7 @@ internal static class SealableGateService
                         if (match(uid as string)) return uid as string;
             }
         }
-        catch { }
+        catch (System.Exception ex) { Log.Debug($"SealableGateService: improvement lookup in '{envUid}' threw: {ex}"); }
         return null;
     }
 
@@ -654,7 +701,7 @@ internal static class SealableGateService
         var envId   = CardUtil.GetCachedField(vt, "EnvironmentID")?.GetValue(value) as string;
         var dictKey = CardUtil.GetCachedField(vt, "DictionaryKey")?.GetValue(value) as string;
         return envUid.Equals(envId, StringComparison.Ordinal)
-            || envUid.Equals(dictKey, StringComparison.Ordinal)
+            || CardUtil.EnvKeyMatchesUid(envUid, dictKey)
             || envUid.Equals(entryKey as string, StringComparison.Ordinal);
     }
 }

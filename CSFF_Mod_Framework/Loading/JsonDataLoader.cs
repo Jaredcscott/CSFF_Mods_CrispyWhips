@@ -40,6 +40,9 @@ internal static class JsonDataLoader
         { "NPCDuty", "NPCDuty" },
         { "NPCHidingGroup", "NPCHidingGroup" },
         { "NPCAgent", "NPCAgent" },
+        // 2.20.0: UniqueIDScriptable via CompletableObject (same chain as CharacterPerk/
+        // Objective) — shared-chassis NPC personality bundles (CMC Village Guards, R12).
+        { "NPCCharacterPerk", "NPCCharacterPerk" },
         { "Encounter", "Encounter" },
         { "SelfTriggeredAction", "SelfTriggeredAction" },
         { "Objective", "Objective" },
@@ -229,7 +232,7 @@ internal static class JsonDataLoader
                 if (initMethod != null)
                 {
                     try { initMethod.Invoke(uidObj, null); }
-                    catch { /* Init may fail before full resolution — that's OK */ }
+                    catch (Exception ex) { Log.Debug($"JsonDataLoader: Init() failed for {uidObj?.name} before full resolution — that's OK: {ex.GetType().Name} {ex.Message}"); }
                 }
                 initTicks += Stopwatch.GetTimestamp() - t0;
 
@@ -284,7 +287,7 @@ internal static class JsonDataLoader
                 else if (_ourNonUidRegistrations.Contains(obj.name))
                     Log.Warn($"JsonDataLoader: '{obj.name}' ({item.TypeName}) name collides with an existing registration — {item.Mod.Name}'s copy overwrites it (rename to avoid shadowing vanilla or another mod)");
                 else
-                    Log.Info($"JsonDataLoader: '{obj.name}' ({item.TypeName}) was already registered by another loader (ModCore/ModLoader independently scanning this folder) — {item.Mod.Name}'s instance is now canonical, no action needed");
+                    Log.Debug($"JsonDataLoader: '{obj.name}' ({item.TypeName}) was already registered by another loader (ModCore/ModLoader independently scanning this folder) — {item.Mod.Name}'s instance is now canonical, no action needed");
                 _ourNonUidRegistrations.Add(obj.name);
                 registerTicks += Stopwatch.GetTimestamp() - t0;
 
@@ -390,13 +393,14 @@ internal static class JsonDataLoader
                 if (File.Exists(sidecar))
                 {
                     try { r.SidecarJson = File.ReadAllText(sidecar); }
-                    catch (Exception ex) { r.SidecarError = Log.ExceptionText(ex); }
+                    catch (Exception ex) { r.SidecarError = Log.ExceptionText(ex); Log.Debug($"JsonDataLoader: sidecar read failed for {sidecar}: {ex.GetType().Name} {ex.Message}"); }
                 }
             }
         }
         catch (Exception ex)
         {
             r.ReadOrParseError = Log.ExceptionText(ex);
+            Log.Debug($"JsonDataLoader: read/parse failed for {item.FilePath}: {ex.GetType().Name} {ex.Message}");
         }
         return r;
     }
@@ -511,7 +515,7 @@ internal static class JsonDataLoader
                         break;
                 }
             }
-            catch { }
+            catch (Exception ex) { Log.Debug($"JsonDataLoader.CreateInstanceSafe: field init step '{step.Kind}' failed on {type.Name}: {ex.GetType().Name} {ex.Message}"); }
         }
 
         return obj;

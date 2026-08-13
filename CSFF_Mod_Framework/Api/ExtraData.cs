@@ -1,4 +1,5 @@
 using CSFFModFramework.Data;
+using CSFFModFramework.Util;
 using LitJson;
 
 namespace CSFFModFramework.Api;
@@ -42,7 +43,7 @@ public static class ExtraData
         var raw = ExtraDataStore.Get(uniqueId);
         if (string.IsNullOrEmpty(raw)) return default;
         try { return JsonMapper.ToObject<T>(raw); }
-        catch { return default; }
+        catch (Exception ex) { Log.Debug($"ExtraData.Get<{typeof(T).Name}>: JSON deserialize failed for '{uniqueId}': {ex.GetType().Name} {ex.Message}"); return default; }
     }
 
     /// <summary>True if a sidecar exists for the given UniqueID.</summary>

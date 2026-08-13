@@ -157,7 +157,7 @@ internal static class CardScaleCompat
             foreach (var dll in Directory.GetFiles(pluginsDir, "CardSizeReduce.dll", SearchOption.AllDirectories))
             {
                 try { return System.Reflection.AssemblyName.GetAssemblyName(dll).Version; }
-                catch { }
+                catch (Exception ex) { Util.Log.Debug($"[CSC] FindCsrDllVersion: GetAssemblyName failed for {dll}: {ex.GetType().Name} {ex.Message}"); }
             }
             return null;
         }
@@ -204,7 +204,7 @@ internal static class CardScaleCompat
         if (!ok) Util.Log.Warn("CardScaleCompat: one or more patches failed.");
         Util.Log.Debug($"CardScaleCompat: patches active (scale={_scale:P0})");
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSecondsRealtime(2f);
         RebuildScaledTransforms();
         ForceUpdateLists();
     }
@@ -217,12 +217,13 @@ internal static class CardScaleCompat
             if (an != "Assembly-CSharp" && an != "Assembly-CSharp-firstpass") continue;
             Type[] types;
             try { types = asm.GetTypes(); }
-            catch (ReflectionTypeLoadException rtle) { types = rtle.Types ?? Array.Empty<Type>(); }
-            catch { continue; }
+            catch (ReflectionTypeLoadException rtle) { types = rtle.Types ?? Array.Empty<Type>(); Util.Log.Debug($"[CSC] FindGameType({name}): partial type load on {an}: {rtle.LoaderExceptions?.Length ?? 0} loader exception(s)"); }
+            catch (Exception ex) { Util.Log.Debug($"[CSC] FindGameType({name}): GetTypes() failed for {an}: {ex.GetType().Name} {ex.Message}"); continue; }
             foreach (var t in types)
             {
                 if (t == null) continue;
-                try { if (t.Name == name) return t; } catch { }
+                try { if (t.Name == name) return t; }
+                catch (Exception ex) { Util.Log.Debug($"[CSC] FindGameType({name}): Name property access threw on a type in {an}: {ex.GetType().Name} {ex.Message}"); }
             }
         }
         return null;
@@ -262,7 +263,8 @@ internal static class CardScaleCompat
         var comp = __instance as Component;
         if (comp == null) return;
         if (!_scaledGoIds.Contains(comp.gameObject.GetInstanceID())) return;
-        try { RebuildScaledTransforms(); } catch { }
+        try { RebuildScaledTransforms(); }
+        catch (Exception ex) { Util.Log.Debug($"[CSC] UpdateList_Prefix: RebuildScaledTransforms failed: {ex.GetType().Name} {ex.Message}"); }
     }
 
     static void GetElementPosition_Postfix(object __instance, ref Vector3 __result)

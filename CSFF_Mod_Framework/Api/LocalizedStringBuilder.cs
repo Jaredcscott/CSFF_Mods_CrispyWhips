@@ -1,3 +1,5 @@
+using CSFFModFramework.Util;
+
 namespace CSFFModFramework.Api;
 
 /// <summary>
@@ -34,7 +36,7 @@ public static class LocalizedStringBuilder
             var ls = Activator.CreateInstance(_localizedStringType);
             return Populate(ls, localizationKey, defaultText, parentObjectId) ? ls : null;
         }
-        catch { return null; }
+        catch (Exception ex) { Log.Debug($"LocalizedStringBuilder.Create: failed for key '{localizationKey}': {ex.GetType().Name} {ex.Message}"); return null; }
     }
 
     /// <summary>
@@ -50,7 +52,7 @@ public static class LocalizedStringBuilder
             var ls = Activator.CreateInstance(template.GetType());
             return Populate(ls, localizationKey, defaultText, parentObjectId) ? ls : null;
         }
-        catch { return null; }
+        catch (Exception ex) { Log.Debug($"LocalizedStringBuilder.CreateLike: failed for key '{localizationKey}' (template type {template.GetType().Name}): {ex.GetType().Name} {ex.Message}"); return null; }
     }
 
     /// <summary>

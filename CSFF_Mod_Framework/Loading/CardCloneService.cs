@@ -167,7 +167,7 @@ internal static class CardCloneService
             var ct = _cardTypeField?.GetValue(card);
             return ct != null ? Convert.ToInt32(ct) : -1;
         }
-        catch { return -1; }
+        catch (Exception ex) { Log.Debug($"CardCloneService.GetCardTypeInt: CardType read failed for '{card?.name}': {ex.GetType().Name} {ex.Message}"); return -1; }
     }
 
     private static CardData CloneCard(CardData template, string newUid, string displayName, string nameKey)
@@ -210,7 +210,7 @@ internal static class CardCloneService
             if (init != null)
             {
                 try { init.Invoke(clone, null); }
-                catch { /* Init may fail before full resolution — that's OK */ }
+                catch (Exception ex) { Log.Debug($"CardCloneService.CloneCard: Init() failed for clone '{newUid}' before full resolution — that's OK: {ex.GetType().Name} {ex.Message}"); }
             }
 
             // ROOT-CAUSE FIX (void board on portal travel): assign a unique UniqueIDIndex
@@ -231,7 +231,7 @@ internal static class CardCloneService
                     if (allAsInts != null)
                         clone.UniqueIDIndex = allAsInts.Count - 1;
                 }
-                catch { /* best-effort — a collision index is better than a crash */ }
+                catch (Exception ex) { Log.Debug($"CardCloneService.CloneCard: UniqueIDIndex assignment failed for clone '{newUid}' — best-effort, a collision index is better than a crash: {ex.GetType().Name} {ex.Message}"); }
             }
 
             return clone;
@@ -395,7 +395,8 @@ internal static class CardCloneService
             // Shallow-copy the template element and swap DroppedCard.
             var newDrop = Activator.CreateInstance(dropElemType);
             foreach (var fi in dropElemType.GetFields(BF))
-                try { fi.SetValue(newDrop, fi.GetValue(template)); } catch { }
+                try { fi.SetValue(newDrop, fi.GetValue(template)); }
+                catch (Exception ex) { Log.Debug($"CardCloneService.AppendExtraDrops: field copy failed for '{fi.Name}' on '{envClone.name}': {ex.GetType().Name} {ex.Message}"); }
             _droppedCardField.SetValue(newDrop, card);
 
             // Append to the collection (handles Array or IList).
@@ -440,7 +441,7 @@ internal static class CardCloneService
         bool alwaysUpdate;
         // `is true` unboxes-and-compares; `== true` would fail on the boxed bool from reflection.
         try { alwaysUpdate = _alwaysUpdateField.GetValue(card) is true; }
-        catch { return card; }
+        catch (Exception ex) { Log.Debug($"CardCloneService.GetEnvLocalVariant: AlwaysUpdate read failed for '{card.UniqueID}': {ex.GetType().Name} {ex.Message}"); return card; }
         if (!alwaysUpdate) return card; // already env-local — drop it directly
 
         if (_envLocalVariants.TryGetValue(card.UniqueID, out var cached) && cached != null)

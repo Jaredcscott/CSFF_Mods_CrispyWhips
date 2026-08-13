@@ -93,6 +93,6 @@ public static class CardFinder
     private static bool SafeMatch(Func<object, bool> predicate, object card)
     {
         try { return predicate(card); }
-        catch { return false; }
+        catch (Exception ex) { Log.Debug($"[CardFinder] match predicate threw: {Log.ExceptionText(ex)}"); return false; }
     }
 }

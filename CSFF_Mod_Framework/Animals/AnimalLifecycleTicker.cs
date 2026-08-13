@@ -91,7 +91,7 @@ internal static class AnimalLifecycleTicker
                 {
                     if (TryGetStat(s, s.Stats.Exists, out var existsStat) && existsStat.CurrentValue >= 1f)
                     {
-                        existsStat.SetStatValue(0f);
+                        existsStat.SetStatValueFromEditor(0f);
                         Relocate(s);
                         Log.Info($"Animals: {s.SpeciesId}: suppressor card on board at run start — wild spawn suppressed until it departs");
                     }
@@ -165,14 +165,14 @@ internal static class AnimalLifecycleTicker
         {
             if (s.WasDead) Log.Debug($"Animals: {s.SpeciesId}: blood healthy — kill-respawn timer cleared");
             s.WasDead = false;
-            if (timer.CurrentValue != 0f) timer.SetStatValue(0f);
+            if (timer.CurrentValue != 0f) timer.SetStatValueFromEditor(0f);
             return;
         }
 
         if (!s.WasDead)
         {
             s.WasDead = true;
-            timer.SetStatValue(0f);
+            timer.SetStatValueFromEditor(0f);
             Log.Info($"Animals: {s.SpeciesId}: blood depleted — {s.DeathRespawnTicks}-tick respawn timer started");
         }
 
@@ -180,13 +180,13 @@ internal static class AnimalLifecycleTicker
         if (elapsed >= s.DeathRespawnTicks)
         {
             HealToMax(blood);
-            timer.SetStatValue(0f);
+            timer.SetStatValueFromEditor(0f);
             s.WasDead = false;
             Log.Info($"Animals: {s.SpeciesId}: respawn timer elapsed — healed, eligible to reappear");
         }
         else
         {
-            timer.SetStatValue(elapsed);
+            timer.SetStatValueFromEditor(elapsed);
             Log.Debug($"Animals: {s.SpeciesId}: kill-respawn timer {elapsed:F0}/{s.DeathRespawnTicks}");
         }
     }
@@ -206,10 +206,10 @@ internal static class AnimalLifecycleTicker
             if (exists.CurrentValue >= 1f && suppressorPresent)
             {
                 Log.Info($"Animals: {s.SpeciesId}: wild agent still exists while suppressor card is on board — force-retiring");
-                exists.SetStatValue(0f);
+                exists.SetStatValueFromEditor(0f);
                 Relocate(s);
             }
-            if (timer.CurrentValue != 0f) timer.SetStatValue(0f);
+            if (timer.CurrentValue != 0f) timer.SetStatValueFromEditor(0f);
             return;
         }
 
@@ -221,14 +221,14 @@ internal static class AnimalLifecycleTicker
         float elapsed = timer.CurrentValue + 1f;
         if (elapsed >= s.SuppressedRespawnTicks)
         {
-            exists.SetStatValue(1f);
+            exists.SetStatValueFromEditor(1f);
             if (TryGetStat(s, s.Stats.Blood, out var blood)) HealToMax(blood);
-            timer.SetStatValue(0f);
+            timer.SetStatValueFromEditor(0f);
             Log.Info($"Animals: {s.SpeciesId}: suppressed-respawn timer elapsed — a fresh wild agent is eligible to appear");
         }
         else
         {
-            timer.SetStatValue(elapsed);
+            timer.SetStatValueFromEditor(elapsed);
             Log.Debug($"Animals: {s.SpeciesId}: suppressed-respawn timer {elapsed:F0}/{s.SuppressedRespawnTicks}");
         }
     }
@@ -246,7 +246,11 @@ internal static class AnimalLifecycleTicker
     }
 
     /// <summary>Fetches the live per-NPC stat instance. NPCStatsDict is a private field on
-    /// InGameNPC; InGameNPCStat's CurrentValue/SetStatValue/MinMaxValue members are public.</summary>
+    /// InGameNPC; InGameNPCStat's CurrentValue/SetStatValueFromEditor/MinMaxValue members are
+    /// public. (EA 0.66: the direct-float SetStatValue overload became a private IEnumerator
+    /// taking an extra NPCStatModifierTypes argument; SetStatValueFromEditor is the public
+    /// fire-and-forget wrapper that starts that same coroutine with modifier type Permanent —
+    /// despite the name, it carries no editor-only behavior, confirmed by decompile.)</summary>
     private static bool TryGetStat(SpeciesLifecycle s, NPCStat stat, out InGameNPCStat instance)
     {
         instance = null;
@@ -259,7 +263,7 @@ internal static class AnimalLifecycleTicker
     private static void HealToMax(InGameNPCStat stat)
     {
         float max = stat.MinMaxValue.y;
-        stat.SetStatValue(max > 0f ? max : 100f);
+        stat.SetStatValueFromEditor(max > 0f ? max : 100f);
     }
 
     private static bool InActiveWindow(SpeciesLifecycle s)

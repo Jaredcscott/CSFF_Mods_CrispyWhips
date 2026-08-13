@@ -54,7 +54,7 @@ public static class Reflect
                 if (member is PropertyInfo pi) return pi.GetValue(instance, null);
                 if (member is FieldInfo fi) return fi.GetValue(instance);
             }
-            catch { }
+            catch (Exception ex) { Log.Debug($"Reflect.GetMember: read failed for member '{name}' on {t.Name}: {ex.GetType().Name} {ex.Message}"); }
         }
         return null;
     }
@@ -72,7 +72,7 @@ public static class Reflect
                   : ((FieldInfo)member).GetValue(instance);
             return true;
         }
-        catch { return false; }
+        catch (Exception ex) { Log.Debug($"Reflect.TryGetMember: read failed for member '{name}' on {instance.GetType().Name}: {ex.GetType().Name} {ex.Message}"); return false; }
     }
 
     /// <summary>Gets a member value converted to float. Returns <paramref name="fallback"/> on failure.</summary>
@@ -110,7 +110,7 @@ public static class Reflect
             ((FieldInfo)member).SetValue(instance, value);
             return true;
         }
-        catch { return false; }
+        catch (Exception ex) { Log.Debug($"Reflect.SetMember: write failed for member '{name}' on {instance.GetType().Name}: {ex.GetType().Name} {ex.Message}"); return false; }
     }
 
     /// <summary>

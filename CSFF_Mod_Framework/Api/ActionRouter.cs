@@ -283,7 +283,7 @@ public static class ActionRouter
                            + "mod onto ActionRouter handlers.");
                 }
             }
-            catch { }
+            catch (Exception ex) { Log.Debug($"[ActionRouter] WarnOnExternalPostfixes: patch-info read failed for {method.Name}: {ex.GetType().Name} {ex.Message}"); }
         }
     }
 

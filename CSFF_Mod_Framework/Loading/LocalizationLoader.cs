@@ -271,12 +271,18 @@ internal static class LocalizationLoader
 
             if (lang != null)
             {
+                // CurrentLanguage/currentLanguage is an int index into LocalizationManager.Languages
+                // (0=English, 1=Chinese in vanilla EA 0.66b) -- NOT a language-name string, so
+                // ToString().Contains("Chinese"/"Cn") can never match here. Compare the index directly.
+                if (lang is int langIndex)
+                    return langIndex == 1 ? "Cn" : "En";
+
                 var langStr = lang.ToString();
                 if (langStr.Contains("Chinese") || langStr.IndexOf("Cn", StringComparison.OrdinalIgnoreCase) >= 0)
                     return "Cn";
             }
         }
-        catch { }
+        catch (Exception ex) { Log.Debug($"LocalizationLoader: game-language detection via reflection failed: {ex.GetType().Name} {ex.Message}"); }
 
         return CheckOptionsJson();
     }
@@ -295,7 +301,7 @@ internal static class LocalizationLoader
                     return "Cn";
             }
         }
-        catch { }
+        catch (Exception ex) { Log.Debug($"LocalizationLoader: Options.json language check failed: {ex.GetType().Name} {ex.Message}"); }
         return "En";
     }
 }

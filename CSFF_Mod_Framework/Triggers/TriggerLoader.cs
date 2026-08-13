@@ -106,6 +106,6 @@ internal static class TriggerLoader
     {
         if (!d.TryGetValue(key, out var v)) return fallback;
         try { return Convert.ToInt32(v); }
-        catch { return fallback; }
+        catch (Exception ex) { Log.Debug($"TriggerLoader.GetInt: conversion failed for key '{key}' value '{v}': {ex.GetType().Name} {ex.Message}"); return fallback; }
     }
 }

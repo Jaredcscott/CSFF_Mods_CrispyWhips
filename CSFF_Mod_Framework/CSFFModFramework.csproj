@@ -65,6 +65,9 @@
         <Reference Include="UnityGifDecoder" HintPath="lib\UnityGifDecoder.dll">
             <Private>False</Private>
         </Reference>
+        <Reference Include="Unity.TextMeshPro" HintPath="lib\Unity.TextMeshPro.dll">
+            <Private>False</Private>
+        </Reference>
     </ItemGroup>
 
     <ItemGroup>

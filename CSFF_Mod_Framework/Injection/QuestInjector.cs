@@ -47,8 +47,30 @@ namespace CSFFModFramework.Injection;
 /// </summary>
 internal static class QuestInjector
 {
+    /// <summary>
+    /// Hard opt-in gate. Vanilla QuestLog auto-injection is <em>disabled by default</em>
+    /// because attaching a QuestLog to <c>PlayerCharacter.Quests</c> caused a user-confirmed
+    /// blueprint research reset on save load (CMC 1.7.0, never root-caused — see
+    /// <c>Documentation/Retrospectives/questinjector-blueprint-reset-risk.md</c>). Even when a
+    /// mod ships a valid <c>Quests.json</c>, nothing is attached unless the player explicitly
+    /// sets <c>Quests/EnableQuestInjection = true</c> in the framework's BepInEx config. Set
+    /// from <c>Plugin.Awake</c>.
+    /// </summary>
+    public static bool Enabled;
+
     public static void InjectAll(IEnumerable allData, List<ModManifest> mods)
     {
+        if (!Enabled)
+        {
+            Log.Warn("[QuestInjector] a mod ships Quests.json but vanilla QuestLog auto-injection "
+                + "is DISABLED (Quests/EnableQuestInjection = false, the safe default). This path "
+                + "caused a user-confirmed blueprint research reset in CMC 1.7.0 and its root cause "
+                + "was never diagnosed (see Documentation/Retrospectives/questinjector-blueprint-reset-risk.md). "
+                + "No QuestLogs attached. Only enable it after verifying blueprint research survives "
+                + "a save/reload cycle on a disposable save.");
+            return;
+        }
+
         // Collect all PlayerCharacters once (shared across mods and entries).
         var characters = CollectPlayerCharacters(allData);
         if (characters.Count == 0)

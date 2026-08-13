@@ -141,11 +141,7 @@ internal static class LoadOrchestrator
             else
                 Log.Debug("[Skip] SmeltingRecipeInjector: no mod ships SmeltingRecipes.json");
 
-            // 5e2. Append declarative drops to location card DismantleAction ProducedCards.
-            if (mods.Any(m => m.HasDropInjections))
-                RunPhase(sw, "DropInjector", () => DropInjector.InjectAll(allData, mods));
-            else
-                Log.Debug("[Skip] DropInjector: no mod ships DropInjections.json");
+            // 5e2. DropInjector moved to phase 5i-a2b (after WorldMapInjector) — see comment there.
 
             // 5f. Load mod-defined spawn triggers (CardData/Trigger/*.json). Runtime firing is
             //     handled by TriggerService via Plugin.Update — no SO injection needed here.
@@ -171,7 +167,7 @@ internal static class LoadOrchestrator
             //      queue them for spawn registration (GameManager.Awake prefix appends them to
             //      WorldSettings.NPCAgents). Runs before NPCAgentActivationService so generated
             //      agents get its validation/normalization pass. Design:
-            //      Documentation/Design/Animal_System_Plan.md.
+            //      Documentation/Plans/CSFFModFramework/Animal_System_Plan.md.
             if (mods.Any(m => m.HasAnimals))
                 RunPhase(sw, "AnimalService", () => Animals.AnimalService.LoadAll(mods));
             else
@@ -244,6 +240,25 @@ internal static class LoadOrchestrator
                 RunPhase(sw, "ImprovementInjector", () => ImprovementInjector.InjectAll(allData, mods));
             else
                 Log.Debug("[Skip] ImprovementInjector: no mod ships InjectImprovementInto.json");
+
+            // 5i-a2b. Append declarative drops to location card DismantleAction ProducedCards.
+            //         MUST run after WorldMapInjector.PrepareAll (5i): a rule UID may target a mod
+            //         clone CT8 (e.g. cmcLocForagingForest) that only enters AllData when PrepareAll
+            //         clones the env/location pair — same ordering constraint as ImprovementInjector.
+            //         Vanilla CT8 targets are order-insensitive.
+            if (mods.Any(m => m.HasDropInjections))
+                RunPhase(sw, "DropInjector", () => DropInjector.InjectAll(allData, mods));
+            else
+                Log.Debug("[Skip] DropInjector: no mod ships DropInjections.json");
+
+            // 5i-a3. Bulk NPC-trading reprice from each mod's TradingValues.json. Plain float
+            //        writes onto CardData.TradingValue — order-insensitive among injectors, but
+            //        MUST run before GameSourceModifier so a targeted GameSourceModify/ patch
+            //        can still override a bulk price.
+            if (mods.Any(m => m.HasTradingValues))
+                RunPhase(sw, "TradingValueInjector", () => TradingValueInjector.InjectAll(allData, mods));
+            else
+                Log.Debug("[Skip] TradingValueInjector: no mod ships TradingValues.json");
 
             // 5i-b. Inject travel DismantleActions into the shared placed Portal Hub CT2 so
             //       each registered mod world gets its own "Travel to X" button. Runs after
@@ -417,7 +432,8 @@ internal static class LoadOrchestrator
                 int cardTypeVal = -1;
                 if (ct != null)
                 {
-                    try { cardTypeVal = (int)(CardTypes)ct; } catch { }
+                    try { cardTypeVal = (int)(CardTypes)ct; }
+                    catch (Exception ex) { Log.Debug($"[BlueprintDiag] {phase}: CardType cast failed for {card.UniqueID}: {ex.GetType().Name} {ex.Message}"); }
                 }
                 if (cardTypeVal != 7) continue;
 

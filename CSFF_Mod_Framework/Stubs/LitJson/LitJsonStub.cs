@@ -669,7 +669,8 @@ namespace LitJson
             w.WriteObjectStart();
             foreach (var p in t.GetProperties(BindingFlags.Instance | BindingFlags.Public))
                 if (p.CanRead && p.GetIndexParameters().Length == 0)
-                    try { w.WritePropertyName(p.Name); WriteValue(p.GetValue(obj, null), w); } catch { }
+                    try { w.WritePropertyName(p.Name); WriteValue(p.GetValue(obj, null), w); }
+                    catch (Exception ex) { System.Diagnostics.Debug.WriteLine($"[LitJsonStub] WriteValue: property write failed for {t.Name}.{p.Name}: {ex.GetType().Name} {ex.Message}"); }
             foreach (var f in t.GetFields(BindingFlags.Instance | BindingFlags.Public))
             { w.WritePropertyName(f.Name); WriteValue(f.GetValue(obj), w); }
             w.WriteObjectEnd();
@@ -879,9 +880,18 @@ namespace LitJson
                 foreach (var key in d.Keys)
                 {
                     var prop = t.GetProperty(key, BindingFlags.Instance | BindingFlags.Public);
-                    if (prop != null && prop.CanWrite) { try { prop.SetValue(inst, FromJsonData(d[key], prop.PropertyType), null); } catch { } continue; }
+                    if (prop != null && prop.CanWrite)
+                    {
+                        try { prop.SetValue(inst, FromJsonData(d[key], prop.PropertyType), null); }
+                        catch (Exception ex) { System.Diagnostics.Debug.WriteLine($"[LitJsonStub] ToObject: property set failed for {t.Name}.{key}: {ex.GetType().Name} {ex.Message}"); }
+                        continue;
+                    }
                     var fld = t.GetField(key, BindingFlags.Instance | BindingFlags.Public);
-                    if (fld != null) { try { fld.SetValue(inst, FromJsonData(d[key], fld.FieldType)); } catch { } }
+                    if (fld != null)
+                    {
+                        try { fld.SetValue(inst, FromJsonData(d[key], fld.FieldType)); }
+                        catch (Exception ex) { System.Diagnostics.Debug.WriteLine($"[LitJsonStub] ToObject: field set failed for {t.Name}.{key}: {ex.GetType().Name} {ex.Message}"); }
+                    }
                 }
             }
             return inst;

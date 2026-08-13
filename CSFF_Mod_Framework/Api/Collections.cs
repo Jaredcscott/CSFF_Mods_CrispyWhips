@@ -39,7 +39,7 @@ public static class Collections
 
         object current;
         try { current = field != null ? field.GetValue(owner) : prop.GetValue(owner, null); }
-        catch { return 0; }
+        catch (Exception ex) { Log.Debug($"Collections.AppendAll: read of '{memberName}' on {ownerType.Name} threw: {Log.ExceptionText(ex)}"); return 0; }
 
         // Existing-by-reference dedup set.
         var existing = new HashSet<object>(ReferenceEqualityComparer.Instance);
@@ -79,7 +79,7 @@ public static class Collections
                     ? typeof(List<>).MakeGenericType(elemType) : memberType;
                 IList newList;
                 try { newList = (IList)Activator.CreateInstance(listType); }
-                catch { return 0; }
+                catch (Exception ex) { Log.Debug($"Collections.AppendAll: Activator.CreateInstance({listType.Name}) for '{memberName}' threw: {Log.ExceptionText(ex)}"); return 0; }
                 if (current is IEnumerable oldItems && current is not string)
                     foreach (var e in oldItems) newList.Add(e);
                 foreach (var e in toAdd) newList.Add(e);
@@ -124,7 +124,7 @@ public static class Collections
         {
             IList list;
             try { list = (IList)Activator.CreateInstance(existingType); }
-            catch { return null; }
+            catch (Exception ex) { Log.Debug($"Collections.CreateLike: Activator.CreateInstance({existingType.Name}) threw: {Log.ExceptionText(ex)}"); return null; }
             foreach (var v in values) list.Add(v);
             return list;
         }
@@ -164,7 +164,7 @@ public static class Collections
             setter.Invoke(owner, new[] { value });
             return true;
         }
-        catch { return false; }
+        catch (Exception ex) { Log.Debug($"Collections.WriteBack: write to {owner?.GetType().Name} threw: {Log.ExceptionText(ex)}"); return false; }
     }
 
     private static Type GetElementType(Type collectionType)

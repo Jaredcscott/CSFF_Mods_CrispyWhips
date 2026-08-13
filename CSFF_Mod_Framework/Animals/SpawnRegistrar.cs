@@ -34,6 +34,23 @@ internal static class SpawnRegistrar
     private static readonly List<NPCAgent> _pending = new();
     private static bool _patched;
 
+    // EA 0.66: NPCAgentSpawnSettings.SpawnedAgent became a private field (public GetAgent
+    // reads it but has no setter, and also falls back to a preset's TemplateAgent, which is
+    // not what we want here). Reflection read/write on the boxed struct is the only way to
+    // get/set our own queued agent through this now-private field.
+    private static readonly FieldInfo _spawnedAgentField =
+        AccessTools.Field(typeof(NPCAgentSpawnSettings), "SpawnedAgent");
+
+    private static NPCAgent GetSpawnedAgent(NPCAgentSpawnSettings settings)
+        => _spawnedAgentField?.GetValue(settings) as NPCAgent;
+
+    private static NPCAgentSpawnSettings MakeSpawnSettings(NPCAgent agent, CardData startingEnv)
+    {
+        object boxed = new NPCAgentSpawnSettings { StartingEnv = startingEnv };
+        _spawnedAgentField?.SetValue(boxed, agent);
+        return (NPCAgentSpawnSettings)boxed;
+    }
+
     public static void Queue(NPCAgent agent)
     {
         if (agent != null && !_pending.Contains(agent)) _pending.Add(agent);
@@ -88,11 +105,11 @@ internal static class SpawnRegistrar
         int appended = 0;
         foreach (var agent in _pending)
         {
-            if (entries.Any(e => ReferenceEquals(e.SpawnedAgent, agent))) continue;
+            if (entries.Any(e => ReferenceEquals(GetSpawnedAgent(e), agent))) continue;
 
             var grown = new NPCAgentSpawnSettings[entries.Length + 1];
             Array.Copy(entries, grown, entries.Length);
-            grown[entries.Length] = new NPCAgentSpawnSettings { SpawnedAgent = agent, StartingEnv = spiritWorld };
+            grown[entries.Length] = MakeSpawnSettings(agent, spiritWorld);
             entries = grown;
             appended++;
         }

@@ -59,7 +59,7 @@ public static class GameQuery
                 if (_dtpProp != null) return Convert.ToInt32(_dtpProp.GetValue(gm, null));
                 if (_dtpField != null) return Convert.ToInt32(_dtpField.GetValue(gm));
             }
-            catch { }
+            catch (Exception ex) { Log.Debug($"[GameQuery] DayTimePoints read threw: {Log.ExceptionText(ex)}"); }
             return -1;
         }
     }
@@ -73,7 +73,7 @@ public static class GameQuery
             var gm = GetGM();
             if (gm == null) return 0;
             try { if (_currentDayProp != null) return Convert.ToInt32(_currentDayProp.GetValue(gm, null)); }
-            catch { }
+            catch (Exception ex) { Log.Debug($"[GameQuery] CurrentDay read threw: {Log.ExceptionText(ex)}"); }
             return 0;
         }
     }
@@ -108,7 +108,7 @@ public static class GameQuery
                 if (!string.IsNullOrEmpty(uidStr)) return uidStr;
                 if (season is UnityEngine.Object uo) return uo.name;
             }
-            catch { }
+            catch (Exception ex) { Log.Debug($"[GameQuery] CurrentSeason read threw: {Log.ExceptionText(ex)}"); }
             return null;
         }
     }
@@ -134,7 +134,7 @@ public static class GameQuery
                 if (weatherCard == null) return null;
                 return CardUtil.GetCardUniqueId(weatherCard);
             }
-            catch { }
+            catch (Exception ex) { Log.Debug($"[GameQuery] CurrentWeatherUniqueId read threw: {Log.ExceptionText(ex)}"); }
             return null;
         }
     }
@@ -153,7 +153,7 @@ public static class GameQuery
             var gm = GetGM();
             if (gm == null) return 30;
             try { if (_daysPerMoonField != null) return Convert.ToInt32(_daysPerMoonField.GetValue(gm)); }
-            catch { }
+            catch (Exception ex) { Log.Debug($"[GameQuery] DaysPerMoon read threw: {Log.ExceptionText(ex)}"); }
             return 30;
         }
     }
@@ -191,7 +191,7 @@ public static class GameQuery
                 if (envCard is UniqueIDScriptable uid) return uid.UniqueID;
                 return CardUtil.GetMemberValue(envCard, "UniqueID") as string;
             }
-            catch { }
+            catch (Exception ex) { Log.Debug($"[GameQuery] CurrentEnvironmentUniqueId read threw: {Log.ExceptionText(ex)}"); }
             return null;
         }
     }
@@ -207,7 +207,7 @@ public static class GameQuery
             if (_currentEnvField != null) return _currentEnvField.GetValue(gm);
             if (_currentEnvProp != null) return _currentEnvProp.GetValue(gm, null);
         }
-        catch { }
+        catch (Exception ex) { Log.Debug($"[GameQuery] CurrentEnvironment read threw: {Log.ExceptionText(ex)}"); }
         return null;
     }
 
@@ -232,10 +232,55 @@ public static class GameQuery
                 var isInstanced = CardUtil.GetMemberValue(envCard, "InstancedEnvironment");
                 return isInstanced is true;
             }
-            catch { }
+            catch (Exception ex) { Log.Debug($"[GameQuery] IsInInstancedEnvironment read threw: {Log.ExceptionText(ex)}"); }
             return false;
         }
     }
+
+    /// <summary>
+    /// Real vanilla/mod CardTag names marking an environment as cave or indoor (see
+    /// Documentation/CSFF_Map_Travel_System.md § Environment Card Tags). There is no confirmed
+    /// positive "outdoor" tag — callers test for absence of this set instead.
+    /// </summary>
+    private static readonly string[] IndoorOrCaveTags =
+        { "tag_Cave", "tag_EnvCaveSystem", "tag_EnvIndoors", "tag_Env_BearCave", "tag_Env_WolfCave" };
+
+    /// <summary>
+    /// True if the current environment's card carries an indoor/cave biome tag. Complements
+    /// <see cref="IsInInstancedEnvironment"/> — some caves and building interiors are plain
+    /// (non-instanced) CT4/CT8 boards tagged tag_Cave/tag_EnvIndoors rather than pocket-dimension
+    /// instances, so InstancedEnvironment alone misses them.
+    /// </summary>
+    public static bool IsInIndoorOrCaveEnvironment
+    {
+        get
+        {
+            if (!TryResolve()) return false;
+            var gm = GetGM();
+            if (gm == null) return false;
+            try
+            {
+                var env = GetCurrentEnv(gm);
+                if (env == null) return false;
+                var envCard = CardUtil.GetMemberValue(env, "MainEnvCard")
+                           ?? CardUtil.GetMemberValue(env, "EnvCard");
+                if (envCard == null) return false;
+                foreach (var tag in IndoorOrCaveTags)
+                    if (HasTag(envCard, tag)) return true;
+                return false;
+            }
+            catch (Exception ex) { Log.Debug($"[GameQuery] IsInIndoorOrCaveEnvironment read threw: {Log.ExceptionText(ex)}"); }
+            return false;
+        }
+    }
+
+    /// <summary>
+    /// True only when the player is on a plain outdoor board — neither an instanced environment
+    /// (cabin, mud hut, cellar, enclosure, mine, coop) nor a cave/indoor-tagged one. Use this for
+    /// "outdoor only" gating (spawn triggers, foraging, etc.) instead of
+    /// <see cref="IsInInstancedEnvironment"/> alone.
+    /// </summary>
+    public static bool IsOutdoors => !IsInInstancedEnvironment && !IsInIndoorOrCaveEnvironment;
 
     /// <summary>True while the player is transitioning between environments.</summary>
     public static bool IsTransitioning
@@ -251,7 +296,7 @@ public static class GameQuery
                 bool transit = _envTransitionProp != null && Convert.ToBoolean(_envTransitionProp.GetValue(gm, null));
                 return leaving || transit;
             }
-            catch { }
+            catch (Exception ex) { Log.Debug($"[GameQuery] IsTransitioning read threw: {Log.ExceptionText(ex)}"); }
             return false;
         }
     }
@@ -282,7 +327,7 @@ public static class GameQuery
                     results.Add(card);
             }
         }
-        catch { }
+        catch (Exception ex) { Log.Debug($"[GameQuery] CardsInPlayerEnv read threw: {Log.ExceptionText(ex)}"); }
         return results;
     }
 
@@ -381,7 +426,7 @@ public static class GameQuery
     private static object GetGM()
     {
         try { return _gmInstanceProp?.GetValue(null, null); }
-        catch { return null; }
+        catch (Exception ex) { Log.Debug($"[GameQuery] GameManager.Instance read threw: {Log.ExceptionText(ex)}"); return null; }
     }
 
     private static bool IsInPlayerEnv(object card)
@@ -401,7 +446,7 @@ public static class GameQuery
                 foreach (var t in list)
                     if (t is UnityEngine.Object uo && uo.name == tagName) return true;
         }
-        catch { }
+        catch (Exception ex) { Log.Debug($"[GameQuery] HasTag('{tagName}') read threw: {Log.ExceptionText(ex)}"); }
         return false;
     }
 

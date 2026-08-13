@@ -93,8 +93,9 @@ internal static class ReflectionHelpers
             field.SetValue(owner, converted);
             return true;
         }
-        catch
+        catch (Exception ex)
         {
+            Log.Debug($"ReflectionHelpers.SetNumericFieldIfPresent: conversion/set failed for {ownerType.Name}.{fieldName}: {ex.GetType().Name} {ex.Message}");
             return false;
         }
     }
@@ -123,8 +124,9 @@ internal static class ReflectionHelpers
 
             return instance;
         }
-        catch
+        catch (Exception ex)
         {
+            Log.Debug($"ReflectionHelpers.CreateVectorLike: failed for {vectorType.Name}: {ex.GetType().Name} {ex.Message}");
             return null;
         }
     }
@@ -172,7 +174,7 @@ internal static class ReflectionHelpers
             if (prop?.CanRead == true) return prop.GetValue(instance, null);
             return FindField(t, name)?.GetValue(instance);
         }
-        catch { return null; }
+        catch (Exception ex) { Log.Debug($"ReflectionHelpers.GetMemberValue: read failed for member '{name}' on {instance.GetType().Name}: {ex.GetType().Name} {ex.Message}"); return null; }
     }
 
     /// <summary>
@@ -194,7 +196,7 @@ internal static class ReflectionHelpers
             var field = FindField(t, name);
             if (field != null) { field.SetValue(instance, value); return true; }
         }
-        catch { }
+        catch (Exception ex) { Log.Debug($"ReflectionHelpers.SetMemberValue: write failed for member '{name}' on {instance.GetType().Name}: {ex.GetType().Name} {ex.Message}"); }
         return false;
     }
 
@@ -249,8 +251,9 @@ internal static class ReflectionHelpers
                 {
                     replacement = Activator.CreateInstance(fieldType);
                 }
-                catch
+                catch (Exception ex)
                 {
+                    Log.Debug($"ReflectionHelpers.InitializeSerializableDefaults: CreateInstance failed for field '{field.Name}' ({fieldType.Name}) on {owner.GetType().Name}: {ex.GetType().Name} {ex.Message}");
                     replacement = null;
                 }
             }

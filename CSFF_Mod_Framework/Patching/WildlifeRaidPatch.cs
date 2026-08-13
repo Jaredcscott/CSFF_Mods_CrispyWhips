@@ -37,7 +37,7 @@ internal static class WildlifeRaidPatch
             foreach (var asm in AppDomain.CurrentDomain.GetAssemblies())
             {
                 try { encounterPopupType = asm.GetType("EncounterPopup", false); }
-                catch { }
+                catch (Exception ex) { Log.Debug($"[WildlifeRaidPatch] EncounterPopup type lookup failed on assembly {asm.GetName().Name}: {ex.GetType().Name} {ex.Message}"); }
                 if (encounterPopupType != null) break;
             }
 

@@ -147,7 +147,7 @@ internal static class StaActivationService
         if (_subscribed) return;
         try
         {
-            var gmType = AccessTools.TypeByName("GameManager");
+            var gmType = Reflection.ReflectionCache.FindTypeInAssemblyCSharp("GameManager");
             var field = gmType?.GetField("OnGMInitialized", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
             if (field == null || field.FieldType != typeof(Action))
             {
@@ -170,7 +170,7 @@ internal static class StaActivationService
     {
         try
         {
-            var gmType = AccessTools.TypeByName("GameManager");
+            var gmType = Reflection.ReflectionCache.FindTypeInAssemblyCSharp("GameManager");
             var instanceProp = gmType?.GetProperty("Instance",
                 BindingFlags.Static | BindingFlags.Public | BindingFlags.FlattenHierarchy);
             var gm = instanceProp?.GetValue(null);

@@ -28,7 +28,7 @@ internal static class ReflectionCache
                 uidType ??= asm.GetType("UniqueIDScriptable", false);
                 if (cardDataType != null && uidType != null) break;
             }
-            catch { }
+            catch (Exception ex) { Util.Log.Debug($"[ReflectionCache] GetCardDataFromIDMethod: type scan failed on assembly {asm.GetName().Name}: {ex.GetType().Name} {ex.Message}"); }
         }
 
         if (uidType == null || cardDataType == null)
@@ -125,6 +125,55 @@ internal static class ReflectionCache
     private const BindingFlags FieldFlags =
         BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
 
+    private static readonly Dictionary<string, Type> _asmCSharpTypeCache = new();
+
+    /// <summary>
+    /// Resolves a type by simple name from Assembly-CSharp (or Assembly-CSharp-firstpass)
+    /// ONLY — never <see cref="FindType"/> or <c>AccessTools.TypeByName</c> for this, both of
+    /// which scan every loaded assembly and can silently return a third-party mod's shadowing
+    /// type of the same simple name (e.g. ModCore's own "GameManager" class), which then fails
+    /// every GetField/GetMethod/GetProperty lookup against it with no indication of why. See
+    /// CSFFModFramework/CLAUDE.md "Detecting third-party mod versions" and Api/SpawnService.cs.
+    /// </summary>
+    public static Type FindTypeInAssemblyCSharp(string simpleName)
+    {
+        if (_asmCSharpTypeCache.TryGetValue(simpleName, out var cached)) return cached;
+
+        var asmCSharp = AppDomain.CurrentDomain.GetAssemblies()
+            .FirstOrDefault(a => a.GetName().Name == "Assembly-CSharp")
+            ?? AppDomain.CurrentDomain.GetAssemblies()
+            .FirstOrDefault(a => a.GetName().Name == "Assembly-CSharp-firstpass");
+        if (asmCSharp == null)
+        {
+            Util.Log.Warn($"[ReflectionCache] FindTypeInAssemblyCSharp({simpleName}): Assembly-CSharp not found");
+            return null;
+        }
+
+        Type found = null;
+        try
+        {
+            foreach (var t in asmCSharp.GetTypes())
+            {
+                if (t != null && t.Name == simpleName) { found = t; break; }
+            }
+        }
+        catch (ReflectionTypeLoadException rtle)
+        {
+            Util.Log.Debug($"[ReflectionCache] FindTypeInAssemblyCSharp({simpleName}): partial type load, using {rtle.Types?.Length ?? 0} loadable type(s): {rtle.LoaderExceptions?.Length ?? 0} loader exception(s)");
+            foreach (var t in rtle.Types ?? Array.Empty<Type>())
+            {
+                if (t != null && t.Name == simpleName) { found = t; break; }
+            }
+        }
+
+        if (found == null)
+            Util.Log.Warn($"[ReflectionCache] FindTypeInAssemblyCSharp({simpleName}): not found in {asmCSharp.GetName().Name}");
+        else
+            _asmCSharpTypeCache[simpleName] = found; // only cache successful lookups
+
+        return found;
+    }
+
     public static Type FindType(string name)
     {
         if (_typeCache.TryGetValue(name, out var cached)) return cached;
@@ -179,7 +228,11 @@ internal static class ReflectionCache
     {
         Type[] types;
         try { types = asm.GetTypes(); }
-        catch (ReflectionTypeLoadException rtle) { types = rtle.Types ?? Array.Empty<Type>(); }
+        catch (ReflectionTypeLoadException rtle)
+        {
+            types = rtle.Types ?? Array.Empty<Type>();
+            Util.Log.Debug($"[ReflectionCache] FindInAssembly({name}): partial type load on {asm.GetName().Name}, using {types.Length} loadable type(s): {rtle.LoaderExceptions?.Length ?? 0} loader exception(s)");
+        }
         catch (Exception ex)
         {
             // Some assemblies throw non-RTLE on GetTypes (TypeLoadException, FileNotFoundException, etc.).
@@ -196,7 +249,7 @@ internal static class ReflectionCache
             {
                 if (t.Name == name || t.FullName == name) return t;
             }
-            catch { /* skip types that throw on name property access */ }
+            catch (Exception ex) { Util.Log.Debug($"[ReflectionCache] FindInAssembly: name property access threw for a type in {asm.GetName().Name} — skipping: {ex.GetType().Name} {ex.Message}"); }
         }
         return null;
     }
@@ -209,12 +262,14 @@ internal static class ReflectionCache
             var list = new List<Type>();
             foreach (var ti in asm.DefinedTypes)
             {
-                try { list.Add(ti.AsType()); } catch { }
+                try { list.Add(ti.AsType()); }
+                catch (Exception ex) { Util.Log.Debug($"[ReflectionCache] TryGetTypesFallback: AsType() failed for a TypeInfo in {asm.GetName().Name}: {ex.GetType().Name} {ex.Message}"); }
             }
             return list.ToArray();
         }
-        catch { }
-        try { return asm.GetExportedTypes(); } catch { }
+        catch (Exception ex) { Util.Log.Debug($"[ReflectionCache] TryGetTypesFallback: DefinedTypes enumeration failed for {asm.GetName().Name}: {ex.GetType().Name} {ex.Message}"); }
+        try { return asm.GetExportedTypes(); }
+        catch (Exception ex) { Util.Log.Debug($"[ReflectionCache] TryGetTypesFallback: GetExportedTypes failed for {asm.GetName().Name}: {ex.GetType().Name} {ex.Message}"); }
         return Array.Empty<Type>();
     }
 

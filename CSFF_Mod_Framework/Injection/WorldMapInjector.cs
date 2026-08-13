@@ -123,6 +123,42 @@ internal static class WorldMapInjector
     internal static bool IsCloneEnvNode(string envUid)
         => !string.IsNullOrEmpty(envUid) && _cloneEnvSpawnList.ContainsKey(envUid);
 
+    /// <summary>
+    /// True if the clone-env node <paramref name="envUid"/> already has its own authored way out
+    /// of the mod's clone network — either a <c>VanillaExits</c> compass exit, or at least one
+    /// plain <c>Connections</c> entry that leads directly to an environment OUTSIDE the mod's own
+    /// clone network (a real vanilla env, or a different mod's node). Distinguishes "clone-env
+    /// portal destination with its own exit" (e.g. ACT's <c>actTinCaveEnv</c>, bidirectional
+    /// <c>VanillaExits</c> straight to vanilla; H&amp;F's <c>hfEnvForagingPath</c>, a plain
+    /// <c>Connections</c> entry to a bare vanilla env UID) from "clone-env portal destination with
+    /// NO way out except through sibling clone nodes" (CMC's <c>cmcEnvVillage</c>: its only
+    /// <c>Connections</c> entry targets <c>cmcEnvPineTrail</c>, itself a clone node, and the sole
+    /// route back toward vanilla — via <c>cmcEnvVillagePath</c> — is behind a <c>ConnectionGate</c>
+    /// requiring the river bridge built or a trait perk the player may not have). Both categories
+    /// are clone-env nodes per <see cref="IsCloneEnvNode"/>; this is the finer distinction
+    /// <see cref="Portal.PortalService.InjectExitCardsIntoModHubs"/> needs to seed the
+    /// portal-return safety-net card only where the player would otherwise be stranded.
+    /// </summary>
+    internal static bool CloneNodeHasOwnExit(string envUid)
+    {
+        var prep = _prepared.Find(p => p.Def?.EnvironmentUID == envUid);
+        if (prep?.Def == null) return false;
+
+        if (prep.Def.VanillaExits is { Count: > 0 })
+            return true;
+
+        if (prep.Def.Connections != null)
+        {
+            foreach (var conn in prep.Def.Connections)
+            {
+                if (!string.IsNullOrEmpty(conn.EnvironmentUID) && !IsCloneEnvNode(conn.EnvironmentUID))
+                    return true;
+            }
+        }
+
+        return false;
+    }
+
     // ---------------------------------------------------------- stage 1 ---
 
     /// <summary>
@@ -358,9 +394,68 @@ internal static class WorldMapInjector
             }
         }
 
+        // Non-UID ScriptableObjects (DialogLine, DialogScene, WeaponMove, ...) are walked from a
+        // SEPARATE work list (JsonDataLoader.NonUidWarpObjects — see WarpResolver.ResolveAll) because
+        // they have no UniqueID to key jsonByUid/GetByUid by. The UID loop above therefore never
+        // reaches them, so a DialogAnswer.Conditions.RequiredEnvironmentWarpData pointing at a
+        // WorldMap clone env UID (e.g. the CMC Professor's per-node "What is this place?" answers,
+        // gated on cmcEnvVillageFarm/cmcEnvVillage/cmcEnvForagingForest/cmcEnvVillagePath) stayed
+        // permanently null — GeneralCondition.ConditionsValid treats a null RequiredEnvironment as
+        // "no gate", so ALL such answers show at once regardless of the player's actual location.
+        // Re-walk them here too, same Add-skip rule, using the parsed tree directly (no raw JSON
+        // string is cached for non-UID SOs, so the pre-filter scans the tree's string values instead).
+        int nonUidCardsTouched = 0, nonUidSkippedAdd = 0;
+        foreach (var pair in Loading.JsonDataLoader.NonUidWarpObjects)
+        {
+            var obj = pair.Obj;
+            var tree = pair.Tree;
+            if (obj == null || tree == null) continue;
+            if (!TreeMentionsUid(tree, cloneUids)) continue;
+
+            if (TreeHasAddWarp(tree))
+            {
+                nonUidSkippedAdd++;
+                Log.Debug($"WorldMapInjector: deferred clone-ref resolve skipped non-UID SO '{obj.name}' (uses an Add-type WarpType; re-walk would double-append)");
+                continue;
+            }
+
+            try
+            {
+                int n = WarpResolver.Walk(obj, tree);
+                if (n > 0) { refsFilled += n; nonUidCardsTouched++; }
+            }
+            catch (Exception ex)
+            {
+                Log.Warn($"WorldMapInjector: deferred clone-ref resolve failed for non-UID SO '{obj.name}': {Log.ExceptionText(ex)}");
+            }
+        }
+        cardsTouched += nonUidCardsTouched;
+        skippedAdd += nonUidSkippedAdd;
+
         if (cardsTouched > 0 || skippedAdd > 0)
             Log.Info($"WorldMapInjector: deferred clone-ref resolve — {refsFilled} reference(s) filled across {cardsTouched} mod card(s)" +
                      (skippedAdd > 0 ? $"; {skippedAdd} card(s) skipped (Add-type warp)" : ""));
+    }
+
+    /// <summary>Recursively true if any string value in the parsed tree equals one of the given UIDs.</summary>
+    private static bool TreeMentionsUid(object node, HashSet<string> uids)
+    {
+        switch (node)
+        {
+            case Dictionary<string, object> dict:
+                foreach (var kv in dict)
+                {
+                    if (kv.Value is string s && uids.Contains(s)) return true;
+                    if (TreeMentionsUid(kv.Value, uids)) return true;
+                }
+                return false;
+            case List<object> list:
+                foreach (var item in list)
+                    if (TreeMentionsUid(item, uids)) return true;
+                return false;
+            default:
+                return false;
+        }
     }
 
     /// <summary>Recursively true if any <c>*WarpType</c> key in the parsed tree has value 4 (Add) or 6 (AddReference).</summary>
@@ -825,7 +920,7 @@ internal static class WorldMapInjector
         if (_subscribed) return;
         try
         {
-            var gmType = AccessTools.TypeByName("GameManager");
+            var gmType = Reflection.ReflectionCache.FindTypeInAssemblyCSharp("GameManager");
             var field = gmType?.GetField("OnGMInitialized",
                 BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
             if (field == null || field.FieldType != typeof(Action))
@@ -858,6 +953,10 @@ internal static class WorldMapInjector
         // Register shared Portal Hub travel handlers — one per mod world registered via MapMod.json
         // SacredSiteUID/EnvironmentUID. Requires clone CT4 envs to exist in the registry first.
         PortalService.RegisterHubTravelHandlers();
+
+        // Register the shared "Return to Portal" handler (csffmfw_hub_exit) — drives the return
+        // trip explicitly since vanilla TravelToPreviousEnv never fires on non-instanced hub envs.
+        PortalService.RegisterHubExitHandler();
 
         // Pre-create EnvironmentsData entries for all clone envs. Without this, clone envs
         // have no entry in EnvironmentsData on first visit and ChangeEnvironment skips its
@@ -1039,6 +1138,23 @@ internal static class WorldMapInjector
                     // A properly seeded env always has at least the CT8 location card in AllRegularCards;
                     // an entry saved after an empty-board visit has zero cards across all collections.
                     var existingEntry = getEnvSaveData.Invoke(gmInstance, new object[] { envId, false });
+
+                    // Snapshot CurrentlyBuiltImprovements BEFORE any of the four contamination checks
+                    // below can dict.Remove() this entry. That field is where SealableGateService's
+                    // Marker model stores "cleared" state for every gate whose MarkerEnvUID is this env
+                    // (e.g. ACT's Tin Cave hub) — none of the checks below are actually about improvement
+                    // state, so wiping it as collateral is what makes an already-dug passage collapse
+                    // again on the next load. Restored onto the recreated entry further down.
+                    List<string> savedImprovements = null;
+                    if (existingEntry != null)
+                    {
+                        var cbiFieldSnapshot = CardUtil.GetCachedField(existingEntry.GetType(), "CurrentlyBuiltImprovements");
+                        if (cbiFieldSnapshot?.GetValue(existingEntry) is IEnumerable existingBuilt)
+                            foreach (var uid in existingBuilt)
+                                if (uid is string s && !string.IsNullOrEmpty(s))
+                                    (savedImprovements ??= new List<string>()).Add(s);
+                    }
+
                     if (existingEntry != null && allCardsCountMethod != null && envDataField != null && dictKeyProp != null)
                     {
                         int cardCount = (int)(allCardsCountMethod.Invoke(existingEntry, new object[] { false }) ?? 0);
@@ -1100,18 +1216,50 @@ internal static class WorldMapInjector
                                                 new object[] { card }) ?? false))
                                         { anyPresent = true; break; }
                                     }
-                                    catch { }
+                                    catch (Exception ex)
+                                    {
+                                        Log.Debug($"WorldMapInjector: ContainsCard check failed for ExtraDrop '{uid}': {ex.GetType().Name} {ex.Message}");
+                                    }
                                 }
                                 if (resolved > 0 && !anyPresent)
                                 {
-                                    var dict = envDataField.GetValue(gmInstance) as System.Collections.IDictionary;
-                                    var entryKey = dictKeyProp.GetValue(envId);
-                                    if (dict != null && entryKey != null)
+                                    // Extra guard: only wipe if at least one StripLegacyBoardUIDs card is
+                                    // present, confirming this is an old-save contaminated entry (inherited
+                                    // Exit cards, no veins). A fully-depleted-but-legitimate cave also has
+                                    // no ExtraDrops present, but it has NO stale Exit cards. Without this
+                                    // guard, mining out all veins causes the wipe to fire and erase
+                                    // CurrentlyBuiltImprovements (wall-clearing markers), so cleared
+                                    // passages re-collapse on the next load.
+                                    bool hasLegacyCard = false;
+                                    if (prep.Def.StripLegacyBoardUIDs != null)
                                     {
-                                        dict.Remove(entryKey);
-                                        existingEntry = null;
-                                        Log.Debug($"WorldMapInjector: '{prep.Def.EnvironmentUID}' — EnvironmentsData exists (cards={cardCount}) but none of the {uniqueExtraUids.Count} expected ExtraDrop(s) present — re-seeding to clear stale Exit card");
-                                        reseeded++;
+                                        foreach (var legacyUid in prep.Def.StripLegacyBoardUIDs)
+                                        {
+                                            var legacyCard = GameRegistry.GetByUid(legacyUid) as CardData;
+                                            if (legacyCard == null) continue;
+                                            try
+                                            {
+                                                if ((bool)(containsCardMethod.Invoke(existingEntry,
+                                                        new object[] { legacyCard }) ?? false))
+                                                { hasLegacyCard = true; break; }
+                                            }
+                                            catch (Exception ex)
+                                            {
+                                                Log.Debug($"WorldMapInjector: ContainsCard check failed for legacy card '{legacyUid}': {ex.GetType().Name} {ex.Message}");
+                                            }
+                                        }
+                                    }
+                                    if (hasLegacyCard)
+                                    {
+                                        var dict = envDataField.GetValue(gmInstance) as System.Collections.IDictionary;
+                                        var entryKey = dictKeyProp.GetValue(envId);
+                                        if (dict != null && entryKey != null)
+                                        {
+                                            dict.Remove(entryKey);
+                                            existingEntry = null;
+                                            Log.Debug($"WorldMapInjector: '{prep.Def.EnvironmentUID}' — EnvironmentsData exists (cards={cardCount}) but none of the {uniqueExtraUids.Count} expected ExtraDrop(s) present and stale Exit card(s) detected — re-seeding to clear stale Exit card");
+                                            reseeded++;
+                                        }
                                     }
                                 }
                             }
@@ -1150,20 +1298,36 @@ internal static class WorldMapInjector
                                             break;
                                         }
                                     }
-                                    catch { }
+                                    catch (Exception ex)
+                                    {
+                                        Log.Debug($"WorldMapInjector: ContainsCard check failed for legacy card '{legacyUid}' (StripLegacyBoardUIDs): {ex.GetType().Name} {ex.Message}");
+                                    }
                                 }
                             }
                         }
 
                         // Contamination check: if the card count exceeds ExtraDropUIDs.Count + 1
-                        // (the +1 accounts for the CT8 in the initial seed before first player visit),
-                        // the entry was built up by the old session-scoped watch-spawn path accumulating
-                        // extra vein copies, or cross-cave contamination (e.g. iron veins in tin cave).
-                        // Force-reseed to restore exactly the declared drops.
+                        // (the +1 accounts for the CT8 in the initial seed before first player visit)
+                        // plus any SealableGates challenge card(s) legitimately seedable onto this env
+                        // (see GetSealableGateSlack), the entry was built up by the old session-scoped
+                        // watch-spawn path accumulating extra vein copies, or cross-cave contamination
+                        // (e.g. iron veins in tin cave). Force-reseed to restore exactly the declared
+                        // drops.
+                        //
+                        // Without the slack term, a hub env that legitimately hosts an uncleared
+                        // SealableGates challenge card (e.g. ACT's Tin Cave hub with an un-dug Iron/
+                        // Copper/Quarry wall sitting on its board alongside its 3 veins + CT8) reads as
+                        // "contaminated" on every subsequent run start, wiping the ENTIRE
+                        // EnvironmentsData entry — including CurrentlyBuiltImprovements, which is where
+                        // SealableGateService's Marker model stores "cleared" state for every gate
+                        // whose MarkerEnvUID is this env. That silently un-clears every already-dug
+                        // passage sharing the hub, reproducing "cave connections are collapsed again
+                        // after reload" even though the Marker model is documented as permanent.
+                        int sealableSlack = GetSealableGateSlack(prep.Def.EnvironmentUID);
                         if (cardCount > 0 && existingEntry != null
                             && prep.Def.StripAllInheritedDrops
                             && prep.Def.ExtraDropUIDs != null && prep.Def.ExtraDropUIDs.Count > 0
-                            && cardCount > prep.Def.ExtraDropUIDs.Count + 1)
+                            && cardCount > prep.Def.ExtraDropUIDs.Count + 1 + sealableSlack)
                         {
                             var dict = envDataField.GetValue(gmInstance) as System.Collections.IDictionary;
                             var entryKey = dictKeyProp.GetValue(envId);
@@ -1171,7 +1335,7 @@ internal static class WorldMapInjector
                             {
                                 dict.Remove(entryKey);
                                 existingEntry = null;
-                                Log.Debug($"WorldMapInjector: '{prep.Def.EnvironmentUID}' — EnvironmentsData has {cardCount} cards but max expected is {prep.Def.ExtraDropUIDs.Count + 1} — re-seeding to clear accumulation/cross-cave contamination");
+                                Log.Debug($"WorldMapInjector: '{prep.Def.EnvironmentUID}' — EnvironmentsData has {cardCount} cards but max expected is {prep.Def.ExtraDropUIDs.Count + 1 + sealableSlack} — re-seeding to clear accumulation/cross-cave contamination");
                                 reseeded++;
                             }
                         }
@@ -1179,9 +1343,31 @@ internal static class WorldMapInjector
 
                     if (existingEntry == null)
                     {
-                        getEnvSaveData.Invoke(gmInstance, new object[] { envId, true });
+                        var newEntry = getEnvSaveData.Invoke(gmInstance, new object[] { envId, true });
                         created++;
                         Log.Debug($"WorldMapInjector: pre-created EnvironmentsData for '{prep.Def.EnvironmentUID}' (UniqueIDIndex={prep.EnvCard.UniqueIDIndex})");
+
+                        if (savedImprovements != null && savedImprovements.Count > 0)
+                        {
+                            var cbiFieldRestore = newEntry != null
+                                ? CardUtil.GetCachedField(newEntry.GetType(), "CurrentlyBuiltImprovements")
+                                : null;
+                            if (newEntry != null && cbiFieldRestore != null)
+                            {
+                                if (cbiFieldRestore.GetValue(newEntry) is not IList newBuilt)
+                                {
+                                    newBuilt = new List<string>();
+                                    cbiFieldRestore.SetValue(newEntry, newBuilt);
+                                }
+                                foreach (var uid in savedImprovements)
+                                    if (!newBuilt.Contains(uid)) newBuilt.Add(uid);
+                                Log.Info($"WorldMapInjector: '{prep.Def.EnvironmentUID}' — restored {savedImprovements.Count} CurrentlyBuiltImprovements marker(s) across old-save reseed");
+                            }
+                            else
+                            {
+                                Log.Warn($"WorldMapInjector: '{prep.Def.EnvironmentUID}' — reseed DROPPED {savedImprovements.Count} CurrentlyBuiltImprovements marker(s) ({string.Join(", ", savedImprovements)}) — new entry or field unavailable");
+                            }
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -1198,6 +1384,29 @@ internal static class WorldMapInjector
         {
             Log.Error($"WorldMapInjector: PreCreateCloneEnvSaveData failed: {Log.ExceptionText(ex)}");
         }
+    }
+
+    /// <summary>
+    /// Number of distinct <c>SealableGates</c> entries (across every prepared node, not just
+    /// <paramref name="envUid"/>'s own) that list <paramref name="envUid"/> in their
+    /// <c>SeedOnEnvUIDs</c> — i.e. how many extra challenge cards could legitimately be sitting
+    /// on this env's board at once. Each gate spawns at most one live copy of its own
+    /// <c>ChallengeCardUID</c> (guarded by <c>SealableGateService</c>'s seed-once bookkeeping),
+    /// so this is a safe upper bound, not just a typical-case estimate.
+    /// </summary>
+    private static int GetSealableGateSlack(string envUid)
+    {
+        if (string.IsNullOrEmpty(envUid)) return 0;
+        int slack = 0;
+        foreach (var p in _prepared)
+        {
+            var gates = p.Def?.SealableGates;
+            if (gates == null) continue;
+            foreach (var g in gates)
+                if (g?.SeedOnEnvUIDs != null && g.SeedOnEnvUIDs.Contains(envUid))
+                    slack++;
+        }
+        return slack;
     }
 
     /// <summary>
@@ -1317,7 +1526,8 @@ internal static class WorldMapInjector
 
     private static int ToInt(object v)
     {
-        try { return v == null ? 0 : Convert.ToInt32(v); } catch { return 0; }
+        try { return v == null ? 0 : Convert.ToInt32(v); }
+        catch (Exception ex) { Log.Debug($"WorldMapInjector: ToInt conversion failed for value '{v}': {ex.GetType().Name} {ex.Message}"); return 0; }
     }
 
     private static FieldInfo FindField(Type type, string name)
@@ -1843,7 +2053,7 @@ internal static class WorldMapInjector
                 else if (f.FieldType.IsGenericType && typeof(IList).IsAssignableFrom(f.FieldType))
                     f.SetValue(obj, Activator.CreateInstance(f.FieldType));
             }
-            catch { /* read-only or incompatible — leave as-is */ }
+            catch (Exception ex) { Log.Debug($"WorldMapInjector: InitNullArrayFields — SetValue failed for field '{f.Name}' on {obj.GetType().Name} (read-only or incompatible): {ex.GetType().Name} {ex.Message}"); }
         }
     }
 
@@ -1957,6 +2167,7 @@ internal static class WorldMapInjector
     private static FieldInfo _daField_NotBaseAction;      // DismantleAction.NotBaseAction
     private static FieldInfo _daField_ExpValue;           // DismantleAction.ExplorationValue (float 0–1; 1=100%)
     private static FieldInfo _daField_ProducedCards;      // DismantleAction.ProducedCards
+    private static FieldInfo _daField_DaytimeCost;        // CardAction.DaytimeCost
     private static Type   _pcEntryType;                   // element type of ProducedCards
     private static FieldInfo _pcField_DroppedCards;       // <ProducedCardsEntry>.DroppedCards
     private static Type   _cdType;                        // element type of DroppedCards (CardDrop)
@@ -1992,6 +2203,7 @@ internal static class WorldMapInjector
         _daField_ActionName   = FindField(_dismantleActionType, "ActionName");
         _daField_NotBaseAction= FindField(_dismantleActionType, "NotBaseAction");
         _daField_ProducedCards= FindField(_dismantleActionType, "ProducedCards");
+        _daField_DaytimeCost  = FindField(_dismantleActionType, "DaytimeCost");
 
         if (_daField_ProducedCards != null)
         {
@@ -2315,7 +2527,8 @@ internal static class WorldMapInjector
         var newDA = Activator.CreateInstance(daType);
         foreach (var fi in daType.GetFields(BF))
         {
-            try { fi.SetValue(newDA, fi.GetValue(template)); } catch { }
+            try { fi.SetValue(newDA, fi.GetValue(template)); }
+            catch (Exception ex) { Log.Debug($"WorldMapInjector: InjectTravelDA — field copy failed for '{fi.Name}' on {daType.Name}: {ex.GetType().Name} {ex.Message}"); }
         }
 
         // Strip inherited stat gates. The template DA (e.g. River Clearing's West DA) may carry
@@ -2358,6 +2571,13 @@ internal static class WorldMapInjector
         // NotBaseAction = true (travel DAs are hidden from base action list).
         _daField_NotBaseAction?.SetValue(newDA, true);
 
+        // DaytimeCost drives the displayed travel time (TickToHours), NOT PathCost (a separate
+        // pathfinding weight) — the cloned template's own DaytimeCost is whatever that template
+        // happens to use and is not derived from PathCost. Match vanilla's standard single-hop
+        // cost (1 tick = 15 real minutes at DailyPoints=96) so injected mod travel buttons pace
+        // like vanilla instead of inheriting an arbitrary template value.
+        _daField_DaytimeCost?.SetValue(newDA, 1);
+
         // Rebuild ProducedCards so DroppedCard points to the new destination env.
         BuildTravelProducedCards(newDA, template, destEnvCard);
 
@@ -2387,7 +2607,8 @@ internal static class WorldMapInjector
         var fresh = Activator.CreateInstance(strType);
         foreach (var fi in strType.GetFields(BF))
         {
-            try { fi.SetValue(fresh, fi.GetValue(templateStr)); } catch { }
+            try { fi.SetValue(fresh, fi.GetValue(templateStr)); }
+            catch (Exception ex) { Log.Debug($"WorldMapInjector: ReplaceLocalizedString — field copy failed for '{fi.Name}' on {strType.Name}: {ex.GetType().Name} {ex.Message}"); }
         }
         FindField(strType, "ParentObjectID")?.SetValue(fresh, "");
         FindField(strType, "LocalizationKey")?.SetValue(fresh, "");
@@ -2419,7 +2640,8 @@ internal static class WorldMapInjector
         var freshPC = Activator.CreateInstance(_pcEntryType);
         foreach (var fi in _pcEntryType.GetFields(BF))
         {
-            try { fi.SetValue(freshPC, fi.GetValue(templatePC)); } catch { }
+            try { fi.SetValue(freshPC, fi.GetValue(templatePC)); }
+            catch (Exception ex) { Log.Debug($"WorldMapInjector: BuildTravelProducedCards — ProducedCards field copy failed for '{fi.Name}': {ex.GetType().Name} {ex.Message}"); }
         }
 
         // Clone the first CardDrop and swap its DroppedCard.
@@ -2434,7 +2656,8 @@ internal static class WorldMapInjector
             freshDC = Activator.CreateInstance(_cdType);
             foreach (var fi in _cdType.GetFields(BF))
             {
-                try { fi.SetValue(freshDC, fi.GetValue(templateDC)); } catch { }
+                try { fi.SetValue(freshDC, fi.GetValue(templateDC)); }
+                catch (Exception ex) { Log.Debug($"WorldMapInjector: BuildTravelProducedCards — CardDrop field copy failed for '{fi.Name}': {ex.GetType().Name} {ex.Message}"); }
             }
             _cdField_DroppedCard.SetValue(freshDC, destEnvCard);
             _cdField_WarpData?.SetValue(freshDC, ""); // WarpData is stale post-WarpResolver
@@ -2512,7 +2735,7 @@ internal static class WorldMapInjector
             if (_daField_CardType != null)
             {
                 try { if (Convert.ToInt32(_daField_CardType.GetValue(card)) != 8) continue; }
-                catch { continue; }
+                catch (Exception ex) { Log.Debug($"WorldMapInjector: StripOrphanedTravelDAs — CardType read failed for '{card.UniqueID}': {ex.GetType().Name} {ex.Message}"); continue; }
             }
 
             var daCollection = _daField_DismantleActions?.GetValue(card);

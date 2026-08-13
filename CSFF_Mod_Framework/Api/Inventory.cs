@@ -166,6 +166,6 @@ public static class Inventory
             if (card is Component comp && comp != null && comp.gameObject != null)
                 comp.gameObject.SetActive(active);
         }
-        catch { }
+        catch (Exception ex) { Log.Debug($"[Api.Inventory] TrySetActive failed: {ex.GetType().Name} {ex.Message}"); }
     }
 }

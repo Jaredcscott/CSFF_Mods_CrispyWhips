@@ -132,7 +132,7 @@ public static class BlueprintAlternates
                 }
             }
 
-            Log.Info($"[BlueprintAlternates] {label}: {patched} blueprint slot(s) now accept the alternate ingredient.");
+            Log.Debug($"[BlueprintAlternates] {label}: {patched} blueprint slot(s) now accept the alternate ingredient.");
             return patched;
         }
         catch (Exception ex)

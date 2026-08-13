@@ -39,7 +39,7 @@ public static class CardUtil
             _uidField ??= cardData.GetType().GetField("UniqueID", All);
             return _uidField?.GetValue(cardData) as string;
         }
-        catch { return null; }
+        catch (Exception ex) { Log.Debug($"CardUtil.GetCardUniqueId: reflection read threw: {ex}"); return null; }
     }
 
     /// <summary>
@@ -59,7 +59,7 @@ public static class CardUtil
             }
             return prop?.GetValue(inGameCard);
         }
-        catch { return null; }
+        catch (Exception ex) { Log.Debug($"CardUtil.GetCardData: CardModel/CardData property read threw: {ex}"); return null; }
     }
 
     // ── Action name extraction ────────────────────────────────────────────────
@@ -94,7 +94,7 @@ public static class CardUtil
             }
             return dtField?.GetValue(nameObj) as string;
         }
-        catch { return null; }
+        catch (Exception ex) { Log.Debug($"CardUtil.GetActionName: ActionName/DefaultText field read threw: {ex}"); return null; }
     }
 
     /// <summary>
@@ -115,7 +115,7 @@ public static class CardUtil
             var nameObj = anField?.GetValue(action);
             return ReflectionHelpers.FindField(nameObj?.GetType(), "LocalizationKey")?.GetValue(nameObj) as string;
         }
-        catch { return null; }
+        catch (Exception ex) { Log.Debug($"CardUtil.GetActionLocalizationKey: ActionName/LocalizationKey field read threw: {ex}"); return null; }
     }
 
     // ── Inventory list discovery ──────────────────────────────────────────────
@@ -175,7 +175,7 @@ public static class CardUtil
             }
             return invField?.GetValue(card) as IList;
         }
-        catch { return null; }
+        catch (Exception ex) { Log.Debug($"CardUtil.GetInventoryList: inventory field discovery threw for {card.GetType().Name}: {ex}"); return null; }
     }
 
     // ── Member access (forwarded from ReflectionHelpers) ─────────────────────
@@ -230,7 +230,7 @@ public static class CardUtil
     {
         if (string.IsNullOrEmpty(uniqueId)) return null;
         try { return Reflection.ReflectionCache.GetCardDataFromIDMethod()?.Invoke(null, new object[] { uniqueId }); }
-        catch { return null; }
+        catch (Exception ex) { Log.Debug($"CardUtil.GetCardDataById('{uniqueId}'): GetFromID invoke threw: {ex}"); return null; }
     }
 
     // ── Type lookup ───────────────────────────────────────────────────────────
@@ -312,7 +312,7 @@ public static class CardUtil
             if (_gmInstanceProp  != null) return _gmInstanceProp.GetValue(null, null);
             if (_gmInstanceField != null) return _gmInstanceField.GetValue(null);
         }
-        catch { }
+        catch (Exception ex) { Log.Debug($"CardUtil.GetGameManagerInstance: reflection read threw: {ex}"); }
         return null;
     }
 
@@ -343,7 +343,7 @@ public static class CardUtil
                     return true;
             }
         }
-        catch { }
+        catch (Exception ex) { Log.Debug($"CardUtil.IsPerkEquipped({perkUID}): {ex}"); }
         return false;
     }
 
@@ -354,6 +354,30 @@ public static class CardUtil
     /// since different EnvID construction paths populate different fields. False on any
     /// missing link or reflection failure.
     /// </summary>
+    /// <summary>
+    /// True when a bare env UID (or composite env key) matches an <c>EnvironmentsData</c>
+    /// entry's <c>DictionaryKey</c>. Entries that have been through a leave/save cycle carry
+    /// the names-annotated key form (e.g. <c>"2b19b942…(Env_River_ClearingOak_RiverClearing)"</c>
+    /// — <c>GameManager</c> re-adds the entry via <c>AddNamesToEnvKey</c> when the player leaves
+    /// the env), so a raw ordinal compare silently stops matching at that point. Normalize with
+    /// the engine's own <c>UniqueIDScriptable.RemoveNamesFromEnvKey</c> before comparing.
+    /// </summary>
+    public static bool EnvKeyMatchesUid(string envUid, string dictKey)
+    {
+        if (string.IsNullOrEmpty(envUid) || string.IsNullOrEmpty(dictKey)) return false;
+        if (envUid.Equals(dictKey, StringComparison.Ordinal)) return true;
+        try
+        {
+            return envUid.Equals(UniqueIDScriptable.RemoveNamesFromEnvKey(dictKey),
+                StringComparison.Ordinal);
+        }
+        catch (Exception ex)
+        {
+            Log.Debug($"CardUtil.EnvKeyMatchesUid('{envUid}', '{dictKey}'): {ex.Message}");
+            return false;
+        }
+    }
+
     public static bool IsImprovementBuilt(string envUID, string impUID)
     {
         if (string.IsNullOrEmpty(envUID) || string.IsNullOrEmpty(impUID)) return false;
@@ -373,7 +397,7 @@ public static class CardUtil
                 var dictKey = GetCachedField(vt, "DictionaryKey")?.GetValue(value) as string;
                 bool isTarget =
                     envUID.Equals(envId,               StringComparison.Ordinal) ||
-                    envUID.Equals(dictKey,             StringComparison.Ordinal) ||
+                    EnvKeyMatchesUid(envUID, dictKey)                            ||
                     envUID.Equals(entry.Key as string, StringComparison.Ordinal);
                 if (!isTarget) continue;
 
@@ -383,7 +407,7 @@ public static class CardUtil
                         if (impUID.Equals(uid as string, StringComparison.Ordinal)) return true;
             }
         }
-        catch { }
+        catch (Exception ex) { Log.Debug($"CardUtil: improvement-built query for '{impUID}' threw: {ex}"); }
         return false;
     }
 
@@ -452,7 +476,7 @@ public static class CardUtil
             if (!newBuilt.Contains(impUID)) newBuilt.Add(impUID);
             return true;
         }
-        catch { }
+        catch (Exception ex) { Log.Debug($"CardUtil.MarkImprovementBuilt('{envUID}', '{impUID}'): reflection write threw: {ex}"); }
         return false;
     }
 
@@ -485,7 +509,7 @@ public static class CardUtil
                 return true;
             }
         }
-        catch { }
+        catch (Exception ex) { Log.Debug($"CardUtil.ForceUnlockCard('{cardUID}'): SetStartUnlocked invoke threw: {ex}"); }
         return false;
     }
 
@@ -508,7 +532,7 @@ public static class CardUtil
             method.Invoke(gm, new object[] { improvement });
             return true;
         }
-        catch { return false; }
+        catch (Exception ex) { Log.Debug($"CardUtil.QueueImprovementAutoComplete: AddImprovementToBuild invoke threw: {ex}"); return false; }
     }
 
     // ── Type conversion helpers ───────────────────────────────────────────────
@@ -521,7 +545,7 @@ public static class CardUtil
         if (value is int i)    return i;
         if (value is long l)   return l;
         if (value == null)     return 0f;
-        try { return Convert.ToSingle(value); } catch { return 0f; }
+        try { return Convert.ToSingle(value); } catch (Exception ex) { Log.Debug($"CardUtil.ToFloat: Convert.ToSingle failed for {value.GetType().Name}: {ex}"); return 0f; }
     }
 
     /// <summary>Converts any boxed numeric value to int. Returns 0 on null or failure.</summary>
@@ -532,7 +556,7 @@ public static class CardUtil
         if (value is float f)  return (int)f;
         if (value is double d) return (int)d;
         if (value == null)     return 0;
-        try { return Convert.ToInt32(value); } catch { return 0; }
+        try { return Convert.ToInt32(value); } catch (Exception ex) { Log.Debug($"CardUtil.ToInt: Convert.ToInt32 failed for {value.GetType().Name}: {ex}"); return 0; }
     }
 
     /// <summary>Converts a boxed bool or numeric value to bool. Returns false on null or failure.</summary>
@@ -540,7 +564,7 @@ public static class CardUtil
     {
         if (value is bool b) return b;
         if (value == null)   return false;
-        try { return Convert.ToBoolean(value); } catch { return false; }
+        try { return Convert.ToBoolean(value); } catch (Exception ex) { Log.Debug($"CardUtil.ToBool: Convert.ToBoolean failed for {value.GetType().Name}: {ex}"); return false; }
     }
 
     // ── High-level card transform ─────────────────────────────────────────────
@@ -644,7 +668,7 @@ public static class CardUtil
                     return true;
             }
         }
-        catch { }
+        catch (Exception ex) { Log.Debug($"CardUtil.ModifyDurabilityStat('{statName}'): reflection write threw: {ex}"); }
         return false;
     }
 
@@ -699,6 +723,7 @@ public static class CardUtil
     private static MethodInfo   _modelSetter;
     private static FieldInfo    _modelBackingField;
     private static MethodInfo   _setupCardSourceMethod;
+    private static MethodInfo   _setModelMethod;
     private static MethodInfo   _resetCardMethod;
 
     /// <summary>
@@ -725,6 +750,9 @@ public static class CardUtil
             _setupCardSourceMethod = ct.GetMethods(All).FirstOrDefault(m =>
                 m.Name == "SetupCardSource" && m.GetParameters().Length >= 1
                 && m.GetParameters()[0].ParameterType.IsInstanceOfType(cardData));
+            _setModelMethod = ct.GetMethods(All).FirstOrDefault(m =>
+                m.Name == "SetModel" && m.GetParameters().Length == 1
+                && m.GetParameters()[0].ParameterType.IsInstanceOfType(cardData));
             _resetCardMethod = ct.GetMethod("ResetCard", All, null, Type.EmptyTypes, null);
         }
 
@@ -737,7 +765,7 @@ public static class CardUtil
                 return true;
             }
         }
-        catch { }
+        catch (Exception ex) { Log.Debug($"CardUtil.TrySetCardModel: Path 1 (property setter) on {ct.Name} threw: {ex}"); }
 
         // Path 2: non-public setter
         try
@@ -748,7 +776,7 @@ public static class CardUtil
                 return true;
             }
         }
-        catch { }
+        catch (Exception ex) { Log.Debug($"CardUtil.TrySetCardModel: Path 2 (non-public setter) on {ct.Name} threw: {ex}"); }
 
         // Path 3: backing field
         try
@@ -759,7 +787,7 @@ public static class CardUtil
                 return true;
             }
         }
-        catch { }
+        catch (Exception ex) { Log.Debug($"CardUtil.TrySetCardModel: Path 3 (backing field) on {ct.Name} threw: {ex}"); }
 
         return false;
     }
@@ -788,9 +816,14 @@ public static class CardUtil
                 _setupCardSourceMethod.Invoke(card, args);
                 return;
             }
+            if (_setModelMethod != null)
+            {
+                _setModelMethod.Invoke(card, new[] { cardData });
+                return;
+            }
             _resetCardMethod?.Invoke(card, null);
         }
-        catch { }
+        catch (Exception ex) { Log.Debug($"CardUtil.ReinitCard: reinit on {card.GetType().Name} threw: {ex}"); }
     }
 
     // ── Absolute durability get/set (Tier 1) ─────────────────────────────────
@@ -867,7 +900,7 @@ public static class CardUtil
                 if (cv != null) return Convert.ToSingle(cv);
             }
         }
-        catch { }
+        catch (Exception ex) { Log.Debug($"CardUtil.GetDurabilityValue('{statName}'): reflection read threw: {ex}"); }
         return float.NaN;
     }
 
@@ -909,7 +942,7 @@ public static class CardUtil
                 if (mv != null) return Convert.ToSingle(mv);
             }
         }
-        catch { }
+        catch (Exception ex) { Log.Debug($"CardUtil.GetDurabilityMax('{statName}'): reflection read threw: {ex}"); }
         return float.NaN;
     }
 
@@ -968,7 +1001,7 @@ public static class CardUtil
                 return true;
             }
         }
-        catch { }
+        catch (Exception ex) { Log.Debug($"CardUtil.SetDurability('{statName}'): reflection write threw: {ex}"); }
         return false;
     }
 

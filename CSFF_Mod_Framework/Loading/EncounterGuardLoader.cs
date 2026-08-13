@@ -14,11 +14,14 @@ namespace CSFFModFramework.Loading;
 /// <code>
 /// {
 ///   "Name": "WolfCompanionGuard",
-///   "GuardCardUids": ["fc_wolf_companion"],   // any of these in player env → suppress
-///   "EncounterUids": [],                      // empty = all wildlife encounters
-///   "SuppressChance": 100                     // percent, 0-100 (default 100)
+///   "GuardCardUids": ["fc_wolf_companion"],       // any of these in player env → suppress
+///   "GuardEnvironmentUids": ["myEnvVillage"],      // OR: player standing in any of these envs → suppress
+///   "EncounterUids": [],                          // empty = all wildlife encounters
+///   "SuppressChance": 100                         // percent, 0-100 (default 100)
 /// }
 /// </code>
+/// <para>At least one of <c>GuardCardUids</c> or <c>GuardEnvironmentUids</c> must be present.
+/// When both are set, either a matching card OR a matching environment triggers suppression.</para>
 /// </summary>
 internal static class EncounterGuardLoader
 {
@@ -26,6 +29,7 @@ internal static class EncounterGuardLoader
     {
         public string Name;
         public readonly List<string> GuardCardUids = new();
+        public readonly HashSet<string> GuardEnvironmentUids = new(StringComparer.Ordinal);
         public readonly HashSet<string> EncounterUids = new(StringComparer.OrdinalIgnoreCase);
         public float SuppressChance = 100f;
     }
@@ -43,16 +47,16 @@ internal static class EncounterGuardLoader
                 try
                 {
                     var def = ParseGuard(File.ReadAllText(file));
-                    if (def == null || def.GuardCardUids.Count == 0)
+                    if (def == null || (def.GuardCardUids.Count == 0 && def.GuardEnvironmentUids.Count == 0))
                     {
-                        Log.Warn($"[EncounterGuardLoader] {mod.Name}/{Path.GetFileName(file)}: missing GuardCardUids — skipped.");
+                        Log.Warn($"[EncounterGuardLoader] {mod.Name}/{Path.GetFileName(file)}: missing GuardCardUids and GuardEnvironmentUids — skipped.");
                         continue;
                     }
                     def.Name ??= Path.GetFileNameWithoutExtension(file);
                     RegisterJsonGuard(def);
                     loaded++;
                     Log.Debug($"[EncounterGuardLoader] {mod.Name}: guard '{def.Name}' "
-                            + $"({def.GuardCardUids.Count} guard card(s), "
+                            + $"({def.GuardCardUids.Count} guard card(s), {def.GuardEnvironmentUids.Count} guard env(s), "
                             + $"{(def.EncounterUids.Count == 0 ? "all wildlife" : def.EncounterUids.Count + " encounter(s)")}, "
                             + $"{def.SuppressChance:F0}%)");
                 }
@@ -76,6 +80,9 @@ internal static class EncounterGuardLoader
         if (root.TryGetValue("GuardCardUids", out var g) && g is List<object> guardList)
             foreach (var item in guardList)
                 if (item is string s && !string.IsNullOrEmpty(s)) def.GuardCardUids.Add(s);
+        if (root.TryGetValue("GuardEnvironmentUids", out var ge) && ge is List<object> envList)
+            foreach (var item in envList)
+                if (item is string s && !string.IsNullOrEmpty(s)) def.GuardEnvironmentUids.Add(s);
         if (root.TryGetValue("EncounterUids", out var e) && e is List<object> encList)
             foreach (var item in encList)
                 if (item is string s && !string.IsNullOrEmpty(s)) def.EncounterUids.Add(s);
@@ -93,19 +100,30 @@ internal static class EncounterGuardLoader
                 && (ctx.EncounterUid == null || !def.EncounterUids.Contains(ctx.EncounterUid)))
                 return false;
 
-            // Any guard card present in the player's environment?
+            // Environment guard: is the player standing in one of the guarded environments?
             bool guardPresent = false;
-            foreach (var card in GameQuery.CardsInPlayerEnv())
+            if (def.GuardEnvironmentUids.Count > 0)
             {
-                var uid = CardUtil.GetCardUniqueId(card);
-                if (uid == null) continue;
-                foreach (var guardUid in def.GuardCardUids)
-                {
-                    if (!string.Equals(uid, guardUid, StringComparison.OrdinalIgnoreCase)) continue;
+                var curEnv = GameQuery.CurrentEnvironmentUniqueId;
+                if (curEnv != null && def.GuardEnvironmentUids.Contains(curEnv))
                     guardPresent = true;
-                    break;
+            }
+
+            // Card guard: any guard card present in the player's environment?
+            if (!guardPresent && def.GuardCardUids.Count > 0)
+            {
+                foreach (var card in GameQuery.CardsInPlayerEnv())
+                {
+                    var uid = CardUtil.GetCardUniqueId(card);
+                    if (uid == null) continue;
+                    foreach (var guardUid in def.GuardCardUids)
+                    {
+                        if (!string.Equals(uid, guardUid, StringComparison.OrdinalIgnoreCase)) continue;
+                        guardPresent = true;
+                        break;
+                    }
+                    if (guardPresent) break;
                 }
-                if (guardPresent) break;
             }
             if (!guardPresent) return false;
 

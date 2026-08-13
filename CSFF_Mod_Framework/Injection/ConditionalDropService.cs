@@ -185,7 +185,7 @@ internal static class ConditionalDropService
         // CT2 placed cards cannot be inventoried, so presence == board card.
         int cardType = -1;
         try { cardType = Convert.ToInt32(CardUtil.GetMemberValue(card, "CardType") ?? -1); }
-        catch { }
+        catch (System.Exception ex) { Log.Debug($"ConditionalDropService.RemoveIfPresent('{uid}'): CardType read threw: {ex}"); }
         if (cardType < 2) return;
 
         var boardCards = Api.GameQuery.CardsInPlayerEnv();

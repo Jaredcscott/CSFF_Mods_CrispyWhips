@@ -87,7 +87,7 @@ internal static class OffScreenCardThrottle
         _getDestroyed        = BuildBoolGetter(icbType, "Destroyed");
         _getGM               = BuildFieldGetter(icbType, "GM");
 
-        var gmType = AccessTools.TypeByName("GameManager");
+        var gmType = Reflection.ReflectionCache.FindTypeInAssemblyCSharp("GameManager");
         if (gmType != null)
             _getEnvironmentTransition = BuildBoolGetter(gmType, "EnvironmentTransition");
 

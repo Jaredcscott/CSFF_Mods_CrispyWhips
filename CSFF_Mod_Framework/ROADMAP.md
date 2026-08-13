@@ -1,130 +1,117 @@
 # Roadmap: CSFF Mod Framework
-Version at time of writing: 2.7.6
-Date: 2026-06-18
-Audit score: 9/10 (utility mod — `/audit-mod CSFFModFramework`, 2026-06-13; re-run pending for 2.7.x surface)
+Version at time of writing: 2.22.1
+Date: 2026-08-12
+Audit score: 9/10 — PASS (0 CRITICAL, 0 DESIGN GAP, 1 WARNING — documentation-only; consolidated 2026-08-12)
 
 ## Current State
 
-**Theme**: The single shared engine layer every in-house CSFF mod loads against. It owns mod discovery, JSON/WarpData loading, sprite/audio/localization, all injection (perk, blueprint, smelting, STA, NPC agent, world map), runtime services (ActionRouter, SpawnService, TickEvents, EncounterGuards), and the performance/bug-fix patch stack. Content mods only write C# for mod-specific logic.
+**Theme**: The engine layer for every in-house CSFF mod — mod discovery, JSON/data loading, WarpData resolution (incl. nested arrays and non-UID SO bodies), sprite/audio/GIF/localization loading, and a large family of declarative injectors (blueprint tabs, perks, `NPCCharacterPerk`, smelting, drops, environment improvements, trading values, WorldMap nodes + connection gates, Portal Hub, STAs, NPC agents). Content mods only write C# for genuinely mod-specific logic.
 
-**Content**: ~95 C# source files across `Loading/`, `Injection/`, `Api/`, `Patching/`, `Discovery/`, `Data/`, `Triggers/`, `Wildlife/`, `Gif/`. No CardData / images / perks (utility mod). Public API surface: Tier 1 (`Reflect`, `Collections`, `Inventory`, `Gate`, `LocalizedStringBuilder`, `VanillaIds`, `CardUtil`) + Tier 2 (`ActionRouter`, `SpawnService`, `TickEvents`, `EncounterGuards`, `ContentModPlugin`). **2.7.x additions**: two-pass WorldMap node injection (no false ONE-WAY warnings), instanced-env guard in `PrepareNode`, `CardCloneService` sets `AlwaysUpdate=false` on CT4/CT8 clones, `AlwaysUpdateService` skips CT4/CT8, `RequiredStatValues` stripped from injected travel DAs, `GameQuery.CurrentEnvironment` field-or-property resolution, `SpawnService` `BindingFlags.Static` GiveCard fix, `ExplorationPopupFix` finalizer for WikiMod NREs.
+**Content** (the framework's own minimal built-in demo set): 1 item (Portal Kit `csffmfw_portal_kit`, CT0) / 1 blueprint (`Bp_PortalKit`, CT7) / 2 placed structures (Portal Hub `csffmfwportalplaced` CT2 + exit card `csffmfw_hub_exit`) / 1 perk (Arcane Wayfinder `csffmfw_perk_wayfinder`) / 2 custom images (`Portal_Kit`, `Portal_Placed`). Deliberately tiny — the framework is engine code (~132 `.cs` files), not content. Every card has custom art; no art gaps.
 
-**Stability**: 9/10 — zero critical/design issues. Both data normalizers are mod-prefix filtered, both transpilers preserve `.labels`/`.blocks`, no hot-path prefixes, no `DropCollectionGuardPatch`. The −1 is purely the two pending runtime verifications below.
+**Stability**: 9/10 — PASS. Zero open CRITICAL, zero design gaps, acquisition coverage clean (0 unreachable / 0 dead-end). Build clean (0 errors / 0 warnings), versions synced **2.22.1×3**, bin/Release sync 0 drift, localization CLEAN including Chinese parity (13/13 EN + 13/13 CN). Code-quality 10/10 (re-run 2026-08-12) and critical-analysis **SOLID (re-run 2026-08-12 against v2.22.1)**. The single point off is verification/documentation debt (see Open work), not correctness debt — the framework is exportable. The one open WARNING is developer-doc honesty (README Game Version line), not a functional defect.
 
 **Open work**:
-- 🔵 `village-path-east-travel` — **Graduated 2026-06-16**. Root causes: `GameManager.CurrentEnvironment` was field not property (always null); `WaitForSeconds` stalls at `timeScale=0`; inherited Light gate on cloned travel DA showed red X at night. All three fixed; travel matrix partially confirmed (3/10 legs ✅).
-- 🟡 `sh-wild-sheep-spawn` — TriggerLoader/TriggerService deployed; needs in-game verification (watch for `[TriggerService] initialized`, sheep appear after 1 in-game day at `SpawnChance:100`).
-- ✅ `ExplorationPopupFix` — confirmed in deployed DLL 2026-06-18; `ExplorationPopup.Setup` finalizer swallows WikiMod NREs.
+- **M6 (verify the v2.22.1 connection-gate fix, actionable — adversarial DONE, in-game pending)** — v2.22.1 (committed 2026-08-12) added `CardUtil.EnvKeyMatchesUid` and routed `IsImprovementBuilt`/`MarkImprovementBuilt`/`SealableGateService.IsTargetEnvEntry` through it, fixing the names-annotated `DictionaryKey` mismatch that left a hand-built River Bridge from unlocking the CMC River Clearing → Village Path connection and made SealableGates marker *reads* miss save-loaded entries (memory `reference_envdictkey_names_annotated_matching`). code-quality re-ran clean 2026-08-12 **and `/critical-analysis` re-ran 2026-08-12 against v2.22.1, confirming the delta SOLID / additive-only (cannot regress).** Remaining: **in-game** verify the River Bridge East unlock and a dug-open-then-reload SealableGate marker read — the one change with no in-game pass.
+- **W1 (README "Game Version" line stale again, actionable)** — `README.md:8` reads `EA 0.66d`; the repo advanced the game-data target to **EA 0.66f** on 2026-08-12 (`VanillaIds.json` `EA_0-66d`→`EA_0-66f`, commit `8201b449d` — the same v2.22.1 commit that touched README). Per CLAUDE.md §Docs-Honesty, a commit changing a compat claim should update the claim in the same commit. Developer-doc honesty only; zero runtime/player impact.
+- **M3 (README In-House Mods table, actionable)** — all 9 sibling versions stale (e.g. CMC shown `1.10.1`, actual ~`1.46.x`; Repeat Action `1.6.2`, actual `2.0.1`; MUM `2.1.2`, actual `2.1.16`). Informational cross-reference only. Bundle with W1.
+- **M7 (developer game-data path stale, actionable)** — `README.md:157-158` hardcode `Documentation/GameData/CSFF-JsonData_EA_0-65/`; CLAUDE.md §Key File Locations mandates the stable `CSFF-JsonData_Current/` alias. Bundle with W1.
+- **In-game EA 0.66 verification (unrecorded)** — the framework builds clean against the real EA 0.66 assembly, but Harmony patch-apply verification at game launch is not yet captured in any log artifact. (EA is at 0.66f per memory `project_game_version` — fold the launch check into the next play session.)
+- (RESOLVED / dropped) **W (Hub card WarpData compliance)** — **false positive**; re-verified 2026-08-12 that `csffmfw_portal_kit.json:16` and `csffmfwportalplaced.json:16` (and `Bp_PortalKit.json:92`) all carry `CardImageWarpType: 3`. No longer a Phase 1 item. **Chinese `SimpCn.csv`** — 13/13, parity CLEAN.
+- (Y) `questinjector-blueprint-reset-risk` — CMC 1.7.0 blueprint-research reset; root cause undiagnosed. Mitigated: `QuestInjector` hard-gated OFF by default (`EnableQuestInjection=false`). Not release-blocking, but blocks every quest-chain idea mod.
+- (Y) `RETRO_CLOSURE_PLAN_2026-07-23` — plan to field-exercise `SealableGates.ResealCondition` + `CharacterRosterInjector` never resumed; disposable harness fixtures deleted 2026-07-27.
+- **Shipped-but-unexercised injection paths** — `SealableGates.ResealCondition` (first CMC consumer landed via village winter snow-drift 1.35.0, unplaytested), `CharacterRosterInjector` (no consumer), `NPCCharacterPerk` loading (new 2.20.0, no consumer).
 
-**Framework compliance**: This mod *is* the framework — it provides Tier 1/Tier 2 rather than consuming them. The relevant maturity axis is its own gap-audit roadmap: **Phases 0–5 shipped** (universal type loading, STA activation, NPC validation+injection, WorldMap nodes, quests/characters). **Phase 6 (tooling/docs) is incomplete**, and the **centralization plan's Tier 3 (declarative JSON systems) is partially shipped** — `SmeltingRecipeInjector` already exists; `ForageDropInjections`/`InjectImprovementInto` are landing now (see below).
-
-> **2026-07-02 update:** `Documentation/Design/JSON_Only_Map_Kit_Analysis_and_Plan.md` found the WorldMap/portal subsystem specifically was *already* materially ahead of `Documentation/CSFF_Map_Travel_System.md` and `Documentation/Design/Unified_Map_Expansion_Design.md` §9 (both corrected in this same pass — see those files' new staleness banners). That analysis's roadmap is being implemented now: `SealableGates` (retires ACT/H&F hand-rolled gate patches), Portal Hub hardening (not a migration — the build-anywhere Portal Kit/Hub stays the one true portal mechanism, see `Documentation/Portal_Hub_System.md`), `QuestActive`/`StatThreshold`/edge-granularity gates, `ForageDropInjections`/`InjectImprovementInto`, a `CardUtil` GameManager/ImprovementBuilt dedup, an `/audit-mod` map-JSON validator, and a new Pester suite. This closes most of Phase 4's "Validation tooling" line item below and several Phase 2 items scoped to WorldMap specifically.
+**Framework compliance**: N/A in the usual sense — this **is** the framework. It *provides* Tier 1 (`Api.Reflect`/`Collections`/`Inventory`/`Gate`/`VanillaIds`/`CardUtil`/`GameQuery`), Tier 2 (`Api.ActionRouter`/`SpawnService`/`TickEvents`/`EncounterGuards`/`ContentModPlugin`), and Tier 3 (`Api.CardFinder`/`StatAccess`/`RecipeInjector`/`ContainerSort`/`BlueprintAlternates`). Code-quality is 10/10: no `DropCollectionGuardPatch`, no unfiltered hot-path prefixes, no `ModLoaderVerison`/`ModEditorVersion`, all normalizers mod-prefix-filtered, `GameManager` resolution routed through `ReflectionCache.FindTypeInAssemblyCSharp`.
 
 ---
 
-## Phase 0: Stabilize
+## Phase 0: Stabilize  *(SKIP — audit score 9/10 ≥ 8, and both open retros are yellow/Open Plan, not red)*
 
-> The `village-path-east-travel` retro is graduated. One verification and the adversarial review remain.
-
-| Item | Type | Priority | Complexity |
-|------|------|----------|------------|
-| ~~Verify `village-path-east-travel`~~ | ~~Retro close~~ | ~~P0~~ | ✅ Graduated 2026-06-16 |
-| Verify `sh-wild-sheep-spawn` in-game (boost to `SpawnChance:100`/`TriggerFrequency:96`, watch for `[TriggerService] initialized`) | Retro close | P0 | Quick (needs game launch) |
-| Verify remaining CMC village travel legs (Village Farm→VP South, VP→Village East, Village→VP West, VP→Foraging Forest South, Foraging Forest→VP North) | Travel matrix | P0 | Quick (needs game launch) |
-| Re-run `/critical-analysis CSFFModFramework` — current report is v2.5.0 (2026-06-11); 2.7.x WorldMapInjector rewrite, AlwaysUpdate fix, ForeignInstanceReconciler, ExplorationPopupFix all uncovered | Adversarial review | P0 | Quick |
-| ~~Confirm `NPCAgentActivationService` `[DIAGNOSTICS]` lines are `Log.Debug`~~ | ~~Logging norm~~ | ~~P1~~ | ✅ Verified 2026-06-18 — all at `Log.Debug` |
+Nothing release-blocking. The framework is exportable at 9/10. The one item worth doing before advertising the v2.22.1 gate fix further is the M6 **in-game** verification (a single playtest — the adversarial `/critical-analysis` half is already done), which lands in Phase 1.
 
 ---
 
 ## Phase 1: Foundation
 
-> Documentation debt is the real foundation gap here. Phases 2–5 shipped working injectors, but the authoring guides never followed — so the features are effectively unreachable by anyone but this repo.
+> Table-stakes hygiene + the one just-landed change that needs an in-game pass. All low-cost, all reduce future verification/documentation debt.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Rewrite stale `NPCAgentActivationService` docstring + `LoadOrchestrator` comment — both still call it a "diagnostics build awaiting an injector," but `InjectMissingAgents` ships and runs | Doc hygiene | P1 | Quick |
-| Confirm `FRAMEWORK_EVALUATION.md` archived to `Documentation/Retrospectives/` (audit says done — verify no stale copy in source root) | Doc hygiene | P1 | Quick |
-| **Cookbook docs** (gap audit Phase 6): `CSFF_Patterns.md` sections — Adding a Spirit, Adding a Roaming Animal, Adding a Trader, Adding a Location, Adding a Quest Chain, Adding a Character | Authoring docs | P1 | Medium |
-| `CSFF_Reference.md` + CLAUDE.md: land the corrected full CardType table (CT4=Environment, CT8=Construction, CT9=Liquid, CT10=Improvement, CT11=Damage, CT13=Invisible) — gap audit flagged this as still unwritten | Reference docs | P1 | Quick |
-| Keep version sync (ModInfo/Plugin.cs/GlobalUsing/README) — currently aligned at 2.7.1; use `Update-ModVersion.ps1` on next bump | Version hygiene | P2 | Quick |
+| **W1 + M3 + M7 — one README doc pass** — Game Version → EA 0.66f (with the 7/9 NStrip-staleness caveat); refresh the In-House Mods sibling-version table (all 9 stale); swap the hardcoded game-data path (README.md:157-158) to the `CSFF-JsonData_Current/` alias | Docs hygiene / honesty | P1 | Quick |
+| **M6** — in-game verify the CMC River Bridge → Village Path unlock and a dug-open-then-reload SealableGate marker read (the adversarial `/critical-analysis` re-run is DONE 2026-08-12, SOLID) | Runtime verify | P1 | Quick–Medium |
+| In-game EA-version verification — launch, check `LogOutput.log`/`Player.log` for `HarmonyLib` patch-apply exceptions / `MissingMethodException` during `Awake`; confirm the normal ~10–15 Info-line summary (EA at 0.66f) | Runtime verify | P1 | Quick |
+| **M2** — add `NoSafetyMode` to `csffmfw_perk_wayfinder.json` (cosmetic — do next time the file is touched) | Polish | P2 | Quick |
+| **M1** — optional: `/repair-items` to add 11 boilerplate fields to Portal Kit (no runtime impact) | Polish | P3 | Quick |
 
-> Note: the framework ships `Localization/SimpEn.csv` for its own player-facing strings (Hub Portal cards). `LocalizationLoader` loads the framework's own CSV before content-mod CSVs — ModDiscovery deliberately skips the framework dir, so the separate load path in `LocalizationLoader.InjectLocalization` is required.
+> **Resolved since the 2026-08-11 roadmap** (no longer Phase 1 items): **W (Hub `CardImageWarpType: 3`** — confirmed already present, false positive); **W2 (README Game Version → EA 0.66d, fixed 2026-08-11 — but see W1: stale again at 0.66f)**; Chinese `SimpCn.csv` (13/13, parity CLEAN); bin/Release deploy hygiene (0 drift); D16 (`WaitForSeconds` → `WaitForSecondsRealtime`), D17 breadcrumb pass, A4 (`GameManager` resolution), G4 (CardUtil catches) — all landed in earlier fix passes.
 
 ---
 
 ## Phase 2: Core Expansion
 
-> Tier 3 declarative JSON systems (centralization plan §3, targeted v2.6.0). **Correction, 2026-07-02: this phase is further along than this section's own header claimed** — `SmeltingRecipeInjector` and `DropInjector` (`DropInjections.json`) are both fully implemented and wired into `LoadOrchestrator`, not "never shipped." Their gap was zero production adoption, not missing code — the same drift pattern found across this framework's WorldMap/portal subsystem (see `Documentation/Design/JSON_Only_Map_Kit_Analysis_and_Plan.md` §3.B). Remaining Tier 3 items below (`SpawnStatDefaults`, `RecipeInjections.json`) are genuinely still unbuilt.
+> Engine features that unblock the most downstream mods. The framework's "content" is its API surface.
 
-### `DropInjections.json` (Tier 3 §3.1) — ✅ Shipped, now adopted
-**Status**: Fully implemented (`Injection/DropInjector.cs`, wired into `LoadOrchestrator` phase 5e2) since before this entry was last accurate. Schema: `{ "Locations": {"Uids"|"CardNameKeyContains"|"Tags"}, "Action": "Forage", "ActionMode": "exact"|"contains", "Drops": [{"Card","Chance","Quantity":[1,1]}] }`. Matches action names (exact or substring), idempotent append.
-**Acceptance proof (2026-07-02)**: Community_Mod_Chest migrated its `ForageInjectionPatch.AddDropsToForageActions`/`AddDrop` onto `DropInjections.json` (25 vanilla + 23 H&F soft-dependency items across two locations) — see `Community_Mod_Chest/DropInjections.json`. HerbsAndFungi's own ~400 LOC forage injection is NOT yet migrated — still open work, now unblocked by a proven real-world example instead of an untested schema.
+### Activate the loaded-but-dormant SO types
+**What**: thin injectors for `FlavourTag`, `CookingRecipeGroup`, `BookmarkGroup`, `ConstructionCardGroup`, `GameModifierPackage` — all load+register since 2.1.0 but have no activation/injection surface.
+**Why**: FlavourTag = trivial SpiceTag parity (2-field schema); `ConstructionCardGroup` (12 vanilla instances) has a named consumer (DecorationAndComfort idea mod); `CookingRecipeGroup` lets station mods register in the cooking UI properly. Closes the gap-audit Phase 1 tail.
+**Requires**: none (mirror `PerkInjector`/`BlueprintInjector`).
+**Complexity**: Medium (per type; FlavourTag is Quick).
 
-### `SpawnStatDefaults` sidecar (Tier 3 §3.5)
-**What**: A `"SpawnStatDefaults": {"SpecialDurability4": 200}` block on a card, honored by `SpawnService`'s single GiveCard postfix for **all** spawn paths (ProducedCards, OnFull, perk kits).
-**Why**: Replaces every per-mod GiveCard-postfix stat-init currently hand-written (WDI iron-bar SD4=200, ACT armor defaults, Sirus perk-kit items) and the perk-spawned-item-defaults pattern. SpawnService already owns the postfix — this is a JSON read layered on top.
-**Requires**: none (Tier 2 SpawnService already shipped).
-**Complexity**: Quick–Medium
+### First consumer + cookbook doc for `NPCCharacterPerk` (shipped 2.20.0)
+**What**: land CMC Village Guards as the acceptance proof (`NPCCharacterPerk/*.json`), then add a `CSFF_Patterns.md` "Adding a Shared-Chassis NPC Variant" cookbook entry.
+**Why**: 2.20.0 shipped the loader but no mod exercises it — a fresh shipped-but-unexercised path. The engine is only proven when a real consumer ships + playtests.
+**Requires**: CMC Village Guards build (master plan section 10.8).
+**Complexity**: Medium.
 
-### `RecipeInjections.json` (Tier 3 §3.2)
-**What**: Generalize `SmeltingRecipeInjector` beyond smelting: `{ "Stations": ["uid","tag_DryingRack"], "TemplateFrom": "first"|"<uid>", "Overrides": {"CompatibleCards","Duration","IngredientChanges"} }`. Clone-from-template CookingRecipe with duplicate detection (proven in the smelting injector).
-**Why**: Covers ACT kettle heating, WDI kiln, H&F tendon drying — three mods currently each carrying their own recipe-injection code.
+### Author-facing schema docs for the shipped Animal subsystem (`Animals/*.json`, v1)
+**What**: `CSFF_Patterns.md` cookbook entry — the code is done (`AnimalService`/`AnimalLoader`/`DutyBuilder`/lifecycle ticker) but has zero authoring guide, so it's unreachable by external authors. (Concrete engine-side next milestone is Animal M4 feed duty — see `Documentation/Plans/CSFFModFramework/Animal_System_Completion_Plan.md`.)
+**Why**: highest-value docs gap — a fully-shipped subsystem no one outside the repo can use.
 **Requires**: none.
-**Complexity**: Medium
-
-### Activate the dormant small types
-**What**: `FlavourTag`, `CookingRecipeGroup`, `BookmarkGroup` load + register since 2.1.0 but are not injected/activated. FlavourTag = trivial SpiceTag parity (2-field schema); CookingRecipeGroup lets station mods register containers in the cooking UI properly; BookmarkGroup is a UI-hotkey group append.
-**Why**: Low-risk parity wins; FlavourTag in particular unblocks H&F recipe chemistry.
-**Requires**: none.
-**Complexity**: Quick (each)
+**Complexity**: Medium.
 
 ---
 
 ## Phase 3: Integration & Depth
 
-> Unblock the content-mod categories that are stuck today, and retire the remaining duplicated C# patterns across in-house mods.
+> Cross-mod hooks and generalizations that retire duplicated per-mod C#.
 
-### Encounter activation + wiring (gap audit Phase 3 remainder)
-**What**: `Encounter` loads since 2.1.0 but nothing exercises it. Diagnostics-first: confirm the game's encounter enumeration path, verify `LoadedFromNPCStat` warp triplets resolve against mod NPCStats, and that agent `Interactions → DroppedEncounter` / CT3 event cards fire.
-**Why**: The single biggest content unlock — MagicAndSpirits, HostileEncounters, TradersAndNPCs, AnimalCompanions idea mods are all blocked on the roaming/encounter layer.
-**Requires**: diagnostics pass before any injector (debugging-discipline rule 2).
-**Complexity**: Complex
+### `ProcessAllService` (Grind All / Hammer All / Blast All)
+**What**: one declarative shape (or thin `Api` registration) for "process all inventory" buttons shared across ACT + WDI.
+**Why**: the centralization plan parked this until ActionRouter + Inventory + SpawnService landed — they now have, so it's unblocked.
+**Requires**: coordination with ACT + WDI versions.
+**Complexity**: Medium.
 
-### `ProcessAllService`
-**What**: Declarative "process all inventory" buttons — Grind All / Hammer All / Blast All share one shape across ACT + WDI. Either a JSON schema or a thin `Api` registration call on top of ActionRouter + Inventory + SpawnService.
-**Why**: The centralization plan parked this until those three Tier 2 pieces landed — they now have, so it's unblocked. Retires duplicated per-mod "process all" code.
-**Requires**: ActionRouter + Inventory + SpawnService (all shipped).
-**Complexity**: Medium
+### Fleet adoption of `DropInjections.json` + `TradingValues.json`
+**What**: H&F migrates ~400 LOC forage C# to `DropInjections.json` (CMC already did as the acceptance proof); each content mod ships a `TradingValues.json` price table (2.18.0; CMC table built, not yet deployed/tested).
+**Why**: both are shipped engine features with partial adoption — closing the fleet loop retires duplicated code and fixes vanilla 0-cost NPC trades.
+**Requires**: per-mod authoring passes.
+**Complexity**: Medium (per mod).
 
-### `ActionInjections.json` (Tier 3 §3.3)
-**What**: Clone-from-template DismantleAction via JSON using the runtime action-injection pattern: `{ "TargetCards", "CloneAction":"Forage", "NewName":{...}, "DaytimeCost", "ProducedCards" }`.
-**Why**: Removes the most common reason a content mod still ships `GameLoadPatch` C#.
-**Requires**: **Design decision** — how far to support handler-backed (inventory consume/output) actions declaratively vs. leaving those to ActionRouter C#.
-**Complexity**: Medium
+### Playtest + author-time validation for connection gates (`LockConditions` 2.20.0/2.20.2; `EnvKeyMatchesUid` 2.22.1)
+**What**: playtest CMC's `cmcStatVillageCrime` banishment gate (first `LockConditions` consumer) AND the v2.22.1 River Bridge East-unlock fix; add an author-time `/audit-environments` check for a `LockConditions`+`GateConditions` pair that can never both hold. Fold in the same author-time check for the `HideTravelDA:true`+`RestoreDAOnUnlock:false` red-X compass slot (v2.17.1 catches it only at runtime).
+**Why**: the mid-run re-eval, `LockConditions`, and post-leave env-key match paths are only load-verified; catch misconfig at export instead of in a player save.
+**Requires**: none.
+**Complexity**: Medium.
 
-### `GameSourceModify` nested-append (Tier 3 §3.4)
-**What**: Extend `_appendArrays` to dotted paths one level into structs/objects: `InventoryFilter.TagFilters`, `PlantationCards`, `DismantleActions[name=Forage].ProducedCards`.
-**Why**: Lets mods extend vanilla card sub-collections without C#; today the array-zeroing guard only protects top-level arrays.
-**Requires**: **Design decision** — path-expression syntax and target-shape validation before mutating vanilla objects.
-**Complexity**: Medium
-
-### `Api.ModState` save-persistent helper
-**What**: A keyed save-blob API for mod state the card system can't hold (NPC trust, companion morale, world-hardship toggles).
-**Why**: Several idea mods (companions, traders, world-difficulty) need persistence beyond stats-on-cards.
-**Requires**: **Design decision** — piggyback the game's save stream vs. a sidecar file keyed to the save slot; mod-removal safety is the hard part.
-**Complexity**: Complex
+### Root-cause QuestInjector so its default-OFF gate can flip back on
+**What**: run the single-variable graduation test (enable → ship a quest → save → reload); if the reset recurs, the fix likely lives next to `ForeignInstanceReconciler`.
+**Why**: every quest-chain idea mod is dead behind the gate.
+**Requires**: read `questinjector-blueprint-reset-risk.md` in full first; re-author `RETRO_CLOSURE_PLAN` Phase 0 (harness deleted 2026-07-27).
+**Complexity**: Complex.
 
 ---
 
 ## Phase 4: Polish
 
-> The framework has no art to polish — "polish" here is authoring ergonomics, validation, and the runtime hooks that make injected content robust.
+> Art, animation, text. Minimal for an engine mod.
 
 | Item | What | Complexity |
 |------|------|------------|
-| Validation tooling (gap audit Phase 6) | Extend `/audit-mod` to validate NPC/Encounter/STA/Quest/Map JSON: GUID resolution, required fields, bidirectional map-link symmetry, encounter stat sanity. Reuse WarpResolver unresolved-ref reporting where possible | Medium |
-| `InGameMapWindow.Show` postfix hook | Standing remedy from `village-path-east-travel`: if the map UI builds its node list before load-time injection, re-apply at UI-open time (mirrors the `BlueprintModelsScreen.Show` lesson). Gate on the Phase 0 verification result | Medium |
-| Change events on `TickEvents` | `GameQuery` reads season/weather/moon and `TickEvents` fires DtpTick/DayRollover, but there are no *change* events. Add year-rollover / season-change / weather-change via cheapest poll-and-diff in the existing Update loop | Medium |
+| Portal Hub GIF | Optional idle animation on the placed CT2 active state | Medium |
+| Description pass | Spot-check the 4 Hub cards + Wayfinder perk descriptions against actual behavior after the 2.20.x/2.22.x gate changes | Quick |
+
+*No missing/placeholder art — both custom cards (`Portal_Kit`, `Portal_Placed`) ship real PNGs. Chinese localization complete (13/13).*
 
 ---
 
@@ -132,14 +119,14 @@ Audit score: 9/10 (utility mod — `/audit-mod CSFFModFramework`, 2026-06-13; re
 
 > Where the framework should be at v3.0.
 
-By v3.0 the framework should make **every vanilla content category authorable in JSON-first form** — not just the item economy. Phases 0–5 already load and inject all 15+ UniqueIDScriptable types; the v3.0 milestone is closing the loop so that a third-party author (not just this repo) can ship a complete spirit, roaming animal, location, or scenario character using only declarative JSON + documented patterns, with `/audit-mod` validating it and a save-compat harness proving mod-removal safety. Tier 3 declarative systems (Phase 2) plus the cookbook docs (Phase 1) plus encounter activation (Phase 3) are the three legs of that goal; the runtime services (Tier 2) are already in place.
+The framework's endpoint is a **fully declarative content pipeline**: every vanilla-adjacent content type (animals, encounters, quests, characters, cooking recipes, construction groups, difficulty packages) authored purely in JSON with a matching `CSFF_Patterns.md` cookbook entry and an author-time validator, so a content-mod author never writes reflection C# for a supported type. Today ~half the injectors are shipped-but-undocumented or shipped-but-unexercised; closing that gap (docs + a save-compat test harness for the add → save → remove-mod → load matrix) is the single biggest robustness win. The generalization of one-rule subsystems (`WildlifeRaidService` → `Api.Raid`/`Raids.json`) and a save-persistent `Api.ModState` helper are the natural v3.0 additions once the current dormant-type + verification-debt backlog clears.
 
 **Potential major additions** (not yet justified — revisit after Phase 3):
-- **`CompanionService` (Tier 4, parked)** — pet hunger/thirst/morale sim with auto-feed/auto-drink from the board on `TickEvents`. Only Sirus needs it today; build when a second consumer appears, to retire Sirus's polling loop.
-- **Save-compat test harness** — scripted save fixtures for the add-character/agent/quest → save → remove-mod → load matrix. The highest-risk gap across Phases 3–5; surfacing regressions before ship rather than in player saves becomes essential once third parties depend on injection.
-- **UI extension hooks** (from `IDEAS.md`) — safer extension points for 12h clock, status-bar modes, action-button colors, map overlays, container capacity/sealed indicators.
+- **Save-compat test harness** — scripted save fixtures so injection regressions (the QuestInjector class of bug) surface before ship, not in player saves. Highest-risk gap.
+- **`Api.ModState`** — keyed save-persistent blob for mod state the card system can't hold (NPC trust, companion morale, world-hardship toggles).
+- **Encounter activation + wiring** — Encounter loads since 2.1.0 but nothing exercises it; unblocks every spirit/hostile-encounter idea mod. Diagnostics-first.
 
-These live in `Documentation/Ideas/CSFFModFramework/IDEAS.md` (already specced) and the centralization plan `Documentation/CSFFMFW_Centralization_Plan_2026-06-09.md`.
+These live in `Documentation/Ideas/CSFFModFramework/IDEAS.md` (already spec'd).
 
 ---
 
@@ -147,27 +134,21 @@ These live in `Documentation/Ideas/CSFFModFramework/IDEAS.md` (already specced) 
 
 | Trigger | Action |
 |---------|--------|
-| After any new injector/service phase | Run `/audit-mod CSFFModFramework` and update this roadmap |
-| After shipping a Tier 3 JSON system | Migrate one consumer mod onto it as the acceptance proof (the Tier 1/2 retrofit discipline: CMC → Sirus → ACT → H&F → WDI), then delete the replaced C# |
-| Game version update | Re-extract via `/extract-latest-carddata` (regenerates `Api.VanillaIds`), `/update-mod-version`, check CLAUDE.md EA-version notes, re-run `/diagnose-log` |
+| After any new content phase | Run `/audit-mod CSFFModFramework` and update this roadmap |
+| Game version update | Swap `lib/Assembly-CSharp.dll` for the new game binary FIRST, rebuild, diff every `[HarmonyPatch(typeof(...))]` target, run `/update-mod-version`, re-run `/diagnose-log` (the P4 lesson) |
 | After fixing a critical issue | Run `/critical-analysis CSFFModFramework` to verify the fix |
-| Before tagging a release | Confirm version sync across ModInfo.json / Plugin.cs / GlobalUsing.cs / README.md, then `/export-to-repo CSFFModFramework` |
-| Whenever a content mod still re-implements a framework pattern | Treat it as a centralization candidate — promote to a shared `Api`/injector |
+| After Phase 2 complete | Run `/export-to-repo CSFFModFramework` and bump minor version |
+| Fleet EA-version bump | Every one of the other 9 mods ships its own independently-stale `lib/Assembly-CSharp.dll` — any with compile-time `[HarmonyPatch(typeof(...))]` attributes needs the same lib-swap-and-rebuild (7 of 9 use NStrip'd libs that must be regenerated externally, not copied) |
 
 ---
 
 ## Skill Cheatsheet for This Mod
 
 ```
-/audit-mod CSFFModFramework         — full health check, updates .audit/ (utility-mod aware)
-/critical-analysis CSFFModFramework — adversarial review (re-run for 2.7.1 — current report is 2.5.0)
+/audit-mod CSFFModFramework         — full health check, updates .audit/
+/critical-analysis CSFFModFramework — adversarial review
 /build-mod CSFFModFramework         — build Release DLL
-/deploy-mods CSFFModFramework       — build + deploy to BepInEx/plugins/CSFF_Mod_Framework/
-                                      (deploy framework FIRST so content mods load against fresh code)
-/extract-latest-carddata            — re-extract game data + regenerate Api.VanillaIds on game updates
-/update-mod-version CSFFModFramework <ver> — bump version in all authoritative files
-/export-to-repo CSFFModFramework    — push to public repo (validates version sync first)
-/resolve-retro <slug>               — close sh-wild-sheep-spawn after in-game verification (village-path-east-travel already graduated 2026-06-16)
+/deploy-mods CSFFModFramework       — build + deploy to game (or Deploy-Mods.ps1 -CSFFMFW)
+/update-mod-version CSFFModFramework <ver> — bump version in all files
+/export-to-repo CSFFModFramework    — push to public repo
 ```
-
-> Item/blueprint/structure/perk repair skills are N/A — the framework ships no CardData.

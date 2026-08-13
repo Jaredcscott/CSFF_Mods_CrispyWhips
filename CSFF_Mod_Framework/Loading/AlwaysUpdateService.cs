@@ -32,7 +32,7 @@ internal static class AlwaysUpdateService
         var cardTypeField = AccessTools.Field(typeof(CardData), "CardType");
 
         // For all OTHER mod cards we always want AlwaysUpdate = true.
-        int updated = 0, skippedEnvNodes = 0;
+        int updated = 0, skippedEnvNodes = 0, corrected = 0;
         foreach (var item in allData)
         {
             if (!(item is CardData card)) continue;
@@ -42,6 +42,30 @@ internal static class AlwaysUpdateService
             if (IsEnvNode(cardTypeField, card))
             {
                 skippedEnvNodes++;
+
+                // Actively force AlwaysUpdate=false rather than merely skipping the true-forcing
+                // pass below. A mod-authored CT4/CT8 card shipped with AlwaysUpdate:true (the
+                // vanilla env/explorable default, or an authoring copy-paste mistake) is the exact
+                // travel-softlock precondition CardCloneService.CloneCard already force-corrects
+                // for CLONED env nodes at clone time (see its comment ~182-194) — this closes the
+                // same hole for mod-authored nodes that were never cloned (CMC's 7 interior CT8
+                // locations shipped AlwaysUpdate:true for a month before the data was hand-fixed;
+                // root CLAUDE.md §WorldMap; memory reference_alwaysupdate_env_node_follow).
+                bool current;
+                try { current = alwaysUpdateField.GetValue(card) is true; }
+                catch (Exception ex)
+                {
+                    Log.Debug($"AlwaysUpdateService: AlwaysUpdate read failed for '{card.UniqueID}': {Log.ExceptionText(ex)}");
+                    continue;
+                }
+
+                if (current)
+                {
+                    alwaysUpdateField.SetValue(card, false);
+                    corrected++;
+                    Log.Info($"AlwaysUpdateService: corrected '{card.UniqueID}' (CT4/CT8) from AlwaysUpdate=true to false " +
+                             "— a mod-authored env/explorable node must not follow the player between environments (travel softlock risk).");
+                }
                 continue;
             }
 
@@ -51,7 +75,7 @@ internal static class AlwaysUpdateService
 
         if (updated > 0 || skippedEnvNodes > 0)
             Log.Debug($"AlwaysUpdateService: enabled ticking on {updated} mod cards " +
-                      $"({skippedEnvNodes} env/explorable node(s) skipped)");
+                      $"({skippedEnvNodes} env/explorable node(s) skipped, {corrected} corrected from AlwaysUpdate=true)");
     }
 
     // CardTypes enum (EA 0.64f): Environment=4, Explorable=8 — see Documentation/CSFF_Reference.md.
@@ -63,6 +87,6 @@ internal static class AlwaysUpdateService
             int ct = Convert.ToInt32(cardTypeField.GetValue(card));
             return ct == 4 || ct == 8;
         }
-        catch { return false; }
+        catch (Exception ex) { Log.Debug($"AlwaysUpdateService: CardType read threw for '{card?.UniqueID}': {Log.ExceptionText(ex)}"); return false; }
     }
 }

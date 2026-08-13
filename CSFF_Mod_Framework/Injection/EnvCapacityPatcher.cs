@@ -91,7 +91,7 @@ internal static class EnvCapacityPatcher
         var fi = FindField(type, fieldName);
         if (fi == null) return false;
         try { fi.SetValue(target, value); return true; }
-        catch { return false; }
+        catch (Exception ex) { Log.Debug($"EnvCapacityPatcher: set '{fieldName}' threw: {Log.ExceptionText(ex)}"); return false; }
     }
 
     private static FieldInfo FindField(Type type, string name)

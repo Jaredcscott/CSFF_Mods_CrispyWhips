@@ -53,7 +53,10 @@ internal class ModManifest
     /// parses <c>BlueprintTabs.json</c>, <c>SmeltingRecipes.json</c>, <c>DropInjections.json</c>,
     /// <c>InjectImprovementInto.json</c>, <c>WorldMap/MapNodes.json</c>/<c>FullMap.json</c>,
     /// <c>EncounterGuards/*.json</c>, <c>Quests.json</c>, <c>Characters.json</c>,
-    /// <c>WorldMap/HubPortals.json</c>, <c>MapMod.json</c>, or <c>Animals/*.json</c>. Some mods are exported by the
+    /// <c>WorldMap/HubPortals.json</c>, <c>MapMod.json</c>, <c>Animals/*.json</c>,
+    /// <c>TradingValues.json</c>, or a <c>GameSourceModify/</c> patch using the framework's
+    /// bulk-match extension (<c>MatchTagWarpData</c>/<c>MatchTypeWarpData</c> — Pikachu's own
+    /// GameSourceModify only supports single-UID targeting). Some mods are exported by the
     /// ModEditor tool with <see cref="ModLoaderVerison"/> stamped in regardless of which loader
     /// they actually target; when one of these framework-exclusive files is present, the mod is
     /// framework-format content mistagged as ModLoader-native. See ModDiscovery.DiscoverMods,
@@ -62,7 +65,7 @@ internal class ModManifest
     public bool HasFrameworkOnlyMarkers =>
         HasBlueprintTabs || HasSmeltingRecipes || HasDropInjections || HasImprovementInjections ||
         HasWorldMapNodes || HasEncounterGuards || HasQuestManifest || HasCharacterManifest ||
-        HasHubPortals || HasMapMod || HasAnimals;
+        HasHubPortals || HasMapMod || HasAnimals || HasTradingValues || HasGSMTagOrTypeMatch;
 
     // ── Feature flags (populated by ModDiscovery after JSON parse; never deserialized) ──
     // These let LoadOrchestrator skip phases whose content isn't present in any mod.
@@ -86,6 +89,7 @@ internal class ModManifest
     [NonSerialized] public bool HasHubPortals;          // WorldMap/HubPortals.json
     [NonSerialized] public bool HasMapMod;              // MapMod.json (portal world registration)
     [NonSerialized] public bool HasAnimals;             // Animals/*.json (declarative animal species)
+    [NonSerialized] public bool HasTradingValues;       // TradingValues.json (bulk CardData.TradingValue repricing)
 
     public static ModManifest FromJson(string json, string directoryPath)
     {

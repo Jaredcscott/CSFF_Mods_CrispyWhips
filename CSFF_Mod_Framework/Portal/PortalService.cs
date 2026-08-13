@@ -49,12 +49,21 @@ internal static class PortalService
         {
             if (world.Index == 0 || string.IsNullOrEmpty(world.EnvironmentUID)) continue;
 
-            // Clone-env worlds (registered via MapNodes.json — e.g. ACT's mining caves) are reached
-            // by world-map travel and carry their own injected travel DAs and a one-way map exit back
-            // to the vanilla world. Injecting the portal-return "Exit" card (csffmfw_hub_exit) into
-            // them clutters the mining board and duplicates the existing map exit, so skip them.
-            // See Documentation/Retrospectives/act-cave-mining-drops.md.
-            if (WorldMapInjector.IsCloneEnvNode(world.EnvironmentUID))
+            // Clone-env worlds (registered via MapNodes.json — e.g. ACT's mining caves, H&F's
+            // foraging path) are reached by world-map travel and MAY carry their own authored exit
+            // back to vanilla (a VanillaExits compass exit, or a plain Connections edge straight to
+            // a non-clone environment) — injecting the portal-return "Exit" card there would clutter
+            // the board and duplicate the existing exit, so those keep the skip. See
+            // Documentation/Retrospectives/act-cave-mining-drops.md.
+            //
+            // BUT a clone env can ALSO be a MapMod.json portal destination with NO such exit — every
+            // Connections entry it has points only at sibling clone nodes, and the sole route back
+            // toward vanilla is behind a ConnectionGate the player may never satisfy (CMC's
+            // cmcEnvVillage: gated on the river bridge being built or a trait perk). Teleporting
+            // there via the Portal Hub then strands the player with no return card AND no walkable
+            // way out. WorldMapInjector.CloneNodeHasOwnExit distinguishes the two cases — only skip
+            // when the node actually has its own way out.
+            if (WorldMapInjector.IsCloneEnvNode(world.EnvironmentUID) && WorldMapInjector.CloneNodeHasOwnExit(world.EnvironmentUID))
             {
                 Log.Debug($"[PortalService] skipping hub_exit injection for clone-env world '{world.WorldName}' ('{world.EnvironmentUID}') — reached by map travel, has its own exit");
                 continue;
@@ -74,10 +83,26 @@ internal static class PortalService
 
     private static MethodInfo _addCardFromSourceMethod;
 
-    private static void StartEnvironmentTravel(CardData cardData, object sourceCard, string worldName)
+    // Session-scoped: the environment the player was standing in just before their last
+    // outbound Portal Hub trip. Backs the "Return to Portal" button on csffmfw_hub_exit —
+    // see StartReturnTravel. Not persisted across a save reload; re-captured fresh on every
+    // outbound trip, so it self-corrects and a reload just means "no return recorded yet."
+    private static string _returnEnvUid;
+
+    private static void StartEnvironmentTravel(CardData cardData, object sourceCard, string worldName, bool recordReturn = false)
     {
         if (cardData == null)
             return;
+
+        if (recordReturn)
+        {
+            var currentUid = GameQuery.CurrentEnvironmentUniqueId;
+            if (!string.IsNullOrEmpty(currentUid) && currentUid != cardData.UniqueID)
+            {
+                _returnEnvUid = currentUid;
+                Log.Debug($"[PortalService] recorded return env '{_returnEnvUid}' before traveling to '{worldName}'");
+            }
+        }
 
         Log.Debug($"[PortalService] hub travel button clicked: '{worldName}' -> '{cardData.UniqueID}'");
 
@@ -398,13 +423,61 @@ internal static class PortalService
                 CardUid         = HubPlacedUid,
                 ActionKeyPrefix = $"{DaKeyPrefix}{world.Index}",
                 Timing          = ActionTiming.AfterWrapped,
-                After           = ctx => StartEnvironmentTravel(captured, ctx.Card, capturedName),
+                After           = ctx => StartEnvironmentTravel(captured, ctx.Card, capturedName, recordReturn: true),
             });
             registered++;
             Log.Debug($"[PortalService] hub travel handler registered: world {world.Index} '{world.WorldName}' → '{targetUid}'");
         }
         if (registered > 0)
             Log.Info($"[PortalService] {registered} hub travel handler(s) registered");
+    }
+
+    // ─── "Return to Portal" handler ──────────────────────────────────────────
+
+    private const string HubExitActionKey = "CSFFMFW_HubExit_DA_Exit";
+
+    /// <summary>
+    /// <strong>Run-start (<c>OnGMInitialized</c>).</strong> Registers the <see cref="ActionRouter"/>
+    /// handler for csffmfw_hub_exit's "Exit" DA. The card's JSON originally used vanilla
+    /// <c>TravelToPreviousEnv</c>, but that only works when the CURRENT environment has a
+    /// <c>ParentEnvs</c> chain (i.e. is an instanced env reached by an actual travel transition)
+    /// — every registered mod hub (cmcEnvVillage, actTinCaveEnv, hfEnvForagingPath, ...) is a
+    /// normal non-instanced WorldMap node, so <c>WillProduceCards()</c> always evaluated false
+    /// there and the "Return to Portal" button never rendered at all (DaytimeCost is 0, so
+    /// nothing else made WillHaveAnEffect() true either — see csffmfw_hub_exit.json's AlwaysShow).
+    /// This handler drives the return trip explicitly via the env UID recorded by
+    /// <see cref="StartEnvironmentTravel"/> on the way out.
+    /// </summary>
+    internal static void RegisterHubExitHandler()
+    {
+        ActionRouter.Register(new ActionHandler
+        {
+            Name            = "PortalHub_Exit",
+            CardUid         = HubExitUid,
+            ActionKeyPrefix = HubExitActionKey,
+            Timing          = ActionTiming.AfterWrapped,
+            After           = ctx => StartReturnTravel(ctx.Card),
+        });
+        Log.Debug("[PortalService] hub exit return handler registered");
+    }
+
+    private static void StartReturnTravel(object sourceCard)
+    {
+        if (string.IsNullOrEmpty(_returnEnvUid))
+        {
+            Log.Warn("[PortalService] 'Return to Portal' clicked but no return environment is recorded "
+                + "this session (player likely didn't arrive here via a Portal Hub trip) — no-op.");
+            return;
+        }
+
+        var returnCard = GameRegistry.GetByUid(_returnEnvUid) as CardData;
+        if (returnCard == null)
+        {
+            Log.Warn($"[PortalService] 'Return to Portal': recorded env UID '{_returnEnvUid}' not found in registry — no-op.");
+            return;
+        }
+
+        StartEnvironmentTravel(returnCard, sourceCard, "Portal");
     }
 
     // ─── Misc helpers ────────────────────────────────────────────────────────
@@ -427,6 +500,6 @@ internal static class PortalService
             if (field.FieldType == typeof(float)) field.SetValue(obj, (float)value);
             else field.SetValue(obj, value);
         }
-        catch { /* leave default */ }
+        catch (Exception ex) { Log.Debug($"[PortalService] SetIntOrFloat: set failed for field '{field.Name}' — leaving default: {ex.GetType().Name} {ex.Message}"); }
     }
 }

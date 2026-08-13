@@ -190,10 +190,19 @@ internal static class WorldMapLoader
     /// <summary>One condition inside a <see cref="ConnectionGateDefinition"/>.</summary>
     internal sealed class GateConditionDefinition
     {
-        /// <summary>"PerkEquipped", "ImprovementBuilt", or "StatThreshold".</summary>
+        /// <summary>"Always", "PerkEquipped", "ImprovementBuilt", "StatThreshold", or "Season".
+        /// "Always" is unconditionally true — for a <c>SealTrigger</c>, use it when a gate should
+        /// be sealed by default for every player rather than only once some perk/state is
+        /// reached (e.g. a challenge wall meant to block ALL players, including those on an
+        /// existing save who install the mod without ever taking a specific perk).</summary>
         public string Type;
-        /// <summary>Perk UniqueID (PerkEquipped), improvement UniqueID (ImprovementBuilt), or
-        /// GameStat UniqueID (StatThreshold).</summary>
+        /// <summary>Perk UniqueID (PerkEquipped), improvement UniqueID (ImprovementBuilt), GameStat
+        /// UniqueID (StatThreshold), or a season name — "Spring"|"Summer"|"Autumn"|"Winter",
+        /// case-insensitive (Season) — compared against <c>Api.GameQuery.CurrentSeason</c>.
+        /// <para>Not the same shape as <see cref="ConditionalDropDefinition"/>'s "SeasonRange" (a
+        /// numeric 1-4 index range used in a different JSON context, <c>ConditionalDrops</c>, not
+        /// <c>SealTrigger</c>/<c>ConnectionGates.GateConditions</c>) — don't conflate the two.</para>
+        /// </summary>
         public string UID;
         /// <summary>Environment UniqueID where the improvement must be built (ImprovementBuilt only).</summary>
         public string EnvUID;
@@ -217,6 +226,13 @@ internal static class WorldMapLoader
         public List<GateConditionDefinition> GateConditions = new();
         /// <summary>"ANY" (any condition met → open) or "ALL" (all conditions must be met).</summary>
         public string GateLogic = "ANY";
+        /// <summary>Conditions that force the gate LOCKED when met, overriding
+        /// <see cref="GateConditions"/> entirely (any one met → locked; no logic mode).
+        /// Lets a second, negative axis close a connection an improvement/perk gate would
+        /// otherwise hold open — e.g. a StatThreshold on a crime/notoriety stat (CMC Village
+        /// Guards banishment) — without registering a second, conflicting gate on the same
+        /// <see cref="ConnectionUID"/>. Empty = no lock override. (2.20.0)</summary>
+        public List<GateConditionDefinition> LockConditions = new();
         /// <summary>When true (default), removes the travel DA pointing toward
         /// <see cref="ConnectionUID"/> from <see cref="NeighborCt8UID"/> while the gate is closed.</summary>
         public bool HideTravelDA = true;
@@ -303,8 +319,16 @@ internal static class WorldMapLoader
         /// from <c>Api.WorldMap.InjectedEdges</c> (same convention as <c>ConnectionGates</c>).</summary>
         public string NeighborCt8UID;
         /// <summary>Condition that causes this gate to seal. Reuses the same condition shape as
-        /// <c>ConnectionGates</c> (Type: "PerkEquipped" | "ImprovementBuilt" | "StatThreshold").
-        /// Players who never meet this condition are never gated.</summary>
+        /// <c>ConnectionGates</c> (Type: "PerkEquipped" | "ImprovementBuilt" | "StatThreshold" |
+        /// "Season"). Players who never meet this condition are never gated.
+        /// <para><b>"Season" is the first non-monotonic trigger shipped</b> — unlike
+        /// PerkEquipped/ImprovementBuilt, it legitimately flips true→false→true every year. This
+        /// is why <see cref="Injection.SealableGateService"/>'s <c>OnPoll</c> tracks a per-gate
+        /// trigger-active transition (forces one extra <c>ConnectionGateService.EvaluateAll()</c>
+        /// when the trigger goes false, so a road nobody dug through still reopens once the
+        /// season ends) and why <c>CheckResealTimer</c> no longer gates on a session-scoped
+        /// "cleared" flag before checking elapsed days — both needed once a trigger can go false
+        /// again within the same play session.</para></summary>
         public GateConditionDefinition SealTrigger;
         /// <summary>UniqueID of the challenge card (wall/barrier/overgrowth) that appears while
         /// sealed and not yet cleared.</summary>
@@ -829,25 +853,30 @@ internal static class WorldMapLoader
                 NeighborCt8UID    = GetString(gd, "NeighborCt8UID"),
                 Granularity       = GetString(gd, "Granularity") ?? "Env",
             };
-            if (gd.TryGetValue("GateConditions", out var rawConds) && rawConds is List<object> conds)
-            {
-                foreach (var ci in conds)
-                {
-                    if (ci is not Dictionary<string, object> cd) continue;
-                    gate.GateConditions.Add(new GateConditionDefinition
-                    {
-                        Type       = GetString(cd, "Type"),
-                        UID        = GetString(cd, "UID"),
-                        EnvUID     = GetString(cd, "EnvUID"),
-                        Value      = GetFloat(cd, "Value", 0f),
-                        Comparison = GetString(cd, "Comparison") ?? "GreaterOrEqual",
-                    });
-                }
-            }
+            ReadGateConditions(gd, "GateConditions", gate.GateConditions);
+            ReadGateConditions(gd, "LockConditions", gate.LockConditions);
             list.Add(gate);
         }
         return list.Count > 0 ? list : null;
     }
+
+    private static void ReadGateConditions(
+        Dictionary<string, object> gd, string key, List<GateConditionDefinition> into)
+    {
+        if (!gd.TryGetValue(key, out var raw) || raw is not List<object> conds) return;
+        foreach (var ci in conds)
+            if (ci is Dictionary<string, object> cd) into.Add(ParseGateCondition(cd));
+    }
+
+    private static GateConditionDefinition ParseGateCondition(Dictionary<string, object> cd) =>
+        new()
+        {
+            Type       = GetString(cd, "Type"),
+            UID        = GetString(cd, "UID"),
+            EnvUID     = GetString(cd, "EnvUID"),
+            Value      = GetFloat(cd, "Value", 0f),
+            Comparison = GetString(cd, "Comparison") ?? "GreaterOrEqual",
+        };
 
     private static List<ConditionalDropDefinition> ParseConditionalDrops(
         Dictionary<string, object> d, string modName)
@@ -932,14 +961,7 @@ internal static class WorldMapLoader
 
             if (gd.TryGetValue("SealTrigger", out var rawTrig) && rawTrig is Dictionary<string, object> td)
             {
-                gate.SealTrigger = new GateConditionDefinition
-                {
-                    Type       = GetString(td, "Type"),
-                    UID        = GetString(td, "UID"),
-                    EnvUID     = GetString(td, "EnvUID"),
-                    Value      = GetFloat(td, "Value", 0f),
-                    Comparison = GetString(td, "Comparison") ?? "GreaterOrEqual",
-                };
+                gate.SealTrigger = ParseGateCondition(td);
             }
             else
             {
@@ -1070,6 +1092,7 @@ internal static class WorldMapLoader
 
     private static float ToFloat(object v, float def = 0f)
     {
-        try { return Convert.ToSingle(v); } catch { return def; }
+        try { return Convert.ToSingle(v); }
+        catch (Exception ex) { Log.Debug($"WorldMapLoader.ToFloat: conversion failed for value '{v}': {ex.GetType().Name} {ex.Message}"); return def; }
     }
 }

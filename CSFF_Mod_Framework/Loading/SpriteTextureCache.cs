@@ -135,7 +135,7 @@ internal static class SpriteTextureCache
         var t0 = Stopwatch.GetTimestamp();
         byte[] buf;
         try { buf = File.ReadAllBytes(_bundlePath); }
-        catch { return; } // missing — that's fine, bundle is optional
+        catch (Exception ex) { Log.Debug($"SpriteTextureCache: bundle.bin not found or unreadable, skipping: {ex.GetType().Name} {ex.Message}"); return; } // missing — that's fine, bundle is optional
         Interlocked.Add(ref BundleLoadTicks, Stopwatch.GetTimestamp() - t0);
 
         try
@@ -231,7 +231,7 @@ internal static class SpriteTextureCache
             pngMtime = info.LastWriteTimeUtc.Ticks;
             pngLength = info.Length;
         }
-        catch { return false; }
+        catch (Exception ex) { Log.Debug($"SpriteTextureCache: FileInfo stat failed for {pngPath} (bundle path): {ex.GetType().Name} {ex.Message}"); return false; }
         Interlocked.Add(ref PngStatTicks, Stopwatch.GetTimestamp() - t1);
 
         if (entry.PngMtime != pngMtime || entry.PngLength != pngLength)
@@ -240,7 +240,7 @@ internal static class SpriteTextureCache
             // and the entry's hash are cheaper to compare than re-decoding.
             byte[] pngBytes;
             try { pngBytes = File.ReadAllBytes(pngPath); }
-            catch { return false; }
+            catch (Exception ex) { Log.Debug($"SpriteTextureCache: hash-rescue read failed for {pngPath} (bundle path): {ex.GetType().Name} {ex.Message}"); return false; }
             if (pngBytes.LongLength != entry.PngLength) return false;
             using var md5 = MD5.Create();
             var actualHash = md5.ComputeHash(pngBytes);
@@ -274,8 +274,9 @@ internal static class SpriteTextureCache
             QueueBundleEntry(entry); // re-record so it stays in next bundle
             return true;
         }
-        catch
+        catch (Exception ex)
         {
+            Log.Debug($"SpriteTextureCache: texture create/load failed for {pngPath} (bundle path): {ex.GetType().Name} {ex.Message}");
             if (texture != null) UnityEngine.Object.Destroy(texture);
             texture = null;
             return false;
@@ -290,7 +291,7 @@ internal static class SpriteTextureCache
         var t0 = Stopwatch.GetTimestamp();
         byte[] buf;
         try { buf = File.ReadAllBytes(cachePath); }
-        catch { return false; }
+        catch (Exception ex) { Log.Debug($"SpriteTextureCache: per-file cache read failed for {cachePath}: {ex.GetType().Name} {ex.Message}"); return false; }
         Interlocked.Add(ref CacheReadTicks, Stopwatch.GetTimestamp() - t0);
 
         // Per-file header: magic(4) version(4) mtime(8) length(8) hash(16) w(4) h(4) format(4) byteCount(4) = 56
@@ -317,7 +318,7 @@ internal static class SpriteTextureCache
             pngMtime = pngInfo.LastWriteTimeUtc.Ticks;
             pngLength = pngInfo.Length;
         }
-        catch { return false; }
+        catch (Exception ex) { Log.Debug($"SpriteTextureCache: FileInfo stat failed for {pngPath} (per-file path): {ex.GetType().Name} {ex.Message}"); return false; }
         Interlocked.Add(ref PngStatTicks, Stopwatch.GetTimestamp() - t1);
 
         bool fastMatch = storedMtime == pngMtime && storedLength == pngLength;
@@ -325,7 +326,7 @@ internal static class SpriteTextureCache
         {
             byte[] pngBytes;
             try { pngBytes = File.ReadAllBytes(pngPath); }
-            catch { return false; }
+            catch (Exception ex) { Log.Debug($"SpriteTextureCache: hash-rescue read failed for {pngPath} (per-file path): {ex.GetType().Name} {ex.Message}"); return false; }
             if (pngBytes.LongLength != storedLength) return false;
             using var md5 = MD5.Create();
             var actualHash = md5.ComputeHash(pngBytes);
@@ -378,8 +379,9 @@ internal static class SpriteTextureCache
             _anyEntryChanged = true;
             return true;
         }
-        catch
+        catch (Exception ex)
         {
+            Log.Debug($"SpriteTextureCache: texture create/load failed for {pngPath} (per-file path): {ex.GetType().Name} {ex.Message}");
             if (texture != null) UnityEngine.Object.Destroy(texture);
             texture = null;
             return false;
@@ -408,7 +410,7 @@ internal static class SpriteTextureCache
                 mtime = info.LastWriteTimeUtc.Ticks;
                 length = info.Length;
             }
-            catch { mtime = 0; length = pngBytes.LongLength; }
+            catch (Exception ex) { Log.Debug($"SpriteTextureCache: FileInfo stat failed for {pngPath} in SaveAsync: {ex.GetType().Name} {ex.Message}"); mtime = 0; length = pngBytes.LongLength; }
 
             // Compute hash on main thread so we can record the bundle entry immediately.
             // (MD5 of the PNG bytes is fast — same cost as the per-file writer doing it.)
@@ -603,13 +605,15 @@ internal static class SpriteTextureCache
         catch (Exception ex)
         {
             Log.Warn($"SpriteTextureCache: failed to write bundle: {Log.ExceptionText(ex)}");
-            try { if (File.Exists(tmp)) File.Delete(tmp); } catch { }
+            try { if (File.Exists(tmp)) File.Delete(tmp); }
+            catch (Exception delEx) { Log.Debug($"SpriteTextureCache: cleanup of temp bundle file {tmp} failed: {delEx.GetType().Name} {delEx.Message}"); }
         }
     }
 
     private static void TryDelete(string path)
     {
-        try { File.Delete(path); } catch { }
+        try { File.Delete(path); }
+        catch (Exception ex) { Log.Debug($"SpriteTextureCache: TryDelete failed for {path}: {ex.GetType().Name} {ex.Message}"); }
     }
 
     [ThreadStatic] private static MD5 _md5;

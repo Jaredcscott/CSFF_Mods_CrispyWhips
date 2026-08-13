@@ -51,8 +51,8 @@ internal static class TriggerService
             if (!TryCompleteOneTimeSetup()) return;
         }
 
-        // Drain deferred spawns the moment the player exits an instanced environment.
-        bool isInstanced = Api.GameQuery.IsInInstancedEnvironment;
+        // Drain deferred spawns the moment the player steps back onto a plain outdoor board.
+        bool isInstanced = !Api.GameQuery.IsOutdoors;
         if (_wasInstanced && !isInstanced && _pendingSpawns.Count > 0)
         {
             DrainPendingSpawns();
@@ -145,7 +145,7 @@ internal static class TriggerService
 
     private static void OnDayRollover()
     {
-        bool isInstanced = Api.GameQuery.IsInInstancedEnvironment;
+        bool isInstanced = !Api.GameQuery.IsOutdoors;
         foreach (var def in TriggerLoader.LoadedTriggers)
         {
             def.DaysAccumulated += 1f;
@@ -211,10 +211,10 @@ internal static class TriggerService
         if (_giveCardMethod == null || _gmInstanceProp == null) return false;
 
         // SpawnLocation > 0 = outdoor only — safety guard for the drain path (deferred spawns
-        // should not reach here while still indoors, but guard just in case).
-        if (def.SpawnLocation > 0 && Api.GameQuery.IsInInstancedEnvironment)
+        // should not reach here while still indoors/caved, but guard just in case).
+        if (def.SpawnLocation > 0 && !Api.GameQuery.IsOutdoors)
         {
-            Log.Debug($"[TriggerService] '{def.UniqueID}': indoor safety guard — spawn blocked");
+            Log.Debug($"[TriggerService] '{def.UniqueID}': indoor/cave safety guard — spawn blocked");
             return false;
         }
 
@@ -332,8 +332,8 @@ internal static class TriggerService
             member = (MemberInfo)t.GetProperty(name, Flags) ?? t.GetField(name, Flags);
             _memberCache[key] = member;
         }
-        if (member is PropertyInfo pi && pi.CanRead) { try { return pi.GetValue(target, null); } catch { } }
-        if (member is FieldInfo   fi)                { try { return fi.GetValue(target);        } catch { } }
+        if (member is PropertyInfo pi && pi.CanRead) { try { return pi.GetValue(target, null); } catch (Exception ex) { Log.Debug($"[TriggerService] '{name}' property read threw: {Log.ExceptionText(ex)}"); } }
+        if (member is FieldInfo   fi)                { try { return fi.GetValue(target);        } catch (Exception ex) { Log.Debug($"[TriggerService] '{name}' field read threw: {Log.ExceptionText(ex)}"); } }
         return null;
     }
 }

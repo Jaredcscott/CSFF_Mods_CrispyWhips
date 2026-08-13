@@ -4,9 +4,14 @@ Standalone modding framework for Card Survival: Fantasy Forest. Provides mod dis
 
 ## Status
 
-- **Version:** 2.17.0
-- **Game Version**: EA 0.65
-- All in-house mods are maintained against EA 0.65.
+- **Version:** 2.22.2
+- **Game Version**: EA 0.66d (framework `lib/Assembly-CSharp.dll` refreshed and rebuilt clean
+  against the live EA 0.66d game assembly on 2026-08-10 — decompile + VanillaIds registry
+  regenerated same day; in-game Harmony patch-apply verification still pending)
+- The other 9 in-house mods have not yet been individually re-verified against EA 0.66d — most
+  ship their own separate compile-time `lib/Assembly-CSharp.dll` or NStrip'd variant (not shared
+  with the framework's), and several NStrip copies remain months-stale pending regeneration with
+  the user's external NStrip tool.
 
 ## What Changed in 2.0.0 (2026-04-26)
 
@@ -46,6 +51,7 @@ Deployed layout under `BepInEx/plugins/CSFF_Mod_Framework/`:
 | Performance | `OffScreenCardThrottleEnabled` | `true` | Throttle `InGameCardBase.LateUpdate` for off-screen, non-animating cards |
 | Performance | `OffScreenCardThrottleFrames` | `3` | Run throttled cards 1-in-N frames (clamped to [2, 10]) |
 | Performance | `DOTweenTweenerCapacity` / `DOTweenSequenceCapacity` | `1000 / 200` | Pre-warm DOTween pool to avoid mid-session GC spikes |
+| Performance | `CatchUpTickCap` | `1344` | Max game ticks (15 in-game min each) re-simulated when entering an environment; caps the travel freeze on long-unvisited locations. `0` = vanilla unbounded |
 | Performance | `DOTweenQuietLogs` | `true` | Downshift DOTween log verbosity to ErrorsOnly |
 | Performance | `SlotAssignmentLogSuppressEnabled` | `true` | Strip per-frame `Debug.LogWarning` spam from `DynamicLayoutSlot.AssignCard` |
 | Performance | `AmbienceArrayReuseEnabled` | `true` | Reuse a cached `float[3]` in `AmbienceImageEffect.Update` instead of allocating per frame |
@@ -105,6 +111,7 @@ Mod_Update_Manager — standalone, zero dependencies (bundles copies of the mods
 - **Smelting recipe injection** — reads each mod's `SmeltingRecipes.json` and injects `CookingRecipes` into vanilla forges/furnaces with duplicate detection
 - **Drop injection** — reads each mod's `DropInjections.json` and appends `CardDrop` entries to matching `DismantleAction.ProducedCards` on location cards, matched by exact UID, `CardName.LocalizationKey` substring, or `CardTag` name; idempotent and cross-mod-soft-dependency safe (missing referenced cards are skipped quietly)
 - **Environment improvement injection** — reads each mod's `InjectImprovementInto.json` (`[{ "TargetEnvUID": "<CT8 UID>", "ImprovementUID": "<CT10 UID>" }]`) and appends the CT10 improvement to the target CT8 location card's `EnvironmentImprovements` array; idempotent
+- **Trading value injection (since 2.18.0)** — reads each mod's `TradingValues.json` (flat object map `{ "<CardData UniqueID>": <number> }`; `_`-prefixed keys are comments) and writes each value onto `CardData.TradingValue` at load, so NPC trading isn't full of vanilla's 0-cost items. Applies unconditionally to listed cards; later mods win UID conflicts (Warn logged); missing UIDs are skipped quietly (optional sibling mods); targeted `GameSourceModify/` patches still override (they run later)
 - **Spawn triggers** — reads each mod's `CardData/Trigger/*.json` (ModCore-compatible schema) and periodically spawns a card on the player's board at a configurable chance/frequency/cap, driven by the framework's own `Update` loop (`Triggers/TriggerService.cs`) — the simpler alternative to `SelfTriggeredAction` for basic day-timer spawns
 - **SelfTriggeredAction activation (since 2.2.0)** — mod STAs in `SelfTriggeredAction/*.json` are discovered by `GameManager` at run start automatically (registration into `AllData` is sufficient); the framework validates them at load (missing triggers, unresolved stats, save-state ID problems) and logs a one-line run-start confirmation. Authoring guide + decision table vs. the simpler `CardData/Trigger/*.json` spawn system: `Documentation/CSFF_Patterns.md` § SelfTriggeredAction
 - **NPCAgent validation + diagnostics (since 2.3.0)** — at load time, `NPCAgentActivationService` validates every mod-owned `NPCAgent`: normalizes null arrays (`AgentStats`, `AgentDuties`, `Interactions`, `AgentActions`) that would NRE during GameManager initialization, and warns on missing `AgentName`. At each run start (via `OnGMInitialized`), the service surveys GameManager for NPC-typed fields/properties, checks for `NPCManager`/`WorldNPCManager` components, and reports whether mod agents appear in any discovered agent list — logging each finding as a `[DIAGNOSTICS]` line. This confirms whether `AllData` registration is sufficient or whether a future `NPCAgentInjector` must explicitly append agents. See "NPCAgent Diagnostics" section below.
@@ -126,13 +133,14 @@ Mod_Update_Manager — standalone, zero dependencies (bundles copies of the mods
 - **OffScreenCardThrottle** — `InGameCardBase.LateUpdate` runs 1-in-3 frames for off-screen, non-animating cards (configurable; biggest remaining card-count win)
 - **SlotAssignmentLogSuppress** — transpiler strips `Debug.LogWarning` calls from `DynamicLayoutSlot.AssignCard` (per-frame spam in late-game saves with many improvements)
 - **AmbienceArrayReuse** — reuses a cached `float[3]` inside `AmbienceImageEffect.Update` instead of allocating one per frame
+- **CatchUpTickCap** — caps `ChangeEnvironment`'s per-game-tick catch-up replay at 14 in-game days (configurable); prevents the 70+ s "Not Responding" freeze when entering a location not visited in months on old saves
 
 ## Architecture
 
 - `CSFFModFramework.dll` — the only framework binary the loader actually executes
 - `Loading/LoadOrchestrator.cs` — orders ~30 load passes behind timing/try-catch isolation per phase. Abbreviated chain: ModDiscovery → MapCacheLoader → `Database.InitFromGame` → Sprite/GIF loading → `JsonDataLoader` → `ForeignInstanceReconciler` → `WarpResolver` → null-ref/PassiveEffect/ProducedCards/AlwaysUpdate normalization → Smelting/Drop/Improvement injectors → Trigger/EncounterGuard loaders → STA/NPCAgent validation → MapMod/WorldMap/Portal injection → `GameSourceModifier` → `SpriteResolver` → Localization/Audio/AssetBundle loading → Perk/Quest/Character injectors → `BlueprintInjector`. See the file itself for the authoritative, fully ordered phase list.
 - `Discovery/ModDiscovery.cs` / `Discovery/ModManifest.cs` — mod probing, ModLoader-native skip/reclaim decision (`HasFrameworkOnlyMarkers`), content-count dedup
-- `Injection/DropInjector.cs` / `Injection/ImprovementInjector.cs` — declarative `DropInjections.json` / `InjectImprovementInto.json` processing
+- `Injection/DropInjector.cs` / `Injection/ImprovementInjector.cs` / `Injection/TradingValueInjector.cs` — declarative `DropInjections.json` / `InjectImprovementInto.json` / `TradingValues.json` processing
 - `Triggers/TriggerService.cs` — polls and fires mod `CardData/Trigger/*.json` spawn triggers from `Plugin.Update`
 - `Portal/MapModLoader.cs`, `Portal/PortalRegistry.cs`, `Portal/PortalService.cs` — Portal Hub System: `MapMod.json` parsing, world registry, per-mod travel DA injection + `ActionRouter` handlers
 - `Injection/NPCAgentActivationService.cs` — load-time validation + run-start diagnostics for mod NPCAgents (Phase 3)
@@ -149,7 +157,6 @@ Mods only need C# for **mod-specific logic**: custom action interception, forage
 - Vanilla game data dump: `Documentation/GameData/CSFF-JsonData_EA_0-65/`
 - GUID lookups: `Documentation/GameData/CSFF-JsonData_EA_0-65/UniqueIDScriptableGUID/`
 - LitJSON source: `Stubs/LitJson/LitJsonStub.cs` → `LitJSON.dll` (v0.19.0.0)
-- Starter kit: `CSFF_Modding_Starter_Kit/Documentation/`
 
 ---
 
@@ -381,10 +388,24 @@ Further reflection/state-access consolidation under `CSFFModFramework.Api`, repl
 | `Api.CardFinder` | Cached whole-scene `InGameCardBase` lookup (`AllCards()`, `Find`/`FindAll` by UID or predicate), invalidated automatically when `GameManager.AllCards.Count` changes; `Invalidate()` for in-place CardModel swaps that don't change the count |
 | `Api.StatAccess` | `GetCurrentValue`/`SetCurrentValue`/`ModifyCurrentValue`/`GetMaxValue`/`GetUniqueId` on a live `GameStat` instance, with property-then-field fallback across observed runtime shapes |
 | `Api.RecipeInjector` | Generalized `CookingRecipe` injection onto a station's `CookingRecipes` array from a `RecipeSpec` (compatible cards/tags, duration, cooker/ingredient mod types) — replaces ACT's `VanillaFireKettlePatch` and H&F's tendon-drying recipe injection |
-| `Api.ContainerSort` | Reorders a container's `InventorySlots` in place by a chosen durability axis (Usage/Quality/Spoilage/Special1–4), ascending or descending, without changing item counts |
+| `Api.ContainerSort` | Reorders a container's `InventorySlots` in place by a chosen durability axis (Usage/Quality/Spoilage/Special1–4), ascending or descending, without changing item counts. *(No fleet mod currently calls this — available for a future container-sort UI.)* |
 | `Api.BlueprintAlternates` | `AddAlternateIngredient(allData, primaryUid, alternateUid)` walks CT7/CT10 `BlueprintStages[].RequiredElements[]` and attaches a `CardTabGroup` alternate so a slot accepts either card — replaces ACT's `PatchNailInterchangeability`; also used by WDI to accept ACT's fasteners as optional alternates without a hard dependency |
 
 ## Quests & Characters (Gap Phase 5 — v2.5.0)
+
+> ⚠️ **DO NOT enable vanilla QuestLog auto-injection without reading this.** Attaching a mod
+> `QuestLog` to `PlayerCharacter.Quests` via `Quests.json` caused a **user-confirmed blueprint
+> research reset on save load** in CMC 1.7.0 (2026-06-17) — the single worst failure mode this
+> codebase warns about (see the "Blueprint Research Persistence" rule in the repo `CLAUDE.md`).
+> The feature was disabled two days later and **its root cause was never diagnosed**. Because of
+> this, `QuestInjector` is **hard-gated OFF by default since 2.17.0**: even a mod that ships a valid
+> `Quests.json` attaches nothing unless the player explicitly sets
+> `Quests/EnableQuestInjection = true` in the framework's BepInEx config, and the loader logs a
+> warning explaining why it refused. Do not re-enable it on any shipping mod until the Open
+> Unknowns in `Documentation/Retrospectives/questinjector-blueprint-reset-risk.md` are diagnosed
+> with a controlled single-variable test on a disposable save (does blueprint research survive a
+> save/reload cycle?). `Characters.json` / `CharacterRosterInjector` has no incident history and is
+> a separate, lower-risk surface — but it has also never been real-world tested.
 
 Author content with the standard folders (loaded + warp-resolved since 2.1.0), then
 attach it with a root manifest:
@@ -398,13 +419,72 @@ attach it with a root manifest:
   "Roster": "Fates" } ] }` (`Fates` | `Ways` | `Both`). `GameModifierPackage` needs no
   manifest — reference it from the character's `EasyPackageWarpData`.
 
-> **Status (v2.5.0)**: injectors are implemented and validated against the EA 0.65
+> **Status (v2.17.0)**: injectors are implemented and validated against the EA 0.65
 > data model (PlayerCharacter.Quests holds QuestLog refs; Gamemode "CharacterList"
-> holds the Fates/Ways rosters). In-game verification and the save-compat test
+> holds the Fates/Ways rosters). `QuestInjector` is **shipped-but-hard-gated-OFF** after
+> the CMC 1.7.0 blueprint-reset incident (above) — `Quests/EnableQuestInjection` must be
+> set true or nothing attaches. In-game verification and the save-compat test
 > (add character → save → remove mod → load) are pending — run them before shipping
 > content that depends on these.
 
 ## Version History
+
+### v2.22.2
+- **Fixed `SpawnLocation > 0` ("outdoor only") spawn triggers firing inside caves and building
+  interiors.** `TriggerService` now gates on new `GameQuery.IsOutdoors` (instanced environments OR
+  `tag_Cave`/`tag_EnvCaveSystem`/`tag_EnvIndoors`/`tag_Env_BearCave`/`tag_Env_WolfCave`-tagged
+  boards) instead of `IsInInstancedEnvironment` alone — fixes every mod's outdoor-only
+  `CardData/Trigger/*.json` entry (surfaced via Sirus23's wild sheep/ram spawns).
+
+### v2.21.1
+- **New `SealTrigger`/`GateConditions` type `"Always"`** — unconditionally true, for a
+  `SealableGates` entry that should be sealed by default for every player regardless of
+  perk/build state (rather than only once some other condition is met). Added because ACT's cave
+  walls and H&F's forest trail were gated on `PerkEquipped`, leaving the passage silently open on
+  any save — including existing saves installing the mod — where the player never took that perk.
+
+### v2.19.1
+- **Recompiled against the actual EA 0.66 game assembly.** The prior "Prepping for EA-0.66"
+  release (2.19.0) only bumped version strings — `lib/Assembly-CSharp.dll` was still the EA 0.65
+  binary. Rebuilding against the real EA 0.66 assembly surfaced two signature breaks in the Animal
+  system: `InGameNPCStat.SetStatValue(float)` became private (fixed by switching to the public
+  `SetStatValueFromEditor(float)` wrapper, which carries no editor-only behavior despite the name),
+  and `NPCAgentSpawnSettings.SpawnedAgent` became a private field (fixed via `AccessTools.Field`
+  reflection on the boxed struct). Release build now succeeds 0 errors/0 warnings against EA 0.66.
+  In-game Harmony patch-apply verification still pending — see CHANGELOG.md for the full test plan.
+
+### v2.19.0
+- **`SealableGates`/`ConnectionGates` gain a `"Season"` condition type** (`GateConditions[].Type`/
+  `SealTrigger.Type` = `"Season"`, `UID` = a season name, compared against `GameQuery.CurrentSeason`).
+  Built for Community Mod Chest's winter-sealed Village roads.
+- **Fixed**: a `SealableGates` gate whose `SealTrigger` goes false could stay showing LOCKED
+  forever — `OnPoll` now tracks each gate's trigger-active state and forces one final
+  `EvaluateAll()` on a true→false transition. No behavior change for existing monotonic-trigger gates.
+- **Fixed**: `ResealCondition: {"Type":"TimerRegrowth"}` could never actually reseal within one
+  continuous play session — `CheckResealTimer` no longer early-returns on `ClearedThisSession`
+  before its own elapsed-day math.
+
+### v2.18.2
+- **Cleared cave passages no longer re-collapse after all veins are depleted.** The old-save cleanup in `WorldMapInjector.PreCreateCloneEnvSaveData` ("stale Exit-card fix") was wiping a clone env's entire `EnvironmentsData` entry — including `CurrentlyBuiltImprovements`, where `SealableGateService` stores permanent "wall cleared" markers — whenever no expected vein cards were found on the saved board. That correctly handled pre-strip old saves with inherited Exit cards but no veins, but it also fired for legitimately fully-depleted caves, erasing the cleared-passage markers and respawning every collapsed rock wall on next load. Fix: the stale-Exit wipe now also requires a `StripLegacyBoardUIDs` card to be present before removing the entry, confirming it's a genuinely contaminated old save rather than a depleted-but-valid cave.
+
+### v2.18.1
+- **`EncounterGuards/*.json` now supports environment-based suppression** (`GuardEnvironmentUids`, alongside the existing `GuardCardUids`, evaluated as OR). The loader previously silently skipped any guard file lacking `GuardCardUids` — Community Mod Chest's village wildlife-suppression guard was inert as a result.
+
+### v2.18.0
+- **Declarative bulk trading-value repricing (`TradingValues.json`)** — a mod may ship a flat `CardData` UniqueID → number map at its mod root; `Injection/TradingValueInjector` writes each value onto `CardData.TradingValue` at load. Built because vanilla leaves ~65% of items/liquids priced at 0. Later mods win UID conflicts (logged); missing UIDs are skipped quietly; a targeted `GameSourceModify/` patch still overrides a bulk price.
+
+### v2.17.2
+- **NPC-interaction button text no longer overflows its border** (Talk/Trade/Commissions row, dialog answer buttons). New `Patching.BugFixes.NPCButtonTextFit` postfixes `TooltipButton.Setup`, `DialogAnswerButton.Setup`, and `NPCInspectionPopup.SetupActions` to enable TMP shrink-to-fit auto-sizing the first time each button's text is seen. Covers every `IndexButton`-family button fleet-wide, not just NPC popups.
+
+### v2.17.1
+- **`ConnectionGateService` now warns** when a gate with `HideTravelDA: true` unlocks while stripped travel DAs sit in its restore cache but `RestoreDAOnUnlock` is false — previously a silent `MapNodes.json` authoring error that left a permanent red-X compass slot with no travel action. Found via CMC's Village Path gate.
+
+### v2.17.0
+- **Blueprint-container save-load freeze fixed** (`BlueprintContainerSaveLoadFix.ProcessOneCard` now yields through the drained vanilla coroutine instead of spin-draining it — a synchronous `while (MoveNext()) {}` on a coroutine that waits on real Unity frames hung the game solid on any save with a blueprint container missing a contained blueprint). Confirmed in-game 2026-07-19.
+- **`QuestInjector` hard-gated OFF by default** (`Quests/EnableQuestInjection` BepInEx flag, default false) after the CMC 1.7.0 blueprint-research-reset incident — see the ⚠ note under "Quests & Characters" and `Documentation/Retrospectives/questinjector-blueprint-reset-risk.md`.
+
+### v2.16.4
+- **Deferred clone-ref resolution** (`WorldMapInjector.ResolveDeferredCloneRefs`): clone-node location cards can now reference other clone UIDs (blueprint gates, contained blueprints) without those refs resolving to null. The clone env/location pair is created during map-node prep, after WarpResolver runs, so a new LoadOrchestrator phase re-walks the deferred refs. Fixes clone location cards showing an empty "Have :" tooltip. Memory `reference_worldmap_clone_ref_deferred_resolve`.
 
 ### v2.14.1
 - **Non-UID registration now distinguishes ModCore coexistence from real collisions**: confirmed in-game (Pikachu ModCore independently scans every plugin's `ScriptableObject/<Type>/` folder regardless of manifest tags, and had already created its own `WeaponMove`/`DamageType` instances before our own `JsonDataLoader` processed the same files). `Database.RegisterTypedSO`'s unconditional overwrite already made our instance canonical deterministically (nothing runs between `JsonDataLoader.LoadAll`'s registration and `WarpResolver.ResolveAll` that could touch `Database.AllScriptableObjectDict` for these types), so this was never a correctness bug — but the log couldn't tell a benign ModCore duplicate apart from a real same-name collision between two of OUR OWN mods. `JsonDataLoader` now tracks names it registers in the current pass: a collision against a name it already registered itself logs `Warn` (rename it — real mistake); a collision against a name it has NOT seen yet this pass (i.e. ModCore or another external loader got there first) logs `Info` ("already registered by another loader ... now canonical, no action needed"). No behavior change, pure signal-quality — matches the existing `[LoaderCoexistence]` framing already used for UID-type duplicates.

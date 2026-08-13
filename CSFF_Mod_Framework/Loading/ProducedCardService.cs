@@ -287,7 +287,7 @@ internal static class ProducedCardService
 
         object drop;
         try { drop = Activator.CreateInstance(dropType); }
-        catch { return false; }
+        catch (Exception ex) { Log.Debug($"ProducedCardService: could not create drop instance of {dropType.Name}: {ex.GetType().Name} {ex.Message}"); return false; }
 
         var droppedCardField = CachedField(dropType, "DroppedCard");
         if (legacyCard == null && !string.IsNullOrWhiteSpace(legacyWarpData) && droppedCardField != null)

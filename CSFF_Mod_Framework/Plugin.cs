@@ -5,7 +5,7 @@ public class Plugin : BaseUnityPlugin
 {
     public const string PluginGuid = "crispywhips.CSFFModFramework";
     public const string PluginName = "CSFF Mod Framework";
-    public const string PluginVersion = "2.17.0";
+    public const string PluginVersion = "2.22.2";
 
     public static Plugin Instance { get; private set; }
     internal new static ManualLogSource Logger { get; private set; }
@@ -56,12 +56,24 @@ public class Plugin : BaseUnityPlugin
         Wildlife.WildlifeRaidService.Init();
 
         // Config: declarative animal system (on by default — only activates when a mod
-        // ships Animals/*.json; see Documentation/Design/Animal_System_Plan.md).
+        // ships Animals/*.json; see Documentation/Plans/CSFFModFramework/Animal_System_Plan.md).
         var animalsEnabled = Config.Bind("Animals", "AnimalsEnabled", true,
             "Load declarative animal species from mods' Animals/*.json manifests "
             + "(framework-generated NPC agents: spawning, movement, tracks, traps, encounters). "
             + "Disable to skip all framework-generated animals.");
         Animals.AnimalService.Enabled = animalsEnabled.Value;
+
+        // Config: vanilla QuestLog auto-injection (OFF by default — this exact path caused a
+        // user-confirmed blueprint research reset in CMC 1.7.0 and was never root-caused; see
+        // Documentation/Retrospectives/questinjector-blueprint-reset-risk.md). A mod shipping
+        // Quests.json will NOT attach any QuestLogs to PlayerCharacter.Quests unless this is set
+        // true. Only enable after verifying blueprint research survives a save/reload cycle.
+        var questInjectionEnabled = Config.Bind("Quests", "EnableQuestInjection", false,
+            "DANGER: attach mod QuestLogs (Quests.json) to PlayerCharacter.Quests. This caused a "
+            + "confirmed blueprint research reset on save load in CMC 1.7.0 and the root cause was "
+            + "never found. Leave false unless you have verified on a disposable save that blueprint "
+            + "research survives a save/reload cycle with the quest mod installed.");
+        Injection.QuestInjector.Enabled = questInjectionEnabled.Value;
 
         Triggers.TriggerService.Init();
 
@@ -84,6 +96,12 @@ public class Plugin : BaseUnityPlugin
         // stop paying per-frame CheckIfVisibleOnScreen cost.
         Patching.Performance.OffScreenCardThrottle.Configure(Config, Harmony);
 
+        // Performance: cap ChangeEnvironment's per-game-tick catch-up replay when
+        // entering a long-unvisited environment. Unbounded in vanilla — a year-old
+        // location on a late-game save replays ~38k ticks in one synchronous frame
+        // (70+ s "Not Responding" freeze). Default cap 1344 ticks = 14 in-game days.
+        Patching.Performance.CatchUpTickCap.Configure(Config, Harmony);
+
         // Core patches
         Patching.GameLoadPatch.ApplyPatch(Harmony);
         Loading.BlueprintContainerSaveLoadFix.ApplyFreshPlacementPatch(Harmony);
@@ -105,6 +123,20 @@ public class Plugin : BaseUnityPlugin
         // CheatsPatch 1.1.0 compat: postfix AccessTools.TypeByName so CheatsPatch's
         // patches resolve "UCheatsManager" → "CheatsManager" (CSFF rename).
         Patching.BugFixes.CheatsPatchCompat.Configure(Harmony);
+        // NPC-interaction button text overflow: several NPC popup buttons (Talk/Trade/
+        // Commissions row, dialog answer buttons) ship with TMP auto-sizing disabled, so
+        // long labels clip past the button border instead of shrinking to fit.
+        Patching.BugFixes.NPCButtonTextFit.ApplyPatch(Harmony);
+        // NPC action-row overflow: an NPC that is both CanTrade and HasVisibleCommissions
+        // (the Professor) puts 3 buttons in a row vanilla only ever laid out at 2, so the
+        // Commissions button spills past the popup panel. Forces the row's existing
+        // HorizontalLayoutGroup to shrink children to fit, scoped to that exact NPC state.
+        Patching.BugFixes.NPCActionRowOverflowFix.ApplyPatch(Harmony);
+        // Finalizer that swallows WorldMapData.AddInstancedEnv's ArgumentException (two
+        // instanced envs colliding on default map Coordinates) so GameManager.ChangeEnvironment
+        // can't leave RootAction stuck, which otherwise permanently locks the player out of
+        // every action ("I can't do two things at once...") until the app is restarted.
+        Patching.BugFixes.ChangeEnvironmentCrashGuard.ApplyPatch(Harmony);
 
         // No-op — portal travel now uses game-default ChangeEnvironment behavior:
         // slot items travel with the player; floor/placed items stay at source.

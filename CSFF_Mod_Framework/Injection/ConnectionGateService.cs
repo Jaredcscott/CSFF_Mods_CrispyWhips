@@ -11,8 +11,9 @@ namespace CSFFModFramework.Injection;
 
 /// <summary>
 /// Evaluates declarative <c>ConnectionGates</c> from <c>WorldMap/MapNodes.json</c> and
-/// C#-registered gates at run start (and whenever an improvement is completed) to show or
-/// hide world-map connections and their travel DAs.
+/// C#-registered gates at run start, on improvement completion, and on a 5 s periodic
+/// re-check (2.20.0 — state-change-guarded, so mid-run stat/season/perk changes take
+/// effect without a reload) to show or hide world-map connections and their travel DAs.
 ///
 /// <para>JSON example:
 /// <code>
@@ -23,8 +24,11 @@ namespace CSFFModFramework.Injection;
 ///     { "Type": "PerkEquipped", "UID": "traitsperkvillagepath" }
 ///   ],
 ///   "GateLogic": "ANY",
+///   "LockConditions": [
+///     { "Type": "StatThreshold", "UID": "cmcStatVillageCrime", "Value": 60, "Comparison": "GreaterOrEqual" }
+///   ],
 ///   "HideTravelDA": true,
-///   "RestoreDAOnUnlock": false,
+///   "RestoreDAOnUnlock": true,
 ///   "NeighborCt8UID": "river_clearing_ct8_uid"
 /// }]
 /// </code>
@@ -176,19 +180,37 @@ internal static class ConnectionGateService
         }
 
         _initialized = true;
+        StartPeriodicReeval();
         if (_gates.Count == 0) return;
         EvaluateAll();
     }
 
-    /// <summary>Re-evaluates every registered gate. Called on improvement completion.</summary>
-    internal static void EvaluateAll()
+    // Process-lifetime periodic re-evaluation (2.20.0). Gate conditions read live game
+    // state (StatThreshold stats, seasons, perks) that changes mid-run, but gates were
+    // previously re-evaluated only at run start and on improvement completion — a
+    // StatThreshold crossing mid-run (e.g. CMC's crime stat reaching Banished) would not
+    // take effect until reload. EvaluateAll is state-change-guarded per gate, so the
+    // periodic call is a no-op unless a gate actually flips.
+    private static bool _tickRegistered;
+    private static void StartPeriodicReeval()
+    {
+        if (_tickRegistered) return;
+        _tickRegistered = true;
+        try { TickEvents.Interval(5f, () => EvaluateAll(quiet: true), "ConnectionGateService"); }
+        catch (Exception ex) { Log.Warn($"ConnectionGateService: Interval subscribe failed: {ex.Message}"); }
+    }
+
+    /// <summary>Re-evaluates every registered gate. Called on improvement completion, run
+    /// start, and the 5 s periodic tick (<paramref name="quiet"/> suppresses the
+    /// worldmap-unavailable warning for periodic calls made outside gameplay).</summary>
+    internal static void EvaluateAll(bool quiet = false)
     {
         if (!_initialized || _gates.Count == 0) return;
 
         var worldMapSo = WorldMapInjector.GetWorldMapSo();
         if (worldMapSo == null)
         {
-            Log.Warn("ConnectionGateService.EvaluateAll: WorldMapData not available — gates deferred");
+            if (!quiet) Log.Warn("ConnectionGateService.EvaluateAll: WorldMapData not available — gates deferred");
             return;
         }
 
@@ -210,7 +232,7 @@ internal static class ConnectionGateService
         }
 
         if (unlockedCount > 0 || lockedCount > 0)
-            Log.Info($"ConnectionGateService: evaluated {_gates.Count} gate(s) — {unlockedCount} unlocked, {lockedCount} locked");
+            Log.Debug($"ConnectionGateService: evaluated {_gates.Count} gate(s) — {unlockedCount} unlocked, {lockedCount} locked");
     }
 
     /// <summary>
@@ -309,14 +331,22 @@ internal static class ConnectionGateService
 
     private static Func<bool> BuildCondition(ConnectionGateDefinition gate)
     {
-        if (gate.GateConditions == null || gate.GateConditions.Count == 0)
-            return () => true;
-
-        var conds = gate.GateConditions.ToList();
+        var conds = (gate.GateConditions != null && gate.GateConditions.Count > 0)
+            ? gate.GateConditions.ToList() : null;
+        var locks = (gate.LockConditions != null && gate.LockConditions.Count > 0)
+            ? gate.LockConditions.ToList() : null;
         bool anyLogic = !"ALL".Equals(gate.GateLogic, StringComparison.OrdinalIgnoreCase);
 
         return () =>
         {
+            // Any met LockCondition forces the gate LOCKED regardless of GateConditions —
+            // a negative axis (e.g. a crime-stat StatThreshold) closing a connection the
+            // positive conditions would otherwise hold open. One gate entry, no second
+            // GateEntry fighting over the same node/DA cache.
+            if (locks != null)
+                foreach (var c in locks) if (EvalSingleGateCond(c)) return false;
+
+            if (conds == null) return true;
             if (anyLogic)
             {
                 foreach (var c in conds) if (EvalSingleGateCond(c)) return true;
@@ -340,12 +370,25 @@ internal static class ConnectionGateService
         if (cond == null) return false;
         switch (cond.Type?.Trim().ToLowerInvariant())
         {
+            case "always":
+                // Unconditionally true — for a SealTrigger, this means "sealed by default for
+                // every player, regardless of perk/build state" (e.g. ACT's cave walls, H&F's
+                // forest trail: the perk only used to gate whether the wall existed at all,
+                // which meant older saves that install the mod without taking that perk got
+                // silent open passages instead of the intended dig-through challenge).
+                return true;
             case "perkequipped":
                 return CardUtil.IsPerkEquipped(cond.UID);
             case "improvementbuilt":
                 return CardUtil.IsImprovementBuilt(cond.EnvUID, cond.UID);
             case "statthreshold":
                 return EvalStatThreshold(cond);
+            case "season":
+                // cond.UID holds a season name ("Spring"|"Summer"|"Autumn"|"Winter"), case-insensitive —
+                // compared directly against GameQuery.CurrentSeason (the same string IsWinter/IsSpring/
+                // etc. already use). Deliberately NOT the numeric 1-4 index ConditionalDropDefinition's
+                // "SeasonRange" uses — different JSON context, no reason to force the two to match.
+                return string.Equals(cond.UID, GameQuery.CurrentSeason, StringComparison.OrdinalIgnoreCase);
             default:
                 Log.Warn($"ConnectionGateService: unknown gate condition type '{cond.Type}'");
                 return false;
@@ -414,6 +457,14 @@ internal static class ConnectionGateService
             StripTravelDas(gate);
         else if (unlocked && gate.HideTravelDA && gate.RestoreDAOnUnlock)
             RestoreTravelDas(gate);
+        else if (unlocked && gate.HideTravelDA
+                 && _strippedDas.TryGetValue(CacheKeyFor(gate), out var orphaned) && orphaned.Count > 0)
+            // The connection is now shown on the map but its travel DA(s) stay stripped for the
+            // rest of the process — the compass renders a red X (slot exists, no action). Almost
+            // always a MapNodes.json authoring error (CMC village path, 2026-07-21).
+            Log.Warn($"ConnectionGateService: gate '{gate.ConnectionUID}' unlocked but RestoreDAOnUnlock=false — " +
+                     $"{orphaned.Count} stripped travel DA(s) will NOT be restored (red-X compass slot). " +
+                     "Set \"RestoreDAOnUnlock\": true unless the strip is intentionally permanent.");
     }
 
     // ── private: world-map connection toggle ────────────────────────────────────

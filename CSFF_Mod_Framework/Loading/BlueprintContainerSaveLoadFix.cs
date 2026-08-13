@@ -79,7 +79,7 @@ internal static class BlueprintContainerSaveLoadFix
     {
         try
         {
-            var gmType = AccessTools.TypeByName("GameManager");
+            var gmType = Reflection.ReflectionCache.FindTypeInAssemblyCSharp("GameManager");
             if (gmType == null)
             {
                 Log.Warn("[BlueprintContainerSaveLoadFix] GameManager type not found — fresh-placement patch unavailable");
@@ -147,7 +147,7 @@ internal static class BlueprintContainerSaveLoadFix
         {
             bool hasNext;
             try { hasNext = original.MoveNext(); }
-            catch { yield break; }
+            catch (Exception ex) { Log.Debug($"[BlueprintContainerSaveLoadFix] FreshPlacementWrapper: original coroutine MoveNext threw for {DescribeCard(card)}: {ex.GetType().Name} {ex.Message}"); yield break; }
             if (!hasNext) break;
             yield return original.Current;
         }
@@ -178,7 +178,7 @@ internal static class BlueprintContainerSaveLoadFix
 
         try
         {
-            var gmType = AccessTools.TypeByName("GameManager");
+            var gmType = Reflection.ReflectionCache.FindTypeInAssemblyCSharp("GameManager");
             if (gmType == null)
             {
                 Log.Warn("[BlueprintContainerSaveLoadFix] GameManager type not found — cannot subscribe to OnGMInitialized");
@@ -269,6 +269,12 @@ internal static class BlueprintContainerSaveLoadFix
         public List<object> Cards;
     }
 
+    private sealed class RefreshCounts
+    {
+        public int Refreshed;
+        public int Unlocked;
+    }
+
     private static RunContext PrepareRunContext()
     {
         Log.Debug("[BlueprintContainerSaveLoadFix] starting refresh pass");
@@ -338,8 +344,7 @@ internal static class BlueprintContainerSaveLoadFix
         const int YieldEvery = 100;
         int processed = 0;
         int containers = 0;
-        int refreshed = 0;
-        int unlocked = 0;
+        var counts = new RefreshCounts();
 
         foreach (var card in ctx.Cards)
         {
@@ -348,14 +353,14 @@ internal static class BlueprintContainerSaveLoadFix
             if (card != null && IsBlueprintContainer(card))
             {
                 containers++;
-                ProcessOneCard(ctx, card, ref refreshed, ref unlocked);
+                yield return ProcessOneCard(ctx, card, counts);
             }
 
             if (processed % YieldEvery == 0)
                 yield return null;
         }
 
-        var summary = $"[BlueprintContainerSaveLoadFix] done: {containers} blueprint container(s) seen, {refreshed} re-spawned, {unlocked} blueprint(s) marked Available";
+        var summary = $"[BlueprintContainerSaveLoadFix] done: {containers} blueprint container(s) seen, {counts.Refreshed} re-spawned, {counts.Unlocked} blueprint(s) marked Available";
         Log.Info(summary);
 
         // Retroactive fallback: ensure all regular mod blueprints are registered in
@@ -396,12 +401,13 @@ internal static class BlueprintContainerSaveLoadFix
             // Parse Available and Purchased enum values (fallback to int if name not found).
             object available, purchased;
             try { available = Enum.Parse(stateType, "Available"); }
-            catch { available = Enum.ToObject(stateType, 1); }
+            catch (Exception ex) { Log.Debug($"[BlueprintContainerSaveLoadFix] RestoreModBlueprintStates: enum parse of 'Available' failed on {stateType.Name}, using int fallback: {ex.GetType().Name} {ex.Message}"); available = Enum.ToObject(stateType, 1); }
             try { purchased = Enum.Parse(stateType, "Purchased"); }
-            catch
+            catch (Exception ex)
             {
+                Log.Debug($"[BlueprintContainerSaveLoadFix] RestoreModBlueprintStates: enum parse of 'Purchased' failed on {stateType.Name}, trying 'Researched': {ex.GetType().Name} {ex.Message}");
                 try { purchased = Enum.Parse(stateType, "Researched"); }
-                catch { purchased = Enum.ToObject(stateType, 2); }
+                catch (Exception ex2) { Log.Debug($"[BlueprintContainerSaveLoadFix] RestoreModBlueprintStates: enum parse of 'Researched' failed on {stateType.Name}, using int fallback: {ex2.GetType().Name} {ex2.Message}"); purchased = Enum.ToObject(stateType, 2); }
             }
 
             // Build sets of UIDs from the game's in-memory blueprint state lists so we can
@@ -548,56 +554,71 @@ internal static class BlueprintContainerSaveLoadFix
         return paren > 0 ? entry.Substring(0, paren) : entry;
     }
 
-    private static void ProcessOneCard(RunContext ctx, object card,
-        ref int refreshed, ref int unlocked)
+    // Re-invokes SpawnDefaultContainedBlueprints for one blueprint container and yields
+    // through it frame-by-frame.
+    //
+    // HasCardInInventory has a false-positive: after Init re-runs (post-WarpResolver),
+    // CardsInInventory gets N slots sized from the template but each slot has
+    // MainCard == null. HasCardInInventory checks slot existence, not whether
+    // MainCard is populated, so it returns true for empty slots.
+    //
+    // SpawnDefaultContainedBlueprints is idempotent — it calls HasCardInInventory
+    // internally and only spawns cards not already present. Its returned enumerator is
+    // NOT a bounded computation: when a contained blueprint is actually missing, it
+    // starts a real Unity coroutine (AddCard) via StartCoroutineEx and yields
+    // (`yield return null`) inside a `while (CoroutineController.WaitForControllerList(...))`
+    // loop until that coroutine finishes — which only happens across real Unity frames.
+    // A bare `while (iter.MoveNext()) {}` here would call MoveNext() synchronously forever
+    // (WaitForControllerList can never flip because no frame is ever processed between
+    // calls), freezing the game solid with zero further log output — reproduced 2026-07-19
+    // (CMC Miller/Alchemist blueprint containers). Must yield each step out like
+    // FreshPlacementWrapper already does for the fresh-placement path.
+    private static IEnumerator ProcessOneCard(RunContext ctx, object card, RefreshCounts counts)
     {
+        ResetStaleContainedBlueprintSlots(card);
+        EnsureContainedBlueprintStates(card, ctx.GmInstance);
+
+        IEnumerator iter = null;
         try
         {
-            // 1) Re-invoke SpawnDefaultContainedBlueprints for every blueprint container.
-            //
-            // HasCardInInventory has a false-positive: after Init re-runs (post-WarpResolver),
-            // CardsInInventory gets N slots sized from the template but each slot has
-            // MainCard == null. HasCardInInventory checks slot existence, not whether
-            // MainCard is populated, so it returns true for empty slots.
-            //
-            // SpawnDefaultContainedBlueprints is idempotent — it calls HasCardInInventory
-            // internally and only spawns cards not already present. We drain the returned
-            // coroutine synchronously here because we are inside a coroutine (DeferredRun)
-            // and the drain is bounded (at most a few blueprint cards per container).
-            // Note: _isInGameplay is true at this point (set in OnGameManagerInitialized
-            // before DeferredRun is scheduled), so the Harmony postfix wraps the coroutine
-            // in FreshPlacementWrapper. Draining the wrapper is equivalent to draining
-            // the original — small bounded work, safe inside a yielding coroutine.
-            ResetStaleContainedBlueprintSlots(card);
-            EnsureContainedBlueprintStates(card, ctx.GmInstance);
-            var iter = ctx.SpawnMethod.Invoke(ctx.GmInstance, new[] { card }) as IEnumerator;
-            if (iter != null)
-            {
-                try
-                {
-                    while (iter.MoveNext()) { }
-                    refreshed++;
-                    Log.Debug($"[BlueprintContainerSaveLoadFix] re-spawned blueprints for {DescribeCard(card)}");
-                }
-                catch (Exception ex)
-                {
-                    Log.Warn($"[BlueprintContainerSaveLoadFix] SpawnDefault threw for {DescribeCard(card)}: {Log.ExceptionText(ex)}");
-                }
-            }
-            else
-            {
-                Log.Warn($"[BlueprintContainerSaveLoadFix] SpawnDefault returned null IEnumerator for card {DescribeCard(card)}");
-            }
-
-            // 2) Ensure each contained blueprint is unlocked (Available state).
-            if (ctx.SetBpAvailable != null && !ContainerStartsBlueprintsLocked(card))
-            {
-                unlocked += UnlockContainedBlueprints(card, ctx.GmInstance, ctx.SetBpAvailable);
-            }
+            iter = ctx.SpawnMethod.Invoke(ctx.GmInstance, new[] { card }) as IEnumerator;
         }
         catch (Exception ex)
         {
-            Log.Warn($"[BlueprintContainerSaveLoadFix] processing card failed: {Log.ExceptionText(ex)}");
+            Log.Warn($"[BlueprintContainerSaveLoadFix] SpawnDefault invoke failed for {DescribeCard(card)}: {Log.ExceptionText(ex)}");
+        }
+
+        if (iter != null)
+        {
+            while (true)
+            {
+                bool hasNext;
+                try { hasNext = iter.MoveNext(); }
+                catch (Exception ex)
+                {
+                    Log.Warn($"[BlueprintContainerSaveLoadFix] SpawnDefault threw for {DescribeCard(card)}: {Log.ExceptionText(ex)}");
+                    break;
+                }
+                if (!hasNext) break;
+                yield return iter.Current;
+            }
+            counts.Refreshed++;
+            Log.Debug($"[BlueprintContainerSaveLoadFix] re-spawned blueprints for {DescribeCard(card)}");
+        }
+        else
+        {
+            Log.Warn($"[BlueprintContainerSaveLoadFix] SpawnDefault returned null IEnumerator for card {DescribeCard(card)}");
+        }
+
+        // 2) Ensure each contained blueprint is unlocked (Available state).
+        try
+        {
+            if (ctx.SetBpAvailable != null && !ContainerStartsBlueprintsLocked(card))
+                counts.Unlocked += UnlockContainedBlueprints(card, ctx.GmInstance, ctx.SetBpAvailable);
+        }
+        catch (Exception ex)
+        {
+            Log.Warn($"[BlueprintContainerSaveLoadFix] unlock pass failed for {DescribeCard(card)}: {Log.ExceptionText(ex)}");
         }
     }
 
@@ -617,7 +638,7 @@ internal static class BlueprintContainerSaveLoadFix
             if (flagField == null) return false;
             return (bool)flagField.GetValue(cardModel);
         }
-        catch { return false; }
+        catch (Exception ex) { Log.Debug($"[BlueprintContainerSaveLoadFix] ContainerStartsBlueprintsLocked: reflection failed for {DescribeCard(card)}: {ex.GetType().Name} {ex.Message}"); return false; }
     }
 
     /// <summary>
@@ -655,7 +676,7 @@ internal static class BlueprintContainerSaveLoadFix
             }
             return count;
         }
-        catch { return 0; }
+        catch (Exception ex) { Log.Debug($"[BlueprintContainerSaveLoadFix] UnlockContainedBlueprints: reflection failed for {DescribeCard(card)}: {ex.GetType().Name} {ex.Message}"); return 0; }
     }
 
     /// <summary>
@@ -829,7 +850,7 @@ internal static class BlueprintContainerSaveLoadFix
             // total runtime slots: hidden recipe slots + normal storage slots.
             return Math.Max(0, inventorySlots.Length - containedBlueprintCount);
         }
-        catch { return 0; }
+        catch (Exception ex) { Log.Debug($"[BlueprintContainerSaveLoadFix] GetHybridStorageSlotCount: reflection failed for {DescribeCard(card)}: {ex.GetType().Name} {ex.Message}"); return 0; }
     }
 
     private static Array GetContainedBlueprints(object card)
@@ -887,7 +908,7 @@ internal static class BlueprintContainerSaveLoadFix
                 null);
             update?.Invoke(visuals, null);
         }
-        catch { }
+        catch (Exception ex) { Log.Debug($"[BlueprintContainerSaveLoadFix] RefreshInventoryInfo: UpdateInventoryInfo invoke failed for {DescribeCard(card)}: {ex.GetType().Name} {ex.Message}"); }
     }
 
     private static string DescribeBlueprint(object bp)
@@ -897,7 +918,7 @@ internal static class BlueprintContainerSaveLoadFix
             var uidField = AccessTools.Field(bp.GetType(), "UniqueID");
             return uidField?.GetValue(bp) as string ?? bp.ToString();
         }
-        catch { return "<unknown>"; }
+        catch (Exception ex) { Log.Debug($"[BlueprintContainerSaveLoadFix] DescribeBlueprint: UniqueID field read failed: {ex.GetType().Name} {ex.Message}"); return "<unknown>"; }
     }
 
     private static List<object> CollectCards(object gmInstance, Type gmType)
@@ -938,7 +959,7 @@ internal static class BlueprintContainerSaveLoadFix
 
     private static object GetGameManagerInstance()
     {
-        var gmType = AccessTools.TypeByName("GameManager");
+        var gmType = Reflection.ReflectionCache.FindTypeInAssemblyCSharp("GameManager");
         if (gmType == null) return null;
 
         // GameManager : MBSingleton<GameManager>. The "Instance" static property
@@ -958,7 +979,7 @@ internal static class BlueprintContainerSaveLoadFix
                     if (val is UnityEngine.Object uo && uo == null) continue;
                     if (val != null) return val;
                 }
-                catch { }
+                catch (Exception ex) { Log.Debug($"[BlueprintContainerSaveLoadFix] GetGameManagerInstance: Instance property read failed on {t.Name}: {ex.GetType().Name} {ex.Message}"); }
             }
 
             var field = t.GetField("Instance", flags);
@@ -970,7 +991,7 @@ internal static class BlueprintContainerSaveLoadFix
                     if (val is UnityEngine.Object uo && uo == null) continue;
                     if (val != null) return val;
                 }
-                catch { }
+                catch (Exception ex) { Log.Debug($"[BlueprintContainerSaveLoadFix] GetGameManagerInstance: Instance field read failed on {t.Name}: {ex.GetType().Name} {ex.Message}"); }
             }
         }
 
@@ -980,7 +1001,7 @@ internal static class BlueprintContainerSaveLoadFix
             var found = Object.FindObjectOfType(gmType);
             if (found != null) return found;
         }
-        catch { }
+        catch (Exception ex) { Log.Debug($"[BlueprintContainerSaveLoadFix] GetGameManagerInstance: FindObjectOfType({gmType.Name}) fallback failed: {ex.GetType().Name} {ex.Message}"); }
 
         return null;
     }
@@ -993,7 +1014,7 @@ internal static class BlueprintContainerSaveLoadFix
             if (prop == null) return false;
             return (bool)prop.GetValue(card, null);
         }
-        catch { return false; }
+        catch (Exception ex) { Log.Debug($"[BlueprintContainerSaveLoadFix] IsBlueprintContainer: IsBlueprintContainer property read failed for {DescribeCard(card)}: {ex.GetType().Name} {ex.Message}"); return false; }
     }
 
     private static string DescribeCard(object card)
@@ -1007,6 +1028,6 @@ internal static class BlueprintContainerSaveLoadFix
             var uid = uidField?.GetValue(cardModel) as string;
             return uid ?? cardModel.ToString();
         }
-        catch { return "<unknown>"; }
+        catch (Exception ex) { Log.Debug($"[BlueprintContainerSaveLoadFix] DescribeCard: CardModel/UniqueID read failed: {ex.GetType().Name} {ex.Message}"); return "<unknown>"; }
     }
 }

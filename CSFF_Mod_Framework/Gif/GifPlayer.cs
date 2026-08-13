@@ -76,7 +76,7 @@ public class GifPlayer : MonoBehaviour
             _image.sprite = _current.Frames[index];
 
             float delay = _current.Delays.Length > index ? _current.Delays[index] : 0.1f;
-            yield return new WaitForSeconds(delay);
+            yield return new WaitForSecondsRealtime(delay);
 
             index++;
             if (index >= _current.Frames.Length)

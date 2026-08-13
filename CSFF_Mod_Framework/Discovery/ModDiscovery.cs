@@ -45,6 +45,7 @@ internal static class ModDiscovery
                 // ModLoaderVerison stamped in regardless of which loader they
                 // actually target. When the mod ships framework-exclusive
                 // declarative content (BlueprintTabs.json, InjectImprovementInto.json,
+                // a GameSourceModify/ patch using MatchTagWarpData/MatchTypeWarpData,
                 // etc. — see ModManifest.HasFrameworkOnlyMarkers), it is framework
                 // format content mistagged as ModLoader-native; that content only
                 // works if the framework loads and processes it. Load it anyway —
@@ -202,6 +203,7 @@ internal static class ModDiscovery
         mod.HasSmeltingRecipes = File.Exists(Path.Combine(dir, "SmeltingRecipes.json"));
         mod.HasDropInjections  = File.Exists(Path.Combine(dir, "DropInjections.json"));
         mod.HasImprovementInjections = File.Exists(Path.Combine(dir, "InjectImprovementInto.json"));
+        mod.HasTradingValues = File.Exists(Path.Combine(dir, "TradingValues.json"));
 
         mod.HasAudio =
             HasDeclaredAssets(mod.Assets?.Audio) ||
@@ -258,10 +260,10 @@ internal static class ModDiscovery
                         || json.IndexOf("MatchTypeWarpData", StringComparison.Ordinal) >= 0)
                         return true;
                 }
-                catch { }
+                catch (Exception ex) { Log.Debug($"[ModDiscovery] HasGSMBulkMatch: read/scan failed for {file}: {ex.GetType().Name} {ex.Message}"); }
             }
         }
-        catch { }
+        catch (Exception ex) { Log.Debug($"[ModDiscovery] HasGSMBulkMatch: enumerating {gsmDir} failed: {ex.GetType().Name} {ex.Message}"); }
         return false;
     }
 
@@ -287,7 +289,7 @@ internal static class ModDiscovery
             var path = Path.Combine(modDir, sub);
             if (!Directory.Exists(path)) continue;
             try { count += Directory.GetFiles(path, "*.json", SearchOption.AllDirectories).Length; }
-            catch { /* permissions / transient IO */ }
+            catch (Exception ex) { Log.Debug($"[ModDiscovery] CountContentFiles: GetFiles failed for {path}: {ex.GetType().Name} {ex.Message}"); }
         }
         return count;
     }
@@ -302,7 +304,7 @@ internal static class ModDiscovery
                 if (Directory.EnumerateFiles(dir, pattern, option).Any())
                     return true;
         }
-        catch { /* permissions / transient IO */ }
+        catch (Exception ex) { Log.Debug($"[ModDiscovery] HasAnyFile: enumerating {dir} failed: {ex.GetType().Name} {ex.Message}"); }
         return false;
     }
 }

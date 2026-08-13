@@ -220,6 +220,6 @@ internal static class SpriteResolver
             if (perCard.Count > 0)
                 map[uid] = perCard;
         }
-        catch { }
+        catch (Exception ex) { Log.Debug($"SpriteResolver: durability-icon parse failed for {uid}: {ex.GetType().Name} {ex.Message}"); }
     }
 }

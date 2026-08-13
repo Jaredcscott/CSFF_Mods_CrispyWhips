@@ -129,7 +129,7 @@ internal static class NullReferenceCompactor
         {
             object value;
             try { value = field.GetValue(obj); }
-            catch { continue; }
+            catch (Exception ex) { Log.Debug($"NullReferenceCompactor: field read failed for {field.Name} on {obj.GetType().Name}: {ex.GetType().Name} {ex.Message}"); continue; }
             if (value == null) continue;
 
             var fieldType = field.FieldType;

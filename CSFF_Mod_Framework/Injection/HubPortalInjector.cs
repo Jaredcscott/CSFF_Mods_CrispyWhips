@@ -93,7 +93,7 @@ internal static class HubPortalInjector
         if (_quantityField != null)
         {
             try { _quantityField.SetValue(drop, new UnityEngine.Vector2Int(1, 1)); }
-            catch { /* leave at (0,0); FixZeroQuantity handles it */ }
+            catch (Exception ex) { Log.Debug($"HubPortalInjector: Quantity set failed — leaving at (0,0); FixZeroQuantity handles it: {ex.GetType().Name} {ex.Message}"); }
         }
 
         var next = Array.CreateInstance(_cardDropType, current.Length + 1);
