@@ -3,7 +3,6 @@
   "GuardEnvironmentUids": [
     "cmcEnvVillage",
     "cmcEnvVillagePath",
-    "cmcEnvVillageHall",
     "cmcEnvVillageFarm",
     "cmcEnvHighGrove",
     "cmcEnvPineTrail",

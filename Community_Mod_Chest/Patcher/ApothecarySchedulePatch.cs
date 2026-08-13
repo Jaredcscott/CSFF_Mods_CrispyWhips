@@ -69,6 +69,10 @@ namespace CommunityModChest.Patcher
         private const string GiftedStatUid      = "cmcStatApothecaryStallGifted";
         private const string PotionCraftStatUid = "cmcStatApothecaryPotionCraftDay";
 
+        // Her Copper Chest config, resolved once from CopperChestPatch (the single owner of every
+        // chest's UIDs, action IDs and caps). Null only if the config were ever removed there.
+        private static CopperChestPatch.ChestConfig ChestConfig;
+
         private const string RestockActionId   = "ApothecaryRestock";
         private const string RestockActionHfId = "ApothecaryRestock_HF";
         private const string BrewActionId      = "ApothecaryBrewPotion";
@@ -230,6 +234,8 @@ namespace CommunityModChest.Patcher
                 && _performActionMethod != null && _inGameNpcOrPlayerCtor != null && _envIdFromCardCtor != null;
         }
 
+        private static bool _refsUnresolvedWarned;
+
         private static bool ResolveRefs()
         {
             _agent ??= _getFromIdMethod.Invoke(null, new object[] { ApothecaryAgentUid });
@@ -254,8 +260,16 @@ namespace CommunityModChest.Patcher
                 if (allResolved) _commuteNodes = nodes;
             }
 
-            return _agent != null && _giftedStat != null && _potionCraftStat != null
+            bool resolved = _agent != null && _giftedStat != null && _potionCraftStat != null
                 && _cabinInteriorCard != null && _commuteNodes != null;
+
+            if (!resolved && !_refsUnresolvedWarned)
+            {
+                _refsUnresolvedWarned = true;
+                Plugin.Logger.LogWarning($"[ApothecarySchedulePatch] ResolveRefs failed (agent null={_agent == null}, giftedStat null={_giftedStat == null}, potionCraftStat null={_potionCraftStat == null}, cabinInteriorCard null={_cabinInteriorCard == null}, commuteNodes null={_commuteNodes == null}) — the Apothecary can never spawn/schedule until this succeeds.");
+            }
+
+            return resolved;
         }
 
         private static void RunScheduler()
@@ -275,6 +289,18 @@ namespace CommunityModChest.Patcher
 
                 // Trade restock — active from move-in, independent of the stall/commute phase.
                 RestockIfNeeded(npc, associatedCard);
+
+                // Copper Chest accrual (Village_Master_Plan.md §10.8.3.3). Deliberately PARALLEL to
+                // the satchel restock above and NOT routed through CottageResidentSpawnPatch: her
+                // Residents entry there leaves ChestAccrualAgentUid null precisely so this file is
+                // the single caller for her chest, which is what keeps R6's double-drop impossible
+                // across files as well as within one. CopperChestPatch.TryAccrue owns the env gate
+                // (no-ops unless the player is standing in her cabin interior), the persistent
+                // due-day stamp and both caps; this file contributes only its own proven
+                // FireAgentAction, exactly as it does for the restock and brew actions.
+                ChestConfig ??= CopperChestPatch.ForAgent(ApothecaryAgentUid);
+                if (ChestConfig != null)
+                    CopperChestPatch.TryAccrue(ChestConfig, npc, GameQuery.CurrentDay, FireAgentAction);
 
                 CaptureCabinInteriorEnvId(gm);
                 CaptureSharedEnvIds(gm);

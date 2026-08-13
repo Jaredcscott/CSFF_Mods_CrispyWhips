@@ -328,6 +328,42 @@
                     "DropCardsInsideInventory": true
                 }
             ]
+        },
+        {
+            "ActionID": "WeaverChestCurrency",
+            "ActionLocalizedName": {
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "WeaverChestCurrency"
+            },
+            "RepeatOptions": 3,
+            "Conditions": {},
+            "DroppedCards": [
+                {
+                    "CollectionName": "Weaver chest savings",
+                    "DroppedCards": [
+                        { "DroppedCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa", "DroppedCardWarpType": 3, "Quantity": { "x": 3, "y": 3 } }
+                    ],
+                    "DropCardsInsideInventory": true
+                }
+            ]
+        },
+        {
+            "ActionID": "WeaverChestGoods",
+            "ActionLocalizedName": {
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "WeaverChestGoods"
+            },
+            "RepeatOptions": 3,
+            "Conditions": {},
+            "DroppedCards": [
+                {
+                    "CollectionName": "Weaver chest stock",
+                    "DroppedCards": [
+                        { "DroppedCardWarpData": "7adecfbfd3ccd8c4aa34cd61d8c98076", "DroppedCardWarpType": 3, "Quantity": { "x": 2, "y": 2 } }
+                    ],
+                    "DropCardsInsideInventory": true
+                }
+            ]
         }
     ],
     "CannotTrade": false,

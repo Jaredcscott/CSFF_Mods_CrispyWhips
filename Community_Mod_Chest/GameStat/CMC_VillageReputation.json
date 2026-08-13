@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatVillageReputation",
+    "GameName": {
+        "LocalizationKey": "CMC_VillageReputation_StatName",
+        "DefaultText": "Village Reputation"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_VillageReputation_StatDescription",
+        "DefaultText": "Net standing for the village: the civic score (built cottages, the Well, the River Bridge, a Market Stall milestone, completed villager errands) minus the player's own Village Crime notoriety. Shown as a Mental attribute in the character menu, and mirrored onto Village Hall's Notice Board (SpecialDurability1, floored at 0 since that bar can't show a negative value) once the Hall exists; drives the Market Stall renown reward and the blueprint reveal thresholds once positive enough."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": -100.0, "y": 100.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 1,
+    "VisibleInDetailedList": true,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": false,
+    "Statuses": [],
+    "UsesNovelty": false
+}

@@ -1211,6 +1211,43 @@
                     ]
                 }
             ]
+        },
+        {
+            "ActionID": "ProfessorChestCurrency",
+            "ActionLocalizedName": {
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "ProfessorChestCurrency"
+            },
+            "RepeatOptions": 3,
+            "Conditions": {},
+            "DroppedCards": [
+                {
+                    "CollectionName": "Professor chest savings",
+                    "DroppedCards": [
+                        { "DroppedCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa", "DroppedCardWarpType": 3, "Quantity": { "x": 2, "y": 2 } }
+                    ],
+                    "DropCardsInsideInventory": true
+                }
+            ]
+        },
+        {
+            "ActionID": "ProfessorChestGoods",
+            "ActionLocalizedName": {
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "ProfessorChestGoods"
+            },
+            "RepeatOptions": 3,
+            "Conditions": {},
+            "DroppedCards": [
+                {
+                    "CollectionName": "Professor chest specimens",
+                    "DroppedCards": [
+                        { "DroppedCardWarpData": "e41ab416339b3c9459a37b4942f8f57b", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 1 } },
+                        { "DroppedCardWarpData": "e1525031058fbf34e81a4b825bbe68a0", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 1 } }
+                    ],
+                    "DropCardsInsideInventory": true
+                }
+            ]
         }
     ],
     "CannotTrade": false,

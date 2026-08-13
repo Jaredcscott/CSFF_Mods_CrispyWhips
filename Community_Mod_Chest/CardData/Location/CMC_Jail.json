@@ -14,7 +14,7 @@
     "LocalizationKey": "CMC_Jail_Help",
     "DefaultText": "Jail"
   },
-  "CardImageWarpData": "MudHut_Outside",
+  "CardImageWarpData": "CMC_Jail",
   "CardImageWarpType": 3,
   "CardTagsWarpData": ["tag_Structure"],
   "CardTagsWarpType": 3,

@@ -35,9 +35,8 @@ namespace CommunityModChest.Patcher
             ["cmcBoardTownConstruction"] = new BoardStatus { IsTown = true },
         };
 
-        private const string RenownStatUid = "cmcStatVillageRenown";
         private const string PhaseStatUid = "cmcStatVillagePhase";
-        private const float RenownMax = 100f;
+        private const float ReputationMax = 100f;
 
         private struct DescriptionTextState
         {
@@ -157,10 +156,16 @@ namespace CommunityModChest.Patcher
 
                 if (status.IsTown)
                 {
-                    float renown = VillageClock.ReadStat(gm, RenownStatUid);
-                    if (renown >= 0f)
+                    // VillageReputationPatch.CurrentReputation() returns NaN (not the -1
+                    // "unreadable" sentinel VillageClock.ReadStat uses elsewhere in this method)
+                    // because 0 is now a legitimate, meaningful Reputation value in its own
+                    // right (crime-net-of-civic-standing can legitimately sit at or near 0) —
+                    // a `>= 0f` read-succeeded check would silently swallow this entire status
+                    // line for any village with net-negative reputation.
+                    float reputation = VillageReputationPatch.CurrentReputation();
+                    if (!float.IsNaN(reputation))
                     {
-                        sections.Add($"{RenownTier(renown)} ({(int)Math.Round(renown)} / {(int)RenownMax})");
+                        sections.Add($"{ReputationTier(reputation)} ({(int)Math.Round(reputation)} / {(int)ReputationMax})");
                     }
 
                     float phase = VillageClock.ReadStat(gm, PhaseStatUid);
@@ -219,13 +224,29 @@ namespace CommunityModChest.Patcher
             return $"You are working through {npc}'s errands.";
         }
 
-        private static string RenownTier(float renown)
+        private static string ReputationTier(float reputation)
         {
-            if (renown <= 0f) return "The village is barely known beyond its own fences.";
-            float f = renown / RenownMax;
+            if (reputation < 0f)
+            {
+                // Mirrors the negative (crime-dominant) side of the merged Reputation stat.
+                // Unified against ReputationMax (100) the same way the positive branch below is,
+                // rather than VillageCrimePatch's own separate 0-100 crime scale, since a net
+                // reputation of -30 isn't necessarily "30 crime" (it could be 30 crime against 0
+                // civic total, or 80 crime against 50 civic total) — the tier describes the NET
+                // standing, not the raw crime ledger.
+                float negF = -reputation / ReputationMax;
+                if (negF < 0.25f) return "Rumors of trouble are starting to follow the village's name.";
+                if (negF < 0.6f) return "The village is gaining an uneasy reputation.";
+                return "The village is spoken of only in warnings.";
+            }
+            if (reputation <= 0f) return "The village is barely known beyond its own fences.";
+            // Cutoffs unified to 25/50/75 to match CMC_BoardTown.json's own renown_low/mid/high/top
+            // DA bands (0.8 previously disagreed with the JSON's 0.75 — pre-existing bug, fixed
+            // here as part of touching this method for the merge).
+            float f = reputation / ReputationMax;
             if (f < 0.25f) return "Word of the village is beginning to spread.";
             if (f < 0.5f) return "The village is earning a modest reputation.";
-            if (f < 0.8f) return "The village is well regarded across the valley.";
+            if (f < 0.75f) return "The village is well regarded across the valley.";
             return "The village's renown is the pride of the valley.";
         }
 

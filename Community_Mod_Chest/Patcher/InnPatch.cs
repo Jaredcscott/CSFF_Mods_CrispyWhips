@@ -243,17 +243,25 @@ namespace CommunityModChest.Patcher
         {
             float balance = CardUtil.GetDurability(ctx.Card, BalanceStat);
             bool full = !float.IsNaN(balance) && balance >= AccountMax - 0.5f;
-            if (full)
-                Plugin.Logger.LogDebug("[InnPatch] Deposit blocked — Inn account is full.");
+            Plugin.Logger.LogDebug($"[InnPatch] DepositGate fired: balance={balance:0} full={full}");
             return full; // return true = cancel
         }
 
         private static bool DepositApply(ActionContext ctx)
         {
+            // CONFIRMED WORKING 2026-08-09 (log-verified: three successful deposits in a live
+            // session, 0->50->100, demoted from the 2026-08-08 TEMP DIAGNOSTIC LogInfo escalation
+            // per CLAUDE.md Debugging Discipline — see project_cmc_innkeeper_academy_deposit_bug
+            // memory). AcademyPatch's identical DepositGate/DepositApply pair remains unconfirmed
+            // (never exercised in that session) — do NOT assume it's fixed by this evidence alone.
+            string givenUid = CardUtil.GetCardUniqueId(ctx.GivenCard) ?? "null";
+            float givenSd4 = CardUtil.GetDurability(ctx.GivenCard, "SpecialDurability4");
+            Plugin.Logger.LogDebug($"[InnPatch] DepositApply fired: GivenCard UID={givenUid} SD4={givenSd4}");
+
             float value = CurrencyValue.ValueOf(ctx.GivenCard);
             if (value <= 0f)
             {
-                Plugin.Logger.LogWarning("[InnPatch] Deposit triggered but the dragged card had no recognized currency value.");
+                Plugin.Logger.LogWarning($"[InnPatch] Deposit triggered but the dragged card (UID={givenUid}) had no recognized currency value.");
                 return true;
             }
 

@@ -93,10 +93,21 @@ namespace CommunityModChest.Patcher
                 && _getNpcDataMethod != null && _assignOrCreateCardsMethod != null;
         }
 
+        private static bool _agentUnresolvedWarned;
+
         private static bool ResolveAgent()
         {
             _agent ??= _getFromIdMethod.Invoke(null, new object[] { AgentUid });
-            return _agent != null;
+            if (_agent == null)
+            {
+                if (!_agentUnresolvedWarned)
+                {
+                    _agentUnresolvedWarned = true;
+                    Plugin.Logger.LogWarning($"[AshPartnerSpawnPatch] Agent UID '{AgentUid}' did not resolve via GetFromID — Ash's Partner can never spawn until this is fixed.");
+                }
+                return false;
+            }
+            return true;
         }
 
         private static object FindLiveNpc(object gm)

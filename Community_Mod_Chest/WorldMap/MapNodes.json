@@ -55,7 +55,7 @@
     "EnvironmentUID": "cmcEnvHighGrove",
     "LocationUID": "cmcLocHighGrove",
     "CloneOfEnvironmentUID": "f243b5e9ae48c884296c6c2ecc294bdf",
-    "DisplayName": "High Grove",
+    "DisplayName": "Highland Pines",
     "NameLocalizationKey": "CMC_HighGrove_CardName",
     "EnvNameLocalizationKey": "CMC_Env_HighGrove_CardName",
     "Coords": { "x": 20.0, "y": 0.0, "z": 0.0, "w": 0.0 },
@@ -120,6 +120,12 @@
       },
       {
         "UID": "cmcJail",
+        "MaxOnBoard": 1,
+        "ForceStay": true,
+        "Condition": { "Type": "AlwaysTrue" }
+      },
+      {
+        "UID": "178d1025e13b79141882dbb5ed3e9494",
         "MaxOnBoard": 1,
         "ForceStay": true,
         "Condition": { "Type": "AlwaysTrue" }
@@ -206,6 +212,12 @@
         "MaxOnBoard": 1,
         "ForceStay": true,
         "Condition": { "Type": "SeasonRange", "From": 3, "To": 3 }
+      },
+      {
+        "UID": "178d1025e13b79141882dbb5ed3e9494",
+        "MaxOnBoard": 1,
+        "ForceStay": true,
+        "Condition": { "Type": "AlwaysTrue" }
       }
     ],
     "Connections": [
@@ -221,7 +233,7 @@
     "EnvironmentUID": "cmcEnvClayFlats",
     "LocationUID": "cmcLocClayFlats",
     "CloneOfEnvironmentUID": "d9cc5a271bede014c8b27517c62abe5f",
-    "DisplayName": "Clay Flats",
+    "DisplayName": "Clay Shoal",
     "NameLocalizationKey": "CMC_ClayFlats_CardName",
     "EnvNameLocalizationKey": "CMC_Env_ClayFlats_CardName",
     "Coords": { "x": 10.0, "y": 0.0, "z": -10.0, "w": 0.0 },
@@ -246,7 +258,7 @@
     "EnvironmentUID": "cmcEnvMarshHollow",
     "LocationUID": "cmcLocMarshHollow",
     "CloneOfEnvironmentUID": "71e894a03cb89164796b8e21c3c0ff3c",
-    "DisplayName": "Marsh Hollow",
+    "DisplayName": "Sodden Hollow",
     "NameLocalizationKey": "CMC_MarshHollow_CardName",
     "EnvNameLocalizationKey": "CMC_Env_MarshHollow_CardName",
     "Coords": { "x": 10.0, "y": 0.0, "z": -20.0, "w": 0.0 },
@@ -264,7 +276,7 @@
     "EnvironmentUID": "cmcEnvMossyClearing",
     "LocationUID": "cmcLocMossyClearing",
     "CloneOfEnvironmentUID": "60402000491626042b116556a55e84f5",
-    "DisplayName": "Mossy Clearing",
+    "DisplayName": "Moss-Grown Clearing",
     "NameLocalizationKey": "CMC_MossyClearing_CardName",
     "EnvNameLocalizationKey": "CMC_Env_MossyClearing_CardName",
     "Coords": { "x": 20.0, "y": 0.0, "z": -10.0, "w": 0.0 },
@@ -338,7 +350,7 @@
     "EnvironmentUID": "cmcEnvDeerMeadow",
     "LocationUID": "cmcLocDeerMeadow",
     "CloneOfEnvironmentUID": "5fb1552d03e1d0c4fa6e1514928b5a5e",
-    "DisplayName": "Deer Meadow",
+    "DisplayName": "Stillwater Meadow",
     "NameLocalizationKey": "CMC_DeerMeadow_CardName",
     "EnvNameLocalizationKey": "CMC_Env_DeerMeadow_CardName",
     "Coords": { "x": 20.0, "y": 0.0, "z": 30.0, "w": 0.0 },
@@ -356,7 +368,7 @@
     "EnvironmentUID": "cmcEnvBadgerWarren",
     "LocationUID": "cmcLocBadgerWarren",
     "CloneOfEnvironmentUID": "0dc7431ce6e2eda4fac5be625525108a",
-    "DisplayName": "Badger Warren",
+    "DisplayName": "Sett Warren",
     "NameLocalizationKey": "CMC_BadgerWarren_CardName",
     "EnvNameLocalizationKey": "CMC_Env_BadgerWarren_CardName",
     "Coords": { "x": 20.0, "y": 0.0, "z": 40.0, "w": 0.0 },

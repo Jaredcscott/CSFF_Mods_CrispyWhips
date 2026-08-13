@@ -29,7 +29,7 @@ namespace CommunityModChest.Patcher
     ///
     /// Polled, not event-driven: unlike an attack there is no discrete "incident" moment for
     /// merely standing near a guard, so this reuses the same TickEvents.Interval 5s poll idiom as
-    /// VillageChroniclePatch/VillageRenownPatch.
+    /// VillageChroniclePatch/VillageReputationPatch.
     ///
     /// Per-guard, per-sighting latch, not per-tick: a guard's Suspicion bumps once when the
     /// player is first seen in the Wanted band, then waits until either the player leaves that

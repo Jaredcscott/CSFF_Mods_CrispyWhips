@@ -38,7 +38,7 @@
   "m_FileID": 0,
   "m_PathID": 0
  },
- "EncounterImageWarpData": "Trader_Metal",
+ "EncounterImageWarpData": "CMC_Captain",
  "EncounterImageWarpType": 3,
  "EnemyName": {
   "ParentObjectID": "cmcEncounterGuardSterling",
@@ -226,8 +226,8 @@
    "ActionLog": {
     "LogText": {
      "ParentObjectID": "cmcEncounterGuardSterling",
-     "LocalizationKey": "",
-     "DefaultText": "Captain Reeve Sterling slashes at you with his sword!"
+     "LocalizationKey": "CMC_SterlingEnc_Hold_Action",
+     "DefaultText": "Captain Reeve Sterling moves to block your way, sword still in its scabbard."
     },
     "AlternateLogTexts": [
      {
@@ -266,8 +266,8 @@
    "SuccessLog": {
     "LogText": {
      "ParentObjectID": "cmcEncounterGuardSterling",
-     "LocalizationKey": "",
-     "DefaultText": "You fail to get clear and the sword connects..."
+     "LocalizationKey": "CMC_SterlingEnc_Hold_Success",
+     "DefaultText": "He gets a hand on you and turns you back. He does not draw."
     },
     "AlternateLogTexts": [],
     "TextSettings": {
@@ -295,8 +295,8 @@
    "FailureLog": {
     "LogText": {
      "ParentObjectID": "cmcEncounterGuardSterling",
-     "LocalizationKey": "",
-     "DefaultText": "You get out of the way in time..."
+     "LocalizationKey": "CMC_SterlingEnc_Hold_Failure",
+     "DefaultText": "You slip past his reach before he can close his grip."
     },
     "AlternateLogTexts": [],
     "TextSettings": {
@@ -545,7 +545,7 @@
     "FloatValue": 0.0,
     "MaxValue": 0.0
    },
-   "DoesNotAttack": false,
+   "DoesNotAttack": true,
    "CannotBeDodged": false,
    "IsEscapeAction": false,
    "IsChargingAction": false,
@@ -885,8 +885,8 @@
    },
    "EnemyStatsClashModifiers": [],
    "Damage": {
-    "x": 25.0,
-    "y": 75.0
+    "x": 0.0,
+    "y": 0.0
    },
    "DmgVsVulnerableModifier": {
     "x": 0.0,
@@ -1383,11 +1383,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -17.0,
-         "y": -17.0
+         "x": 17.0,
+         "y": 17.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -1460,11 +1460,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -17.0,
-         "y": -17.0
+         "x": 17.0,
+         "y": 17.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -1537,11 +1537,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -17.0,
-         "y": -17.0
+         "x": 17.0,
+         "y": 17.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -1616,11 +1616,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -34.0,
-         "y": -34.0
+         "x": 34.0,
+         "y": 34.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -1693,11 +1693,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -34.0,
-         "y": -34.0
+         "x": 34.0,
+         "y": 34.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -1770,11 +1770,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -34.0,
-         "y": -34.0
+         "x": 34.0,
+         "y": 34.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -1849,11 +1849,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -68.0,
-         "y": -68.0
+         "x": 68.0,
+         "y": 68.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -1926,11 +1926,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -68.0,
-         "y": -68.0
+         "x": 68.0,
+         "y": 68.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -1968,8 +1968,8 @@
    "ActionLog": {
     "LogText": {
      "ParentObjectID": "cmcEncounterGuardSterling",
-     "LocalizationKey": "",
-     "DefaultText": "The captain presses forward with the sword, breathing hard!"
+     "LocalizationKey": "CMC_SterlingEnc_Press_Action",
+     "DefaultText": "The captain presses forward, open-handed, herding you away from the square."
     },
     "AlternateLogTexts": [
      {
@@ -2008,8 +2008,8 @@
    "SuccessLog": {
     "LogText": {
      "ParentObjectID": "cmcEncounterGuardSterling",
-     "LocalizationKey": "",
-     "DefaultText": "You fail to get clear and the sword connects..."
+     "LocalizationKey": "CMC_SterlingEnc_Press_Success",
+     "DefaultText": "He crowds you back a step and holds you there."
     },
     "AlternateLogTexts": [],
     "TextSettings": {
@@ -2037,8 +2037,8 @@
    "FailureLog": {
     "LogText": {
      "ParentObjectID": "cmcEncounterGuardSterling",
-     "LocalizationKey": "",
-     "DefaultText": "You get out of the way in time..."
+     "LocalizationKey": "CMC_SterlingEnc_Press_Failure",
+     "DefaultText": "You give ground and break the line he was trying to hold."
     },
     "AlternateLogTexts": [],
     "TextSettings": {
@@ -2287,7 +2287,7 @@
     "FloatValue": 0.0,
     "MaxValue": 0.0
    },
-   "DoesNotAttack": false,
+   "DoesNotAttack": true,
    "CannotBeDodged": false,
    "IsEscapeAction": false,
    "IsChargingAction": false,
@@ -2627,8 +2627,8 @@
    },
    "EnemyStatsClashModifiers": [],
    "Damage": {
-    "x": 25.0,
-    "y": 75.0
+    "x": 0.0,
+    "y": 0.0
    },
    "DmgVsVulnerableModifier": {
     "x": 0.0,
@@ -3125,11 +3125,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -17.0,
-         "y": -17.0
+         "x": 17.0,
+         "y": 17.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -3202,11 +3202,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -17.0,
-         "y": -17.0
+         "x": 17.0,
+         "y": 17.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -3279,11 +3279,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -17.0,
-         "y": -17.0
+         "x": 17.0,
+         "y": 17.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -3358,11 +3358,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -34.0,
-         "y": -34.0
+         "x": 34.0,
+         "y": 34.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -3435,11 +3435,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -34.0,
-         "y": -34.0
+         "x": 34.0,
+         "y": 34.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -3512,11 +3512,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -34.0,
-         "y": -34.0
+         "x": 34.0,
+         "y": 34.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -3591,11 +3591,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -68.0,
-         "y": -68.0
+         "x": 68.0,
+         "y": 68.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -3668,11 +3668,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -68.0,
-         "y": -68.0
+         "x": 68.0,
+         "y": 68.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -7736,13 +7736,13 @@
   "CannotInterruptActions": false,
   "EventTitle": {
    "ParentObjectID": "cmcEncounterGuardSterling",
-   "LocalizationKey": "",
-   "DefaultText": "Attack Captain Reeve Sterling?"
+   "LocalizationKey": "CMC_SterlingEnc_Title",
+   "DefaultText": "Captain Reeve Sterling stops you."
   },
   "EventDescription": {
    "ParentObjectID": "cmcEncounterGuardSterling",
-   "LocalizationKey": "",
-   "DefaultText": "He is the captain of the village Watch, and he is standing in the open where anyone can see. Striking him is a crime whether you win or not."
+   "LocalizationKey": "CMC_SterlingEnc_Desc",
+   "DefaultText": "He plants himself in your path with one hand raised and the other well clear of his sword. \"Stand down and come with me,\" he says, \"or don't. But think on it first.\""
   },
   "EncounterSounds": [],
   "EventSetup": 0,
@@ -7757,15 +7757,49 @@
   },
   "EscapeOptionText": {
    "ParentObjectID": "cmcEncounterGuardSterling",
-   "LocalizationKey": "",
+   "LocalizationKey": "CMC_SterlingEnc_Escape",
    "DefaultText": "Think better of it"
   },
-  "EscapeOptionStatChanges": [],
+  "EscapeOptionStatChanges": [
+   {
+    "Stat": {
+     "m_FileID": 0,
+     "m_PathID": 0
+    },
+    "StatWarpData": "cmcStatSterlingEscapeCount",
+    "StatWarpType": 3,
+    "ValueModifier": {
+     "x": 1.0,
+     "y": 1.0
+    },
+    "RateModifier": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "MinValueModifier": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "MaxValueModifier": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "CannotModifyBeyond": {
+     "Active": false,
+     "FloatValue": 0.0,
+     "MaxValue": 0.0
+    },
+    "ApplyEachTick": false,
+    "InstantModifier": true,
+    "IgnoreNovelty": true,
+    "IsInverse": false
+   }
+  ],
   "EscapeOptionNPCStatChanges": [],
   "FightOptionText": {
    "ParentObjectID": "cmcEncounterGuardSterling",
-   "LocalizationKey": "",
-   "DefaultText": "Attack"
+   "LocalizationKey": "CMC_SterlingEnc_Fight",
+   "DefaultText": "Attack the captain"
   },
   "FightOptionStatChanges": [
    {

@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatProfessorChestTheftSeason",
+    "GameName": {
+        "LocalizationKey": "CMC_ProfessorChestTheftSeason_StatName",
+        "DefaultText": "Professor's Chest Theft Season"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_ProfessorChestTheftSeason_StatDescription",
+        "DefaultText": "Hidden tracker: which season the undetected-theft heat counter was last written in (0 = none, 1 Spring, 2 Summer, 3 Autumn, 4 Winter). When the current season no longer matches, the heat counter resets to 0."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 4.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

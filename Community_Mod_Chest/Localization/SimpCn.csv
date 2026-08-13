@@ -96,7 +96,7 @@ Combat_And_Armor_BoneLamellar_Dismantle_ActionName,Dismantle,拆解
 Combat_And_Armor_BoneLamellar_Dismantle_ActionDescription,"Break apart the armor to recover bone, leather, and sinew.",拆开铠甲，回收骨头、皮革和筋腱。
 Combat_And_Armor_Bp_StoneMace_CardName,Stone Mace,石锤
 Combat_And_Armor_Bp_StoneMace_CardDescription,Craft a stone-headed mace.,制作一把石头锤头的锤子。
-Combat_And_Armor_Bp_StoneMace_UnlockConditionsDesc,The village armory opens (Renown 50),村庄军械库开放（声望50）
+Combat_And_Armor_Bp_StoneMace_UnlockConditionsDesc,The village armory opens (Reputation 50),村庄军械库开放（声誉50）
 Combat_And_Armor_Bp_QuiltedVest_CardName,Quilted Vest,棉背心
 Combat_And_Armor_Bp_QuiltedVest_CardDescription,Sew a padded cloth vest for torso protection.,缝制一件填充棉絮的布背心，用于保护躯干。
 Combat_And_Armor_Bp_QuiltedVest_UnlockConditionsDesc,The Weaver and Professor's winter fieldwork,织工与教授的冬季野外工作
@@ -157,7 +157,7 @@ Pottery_Sculpture_ClayBeads_UsageDurability,Durability,耐久度
 Pottery_Sculpture_ClayBeads_Broken,The beads have broken apart.,珠子已经散落破碎。
 Pottery_Sculpture_Bp_ClayBeads_CardName,Clay Beads,陶珠
 Pottery_Sculpture_Bp_ClayBeads_CardDescription,Shape small beads from clay and string them on twine.,用陶土捏出小珠子，再用麻绳穿成一串。
-Pottery_Sculpture_Bp_ClayBeads_UnlockConditionsDesc,Earn the village's renown,赢得村庄的声望
+Pottery_Sculpture_Bp_ClayBeads_UnlockConditionsDesc,Earn the village's reputation,赢得村庄的声誉
 Combat_And_Armor_StoneMace_UsageDurability.CardStatName,Durability,耐久度
 Combat_And_Armor_QuiltedVest_UsageDurability.CardStatName,Durability,耐久度
 Combat_And_Armor_QuiltedCap_UsageDurability.CardStatName,Durability,耐久度
@@ -335,8 +335,8 @@ CMC_HuntersCrossing_CardHelpSection,"<b>Pine Clearing:</b>
 <b>植物：</b>松树、白桦树、柰草、疗伤地衣、火根、松子（秋季）、毒蝇伞、牧草。
 
 <b>动物：</b>松鼠是这条小径上更常见的身影；附近岸边挖掘的獾穴标记着挖掘者白天蛰伏的巢穴。"
-CMC_DeerMeadow_CardName,Deer Meadow,鹿群草甸
-CMC_Env_DeerMeadow_CardName,Deer Meadow,鹿群草甸
+CMC_DeerMeadow_CardName,Stillwater Meadow,静水草甸
+CMC_Env_DeerMeadow_CardName,Stillwater Meadow,静水草甸
 CMC_DeerMeadow_CardDescription,"A pine grove meadow centered on a still pond, where deer come to drink and graze.",一片以静谧池塘为中心的松林草甸，鹿群常来此饮水觅食。
 CMC_DeerMeadow_CardHelpSection,"<b>Pine Grove, Pond:</b>
 
@@ -351,8 +351,8 @@ CMC_DeerMeadow_CardHelpSection,"<b>Pine Grove, Pond:</b>
 <b>植物：</b>松树、疗伤地衣、火根、越橘（夏季）、松子（秋季）环绕着一汪静谧的池塘。
 
 <b>动物：</b>灰山鹑、狐狸、母鹿、公鹿和狼群；正是这片草甸得名的由来——鹿群常在水边觅食，是这里常见的景象。"
-CMC_BadgerWarren_CardName,Badger Warren,獾穴地
-CMC_Env_BadgerWarren_CardName,Badger Warren,獾穴地
+CMC_BadgerWarren_CardName,Sett Warren,獾巢地
+CMC_Env_BadgerWarren_CardName,Sett Warren,獾巢地
 CMC_BadgerWarren_CardDescription,A pine-covered hillside pockmarked with sett-diggings and burrow entrances.,一片松树覆盖的山坡，坡面布满了獾群挖掘的洞穴和地洞入口。
 CMC_BadgerWarren_CardHelpSection,"<b>Pine Clearing:</b>
 
@@ -536,7 +536,7 @@ CharacterTraits_Perk_LactoseIntolerant_PerkDescription,Your body cannot process 
 CharacterTraits_Perk_Drunkard_PerkName,Drunkard,酒鬼
 CharacterTraits_Perk_Drunkard_PerkDescription,You cannot resist a drink. Alcohol hits twice as hard and brings Stress with it. Sobriety breeds restlessness.,你无法抵挡酒的诱惑。酒精对你的影响是常人的两倍，还会随之带来压力。而清醒时则会滋生烦躁不安。
 CMC_Imp_RiverBridge_CardName,River Bridge,河桥
-CMC_Imp_RiverBridge_CardDescription,A sturdy wooden bridge spanning the river at the clearing. Build this at the River Clearing to open the eastern path toward the village. Requires the Advanced Copper Tools mod.,一座横跨林隙河流的坚固木桥。在河边林隙建造此桥可开通通往村庄的东侧道路。需要「高级铜具」模组。
+CMC_Imp_RiverBridge_CardDescription,A sturdy wooden bridge spanning the river at the clearing. Build this at the River Clearing to open the eastern path toward the village.,一座横跨林隙河流的坚固木桥。在河边林隙建造此桥可开通通往村庄的东侧道路。
 CMC_Imp_StoneTileFloor_CardName,Stone Tile Floor,石砖地面
 CMC_Imp_StoneTileFloor_CardDescription,"Polished stone tiles set into a bed of clay, covering the ground in a smooth, even floor. Increases comfort and insulation. Can be laid in cabins and mud huts.",用抛光石砖嵌入粘土基层，铺成平整均匀的地面。能提升舒适度和保温效果，可铺设在小屋和泥屋中。
 CMC_MarketStallKit_CardName,Market Stall Kit,集市摊位套件
@@ -833,8 +833,8 @@ CMC_InnKeeperTalk_Ferryman_3_Answer_GoOn,Did he ever find out the truth of it?,�
 CMC_InnKeeperTalk_Ferryman_4_Line,"No, and truth be told I don't think anyone rightly wants to. Some tales are better left as tales, a light on the water, an old creak of oarlocks, nothing more than that so long as you keep your distance and mind your own crossing. All the same, if you ever find yourself down by that old landing after dark, I'd thank you to walk the long way round instead, just to be safe.",没有，说实话我看谁都不太想查。有些故事最好就留作故事——水面上的一盏灯，桨架古老的“吱呀”声，仅此而已，只要你保持距离，管好自己的渡口就行。不过话说回来，你要是哪天天黑后正好路过那个老渡口，我劝你还是绕远路走，安全第一。
 CMC_InnKeeperTalk_Ferryman_4_Answer_Thanks,"I'll take the long way round, just in case.",我会绕远路走的，以防万一。
 CMC_InnKeeperTalk_Ferryman_4_Answer_Wry,Maybe he just wants exact fare.,说不定他只是想要个整数的船钱。
-CMC_ClayFlats_CardName,Clay Flats,粘土滩地
-CMC_Env_ClayFlats_CardName,Clay Flats,粘土滩地
+CMC_ClayFlats_CardName,Clay Shoal,粘土沙洲
+CMC_Env_ClayFlats_CardName,Clay Shoal,粘土沙洲
 CMC_ClayFlats_CardDescription,"Low-lying wetland flats dominated by alder trees, with patches of exposed clay ideal for digging.",一片以桤木为主的低洼湿地滩地，散布着适合挖掘的裸露粘土。
 CMC_ClayFlats_CardHelpSection,"<b>Alder Clearing, Wetlands, Riverbank:</b>
 
@@ -853,8 +853,8 @@ CMC_ClayFlats_CardHelpSection,"<b>Alder Clearing, Wetlands, Riverbank:</b>
 <b>动物：</b>青蛙、蚊子。
 
 <b>另外：</b>河岸边一处富含粘土的土丘可挖掘出生粘土。"
-CMC_MarshHollow_CardName,Marsh Hollow,沼泽洼地
-CMC_Env_MarshHollow_CardName,Marsh Hollow,沼泽洼地
+CMC_MarshHollow_CardName,Sodden Hollow,泥泞洼地
+CMC_Env_MarshHollow_CardName,Sodden Hollow,泥泞洼地
 CMC_MarshHollow_CardDescription,"A boggy depression filled with marsh plants, willows, and alder growth, with standing pools of water.",一处泥泞的洼地，长满沼泽植物、柳树和桤木，散布着积水的水洼。
 CMC_MarshHollow_CardHelpSection,"<b>Alder Clearing:</b>
 
@@ -865,8 +865,8 @@ CMC_MarshHollow_CardHelpSection,"<b>Alder Clearing:</b>
 <b>植物：</b>桤木、柳树、白桦树、柰草、苔藓。
 
 <b>动物：</b>蚊子。"
-CMC_MossyClearing_CardName,Mossy Clearing,苔藓林隙
-CMC_Env_MossyClearing_CardName,Mossy Clearing,苔藓林隙
+CMC_MossyClearing_CardName,Moss-Grown Clearing,苔痕空地
+CMC_Env_MossyClearing_CardName,Moss-Grown Clearing,苔痕空地
 CMC_MossyClearing_CardDescription,A shaded oak clearing where moisture and shade have encouraged thick moss growth on the damp ground.,一片荫蔽的橡木林隙，潮湿和阴凉的环境让地面长出了厚厚的苔藓。
 CMC_MossyClearing_CardHelpSection,"<b>Oak Clearing:</b>
 
@@ -893,8 +893,8 @@ CMC_PineTrail_CardHelpSection,"<b>Pine Grove:</b>
 <b>植物：</b>松树、疗伤地衣、火根、越橘（夏季）、松子（秋季）、毒蝇伞。
 
 <b>动物：</b>松鼠。"
-CMC_HighGrove_CardName,High Grove,高地林地
-CMC_Env_HighGrove_CardName,High Grove,高地林地
+CMC_HighGrove_CardName,Highland Pines,高地松林
+CMC_Env_HighGrove_CardName,Highland Pines,高地松林
 CMC_HighGrove_CardDescription,"An elevated pine grove with tall, straight trees spaced among moss-covered rocks, offering clear views across the surrounding landscape.",一片地势较高的松林，笔直高大的树木分布在长满苔藓的岩石间，可以俯瞰周围的景色。
 CMC_HighGrove_CardHelpSection,"<b>Pine Grove:</b>
 
@@ -958,10 +958,10 @@ CMC_BoardApothecary_CardName,Apothecary's Board,药剂师的告示板
 CMC_BoardApothecary_CardDescription,A small board where the Apothecary posts news of the Cabin.,一块小告示板，药剂师在此张贴小屋的消息。
 CMC_BoardProfessor_CardName,Professor's Board,教授的告示板
 CMC_BoardProfessor_CardDescription,A small board where the Professor posts news of the Academy.,一块小告示板，教授在此张贴学院的消息。
-CMC_VillageRenown_StatName,Village Renown,村庄声望
-CMC_VillageRenown_StatDescription,"Hidden tracker for the village's civic renown, summed from built structures.",隐藏追踪器：村庄的公共声望，由已建成的建筑累加而来。
+CMC_VillageReputation_StatName,Village Reputation,村庄声誉
+CMC_VillageReputation_StatDescription,"Net standing for the village: civic renown minus the player's own Village Crime. Shown as a Mental attribute in the character menu.",村庄的净声誉：公共声望减去玩家自身的村庄犯罪度。在角色菜单的"精神"栏中显示。
 CMC_VillageCrime_StatName,Village Crime,村庄犯罪度
-CMC_VillageCrime_StatDescription,Hidden notoriety tracker for the village Watch: rises when thefts and attacks are detected.,隐藏恶名追踪器：村庄巡逻队使用，侦测到盗窃或袭击时会上升。
+CMC_VillageCrime_StatDescription,"Hidden notoriety tracker for the village Watch: rises when thefts and attacks are detected. Feeds into Village Reputation but stays its own independent ledger.",隐藏恶名追踪器：村庄巡逻队使用，侦测到盗窃或袭击时会上升。会计入村庄声誉，但本身仍是独立记录。
 CMC_InnFriendship_StatName,Inn Keeper Friendship,旅店老板友谊
 CMC_InnFriendship_StatDescription,Hidden tracker: rises with each Chat. Gates warmer dialog and better trade prices at the Inn.,隐藏追踪器：每次交谈都会上升，用于解锁旅店更热络的对话和更优惠的交易价格。
 CMC_InnWellCommented_StatName,The Inn Keeper's Well Remark,旅店老板对水井的评价
@@ -1715,6 +1715,8 @@ CMC_BoardTown_DA_renown_high_Name,Village standing: renown high,村庄状况：�
 CMC_BoardTown_DA_renown_high_Desc,The village has become a respected stop on the road.,村庄已成为旅途中备受敬重的一站。
 CMC_BoardTown_DA_renown_top_Name,Village standing: renown top,村庄状况：声望顶峰
 CMC_BoardTown_DA_renown_top_Desc,The village is known across the region.,村庄的名声已传遍整个地区。
+CMC_BoardTown_DA_reputation_negative_Name,Village standing: reputation strained,村庄状况：声誉受损
+CMC_BoardTown_DA_reputation_negative_Desc,"Word has spread of trouble tied to this place, and the village's good name has suffered for it.",有关此地麻烦的传闻已经流传开来，村庄的好名声也因此受损。
 CMC_BoardTown_DA_contrib_miller_Name,Contribution: Miller's Cottage,贡献：磨坊主的小屋
 CMC_BoardTown_DA_contrib_miller_Desc,The Miller's Cottage adds to the village's standing.,磨坊主的小屋为村庄状况添砖加瓦。
 CMC_BoardTown_DA_contrib_weaver_Name,Contribution: Weaver's Cottage,贡献：织工的小屋
@@ -1792,9 +1794,9 @@ CMC_ShadowCatTamed_CI_GiveWater_Fail,Not thirsty yet.,还不渴。
 CMC_QuestRenownMarketStallSales_StatName,Renown: Market Stall Sales Milestone,声望：集市摊位销售里程碑
 CMC_QuestRenownMarketStallSales_StatDescription,"Hidden one-shot flag: 1 once the Market Stall's Sales Revenue has ever been observed at or above its Renown threshold. Contributes to Village Renown. Latched permanently the first time it's observed (the stall's revenue can only be read while the player is standing at the Village), so the Renown contribution survives being away from the Village afterward.",隐藏的一次性标记：一旦集市摊位的销售收入被观测到达到或超过声望门槛，即置为1。计入村庄声望。该标记在首次被观测到时永久锁定（摊位收入只能在玩家站在村庄内时读取），因此即便之后离开村庄，声望贡献依然会保留。
 CMC_SnowDriftNorth_CardName,Snow Drift,雪堆
-CMC_SnowDriftNorth_CardDescription,"Deep winter snow has drifted across the northern road to Deer Meadow, burying the path. Dig through it with a shovel to clear the way — once cleared, it stays open for the rest of the winter.",深冬的积雪堆满了通往鹿群草甸的北面道路，将小径彻底掩埋。用铲子挖开积雪即可清出道路——一旦清理完毕，这条路将在整个冬季保持畅通。
+CMC_SnowDriftNorth_CardDescription,"Deep winter snow has drifted across the northern road to Stillwater Meadow, burying the path. Dig through it with a shovel to clear the way — once cleared, it stays open for the rest of the winter.",深冬的积雪堆满了通往静水草甸的北面道路，将小径彻底掩埋。用铲子挖开积雪即可清出道路——一旦清理完毕，这条路将在整个冬季保持畅通。
 CMC_SnowDriftNorth_CI_Dig_ActionName,Dig Through the Snow Drift,挖开积雪
-CMC_SnowDriftNorth_CI_Dig_ActionDescription,Shovel a path through the drift. Clears the road to Deer Meadow once fully dug through.,铲开一条穿过雪堆的通路。完全挖通后，通往鹿群草甸的道路便会畅通。
+CMC_SnowDriftNorth_CI_Dig_ActionDescription,Shovel a path through the drift. Clears the road to Stillwater Meadow once fully dug through.,铲开一条穿过雪堆的通路。完全挖通后，通往静水草甸的道路便会畅通。
 CMC_SnowDriftSouth_CardName,Snow Drift,雪堆
 CMC_SnowDriftSouth_CardDescription,"Deep winter snow has drifted across the southern road to Pine Trail, burying the path. Dig through it with a shovel to clear the way — once cleared, it stays open for the rest of the winter.",深冬的积雪堆满了通往松林小径的南面道路，将小径彻底掩埋。用铲子挖开积雪即可清出道路——一旦清理完毕，这条路将在整个冬季保持畅通。
 CMC_SnowDriftSouth_CI_Dig_ActionName,Dig Through the Snow Drift,挖开积雪
@@ -2000,3 +2002,77 @@ CMC_HomesteadRainCisternKit_CardName,Rain Cistern Kit,集雨桶套件
 CMC_HomesteadRainCisternKit_CardDescription,"A rain cistern, disassembled and bundled for travel. Drop it wherever you want your water source, then use Place to set it up. Can only be placed once.",一个拆解打包、便于携带的集雨桶。放到你想设置水源的地方，然后使用「放置」进行搭建。只能放置一次。
 CMC_HomesteadRainCisternKit_DA_Place,Place,放置
 CMC_HomesteadRainCisternKit_DA_Place_Desc,Set up your rain cistern on this spot.,在此处搭建你的集雨桶。
+CMC_CopperChestWeaver_CardName,Weaver's Copper Chest,织工的铜制箱子
+CMC_CopperChestWeaver_CardDescription,"The Weaver keeps what the dye pots and the loom have earned her in this banded chest, along with a little spare thread. She adds to it most weeks, until it holds about as much as a weaver's chest ever does. Drag a valuable item onto the chest to sell it to her - she can only pay what is actually inside. There is nothing stopping you searching it yourself, either, if you are willing to risk being caught.",织工把染缸和织机为她挣来的钱，连同一些多余的线，都放在这只包铁箱子里。她大多数时候每周都会往里添一些，直到装得像织工的箱子通常那么多为止。把值钱的物品拖到箱子上即可卖给她——她只能用箱子里实际有的钱支付。当然，如果你愿意冒着被抓的风险，也没什么能阻止你自己动手翻找它。
+CMC_CopperChestWeaver_CardHelpSection,Copper Chest,铜制箱子
+CMC_CopperChestWeaver_CI_Sell,Sell to the Weaver,卖给织工
+CMC_CopperChestWeaver_CI_Sell_Desc,"Sell the dragged item to the Weaver. She pays out of the chest's own coin, so she can only buy what she can currently afford - a freshly settled Weaver cannot yet meet the price of anything expensive.",把拖动的物品卖给织工。她用箱子里现有的钱付款，所以只能买她目前买得起的东西——刚安顿下来的织工，暂时还付不起什么贵重的价钱。
+CMC_CopperChestWeaver_DA_Search,Search for valuables,搜寻贵重物品
+CMC_CopperChestWeaver_DA_Search_Desc,Go through the chest and take whatever is inside. Quick work when nobody is home - rather less so when the Weaver is.,翻找箱子，拿走里面的东西。没人在家时干这事很快——织工在家时可就没那么容易了。
+CMC_WeaverChestRestockDay_StatName,Weaver's Chest Last Restock Day,织工箱子上次补货日
+CMC_WeaverChestRestockDay_StatDescription,Hidden tracker: the absolute day the Weaver last added to the Copper Chest.,隐藏追踪器：记录织工上次往铜制箱子里补充物品的绝对天数。
+CMC_WeaverChestThefts_StatName,Weaver's Chest Undetected Thefts,织工箱子未被发现的盗窃次数
+CMC_WeaverChestThefts_StatDescription,Hidden heat counter: undetected robberies of the Weaver's Copper Chest this season.,隐藏警觉计数器：本季度对织工的铜制箱子的未被发现的盗窃次数。
+CMC_WeaverChestTheftSeason_StatName,Weaver's Chest Theft Season,织工箱子盗窃季节
+CMC_WeaverChestTheftSeason_StatDescription,Hidden tracker: the season the Copper Chest heat counter was last written in.,隐藏追踪器：记录铜制箱子警觉计数器上次写入的季节。
+CMC_CopperChestApothecary_CardName,Apothecary's Copper Chest,药剂师的铜制箱子
+CMC_CopperChestApothecary_CardDescription,"The Apothecary keeps the coin her salves and teas have earned in this banded chest, along with a few specimens too good to sell across a market stall. She adds to it most weeks, though a herbalist's takings are never large. Drag a valuable item onto the chest to sell it to her - she can only pay what is actually inside. There is nothing stopping you searching it yourself, either, if you are willing to risk being caught.",药剂师把药膏和药茶为她挣来的钱放在这只包铁箱子里，还有一些舍不得摆到集市摊位上卖的标本。她大多数时候每周都会往里添一些，不过草药师的进项向来不多。把值钱的物品拖到箱子上即可卖给她——她只能用箱子里实际有的钱支付。当然，如果你愿意冒着被抓的风险，也没什么能阻止你自己动手翻找它。
+CMC_CopperChestApothecary_CardHelpSection,Copper Chest,铜制箱子
+CMC_CopperChestApothecary_CI_Sell,Sell to the Apothecary,卖给药剂师
+CMC_CopperChestApothecary_CI_Sell_Desc,"Sell the dragged item to the Apothecary. She pays out of the chest's own coin, so she can only buy what she can currently afford - herb money adds up slowly, and hers is the thinner purse.",把拖动的物品卖给药剂师。她用箱子里现有的钱付款，所以只能买她目前买得起的东西——草药生意积攒得慢，她的钱包也是几位卖家里最薄的。
+CMC_CopperChestApothecary_DA_Search,Search for valuables,搜寻贵重物品
+CMC_CopperChestApothecary_DA_Search_Desc,Go through the chest and take whatever is inside. Quick work when nobody is home - rather less so when the Apothecary is.,翻找箱子，拿走里面的东西。没人在家时干这事很快——药剂师在家时可就没那么容易了。
+CMC_ApothecaryChestRestockDay_StatName,Apothecary's Chest Last Restock Day,药剂师箱子上次补货日
+CMC_ApothecaryChestRestockDay_StatDescription,Hidden tracker: the absolute day the Apothecary last added to the Copper Chest.,隐藏追踪器：记录药剂师上次往铜制箱子里补充物品的绝对天数。
+CMC_ApothecaryChestThefts_StatName,Apothecary's Chest Undetected Thefts,药剂师箱子未被发现的盗窃次数
+CMC_ApothecaryChestThefts_StatDescription,Hidden heat counter: undetected robberies of the Apothecary's Copper Chest this season.,隐藏警觉计数器：本季度对药剂师的铜制箱子的未被发现的盗窃次数。
+CMC_ApothecaryChestTheftSeason_StatName,Apothecary's Chest Theft Season,药剂师箱子盗窃季节
+CMC_ApothecaryChestTheftSeason_StatDescription,Hidden tracker: the season the Copper Chest heat counter was last written in.,隐藏追踪器：记录铜制箱子警觉计数器上次写入的季节。
+CMC_CopperChestInnKeeper_CardName,Inn Keeper's Copper Chest,旅店老板的铜制箱子
+CMC_CopperChestInnKeeper_CardDescription,"The Inn Keeper's own savings, kept in a banded chest behind the counter - not the Inn's till, which is a separate account entirely. Beds and hot meals bring in more coin than any other trade in the village, and it shows. Drag a valuable item onto the chest to sell it to him - he pays with what is actually inside, and there is usually a good deal inside. There is nothing stopping you searching it yourself, either, if you are willing to risk being caught.",旅店老板自己的积蓄，放在柜台后面的一只包铁箱子里——这不是旅店的钱柜，那是完全独立的账目。床铺和热饭带来的收入比村里任何其他行当都多，箱子里的分量也看得出来。把值钱的物品拖到箱子上即可卖给他——他用箱子里实际有的钱支付，而箱子里通常都相当可观。当然，如果你愿意冒着被抓的风险，也没什么能阻止你自己动手翻找它。
+CMC_CopperChestInnKeeper_CardHelpSection,Copper Chest,铜制箱子
+CMC_CopperChestInnKeeper_CI_Sell,Sell to the Inn Keeper,卖给旅店老板
+CMC_CopperChestInnKeeper_CI_Sell_Desc,"Sell the dragged item to the Inn Keeper. He pays out of the chest's own coin - his personal savings, not the Inn's till - so he can only buy what he can currently afford. He is the richest buyer in the village.",把拖动的物品卖给旅店老板。他用箱子里现有的钱付款——那是他的私人积蓄，不是旅店的钱柜——所以只能买他目前买得起的东西。他是村里最富有的买家。
+CMC_CopperChestInnKeeper_DA_Search,Search for valuables,搜寻贵重物品
+CMC_CopperChestInnKeeper_DA_Search_Desc,Go through the chest and take whatever is inside. Quick work when nobody is home - rather less so when the Inn Keeper is.,翻找箱子，拿走里面的东西。没人在家时干这事很快——旅店老板在家时可就没那么容易了。
+CMC_InnKeeperChestRestockDay_StatName,Inn Keeper's Chest Last Restock Day,旅店老板箱子上次补货日
+CMC_InnKeeperChestRestockDay_StatDescription,Hidden tracker: the absolute day the Inn Keeper last added to the Copper Chest.,隐藏追踪器：记录旅店老板上次往铜制箱子里补充物品的绝对天数。
+CMC_InnKeeperChestThefts_StatName,Inn Keeper's Chest Undetected Thefts,旅店老板箱子未被发现的盗窃次数
+CMC_InnKeeperChestThefts_StatDescription,Hidden heat counter: undetected robberies of the Inn Keeper's Copper Chest this season.,隐藏警觉计数器：本季度对旅店老板的铜制箱子的未被发现的盗窃次数。
+CMC_InnKeeperChestTheftSeason_StatName,Inn Keeper's Chest Theft Season,旅店老板箱子盗窃季节
+CMC_InnKeeperChestTheftSeason_StatDescription,Hidden tracker: the season the Copper Chest heat counter was last written in.,隐藏追踪器：记录铜制箱子警觉计数器上次写入的季节。
+CMC_CopperChestProfessor_CardName,Professor's Copper Chest,教授的铜制箱子
+CMC_CopperChestProfessor_CardDescription,"The Professor's own desk strongbox, kept in the Academy - not the tuition account at the lectern, which the Academy keeps its own books on. A scholar's private savings are modest, but the specimens he sets aside in here are not. Drag a valuable item onto the chest to sell it to him - he can only pay what is actually inside. There is nothing stopping you searching it yourself, either, if you are willing to risk being caught.",教授自己的书桌保险箱，放在学院里——这不是讲台上的学费账户，那是学院自行记账的。学者的私人积蓄并不多，但他在这里存放的标本可不少。把值钱的物品拖到箱子上即可卖给他——他只能用箱子里实际有的钱支付。当然，如果你愿意冒着被抓的风险，也没什么能阻止你自己动手翻找它。
+CMC_CopperChestProfessor_CardHelpSection,Copper Chest,铜制箱子
+CMC_CopperChestProfessor_CI_Sell,Sell to the Professor,卖给教授
+CMC_CopperChestProfessor_CI_Sell_Desc,"Sell the dragged item to the Professor. He pays out of the chest's own coin - his own savings, not the Academy's tuition account - so he can only buy what he can currently afford.",把拖动的物品卖给教授。他用箱子里现有的钱付款——那是他自己的积蓄，不是学院的学费账户——所以只能买他目前买得起的东西。
+CMC_CopperChestProfessor_DA_Search,Search for valuables,搜寻贵重物品
+CMC_CopperChestProfessor_DA_Search_Desc,Go through the chest and take whatever is inside. Quick work when nobody is home - rather less so when the Professor is.,翻找箱子，拿走里面的东西。没人在家时干这事很快——教授在家时可就没那么容易了。
+CMC_ProfessorChestRestockDay_StatName,Professor's Chest Last Restock Day,教授箱子上次补货日
+CMC_ProfessorChestRestockDay_StatDescription,Hidden tracker: the absolute day the Professor last added to the Copper Chest.,隐藏追踪器：记录教授上次往铜制箱子里补充物品的绝对天数。
+CMC_ProfessorChestThefts_StatName,Professor's Chest Undetected Thefts,教授箱子未被发现的盗窃次数
+CMC_ProfessorChestThefts_StatDescription,Hidden heat counter: undetected robberies of the Professor's Copper Chest this season.,隐藏警觉计数器：本季度对教授的铜制箱子的未被发现的盗窃次数。
+CMC_ProfessorChestTheftSeason_StatName,Professor's Chest Theft Season,教授箱子盗窃季节
+CMC_ProfessorChestTheftSeason_StatDescription,Hidden tracker: the season the Copper Chest heat counter was last written in.,隐藏追踪器：记录铜制箱子警觉计数器上次写入的季节。
+CMC_SterlingEnc_Hold_Action,"Captain Reeve Sterling moves to block your way, sword still in its scabbard.",里夫·斯特林队长上前拦住你的去路，佩剑仍在鞘中。
+CMC_SterlingEnc_Hold_Success,He gets a hand on you and turns you back. He does not draw.,他一把抓住你，将你推了回去。他始终没有拔剑。
+CMC_SterlingEnc_Hold_Failure,You slip past his reach before he can close his grip.,你在他收拢手掌之前从他臂展下溜了过去。
+CMC_SterlingEnc_Press_Action,"The captain presses forward, open-handed, herding you away from the square.",队长空着双手向前逼近，把你从广场驱赶开去。
+CMC_SterlingEnc_Press_Success,He crowds you back a step and holds you there.,他把你逼退一步，并将你稳稳挡在原地。
+CMC_SterlingEnc_Press_Failure,You give ground and break the line he was trying to hold.,你后退让步，冲破了他试图守住的防线。
+CMC_SterlingEnc_Title,Captain Reeve Sterling stops you.,里夫·斯特林队长拦下了你。
+CMC_SterlingEnc_Desc,"He plants himself in your path with one hand raised and the other well clear of his sword. ""Stand down and come with me,"" he says, ""or don't. But think on it first.""",他挡在你面前，一手抬起，另一只手远离剑柄。“放下武器，跟我走，”他说，“或者不跟。但先好好想清楚。”
+CMC_SterlingEnc_Escape,Think better of it,再想想，算了
+CMC_SterlingEnc_Fight,Attack the captain,攻击队长
+CMC_SterlingConv_Title,The Watch has you surrounded.,巡逻队已将你团团围住。
+CMC_SterlingConv_Desc,"The captain is not alone this time. The Watch has closed from every side, and there is no gap left to talk your way through. ""No more warnings,"" Sterling says.",这一次队长并非独自前来。巡逻队已从四面合围，再没有留下任何可供你辩解脱身的缝隙。“不会再有警告了。”斯特林说。
+CMC_SterlingConv_Fight,Fight your way out,杀出重围
+CMC_SterlingArr_Action,Sterling closes the distance and takes hold of you.,斯特林迅速逼近，一把将你擒住。
+CMC_SterlingArr_Success,"You are held fast. It is over, and he never drew the blade.",你被牢牢制住。一切都结束了，而他自始至终没有拔剑。
+CMC_SterlingArr_Failure,You wrench free for a heartbeat — and his hand closes on you again.,你挣脱了一瞬——随即他的手又一次扣住了你。
+CMC_SterlingArr_Result,The captain walks you to the jail without another word. You are not hurt. You are simply no longer free.,队长一言不发地把你押往牢房。你毫发无伤，只是从此不再自由。
+CMC_SterlingArr_Title,Captain Sterling is done waiting.,斯特林队长不打算再等下去了。
+CMC_SterlingArr_Desc,"""I have given you every chance I have to give,"" the captain says, and this time he does not stop to argue. He takes hold of you and does not let go.",“我能给的机会，都已经给过你了。”队长说道，而这一次他没有停下来争辩。他擒住你，再不松手。
+CMC_SterlingArr_Fight,Let him take you,束手就擒
+CMC_SterlingEscapeCount_StatName,Chances Given,已给出的机会
+CMC_SterlingEscapeCount_StatDescription,Hidden counter: how many times you have backed down from a fight with Captain Sterling.,隐藏计数器：你有多少次在与斯特林队长的冲突面前选择了退让。

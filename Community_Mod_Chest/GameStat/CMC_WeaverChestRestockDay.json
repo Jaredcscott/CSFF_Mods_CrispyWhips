@@ -1,16 +1,16 @@
 {
-    "UniqueID": "cmcStatVillageRenown",
+    "UniqueID": "cmcStatWeaverChestRestockDay",
     "GameName": {
-        "LocalizationKey": "CMC_VillageRenown_StatName",
-        "DefaultText": "Village Renown"
+        "LocalizationKey": "CMC_WeaverChestRestockDay_StatName",
+        "DefaultText": "Weaver's Chest Last Restock Day"
     },
     "Description": {
-        "LocalizationKey": "CMC_VillageRenown_StatDescription",
-        "DefaultText": "Hidden tracker for the village's civic growth: sums fixed contributions from each built cottage, the Well, the River Bridge, and a Market Stall revenue milestone. Mirrored onto Village Hall's Notice Board (SpecialDurability1) once the Hall exists; drives the Market Stall renown reward once full."
+        "LocalizationKey": "CMC_WeaverChestRestockDay_StatDescription",
+        "DefaultText": "Hidden tracker: the absolute day the Weaver last added to the Copper Chest. 0 = never. The accrual check only runs while the player is standing inside the chest's own interior, so this must persist across sessions rather than living in memory."
     },
     "IsRuntimeOnly": false,
     "BaseValue": 0.0,
-    "MinMaxValue": {"x": 0.0, "y": 100.0},
+    "MinMaxValue": {"x": 0.0, "y": 100000.0},
     "BaseRatePerTick": 0.0,
     "MinMaxRate": {"x": 0.0, "y": 0.0},
     "Transfers": [],

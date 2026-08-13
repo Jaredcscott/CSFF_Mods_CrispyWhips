@@ -8,68 +8,232 @@ using HarmonyLib;
 namespace CommunityModChest.Patcher
 {
     /// <summary>
-    /// The Miller's Copper Chest (Village_Master_Plan.md §10.8.3) — one CT2 container inside
-    /// cmcMillerCottageInterior that is simultaneously the Miller's savings, his spending power,
-    /// and a burglary target. Scoped to the Miller only this pass, per §10.8.3.7's sequencing
-    /// rule; the Weaver/Apothecary/Inn Keeper/Professor chests are a later chunk.
+    /// The village Copper Chests (Village_Master_Plan.md §10.8.3) — one CT2 container inside each
+    /// named NPC's own interior that is simultaneously that NPC's savings, their spending power,
+    /// and a burglary target. Rolled out to all five residents in CMC 1.46.0; the Miller-only
+    /// prototype (1.38.0) was §10.8.3.7's "prove it on one cottage first" step.
     ///
-    /// Three mechanics, ONE physical inventory (§10.8.3.1 — a single source of truth by
-    /// construction, so robbing the chest also, automatically, makes the Miller unable to afford
+    /// Three mechanics, ONE physical inventory per chest (§10.8.3.1 — a single source of truth by
+    /// construction, so robbing a chest also, automatically, makes its owner unable to afford
     /// anything until the next accrual):
     ///
-    ///   1. ACCRUAL — owned by CottageResidentSpawnPatch.CheckRestock, which retargets the
-    ///      Miller's weekly AgentAction drop from his personal satchel onto this chest
-    ///      (§10.8.3.3 "retarget, don't duplicate" — R6). The caps live here
-    ///      (<see cref="CurrencyCap"/> / <see cref="GoodsCap"/>) because they are read off the
-    ///      chest's live contents, not off a tracked number.
-    ///   2. SELL — a drag-and-drop CardInteraction on the chest ("Sell to the Miller"). Priced
+    ///   1. ACCRUAL — <see cref="TryAccrue"/>, called once per resident by whichever patcher already
+    ///      owns that NPC's tick (see the ACCRUAL OWNERSHIP table below). It fires the resident's own
+    ///      weekly AgentActions with the CHEST as the receiving card instead of the NPC's satchel
+    ///      (§10.8.3.3 "retarget, don't duplicate" — R6). The caps live on <see cref="ChestConfig"/>
+    ///      because they are read off the chest's live contents, not off a tracked number.
+    ///   2. SELL — a drag-and-drop CardInteraction on each chest ("Sell to the &lt;NPC&gt;"). Priced
     ///      with MarketStallPatch's own ObjectWeight/10 formula so an item is worth the same at
-    ///      the player's stall and at the Miller's chest. Afford-gated on <see cref="CurrentWealth"/>
+    ///      the player's stall and at any NPC's chest. Afford-gated on <see cref="CurrentWealth"/>
     ///      via ActionTiming.Cancel (InnPatch.BalanceGate's shape), paid out of the chest's own
     ///      currency via ActionTiming.AfterWrapped.
     ///   3. THEFT — a "Search for valuables" DismantleAction that empties the chest to the player
     ///      and rolls for detection. Detected -> cmcStatVillageCrime +10 (VillageCrimePatch.AddCrime).
     ///
+    /// <para><b>ACCRUAL OWNERSHIP</b> — each resident's weekly drop is driven by the patcher that
+    /// already owns that NPC's poll, so no new spawn mechanism is introduced anywhere:
+    /// Miller + Weaver -> CottageResidentSpawnPatch.CheckRestock; Apothecary ->
+    /// ApothecarySchedulePatch.RunScheduler; Inn Keeper -> InnKeeperSpawnPatch.CheckRestock;
+    /// Professor -> ProfessorSchedulePatch.RunScheduler. Each passes its OWN proven FireAgentAction
+    /// in as the <paramref name="fireAgentAction"/> delegate. Exactly one caller per config — a
+    /// second caller would be the R6 double-drop bug.</para>
+    ///
     /// <para><b>Why the DA needs C#</b>: a DismantleAction's static JSON cannot express "whatever
     /// happens to be inside right now", and ReceivingCardChanges.CardsToCreate is not processed on
     /// DismantleActions at all (root CLAUDE.md). DaytimeCost 4 + AlwaysShow keep it past
     /// CanAppear()/WillHaveAnEffect() so the button actually renders.</para>
+    ///
+    /// <para><b>Self-contained home detection</b>: <see cref="IsOwnerHome"/> resolves the resident's
+    /// live NPC and compares its CurrentEnvironment against the chest's own interior, rather than
+    /// calling CottageResidentSchedulePatch.IsResidentHome — that helper only knows the two cottage
+    /// residents, so a shared call would have silently returned "nobody home" (never an instant
+    /// catch) for the Apothecary, Inn Keeper and Professor.</para>
     /// </summary>
     internal static class CopperChestPatch
     {
-        internal const string ChestUid = "cmcCopperChestMiller";
-        internal const string InteriorEnvUid = "cmcMillerCottageInterior";
-        internal const string MillerAgentUid = "cmcMillerAgent";
+        /// <summary>
+        /// Everything that differs between the five chests. Adding a sixth resident is a new entry
+        /// in <see cref="Chests"/> plus one <see cref="TryAccrue"/> call from that NPC's own poll —
+        /// no changes anywhere else in this file.
+        /// </summary>
+        internal sealed class ChestConfig
+        {
+            /// <summary>Log label and possessive used in player-facing log lines.</summary>
+            public string Name;
 
-        private const string TheftsStat = "cmcStatMillerChestThefts";
-        private const string TheftSeasonStat = "cmcStatMillerChestTheftSeason";
+            public string ChestUid;
+            /// <summary>The chest's own interior env. Doubles as "home" for the theft roll.</summary>
+            public string InteriorEnvUid;
+            public string AgentUid;
 
-        // Two-tier action identity (CLAUDE.md §Harmony Patching Pitfalls): the LocalizationKey is
-        // the primary match, the DefaultText a fallback if the key is ever stripped. Both must
-        // stay in step with CardData/Location/CMC_CopperChestMiller.json and SimpEn.csv.
-        private const string SellActionKey = "CMC_CopperChestMiller_CI_Sell";
-        private const string SellActionName = "Sell to the Miller";
-        private const string SearchActionKey = "CMC_CopperChestMiller_DA_Search";
-        private const string SearchActionName = "Search for valuables";
+            /// <summary>AgentActions[].ActionID dropping currency into the chest.</summary>
+            public string CurrencyActionId;
+            /// <summary>AgentActions[].ActionID dropping goods into the chest.</summary>
+            public string GoodsActionId;
 
-        /// <summary>Live-summed currency ceiling (§10.8.3.3). The Miller is a mid-tier earner —
-        /// 300 is 20 Salt, roughly seven weeks of accrual from empty at 3 Salt/week.</summary>
-        internal const float CurrencyCap = 300f;
+            /// <summary>Hidden GameStat holding the absolute day of the last accrual.</summary>
+            public string RestockDayStat;
+            /// <summary>Hidden GameStat: undetected thefts of THIS chest this season.</summary>
+            public string TheftsStat;
+            /// <summary>Hidden GameStat: the season <see cref="TheftsStat"/> was last written in.</summary>
+            public string TheftSeasonStat;
 
-        /// <summary>Separate goods ceiling, counted in cards rather than value so a heavy stack
-        /// can't crowd the currency out of the chest's ten slots.</summary>
-        internal const int GoodsCap = 10;
+            // Two-tier action identity (CLAUDE.md §Harmony Patching Pitfalls): the LocalizationKey is
+            // the primary match, the DefaultText a fallback if the key is ever stripped. Both must
+            // stay in step with this chest's CardData/Location/*.json and SimpEn.csv. The KEYS are
+            // per-chest and therefore unique; the Search DA's DefaultText is deliberately the same
+            // flavour-neutral "Search for valuables" on every chest (§10.8.3.6 wants a non-spoiler
+            // label), which is safe because dispatch also matches CardUid and no two chests can
+            // ever share a board (each is UniqueOnBoard inside its own interior).
+            public string SellActionKey;
+            public string SellActionName;
+            public string SearchActionKey;
+            public string SearchActionName;
 
-        /// <summary>Detection chance when the Miller is out, before modifiers. PLACEHOLDER —
+            /// <summary>Live-summed currency ceiling (§10.8.3.3). Tiered per NPC: the Inn Keeper is
+            /// the richest buyer in the village, Miller/Weaver mid, Apothecary/Professor thinner
+            /// purses that make up for it in rarer goods. PLACEHOLDERS pending §10.8.10's tuning
+            /// pass, same as the Miller's original 300.</summary>
+            public float CurrencyCap;
+
+            /// <summary>Separate goods ceiling, counted in cards rather than value so a heavy stack
+            /// can't crowd the currency out of the chest's ten slots.</summary>
+            public int GoodsCap;
+        }
+
+        // Weekly cadence, shared by every chest. Matches CottageResidentSpawnPatch's own satchel
+        // restock interval so a resident with a chest accrues on the same rhythm they used to.
+        private const int RestockIntervalDays = 7;
+
+        internal static readonly ChestConfig[] Chests =
+        {
+            // Salt is 15 value (CurrencyValue.SaltValue), so these caps are ~6-8 weeks of accrual
+            // from empty on every chest — the tiering changes the CEILING and the goods mix, not
+            // the pacing, so no NPC feels dead for months while another fills in a fortnight.
+            new ChestConfig
+            {
+                Name = "Miller",
+                ChestUid = "cmcCopperChestMiller",
+                InteriorEnvUid = "cmcMillerCottageInterior",
+                AgentUid = "cmcMillerAgent",
+                CurrencyActionId = "MillerChestCurrency",
+                GoodsActionId = "MillerChestGoods",
+                RestockDayStat = "cmcStatMillerChestRestockDay",
+                TheftsStat = "cmcStatMillerChestThefts",
+                TheftSeasonStat = "cmcStatMillerChestTheftSeason",
+                SellActionKey = "CMC_CopperChestMiller_CI_Sell",
+                SellActionName = "Sell to the Miller",
+                SearchActionKey = "CMC_CopperChestMiller_DA_Search",
+                SearchActionName = "Search for valuables",
+                CurrencyCap = 300f,   // 20 Salt; 3 Salt/week -> ~7 weeks from empty
+                GoodsCap = 10,
+            },
+            new ChestConfig
+            {
+                Name = "Weaver",
+                ChestUid = "cmcCopperChestWeaver",
+                InteriorEnvUid = "cmcWeaverCottageInterior",
+                AgentUid = "cmcWeaverAgent",
+                CurrencyActionId = "WeaverChestCurrency",
+                GoodsActionId = "WeaverChestGoods",
+                RestockDayStat = "cmcStatWeaverChestRestockDay",
+                TheftsStat = "cmcStatWeaverChestThefts",
+                TheftSeasonStat = "cmcStatWeaverChestTheftSeason",
+                SellActionKey = "CMC_CopperChestWeaver_CI_Sell",
+                SellActionName = "Sell to the Weaver",
+                SearchActionKey = "CMC_CopperChestWeaver_DA_Search",
+                SearchActionName = "Search for valuables",
+                CurrencyCap = 300f,   // same working-trade tier as the Miller
+                GoodsCap = 10,
+            },
+            new ChestConfig
+            {
+                Name = "Apothecary",
+                ChestUid = "cmcCopperChestApothecary",
+                InteriorEnvUid = "cmcApothecaryCabinInterior",
+                AgentUid = "cmcApothecaryAgent",
+                CurrencyActionId = "ApothecaryChestCurrency",
+                GoodsActionId = "ApothecaryChestGoods",
+                RestockDayStat = "cmcStatApothecaryChestRestockDay",
+                TheftsStat = "cmcStatApothecaryChestThefts",
+                TheftSeasonStat = "cmcStatApothecaryChestTheftSeason",
+                SellActionKey = "CMC_CopperChestApothecary_CI_Sell",
+                SellActionName = "Sell to the Apothecary",
+                SearchActionKey = "CMC_CopperChestApothecary_DA_Search",
+                SearchActionName = "Search for valuables",
+                CurrencyCap = 180f,   // 12 Salt; 2 Salt/week -> ~6 weeks. Thin purse, rarer goods.
+                GoodsCap = 8,
+            },
+            new ChestConfig
+            {
+                Name = "Inn Keeper",
+                ChestUid = "cmcCopperChestInnKeeper",
+                InteriorEnvUid = "cmcInnInterior",
+                AgentUid = "cmcInnKeeperAgent",
+                CurrencyActionId = "InnKeeperChestCurrency",
+                GoodsActionId = "InnKeeperChestGoods",
+                RestockDayStat = "cmcStatInnKeeperChestRestockDay",
+                TheftsStat = "cmcStatInnKeeperChestThefts",
+                TheftSeasonStat = "cmcStatInnKeeperChestTheftSeason",
+                SellActionKey = "CMC_CopperChestInnKeeper_CI_Sell",
+                SellActionName = "Sell to the Inn Keeper",
+                SearchActionKey = "CMC_CopperChestInnKeeper_DA_Search",
+                SearchActionName = "Search for valuables",
+                CurrencyCap = 500f,   // richest buyer in the village; 5 Salt/week -> ~7 weeks
+                GoodsCap = 10,
+            },
+            new ChestConfig
+            {
+                Name = "Professor",
+                ChestUid = "cmcCopperChestProfessor",
+                InteriorEnvUid = "cmcAcademyInterior",
+                AgentUid = "cmcProfessorAgent",
+                CurrencyActionId = "ProfessorChestCurrency",
+                GoodsActionId = "ProfessorChestGoods",
+                RestockDayStat = "cmcStatProfessorChestRestockDay",
+                TheftsStat = "cmcStatProfessorChestThefts",
+                TheftSeasonStat = "cmcStatProfessorChestTheftSeason",
+                SellActionKey = "CMC_CopperChestProfessor_CI_Sell",
+                SellActionName = "Sell to the Professor",
+                SearchActionKey = "CMC_CopperChestProfessor_DA_Search",
+                SearchActionName = "Search for valuables",
+                CurrencyCap = 180f,   // a scholar's private savings; specimens carry the value
+                GoodsCap = 8,
+            },
+        };
+
+        /// <summary>The chest config owned by <paramref name="agentUid"/>, or null if that NPC has
+        /// no chest. Callers use this to opt IN to driving accrual — a null return means this file
+        /// knows nothing about that NPC and no accrual should be attempted.</summary>
+        internal static ChestConfig ForAgent(string agentUid)
+        {
+            if (string.IsNullOrEmpty(agentUid)) return null;
+            foreach (var cfg in Chests)
+                if (string.Equals(cfg.AgentUid, agentUid, StringComparison.OrdinalIgnoreCase)) return cfg;
+            return null;
+        }
+
+        /// <summary>The config for a chest card UniqueID, or null.</summary>
+        internal static ChestConfig ForChest(string chestUid)
+        {
+            if (string.IsNullOrEmpty(chestUid)) return null;
+            foreach (var cfg in Chests)
+                if (string.Equals(cfg.ChestUid, chestUid, StringComparison.OrdinalIgnoreCase)) return cfg;
+            return null;
+        }
+
+        /// <summary>Detection chance when the owner is out, before modifiers. PLACEHOLDER —
         /// §10.8.3.6 flags 15% as unconfirmed pending the owner's tuning pass (§10.8.10).</summary>
         private const float BaseDetectionChance = 0.15f;
 
-        /// <summary>Added per PRIOR undetected theft of this chest in the current season, so
-        /// repeat burglary of the same target stops being risk-free (§10.8.3.6).</summary>
+        /// <summary>Added per PRIOR undetected theft of THIS chest in the current season, so
+        /// repeat burglary of the same target stops being risk-free (§10.8.3.6). Heat is tracked
+        /// per chest — five chests must not share one counter, or robbing the Miller would
+        /// endanger a later visit to the Academy.</summary>
         private const float HeatPerPriorTheft = 0.05f;
 
         /// <summary>Cap on the accumulated heat bonus, so the roll never becomes a certainty
-        /// on its own (an at-home Miller is the only guaranteed catch).</summary>
+        /// on its own (an owner standing right there is the only guaranteed catch).</summary>
         private const float MaxHeatBonus = 0.40f;
 
         /// <summary>Added while Iris Vane's night watch is out (§10.8.3.6, placeholder +20%).</summary>
@@ -100,55 +264,63 @@ namespace CommunityModChest.Patcher
                 return;
             }
 
-            // Registration order matters, exactly as in InnPatch: the afford-gate must be able to
-            // short-circuit before the payout handler runs, so the dragged item is never consumed
-            // for a sale the Miller cannot pay for.
-            ActionRouter.Register(new ActionHandler
+            // One set of three handlers PER CHEST. ActionRouter dispatches on an exact
+            // (case-insensitive) CardUid match, so a handler registered for the Miller's chest can
+            // never fire on the Professor's — this loop is purely data-driven, no new mechanics.
+            foreach (var config in Chests)
             {
-                Name = "CopperChestSellGate",
-                CardUid = ChestUid,
-                ActionKeyPrefix = SellActionKey,
-                ActionNamePrefix = SellActionName,
-                Timing = ActionTiming.Cancel,
-                Before = SellGate,
-            });
+                var cfg = config; // explicit capture — these lambdas outlive the loop
 
-            ActionRouter.Register(new ActionHandler
-            {
-                Name = "CopperChestSellPayout",
-                CardUid = ChestUid,
-                ActionKeyPrefix = SellActionKey,
-                ActionNamePrefix = SellActionName,
-                Timing = ActionTiming.AfterWrapped,
-                // The price MUST be read in the prefix: the CI's own GivenCardChanges.ModType 3
-                // destroys the dragged card as part of the action, so by the time After runs
-                // ctx.GivenCard's CardModel may already be gone and PriceOf would silently fall
-                // back to 1 (InnPatch's firewood handler captures SpecialDurability4 for exactly
-                // this reason).
-                Before = ctx => { ctx.Tag = PriceOf(ctx.GivenCard); return false; },
-                After = SellPayout,
-            });
+                // Registration order matters, exactly as in InnPatch: the afford-gate must be able
+                // to short-circuit before the payout handler runs, so the dragged item is never
+                // consumed for a sale the NPC cannot pay for.
+                ActionRouter.Register(new ActionHandler
+                {
+                    Name = $"CopperChestSellGate:{cfg.Name}",
+                    CardUid = cfg.ChestUid,
+                    ActionKeyPrefix = cfg.SellActionKey,
+                    ActionNamePrefix = cfg.SellActionName,
+                    Timing = ActionTiming.Cancel,
+                    Before = ctx => SellGate(cfg, ctx),
+                });
 
-            ActionRouter.Register(new ActionHandler
-            {
-                Name = "CopperChestSearch",
-                CardUid = ChestUid,
-                ActionKeyPrefix = SearchActionKey,
-                ActionNamePrefix = SearchActionName,
-                Timing = ActionTiming.AfterWrapped,
-                After = SearchAfter,
-            });
+                ActionRouter.Register(new ActionHandler
+                {
+                    Name = $"CopperChestSellPayout:{cfg.Name}",
+                    CardUid = cfg.ChestUid,
+                    ActionKeyPrefix = cfg.SellActionKey,
+                    ActionNamePrefix = cfg.SellActionName,
+                    Timing = ActionTiming.AfterWrapped,
+                    // The price MUST be read in the prefix: the CI's own GivenCardChanges.ModType 3
+                    // destroys the dragged card as part of the action, so by the time After runs
+                    // ctx.GivenCard's CardModel may already be gone and PriceOf would silently fall
+                    // back to 1 (InnPatch's firewood handler captures SpecialDurability4 for exactly
+                    // this reason).
+                    Before = ctx => { ctx.Tag = PriceOf(ctx.GivenCard); return false; },
+                    After = ctx => SellPayout(cfg, ctx),
+                });
 
-            Plugin.Logger.LogDebug("[CopperChestPatch] initialized.");
+                ActionRouter.Register(new ActionHandler
+                {
+                    Name = $"CopperChestSearch:{cfg.Name}",
+                    CardUid = cfg.ChestUid,
+                    ActionKeyPrefix = cfg.SearchActionKey,
+                    ActionNamePrefix = cfg.SearchActionName,
+                    Timing = ActionTiming.AfterWrapped,
+                    After = ctx => SearchAfter(cfg, ctx),
+                });
+            }
+
+            Plugin.Logger.LogDebug($"[CopperChestPatch] initialized for {Chests.Length} chest(s).");
         }
 
         // ── Live-summed wealth (§10.8.3.4) ────────────────────────────────────────
 
         /// <summary>
-        /// The Miller's current spending power: CurrencyValue.ValueOf summed over every
-        /// currency card physically inside the chest, recomputed on every call. Deliberately NOT
-        /// mirrored into a stat — a second source of truth can drift from the chest's actual
-        /// contents, and the whole point of §10.8.3.1's one-container design is that it cannot.
+        /// An NPC's current spending power: CurrencyValue.ValueOf summed over every currency card
+        /// physically inside their chest, recomputed on every call. Deliberately NOT mirrored into
+        /// a stat — a second source of truth can drift from the chest's actual contents, and the
+        /// whole point of §10.8.3.1's one-container design is that it cannot.
         /// </summary>
         public static float CurrentWealth(object chestCard)
         {
@@ -169,11 +341,83 @@ namespace CommunityModChest.Patcher
             return count;
         }
 
-        /// <summary>The live chest card, or null when the player is not standing in the Miller's
-        /// cottage interior. CardFinder scans live scene objects only, and cards belonging to any
-        /// environment other than the player's current one are serialized out rather than live
+        /// <summary>The live chest card for a config, or null when the player is not standing in
+        /// that chest's interior. CardFinder scans live scene objects only, and cards belonging to
+        /// any environment other than the player's current one are serialized out rather than live
         /// (memory: reference_allcards_env_scoped) — so this is null almost everywhere.</summary>
-        public static object FindLiveChest() => CardFinder.Find(ChestUid);
+        public static object FindLiveChest(ChestConfig cfg) => cfg == null ? null : CardFinder.Find(cfg.ChestUid);
+
+        // ── Weekly accrual (§10.8.3.3) ────────────────────────────────────────────
+
+        // Warn once per missing ActionID rather than once per qualifying visit — a mod shipped with
+        // a typo'd AgentAction should say so, but not every 30 s for the rest of the run.
+        private static readonly HashSet<string> _missingActionWarned = new(StringComparer.OrdinalIgnoreCase);
+
+        /// <summary>
+        /// One week's Copper Chest accrual for <paramref name="cfg"/>'s owner, if it is due and the
+        /// player is standing in that chest's interior. Called by whichever patcher already owns
+        /// that NPC's poll (see the ACCRUAL OWNERSHIP note on the class), passing its OWN proven
+        /// FireAgentAction as <paramref name="fireAgentAction"/> — this method deliberately owns no
+        /// spawn mechanism of its own, only the gating.
+        ///
+        /// <para>Why this is gated on the PLAYER's location, unlike a satchel restock: an NPC's
+        /// satchel follows the NPC and is reachable from anywhere, but a chest is a board-bound card
+        /// in an interior. CardFinder scans live scene objects, and GameManager.ChangeEnvironment
+        /// serialises every non-current environment's cards out of the scene
+        /// (memory: reference_allcards_env_scoped), so CardFinder.Find returns null for the chest
+        /// unless the player is standing inside that interior at that instant. Firing the drop from
+        /// a location-independent poll would therefore silently no-op almost every week. Instead the
+        /// accrual is deferred to a visit and latched into a persistent GameStat, the same
+        /// defer-poll-latch shape as reference_spawn_targets_current_board.</para>
+        ///
+        /// <para>One week's worth per qualifying visit, deliberately NOT a catch-up for every missed
+        /// week: the caps already bound the total, so banking owed weeks would add state for no
+        /// reachable outcome.</para>
+        /// </summary>
+        /// <param name="fireAgentAction">(npc, receivingCard, actionId) -> fired. The caller's own
+        /// ToAction+PerformAction helper; returns false when the ActionID isn't on that agent.</param>
+        /// <returns>True when something was actually dropped this call.</returns>
+        public static bool TryAccrue(ChestConfig cfg, object npc, int currentDay, Func<object, object, string, bool> fireAgentAction)
+        {
+            if (cfg == null || npc == null || fireAgentAction == null) return false;
+
+            if (!string.Equals(GameQuery.CurrentEnvironmentUniqueId, cfg.InteriorEnvUid, StringComparison.OrdinalIgnoreCase))
+                return false;
+
+            var chest = CardFinder.Find(cfg.ChestUid);
+            if (chest == null) return false; // interior entered but the chest hasn't spawned yet
+
+            float lastDay = HiddenStat.Get(cfg.RestockDayStat);
+            if (lastDay < 0f) return false;                                          // stat not readable yet
+            if (lastDay > 0.5f && currentDay - lastDay < RestockIntervalDays) return false; // not due
+
+            // Each half pauses independently once its own ceiling is reached (§10.8.3.3: "the
+            // weekly currency drop pauses; goods accrual may continue up to its own separate cap").
+            bool currencyDue = CurrentWealth(chest) < cfg.CurrencyCap;
+            bool goodsDue = GoodsCount(chest) < cfg.GoodsCap;
+
+            if (currencyDue && !fireAgentAction(npc, chest, cfg.CurrencyActionId))
+                WarnMissingAction(cfg, cfg.CurrencyActionId, "currency");
+            if (goodsDue && !fireAgentAction(npc, chest, cfg.GoodsActionId))
+                WarnMissingAction(cfg, cfg.GoodsActionId, "goods");
+
+            // Stamped even when both halves are capped, so a full chest doesn't re-check on every
+            // poll for the rest of the visit. Floored at 1 so day 0 can't read back as "never".
+            HiddenStat.Set(cfg.RestockDayStat, Math.Max(1, currentDay));
+
+            if (currencyDue || goodsDue)
+            {
+                Plugin.Logger.LogInfo($"[CopperChestPatch] The {cfg.Name} added to the Copper Chest (day {currentDay}; currency {(currencyDue ? "yes" : "capped")}, goods {(goodsDue ? "yes" : "capped")}).");
+                return true;
+            }
+            return false;
+        }
+
+        private static void WarnMissingAction(ChestConfig cfg, string actionId, string half)
+        {
+            if (!_missingActionWarned.Add(actionId)) return;
+            Plugin.Logger.LogWarning($"[CopperChestPatch] '{actionId}' not found on {cfg.AgentUid}'s AgentActions — chest {half} accrual inactive for the {cfg.Name}.");
+        }
 
         // ── Sell CI (§10.8.3.5) ───────────────────────────────────────────────────
 
@@ -188,7 +432,7 @@ namespace CommunityModChest.Patcher
         }
 
         // Return true = cancel the action entirely; the dragged card is never consumed.
-        private static bool SellGate(ActionContext ctx)
+        private static bool SellGate(ChestConfig cfg, ActionContext ctx)
         {
             if (ctx.GivenCard == null) return false; // nothing dragged — let vanilla handle it
 
@@ -196,11 +440,11 @@ namespace CommunityModChest.Patcher
             float wealth = CurrentWealth(ctx.Card);
             bool affordable = wealth >= price;
             if (!affordable)
-                Plugin.Logger.LogDebug($"[CopperChestPatch] Sale refused — price {price:0} exceeds the Miller's chest wealth {wealth:0}.");
+                Plugin.Logger.LogDebug($"[CopperChestPatch] Sale refused — price {price:0} exceeds the {cfg.Name}'s chest wealth {wealth:0}.");
             return !affordable;
         }
 
-        private static void SellPayout(ActionContext ctx)
+        private static void SellPayout(ChestConfig cfg, ActionContext ctx)
         {
             try
             {
@@ -210,23 +454,23 @@ namespace CommunityModChest.Patcher
                 int paid = PayFromChest(ctx.Card, price, out float paidValue);
                 if (paid == 0)
                 {
-                    Plugin.Logger.LogWarning($"[CopperChestPatch] Sale completed but no currency could be drawn from the chest (price {price:0}) — the item was consumed for nothing.");
+                    Plugin.Logger.LogWarning($"[CopperChestPatch] Sale completed but no currency could be drawn from the {cfg.Name}'s chest (price {price:0}) — the item was consumed for nothing.");
                     return;
                 }
 
                 CardVisualsRefresh.RefreshOpenInventoryPopup();
-                Plugin.Logger.LogInfo($"[CopperChestPatch] Sold an item for {price:0}; handed over {paid} currency card(s) worth {paidValue:0}. Chest wealth now {CurrentWealth(ctx.Card):0}.");
+                Plugin.Logger.LogInfo($"[CopperChestPatch] Sold an item to the {cfg.Name} for {price:0}; handed over {paid} currency card(s) worth {paidValue:0}. Chest wealth now {CurrentWealth(ctx.Card):0}.");
             }
             catch (Exception ex)
             {
-                Plugin.Logger.LogWarning($"[CopperChestPatch] SellPayout failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                Plugin.Logger.LogWarning($"[CopperChestPatch] SellPayout failed for the {cfg.Name}: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
         }
 
         /// <summary>
         /// Draws currency out of the chest smallest-value-first until the running total covers
         /// <paramref name="price"/>, and hands those cards to the player. Smallest-first (not
-        /// largest-first) so the Miller doesn't surrender his one big nugget for a cheap trinket.
+        /// largest-first) so the owner doesn't surrender their one big nugget for a cheap trinket.
         /// Overshoot is accepted rather than blocking the sale when the mix can't make exact
         /// change (§10.8.9 R15) — this mod rounds in the player's favour everywhere else too.
         /// </summary>
@@ -259,7 +503,7 @@ namespace CommunityModChest.Patcher
 
         // ── Theft DA (§10.8.3.6) ──────────────────────────────────────────────────
 
-        private static void SearchAfter(ActionContext ctx)
+        private static void SearchAfter(ChestConfig cfg, ActionContext ctx)
         {
             try
             {
@@ -276,49 +520,93 @@ namespace CommunityModChest.Patcher
                 if (taken == 0)
                 {
                     // An empty chest is not a crime — nothing was actually stolen, so no roll.
-                    Plugin.Logger.LogDebug("[CopperChestPatch] Search found an empty chest — no detection roll.");
+                    Plugin.Logger.LogDebug($"[CopperChestPatch] Search found the {cfg.Name}'s chest empty — no detection roll.");
                     return;
                 }
 
-                bool caught = RollDetection(out string reason);
+                bool caught = RollDetection(cfg, out string reason);
                 if (caught)
                 {
-                    SetHeat(0f); // the heat has been spent — a caught burglar starts the ladder over
+                    SetHeat(cfg, 0f); // the heat has been spent — a caught burglar starts the ladder over
                     VillageCrimePatch.AddCrime(DetectedCrimePoints);
-                    Plugin.Logger.LogInfo($"[CopperChestPatch] Chest robbed of {taken} card(s) and DETECTED ({reason}).");
+                    Plugin.Logger.LogInfo($"[CopperChestPatch] The {cfg.Name}'s chest was robbed of {taken} card(s) and the theft was DETECTED ({reason}).");
                 }
                 else
                 {
-                    SetHeat(CurrentHeatCount() + 1f);
+                    SetHeat(cfg, CurrentHeatCount(cfg) + 1f);
                     // Undetected theft leaves no record at all (§10.8.3.6) — Debug only, so a
                     // player reading LogOutput.log can't use it as an oracle.
-                    Plugin.Logger.LogDebug($"[CopperChestPatch] Chest robbed of {taken} card(s), undetected ({reason}).");
+                    Plugin.Logger.LogDebug($"[CopperChestPatch] The {cfg.Name}'s chest was robbed of {taken} card(s), undetected ({reason}).");
                 }
             }
             catch (Exception ex)
             {
-                Plugin.Logger.LogWarning($"[CopperChestPatch] SearchAfter failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                Plugin.Logger.LogWarning($"[CopperChestPatch] SearchAfter failed for the {cfg.Name}: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
         }
 
-        private static bool RollDetection(out string reason)
+        private static bool RollDetection(ChestConfig cfg, out string reason)
         {
-            // Instant catch: the Miller is standing in his own cottage. Reuses
-            // CottageResidentSchedulePatch's own "is this resident inside their cottage interior"
-            // query rather than re-deriving the schedule here.
-            if (CottageResidentSchedulePatch.IsResidentHome(MillerAgentUid))
+            // Instant catch: the owner is standing in the very room being robbed.
+            if (IsOwnerHome(cfg))
             {
-                reason = "the Miller was home";
+                reason = $"the {cfg.Name} was home";
                 return true;
             }
 
-            float heatBonus = Math.Min(MaxHeatBonus, CurrentHeatCount() * HeatPerPriorTheft);
+            float heatBonus = Math.Min(MaxHeatBonus, CurrentHeatCount(cfg) * HeatPerPriorTheft);
             float patrolBonus = NightPatrolActive() ? NightPatrolBonus : 0f;
 
             float chance = Math.Min(0.95f, BaseDetectionChance + heatBonus + patrolBonus);
             bool caught = UnityEngine.Random.value < chance;
             reason = $"roll {chance:P0} (base {BaseDetectionChance:P0} + heat {heatBonus:P0} + patrol {patrolBonus:P0})";
             return caught;
+        }
+
+        /// <summary>
+        /// True when this chest's owner is currently standing inside this chest's own interior.
+        ///
+        /// <para>Self-contained by design: the older Miller-only build delegated to
+        /// CottageResidentSchedulePatch.IsResidentHome, which only knows the two cottage residents
+        /// and would have returned a flat false — i.e. never an instant catch — for the Apothecary,
+        /// Inn Keeper and Professor. The comparison itself is the same one that helper makes: the
+        /// NPC's ACTUAL CurrentEnvironment, not their scheduled destination, so a resident mid-
+        /// commute has not arrived yet and can't catch anyone.</para>
+        ///
+        /// <para>Matched by UniqueID string rather than SO reference: a duplicated CardData/NPCAgent
+        /// instance for the same UID (root CLAUDE.md § Pikachu ModLoader Coexistence) would make a
+        /// reference-only check silently and permanently false. Returns false whenever anything is
+        /// unresolvable — a broken query must not manufacture a crime
+        /// (feedback_subsystem_graceful_degradation).</para>
+        /// </summary>
+        private static bool IsOwnerHome(ChestConfig cfg)
+        {
+            try
+            {
+                var gm = CardUtil.GetGameManagerInstance();
+                if (gm == null) return false;
+                if (Reflect.GetMember(gm, "AllNPCs") is not System.Collections.IEnumerable allNpcs) return false;
+
+                foreach (var npc in allNpcs)
+                {
+                    if (npc == null) continue;
+                    var model = Reflect.GetMember(npc, "NPCModel");
+                    if (model == null) continue;
+                    if (!string.Equals(Reflect.GetMember(model, "UniqueID") as string, cfg.AgentUid, StringComparison.OrdinalIgnoreCase))
+                        continue;
+
+                    var env = Reflect.GetMember(npc, "CurrentEnvironment");
+                    if (env == null || Reflect.GetMember(env, "IsNull") is true) return false;
+                    string envUid = CardUtil.GetCardUniqueId(Reflect.GetMember(env, "EnvCard"));
+                    return string.Equals(envUid, cfg.InteriorEnvUid, StringComparison.OrdinalIgnoreCase);
+                }
+                return false; // hasn't spawned/moved in — nobody home by definition
+            }
+            catch (Exception ex)
+            {
+                Plugin.Logger.LogDebug($"[CopperChestPatch] IsOwnerHome('{cfg.AgentUid}') failed (treated as away): {ex.InnerException?.ToString() ?? ex.ToString()}");
+                return false;
+            }
         }
 
         /// <summary>
@@ -367,35 +655,35 @@ namespace CommunityModChest.Patcher
             }
         }
 
-        // ── Seasonal "heat" counter ───────────────────────────────────────────────
+        // ── Seasonal "heat" counter (per chest) ───────────────────────────────────
 
-        /// <summary>Prior UNDETECTED thefts of this chest in the current season. Reading it also
+        /// <summary>Prior UNDETECTED thefts of THIS chest in the current season. Reading it also
         /// performs the season rollover check, so the counter resets exactly once per season
         /// without needing its own tick subscription.</summary>
-        private static float CurrentHeatCount()
+        private static float CurrentHeatCount(ChestConfig cfg)
         {
             int season = SeasonIndex();
-            float storedSeason = HiddenStat.Get(TheftSeasonStat);
-            float heat = HiddenStat.Get(TheftsStat);
+            float storedSeason = HiddenStat.Get(cfg.TheftSeasonStat);
+            float heat = HiddenStat.Get(cfg.TheftsStat);
             if (heat < 0f) return 0f; // stat unreadable — treat as no heat rather than guessing
 
             // season == 0 means GameQuery couldn't resolve the season this frame; don't reset on
             // an unknown, or a transient null would silently clear the player's accumulated heat.
             if (season > 0 && Math.Abs(storedSeason - season) > 0.001f && heat > 0f)
             {
-                HiddenStat.Set(TheftsStat, 0f);
-                HiddenStat.Set(TheftSeasonStat, season);
-                Plugin.Logger.LogDebug("[CopperChestPatch] Season changed — Copper Chest theft heat reset to 0.");
+                HiddenStat.Set(cfg.TheftsStat, 0f);
+                HiddenStat.Set(cfg.TheftSeasonStat, season);
+                Plugin.Logger.LogDebug($"[CopperChestPatch] Season changed — the {cfg.Name}'s chest theft heat reset to 0.");
                 return 0f;
             }
             return heat;
         }
 
-        private static void SetHeat(float value)
+        private static void SetHeat(ChestConfig cfg, float value)
         {
-            HiddenStat.Set(TheftsStat, Math.Max(0f, value));
+            HiddenStat.Set(cfg.TheftsStat, Math.Max(0f, value));
             int season = SeasonIndex();
-            if (season > 0) HiddenStat.Set(TheftSeasonStat, season);
+            if (season > 0) HiddenStat.Set(cfg.TheftSeasonStat, season);
         }
 
         // GameQuery.CurrentSeason is a NAME keyed off the run's SeasonID, not an enum ordinal, and
@@ -423,14 +711,14 @@ namespace CommunityModChest.Patcher
         private static bool _transferFallbackLogged;
 
         /// <summary>
-        /// Moves one card out of the chest and into the player's hands.
+        /// Moves one card out of a chest and into the player's hands.
         ///
         /// <para>Preferred path is a REAL transfer of the same physical card instance —
         /// <c>GraphicsManager.GetSlotForCard(...).AssignCard(card)</c>, which is vanilla's own
         /// container-spills-its-contents idiom (GameManager.RemoveCard, RemoveOption.Standard).
         /// DynamicLayoutSlot.AssignCard -> InGameCardBase.SetSlot performs the
         /// RemoveCardFromInventory + SetCurrentContainer(null) + reparent for us, so the player
-        /// visibly receives the Miller's own hoarded coin rather than freshly conjured currency
+        /// visibly receives the merchant's own hoarded coin rather than freshly conjured currency
         /// (§10.8.3.5 step 3).</para>
         ///
         /// <para>Fallback is the proven spawn-eject pattern (Api.Inventory.Eject +
@@ -439,7 +727,7 @@ namespace CommunityModChest.Patcher
         /// identity, and a respawned metal Nugget/Coin reverts to its default metal type because
         /// GiveCard returns void in this game version and stat overrides cannot be applied to the
         /// spawn (SpawnService's own documented gap). That only ever affects currency the PLAYER
-        /// stashed in the chest — accrual deposits Salt, which is flat-valued.</para>
+        /// stashed in a chest — accrual deposits Salt, which is flat-valued.</para>
         /// </summary>
         private static bool GiveToPlayer(object chest, object card)
         {

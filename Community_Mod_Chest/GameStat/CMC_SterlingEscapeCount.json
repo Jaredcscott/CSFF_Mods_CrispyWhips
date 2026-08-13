@@ -1,0 +1,43 @@
+{
+    "UniqueID": "cmcStatSterlingEscapeCount",
+    "GameName": {
+        "LocalizationKey": "CMC_SterlingEscapeCount_StatName",
+        "DefaultText": "Chances Given"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_SterlingEscapeCount_StatDescription",
+        "DefaultText": "Hidden 0-3 counter: how many times the player has taken Captain Sterling's 'Think better of it' option instead of fighting him (Village_Master_Plan.md 10.8.11.9). Incremented declaratively by cmcEncounterGuardSterling's EscapeOptionStatChanges. At 3 the lenient finish-arrest duty stops being selectable and Duty_SterlingForceArrest takes over, which routes to cmcEncounterSterlingArrest -- ForceFight, no escape button. Reset to 0 by that encounter's PlayerDemoralizedEffects. Clamped 0-3 by MinMaxValue so it can never inflate past its own gate (the unclamped-repeatable-counter antipattern in the root CLAUDE.md).",
+        "ParentObjectID": "cmcStatSterlingEscapeCount"
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 3.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

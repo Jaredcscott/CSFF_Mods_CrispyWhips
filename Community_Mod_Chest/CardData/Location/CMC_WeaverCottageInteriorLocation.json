@@ -3,13 +3,13 @@
   "CardType": 8,
   "InstancedEnvironment": false,
   "UniqueOnBoard": true,
-  "AlwaysUpdate": true,
+  "AlwaysUpdate": false,
   "DoesNotPile": true,
   "CardName": {
     "LocalizationKey": "CMC_WeaverCottageInteriorLocation_CardName",
     "DefaultText": "Weaver's Cottage"
   },
-  "CardImageWarpData": "CMC_Alch_Cab_Int",
+  "CardImageWarpData": "CMC_CottageWeaver_Interior",
   "CardImageWarpType": 3,
   "ObjectWeight": 0
 }

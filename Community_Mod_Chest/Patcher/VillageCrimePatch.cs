@@ -8,13 +8,17 @@ using CSFFModFramework.Util;
 namespace CommunityModChest.Patcher
 {
     /// <summary>
-    /// Village Crime — the negative counterpart to VillageRenownPatch's civic score
-    /// (Documentation/Plans/Community_Mod_Chest/Village_Master_Plan.md §10.8.2). Owns cmcStatVillageCrime, a hidden
-    /// 0-100 notoriety counter that rises as the village Watch detects thefts and attacks.
+    /// Village Crime — owns cmcStatVillageCrime, a hidden 0-100 notoriety counter that rises as
+    /// the village Watch detects thefts and attacks (Documentation/Plans/Community_Mod_Chest/Village_Master_Plan.md
+    /// §10.8.2).
     ///
-    /// Deliberately NOT connected to cmcStatVillageRenown: Renown is recomputed from scratch each
-    /// tick from civic inputs, Crime is an accumulating incident record. The two axes are
-    /// narratively related and mechanically independent.
+    /// As of the 2026-08-12 Reputation merge, this stat feeds ONE-WAY into the derived, signed
+    /// `cmcStatVillageReputation` (VillageReputationPatch.cs — net civic score minus this class's
+    /// CurrentCrime(), read once per 5s tick): Reputation knows about Crime, but Crime knows
+    /// nothing about Reputation. This class, `cmcStatVillageCrime` itself, and every Guards/Jail/
+    /// Banishment consumer of it are otherwise UNCHANGED by that merge — Crime is still an
+    /// independent, accumulating incident record, not recomputed from scratch like the old
+    /// Renown/new civic-total half of Reputation is.
     ///
     /// This class defines the stat's band structure and its passive decay. Every increase is an
     /// authored JSON StatModifications addition per §10.8.2, and every C# write to the stat lives

@@ -113,19 +113,33 @@ namespace CommunityModChest.Patcher
 
                 if (GameQuery.CurrentEnvironmentUniqueId != AcademyInteriorEnvUid) return;
 
-                var lectern = FindLiveCard(gm, AcademyLecternUid);
-                if (lectern == null) return; // board not seeded yet — retry next tick
+                // Mirrors AcademyPatch.FindAllLiveLecternCards/ReconcileCourseProgress — a
+                // "UniqueOnBoard: true" card can still have TWO live instances in AllCards on
+                // the same board (reference_uniqueonboard_duplicate_instance_desync). A
+                // single-match FindLiveCard could backfill the orphan while the instance the
+                // player actually sees stays at 0% forever, since PlacedStatUid latches
+                // permanently below. Reconcile every matching instance found, not just the first.
+                var lecterns = FindAllLiveCards(gm, AcademyLecternUid);
+                if (lecterns.Count == 0) return; // board not seeded yet — retry next tick
 
-                foreach (var (statName, totalHours) in CourseStats)
+                bool wroteAny = false;
+                foreach (var lectern in lecterns)
                 {
-                    if (!CardUtil.SetDurability(lectern, statName, totalHours))
-                        Plugin.Logger.LogWarning($"[GraduatePerkPatch] Could not backfill Academy stat '{statName}' on the lectern.");
+                    foreach (var (statName, totalHours) in CourseStats)
+                    {
+                        if (CardUtil.SetDurability(lectern, statName, totalHours))
+                            wroteAny = true;
+                        else
+                            Plugin.Logger.LogWarning($"[GraduatePerkPatch] Could not backfill Academy stat '{statName}' on a lectern instance.");
+                    }
+                    CardVisualsRefresh.RefreshDurabilityVisuals(lectern);
                 }
-                CardVisualsRefresh.RefreshDurabilityVisuals(lectern);
                 CardVisualsRefresh.RefreshOpenInventoryPopup();
 
-                if (WriteStat(gm, PlacedStatUid, 1f))
-                    Plugin.Logger.LogInfo("[GraduatePerkPatch] Academy course progress backfilled to match the granted graduate perks.");
+                // Only latch "backfilled" once at least one instance was actually written —
+                // an all-failure pass (e.g. every SetDurability call failed) should retry next tick.
+                if (wroteAny && WriteStat(gm, PlacedStatUid, 1f))
+                    Plugin.Logger.LogInfo($"[GraduatePerkPatch] Academy course progress backfilled to match the granted graduate perks ({lecterns.Count} lectern instance(s) reconciled).");
             }
             catch (Exception ex)
             {
@@ -176,17 +190,18 @@ namespace CommunityModChest.Patcher
             return Reflect.SetMember(inGameStat, "CurrentBaseValue", value);
         }
 
-        // Returns the live in-game instance of the card with the given UID on the
-        // CURRENT board, or null if not present there (AllCards is current-env-scoped).
-        private static object FindLiveCard(object gm, string uid)
+        // Returns every live in-game instance of the card with the given UID on the
+        // CURRENT board (AllCards is current-env-scoped) — never just the first match.
+        private static List<object> FindAllLiveCards(object gm, string uid)
         {
-            if (Reflect.GetMember(gm, "AllCards") is not IEnumerable allCards) return null;
+            var found = new List<object>();
+            if (Reflect.GetMember(gm, "AllCards") is not IEnumerable allCards) return found;
             foreach (var card in allCards)
             {
                 if (card == null) continue;
-                if (CardUtil.GetCardUniqueId(card) == uid) return card;
+                if (CardUtil.GetCardUniqueId(card) == uid) found.Add(card);
             }
-            return null;
+            return found;
         }
 
         // ── In-run perk grant — proven pattern (Sirus23 CompanionHuntPatch.GrantPackBondPerk) ──

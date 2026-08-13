@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "cmcSnowDriftNorth",
     "LocalizationKey": "CMC_SnowDriftNorth_CardDescription",
-    "DefaultText": "Deep winter snow has drifted across the northern road to Deer Meadow, burying the path. Dig through it with a shovel to clear the way — once cleared, it stays open for the rest of the winter."
+    "DefaultText": "Deep winter snow has drifted across the northern road to Stillwater Meadow, burying the path. Dig through it with a shovel to clear the way — once cleared, it stays open for the rest of the winter."
   },
   "CanBeRenamed": false,
   "AlternateNames": [],
@@ -84,7 +84,7 @@
       "ActionDescription": {
         "ParentObjectID": "cmcSnowDriftNorth",
         "LocalizationKey": "CMC_SnowDriftNorth_CI_Dig_ActionDescription",
-        "DefaultText": "Shovel a path through the drift. Clears the road to Deer Meadow once fully dug through."
+        "DefaultText": "Shovel a path through the drift. Clears the road to Stillwater Meadow once fully dug through."
       },
       "DaytimeCost": 8,
       "UseMiniTicks": 0,

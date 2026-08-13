@@ -1,0 +1,14 @@
+{
+  "Name": "CMC_InteriorsNoWildlife",
+  "GuardEnvironmentUids": [
+    "cmcInnInterior",
+    "cmcAcademyInterior",
+    "cmcApothecaryCabinInterior",
+    "cmcMillerCottageInterior",
+    "cmcWeaverCottageInterior",
+    "cmcVillageHallInterior",
+    "cmcEnvJailCell"
+  ],
+  "EncounterUids": [],
+  "SuppressChance": 100
+}

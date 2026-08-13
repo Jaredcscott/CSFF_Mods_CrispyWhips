@@ -3,13 +3,15 @@
   "CardType": 4,
   "InstancedEnvironment": false,
   "AlwaysUpdate": false,
+  "CardTagsWarpData": ["tag_EnvIndoors"],
+  "CardTagsWarpType": 3,
   "CardName": {
     "LocalizationKey": "CMC_JailCell_CardName",
     "DefaultText": "Jail Cell"
   },
-  "CardImageWarpData": "MudHut_Outside",
+  "CardImageWarpData": "CMC_JailCellInterior",
   "CardImageWarpType": 3,
-  "CardBackgroundWarpData": "MudHut_Outside",
+  "CardBackgroundWarpData": "CMC_JailCellInterior",
   "CardBackgroundWarpType": 3,
   "MaxWeightCapacity": 12000,
   "DefaultEnvCardDrops": [

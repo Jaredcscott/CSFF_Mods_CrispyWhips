@@ -343,6 +343,43 @@
                     "DropCardsInsideInventory": true
                 }
             ]
+        },
+        {
+            "ActionID": "ApothecaryChestCurrency",
+            "ActionLocalizedName": {
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "ApothecaryChestCurrency"
+            },
+            "RepeatOptions": 3,
+            "Conditions": {},
+            "DroppedCards": [
+                {
+                    "CollectionName": "Apothecary chest savings",
+                    "DroppedCards": [
+                        { "DroppedCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa", "DroppedCardWarpType": 3, "Quantity": { "x": 2, "y": 2 } }
+                    ],
+                    "DropCardsInsideInventory": true
+                }
+            ]
+        },
+        {
+            "ActionID": "ApothecaryChestGoods",
+            "ActionLocalizedName": {
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "ApothecaryChestGoods"
+            },
+            "RepeatOptions": 3,
+            "Conditions": {},
+            "DroppedCards": [
+                {
+                    "CollectionName": "Apothecary chest specimens",
+                    "DroppedCards": [
+                        { "DroppedCardWarpData": "322e42ea161bf2e4bb94747882d1285a", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 1 } },
+                        { "DroppedCardWarpData": "cmcoldgrowthbark", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 1 } }
+                    ],
+                    "DropCardsInsideInventory": true
+                }
+            ]
         }
     ],
     "CannotTrade": false,

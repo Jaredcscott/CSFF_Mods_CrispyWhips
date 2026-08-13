@@ -22,8 +22,8 @@ namespace CommunityModChest.Patcher
     /// existing polls (Inn dialog scheduling, cottage move-in timers, Renown recompute), so folding
     /// it into one of those would be a layering violation rather than a real poll-count saving.
     ///
-    /// Structure-existence check reuses CardFinder.Find (same idiom as VillageRenownPatch, which
-    /// already tracks 6 of these same 7 UIDs for the Renown contribution formula) — deliberately
+    /// Structure-existence check reuses CardFinder.Find (same idiom as VillageReputationPatch,
+    /// which already tracks 6 of these same 7 UIDs for the civic-total contribution formula) — deliberately
     /// consistent with that patch's established (scene-scoped) card-existence semantics rather than
     /// introducing a second, differently-scoped check for the same structures.
     /// </summary>

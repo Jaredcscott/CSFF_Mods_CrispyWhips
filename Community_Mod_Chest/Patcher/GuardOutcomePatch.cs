@@ -101,6 +101,12 @@ namespace CommunityModChest.Patcher
         private static bool _lastArrestPending;
         private static bool _loggedDownedStatMissing;
 
+        /// <summary>
+        /// Last observed <c>cmcStatSterlingEscapeCount</c>, for the transition log in
+        /// <see cref="CheckSterlingChances"/>. -1 = never read (pre-GameManager ticks).
+        /// </summary>
+        private static float _lastSterlingEscapeCount = -1f;
+
         // ── Extension point for the arrest-and-sentence chunk (§10.8.7.2) ─────────
 
         /// <summary>
@@ -157,6 +163,7 @@ namespace CommunityModChest.Patcher
                 if (gm == null) return;
 
                 CheckArrestPending();
+                CheckSterlingChances();
 
                 int seasonDays = Math.Max(1, GameQuery.DaysPerMoon > 0 ? GameQuery.DaysPerMoon : DefaultSeasonDays);
                 int today = GameQuery.CurrentDay;
@@ -210,6 +217,52 @@ namespace CommunityModChest.Patcher
                 }
             }
             _lastArrestPending = pending;
+        }
+
+        /// <summary>
+        /// §10.8.11.9 diagnostics. The escape counter itself is written declaratively by
+        /// <c>cmcEncounterGuardSterling</c>'s <c>EscapeOptionStatChanges</c> and cleared by
+        /// <c>cmcEncounterSterlingArrest</c>'s <c>PlayerDemoralizedEffects</c> — no C# touches it.
+        /// That means the ONLY way to confirm the mechanic from a log is to observe the value
+        /// change, so this logs every transition at Info (root CLAUDE.md: diagnostics meant to be
+        /// read in <c>LogOutput.log</c> must be <c>LogInfo</c>; <c>LogDebug</c> is filtered out by
+        /// default and costs a whole restart cycle to discover).
+        ///
+        /// <para>Polled rather than hooked to <c>GameManager.OnEncounterSkipped</c> deliberately,
+        /// for the same reason this class polls the arrest marker instead of subscribing to the
+        /// four <c>OnEncounter*</c> events (see the class doc): a poll also reconciles the value
+        /// after a save/load, and <c>OnEncounterSkipped</c> is a plain static field rather than a
+        /// C# event, so any other mod assigning to it with <c>=</c> would silently drop us.</para>
+        /// </summary>
+        private static void CheckSterlingChances()
+        {
+            float count = HiddenStat.Get(GuardDutyPatch.SterlingEscapeCountStatUid);
+            if (count < 0f) return; // stat not readable yet
+
+            if (_lastSterlingEscapeCount < 0f) { _lastSterlingEscapeCount = count; return; } // first read
+            if (Math.Abs(count - _lastSterlingEscapeCount) < 0.01f) return;
+
+            float previous = _lastSterlingEscapeCount;
+            _lastSterlingEscapeCount = count;
+
+            if (count < previous)
+            {
+                Plugin.Logger.LogInfo(
+                    $"[GuardOutcomePatch] Captain Sterling's leniency counter reset ({previous:0} -> {count:0}) " +
+                    "— the arrest resolved, so the next manhunt starts with a full set of chances.");
+                return;
+            }
+
+            int remaining = Math.Max(0, 3 - (int)Math.Round(count));
+            if (remaining > 0)
+                Plugin.Logger.LogInfo(
+                    $"[GuardOutcomePatch] The player thought better of fighting Captain Sterling " +
+                    $"({count:0} of 3 used, {remaining} left).");
+            else
+                Plugin.Logger.LogInfo(
+                    "[GuardOutcomePatch] Captain Sterling is out of chances to give (3 of 3 used) — " +
+                    "Duty_SterlingForceArrest is now the selectable one, and the next time he reaches " +
+                    "the player the arrest is forced with no escape option.");
         }
 
         private static void CheckAllDown(bool allDown)

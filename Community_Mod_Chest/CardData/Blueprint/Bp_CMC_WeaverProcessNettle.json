@@ -36,7 +36,8 @@
                     "RequiredQuantity": 2,
                     "DontSpend": false,
                     "RequiredCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
-                    "RequiredCardWarpType": 3
+                    "RequiredCardWarpType": 3,
+                    "Special4": { "Active": true, "FloatValue": 100.0, "MaxValue": 100.0 }
                 }
             ],
             "StepActionTagsWarpData": [],

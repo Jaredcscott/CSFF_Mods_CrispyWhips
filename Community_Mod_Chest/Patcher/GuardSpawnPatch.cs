@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using CSFFModFramework.Api;
@@ -128,10 +129,18 @@ namespace CommunityModChest.Patcher
                 && _getNpcDataMethod != null && _assignOrCreateCardsMethod != null;
         }
 
+        private static readonly HashSet<string> _agentUnresolvedWarned = new(StringComparer.Ordinal);
+
         private static bool ResolveAgent(Guard guard)
         {
             guard.Agent ??= _getFromIdMethod.Invoke(null, new object[] { guard.AgentUid });
-            return guard.Agent != null;
+            if (guard.Agent == null)
+            {
+                if (_agentUnresolvedWarned.Add(guard.AgentUid))
+                    Plugin.Logger.LogWarning($"[GuardSpawnPatch] Agent UID '{guard.AgentUid}' ({guard.Label}) did not resolve via GetFromID — this guard can never spawn until this is fixed.");
+                return false;
+            }
+            return true;
         }
 
         private static object FindLiveNpc(object gm, Guard guard)

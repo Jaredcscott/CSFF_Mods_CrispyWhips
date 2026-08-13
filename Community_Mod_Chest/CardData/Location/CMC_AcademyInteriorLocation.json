@@ -3,7 +3,7 @@
   "CardType": 8,
   "InstancedEnvironment": false,
   "UniqueOnBoard": true,
-  "AlwaysUpdate": true,
+  "AlwaysUpdate": false,
   "DoesNotPile": true,
   "CardName": {
     "LocalizationKey": "CMC_AcademyInteriorLocation_CardName",

@@ -14,7 +14,7 @@
   "UnlockConditionsDesc": {
     "ParentObjectID": "combatandarmorbpstonemace",
     "LocalizationKey": "Combat_And_Armor_Bp_StoneMace_UnlockConditionsDesc",
-    "DefaultText": "The village armory opens (Renown 50)"
+    "DefaultText": "The village armory opens (Reputation 50)"
   },
   "BuildingStatConditions": [],
   "StartUnlocked": false,
@@ -22,11 +22,11 @@
   "TagsOnBoard": [],
   "StatValues": [
     {
-      "ObjectiveName": "VillageRenownAtLeast50",
+      "ObjectiveName": "VillageReputationAtLeast50",
       "CompletionWeight": 1,
       "StatCondition": {
         "TriggerRange": { "x": 50.0, "y": 1000000000.0 },
-        "StatWarpData": "cmcStatVillageRenown",
+        "StatWarpData": "cmcStatVillageReputation",
         "StatWarpType": 3
       },
       "ConstantlyChecking": false

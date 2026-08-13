@@ -11,7 +11,7 @@ namespace CommunityModChest.Patcher
     /// <summary>
     /// Read/write access to CMC's hidden persistent GameStats by UniqueID — the
     /// GetFromID + GameManager.StatsDict + StatAccess idiom already proven in
-    /// VillageRenownPatch / VillageCrimePatch / CottageResidentSpawnPatch, lifted here so
+    /// VillageReputationPatch / VillageCrimePatch / CottageResidentSpawnPatch, lifted here so
     /// a third and fourth copy of the reflection dance don't accumulate
     /// (memory: reference_gamestat_direct_csharp_write).
     ///

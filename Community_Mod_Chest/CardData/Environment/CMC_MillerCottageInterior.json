@@ -3,6 +3,8 @@
   "CardType": 4,
   "InstancedEnvironment": false,
   "AlwaysUpdate": false,
+  "CardTagsWarpData": ["tag_EnvIndoors"],
+  "CardTagsWarpType": 3,
   "CardName": {
     "LocalizationKey": "CMC_MillerCottageInterior_CardName",
     "DefaultText": "Miller's Cottage"

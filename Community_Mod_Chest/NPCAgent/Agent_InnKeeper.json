@@ -469,6 +469,44 @@
                     "DropCardsInsideInventory": true
                 }
             ]
+        },
+        {
+            "ActionID": "InnKeeperChestCurrency",
+            "ActionLocalizedName": {
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "InnKeeperChestCurrency"
+            },
+            "RepeatOptions": 3,
+            "Conditions": {},
+            "DroppedCards": [
+                {
+                    "CollectionName": "Inn Keeper chest savings",
+                    "DroppedCards": [
+                        { "DroppedCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa", "DroppedCardWarpType": 3, "Quantity": { "x": 5, "y": 5 } }
+                    ],
+                    "DropCardsInsideInventory": true
+                }
+            ]
+        },
+        {
+            "ActionID": "InnKeeperChestGoods",
+            "ActionLocalizedName": {
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "InnKeeperChestGoods"
+            },
+            "RepeatOptions": 3,
+            "Conditions": {},
+            "DroppedCards": [
+                {
+                    "CollectionName": "Inn Keeper chest stock",
+                    "DroppedCards": [
+                        { "DroppedCardWarpData": "3772ac4d09c1a034e800fdd229a5a7e4", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 1 } },
+                        { "DroppedCardWarpData": "789fdfe66df2f2c419601b1f8b8a9fdf", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 1 } },
+                        { "DroppedCardWarpData": "f4be79e87ba98db41a9c9e31bb76c33d", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 1 } }
+                    ],
+                    "DropCardsInsideInventory": true
+                }
+            ]
         }
     ],
     "CannotTrade": false,

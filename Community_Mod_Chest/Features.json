@@ -381,7 +381,7 @@
     {
       "name": "Village Area",
       "status": "Implemented",
-      "notes": "9 WorldMap nodes in a compact district east of the vanilla River Clearing. Village Path is the gateway hub (West across the bridge to River Clearing, gated behind the River Bridge improvement OR the Pathfinder perk). East spine: Village Path -> High Grove (20,0) -> Pine Trail (20,10) -> Village (20,20) -> Village Farm (30,20). South wetlands: Village Path -> Clay Flats (10,-10) -> Marsh Hollow (10,-20); Clay Flats -> Mossy Clearing (20,-10) -> Foraging Forest (20,-20) -> back to Marsh Hollow, and Mossy Clearing -> High Grove closes the loop. Foraging Forest is a vanilla Deer Grove clone; EnvironmentUID/LocationUID unchanged since 2026-07-16 so LostCatPatch/ProfessorSchedulePatch/DropInjections all still resolve. DropInjections.json adds drops to Farm and Forest by LocationUID.",
+      "notes": "9 WorldMap nodes in a compact district east of the vanilla River Clearing. Village Path is the gateway hub (West across the bridge to River Clearing, gated behind the River Bridge improvement OR the Pathfinder perk). East spine: Village Path -> Highland Pines (20,0) -> Pine Trail (20,10) -> Village (20,20) -> Village Farm (30,20). South wetlands: Village Path -> Clay Shoal (10,-10) -> Sodden Hollow (10,-20); Clay Shoal -> Moss-Grown Clearing (20,-10) -> Foraging Forest (20,-20) -> back to Sodden Hollow, and Moss-Grown Clearing -> Highland Pines closes the loop. Foraging Forest is a vanilla Deer Grove clone; EnvironmentUID/LocationUID unchanged since 2026-07-16 so LostCatPatch/ProfessorSchedulePatch/DropInjections all still resolve. DropInjections.json adds drops to Farm and Forest by LocationUID. Highland Pines, Moss-Grown Clearing, Clay Shoal, and Sodden Hollow were renamed 2026-08-13 (from High Grove / Mossy Clearing / Clay Flats / Marsh Hollow) to stop colliding with vanilla location names of the same or near-same text; UIDs unchanged. (Note: this block predates the later north-spine addition — cmcEnvHuntersCrossing/cmcEnvDeerMeadow/cmcEnvBadgerWarren aren't listed in the cards array below; those were also renamed 2026-08-13, Deer Meadow -> Stillwater Meadow and Badger Warren -> Sett Warren, see README.md/MapNodes.json.)",
       "cards": [
         "cmcEnvVillagePath",
         "cmcLocVillagePath",
@@ -406,7 +406,7 @@
     {
       "name": "Clay Mound",
       "status": "Implemented",
-      "notes": "Clay Flats seeds the VANILLA Clay Barrow (afbe6bee3cb0fa04f9ae3ec45cd888ca) via WorldMap/MapNodes.json ExtraDropUIDs — its built-in 'Dig Up Clay' interaction yields vanilla Clay. The former custom cmcClayMound CT2 card was retired 2026-07-17 in favor of the vanilla resource (card def, placeholder art, and localization rows removed).",
+      "notes": "Clay Shoal seeds the VANILLA Clay Barrow (afbe6bee3cb0fa04f9ae3ec45cd888ca) via WorldMap/MapNodes.json ExtraDropUIDs — its built-in 'Dig Up Clay' interaction yields vanilla Clay. The former custom cmcClayMound CT2 card was retired 2026-07-17 in favor of the vanilla resource (card def, placeholder art, and localization rows removed).",
       "cards": []
     },
     {

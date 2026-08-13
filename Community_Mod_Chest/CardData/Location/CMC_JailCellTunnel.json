@@ -12,7 +12,7 @@
     "LocalizationKey": "CMC_JailCellTunnel_CardDescription",
     "DefaultText": "The bed is shoved aside, and a rough dig into the foundation stone shows underneath. Anyone glancing through the door's grille would see it in a heartbeat -- best keep working only while the step outside is empty."
   },
-  "CardImageWarpData": "MudHut_Outside",
+  "CardImageWarpData": "BearCave_Entrance",
   "CardImageWarpType": 3,
   "ObjectWeight": 0,
   "CardInteractions": [],

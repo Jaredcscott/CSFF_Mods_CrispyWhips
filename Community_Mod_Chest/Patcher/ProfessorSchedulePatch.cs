@@ -190,6 +190,11 @@ namespace CommunityModChest.Patcher
 
         private static bool _initialized;
 
+        // His Copper Chest config, resolved once from CopperChestPatch (the single owner of every
+        // chest's UIDs, action IDs and caps). Its accrual cadence is a persistent GameStat, not one
+        // of this file's in-memory tick throttles.
+        private static CopperChestPatch.ChestConfig _chestConfig;
+
         // Resolved once game data is loaded.
         private static object _agent;           // NPCAgent
         private static object _academyInterior;  // CardData
@@ -346,6 +351,8 @@ namespace CommunityModChest.Patcher
                 && _moveNpcMethod != null && _getStatValueMethod != null && _envIdFromCardCtor != null;
         }
 
+        private static bool _refsUnresolvedWarned;
+
         private static bool ResolveRefs()
         {
             if (_agent != null && _academyInterior != null && _innInterior != null
@@ -368,8 +375,16 @@ namespace CommunityModChest.Patcher
                 if (allResolved) _outdoorNodes = nodes;
             }
 
-            return _agent != null && _academyInterior != null && _innInterior != null
+            bool resolved = _agent != null && _academyInterior != null && _innInterior != null
                 && _outdoorNodes != null && _phaseStat != null;
+
+            if (!resolved && !_refsUnresolvedWarned)
+            {
+                _refsUnresolvedWarned = true;
+                Plugin.Logger.LogWarning($"[ProfessorSchedulePatch] ResolveRefs failed (agent null={_agent == null}, academyInterior null={_academyInterior == null}, innInterior null={_innInterior == null}, outdoorNodes null={_outdoorNodes == null}, phaseStat null={_phaseStat == null}) — the Professor can never spawn/schedule until this succeeds.");
+            }
+
+            return resolved;
         }
 
         private static object ResolveNpcStat(string uid)
@@ -514,6 +529,22 @@ namespace CommunityModChest.Patcher
 
                 var associatedCard = Reflect.GetMember(npc, "AssociatedCard");
                 if (associatedCard == null) return;
+
+                // Copper Chest accrual (Village_Master_Plan.md §10.8.3.3) — a genuinely NEW weekly
+                // tick. His ForageActionIds mechanism is per-node forage into his SATCHEL and is a
+                // different concern entirely; this neither replaces nor reads it, and it never
+                // touches cmcAcademyLectern's tuition account (AcademyPatch owns that). Placed
+                // ahead of the PR-1 phase gate below on purpose: the chest is an economic system
+                // that fills from the moment he exists, like every other resident's, rather than a
+                // schedule behaviour the phase gate is meant to hold back.
+                //
+                // CopperChestPatch.TryAccrue owns the env gate (no-ops unless the player is
+                // standing in cmcAcademyInterior), the persistent due-day stamp and both caps. This
+                // is the single caller for the Professor's chest — a second one would be R6's
+                // double-drop.
+                _chestConfig ??= CopperChestPatch.ForAgent(ProfessorAgentUid);
+                if (_chestConfig != null)
+                    CopperChestPatch.TryAccrue(_chestConfig, npc, GameQuery.CurrentDay, FireAgentAction);
 
                 // PR-1 village phase gate (Event Timeline plan §2): before the Inn Keeper's intro
                 // the Professor talks only to redirect — no wander, no forage, no specialty stock,
@@ -799,7 +830,7 @@ namespace CommunityModChest.Patcher
             float herbEligible = GetNpcStatValue(npc, ResolveNpcStat("cmcStatProfEligibleHerbalism"));
             float herbClaimed = GetNpcStatValue(npc, ResolveNpcStat("cmcStatProfAppliedHerbalismClaimed"));
 
-            Plugin.Logger.LogInfo("[ProfessorSchedulePatch][CommissionDiag] "
+            Plugin.Logger.LogDebug("[ProfessorSchedulePatch][CommissionDiag] "
                 + $"npcEnv={envLabel} associatedCardEnv={associatedCardEnv} "
                 + $"commissionsCard={(commissionsCard != null ? "present" : "MISSING")} commissionsCardEnv={commissionsCardEnv} "
                 + $"HasVisibleCommissions={hasVisible} phase={phaseVal} "
@@ -847,7 +878,7 @@ namespace CommunityModChest.Patcher
                 sb.Append($"[{i}]uid={uid} visible={visible} state={state} ");
             }
 
-            Plugin.Logger.LogInfo(sb.ToString());
+            Plugin.Logger.LogDebug(sb.ToString());
         }
 
         /// <summary>
@@ -1082,7 +1113,11 @@ namespace CommunityModChest.Patcher
         // the receiving container — the path proven (InnKeeperSpawnPatch) to route
         // DropCardsInsideInventory into an NPC's satchel. Native CheckForActions never fires
         // these (they are RepeatOptions:OnlyWhenTriggered), so there is no double-firing.
-        private static void FireAgentAction(object npc, object associatedCard, string actionId)
+        // Returns true when the action was found AND dispatched. The forage/specialty call sites
+        // ignore the result (a missing forage action is already covered by the warning below);
+        // CopperChestPatch.TryAccrue consumes it so a typo'd chest ActionID is reported once
+        // instead of silently accruing nothing forever.
+        private static bool FireAgentAction(object npc, object associatedCard, string actionId)
         {
             if (_toActionMethod == null || _performActionMethod == null || _inGameNpcOrPlayerCtor == null)
             {
@@ -1091,10 +1126,10 @@ namespace CommunityModChest.Patcher
                     _fireActionUnavailableWarned = true;
                     Plugin.Logger.LogWarning("[ProfessorSchedulePatch] PerformAction reflection unavailable — forage/specialty stock inactive.");
                 }
-                return;
+                return false;
             }
 
-            if (Reflect.GetMember(_agent, "AgentActions") is not Array agentActions) return;
+            if (Reflect.GetMember(_agent, "AgentActions") is not Array agentActions) return false;
             object matched = null;
             foreach (var action in agentActions)
             {
@@ -1104,18 +1139,20 @@ namespace CommunityModChest.Patcher
                     break;
                 }
             }
-            if (matched == null) return;
+            if (matched == null) return false;
 
             try
             {
                 var cardAction = _toActionMethod.Invoke(matched, new object[] { npc, associatedCard });
                 var user = _inGameNpcOrPlayerCtor.Invoke(new object[] { npc });
                 _performActionMethod.Invoke(null, new object[] { cardAction, associatedCard, true, user });
-                Plugin.Logger.LogDebug($"[ProfessorSchedulePatch] Fired '{actionId}' into the Professor's satchel.");
+                Plugin.Logger.LogDebug($"[ProfessorSchedulePatch] Fired '{actionId}'.");
+                return true;
             }
             catch (Exception ex)
             {
                 Plugin.Logger.LogWarning($"[ProfessorSchedulePatch] FireAgentAction('{actionId}') failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                return false;
             }
         }
 

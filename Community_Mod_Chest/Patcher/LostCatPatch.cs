@@ -82,11 +82,13 @@ namespace CommunityModChest.Patcher
 
                 if (CatExistsAnywhere(gm)) return;
 
-                var spawned = SpawnService.Spawn(StrayCatUid);
-                if (spawned != null)
+                // SpawnService.Spawn returns null on success (GiveCard is void this game
+                // version) — verify by re-querying the board, not the return value.
+                SpawnService.Spawn(StrayCatUid);
+                if (CatExistsAnywhere(gm))
                     Plugin.Logger.LogInfo("[LostCatPatch] The stray cat slinks out of the undergrowth.");
                 else
-                    Plugin.Logger.LogWarning("[LostCatPatch] Spawn returned null — is cmcStrayCat loaded?");
+                    Plugin.Logger.LogWarning("[LostCatPatch] Stray cat did not appear after spawn — is cmcStrayCat loaded?");
             }
             catch (Exception ex)
             {

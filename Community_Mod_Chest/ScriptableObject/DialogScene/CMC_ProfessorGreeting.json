@@ -5,7 +5,6 @@
     },
     "SceneLinesWarpData": [
         "CMC_ProfessorGreeting_Redirect",
-        "CMC_ProfessorGreeting_Menu",
         "CMC_ProfessorGreeting_CourseAckMetallurgy",
         "CMC_ProfessorGreeting_CourseAckHerbalism",
         "CMC_ProfessorGreeting_CourseAckMedicine",
@@ -58,7 +57,8 @@
         "CMC_ProfessorGreeting_InterlockS4Thanks",
         "CMC_ProfessorGreeting_QuestAccept2",
         "CMC_ProfessorGreeting_QuestAccept3",
-        "CMC_ProfessorGreeting_QuestAccept4"
+        "CMC_ProfessorGreeting_QuestAccept4",
+        "CMC_ProfessorGreeting_Menu"
     ],
     "SceneLinesWarpType": 3
 }

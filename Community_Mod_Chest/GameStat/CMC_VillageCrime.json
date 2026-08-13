@@ -6,7 +6,7 @@
     },
     "Description": {
         "LocalizationKey": "CMC_VillageCrime_StatDescription",
-        "DefaultText": "Hidden notoriety counter for the village Watch: rises as thefts and attacks are detected, never falls below 0. Bands: 0 Clean, 1-24 Suspected, 25-59 Wanted, 60+ Enemy/Banished. Suspected and Wanted decay 1 per day without new incidents; Banished does not. Separate from Village Renown."
+        "DefaultText": "Hidden notoriety counter for the village Watch: rises as thefts and attacks are detected, never falls below 0. Bands: 0 Clean, 1-24 Suspected, 25-59 Wanted, 60+ Enemy/Banished. Suspected and Wanted decay 1 per day without new incidents; Banished does not. Feeds into the derived Village Reputation score (net of civic standing) but remains its own independent incident ledger, consumed directly by the Guards/Jail/Banishment system exactly as before."
     },
     "IsRuntimeOnly": false,
     "BaseValue": 0.0,

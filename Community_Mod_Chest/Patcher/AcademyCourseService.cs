@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Reflection;
+using CSFFModFramework.Api;
 using CSFFModFramework.Util;
 using HarmonyLib;
 
@@ -165,21 +166,40 @@ namespace CommunityModChest.Patcher
             field.SetValue(null, (Action)Delegate.Combine(current, _gmInitializedHandler));
             _subscribed = true;
 
+            // OnGMInitialized can fire before GameManager.InRunAddedPerks finishes being
+            // restored from the save — confirmed 2026-08-09 (a save with all 6 Academy
+            // courses genuinely graduated logged "12 locked, 0 unlocked" at run start, since
+            // HasCourse/AllPerksHeld found no perks yet). That wrongly re-locks blueprints
+            // whose course was already earned. A one-shot delayed recheck a few seconds
+            // later re-runs the same idempotent pass once InRunAddedPerks has settled.
+            _deferredRecheckHandle = TickEvents.Interval(5f, DeferredRecheck, "AcademyCourseServiceDeferredRecheck");
+
             Plugin.Logger.LogDebug("[AcademyCourseService] subscribed to GameManager.OnGMInitialized.");
         }
 
         // ── Run-start / post-course gating pass ───────────────────────────────
 
-        private static void OnRunStart()
+        private static TickEvents.IntervalHandle _deferredRecheckHandle;
+
+        private static void OnRunStart() => RunGatingPass("run start");
+
+        private static void DeferredRecheck()
+        {
+            TickEvents.Cancel(_deferredRecheckHandle);
+            _deferredRecheckHandle = null;
+            RunGatingPass("deferred run-start recheck");
+        }
+
+        private static void RunGatingPass(string reason)
         {
             try
             {
-                ApplyCourseGating("run start");
-                ApplyUnconditionalGating("run start");
+                ApplyCourseGating(reason);
+                ApplyUnconditionalGating(reason);
             }
             catch (Exception ex)
             {
-                Plugin.Logger.LogWarning($"[AcademyCourseService] run-start gating failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                Plugin.Logger.LogWarning($"[AcademyCourseService] {reason} gating failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
         }
 

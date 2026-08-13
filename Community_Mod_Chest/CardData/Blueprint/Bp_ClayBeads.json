@@ -14,18 +14,18 @@
     "UnlockConditionsDesc": {
         "ParentObjectID": "potterysculpturebpclaybeads",
         "LocalizationKey": "Pottery_Sculpture_Bp_ClayBeads_UnlockConditionsDesc",
-        "DefaultText": "Earn the village's renown"
+        "DefaultText": "Earn the village's reputation"
     },
     "StartUnlocked": false,
     "CardsOnBoard": [],
     "TagsOnBoard": [],
     "StatValues": [
         {
-            "ObjectiveName": "VillageRenownAtLeast25",
+            "ObjectiveName": "VillageReputationAtLeast25",
             "CompletionWeight": 1,
             "StatCondition": {
                 "TriggerRange": { "x": 25.0, "y": 1000000000.0 },
-                "StatWarpData": "cmcStatVillageRenown",
+                "StatWarpData": "cmcStatVillageReputation",
                 "StatWarpType": 3
             },
             "ConstantlyChecking": false

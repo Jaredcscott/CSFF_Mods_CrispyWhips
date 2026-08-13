@@ -5,6 +5,366 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.48.3] — 2026-08-13
+
+### Fixed
+
+- **Six village map locations renamed to stop colliding or being confusable with vanilla location names.**
+  `cmcEnvHighGrove`/`cmcLocHighGrove` and `cmcEnvMossyClearing`/`cmcLocMossyClearing` are clones of the vanilla
+  environments `Env_GrovePine_HighGrove` and `Env_ClearingOak_MossyClearing`, and had kept those environments' exact
+  vanilla display names ("High Grove", "Mossy Clearing") — indistinguishable in menus, logs, and player conversation
+  from the real vanilla locations of the same name. Renamed to **Highland Pines** and **Moss-Grown Clearing**. A
+  follow-up pass also renamed four more nodes that echoed a *different* vanilla location's name closely enough to be
+  confusable, even though the full text wasn't identical: **Clay Flats** → **Clay Shoal** (vanilla has "Clay Banks"),
+  **Marsh Hollow** → **Sodden Hollow** (vanilla has "Heather Marshes"/"River Marsh"), **Deer Meadow** → **Stillwater
+  Meadow** (its own clone source is vanilla "Deer Grove"), **Badger Warren** → **Sett Warren** (its own clone source is
+  vanilla "Badger Hill"). All six: English + Chinese localization, `WorldMap/MapNodes.json` `DisplayName`, plus the
+  North Snow Drift's description/action text which named Deer Meadow by name. UIDs, connections, and terrain are
+  unchanged — this is a display-text-only fix. The other six village map nodes were audited against the full vanilla
+  `CardName` table and confirmed to not collide with or closely echo any vanilla location.
+
+## [1.48.2] — 2026-08-12
+
+### Fixed
+
+- **Village building interiors (Inn, Academy, Miller's Cottage, Weaver's Cottage, Village Hall,
+  Apothecary's Cabin, Jail Cell) now self-declare as indoor environments** (`"tag_EnvIndoors"` in
+  `CardTagsWarpData`). These 7 environments previously shipped with no `CardTags` at all, which
+  silently broke Sirus23_Mod_Collection's Owl-companion "don't follow indoors" check (and any
+  other future indoor-aware mod logic) for every one of them — the Owl kept following straight
+  into the Inn/Academy/etc. despite that mod's fix. `CardData/Environment/*Interior*.json`,
+  `CardData/Environment/CMC_JailCell.json`.
+
+## [1.48.1] — 2026-08-12
+
+### Changed
+
+- **Village Reputation is now a visible Mental attribute in the character menu**, instead of a
+  hidden tracked-only stat. It appears alongside Morale, Stress, Connection, etc. in the Mental
+  tab (`GameSourceModify/Mental.json` appends `cmcStatVillageReputation` into the vanilla tab's
+  `ContainedStats`, so no vanilla file is overridden). The Village Hall's Notice Board mirror and
+  every existing threshold/gate are unchanged — this only adds a second place to see the number.
+
+## [1.48.0] — 2026-08-12
+
+### Changed
+
+- **Captain Reeve Sterling no longer deals damage to the player under any circumstance.** Every
+  one of his combat actions — blocking, grappling, holding — stops short of drawing his sword on
+  you; he can no longer wound you in any encounter, including one you start yourself by using the
+  Attack button on him.
+- **Being caught alone by Sterling now opens with a choice instead of a forced fight.** When
+  Thorne or Corrin has beaten you and sent for the Captain, and he catches up with you himself,
+  the encounter offers **Attack the captain** or **Think better of it**. Choosing to think better
+  of it ends the confrontation with no fight at all — you walk, and Sterling simply resumes
+  pursuing you.
+  - You get **three** such chances, tracked by a hidden counter.
+  - The third refusal spends the leniency: the next time Sterling reaches you, the encounter opens
+    with no escape option at all, and he takes you into custody without a fight and without
+    hurting you.
+  - You still wake up in the **Village Jail** afterward, serving the same crime-based sentence as
+    before — but with **no Bruising** this time, since no blow was ever struck.
+- **The whole-Watch encounter, when Guard Iris Vane's alarm brings every guard down on you at
+  once, keeps its existing stakes.** That encounter opens straight into the fight with no
+  leniency offer. Sterling still deals no damage in it, so you can fight through and beat him same
+  as any other guard — the "best all four guards and the village drops the charges" reward path
+  is unchanged.
+
+## [1.47.1] — 2026-08-12
+
+### Fixed
+
+- **Allied companions (the vanilla Partner, and any future NPCAgent flagged
+  `AlliedWithPlayer`) can now follow the player through the Village Inn and Village Academy
+  doors, in both directions.** Building interiors were never nodes in the WorldMap graph, so
+  vanilla's own follow mechanism (`NPCDuty` + `MoveDutyAction`'s A* pathfinding) could never
+  route a companion through either door no matter how the duty was tuned. `PartnerIndoorFollowPatch`
+  bypasses pathfinding for this boundary and directly relocates any allied NPC that was
+  standing with the player in the village the moment they step through — the same direct
+  `GameManager.MoveNPC` mechanism CMC's own resident schedulers (Professor, Miller, Weaver,
+  Apothecary, Inn Keeper) already use for their own interior comings and goings. A companion
+  who wasn't with the player is left where it was rather than teleported in.
+
+## [1.47.0] — 2026-08-12
+
+### Changed
+
+- **Village Renown and Village Crime merged into a single Village Reputation stat.** The Village
+  Hall's Notice Board, the Town Board's standing text, the Inn Keeper's News dialog, and the Clay
+  Beads/Stone Mace reveal thresholds now all read a new signed `cmcStatVillageReputation` stat
+  (civic score minus your own Village Crime notoriety), instead of the old unsigned
+  `cmcStatVillageRenown`. All existing thresholds (25/50/75/100) mean the same thing as before in
+  the common case (zero crime) — the only new behavior is that high Village Crime can now visibly
+  suppress your civic standing, including delaying the Clay Beads/Stone Mace reveals and the
+  Market Stall's full-reputation bonus if crime is high enough to offset it.
+  `cmcStatVillageCrime` itself, `VillageCrimePatch`, and the entire Guards/Jail/Banishment system
+  are functionally unchanged — Crime remains its own independent 0-100 incident ledger, now with
+  a second, read-only consumer.
+  - New Town Board notice for a net-negative Village Reputation (previously no board text
+    acknowledged that state at all).
+  - Fixed a latent bug where the Town Board's status line silently vanished if a read-succeeded
+    sentinel check (`>= 0f`) ever saw a legitimately negative value — not reachable before this
+    merge, since Renown could never go negative.
+  - Fixed a mismatched threshold: the Town Board's prose tier text switched to its top tier at
+    80% while the board's own declarative bands switched at 75% — both now agree at 75%.
+
+## [1.46.7] — 2026-08-11
+
+### Fixed
+
+- **Academy lectern self-heal could permanently latch onto the wrong duplicate instance.**
+  `GraduatePerkPatch.CheckAcademyBackfill` used a single-match `FindLiveCard` to locate the
+  `cmcAcademyLectern` on the board, backfilled it, then latched a "already backfilled" flag that
+  never retries — if it resolved an orphan/empty duplicate instead of the instance the player
+  actually sees, the visible lectern stayed stuck at 0% forever (graduate perks still granted).
+  Mirrors `AcademyPatch.FindAllLiveLecternCards`: now reconciles every live `cmcAcademyLectern`
+  instance found on the board, and only latches the flag after at least one instance was written.
+- **Five NPC spawn/schedule patchers failed silently when an Agent UID couldn't resolve.**
+  `CottageResidentSpawnPatch`, `GuardSpawnPatch`, `AshPartnerSpawnPatch`, `ProfessorSchedulePatch`,
+  and `ApothecarySchedulePatch` all polled a `GetFromID` result with zero log output on failure — a
+  renamed/mistyped UID or a JSON load failure meant the affected NPC silently never spawned, with
+  no diagnostic trail. Each now emits a one-shot `LogWarning` naming the unresolved UID(s).
+
+### Changed
+
+- Demoted 6 shipped `LogInfo` diagnostic call sites (`CompanionFollowDiagnostics`,
+  `AcademyPatch.DumpLecternInstanceIdentity` + duplicate-count log) to `LogDebug` — these were
+  temporary investigation logging left at Info level past their investigation, contrary to
+  §Mod Logging Norms. No behavior change; log-volume hygiene only.
+
+---
+
+## [1.46.6] — 2026-08-11
+
+### Fixed
+
+- **The Homestead trait's cabin kit was too heavy to carry.** `CardData/Item/CMC_HomesteadCabinKit.json`
+  shipped `ObjectWeight: 6000.0`, well above the vanilla starting-character Encumbrance cap of 4000 —
+  holding the kit alone triggered "Too encumbered to move," so a Homestead run could only ever settle
+  at spawn. Reduced to `2500.0` (a placeholder value, not a final balance pass — well below the cap,
+  heaviest vanilla carryable is 3500).
+- **The River Bridge blueprint slot could never accept a player-held forge hammer.** Both
+  `CardData/EnvImprovement/Imp_RiverBridge.json`'s construction stage and
+  `CardData/Blueprint/Bp_CMC_IronFishingRodFittings.json` referenced the vanilla legacy `ForgeHammer`
+  card (`e118b8cd90f14b048aab78a0d37e8f61`), which self-transforms into `ToolOrWeapon_Hammer_Metal`
+  the instant it spawns — no player could ever be holding the legacy card, and blueprint slots match
+  by exact `CardData` reference, not name. Swapped both references to the modern hammer GUID
+  (`2914e01d9af26f24d92ff61389fb0195`).
+- **Bears and wolves could spawn inside village interior buildings.**
+  `EncounterGuards/CMC_VillageNoWildlife.json` only guarded outdoor village-area environments and
+  carried one dead UID (`cmcEnvVillageHall`, unused by any card); none of the seven enterable
+  interiors were covered. Removed the dead UID and added a new
+  `EncounterGuards/CMC_InteriorsNoWildlife.json` suppressing wildlife encounters in all seven
+  interiors (Inn, Academy, Apothecary Cabin, Miller's Cottage, Weaver's Cottage, Village Hall, Jail
+  Cell).
+- **A village interior's very first visit could show the outdoor Village card instead of the
+  interior's own furnishings.** The seven interior environments had no `EnvironmentsData` entry
+  pre-created, so `GameManager.ChangeEnvironment`'s gate failed on first entry and the engine
+  re-dropped the outdoor Village's `UniqueOnBoard` card onto the interior board. New
+  `Patcher/InteriorEnvSaveDataPatch.cs` pre-creates the save-data entry for all seven interior
+  environments at run start.
+- **Village Pathfinder's River Bridge auto-build failed silently on an outdated framework, and could
+  miss a bridge that had already spawned before the auto-complete queue armed.**
+  `RiverBridgeUnlockPatch` now probes for the three `CardUtil` helpers it needs at startup and logs
+  one clear, actionable `LogError` (naming the required framework version, 2.17.0+) instead of a
+  swallowed `MissingMethodException` buried as a warning. It also now scans the current board for an
+  already-spawned, incomplete bridge improvement card and completes it directly for perk holders,
+  covering the case where a save is loaded while the player is already standing at River Clearing
+  (the auto-complete queue only catches bridges spawned *after* it arms at `OnGMInitialized`).
+
+### Changed
+
+- **Hardening: the seven interior location cards now set `AlwaysUpdate: false`.** All seven
+  (`CMC_{Inn,Academy,ApothecaryCabin,MillerCottage,WeaverCottage,VillageHall}InteriorLocation.json`,
+  `CMC_JailCellLocation.json`) had shipped with `AlwaysUpdate: true`, a documented rule violation for
+  CT4/CT8 environment cards. This is a rule-compliance correction, not a resolution of the reported
+  professor travel softlock — that root cause remains unconfirmed.
+
+## [1.46.5] — 2026-08-09
+
+### Fixed
+
+- **The River Bridge improvement could stay permanently invisible at River Clearing, most often on
+  old saves, for any player without the Village Pathfinder perk.** The slot only renders once the
+  engine spawns a ghost card for it, which only happens once the CT10's own `CardUnlockConditions`
+  discovery gate (`CardsOnBoard: "HasPlank"`) evaluates true *while the player is standing at River
+  Clearing* — being listed in the CT8's `EnvironmentImprovements` array (via
+  `InjectImprovementInto.json`) is necessary but not sufficient. Nothing guaranteed a returning
+  player was holding a Plank the moment the engine's periodic unlock scan ran, so the gate could
+  stay unsatisfied indefinitely and the bridge would never appear, regardless of the mod working
+  correctly otherwise. `VillagePathfinderBridgePatch` already bypassed this exact gate with
+  `CardUtil.ForceUnlockCard`, but only for Village Pathfinder perk holders. Renamed to
+  `RiverBridgeUnlockPatch` and now bypasses the gate for every player, every run start — the
+  bridge slot always appears the first time River Clearing is visited that run, construction
+  materials still required as normal. The perk's existing auto-build shortcut (marks it fully
+  constructed, no materials needed) is unchanged and still perk-exclusive.
+
+## [1.46.4] — 2026-08-09
+
+### Fixed
+
+- **The Inn Keeper was still missing from the Village Inn after the [1.46.2] fix.** That fix
+  corrected the *NPC's* environment but not her *board card's* — the two are separate `EnvID`s, and
+  vanilla `GameManager.MoveNPC` only carries the card across inside a block it skips entirely when
+  the NPC's own environment already matches the target. The 1.46.2 boot-time reconcile runs from
+  `InitializeStatsAndActions`, which is *before* vanilla builds her board card, so it moved an NPC
+  that had no card yet: her environment was corrected and saved, her card was left in the orphaned
+  `cmcInnInterior_cmcEnvVillage`, and from then on both reconcile paths saw a matching NPC
+  environment and stood down every load. Verified against the owner's `LogOutput.log`: she restores
+  from save, the player walks into `cmcInnInterior` with an exact environment match, and the mod
+  logs nothing further — no error, no warning, no reconcile.
+  `InnKeeperSpawnPatch` now runs a board-presence check while the player is standing in the Inn that
+  asserts the *card's* environment, not just the NPC's, and repairs either — relocating a
+  left-behind card (by clearing the NPC's environment first, so vanilla's early-return can't skip
+  the card relocation) and requesting a new one via `AssignOrCreateNPCCards` if she has none at all.
+  The check logs the state it observes on every change, is capped at five repair attempts per
+  session, and is inert once she is present. Affected saves repair themselves the next time the
+  player enters the Inn. **Note:** as with [1.46.2], loose items left in the Inn before the 1.44.x
+  environment flip are in that same orphaned environment and are not recovered.
+
+## [1.46.3] — 2026-08-09
+
+### Fixed
+
+- **The Village and Village Farm could show vanilla river-flood warnings ("Moderate Overflow" /
+  "High Overflow") even though neither sits on an actual river tile.** `WaterLevel`/
+  `WaterLevelVisible` is a vanilla *global* stat (one value for the whole save, driven by
+  `RainValue`/weather) rather than something tied to a specific environment, so it displays
+  and applies everywhere the player stands, including the Village's cloned `Green Glade`
+  environment. Vanilla's own countermeasure is the `Levee` structure — a `CardType: 13`
+  invisible helper (`LeveeInvisible`) carrying a passive effect that clamps `WaterLevelVisible`
+  by -7665 (fully suppressing the overflow status and its "flooded" travel penalty) while the
+  player is physically standing in the same environment. `WorldMap/MapNodes.json` now force-drops
+  this vanilla Levee marker onto both `cmcEnvVillage` (Town Square, alongside the Inn/Academy/Jail)
+  and `cmcEnvVillageFarm` (alongside the seasonal crop fields) via the existing `ConditionalDrops`
+  mechanism, so both are permanently flood-protected without any player action required.
+
+## [1.46.2] — 2026-08-09
+
+### Fixed
+
+- **The Inn Keeper was missing from the Village Inn in saves that had met her before 1.44.x.**
+  Confirmed from a live save, not inferred: her saved environment key was
+  `cmcInnInterior_cmcEnvVillage` while the player now travels into the bare `cmcInnInterior`.
+  An NPC's location persists as a *string key*, and for an `InstancedEnvironment: true` env that
+  key carries the parent chain. 1.44.x correctly flipped all six village interiors to
+  `InstancedEnvironment: false` (to fix the entering-an-interior softlock), which changed the key
+  the player travels into — but nothing rewrote keys already written into saves. On load the
+  Keeper was restored into that now-orphaned environment, vanilla's `AssignOrCreateNPCCards` built
+  her board card *there*, and she became permanently invisible: no error, no warning, and the
+  once-a-second arrival check saw her as "already spawned" and stood down every time the player
+  walked in. She was the only village NPC affected — the Professor, Apothecary, Miller and Weaver
+  are all moved by their own schedulers, which rebuild the environment ID from the card each time
+  and so silently self-corrected after the flip; the Keeper never moves, so nothing ever
+  rewrote hers. `InnKeeperSpawnPatch` now reconciles her environment against the Inn interior card
+  itself in two places — immediately after the save restore (before her board card is built) and
+  again whenever the player is standing in the Inn — using vanilla `GameManager.MoveNPC`, which
+  also carries an already-created card across. Affected saves repair themselves on the next load;
+  the check is inert once the keys agree. **Note:** items left in the Inn before the 1.44.x flip
+  are in that same orphaned environment and are not recovered by this fix.
+- **Miller's and Weaver's Cottage operation blueprints now require Copper Nuggets specifically**, not
+  any metal type. All nine station recipes (Grind Rye/Wheat/Acorn into Flour, Mill Logs into Planks,
+  Process Hemp/Flax/Nettle into Fiber, Weave Large Cloth, Weave Rope) referenced the generic
+  `MetalNugget` GUID with no metal-type gate, so Tin or Iron nuggets satisfied the requirement even
+  though every recipe's flavor text says "for a fee in copper" / "keeping a copper nugget for the
+  work." Added `Special4: {Active:true, FloatValue:100, MaxValue:100}` (Copper's SD4 value) to each
+  recipe's nugget requirement slot, matching the vanilla `Bp_CommissionCopperNuggets` pattern.
+
+## [1.46.1] — 2026-08-09
+
+### Fixed
+
+- **Confirmed the Inn Account currency deposit ("drag Salt/Nuggets onto the Inn Counter") works
+  correctly** — the `TEMP DIAGNOSTIC (2026-08-08)` logging added while chasing an owner report that
+  "dragging copper nuggets does nothing" caught a real play session (`LogOutput.log`, 2026-08-09) with
+  three successful deposits (balance 0→50→100, with a silent `Purchase Meal` draw in between —
+  everything self-consistent). No code defect found; the diagnostic `LogInfo` calls in
+  `Patcher/InnPatch.cs` are demoted back to `LogDebug` per CLAUDE.md §Debugging Discipline.
+- **Not yet confirmed**: the identical deposit CI on the Academy tuition account
+  (`Patcher/AcademyPatch.cs`) and the Academy Lecture Hall course-progress reconciler (`[1.45.2]`)
+  were never exercised in that session — their diagnostics remain armed at `LogInfo` until a session
+  actually tests them.
+
+## [1.46.0] — 2026-08-09
+
+### Added
+
+- **Copper Chests for all five village NPCs.** The Copper Chest — the weekly-accruing container that
+  is simultaneously a merchant's savings, their spending power, and a burglary target — was previously
+  the Miller's alone (1.38.0, `Village_Master_Plan.md` §10.8.3.7's "prototype it on one cottage first"
+  step). It now ships for the **Weaver** (`cmcCopperChestWeaver`, in her cottage interior), the
+  **Apothecary** (`cmcCopperChestApothecary`, in her cabin interior), the **Inn Keeper**
+  (`cmcCopperChestInnKeeper`, inside the Inn) and the **Professor** (`cmcCopperChestProfessor`, inside
+  the Academy), each with its own Sell CI, its own "Search for valuables" theft DA, and its own
+  independent theft-heat and accrual-day trackers — five chests never share one counter, so robbing
+  the Miller does not raise your risk at the Academy.
+- **Per-NPC wealth tiering** (§10.8.3.3, placeholder values pending the tuning pass). Inn Keeper: 500
+  salt-value ceiling, 5 Salt/week, and the most varied goods (acorn flatbread, firm cheese, dried meat).
+  Miller and Weaver: 300, 3 Salt/week. Apothecary and Professor: 180, 2 Salt/week, but rarer goods drawn
+  from their own already-curated pools — healer's moss and old growth bark for her, spirit mushrooms and
+  nettle leaves for him. No new items were invented for any chest.
+- **Three different accrual mechanisms, one per NPC's existing plumbing** (§10.8.3.3), so no new spawn
+  mechanism was introduced anywhere. The Weaver's weekly satchel restock was **retargeted** onto her
+  chest exactly as the Miller's was — not duplicated (R6); her `WeaverWeeklyRestock` action is now
+  unfired. The Apothecary gets a parallel weekly drop inside her own schedule patch, which already owns
+  her poll. The Inn Keeper and Professor get genuinely new weekly ticks, independent of — and not
+  replacing — his 4-day pantry restock and the Professor's per-node forage, which are unchanged.
+- Each chest is that NPC's **personal** savings. `cmcInnCounter`'s Inn account and `cmcAcademyLectern`'s
+  tuition account are untouched and remain separate pools, as §10.8.3.2 requires.
+
+### Fixed
+
+- **The Miller's Copper Chest rendered as a broken/blank image in-game.** Its `CardImageWarpData` was
+  `"ChestPlaced"` — a plausible-looking but non-existent sprite name, which resolves to nothing silently
+  (no error, no log; root CLAUDE.md §Sprites/Images). It now uses `"Copper_Chest"`, backed by a real PNG
+  shipped in this mod at `Resource/Picture/Copper_Chest.png`. All four new chests use the same sprite.
+  Because CMC only soft-depends on Advanced Copper Tools, the PNG is a byte-identical copy carried by
+  CMC itself rather than a reference into ACT, so the chests render correctly whether or not ACT is
+  installed.
+
+### Changed
+
+- `CopperChestPatch` was generalised from three hardcoded Miller constants to a per-resident config
+  array; the three action handlers are now registered once per chest, dispatching on each chest's own
+  card UID. Its "is the owner standing right here" instant-catch check is now self-contained — it
+  previously delegated to a cottage-resident-only helper that knew nothing about the Apothecary, Inn
+  Keeper or Professor and would have silently reported "nobody home" (never an instant catch) for all
+  three of them.
+- Removed the now-unreachable satchel-restock branch from `CottageResidentSpawnPatch`: with both cottage
+  residents on chests it could no longer run, and leaving a dormant `RestockActionId` field behind would
+  have made the double-drop regression R6 warns about a one-line mistake away.
+
+## [1.45.5] — 2026-08-09
+
+### Fixed
+
+- **Weaver, Miller, and Professor errand "thanks" dialog could never fire, so quest progress never advanced and the village boards stayed frozen on the initial ask forever.** Owner-reported: after delivering the requested materials (dried flax stems, wheat grain, etc.), talking to the NPC again never acknowledged the delivery and the Weaver's/Miller's/Professor's Board kept showing the same unfulfilled errand. Root cause: `DialogScene.GetStartingLine` opens on the first `StartingPoint:true` scene line (in array order) whose conditions pass — and each NPC's generic greeting (`*Talk_Start` / `ProfessorGreeting_Menu`) is essentially unconditioned, so it was listed *before* the conditioned `QuestThanksN` lines in `SceneLinesWarpData`. The generic greeting always won the first-match check, so the Thanks lines (and, for the Professor, several other gated greetings — `GiftValedictorian`, `GiftFirstPass`, `GiftTrust`, `TrustHigh`/`TrustMid`, the seasonal lines) were unreachable dead code; none of their `StatModifications` (incrementing `*QuestChain`, resetting `*QuestArmed`, granting trust/blueprints) ever ran. Reordered `CMC_WeaverTalk.json`, `CMC_MillerTalk.json`, and `CMC_ProfessorGreeting.json` so every conditioned `StartingPoint:true` line is checked before the generic fallback greeting, per the documented "most-restrictive first, unconditioned fallback last" rule — no other wiring changed (dialog branches reference each other by UID, not array position).
+
+## [1.45.4] — 2026-08-09
+
+### Fixed
+
+- **Ash's boar-hunt trail card never actually left the village, despite the log repeatedly saying it had faded.** Owner-reported: "Ash's Trail" (`cmcAshBoarTrail`) stayed on the board indefinitely once the hunt resolved. The cleanup step wrote the trail card's `SpoilageTime` stat directly to 0 via reflection — a write that bypasses the game's own per-tick durability processing, which is the only place `HasActionOnZero`/`OnZero` (the destroy trigger) actually gets evaluated. The stat sat at 0 forever, the card was never removed, and the once-every-2-seconds poll kept re-finding it and re-logging "Ash's trail has faded from the village." `AshBoarHuntPatch` now hands the zeroed trail card to the same CT13 invisible-helper transform already used to remove the tracking card at hunt-start (`BeastTracksCardInvisible` — its own active `SpoilageTime` the real tick loop does evaluate), so the card is actually destroyed instead of just reporting that it was.
+
+## [1.45.3] — 2026-08-09
+
+### Fixed
+
+- **Inn Keeper could fail to spawn inside the Village Inn.** Owner-reported: the Keeper never appeared. `InnKeeperSpawnPatch`'s once-a-second arrival check matched the player's current environment against the cached `cmcInnInterior` card by raw object reference (`ReferenceEquals`) — fragile against any path that ends up with two distinct `CardData` instances for the same UID (this install also runs a third-party ModLoader). The check (and the matching "is this NPC already spawned" check) now compares by `UniqueID` string instead, and failure paths that were previously completely silent now log a one-time warning. Root cause not confirmed from the log alone (it showed no `[InnKeeperSpawnPatch]` activity at all this session) — unverified in-game; diagnostic logging is in place to pinpoint the cause on the next test if this doesn't resolve it.
+
+## [1.45.2] — 2026-08-09
+
+### Fixed
+
+- **Academy Lecture Hall could show 0% progress on a course whose degree you'd already earned.** Owner-reported: after finishing all six courses over many play sessions, every "Study ..." tooltip read "You have already completed this course" (the graduate perk was genuinely held) while the progress bar showed 0%. The lectern's own progress stat had desynced from the perk it's supposed to track — root cause unconfirmed, but the graduate perk is already the authoritative "done" signal used everywhere else (the "already completed" gate, the course-gated blueprint unlocks), so `AcademyPatch` now reconciles the lectern's displayed progress to match it: while standing in the Academy, any course whose perk is held gets its progress stat force-set to max if it reads below that. Self-healing against future desyncs from any cause, not just a one-time repair.
+- **Academy course-gated blueprints (Sawmill, Grinding Mill, Copper Sheet, Iron Fishing Rod, copper/iron armor, Forge/Workshop) could get silently re-locked on every reload of a save that had already earned them.** `AcademyCourseService`'s run-start gating pass ran on `GameManager.OnGMInitialized`, which can fire before `InRunAddedPerks` finishes restoring from the save — the pass would find no graduate perks held yet and re-hide the reward blueprints. A one-shot recheck 5 seconds after boot now re-runs the same gating pass once perks have had time to settle.
+
+## [1.45.1] — 2026-08-08
+
+### Fixed
+
+- **Ash's boar hunt no longer logs spurious "may not be loaded" warnings.** The hunt-movement poll treated `SpawnService.Spawn`'s return value as a spawn-success signal, but that call returns null on success in the current game version (the card is placed as a side effect). The trail and tracking-boar cards were always spawning correctly; the code now verifies placement by re-querying the board, so the state advances on the spawning tick and the warning only fires on a genuine failure. No player-visible behavior change to the hunt itself.
+
 ## [1.45.0] — 2026-08-08
 
 ### Added

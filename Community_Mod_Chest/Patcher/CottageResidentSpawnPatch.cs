@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using CSFFModFramework.Api;
@@ -47,7 +48,8 @@ namespace CommunityModChest.Patcher
         private const string VillageEnvUid = "cmcEnvVillage";
         private const string ForagingForestEnvUid = "cmcEnvForagingForest";
         private const int MoveInDelayDays = 7;
-        private const int RestockIntervalDays = 7;
+        // NOTE: the weekly accrual CADENCE now lives on CopperChestPatch (one interval shared by
+        // all five chests) — this file no longer owns a restock interval of its own.
 
         private sealed class Resident
         {
@@ -56,35 +58,40 @@ namespace CommunityModChest.Patcher
             public string CottageUid;
             public string MoveInStatUid;
             public string EnvUid;       // env this resident moves into (Village cottages vs. the forest cabin)
-            public string RestockActionId; // AgentActions[].ActionID fired weekly into the SATCHEL, or null
 
-            // Copper Chest accrual (Village_Master_Plan.md §10.8.3.3). Mutually exclusive with
-            // RestockActionId BY CONSTRUCTION — CheckRestock takes one branch or the other, never
-            // both, which is what makes R6's "retarget, don't duplicate" double-drop structurally
-            // impossible rather than merely intended.
-            public string ChestUid;             // CT2 chest card UniqueID, or null for no chest
-            public string ChestEnvUid;          // interior env the chest lives in (accrual only runs while the player is standing in it)
-            public string ChestCurrencyActionId;// AgentActions[].ActionID dropping currency into the chest
-            public string ChestGoodsActionId;   // AgentActions[].ActionID dropping goods into the chest
-            public string ChestRestockDayStat;  // hidden GameStat holding the absolute day of the last chest accrual
+            // Copper Chest accrual (Village_Master_Plan.md §10.8.3.3). Set to the resident's own
+            // AgentUid when THIS file drives their chest accrual; null when it does not — either
+            // because they have no chest, or because another patcher owns their poll (the
+            // Apothecary's accrual lives in ApothecarySchedulePatch). All the per-chest data
+            // (chest UID, interior env, action IDs, day stat, caps) lives on
+            // CopperChestPatch.ChestConfig, so no resident can silently pick up another's cap.
+            //
+            // Mutually exclusive with RestockActionId BY CONSTRUCTION — CheckRestock takes the
+            // chest branch or the satchel branch, never both, which is what makes R6's "retarget,
+            // don't duplicate" double-drop structurally impossible rather than merely intended.
+            public string ChestAccrualAgentUid;
 
             public object Agent;        // NPCAgent, resolved lazily
             public object MoveInStat;   // GameStat SO, resolved lazily
-            public int LastRestockDay = int.MinValue;
         }
 
         private static readonly Resident[] Residents =
         {
-            // Miller: satchel restock RETIRED in favour of Copper Chest accrual (§10.8.3.3).
-            // RestockActionId is deliberately null — leaving it set alongside the chest fields
-            // would be exactly the R6 double-drop bug (goods into the satchel AND the chest every
-            // week). His trade stock now comes from StartingInventory plus whatever survives in
-            // the chest.
+            // Miller and Weaver: satchel restock RETIRED in favour of Copper Chest accrual
+            // (§10.8.3.3). RestockActionId is deliberately null on both — leaving it set alongside
+            // ChestAccrualAgentUid would be exactly the R6 double-drop bug (goods into the satchel
+            // AND the chest every week). Their trade stock now comes from StartingInventory plus
+            // whatever survives in the chest. The Weaver's old 'WeaverWeeklyRestock' AgentAction is
+            // still shipped in Agent_Weaver.json but is now unfired, the same state the Miller's
+            // retired action has been in since 1.38.0.
             new Resident { Name = "Miller", AgentUid = "cmcMillerAgent", CottageUid = "cmcCottageMiller", MoveInStatUid = "cmcStatMillerMoveIn", EnvUid = VillageEnvUid,
-                           ChestUid = CopperChestPatch.ChestUid, ChestEnvUid = CopperChestPatch.InteriorEnvUid,
-                           ChestCurrencyActionId = "MillerChestCurrency", ChestGoodsActionId = "MillerChestGoods",
-                           ChestRestockDayStat = "cmcStatMillerChestRestockDay" },
-            new Resident { Name = "Weaver", AgentUid = "cmcWeaverAgent", CottageUid = "cmcCottageWeaver", MoveInStatUid = "cmcStatWeaverMoveIn", EnvUid = VillageEnvUid, RestockActionId = "WeaverWeeklyRestock" },
+                           ChestAccrualAgentUid = "cmcMillerAgent" },
+            new Resident { Name = "Weaver", AgentUid = "cmcWeaverAgent", CottageUid = "cmcCottageWeaver", MoveInStatUid = "cmcStatWeaverMoveIn", EnvUid = VillageEnvUid,
+                           ChestAccrualAgentUid = "cmcWeaverAgent" },
+            // Apothecary: she HAS a Copper Chest, but ApothecarySchedulePatch owns her poll and
+            // therefore her chest accrual (§10.8.3.3). ChestAccrualAgentUid stays null here so this
+            // file never fires a second, competing drop — that would be the R6 double-drop across
+            // two files rather than within one.
             new Resident { Name = "Apothecary", AgentUid = "cmcApothecaryAgent", CottageUid = "cmcApothecaryCabin", MoveInStatUid = "cmcStatApothecaryMoveIn", EnvUid = ForagingForestEnvUid },
         };
 
@@ -105,8 +112,8 @@ namespace CommunityModChest.Patcher
         private static MethodInfo _assignOrCreateCardsMethod; // GameManager.AssignOrCreateNPCCards() (private, no args)
         private static object _envIdEmpty;          // default(EnvID)
 
-        // Restock chassis (InnKeeperSpawnPatch idiom) — fires a named AgentAction on the
-        // resident's own NPC/board card once every RestockIntervalDays.
+        // AgentAction firing chassis (InnKeeperSpawnPatch idiom) — fires a named AgentAction with a
+        // chosen receiving card. Passed to CopperChestPatch.TryAccrue as its drop mechanism.
         private static Type _npcActionType;         // NPCAction (declares ToAction)
         private static Type _inGameCardBaseType;    // InGameCardBase
         private static Type _cardActionType;        // CardAction
@@ -184,10 +191,18 @@ namespace CommunityModChest.Patcher
                 && _toActionMethod != null && _performActionMethod != null && _inGameNpcOrPlayerCtor != null;
         }
 
+        private static readonly HashSet<string> _agentUnresolvedWarned = new(StringComparer.Ordinal);
+
         private static bool ResolveAgent(Resident resident)
         {
             resident.Agent ??= _getFromIdMethod.Invoke(null, new object[] { resident.AgentUid });
-            return resident.Agent != null;
+            if (resident.Agent == null)
+            {
+                if (_agentUnresolvedWarned.Add(resident.AgentUid))
+                    Plugin.Logger.LogWarning($"[CottageResidentSpawnPatch] Agent UID '{resident.AgentUid}' ({resident.Name}) did not resolve via GetFromID — this resident can never spawn until this is fixed.");
+                return false;
+            }
+            return true;
         }
 
         // Move-in stat read/write — the InnKeeperDialogSchedulePatch idiom: read
@@ -366,10 +381,17 @@ namespace CommunityModChest.Patcher
             }
         }
 
-        // Weekly stock restock (Miller/Weaver trade goods) — same chassis as
-        // InnKeeperSpawnPatch.CheckRestock: fires the resident's own AgentAction on their
-        // live NPC/board card once every RestockIntervalDays. Only residents with a
-        // RestockActionId participate (the Apothecary uses its own schedule patch).
+        // Weekly Copper Chest accrual for the residents this file owns (Miller, Weaver).
+        //
+        // <para>This used to also carry a SATCHEL restock branch, for residents whose weekly
+        // AgentAction dropped into their own carried inventory. That branch is gone as of 1.46.0:
+        // both cottage residents are now on Copper Chests (§10.8.3.3's "retarget, don't
+        // duplicate" — R6), so it was unreachable, and the compiler said so. It is deliberately
+        // deleted rather than left dormant: a dead `RestockActionId` field is an attractive
+        // nuisance, and the obvious way to "fix" the resulting unused-field warning — re-pointing
+        // a resident at their old satchel action — is precisely the double-drop R6 warns about.
+        // A future chest-less resident gets the branch back from git history; a resident WITH a
+        // chest must never have one.</para>
         private static void CheckRestock()
         {
             try
@@ -382,40 +404,16 @@ namespace CommunityModChest.Patcher
 
                 foreach (var resident in Residents)
                 {
-                    if (!string.IsNullOrEmpty(resident.ChestUid))
-                    {
-                        CheckChestRestock(gm, resident, currentDay);
-                        continue;
-                    }
+                    // Null for any resident whose accrual another patcher owns (the Apothecary's
+                    // lives in ApothecarySchedulePatch) — exactly one caller per chest, ever.
+                    var chestConfig = CopperChestPatch.ForAgent(resident.ChestAccrualAgentUid);
+                    if (chestConfig == null) continue;
 
-                    if (string.IsNullOrEmpty(resident.RestockActionId)) continue;
                     if (!ResolveAgent(resident)) continue;
-
                     var npc = FindLiveNpc(gm, resident);
-                    if (npc == null) continue; // not moved in yet
+                    if (npc == null) continue; // hasn't moved in yet — an empty chest until they arrive
 
-                    var associatedCard = Reflect.GetMember(npc, "AssociatedCard");
-                    if (associatedCard == null) continue; // AssignOrCreateNPCCards hasn't finished yet
-
-                    int stockCount = (Reflect.GetMember(associatedCard, "CardsInInventory") as ICollection)?.Count ?? 0;
-
-                    if (resident.LastRestockDay == int.MinValue)
-                    {
-                        // First check this session — just take a baseline, don't force a restock
-                        // onto an already-stocked shop every time the mod initializes. An empty
-                        // shop (the self-heal case) still falls through and restocks immediately.
-                        resident.LastRestockDay = currentDay;
-                        if (stockCount > 0) continue;
-                    }
-
-                    bool due = stockCount == 0 || currentDay - resident.LastRestockDay >= RestockIntervalDays;
-                    if (!due) continue;
-
-                    if (!FireAgentAction(npc, associatedCard, resident.RestockActionId))
-                    {
-                        Plugin.Logger.LogWarning($"[CottageResidentSpawnPatch] '{resident.RestockActionId}' not found on {resident.AgentUid}'s AgentActions — restock inactive for {resident.Name}.");
-                    }
-                    resident.LastRestockDay = currentDay;
+                    CopperChestPatch.TryAccrue(chestConfig, npc, currentDay, FireAgentAction);
                 }
             }
             catch (Exception ex)
@@ -424,57 +422,11 @@ namespace CommunityModChest.Patcher
             }
         }
 
-        // Copper Chest accrual (Village_Master_Plan.md §10.8.3.3) — the same FireAgentAction
-        // chassis as the satchel restock above, with the CHEST passed as the receiving card
-        // instead of the NPC's AssociatedCard. That single substitution IS the retarget; there is
-        // no second drop mechanism anywhere (R6).
-        //
-        // Why this is gated on the player's location, unlike the satchel restock: an NPC's satchel
-        // follows the NPC and is reachable from anywhere, but the chest is a board-bound card in an
-        // INSTANCED environment. CardFinder scans live scene objects, and GameManager.ChangeEnvironment
-        // serialises every non-current environment's cards out of the scene
-        // (memory: reference_allcards_env_scoped), so CardFinder.Find returns null for the chest
-        // unless the player is standing inside the cottage at that instant. Firing the drop from
-        // the location-independent 30 s poll would therefore silently no-op almost every week.
-        // Instead the accrual is deferred to a visit and latched into a persistent GameStat, the
-        // same defer-poll-latch shape as reference_spawn_targets_current_board.
-        //
-        // One week's worth per qualifying visit, deliberately NOT a catch-up for every missed week:
-        // the caps below already bound the total, so banking owed weeks would add state for no
-        // reachable outcome.
-        private static void CheckChestRestock(object gm, Resident resident, int currentDay)
-        {
-            if (GameQuery.CurrentEnvironmentUniqueId != resident.ChestEnvUid) return;
-
-            var chest = CardFinder.Find(resident.ChestUid);
-            if (chest == null) return; // interior entered but the chest hasn't spawned yet
-
-            if (!ResolveAgent(resident)) return;
-            var npc = FindLiveNpc(gm, resident);
-            if (npc == null) return; // hasn't moved in yet — an empty chest until he arrives
-
-            float lastDay = HiddenStat.Get(resident.ChestRestockDayStat);
-            if (lastDay < 0f) return;                                              // stat not readable yet
-            if (lastDay > 0.5f && currentDay - lastDay < RestockIntervalDays) return; // not due
-
-            // Each half pauses independently once its own ceiling is reached (§10.8.3.3: "the
-            // weekly currency drop pauses; goods accrual may continue up to its own separate cap").
-            bool currencyDue = CopperChestPatch.CurrentWealth(chest) < CopperChestPatch.CurrencyCap;
-            bool goodsDue = CopperChestPatch.GoodsCount(chest) < CopperChestPatch.GoodsCap;
-
-            if (currencyDue && !FireAgentAction(npc, chest, resident.ChestCurrencyActionId))
-                Plugin.Logger.LogWarning($"[CottageResidentSpawnPatch] '{resident.ChestCurrencyActionId}' not found on {resident.AgentUid}'s AgentActions — chest currency accrual inactive.");
-            if (goodsDue && !FireAgentAction(npc, chest, resident.ChestGoodsActionId))
-                Plugin.Logger.LogWarning($"[CottageResidentSpawnPatch] '{resident.ChestGoodsActionId}' not found on {resident.AgentUid}'s AgentActions — chest goods accrual inactive.");
-
-            // Stamped even when both halves are capped, so a full chest doesn't re-check every
-            // 30 s for the rest of the visit. Floored at 1 so day 0 can't read back as "never".
-            HiddenStat.Set(resident.ChestRestockDayStat, Math.Max(1, currentDay));
-
-            if (currencyDue || goodsDue)
-                Plugin.Logger.LogInfo($"[CottageResidentSpawnPatch] {resident.Name} added to his Copper Chest (day {currentDay}; currency {(currencyDue ? "yes" : "capped")}, goods {(goodsDue ? "yes" : "capped")}).");
-        }
-
+        // Fires a named AgentAction with `associatedCard` as the receiving container. Used for both
+        // the satchel restock (receiving card = the NPC's own AssociatedCard) and the Copper Chest
+        // accrual (receiving card = the CHEST) — that single substitution IS §10.8.3.3's retarget,
+        // and it is why CopperChestPatch.TryAccrue takes this method as a delegate rather than
+        // owning a spawn mechanism of its own.
         private static bool FireAgentAction(object npc, object associatedCard, string actionId)
         {
             var npcModel = Reflect.GetMember(npc, "NPCModel");

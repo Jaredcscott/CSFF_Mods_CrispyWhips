@@ -38,7 +38,7 @@
   "m_FileID": 0,
   "m_PathID": 0
  },
- "EncounterImageWarpData": "Trader",
+ "EncounterImageWarpData": "CMC_Guard_SpearWoman",
  "EncounterImageWarpType": 3,
  "EnemyName": {
   "ParentObjectID": "cmcEncounterGuardThorne",
@@ -1383,11 +1383,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -17.0,
-         "y": -17.0
+         "x": 17.0,
+         "y": 17.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -1460,11 +1460,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -17.0,
-         "y": -17.0
+         "x": 17.0,
+         "y": 17.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -1537,11 +1537,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -17.0,
-         "y": -17.0
+         "x": 17.0,
+         "y": 17.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -1616,11 +1616,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -34.0,
-         "y": -34.0
+         "x": 34.0,
+         "y": 34.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -1693,11 +1693,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -34.0,
-         "y": -34.0
+         "x": 34.0,
+         "y": 34.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -1770,11 +1770,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -34.0,
-         "y": -34.0
+         "x": 34.0,
+         "y": 34.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -1849,11 +1849,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -68.0,
-         "y": -68.0
+         "x": 68.0,
+         "y": 68.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -1926,11 +1926,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -68.0,
-         "y": -68.0
+         "x": 68.0,
+         "y": 68.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -3125,11 +3125,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -17.0,
-         "y": -17.0
+         "x": 17.0,
+         "y": 17.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -3202,11 +3202,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -17.0,
-         "y": -17.0
+         "x": 17.0,
+         "y": 17.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -3279,11 +3279,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -17.0,
-         "y": -17.0
+         "x": 17.0,
+         "y": 17.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -3358,11 +3358,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -34.0,
-         "y": -34.0
+         "x": 34.0,
+         "y": 34.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -3435,11 +3435,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -34.0,
-         "y": -34.0
+         "x": 34.0,
+         "y": 34.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -3512,11 +3512,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -34.0,
-         "y": -34.0
+         "x": 34.0,
+         "y": 34.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -3591,11 +3591,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -68.0,
-         "y": -68.0
+         "x": 68.0,
+         "y": 68.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -3668,11 +3668,11 @@
          "m_FileID": 0,
          "m_PathID": 0
         },
-        "StatWarpData": "4587cd240eee9e34b873f02c15c905e2",
+        "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
         "StatWarpType": 3,
         "ValueModifier": {
-         "x": -68.0,
-         "y": -68.0
+         "x": 68.0,
+         "y": 68.0
         },
         "RateModifier": {
          "x": 0.0,

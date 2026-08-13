@@ -11,7 +11,7 @@
     "LocalizationKey": "CMC_CopperChestMiller_CardDescription",
     "DefaultText": "The Miller keeps his savings and a little spare stock in this banded chest. Every week or so he adds to it, until it is as full as a miller's chest ever gets. Drag a valuable item onto the chest to sell it to him - he can only pay what is actually inside. There is nothing stopping you searching it yourself, either, if you are willing to risk being caught."
   },
-  "CardImageWarpData": "ChestPlaced",
+  "CardImageWarpData": "Copper_Chest",
   "CardImageWarpType": 3,
   "CardHelpSection": {
     "LocalizationKey": "CMC_CopperChestMiller_CardHelpSection",

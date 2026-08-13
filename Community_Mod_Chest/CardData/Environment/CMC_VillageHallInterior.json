@@ -3,6 +3,8 @@
   "CardType": 4,
   "InstancedEnvironment": false,
   "AlwaysUpdate": false,
+  "CardTagsWarpData": ["tag_EnvIndoors"],
+  "CardTagsWarpType": 3,
   "CardName": {
     "LocalizationKey": "CMC_VillageHallInterior_CardName",
     "DefaultText": "Village Hall"

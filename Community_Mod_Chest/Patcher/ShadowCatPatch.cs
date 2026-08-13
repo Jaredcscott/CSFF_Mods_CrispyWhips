@@ -99,11 +99,13 @@ namespace CommunityModChest.Patcher
                 // Gate 4: dupe-guard
                 if (ShadowExistsAnywhere(gm)) return;
 
-                var spawned = SpawnService.Spawn(UntamedUid);
-                if (spawned != null)
+                // SpawnService.Spawn returns null on success (GiveCard is void this game
+                // version) — verify by re-querying the board, not the return value.
+                SpawnService.Spawn(UntamedUid);
+                if (ShadowExistsAnywhere(gm))
                     Plugin.Logger.LogInfo("[ShadowCatPatch] Shadow slips out from between the pines.");
                 else
-                    Plugin.Logger.LogWarning("[ShadowCatPatch] Spawn returned null — is cmcShadowCat loaded?");
+                    Plugin.Logger.LogWarning("[ShadowCatPatch] Shadow cat did not appear after spawn — is cmcShadowCat loaded?");
             }
             catch (Exception ex)
             {

@@ -112,8 +112,18 @@ namespace CommunityModChest.Patcher
                     var trailCard = FindCardByUid(gm, BoarTrailCardUid);
                     if (trailCard != null)
                     {
+                        // SetDurability writes via reflection and never runs through the game's
+                        // own tick loop, so it alone never fires SpoilageTime.OnZero (Destroy) —
+                        // the card just sits at 0 forever and this branch re-finds it every poll.
+                        // Zero it first (seeds the carried-over value), then hand it to the CT13
+                        // invisible helper whose OWN active SpoilageTime the real tick DOES
+                        // evaluate, so its OnZero (ModType 3 = Destroy) actually removes the card —
+                        // same pattern already used below to remove the tracking card at state 0.
                         CardUtil.SetDurability(trailCard, "SpoilageTime", 0f);
-                        Plugin.Logger.LogInfo("[AshBoarHuntPatch] Ash's trail has faded from the village.");
+                        if (CardUtil.TransformCardInPlace(trailCard, BeastTracksInvisibleUid))
+                            Plugin.Logger.LogInfo("[AshBoarHuntPatch] Ash's trail has faded from the village.");
+                        else
+                            Plugin.Logger.LogWarning("[AshBoarHuntPatch] Failed to clear Ash's trail from the village — it will remain on the board.");
                         return;
                     }
 
@@ -141,11 +151,13 @@ namespace CommunityModChest.Patcher
                     {
                         if (FindCardByUid(gm, BoarTrailCardUid) == null)
                         {
-                            var spawnedTrail = SpawnService.Spawn(BoarTrailCardUid);
-                            if (spawnedTrail != null)
+                            // SpawnService.Spawn returns null on success (GiveCard is void this game
+                            // version) — verify by re-querying the board, not the return value.
+                            SpawnService.Spawn(BoarTrailCardUid);
+                            if (FindCardByUid(gm, BoarTrailCardUid) != null)
                                 Plugin.Logger.LogInfo("[AshBoarHuntPatch] Ash's trail marks the village — he's gone to Hunter's Crossing.");
                             else
-                                Plugin.Logger.LogWarning("[AshBoarHuntPatch] Trail spawn at village returned null — cmcAshBoarTrail may not be loaded.");
+                                Plugin.Logger.LogWarning("[AshBoarHuntPatch] Trail failed to appear at the village after spawn — cmcAshBoarTrail may not be loaded.");
                         }
                         return;
                     }
@@ -159,15 +171,18 @@ namespace CommunityModChest.Patcher
                         return;
                     }
 
-                    var spawned = SpawnService.Spawn(TrackingCardUid);
-                    if (spawned != null)
+                    // SpawnService.Spawn returns null on success (GiveCard is void this game
+                    // version) — verify by re-querying the board, not the return value, so the
+                    // stat latches on the spawning tick instead of relying on next-tick self-heal.
+                    SpawnService.Spawn(TrackingCardUid);
+                    if (FindCardByUid(gm, TrackingCardUid) != null)
                     {
                         WriteStat(gm, _boarHuntSpotStat, 2f);
                         Plugin.Logger.LogInfo("[AshBoarHuntPatch] Ash is at Hunter's Crossing — his quarry is close.");
                     }
                     else
                     {
-                        Plugin.Logger.LogWarning("[AshBoarHuntPatch] Spawn at Hunter's Crossing returned null — cmcAshTrackingBoar may not be loaded.");
+                        Plugin.Logger.LogWarning("[AshBoarHuntPatch] Ash failed to appear at Hunter's Crossing after spawn — cmcAshTrackingBoar may not be loaded.");
                     }
                 }
                 // State 2: already placed, nothing to do.

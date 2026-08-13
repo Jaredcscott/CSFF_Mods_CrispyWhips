@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using CSFFModFramework.Api;
 using CSFFModFramework.Util;
 using HarmonyLib;
@@ -15,8 +17,8 @@ namespace CommunityModChest.Patcher
     ///     <see cref="CurrencyValue"/>. A deposit is rejected outright (item untouched)
     ///     if the account has no headroom left at all.
     ///   - Courses run as 2-hour study sessions (DaytimeCost 8). Progress lives on
-    ///     the lectern's SpecialDurability1/2/3 (hours studied: Architecture 72,
-    ///     Metallurgy 60, Herbalism 30) — persisted with the instanced env's board.
+    ///     the lectern's SpecialDurability1/2/3/SpoilageTime/UsageDurability/FuelCapacity
+    ///     (hours studied per course) — persisted with the (non-instanced) env's board.
     ///     Each session adds +2h via the DA's ReceivingCardChanges (pure JSON).
     ///   - "Study ..." DAs hide natively (RequiredReceivingDurabilities) once only
     ///     one session remains; a "Final Exam: ..." DA becomes visible for that last
@@ -30,12 +32,22 @@ namespace CommunityModChest.Patcher
     ///   - CardAction.CollectActionModifiers postfix sets the native
     ///     ActionBlockedMessage so the buttons show pre-emptively greyed out with a
     ///     clear tooltip reason; the Cancel handler below remains as a safety net.
+    ///   - ReconcileCourseProgress (real-time interval, while the player stands in the
+    ///     Academy interior) is a self-healing backstop: if a course's graduate perk is
+    ///     held (AcademyCourseService.HasCourse) but the lectern's own progress stat for
+    ///     that course reads below its max — a desync reported in-game 2026-08-09 on a
+    ///     manually-studied save (perk survived, hours-studied read 0%) — it force-sets
+    ///     the stat back to max. Perk possession is the authoritative "done" signal
+    ///     everywhere else in this file (AlreadyGraduatedMessage, AcademyCourseService's
+    ///     blueprint gate); this makes the displayed progress agree with it regardless of
+    ///     what desynced the durability value, without needing to know the original cause.
     /// Same Cancel/AfterWrapped/CollectActionModifiers gating architecture as
     /// InnPatch, but its own account stat/price (see above).
     /// </summary>
     internal static class AcademyPatch
     {
         private const string LecternUid = "cmcAcademyLectern";
+        private const string AcademyInteriorEnvUid = "cmcAcademyInterior";
         private const string BalanceStat = "SpecialDurability4";
         private const float TuitionPrice = 100f;
         private const float AccountMax = 1000f;
@@ -135,7 +147,172 @@ namespace CommunityModChest.Patcher
                 Before        = DepositApply,
             });
 
+            // Self-healing progress display — see class doc. Only does work while the
+            // player is standing in the Academy interior (the lectern's live instance is
+            // only findable in AllCards then — AllCards is current-env-scoped, same
+            // reasoning as GraduatePerkPatch/VillageFounderPerkPatch's own env-arrival polls).
+            TickEvents.Interval(5f, ReconcileCourseProgress, "AcademyCourseProgressReconcile");
+
             Plugin.Logger.LogDebug("[AcademyPatch] initialized.");
+        }
+
+        // ── Course-progress self-heal ──────────────────────────────────────────
+
+        /// <summary>For each course whose graduate perk is already held, force the
+        /// lectern's own progress stat up to its max if it reads below that — repairs
+        /// any desync between "perk held" (authoritative) and "hours studied" (display
+        /// only), from whatever cause. Idempotent and cheap; safe to run on an interval.
+        ///
+        /// ROOT CAUSE FOUND (2026-08-09, round 2): a duplicate 'cmcAcademyLectern' can end
+        /// up in AllCards (confirmed live: one instance held the player's real, completed
+        /// progress; a second, empty-stats duplicate is the one the game's own click-routing
+        /// resolves the player's Study/Deposit actions to going forward — its Tuition Account
+        /// balance climbed with the player's deposits while its course stats stayed at their
+        /// JSON default of 0). The old single-target FindLiveLecternCard only ever grabbed the
+        /// FIRST AllCards match, which happened to be the already-complete ghost instance —
+        /// nothing to reconcile there — while the instance the player actually sees never got
+        /// touched. Fix: reconcile EVERY 'cmcAcademyLectern' instance found on the board, not
+        /// just the first, so whichever one the game renders ends up correct regardless of how
+        /// many duplicates exist or which one is "live". Does not touch SpecialDurability4
+        /// (Tuition Account) — that's real player-managed currency, not a completion signal.</summary>
+        private static void ReconcileCourseProgress()
+        {
+            try
+            {
+                string currentEnv = GameQuery.CurrentEnvironmentUniqueId;
+                if (currentEnv != AcademyInteriorEnvUid) return;
+
+                var gm = CardUtil.GetGameManagerInstance();
+                if (gm == null)
+                {
+                    Plugin.Logger.LogDebug("[AcademyPatch] ReconcileCourseProgress: in Academy interior but GetGameManagerInstance() returned null.");
+                    return;
+                }
+
+                var lecterns = FindAllLiveLecternCards(gm);
+                if (lecterns.Count == 0)
+                {
+                    Plugin.Logger.LogDebug("[AcademyPatch] ReconcileCourseProgress: in Academy interior but no lectern card found via AllCards.");
+                    return;
+                }
+
+                // Diagnostic (2026-08-09, demoted to LogDebug 2026-08-11) — verifies the
+                // multi-instance reconcile fix lands on the duplicate the player sees.
+                DumpLecternInstanceIdentity(gm, lecterns[0]);
+                if (lecterns.Count > 1)
+                {
+                    // Demoted to LogDebug 2026-08-11 — the multi-instance reconcile fix has run
+                    // stable across sessions; kept for diagnostic visibility, not startup noise.
+                    Plugin.Logger.LogDebug($"[AcademyPatch] ReconcileCourseProgress: {lecterns.Count} 'cmcAcademyLectern' instances on the board — reconciling all of them.");
+                }
+
+                foreach (var lectern in lecterns)
+                {
+                    foreach (var course in Courses)
+                    {
+                        bool hasCourse = AcademyCourseService.HasCourse(course.GradPerk);
+                        float hours = HoursStudied(lectern, course);
+                        Plugin.Logger.LogDebug($"[AcademyPatch] ReconcileCourseProgress: course={course.NameFragment} hasCourse={hasCourse} hours={hours}/{course.TotalHours}");
+
+                        if (!hasCourse) continue;
+                        if (hours < 0f || hours >= course.TotalHours - 0.01f) continue; // unreadable or already at max
+
+                        if (CardUtil.SetDurability(lectern, course.StatName, course.TotalHours))
+                        {
+                            Plugin.Logger.LogInfo($"[AcademyPatch] Reconciled '{course.NameFragment}' progress to {course.TotalHours:0}h — graduate perk was already held but the lectern's own progress had desynced (was {hours:0}h).");
+                            CardVisualsRefresh.RefreshDurabilityVisuals(lectern);
+                            CardVisualsRefresh.RefreshOpenInventoryPopup();
+                        }
+                        else
+                        {
+                            Plugin.Logger.LogWarning($"[AcademyPatch] Could not reconcile '{course.NameFragment}' progress stat '{course.StatName}'.");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Plugin.Logger.LogWarning($"[AcademyPatch] ReconcileCourseProgress failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
+            }
+        }
+
+        // Returns every live in-game instance of the lectern on the CURRENT board (normally
+        // exactly one; see the duplicate-instance note on ReconcileCourseProgress above for why
+        // this doesn't stop at the first match). AllCards is current-env-scoped — same idiom as
+        // GraduatePerkPatch.FindLiveCard / VillageFounderPerkPatch.FindLiveCard.
+        private static List<object> FindAllLiveLecternCards(object gm)
+        {
+            var found = new List<object>();
+            if (Reflect.GetMember(gm, "AllCards") is not IEnumerable allCards) return found;
+            foreach (var card in allCards)
+            {
+                if (card == null) continue;
+                if (CardUtil.GetCardUniqueId(card) == LecternUid) found.Add(card);
+            }
+            return found;
+        }
+
+        // ── Diagnostic (2026-08-09, round 2; demoted to LogDebug 2026-08-11) ─────
+        // Instance-identity check for the "popup shows 0% despite maxed data" report.
+        // Logs the InstanceID + all 6 course values for every 'cmcAcademyLectern' found
+        // in AllCards (catches a duplicate), and separately the InstanceID + values of
+        // whatever GraphicsManager.Instance.InspectedCard currently is (catches the popup
+        // reading a different object than AllCards resolves).
+        private static Type _graphicsManagerType;
+        private static PropertyInfo _gmInstanceProperty;
+        private static PropertyInfo _inspectedCardProperty;
+        private static bool _diagStaticsResolved;
+
+        private static void DumpLecternInstanceIdentity(object gm, object resolvedLectern)
+        {
+            try
+            {
+                if (Reflect.GetMember(gm, "AllCards") is IEnumerable allCards)
+                {
+                    int matchCount = 0;
+                    foreach (var card in allCards)
+                    {
+                        if (card == null) continue;
+                        if (CardUtil.GetCardUniqueId(card) != LecternUid) continue;
+                        matchCount++;
+                        int iid = (card as UnityEngine.Object)?.GetInstanceID() ?? 0;
+                        Plugin.Logger.LogDebug($"[AcademyPatch] DumpLecternInstanceIdentity: AllCards match #{matchCount} instanceID={iid} "
+                            + $"spoilage={CardUtil.GetDurability(card, "SpoilageTime"):0} special1={CardUtil.GetDurability(card, "SpecialDurability1"):0} "
+                            + $"special2={CardUtil.GetDurability(card, "SpecialDurability2"):0} special3={CardUtil.GetDurability(card, "SpecialDurability3"):0} "
+                            + $"usage={CardUtil.GetDurability(card, "UsageDurability"):0} fuel={CardUtil.GetDurability(card, "FuelCapacity"):0}");
+                    }
+                    if (matchCount > 1)
+                        Plugin.Logger.LogWarning($"[AcademyPatch] DumpLecternInstanceIdentity: DUPLICATE lectern instances in AllCards! count={matchCount}");
+                }
+
+                if (!_diagStaticsResolved)
+                {
+                    _diagStaticsResolved = true;
+                    _graphicsManagerType = AccessTools.TypeByName("GraphicsManager");
+                    _gmInstanceProperty = _graphicsManagerType?.GetProperty("Instance", BindingFlags.Public | BindingFlags.Static);
+                    _inspectedCardProperty = _graphicsManagerType?.GetProperty("InspectedCard", BindingFlags.Public | BindingFlags.Instance);
+                }
+
+                var gmInstance = _gmInstanceProperty?.GetValue(null);
+                var inspectedCard = gmInstance != null ? _inspectedCardProperty?.GetValue(gmInstance) : null;
+                if (inspectedCard == null)
+                {
+                    Plugin.Logger.LogDebug("[AcademyPatch] DumpLecternInstanceIdentity: GraphicsManager.InspectedCard is null.");
+                    return;
+                }
+
+                string inspectedUid = CardUtil.GetCardUniqueId(inspectedCard) ?? "null";
+                int inspectedIid = (inspectedCard as UnityEngine.Object)?.GetInstanceID() ?? 0;
+                int resolvedIid = (resolvedLectern as UnityEngine.Object)?.GetInstanceID() ?? 0;
+                bool sameRef = ReferenceEquals(inspectedCard, resolvedLectern);
+                Plugin.Logger.LogDebug($"[AcademyPatch] DumpLecternInstanceIdentity: InspectedCard uid={inspectedUid} instanceID={inspectedIid} "
+                    + $"sameAsAllCardsResolved={sameRef} (resolved instanceID={resolvedIid}) "
+                    + $"spoilage={CardUtil.GetDurability(inspectedCard, "SpoilageTime"):0} special1={CardUtil.GetDurability(inspectedCard, "SpecialDurability1"):0}");
+            }
+            catch (Exception ex)
+            {
+                Plugin.Logger.LogWarning($"[AcademyPatch] DumpLecternInstanceIdentity failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
+            }
         }
 
         // ── Mod-presence course pruning ─────────────────────────────────────────
@@ -345,17 +522,23 @@ namespace CommunityModChest.Patcher
         {
             float balance = CardUtil.GetDurability(ctx.Card, BalanceStat);
             bool full = !float.IsNaN(balance) && balance >= AccountMax - 0.5f;
-            if (full)
-                Plugin.Logger.LogDebug("[AcademyPatch] Deposit blocked — Tuition account is full.");
+            // TEMP DIAGNOSTIC (2026-08-08) — see DepositApply note above.
+            Plugin.Logger.LogDebug($"[AcademyPatch] DepositGate fired: balance={balance:0} full={full}");
             return full; // return true = cancel
         }
 
         private static bool DepositApply(ActionContext ctx)
         {
+            // TEMP DIAGNOSTIC (2026-08-08, Inn/Academy deposit does nothing) — see
+            // matching note in InnPatch.DepositApply. Demote to LogDebug once confirmed.
+            string givenUid = CardUtil.GetCardUniqueId(ctx.GivenCard) ?? "null";
+            float givenSd4 = CardUtil.GetDurability(ctx.GivenCard, "SpecialDurability4");
+            Plugin.Logger.LogDebug($"[AcademyPatch] DepositApply fired: GivenCard UID={givenUid} SD4={givenSd4}");
+
             float value = CurrencyValue.ValueOf(ctx.GivenCard);
             if (value <= 0f)
             {
-                Plugin.Logger.LogWarning("[AcademyPatch] Deposit triggered but the dragged card had no recognized currency value.");
+                Plugin.Logger.LogWarning($"[AcademyPatch] Deposit triggered but the dragged card (UID={givenUid}) had no recognized currency value.");
                 return true;
             }
 
@@ -365,7 +548,7 @@ namespace CommunityModChest.Patcher
             CardUtil.SetDurability(ctx.Card, BalanceStat, newBalance);
             CardVisualsRefresh.RefreshDurabilityVisuals(ctx.Card);
             CardVisualsRefresh.RefreshOpenInventoryPopup();
-            Plugin.Logger.LogDebug($"[AcademyPatch] Deposited {value:0} into the Tuition account (balance now {newBalance:0}/{AccountMax:0}).");
+            Plugin.Logger.LogInfo($"[AcademyPatch] Deposited {value:0} into the Tuition account (balance now {newBalance:0}/{AccountMax:0}).");
             return true;
         }
     }

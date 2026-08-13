@@ -34,10 +34,10 @@
       "ActionTagsWarpType": 3,
       "RequiredStatValues": [
         {
-          "StatWarpData": "cmcStatVillageRenown",
+          "StatWarpData": "cmcStatVillageReputation",
           "StatWarpType": 3,
           "TriggerRange": {
-            "x": -0.5,
+            "x": 0.0,
             "y": 24.5
           }
         }
@@ -64,7 +64,7 @@
       "ActionTagsWarpType": 3,
       "RequiredStatValues": [
         {
-          "StatWarpData": "cmcStatVillageRenown",
+          "StatWarpData": "cmcStatVillageReputation",
           "StatWarpType": 3,
           "TriggerRange": {
             "x": 24.5,
@@ -94,7 +94,7 @@
       "ActionTagsWarpType": 3,
       "RequiredStatValues": [
         {
-          "StatWarpData": "cmcStatVillageRenown",
+          "StatWarpData": "cmcStatVillageReputation",
           "StatWarpType": 3,
           "TriggerRange": {
             "x": 49.5,
@@ -124,11 +124,41 @@
       "ActionTagsWarpType": 3,
       "RequiredStatValues": [
         {
-          "StatWarpData": "cmcStatVillageRenown",
+          "StatWarpData": "cmcStatVillageReputation",
           "StatWarpType": 3,
           "TriggerRange": {
             "x": 74.5,
             "y": 999999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardTown_DA_reputation_negative_Name",
+        "DefaultText": "Village standing: reputation strained"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardTown_DA_reputation_negative_Desc",
+        "DefaultText": "Word has spread of trouble tied to this place, and the village's good name has suffered for it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatVillageReputation",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -999999.0,
+            "y": 0.0
           }
         }
       ],

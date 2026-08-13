@@ -80,7 +80,7 @@ Combat_And_Armor_BoneLamellar_Dismantle_ActionName,Dismantle
 Combat_And_Armor_BoneLamellar_Dismantle_ActionDescription,"Break apart the armor to recover bone, leather, and sinew."
 Combat_And_Armor_Bp_StoneMace_CardName,Stone Mace
 Combat_And_Armor_Bp_StoneMace_CardDescription,Craft a stone-headed mace.
-Combat_And_Armor_Bp_StoneMace_UnlockConditionsDesc,The village armory opens (Renown 50)
+Combat_And_Armor_Bp_StoneMace_UnlockConditionsDesc,The village armory opens (Reputation 50)
 Combat_And_Armor_Bp_QuiltedVest_CardName,Quilted Vest
 Combat_And_Armor_Bp_QuiltedVest_CardDescription,Sew a padded cloth vest for torso protection.
 Combat_And_Armor_Bp_QuiltedVest_UnlockConditionsDesc,The Weaver and Professor's winter fieldwork
@@ -141,7 +141,7 @@ Pottery_Sculpture_ClayBeads_UsageDurability,Durability
 Pottery_Sculpture_ClayBeads_Broken,The beads have broken apart.
 Pottery_Sculpture_Bp_ClayBeads_CardName,Clay Beads
 Pottery_Sculpture_Bp_ClayBeads_CardDescription,Shape small beads from clay and string them on twine.
-Pottery_Sculpture_Bp_ClayBeads_UnlockConditionsDesc,Earn the village's renown
+Pottery_Sculpture_Bp_ClayBeads_UnlockConditionsDesc,Earn the village's reputation
 Combat_And_Armor_StoneMace_UsageDurability.CardStatName,Durability
 Combat_And_Armor_QuiltedVest_UsageDurability.CardStatName,Durability
 Combat_And_Armor_QuiltedCap_UsageDurability.CardStatName,Durability
@@ -288,8 +288,8 @@ CMC_HuntersCrossing_CardHelpSection,"<b>Pine Clearing:</b>
 <b>Flora:</b> Pines, Birch, Appleweed, Healer's Moss, Fireroot, Pine Nuts (autumn), Fly Agaric, Meadowgrass.
 
 <b>Fauna:</b> Squirrels are the more common sight along this trail; badger setts dug into the banks nearby mark the den the diggers keep to by day."
-CMC_DeerMeadow_CardName,Deer Meadow
-CMC_Env_DeerMeadow_CardName,Deer Meadow
+CMC_DeerMeadow_CardName,Stillwater Meadow
+CMC_Env_DeerMeadow_CardName,Stillwater Meadow
 CMC_DeerMeadow_CardDescription,"A pine grove meadow centered on a still pond, where deer come to drink and graze."
 CMC_DeerMeadow_CardHelpSection,"<b>Pine Grove, Pond:</b>
 
@@ -298,8 +298,8 @@ CMC_DeerMeadow_CardHelpSection,"<b>Pine Grove, Pond:</b>
 <b>Flora:</b> Pines, Healer's Moss, Fireroot, Bilberries (summer), Pine Nuts (autumn), around a still pond.
 
 <b>Fauna:</b> Partridges, Foxes, Does, Stags, and Wolves; the deer that give this meadow its name are a common sight grazing near the water."
-CMC_BadgerWarren_CardName,Badger Warren
-CMC_Env_BadgerWarren_CardName,Badger Warren
+CMC_BadgerWarren_CardName,Sett Warren
+CMC_Env_BadgerWarren_CardName,Sett Warren
 CMC_BadgerWarren_CardDescription,A pine-covered hillside pockmarked with sett-diggings and burrow entrances.
 CMC_BadgerWarren_CardHelpSection,"<b>Pine Clearing:</b>
 
@@ -484,7 +484,7 @@ CharacterTraits_Perk_LactoseIntolerant_PerkDescription,Your body cannot process 
 CharacterTraits_Perk_Drunkard_PerkName,Drunkard
 CharacterTraits_Perk_Drunkard_PerkDescription,You cannot resist a drink. Alcohol hits twice as hard and brings Stress with it. Sobriety breeds restlessness.
 CMC_Imp_RiverBridge_CardName,River Bridge
-CMC_Imp_RiverBridge_CardDescription,A sturdy wooden bridge spanning the river at the clearing. Build this at the River Clearing to open the eastern path toward the village. Requires the Advanced Copper Tools mod.
+CMC_Imp_RiverBridge_CardDescription,A sturdy wooden bridge spanning the river at the clearing. Build this at the River Clearing to open the eastern path toward the village.
 CMC_Imp_StoneTileFloor_CardName,Stone Tile Floor
 CMC_Imp_StoneTileFloor_CardDescription,"Polished stone tiles set into a bed of clay, covering the ground in a smooth, even floor. Increases comfort and insulation. Can be laid in cabins and mud huts."
 
@@ -784,8 +784,8 @@ CMC_InnKeeperTalk_Ferryman_3_Answer_GoOn,Did he ever find out the truth of it?
 CMC_InnKeeperTalk_Ferryman_4_Line,"No, and truth be told I don't think anyone rightly wants to. Some tales are better left as tales, a light on the water, an old creak of oarlocks, nothing more than that so long as you keep your distance and mind your own crossing. All the same, if you ever find yourself down by that old landing after dark, I'd thank you to walk the long way round instead, just to be safe."
 CMC_InnKeeperTalk_Ferryman_4_Answer_Thanks,"I'll take the long way round, just in case."
 CMC_InnKeeperTalk_Ferryman_4_Answer_Wry,Maybe he just wants exact fare.
-CMC_ClayFlats_CardName,Clay Flats
-CMC_Env_ClayFlats_CardName,Clay Flats
+CMC_ClayFlats_CardName,Clay Shoal
+CMC_Env_ClayFlats_CardName,Clay Shoal
 CMC_ClayFlats_CardDescription,"Low-lying wetland flats dominated by alder trees, with patches of exposed clay ideal for digging."
 CMC_ClayFlats_CardHelpSection,"<b>Alder Clearing, Wetlands, Riverbank:</b>
 
@@ -796,16 +796,16 @@ CMC_ClayFlats_CardHelpSection,"<b>Alder Clearing, Wetlands, Riverbank:</b>
 <b>Fauna:</b> Frogs, Mosquitoes.
 
 <b>Also:</b> A clay-rich mound along the bank can be dug for raw clay."
-CMC_MarshHollow_CardName,Marsh Hollow
-CMC_Env_MarshHollow_CardName,Marsh Hollow
+CMC_MarshHollow_CardName,Sodden Hollow
+CMC_Env_MarshHollow_CardName,Sodden Hollow
 CMC_MarshHollow_CardDescription,"A boggy depression filled with marsh plants, willows, and alder growth, with standing pools of water."
 CMC_MarshHollow_CardHelpSection,"<b>Alder Clearing:</b>
 
 <b>Flora:</b> Alders, Willows, Birch, Appleweed, Moss.
 
 <b>Fauna:</b> Mosquitoes."
-CMC_MossyClearing_CardName,Mossy Clearing
-CMC_Env_MossyClearing_CardName,Mossy Clearing
+CMC_MossyClearing_CardName,Moss-Grown Clearing
+CMC_Env_MossyClearing_CardName,Moss-Grown Clearing
 CMC_MossyClearing_CardDescription,A shaded oak clearing where moisture and shade have encouraged thick moss growth on the damp ground.
 CMC_MossyClearing_CardHelpSection,"<b>Oak Clearing:</b>
 
@@ -822,8 +822,8 @@ CMC_PineTrail_CardHelpSection,"<b>Pine Grove:</b>
 <b>Flora:</b> Pines, Healer's Moss, Fireroot, Bilberries (summer), Pine Nuts (autumn), Fly Agaric.
 
 <b>Fauna:</b> Squirrels."
-CMC_HighGrove_CardName,High Grove
-CMC_Env_HighGrove_CardName,High Grove
+CMC_HighGrove_CardName,Highland Pines
+CMC_Env_HighGrove_CardName,Highland Pines
 CMC_HighGrove_CardDescription,"An elevated pine grove with tall, straight trees spaced among moss-covered rocks, offering clear views across the surrounding landscape."
 CMC_HighGrove_CardHelpSection,"<b>Pine Grove:</b>
 
@@ -881,10 +881,10 @@ CMC_BoardApothecary_CardName,Apothecary's Board
 CMC_BoardApothecary_CardDescription,A small board where the Apothecary posts news of the Cabin.
 CMC_BoardProfessor_CardName,Professor's Board
 CMC_BoardProfessor_CardDescription,A small board where the Professor posts news of the Academy.
-CMC_VillageRenown_StatName,Village Renown
-CMC_VillageRenown_StatDescription,"Hidden tracker for the village's civic renown, summed from built structures."
+CMC_VillageReputation_StatName,Village Reputation
+CMC_VillageReputation_StatDescription,"Net standing for the village: civic renown minus the player's own Village Crime. Shown as a Mental attribute in the character menu."
 CMC_VillageCrime_StatName,Village Crime
-CMC_VillageCrime_StatDescription,"Hidden notoriety tracker for the village Watch: rises when thefts and attacks are detected."
+CMC_VillageCrime_StatDescription,"Hidden notoriety tracker for the village Watch: rises when thefts and attacks are detected. Feeds into Village Reputation but stays its own independent ledger."
 CMC_InnFriendship_StatName,Inn Keeper Friendship
 CMC_InnFriendship_StatDescription,Hidden tracker: rises with each Chat. Gates warmer dialog and better trade prices at the Inn.
 CMC_InnWellCommented_StatName,The Inn Keeper's Well Remark
@@ -1634,6 +1634,8 @@ CMC_BoardTown_DA_renown_high_Name,Village standing: renown high
 CMC_BoardTown_DA_renown_high_Desc,The village has become a respected stop on the road.
 CMC_BoardTown_DA_renown_top_Name,Village standing: renown top
 CMC_BoardTown_DA_renown_top_Desc,The village is known across the region.
+CMC_BoardTown_DA_reputation_negative_Name,Village standing: reputation strained
+CMC_BoardTown_DA_reputation_negative_Desc,"Word has spread of trouble tied to this place, and the village's good name has suffered for it."
 CMC_BoardTown_DA_contrib_miller_Name,Contribution: Miller's Cottage
 CMC_BoardTown_DA_contrib_miller_Desc,The Miller's Cottage adds to the village's standing.
 CMC_BoardTown_DA_contrib_weaver_Name,Contribution: Weaver's Cottage
@@ -1711,9 +1713,9 @@ CMC_ShadowCatTamed_CI_GiveWater_Fail,Not thirsty yet.
 CMC_QuestRenownMarketStallSales_StatName,Renown: Market Stall Sales Milestone
 CMC_QuestRenownMarketStallSales_StatDescription,"Hidden one-shot flag: 1 once the Market Stall's Sales Revenue has ever been observed at or above its Renown threshold. Contributes to Village Renown. Latched permanently the first time it's observed (the stall's revenue can only be read while the player is standing at the Village), so the Renown contribution survives being away from the Village afterward."
 CMC_SnowDriftNorth_CardName,Snow Drift
-CMC_SnowDriftNorth_CardDescription,"Deep winter snow has drifted across the northern road to Deer Meadow, burying the path. Dig through it with a shovel to clear the way — once cleared, it stays open for the rest of the winter."
+CMC_SnowDriftNorth_CardDescription,"Deep winter snow has drifted across the northern road to Stillwater Meadow, burying the path. Dig through it with a shovel to clear the way — once cleared, it stays open for the rest of the winter."
 CMC_SnowDriftNorth_CI_Dig_ActionName,Dig Through the Snow Drift
-CMC_SnowDriftNorth_CI_Dig_ActionDescription,Shovel a path through the drift. Clears the road to Deer Meadow once fully dug through.
+CMC_SnowDriftNorth_CI_Dig_ActionDescription,Shovel a path through the drift. Clears the road to Stillwater Meadow once fully dug through.
 CMC_SnowDriftSouth_CardName,Snow Drift
 CMC_SnowDriftSouth_CardDescription,"Deep winter snow has drifted across the southern road to Pine Trail, burying the path. Dig through it with a shovel to clear the way — once cleared, it stays open for the rest of the winter."
 CMC_SnowDriftSouth_CI_Dig_ActionName,Dig Through the Snow Drift
@@ -1919,3 +1921,77 @@ CMC_HomesteadRainCisternKit_CardName,Rain Cistern Kit
 CMC_HomesteadRainCisternKit_CardDescription,"A rain cistern, disassembled and bundled for travel. Drop it wherever you want your water source, then use Place to set it up. Can only be placed once."
 CMC_HomesteadRainCisternKit_DA_Place,Place
 CMC_HomesteadRainCisternKit_DA_Place_Desc,Set up your rain cistern on this spot.
+CMC_CopperChestWeaver_CardName,Weaver's Copper Chest
+CMC_CopperChestWeaver_CardDescription,"The Weaver keeps what the dye pots and the loom have earned her in this banded chest, along with a little spare thread. She adds to it most weeks, until it holds about as much as a weaver's chest ever does. Drag a valuable item onto the chest to sell it to her - she can only pay what is actually inside. There is nothing stopping you searching it yourself, either, if you are willing to risk being caught."
+CMC_CopperChestWeaver_CardHelpSection,Copper Chest
+CMC_CopperChestWeaver_CI_Sell,Sell to the Weaver
+CMC_CopperChestWeaver_CI_Sell_Desc,"Sell the dragged item to the Weaver. She pays out of the chest's own coin, so she can only buy what she can currently afford - a freshly settled Weaver cannot yet meet the price of anything expensive."
+CMC_CopperChestWeaver_DA_Search,Search for valuables
+CMC_CopperChestWeaver_DA_Search_Desc,Go through the chest and take whatever is inside. Quick work when nobody is home - rather less so when the Weaver is.
+CMC_WeaverChestRestockDay_StatName,Weaver's Chest Last Restock Day
+CMC_WeaverChestRestockDay_StatDescription,Hidden tracker: the absolute day the Weaver last added to the Copper Chest.
+CMC_WeaverChestThefts_StatName,Weaver's Chest Undetected Thefts
+CMC_WeaverChestThefts_StatDescription,Hidden heat counter: undetected robberies of the Weaver's Copper Chest this season.
+CMC_WeaverChestTheftSeason_StatName,Weaver's Chest Theft Season
+CMC_WeaverChestTheftSeason_StatDescription,Hidden tracker: the season the Copper Chest heat counter was last written in.
+CMC_CopperChestApothecary_CardName,Apothecary's Copper Chest
+CMC_CopperChestApothecary_CardDescription,"The Apothecary keeps the coin her salves and teas have earned in this banded chest, along with a few specimens too good to sell across a market stall. She adds to it most weeks, though a herbalist's takings are never large. Drag a valuable item onto the chest to sell it to her - she can only pay what is actually inside. There is nothing stopping you searching it yourself, either, if you are willing to risk being caught."
+CMC_CopperChestApothecary_CardHelpSection,Copper Chest
+CMC_CopperChestApothecary_CI_Sell,Sell to the Apothecary
+CMC_CopperChestApothecary_CI_Sell_Desc,"Sell the dragged item to the Apothecary. She pays out of the chest's own coin, so she can only buy what she can currently afford - herb money adds up slowly, and hers is the thinner purse."
+CMC_CopperChestApothecary_DA_Search,Search for valuables
+CMC_CopperChestApothecary_DA_Search_Desc,Go through the chest and take whatever is inside. Quick work when nobody is home - rather less so when the Apothecary is.
+CMC_ApothecaryChestRestockDay_StatName,Apothecary's Chest Last Restock Day
+CMC_ApothecaryChestRestockDay_StatDescription,Hidden tracker: the absolute day the Apothecary last added to the Copper Chest.
+CMC_ApothecaryChestThefts_StatName,Apothecary's Chest Undetected Thefts
+CMC_ApothecaryChestThefts_StatDescription,Hidden heat counter: undetected robberies of the Apothecary's Copper Chest this season.
+CMC_ApothecaryChestTheftSeason_StatName,Apothecary's Chest Theft Season
+CMC_ApothecaryChestTheftSeason_StatDescription,Hidden tracker: the season the Copper Chest heat counter was last written in.
+CMC_CopperChestInnKeeper_CardName,Inn Keeper's Copper Chest
+CMC_CopperChestInnKeeper_CardDescription,"The Inn Keeper's own savings, kept in a banded chest behind the counter - not the Inn's till, which is a separate account entirely. Beds and hot meals bring in more coin than any other trade in the village, and it shows. Drag a valuable item onto the chest to sell it to him - he pays with what is actually inside, and there is usually a good deal inside. There is nothing stopping you searching it yourself, either, if you are willing to risk being caught."
+CMC_CopperChestInnKeeper_CardHelpSection,Copper Chest
+CMC_CopperChestInnKeeper_CI_Sell,Sell to the Inn Keeper
+CMC_CopperChestInnKeeper_CI_Sell_Desc,"Sell the dragged item to the Inn Keeper. He pays out of the chest's own coin - his personal savings, not the Inn's till - so he can only buy what he can currently afford. He is the richest buyer in the village."
+CMC_CopperChestInnKeeper_DA_Search,Search for valuables
+CMC_CopperChestInnKeeper_DA_Search_Desc,Go through the chest and take whatever is inside. Quick work when nobody is home - rather less so when the Inn Keeper is.
+CMC_InnKeeperChestRestockDay_StatName,Inn Keeper's Chest Last Restock Day
+CMC_InnKeeperChestRestockDay_StatDescription,Hidden tracker: the absolute day the Inn Keeper last added to the Copper Chest.
+CMC_InnKeeperChestThefts_StatName,Inn Keeper's Chest Undetected Thefts
+CMC_InnKeeperChestThefts_StatDescription,Hidden heat counter: undetected robberies of the Inn Keeper's Copper Chest this season.
+CMC_InnKeeperChestTheftSeason_StatName,Inn Keeper's Chest Theft Season
+CMC_InnKeeperChestTheftSeason_StatDescription,Hidden tracker: the season the Copper Chest heat counter was last written in.
+CMC_CopperChestProfessor_CardName,Professor's Copper Chest
+CMC_CopperChestProfessor_CardDescription,"The Professor's own desk strongbox, kept in the Academy - not the tuition account at the lectern, which the Academy keeps its own books on. A scholar's private savings are modest, but the specimens he sets aside in here are not. Drag a valuable item onto the chest to sell it to him - he can only pay what is actually inside. There is nothing stopping you searching it yourself, either, if you are willing to risk being caught."
+CMC_CopperChestProfessor_CardHelpSection,Copper Chest
+CMC_CopperChestProfessor_CI_Sell,Sell to the Professor
+CMC_CopperChestProfessor_CI_Sell_Desc,"Sell the dragged item to the Professor. He pays out of the chest's own coin - his own savings, not the Academy's tuition account - so he can only buy what he can currently afford."
+CMC_CopperChestProfessor_DA_Search,Search for valuables
+CMC_CopperChestProfessor_DA_Search_Desc,Go through the chest and take whatever is inside. Quick work when nobody is home - rather less so when the Professor is.
+CMC_ProfessorChestRestockDay_StatName,Professor's Chest Last Restock Day
+CMC_ProfessorChestRestockDay_StatDescription,Hidden tracker: the absolute day the Professor last added to the Copper Chest.
+CMC_ProfessorChestThefts_StatName,Professor's Chest Undetected Thefts
+CMC_ProfessorChestThefts_StatDescription,Hidden heat counter: undetected robberies of the Professor's Copper Chest this season.
+CMC_ProfessorChestTheftSeason_StatName,Professor's Chest Theft Season
+CMC_ProfessorChestTheftSeason_StatDescription,Hidden tracker: the season the Copper Chest heat counter was last written in.
+CMC_SterlingEnc_Hold_Action,"Captain Reeve Sterling moves to block your way, sword still in its scabbard."
+CMC_SterlingEnc_Hold_Success,He gets a hand on you and turns you back. He does not draw.
+CMC_SterlingEnc_Hold_Failure,You slip past his reach before he can close his grip.
+CMC_SterlingEnc_Press_Action,"The captain presses forward, open-handed, herding you away from the square."
+CMC_SterlingEnc_Press_Success,He crowds you back a step and holds you there.
+CMC_SterlingEnc_Press_Failure,You give ground and break the line he was trying to hold.
+CMC_SterlingEnc_Title,Captain Reeve Sterling stops you.
+CMC_SterlingEnc_Desc,"He plants himself in your path with one hand raised and the other well clear of his sword. ""Stand down and come with me,"" he says, ""or don't. But think on it first."""
+CMC_SterlingEnc_Escape,Think better of it
+CMC_SterlingEnc_Fight,Attack the captain
+CMC_SterlingConv_Title,The Watch has you surrounded.
+CMC_SterlingConv_Desc,"The captain is not alone this time. The Watch has closed from every side, and there is no gap left to talk your way through. ""No more warnings,"" Sterling says."
+CMC_SterlingConv_Fight,Fight your way out
+CMC_SterlingArr_Action,Sterling closes the distance and takes hold of you.
+CMC_SterlingArr_Success,"You are held fast. It is over, and he never drew the blade."
+CMC_SterlingArr_Failure,You wrench free for a heartbeat — and his hand closes on you again.
+CMC_SterlingArr_Result,The captain walks you to the jail without another word. You are not hurt. You are simply no longer free.
+CMC_SterlingArr_Title,Captain Sterling is done waiting.
+CMC_SterlingArr_Desc,"""I have given you every chance I have to give,"" the captain says, and this time he does not stop to argue. He takes hold of you and does not let go."
+CMC_SterlingArr_Fight,Let him take you
+CMC_SterlingEscapeCount_StatName,Chances Given
+CMC_SterlingEscapeCount_StatDescription,Hidden counter: how many times you have backed down from a fight with Captain Sterling.

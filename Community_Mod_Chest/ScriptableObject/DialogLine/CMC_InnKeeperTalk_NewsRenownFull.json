@@ -3,7 +3,7 @@
     "StartingConditions": {
         "RequiredStatValues": [
             {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
-            {"StatWarpData": "cmcStatVillageRenown", "StatWarpType": 3, "TriggerRange": {"x": 100.0, "y": 1000000000.0}},
+            {"StatWarpData": "cmcStatVillageReputation", "StatWarpType": 3, "TriggerRange": {"x": 100.0, "y": 1000000000.0}},
             {"StatWarpData": "cmcStatInnRenownFullRemarked", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.5}}
         ]
     },

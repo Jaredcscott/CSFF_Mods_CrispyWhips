@@ -95,12 +95,32 @@ namespace CommunityModChest.Patcher
             /// </summary>
             public bool IsUnrestrictedSeeker;
 
-            // Captain Sterling's two summon-response duties (§10.8.11.4), built by BuildSummonDuty.
-            // Null on the other three guards.
+            // Captain Sterling's three summon-response duties (§10.8.11.4/§10.8.11.9), built by
+            // BuildSummonDuty. Null on the other three guards.
             public string SummonDutyUid;
             public string SummonDutyDisplayText;
             public string FinishArrestDutyUid;
             public string FinishArrestDutyDisplayText;
+
+            /// <summary>
+            /// §10.8.11.9 — the third Sterling duty. Same gate as FinishArrest PLUS
+            /// "the player has already used up all three chances", routing to
+            /// <see cref="ArrestEncounterUid"/> instead of the lenient encounter.
+            /// </summary>
+            public string ForceArrestDutyUid;
+            public string ForceArrestDutyDisplayText;
+
+            /// <summary>
+            /// §10.8.11.9 — the two extra Encounter assets Sterling's paths route to.
+            /// <c>Converge</c> is the whole-Watch gauntlet (ForceFight, no leniency);
+            /// <c>Arrest</c> is the forced arrest after the third decline (ForceFight plus a
+            /// non-damaging subdual action that forces <c>EncounterResult.PlayerDemoralized</c>).
+            /// Both are null on the other three guards, who keep their single encounter.
+            /// </summary>
+            public string ConvergeEncounterUid;
+            public object ConvergeEncounter;   // Encounter, resolved lazily
+            public string ArrestEncounterUid;
+            public object ArrestEncounter;     // Encounter, resolved lazily
 
             // Jail warden rotation (§10.8.7.1). One shift block per guard, non-overlapping and
             // covering all 24 hours between them, so at least one guard is always rostered.
@@ -120,8 +140,13 @@ namespace CommunityModChest.Patcher
                 // §10.8.11.4 — no local chase; he only responds when summoned.
                 HasLocalChase = false,
                 ChaseEncounterUid = "cmcEncounterGuardSterling",
+                // §10.8.11.9 — one encounter per path. The base UID stays the lenient one so
+                // the Attack button on his own NPCAgent keeps working unchanged.
+                ConvergeEncounterUid = "cmcEncounterSterlingConverge",
+                ArrestEncounterUid = "cmcEncounterSterlingArrest",
                 SummonDutyUid = "cmcGuardSterlingSummon_Duty", SummonDutyDisplayText = "Answering the call for the Watch",
                 FinishArrestDutyUid = "cmcGuardSterlingFinishArrest_Duty", FinishArrestDutyDisplayText = "Coming to finish an arrest",
+                ForceArrestDutyUid = "cmcGuardSterlingForceArrest_Duty", ForceArrestDutyDisplayText = "Done giving chances",
                 WardenDutyUid = "cmcGuardSterlingWarden_Duty", WardenDutyDisplayText = "Standing warden at the jail",
                 WardenShiftStartHour = 5, WardenShiftEndHour = 11
             },
@@ -230,6 +255,30 @@ namespace CommunityModChest.Patcher
         /// </summary>
         internal const string CaptainSummonedStatUid = "cmcStatCaptainSummoned";
 
+        /// <summary>
+        /// §10.8.11.9 — how many times the player has taken Sterling's "Think better of it"
+        /// option instead of fighting him. Incremented declaratively by
+        /// <c>cmcEncounterGuardSterling</c>'s <c>StartingOptions.EscapeOptionStatChanges</c>
+        /// (<c>EncounterStartPopup.SelectOptionRoutine</c> runs them through the normal
+        /// PerformAction pipeline and AWAITS them before <c>CancelEncounter()</c>, so the
+        /// increment has landed by the time the duty is re-selected — no C# writes it), and
+        /// reset to 0 by <c>cmcEncounterSterlingArrest</c>'s <c>PlayerDemoralizedEffects</c>.
+        ///
+        /// <para>Clamped 0-3 by its own <c>MinMaxValue</c>. That clamp is load-bearing, not
+        /// cosmetic: this is a repeatable offer whose stat also gates a duty, which is exactly
+        /// the unclamped-counter softlock the root CLAUDE.md's NPC-errand rule describes. At the
+        /// clamp the value simply stays 3 and the forced-arrest gate stays satisfied.</para>
+        /// </summary>
+        internal const string SterlingEscapeCountStatUid = "cmcStatSterlingEscapeCount";
+
+        /// <summary>
+        /// Chances the player gets before Sterling stops offering. Lenient duty requires
+        /// strictly fewer than this; the forced-arrest duty requires at least this.
+        /// MUST equal <c>CMC_SterlingEscapeCount.json</c>'s <c>MinMaxValue.y</c> — a mismatch
+        /// either strands the counter below the gate (never arrests) or opens both gates at once.
+        /// </summary>
+        private const int SterlingChancesAllowed = 3;
+
         private const string VillageTerritoryTagName = "cmcTagVillageTerritory";
 
         /// <summary>
@@ -277,6 +326,7 @@ namespace CommunityModChest.Patcher
         private static object _wardenGapStat;         // GameStat SO for WardenGapStatUid
         private static object _guardsSummonedStat;     // GameStat SO for GuardsSummonedStatUid
         private static object _captainSummonedStat;    // GameStat SO for CaptainSummonedStatUid
+        private static object _sterlingEscapeCountStat; // GameStat SO for SterlingEscapeCountStatUid
         private static int _pursuitBuildAttempts;
 
         /// <summary>
@@ -444,6 +494,7 @@ namespace CommunityModChest.Patcher
                 _wardenGapStat ??= _getFromIdMethod.Invoke(null, new object[] { WardenGapStatUid });
                 _guardsSummonedStat ??= _getFromIdMethod.Invoke(null, new object[] { GuardsSummonedStatUid });
                 _captainSummonedStat ??= _getFromIdMethod.Invoke(null, new object[] { CaptainSummonedStatUid });
+                _sterlingEscapeCountStat ??= _getFromIdMethod.Invoke(null, new object[] { SterlingEscapeCountStatUid });
                 EnsureVillageTerritoryTag();
                 bool pursuitReady = _crimeStat != null && _villageTerritoryTag != null
                     && _guardDownedStat != null && _guardsSummonedStat != null && _captainSummonedStat != null;
@@ -452,6 +503,15 @@ namespace CommunityModChest.Patcher
                     if (beat.ChaseEncounterUid == null) continue;
                     beat.ChaseEncounter ??= _getFromIdMethod.Invoke(null, new object[] { beat.ChaseEncounterUid });
                     if (beat.ChaseEncounter == null) pursuitReady = false;
+
+                    // §10.8.11.9 — Sterling's two extra path-specific encounters. Deliberately
+                    // NOT folded into pursuitReady: if either fails to resolve the leniency
+                    // mechanic degrades to the pre-1.48.0 behaviour (both summon duties run the
+                    // base encounter) rather than taking the whole Watch down with it.
+                    if (beat.ConvergeEncounterUid != null)
+                        beat.ConvergeEncounter ??= _getFromIdMethod.Invoke(null, new object[] { beat.ConvergeEncounterUid });
+                    if (beat.ArrestEncounterUid != null)
+                        beat.ArrestEncounter ??= _getFromIdMethod.Invoke(null, new object[] { beat.ArrestEncounterUid });
                 }
                 if (!pursuitReady && ++_pursuitBuildAttempts <= PursuitBuildAttemptLimit) return;
                 if (!pursuitReady)
@@ -522,9 +582,25 @@ namespace CommunityModChest.Patcher
                     var summonRefs = new List<object>();
                     if (pursuitReady && beat.SummonDutyUid != null && beat.ChaseEncounter != null)
                     {
+                        // §10.8.11.9 — the leniency split only arms when BOTH the counter stat and
+                        // the arrest encounter resolved. Either missing and we fall back to the
+                        // pre-1.48.0 shape: one lenient encounter on both paths, no forced arrest.
+                        bool leniencyArmed = _sterlingEscapeCountStat != null
+                                             && beat.ArrestEncounter != null
+                                             && beat.ForceArrestDutyUid != null;
+                        if (beat.ForceArrestDutyUid != null && !leniencyArmed)
+                            Plugin.Logger.LogWarning(
+                                $"[GuardDutyPatch] {beat.Label}'s three-chances arrest is NOT armed " +
+                                $"(escapeCountStat={_sterlingEscapeCountStat != null}, " +
+                                $"arrestEncounter={beat.ArrestEncounter != null}) — he will keep offering " +
+                                "'Think better of it' forever and never force the arrest.");
+
                         if (_guardsSummonedStat != null)
                         {
-                            var summonDuty = BuildSummonDuty(beat, beat.SummonDutyUid, beat.SummonDutyDisplayText, _guardsSummonedStat, beat.ChaseEncounter);
+                            // The whole Watch has converged (§10.8.11.9 rule 6): no leniency, so
+                            // this path gets the ForceFight asset when it resolved.
+                            var summonDuty = BuildSummonDuty(beat, beat.SummonDutyUid, beat.SummonDutyDisplayText,
+                                _guardsSummonedStat, beat.ConvergeEncounter ?? beat.ChaseEncounter);
                             if (summonDuty == null)
                                 Plugin.Logger.LogWarning($"[GuardDutyPatch] Could not build {beat.Label}'s summon-response duty.");
                             else
@@ -532,11 +608,31 @@ namespace CommunityModChest.Patcher
                         }
                         if (_captainSummonedStat != null && beat.FinishArrestDutyUid != null)
                         {
-                            var finishArrestDuty = BuildSummonDuty(beat, beat.FinishArrestDutyUid, beat.FinishArrestDutyDisplayText, _captainSummonedStat, beat.ChaseEncounter);
+                            // Caught alone. While the player still has a chance left, this duty is
+                            // the selectable one and it opens with Attack / Think better of it.
+                            var finishArrestDuty = BuildSummonDuty(beat, beat.FinishArrestDutyUid, beat.FinishArrestDutyDisplayText,
+                                _captainSummonedStat, beat.ChaseEncounter,
+                                leniencyArmed ? ChancesRemainingTrigger() : null);
                             if (finishArrestDuty == null)
                                 Plugin.Logger.LogWarning($"[GuardDutyPatch] Could not build {beat.Label}'s finish-arrest duty.");
                             else
-                                summonRefs.Add(BuildDutyRef(finishArrestDuty, ChaseBaseWeight, TriggerStatGateCondition(_captainSummonedStat)));
+                                summonRefs.Add(BuildDutyRef(finishArrestDuty, ChaseBaseWeight,
+                                    TriggerStatGateCondition(_captainSummonedStat,
+                                        leniencyArmed ? ChancesRemainingTrigger() : null)));
+                        }
+                        if (leniencyArmed && _captainSummonedStat != null)
+                        {
+                            // Chances used up. Identical gate PLUS "counter is at the cap", routed
+                            // to the ForceFight arrest asset. The two finish-arrest duties are
+                            // mutually exclusive by construction — their counter ranges do not
+                            // overlap — so exactly one is ever selectable at a time.
+                            var forceArrestDuty = BuildSummonDuty(beat, beat.ForceArrestDutyUid, beat.ForceArrestDutyDisplayText,
+                                _captainSummonedStat, beat.ArrestEncounter, ChancesExhaustedTrigger());
+                            if (forceArrestDuty == null)
+                                Plugin.Logger.LogWarning($"[GuardDutyPatch] Could not build {beat.Label}'s forced-arrest duty.");
+                            else
+                                summonRefs.Add(BuildDutyRef(forceArrestDuty, ChaseBaseWeight,
+                                    TriggerStatGateCondition(_captainSummonedStat, ChancesExhaustedTrigger())));
                         }
                     }
 
@@ -888,11 +984,14 @@ namespace CommunityModChest.Patcher
         }
 
         /// <summary>
-        /// Captain Sterling's two summon-response duties (§10.8.11.4) — the same shape as
-        /// <see cref="BuildChaseDuty"/> minus the territory tag, gated on one of the two new
-        /// signal stats (== 1) instead of Crime.
+        /// Captain Sterling's three summon-response duties (§10.8.11.4/§10.8.11.9) — the same
+        /// shape as <see cref="BuildChaseDuty"/> minus the territory tag, gated on one of the two
+        /// signal stats (== 1) instead of Crime, and optionally on a second
+        /// <c>StatValueTrigger</c> (<paramref name="extraGateTrigger"/>) that splits the
+        /// caught-alone path into its lenient and forced halves.
         /// </summary>
-        private static object BuildSummonDuty(GuardBeat beat, string dutyUid, string dutyDisplayText, object triggerStat, object targetEncounter)
+        private static object BuildSummonDuty(GuardBeat beat, string dutyUid, string dutyDisplayText,
+            object triggerStat, object targetEncounter, object extraGateTrigger = null)
         {
             var duty = ScriptableObject.CreateInstance(_npcDutyType);
             duty.name = dutyUid;
@@ -918,7 +1017,7 @@ namespace CommunityModChest.Patcher
             // Trigger stat == 1 AND this guard is not currently down. Deliberately no
             // RequiredEnvironmentTags — Sterling responds to a summon regardless of where in the
             // world it was raised (§10.8.11.4).
-            var conditions = TriggerStatGateCondition(triggerStat);
+            var conditions = TriggerStatGateCondition(triggerStat, extraGateTrigger);
             if (!Reflect.SetMember(conditions, "RequiredNPCStatValues", NotDownedCondition()))
                 Plugin.Logger.LogWarning(
                     $"[GuardDutyPatch] GeneralCondition.RequiredNPCStatValues not found — {beat.Label} " +
@@ -948,18 +1047,53 @@ namespace CommunityModChest.Patcher
             return duty;
         }
 
-        /// <summary>A <c>GeneralCondition</c> carrying only "this stat is (approximately) 1" — the
-        /// same width-1-range "== N" idiom <see cref="BuildWardenDuty"/> uses for "== 0".</summary>
-        private static object TriggerStatGateCondition(object stat)
+        /// <summary>A <c>GeneralCondition</c> carrying "this stat is (approximately) 1" — the
+        /// same width-1-range "== N" idiom <see cref="BuildWardenDuty"/> uses for "== 0" — plus,
+        /// optionally, one extra <c>StatValueTrigger</c> ANDed onto it. <c>RequiredStatValues</c>
+        /// entries are conjunctive, which is what makes the two finish-arrest duties in
+        /// §10.8.11.9 mutually exclusive off a single shared summon stat.</summary>
+        private static object TriggerStatGateCondition(object stat, object extraTrigger = null)
         {
             var condition = EmptyCondition();
             var trigger = Activator.CreateInstance(_statValueTriggerType);
             Reflect.SetMember(trigger, "Stat", stat);
             Reflect.SetMember(trigger, "TriggerRange", new Vector2(0.5f, 1.5f));
-            var triggerArray = Array.CreateInstance(_statValueTriggerType, 1);
+
+            var triggerArray = Array.CreateInstance(_statValueTriggerType, extraTrigger == null ? 1 : 2);
             triggerArray.SetValue(trigger, 0);
+            if (extraTrigger != null) triggerArray.SetValue(extraTrigger, 1);
             Reflect.SetMember(condition, "RequiredStatValues", triggerArray);
             return condition;
+        }
+
+        /// <summary>
+        /// §10.8.11.9 — "the player still has at least one 'Think better of it' left", i.e.
+        /// <see cref="SterlingEscapeCountStatUid"/> is 0, 1 or 2.
+        ///
+        /// <para>The range is bounded at 3.5 rather than an open-ended sentinel because the stat
+        /// is clamped 0-3 by its own <c>MinMaxValue</c> — a huge upper bound would only reintroduce
+        /// the float-precision hazard the <see cref="CrimeRangeMax"/> comment warns about
+        /// (reference_triggerrange_fractional_overflow) for no reachable values.</para>
+        /// </summary>
+        private static object ChancesRemainingTrigger()
+        {
+            if (_sterlingEscapeCountStat == null) return null;
+            var trigger = Activator.CreateInstance(_statValueTriggerType);
+            Reflect.SetMember(trigger, "Stat", _sterlingEscapeCountStat);
+            Reflect.SetMember(trigger, "TriggerRange", new Vector2(-0.5f, SterlingChancesAllowed - 0.5f));
+            return trigger;
+        }
+
+        /// <summary>§10.8.11.9 — "all three chances are used up". The exact complement of
+        /// <see cref="ChancesRemainingTrigger"/>, so exactly one of Sterling's two finish-arrest
+        /// duties is selectable at any moment.</summary>
+        private static object ChancesExhaustedTrigger()
+        {
+            if (_sterlingEscapeCountStat == null) return null;
+            var trigger = Activator.CreateInstance(_statValueTriggerType);
+            Reflect.SetMember(trigger, "Stat", _sterlingEscapeCountStat);
+            Reflect.SetMember(trigger, "TriggerRange", new Vector2(SterlingChancesAllowed - 0.5f, SterlingChancesAllowed + 0.5f));
+            return trigger;
         }
 
         /// <summary>
@@ -1206,7 +1340,7 @@ namespace CommunityModChest.Patcher
                         if (!verbose && !weightInfoReady) continue; // wait for the engine to fill its report
 
                         if (!verbose) _reported.Add(beat.AgentUid);
-                        Plugin.Logger.LogInfo(report);
+                        Plugin.Logger.LogDebug(report);
                     }
                 }
                 catch (Exception ex)
@@ -1228,8 +1362,13 @@ namespace CommunityModChest.Patcher
                   .Append(" inCombat=").Append(inCombat)
                   // The two inputs to the chase's DutyConditions, printed separately so a
                   // "Conditions are not valid" report below can be attributed to one of them
-                  // rather than guessed at across a restart cycle.
-                  .Append(" playerCrime=").Append(_crimeStat == null ? "<stat unresolved>" : StatAccess.GetCurrentValue(_crimeStat).ToString("0.##"))
+                  // rather than guessed at across a restart cycle. Deliberately NOT
+                  // StatAccess.GetCurrentValue(_crimeStat) — _crimeStat is the raw GameStat SO
+                  // template, not the per-player runtime instance; reading it directly returns
+                  // NaN/garbage. The engine's own DutyConditions check resolves the live value
+                  // correctly via instance.StatsDict[Stat] (.decomp/GeneralCondition.cs:761), so
+                  // pursuit gating was never affected by this — only this diagnostic line was.
+                  .Append(" playerCrime=").Append(_crimeStat == null ? "<stat unresolved>" : VillageCrimePatch.CurrentCrime().ToString("0.##"))
                   .Append(" guardEnvIsVillageTerritory=").Append(EnvHasTerritoryTag(npcEnv))
                   .Append(" playerEnv=").Append(GameQuery.CurrentEnvironmentUniqueId ?? "?");
 
@@ -1263,11 +1402,79 @@ namespace CommunityModChest.Patcher
                     if (_notSelectableReport == null) continue;
                     if (_notSelectableReport.Invoke(weightInfo, new object[] { active, inCombat }) is string reason
                         && !string.IsNullOrWhiteSpace(reason))
+                    {
                         sb.AppendLine().Append("      ").Append(reason.Replace("\r", "").Replace("\n", " ").Trim());
+                        // "Required actions are not doable" is always step 0's CanBePerformed()
+                        // (.decomp/NPCDuty.cs:106 checks index 0 unconditionally, regardless of
+                        // RequiredForSelectingDuty). Every guard duty starts with a MoveDutyAction
+                        // (BuildPatrolDuty/BuildWardenDuty/BuildChaseDuty), so re-run its own
+                        // FindDestination as a read-only probe to see exactly where the pathfind
+                        // breaks down — temporary, until the root cause of the guards never moving
+                        // is confirmed against a live log.
+                        if (reason.Contains("Required actions are not doable") && targetDuty != null)
+                            sb.AppendLine().Append("      ").Append(ProbeMove(npc, targetDuty));
+                    }
                 }
 
                 if (count == 0) sb.Append(" | NO DUTIES ATTACHED (spawned before DutiesReady?)");
                 return sb.ToString();
+            }
+
+            private static MethodInfo _findDestinationMethod;
+            private static bool _findDestinationMissingLogged;
+
+            /// <summary>
+            /// Read-only probe: re-runs step 0's own <c>MoveDutyAction.FindDestination</c>
+            /// (.decomp/MoveDutyAction.cs:327) exactly as the engine's own
+            /// <c>CanBePerformed</c> does (.decomp/MoveDutyAction.cs:248), and reports the
+            /// resulting <c>MapPath</c>'s validity/step count/end env — the three fields that
+            /// decide whether "Required actions are not doable" fires. Diagnostic only; does
+            /// not mutate NPC or world state.
+            /// </summary>
+            private static string ProbeMove(object npc, object targetDuty)
+            {
+                try
+                {
+                    if (Reflect.GetMember(targetDuty, "ActionSequence") is not Array sequence || sequence.Length == 0)
+                        return "move-probe: duty has no ActionSequence";
+                    var step0 = sequence.GetValue(0);
+                    if (step0 == null) return "move-probe: step 0 is null";
+                    if (_moveDutyActionType == null || step0.GetType() != _moveDutyActionType)
+                        return $"move-probe: step 0 is a {step0.GetType().Name}, not MoveDutyAction — skipping";
+
+                    _findDestinationMethod ??= _moveDutyActionType.GetMethod("FindDestination",
+                        BindingFlags.Instance | BindingFlags.Public);
+                    if (_findDestinationMethod == null)
+                    {
+                        if (!_findDestinationMissingLogged)
+                        {
+                            _findDestinationMissingLogged = true;
+                            Plugin.Logger.LogWarning("[GuardDutyPatch] MoveDutyAction.FindDestination not found — move-probe disabled.");
+                        }
+                        return "move-probe: FindDestination method not found";
+                    }
+
+                    var mapPath = _findDestinationMethod.Invoke(step0, new object[] { npc, targetDuty, null });
+                    if (mapPath == null) return "move-probe: FindDestination returned null";
+
+                    bool isValid = Reflect.GetBool(mapPath, "IsValid");
+                    int stepCount = Reflect.GetInt(mapPath, "StepCount");
+                    var end = Reflect.GetMember(mapPath, "End");
+                    bool endIsNull = end == null || Reflect.GetBool(end, "IsNull");
+                    var npcEnv = Reflect.GetMember(npc, "CurrentEnvironment");
+                    bool sameEnvAsNpc = npcEnv != null && end != null
+                        && npcEnv.GetType().GetMethod("MatchesEnv", BindingFlags.Instance | BindingFlags.Public) is { } matchesEnv
+                        && matchesEnv.Invoke(npcEnv, new[] { end }) is true;
+
+                    return $"move-probe: MoveDestination={Reflect.GetMember(step0, "MoveDestination")} " +
+                           $"MovementType={Reflect.GetMember(step0, "MovementType")} " +
+                           $"mapPath.IsValid={isValid} StepCount={stepCount} End.IsNull={endIsNull} " +
+                           $"End.MatchesNpcEnv={sameEnvAsNpc}";
+                }
+                catch (Exception ex)
+                {
+                    return $"move-probe FAILED: {ex.InnerException?.Message ?? ex.Message}";
+                }
             }
 
             private static MethodInfo _envHasTag;

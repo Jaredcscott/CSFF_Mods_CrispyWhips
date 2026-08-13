@@ -17,7 +17,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.CommunityModChest";
     public const string PluginName = "Community Mod Chest";
-    public const string PluginVersion = "1.45.0";
+    public const string PluginVersion = "1.48.3";
 
     internal new static ManualLogSource Logger { get; private set; }
     internal static ConfigEntry<bool> EnableAshPartnerSpike { get; private set; }
@@ -65,7 +65,16 @@ internal class Plugin : ContentModPlugin
         // (framework CSFFModFramework.Injection.ImprovementInjector) — RiverBridgeImprovementPatch.cs retired.
         // Diagnostic patch (2026-07-16) confirmed root cause 2026-07-17 and was removed per its own
         // retrospective next-steps (Documentation/Retrospectives/river-bridge-improvement-menu-2026-07-16.md).
-        TryApply("VillagePathfinderBridgePatch", VillagePathfinderBridgePatch.Initialize);
+        // RiverBridgeUnlockPatch (renamed from VillagePathfinderBridgePatch 2026-08-09) now bypasses
+        // the HasPlank discovery gate for every player, not just Village Pathfinder perk holders —
+        // old saves could otherwise never satisfy that gate while standing at River Clearing and the
+        // bridge slot would never appear. Perk holders additionally get it auto-built.
+        TryApply("RiverBridgeUnlockPatch", RiverBridgeUnlockPatch.Initialize);
+        // Pre-creates GameManager.EnvironmentsData entries for the 7 non-instanced interior CT4
+        // envs at run start — without this, first entry fails ChangeEnvironment's
+        // EnvironmentsData.ContainsKey gate and leaks the outdoor Village CT8 onto the interior
+        // board (.audit/player-report-triage-2026-08-10.md finding 4, outdoor-leak half).
+        TryApply("InteriorEnvSaveDataPatch", InteriorEnvSaveDataPatch.Initialize);
         TryApply("ForageInjectionPatch", ForageInjectionPatch.Register);
         // Restores tree regrowth on all 12 CMC map locations — StripLegacyBoardUIDs (WorldMap/
         // MapNodes.json) removes the vanilla "Create X Tree if missing" actions along with the
@@ -81,9 +90,10 @@ internal class Plugin : ContentModPlugin
         // The old bespoke VillageFarmSeasonalCropPatch (+ cmcfarmfield* stats) was removed —
         // it relied on GameQuery.CurrentSeason, which returned null until the framework fix.
         TryApply("MarketStallPatch", () => MarketStallPatch.Initialize());
-        TryApply("VillageRenownPatch", () => VillageRenownPatch.Initialize());
+        TryApply("VillageReputationPatch", () => VillageReputationPatch.Initialize());
         TryApply("VillageCrimePatch", () => VillageCrimePatch.Initialize());
         TryApply("InnPatch", () => InnPatch.Initialize(harmony));
+        TryApply("InnFireplacePatch", () => InnFireplacePatch.Initialize());
         TryApply("InnKeeperSpawnPatch", () => InnKeeperSpawnPatch.Initialize(harmony));
         TryApply("InnKeeperDialogSchedulePatch", () => InnKeeperDialogSchedulePatch.Initialize());
         TryApply("LostCatPatch", () => LostCatPatch.Initialize());
@@ -109,6 +119,15 @@ internal class Plugin : ContentModPlugin
         {
             Logger.LogDebug("[Plugin] Ash Partner spike disabled (EnableAshPartnerSpike=false).");
         }
+        // TEMPORARY — diagnosing "vanilla Partner never follows into the CMC map" (2026-08-10).
+        // Remove once CompanionFollowDiagnostics.cs's root cause is confirmed and fixed.
+        TryApply("CompanionFollowDiagnostics", () => CompanionFollowDiagnostics.Initialize());
+        // Building interiors (Inn/Academy) are never WorldMap graph nodes, so the vanilla
+        // NPCDuty/MoveDutyAction follow mechanism can never route a Partner through their doors
+        // regardless of the outdoor-pathing question CompanionFollowDiagnostics is chasing —
+        // this bypasses pathfinding and mirrors an allied companion's env directly onto the
+        // player's own Enter/Exit transitions for those two doors.
+        TryApply("PartnerIndoorFollowPatch", () => PartnerIndoorFollowPatch.Initialize(harmony));
         // Shadow the Cat — independent companion chain, spawn-gated on Herbalism graduation
         // (AcademyCourseService.GradHerbalism) rather than a hidden GameStat. See
         // Documentation/Plans/Community_Mod_Chest/Village_Master_Plan.md §3.6/§10.7.

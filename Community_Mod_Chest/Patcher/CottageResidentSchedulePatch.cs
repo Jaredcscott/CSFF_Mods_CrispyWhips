@@ -35,7 +35,7 @@ namespace CommunityModChest.Patcher
     ///   - Remaining daytime hours on non-Academy days: a per-resident, per-day deterministic hash
     ///     (day + a fixed per-resident seed, no Unity Random involved) occasionally sends them
     ///     wandering [10:00, 16:00) to one of the outdoor map nodes (Village Path/Farm, Foraging
-    ///     Forest, Pine Trail, High Grove, Mossy Clearing) instead of standing at the Village.
+    ///     Forest, Pine Trail, Highland Pines, Moss-Grown Clearing) instead of standing at the Village.
     ///   Same EnvID-capture prerequisite applies to the Inn/Academy legs; before capture the
     ///   resident just stays at the Village.
     ///
