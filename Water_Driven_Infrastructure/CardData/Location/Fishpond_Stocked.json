@@ -1157,7 +1157,7 @@
       "ActionDescription": {
         "ParentObjectID": "water_sawmill_fishpond_stocked",
         "LocalizationKey": "Water_Sawmill_FishpondStocked_Drain_ActionDescription",
-        "DefaultText": "Abandon the fish and pack the pond back into a fishpond kit."
+        "DefaultText": "Drain the pond back into a fishpond kit. WARNING: the entire fish population is lost and cannot be recovered."
       },
       "DaytimeCost": 2,
       "UseMiniTicks": 0,

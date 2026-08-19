@@ -21,6 +21,7 @@ Water_Sawmill_Placed_PickUp_ActionName,Pack Up,收起
 Water_Sawmill_Placed_PickUp_ActionDescription,Pack up the sawmill back into a transportable kit.,将锯木厂收回为可携带套件。
 Water_Sawmill_Placed_Cut_ActionName,Cut,切割
 Water_Sawmill_Placed_Cut_ActionDescription,Drag a log onto the sawmill to cut it into planks and wood shavings.,将原木拖到锯木厂，切割成木板和刨花。
+Water_Sawmill_Placed_Duty_DutyName,Operate the Sawmill,操作锯木厂
 Water_Sawmill_MillRace_CardName,Mill Race,引水渠
 Water_Sawmill_MillRace_CardDescription,A channel segment used to carry and direct water flow to river-powered machines.,用于将水流引导至水力机械的渠道段。
 Water_Sawmill_MillRace_CardHelpSection,<b>Use:</b> Build directional between-location races and install local mill race structures.,<b>用途：</b> 建造地点间定向引水渠并安装本地引水渠结构。
@@ -28,16 +29,8 @@ Water_Sawmill_WaterWheel_CardName,Water Wheel,水车
 Water_Sawmill_WaterWheel_CardDescription,A river-driven wheel assembly. Built with a mill race as a required subcomponent.,由河流驱动的水车组件。需要引水渠作为必要子组件。
 Water_Sawmill_WaterWheel_CardHelpSection,<b>Subcomponent:</b> The mill race is required to build this wheel.,<b>子组件：</b> 建造此水车需要引水渠。
 Water_Sawmill_WaterMill_CardName,Water-Driven Mill,水力磨坊
-Water_Sawmill_WaterMill_CardDescription,A water-driven mill that grinds millable materials on demand with 4x the capacity of a rotary quern.,按需研磨可磨材料的水力磨坊，容量是旋转石磨的4倍。
-Water_Sawmill_WaterMill_CardHelpSection,"<b>Subcomponent:</b> Requires a mill race to construct.
-
-<b>Capacity:</b> Can grind 4x the throughput of a manual rotary quern.
-
-<b>Operation:</b> Load millable items and press <b>Grind All</b> to process the batch on demand.","<b>子组件：</b>建造需要水道。
-
-<b>容量：</b>研磨能力为手动旋转石磨的四倍。
-
-<b>操作方法：</b>装入可研磨物品，按下<b>全部研磨</b>即可批量处理。"
+Water_Sawmill_WaterMill_CardDescription,"A water-driven mill assembly - a subcomponent used to build water-powered sawmills, grinding mills, and forges.",一种水力磨坊组件，用于建造水力锯木厂、磨坊和锻造炉的子部件。
+Water_Sawmill_WaterMill_CardHelpSection,"<b>Subcomponent:</b> A crafting component used in the construction of water-powered mills, forges, and sawmills. Not a standalone structure.",<b>子组件：</b>用于建造水力磨坊、锻造炉和锯木厂的制作部件，不是独立建筑。
 Water_Sawmill_CopperGearLarge_CardName,Large Copper Gear,大铜齿轮
 Water_Sawmill_CopperGearLarge_CardDescription,A large cast copper gear used in water-driven machinery. Can be smelted back into copper nuggets.,用于水驱机械的大型铸铜齿轮。可熔炼回铜块。
 Water_Sawmill_CopperGearSmall_CardName,Small Copper Gear,小铜齿轮
@@ -116,7 +109,7 @@ Water_Sawmill_ForgePlaced_Light_FailMessage,The forge needs fuel first.,锻炉�
 Water_Sawmill_ForgePlaced_FeedEmbers_ActionName,Feed Embers,投入余烬
 Water_Sawmill_ForgePlaced_FeedEmbers_ActionDescription,Feed hot embers into the forge firebox.,向锻炉火膛中投入热余烬。
 Water_Sawmill_ForgePlaced_Blast_ActionName,Blast,鼓风
-Water_Sawmill_ForgePlaced_Blast_ActionDescription,"Drive the water-powered bellows to push the forge to smelting heat. Requires fuel, a lit fire, and flowing water.",驱动水力风箱使锻炉升至冶炼温度。需要燃料、已点燃的火焰和流动水源。
+Water_Sawmill_ForgePlaced_Blast_ActionDescription,"Drive the water-powered bellows to push the forge to smelting heat, warming you in the process. Requires fuel, a lit fire, and flowing water.",驱动水力风箱使锻炉升至冶炼温度，同时也会让你感到温暖。需要燃料、已点燃的火焰和流动水源。
 Water_Sawmill_ForgePlaced_Blast_FailMessage,Light the forge first.,请先点燃锻炉。
 Water_Sawmill_ForgePlaced_HammerAll_ActionName,Hammer All,全部锤打
 Water_Sawmill_ForgePlaced_HammerAll_ActionDescription,Apply one hammer strike to all items in the forge using the water-driven hammer. Requires flowing water.,使用水力锤对锻炉中的所有物品施加一次锤击。需要流动水源。
@@ -148,6 +141,7 @@ Water_Sawmill_GrindingMillPlaced_PickUp_ActionName,Pack Up,收起
 Water_Sawmill_GrindingMillPlaced_PickUp_ActionDescription,Pack up the grinding mill back into a transportable kit.,将磨坊收回为可携带套件。
 Water_Sawmill_GrindingMillPlaced_GrindAll_ActionName,Grind All,全部研磨
 Water_Sawmill_GrindingMillPlaced_GrindAll_ActionDescription,Engage the mill wheel and process all millable contents in one batch.,启动磨轮，一次批量处理所有可磨内容物。
+Water_Sawmill_GrindingMillPlaced_Duty_DutyName,Operate the Grinding Mill,操作磨坊
 Water_Sawmill_Bp_GrindingMill_CardName,Water-Driven Grinding Mill,水力磨坊
 Water_Sawmill_Bp_GrindingMill_CardDescription,"Assemble a water-driven grinding mill. Requires a water mill, iron bearing, and iron axle as core subcomponents.",组装水力磨坊。需要水力磨坊、铁轴承和铁轴作为核心子组件。
 Water_Sawmill_Bp_GrindingMill_UnlockConditionsDesc,Water-Driven Mill,水力磨坊
@@ -202,6 +196,7 @@ Water_Sawmill_OreSluicePlaced_SluiceAll_ActionName,Sluice All,全部淘洗
 Water_Sawmill_OreSluicePlaced_SluiceAll_ActionDescription,Run water through the sluice to wash all loaded soil. Each item yields minerals or a rare metal nugget.,引水通过淘洗槽冲洗所有装载的土壤。每件物品可产出矿物或稀有金属矿块。
 Water_Sawmill_OreSluicePlaced_PickUp_ActionName,Pack Up,收起
 Water_Sawmill_OreSluicePlaced_PickUp_ActionDescription,Pack up the ore sluice back into a transportable kit.,将矿石淘洗槽收回为可携带套件。
+Water_Sawmill_OreSluicePlaced_Duty_DutyName,Operate the Ore Sluice,操作淘洗槽
 Water_Sawmill_Bp_OreSluice_CardName,Ore Sluice,矿石淘洗槽
 Water_Sawmill_Bp_OreSluice_CardDescription,Build a water-powered ore sluice for washing soil and extracting greenstone. Requires direct water or a connected mill race outlet. Uses heavy stones as ballast.,建造水力矿石淘洗槽，用于冲洗土壤和提取绿石。需要直接水源或引水渠出口。使用大石块作压舱石。
 Water_Sawmill_Bp_OreSluice_UnlockConditionsDesc,Mill Race,引水渠
@@ -341,7 +336,7 @@ Water_Sawmill_FishpondStocked_CatchFrog_ActionDescription,Catch a frog by hand f
 Water_Sawmill_FishpondStocked_Fill_ActionName,Fill with Unsafe Water,汲取不安全的水
 Water_Sawmill_FishpondStocked_Fill_ActionDescription,Draw unsafe water from the pond into a container. Boil before drinking.,从鱼塘汲取不安全的水装入容器。饮用前需煮沸。
 Water_Sawmill_FishpondStocked_Drain_ActionName,Drain,排水
-Water_Sawmill_FishpondStocked_Drain_ActionDescription,Abandon the fish and drain the pond back to a fishpond kit.,放弃鱼群，将鱼塘排水还原为鱼塘套件。
+Water_Sawmill_FishpondStocked_Drain_ActionDescription,Drain the pond back into a fishpond kit. WARNING: the entire fish population is lost and cannot be recovered.,将鱼塘排水还原为鱼塘套件。警告：全部鱼群将永久损失，无法恢复。
 Water_Sawmill_FishpondStocked_Freeze_ActionName,Freeze Over,结冰
 Water_Sawmill_FishpondWinter_CardName,Fishpond (Frozen),鱼塘（冰封）
 Water_Sawmill_FishpondWinter_CardDescription,The fishpond is frozen over. The fish remain under the ice but no longer grow until spring. Only ice fishing is possible.,鱼塘已结冰。鱼仍在冰下但在春天前不再生长。只能进行冰钓。
@@ -462,7 +457,7 @@ Water_Sawmill_MillRaceOutletKit_Place_ActionDescription,Install the mill race ou
 Water_Sawmill_MillRaceOutletKit_Dismantle_ActionName,Dismantle,拆除
 Water_Sawmill_MillRaceOutletKit_Dismantle_ActionDescription,Break down the mill race outlet and recover all materials.,拆除引水渠出口并回收所有材料。
 Water_Sawmill_WorkshopPlaced_CardName,Water-Driven Workshop,水力工坊
-Water_Sawmill_WorkshopPlaced_CardDescription,A water-powered metalworking workshop with an upgraded forge hammer for higher-quality tools.,配备升级锻锤的水力金属加工工坊，可制造更高品质的工具。
+Water_Sawmill_WorkshopPlaced_CardDescription,A water-powered metalworking workshop with an upgraded forge hammer that gradually improves the quality of heated metal items.,配备升级锻锤的水力金属加工工坊，可逐渐提升加热金属物品的品质。
 Water_Sawmill_WorkshopPlaced_PickUp_ActionName,Pack Up,收起
 Water_Sawmill_WorkshopPlaced_PickUp_ActionDescription,Pack up the workshop back into a transportable kit.,将工坊收回为可携带套件。
 Water_Sawmill_WorkshopPlaced_HammerCopperSheet_ActionName,Hammer Copper Sheet,锤打铜片
@@ -510,11 +505,11 @@ Water_Sawmill_MillRaceOutletFrozen_CardHelpSection,"<b>Frozen:</b> No water can 
 <b>收起：</b>即使结冰也可收回为可搬运物品以便重新安置。"
 Water_Sawmill_WorkshopPlaced_CardHelpSection,"<b>Requirements:</b> Requires mill race access for water power. Water-powered actions stop when water is frozen in winter.
 
-<b>Operation:</b> Drag firewood or charcoal onto the workshop forge to feed fuel, then light it with embers. The forge naturally heats to about 1000. In a windy highland environment, natural wind gradually raises the forge to smelting temperature (1100) on its own. Use Blast when water is flowing, or drag Bellows onto the lit forge by hand, to quickly reach smelting temperature. Place heated metal tool blanks or copper parts in the inventory, then press Hammer All to apply one water-hammer strike to each item while water is flowing. The workshop hammer improves metal quality while shaping tools.
+<b>Operation:</b> Drag firewood or charcoal onto the workshop forge to feed fuel, then light it with embers. The forge naturally heats to about 1000. In a windy highland environment, natural wind gradually raises the forge to smelting temperature (1100) on its own — no Blast needed. Use Blast when water is flowing, or drag Bellows onto the lit forge by hand, to quickly reach smelting temperature. Place heated metal tool blanks or copper parts in the inventory, then press Hammer All to apply one water-hammer strike to each item while water is flowing — each strike also raises the item's Metal Quality by a small amount (this doesn't show as a visible number on the item itself, but it carries over once the item is finished or transformed). Put six copper nuggets in the workshop inventory, then use Hammer Copper Sheet or Forge Copper Nails to produce output; results appear on the ground beside the workshop.
 
 <b>Accepts:</b> All heated tool blanks, heated lump of metal, copper gear parts, and any item tagged Heatable or Copper.","<b>需求：</b> 需要引水渠提供水力。冬季水流冻结时，水力动作会停止。
 
-<b>操作：</b> 将柴火或木炭拖至工坊锻炉补充燃料，然后用余烬点火。锻炉会自然升温至约1000。水流畅通时可使用鼓风，或手动将风箱拖到已点燃的锻炉上，将温度推高到足以冶炼。将加热的金属工具坯料或铜零件放入库存，然后在水流畅通时按全部锤打对每件物品施加一次水力锤击。工坊锻锤在塑形工具时提升金属品质。
+<b>操作：</b> 将柴火或木炭拖至工坊锻炉补充燃料，然后用余烬点火。锻炉会自然升温至约1000。在有风的高地环境中，自然风力会自动将锻炉升温至冶炼温度（1100）——无需鼓风。水流畅通时可使用鼓风，或手动将风箱拖到已点燃的锻炉上快速达到冶炼温度。将加热的金属工具坯料或铜零件放入库存，然后在水流畅通时按全部锤打——每次锤击还会小幅提升物品的金属品质。将六块铜块放入工坊库存，使用锤打铜片或锻造铜钉生产产品；产出物品出现在工坊旁边的地面上。
 
 <b>接受：</b> 所有加热工具坯料、加热金属块、铜齿轮零件，以及任何带有可加热或铜标签的物品。"
 Water_Sawmill_IronParts_CardName,Iron Parts,铁制零件
@@ -600,12 +595,17 @@ Water_Sawmill_Bp_IronRivet_CardName,Forge Iron Rivet,锻造铁铆钉
 Water_Sawmill_Bp_IronRivet_CardDescription,Hammer an iron-grade metal nugget into an iron rivet.,将铁级金属块锻打成铁铆钉。
 Water_Sawmill_Bp_IronRivet_UnlockConditionsDesc,Iron-Grade Metal Nugget Needed,需要铁级金属块
 Water_Sawmill_CastIronSheet_CardName,Cast Iron Sheet,铸造铁板
-Water_Sawmill_CastIronSheet_CardDescription,"A flat iron sheet, hammered thin from a heated iron-grade metal bar. Tougher than a cast copper sheet, but interchangeable with it as construction material.",由加热的铁级金属条锻打成薄片的平整铁板。比铸造铜板更坚韧，但可作为建筑材料与其互换使用。
+Water_Sawmill_CastIronSheet_CardDescription,"A flat iron sheet, hammered thin from a heated iron-grade metal bar. Sheet stock: shear it into rivets, or keep it as iron-tier plate for construction.",由加热的铁级金属条锻打成薄片的平整铁板。作为板材使用：可剪切成铆钉，也可作为铁级板材用于建造。
 Water_Sawmill_CastIronSheet_CardHelpSection,"<b>Crafted:</b> From a heated iron-grade metal bar with a hammer. 
 
-<b>Uses:</b> Construction and crafting material — accepted anywhere a Cast Copper Sheet is required.","<b>制作：</b> 用锤子从加热的铁级金属条打造而成。
+<b>Uses:</b> Shear it into eight Cast Iron Rivets with the Cut Iron Rivets from Sheet blueprint (Metal Crafts tab, hammering tool needed). With AdvancedCopperTools installed it also stands in for ACT's Iron Sheet.","<b>制作：</b> 用锤子从加热的铁级金属条打造而成。
 
-<b>用途：</b> 建筑与制作材料——可在任何需要铸造铜板的地方使用。"
+<b>用途：</b> 可用「从铁板切割铁铆钉」蓝图（金属工艺分页，需要锤类工具）剪切成八枚铸造铁铆钉。若安装了 AdvancedCopperTools，也可替代其铁板使用。"
 Water_Sawmill_Bp_CastIronSheet_CardName,Forge Cast Iron Sheet,锻造铁板
 Water_Sawmill_Bp_CastIronSheet_CardDescription,Hammer a heated iron-grade metal bar flat into a metal sheet.,将加热的铁级金属条锻打成薄片金属板。
 Water_Sawmill_Bp_CastIronSheet_UnlockConditionsDesc,Heated Iron-Grade Metal Bar Needed,需要加热的铁级金属条
+Water_Sawmill_Bp_IronRivetsFromSheet_CardName,Cut Iron Rivets from Sheet,从铁板切割铁铆钉
+Water_Sawmill_Bp_IronRivetsFromSheet_CardDescription,"Shear a cast iron sheet into eight iron rivets. Cold work, so no forge heat is needed.",将一块铸造铁板剪切成八枚铁铆钉。属于冷加工，无需炉火加热。
+Water_Sawmill_Bp_IronRivetsFromSheet_UnlockConditionsDesc,Cast Iron Sheet Needed,需要铸造铁板
+Water_Sawmill_ForgePlaced_Duty_DutyName,Operate the Forge,操作锻炉
+Water_Sawmill_WorkshopPlaced_Duty_DutyName,Operate the Workshop,操作工坊

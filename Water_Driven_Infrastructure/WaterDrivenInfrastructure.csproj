@@ -93,6 +93,7 @@
 
     <ItemGroup>
         <Content Include="CardData\**\*.*" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="NPCDuty\**\*.*" CopyToOutputDirectory="PreserveNewest" />
         <Content Include="CharacterPerk\**\*.*" CopyToOutputDirectory="PreserveNewest" />
         <Content Include="Data\**\*.*" CopyToOutputDirectory="PreserveNewest" />
         <Content Include="Localization\**\*.*" CopyToOutputDirectory="PreserveNewest" />
@@ -102,6 +103,5 @@
         <Content Include="Resource\**\*.*" CopyToOutputDirectory="PreserveNewest" />
         <Content Include="ModInfo.json" CopyToOutputDirectory="Always" Condition="Exists('ModInfo.json')" />
         <Content Include="BlueprintTabs.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('BlueprintTabs.json')" />
-        <Content Include="SmeltingRecipes.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('SmeltingRecipes.json')" />
     </ItemGroup>
 </Project>

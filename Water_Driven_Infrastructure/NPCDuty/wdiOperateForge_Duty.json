@@ -1,0 +1,12 @@
+{
+  "UniqueID": "wdiOperateForge_Duty",
+  "DutyName": {
+    "ParentObjectID": "wdiOperateForge_Duty",
+    "LocalizationKey": "Water_Sawmill_ForgePlaced_Duty_DutyName",
+    "DefaultText": "Operate the Forge"
+  },
+  "MaxPerformPerDay": 0,
+  "DutyExecutionOptions": 0,
+  "GiveUpOptions": 0,
+  "DutyConditions": {}
+}

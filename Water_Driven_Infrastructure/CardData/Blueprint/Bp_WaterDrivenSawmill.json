@@ -128,18 +128,12 @@
                     },
                     "RequiredQuantity": 1,
                     "DontSpend": true,
-                    "RequiredCardWarpData": "2466c0bf349c4f84db55a4ee8ad67300",
-                    "RequiredCardWarpType": 3
-                },
-                {
-                    "RequiredCard": {
+                    "RequiredTabGroup": {
                         "m_FileID": 0,
                         "m_PathID": 0
                     },
-                    "RequiredQuantity": 1,
-                    "DontSpend": true,
-                    "RequiredCardWarpData": "3587432ac7e29784991ff2cccf92891d",
-                    "RequiredCardWarpType": 3
+                    "RequiredTabGroupWarpData": "GpTag_Shovel",
+                    "RequiredTabGroupWarpType": 3
                 }
             ],
             "StepActionTags": [],
@@ -174,8 +168,12 @@
                     },
                     "RequiredQuantity": 1,
                     "DontSpend": true,
-                    "RequiredCardWarpData": "e118b8cd90f14b048aab78a0d37e8f61",
-                    "RequiredCardWarpType": 3
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroupWarpData": "GpTag_HammeringToolHard",
+                    "RequiredTabGroupWarpType": 3
                 },
                 {
                     "RequiredCard": {

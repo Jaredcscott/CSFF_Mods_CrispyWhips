@@ -1,8 +1,8 @@
 # Water Driven Infrastructure
 
-**Version:** 1.10.0
+**Version:** 1.10.15
 **Author:** Jared (crispywhips)
-**For:** Card Survival: Fantasy Forest (EA 0.65)
+**For:** Card Survival: Fantasy Forest (EA 0.66)
 **Requires:** CSFFModFramework (AdvancedCopperTools optional — enhances, doesn't gate)
 
 ---
@@ -11,9 +11,9 @@
 
 Water Driven Infrastructure adds large-scale, water-powered construction to Card Survival: Fantasy Forest. Build water wheels to harness river power, then connect them to sawmills, forges, grinding mills, ore sluices, and fishponds. Gears and saw blades are cast from copper using WDI's own metalworking pipeline. The Mill Race Outlet lets you tap that water supply to draw unclean water at any outdoor location — no more long treks to the river.
 
-Fully standalone: WDI ships its own copper AND iron fasteners (Cast Copper Rivet, Cast Iron Rivet, Alloy Solder, Cast Copper Sheet, Cast Iron Sheet) so every blueprint builds with just the framework installed. If **AdvancedCopperTools** is also installed, its Copper/Iron Nails, Tin Solder, and Copper/Iron Sheet are accepted interchangeably in every fastener slot (same tier for sheets; any tier for nails/rivets, since they're a generic fastener), and the Workshop's Hammer Copper Sheet / Forge Copper Nails actions produce ACT's real items instead of WDI's.
+Fully standalone: WDI ships its own copper AND iron fasteners (Cast Copper Rivet, Cast Iron Rivet, Alloy Solder, Cast Copper Sheet, Cast Iron Sheet) so every blueprint builds with just the framework installed. Both cast sheets earn their keep without any other mod — the Cast Iron Sheet shears into eight Iron Rivets in one cold-work craft, and the Cast Copper Sheet is what the Workshop's Hammer Copper Sheet action produces when AdvancedCopperTools is absent. If **AdvancedCopperTools** is also installed, its Copper/Iron Nails, Tin Solder, and Copper/Iron Sheet are accepted interchangeably in every fastener slot (same tier for sheets; any tier for nails/rivets, since they're a generic fastener), and the Workshop's Hammer Copper Sheet / Forge Copper Nails actions produce ACT's real items instead of WDI's.
 
-All 23 shipped blueprints are injected into the crafting journal automatically via `BlueprintTabs.json`.
+All 24 shipped blueprints are injected into the crafting journal automatically via `BlueprintTabs.json`.
 
 ---
 
@@ -40,7 +40,7 @@ Water Source (river / lake)
 | Tab | Blueprints |
 |-----|-----------|
 | **Advanced Tools** | Mill Race, Mill Race Outlet, Water Wheel, Water Mill, Ore Sluice (Empty) |
-| **Metal Crafts** | Cast Large Copper Gear, Cast Small Copper Gear, Cast Copper Saw Blade, Forge Iron Parts, Forge Iron Bearing, Forge Iron Axle, Forge Iron Wrench, Forge Copper Rivet, Forge Iron Rivet, Forge Alloy Solder, Forge Cast Copper Sheet, Forge Cast Iron Sheet |
+| **Metal Crafts** | Cast Large Copper Gear, Cast Small Copper Gear, Cast Copper Saw Blade, Forge Iron Parts, Forge Iron Bearing, Forge Iron Axle, Forge Iron Wrench, Forge Copper Rivet, Forge Iron Rivet, Forge Alloy Solder, Forge Cast Copper Sheet, Forge Cast Iron Sheet, Cut Iron Rivets from Sheet |
 | **Furniture** | Ore Sluice, Water-Driven Grinding Mill, Water-Driven Sawmill, Water-Driven Forge, Water-Driven Workshop Kit |
 | **Farming Agriculture** | Fishpond |
 
@@ -73,7 +73,7 @@ The mill-race network is built from a static world-map edge list (`Data/MillRace
 
 | Field | Value |
 |-------|-------|
-| Requires | 25 Planks, 20 Stone, 5 Clay, 1 Large Copper Gear |
+| Requires | 25 Planks, 20 Stone, 5 Heavy Stone, 1 Large Copper Gear |
 | Placement | Adjacent to a Mill Race |
 | Unlock | 48 ticks |
 
@@ -104,6 +104,8 @@ Automated wood processing — drag logs in, collect planks.
 - 6-slot inventory; holds logs awaiting processing
 - **Pack Up** dismantle (1 hour): recovers all components as a portable kit
 
+A recruited Partner can be assigned an **Operate the Sawmill** duty — toggle it on and they'll walk to the sawmill and run Cut, supplying a log themselves. *(Shipped in 1.10.11, not yet confirmed in-game.)*
+
 ---
 
 ## Water-Driven Forge
@@ -120,12 +122,13 @@ Water-powered forge that smelts at 1100°+ and adds a water-hammer for batch met
 | 4 | 20 Planks + 10 Mud Brick + 10 Plaster + 2× Iron Parts + 2× Iron Bearings + 1× Iron Axle + 10× Copper Rivets* |
 
 **Key features:**
-- Max temperature 1800°; cools −40°/hour when idle
+- Max temperature 1800°; loses heat at −33°/hour whenever out of fuel, and above ~1000° loses an additional −100°/hour without windflow (a windy environment or the Blast/Bellows actions) — a third of the original cooldown rate, so the forge holds its heat much longer between Blasts
 - Fuel capacity 96 units: firewood (+20), charcoal (+25), embers
-- **Blast** action: +480° temperature using water power (costs fuel + 1 hour)
+- **Blast** action: +480° temperature using water power (costs fuel + 1 hour); also pushes ambient temperature toward its 80° maximum, warming the player — most noticeable in winter
 - **Smelt Ore** (copper): requires 1100°+; processes Greenstone and other copper ores into ingots
 - **Smelt Iron Components** (Parts/Bearing/Axle/Wrench): requires 1100°+ (same threshold as copper); each item automatically smelts back into 6 iron-typed metal nuggets once fully heated — not into a bar
 - Automatically copies vanilla kiln and smelting recipes; greenstone and copper ore smelting built in
+- A recruited Partner can be assigned the vanilla **fire-tending duty** to this station — they'll feed firewood, fuel, charcoal, or embers into it automatically to keep it lit
 
 ### Water-Driven Workshop (Upgrade)
 
@@ -148,6 +151,8 @@ The water wheel drives the millstone — automates all grinding tasks.
 
 **Build** (unlock 96 ticks, requires Water Mill): Water Mill + Grinding Stone + 20 Planks + 10 Stone + 1 Iron Bearing + 1 Iron Axle + 8 Copper Rivets* + 1 Alloy Solder*
 
+A recruited Partner can be assigned an **Operate the Grinding Mill** duty — toggle it on and they'll walk to the mill and press Grind All automatically.
+
 ---
 
 ## Ore Sluice
@@ -162,6 +167,8 @@ Uses flowing water to separate and concentrate mineral deposits.
 | 2 — Ore Sluice | 10 Planks + 4 Stone + 1 Sluice Frame + 6 Copper Rivets* |
 
 Placement must be adjacent to a Mill Race.
+
+A recruited Partner can be assigned an **Operate the Ore Sluice** duty — toggle it on and they'll walk to the sluice and press Sluice All. *(Shipped in 1.10.10, not yet confirmed in-game.)*
 
 ---
 
@@ -201,12 +208,13 @@ Copper gears, the copper saw blade, iron parts, iron bearings, and the iron wren
 | **Forge Alloy Solder** | Copper-grade Metal Nugget | 8 ticks | 1 nugget + hammer (kept) → 2 Alloy Solder |
 | **Forge Cast Copper Sheet** | Heated Copper-grade Metal Bar | 8 ticks | 1 heated bar + hammer (kept) → 1 Cast Copper Sheet |
 | **Forge Cast Iron Sheet** | Heated Iron-grade Metal Bar | 8 ticks | 1 heated bar + hammer (kept) → 1 Cast Iron Sheet |
+| **Cut Iron Rivets from Sheet** | Cast Iron Sheet | 8 ticks | 1 Cast Iron Sheet + hammer (kept) → 8 Iron Rivets (cold work — no forge heat) |
 
 **Copper gears and the saw blade** smelt back to copper nuggets in the furnace or WDI Forge (1100°+).
 
 **Iron components** (Parts, Bearing, Axle, Wrench) smelt back into iron-typed metal nuggets (6 per item) in the WDI Forge or Workshop once heated to 1100°+ — the same threshold as copper, not 1300°. The forge is tagged `tag_SmeltingContainerIron` for this purpose; a standard vanilla furnace will not melt iron components.
 
-**\* Fasteners (Copper/Iron Rivets, Alloy Solder) — interchangeable with AdvancedCopperTools:** every blueprint slot that calls for a Rivet or Alloy Solder also accepts ACT's Copper/Iron Nail or Tin Solder if AdvancedCopperTools is installed — craft whichever you already have, in whichever tier you have. Rivets are a generic fastener commodity, so copper and iron rivets/nails are all interchangeable with each other regardless of tier or mod. Cast Copper/Iron Sheet stay tier-locked with ACT's Copper/Iron Sheet (same-tier only — an iron-tier build still needs iron-tier sheet). WDI's own fastener blueprints are always researchable, independent of whether ACT is present, and forge from a plain copper- or iron-grade Metal Nugget/Bar (no tin ore or ACT-exclusive materials required).
+**\* Fasteners (Copper/Iron Rivets, Alloy Solder) — interchangeable with AdvancedCopperTools:** every blueprint slot that calls for a Rivet or Alloy Solder also accepts ACT's Copper/Iron Nail or Tin Solder if AdvancedCopperTools is installed — craft whichever you already have, in whichever tier you have. Rivets are a generic fastener commodity, so copper and iron rivets/nails are all interchangeable with each other regardless of tier or mod. Cast Copper/Iron Sheet stay tier-locked with ACT's Copper/Iron Sheet (same-tier only — an iron-tier build still needs iron-tier sheet). **The Cast Iron Sheet does not depend on ACT to be worth making:** the Cut Iron Rivets from Sheet blueprint shears one sheet into 8 Iron Rivets with any hammering tool, no forge heat required. Since a sheet comes from one iron bar (6 nuggets), plate-cutting yields 8 fasteners where nugget-by-nugget forging yields 6 — the extra bar-and-heat work buys a better fastener rate, in a single craft action instead of six. WDI's own fastener blueprints are always researchable, independent of whether ACT is present, and forge from a plain copper- or iron-grade Metal Nugget/Bar (no tin ore or ACT-exclusive materials required).
 
 ---
 
@@ -232,7 +240,7 @@ All perks appear in the **Situational** tab.
 
 - BepInEx 5.x
 - CSFFModFramework (latest)
-- Card Survival: Fantasy Forest (EA 0.65)
+- Card Survival: Fantasy Forest (EA 0.66)
 - **AdvancedCopperTools** (optional — enhances fastener/Workshop output, not required to build or research anything)
 
 ### Steps
@@ -241,7 +249,7 @@ All perks appear in the **Situational** tab.
 2. Deploy CSFFModFramework to `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. (Optional) Deploy AdvancedCopperTools to `BepInEx/plugins/Advanced_Copper_Tools/`.
 4. Extract this mod to `BepInEx/plugins/Water_Driven_Infrastructure/`.
-5. Launch the game — check `BepInEx/LogOutput.log` for `WaterDrivenInfrastructure v1.10.0 loaded.`
+5. Launch the game — check `BepInEx/LogOutput.log` for `WaterDrivenInfrastructure v1.10.15 loaded.`
 
 ### Deployed layout
 
@@ -250,13 +258,13 @@ BepInEx/plugins/Water_Driven_Infrastructure/
 ├── Water_Driven_Infrastructure.dll
 ├── ModInfo.json
 ├── BlueprintTabs.json
-├── SmeltingRecipes.json
 ├── CardData/
 │   ├── Blueprint/
 │   ├── EnvImprovement/
 │   ├── Item/
 │   └── Location/
 ├── CharacterPerk/
+├── NPCDuty/
 ├── Localization/
 │   ├── SimpEn.csv
 │   └── SimpCn.csv
@@ -273,6 +281,7 @@ BepInEx/plugins/Water_Driven_Infrastructure/
 | **MillRaceNetwork** | Bidirectional mill race connectivity — both endpoints of a race must be complete before the connection activates (a single directional segment cannot power structures); also gates outlet/station placement, water draws, and station use to locations with direct water or a connected, unfrozen outlet, with a winter-freeze bypass when a lit Copper Brazier is nearby |
 | **ActionInterceptPatch** | Registers ActionRouter handlers for Grind All (mill), Sluice All (ore sluice), fishpond stocking/catch stats, Workshop crafts (Hammer Copper Sheet / Forge Copper Nails / Cast Metal Lump), Hammer All, and forge/workshop Blast; checks station inventory before consuming for inventory-backed buttons; sets SD4=200 (iron metal type) and quality on the iron-typed metal nuggets spawned when iron components finish smelting. (Sawmill Cut is pure JSON and is not intercepted here.) |
 | **FishpondPopulationPatch** | Fishpond population growth: gates breeding per species (needs ≥2 individuals) and swaps the pond between Filled ↔ Stocked card variants once total population crosses the stocking threshold (10) |
+| **MillDutyPatch** | Grafts five custom NPCDuties — "Operate the Grinding Mill", "Operate the Ore Sluice", "Operate the Sawmill", "Operate the Forge" and "Operate the Workshop" — onto the vanilla Partner NPCAgent template (JSON-shell + reflection-built `ActionSequence`), letting a recruited companion work each station once the player's Duty Assignment toggle is on. The mill and sluice drive a DismantleAction button; the sawmill drives the drag-based **Cut** CardInteraction, with the engine sourcing the log from that action's own `CompatibleCards`; the forge drives **Smelt Ore** and the workshop chains **Hammer All** then **Smelt Ore**. The forge/workshop duties only work a station the player has *already heated* — they never light or blast it. **None of these five is confirmed working in-game**: a play session on 2026-08-16 showed the duties losing duty selection outright to vanilla's much-higher-weighted native duties, which is addressed but unverified as of 1.10.13 |
 
 All patches filter on this mod's UniqueIDs and never modify vanilla cards, drops, or stats.
 
@@ -290,7 +299,7 @@ All patches filter on this mod's UniqueIDs and never modify vanilla cards, drops
 
 ## Troubleshooting
 
-**Blueprints not appearing?** Verify CSFFModFramework is installed and check `LogOutput.log` for `WaterDrivenInfrastructure v1.10.0 loaded.` AdvancedCopperTools is optional.
+**Blueprints not appearing?** Verify CSFFModFramework is installed and check `LogOutput.log` for `WaterDrivenInfrastructure v1.10.15 loaded.` AdvancedCopperTools is optional.
 
 **Forge won't smelt?** Temperature must reach 1100°. Feed charcoal and use the Blast action before attempting to smelt.
 
@@ -298,7 +307,7 @@ All patches filter on this mod's UniqueIDs and never modify vanilla cards, drops
 
 **Mill Race Outlet not producing water?** The outlet must be outdoors and a Mill Race must be built first. Outlets freeze in winter — wait until spring.
 
-**Workshop Hammer All does nothing?** Load tool blanks or copper components into the workshop's inventory slots first.
+**Workshop Hammer All does nothing?** Load tool blanks or copper components into the workshop's inventory slots first. Note that Metal Quality gains from each strike don't show as a visible number on the item itself (vanilla hides that stat's display on nuggets/blanks/bars) — the boost is still applied and carries through once the item is finished or transformed.
 
 **Sawmill Cut action missing?** The sawmill must be placed (not held as a kit) and a log must be dragged onto it.
 
@@ -306,7 +315,31 @@ All patches filter on this mod's UniqueIDs and never modify vanilla cards, drops
 
 ## Version History
 
-### v1.10.0 (current)
+### v1.10.15 (current)
+- Fixed Natural Windflow still going dead below 790° in windy environments (e.g. High Grove) — the v1.10.5 fix moved the dead zone rather than removing it. Lowered the floor to 1°, matching "Lose Temperature without fuel"'s own floor.
+- Fixed Cast Metal Lump's output (vanilla MetalBarUnfinished) never being accepted back into the Workshop's own inventory, dead-ending the Cast Metal Lump → Hammer All progression despite the Workshop's own help text claiming to accept it.
+- Clarified in the Workshop's help text that Hammer All's Metal Quality boost is real (traced end-to-end and confirmed correct) but never shows as a visible number — vanilla flags that stat `AlwaysHide` on every candidate item, so the game's own UI never renders it regardless of value.
+
+### v1.10.8
+- Water-Driven Grinding Mill can now be assigned to a Partner's Duty Assignment list — toggle the mill's duty marker on and a recruited companion will walk to it and press Grind All automatically. Ships a custom NPCDuty (`NPCDuty/wdiOperateGrindingMill_Duty.json`) grafted onto the vanilla Partner template via reflection (`MillDutyPatch`).
+
+### v1.10.7
+- Water-Driven Forge and Workshop can now be assigned to a Partner's vanilla fire-tending duty (`PartnerDuty_Firekeeping`) — a recruited companion will feed firewood, fuel, charcoal, or embers into the station automatically to keep it lit.
+
+### v1.10.6
+- Blast (Forge and Workshop) now also pushes ambient temperature toward its 80° cap, via a direct `StatModifications` bump to the vanilla `BaseTemperature` GameStat (clamped by the stat's own -80..80 range, so it can never overshoot). Warms the player standing at the station — most noticeable countering the deep cold of winter.
+- Forge and Workshop now hold their heat 3x longer: both cooldown `PassiveEffects` ("Lose Temperature without fuel", "High Temperature loss without windflow") cut to a third of their prior rate, so Blast is needed less often to stay at smelting temperature.
+
+### v1.10.5
+- Fixed Hammer All never raising Metal Quality on heated nuggets — `IsMetalQualityTool`'s tag gate (`tag_Metal`/`tag_ToolBlank`/`tag_CopperSmall`/`tag_CopperBig`) never matched any real item (vanilla MetalNugget/MetalBarUnfinished carry no gameplay tags at all — the workshop's own InventoryFilter has to allowlist MetalNugget by exact UID for the same reason), so every strike just burned down vanilla's own inert "Strikes" stat with no quality payoff. Dropped the tag requirement; the existing active-"...Quality"-named SpecialDurability2 check is a sufficient, safe signal on its own.
+- Fixed Natural Windflow going dead the moment fuel hits exactly 0, even in a confirmed-windy environment (e.g. High Grove) — the forge/workshop would just bleed heat via "Lose Temperature without fuel" (−100/hour) with no windflow rescue, contradicting the "wind carries it to smelting temp on its own" description. Natural Windflow's gate now requires the structure already be substantially hot (≥790°, reached only through real fuel-burning) instead of requiring live fuel — preserves the original fix (an unlit, never-fueled forge still can't self-heat from ambient wind alone) while letting wind carry an already-hot forge through fuel gaps as advertised.
+
+### v1.10.1
+- Fixed Blast-produced copper nuggets shipping at 0 quality (`SpawnService.Spawn` returns `null` on success in EA 0.65, so the old null-check on its return value always skipped the quality-init code; switched to the same ID-diff pattern already used by the Sluice/Grind/Fish paths).
+- Reworded the Water-Driven Forge cooling description — the previous "cools −40°/hour when idle" line didn't match any reachable state of the forge's actual passive-effect stack.
+- Added log breadcrumbs to 8 previously-silent `catch` blocks (diagnostic hygiene only — no behavior change).
+
+### v1.10.0
 - Added Cast Iron Rivet and Cast Iron Sheet (Metal Crafts tab) — WDI-native iron-tier fasteners forged from an iron-grade Metal Nugget/heated Metal Bar, always researchable, no ACT required. Renamed Cast Metal Sheet → Cast Copper Sheet (same UID; cosmetic rename now that an iron sibling exists).
 - Rivets and nails are now fully cross-tier AND cross-mod interchangeable: every fastener slot (in either mod) accepts ACT Copper Nail, ACT Iron Nail, WDI Copper Rivet, and WDI Iron Rivet.
 - Cast Copper/Iron Sheet are now cross-mod interchangeable with ACT's Copper/Iron Sheet, same tier only (a new pairing — the original v1.8.0 decoupling never wired sheet alternates).

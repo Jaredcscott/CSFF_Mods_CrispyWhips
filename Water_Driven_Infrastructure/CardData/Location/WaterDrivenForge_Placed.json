@@ -19,6 +19,12 @@
   "ObjectWeight": 1200.0,
   "TradingValue": 500.0,
   "AlwaysUpdate": true,
+  "UsesOwnershipSystem": false,
+  "CompatibleDutiesWarpData": [
+    "6147eff5b0fe3014ca57364f4d075514",
+    "wdiOperateForge_Duty"
+  ],
+  "CompatibleDutiesWarpType": 3,
   "CardTags": [],
   "CardTagsWarpData": [
     "tag_Copper",
@@ -257,7 +263,13 @@
       },
       "GivenCardChanges": {
         "ModType": 3
-      }
+      },
+      "CompatibleNPCDuties": [
+        {
+          "TargetWarpData": "6147eff5b0fe3014ca57364f4d075514",
+          "TargetWarpType": 3
+        }
+      ]
     },
     {
       "ActionName": {
@@ -301,7 +313,13 @@
       },
       "GivenCardChanges": {
         "ModType": 3
-      }
+      },
+      "CompatibleNPCDuties": [
+        {
+          "TargetWarpData": "6147eff5b0fe3014ca57364f4d075514",
+          "TargetWarpType": 3
+        }
+      ]
     },
     {
       "ActionName": {
@@ -345,7 +363,13 @@
       },
       "GivenCardChanges": {
         "ModType": 3
-      }
+      },
+      "CompatibleNPCDuties": [
+        {
+          "TargetWarpData": "6147eff5b0fe3014ca57364f4d075514",
+          "TargetWarpType": 3
+        }
+      ]
     },
     {
       "ActionName": {
@@ -594,7 +618,13 @@
       },
       "GivenCardChanges": {
         "ModType": 3
-      }
+      },
+      "CompatibleNPCDuties": [
+        {
+          "TargetWarpData": "6147eff5b0fe3014ca57364f4d075514",
+          "TargetWarpType": 3
+        }
+      ]
     },
     {
       "ActionName": {
@@ -814,6 +844,12 @@
             }
           ]
         }
+      ],
+      "CompatibleNPCDuties": [
+        {
+          "TargetWarpData": "wdiOperateForge_Duty",
+          "TargetWarpType": 3
+        }
       ]
     }
   ],
@@ -827,7 +863,7 @@
       "ActionDescription": {
         "ParentObjectID": "water_sawmill_forge_placed",
         "LocalizationKey": "Water_Sawmill_ForgePlaced_Blast_ActionDescription",
-        "DefaultText": "Drive the water leather bellows hard to push the forge to working heat. Requires fuel and a lit fire."
+        "DefaultText": "Drive the water-powered bellows to push the forge to smelting heat, warming you in the process. Requires fuel, a lit fire, and flowing water."
       },
       "DaytimeCost": 4,
       "UseMiniTicks": 0,
@@ -905,7 +941,31 @@
         }
       },
       "ProducedCards": [],
-      "StatModifications": []
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "d875c7e4eea52f54ca5076f256ccd16c",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 160.0,
+            "y": 160.0
+          },
+          "TriggerStat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "TriggerStatWarpData": "",
+          "TriggerStatWarpType": 3,
+          "TriggerValue": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "TriggerStatValueIsMax": false
+        }
+      ]
     },
     {
       "ActionName": {
@@ -1021,6 +1081,10 @@
     {
       "EffectName": "High Temperature loss without windflow",
       "Conditions": {
+        "RequiredNOTEnvironmentTagsWarpData": [
+          "tag_Env_Windy"
+        ],
+        "RequiredNOTEnvironmentTagsWarpType": 3,
         "ReceivingRequiredDurabilityRanges": {
           "SpoilageRange": {
             "x": 1001.0,
@@ -1034,7 +1098,7 @@
       },
       "SpoilageRateModifier": {
         "Active": true,
-        "FloatValue": -300.0
+        "FloatValue": -100.0
       }
     },
     {
@@ -1053,7 +1117,7 @@
       },
       "SpoilageRateModifier": {
         "Active": true,
-        "FloatValue": -100.0
+        "FloatValue": -33.3
       }
     },
     {
@@ -1064,8 +1128,8 @@
         ],
         "RequiredEnvironmentTagsWarpType": 3,
         "ReceivingRequiredDurabilityRanges": {
-          "FuelRange": {
-            "x": 0.01,
+          "SpoilageRange": {
+            "x": 1.0,
             "y": 1000000000.0
           }
         }

@@ -82,7 +82,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 InjectActFastenerAlternates(allData, Logger);
                 InjectVanillaGrindablesIntoMillFilter(allData, Logger);
 
-                Logger?.LogInfo("[WDI] GameLoadPatch: LoadMainGameData postfix completed (kiln recipes, greenstone smelt, iron tag, mill race improvements, ACT fastener alternates, mill grindables filter).");
+                Logger?.LogDebug("[WDI] GameLoadPatch: LoadMainGameData postfix completed (kiln recipes, greenstone smelt, iron tag, mill race improvements, ACT fastener alternates, mill grindables filter).");
             }
             catch (Exception ex)
             {
@@ -111,9 +111,11 @@ namespace WaterDrivenInfrastructure.Patcher
             const string WdiIronRivetUid = "water_sawmill_iron_rivet";
             const string ActIronNailUid = "act_iron_nail";
 
-            // WDI-internal: Iron Rivet accepted anywhere Copper Rivet is required, independent
-            // of whether ACT is installed.
+            // WDI-internal: Iron Rivet accepted anywhere Copper Rivet is required, and vice versa
+            // (cross-tier acceptance for rivets within WDI), independent of whether ACT is
+            // installed.
             BlueprintAlternates.AddAlternateIngredient(allData, WdiCopperRivetUid, WdiIronRivetUid, "WDI Copper Rivet / WDI Iron Rivet");
+            BlueprintAlternates.AddAlternateIngredient(allData, WdiIronRivetUid, WdiCopperRivetUid, "WDI Iron Rivet / Copper Rivet");
 
             ActCompat.Detect(allData);
             if (!ActCompat.IsInstalled)
@@ -122,8 +124,15 @@ namespace WaterDrivenInfrastructure.Patcher
                 return;
             }
 
+            // Copper Rivet slots accept ACT's nails.
             BlueprintAlternates.AddAlternateIngredient(allData, WdiCopperRivetUid, ActCompat.CopperNailsUid, "WDI Copper Rivet / ACT Copper Nail");
             BlueprintAlternates.AddAlternateIngredient(allData, WdiCopperRivetUid, ActIronNailUid, "WDI Copper Rivet / ACT Iron Nail");
+            
+            // Iron Rivet slots also accept ACT's nails.
+            BlueprintAlternates.AddAlternateIngredient(allData, WdiIronRivetUid, ActCompat.CopperNailsUid, "WDI Iron Rivet / ACT Copper Nail");
+            BlueprintAlternates.AddAlternateIngredient(allData, WdiIronRivetUid, ActIronNailUid, "WDI Iron Rivet / ACT Iron Nail");
+            
+            // Alloy Solder slots accept ACT's Tin Solder.
             BlueprintAlternates.AddAlternateIngredient(allData, "water_sawmill_alloy_solder", "act_tin_solder", "WDI Alloy Solder / ACT Tin Solder");
         }
 
@@ -467,7 +476,7 @@ namespace WaterDrivenInfrastructure.Patcher
             foreach (var asm in AppDomain.CurrentDomain.GetAssemblies())
             {
                 try { cardDataType = asm.GetType("CardData"); if (cardDataType != null) break; }
-                catch { }
+                catch (Exception ex) { logger?.LogDebug($"[MillRaceInject] GetType(\"CardData\") failed on {asm.GetName().Name}: {ex.Message}"); }
             }
             if (cardDataType == null)
             { logger?.LogError("[MillRaceInject] CardData type not found"); return; }
@@ -578,6 +587,13 @@ namespace WaterDrivenInfrastructure.Patcher
                 var clonesByRoute = new Dictionary<string, CardData>(StringComparer.Ordinal);
                 var patchStates = new Dictionary<CardData, LocationPatchState>();
                 var linkedSourceDirections = new HashSet<string>(StringComparer.Ordinal);
+                // Locations that actually appear as an endpoint of a validated map edge — i.e.
+                // real outdoor mill-race-network locations. The fallback pass below (fills in
+                // unlinked directions) must be scoped to THIS set, not every CT8 explorable card,
+                // or indoor locations (building interiors, which are CardType 8 too) get all four
+                // directions of Mill Race improvements injected despite having no water/travel
+                // relevance whatsoever.
+                var locationsInNetwork = new HashSet<string>(StringComparer.Ordinal);
 
                 foreach (var edge in mapEdges)
                 {
@@ -592,6 +608,9 @@ namespace WaterDrivenInfrastructure.Patcher
 
                     MillRaceNetwork.RegisterLocation(sourceLocation, edge.SourceEnvUid, sourceEnvironment);
                     MillRaceNetwork.RegisterLocation(destinationLocation, edge.DestinationEnvUid, destinationEnvironment);
+
+                    locationsInNetwork.Add(edge.SourceLocationUid);
+                    locationsInNetwork.Add(edge.DestinationLocationUid);
 
                     var routeKey = RouteKey(edge.SourceLocationUid, edge.Direction, edge.DestinationLocationUid);
                     linkedSourceDirections.Add(SourceDirectionKey(edge.SourceLocationUid, edge.Direction));
@@ -653,6 +672,8 @@ namespace WaterDrivenInfrastructure.Patcher
                 foreach (var locationEntry in explorableLocations)
                 {
                     var sourceLocationUid = locationEntry.Key;
+                    if (!locationsInNetwork.Contains(sourceLocationUid))
+                        continue;
                     var sourceLocation = locationEntry.Value;
 
                     for (int direction = 0; direction <= 3; direction++)
@@ -885,7 +906,12 @@ namespace WaterDrivenInfrastructure.Patcher
                 }
                 return false;
             }
-            catch { return false; }
+            catch (Exception ex)
+            {
+                // Silent false here would drop EVERY vanilla grindable from the mill filter.
+                Logger?.LogDebug($"[MillFilter] HasGrindingToolInteraction reflection failed: {ex.Message}");
+                return false;
+            }
         }
 
         static void InjectSmeltingContainerIronTag(IEnumerable allData, ManualLogSource logger)

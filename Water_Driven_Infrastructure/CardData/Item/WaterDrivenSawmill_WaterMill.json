@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "water_sawmill_water_mill",
     "LocalizationKey": "Water_Sawmill_WaterMill_CardDescription",
-    "DefaultText": "A water-driven mill that grinds millable materials on demand with 4x the capacity of a rotary quern."
+    "DefaultText": "A water-driven mill assembly - a subcomponent used to build water-powered sawmills, grinding mills, and forges."
   },
   "CanBeRenamed": false,
   "CardHelpSection": {

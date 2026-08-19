@@ -1,0 +1,126 @@
+{
+  "UniqueID": "water_sawmill_bp_iron_rivets_from_sheet",
+  "CardName": {
+    "ParentObjectID": "water_sawmill_bp_iron_rivets_from_sheet",
+    "LocalizationKey": "Water_Sawmill_Bp_IronRivetsFromSheet_CardName",
+    "DefaultText": "Cut Iron Rivets from Sheet"
+  },
+  "CardDescription": {
+    "ParentObjectID": "water_sawmill_bp_iron_rivets_from_sheet",
+    "LocalizationKey": "Water_Sawmill_Bp_IronRivetsFromSheet_CardDescription",
+    "DefaultText": "Shear a cast iron sheet into eight iron rivets. Cold work, so no forge heat is needed."
+  },
+  "CardType": 7,
+  "UnlockConditionsDesc": {
+    "ParentObjectID": "water_sawmill_bp_iron_rivets_from_sheet",
+    "LocalizationKey": "Water_Sawmill_Bp_IronRivetsFromSheet_UnlockConditionsDesc",
+    "DefaultText": "Cast Iron Sheet Needed"
+  },
+  "StartUnlocked": false,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "IronRivet",
+  "CardImageWarpType": 3,
+  "BlueprintUnlockTicksCost": 8.0,
+  "CardsOnBoard": [
+    {
+      "ObjectiveName": "HasCastIronSheet",
+      "CompletionWeight": 1,
+      "Card": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "Quantity": 1,
+      "ConstantlyChecking": false,
+      "OnlyInEnvironment": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "OnlyIfEquipped": false,
+      "OnlyInContainer": {
+        "Target": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        }
+      },
+      "CardWarpData": "water_sawmill_cast_iron_sheet",
+      "CardWarpType": 3
+    }
+  ],
+  "TagsOnBoard": [],
+  "StatValues": [],
+  "BuildingCardConditions": [],
+  "BuildingTagConditions": [],
+  "BuildingStatConditions": [],
+  "BlueprintStages": [
+    {
+      "CannotRevertToThisStage": false,
+      "RequiredElements": [
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "water_sawmill_cast_iron_sheet",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 1,
+          "DontSpend": true,
+          "EffectOnIngredient": {
+            "ModType": 1,
+            "UsageChange": {
+              "x": -8.0,
+              "y": -8.0
+            }
+          },
+          "RequiredTabGroup": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredTabGroupWarpData": "GpTag_HammeringToolGeneral",
+          "RequiredTabGroupWarpType": 3
+        }
+      ],
+      "StepActionTags": [],
+      "StepActionTagsWarpData": [],
+      "StepActionTagsWarpType": 3
+    }
+  ],
+  "BuildingDaytimeCost": 3,
+  "DeconstructDaytimeCost": 1,
+  "BlueprintActionTags": [],
+  "BlueprintActionTagsWarpData": [
+    "HandAction",
+    "CraftAction"
+  ],
+  "BlueprintActionTagsWarpType": 3,
+  "BlueprintResult": [
+    {
+      "DroppedCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "Quantity": {
+        "x": 8,
+        "y": 8
+      },
+      "DroppedCardWarpData": "water_sawmill_iron_rivet",
+      "DroppedCardWarpType": 3
+    }
+  ],
+  "BlueprintStatModifications": [],
+  "WhenCreatedSoundsWarpData": [
+    "Metal"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "ResearchedNotification": 0
+}

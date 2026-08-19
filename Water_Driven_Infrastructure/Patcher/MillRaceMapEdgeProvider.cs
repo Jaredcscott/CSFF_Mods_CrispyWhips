@@ -55,7 +55,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     var jsonText = ReadAllTextDetectEncoding(filePath);
                     mapFile = ParseMapFile(jsonText);
                     int rawEdgesLen = mapFile?.Edges?.Length ?? -1;
-                    logger?.LogDebug($"[MillRaceMap] Parse diagnostic: parser=MiniJson, encoding={DescribeEncoding(filePath)}, mapFile={(mapFile == null ? "null" : "ok")}, edgesArrayLen={rawEdgesLen}");
+                    logger?.LogDebug($"[MillRaceMap] Parse diagnostic: parser=MiniJson, encoding={DescribeEncoding(filePath, logger)}, mapFile={(mapFile == null ? "null" : "ok")}, edgesArrayLen={rawEdgesLen}");
                 }
             }
             catch (Exception ex)
@@ -186,7 +186,7 @@ namespace WaterDrivenInfrastructure.Patcher
             return System.Text.Encoding.UTF8.GetString(bytes);
         }
 
-        private static string DescribeEncoding(string filePath)
+        private static string DescribeEncoding(string filePath, ManualLogSource logger = null)
         {
             try
             {
@@ -198,7 +198,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 if (bytes.Length >= 2 && bytes[0] == 0xFE && bytes[1] == 0xFF)
                     return "utf16-be";
             }
-            catch { }
+            catch (Exception ex) { logger?.LogDebug($"[MillRaceMap] DescribeEncoding({filePath}) failed: {ex.Message}"); }
             return "utf8";
         }
 

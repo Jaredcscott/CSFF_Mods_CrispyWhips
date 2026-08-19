@@ -189,7 +189,9 @@ namespace WaterDrivenInfrastructure.Patcher
         {
             try
             {
-                var gmType = AccessTools.TypeByName("GameManager");
+                // Compile-time typeof avoids ModCore's shadowing GameManager (which lacks a usable
+                // GiveCard) — WDI already references Assembly-CSharp. See root CLAUDE.md §Runtime Card Spawning.
+                var gmType = typeof(GameManager);
                 var cardType = AccessTools.TypeByName("InGameCardBase");
 
                 var selectedContainedBlueprint = AccessTools.Method(cardType, "GetSelectedContainedBlueprint");
@@ -364,7 +366,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 }
             });
 
-            // Water-Driven Forge / Workshop — "Hammer All"
+            // Water-Driven Workshop — "Hammer All" (Workshop only; the Forge has no such action)
             ActionRouter.Register(new ActionHandler
             {
                 Name = "HammerAll",
@@ -411,6 +413,15 @@ namespace WaterDrivenInfrastructure.Patcher
             __result = null;
         }
 
+        // Tracks whether the 7-method stack-trace match below has EVER succeeded, so a future
+        // game update silently renaming/restructuring all 7 targets surfaces as a log line
+        // instead of a permanently-silent Workshop-storage-routing regression (no exception is
+        // thrown when the match simply fails, so the catch breadcrumb never fires on its own).
+        private static bool _everMatchedWorkshopStorageContext;
+        private static int _workshopStorageContextCallCount;
+        private static bool _workshopStorageContextWarningLogged;
+        private const int WorkshopStorageContextWarningThreshold = 50;
+
         private static bool IsWorkshopPrimaryStorageContext()
         {
             try
@@ -428,15 +439,31 @@ namespace WaterDrivenInfrastructure.Patcher
 
                     if (typeName == "InspectionPopup" &&
                         (methodName == "SetupInventory" || methodName == "RefreshInventory" || methodName == "RefreshVisibleSlots"))
+                    {
+                        _everMatchedWorkshopStorageContext = true;
                         return true;
+                    }
 
                     if (typeName == "InGameCardBase" &&
                         (methodName == "OnDrop" || methodName == "GetPossibleActionFromPlayerDrag" ||
                          methodName == "DropInInventory" || methodName == "CanReceiveInInventoryInstance" || methodName == "GetIndexForInventory"))
+                    {
+                        _everMatchedWorkshopStorageContext = true;
                         return true;
+                    }
                 }
             }
-            catch { }
+            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] IsWorkshopPrimaryStorageContext: {ex.Message}"); }
+
+            if (!_everMatchedWorkshopStorageContext && !_workshopStorageContextWarningLogged &&
+                ++_workshopStorageContextCallCount >= WorkshopStorageContextWarningThreshold)
+            {
+                _workshopStorageContextWarningLogged = true;
+                Logger?.LogWarning("[ActionIntercept] IsWorkshopPrimaryStorageContext: never matched any of the 7 target frames " +
+                    $"across {_workshopStorageContextCallCount} calls to the Workshop's GetSelectedContainedBlueprint hook — " +
+                    "the game may have renamed InspectionPopup/InGameCardBase's storage methods; the Workshop may be routing " +
+                    "through blueprint-slot display instead of normal storage. Check CLAUDE.md §Storage-first stations.");
+            }
 
             return false;
         }
@@ -501,18 +528,14 @@ namespace WaterDrivenInfrastructure.Patcher
 
             Logger?.LogDebug($"[ActionIntercept] BlastAll: smelting {toSmelt.Count} item(s) → {totalNuggets} copper nugget(s), quality {bestQualityPct:P0}");
 
+            // GiveCard returns void in EA 0.65 (SpawnService.Spawn always returns null — see the
+            // Grind All note above), so quality CANNOT be set on the return value. Snapshot the
+            // pre-existing copper nuggets, spawn N, then find the new ones by ID-diff and apply
+            // quality via a decoupled coroutine — the same pattern as the Sluice/Grind/Lump paths.
+            var blastPreIds = SnapshotCardIdsByUniqueId(CopperNuggetGUID);
             for (int i = 0; i < totalNuggets; i++)
-            {
-                var nugget = SpawnService.Spawn(CopperNuggetGUID);
-                if (nugget == null) continue;
-                foreach (var stat in new[] { "SpecialDurability1", "SpecialDurability2", "SpecialDurability3" })
-                {
-                    float max = CardUtil.GetDurabilityMax(nugget, stat);
-                    if (float.IsNaN(max) || max <= 0f) max = 100f;
-                    SetMinimumDurabilityStatValue(nugget, stat, Math.Max(bestQualityPct * max, NuggetSmeltQuality));
-                }
-                RefreshCardDurabilityVisuals(nugget);
-            }
+                SpawnService.Spawn(CopperNuggetGUID);
+            StartDelayedBlastNuggetInitialization(blastPreIds, totalNuggets, bestQualityPct);
 
             EjectCardsFromStructure(workshop, toSmelt.Select(t => t.item));
         }
@@ -563,6 +586,22 @@ namespace WaterDrivenInfrastructure.Patcher
 
             Logger?.Log(LogLevel.Debug, $"[ActionIntercept] GrindAll: grinding {toGrind.Count} item(s)");
 
+            // GiveCard returns void in EA 0.65 — SpawnService.Spawn always returns null, so the
+            // only way to find each freshly-spawned result is to diff known-card IDs before vs.
+            // after. Previously this diff called EnumerateKnownCards() (which falls back to a
+            // full-scene FindObjectsOfType(InGameCardBase) scan) TWICE per grind item — once to
+            // snapshot pre-IDs, once to find the new card — so an 18-slot batch could trigger up
+            // to 36 scene scans for one button press. AllCards.Add(spawned) happens synchronously
+            // inside GiveCard (.decomp/GameManager.cs), so the cheap EnumerateGameManagerAllCards()
+            // path (no scene scan) reliably sees each new card immediately; the expensive scene
+            // scan is now taken at most ONCE for the whole batch, only if that cheap path ever
+            // misses a spawn.
+            var preIdsByResult = new Dictionary<string, HashSet<int>>();
+            foreach (var resultId in toGrind.Select(t => t.resultId).Distinct())
+                preIdsByResult[resultId] = SnapshotCardIdsByUniqueId(resultId, EnumerateGameManagerAllCards());
+
+            bool sceneFallbackUsed = false;
+
             foreach (var (sourceCard, resultId) in toGrind)
             {
                 string srcUid  = CardUtil.GetCardUniqueId(sourceCard);
@@ -572,22 +611,41 @@ namespace WaterDrivenInfrastructure.Patcher
                 float srcQ3Max = CardUtil.GetDurabilityMax(sourceCard, "SpecialDurability3");
                 Logger?.LogDebug($"[GrindAll] grinding '{srcUid}' → '{resultId}': SD2={srcQ2:F1}/{srcQ2Max:F1}");
 
-                // GiveCard returns void in EA 0.65 — SpawnService.Spawn always returns null.
-                // Snapshot before spawn, then scan for new cards to transfer quality.
-                var preIds = SnapshotCardIdsByUniqueId(resultId);
+                var preIds = preIdsByResult[resultId];
                 SpawnService.Spawn(resultId);
-                foreach (var newCard in EnumerateKnownCards())
+
+                object newCard = FindNewCard(resultId, preIds, EnumerateGameManagerAllCards());
+                if (newCard == null && !sceneFallbackUsed)
                 {
-                    if (CardUtil.GetCardUniqueId(newCard) != resultId) continue;
-                    if (newCard is UnityEngine.Object uo && preIds.Contains(uo.GetInstanceID())) continue;
-                    ApplyMinimumQualityPercent(newCard, "SpecialDurability2", srcQ2, srcQ2Max);
-                    ApplyMinimumQualityPercent(newCard, "SpecialDurability3", srcQ3, srcQ3Max);
-                    RefreshCardDurabilityVisuals(newCard);
+                    // Cheap path missed it — fall back to one full scene scan for the rest of
+                    // this batch (not per-item) and retry from that single snapshot.
+                    sceneFallbackUsed = true;
+                    newCard = FindNewCard(resultId, preIds, EnumerateKnownCards());
                 }
+
+                if (newCard == null) continue;
+                if (newCard is UnityEngine.Object uo) preIds.Add(uo.GetInstanceID());
+
+                ApplyMinimumQualityPercent(newCard, "SpecialDurability2", srcQ2, srcQ2Max);
+                ApplyMinimumQualityPercent(newCard, "SpecialDurability3", srcQ3, srcQ3Max);
+                RefreshCardDurabilityVisuals(newCard);
             }
 
             EjectSourceCardsFromMill(mill, toGrind);
             return false;
+        }
+
+        // Finds one card matching resultId that is not in preIds (i.e. newly spawned), from an
+        // already-materialized candidate sequence — does NOT itself trigger any scan.
+        private static object FindNewCard(string resultId, HashSet<int> preIds, IEnumerable<object> candidates)
+        {
+            foreach (var card in candidates)
+            {
+                if (CardUtil.GetCardUniqueId(card) != resultId) continue;
+                if (card is UnityEngine.Object uo && preIds.Contains(uo.GetInstanceID())) continue;
+                return card;
+            }
+            return null;
         }
 
         private static void EjectSourceCardsFromMill(object mill, List<(object card, string resultId)> toGrind)
@@ -640,7 +698,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     go?.SetActive(active);
                 }
             }
-            catch { }
+            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] TrySetActive: {ex.Message}"); }
         }
 
         private static string ResolveGrindResult(object card)
@@ -723,7 +781,14 @@ namespace WaterDrivenInfrastructure.Patcher
                 var cmProp = card.GetType().GetProperty("CardModel", Flags);
                 return cmProp?.GetValue(card);
             }
-            catch { return null; }
+            catch (Exception ex)
+            {
+                // Hot path — feeds ResolveGrindResult (per Grind All item) and the hammer
+                // metal-quality-tool gate (per hammer swing). Breadcrumb so a CardModel
+                // reflection break doesn't silently degrade those into no-ops.
+                Logger?.Log(LogLevel.Debug, $"[ActionIntercept] GetCardData({card?.GetType().Name}) failed: {ex.Message}");
+                return null;
+            }
         }
 
         // ============================================================
@@ -998,11 +1063,16 @@ namespace WaterDrivenInfrastructure.Patcher
         // ============================================================
 
         private static HashSet<int> SnapshotCardIdsByUniqueId(string uniqueId)
+            => SnapshotCardIdsByUniqueId(uniqueId, EnumerateKnownCards());
+
+        // Overload taking an already-chosen candidate source, so batch callers (Grind All) can
+        // pass the cheap AllCards enumeration instead of triggering their own scene scan per call.
+        private static HashSet<int> SnapshotCardIdsByUniqueId(string uniqueId, IEnumerable<object> candidates)
         {
             var result = new HashSet<int>();
             try
             {
-                foreach (var card in EnumerateKnownCards())
+                foreach (var card in candidates)
                 {
                     if (CardUtil.GetCardUniqueId(card) != uniqueId) continue;
                     if (card is UnityEngine.Object uo) result.Add(uo.GetInstanceID());
@@ -1036,7 +1106,11 @@ namespace WaterDrivenInfrastructure.Patcher
             for (int attempt = 0; attempt < LumpInitializationRetryFrames; attempt++)
             {
                 yield return null;
-                updatedNewCard |= ApplyLumpSpawnStats(preIds, allowExistingFallback: false) > 0;
+                if (ApplyLumpSpawnStats(preIds, allowExistingFallback: false) > 0)
+                {
+                    updatedNewCard = true;
+                    break; // found & initialized the new lump — stop scanning the scene each frame
+                }
             }
 
             if (!updatedNewCard)
@@ -1212,7 +1286,7 @@ namespace WaterDrivenInfrastructure.Patcher
                         return true;
                 }
             }
-            catch { }
+            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] IsIronSmeltPending: {ex.Message}"); }
             return false;
         }
 
@@ -1365,7 +1439,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     RefreshCardDurabilityVisuals(card);
                 }
                 if (boosted > 0)
-                    Logger?.Log(LogLevel.Debug, $"[ActionIntercept] HammerAll: workshop quality boosted {boosted} item(s)");
+                    Logger?.Log(LogLevel.Debug, $"[ActionIntercept] HammerAll: workshop quality boosted {boosted} item(s) by +{WorkshopMetalQualityBoost}");
             }
 
             // Apply one hit to items that don't finish yet
@@ -1436,7 +1510,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 StartDelayedLumpInitialization(lumpPreIds);
 
             RefreshOpenInventoryPopup();
-            Logger?.LogDebug($"[ActionIntercept] {kind}: consumed {cost} copper nuggets, spawned {resultCount} {resultId}");
+            Logger?.LogDebug($"[ActionIntercept] {kind}: consumed {cost} copper nuggets, spawned {resultCount}x {resultId} on board");
             return true;
         }
 
@@ -1571,7 +1645,7 @@ namespace WaterDrivenInfrastructure.Patcher
 
                 CardUtil.SetDurability(card, "SpecialDurability1", cur + 1f);
             }
-            catch { }
+            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] IncrementAccumulatingStrikeCount: {ex.Message}"); }
         }
 
         private static bool IsMetalQualityTool(object card)
@@ -1579,9 +1653,14 @@ namespace WaterDrivenInfrastructure.Patcher
             object cardData = GetCardData(card);
             if (cardData == null) return false;
 
+            // No card-tag gate here: the real candidates (vanilla MetalNugget,
+            // MetalBarUnfinished) carry no gameplay tags at all — the workshop's own
+            // InventoryFilter has to allowlist MetalNugget by exact UID for the same
+            // reason. An active "...Quality"-named SpecialDurability2 is already a
+            // reliable, narrow signal (WDI's own Copper Gears fail it since their
+            // SD2 is inactive), so it stands alone.
             return IsDurabilityDefinitionActive(cardData, "SpecialDurability2")
-                && DurabilityStatNameContains(cardData, "SpecialDurability2", "Quality")
-                && HasAnyCardTag(cardData, "tag_Metal", "tag_ToolBlank", "tag_CopperSmall", "tag_CopperBig");
+                && DurabilityStatNameContains(cardData, "SpecialDurability2", "Quality");
         }
 
         private static bool IsDurabilityDefinitionActive(object cardData, string statName)
@@ -1592,7 +1671,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 var active = def?.GetType().GetField("Active", Flags)?.GetValue(def);
                 return active is bool b && b;
             }
-            catch { return false; }
+            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] IsDurabilityDefinitionActive({statName}): {ex.Message}"); return false; }
         }
 
         private static bool DurabilityStatNameContains(object cardData, string statName, string text)
@@ -1605,42 +1684,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 return !string.IsNullOrEmpty(defaultText)
                     && defaultText.IndexOf(text, StringComparison.OrdinalIgnoreCase) >= 0;
             }
-            catch { return false; }
-        }
-
-        private static bool HasAnyCardTag(object cardData, params string[] tagNames)
-        {
-            try
-            {
-                var wanted = new HashSet<string>(tagNames, StringComparer.OrdinalIgnoreCase);
-                if (HasAnyTagInList(cardData?.GetType().GetField("CardTags", Flags)?.GetValue(cardData) as IList, wanted))
-                    return true;
-                if (HasAnyTagInList(cardData?.GetType().GetField("CardTagsWarpData", Flags)?.GetValue(cardData) as IList, wanted))
-                    return true;
-            }
-            catch { }
-            return false;
-        }
-
-        private static bool HasAnyTagInList(IList tags, HashSet<string> wanted)
-        {
-            if (tags == null) return false;
-            foreach (var tag in tags)
-            {
-                string tagName = GetTagName(tag);
-                if (tagName != null && wanted.Contains(tagName)) return true;
-            }
-            return false;
-        }
-
-        private static string GetTagName(object tag)
-        {
-            if (tag == null) return null;
-            if (tag is string s) return s;
-            if (tag is UnityEngine.Object uo) return uo.name;
-            return tag.GetType().GetField("UniqueID", Flags)?.GetValue(tag) as string
-                ?? tag.GetType().GetField("name", Flags)?.GetValue(tag) as string
-                ?? tag.GetType().GetProperty("name", Flags)?.GetValue(tag, null) as string;
+            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] DurabilityStatNameContains({statName}): {ex.Message}"); return false; }
         }
 
         private struct HammerHitInfo
@@ -1760,7 +1804,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 var value = obj?.GetType().GetField(fieldName, Flags)?.GetValue(obj);
                 return value is bool b && b;
             }
-            catch { return false; }
+            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] GetBoolField({fieldName}): {ex.Message}"); return false; }
         }
 
         private static string GetUniqueIdFromObject(object value)
@@ -1771,7 +1815,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 if (value is UniqueIDScriptable uid) return uid.UniqueID;
                 return value.GetType().GetField("UniqueID", Flags)?.GetValue(value) as string;
             }
-            catch { return null; }
+            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] GetUniqueIdFromObject: {ex.Message}"); return null; }
         }
 
         private static bool SetMinimumDurabilityStatValue(object card, string statName, float minimumValue)
@@ -1811,7 +1855,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 var refresh = visuals?.GetType().GetMethod("RefreshDurabilities", Flags);
                 refresh?.Invoke(visuals, null);
             }
-            catch { }
+            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] RefreshCardDurabilityVisuals: {ex.Message}"); }
         }
 
         private static void EjectCardsFromStructure(object structure, IEnumerable<object> cards)
@@ -2079,6 +2123,68 @@ namespace WaterDrivenInfrastructure.Patcher
             catch (Exception ex) { Logger?.LogError($"[ActionIntercept] ApplyNuggetStatsToCard: {ex.Message}"); return false; }
         }
 
+        // ——— Blast copper nugget stat init (quality carried from the smelted items) ———
+        // Plain copper (no SD4 type), quality = best smelted item's percentage, floored at
+        // NuggetSmeltQuality. Found by pre/post ID-diff because GiveCard returns void.
+        private static void StartDelayedBlastNuggetInitialization(HashSet<int> preIds, int count, float bestQualityPct)
+        {
+            if (count <= 0) return;
+            try
+            {
+                var gm = CardUtil.GetGameManagerInstance();
+                if (gm is UnityEngine.MonoBehaviour mb)
+                {
+                    mb.StartCoroutine(ApplyBlastNuggetStatsAfterSpawn(preIds, count, bestQualityPct));
+                    return;
+                }
+            }
+            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] StartDelayedBlastNuggetInitialization: {ex.Message}"); }
+            ApplyBlastNuggetSpawnStats(preIds, count, bestQualityPct);
+        }
+
+        private static IEnumerator ApplyBlastNuggetStatsAfterSpawn(HashSet<int> preIds, int count, float bestQualityPct)
+        {
+            for (int attempt = 0; attempt < NuggetInitRetryFrames; attempt++)
+            {
+                yield return null;
+                if (ApplyBlastNuggetSpawnStats(preIds, count, bestQualityPct) >= count) yield break;
+            }
+        }
+
+        private static int ApplyBlastNuggetSpawnStats(HashSet<int> preIds, int count, float bestQualityPct)
+        {
+            int updated = 0;
+            try
+            {
+                foreach (var card in EnumerateKnownCards())
+                {
+                    if (updated >= count) break;
+                    if (CardUtil.GetCardUniqueId(card) != CopperNuggetGUID) continue;
+                    if (card is UnityEngine.Object uo)
+                    {
+                        if (preIds.Contains(uo.GetInstanceID())) continue;
+                        preIds.Add(uo.GetInstanceID()); // latch so retry frames don't re-process
+                    }
+                    if (ApplyBlastNuggetQuality(card, bestQualityPct)) updated++;
+                }
+            }
+            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] ApplyBlastNuggetSpawnStats: {ex.Message}"); }
+            return updated;
+        }
+
+        private static bool ApplyBlastNuggetQuality(object card, float bestQualityPct)
+        {
+            bool changed = false;
+            foreach (var stat in new[] { "SpecialDurability1", "SpecialDurability2", "SpecialDurability3" })
+            {
+                float max = CardUtil.GetDurabilityMax(card, stat);
+                if (float.IsNaN(max) || max <= 0f) max = 100f;
+                changed |= SetMinimumDurabilityStatValue(card, stat, Math.Max(bestQualityPct * max, NuggetSmeltQuality));
+            }
+            if (changed) RefreshCardDurabilityVisuals(card);
+            return changed;
+        }
+
         /// <summary>
         /// Replaces a card's CardData (CardModel) with the target in-place.
         /// Avoids destroying the card — which triggers OnDestroy relocation — by
@@ -2275,7 +2381,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 var refresh = popup?.GetType().GetMethod("RefreshInventory", Flags);
                 refresh?.Invoke(popup, null);
             }
-            catch { }
+            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] RefreshOpenInventoryPopup: {ex.Message}"); }
         }
 
         private static int GetCardCharges(object card)
@@ -2293,7 +2399,13 @@ namespace WaterDrivenInfrastructure.Patcher
                 if (field != null)
                     return Convert.ToInt32(field.GetValue(card));
             }
-            catch { }
+            catch (Exception ex)
+            {
+                // Hot path (Sluice per-item quantity resolution) — defaulting to 1 on a
+                // swallowed reflection failure silently understates output count. Breadcrumb
+                // so a field/property rename shows up as a log line, not a quiet wrong count.
+                Logger?.Log(LogLevel.Debug, $"[ActionIntercept] GetCardCharges({card?.GetType().Name}) failed: {ex.Message}");
+            }
             return 1;
         }
 

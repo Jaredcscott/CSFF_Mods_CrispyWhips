@@ -29,8 +29,7 @@
       "cards": [
         "water_sawmill_frame",
         "water_sawmill_placed",
-        "water_sawmill_bp_water_driven_sawmill",
-        "water_sawmill_perk_sawmill_start"
+        "water_sawmill_bp_water_driven_sawmill"
       ]
     },
     {
@@ -39,8 +38,7 @@
       "cards": [
         "water_sawmill_grinding_mill_kit",
         "water_sawmill_grinding_mill_placed",
-        "water_sawmill_bp_grinding_mill",
-        "water_sawmill_perk_grinding_mill_start"
+        "water_sawmill_bp_grinding_mill"
       ]
     },
     {
@@ -49,8 +47,7 @@
       "cards": [
         "water_sawmill_forge_kit",
         "water_sawmill_forge_placed",
-        "water_sawmill_bp_water_driven_forge",
-        "water_sawmill_perk_forge_start"
+        "water_sawmill_bp_water_driven_forge"
       ]
     },
     {
@@ -121,12 +118,39 @@
       ]
     },
     {
+      "name": "Fasteners & Cast Sheets",
+      "status": "Implemented",
+      "cards": [
+        "water_sawmill_copper_rivet",
+        "water_sawmill_iron_rivet",
+        "water_sawmill_alloy_solder",
+        "water_sawmill_cast_metal_sheet",
+        "water_sawmill_cast_iron_sheet",
+        "water_sawmill_bp_copper_rivet",
+        "water_sawmill_bp_iron_rivet",
+        "water_sawmill_bp_alloy_solder",
+        "water_sawmill_bp_cast_metal_sheet",
+        "water_sawmill_bp_cast_iron_sheet",
+        "water_sawmill_bp_iron_rivets_from_sheet"
+      ]
+    },
+    {
       "name": "Starter Perks",
       "status": "Implemented",
       "cards": [
         "water_sawmill_perk_sawmill_start",
         "water_sawmill_perk_forge_start",
-        "water_sawmill_perk_grinding_mill_start"
+        "water_sawmill_perk_grinding_mill_start",
+        "water_sawmill_perk_ore_sluice_start",
+        "water_sawmill_perk_fishpond_start",
+        "water_sawmill_perk_outlet_start"
+      ]
+    },
+    {
+      "name": "Millwright",
+      "status": "Implemented",
+      "cards": [
+        "water_sawmill_perk_millwright"
       ]
     }
   ]

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using BepInEx.Logging;
 using HarmonyLib;
+using CSFFModFramework.Util;
 
 namespace WaterDrivenInfrastructure.Patcher
 {
@@ -784,11 +785,7 @@ namespace WaterDrivenInfrastructure.Patcher
 
         private static object GetGameManager()
         {
-            var gmType = AccessTools.TypeByName("GameManager");
-            if (gmType == null)
-                return null;
-            return gmType.GetProperty("Instance", BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy)?.GetValue(null, null)
-                ?? UnityEngine.Object.FindObjectOfType(gmType);
+            return CardUtil.GetGameManagerInstance();
         }
 
         private static string GetCurrentEnvironmentUid()
@@ -895,8 +892,9 @@ namespace WaterDrivenInfrastructure.Patcher
                 var method = typeof(UniqueIDScriptable).GetMethod("AddNamesToEnvKey", BindingFlags.Public | BindingFlags.Static);
                 return method?.Invoke(null, new object[] { key }) as string ?? key;
             }
-            catch
+            catch (Exception ex)
             {
+                Logger?.LogDebug($"[MillRaceNetwork] AddNamesToEnvKey reflection failed: {ex.InnerException?.Message ?? ex.Message}");
                 return key;
             }
         }
@@ -910,8 +908,9 @@ namespace WaterDrivenInfrastructure.Patcher
                 var method = typeof(UniqueIDScriptable).GetMethod("LoadID", BindingFlags.Public | BindingFlags.Static);
                 return method?.Invoke(null, new object[] { id }) as string ?? id;
             }
-            catch
+            catch (Exception ex)
             {
+                Logger?.LogDebug($"[MillRaceNetwork] LoadSavedUniqueId reflection failed: {ex.InnerException?.Message ?? ex.Message}");
                 return id;
             }
         }
@@ -999,8 +998,9 @@ namespace WaterDrivenInfrastructure.Patcher
                     ?? (season as UnityEngine.Object)?.name;
                 return string.Equals(uniqueId, "Winter", StringComparison.OrdinalIgnoreCase);
             }
-            catch
+            catch (Exception ex)
             {
+                Logger?.LogDebug($"[MillRaceNetwork] IsWinter season read failed: {ex.Message}");
                 return false;
             }
         }

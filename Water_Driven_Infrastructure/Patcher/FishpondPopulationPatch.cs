@@ -230,7 +230,13 @@ namespace WaterDrivenInfrastructure.Patcher
                 // Fallback: field access (handles any UniqueIDScriptable subclass)
                 return _uidField?.GetValue(model) as string;
             }
-            catch { return null; }
+            catch (Exception ex)
+            {
+                // Hot path (called every ~2s per cached pond) — breadcrumb so a reflection break
+                // here (e.g. CardModel/UniqueID field rename) doesn't silently stop pond upkeep.
+                Logger?.Log(LogLevel.Debug, $"[FishpondPop] GetUID({card?.GetType().Name}) failed: {ex.Message}");
+                return null;
+            }
         }
 
     }

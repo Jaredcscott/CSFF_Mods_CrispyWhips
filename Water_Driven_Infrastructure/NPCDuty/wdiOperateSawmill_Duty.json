@@ -1,0 +1,12 @@
+{
+  "UniqueID": "wdiOperateSawmill_Duty",
+  "DutyName": {
+    "ParentObjectID": "wdiOperateSawmill_Duty",
+    "LocalizationKey": "Water_Sawmill_Placed_Duty_DutyName",
+    "DefaultText": "Operate the Sawmill"
+  },
+  "MaxPerformPerDay": 0,
+  "DutyExecutionOptions": 0,
+  "GiveUpOptions": 0,
+  "DutyConditions": {}
+}

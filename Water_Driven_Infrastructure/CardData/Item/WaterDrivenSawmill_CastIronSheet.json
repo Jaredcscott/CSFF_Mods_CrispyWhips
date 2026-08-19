@@ -8,12 +8,12 @@
   "CardDescription": {
     "ParentObjectID": "water_sawmill_cast_iron_sheet",
     "LocalizationKey": "Water_Sawmill_CastIronSheet_CardDescription",
-    "DefaultText": "A flat iron sheet, hammered thin from a heated iron-grade metal bar. Tougher than a cast copper sheet, but interchangeable with it as construction material."
+    "DefaultText": "A flat iron sheet, hammered thin from a heated iron-grade metal bar. Sheet stock: shear it into rivets, or keep it as iron-tier plate for construction."
   },
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_cast_iron_sheet",
     "LocalizationKey": "Water_Sawmill_CastIronSheet_CardHelpSection",
-    "DefaultText": "<b>Crafted:</b> From a heated iron-grade metal bar with a hammer. \n\n<b>Uses:</b> Construction and crafting material — accepted anywhere a Cast Copper Sheet is required."
+    "DefaultText": "<b>Crafted:</b> From a heated iron-grade metal bar with a hammer. \n\n<b>Uses:</b> Shear it into eight Cast Iron Rivets with the Cut Iron Rivets from Sheet blueprint (Metal Crafts tab, hammering tool needed). With AdvancedCopperTools installed it also stands in for ACT's Iron Sheet."
   },
   "CanBeRenamed": false,
   "CardImage": {

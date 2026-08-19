@@ -19,6 +19,9 @@
   "ObjectWeight": 800.0,
   "TradingValue": 350.0,
   "AlwaysUpdate": false,
+  "UsesOwnershipSystem": false,
+  "CompatibleDutiesWarpData": ["wdiOperateOreSluice_Duty"],
+  "CompatibleDutiesWarpType": 3,
   "CardTags": [],
   "CardTagsWarpData": ["tag_Wood"],
   "CardTagsWarpType": 3,
@@ -112,7 +115,10 @@
       "ActionSoundsWarpType": 3,
       "ReceivingCardChanges": {},
       "ProducedCards": [],
-      "StatModifications": []
+      "StatModifications": [],
+      "CompatibleNPCDuties": [
+        {"TargetWarpData": "wdiOperateOreSluice_Duty", "TargetWarpType": 3}
+      ]
     },
     {
       "ActionName": {

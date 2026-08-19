@@ -8,12 +8,12 @@
   "CardDescription": {
     "ParentObjectID": "water_sawmill_workshop_placed",
     "LocalizationKey": "Water_Sawmill_WorkshopPlaced_CardDescription",
-    "DefaultText": "A water-powered metalworking workshop with an upgraded forge hammer for higher-quality tools."
+    "DefaultText": "A water-powered metalworking workshop with an upgraded forge hammer that gradually improves the quality of heated metal items."
   },
   "CardHelpSection": {
     "ParentObjectID": "water_sawmill_workshop_placed",
     "LocalizationKey": "Water_Sawmill_WorkshopPlaced_CardHelpSection",
-    "DefaultText": "<b>Requirements:</b> Requires local mill race for water power. Water-powered actions stop when water is frozen in winter.\n\n<b>Operation:</b> Drag firewood or charcoal onto the workshop forge to feed fuel, then light it with embers. The forge naturally heats to about 1000. In a windy highland environment, natural wind gradually raises the forge to smelting temperature (1100) on its own. Use Blast when water is flowing, or drag Bellows onto the lit forge by hand, to quickly reach smelting temperature. Place heated metal tool blanks or copper parts in the inventory, then press Hammer All to apply one water-hammer strike to each item while water is flowing. Put six copper nuggets in the workshop inventory, then use Hammer Copper Sheet or Forge Copper Nails. The workshop hammer improves metal quality while shaping tools.\n\n<b>Accepts:</b> All heated tool blanks, heated lump of metal, copper gear parts, and any item tagged Heatable or Copper.\n\n<b>Iron:</b> Iron nuggets and iron blooms heat more slowly than copper. All metal heats once the forge is lit."
+    "DefaultText": "<b>Requirements:</b> Requires local mill race for water power. Water-powered actions stop when water is frozen in winter.\n\n<b>Operation:</b> Drag firewood or charcoal onto the workshop forge to feed fuel, then light it with embers. The forge naturally heats to about 1000. In a windy highland environment, natural wind gradually raises the forge to smelting temperature (1100) on its own — no Blast needed. Use Blast when water is flowing, or drag Bellows onto the lit forge by hand, to quickly reach smelting temperature. Place heated metal tool blanks or copper parts in the inventory, then press Hammer All to apply one water-hammer strike to each item while water is flowing — each strike also raises the item's Metal Quality by a small amount (this doesn't show as a visible number on the item itself, but it carries over once the item is finished or transformed). Put six copper nuggets in the workshop inventory, then use Hammer Copper Sheet or Forge Copper Nails to produce output; results appear on the ground beside the workshop.\n\n<b>Accepts:</b> All heated tool blanks, heated lump of metal, copper gear parts, and any item tagged Heatable or Copper.\n\n<b>Iron:</b> Iron nuggets and iron blooms heat more slowly than copper. All metal heats once the forge is lit."
   },
   "CardImage": {
     "m_FileID": 0,
@@ -25,6 +25,12 @@
   "ObjectWeight": 1200.0,
   "TradingValue": 500.0,
   "AlwaysUpdate": true,
+  "UsesOwnershipSystem": false,
+  "CompatibleDutiesWarpData": [
+    "6147eff5b0fe3014ca57364f4d075514",
+    "wdiOperateWorkshop_Duty"
+  ],
+  "CompatibleDutiesWarpType": 3,
   "CardTags": [],
   "CardTagsWarpData": [
     "tag_Copper",
@@ -180,6 +186,7 @@
     "AcceptedCardsWarpData": [
       "efe7a2185c9775e47abd72c80be32768",
       "4b0f4937a5ecb90499428c8c10288afc",
+      "b92071e54dac7e54db99b48794e737ad",
       "492ba87119393c1448fb6d320e371b65",
       "water_sawmill_copper_gear_large",
       "water_sawmill_copper_gear_small",
@@ -283,7 +290,13 @@
       },
       "GivenCardChanges": {
         "ModType": 3
-      }
+      },
+      "CompatibleNPCDuties": [
+        {
+          "TargetWarpData": "6147eff5b0fe3014ca57364f4d075514",
+          "TargetWarpType": 3
+        }
+      ]
     },
     {
       "ActionName": {
@@ -327,7 +340,13 @@
       },
       "GivenCardChanges": {
         "ModType": 3
-      }
+      },
+      "CompatibleNPCDuties": [
+        {
+          "TargetWarpData": "6147eff5b0fe3014ca57364f4d075514",
+          "TargetWarpType": 3
+        }
+      ]
     },
     {
       "ActionName": {
@@ -371,7 +390,13 @@
       },
       "GivenCardChanges": {
         "ModType": 3
-      }
+      },
+      "CompatibleNPCDuties": [
+        {
+          "TargetWarpData": "6147eff5b0fe3014ca57364f4d075514",
+          "TargetWarpType": 3
+        }
+      ]
     },
     {
       "ActionName": {
@@ -620,7 +645,13 @@
       },
       "GivenCardChanges": {
         "ModType": 3
-      }
+      },
+      "CompatibleNPCDuties": [
+        {
+          "TargetWarpData": "6147eff5b0fe3014ca57364f4d075514",
+          "TargetWarpType": 3
+        }
+      ]
     },
     {
       "ActionName": {
@@ -840,6 +871,12 @@
             }
           ]
         }
+      ],
+      "CompatibleNPCDuties": [
+        {
+          "TargetWarpData": "wdiOperateWorkshop_Duty",
+          "TargetWarpType": 3
+        }
       ]
     }
   ],
@@ -853,7 +890,7 @@
       "ActionDescription": {
         "ParentObjectID": "water_sawmill_workshop_placed",
         "LocalizationKey": "Water_Sawmill_ForgePlaced_Blast_ActionDescription",
-        "DefaultText": "Drive the water leather bellows hard to push the forge to working heat. Requires fuel and a lit fire."
+        "DefaultText": "Drive the water-powered bellows to push the forge to smelting heat, warming you in the process. Requires fuel, a lit fire, and flowing water."
       },
       "DaytimeCost": 4,
       "UseMiniTicks": 0,
@@ -931,7 +968,31 @@
         }
       },
       "ProducedCards": [],
-      "StatModifications": []
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "d875c7e4eea52f54ca5076f256ccd16c",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 160.0,
+            "y": 160.0
+          },
+          "TriggerStat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "TriggerStatWarpData": "",
+          "TriggerStatWarpType": 3,
+          "TriggerValue": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "TriggerStatValueIsMax": false
+        }
+      ]
     },
     {
       "ActionName": {
@@ -957,7 +1018,7 @@
       "RequiredReceivingDurabilities": {
         "RequiredSpoilagePercent": {
           "Active": true,
-          "FloatValue": 0.6,
+          "FloatValue": 0.5,
           "MaxValue": 1.0
         },
         "RequiredUsagePercent": {
@@ -1008,7 +1069,13 @@
         "ModType": 0
       },
       "ProducedCards": [],
-      "StatModifications": []
+      "StatModifications": [],
+      "CompatibleNPCDuties": [
+        {
+          "TargetWarpData": "wdiOperateWorkshop_Duty",
+          "TargetWarpType": 3
+        }
+      ]
     },
     {
       "ActionName": {
@@ -1034,7 +1101,7 @@
       "RequiredReceivingDurabilities": {
         "RequiredSpoilagePercent": {
           "Active": true,
-          "FloatValue": 0.6,
+          "FloatValue": 0.5,
           "MaxValue": 1.0
         },
         "RequiredUsagePercent": {
@@ -1111,7 +1178,7 @@
       "RequiredReceivingDurabilities": {
         "RequiredSpoilagePercent": {
           "Active": true,
-          "FloatValue": 0.6,
+          "FloatValue": 0.5,
           "MaxValue": 1.0
         },
         "RequiredUsagePercent": {
@@ -1188,7 +1255,7 @@
       "RequiredReceivingDurabilities": {
         "RequiredSpoilagePercent": {
           "Active": true,
-          "FloatValue": 0.6,
+          "FloatValue": 0.5,
           "MaxValue": 1.0
         },
         "RequiredUsagePercent": {
@@ -1355,6 +1422,10 @@
     {
       "EffectName": "High Temperature loss without windflow",
       "Conditions": {
+        "RequiredNOTEnvironmentTagsWarpData": [
+          "tag_Env_Windy"
+        ],
+        "RequiredNOTEnvironmentTagsWarpType": 3,
         "ReceivingRequiredDurabilityRanges": {
           "SpoilageRange": {
             "x": 1001.0,
@@ -1368,7 +1439,7 @@
       },
       "SpoilageRateModifier": {
         "Active": true,
-        "FloatValue": -300.0
+        "FloatValue": -100.0
       }
     },
     {
@@ -1387,7 +1458,7 @@
       },
       "SpoilageRateModifier": {
         "Active": true,
-        "FloatValue": -100.0
+        "FloatValue": -33.3
       }
     },
     {
@@ -1398,8 +1469,8 @@
         ],
         "RequiredEnvironmentTagsWarpType": 3,
         "ReceivingRequiredDurabilityRanges": {
-          "FuelRange": {
-            "x": 0.01,
+          "SpoilageRange": {
+            "x": 1.0,
             "y": 1000000000.0
           }
         }
@@ -1646,15 +1717,7 @@
         "ModType": 0
       },
       "IngredientChanges": {
-        "ModType": 1,
-        "FuelChange": {
-          "x": 200.0,
-          "y": 200.0
-        },
-        "ChargesChange": {
-          "x": 1.0,
-          "y": 1.0
-        }
+        "ModType": 3
       },
       "FeedbackMode": 1,
       "ProgressBar": 3,
@@ -1679,7 +1742,29 @@
         "Active": false,
         "FloatValue": 0.0
       },
-      "Drops": [],
+      "Drops": [
+        {
+          "DroppedCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "DroppedCardWarpData": "b92071e54dac7e54db99b48794e737ad",
+          "DroppedCardWarpType": 3,
+          "Quantity": {
+            "x": 1,
+            "y": 2
+          },
+          "FinishUnlocking": false,
+          "DropChance": {
+            "Active": false,
+            "BaseDropChance": 0.0,
+            "DurabilitiesModifiers": [],
+            "StatsModifiers": [],
+            "CardsModifiers": [],
+            "NPCStatsModifiers": []
+          }
+        }
+      ],
       "StatModifications": [],
       "UseCookerForCardDrops": false,
       "DropsAsCollection": []

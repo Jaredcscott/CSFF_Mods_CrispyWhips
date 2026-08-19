@@ -19,6 +19,8 @@
   "ObjectWeight": 1000.0,
   "TradingValue": 450.0,
   "AlwaysUpdate": false,
+  "CompatibleDutiesWarpData": ["wdiOperateSawmill_Duty"],
+  "CompatibleDutiesWarpType": 3,
   "CardTags": [],
   "CardTagsWarpData": ["tag_Wood", "tag_Bag"],
   "CardTagsWarpType": 3,
@@ -140,7 +142,10 @@
           ]
         }
       ],
-      "StatModifications": []
+      "StatModifications": [],
+      "CompatibleNPCDuties": [
+        {"TargetWarpData": "wdiOperateSawmill_Duty", "TargetWarpType": 3}
+      ]
     }
   ],
   "DismantleActions": [

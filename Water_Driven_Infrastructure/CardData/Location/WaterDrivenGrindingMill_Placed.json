@@ -19,6 +19,9 @@
   "ObjectWeight": 1100.0,
   "TradingValue": 450.0,
   "AlwaysUpdate": false,
+  "UsesOwnershipSystem": false,
+  "CompatibleDutiesWarpData": ["wdiOperateGrindingMill_Duty"],
+  "CompatibleDutiesWarpType": 3,
   "CardTags": [],
   "CardTagsWarpData": ["tag_Wood", "tag_Stone", "tag_Bag"],
   "CardTagsWarpType": 3,
@@ -312,7 +315,10 @@
         "ChargesChange": {"x": 2.0, "y": 2.0}
       },
       "ProducedCards": [],
-      "StatModifications": []
+      "StatModifications": [],
+      "CompatibleNPCDuties": [
+        {"TargetWarpData": "wdiOperateGrindingMill_Duty", "TargetWarpType": 3}
+      ]
     },
     {
       "ActionName": {
