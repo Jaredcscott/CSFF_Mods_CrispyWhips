@@ -1,0 +1,84 @@
+HSP_Perk_Homestead_PerkName,Homestead,安家
+HSP_Perk_Homestead_PerkDescription,"You've come prepared to settle down. Start with a Homestead Kit, bundled for travel. Drop it wherever you want to build your homestead, then use Place to unpack a cabin kit, two rain cistern kits, and a stockpile of building materials (30 planks, 30 mud bricks, 50 stones, 20 heavy stones, 15 tree logs, 20 clay, 10 rope, 20 metal nuggets) all at once — then Place each kit to raise it. Everything can only be placed once.","你已经准备好安顿下来。开局获得一个便于携带的家园套件。放到你想建造家园的地方，然后使用「放置」一次性拆开小屋套件、两个集雨桶套件和一批建筑材料（30块木板、30块泥砖、50块石头、20块大石头、15根原木、20份黏土、10份绳索、20块金属块）——然后依次「放置」每个套件将其立起。所有内容都只能放置一次。"
+HSP_HomesteadKit_CardName,Homestead Kit,家园套件
+HSP_HomesteadKit_CardDescription,"Everything you need to start a homestead, bundled into one portable pack: a cabin kit, two rain cistern kits, and a stockpile of building materials. Drop it wherever you want to settle, then use Place to unpack it all at once. Can only be placed once.",开启家园所需的一切，全部打包进一个便携行囊：一个小屋套件、两个集雨桶套件，还有一批建筑材料。放到你想定居的地方，然后使用「放置」一次性全部拆开。只能放置一次。
+HSP_HomesteadKit_DA_Place,Place,放置
+HSP_HomesteadKit_DA_Place_Desc,"Unpack your homestead kit here: cabin kit, rain cistern kits, and building materials all appear on the spot.",在此处拆开你的家园套件：小屋套件、集雨桶套件和建筑材料都会就地出现。
+HSP_Perk_CabinKit_PerkName,Cabin Kit,木屋套件
+HSP_Perk_CabinKit_PerkDescription,Start with a cabin kit and a broom blueprint. Carry the kit with you and use Place to raise your cabin wherever you want it — it can only be placed once.,开局获得一套木屋套件和一张扫帚蓝图。随身携带套件，使用“放置”在任意地点建起你的木屋——只能放置一次。
+HSP_CabinKit_CardName,Cabin Kit,小屋套件
+HSP_CabinKit_CardDescription,"Your cabin, bundled for travel. Drop it wherever you want to settle, then use Place to raise it on the spot. Can only be placed once.",你的小屋，已经打包好方便携带。放到你想安家的地方，然后使用「放置」就地建起小屋。只能放置一次。
+HSP_CabinKit_DA_Place,Place,放置
+HSP_CabinKit_DA_Place_Desc,Raise your cabin on this spot.,在此处建起你的小屋。
+HSP_Perk_RainCisternKit_PerkName,Rain Cistern Kit,雨水窖套件
+HSP_Perk_RainCisternKit_PerkDescription,Start with a rain cistern kit. Use Place to set up your cistern wherever you want it — it can only be placed once.,开局获得一套雨水窖套件。使用“放置”在任意地点安置你的雨水窖——只能放置一次。
+HSP_RainCisternKit_CardName,Rain Cistern Kit,集雨桶套件
+HSP_RainCisternKit_CardDescription,"A rain cistern, disassembled and bundled for travel. Drop it wherever you want your water source, then use Place to set it up. Can only be placed once.",一个拆解打包、便于携带的集雨桶。放到你想设置水源的地方，然后使用「放置」进行搭建。只能放置一次。
+HSP_RainCisternKit_DA_Place,Place,放置
+HSP_RainCisternKit_DA_Place_Desc,Set up your rain cistern on this spot.,在此处搭建你的集雨桶。
+HSP_Perk_MudHutKit_PerkName,Mud Hut Kit,泥屋套件
+HSP_Perk_MudHutKit_PerkDescription,Start with a mud hut kit and a broom blueprint. Carry the kit with you and use Place to raise your hut wherever you want it — it can only be placed once.,开局获得一套泥屋套件和一张扫帚蓝图。随身携带套件，使用“放置”在任意地点建起你的泥屋——只能放置一次。
+HSP_MudHutKit_CardName,Mud Hut Kit,泥屋套件
+HSP_MudHutKit_CardDescription,"A humble mud hut, bundled for travel. Drop it wherever you want to settle, then use Place to raise it on the spot. Can only be placed once.",一座简朴的泥屋，打包便于携带。放到你想定居的地方，然后使用“放置”当场建起。只能放置一次。
+HSP_MudHutKit_DA_Place,Place,放置
+HSP_MudHutKit_DA_Place_Desc,Raise your mud hut on this spot.,在此处建起你的泥屋。
+HSP_Perk_LogBedKit_PerkName,Log Bed Kit,原木床套件
+HSP_Perk_LogBedKit_PerkDescription,Start with a log bed kit. Use Place to assemble your log bed wherever you want it — it can only be placed once.,开局获得一套原木床套件。使用“放置”在任意地点组装你的原木床——只能放置一次。
+HSP_LogBedKit_CardName,Log Bed Kit,原木床套件
+HSP_LogBedKit_CardDescription,Split logs and lashings for a sturdy bed. Use Place to assemble it where you want to sleep. Can only be placed once.,打包好的原木与绑索，可组装成一张结实的床。使用“放置”在你想睡觉的地方组装。只能放置一次。
+HSP_LogBedKit_DA_Place,Place,放置
+HSP_LogBedKit_DA_Place_Desc,Assemble your log bed on this spot.,在此处组装你的原木床。
+HSP_Perk_FurnaceKit_PerkName,Furnace Kit,熔炉套件
+HSP_Perk_FurnaceKit_PerkDescription,Start with a furnace kit. Use Place to assemble your furnace wherever you want it — it can only be placed once.,开局获得一套熔炉套件。使用“放置”在任意地点组装你的熔炉——只能放置一次。
+HSP_FurnaceKit_CardName,Furnace Kit,熔炉套件
+HSP_FurnaceKit_CardDescription,"A dismantled furnace, stones and flue neatly bundled. Use Place to assemble it where you want to smelt. Can only be placed once.",一座拆解好的熔炉，炉石与烟道捆扎整齐。使用“放置”在你想冶炼的地方组装。只能放置一次。
+HSP_FurnaceKit_DA_Place,Place,放置
+HSP_FurnaceKit_DA_Place_Desc,Assemble your furnace on this spot.,在此处组装你的熔炉。
+HSP_Perk_ForgeKit_PerkName,Forge Kit,锻造台套件
+HSP_Perk_ForgeKit_PerkDescription,Start with a forge kit. Use Place to assemble your forge wherever you want it — it can only be placed once.,开局获得一套锻造台套件。使用“放置”在任意地点组装你的锻造台——只能放置一次。
+HSP_ForgeKit_CardName,Forge Kit,锻造台套件
+HSP_ForgeKit_CardDescription,"A dismantled smithing forge. Use Place to assemble it where you want to work metal. Can only be placed once.",一座拆解好的锻造台。使用“放置”在你想锻打金属的地方组装。只能放置一次。
+HSP_ForgeKit_DA_Place,Place,放置
+HSP_ForgeKit_DA_Place_Desc,Assemble your forge on this spot.,在此处组装你的锻造台。
+HSP_Perk_OvenKit_PerkName,Oven Kit,烤箱套件
+HSP_Perk_OvenKit_PerkDescription,Start with an oven kit. Use Place to assemble your oven wherever you want it — it can only be placed once.,开局获得一套烤箱套件。使用“放置”在任意地点组装你的烤箱——只能放置一次。
+HSP_OvenKit_CardName,Oven Kit,烤箱套件
+HSP_OvenKit_CardDescription,"A dismantled clay oven, packed with care. Use Place to assemble it where you want to bake. Can only be placed once.",一座拆解好的黏土烤箱，包装妥当。使用“放置”在你想烘烤的地方组装。只能放置一次。
+HSP_OvenKit_DA_Place,Place,放置
+HSP_OvenKit_DA_Place_Desc,Assemble your oven on this spot.,在此处组装你的烤箱。
+HSP_Perk_TanningPitKit_PerkName,Tanning Pit Kit,鞣制坑套件
+HSP_Perk_TanningPitKit_PerkDescription,Start with a tanning pit kit. Use Place to dig your tanning pit wherever you want it — it can only be placed once.,开局获得一套鞣制坑套件。使用“放置”在任意地点挖设你的鞣制坑——只能放置一次。
+HSP_TanningPitKit_CardName,Tanning Pit Kit,鞣制坑套件
+HSP_TanningPitKit_CardDescription,Everything needed to line and frame a tanning pit. Use Place to dig it where you want to work hides. Can only be placed once.,修整鞣制坑所需的全部材料。使用“放置”在你想加工兽皮的地方挖设。只能放置一次。
+HSP_TanningPitKit_DA_Place,Place,放置
+HSP_TanningPitKit_DA_Place_Desc,Dig your tanning pit on this spot.,在此处挖设你的鞣制坑。
+HSP_Perk_PathKit_PerkName,Path Kit,道路套件
+HSP_Perk_PathKit_PerkDescription,"Start with 6 Path Kits. Each one instantly finishes a road in a direction of your choosing from wherever you're standing — no digging, no waiting.",开局获得6个道路套件。每个都能让你在所在位置立即修好一条通往指定方向的道路——无需挖掘，无需等待。
+HSP_PathKit_CardName,Path Kit,道路套件
+HSP_PathKit_CardDescription,"Stones and gravel for laying a stretch of road. Pick a direction below to instantly finish a path leading that way from your current spot. Works outdoors, and only takes effect where a route actually leads that direction.",铺路用的石块与碎石。在下方选择一个方向，即可立即修好一条从你所在位置通往该方向的道路。仅限户外使用，且只有该方向确实有路可通时才会生效。
+HSP_PathKit_DA_North,Build Path North,修建北向道路
+HSP_PathKit_DA_North_Desc,Instantly finish a path leading north from here.,立即修好一条从此处通往北方的道路。
+HSP_PathKit_DA_South,Build Path South,修建南向道路
+HSP_PathKit_DA_South_Desc,Instantly finish a path leading south from here.,立即修好一条从此处通往南方的道路。
+HSP_PathKit_DA_East,Build Path East,修建东向道路
+HSP_PathKit_DA_East_Desc,Instantly finish a path leading east from here.,立即修好一条从此处通往东方的道路。
+HSP_PathKit_DA_West,Build Path West,修建西向道路
+HSP_PathKit_DA_West_Desc,Instantly finish a path leading west from here.,立即修好一条从此处通往西方的道路。
+HSP_Perk_WellKit_PerkName,Well Kit,水井套件
+HSP_Perk_WellKit_PerkDescription,Start with a well kit. Use Place to dig and raise your well wherever you want it — it can only be placed once.,开局获得一套水井套件。使用“放置”在任意地点挖设并立起你的水井——只能放置一次。
+HSP_WellKit_CardName,Well Kit,水井套件
+HSP_WellKit_CardDescription,"Stone lining, a windlass, and rope for a proper well. Drop it wherever you want your water source, then use Place to dig and raise it on the spot. Can only be placed once.",石砌井壁、辘轳与绳索，足以砌成一口像样的水井。放到你想设置水源的地方，然后使用「放置」就地挖设并立起。只能放置一次。
+HSP_WellKit_DA_Place,Place,放置
+HSP_WellKit_DA_Place_Desc,Dig and raise your well on this spot.,在此处挖设并立起你的水井。
+HSP_Perk_CellarKit_PerkName,Cellar Kit,地窖套件
+HSP_Perk_CellarKit_PerkDescription,Start with a cellar kit. Use Place to dig in your cellar wherever you want it — it can only be placed once.,开局获得一套地窖套件。使用“放置”在任意地点挖设你的地窖——只能放置一次。
+HSP_CellarKit_CardName,Cellar Kit,地窖套件
+HSP_CellarKit_CardDescription,"Timber shoring and a hatch for an underground cellar. Drop it wherever you want your food to keep longer, then use Place to dig it in on the spot. Can only be placed once.",支撑用的木料与一扇舱门，足以挖出一座地下地窖。放到你想延长食物保鲜期的地方，然后使用「放置」就地挖设。只能放置一次。
+HSP_CellarKit_DA_Place,Place,放置
+HSP_CellarKit_DA_Place_Desc,Dig in your cellar on this spot.,在此处挖设你的地窖。
+HSP_Perk_PitTrapKit_PerkName,Pit Trap Kit,陷坑套件
+HSP_Perk_PitTrapKit_PerkDescription,Start with a pit trap kit. Use Place to dig your pit trap wherever you want it — it can only be placed once.,开局获得一套陷坑套件。使用“放置”在任意地点挖设你的陷坑——只能放置一次。
+HSP_PitTrapKit_CardName,Pit Trap Kit,陷坑套件
+HSP_PitTrapKit_CardDescription,"Stakes, cover, and digging tools for a big game pit trap. Drop it wherever you want to trap large prey, then use Place to dig it on the spot. Can only be placed once.",尖桩、伪装盖与挖掘工具，足以挖出一个捕捉大型猎物的陷坑。放到你想设陷阱的地方，然后使用「放置」就地挖设。只能放置一次。
+HSP_PitTrapKit_DA_Place,Place,放置
+HSP_PitTrapKit_DA_Place_Desc,Dig your pit trap on this spot.,在此处挖设你的陷坑。

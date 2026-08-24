@@ -1,0 +1,63 @@
+{
+  "UniqueID": "hspfurnacekit",
+  "CardName": {
+    "ParentObjectID": "hspfurnacekit",
+    "LocalizationKey": "HSP_FurnaceKit_CardName",
+    "DefaultText": "Furnace Kit"
+  },
+  "CardDescription": {
+    "ParentObjectID": "hspfurnacekit",
+    "LocalizationKey": "HSP_FurnaceKit_CardDescription",
+    "DefaultText": "A dismantled furnace, stones and flue neatly bundled. Use Place to assemble it where you want to smelt. Can only be placed once."
+  },
+  "CardType": 0,
+  "ObjectWeight": 600.0,
+  "TradingValue": 250.0,
+  "MaxStack": 1,
+  "DoesNotPile": true,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "Furnace_Off",
+  "CardImageWarpType": 3,
+  "CardTagsWarpData": ["tag_Structure"],
+  "CardTagsWarpType": 3,
+  "SpoilageTime": { "Active": false },
+  "UsageDurability": { "Active": false },
+  "FuelCapacity": { "Active": false },
+  "Progress": { "Active": false },
+  "SpecialDurability1": { "Active": false },
+  "SpecialDurability2": { "Active": false },
+  "SpecialDurability3": { "Active": false },
+  "SpecialDurability4": { "Active": false },
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "hspfurnacekit",
+        "LocalizationKey": "HSP_FurnaceKit_DA_Place",
+        "DefaultText": "Place"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hspfurnacekit",
+        "LocalizationKey": "HSP_FurnaceKit_DA_Place_Desc",
+        "DefaultText": "Assemble your furnace on this spot."
+      },
+      "DaytimeCost": 3,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["LargeObject"],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": { "m_FileID": 0, "m_PathID": 0 },
+        "TransformIntoWarpData": "ed1cec66f5b291943816df3604d8c442",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": true
+      }
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": []
+}

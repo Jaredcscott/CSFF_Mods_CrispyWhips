@@ -1,0 +1,84 @@
+HSP_Perk_Homestead_PerkName,Homestead
+HSP_Perk_Homestead_PerkDescription,"You've come prepared to settle down. Start with a Homestead Kit, bundled for travel. Drop it wherever you want to build your homestead, then use Place to unpack a cabin kit, two rain cistern kits, and a stockpile of building materials (30 planks, 30 mud bricks, 50 stones, 20 heavy stones, 15 tree logs, 20 clay, 10 rope, 20 metal nuggets) all at once — then Place each kit to raise it. Everything can only be placed once."
+HSP_HomesteadKit_CardName,Homestead Kit
+HSP_HomesteadKit_CardDescription,"Everything you need to start a homestead, bundled into one portable pack: a cabin kit, two rain cistern kits, and a stockpile of building materials. Drop it wherever you want to settle, then use Place to unpack it all at once. Can only be placed once."
+HSP_HomesteadKit_DA_Place,Place
+HSP_HomesteadKit_DA_Place_Desc,"Unpack your homestead kit here: cabin kit, rain cistern kits, and building materials all appear on the spot."
+HSP_Perk_CabinKit_PerkName,Cabin Kit
+HSP_Perk_CabinKit_PerkDescription,Start with a cabin kit and a broom blueprint. Carry the kit with you and use Place to raise your cabin wherever you want it — it can only be placed once.
+HSP_CabinKit_CardName,Cabin Kit
+HSP_CabinKit_CardDescription,"Your cabin, bundled for travel. Drop it wherever you want to settle, then use Place to raise it on the spot. Can only be placed once."
+HSP_CabinKit_DA_Place,Place
+HSP_CabinKit_DA_Place_Desc,Raise your cabin on this spot.
+HSP_Perk_RainCisternKit_PerkName,Rain Cistern Kit
+HSP_Perk_RainCisternKit_PerkDescription,Start with a rain cistern kit. Use Place to set up your cistern wherever you want it — it can only be placed once.
+HSP_RainCisternKit_CardName,Rain Cistern Kit
+HSP_RainCisternKit_CardDescription,"A rain cistern, disassembled and bundled for travel. Drop it wherever you want your water source, then use Place to set it up. Can only be placed once."
+HSP_RainCisternKit_DA_Place,Place
+HSP_RainCisternKit_DA_Place_Desc,Set up your rain cistern on this spot.
+HSP_Perk_MudHutKit_PerkName,Mud Hut Kit
+HSP_Perk_MudHutKit_PerkDescription,Start with a mud hut kit and a broom blueprint. Carry the kit with you and use Place to raise your hut wherever you want it — it can only be placed once.
+HSP_MudHutKit_CardName,Mud Hut Kit
+HSP_MudHutKit_CardDescription,"A humble mud hut, bundled for travel. Drop it wherever you want to settle, then use Place to raise it on the spot. Can only be placed once."
+HSP_MudHutKit_DA_Place,Place
+HSP_MudHutKit_DA_Place_Desc,Raise your mud hut on this spot.
+HSP_Perk_LogBedKit_PerkName,Log Bed Kit
+HSP_Perk_LogBedKit_PerkDescription,Start with a log bed kit. Use Place to assemble your log bed wherever you want it — it can only be placed once.
+HSP_LogBedKit_CardName,Log Bed Kit
+HSP_LogBedKit_CardDescription,Split logs and lashings for a sturdy bed. Use Place to assemble it where you want to sleep. Can only be placed once.
+HSP_LogBedKit_DA_Place,Place
+HSP_LogBedKit_DA_Place_Desc,Assemble your log bed on this spot.
+HSP_Perk_FurnaceKit_PerkName,Furnace Kit
+HSP_Perk_FurnaceKit_PerkDescription,Start with a furnace kit. Use Place to assemble your furnace wherever you want it — it can only be placed once.
+HSP_FurnaceKit_CardName,Furnace Kit
+HSP_FurnaceKit_CardDescription,"A dismantled furnace, stones and flue neatly bundled. Use Place to assemble it where you want to smelt. Can only be placed once."
+HSP_FurnaceKit_DA_Place,Place
+HSP_FurnaceKit_DA_Place_Desc,Assemble your furnace on this spot.
+HSP_Perk_ForgeKit_PerkName,Forge Kit
+HSP_Perk_ForgeKit_PerkDescription,Start with a forge kit. Use Place to assemble your forge wherever you want it — it can only be placed once.
+HSP_ForgeKit_CardName,Forge Kit
+HSP_ForgeKit_CardDescription,"A dismantled smithing forge. Use Place to assemble it where you want to work metal. Can only be placed once."
+HSP_ForgeKit_DA_Place,Place
+HSP_ForgeKit_DA_Place_Desc,Assemble your forge on this spot.
+HSP_Perk_OvenKit_PerkName,Oven Kit
+HSP_Perk_OvenKit_PerkDescription,Start with an oven kit. Use Place to assemble your oven wherever you want it — it can only be placed once.
+HSP_OvenKit_CardName,Oven Kit
+HSP_OvenKit_CardDescription,"A dismantled clay oven, packed with care. Use Place to assemble it where you want to bake. Can only be placed once."
+HSP_OvenKit_DA_Place,Place
+HSP_OvenKit_DA_Place_Desc,Assemble your oven on this spot.
+HSP_Perk_TanningPitKit_PerkName,Tanning Pit Kit
+HSP_Perk_TanningPitKit_PerkDescription,Start with a tanning pit kit. Use Place to dig your tanning pit wherever you want it — it can only be placed once.
+HSP_TanningPitKit_CardName,Tanning Pit Kit
+HSP_TanningPitKit_CardDescription,Everything needed to line and frame a tanning pit. Use Place to dig it where you want to work hides. Can only be placed once.
+HSP_TanningPitKit_DA_Place,Place
+HSP_TanningPitKit_DA_Place_Desc,Dig your tanning pit on this spot.
+HSP_Perk_PathKit_PerkName,Path Kit
+HSP_Perk_PathKit_PerkDescription,"Start with 6 Path Kits. Each one instantly finishes a road in a direction of your choosing from wherever you're standing — no digging, no waiting."
+HSP_PathKit_CardName,Path Kit
+HSP_PathKit_CardDescription,"Stones and gravel for laying a stretch of road. Pick a direction below to instantly finish a path leading that way from your current spot. Works outdoors, and only takes effect where a route actually leads that direction."
+HSP_PathKit_DA_North,Build Path North
+HSP_PathKit_DA_North_Desc,Instantly finish a path leading north from here.
+HSP_PathKit_DA_South,Build Path South
+HSP_PathKit_DA_South_Desc,Instantly finish a path leading south from here.
+HSP_PathKit_DA_East,Build Path East
+HSP_PathKit_DA_East_Desc,Instantly finish a path leading east from here.
+HSP_PathKit_DA_West,Build Path West
+HSP_PathKit_DA_West_Desc,Instantly finish a path leading west from here.
+HSP_Perk_WellKit_PerkName,Well Kit
+HSP_Perk_WellKit_PerkDescription,Start with a well kit. Use Place to dig and raise your well wherever you want it — it can only be placed once.
+HSP_WellKit_CardName,Well Kit
+HSP_WellKit_CardDescription,"Stone lining, a windlass, and rope for a proper well. Drop it wherever you want your water source, then use Place to dig and raise it on the spot. Can only be placed once."
+HSP_WellKit_DA_Place,Place
+HSP_WellKit_DA_Place_Desc,Dig and raise your well on this spot.
+HSP_Perk_CellarKit_PerkName,Cellar Kit
+HSP_Perk_CellarKit_PerkDescription,Start with a cellar kit. Use Place to dig in your cellar wherever you want it — it can only be placed once.
+HSP_CellarKit_CardName,Cellar Kit
+HSP_CellarKit_CardDescription,"Timber shoring and a hatch for an underground cellar. Drop it wherever you want your food to keep longer, then use Place to dig it in on the spot. Can only be placed once."
+HSP_CellarKit_DA_Place,Place
+HSP_CellarKit_DA_Place_Desc,Dig in your cellar on this spot.
+HSP_Perk_PitTrapKit_PerkName,Pit Trap Kit
+HSP_Perk_PitTrapKit_PerkDescription,Start with a pit trap kit. Use Place to dig your pit trap wherever you want it — it can only be placed once.
+HSP_PitTrapKit_CardName,Pit Trap Kit
+HSP_PitTrapKit_CardDescription,"Stakes, cover, and digging tools for a big game pit trap. Drop it wherever you want to trap large prey, then use Place to dig it on the spot. Can only be placed once."
+HSP_PitTrapKit_DA_Place,Place
+HSP_PitTrapKit_DA_Place_Desc,Dig your pit trap on this spot.

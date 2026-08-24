@@ -1,0 +1,59 @@
+{
+  "UniqueID": "hsphomesteadkit",
+  "CardName": {
+    "ParentObjectID": "hsphomesteadkit",
+    "LocalizationKey": "HSP_HomesteadKit_CardName",
+    "DefaultText": "Homestead Kit"
+  },
+  "CardDescription": {
+    "ParentObjectID": "hsphomesteadkit",
+    "LocalizationKey": "HSP_HomesteadKit_CardDescription",
+    "DefaultText": "Everything you need to start a homestead, bundled into one portable pack: a cabin kit, two rain cistern kits, and a stockpile of building materials. Drop it wherever you want to settle, then use Place to unpack it all at once. Can only be placed once."
+  },
+  "CardType": 0,
+  "ObjectWeight": 600.0,
+  "TradingValue": 800.0,
+  "MaxStack": 1,
+  "DoesNotPile": true,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "Sack_Leather",
+  "CardImageWarpType": 3,
+  "CardTagsWarpData": [],
+  "CardTagsWarpType": 3,
+  "SpoilageTime": { "Active": false },
+  "UsageDurability": { "Active": false },
+  "FuelCapacity": { "Active": false },
+  "Progress": { "Active": false },
+  "SpecialDurability1": { "Active": false },
+  "SpecialDurability2": { "Active": false },
+  "SpecialDurability3": { "Active": false },
+  "SpecialDurability4": { "Active": false },
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "hsphomesteadkit",
+        "LocalizationKey": "HSP_HomesteadKit_DA_Place",
+        "DefaultText": "Place"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hsphomesteadkit",
+        "LocalizationKey": "HSP_HomesteadKit_DA_Place_Desc",
+        "DefaultText": "Unpack your homestead kit here: cabin kit, rain cistern kits, and building materials all appear on the spot."
+      },
+      "DaytimeCost": 2,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["LargeObject"],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": []
+}

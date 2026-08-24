@@ -1,0 +1,63 @@
+{
+  "UniqueID": "hspovenkit",
+  "CardName": {
+    "ParentObjectID": "hspovenkit",
+    "LocalizationKey": "HSP_OvenKit_CardName",
+    "DefaultText": "Oven Kit"
+  },
+  "CardDescription": {
+    "ParentObjectID": "hspovenkit",
+    "LocalizationKey": "HSP_OvenKit_CardDescription",
+    "DefaultText": "A dismantled clay oven, packed with care. Use Place to assemble it where you want to bake. Can only be placed once."
+  },
+  "CardType": 0,
+  "ObjectWeight": 500.0,
+  "TradingValue": 200.0,
+  "MaxStack": 1,
+  "DoesNotPile": true,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "Oven_Off",
+  "CardImageWarpType": 3,
+  "CardTagsWarpData": ["tag_Structure"],
+  "CardTagsWarpType": 3,
+  "SpoilageTime": { "Active": false },
+  "UsageDurability": { "Active": false },
+  "FuelCapacity": { "Active": false },
+  "Progress": { "Active": false },
+  "SpecialDurability1": { "Active": false },
+  "SpecialDurability2": { "Active": false },
+  "SpecialDurability3": { "Active": false },
+  "SpecialDurability4": { "Active": false },
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "hspovenkit",
+        "LocalizationKey": "HSP_OvenKit_DA_Place",
+        "DefaultText": "Place"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hspovenkit",
+        "LocalizationKey": "HSP_OvenKit_DA_Place_Desc",
+        "DefaultText": "Assemble your oven on this spot."
+      },
+      "DaytimeCost": 3,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["LargeObject"],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": { "m_FileID": 0, "m_PathID": 0 },
+        "TransformIntoWarpData": "412a3e4013a58c34c9f0b660d204f13a",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": true
+      }
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": []
+}

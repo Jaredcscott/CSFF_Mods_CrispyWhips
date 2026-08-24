@@ -1,0 +1,63 @@
+{
+  "UniqueID": "hsplogbedkit",
+  "CardName": {
+    "ParentObjectID": "hsplogbedkit",
+    "LocalizationKey": "HSP_LogBedKit_CardName",
+    "DefaultText": "Log Bed Kit"
+  },
+  "CardDescription": {
+    "ParentObjectID": "hsplogbedkit",
+    "LocalizationKey": "HSP_LogBedKit_CardDescription",
+    "DefaultText": "Split logs and lashings for a sturdy bed. Use Place to assemble it where you want to sleep. Can only be placed once."
+  },
+  "CardType": 0,
+  "ObjectWeight": 800.0,
+  "TradingValue": 250.0,
+  "MaxStack": 1,
+  "DoesNotPile": true,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "LogBed",
+  "CardImageWarpType": 3,
+  "CardTagsWarpData": ["tag_Structure"],
+  "CardTagsWarpType": 3,
+  "SpoilageTime": { "Active": false },
+  "UsageDurability": { "Active": false },
+  "FuelCapacity": { "Active": false },
+  "Progress": { "Active": false },
+  "SpecialDurability1": { "Active": false },
+  "SpecialDurability2": { "Active": false },
+  "SpecialDurability3": { "Active": false },
+  "SpecialDurability4": { "Active": false },
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "hsplogbedkit",
+        "LocalizationKey": "HSP_LogBedKit_DA_Place",
+        "DefaultText": "Place"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hsplogbedkit",
+        "LocalizationKey": "HSP_LogBedKit_DA_Place_Desc",
+        "DefaultText": "Assemble your log bed on this spot."
+      },
+      "DaytimeCost": 3,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["LargeObject"],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": { "m_FileID": 0, "m_PathID": 0 },
+        "TransformIntoWarpData": "45e37a55cdd9e304886b3d06115e36f6",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": true
+      }
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": []
+}

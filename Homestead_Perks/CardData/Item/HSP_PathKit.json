@@ -1,0 +1,177 @@
+{
+  "UniqueID": "hsppathkit",
+  "CardName": {
+    "ParentObjectID": "hsppathkit",
+    "LocalizationKey": "HSP_PathKit_CardName",
+    "DefaultText": "Path Kit"
+  },
+  "CardDescription": {
+    "ParentObjectID": "hsppathkit",
+    "LocalizationKey": "HSP_PathKit_CardDescription",
+    "DefaultText": "Stones and gravel for laying a stretch of road. Pick a direction below to instantly finish a path leading that way from your current spot. Works outdoors, and only takes effect where a route actually leads that direction."
+  },
+  "CardType": 0,
+  "ObjectWeight": 150.0,
+  "TradingValue": 60.0,
+  "MaxStack": 5,
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "Path",
+  "CardImageWarpType": 3,
+  "SpoilageTime": { "Active": false },
+  "UsageDurability": { "Active": false },
+  "FuelCapacity": { "Active": false },
+  "Progress": { "Active": false },
+  "SpecialDurability1": { "Active": false },
+  "SpecialDurability2": { "Active": false },
+  "SpecialDurability3": { "Active": false },
+  "SpecialDurability4": { "Active": false },
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "hsppathkit",
+        "LocalizationKey": "HSP_PathKit_DA_North",
+        "DefaultText": "Build Path North"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hsppathkit",
+        "LocalizationKey": "HSP_PathKit_DA_North_Desc",
+        "DefaultText": "Instantly finish a path leading north from here."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["LargeObject"],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": { "ModType": 3 },
+      "ProducedCards": [
+        {
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "dd31ad4b8b070494294fde82c6523143",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 },
+              "DropChance": { "Active": true, "BaseDropChance": 100.0 }
+            }
+          ]
+        }
+      ],
+      "CompletedImprovementsWarpData": ["dd31ad4b8b070494294fde82c6523143"],
+      "CompletedImprovementsWarpType": 3
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "hsppathkit",
+        "LocalizationKey": "HSP_PathKit_DA_South",
+        "DefaultText": "Build Path South"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hsppathkit",
+        "LocalizationKey": "HSP_PathKit_DA_South_Desc",
+        "DefaultText": "Instantly finish a path leading south from here."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["LargeObject"],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": { "ModType": 3 },
+      "ProducedCards": [
+        {
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "b1d3de19f5f9660428e4983bc90eace6",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 },
+              "DropChance": { "Active": true, "BaseDropChance": 100.0 }
+            }
+          ]
+        }
+      ],
+      "CompletedImprovementsWarpData": ["b1d3de19f5f9660428e4983bc90eace6"],
+      "CompletedImprovementsWarpType": 3
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "hsppathkit",
+        "LocalizationKey": "HSP_PathKit_DA_East",
+        "DefaultText": "Build Path East"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hsppathkit",
+        "LocalizationKey": "HSP_PathKit_DA_East_Desc",
+        "DefaultText": "Instantly finish a path leading east from here."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["LargeObject"],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": { "ModType": 3 },
+      "ProducedCards": [
+        {
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "aceac961438f7cc48996a34de4fd8844",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 },
+              "DropChance": { "Active": true, "BaseDropChance": 100.0 }
+            }
+          ]
+        }
+      ],
+      "CompletedImprovementsWarpData": ["aceac961438f7cc48996a34de4fd8844"],
+      "CompletedImprovementsWarpType": 3
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "hsppathkit",
+        "LocalizationKey": "HSP_PathKit_DA_West",
+        "DefaultText": "Build Path West"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "hsppathkit",
+        "LocalizationKey": "HSP_PathKit_DA_West_Desc",
+        "DefaultText": "Instantly finish a path leading west from here."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": ["LargeObject"],
+      "ActionSoundsWarpType": 3,
+      "ReceivingCardChanges": { "ModType": 3 },
+      "ProducedCards": [
+        {
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "c0d621b8981ad3b499559262912ed7f8",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 },
+              "DropChance": { "Active": true, "BaseDropChance": 100.0 }
+            }
+          ]
+        }
+      ],
+      "CompletedImprovementsWarpData": ["c0d621b8981ad3b499559262912ed7f8"],
+      "CompletedImprovementsWarpType": 3
+    }
+  ],
+  "PassiveStatEffects": [],
+  "PassiveEffects": []
+}
