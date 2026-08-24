@@ -37,9 +37,28 @@
                 "LocalizationKey": "CMC_GuardSterling_Attack",
                 "DefaultText": "Attack"
             },
-            "Conditions": {},
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatSterlingEscapeCount", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 2.5}}
+                ]
+            },
             "ButtonType": 1,
             "DroppedEncounterWarpData": "cmcEncounterGuardSterling",
+            "DroppedEncounterWarpType": 3,
+            "SkipEncounterEvent": false
+        },
+        {
+            "ButtonName": {
+                "LocalizationKey": "CMC_GuardSterling_Attack",
+                "DefaultText": "Attack"
+            },
+            "Conditions": {
+                "RequiredStatValues": [
+                    {"StatWarpData": "cmcStatSterlingEscapeCount", "StatWarpType": 3, "TriggerRange": {"x": 2.5, "y": 3.5}}
+                ]
+            },
+            "ButtonType": 1,
+            "DroppedEncounterWarpData": "cmcEncounterSterlingArrest",
             "DroppedEncounterWarpType": 3,
             "SkipEncounterEvent": false
         }

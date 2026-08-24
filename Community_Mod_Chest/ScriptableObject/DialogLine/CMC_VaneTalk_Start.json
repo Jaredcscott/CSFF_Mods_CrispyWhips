@@ -1,0 +1,27 @@
+{
+    "StartingPoint": true,
+    "Line": {
+        "LocalizationKey": "CMC_VaneTalk_Start_Line",
+        "DefaultText": "Vane. Night Watch -- I keep to the dark hours, once the honest folk have gone in and the ones still about are worth a second look. Nothing much gets past me out here, not after dark."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_VaneTalk_Start_Answer_Noted",
+                "DefaultText": "I'll remember that."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_VaneTalk_Start_Answer_Bye",
+                "DefaultText": "Quiet night to you, Vane."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

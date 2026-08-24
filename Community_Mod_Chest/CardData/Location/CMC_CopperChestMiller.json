@@ -82,6 +82,38 @@
         "ModType": 0
       },
       "ProducedCards": []
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_CopperChestMiller_CI_Restitution",
+        "DefaultText": "Make It Right"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_CopperChestMiller_CI_Restitution_Desc",
+        "DefaultText": "Drag Salt or a Metal Nugget onto the chest as restitution. It will not undo what was taken, but it goes some way toward clearing your name with the Watch."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
+          "4b0f4937a5ecb90499428c8c10288afc"
+        ],
+        "TriggerCardsWarpType": 3,
+        "TriggerTagsWarpData": [],
+        "TriggerTagsWarpType": 3
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "ProducedCards": []
     }
   ],
   "DismantleActions": [

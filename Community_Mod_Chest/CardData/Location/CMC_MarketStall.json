@@ -80,6 +80,29 @@
         "DroppedCardWarpData": "cmcmarketstallkit",
         "DroppedCardWarpType": 3
       }
+    },
+    {
+      "ActionName": {
+        "DefaultText": "Set Up Awning",
+        "LocalizationKey": "CMC_MarketStall_DA_SetUpAwning_ActionName"
+      },
+      "ActionDescription": {
+        "DefaultText": "Add a striped awning and bunting to dress up the stall for market days.",
+        "LocalizationKey": "CMC_MarketStall_DA_SetUpAwning_ActionDescription"
+      },
+      "DaytimeCost": 1,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformInto": { "m_FileID": 0, "m_PathID": 0 },
+        "TransformIntoWarpData": "cmcmarketstalldressed",
+        "TransformIntoWarpType": 3,
+        "TransferInventory": true,
+        "TransferSpecial1": true,
+        "SpawnTransformAtSource": true
+      }
     }
   ],
   "DismantleActionsWarpType": 3

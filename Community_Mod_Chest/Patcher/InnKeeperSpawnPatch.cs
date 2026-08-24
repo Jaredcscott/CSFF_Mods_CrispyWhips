@@ -202,15 +202,33 @@ namespace CommunityModChest.Patcher
             model != null && (ReferenceEquals(model, _agent) || CardUtil.GetCardUniqueId(model) == InnKeeperAgentUid);
 
         // Returns the live InGameNPC for our agent, or null if it hasn't been created yet.
+        //
+        // Prefers an instance with a non-null AssociatedCard (an actual board card) over one
+        // without, rather than just the first AllNPCs match — a card-less duplicate is exactly
+        // the "orphaned ghost" shape that would otherwise get silently reconciled/accrued
+        // against instead of the instance the player can actually see (CLAUDE.md § Runtime
+        // Card State Caching, manifestation 4; the Academy lectern hit this exact class of bug,
+        // 2026-08-09). Unlike AcademyPatch.FindAllLiveLecternCards's fix (safe to reconcile
+        // EVERY duplicate toward the same value-ceiling stat), this file's consumers — pantry
+        // restock and Copper Chest accrual — are ADDITIVE: running them against every duplicate
+        // would double-grant rewards, so this picks the single best instance instead of
+        // operating on all matches.
         private static object FindLiveNpc(object gm)
         {
             if (Reflect.GetMember(gm, "AllNPCs") is not IEnumerable allNpcs) return null;
+            object firstMatch = null;
+            int matchCount = 0;
             foreach (var npc in allNpcs)
             {
                 if (npc == null) continue;
-                if (IsInnKeeperAgent(Reflect.GetMember(npc, "NPCModel"))) return npc;
+                if (!IsInnKeeperAgent(Reflect.GetMember(npc, "NPCModel"))) continue;
+                matchCount++;
+                firstMatch ??= npc;
+                if (Alive(Reflect.GetMember(npc, "AssociatedCard")) != null) return npc;
             }
-            return null;
+            if (matchCount > 1)
+                Plugin.Logger.LogWarning($"[InnKeeperSpawnPatch] {matchCount} '{InnKeeperAgentUid}' NPC instances found in AllNPCs and none has a board card yet — falling back to the first found; this can desync from whichever instance the player actually sees once cards exist.");
+            return firstMatch;
         }
 
         private static bool AlreadySpawned(object gm) => FindLiveNpc(gm) != null;

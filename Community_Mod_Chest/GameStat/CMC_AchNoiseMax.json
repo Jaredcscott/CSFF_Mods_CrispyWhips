@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatAchNoiseMax",
+    "GameName": {
+        "LocalizationKey": "CMC_AchNoiseMax_StatName",
+        "DefaultText": "Achievement Earned: Spiritual Overcrowding"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_AchNoiseMax_StatDescription",
+        "DefaultText": "Hidden flag: 1 once the vanilla Spiritual Noise stat reaches its own live maximum -- the Spiritual Overcrowding achievement. Clamped 0-1, never resets."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

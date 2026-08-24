@@ -1,0 +1,27 @@
+{
+    "StartingPoint": true,
+    "Line": {
+        "LocalizationKey": "CMC_ThorneTalk_Start_Line",
+        "DefaultText": "Thorne. Town Square, day shift -- Corrin and I hold this ground while the market's open. I'd rather step in early than stand back and watch trouble build. Keep things honest and we'll get along fine."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ThorneTalk_Start_Answer_Nerve",
+                "DefaultText": "Wish more of the Watch had your nerve."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_ThorneTalk_Start_Answer_Bye",
+                "DefaultText": "Understood."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

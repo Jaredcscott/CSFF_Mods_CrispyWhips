@@ -94,8 +94,19 @@
             "ActionTags": [],
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
-            "RequiredTagsOnBoardWarpData": ["tag_River"],
-            "RequiredTagsOnBoardWarpType": 3,
+            "RequiredTagsOnBoard": [
+                {
+                    "TriggerTag": { "m_FileID": 0, "m_PathID": 0 },
+                    "TriggerTagWarpData": "tag_River",
+                    "TriggerTagWarpType": 3,
+                    "Inverted": false,
+                    "OnlyInHand": false,
+                    "NotInHand": false,
+                    "ExcludeInventories": false,
+                    "OnlyEquipped": false
+                }
+            ],
+            "HideIfConditionsNotMet": true,
             "ProducedCards": [
                 {
                     "CollectionName": "Small Catch",
@@ -165,7 +176,7 @@
                 }
             ],
             "ReceivingCardChanges": {
-                "ModType": 0,
+                "ModType": 1,
                 "ModifyDurability": true,
                 "UsageChange": { "x": -1.0, "y": -1.0 }
             }

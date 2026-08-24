@@ -1,0 +1,199 @@
+{
+    "UniqueID": "comfortscentedcandlelit",
+    "CardName": {
+        "ParentObjectID": "comfortscentedcandlelit",
+        "LocalizationKey": "ScentedCandleLit_CardName",
+        "DefaultText": "Lit Scented Candle"
+    },
+    "CardDescription": {
+        "ParentObjectID": "comfortscentedcandlelit",
+        "LocalizationKey": "ScentedCandleLit_CardDescription",
+        "DefaultText": "A warm flame fills the air with a sweet, waxy fragrance. Settle nearby and let the spirit ease."
+    },
+    "CardType": 0,
+    "ObjectWeight": 60.0,
+    "TradingValue": 10.0,
+    "DoesNotPile": true,
+    "CardImageWarpData": "Candle_On",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [
+        "tag_Preservable",
+        "tag_Light"
+    ],
+    "CardTagsWarpType": 3,
+    "LightSource": {
+        "IsSourceOfLight": true,
+        "Priority": 20.0,
+        "LightPos": {
+            "x": 0.5,
+            "y": 0.5
+        },
+        "LightSize": {
+            "x": 0.15,
+            "y": 0.3
+        },
+        "LightColor": {
+            "r": 1.0,
+            "g": 0.85,
+            "b": 0.6,
+            "a": 1.0
+        },
+        "LightFlickerFreq": 2.5,
+        "LightFlickerStrength": 0.02
+    },
+    "WhenCreatedSoundsWarpData": [
+        "FireIgnite"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": true,
+        "FloatValue": 48.0,
+        "CardStatName": {
+            "ParentObjectID": "comfortscentedcandlelit",
+            "LocalizationKey": "ScentedCandleLit_FuelCapacity_CardStatName",
+            "DefaultText": "Wax"
+        },
+        "MaxValue": 48.0,
+        "RatePerDaytimePoint": -0.5,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "HasActionOnZero": true,
+        "ShowPopupOnZero": true,
+        "HasActionOnFull": false,
+        "ShowPopupOnFull": false,
+        "CountsForTradingValue": false,
+        "OverrideIconWarpData": "Flame",
+        "OverrideIconWarpType": 3,
+        "OnZero": {
+            "ActionName": {
+                "ParentObjectID": "comfortscentedcandlelit",
+                "LocalizationKey": "ScentedCandleLit_FuelOut_ActionName",
+                "DefaultText": "Candle Burns Out"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "comfortscentedcandlelit",
+                "LocalizationKey": "ScentedCandleLit_FuelOut_ActionDescription",
+                "DefaultText": "The wax has finished burning."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionSoundsWarpData": [
+                "FireExtinguish"
+            ],
+            "ActionSoundsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "comfortscentedcandle",
+                "TransformIntoWarpType": 3,
+                "TransferFuel": true,
+                "SpawnTransformAtSource": true
+            }
+        }
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "comfortscentedcandlelit",
+                "LocalizationKey": "ScentedCandleLit_Extinguish_ActionName",
+                "DefaultText": "Extinguish"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "comfortscentedcandlelit",
+                "LocalizationKey": "ScentedCandleLit_Extinguish_ActionDescription",
+                "DefaultText": "Snuff out the candle's flame."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [
+                "FireExtinguish"
+            ],
+            "ActionSoundsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "comfortscentedcandle",
+                "TransformIntoWarpType": 3,
+                "TransferFuel": true,
+                "SpawnTransformAtSource": true
+            }
+        }
+    ],
+    "PassiveStatEffects": [],
+    "PassiveEffects": [
+        {
+            "EffectName": "Comfort (+5)",
+            "OnlyWhenEquipped": false,
+            "EquippedOnBodyOnly": false,
+            "Conditions": {
+                "NotInBackground": true
+            },
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 5.0,
+                        "y": 5.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ]
+}

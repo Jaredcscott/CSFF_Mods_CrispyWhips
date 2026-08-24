@@ -51,6 +51,7 @@ namespace CommunityModChest.Patcher
         internal const string GradFishing        = "cmcperkgradfishing";
         internal const string GradArmorer        = "cmcperkgradarmorer";
         internal const string GradMedicine       = "cmcperkgradmedicine";
+        internal const string GradCarpentry      = "cmcperkgradcarpentry";
 
         // BlueprintModelState enum: 0=Available, 1=Purchasable, 2=Locked, 3=Hidden
         private const int StateAvailable = 0;
@@ -104,6 +105,16 @@ namespace CommunityModChest.Patcher
                     "act_bp_iron_greaves",
                     "act_bp_iron_gauntlets"
                 }
+            },
+            new CourseUnlock
+            {
+                Label         = "Carpentry",
+                RequiredPerks = new[] { GradCarpentry },
+                Blueprints    = new[]
+                {
+                    "cmcbpoutfitwardrobe",
+                    "cmcbpwickerchair"
+                }
             }
         };
 
@@ -119,20 +130,54 @@ namespace CommunityModChest.Patcher
                 Label         = "Herbalism (Apothecary)",
                 RequiredPerks = new[] { GradHerbalism },
                 Blueprints    = new[] { "BpCMCApothecaryCabin", "bpcmcapothecaryhealingmixture" }
+            },
+            // Medicine (N4): the course's graduate perk (Pk_GradMedicine.json,
+            // CharacterPerkPerkGroup "None") already existed with no craftable payoff —
+            // GradMedicine has been declared above since before this entry existed, but
+            // nothing ever gated a blueprint behind it. Herb Poultice + Tincture close
+            // that gap the same way the Apothecary's own Herbalism payoff does.
+            new CourseUnlock
+            {
+                Label         = "Medicine",
+                RequiredPerks = new[] { GradMedicine },
+                Blueprints    = new[] { "cmcbpherbpoultice", "cmcbptincture" }
             }
         };
 
-        // bpcmcapothecaryhealingmixture's recipe requires Herbs & Fungi ingredients (rare herbs
-        // incl. hemp) by explicit owner request — there is no CMC-only substitute, unlike every
-        // other soft H&F touchpoint in this mod (see project_soft_dep_doctrine). Rather than leave
-        // the blueprint in an ambiguous state on a CMC-only install (ingredient WarpData that fails
-        // to resolve could drop out of the required-elements list entirely, per the vanilla Cabin's
-        // own null-element behavior, silently trivializing the recipe — or leave it permanently
-        // uncraftable with no explanation), hide it outright whenever H&F isn't installed,
-        // regardless of the Herbalism perk. herbs_fungi_hemp_flower_dried is used purely as an
-        // "is H&F installed" presence probe.
-        private const string HfPresenceProbeUid = "herbs_fungi_hemp_flower_dried";
+        // Three CMC recipes hard-require Herbs & Fungi ingredients (rare herbs incl. hemp) by explicit
+        // owner request — there is no CMC-only substitute, unlike every other soft H&F touchpoint in
+        // this mod (see project_soft_dep_doctrine). On a CMC-only install the ingredient WarpData fails
+        // to resolve and the element drops out of the required list entirely (BlueprintElement.
+        // ValidRequirements returns false for a null RequiredCard, and the construction popup then
+        // skips it — confirmed in the decompile), silently trivializing the recipe. Each of the three
+        // needs a DIFFERENT remedy because they are three different blueprint kinds:
+        //
+        //  1. Healing Mixture (bpcmcapothecaryhealingmixture) — a RESEARCH-GATED blueprint
+        //     (StartUnlocked:false) tracked in GameManager.BlueprintModelStates. Hidden via
+        //     HideIfDependencyMissing below; without the hide it would craft a Powerful Healing Potion
+        //     from nothing.
+        //  2. Weaver hemp recipe (BpCMCWeaverProcessHemp) — a STATION-CONTAINED operation blueprint
+        //     (StartUnlocked:true) that lives in GameManager.AllMiniBlueprints, NOT BlueprintModelStates,
+        //     so the state-hide can't reach it (its state is already Available and it isn't in that
+        //     dict). Without a fix it degrades to "2 MetalNugget -> 120 Fibers" with no hemp. Removed
+        //     from its host station's ContainedBlueprintCards instead (StripContainedBlueprintIfMissing),
+        //     so the Weaver station never offers it; the station's other four recipes (Rope, LargeCloth,
+        //     ProcessNettle, ProcessFlax) are CMC-only and stay available.
+        //  3. Apothecary's CABIN (BpCMCApothecaryCabin) — deliberately left ALONE. It is a one-time,
+        //     arc-gating CONSTRUCTION blueprint: building it opens the entire Apothecary residency arc.
+        //     Hiding or blocking it on a CMC-only install would lock that whole arc, a far worse outcome
+        //     than letting its 6 herb requirement-instances (of 15) drop, which merely makes the
+        //     one-time build cheaper. Graceful degradation of a one-time build beats deleting a
+        //     questline, so the cabin is intentionally allowed to trivialize.
+        //
+        // herbs_fungi_hemp_flower_dried is used purely as an "is H&F installed" presence probe.
+        // NOTE: GetFromID is case-SENSITIVE (UniqueIDScriptable.LoadID does not normalize case), so each
+        // UID below must match its JSON UniqueID verbatim — the Mixture ships lowercase, the Weaver
+        // recipe/station ship PascalCase/camelCase.
+        private const string HfPresenceProbeUid  = "herbs_fungi_hemp_flower_dried";
         private const string HfGatedBlueprint    = "bpcmcapothecaryhealingmixture";
+        private const string HfWeaverStationUid  = "cmcCottageWeaver";
+        private const string HfWeaverHempRecipe  = "BpCMCWeaverProcessHemp";
 
         private static bool _subscribed;
         private static Action _gmInitializedHandler;
@@ -231,6 +276,7 @@ namespace CommunityModChest.Patcher
         {
             GateTable(UnconditionalCourseUnlocks, $"Academy gating at {reason}");
             HideIfDependencyMissing(HfGatedBlueprint, HfPresenceProbeUid, "Herbs & Fungi", reason);
+            StripContainedBlueprintIfMissing(HfWeaverStationUid, HfWeaverHempRecipe, HfPresenceProbeUid, "Herbs & Fungi", reason);
         }
 
         // Forces a blueprint permanently Hidden when a cross-mod ingredient dependency isn't
@@ -256,6 +302,67 @@ namespace CommunityModChest.Patcher
             states[bp] = Enum.ToObject(states[bp].GetType(), StateHidden);
             DisableUnlockConditions(unlockables, bp);
             Plugin.Logger.LogInfo($"[AcademyCourseService] {depLabel} not installed at {reason} — {bpUid} hidden regardless of perk.");
+        }
+
+        // Removes a station-CONTAINED operation blueprint from its host station's ContainedBlueprintCards
+        // when a cross-mod ingredient dependency isn't installed, so the station never offers a recipe
+        // that would trivialize once its unresolved ingredient drops out. This is the correct lever for
+        // contained op blueprints (StartUnlocked:true) — they live in GameManager.AllMiniBlueprints, not
+        // BlueprintModelStates, so HideIfDependencyMissing above can't touch them. CardData.
+        // ContainedBlueprintCards is a public CardData[] the game reads live from the shared model
+        // (.decomp/CardData.cs), so mutating it here removes the recipe from every station instance.
+        // Idempotent (a UID already absent writes nothing); the station's other contained recipes are
+        // left untouched.
+        private static void StripContainedBlueprintIfMissing(string stationUid, string containedBpUid, string presenceProbeUid, string depLabel, string reason)
+        {
+            try
+            {
+                if (FindCardData(presenceProbeUid) != null) return; // dependency installed — leave the recipe in place
+
+                var station = FindCardData(stationUid);
+                if (station == null) return;
+
+                var field = station.GetType().GetField("ContainedBlueprintCards",
+                    BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+                if (field == null)
+                {
+                    Plugin.Logger.LogDebug($"[AcademyCourseService] {stationUid} has no ContainedBlueprintCards field — cannot strip {containedBpUid}.");
+                    return;
+                }
+                if (field.GetValue(station) is not Array arr || arr.Length == 0) return;
+
+                var kept = new System.Collections.Generic.List<object>(arr.Length);
+                bool removed = false;
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    var el = arr.GetValue(i);
+                    if (el != null && UidOf(el) == containedBpUid) { removed = true; continue; }
+                    kept.Add(el);
+                }
+                if (!removed) return; // already stripped or never present — idempotent no-op
+
+                var next = Array.CreateInstance(field.FieldType.GetElementType(), kept.Count);
+                for (int i = 0; i < kept.Count; i++) next.SetValue(kept[i], i);
+                field.SetValue(station, next);
+
+                Plugin.Logger.LogInfo($"[AcademyCourseService] {depLabel} not installed at {reason} — {containedBpUid} removed from {stationUid}'s contained recipes.");
+            }
+            catch (Exception ex)
+            {
+                Plugin.Logger.LogWarning($"[AcademyCourseService] StripContainedBlueprintIfMissing({stationUid},{containedBpUid}) failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
+            }
+        }
+
+        // Reads a UniqueIDScriptable's UniqueID by reflection (field or auto-property backing).
+        private static string UidOf(object scriptable)
+        {
+            if (scriptable == null) return null;
+            var f = scriptable.GetType().GetField("UniqueID",
+                BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            if (f != null) return f.GetValue(scriptable) as string;
+            var p = scriptable.GetType().GetProperty("UniqueID",
+                BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            return p?.GetValue(scriptable) as string;
         }
 
         // Shared gating loop: for each course in the table, unlock its blueprints if the required

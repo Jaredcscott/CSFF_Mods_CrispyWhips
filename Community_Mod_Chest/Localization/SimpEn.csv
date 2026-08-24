@@ -3,11 +3,11 @@ apparel_cloth_scarf_CardDescription,"A cloth scarf worn around the neck. Offers 
 
 <b>MUST BE EQUIPPED TO WORK</b>"
 apparel_foot_wraps_CardName,Foot Wraps
-apparel_foot_wraps_CardDescription,"Strips of cloth wound around the feet and ankles. Crude but better than bare feet.
+apparel_foot_wraps_CardDescription,"Strips of woven reed and plant fiber, bound with twine, wound around the feet and ankles. Crude but better than bare feet.
 
 <b>MUST BE EQUIPPED TO WORK</b>"
 apparel_hand_wraps_CardName,Hand Wraps
-apparel_hand_wraps_CardDescription,"Strips of cloth wrapped around the hands. Offer minimal protection against cuts and cold.
+apparel_hand_wraps_CardDescription,"Strips of cloth wound around the hands, bound with twine. Offer minimal protection against cuts and cold.
 
 <b>MUST BE EQUIPPED TO WORK</b>"
 apparel_chaperon_CardName,Chaperon
@@ -42,11 +42,11 @@ apparel_bp_cloth_scarf_CardName,Cloth Scarf
 apparel_bp_cloth_scarf_CardDescription,A cloth scarf worn around the neck.
 apparel_bp_cloth_scarf_UnlockConditionsDesc,Earn the Weaver's trust
 apparel_bp_foot_wraps_CardName,Foot Wraps
-apparel_bp_foot_wraps_CardDescription,Strips of cloth wound around the feet. Crude improvised footwear.
-apparel_bp_foot_wraps_UnlockConditionsDesc,Small Cloth Needed
+apparel_bp_foot_wraps_CardDescription,"Woven strips of reed and plant fiber, bound with twine. Crude improvised footwear."
+apparel_bp_foot_wraps_UnlockConditionsDesc,Reeds Needed
 apparel_bp_hand_wraps_CardName,Hand Wraps
-apparel_bp_hand_wraps_CardDescription,Cloth strips wrapped around the hands. Minimal but better than nothing.
-apparel_bp_hand_wraps_UnlockConditionsDesc,Small Cloth Needed
+apparel_bp_hand_wraps_CardDescription,"Strips of cloth wound around the hands, bound with twine. Minimal but better than nothing."
+apparel_bp_hand_wraps_UnlockConditionsDesc,Cloth Needed
 apparel_bp_chaperon_CardName,Chaperon
 apparel_bp_chaperon_CardDescription,A cloth hood with a short cape covering the head and shoulders.
 apparel_bp_chaperon_UnlockConditionsDesc,"Show the Weaver a scarf you've sewn, and earn her trust"
@@ -146,7 +146,6 @@ Combat_And_Armor_StoneMace_UsageDurability.CardStatName,Durability
 Combat_And_Armor_QuiltedVest_UsageDurability.CardStatName,Durability
 Combat_And_Armor_QuiltedCap_UsageDurability.CardStatName,Durability
 Combat_And_Armor_BoneLamellar_UsageDurability.CardStatName,Durability
-
 Combat_And_Armor_WoodenShield_CardName,Wooden Shield
 Combat_And_Armor_WoodenShield_CardDescription,"Planks lashed together with leather straps and twine. A crude but effective shield worn on the forearm.
 
@@ -315,13 +314,12 @@ CharacterTraits_Perk_VillageInn_PerkDescription,"The innkeeper across the river 
 CharacterTraits_Perk_VillageFounder_PerkName,Village Founder
 CharacterTraits_Perk_VillageFounder_PerkDescription,"You've been here before — long before today. The Miller's Cottage, the Weaver's Cottage, the Village Hall, and the Apothecary's Cabin are already standing, their residents already moved in, and the Inn Keeper, Professor, Miller, Weaver, and Apothecary all treat you like an old friend. All four of their first errands are already settled."
 CharacterTraits_Perk_Graduate_PerkName,Graduate
-CharacterTraits_Perk_Graduate_PerkDescription,"You already hold a full Academy education. Architecture, Metallurgy, Herbalism, Fishing, Armorer, and Medicine are all complete — you carry every discipline's graduate perk and their blueprint rewards from the start, without ever setting foot in the Lecture Hall."
+CharacterTraits_Perk_Graduate_PerkDescription,"You already hold a full Academy education. Architecture, Metallurgy, Herbalism, Fishing, Armorer, Medicine, and Carpentry are all complete — you carry every discipline's graduate perk and their blueprint rewards from the start, without ever setting foot in the Lecture Hall or the Carpentry Bench."
 Combat_And_Armor_StoneMace_OnZero,Stone Mace Broken!
 Combat_And_Armor_WoodenShield_OnZero,Shield Destroyed!
 Combat_And_Armor_QuiltedVest_OnZero,Vest Destroyed!
 Combat_And_Armor_BoneLamellar_OnZero,Armor Destroyed!
 Combat_And_Armor_QuiltedCap_OnZero,Cap Destroyed!
-
 CMC_IronFishingRodFittings_CardName,Iron Fishing Rod Fittings
 CMC_IronFishingRodFittings_CardDescription,Iron hook eyelet and reel fittings for a superior fishing rod. Combine with a long stick and fishing line to complete the rod.
 Bp_CMC_IronFishingRodFittings_CardName,Iron Fishing Rod Fittings
@@ -338,7 +336,6 @@ CMC_IronFishingRod_Fish_ActionDescription,Cast your iron-fitted line into the wa
 Bp_CMC_IronFishingRod_CardName,Iron Fishing Rod
 Bp_CMC_IronFishingRod_CardDescription,Assemble a superior fishing rod from iron fittings a long stick and a rustic fishing line. Provides a fishing advantage and aids stamina recovery while carried.
 Bp_CMC_IronFishingRod_UnlockConditionsDesc,Iron Fishing Rod Fittings Needed
-
 CMC_OldGrowthBark_CardName,Old Growth Bark
 CMC_OldGrowthBark_CardDescription,"Thick bark peeled from the ancient oaks of the Foraging Forest. Rich with aromatic tannins, ground together with wild garlic into a soothing herb paste."
 CMC_GardenTrellis_Placed_CardName,Garden Trellis
@@ -347,7 +344,6 @@ CMC_GardenTrellis_Placed_DA_Dismantle,Dismantle
 CMC_GardenTrellis_Placed_Weathered,The garden trellis has rotted away.
 Bp_CMC_GardenTrellis_CardName,Garden Trellis
 Bp_CMC_GardenTrellis_CardDescription,Lash long sticks together with rope into a climbing-plant frame.
-
 Pottery_Sculpture_FigurineCastle_CardName,Castle Figurine
 Pottery_Sculpture_FigurineCastle_CardDescription,A small clay figurine shaped like a miniature tower with crenellations. Intricate work prized by traders and collectors.
 Pottery_Sculpture_FigurineCastle_UsageDurability,Durability
@@ -355,13 +351,11 @@ Pottery_Sculpture_FigurineCastle_Broken,The castle figurine has crumbled.
 Pottery_Sculpture_Bp_FigurineCastle_CardName,Castle Figurine
 Pottery_Sculpture_Bp_FigurineCastle_CardDescription,Sculpt a miniature castle tower from clay using a knife. A more intricate piece than the other figurines.
 Pottery_Sculpture_Bp_FigurineCastle_UnlockConditionsDesc,Bring the Professor clay for his ruined castle
-
 Pottery_Sculpture_StoneTiles_CardName,Stone Tiles
 Pottery_Sculpture_StoneTiles_CardDescription,"Flat stone pieces chipped and shaped smooth, a mark of skilled craftsmanship. Can be laid as a tiled floor in cabins and mud huts, or sold as a modest trade good."
 Pottery_Sculpture_Bp_StoneTiles_CardName,Stone Tiles
 Pottery_Sculpture_Bp_StoneTiles_CardDescription,"Chip a stone flat and square. Produces several polished tiles that can be laid as flooring in cabins and mud huts, or sold in trade."
 Pottery_Sculpture_Bp_StoneTiles_UnlockConditionsDesc,Stone Needed
-
 Pottery_Sculpture_HerbPaste_CardName,Herb Paste
 Pottery_Sculpture_HerbPaste_CardDescription,"A thick paste ground from wild garlic and old growth bark in a stone mortar. Has a sharp, bitter flavor but eases the body and lifts the spirits."
 Pottery_Sculpture_HerbPaste_Spoiled,The herb paste has gone rancid.
@@ -369,7 +363,6 @@ Pottery_Sculpture_HerbPaste_DA_Eat,Eat
 Pottery_Sculpture_Bp_HerbPaste_CardName,Herb Paste
 Pottery_Sculpture_Bp_HerbPaste_CardDescription,Grind wild garlic and old growth bark together using a stone or hammer. The resulting paste provides nourishment and comfort.
 Pottery_Sculpture_Bp_HerbPaste_UnlockConditionsDesc,Help the Apothecary forage three fresh herbs
-
 Comfort_WovenWallHanging_CardName,Woven Wall Hanging
 Comfort_WovenWallHanging_CardDescription,A panel of dried rye straw woven into a decorative hanging and dyed with natural pigment. Warm earthy tones make any space feel more like home.
 Comfort_WovenWallHanging_Weathered,The wall hanging has dried out and crumbled away.
@@ -456,6 +449,10 @@ CharacterTraits_Perk_Aged_PerkName,Aged
 CharacterTraits_Perk_Aged_PerkDescription,The years have taken their toll. Your body recovers stamina more slowly and aches linger longer than they should.
 CharacterTraits_Perk_Bleeder_PerkName,Bleeder
 CharacterTraits_Perk_Bleeder_PerkDescription,"Your blood does not clot well. Wounds bleed for significantly longer than they should, making even minor injuries into dangerous situations."
+CharacterTraits_Perk_WeakCourage_PerkName,Weak Courage
+CharacterTraits_Perk_WeakCourage_PerkDescription,"You have a bit more nerve than most. A modest, permanent boost to your Courage makes scary actions somewhat easier without erasing your fear entirely."
+CharacterTraits_Perk_WeakCowardice_PerkName,Weak Cowardice
+CharacterTraits_Perk_WeakCowardice_PerkDescription,"Your nerve falters more easily than most. A modest, permanent reduction to your Courage makes scary actions a little harder to push through — but you still have enough grit to act when it truly matters."
 CharacterTraits_Perk_SpirituallyTroubled_PerkName,Spiritually Troubled
 CharacterTraits_Perk_SpirituallyTroubled_PerkDescription,"The spirits do not look kindly upon you. Stress weighs heavier and lingers longer, and the unease of an unfriendly spirit world keeps your nerves on edge."
 CharacterTraits_Perk_WeakenedGrowth_PerkName,Weakened Growth
@@ -466,7 +463,6 @@ CharacterTraits_Perk_Fugitive_PerkName,Fugitive
 CharacterTraits_Perk_Fugitive_PerkDescription,"You fled your old life in a hurry with little more than the clothes on your back. You begin haunted by fear and stress from the ordeal, and the anxiety of being hunted never quite leaves you."
 CharacterTraits_Perk_LostTourist_PerkName,Lost Tourist
 CharacterTraits_Perk_LostTourist_PerkDescription,"You stumbled into this wilderness entirely by accident. You miss civilization and familiar faces. Start with some social skills, but loneliness and stress build faster in the wild."
-
 CharacterTraits_Perk_SeasonalAllergies_PerkName,Seasonal Allergies
 CharacterTraits_Perk_SeasonalAllergies_PerkDescription,"Spring is agony. Nausea and Rash build much faster throughout the year, and each spring triggers a severe allergic flare."
 CharacterTraits_Perk_DeadlyDisease_PerkName,Deadly Disease
@@ -487,13 +483,12 @@ CMC_Imp_RiverBridge_CardName,River Bridge
 CMC_Imp_RiverBridge_CardDescription,A sturdy wooden bridge spanning the river at the clearing. Build this at the River Clearing to open the eastern path toward the village.
 CMC_Imp_StoneTileFloor_CardName,Stone Tile Floor
 CMC_Imp_StoneTileFloor_CardDescription,"Polished stone tiles set into a bed of clay, covering the ground in a smooth, even floor. Increases comfort and insulation. Can be laid in cabins and mud huts."
-
 CMC_MarketStallKit_CardName,Market Stall Kit
 CMC_MarketStallKit_CardDesc,"A portable market stall. Can only be assembled in the village: merchants need foot traffic to buy your wares. Once placed, drop trade goods into the stall inventory and collect earnings as copper or salt over time."
 CMC_MarketStallKit_Help,Market Stall Kit
 CMC_MarketStall_DA_SetUp,Set Up Stall
 CMC_MarketStall_CardName,Market Stall
-CMC_MarketStall_CardDesc,A small trading post set up in the village. Drop trade goods into the stall and merchants will buy them over time. Collect earnings as copper nuggets or salt. Watch out: thieves sometimes strike unattended stalls.
+CMC_MarketStall_CardDesc,"A small trading post set up in the village. Drop trade goods into the stall; merchants will purchase one item per day, building up your Sales Revenue bar. Collect earnings as copper nuggets (50 revenue each) or salt (30 revenue each). Thieves occasionally target unattended stalls."
 CMC_MarketStall_SD1_Name,Sales Revenue
 CMC_MarketStall_DA_CollectCopper,Collect as Copper
 CMC_MarketStall_DA_CollectSalt,Collect as Salt
@@ -501,7 +496,6 @@ CMC_MarketStall_DA_PackUp,Pack Up Stall
 CMC_MarketStall_BP_Name,Market Stall
 CMC_MarketStall_BP_Desc,"Build a market stall using planks, cloth, rope, and a Copper Chest for the coin lockbox. The finished kit can only be assembled in the village."
 CMC_MarketStall_BP_UnlockDesc,Requires a Copper Chest
-
 CMC_Inn_CardName,Village Inn
 CMC_Inn_CardDescription,"A warm inn kept by a friendly innkeeper. Step inside for a meal, a bed for the night, or some paying work."
 CMC_Inn_Help,Inn
@@ -595,7 +589,6 @@ CMC_ProfessorGreeting_AboutPath_Line,"The old village path, the road between eve
 CMC_ProfessorGreeting_AboutInn_Line,"The inn. A warm hearth, warmer cider, and the innkeeper's cat underfoot. I take my evenings here when the lecture hall grows too quiet. Even a scholar needs company now and then."
 CMC_ProfessorGreeting_DayGated_Line,"Since you ask, the lecture hall has been busy. Given a few more days I expect I'll have proper work for a pair of willing hands."
 CMC_ProfessorGreeting_DayGated_Answer_Ok,I'll keep that in mind.
-
 CMC_MeleeFighting_GameName,Melee Fighting
 CMC_MeleeFighting_Description,Increases your success chances and damage when fighting with melee weapons.
 CMC_VillageField_YieldStat,Yield
@@ -882,9 +875,9 @@ CMC_BoardApothecary_CardDescription,A small board where the Apothecary posts new
 CMC_BoardProfessor_CardName,Professor's Board
 CMC_BoardProfessor_CardDescription,A small board where the Professor posts news of the Academy.
 CMC_VillageReputation_StatName,Village Reputation
-CMC_VillageReputation_StatDescription,"Net standing for the village: civic renown minus the player's own Village Crime. Shown as a Mental attribute in the character menu."
+CMC_VillageReputation_StatDescription,Net standing for the village: civic renown minus the player's own Village Crime. Shown as a Mental attribute in the character menu.
 CMC_VillageCrime_StatName,Village Crime
-CMC_VillageCrime_StatDescription,"Hidden notoriety tracker for the village Watch: rises when thefts and attacks are detected. Feeds into Village Reputation but stays its own independent ledger."
+CMC_VillageCrime_StatDescription,Hidden notoriety tracker for the village Watch: rises when thefts and attacks are detected. Feeds into Village Reputation but stays its own independent ledger.
 CMC_InnFriendship_StatName,Inn Keeper Friendship
 CMC_InnFriendship_StatDescription,Hidden tracker: rises with each Chat. Gates warmer dialog and better trade prices at the Inn.
 CMC_InnWellCommented_StatName,The Inn Keeper's Well Remark
@@ -1713,19 +1706,25 @@ CMC_ShadowCatTamed_CI_GiveWater_Fail,Not thirsty yet.
 CMC_QuestRenownMarketStallSales_StatName,Renown: Market Stall Sales Milestone
 CMC_QuestRenownMarketStallSales_StatDescription,"Hidden one-shot flag: 1 once the Market Stall's Sales Revenue has ever been observed at or above its Renown threshold. Contributes to Village Renown. Latched permanently the first time it's observed (the stall's revenue can only be read while the player is standing at the Village), so the Renown contribution survives being away from the Village afterward."
 CMC_SnowDriftNorth_CardName,Snow Drift
-CMC_SnowDriftNorth_CardDescription,"Deep winter snow has drifted across the northern road to Stillwater Meadow, burying the path. Dig through it with a shovel to clear the way — once cleared, it stays open for the rest of the winter."
+CMC_SnowDriftNorth_CardDescription,"Deep winter snow has drifted across the northern road to Stillwater Meadow, burying the path. Dig through it with a shovel to clear the way quickly, or claw through it with your bare hands if you have no tool — slower, but it works. Once cleared, it stays open for the rest of the winter."
+CMC_SnowDriftNorth_CI_Dig_ByHand_ActionName,Dig Through the Snow Drift by Hand
+CMC_SnowDriftNorth_CI_Dig_ByHand_ActionDescription,"Claw through the drift with your bare hands. Slower and more exhausting than a shovel, but it clears the road to Stillwater Meadow all the same."
 CMC_SnowDriftNorth_CI_Dig_ActionName,Dig Through the Snow Drift
 CMC_SnowDriftNorth_CI_Dig_ActionDescription,Shovel a path through the drift. Clears the road to Stillwater Meadow once fully dug through.
 CMC_SnowDriftSouth_CardName,Snow Drift
-CMC_SnowDriftSouth_CardDescription,"Deep winter snow has drifted across the southern road to Pine Trail, burying the path. Dig through it with a shovel to clear the way — once cleared, it stays open for the rest of the winter."
+CMC_SnowDriftSouth_CardDescription,"Deep winter snow has drifted across the southern road to Pine Trail, burying the path. Dig through it with a shovel to clear the way quickly, or claw through it with your bare hands if you have no tool — slower, but it works. Once cleared, it stays open for the rest of the winter."
+CMC_SnowDriftSouth_CI_Dig_ByHand_ActionName,Dig Through the Snow Drift by Hand
+CMC_SnowDriftSouth_CI_Dig_ByHand_ActionDescription,"Claw through the drift with your bare hands. Slower and more exhausting than a shovel, but it clears the road to Pine Trail all the same."
 CMC_SnowDriftSouth_CI_Dig_ActionName,Dig Through the Snow Drift
 CMC_SnowDriftSouth_CI_Dig_ActionDescription,Shovel a path through the drift. Clears the road to Pine Trail once fully dug through.
 CMC_SnowDriftEast_CardName,Snow Drift
-CMC_SnowDriftEast_CardDescription,"Deep winter snow has drifted across the eastern road to the Village Farm, burying the path. Dig through it with a shovel to clear the way — once cleared, it stays open for the rest of the winter."
+CMC_SnowDriftEast_CardDescription,"Deep winter snow has drifted across the eastern road to the Village Farm, burying the path. Dig through it with a shovel to clear the way quickly, or claw through it with your bare hands if you have no tool — slower, but it works. Once cleared, it stays open for the rest of the winter."
+CMC_SnowDriftEast_CI_Dig_ByHand_ActionName,Dig Through the Snow Drift by Hand
+CMC_SnowDriftEast_CI_Dig_ByHand_ActionDescription,"Claw through the drift with your bare hands. Slower and more exhausting than a shovel, but it clears the road to the Village Farm all the same."
 CMC_SnowDriftEast_CI_Dig_ActionName,Dig Through the Snow Drift
 CMC_SnowDriftEast_CI_Dig_ActionDescription,Shovel a path through the drift. Clears the road to the Village Farm once fully dug through.
-CharacterTraits_Perk_Homestead_PerkName,Homestead
-CharacterTraits_Perk_Homestead_PerkDescription,"You've come prepared to settle down. Start with a cabin kit, two rain cistern kits, and a stockpile of building materials (30 planks, 30 mud bricks, 30 heavy stones, 50 stones, 10 logs, 50 copper nails, 10 rope). Carry the kits with you and use Place to raise them wherever you want to build your homestead — each kit can only be placed once."
+CharacterTraits_Perk_Homestead_PerkName,Founders Kit
+CharacterTraits_Perk_Homestead_PerkDescription,"You've come prepared to settle down. Start with a Founders Kit, bundled for travel. Drop it wherever you want to build your homestead, then use Place to unpack a cabin kit, two rain cistern kits, and a stockpile of building materials (30 planks, 30 mud bricks, 50 stones, 20 heavy stones, 15 tree logs, 20 clay, 10 rope, 50 copper nails) all at once — then Place each kit to raise it. Everything can only be placed once."
 CMC_ProfessorGreeting_CourseAckArchitecture_Line,"Architecture, passed with a design I'll admit I stole a diagram from for next term's lecture. Water doesn't forgive a bad angle the way earth does, but you found the right one. A water-driven sawmill and grinding mill are within your skill now, real ones, not the toy models I sketch on the board. Combine it with a Metallurgy degree and you'll be casting your own forge fittings before the season turns."
 CMC_ProfessorGreeting_CourseAckArmorer_Line,"Armorer, passed, and passed properly, no student of mine gets a breastplate pattern without proving they understand why the rivets go where they go. Copper will do in a pinch, but iron will actually keep you alive out past the tree line, helm, greaves, gauntlets, the full set is yours to make now. I'd rather you never need it. I'd rather you have it anyway."
 CMC_ProfessorGreeting_CourseAckFishing_Line,"You passed Fishing, and unlike most of my courses this one I actually enjoy grading, mostly because it involves an afternoon by the water instead of a stack of essays. The iron fittings for a proper rod are yours to build now, sturdier than anything whittled from green wood. My uncle's mythical river monster is still out there uncaught, incidentally, should you fancy a rematch on his behalf."
@@ -1777,16 +1776,16 @@ CMC_InnWeaverCottageRemarked_StatDescription,"Hidden tracker: 0 = has not yet re
 CMC_GuardSterling_AgentName,Captain Reeve Sterling
 CMC_GuardSterling_AgentDescription,"Captain of the village Watch. Keeps the Hall and the market square, and gives a warning before he gives an order."
 CMC_GuardThorne_AgentName,Guard Nella Thorne
-CMC_GuardThorne_AgentDescription,"River Watch. Holds the bridge junction where the path meets the village, and does not cross the water."
+CMC_GuardThorne_AgentDescription,"Town Square Watch, day shift. Holds the square with Corrin and doesn't hang back long before stepping in."
 CMC_GuardCorrin_AgentName,Guard Old Corrin
-CMC_GuardCorrin_AgentDescription,"Farm Watch. Walks the fields and the clay flats trail, a beat the village gave him because they trust him with it."
+CMC_GuardCorrin_AgentDescription,"Town Square Watch, day shift. Walks the square alongside Thorne, a beat the village trusts him to hold quietly."
 CMC_GuardVane_AgentName,Guard Iris Vane
 CMC_GuardVane_AgentDescription,"Night Watch. Sleeps through the day and walks the village after dark, which is when she does her best noticing."
 CMC_GuardPerk_Sterling_PerkName,Watch Captain
 CMC_GuardPerk_Sterling_PerkDescription,"Squad lead of the village Watch. Formal, unhurried, and slow to escalate."
-CMC_GuardPerk_Thorne_PerkName,River Watch
-CMC_GuardPerk_Thorne_PerkDescription,Eager and quick to escalate. Works the river crossing and shouts after anyone who runs for it.
-CMC_GuardPerk_Corrin_PerkName,Farm Watch
+CMC_GuardPerk_Thorne_PerkName,Town Square Watch
+CMC_GuardPerk_Thorne_PerkDescription,Eager and quick to escalate. Works the town square by day and shouts after anyone who runs for it.
+CMC_GuardPerk_Corrin_PerkName,Town Square Watch
 CMC_GuardPerk_Corrin_PerkDescription,"Old, weary, and reluctant. Slower to notice trouble than the rest of the Watch, and slower still to want it."
 CMC_GuardPerk_Vane_PerkName,Night Watch
 CMC_GuardPerk_Vane_PerkDescription,"Sharp-eyed and suspicious by default. Notices what the day shift misses, and is on her feet when thieves are."
@@ -1823,7 +1822,7 @@ CMC_ArrestPending_StatDescription,Hidden marker: a Watch guard beat you and is t
 CMC_GuardsSummoned_StatName,Guards Summoned
 CMC_GuardsSummoned_StatDescription,Hidden marker: Guard Vane has found you and called the rest of the Watch in.
 CMC_CaptainSummoned_StatName,Captain Summoned
-CMC_CaptainSummoned_StatDescription,"Hidden marker: a Watch guard has beaten you and is holding you for the Captain."
+CMC_CaptainSummoned_StatDescription,Hidden marker: a Watch guard has beaten you and is holding you for the Captain.
 CMC_SterlingWarningGiven_StatName,Warned by the Captain
 CMC_SterlingWarningGiven_StatDescription,Hidden 0/1 marker: 1 once Captain Sterling has given his one-time warning the first time cmcStatVillageCrime enters the Suspected band (Village_Master_Plan.md §10.8.1/§10.8.2). Latched permanently -- never cleared -- so the warning line is delivered exactly once per run.
 CMC_SterlingTalk_SceneTitle,Captain Reeve Sterling
@@ -1921,6 +1920,10 @@ CMC_HomesteadRainCisternKit_CardName,Rain Cistern Kit
 CMC_HomesteadRainCisternKit_CardDescription,"A rain cistern, disassembled and bundled for travel. Drop it wherever you want your water source, then use Place to set it up. Can only be placed once."
 CMC_HomesteadRainCisternKit_DA_Place,Place
 CMC_HomesteadRainCisternKit_DA_Place_Desc,Set up your rain cistern on this spot.
+CMC_HomesteadKit_CardName,Founders Kit
+CMC_HomesteadKit_CardDescription,"Everything you need to start a homestead, bundled into one portable pack: a cabin kit, two rain cistern kits, and a stockpile of building materials. Drop it wherever you want to settle, then use Place to unpack it all at once. Can only be placed once."
+CMC_HomesteadKit_DA_Place,Place
+CMC_HomesteadKit_DA_Place_Desc,"Unpack your Founders Kit here: cabin kit, rain cistern kits, and building materials all appear on the spot."
 CMC_CopperChestWeaver_CardName,Weaver's Copper Chest
 CMC_CopperChestWeaver_CardDescription,"The Weaver keeps what the dye pots and the loom have earned her in this banded chest, along with a little spare thread. She adds to it most weeks, until it holds about as much as a weaver's chest ever does. Drag a valuable item onto the chest to sell it to her - she can only pay what is actually inside. There is nothing stopping you searching it yourself, either, if you are willing to risk being caught."
 CMC_CopperChestWeaver_CardHelpSection,Copper Chest
@@ -1995,3 +1998,284 @@ CMC_SterlingArr_Desc,"""I have given you every chance I have to give,"" the capt
 CMC_SterlingArr_Fight,Let him take you
 CMC_SterlingEscapeCount_StatName,Chances Given
 CMC_SterlingEscapeCount_StatDescription,Hidden counter: how many times you have backed down from a fight with Captain Sterling.
+CharacterTraits_Perk_RainCisternKit_PerkName,Rain Cistern Kit
+CharacterTraits_Perk_RainCisternKit_PerkDescription,Start with a rain cistern kit. Use Place to set up your cistern wherever you want it — it can only be placed once.
+CMC_InnKeeperTalk_GuardsConfession_Line,"So it's done. All four of the Watch, down, and word of it reached my door before you did. I've heard how it went -- some of them got back up. Not all of them did. Blood on the village floor doesn't wash out just because the fighting's over, and I'll not pour you a drink and pretend otherwise. Before we go on as we always have, I want you to sit with it a moment -- what you did out there, and whether you can carry it."
+CMC_InnKeeperTalk_GuardsConfession_Answer_Contrite,I know what I did. I'll carry it.
+CMC_InnKeeperTalk_GuardsConfession_Answer_Defiant,They came at me first. I did what I had to.
+CMC_ClimbingRope_CardName,Climbing Rope
+CMC_ClimbingRope_CardDescription,"A long coil of rope, reinforced and knotted for climbing rather than hauling. The Weaver swore it would hold on the cliff north of the village, at Greenfalls."
+Bp_CMC_ClimbingRope_CardName,Climbing Rope
+Bp_CMC_ClimbingRope_CardDescription,"Knot and reinforce rope the way the Weaver showed you, sturdy enough to anchor on a cliff face."
+Bp_CMC_ClimbingRope_UnlockConditionsDesc,Taught by the Weaver once her errands are done
+CMC_Imp_ClimbingRope_CardName,Climbing Rope
+CMC_Imp_ClimbingRope_CardDescription,"The Weaver's climbing rope, anchored fast to the cliff face. Fixing it here opens a way down to the village path, and back up again."
+CMC_WeaverTalk_RopeQuest_Line,"There's one more thing, and it isn't an errand. You've seen the cliff north past the meadow -- too sheer to climb, drops straight down on the far side to a place they call Greenfalls. I've been knotting a rope for it in my spare hours, the kind that holds a person's weight and not just a bucket. Let me show you how it's tied, so you can make your own and fix it to the rock. Once it's anchored, that path opens both ways -- village to falls, and back again."
+CMC_WeaverTalk_RopeQuest_Answer_Accept,Show me.
+CMC_WeaverTalk_RopeQuest_Answer_Decline,Not right now.
+CMC_WeaverRopeEpilogueDone_StatName,Weaver's Climbing Rope Given
+CMC_WeaverRopeEpilogueDone_StatDescription,"Hidden tracker: whether the Weaver has taught the player the Climbing Rope pattern, after her main quest chain is complete."
+CMC_GuardKilledFlagSterling_StatName,Captain Reeve Sterling Killed Flag
+CMC_GuardKilledFlagSterling_StatDescription,Hidden marker: whether Captain Sterling's current absence is from a kill rather than a rout.
+CMC_GuardKilledFlagThorne_StatName,Guard Nella Thorne Killed Flag
+CMC_GuardKilledFlagThorne_StatDescription,Hidden marker: whether Guard Nella Thorne's current absence is from a kill rather than a rout.
+CMC_GuardKilledFlagCorrin_StatName,Guard Old Corrin Killed Flag
+CMC_GuardKilledFlagCorrin_StatDescription,Hidden marker: whether Guard Old Corrin's current absence is from a kill rather than a rout.
+CMC_GuardKilledFlagVane_StatName,Guard Iris Vane Killed Flag
+CMC_GuardKilledFlagVane_StatDescription,Hidden marker: whether Guard Iris Vane's current absence is from a kill rather than a rout.
+CMC_GuardKillsPending_StatName,Guards Killed (Unanswered For)
+CMC_GuardKillsPending_StatDescription,Hidden count of guards killed since the player last served a full jail sentence; sets a heavier sentence (7 days per guard killed; capped at 8) and resets once served.
+CMC_CarpentryBench_CardName,Carpentry Bench
+CMC_CarpentryBench_CardDescription,"A second study station, set up for the Academy's newest course. Drag Salt, metal Nuggets, or Duros Coins onto the bench to fund your Tuition Account (holds up to 1000); each two-hour study session draws 100 from that balance, including the final exam. Study Carpentry to advance the coursework; when only one session remains, sit the final exam to earn your degree."
+CMC_CarpentryBench_Prog_Carpentry,Carpentry
+CMC_CarpentryBench_Prog_Tuition,Tuition Account
+CMC_CarpentryBench_CI_Deposit,Deposit Currency
+CMC_CarpentryBench_CI_Deposit_Desc,"Adds the value of the dragged Salt, Nugget, or Duros Coin to the Tuition Account (max 1000)."
+CMC_CarpentryBench_DA_Carpentry,Study Carpentry
+CMC_CarpentryBench_DA_Carpentry_Desc,"A two-hour session planing boards and fitting joints. The full course takes 24 hours of study; each session draws 100 from your Tuition Account. When one session remains, the final exam becomes available."
+CMC_CarpentryBench_StudyBlocked,The coursework is complete; sit the final exam.
+CMC_CarpentryBench_DA_CarpentryFinal,Final Exam: Carpentry
+CMC_CarpentryBench_DA_CarpentryFinal_Desc,The final two-hour examination. Pass it to earn the Carpentry degree: unlocks the Outfit Wardrobe and Wicker Chair blueprints.
+CMC_CarpentryBench_FinalNotReady,You are not ready for the final examination.
+CharacterTraits_Perk_GradCarpentry_PerkName,Carpentry Graduate
+CharacterTraits_Perk_GradCarpentry_PerkDescription,You completed the Academy's carpentry course. The Outfit Wardrobe and Wicker Chair blueprints are yours.
+CMC_Bp_WickerChair_CardName,Wicker Chair
+CMC_Bp_WickerChair_CardDescription,"A lashed-frame chair, woven tight enough to actually sit in."
+CMC_Bp_WickerChair_UnlockConditionsDesc,Graduate the Academy's Carpentry course
+CMC_WickerChair_Placed_CardName,Wicker Chair
+CMC_WickerChair_Placed_CardDescription,"A lashed-frame chair, woven tight enough to actually sit in."
+CMC_WickerChair_Placed_CardHelpSection,"Take Apart: Splits the chair back into its Plank, Reeds, and Twine."
+CMC_WickerChair_Placed_DA_Sit,Sit
+CMC_WickerChair_Placed_DA_Sit_Desc,Take a seat for a moment.
+CMC_WickerChair_Placed_DA_TakeApart,Take Apart
+CMC_InnCat_CareLow_CardDescription,"Ash keeps well clear of you these days -- ears back, tail low, gone before you've crossed the yard. He hasn't forgotten the inn. He's just stopped trusting you to feed it."
+CMC_InnCat_CareMid_CardDescription,"Ash tolerates you well enough -- a glance from across the room, maybe a slow blink if you're lucky -- but the easy affection of a well-kept cat isn't there anymore."
+CMC_InnCat_CareHigh_CardDescription,"Ash follows at your heel like he's the one keeping watch over you, purring before you've even crouched down. Whatever he once was to the inn, he's yours now."
+CMC_InnCat_CI_Treat,Give a Treat
+CMC_InnCat_CI_Treat_Desc,"A little something extra, just because."
+CMC_InnCat_CI_Treat_Fail,He's thoroughly spoiled already.
+CMC_OldGrowthBark_CI_TanHide,Tan Hide
+CMC_OldGrowthBark_CI_TanHide_Desc,"Rub the bark's tannins into a fleshed hide, curing it into usable leather."
+CMC_ShadowCatTamed_CareLow_CardDescription,"Shadow doesn't come when the music starts anymore. You catch him at the treeline sometimes, watching -- gone the moment you take a step toward him."
+CMC_ShadowCatTamed_CareMid_CardDescription,"Shadow still lingers near the drying-racks when you're close, but he keeps more distance than he used to, and slips away sooner."
+CMC_ShadowCatTamed_CareHigh_CardDescription,"Shadow stays close now, closer than shadows are supposed to get, settling near the firelight until you turn in for the night."
+CMC_ShadowCatTamed_CI_Treat,Give a Treat
+CMC_ShadowCatTamed_CI_Treat_Desc,"A little something extra, just because."
+CMC_ShadowCatTamed_CI_Treat_Fail,"He sniffs it, already at ease, and lets it be."
+apparel_chaperon_CI_Dye_ActionName,Dye with Pigment
+apparel_chaperon_CI_Dye_ActionDescription,"Rub the charcoal pigment into the cloth hood, darkening it to a deep soot-black."
+apparel_cloth_coat_CI_Dye_ActionName,Dye with Pigment
+apparel_cloth_coat_CI_Dye_ActionDescription,"Work the charcoal pigment into the woven cloth, darkening it to a deep charcoal-grey."
+apparel_cloth_scarf_CI_Dye_ActionName,Dye with Pigment
+apparel_cloth_scarf_CI_Dye_ActionDescription,"Work the charcoal pigment into the cloth, settling it to a soft ash-grey."
+CMC_AcademyInteriorLocation_CardDescription,"Shelves of books and a well-tended fireplace make the Academy's study a quiet, comfortable place to sit and think."
+CMC_ApothecaryCabinInteriorLocation_CardDescription,"Bundles of drying herbs sweeten the air of the Apothecary's cabin, and the low fire keeps the chill at bay. A calming place to rest a moment."
+CMC_BoardTown_DA_crime_clean_Name,Personal standing: no trouble noted
+CMC_BoardTown_DA_crime_clean_Desc,Nothing troubling has been said about you around the village.
+CMC_BoardTown_DA_crime_murmur_Name,Personal standing: some murmuring
+CMC_BoardTown_DA_crime_murmur_Desc,"A little talk has started to follow your name -- nothing serious, so far."
+CMC_BoardTown_DA_crime_watched_Name,Personal standing: watched
+CMC_BoardTown_DA_crime_watched_Desc,Folk have noticed the Watch keeping half an eye on your comings and goings.
+CMC_BoardTown_DA_crime_warrant_Name,Personal standing: warrant talk
+CMC_BoardTown_DA_crime_warrant_Desc,Whispers around the square say a warrant might not be far off if things don't change.
+CMC_CopperChestMiller_CI_Restitution,Make It Right
+CMC_CopperChestMiller_CI_Restitution_Desc,"Drag Salt or a Metal Nugget onto the chest as restitution. It will not undo what was taken, but it goes some way toward clearing your name with the Watch."
+CMC_InnInteriorLocation_CardDescription,"The common room hums with warmth from the hearth, worn floorboards, and the smell of the evening meal. Easy to lose track of time here."
+CMC_MarketStall_DA_SetUpAwning_ActionName,Set Up Awning
+CMC_MarketStall_DA_SetUpAwning_ActionDescription,Add a striped awning and bunting to dress up the stall for market days.
+CMC_MillerCottageInteriorLocation_CardDescription,"Flour dust hangs in the warm air of the Miller's cottage, and the hearth crackles steadily. It's hard not to slow down and stay a while."
+CMC_WeaverCottageInteriorLocation_CardDescription,"The cottage is warm and lived-in, threads and half-finished cloth draped over every surface. Lingering by the hearth here is its own quiet comfort."
+CMC_GuardCorrin_Talk,Talk
+CMC_GuardThorne_Talk,Talk
+CMC_GuardVane_Talk,Talk
+CMC_Bp_CatBed_CardName,Cat Bed
+CMC_Bp_CatBed_CardDescription,"Line a small wicker basket with cloth and straw, bound tight with twine."
+CMC_Bp_CatBed_UnlockConditionsDesc,Small Cloth Needed
+Bp_CMC_BoneDice_CardName,Bone Dice
+Bp_CMC_BoneDice_CardDescription,Carve a matched pair of dice from bone and bind them with a length of twine.
+Bp_CMC_BoneDice_UnlockConditionsDesc,Basic bonecraft — no special training required
+Bp_CMC_BurglarsKit_CardName,Burglar's Kit
+Bp_CMC_BurglarsKit_CardDescription,File a scrap nugget into a pick and lash it to a stick pry bar.
+Bp_CMC_BurglarsKit_UnlockConditionsDesc,Metal Nugget Needed
+Bp_CMC_ClayOcarina_CardName,Clay Ocarina
+Bp_CMC_ClayOcarina_CardDescription,"Shape a small ocarina from clay using a knife, then let it dry hard in the sun."
+Bp_CMC_ClayOcarina_UnlockConditionsDesc,Basic pottery — no special training required
+CMC_Bp_HerbPoultice_CardName,Herb Poultice
+CMC_Bp_HerbPoultice_CardDescription,Mash healer's moss and wild garlic together with a hammering tool until they bind into a wound dressing.
+CMC_Bp_HerbPoultice_UnlockConditionsDesc,Graduate the Academy's Medicine course
+Bp_CMC_SpinningTop_CardName,Spinning Top
+Bp_CMC_SpinningTop_CardDescription,Whittle a block of wood into a top and wind it with rope to give it spin.
+Bp_CMC_SpinningTop_UnlockConditionsDesc,Basic woodworking — no special training required
+CMC_Bp_Tincture_CardName,Herb Tincture
+CMC_Bp_Tincture_CardDescription,"Crush dried willow bark and frostleaf down into a concentrated dose, a remedy the Academy's medicine course teaches by heart."
+CMC_Bp_Tincture_UnlockConditionsDesc,Graduate the Academy's Medicine course
+Bp_CMC_WheeledHorse_CardName,Wheeled Horse
+Bp_CMC_WheeledHorse_CardDescription,"Carve a horse's body and wheels from wood, fit them to a stick axle, and tie on a pull cord."
+Bp_CMC_WheeledHorse_UnlockConditionsDesc,Basic woodworking — no special training required
+ScentedCandle_Bp_CardName,Scented Candle
+ScentedCandle_Bp_CardDescription,"Wind a rope wick and dip it in soft beeswax to shape a slow-burning, sweetly scented candle."
+ScentedCandle_Bp_UnlockConditionsDesc,Beeswax Needed
+CMC_BoneDice_CardName,Bone Dice
+CMC_BoneDice_CardDescription,"A pair of dice carved from bone and rubbed smooth with a thumb. Passing an idle evening rolling them is a small comfort against a long, quiet night."
+CMC_BurglarsKit_CardName,Burglar's Kit
+CMC_BurglarsKit_CardDescription,"A bent nugget of scrap metal filed into a pick, lashed to a pry bar with a length of rope for a grip. Keep it on you and a Copper Chest search goes a little quieter."
+CMC_CatBed_CardName,Cat Bed
+CMC_CatBed_CardDescription,"A wicker basket lined with soft cloth and straw, set out for whichever cat decides to claim it. Doesn't do much for the cat's Care on its own, but a camp that has one feels a little more like a home."
+CMC_CatBed_UsageDurability,Durability
+CMC_CatBed_WornOut,The basket has come apart and the stuffing has scattered.
+CMC_CatBed_DA_Dismantle,Dismantle
+CMC_ClayOcarina_CardName,Clay Ocarina
+CMC_ClayOcarina_CardDescription,"A palm-sized ocarina shaped from fired clay, its finger holes worn smooth by handling. Simple, but it holds a tune well enough to catch a wary animal's ear."
+CMC_ClayOcarina_UsageDurability,Durability
+CMC_ClayOcarina_Broken,The clay ocarina has cracked and crumbled.
+CMC_ClayOcarina_DA_PlayTune,Play a Tune
+CMC_ClayOcarina_DA_PlayTune_Desc,"A few low, breathy notes. Nothing fancy, but it settles the nerves."
+CMC_HerbPoultice_CardName,Herb Poultice
+CMC_HerbPoultice_CardDesc,"Mashed healer's moss and wild garlic, bound tight and pressed against a wound. Simple forage, prepared the way the Academy's medicine course teaches: it closes a bleed fast."
+CMC_HerbPoultice_Help,Herb Poultice
+CMC_HerbPoultice_DA_Apply,Apply Poultice
+CMC_HerbPoultice_DA_Apply_Desc,"Press the poultice against the wound and bind it. The bleeding slows almost at once, and the ache with it."
+CMC_HerbTincture_CardName,Herb Tincture
+CMC_HerbTincture_CardDesc,A bitter dose steeped down from dried willow bark and forest herbs. The Academy's medicine course teaches this one by heart: it settles a sick stomach and quiets a fevered body.
+CMC_HerbTincture_Help,Herb Tincture
+CMC_HerbTincture_DA_Drink,Drink
+CMC_HerbTincture_DA_Drink_Desc,"Drink the tincture. It tastes of bark and bitterness, but the sickness eases within moments."
+CMC_SpinningTop_CardName,Spinning Top
+CMC_SpinningTop_CardDescription,"A small wooden top whittled to a point and wound with cord. Give it a sharp twist and watch it spin — simple, but it never quite gets old."
+CMC_WheeledHorse_CardName,Wheeled Horse
+CMC_WheeledHorse_CardDescription,"A pull-toy horse whittled from wood, its wheels turning on a stick axle and a cord tied at its neck for towing. A cheerful little companion for a quiet homestead."
+apparel_chaperon_dyed_CardName,Soot-Black Chaperon
+apparel_chaperon_dyed_CardDescription,"A cloth hood with a short cape, rubbed through with charcoal pigment until it darkens to a deep soot-black. More coverage than a simple coif. The dye is purely cosmetic — it hides ash and grime well, but offers nothing the plain cloth doesn't.
+
+<b>MUST BE EQUIPPED TO WORK</b>"
+apparel_chaperon_dyed_DA_RipUp,Rip up
+apparel_cloth_coat_dyed_CardName,Charcoal-Grey Cloth Coat
+apparel_cloth_coat_dyed_CardDescription,"A full-length coat of woven cloth, worked over with fine charcoal pigment until it takes on a deep charcoal-grey hue. Lighter than fur but provides decent protection from wind and light rain. The dye is purely for show — it hides dirt better than plain cloth, but it won't keep you any warmer.
+
+<b>MUST BE EQUIPPED TO WORK</b>"
+apparel_cloth_coat_dyed_DA_RipUp,Rip up
+apparel_cloth_scarf_dyed_CardName,Ash-Grey Cloth Scarf
+apparel_cloth_scarf_dyed_CardDescription,"A cloth scarf worked over with fine charcoal pigment, settling to a soft ash-grey. Offers light protection from wind and cold. The dye is purely for looks — it won't keep you any warmer than the plain scarf.
+
+<b>MUST BE EQUIPPED TO WORK</b>"
+apparel_cloth_scarf_dyed_DA_RipUp,Rip up
+ScentedCandle_CardName,Scented Candle
+ScentedCandle_CardDescription,"A hand-dipped beeswax candle wound around a rope wick. Coat with more beeswax to extend its burn, and light from a fire source."
+ScentedCandle_FuelCapacity_CardStatName,Wax
+ScentedCandle_Refuel_ActionName,Coat with Beeswax
+ScentedCandle_Refuel_ActionDescription,Press soft beeswax onto the candle to extend its burn.
+ScentedCandle_Light_ActionName,Light Candle
+ScentedCandle_Light_ActionDescription,Touch a flame to the wick.
+ScentedCandle_NeedsFuel,The candle needs beeswax first.
+ScentedCandleLit_CardName,Lit Scented Candle
+ScentedCandleLit_CardDescription,"A warm flame fills the air with a sweet, waxy fragrance. Settle nearby and let the spirit ease."
+ScentedCandleLit_FuelCapacity_CardStatName,Wax
+ScentedCandleLit_FuelOut_ActionName,Candle Burns Out
+ScentedCandleLit_FuelOut_ActionDescription,The wax has finished burning.
+ScentedCandleLit_Extinguish_ActionName,Extinguish
+ScentedCandleLit_Extinguish_ActionDescription,Snuff out the candle's flame.
+CMC_DeadfallSouth_CardName,Fallen Pine
+CMC_DeadfallSouth_CardDescription,"An autumn storm has toppled a huge pine across the trail between Pine Trail and Highland Pines, blocking the way. Chop through it with an axe to clear the path — once cleared, it stays open for the rest of autumn."
+CMC_DeadfallSouth_CI_Chop_ActionName,Chop Through the Fallen Pine
+CMC_DeadfallSouth_CI_Chop_ActionDescription,Chop through the fallen trunk blocking the trail. Clears the road between Pine Trail and Highland Pines once fully chopped through.
+CMC_MarketStallDressed_CardName,Market Stall
+CMC_MarketStallDressed_CardDesc,"A small trading post set up in the village, dressed with a striped awning and hanging bunting for market days. Drop trade goods into the stall; merchants will purchase one item per day, building up your Sales Revenue bar. Collect earnings as copper nuggets (50 revenue each) or salt (30 revenue each). Thieves occasionally target unattended stalls."
+CMC_MarketStallDressed_CardHelpSection,Market Stall
+CMC_MarketStallDressed_SD1_Name,Sales Revenue
+CMC_MarketStallDressed_DA_CollectCopper,Collect as Copper
+CMC_MarketStallDressed_DA_CollectSalt,Collect as Salt
+CMC_MarketStallDressed_DA_PackUp,Pack Up Stall
+CMC_MarketStallDressed_DA_TakeDownAwning_ActionName,Take Down Awning
+CMC_MarketStallDressed_DA_TakeDownAwning_ActionDescription,"Remove the awning and bunting, returning the stall to its plain frame."
+CharacterTraits_Perk_CaravanPeddler_PerkDescription,"You've spent years on the road, more comfortable haggling than homesteading. Start with a Market Stall Kit already assembled and bundled for travel, plus a pair of bear figurines ready to sell. Set the stall up once you reach the village to start trading."
+CharacterTraits_Perk_CaravanPeddler_PerkName,Caravan Peddler
+CharacterTraits_Perk_PottersApprentice_PerkDescription,"You trained under a potter before striking out on your own. Start with clay for sculpting, a flint knife for shaping, and a couple of lumps of ready-ground pigment for decorating your work."
+CharacterTraits_Perk_PottersApprentice_PerkName,Potter's Apprentice
+CMC_ApothecaryTrustMirror_StatName,Apothecary's Trust (player copy)
+CMC_ApothecaryTrustMirror_StatDescription,"Hidden player-side copy of the Apothecary's NPCStat trust value (cmcStatApothecaryTrust), refreshed every 5s by QuestChainSchedulePatch. Blueprint StatValues gates can only read player GameStats, never NPCStats, so this mirror exists purely to let a trust-threshold blueprint reveal (e.g. a Bear Figurine) gate on it."
+CMC_CorrinTalk_Start_Line,"Corrin. Been walking this square longer than most of the market stalls have stood here. Thorne likes to jump at things -- I'd rather watch a while first. Works out fine, between the two of us."
+CMC_CorrinTalk_Start_Answer_Steady,Good to know someone's steady out here.
+CMC_CorrinTalk_Start_Answer_Bye,"Keep well, Corrin."
+CMC_ThorneTalk_Start_Line,"Thorne. Town Square, day shift -- Corrin and I hold this ground while the market's open. I'd rather step in early than stand back and watch trouble build. Keep things honest and we'll get along fine."
+CMC_ThorneTalk_Start_Answer_Nerve,Wish more of the Watch had your nerve.
+CMC_ThorneTalk_Start_Answer_Bye,Understood.
+CMC_VaneTalk_Start_Line,"Vane. Night Watch -- I keep to the dark hours, once the honest folk have gone in and the ones still about are worth a second look. Nothing much gets past me out here, not after dark."
+CMC_VaneTalk_Start_Answer_Noted,I'll remember that.
+CMC_VaneTalk_Start_Answer_Bye,"Quiet night to you, Vane."
+CMC_CorrinTalk_SceneTitle,Guard Old Corrin
+CMC_ThorneTalk_SceneTitle,Guard Nella Thorne
+CMC_VaneTalk_SceneTitle,Guard Iris Vane
+CMC_BoardAchievements_CardName,Town Achievement Board
+CMC_BoardAchievements_CardDescription,"A board where the village keeps a record of this settler's notable deeds -- some hard-won, some merely notable, all worth a look."
+CMC_BoardAchievements_DA_traderfound_locked_Name,Finding a Friend — unclaimed
+CMC_BoardAchievements_DA_traderfound_locked_Desc,Cross paths with a traveling trader somewhere out in the wilds.
+CMC_BoardAchievements_DA_traderfound_earned_Name,Finding a Friend — earned
+CMC_BoardAchievements_DA_traderfound_earned_Desc,"A trader's cart rattled into view, and for a moment the road felt a little less lonely."
+CMC_BoardAchievements_DA_fullkit_locked_Name,Full Kit — unclaimed
+CMC_BoardAchievements_DA_fullkit_locked_Desc,"Assemble the complete set of six metal tools: Axe, Pickaxe, Hoe, Knife, Shovel, and Sickle."
+CMC_BoardAchievements_DA_fullkit_earned_Name,Full Kit — earned
+CMC_BoardAchievements_DA_fullkit_earned_Desc,"Axe, pickaxe, hoe, knife, shovel, sickle — a full metal kit, ready for anything."
+CMC_BoardAchievements_DA_bearslain_locked_Name,Right to Bear Arms — unclaimed
+CMC_BoardAchievements_DA_bearslain_locked_Desc,Fell a Bear in the wild.
+CMC_BoardAchievements_DA_bearslain_earned_Name,Right to Bear Arms — earned
+CMC_BoardAchievements_DA_bearslain_earned_Desc,"One less bear in these woods, and quite a story to tell about it."
+CMC_BoardAchievements_DA_hunter_locked_Name,Master Hunter — unclaimed
+CMC_BoardAchievements_DA_hunter_locked_Desc,"Hunt every kind of huntable animal in the forest: Badger, Bear, Beaver, Boar, Doe, Duck, Fox, Hare, Partridge, Squirrel, Stag, and Wolf."
+CMC_BoardAchievements_DA_hunter_earned_Name,Master Hunter — earned
+CMC_BoardAchievements_DA_hunter_earned_Desc,Every creature of the forest has fallen to your bow at least once.
+CMC_BoardAchievements_DA_explorer_locked_Name,Forest Explorer — unclaimed
+CMC_BoardAchievements_DA_explorer_locked_Desc,"Set foot in ten of the forest's varied surface groves, thickets, and glades."
+CMC_BoardAchievements_DA_explorer_earned_Name,Forest Explorer — earned
+CMC_BoardAchievements_DA_explorer_earned_Desc,"Ten distinct corners of the forest, all walked, all known."
+CMC_BoardAchievements_DA_yearsurvived_locked_Name,Happy New Year — unclaimed
+CMC_BoardAchievements_DA_yearsurvived_locked_Desc,Survive long enough to see a full year pass.
+CMC_BoardAchievements_DA_yearsurvived_earned_Name,Happy New Year — earned
+CMC_BoardAchievements_DA_yearsurvived_earned_Desc,"A full year survived, seasons and all. Here's to the next one."
+CMC_BoardAchievements_DA_angler_locked_Name,Master Angler — unclaimed
+CMC_BoardAchievements_DA_angler_locked_Desc,"Bring home every kind of fish: Char, Eel, Perch, Pike, Sturgeon, and Trout."
+CMC_BoardAchievements_DA_angler_earned_Name,Master Angler — earned
+CMC_BoardAchievements_DA_angler_earned_Desc,Every fish in these waters has passed through your hands at least once.
+CMC_BoardAchievements_DA_spelunker_locked_Name,Spelunker — unclaimed
+CMC_BoardAchievements_DA_spelunker_locked_Desc,Explore eight of the region's caves and hollows.
+CMC_BoardAchievements_DA_spelunker_earned_Name,Spelunker — earned
+CMC_BoardAchievements_DA_spelunker_earned_Desc,"Eight caverns explored, torch held high through every one."
+CMC_BoardAchievements_DA_shaman_locked_Name,Master Shaman — unclaimed
+CMC_BoardAchievements_DA_shaman_locked_Desc,"Come to possess a bound spirit of every kind, animal and fish alike -- nineteen in all."
+CMC_BoardAchievements_DA_shaman_earned_Name,Master Shaman — earned
+CMC_BoardAchievements_DA_shaman_earned_Desc,"Nineteen bound spirits, a complete communion with the wild."
+CMC_BoardAchievements_DA_noisemax_locked_Name,Spiritual Overcrowding — unclaimed
+CMC_BoardAchievements_DA_noisemax_locked_Desc,The innkeeper refuses to explain this entry.
+CMC_BoardAchievements_DA_noisemax_earned_Name,Spiritual Overcrowding — earned
+CMC_BoardAchievements_DA_noisemax_earned_Desc,"Your Spiritual Noise reached its very limit. The spirits are... a lot, right now."
+CMC_BoardAchievements_DA_stinkyjar_locked_Name,Stinky Jar — unclaimed
+CMC_BoardAchievements_DA_stinkyjar_locked_Desc,The innkeeper refuses to explain this entry.
+CMC_BoardAchievements_DA_stinkyjar_earned_Name,Stinky Jar — earned
+CMC_BoardAchievements_DA_stinkyjar_earned_Desc,"A storage pot, sealed to the brim with aged Urine. The innkeeper wants to know why."
+CMC_Bp_OutfitWardrobe_CardName,Outfit Wardrobe
+CMC_Bp_OutfitWardrobe_CardDescription,"A tall wardrobe built with three separate hanging sections, each one big enough for a full outfit — store three complete sets of gear and step into any of them in a moment."
+CMC_Bp_OutfitWardrobe_UnlockConditionsDesc,Graduate the Academy's Carpentry course
+CMC_OutfitWardrobe_Placed_CardName,Outfit Wardrobe
+CMC_OutfitWardrobe_Placed_CardDescription,"A tall wardrobe built with three separate hanging sections, each one big enough for a full outfit — store three complete sets of gear and step into any of them in a moment."
+CMC_OutfitWardrobe_Placed_CardHelpSection,"<b>Usage:</b> The wardrobe's storage is split into three 18-slot sections, one per outfit, each labeled right on the grid ('Outfit 1/2/3') so you can see where to drop things. Drag equippable gear into a section, then use that section's Equip button to put on everything hanging there in one motion — clicking Equip or Unequip also scrolls straight to that section. Use the matching Unequip button to hang your entire current outfit back in that same section, freeing your equipment slots.
+
+<b>Take Apart:</b> Splits the wardrobe back into its Plank and Rope."
+CMC_OutfitWardrobe_Placed_DA_Equip1,Equip Outfit 1
+CMC_OutfitWardrobe_Placed_DA_Equip1_Desc,Puts on everything currently hanging in Outfit 1's section that you have a free equipment slot for.
+CMC_OutfitWardrobe_Placed_DA_Unequip1,Unequip Outfit 1
+CMC_OutfitWardrobe_Placed_DA_Unequip1_Desc,"Hangs everything you currently have equipped back in Outfit 1's section, if there's room."
+CMC_OutfitWardrobe_Placed_DA_Equip2,Equip Outfit 2
+CMC_OutfitWardrobe_Placed_DA_Equip2_Desc,Puts on everything currently hanging in Outfit 2's section that you have a free equipment slot for.
+CMC_OutfitWardrobe_Placed_DA_Unequip2,Unequip Outfit 2
+CMC_OutfitWardrobe_Placed_DA_Unequip2_Desc,"Hangs everything you currently have equipped back in Outfit 2's section, if there's room."
+CMC_OutfitWardrobe_Placed_DA_Equip3,Equip Outfit 3
+CMC_OutfitWardrobe_Placed_DA_Equip3_Desc,Puts on everything currently hanging in Outfit 3's section that you have a free equipment slot for.
+CMC_OutfitWardrobe_Placed_DA_Unequip3,Unequip Outfit 3
+CMC_OutfitWardrobe_Placed_DA_Unequip3_Desc,"Hangs everything you currently have equipped back in Outfit 3's section, if there's room."
+CMC_OutfitWardrobe_Placed_DA_TakeApart,Take Apart
+CMC_OutfitWardrobe_Section1,Outfit 1
+CMC_OutfitWardrobe_Section2,Outfit 2
+CMC_OutfitWardrobe_Section3,Outfit 3
+CMC_MillerAcademyToday_StatName,Miller Academy Day
+CMC_MillerAcademyToday_StatDescription,"Hidden tracker for whether today is the Miller's weekly Academy visit — 1 all day, 0 otherwise. Keeps his workplace duty from fighting his Academy commute."
+CMC_WeaverAcademyToday_StatName,Weaver Academy Day
+CMC_WeaverAcademyToday_StatDescription,"Hidden tracker for whether today is the Weaver's weekly Academy visit — 1 all day, 0 otherwise. Keeps her workplace duty from fighting her Academy commute."

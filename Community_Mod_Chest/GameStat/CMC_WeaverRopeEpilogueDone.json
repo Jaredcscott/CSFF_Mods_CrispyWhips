@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatWeaverRopeEpilogueDone",
+    "GameName": {
+        "LocalizationKey": "CMC_WeaverRopeEpilogueDone_StatName",
+        "DefaultText": "Weaver's Climbing Rope Given"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_WeaverRopeEpilogueDone_StatDescription",
+        "DefaultText": "Hidden tracker: whether the Weaver has taught the player the Climbing Rope pattern, after her main quest chain is complete."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 1.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

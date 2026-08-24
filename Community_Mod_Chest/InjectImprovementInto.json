@@ -1,10 +1,13 @@
 [
   { "TargetEnvUID": "3c7144d78a55ebb45b0fdf1598cf6a04", "ImprovementUID": "cmcimpriverbridge" },
+  { "TargetEnvUID": "e40f442246e85014c9a786342fb78a25", "ImprovementUID": "cmcimpclimbingrope" },
   { "TargetEnvUID": "82d66ecd24814a94abd8446862a041b7", "ImprovementUID": "cmcimpstonetilefloor" },
+  { "TargetEnvUID": "05f14e391ca7d6b4dadeaaad6fc897e3", "ImprovementUID": "cmcimpstonetilefloor" },
   { "TargetEnvUID": "cf2aae1f85b81af45826f643047a7557", "ImprovementUID": "cmcimpstonetilefloor" },
   { "TargetEnvUID": "8dad01b8594c63a4883cc49170bc70eb", "ImprovementUID": "cmcimpstonetilefloor" },
   { "TargetEnvUID": "d077e3b6aee2d884dbd77059db9423cf", "ImprovementUID": "cmcimpstonetilefloor" },
   { "TargetEnvUID": "72ea743da5b1a1a4ea25297a2f71f8b5", "ImprovementUID": "cmcimpstonetilefloor" },
   { "TargetEnvUID": "a2aacba90e2016640a60ee9c79909e1b", "ImprovementUID": "cmcimpstonetilefloor" },
-  { "TargetEnvUID": "d9008aea7289e0a4d93d07427e792aec", "ImprovementUID": "cmcimpstonetilefloor" }
+  { "TargetEnvUID": "d9008aea7289e0a4d93d07427e792aec", "ImprovementUID": "cmcimpstonetilefloor" },
+  { "TargetEnvUID": "07af3f7fc01dd6e48920b19ed63c0d48", "ImprovementUID": "cmcimpstonetilefloor" }
 ]

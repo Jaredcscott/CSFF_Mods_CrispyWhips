@@ -1,0 +1,57 @@
+{
+  "UniqueID": "cmcHerbTincture",
+  "TradingValue": 150,
+  "CardType": 0,
+  "CardName": {
+    "ParentObjectID": "cmcHerbTincture",
+    "DefaultText": "Herb Tincture",
+    "LocalizationKey": "CMC_HerbTincture_CardName"
+  },
+  "CardDescription": {
+    "ParentObjectID": "cmcHerbTincture",
+    "DefaultText": "A bitter dose steeped down from dried willow bark and forest herbs. The Academy's medicine course teaches this one by heart: it settles a sick stomach and quiets a fevered body.",
+    "LocalizationKey": "CMC_HerbTincture_CardDesc"
+  },
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "CMC_Alchemist_Potions",
+  "CardImageWarpType": 3,
+  "CardHelpSection": {
+    "ParentObjectID": "cmcHerbTincture",
+    "DefaultText": "Herb Tincture",
+    "LocalizationKey": "CMC_HerbTincture_Help"
+  },
+  "CardTagsWarpData": ["tag_Consumable", "tag_Drinkable", "tag_Medicine", "tag_Preservable"],
+  "CardTagsWarpType": 3,
+  "ObjectWeight": 15.0,
+  "MaxStack": 5,
+  "SpoilageTime": {
+    "Active": true,
+    "MaxValue": 4320.0,
+    "RatePerDaytimePoint": 0.75
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "cmcHerbTincture",
+        "LocalizationKey": "CMC_HerbTincture_DA_Drink",
+        "DefaultText": "Drink"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "cmcHerbTincture",
+        "LocalizationKey": "CMC_HerbTincture_DA_Drink_Desc",
+        "DefaultText": "Drink the tincture. It tastes of bark and bitterness, but the sickness eases within moments."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "ActionTagsWarpData": ["EatingAction", "MedicineAction"],
+      "ActionTagsWarpType": 3,
+      "ReceivingCardChanges": { "ModType": 3 },
+      "StatModifications": [
+        { "StatWarpData": "547f09c7ea6d11d4bbf6714255b0dfd5", "StatWarpType": 3, "ValueModifier": { "x": -20.0, "y": -20.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "InstantModifier": true },
+        { "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b", "StatWarpType": 3, "ValueModifier": { "x": -20.0, "y": -20.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "InstantModifier": true },
+        { "StatWarpData": "9ff897d4c2d410544a8d7ccd323bdb86", "StatWarpType": 3, "ValueModifier": { "x": -20.0, "y": -20.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "InstantModifier": true },
+        { "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78", "StatWarpType": 3, "ValueModifier": { "x": -20.0, "y": -20.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "InstantModifier": true }
+      ]
+    }
+  ]
+}

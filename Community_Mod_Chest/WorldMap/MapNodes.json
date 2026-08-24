@@ -37,14 +37,6 @@
           }
         ],
         "GateLogic": "ANY",
-        "LockConditions": [
-          {
-            "Type": "StatThreshold",
-            "UID": "cmcStatVillageCrime",
-            "Value": 60,
-            "Comparison": "GreaterOrEqual"
-          }
-        ],
         "HideTravelDA": true,
         "RestoreDAOnUnlock": true,
         "NeighborCt8UID": "3c7144d78a55ebb45b0fdf1598cf6a04"
@@ -84,6 +76,20 @@
         "PathCost": 10.0,
         "TravelDirection": "South",
         "HideConnection": false
+      }
+    ],
+    "SealableGates": [
+      {
+        "ConnectionUID": "cmcEnvHighGrove",
+        "Granularity": "Edge",
+        "SealTrigger": { "Type": "Season", "UID": "Autumn" },
+        "ChallengeCardUID": "cmcDeadfallSouth",
+        "ClearActionKeyPrefix": "CMC_DeadfallSouth_CI_Chop",
+        "MultiHit": true,
+        "MarkerUID": "cmc_pinetrail_deadfall_south_cleared",
+        "MarkerEnvUID": "cmcEnvPineTrail",
+        "SeedOnEnvUIDs": ["cmcEnvPineTrail", "cmcEnvHighGrove"],
+        "ResealCondition": { "Type": "TimerRegrowth", "Days": 60 }
       }
     ]
   },
@@ -385,7 +391,25 @@
       {
         "Direction": "West",
         "TargetVanillaEnvUID": "0c7cd381f10689b49b2ca9ec8819380c",
-        "Bidirectional": false
+        "TargetVanillaLocUID": "e40f442246e85014c9a786342fb78a25",
+        "Bidirectional": true,
+        "ReverseActionName": "Sett Warren"
+      }
+    ],
+    "ConnectionGates": [
+      {
+        "ConnectionUID": "0c7cd381f10689b49b2ca9ec8819380c",
+        "Granularity": "Edge",
+        "GateConditions": [
+          {
+            "Type": "ImprovementBuilt",
+            "EnvUID": "0c7cd381f10689b49b2ca9ec8819380c",
+            "UID": "cmcimpclimbingrope"
+          }
+        ],
+        "GateLogic": "ALL",
+        "HideTravelDA": true,
+        "RestoreDAOnUnlock": true
       }
     ]
   }

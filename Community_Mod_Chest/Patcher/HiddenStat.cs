@@ -38,6 +38,19 @@ namespace CommunityModChest.Patcher
             return float.IsNaN(value) ? -1f : value;
         }
 
+        /// <summary>Current live maximum (<c>CurrentMinMaxValue.y</c> — perks can shift this at
+        /// runtime, unlike the JSON <c>MinMaxValue</c> default) of the stat, or -1 when it is not
+        /// readable yet. Added for the Town Achievement Board's Spiritual Overcrowding detector,
+        /// which needs the LIVE ceiling of the vanilla Spiritual Noise stat, not a hardcoded
+        /// constant.</summary>
+        public static float GetMax(string statUid)
+        {
+            var instance = ResolveInstance(statUid);
+            if (instance == null) return -1f;
+            float value = StatAccess.GetMaxValue(instance);
+            return float.IsNaN(value) ? -1f : value;
+        }
+
         /// <summary>Writes the stat's current value. Returns false when it is not writable yet.</summary>
         public static bool Set(string statUid, float value)
         {

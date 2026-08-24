@@ -21,8 +21,21 @@ namespace CommunityModChest.Patcher
     /// <c>MinMaxValue</c> — so writing the plan's raw placeholder (crime/8, up to 12.5 at
     /// crime's own 100-point ceiling) would silently read back as 8 anyway. This class clamps
     /// explicitly in C# rather than relying on that implicit clamp, so the written and read
-    /// values always agree. <b>Effective, enforced worst-case sentence: 8 days (768 DTP ticks).</b>
+    /// values always agree. <b>Effective, enforced sentence range: 3-8 days (288-768 DTP
+    /// ticks).</b>
     /// </para>
+    ///
+    /// <para><b>Two sentence formulas, not one (owner request, 2026-08-15).</b> A plain arrest —
+    /// resisted, but nobody killed — still uses crime/8, now floored at <see cref="MinSentenceDays"/>
+    /// (3) instead of 1: a trivial scuffle should never read as a slap-on-the-wrist single day.
+    /// Whenever <see cref="GuardOutcomePatch.GuardKillsPendingStatUid"/> is >= 1, that formula is
+    /// skipped entirely in favour of <see cref="DaysPerGuardKilled"/> (7) days per guard killed,
+    /// clamped to the same 3-8 range — because a single kill already maxes
+    /// <c>cmcStatVillageCrime</c> to its 100-point ceiling, crime/8 alone could never tell "killed
+    /// one guard" apart from "killed three"; both would just hit the 8-day cap. Killing all four at
+    /// once does NOT get a special sentence here — with nobody left standing to make the arrest,
+    /// this class simply never fires; the only way back is the Inn Keeper confession
+    /// (<c>GuardOutcomePatch</c>'s class doc, <c>CheckAllDown</c>).</para>
     ///
     /// <para><b>The ration/starvation math (Risk R9) — verified against real vanilla GameStat
     /// JSON this session, not estimated:</b></para>
@@ -94,7 +107,9 @@ namespace CommunityModChest.Patcher
         internal const string UnguardedStatUid = "cmcStatJailUnguarded";
         private const string RationDayStatUid = "cmcStatJailRationDay";
 
-        private const string JailCellEnvUid = "cmcEnvJailCell";
+        /// <summary>Also read by <c>GuardSpawnPatch</c> to redirect a killed guard's first
+        /// placement here instead of her normal post — see <c>GuardOutcomePatch.WasLastDownKilled</c>.</summary>
+        internal const string JailCellEnvUid = "cmcEnvJailCell";
         private const string RationFoodUid = "cmcJailRationFood";
         private const string WaterJugUid = "cmcJailWaterJug";
 
@@ -106,6 +121,23 @@ namespace CommunityModChest.Patcher
         /// matches the jail cell door's 8 pre-built "N more days" DAs. Consumed by
         /// <see cref="JailEscapePatch"/>'s recapture penalty clamp.</summary>
         internal const int MaxSentenceDays = 8;
+
+        /// <summary>Floor for ANY arrest, even a trivial one (owner request, 2026-08-15: assaulting
+        /// a guard — starting a fight, whether or not it's a kill — should never read as a
+        /// slap-on-the-wrist single day). Replaces the old implicit floor of 1 from
+        /// <c>Mathf.Clamp</c>'s lower bound.</summary>
+        private const int MinSentenceDays = 3;
+
+        /// <summary>Days added per guard killed (owner request, 2026-08-15), read from
+        /// <see cref="GuardOutcomePatch.GuardKillsPendingStatUid"/> and preferred over the
+        /// crime-based formula whenever at least one kill is outstanding — a single kill already
+        /// maxes <c>cmcStatVillageCrime</c> to its 100-point ceiling
+        /// (<c>EnemyDefeatedEffects.StatChanges</c> on every guard Encounter), so the crime/8
+        /// formula alone could never distinguish "killed one guard" from "killed three" — both
+        /// would just hit <see cref="MaxSentenceDays"/>. 2 kills already reaches the 8-day cap under
+        /// this formula, so no change to the jail door's own 8 pre-built "N more days" DAs is
+        /// needed.</summary>
+        private const int DaysPerGuardKilled = 7;
 
         /// <summary>Crime points paid down per day served — matches CrimeDivisor so a full
         /// sentence pays off approximately the crime score that produced it; the exact remainder
@@ -156,7 +188,20 @@ namespace CommunityModChest.Patcher
             try
             {
                 float crime = VillageCrimePatch.CurrentCrime();
-                int days = Mathf.Clamp(Mathf.RoundToInt(crime / CrimeDivisor), 1, MaxSentenceDays);
+                float killsPending = HiddenStat.Get(GuardOutcomePatch.GuardKillsPendingStatUid);
+
+                int days;
+                string basis;
+                if (killsPending >= 1f)
+                {
+                    days = Mathf.Clamp(Mathf.RoundToInt(killsPending * DaysPerGuardKilled), MinSentenceDays, MaxSentenceDays);
+                    basis = $"{killsPending:0} guard(s) killed x {DaysPerGuardKilled}d";
+                }
+                else
+                {
+                    days = Mathf.Clamp(Mathf.RoundToInt(crime / CrimeDivisor), MinSentenceDays, MaxSentenceDays);
+                    basis = $"crime {crime:0}";
+                }
 
                 bool ok = HiddenStat.Set(SentenceRemainingStatUid, days);
                 ok &= HiddenStat.Set(SentenceOriginalStatUid, days);
@@ -164,13 +209,13 @@ namespace CommunityModChest.Patcher
                 {
                     Plugin.Logger.LogWarning(
                         $"[JailPatch] Arrest processed but the sentence stat(s) could not be written " +
-                        $"(crime {crime:0} -> {days}d) — the cell's Exit DA may never unlock. Not clearing " +
+                        $"({basis} -> {days}d) — the cell's Exit DA may never unlock. Not clearing " +
                         "ArrestPending so a later poll can retry.");
                     return;
                 }
 
                 GuardOutcomePatch.ClearArrestPending();
-                Plugin.Logger.LogInfo($"[JailPatch] Sentenced: crime {crime:0} -> {days} day(s) in the Village Jail.");
+                Plugin.Logger.LogInfo($"[JailPatch] Sentenced: {basis} -> {days} day(s) in the Village Jail.");
             }
             catch (Exception ex)
             {
@@ -191,6 +236,7 @@ namespace CommunityModChest.Patcher
                 if (next <= 0f)
                 {
                     VillageCrimePatch.ClearCrime("jail sentence served in full");
+                    HiddenStat.Set(GuardOutcomePatch.GuardKillsPendingStatUid, 0f);
                     Plugin.Logger.LogInfo("[JailPatch] Sentence complete — crime cleared, cell Exit unlocked.");
                 }
                 else

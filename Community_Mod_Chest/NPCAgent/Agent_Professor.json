@@ -364,6 +364,18 @@
             "GivenCardChanges": {
                 "ModType": 3
             },
+            "StatModifications": [
+                {
+                    "StatWarpData": "cmcStatInterlockS4",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 0.5,
+                        "y": 0.5
+                    },
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ],
             "CompatibleCards": {
                 "TriggerCardsWarpData": [
                     "apparelclothcoat"

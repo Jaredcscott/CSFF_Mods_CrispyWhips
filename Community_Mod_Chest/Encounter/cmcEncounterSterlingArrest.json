@@ -1377,6 +1377,10 @@
        "RLeg": false
       },
       "DroppedCards": [],
+      "DroppedCardsWarpData": [
+       "5ce7e11b3b068784ab27b8c69a77cae8"
+      ],
+      "DroppedCardsWarpType": 3,
       "StatChanges": [
        {
         "Stat": {
@@ -1454,6 +1458,10 @@
        "RLeg": false
       },
       "DroppedCards": [],
+      "DroppedCardsWarpData": [
+       "bba6c3d6db035214ba684d9b490e8355"
+      ],
+      "DroppedCardsWarpType": 3,
       "StatChanges": [
        {
         "Stat": {
@@ -1531,6 +1539,10 @@
        "RLeg": false
       },
       "DroppedCards": [],
+      "DroppedCardsWarpData": [
+       "bba6c3d6db035214ba684d9b490e8355"
+      ],
+      "DroppedCardsWarpType": 3,
       "StatChanges": [
        {
         "Stat": {
@@ -1610,6 +1622,10 @@
        "RLeg": false
       },
       "DroppedCards": [],
+      "DroppedCardsWarpData": [
+       "bba6c3d6db035214ba684d9b490e8355"
+      ],
+      "DroppedCardsWarpType": 3,
       "StatChanges": [
        {
         "Stat": {
@@ -1687,6 +1703,10 @@
        "RLeg": false
       },
       "DroppedCards": [],
+      "DroppedCardsWarpData": [
+       "bba6c3d6db035214ba684d9b490e8355"
+      ],
+      "DroppedCardsWarpType": 3,
       "StatChanges": [
        {
         "Stat": {
@@ -1764,6 +1784,11 @@
        "RLeg": false
       },
       "DroppedCards": [],
+      "DroppedCardsWarpData": [
+       "5ce7e11b3b068784ab27b8c69a77cae8",
+       "bba6c3d6db035214ba684d9b490e8355"
+      ],
+      "DroppedCardsWarpType": 3,
       "StatChanges": [
        {
         "Stat": {
@@ -1843,6 +1868,11 @@
        "RLeg": false
       },
       "DroppedCards": [],
+      "DroppedCardsWarpData": [
+       "bba6c3d6db035214ba684d9b490e8355",
+       "5ce7e11b3b068784ab27b8c69a77cae8"
+      ],
+      "DroppedCardsWarpType": 3,
       "StatChanges": [
        {
         "Stat": {
@@ -1920,6 +1950,11 @@
        "RLeg": false
       },
       "DroppedCards": [],
+      "DroppedCardsWarpData": [
+       "70f2dce38ab0c16418bd7b3721080591",
+       "bba6c3d6db035214ba684d9b490e8355"
+      ],
+      "DroppedCardsWarpType": 3,
       "StatChanges": [
        {
         "Stat": {
@@ -2235,6 +2270,24 @@
      "m_PathID": 0
     },
     "TargetStatWarpData": "cmcNpcStatGuardDowned",
+    "TargetStatWarpType": 3,
+    "UseAssociatedAgent": true,
+    "TargetAgent": {
+     "m_FileID": 0,
+     "m_PathID": 0
+    },
+    "ValueChange": {
+     "x": 1.0,
+     "y": 1.0
+    },
+    "IgnoreNovelty": true
+   },
+   {
+    "TargetStat": {
+     "m_FileID": 0,
+     "m_PathID": 0
+    },
+    "TargetStatWarpData": "cmcNpcStatGuardKilled",
     "TargetStatWarpType": 3,
     "UseAssociatedAgent": true,
     "TargetAgent": {

@@ -18,6 +18,9 @@
     "CardImageWarpType": 3,
     "CardTagsWarpData": [],
     "CardTagsWarpType": 3,
+    "UsesOwnershipSystem": false,
+    "CompatibleDutiesWarpData": ["431845e55dbaced4987236d4e994ffa0"],
+    "CompatibleDutiesWarpType": 3,
     "UniqueOnBoard": false,
     "CannotBeTrashed": true,
     "NeedsRoomInLocationToSpawn": false,
@@ -109,7 +112,13 @@
             "ReceivingCardChanges": {
                 "ModType": 1,
                 "Special3Change": { "x": -288.0, "y": -288.0 }
-            }
+            },
+            "CompatibleNPCDuties": [
+                {
+                    "TargetWarpData": "431845e55dbaced4987236d4e994ffa0",
+                    "TargetWarpType": 3
+                }
+            ]
         }
     ],
     "PassiveStatEffects": [],

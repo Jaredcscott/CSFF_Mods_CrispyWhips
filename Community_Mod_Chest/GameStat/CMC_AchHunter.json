@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatAchHunter",
+    "GameName": {
+        "LocalizationKey": "CMC_AchHunter_StatName",
+        "DefaultText": "Achievement Earned: Master Hunter"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_AchHunter_StatDescription",
+        "DefaultText": "Hidden flag: 1 once all twelve Master Hunter member latches (cmcStatAchHunt*) are set -- the Master Hunter achievement. Clamped 0-1, never resets."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

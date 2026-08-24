@@ -32,10 +32,12 @@ namespace CommunityModChest.Patcher
     /// ValueModifier only), so the planned "killing a villager = instant Banished" penalty is
     /// authored as a +100 additive that relies on the stat clamping itself at 100.
     ///
-    /// Banishment's travel lock is NOT enforced here — it is a declarative
-    /// ConnectionGates.LockConditions StatThreshold on cmcEnvVillagePath in WorldMap/MapNodes.json
-    /// (requires framework >= 2.20.2). RequiredStatValues on the travel DAs would not work:
-    /// WorldMapInjector strips that field from every travel DA it injects.
+    /// As of 2026-08-15, Crime no longer locks travel: the Village Path connection in
+    /// WorldMap/MapNodes.json is gated solely by GateConditions (River Bridge built, or the
+    /// Village Pathfinder trait) — the ConnectionGates.LockConditions StatThreshold that used to
+    /// force-lock that crossing at the Banished band (60+) regardless of the bridge has been
+    /// removed (Documentation/Retrospectives/river-bridge.md). Crime still drives every other
+    /// consequence below (guard pursuit, Watch reactions, arrest, jail).
     ///
     /// Graceful degradation (feedback_subsystem_graceful_degradation): an unreadable stat reads as
     /// Clean, matching the framework's own StatThreshold evaluation, which fails open. A broken
@@ -46,8 +48,8 @@ namespace CommunityModChest.Patcher
         internal const string CrimeStatUid = "cmcStatVillageCrime";
 
         /// <summary>Lowest crime score in each band (§10.8.2): 0 Clean, 1-24 Suspected,
-        /// 25-59 Wanted, 60+ Enemy/Banished. The Banished floor is the value the
-        /// MapNodes.json LockConditions StatThreshold also uses — keep the two in step.</summary>
+        /// 25-59 Wanted, 60+ Enemy/Banished. No longer mirrored by a MapNodes.json travel gate
+        /// (removed 2026-08-15) — the Banished band now only affects guard pursuit/Watch reactions.</summary>
         internal const float SuspectedFloor = 1f;
         internal const float WantedFloor = 25f;
         internal const float BanishedFloor = 60f;
@@ -248,11 +250,11 @@ namespace CommunityModChest.Patcher
 
         // ── Stuck-tester override (§10.8.9 R3) ────────────────────────────────────
 
-        // Risk R3: the village content behind a Banished lock (cottages, Hall boards, Well,
-        // market stall) is a large fraction of what this mod ships. Set ForceClearVillageCrime
-        // in the CMC config to zero the stat without a save edit — the connection gate
-        // re-evaluates within 5 s and the village path reopens. Held at 0 while the flag is on,
-        // so remember to turn it back off before testing crime itself.
+        // Set ForceClearVillageCrime in the CMC config to zero the stat without a save edit —
+        // useful to call off an active Watch pursuit/chase during testing without waiting out the
+        // decay. Village Path travel is no longer gated by Crime (see class doc, 2026-08-15), so
+        // this no longer recovers a stuck traveler — only guard pursuit/reactions. Held at 0 while
+        // the flag is on, so remember to turn it back off before testing crime itself.
         private static void OnDtpTick()
         {
             if (!Plugin.ForceClearVillageCrime.Value) return;

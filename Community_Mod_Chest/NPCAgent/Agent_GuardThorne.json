@@ -8,7 +8,7 @@
     "AgentDescription": {
         "ParentObjectID": "cmcGuardThorneAgent",
         "LocalizationKey": "CMC_GuardThorne_AgentDescription",
-        "DefaultText": "River Watch. Holds the bridge junction where the path meets the village, and does not cross the water."
+        "DefaultText": "Town Square Watch, day shift. Holds the square with Corrin and doesn't hang back long before stepping in."
     },
     "AgentImageWarpData": "CMC_Guard_SpearWoman",
     "AgentImageWarpType": 3,
@@ -22,6 +22,16 @@
     "WeightCategoryWarpType": 3,
     "HidingConditions": {},
     "Interactions": [
+        {
+            "ButtonName": {
+                "LocalizationKey": "CMC_GuardThorne_Talk",
+                "DefaultText": "Talk"
+            },
+            "Conditions": {},
+            "ButtonType": 0,
+            "DialogWarpData": "CMC_ThorneTalk",
+            "DialogWarpType": 3
+        },
         {
             "ButtonName": {
                 "LocalizationKey": "CMC_GuardThorne_Attack",

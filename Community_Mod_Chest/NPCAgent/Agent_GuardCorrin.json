@@ -8,7 +8,7 @@
     "AgentDescription": {
         "ParentObjectID": "cmcGuardCorrinAgent",
         "LocalizationKey": "CMC_GuardCorrin_AgentDescription",
-        "DefaultText": "Farm Watch. Walks the fields and the clay flats trail, a beat the village gave him because they trust him with it."
+        "DefaultText": "Town Square Watch, day shift. Walks the square alongside Thorne, a beat the village trusts him to hold quietly."
     },
     "AgentImageWarpData": "CMC_Guard_SpearMan",
     "AgentImageWarpType": 3,
@@ -22,6 +22,16 @@
     "WeightCategoryWarpType": 3,
     "HidingConditions": {},
     "Interactions": [
+        {
+            "ButtonName": {
+                "LocalizationKey": "CMC_GuardCorrin_Talk",
+                "DefaultText": "Talk"
+            },
+            "Conditions": {},
+            "ButtonType": 0,
+            "DialogWarpData": "CMC_CorrinTalk",
+            "DialogWarpType": 3
+        },
         {
             "ButtonName": {
                 "LocalizationKey": "CMC_GuardCorrin_Attack",

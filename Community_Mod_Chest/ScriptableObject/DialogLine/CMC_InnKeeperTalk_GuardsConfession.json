@@ -1,0 +1,43 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatGuardsAllDown", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 999999.0}},
+            {"StatWarpData": "cmcStatVillageCrime", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 999999.0}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_InnKeeperTalk_GuardsConfession_Line",
+        "DefaultText": "So it's done. All four of the Watch, down, and word of it reached my door before you did. I've heard how it went -- some of them got back up. Not all of them did. Blood on the village floor doesn't wash out just because the fighting's over, and I'll not pour you a drink and pretend otherwise. Before we go on as we always have, I want you to sit with it a moment -- what you did out there, and whether you can carry it."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_GuardsConfession_Answer_Contrite",
+                "DefaultText": "I know what I did. I'll carry it."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatVillageCrime", "StatWarpType": 3, "ValueModifier": {"x": -999.0, "y": -999.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_InnKeeperTalk_GuardsConfession_Answer_Defiant",
+                "DefaultText": "They came at me first. I did what I had to."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {"StatWarpData": "cmcStatVillageCrime", "StatWarpType": 3, "ValueModifier": {"x": -999.0, "y": -999.0}, "InstantModifier": true, "ApplyEachTick": false}
+                ]
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

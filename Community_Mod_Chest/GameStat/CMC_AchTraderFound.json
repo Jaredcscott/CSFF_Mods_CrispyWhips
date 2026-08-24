@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatAchTraderFound",
+    "GameName": {
+        "LocalizationKey": "CMC_AchTraderFound_StatName",
+        "DefaultText": "Achievement Earned: Finding a Friend"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_AchTraderFound_StatDescription",
+        "DefaultText": "Hidden flag: 1 once the player has encountered a traveling Trader NPC out in the wilds -- the Finding a Friend achievement. Clamped 0-1, never resets."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

@@ -77,19 +77,19 @@
   "HeadArmor": 0.0,
   "HeadArmorModifiers": [],
   "HeadHitProbabilityModifier": 0.0,
-  "TorsoArmor": 10.0,
+  "TorsoArmor": 22.0,
   "TorsoArmorModifiers": [],
   "TorsoHitProbabilityModifier": 0.0,
-  "LArmArmor": 5.0,
+  "LArmArmor": 12.0,
   "LArmArmorModifiers": [],
   "LArmHitProbabilityModifier": 0.0,
-  "RArmArmor": 5.0,
+  "RArmArmor": 12.0,
   "RArmArmorModifiers": [],
   "RArmHitProbabilityModifier": 0.0,
-  "LLegArmor": 5.0,
+  "LLegArmor": 12.0,
   "LLegArmorModifiers": [],
   "LLegHitProbabilityModifier": 0.0,
-  "RLegArmor": 5.0,
+  "RLegArmor": 12.0,
   "RLegArmorModifiers": [],
   "RLegHitProbabilityModifier": 0.0
  },
@@ -98,15 +98,15 @@
  "MeleeSkill": {
   "Name": "Melee Skill",
   "StartingValue": {
-   "x": 90.0,
-   "y": 90.0
+   "x": 115.0,
+   "y": 115.0
   },
   "LoadedFromNPCStat": {
    "m_FileID": 0,
    "m_PathID": 0
   },
   "TriggerLoadStat": 1,
-  "MaxValue": 90.0,
+  "MaxValue": 115.0,
   "OnZeroEncounterResult": 0
  },
  "RangedSkill": {
@@ -126,15 +126,15 @@
  "Blood": {
   "Name": "Blood",
   "StartingValue": {
-   "x": 160.0,
-   "y": 160.0
+   "x": 260.0,
+   "y": 260.0
   },
   "LoadedFromNPCStat": {
    "m_FileID": 0,
    "m_PathID": 0
   },
   "TriggerLoadStat": 1,
-  "MaxValue": 160.0,
+  "MaxValue": 260.0,
   "OnZeroEncounterResult": 1
  },
  "Stamina": {
@@ -162,7 +162,7 @@
    "m_PathID": 0
   },
   "TriggerLoadStat": 1,
-  "MaxValue": 60.0,
+  "MaxValue": 285.0,
   "OnZeroEncounterResult": 2
  },
  "Value1": {
@@ -227,18 +227,18 @@
     "LogText": {
      "ParentObjectID": "cmcEncounterGuardCorrin",
      "LocalizationKey": "",
-     "DefaultText": "Guard Old Corrin thrusts his cudgel at you!"
+     "DefaultText": "Guard Old Corrin thrusts his spear at you!"
     },
     "AlternateLogTexts": [
      {
       "ParentObjectID": "cmcEncounterGuardCorrin",
       "LocalizationKey": "",
-      "DefaultText": "Old corrin jabs at you with the cudgel!"
+      "DefaultText": "Old Corrin jabs at you with the spear!"
      },
      {
       "ParentObjectID": "cmcEncounterGuardCorrin",
       "LocalizationKey": "",
-      "DefaultText": "Old corrin swings the cudgel at your head!"
+      "DefaultText": "Old Corrin swings the spear at your head!"
      }
     ],
     "TextSettings": {
@@ -267,7 +267,7 @@
     "LogText": {
      "ParentObjectID": "cmcEncounterGuardCorrin",
      "LocalizationKey": "",
-     "DefaultText": "You fail to get clear and the cudgel connects..."
+     "DefaultText": "You fail to get clear and the spear connects..."
     },
     "AlternateLogTexts": [],
     "TextSettings": {
@@ -885,8 +885,8 @@
    },
    "EnemyStatsClashModifiers": [],
    "Damage": {
-    "x": 25.0,
-    "y": 75.0
+    "x": 35.0,
+    "y": 95.0
    },
    "DmgVsVulnerableModifier": {
     "x": 0.0,
@@ -898,7 +898,7 @@
    },
    "DamageTypes": [],
    "DamageTypesWarpData": [
-    "DMG_Blunt"
+    "DMG_Piercing"
    ],
    "DamageTypesWarpType": 3,
    "EnemyValuesDamageModifier": {
@@ -911,7 +911,7 @@
       },
       "OutputValueRange": {
        "x": 0.0,
-       "y": 50.0
+       "y": 70.0
       },
       "WhenOutOfRange": 0,
       "OutOfRangeCustomValue": 0.0
@@ -1377,6 +1377,10 @@
        "RLeg": false
       },
       "DroppedCards": [],
+      "DroppedCardsWarpData": [
+       "5ce7e11b3b068784ab27b8c69a77cae8"
+      ],
+      "DroppedCardsWarpType": 3,
       "StatChanges": [
        {
         "Stat": {
@@ -1388,6 +1392,39 @@
         "ValueModifier": {
          "x": 17.0,
          "y": 17.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       },
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "d2047e589f43eb9489bd455dd3ce9247",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": 68.0,
+         "y": 68.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -1454,6 +1491,10 @@
        "RLeg": false
       },
       "DroppedCards": [],
+      "DroppedCardsWarpData": [
+       "bba6c3d6db035214ba684d9b490e8355"
+      ],
+      "DroppedCardsWarpType": 3,
       "StatChanges": [
        {
         "Stat": {
@@ -1465,6 +1506,39 @@
         "ValueModifier": {
          "x": 17.0,
          "y": 17.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       },
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "d2047e589f43eb9489bd455dd3ce9247",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": 68.0,
+         "y": 68.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -1531,6 +1605,10 @@
        "RLeg": false
       },
       "DroppedCards": [],
+      "DroppedCardsWarpData": [
+       "70f2dce38ab0c16418bd7b3721080591"
+      ],
+      "DroppedCardsWarpType": 3,
       "StatChanges": [
        {
         "Stat": {
@@ -1542,6 +1620,39 @@
         "ValueModifier": {
          "x": 17.0,
          "y": 17.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       },
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "d2047e589f43eb9489bd455dd3ce9247",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": 68.0,
+         "y": 68.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -1610,6 +1721,10 @@
        "RLeg": false
       },
       "DroppedCards": [],
+      "DroppedCardsWarpData": [
+       "70f2dce38ab0c16418bd7b3721080591"
+      ],
+      "DroppedCardsWarpType": 3,
       "StatChanges": [
        {
         "Stat": {
@@ -1621,6 +1736,39 @@
         "ValueModifier": {
          "x": 34.0,
          "y": 34.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       },
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "d2047e589f43eb9489bd455dd3ce9247",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": 136.0,
+         "y": 136.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -1687,6 +1835,10 @@
        "RLeg": false
       },
       "DroppedCards": [],
+      "DroppedCardsWarpData": [
+       "bba6c3d6db035214ba684d9b490e8355"
+      ],
+      "DroppedCardsWarpType": 3,
       "StatChanges": [
        {
         "Stat": {
@@ -1698,6 +1850,39 @@
         "ValueModifier": {
          "x": 34.0,
          "y": 34.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       },
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "d2047e589f43eb9489bd455dd3ce9247",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": 136.0,
+         "y": 136.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -1764,6 +1949,11 @@
        "RLeg": false
       },
       "DroppedCards": [],
+      "DroppedCardsWarpData": [
+       "5ce7e11b3b068784ab27b8c69a77cae8",
+       "70f2dce38ab0c16418bd7b3721080591"
+      ],
+      "DroppedCardsWarpType": 3,
       "StatChanges": [
        {
         "Stat": {
@@ -1775,6 +1965,39 @@
         "ValueModifier": {
          "x": 34.0,
          "y": 34.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       },
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "d2047e589f43eb9489bd455dd3ce9247",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": 136.0,
+         "y": 136.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -1843,6 +2066,11 @@
        "RLeg": false
       },
       "DroppedCards": [],
+      "DroppedCardsWarpData": [
+       "70f2dce38ab0c16418bd7b3721080591",
+       "bba6c3d6db035214ba684d9b490e8355"
+      ],
+      "DroppedCardsWarpType": 3,
       "StatChanges": [
        {
         "Stat": {
@@ -1854,6 +2082,39 @@
         "ValueModifier": {
          "x": 68.0,
          "y": 68.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       },
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "d2047e589f43eb9489bd455dd3ce9247",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": 272.0,
+         "y": 272.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -1920,6 +2181,11 @@
        "RLeg": false
       },
       "DroppedCards": [],
+      "DroppedCardsWarpData": [
+       "70f2dce38ab0c16418bd7b3721080591",
+       "5ce7e11b3b068784ab27b8c69a77cae8"
+      ],
+      "DroppedCardsWarpType": 3,
       "StatChanges": [
        {
         "Stat": {
@@ -1931,6 +2197,39 @@
         "ValueModifier": {
          "x": 68.0,
          "y": 68.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       },
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "d2047e589f43eb9489bd455dd3ce9247",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": 272.0,
+         "y": 272.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -1969,18 +2268,18 @@
     "LogText": {
      "ParentObjectID": "cmcEncounterGuardCorrin",
      "LocalizationKey": "",
-     "DefaultText": "Old corrin presses forward with the cudgel, breathing hard!"
+     "DefaultText": "Old Corrin presses forward with the spear, breathing hard!"
     },
     "AlternateLogTexts": [
      {
       "ParentObjectID": "cmcEncounterGuardCorrin",
       "LocalizationKey": "",
-      "DefaultText": "Old corrin makes a tired swing with the cudgel."
+      "DefaultText": "Old Corrin makes a tired swing with the spear."
      },
      {
       "ParentObjectID": "cmcEncounterGuardCorrin",
       "LocalizationKey": "",
-      "DefaultText": "Old corrin lunges clumsily with the cudgel."
+      "DefaultText": "Old Corrin lunges clumsily with the spear."
      }
     ],
     "TextSettings": {
@@ -2009,7 +2308,7 @@
     "LogText": {
      "ParentObjectID": "cmcEncounterGuardCorrin",
      "LocalizationKey": "",
-     "DefaultText": "You fail to get clear and the cudgel connects..."
+     "DefaultText": "You fail to get clear and the spear connects..."
     },
     "AlternateLogTexts": [],
     "TextSettings": {
@@ -2627,8 +2926,8 @@
    },
    "EnemyStatsClashModifiers": [],
    "Damage": {
-    "x": 25.0,
-    "y": 75.0
+    "x": 35.0,
+    "y": 95.0
    },
    "DmgVsVulnerableModifier": {
     "x": 0.0,
@@ -2640,7 +2939,7 @@
    },
    "DamageTypes": [],
    "DamageTypesWarpData": [
-    "DMG_Blunt"
+    "DMG_Piercing"
    ],
    "DamageTypesWarpType": 3,
    "EnemyValuesDamageModifier": {
@@ -2653,7 +2952,7 @@
       },
       "OutputValueRange": {
        "x": 0.0,
-       "y": 50.0
+       "y": 70.0
       },
       "WhenOutOfRange": 0,
       "OutOfRangeCustomValue": 0.0
@@ -3119,6 +3418,10 @@
        "RLeg": false
       },
       "DroppedCards": [],
+      "DroppedCardsWarpData": [
+       "5ce7e11b3b068784ab27b8c69a77cae8"
+      ],
+      "DroppedCardsWarpType": 3,
       "StatChanges": [
        {
         "Stat": {
@@ -3130,6 +3433,39 @@
         "ValueModifier": {
          "x": 17.0,
          "y": 17.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       },
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "d2047e589f43eb9489bd455dd3ce9247",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": 68.0,
+         "y": 68.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -3196,6 +3532,10 @@
        "RLeg": false
       },
       "DroppedCards": [],
+      "DroppedCardsWarpData": [
+       "bba6c3d6db035214ba684d9b490e8355"
+      ],
+      "DroppedCardsWarpType": 3,
       "StatChanges": [
        {
         "Stat": {
@@ -3207,6 +3547,39 @@
         "ValueModifier": {
          "x": 17.0,
          "y": 17.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       },
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "d2047e589f43eb9489bd455dd3ce9247",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": 68.0,
+         "y": 68.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -3273,6 +3646,10 @@
        "RLeg": false
       },
       "DroppedCards": [],
+      "DroppedCardsWarpData": [
+       "70f2dce38ab0c16418bd7b3721080591"
+      ],
+      "DroppedCardsWarpType": 3,
       "StatChanges": [
        {
         "Stat": {
@@ -3284,6 +3661,39 @@
         "ValueModifier": {
          "x": 17.0,
          "y": 17.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       },
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "d2047e589f43eb9489bd455dd3ce9247",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": 68.0,
+         "y": 68.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -3352,6 +3762,10 @@
        "RLeg": false
       },
       "DroppedCards": [],
+      "DroppedCardsWarpData": [
+       "70f2dce38ab0c16418bd7b3721080591"
+      ],
+      "DroppedCardsWarpType": 3,
       "StatChanges": [
        {
         "Stat": {
@@ -3363,6 +3777,39 @@
         "ValueModifier": {
          "x": 34.0,
          "y": 34.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       },
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "d2047e589f43eb9489bd455dd3ce9247",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": 136.0,
+         "y": 136.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -3429,6 +3876,10 @@
        "RLeg": false
       },
       "DroppedCards": [],
+      "DroppedCardsWarpData": [
+       "bba6c3d6db035214ba684d9b490e8355"
+      ],
+      "DroppedCardsWarpType": 3,
       "StatChanges": [
        {
         "Stat": {
@@ -3440,6 +3891,39 @@
         "ValueModifier": {
          "x": 34.0,
          "y": 34.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       },
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "d2047e589f43eb9489bd455dd3ce9247",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": 136.0,
+         "y": 136.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -3506,6 +3990,11 @@
        "RLeg": false
       },
       "DroppedCards": [],
+      "DroppedCardsWarpData": [
+       "5ce7e11b3b068784ab27b8c69a77cae8",
+       "70f2dce38ab0c16418bd7b3721080591"
+      ],
+      "DroppedCardsWarpType": 3,
       "StatChanges": [
        {
         "Stat": {
@@ -3517,6 +4006,39 @@
         "ValueModifier": {
          "x": 34.0,
          "y": 34.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       },
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "d2047e589f43eb9489bd455dd3ce9247",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": 136.0,
+         "y": 136.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -3585,6 +4107,11 @@
        "RLeg": false
       },
       "DroppedCards": [],
+      "DroppedCardsWarpData": [
+       "70f2dce38ab0c16418bd7b3721080591",
+       "bba6c3d6db035214ba684d9b490e8355"
+      ],
+      "DroppedCardsWarpType": 3,
       "StatChanges": [
        {
         "Stat": {
@@ -3596,6 +4123,39 @@
         "ValueModifier": {
          "x": 68.0,
          "y": 68.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       },
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "d2047e589f43eb9489bd455dd3ce9247",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": 272.0,
+         "y": 272.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -3662,6 +4222,11 @@
        "RLeg": false
       },
       "DroppedCards": [],
+      "DroppedCardsWarpData": [
+       "70f2dce38ab0c16418bd7b3721080591",
+       "bba6c3d6db035214ba684d9b490e8355"
+      ],
+      "DroppedCardsWarpType": 3,
       "StatChanges": [
        {
         "Stat": {
@@ -3673,6 +4238,39 @@
         "ValueModifier": {
          "x": 68.0,
          "y": 68.0
+        },
+        "RateModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MinValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "MaxValueModifier": {
+         "x": 0.0,
+         "y": 0.0
+        },
+        "CannotModifyBeyond": {
+         "Active": false,
+         "FloatValue": 0.0,
+         "MaxValue": 0.0
+        },
+        "ApplyEachTick": false,
+        "InstantModifier": false,
+        "IgnoreNovelty": false,
+        "IsInverse": false
+       },
+       {
+        "Stat": {
+         "m_FileID": 0,
+         "m_PathID": 0
+        },
+        "StatWarpData": "d2047e589f43eb9489bd455dd3ce9247",
+        "StatWarpType": 3,
+        "ValueModifier": {
+         "x": 272.0,
+         "y": 272.0
         },
         "RateModifier": {
          "x": 0.0,
@@ -3711,7 +4309,7 @@
   "LogText": {
    "ParentObjectID": "cmcEncounterGuardCorrin",
    "LocalizationKey": "",
-   "DefaultText": "Old Corrin shuffles into range, cudgel raised..."
+   "DefaultText": "Old Corrin shuffles into range, spear raised..."
   },
   "AlternateLogTexts": [],
   "TextSettings": {
@@ -3968,6 +4566,39 @@
     "InstantModifier": false,
     "IgnoreNovelty": true,
     "IsInverse": false
+   },
+   {
+    "Stat": {
+     "m_FileID": 0,
+     "m_PathID": 0
+    },
+    "StatWarpData": "cmcStatGuardsSummoned",
+    "StatWarpType": 3,
+    "ValueModifier": {
+     "x": 1.0,
+     "y": 1.0
+    },
+    "RateModifier": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "MinValueModifier": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "MaxValueModifier": {
+     "x": 0.0,
+     "y": 0.0
+    },
+    "CannotModifyBeyond": {
+     "Active": false,
+     "FloatValue": 0.0,
+     "MaxValue": 0.0
+    },
+    "ApplyEachTick": false,
+    "InstantModifier": false,
+    "IgnoreNovelty": true,
+    "IsInverse": false
    }
   ],
   "NPCStatChanges": [
@@ -3977,6 +4608,24 @@
      "m_PathID": 0
     },
     "TargetStatWarpData": "cmcNpcStatGuardDowned",
+    "TargetStatWarpType": 3,
+    "UseAssociatedAgent": true,
+    "TargetAgent": {
+     "m_FileID": 0,
+     "m_PathID": 0
+    },
+    "ValueChange": {
+     "x": 1.0,
+     "y": 1.0
+    },
+    "IgnoreNovelty": true
+   },
+   {
+    "TargetStat": {
+     "m_FileID": 0,
+     "m_PathID": 0
+    },
+    "TargetStatWarpData": "cmcNpcStatGuardKilled",
     "TargetStatWarpType": 3,
     "UseAssociatedAgent": true,
     "TargetAgent": {

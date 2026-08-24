@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatGuardKilledFlagSterling",
+    "GameName": {
+        "LocalizationKey": "CMC_GuardKilledFlagSterling_StatName",
+        "DefaultText": "Captain Reeve Sterling Killed Flag"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_GuardKilledFlagSterling_StatDescription",
+        "DefaultText": "Hidden 0/1 latch: 1 while Captain Sterling's current absence stems from a kill rather than a rout. Set alongside his Down Since timer, but NOT cleared when that timer's 7-day cooldown ends -- it stays set until he is actually re-placed in the Village Jail, so a reload cannot resurrect him at his old post from stale pre-kill save data."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

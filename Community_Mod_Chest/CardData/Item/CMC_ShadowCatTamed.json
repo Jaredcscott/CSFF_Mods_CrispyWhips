@@ -14,6 +14,29 @@
     "CanBeRenamed": true,
     "DoesNotPile": true,
     "CannotBeTrashed": true,
+    "AlternateNames": [
+        {
+            "Conditions": {"Special3Range": {"x": 0.0, "y": 24.0}},
+            "Description": {
+                "LocalizationKey": "CMC_ShadowCatTamed_CareLow_CardDescription",
+                "DefaultText": "Shadow doesn't come when the music starts anymore. You catch him at the treeline sometimes, watching -- gone the moment you take a step toward him."
+            }
+        },
+        {
+            "Conditions": {"Special3Range": {"x": 25.0, "y": 54.0}},
+            "Description": {
+                "LocalizationKey": "CMC_ShadowCatTamed_CareMid_CardDescription",
+                "DefaultText": "Shadow still lingers near the drying-racks when you're close, but he keeps more distance than he used to, and slips away sooner."
+            }
+        },
+        {
+            "Conditions": {"Special3Range": {"x": 75.0, "y": 100.0}},
+            "Description": {
+                "LocalizationKey": "CMC_ShadowCatTamed_CareHigh_CardDescription",
+                "DefaultText": "Shadow stays close now, closer than shadows are supposed to get, settling near the firelight until you turn in for the night."
+            }
+        }
+    ],
     "SpoilageTime": {
         "Active": true,
         "FloatValue": 576.0,
@@ -181,6 +204,37 @@
                 "TriggerCardsWarpType": 3,
                 "TriggerTagsWarpData": ["tag_WaterContainer"],
                 "TriggerTagsWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_ShadowCatTamed_CI_Treat",
+                "DefaultText": "Give a Treat"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_ShadowCatTamed_CI_Treat_Desc",
+                "DefaultText": "A little something extra, just because."
+            },
+            "RequiredReceivingDurabilities": {
+                "RequiredSpecial3Percent": {"Active": true, "MinValue": 0.0, "MaxValue": 0.9},
+                "FailMessage": {
+                    "LocalizationKey": "CMC_ShadowCatTamed_CI_Treat_Fail",
+                    "DefaultText": "He sniffs it, already at ease, and lets it be."
+                }
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "SpoilageChange": {"x": 96.0, "y": 96.0},
+                "Special3Change": {"x": 30.0, "y": 30.0}
+            },
+            "GivenCardChanges": {"ModType": 3},
+            "CompatibleCards": {
+                "TriggerCardsWarpData": [
+                    "3103c059d34608a4bb95c426d9ac77e0",
+                    "272fe32c20eebef4d82290c7a31ac885",
+                    "be70da939b3b49040817669f6e681ef1"
+                ],
+                "TriggerCardsWarpType": 3
             }
         }
     ],

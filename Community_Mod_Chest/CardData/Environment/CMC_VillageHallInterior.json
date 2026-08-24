@@ -9,9 +9,9 @@
     "LocalizationKey": "CMC_VillageHallInterior_CardName",
     "DefaultText": "Village Hall"
   },
-  "CardImageWarpData": "VillageAcademyInterior",
+  "CardImageWarpData": "CMC_VillageHall_Interior",
   "CardImageWarpType": 3,
-  "CardBackgroundWarpData": "VillageAcademyInterior",
+  "CardBackgroundWarpData": "CMC_VillageHall_Interior",
   "CardBackgroundWarpType": 3,
   "MaxWeightCapacity": 12000,
   "DefaultEnvCardDrops": [
@@ -22,6 +22,11 @@
     },
     {
       "DroppedCardWarpData": "cmcVillageHallExit",
+      "DroppedCardWarpType": 3,
+      "Quantity": { "x": 1, "y": 1 }
+    },
+    {
+      "DroppedCardWarpData": "e50543ef8a7e7d543a42e199adeee963",
       "DroppedCardWarpType": 3,
       "Quantity": { "x": 1, "y": 1 }
     },
@@ -146,30 +151,6 @@
           "StatWarpType": 3,
           "ValueModifier": { "x": 0.0, "y": 0.0 },
           "RateModifier": { "x": -1.0, "y": -1.0 },
-          "MinValueModifier": { "x": 0.0, "y": 0.0 },
-          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
-          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
-          "ApplyEachTick": false,
-          "InstantModifier": false,
-          "IgnoreNovelty": false,
-          "IsInverse": false
-        }
-      ]
-    },
-    {
-      "EffectName": "Hearth-Warmed Village Hall",
-      "OnlyWhenEquipped": false,
-      "EquippedOnBodyOnly": false,
-      "Conditions": {
-        "NotInBackground": true
-      },
-      "StatModifiers": [
-        {
-          "Stat": { "m_FileID": 0, "m_PathID": 0 },
-          "StatWarpData": "888d2d2a99e3f044291c6748a0fa8d78",
-          "StatWarpType": 3,
-          "ValueModifier": { "x": 0.0, "y": 0.0 },
-          "RateModifier": { "x": 15.0, "y": 15.0 },
           "MinValueModifier": { "x": 0.0, "y": 0.0 },
           "MaxValueModifier": { "x": 0.0, "y": 0.0 },
           "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },

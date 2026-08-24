@@ -1,0 +1,226 @@
+{
+    "UniqueID": "cmcOutfitWardrobe",
+    "CardName": {
+        "ParentObjectID": "cmcOutfitWardrobe",
+        "LocalizationKey": "CMC_OutfitWardrobe_Placed_CardName",
+        "DefaultText": "Outfit Wardrobe"
+    },
+    "CardDescription": {
+        "ParentObjectID": "cmcOutfitWardrobe",
+        "LocalizationKey": "CMC_OutfitWardrobe_Placed_CardDescription",
+        "DefaultText": "A tall wardrobe built with three separate hanging sections, each one big enough for a full outfit — store three complete sets of gear and step into any of them in a moment."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "cmcOutfitWardrobe",
+        "LocalizationKey": "CMC_OutfitWardrobe_Placed_CardHelpSection",
+        "DefaultText": "<b>Usage:</b> The wardrobe's storage is split into three 18-slot sections, one per outfit, each labeled right on the grid ('Outfit 1/2/3') so you can see where to drop things. Drag equippable gear into a section, then use that section's Equip button to put on everything hanging there in one motion — clicking Equip or Unequip also scrolls straight to that section. Use the matching Unequip button to hang your entire current outfit back in that same section, freeing your equipment slots.\n\n<b>Take Apart:</b> Splits the wardrobe back into its Plank and Rope."
+    },
+    "CardType": 2,
+    "MapStructureType": 0,
+    "ObjectWeight": 5200.0,
+    "TradingValue": 380.0,
+    "DoesNotPile": true,
+    "CannotBeTrashed": false,
+    "KeepName": true,
+    "AlwaysUpdate": false,
+    "CardImageWarpData": "CMC_OutfitWardrobe",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": ["tag_Preservable", "tag_Structure", "tag_Furniture"],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": ["Wood"],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": { "Active": false },
+    "UsageDurability": { "Active": false },
+    "FuelCapacity": { "Active": false },
+    "Progress": { "Active": false },
+    "SpecialDurability1": { "Active": false },
+    "SpecialDurability2": { "Active": false },
+    "SpecialDurability3": { "Active": false },
+    "SpecialDurability4": { "Active": false },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "cmcOutfitWardrobe",
+                "LocalizationKey": "CMC_OutfitWardrobe_Placed_DA_Equip1",
+                "DefaultText": "Equip Outfit 1"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "cmcOutfitWardrobe",
+                "LocalizationKey": "CMC_OutfitWardrobe_Placed_DA_Equip1_Desc",
+                "DefaultText": "Puts on everything currently hanging in Outfit 1's section that you have a free equipment slot for."
+            },
+            "AlwaysShow": true,
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ProducedCards": [],
+            "ReceivingCardChanges": { "ModType": 0 }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "cmcOutfitWardrobe",
+                "LocalizationKey": "CMC_OutfitWardrobe_Placed_DA_Unequip1",
+                "DefaultText": "Unequip Outfit 1"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "cmcOutfitWardrobe",
+                "LocalizationKey": "CMC_OutfitWardrobe_Placed_DA_Unequip1_Desc",
+                "DefaultText": "Hangs everything you currently have equipped back in Outfit 1's section, if there's room."
+            },
+            "AlwaysShow": true,
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ProducedCards": [],
+            "ReceivingCardChanges": { "ModType": 0 }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "cmcOutfitWardrobe",
+                "LocalizationKey": "CMC_OutfitWardrobe_Placed_DA_Equip2",
+                "DefaultText": "Equip Outfit 2"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "cmcOutfitWardrobe",
+                "LocalizationKey": "CMC_OutfitWardrobe_Placed_DA_Equip2_Desc",
+                "DefaultText": "Puts on everything currently hanging in Outfit 2's section that you have a free equipment slot for."
+            },
+            "AlwaysShow": true,
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ProducedCards": [],
+            "ReceivingCardChanges": { "ModType": 0 }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "cmcOutfitWardrobe",
+                "LocalizationKey": "CMC_OutfitWardrobe_Placed_DA_Unequip2",
+                "DefaultText": "Unequip Outfit 2"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "cmcOutfitWardrobe",
+                "LocalizationKey": "CMC_OutfitWardrobe_Placed_DA_Unequip2_Desc",
+                "DefaultText": "Hangs everything you currently have equipped back in Outfit 2's section, if there's room."
+            },
+            "AlwaysShow": true,
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ProducedCards": [],
+            "ReceivingCardChanges": { "ModType": 0 }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "cmcOutfitWardrobe",
+                "LocalizationKey": "CMC_OutfitWardrobe_Placed_DA_Equip3",
+                "DefaultText": "Equip Outfit 3"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "cmcOutfitWardrobe",
+                "LocalizationKey": "CMC_OutfitWardrobe_Placed_DA_Equip3_Desc",
+                "DefaultText": "Puts on everything currently hanging in Outfit 3's section that you have a free equipment slot for."
+            },
+            "AlwaysShow": true,
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ProducedCards": [],
+            "ReceivingCardChanges": { "ModType": 0 }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "cmcOutfitWardrobe",
+                "LocalizationKey": "CMC_OutfitWardrobe_Placed_DA_Unequip3",
+                "DefaultText": "Unequip Outfit 3"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "cmcOutfitWardrobe",
+                "LocalizationKey": "CMC_OutfitWardrobe_Placed_DA_Unequip3_Desc",
+                "DefaultText": "Hangs everything you currently have equipped back in Outfit 3's section, if there's room."
+            },
+            "AlwaysShow": true,
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ProducedCards": [],
+            "ReceivingCardChanges": { "ModType": 0 }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "cmcOutfitWardrobe",
+                "LocalizationKey": "CMC_OutfitWardrobe_Placed_DA_TakeApart",
+                "DefaultText": "Take Apart"
+            },
+            "DaytimeCost": 6,
+            "UseMiniTicks": 0,
+            "ActionSoundsWarpData": ["Wood"],
+            "ActionSoundsWarpType": 3,
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 14, "y": 14 }
+                        },
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 6, "y": 6 }
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": { "ModType": 3 }
+        }
+    ],
+    "PassiveStatEffects": [],
+    "PassiveEffects": [
+        {
+            "EffectName": "Comfort (+6)",
+            "OnlyWhenEquipped": false,
+            "EquippedOnBodyOnly": false,
+            "Conditions": {
+                "NotInBackground": true
+            },
+            "StatModifiers": [
+                {
+                    "Stat": { "m_FileID": 0, "m_PathID": 0 },
+                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 6.0, "y": 6.0 },
+                    "RateModifier": { "x": 0.0, "y": 0.0 },
+                    "MinValueModifier": { "x": 0.0, "y": 0.0 },
+                    "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+                    "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ],
+    "DurabilitySorting": { "SortingList": [] },
+    "OnlyShowPopupsWhenEquipped": false,
+    "MiniInventoryHideDurabilities": { "MaskValue": 0 },
+    "MaxLiquidCapacity": 0.0,
+    "InventorySlots": [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+    "BlueprintStages": [],
+    "BlueprintResult": [],
+    "IsWeapon": false,
+    "IsArmor": false
+}

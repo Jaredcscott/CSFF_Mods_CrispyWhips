@@ -31,10 +31,11 @@ namespace CommunityModChest.Patcher
     /// can only apply a fixed ValueModifier, so it cannot copy the live Village Clock week itself
     /// — this poll does that half of the job by diffing against the last-seen chain value).
     ///
-    /// Also mirrors Miller/Weaver/Professor's trust NPCStat into a player-side GameStat each poll
-    /// (GameManager.FindNPC(NPCAgent) → InGameNPC.GetStatValue(NPCStat)) — blueprint StatValues
-    /// gates can only read player GameStats, never NPCStats, so the T3/T4 trust-threshold reveals
-    /// gate on the mirror instead of the raw NPCStat.
+    /// Also mirrors Miller/Weaver/Professor/Apothecary's trust NPCStat into a player-side GameStat
+    /// each poll (GameManager.FindNPC(NPCAgent) → InGameNPC.GetStatValue(NPCStat)) — blueprint
+    /// StatValues gates can only read player GameStats, never NPCStats, so the T3/T4 trust-threshold
+    /// reveals gate on the mirror instead of the raw NPCStat. (Inn Keeper is excluded — his trust
+    /// equivalent, cmcStatInnFriendship, is already a plain player GameStat with no mirror needed.)
     /// </summary>
     internal static class QuestChainSchedulePatch
     {
@@ -59,11 +60,16 @@ namespace CommunityModChest.Patcher
             new ChainNpc { Name = "Professor", ChainStatUid = "cmcStatProfQuestChain", ArmedStatUid = "cmcStatProfQuestArmed", LastWeekStatUid = "cmcStatProfLastQuestWeek", MaxChain = 4 },
         };
 
-        // NPC trust NPCStats (Miller/Weaver/Professor — Inn Keeper's trust equivalent is already
-        // a player GameStat, cmcStatInnFriendship) mirrored into player GameStats so blueprint
-        // StatValues gates (T3/T4, which key on trust) can read them — StatValues only reads
-        // player GameStats, never NPCStats (Village_Master_Plan.md §3.4 "NPC trust values must be
-        // mirrored into player GameStats for blueprint gates").
+        // NPC trust NPCStats (Miller/Weaver/Professor/Apothecary — Inn Keeper's trust equivalent
+        // is already a player GameStat, cmcStatInnFriendship) mirrored into player GameStats so
+        // blueprint StatValues gates (T3/T4, which key on trust) can read them — StatValues only
+        // reads player GameStats, never NPCStats (Village_Master_Plan.md §3.4 "NPC trust values
+        // must be mirrored into player GameStats for blueprint gates").
+        //
+        // Apothecary added 2026-08 alongside CopperChestPatch's N19 (selling into a chest bumps
+        // the seller's trust) — she previously had no Trust NPCStat at all; CopperChestPatch.cs
+        // (NPCStat/CMC_ApothecaryTrust.json, GameStat/CMC_ApothecaryTrustMirror.json) is the
+        // ONLY writer of cmcStatApothecaryTrust today, same as the other three were before her.
         private sealed class TrustMirror
         {
             public string AgentUid;
@@ -76,6 +82,7 @@ namespace CommunityModChest.Patcher
             new TrustMirror { AgentUid = "cmcMillerAgent", NpcStatUid = "cmcStatMillerTrust", PlayerStatUid = "cmcStatMillerTrustMirror" },
             new TrustMirror { AgentUid = "cmcWeaverAgent", NpcStatUid = "cmcStatWeaverTrust", PlayerStatUid = "cmcStatWeaverTrustMirror" },
             new TrustMirror { AgentUid = "cmcProfessorAgent", NpcStatUid = "cmcStatProfessorTrust", PlayerStatUid = "cmcStatProfessorTrustMirror" },
+            new TrustMirror { AgentUid = "cmcApothecaryAgent", NpcStatUid = "cmcStatApothecaryTrust", PlayerStatUid = "cmcStatApothecaryTrustMirror" },
         };
 
         private static bool _initialized;

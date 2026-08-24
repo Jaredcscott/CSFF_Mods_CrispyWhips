@@ -1,0 +1,100 @@
+{
+    "UniqueID": "cmcClayOcarina",
+    "CardType": 0,
+    "CardName": {
+        "LocalizationKey": "CMC_ClayOcarina_CardName",
+        "DefaultText": "Clay Ocarina"
+    },
+    "CardDescription": {
+        "LocalizationKey": "CMC_ClayOcarina_CardDescription",
+        "DefaultText": "A palm-sized ocarina shaped from fired clay, its finger holes worn smooth by handling. Simple, but it holds a tune well enough to catch a wary animal's ear."
+    },
+    "CardImageWarpData": "Flute",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 400.0,
+        "CardStatName": {
+            "LocalizationKey": "CMC_ClayOcarina_UsageDurability",
+            "DefaultText": "Durability"
+        },
+        "MaxValue": 400.0,
+        "RatePerDaytimePoint": 0.0,
+        "HasActionOnZero": true,
+        "OnZero": {
+            "ActionDescription": {
+                "LocalizationKey": "CMC_ClayOcarina_Broken",
+                "DefaultText": "The clay ocarina has cracked and crumbled."
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        },
+        "OverrideIconWarpData": "Durability",
+        "OverrideIconWarpType": 3
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_ClayOcarina_DA_PlayTune",
+                "DefaultText": "Play a Tune"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_ClayOcarina_DA_PlayTune_Desc",
+                "DefaultText": "A few low, breathy notes. Nothing fancy, but it settles the nerves."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 0
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 3.0, "y": 3.0 },
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ]
+        }
+    ],
+    "PassiveEffects": [],
+    "ObjectWeight": 100.0,
+    "TradingValue": 150.0,
+    "MaxStack": 1,
+    "DroppedCardShadow": 1
+}

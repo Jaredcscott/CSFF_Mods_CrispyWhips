@@ -193,6 +193,16 @@ namespace CommunityModChest.Patcher
                     if (!ResolveAgent(guard)) continue;
                     if (FindLiveNpc(__instance, guard) != null) continue;
 
+                    // A killed guard's entry in CurrentSaveData is a stale load/new-game snapshot
+                    // (never refreshed mid-session — see GuardOutcomePatch's class doc) that still
+                    // describes where she stood before she died; restoring from it here would
+                    // resurrect her at her old post, bypassing the whole point of the kill
+                    // cooldown/Jail redirect. A routed guard is never flagged, so her (still
+                    // accurate — she never left AllNPCs) save data restores normally; this only
+                    // skips a killed guard (see GuardOutcomePatch.WasLastDownKilled's doc). The
+                    // arrival poll re-places her in the Jail once she is actually due back.
+                    if (GuardOutcomePatch.WasLastDownKilled(guard.AgentUid)) continue;
+
                     var npcSaveData = _getNpcDataMethod.Invoke(saveData, new object[] { guard.Agent });
                     if (npcSaveData == null) continue; // never placed yet — the arrival poll handles first placement
 
@@ -236,40 +246,57 @@ namespace CommunityModChest.Patcher
                     if (!ResolveAgent(guard)) continue;
                     if (FindLiveNpc(gm, guard) != null) continue;
 
+                    bool killFlagged = GuardOutcomePatch.WasLastDownKilled(guard.AgentUid);
+
                     // Restore takes priority and is env-independent — the saved data carries
-                    // the guard's own environment key.
-                    var npcSaveData = saveData == null
-                        ? null
-                        : _getNpcDataMethod.Invoke(saveData, new object[] { guard.Agent });
-                    if (npcSaveData != null)
+                    // the guard's own environment key. Skipped for a killed guard whose save data
+                    // is stale (see RestoreOnLoad_Postfix's comment) — she is handled by the
+                    // Jail-redirected first-placement branch below instead.
+                    if (!killFlagged)
                     {
-                        var restored = SpawnAndReturn(gm, guard);
-                        if (restored == null) continue;
-                        _initMethod.Invoke(restored, new object[] { npcSaveData, _envIdEmpty });
-                        _assignOrCreateCardsMethod.Invoke(gm, null);
-                        Plugin.Logger.LogInfo($"[GuardSpawnPatch] {guard.Label} restored from save (deferred past the load postfix).");
-                        continue;
+                        var npcSaveData = saveData == null
+                            ? null
+                            : _getNpcDataMethod.Invoke(saveData, new object[] { guard.Agent });
+                        if (npcSaveData != null)
+                        {
+                            var restored = SpawnAndReturn(gm, guard);
+                            if (restored == null) continue;
+                            _initMethod.Invoke(restored, new object[] { npcSaveData, _envIdEmpty });
+                            _assignOrCreateCardsMethod.Invoke(gm, null);
+                            Plugin.Logger.LogInfo($"[GuardSpawnPatch] {guard.Label} restored from save (deferred past the load postfix).");
+                            continue;
+                        }
                     }
 
                     // First placement. Spawns land on the CURRENT board only, so a guard can
                     // only take up their post while the player is standing at it
-                    // (reference_spawn_targets_current_board).
-                    if (currentEnvUid != guard.SpawnEnvUid) continue;
+                    // (reference_spawn_targets_current_board). A guard flagged from a kill
+                    // reappears in the Village Jail instead of her normal post (owner request,
+                    // 2026-08-15) — reachable any time via the Jail's own "Step into the Jail" DA,
+                    // not only while under arrest.
+                    string spawnEnvUid = killFlagged ? JailPatch.JailCellEnvUid : guard.SpawnEnvUid;
+                    if (currentEnvUid != spawnEnvUid) continue;
 
-                    // A guard serving out a season after the player bested them does not take up
-                    // a post for the first time (§10.8.6). Deliberately NOT applied to the restore
-                    // branch above: a guard who was merely routed is still standing on the board,
-                    // and skipping their restore would make them vanish on the next reload. Their
-                    // downed marker comes back with their save data and keeps them out of the
-                    // chase on its own; GuardOutcomePatch clears it when the season is up.
+                    // A guard serving out a season/cooldown after the player bested them does not
+                    // take up a post for the first time (§10.8.6). Deliberately NOT applied to the
+                    // restore branch above for a ROUTED guard: she is still standing on the board,
+                    // and skipping her restore would make her vanish on the next reload. Her
+                    // downed marker comes back with her save data and keeps her out of the chase
+                    // on its own; GuardOutcomePatch clears it when the season is up.
                     if (GuardOutcomePatch.IsRespawnSuppressed(guard.AgentUid)) continue;
 
+                    // Init(null, ...) — same fresh-build path as a true first-ever spawn (see the
+                    // class doc above), which means a guard coming back from the Jail also gets a
+                    // fresh Suspicion/stat set from her NPCCharacterPerk rather than whatever she
+                    // had accrued before she died. Intentional here, not an oversight: her old
+                    // stats belonged to an NPC instance that no longer exists.
                     var npc = SpawnAndReturn(gm, guard);
                     if (npc == null) continue;
                     _initMethod.Invoke(npc, new object[] { null, currentEnv });
                     _assignOrCreateCardsMethod.Invoke(gm, null);
+                    if (killFlagged) GuardOutcomePatch.ClearKilledFlag(guard.AgentUid);
 
-                    Plugin.Logger.LogInfo($"[GuardSpawnPatch] {guard.Label} took up their post at {guard.SpawnEnvUid}.");
+                    Plugin.Logger.LogInfo($"[GuardSpawnPatch] {guard.Label} took up their post at {spawnEnvUid}.");
                 }
             }
             catch (Exception ex)

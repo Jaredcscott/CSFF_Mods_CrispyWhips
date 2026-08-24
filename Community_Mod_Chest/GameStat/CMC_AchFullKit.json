@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatAchFullKit",
+    "GameName": {
+        "LocalizationKey": "CMC_AchFullKit_StatName",
+        "DefaultText": "Achievement Earned: Full Kit"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_AchFullKit_StatDescription",
+        "DefaultText": "Hidden flag: 1 once all six Full Kit member latches (cmcStatAchTool*) are set -- the Full Kit achievement. Clamped 0-1, never resets."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

@@ -320,8 +320,8 @@
     },
     {
       "name": "Iron Fishing Rod",
-      "status": "Implemented",
-      "notes": "PerkItemInitPatch sets UsageDurability=600 at load time so perk-granted rods spawn at full durability.",
+      "status": "Tested",
+      "notes": "PerkItemInitPatch sets UsageDurability=600 at load time so perk-granted rods spawn at full durability. Confirmed via playthrough 2026-08-15 (T2.54).",
       "cards": [
         "BpCMCIronFishingRod",
         "CMCIronFishingRod"
@@ -329,7 +329,8 @@
     },
     {
       "name": "Iron Fishing Rod Fittings",
-      "status": "Implemented",
+      "status": "Tested",
+      "notes": "Confirmed via playthrough 2026-08-15 (T2.54 general pass; T1.39 confirms researchable specifically after the 9c9cee910 GUID-swap fix).",
       "cards": [
         "BpCMCIronFishingRodFittings",
         "CMCIronFishingRodFittings"
@@ -337,8 +338,8 @@
     },
     {
       "name": "Fishing Net",
-      "status": "Implemented",
-      "notes": "DA 'Cast Net' with 3-tier fish ProducedCards, tag_River board gate, DaytimeCost:2, UsageDurability MaxValue:10.",
+      "status": "Tested",
+      "notes": "DA 'Cast Net' with 3-tier fish ProducedCards, tag_River board gate, DaytimeCost:2, UsageDurability MaxValue:10. Confirmed via playthrough 2026-08-15 (T2.67).",
       "cards": [
         "cmcbpfishingnet",
         "cmcfishingnet"

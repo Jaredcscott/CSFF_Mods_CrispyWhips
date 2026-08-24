@@ -1,0 +1,17 @@
+{
+  "target": "FootWraps.png",
+  "sourceCard": "CardData/Item/FootWraps.json",
+  "subject": "a pair of crude woven foot wraps made of dried reed and plant fiber strips, bound with twine, sandal-like and less bulky",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "aspectRatio": "2:3",
+    "resolution": "2K"
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a pair of crude woven foot wraps made of dried reed and plant fiber strips, bound with twine, sandal-like and less bulky, in the style of a cozy hand-illustrated survival-crafting game:  isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame. Avoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame.",
+  "historyId": "FK1k3Kf68puGwNCTDq9n",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-08/create-image/XbhdRvvhTk0K7JCPQP3H/image_1787462221682_a1f2eb7b_1787462221966_49861b48.png",
+  "credits": 27,
+  "generated": "2026-08-23",
+  "note": "User picked this via an OpenArt share link, generated directly in the OpenArt web UI (a 'more like this' pass off Option C from the create-image-variants batch, historyId FK1k3Kf68puGwNCTDq9n created 2026-08-23T05:16:43Z), not one of the 3 MCP-submitted variants. The 3 MCP variants from the same batch were NOT selected: twin-coil-bundles-side-by-side (lYUd0pJ7lKcwQ82RTTMK, on-model but read as rope/cordage rather than a sandal), flat-woven-mat-partial-coil (RhyP38NI0onELHGYzF7m, showed feet inside the wraps, off-model), braided-flat-spiral-sandal (kewUUAMKyUrYKH1Phqjm, showed a foot inside the wrap, off-model, but was the seed for the winning 'more like this' pass)."
+}

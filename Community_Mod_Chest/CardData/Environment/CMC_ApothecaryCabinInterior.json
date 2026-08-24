@@ -24,6 +24,11 @@
       "DroppedCardWarpData": "cmcApothecaryCabinExit",
       "DroppedCardWarpType": 3,
       "Quantity": { "x": 1, "y": 1 }
+    },
+    {
+      "DroppedCardWarpData": "cmcCopperChestApothecary",
+      "DroppedCardWarpType": 3,
+      "Quantity": { "x": 1, "y": 1 }
     }
   ],
   "PassiveEffects": [

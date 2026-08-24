@@ -1,0 +1,682 @@
+{
+  "UniqueID": "cmcBoardAchievements",
+  "CardType": 2,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": false,
+  "DoesNotPile": true,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "CMC_BoardAchievements_CardName",
+    "DefaultText": "Town Achievement Board"
+  },
+  "CardDescription": {
+    "LocalizationKey": "CMC_BoardAchievements_CardDescription",
+    "DefaultText": "A board where the village keeps a record of this settler's notable deeds -- some hard-won, some merely notable, all worth a look."
+  },
+  "CardImageWarpData": "CMC_VillageHall",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_traderfound_locked_Name",
+        "DefaultText": "Finding a Friend — unclaimed"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_traderfound_locked_Desc",
+        "DefaultText": "Cross paths with a traveling trader somewhere out in the wilds."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatAchTraderFound",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_traderfound_earned_Name",
+        "DefaultText": "Finding a Friend — earned"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_traderfound_earned_Desc",
+        "DefaultText": "A trader's cart rattled into view, and for a moment the road felt a little less lonely."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatAchTraderFound",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 999999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_fullkit_locked_Name",
+        "DefaultText": "Full Kit — unclaimed"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_fullkit_locked_Desc",
+        "DefaultText": "Assemble the complete set of six metal tools: Axe, Pickaxe, Hoe, Knife, Shovel, and Sickle."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatAchFullKit",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_fullkit_earned_Name",
+        "DefaultText": "Full Kit — earned"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_fullkit_earned_Desc",
+        "DefaultText": "Axe, pickaxe, hoe, knife, shovel, sickle — a full metal kit, ready for anything."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatAchFullKit",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 999999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_bearslain_locked_Name",
+        "DefaultText": "Right to Bear Arms — unclaimed"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_bearslain_locked_Desc",
+        "DefaultText": "Fell a Bear in the wild."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatAchBearSlain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_bearslain_earned_Name",
+        "DefaultText": "Right to Bear Arms — earned"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_bearslain_earned_Desc",
+        "DefaultText": "One less bear in these woods, and quite a story to tell about it."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatAchBearSlain",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 999999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_hunter_locked_Name",
+        "DefaultText": "Master Hunter — unclaimed"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_hunter_locked_Desc",
+        "DefaultText": "Hunt every kind of huntable animal in the forest: Badger, Bear, Beaver, Boar, Doe, Duck, Fox, Hare, Partridge, Squirrel, Stag, and Wolf."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatAchHunter",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_hunter_earned_Name",
+        "DefaultText": "Master Hunter — earned"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_hunter_earned_Desc",
+        "DefaultText": "Every creature of the forest has fallen to your bow at least once."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatAchHunter",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 999999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_explorer_locked_Name",
+        "DefaultText": "Forest Explorer — unclaimed"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_explorer_locked_Desc",
+        "DefaultText": "Set foot in ten of the forest's varied surface groves, thickets, and glades."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatAchExplorer",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_explorer_earned_Name",
+        "DefaultText": "Forest Explorer — earned"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_explorer_earned_Desc",
+        "DefaultText": "Ten distinct corners of the forest, all walked, all known."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatAchExplorer",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 999999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_yearsurvived_locked_Name",
+        "DefaultText": "Happy New Year — unclaimed"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_yearsurvived_locked_Desc",
+        "DefaultText": "Survive long enough to see a full year pass."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatAchYearSurvived",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_yearsurvived_earned_Name",
+        "DefaultText": "Happy New Year — earned"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_yearsurvived_earned_Desc",
+        "DefaultText": "A full year survived, seasons and all. Here's to the next one."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatAchYearSurvived",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 999999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_angler_locked_Name",
+        "DefaultText": "Master Angler — unclaimed"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_angler_locked_Desc",
+        "DefaultText": "Bring home every kind of fish: Char, Eel, Perch, Pike, Sturgeon, and Trout."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatAchAngler",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_angler_earned_Name",
+        "DefaultText": "Master Angler — earned"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_angler_earned_Desc",
+        "DefaultText": "Every fish in these waters has passed through your hands at least once."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatAchAngler",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 999999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_spelunker_locked_Name",
+        "DefaultText": "Spelunker — unclaimed"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_spelunker_locked_Desc",
+        "DefaultText": "Explore eight of the region's caves and hollows."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatAchSpelunker",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_spelunker_earned_Name",
+        "DefaultText": "Spelunker — earned"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_spelunker_earned_Desc",
+        "DefaultText": "Eight caverns explored, torch held high through every one."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatAchSpelunker",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 999999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_shaman_locked_Name",
+        "DefaultText": "Master Shaman — unclaimed"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_shaman_locked_Desc",
+        "DefaultText": "Come to possess a bound spirit of every kind, animal and fish alike -- nineteen in all."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatAchShaman",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_shaman_earned_Name",
+        "DefaultText": "Master Shaman — earned"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_shaman_earned_Desc",
+        "DefaultText": "Nineteen bound spirits, a complete communion with the wild."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatAchShaman",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 999999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_noisemax_locked_Name",
+        "DefaultText": "Spiritual Overcrowding — unclaimed"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_noisemax_locked_Desc",
+        "DefaultText": "The innkeeper refuses to explain this entry."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatAchNoiseMax",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_noisemax_earned_Name",
+        "DefaultText": "Spiritual Overcrowding — earned"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_noisemax_earned_Desc",
+        "DefaultText": "Your Spiritual Noise reached its very limit. The spirits are... a lot, right now."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatAchNoiseMax",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 999999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_stinkyjar_locked_Name",
+        "DefaultText": "Stinky Jar — unclaimed"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_stinkyjar_locked_Desc",
+        "DefaultText": "The innkeeper refuses to explain this entry."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatAchStinkyJar",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_stinkyjar_earned_Name",
+        "DefaultText": "Stinky Jar — earned"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardAchievements_DA_stinkyjar_earned_Desc",
+        "DefaultText": "A storage pot, sealed to the brim with aged Urine. The innkeeper wants to know why."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatAchStinkyJar",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 0.5,
+            "y": 999999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    }
+  ],
+  "DismantleActionsWarpType": 3
+}

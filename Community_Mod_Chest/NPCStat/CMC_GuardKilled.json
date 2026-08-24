@@ -1,0 +1,22 @@
+{
+    "UniqueID": "cmcNpcStatGuardKilled",
+    "GameName": {
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "Guard killed - 1 once the player has KILLED (not merely routed) this guard. Clamped marker; GuardOutcomePatch reads it once to despawn the body and never clears it."
+    },
+    "DefaultStartingValue": 0.0,
+    "DefaultMinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "DefaultRate": 0.0,
+    "DefaultMinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatScalingToModifiers": [],
+    "NPCStatScalingToModifiers": [],
+    "CompositeStats": [],
+    "Statuses": [],
+    "UsesNovelty": false
+}

@@ -44,8 +44,8 @@
                 "y": 0.0
             },
             "RateModifier": {
-                "x": 0.2,
-                "y": 0.2
+                "x": 0.0,
+                "y": 0.0
             },
             "MinValueModifier": {
                 "x": 0.0,
@@ -77,8 +77,8 @@
                 "y": 0.0
             },
             "RateModifier": {
-                "x": 0.2,
-                "y": 0.2
+                "x": 0.0,
+                "y": 0.0
             },
             "MinValueModifier": {
                 "x": 0.0,
@@ -110,8 +110,8 @@
                 "y": 0.0
             },
             "RateModifier": {
-                "x": 0.2,
-                "y": 0.2
+                "x": 0.0,
+                "y": 0.0
             },
             "MinValueModifier": {
                 "x": 0.0,

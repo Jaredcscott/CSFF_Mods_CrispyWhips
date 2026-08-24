@@ -169,6 +169,126 @@
     },
     {
       "ActionName": {
+        "LocalizationKey": "CMC_BoardTown_DA_crime_clean_Name",
+        "DefaultText": "Personal standing: no trouble noted"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardTown_DA_crime_clean_Desc",
+        "DefaultText": "Nothing troubling has been said about you around the village."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatVillageCrime",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": -999999.0,
+            "y": 2.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardTown_DA_crime_murmur_Name",
+        "DefaultText": "Personal standing: some murmuring"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardTown_DA_crime_murmur_Desc",
+        "DefaultText": "A little talk has started to follow your name -- nothing serious, so far."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatVillageCrime",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 2.5,
+            "y": 14.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardTown_DA_crime_watched_Name",
+        "DefaultText": "Personal standing: watched"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardTown_DA_crime_watched_Desc",
+        "DefaultText": "Folk have noticed the Watch keeping half an eye on your comings and goings."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatVillageCrime",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 14.5,
+            "y": 39.5
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_BoardTown_DA_crime_warrant_Name",
+        "DefaultText": "Personal standing: warrant talk"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_BoardTown_DA_crime_warrant_Desc",
+        "DefaultText": "Whispers around the square say a warrant might not be far off if things don't change."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "StatWarpData": "cmcStatVillageCrime",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 39.5,
+            "y": 999999.0
+          }
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
         "LocalizationKey": "CMC_BoardTown_DA_contrib_miller_Name",
         "DefaultText": "Contribution: Miller's Cottage"
       },

@@ -159,13 +159,23 @@ namespace CommunityModChest.Patcher
                 bool leavingAcademy = Is(fromEnv, AcademyInteriorUid) && Is(currentEnv, VillageEnvUid);
                 if (!enteringInn && !enteringAcademy && !leavingInn && !leavingAcademy) return;
 
-                if (!ResolveRefs()) return;
+                string label = enteringInn ? "the Inn" : enteringAcademy ? "the Academy" : "the village";
+                Plugin.Logger.LogInfo($"[PartnerIndoorFollowPatch] boundary crossed: '{fromEnv}' -> '{currentEnv}' (heading into {label}).");
+
+                if (!ResolveRefs())
+                {
+                    Plugin.Logger.LogWarning("[PartnerIndoorFollowPatch] ResolveRefs failed — cannot relocate partners for this crossing.");
+                    return;
+                }
 
                 var gm = CardUtil.GetGameManagerInstance();
-                if (gm == null) return;
+                if (gm == null)
+                {
+                    Plugin.Logger.LogWarning("[PartnerIndoorFollowPatch] GameManager instance unavailable — cannot relocate partners for this crossing.");
+                    return;
+                }
 
                 object targetEnvId = enteringInn ? _innEnvId : enteringAcademy ? _academyEnvId : _villageEnvId;
-                string label = enteringInn ? "the Inn" : enteringAcademy ? "the Academy" : "the village";
                 MoveFollowingPartners(gm, fromEnv, targetEnvId, label);
             }
             catch (Exception ex)
@@ -178,23 +188,44 @@ namespace CommunityModChest.Patcher
 
         private static void MoveFollowingPartners(object gm, string fromEnvUid, object targetEnvId, string label)
         {
-            if (Reflect.GetMember(gm, "AlliedNPCs") is not IEnumerable allied) return;
+            if (Reflect.GetMember(gm, "AlliedNPCs") is not IEnumerable allied)
+            {
+                Plugin.Logger.LogWarning("[PartnerIndoorFollowPatch] GameManager.AlliedNPCs unavailable — cannot relocate partners for this crossing.");
+                return;
+            }
 
+            int alliedCount = 0, movedCount = 0;
             foreach (var npc in allied)
             {
                 if (npc == null) continue;
-                if (!Is(EnvUidOf(npc), fromEnvUid)) continue;
+                alliedCount++;
+                string npcUid = CardUtil.GetCardUniqueId(Reflect.GetMember(npc, "NPCModel")) ?? "<partner>";
+                string npcEnv = EnvUidOf(npc);
+                if (!Is(npcEnv, fromEnvUid))
+                {
+                    Plugin.Logger.LogInfo($"[PartnerIndoorFollowPatch] {npcUid} not relocated: currently in '{npcEnv}', expected '{fromEnvUid}'.");
+                    continue;
+                }
 
                 try
                 {
                     _moveNpcMethod.Invoke(gm, new object[] { npc, targetEnvId });
-                    string npcUid = CardUtil.GetCardUniqueId(Reflect.GetMember(npc, "NPCModel")) ?? "<partner>";
-                    Plugin.Logger.LogDebug($"[PartnerIndoorFollowPatch] {npcUid} followed the player into {label}.");
+                    movedCount++;
+                    Plugin.Logger.LogInfo($"[PartnerIndoorFollowPatch] {npcUid} followed the player into {label}.");
                 }
                 catch (Exception ex)
                 {
-                    Plugin.Logger.LogWarning($"[PartnerIndoorFollowPatch] MoveNPC failed for a partner: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                    Plugin.Logger.LogWarning($"[PartnerIndoorFollowPatch] MoveNPC failed for {npcUid}: {ex.InnerException?.ToString() ?? ex.ToString()}");
                 }
+            }
+
+            if (alliedCount == 0)
+            {
+                Plugin.Logger.LogInfo("[PartnerIndoorFollowPatch] no allied NPCs exist right now (nothing to relocate).");
+            }
+            else if (movedCount == 0)
+            {
+                Plugin.Logger.LogInfo($"[PartnerIndoorFollowPatch] {alliedCount} allied NPC(s) checked, none were co-located with the player.");
             }
         }
 

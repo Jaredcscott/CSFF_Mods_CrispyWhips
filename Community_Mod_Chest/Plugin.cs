@@ -8,7 +8,17 @@ using HarmonyLib;
 namespace CommunityModChest;
 
 [BepInDependency("crispywhips.CSFFModFramework", BepInDependency.DependencyFlags.SoftDependency)]
-[BepInDependency("crispywhips.advanced_copper_tools", BepInDependency.DependencyFlags.SoftDependency)]
+// HARD dependency (2026-08-15, explicit project-owner decision — deliberate exception to the
+// repo's "no content mod hard-depends on another content mod" doctrine, Documentation/Ideas/
+// IDEAS_OVERVIEW.md §3.3 rule 2): River Bridge (Imp_RiverBridge.json), Copper Bed Frame
+// (Bp_CopperBedFrame.json), and the Market Stall's Copper Pantry all reference
+// advanced_copper_tools_* UIDs directly in BlueprintStages.RequiredElements with no fallback —
+// without ACT installed those RequiredCardWarpData refs never resolve (silent WarpResolver
+// failure), which was reported as the River Bridge CT10 no longer appearing at all. Rather than
+// building CMC-native fallback items + Api.BlueprintAlternates wiring for every ACT-flavored
+// feature, ACT is now mandatory for CMC — BepInEx will refuse to load this plugin at all without
+// it. Do not soften this back to SoftDependency without re-adding fallback content first.
+[BepInDependency("crispywhips.advanced_copper_tools", BepInDependency.DependencyFlags.HardDependency)]
 [BepInDependency("crispywhips.Herbs_And_Fungi", BepInDependency.DependencyFlags.SoftDependency)]
 [BepInDependency("crispywhips.waterdriveninfrastructure", BepInDependency.DependencyFlags.SoftDependency)]
 [BepInDependency("crispywhips.Sirus23ModCollection", BepInDependency.DependencyFlags.SoftDependency)]
@@ -17,7 +27,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.CommunityModChest";
     public const string PluginName = "Community Mod Chest";
-    public const string PluginVersion = "1.48.3";
+    public const string PluginVersion = "1.67.7";
 
     internal new static ManualLogSource Logger { get; private set; }
     internal static ConfigEntry<bool> EnableAshPartnerSpike { get; private set; }
@@ -91,9 +101,20 @@ internal class Plugin : ContentModPlugin
         // it relied on GameQuery.CurrentSeason, which returned null until the framework fix.
         TryApply("MarketStallPatch", () => MarketStallPatch.Initialize());
         TryApply("VillageReputationPatch", () => VillageReputationPatch.Initialize());
+        // Puts Village Reputation on the vanilla "Mental" stats tab at game boot — replaces
+        // GameSourceModify/Mental.json, which could never resolve its target at load time
+        // (StatListTab assets aren't loaded until a run boots).
+        TryApply("StatTabInjectionPatch", () => StatTabInjectionPatch.Initialize(harmony));
+        // Strips 8 stray vanilla road/fence improvements (Imp_Path*, Imp_HuntingFences*) inherited
+        // from clone-node CT8 templates across all 12 WorldMap/MapNodes.json locations (generalized
+        // 2026-08-21 from a Village-only fix — the same stray-improvement inheritance also caused a
+        // Pine Trail travel softlock) — see class doc comment for the reported bug this caused.
+        TryApply("StrayImprovementsPatch", () => StrayImprovementsPatch.Initialize(harmony));
         TryApply("VillageCrimePatch", () => VillageCrimePatch.Initialize());
         TryApply("InnPatch", () => InnPatch.Initialize(harmony));
-        TryApply("InnFireplacePatch", () => InnFireplacePatch.Initialize());
+        // Keeps the Inn/Academy/Village Hall's own built-in fireplace fueled and lit — warmth
+        // itself now comes from vanilla's own Fireplace PassiveEffects, not a forced stat patch.
+        TryApply("VillageFireplacePatch", () => VillageFireplacePatch.Initialize());
         TryApply("InnKeeperSpawnPatch", () => InnKeeperSpawnPatch.Initialize(harmony));
         TryApply("InnKeeperDialogSchedulePatch", () => InnKeeperDialogSchedulePatch.Initialize());
         TryApply("LostCatPatch", () => LostCatPatch.Initialize());
@@ -136,14 +157,25 @@ internal class Plugin : ContentModPlugin
         // Higher Education / Village Academy (perk-gated course system)
         TryApply("AcademyCourseService", AcademyCourseService.Initialize);
         TryApply("AcademyPatch", () => AcademyPatch.Initialize(harmony));
+        TryApply("OutfitWardrobeEquipService", () => OutfitWardrobeEquipService.Initialize(harmony));
+        // "Outfit 1/2/3" labels on the wardrobe's inventory grid — see file header for why
+        // this was needed (the 54-slot grid gave no visual cue where each outfit's slots were).
+        TryApply("OutfitWardrobeSectionsPatch", () => OutfitWardrobeSectionsPatch.ApplyPatch(harmony));
         // Graduate perk — grants all 6 Academy graduate perks + backfills Lecture Hall
         // course progress, independent of Village Founder (split 2026-07-23).
         TryApply("GraduatePerkPatch", () => GraduatePerkPatch.Initialize(harmony));
         TryApply("ProfessorSchedulePatch", () => ProfessorSchedulePatch.Initialize(harmony));
+        // Miller/Weaver workplace duty (engine NPCDuty chassis, owner request 2026-08-21) — MUST
+        // initialize before the spawn patch: CottageResidentSpawnPatch refuses to place Miller/
+        // Weaver until CottageResidentWorkDutyPatch.DutiesReady flips, because InGameNPC.Init
+        // snapshots AgentDuties once (same GuardDutyPatch/GuardSpawnPatch ordering below).
+        TryApply("CottageResidentWorkDutyPatch", () => CottageResidentWorkDutyPatch.Initialize());
         // Cottage residents (Miller/Weaver/Apothecary) — move in one week after their home is built.
         TryApply("CottageResidentSpawnPatch", () => CottageResidentSpawnPatch.Initialize(harmony));
-        // Miller/Weaver daily schedule — home at their cottage overnight, occasional wandering/
-        // Inn/Academy visits by day. Apothecary keeps her own separate commute scheduler.
+        // Miller/Weaver daily schedule — home at their cottage overnight, Inn/Academy visits by
+        // day, "at work" during remaining daytime hours (owned by CottageResidentWorkDutyPatch's
+        // engine duty, not this patch — see its own class doc). Apothecary keeps her own separate
+        // commute scheduler.
         TryApply("CottageResidentSchedulePatch", () => CottageResidentSchedulePatch.Initialize(harmony));
         // Miller's Copper Chest (Village_Master_Plan.md §10.8.3) — weekly accrual (retargeted from
         // his satchel restock, above), "Sell to the Miller" afford-gated CI, and the "Search for
@@ -158,6 +190,11 @@ internal class Plugin : ContentModPlugin
         // GuardDutyPatch.DutiesReady flips, because InGameNPC.Init snapshots AgentDuties once.
         TryApply("GuardDutyPatch", () => GuardDutyPatch.Initialize());
         TryApply("GuardSpawnPatch", () => GuardSpawnPatch.Initialize(harmony));
+        // Chase urgency (owner-directed, 2026-08-15) — gives an actively-chasing guard a genuine
+        // speed edge over the player, breaking the equal-speed cycle-evasion problem confirmed via
+        // a WorldMap graph analysis (three chordless 4-node cycles in cmcTagVillageTerritory).
+        // Registered after GuardDutyPatch: reads GuardDutyPatch.DutiesReady before it does anything.
+        TryApply("GuardChaseUrgencyPatch", () => GuardChaseUrgencyPatch.Initialize());
         // Attack action (§10.8.4) — the button and both crime penalties are declarative on the
         // guards' NPCAgent/Encounter JSON; this only publishes "who was standing there" so a
         // later chunk's pursuit duty can re-arm the instant a fight starts in front of a guard.
@@ -171,6 +208,10 @@ internal class Plugin : ContentModPlugin
         // Encounter assets; this owns only the season respawn timer, the all-four-down pardon,
         // and the arrest-pending extension point the Jail chunk (§10.8.7) consumes.
         TryApply("GuardOutcomePatch", () => GuardOutcomePatch.Initialize());
+        // TEMP diagnostic (2026-08-14) — player report: guard "hits" land no real damage. Logs
+        // the live Attack/Defense/WoundSeverity breakdown for every enemy attack round. Remove or
+        // demote to LogDebug once the root cause is confirmed and fixed.
+        TryApply("GuardCombatDiagnosticPatch", () => GuardCombatDiagnosticPatch.Initialize());
         // The Village Jail (§10.8.7) — sentencing, the daily sentence decrement (without which
         // the cell is a softlock) and the warden-absence window. MUST initialize after
         // GuardOutcomePatch: it subscribes to that class's ArrestPendingRaised event.
@@ -180,9 +221,6 @@ internal class Plugin : ContentModPlugin
         // strict init ordering, but registering right after keeps the two jail chunks together.
         TryApply("JailEscapePatch", () => JailEscapePatch.Initialize());
         TryApply("HerbalismForagePatch", () => HerbalismForagePatch.Apply(harmony));
-        // Village Academy / Inn interiors actively manage Body Temperature to 75% while
-        // the player is indoors — heats a cold player, cools an overheated one.
-        TryApply("IndoorHeatCapPatch", IndoorHeatCapPatch.Initialize);
         // Village Founder perk — instantly fast-forwards every shipped village beat.
         TryApply("VillageFounderPerkPatch", () => VillageFounderPerkPatch.Initialize(harmony));
         // Quest-chain chassis (PR-2, Village_Master_Plan.md §3.4) — arms each villager's next
@@ -193,5 +231,19 @@ internal class Plugin : ContentModPlugin
         // Board's gated DA entries.
         TryApply("VillageChroniclePatch", () => VillageChroniclePatch.Initialize());
         TryApply("VillageHallBoardsPatch", () => VillageHallBoardsPatch.Initialize(harmony));
+        // Town Achievement Board — BENCHED 1.67.3 (2026-08-22). A fresh-save playtest found the
+        // board's in-game presentation broken (missing progress lines / achievement entries), so
+        // the whole subsystem is parked pending further work rather than shipped half-working.
+        // cmcBoardAchievements is no longer in CMC_InnInterior.json's DefaultEnvCardDrops, so
+        // re-enabling the seed patch alone will NOT bring the board back — restore that drop
+        // entry too. All three patches, the board CardData, and every cmcStatAch* GameStat stay
+        // in the repo untouched; only the wiring below is disabled. See CHANGELOG.md [1.67.3].
+        // TryApply("AchievementBoardSeedPatch", () => AchievementBoardSeedPatch.Initialize());
+        // TryApply("AchievementTrackerPatch", () => AchievementTrackerPatch.Initialize());
+        // TryApply("AchievementKillEffectsPatch", () => AchievementKillEffectsPatch.Initialize());
+        // Founders Kit trait (formerly "Homestead") — the kit unpacks into a cabin kit, two
+        // cistern kits, and the full material stockpile on Place, instead of carrying it all
+        // from character creation.
+        TryApply("HomesteadKitPatch", () => HomesteadKitPatch.Initialize());
     }
 }

@@ -9,13 +9,14 @@
     "CardDescription": {
         "ParentObjectID": "apparelfootwraps",
         "LocalizationKey": "apparel_foot_wraps_CardDescription",
-        "DefaultText": "Strips of cloth wound around the feet and ankles. Crude but better than bare feet.\n\n<b>MUST BE EQUIPPED TO WORK</b>"
+        "DefaultText": "Strips of woven reed and plant fiber, bound with twine, wound around the feet and ankles. Crude but better than bare feet.\n\n<b>MUST BE EQUIPPED TO WORK</b>"
     },
     "CardType": 0,
     "CardImageWarpData": "FootWraps",
     "CardImageWarpType": 3,
     "CardTagsWarpData": [
-        "tag_Clothing"
+        "tag_Clothing",
+        "tag_ReedClothing"
     ],
     "CardTagsWarpType": 3,
     "ObjectWeight": 50.0,
@@ -192,7 +193,7 @@
                                 "m_FileID": 0,
                                 "m_PathID": 0
                             },
-                            "DroppedCardWarpData": "aa73d89b9f0f04145adce258403d61d0",
+                            "DroppedCardWarpData": "102ec269a8072ca4da7eb7e8218628c0",
                             "DroppedCardWarpType": 3,
                             "Quantity": {
                                 "x": 1,

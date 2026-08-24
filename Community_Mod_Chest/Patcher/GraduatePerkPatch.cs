@@ -10,7 +10,7 @@ using HarmonyLib;
 namespace CommunityModChest.Patcher
 {
     /// <summary>
-    /// "Graduate" perk (cmcperkgraduate) — grants all 6 Academy graduate perks directly at
+    /// "Graduate" perk (cmcperkgraduate) — grants all 7 Academy graduate perks directly at
     /// run start and backfills the Lecture Hall's course-progress stats to match, so the
     /// player carries a full Academy education without ever visiting the Academy.
     /// Split out of VillageFounderPerkPatch (2026-07-23) — Village Founder previously bundled
@@ -30,6 +30,7 @@ namespace CommunityModChest.Patcher
         private const string PlacedStatUid = "cmcStatGraduatePlaced";
         private const string AcademyInteriorEnvUid = "cmcAcademyInterior";
         private const string AcademyLecternUid = "cmcAcademyLectern";
+        private const string CarpentryBenchUid = "cmcCarpentryBench";
 
         private static readonly string[] GradPerkUids =
         {
@@ -39,22 +40,26 @@ namespace CommunityModChest.Patcher
             "cmcperkgradfishing",
             "cmcperkgradarchitecture",
             "cmcperkgradarmorer",
+            "cmcperkgradcarpentry",
         };
 
-        // Mirrors AcademyPatch.Courses — the lectern's course-progress stat + max hours for
-        // each of the 6 graduate perks granted above. Without this the lectern's progress
-        // stays at its JSON default of 0 while AcademyCourseService.HasCourse already
-        // reports the course as done — every "Study ..." button then permanently shows
-        // "You have already completed this course" at 0% progress (the same desync
-        // originally found in Village Founder, confirmed in-game 2026-07-23).
-        private static readonly (string StatName, float TotalHours)[] CourseStats =
+        // Mirrors AcademyPatch.Courses — each graduate perk's host card + course-progress
+        // stat + max hours. Without this the host card's progress stays at its JSON default
+        // of 0 while AcademyCourseService.HasCourse already reports the course as done —
+        // every "Study ..." button then permanently shows "You have already completed this
+        // course" at 0% progress (the same desync originally found in Village Founder,
+        // confirmed in-game 2026-07-23). Carpentry lives on its own Carpentry Bench card, not
+        // the Lectern — its SpecialDurability1 means something different on each card, so the
+        // backfill loop below MUST match a course's stat write to its own host card only.
+        private static readonly (string HostCardUid, string StatName, float TotalHours)[] CourseStats =
         {
-            ("SpecialDurability1", 72f), // Architecture
-            ("SpecialDurability2", 60f), // Metallurgy
-            ("SpecialDurability3", 30f), // Herbalism
-            ("SpoilageTime",       24f), // Fishing
-            ("UsageDurability",    24f), // Armorer
-            ("FuelCapacity",       24f), // Medicine
+            (AcademyLecternUid, "SpecialDurability1", 72f), // Architecture
+            (AcademyLecternUid, "SpecialDurability2", 60f), // Metallurgy
+            (AcademyLecternUid, "SpecialDurability3", 30f), // Herbalism
+            (AcademyLecternUid, "SpoilageTime",       24f), // Fishing
+            (AcademyLecternUid, "UsageDurability",    24f), // Armorer
+            (AcademyLecternUid, "FuelCapacity",       24f), // Medicine
+            (CarpentryBenchUid, "SpecialDurability1", 24f), // Carpentry
         };
 
         private static bool _initialized;
@@ -87,7 +92,7 @@ namespace CommunityModChest.Patcher
                     GrantInRunPerk(gm, perkUid);
 
                 WriteStat(gm, AppliedStatUid, 1f);
-                Plugin.Logger.LogInfo("[GraduatePerkPatch] Graduate perk applied — all 6 Academy graduate perks granted.");
+                Plugin.Logger.LogInfo("[GraduatePerkPatch] Graduate perk applied — all 7 Academy graduate perks granted.");
             }
             catch (Exception ex)
             {
@@ -120,26 +125,31 @@ namespace CommunityModChest.Patcher
                 // player actually sees stays at 0% forever, since PlacedStatUid latches
                 // permanently below. Reconcile every matching instance found, not just the first.
                 var lecterns = FindAllLiveCards(gm, AcademyLecternUid);
-                if (lecterns.Count == 0) return; // board not seeded yet — retry next tick
+                var carpentryBenches = FindAllLiveCards(gm, CarpentryBenchUid);
+                if (lecterns.Count == 0 && carpentryBenches.Count == 0) return; // board not seeded yet — retry next tick
 
                 bool wroteAny = false;
-                foreach (var lectern in lecterns)
+                int reconciled = 0;
+                foreach (var hostCard in lecterns.Concat(carpentryBenches))
                 {
-                    foreach (var (statName, totalHours) in CourseStats)
+                    string hostUid = CardUtil.GetCardUniqueId(hostCard);
+                    foreach (var (courseHostUid, statName, totalHours) in CourseStats)
                     {
-                        if (CardUtil.SetDurability(lectern, statName, totalHours))
+                        if (courseHostUid != hostUid) continue; // stat name only means this on its OWN host card
+                        if (CardUtil.SetDurability(hostCard, statName, totalHours))
                             wroteAny = true;
                         else
-                            Plugin.Logger.LogWarning($"[GraduatePerkPatch] Could not backfill Academy stat '{statName}' on a lectern instance.");
+                            Plugin.Logger.LogWarning($"[GraduatePerkPatch] Could not backfill Academy stat '{statName}' on a '{hostUid}' instance.");
                     }
-                    CardVisualsRefresh.RefreshDurabilityVisuals(lectern);
+                    CardVisualsRefresh.RefreshDurabilityVisuals(hostCard);
+                    reconciled++;
                 }
                 CardVisualsRefresh.RefreshOpenInventoryPopup();
 
                 // Only latch "backfilled" once at least one instance was actually written —
                 // an all-failure pass (e.g. every SetDurability call failed) should retry next tick.
                 if (wroteAny && WriteStat(gm, PlacedStatUid, 1f))
-                    Plugin.Logger.LogInfo($"[GraduatePerkPatch] Academy course progress backfilled to match the granted graduate perks ({lecterns.Count} lectern instance(s) reconciled).");
+                    Plugin.Logger.LogInfo($"[GraduatePerkPatch] Academy course progress backfilled to match the granted graduate perks ({reconciled} host card instance(s) reconciled).");
             }
             catch (Exception ex)
             {

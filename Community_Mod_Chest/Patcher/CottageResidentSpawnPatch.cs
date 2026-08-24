@@ -59,6 +59,14 @@ namespace CommunityModChest.Patcher
             public string MoveInStatUid;
             public string EnvUid;       // env this resident moves into (Village cottages vs. the forest cabin)
 
+            // True for Miller/Weaver only (CottageResidentWorkDutyPatch's engine "at work" duty).
+            // InGameNPC snapshots AgentDuties once at Init — a resident spawned/restored before
+            // that duty set is built would silently never work again for the session, so every
+            // spawn/restore call site below must gate on DutiesReady before proceeding for a
+            // resident with this flag set. False (default) for the Apothecary, who has no engine
+            // duty to wait for.
+            public bool NeedsWorkDuty;
+
             // Copper Chest accrual (Village_Master_Plan.md §10.8.3.3). Set to the resident's own
             // AgentUid when THIS file drives their chest accrual; null when it does not — either
             // because they have no chest, or because another patcher owns their poll (the
@@ -85,9 +93,9 @@ namespace CommunityModChest.Patcher
             // still shipped in Agent_Weaver.json but is now unfired, the same state the Miller's
             // retired action has been in since 1.38.0.
             new Resident { Name = "Miller", AgentUid = "cmcMillerAgent", CottageUid = "cmcCottageMiller", MoveInStatUid = "cmcStatMillerMoveIn", EnvUid = VillageEnvUid,
-                           ChestAccrualAgentUid = "cmcMillerAgent" },
+                           ChestAccrualAgentUid = "cmcMillerAgent", NeedsWorkDuty = true },
             new Resident { Name = "Weaver", AgentUid = "cmcWeaverAgent", CottageUid = "cmcCottageWeaver", MoveInStatUid = "cmcStatWeaverMoveIn", EnvUid = VillageEnvUid,
-                           ChestAccrualAgentUid = "cmcWeaverAgent" },
+                           ChestAccrualAgentUid = "cmcWeaverAgent", NeedsWorkDuty = true },
             // Apothecary: she HAS a Copper Chest, but ApothecarySchedulePatch owns her poll and
             // therefore her chest accrual (§10.8.3.3). ChestAccrualAgentUid stays null here so this
             // file never fires a second, competing drop — that would be the R6 double-drop across
@@ -286,6 +294,20 @@ namespace CommunityModChest.Patcher
                 foreach (var resident in Residents)
                 {
                     if (!ResolveAgent(resident)) continue;
+
+                    // InGameNPC.Init snapshots AgentDuties once — a Miller/Weaver restored before
+                    // their work duty is built would never work again for the session, silently.
+                    // Same gate GuardSpawnPatch uses against GuardDutyPatch.DutiesReady.
+                    if (resident.NeedsWorkDuty)
+                    {
+                        CottageResidentWorkDutyPatch.EnsureBuiltNow();
+                        if (!CottageResidentWorkDutyPatch.DutiesReady)
+                        {
+                            Plugin.Logger.LogWarning($"[CottageResidentSpawnPatch] {resident.Name}'s work duty not built at load time — deferring restore to the arrival poll.");
+                            continue;
+                        }
+                    }
+
                     if (FindLiveNpc(__instance, resident) != null) continue;
 
                     var npcSaveData = _getNpcDataMethod.Invoke(saveData, new object[] { resident.Agent });
@@ -354,6 +376,15 @@ namespace CommunityModChest.Patcher
                     // only check this replaced: AllCards/board seeding is current-env scoped).
                     if (currentEnvUid != resident.EnvUid) continue;
                     if (!ResolveAgent(resident)) continue;
+
+                    // Same DutiesReady gate as the restore path above — a Miller/Weaver spawned
+                    // one tick before their work duty is attached would never work again.
+                    if (resident.NeedsWorkDuty)
+                    {
+                        CottageResidentWorkDutyPatch.EnsureBuiltNow();
+                        if (!CottageResidentWorkDutyPatch.DutiesReady) continue; // retry next poll
+                    }
+
                     // Cheapest guard first: AllNPCs holds a handful of entries, so once the
                     // resident has moved in this short-circuits the per-second card scan below
                     // for the rest of the run.

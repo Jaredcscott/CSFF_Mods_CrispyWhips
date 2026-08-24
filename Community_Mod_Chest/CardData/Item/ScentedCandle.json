@@ -1,0 +1,164 @@
+{
+    "UniqueID": "comfortscentedcandle",
+    "CardName": {
+        "ParentObjectID": "comfortscentedcandle",
+        "LocalizationKey": "ScentedCandle_CardName",
+        "DefaultText": "Scented Candle"
+    },
+    "CardDescription": {
+        "ParentObjectID": "comfortscentedcandle",
+        "LocalizationKey": "ScentedCandle_CardDescription",
+        "DefaultText": "A hand-dipped beeswax candle wound around a rope wick. Coat with more beeswax to extend its burn, and light from a fire source."
+    },
+    "CardType": 0,
+    "ObjectWeight": 60.0,
+    "TradingValue": 8.0,
+    "DoesNotPile": true,
+    "CardImageWarpData": "Candle_Off",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "Stone"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "comfortscentedcandle",
+            "LocalizationKey": "ScentedCandle_FuelCapacity_CardStatName",
+            "DefaultText": "Wax"
+        },
+        "MaxValue": 48.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "HasActionOnZero": false,
+        "HasActionOnFull": false,
+        "CountsForTradingValue": false,
+        "OverrideIconWarpData": "Flame",
+        "OverrideIconWarpType": 3
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "comfortscentedcandle",
+                "LocalizationKey": "ScentedCandle_Refuel_ActionName",
+                "DefaultText": "Coat with Beeswax"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "comfortscentedcandle",
+                "LocalizationKey": "ScentedCandle_Refuel_ActionDescription",
+                "DefaultText": "Press soft beeswax onto the candle to extend its burn."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [
+                "Drink"
+            ],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "a4a6ae891a9665a479350796d1e6cfcf"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "StackCompatible": true,
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "FuelChange": {
+                    "x": 24.0,
+                    "y": 24.0
+                }
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "comfortscentedcandle",
+                "LocalizationKey": "ScentedCandle_Light_ActionName",
+                "DefaultText": "Light Candle"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "comfortscentedcandle",
+                "LocalizationKey": "ScentedCandle_Light_ActionDescription",
+                "DefaultText": "Touch a flame to the wick."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [
+                "FireIgnite"
+            ],
+            "ActionSoundsWarpType": 3,
+            "RequiredReceivingDurabilities": {
+                "RequiredFuelPercent": {
+                    "Active": true,
+                    "FloatValue": 0.1,
+                    "MaxValue": 100.0
+                },
+                "HideActionIfNotMet": true,
+                "FailMessage": {
+                    "ParentObjectID": "comfortscentedcandle",
+                    "LocalizationKey": "ScentedCandle_NeedsFuel",
+                    "DefaultText": "The candle needs beeswax first."
+                }
+            },
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [
+                    "tag_Fire",
+                    "tag_FireSource"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "StackCompatible": false,
+            "GivenCardChanges": {
+                "ModType": 0
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "comfortscentedcandlelit",
+                "TransformIntoWarpType": 3,
+                "TransferFuel": true,
+                "SpawnTransformAtSource": true
+            }
+        }
+    ],
+    "DismantleActions": []
+}

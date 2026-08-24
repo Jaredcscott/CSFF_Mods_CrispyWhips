@@ -122,6 +122,47 @@
             ]
         }
     ],
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "apparelclothscarf",
+                "LocalizationKey": "apparel_cloth_scarf_CI_Dye_ActionName",
+                "DefaultText": "Dye with Pigment"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "apparelclothscarf",
+                "LocalizationKey": "apparel_cloth_scarf_CI_Dye_ActionDescription",
+                "DefaultText": "Work the charcoal pigment into the cloth, settling it to a soft ash-grey."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "potterysculpturepigment"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "StackCompatible": true,
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "apparelclothscarfdyed",
+                "TransformIntoWarpType": 3,
+                "TransferUsage": true,
+                "SpawnTransformAtSource": true
+            }
+        }
+    ],
     "DismantleActions": [
         {
             "ActionName": {

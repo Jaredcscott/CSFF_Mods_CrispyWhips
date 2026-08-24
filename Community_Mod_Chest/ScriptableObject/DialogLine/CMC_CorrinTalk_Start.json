@@ -1,0 +1,27 @@
+{
+    "StartingPoint": true,
+    "Line": {
+        "LocalizationKey": "CMC_CorrinTalk_Start_Line",
+        "DefaultText": "Corrin. Been walking this square longer than most of the market stalls have stood here. Thorne likes to jump at things -- I'd rather watch a while first. Works out fine, between the two of us."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_CorrinTalk_Start_Answer_Steady",
+                "DefaultText": "Good to know someone's steady out here."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_CorrinTalk_Start_Answer_Bye",
+                "DefaultText": "Keep well, Corrin."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

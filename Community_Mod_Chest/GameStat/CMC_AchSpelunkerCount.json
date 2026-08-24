@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatAchSpelunkerCount",
+    "GameName": {
+        "LocalizationKey": "CMC_AchSpelunkerCount_StatName",
+        "DefaultText": "Achievement Progress: Spelunker"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_AchSpelunkerCount_StatDescription",
+        "DefaultText": "Derived counter: how many of the 8 Spelunker member latches (cmcStatAchCave*) are currently set. Recomputed every AchievementTrackerPatch poll from the member latches -- never written directly. Read by the board's prose progress line ('N of 8')."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 8.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

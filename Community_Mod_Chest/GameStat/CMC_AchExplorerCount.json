@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatAchExplorerCount",
+    "GameName": {
+        "LocalizationKey": "CMC_AchExplorerCount_StatName",
+        "DefaultText": "Achievement Progress: Forest Explorer"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_AchExplorerCount_StatDescription",
+        "DefaultText": "Derived counter: how many of the 10 Forest Explorer member latches (cmcStatAchEnv*) are currently set. Recomputed every AchievementTrackerPatch poll from the member latches -- never written directly. Read by the board's prose progress line ('N of 10')."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 10.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

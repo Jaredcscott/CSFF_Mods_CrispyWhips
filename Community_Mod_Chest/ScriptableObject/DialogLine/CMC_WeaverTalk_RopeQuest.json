@@ -1,0 +1,46 @@
+{
+    "StartingPoint": true,
+    "StartingConditions": {
+        "RequiredStatValues": [
+            {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 6.5, "y": 20.0}},
+            {"StatWarpData": "cmcStatWeaverRopeEpilogueDone", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
+        ]
+    },
+    "Line": {
+        "LocalizationKey": "CMC_WeaverTalk_RopeQuest_Line",
+        "DefaultText": "There's one more thing, and it isn't an errand. You've seen the cliff north past the meadow -- too sheer to climb, drops straight down on the far side to a place they call Greenfalls. I've been knotting a rope for it in my spare hours, the kind that holds a person's weight and not just a bucket. Let me show you how it's tied, so you can make your own and fix it to the rock. Once it's anchored, that path opens both ways -- village to falls, and back again."
+    },
+    "PossibleAnswers": [
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_RopeQuest_Answer_Accept",
+                "DefaultText": "Show me."
+            },
+            "ActionToPerform": {
+                "StatModifications": [
+                    {
+                        "StatWarpData": "cmcStatWeaverRopeEpilogueDone",
+                        "StatWarpType": 3,
+                        "ValueModifier": { "x": 1.0, "y": 1.0 },
+                        "InstantModifier": true,
+                        "ApplyEachTick": false
+                    }
+                ],
+                "BlueprintsFullUnlockWarpData": ["cmcbpclimbingrope"],
+                "BlueprintsFullUnlockWarpType": 3
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        },
+        {
+            "Answer": {
+                "LocalizationKey": "CMC_WeaverTalk_RopeQuest_Answer_Decline",
+                "DefaultText": "Not right now."
+            },
+            "NewNextLine": {
+                "NextStep": 2
+            }
+        }
+    ]
+}

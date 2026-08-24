@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatAchBoardPlaced",
+    "GameName": {
+        "LocalizationKey": "CMC_AchBoardPlaced_StatName",
+        "DefaultText": "Achievement Board Placed"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_AchBoardPlaced_StatDescription",
+        "DefaultText": "Hidden flag: 1 once the Town Achievement Board (cmcBoardAchievements) has been confirmed present on the board -- either from CMC_InnInterior.json's own DefaultEnvCardDrops (fresh saves) or from AchievementBoardSeedPatch's deferred backfill spawn (old saves that had already visited the Inn). Prevents the backfill check from ever spawning a second board. Clamped 0-1."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

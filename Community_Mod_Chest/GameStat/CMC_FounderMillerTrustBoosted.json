@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatFounderMillerTrustBoosted",
+    "GameName": {
+        "LocalizationKey": "CMC_FounderMillerTrustBoosted_StatName",
+        "DefaultText": "Founder Miller Trust Boosted"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_FounderMillerTrustBoosted_StatDescription",
+        "DefaultText": "Hidden latch: 0 = the Village Founder perk's trust head start has not yet been applied to the Miller (waiting for her to move in), 1 = applied (prevents re-boosting her trust on every later load)."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 1.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

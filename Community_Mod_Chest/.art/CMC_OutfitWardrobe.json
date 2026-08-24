@@ -1,0 +1,18 @@
+{
+  "target": "CMC_OutfitWardrobe.png",
+  "sourceCard": "CardData/Blueprint/Bp_OutfitWardrobe.json",
+  "subject": "a tall closed wooden wardrobe cabinet, upright plank construction with three hinged front doors side by side each fronting its own hanging section, bound with rope-wrapped wooden pegs at the hinges, simple wood-peg door latches, one door slightly ajar showing pegs and hooks inside, sturdy boxy silhouette wider than a single-door wardrobe",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a tall closed wooden wardrobe cabinet, upright plank construction with three hinged front doors side by side each fronting its own hanging section, bound with rope-wrapped wooden pegs at the hinges, simple wood-peg door latches, one door slightly ajar showing pegs and hooks inside, sturdy boxy silhouette wider than a single-door wardrobe, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame. Avoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame.",
+  "historyId": "UQBYB6UIPwQEQk52V8vT",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-08/create-image/XbhdRvvhTk0K7JCPQP3H/image_1787385225772_3a4c6a5a_1787385226340_c19c8cb9.png",
+  "credits": 27,
+  "generated": "2026-08-22"
+}

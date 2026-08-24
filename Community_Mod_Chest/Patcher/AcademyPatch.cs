@@ -47,6 +47,8 @@ namespace CommunityModChest.Patcher
     internal static class AcademyPatch
     {
         private const string LecternUid = "cmcAcademyLectern";
+        private const string CarpentryBenchUid = "cmcCarpentryBench";
+        private static readonly string[] HostCardUids = { LecternUid, CarpentryBenchUid };
         private const string AcademyInteriorEnvUid = "cmcAcademyInterior";
         private const string BalanceStat = "SpecialDurability4";
         private const float TuitionPrice = 100f;
@@ -62,10 +64,11 @@ namespace CommunityModChest.Patcher
 
         private sealed class CourseInfo
         {
-            public string NameFragment;   // matched against the action name
-            public string GradPerk;       // hidden Graduate perk UID
-            public string StatName;       // JSON stat name for course progress (SpecialDurability1, SpoilageTime, etc.)
-            public float  TotalHours;     // course length in hours (SpecialDurability max)
+            public string NameFragment;            // matched against the action name
+            public string GradPerk;                // hidden Graduate perk UID
+            public string StatName;                // JSON stat name for course progress (SpecialDurability1, SpoilageTime, etc.)
+            public float  TotalHours;               // course length in hours (SpecialDurability max)
+            public string HostCardUid = LecternUid; // which physical card carries this course's DAs/progress stat
         }
 
         private static readonly CourseInfo[] Courses =
@@ -75,7 +78,8 @@ namespace CommunityModChest.Patcher
             new CourseInfo { NameFragment = "Herbalism",    GradPerk = AcademyCourseService.GradHerbalism,    StatName = "SpecialDurability3", TotalHours = 30f },
             new CourseInfo { NameFragment = "Fishing",      GradPerk = AcademyCourseService.GradFishing,      StatName = "SpoilageTime",       TotalHours = 24f },
             new CourseInfo { NameFragment = "Armorer",      GradPerk = AcademyCourseService.GradArmorer,      StatName = "UsageDurability",    TotalHours = 24f },
-            new CourseInfo { NameFragment = "Medicine",     GradPerk = AcademyCourseService.GradMedicine,     StatName = "FuelCapacity",       TotalHours = 24f }
+            new CourseInfo { NameFragment = "Medicine",     GradPerk = AcademyCourseService.GradMedicine,     StatName = "FuelCapacity",       TotalHours = 24f },
+            new CourseInfo { NameFragment = "Carpentry",    GradPerk = AcademyCourseService.GradCarpentry,    StatName = "SpecialDurability1", TotalHours = 24f, HostCardUid = CarpentryBenchUid }
         };
 
         // Armorer's reward (ACT copper armor) only makes sense if ACT is installed —
@@ -108,7 +112,7 @@ namespace CommunityModChest.Patcher
             ActionRouter.Register(new ActionHandler
             {
                 Name          = "AcademyStudyGate",
-                CardPredicate = ctx => ctx.CardUid == LecternUid && IsStudyAction(ctx.ActionName),
+                CardPredicate = ctx => IsHostCard(ctx.CardUid) && IsStudyAction(ctx.ActionName),
                 Timing        = ActionTiming.Cancel,
                 Before        = StudyGate,
             });
@@ -118,7 +122,7 @@ namespace CommunityModChest.Patcher
             ActionRouter.Register(new ActionHandler
             {
                 Name          = "AcademyStudyComplete",
-                CardPredicate = ctx => ctx.CardUid == LecternUid && IsStudyAction(ctx.ActionName),
+                CardPredicate = ctx => IsHostCard(ctx.CardUid) && IsStudyAction(ctx.ActionName),
                 Timing        = ActionTiming.AfterWrapped,
                 After         = StudyCompleted,
             });
@@ -129,7 +133,7 @@ namespace CommunityModChest.Patcher
             ActionRouter.Register(new ActionHandler
             {
                 Name          = "AcademyDepositGate",
-                CardPredicate = ctx => ctx.CardUid == LecternUid && IsDepositAction(ctx.ActionName),
+                CardPredicate = ctx => IsHostCard(ctx.CardUid) && IsDepositAction(ctx.ActionName),
                 Timing        = ActionTiming.Cancel,
                 Before        = DepositGate,
             });
@@ -142,7 +146,7 @@ namespace CommunityModChest.Patcher
             ActionRouter.Register(new ActionHandler
             {
                 Name          = "AcademyDepositApply",
-                CardPredicate = ctx => ctx.CardUid == LecternUid && IsDepositAction(ctx.ActionName),
+                CardPredicate = ctx => IsHostCard(ctx.CardUid) && IsDepositAction(ctx.ActionName),
                 Timing        = ActionTiming.Before,
                 Before        = DepositApply,
             });
@@ -208,8 +212,15 @@ namespace CommunityModChest.Patcher
 
                 foreach (var lectern in lecterns)
                 {
+                    string hostUid = CardUtil.GetCardUniqueId(lectern);
                     foreach (var course in Courses)
                     {
+                        // A course's progress stat only means what it means on its OWN host
+                        // card — e.g. SpecialDurability1 is "Architecture" on the Lectern but
+                        // "Carpentry" on the Carpentry Bench. Applying every course to every
+                        // host card would cross-contaminate same-named stat fields.
+                        if (course.HostCardUid != hostUid) continue;
+
                         bool hasCourse = AcademyCourseService.HasCourse(course.GradPerk);
                         float hours = HoursStudied(lectern, course);
                         Plugin.Logger.LogDebug($"[AcademyPatch] ReconcileCourseProgress: course={course.NameFragment} hasCourse={hasCourse} hours={hours}/{course.TotalHours}");
@@ -247,7 +258,7 @@ namespace CommunityModChest.Patcher
             foreach (var card in allCards)
             {
                 if (card == null) continue;
-                if (CardUtil.GetCardUniqueId(card) == LecternUid) found.Add(card);
+                if (IsHostCard(CardUtil.GetCardUniqueId(card))) found.Add(card);
             }
             return found;
         }
@@ -273,7 +284,7 @@ namespace CommunityModChest.Patcher
                     foreach (var card in allCards)
                     {
                         if (card == null) continue;
-                        if (CardUtil.GetCardUniqueId(card) != LecternUid) continue;
+                        if (!IsHostCard(CardUtil.GetCardUniqueId(card))) continue;
                         matchCount++;
                         int iid = (card as UnityEngine.Object)?.GetInstanceID() ?? 0;
                         Plugin.Logger.LogDebug($"[AcademyPatch] DumpLecternInstanceIdentity: AllCards match #{matchCount} instanceID={iid} "
@@ -357,6 +368,9 @@ namespace CommunityModChest.Patcher
 
         // ── Action name predicates ────────────────────────────────────────────
 
+        private static bool IsHostCard(string uid) =>
+            uid != null && Array.IndexOf(HostCardUids, uid) >= 0;
+
         private static bool IsStudyAction(string name) =>
             name != null && (name.Contains("Study") || name.Contains("Final Exam"));
 
@@ -428,7 +442,7 @@ namespace CommunityModChest.Patcher
             try
             {
                 if (__instance == null || __0 == null) return;
-                if (CardUtil.GetCardUniqueId(__0) != LecternUid) return;
+                if (!IsHostCard(CardUtil.GetCardUniqueId(__0))) return;
 
                 string actionName = CardUtil.GetActionName(__instance);
                 if (!IsStudyAction(actionName)) return;

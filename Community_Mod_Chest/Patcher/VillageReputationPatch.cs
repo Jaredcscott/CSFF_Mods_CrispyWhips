@@ -86,14 +86,25 @@ namespace CommunityModChest.Patcher
         private const string QuestFlagProfFieldSamplesUid = "cmcStatQuestRenownProfFieldSamples";
         private const string QuestFlagProfAppliedHerbalismUid = "cmcStatQuestRenownProfAppliedHerbalism";
 
-        private const float MillerContribution = 25f;
-        private const float WeaverContribution = 25f;
-        private const float WellContribution = 15f;
-        private const float BridgeContribution = 15f;
-        private const float MarketStallContribution = 20f;
+        // Two buckets, each worth half of CivicTotalMax, so reaching the 100 civic ceiling
+        // requires BOTH every construction milestone AND every quest flag complete — owner
+        // decision 2026-08-15: reputation must start at a true neutral 0 and only reach its
+        // positive ceiling once the village is fully built AND every errand is finished, not
+        // either alone. Under the old flat weighting, Miller+Weaver+Well+Bridge+MarketStall
+        // summed to 100 on their own — a fresh save with the Village Founder perk equipped
+        // (which instantly completes 4 of 6 quest flags and, on first visit, spawns Miller's and
+        // Weaver's cottages) read as "full reputation" almost immediately. See VillageFounderPerkPatch.
+        private const float ConstructionBucketMax = 50f;
+        private const float QuestBucketMax = 50f;
+
+        private const float MillerContribution = 12.5f;
+        private const float WeaverContribution = 12.5f;
+        private const float WellContribution = 7.5f;
+        private const float BridgeContribution = 7.5f;
+        private const float MarketStallContribution = 10f; // construction bucket total: 50
         private const float MarketStallRevenueThreshold = 240f; // half of Market Stall's 480 SD1 max
 
-        private const float QuestFlagContribution = 10f; // each completed errand/commission adds this
+        private const int QuestFlagCount = 6; // quest bucket: QuestBucketMax * (done / QuestFlagCount)
 
         private const float CivicTotalMax = 100f;
         private const float ReputationMin = -100f;
@@ -201,28 +212,36 @@ namespace CommunityModChest.Patcher
             return statsDict[_reputationStat];
         }
 
-        /// <summary>The civic half of Reputation — unchanged from the pre-merge Renown formula.</summary>
+        /// <summary>
+        /// The civic half of Reputation — two independent buckets (construction, quests), each
+        /// capped at half of <see cref="CivicTotalMax"/>. The 100 ceiling is reachable ONLY when
+        /// both buckets are simultaneously full: every tracked structure built AND every tracked
+        /// errand/commission finished. Neither category alone can carry the total past 50.
+        /// </summary>
         private static float ComputeCivicTotal(object gm)
         {
-            float total = 0f;
-            if (GetStatValue(gm, ref _millerCottageChronicleStat, MillerCottageChronicleUid) >= 0.5f) total += MillerContribution;
-            if (GetStatValue(gm, ref _weaverCottageChronicleStat, WeaverCottageChronicleUid) >= 0.5f) total += WeaverContribution;
-            if (GetStatValue(gm, ref _wellChronicleStat, WellChronicleUid) >= 0.5f) total += WellContribution;
-            if (GetStatValue(gm, ref _bridgeChronicleStat, BridgeChronicleUid) >= 0.5f) total += BridgeContribution;
-
-            if (MarketStallMilestoneReached(gm)) total += MarketStallContribution;
+            float construction = 0f;
+            if (GetStatValue(gm, ref _millerCottageChronicleStat, MillerCottageChronicleUid) >= 0.5f) construction += MillerContribution;
+            if (GetStatValue(gm, ref _weaverCottageChronicleStat, WeaverCottageChronicleUid) >= 0.5f) construction += WeaverContribution;
+            if (GetStatValue(gm, ref _wellChronicleStat, WellChronicleUid) >= 0.5f) construction += WellContribution;
+            if (GetStatValue(gm, ref _bridgeChronicleStat, BridgeChronicleUid) >= 0.5f) construction += BridgeContribution;
+            if (MarketStallMilestoneReached(gm)) construction += MarketStallContribution;
 
             // One-shot quest-completion flags (player GameStats). Each finished errand/commission
-            // reads >= 1.0 and adds a flat contribution. >= (not ==) so a repeatable commission
-            // whose BlueprintStatModifications re-fires past 1.0 stays a single 10-point award.
-            if (GetStatValue(gm, ref _questFlagMillerGrainStat, QuestFlagMillerGrainUid) >= 1.0f) total += QuestFlagContribution;
-            if (GetStatValue(gm, ref _questFlagWeaverFlaxStat, QuestFlagWeaverFlaxUid) >= 1.0f) total += QuestFlagContribution;
-            if (GetStatValue(gm, ref _questFlagApothecaryHerbsStat, QuestFlagApothecaryHerbsUid) >= 1.0f) total += QuestFlagContribution;
-            if (GetStatValue(gm, ref _questFlagProfSpecimenStat, QuestFlagProfSpecimenUid) >= 1.0f) total += QuestFlagContribution;
-            if (GetStatValue(gm, ref _questFlagProfFieldSamplesStat, QuestFlagProfFieldSamplesUid) >= 1.0f) total += QuestFlagContribution;
-            if (GetStatValue(gm, ref _questFlagProfAppliedHerbalismStat, QuestFlagProfAppliedHerbalismUid) >= 1.0f) total += QuestFlagContribution;
+            // reads >= 1.0. >= (not ==) so a repeatable commission whose BlueprintStatModifications
+            // re-fires past 1.0 stays counted once. Contribution is derived (QuestBucketMax * done /
+            // QuestFlagCount) rather than a flat per-flag constant, so the bucket total always sums
+            // to exactly QuestBucketMax when every flag is done, regardless of flag count changes.
+            int questsDone = 0;
+            if (GetStatValue(gm, ref _questFlagMillerGrainStat, QuestFlagMillerGrainUid) >= 1.0f) questsDone++;
+            if (GetStatValue(gm, ref _questFlagWeaverFlaxStat, QuestFlagWeaverFlaxUid) >= 1.0f) questsDone++;
+            if (GetStatValue(gm, ref _questFlagApothecaryHerbsStat, QuestFlagApothecaryHerbsUid) >= 1.0f) questsDone++;
+            if (GetStatValue(gm, ref _questFlagProfSpecimenStat, QuestFlagProfSpecimenUid) >= 1.0f) questsDone++;
+            if (GetStatValue(gm, ref _questFlagProfFieldSamplesStat, QuestFlagProfFieldSamplesUid) >= 1.0f) questsDone++;
+            if (GetStatValue(gm, ref _questFlagProfAppliedHerbalismStat, QuestFlagProfAppliedHerbalismUid) >= 1.0f) questsDone++;
+            float quests = QuestBucketMax * questsDone / QuestFlagCount;
 
-            return total;
+            return construction + quests;
         }
 
         /// <summary>

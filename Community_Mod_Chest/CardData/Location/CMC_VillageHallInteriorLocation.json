@@ -9,7 +9,7 @@
     "LocalizationKey": "CMC_VillageHallInteriorLocation_CardName",
     "DefaultText": "Village Hall"
   },
-  "CardImageWarpData": "VillageAcademyInterior",
+  "CardImageWarpData": "CMC_VillageHall_Interior",
   "CardImageWarpType": 3,
   "ObjectWeight": 0
 }

@@ -10,8 +10,24 @@ using CSFFModFramework.Util;
 namespace CommunityModChest.Patcher
 {
     /// <summary>
-    /// TEMPORARY diagnostic — remove once the root cause below is confirmed against a live
-    /// log and fixed. Reported 2026-08-10: a recruited vanilla human Partner (EA 0.66's own
+    /// TEMPORARY diagnostic — remove once the fix below is confirmed against a live log.
+    /// 2026-08-14: likely root cause found and fixed at the framework level — see
+    /// <c>CSFFModFramework/Injection/WorldMapInjector.cs</c>'s <c>RebuildPathfindingLookup</c>
+    /// (framework 2.23.1+). <c>WorldMapData.MapDict</c>, the dictionary
+    /// <c>WorldMapData.GetPathNonAlloc</c> actually queries, was built ONCE by
+    /// <c>GameManager.FinishInitializing</c> EARLY (right after save data loads) from
+    /// <c>Environments</c> as it stood at that moment — before this framework's own node
+    /// injection (which runs LATE, at <c>OnGMInitialized</c>) ever added a single CMC/ACT/WDI/
+    /// H&amp;F node to that list. Every modded node was therefore permanently absent from A*
+    /// pathfinding's lookup for the rest of the session, regardless of gate/DA/bridge state —
+    /// matching this class's own finding below (Partner never crosses into ANY CMC node) to the
+    /// letter. Player travel was never affected (a travel DA click doesn't use A* at all), which
+    /// is why the bug was invisible to every travel-DA-based playtest. LEAVE THIS CLASS ACTIVE
+    /// (now logging at Info, not the previously-invisible Debug level — see root CLAUDE.md
+    /// "LogDebug is invisible by default") until a fresh log confirms companions actually
+    /// leave the vanilla side after the framework update; remove only then. Original
+    /// investigation note follows, unedited. Reported 2026-08-10: a recruited vanilla human
+    /// Partner (EA 0.66's own
     /// companion system, engine: generic <c>NPCDuty</c> + <c>MoveDutyAction(MoveToPlayer)</c>,
     /// same chassis <see cref="AshPartnerDutyPatch"/> and <see cref="GuardDutyPatch"/> already
     /// use) never crosses from the base map into ANY CMC WorldMap node — not "gets stuck at
@@ -109,11 +125,11 @@ namespace CommunityModChest.Patcher
 
                     if (sameEnv)
                     {
-                        Plugin.Logger.LogDebug($"[CompanionFollowDiagnostics] {label} is now in the player's env (caught up).");
+                        Plugin.Logger.LogInfo($"[CompanionFollowDiagnostics] {label} is now in the player's env (caught up).");
                         continue;
                     }
 
-                    Plugin.Logger.LogDebug(Describe(npc, label, npcEnvName, playerEnvUid));
+                    Plugin.Logger.LogInfo(Describe(npc, label, npcEnvName, playerEnvUid));
                 }
             }
             catch (Exception ex)

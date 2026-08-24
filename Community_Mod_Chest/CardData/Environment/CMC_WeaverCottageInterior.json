@@ -24,6 +24,11 @@
       "DroppedCardWarpData": "cmcWeaverCottageExit",
       "DroppedCardWarpType": 3,
       "Quantity": { "x": 1, "y": 1 }
+    },
+    {
+      "DroppedCardWarpData": "cmcCopperChestWeaver",
+      "DroppedCardWarpType": 3,
+      "Quantity": { "x": 1, "y": 1 }
     }
   ],
   "PassiveEffects": [

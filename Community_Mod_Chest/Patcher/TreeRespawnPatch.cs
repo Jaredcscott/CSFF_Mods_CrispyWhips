@@ -17,11 +17,26 @@ namespace CommunityModChest.Patcher
     /// matches by produced-card UID, not by intent) — so the same fix that keeps Nettle/Clover/
     /// Meadowgrass patches from sprouting in the finished Village silently deleted its native
     /// tree-respawn actions too. Re-adding those specific tree UIDs to the strip list is not an
-    /// option (that list also carries the legitimate one-time board-migration cleanup), so this
-    /// patch replaces the missing behavior for all twelve CMC map locations with an env-scoped
+    /// option (that list also carries the legitimate one-time board-migration cleanup — and,
+    /// separately, WorldMapInjector.PreCreateCloneEnvSaveData treats any StripLegacyBoardUIDs card
+    /// still present on a saved board as migration contamination and wipes the whole env entry to
+    /// force a reseed, which would fire on EVERY load for a species this patch deliberately keeps
+    /// on the board forever — so tree UIDs must never be added to that list), so this patch
+    /// replaces the missing behavior for all twelve CMC map locations with an env-scoped
     /// equivalent: once per in-game day, for the current environment only, spawn any of its listed
     /// tree species that isn't currently on the board, gated by a chance roll so regrowth feels
     /// gradual instead of instantaneous. See CLAUDE.md §WorldMap Clone Env Board Seeding.
+    ///
+    /// The nine CMC nodes with NO StripLegacyBoardUIDs coverage at all (cmcEnvPineTrail,
+    /// cmcEnvHighGrove, cmcEnvClayFlats, cmcEnvMarshHollow, cmcEnvMossyClearing,
+    /// cmcEnvForagingForest, cmcEnvHuntersCrossing, cmcEnvDeerMeadow, cmcEnvBadgerWarren) still
+    /// carry that native regrowth action untouched — it can race this patch's own spawn-if-missing
+    /// check on the same env-entry/day-rollover tick and place a second, duplicate instance of an
+    /// otherwise UniqueOnBoard tree species (confirmed via player report: "Pine Trail" showing two
+    /// Small Pine Tree, two Pine Tree, and a Birch Tree x2 stack). Since tree UIDs can't safely go
+    /// into StripLegacyBoardUIDs (see above), <see cref="SpawnMissingTrees"/> also trims any excess
+    /// down to the declared per-species target — self-correcting both future races and any
+    /// already-duplicated save.
     /// </summary>
     internal static class TreeRespawnPatch
     {
@@ -102,14 +117,19 @@ namespace CommunityModChest.Patcher
 
         private static void SpawnMissingTrees(string envUid, string[] trees)
         {
-            // Count how many of each species are on the board (multiple trees of the same species can coexist).
-            var boardCounts = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
+            // Group live board cards by species so both shortfalls (spawn) and excess (trim) can
+            // be corrected. Excess arises on nodes whose clone CT8 still carries the vanilla
+            // native "Create X Tree" regrowth action (no StripLegacyBoardUIDs coverage — see the
+            // class summary for why tree UIDs can't safely go in that list) racing this same
+            // spawn-if-missing check.
+            var boardCards = new Dictionary<string, List<object>>(StringComparer.OrdinalIgnoreCase);
             foreach (var card in GameQuery.CardsInPlayerEnv())
             {
                 var uid = CardUtil.GetCardUniqueId(card);
                 if (uid == null) continue;
-                boardCounts.TryGetValue(uid, out var c);
-                boardCounts[uid] = c + 1;
+                if (!boardCards.TryGetValue(uid, out var list))
+                    boardCards[uid] = list = new List<object>();
+                list.Add(card);
             }
 
             // Tally target count per species from the trees array (duplicate entries = multiple slots).
@@ -122,12 +142,25 @@ namespace CommunityModChest.Patcher
 
             foreach (var kvp in targetCounts)
             {
-                boardCounts.TryGetValue(kvp.Key, out var current);
+                boardCards.TryGetValue(kvp.Key, out var present);
+                var current = present?.Count ?? 0;
                 var needed = kvp.Value - current;
-                for (int i = 0; i < needed; i++)
+                if (needed > 0)
                 {
-                    SpawnService.Spawn(kvp.Key);
-                    Plugin.Logger.LogDebug($"[TreeRespawnPatch] '{envUid}': spawned '{kvp.Key}' ({current + i + 1}/{kvp.Value}).");
+                    for (int i = 0; i < needed; i++)
+                    {
+                        SpawnService.Spawn(kvp.Key);
+                        Plugin.Logger.LogDebug($"[TreeRespawnPatch] '{envUid}': spawned '{kvp.Key}' ({current + i + 1}/{kvp.Value}).");
+                    }
+                }
+                else if (needed < 0 && present != null)
+                {
+                    var excess = -needed;
+                    for (int i = 0; i < excess && i < present.Count; i++)
+                    {
+                        if (CardUtil.TryRemoveCard(present[i]))
+                            Plugin.Logger.LogDebug($"[TreeRespawnPatch] '{envUid}': removed excess duplicate '{kvp.Key}' ({current - i - 1}/{kvp.Value}).");
+                    }
                 }
             }
         }

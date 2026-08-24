@@ -13,7 +13,11 @@ namespace CommunityModChest.Patcher
         // Friendship reads the NPC's player-side stat (Inn Keeper: cmcStatInnFriendship;
         // Miller/Weaver/Professor: the QuestChainSchedulePatch trust mirror). The Apothecary has
         // no trust stat, so that board shows quest progress only. The Town boards show Village
-        // Renown + the village standing phase instead of a single NPC's values.
+        // Renown + the village standing phase instead of a single NPC's values. The Town
+        // Achievement Board (cmcBoardAchievements, Village_Master_Plan.md §10.9.2.2) is a fourth
+        // shape — an earned-count summary plus per-multi-part-achievement progress lines, read
+        // from the achievement GameStats rather than an NPC/Town status — handled by
+        // AppendAchievementStatusLines instead of the BoardStatuses table below.
         private sealed class BoardStatus
         {
             public string NpcName;            // sentence subject, e.g. "the Inn Keeper"
@@ -60,6 +64,40 @@ namespace CommunityModChest.Patcher
             "cmcBoardWeaver",
             "cmcBoardApothecary",
             "cmcBoardProfessor",
+            "cmcBoardAchievements",
+        };
+
+        private const string AchievementsBoardUid = "cmcBoardAchievements";
+
+        // Earned-latch stats (§10.9.2.3) — summary line counts these >= 0.5. Fixed order/labels
+        // for readability only; the board's own DA text is the source of truth for wording.
+        private static readonly string[] AchievementEarnedStatUids =
+        {
+            "cmcStatAchTraderFound",
+            "cmcStatAchFullKit",
+            "cmcStatAchBearSlain",
+            "cmcStatAchHunter",
+            "cmcStatAchExplorer",
+            "cmcStatAchYearSurvived",
+            "cmcStatAchAngler",
+            "cmcStatAchSpelunker",
+            "cmcStatAchShaman",
+            "cmcStatAchNoiseMax",
+            "cmcStatAchStinkyJar",
+        };
+
+        // Derived count stats for the five multi-part achievements (§10.9.2.3) — read directly,
+        // never recomputed here (AchievementTrackerPatch owns the writes). All five now have a
+        // live detector (AchievementTrackerPatch Wave 1-3 + AchievementKillEffectsPatch) as of
+        // the pack's final prompt — code-complete, pending the human §10.9.5 acid-test playthrough.
+        private static readonly (string CountStatUid, string Label, int Max)[] AchievementProgress =
+        {
+            ("cmcStatAchFullKitCount", "Full Kit", 6),
+            ("cmcStatAchHunterCount", "Master Hunter", 12),
+            ("cmcStatAchAnglerCount", "Master Angler", 6),
+            ("cmcStatAchShamanCount", "Master Shaman", 19),
+            ("cmcStatAchExplorerCount", "Forest Explorer", 10),
+            ("cmcStatAchSpelunkerCount", "Spelunker", 8),
         };
 
         public static void Initialize(Harmony harmony)
@@ -141,6 +179,12 @@ namespace CommunityModChest.Patcher
 
         private static void AppendStatusLines(List<string> sections, string boardUid)
         {
+            if (string.Equals(boardUid, AchievementsBoardUid, StringComparison.Ordinal))
+            {
+                AppendAchievementStatusLines(sections);
+                return;
+            }
+
             if (!BoardStatuses.TryGetValue(boardUid, out var status))
             {
                 return;
@@ -198,6 +242,46 @@ namespace CommunityModChest.Patcher
             catch (Exception ex)
             {
                 Plugin.Logger.LogDebug($"[VillageHallBoardsPatch] Failed to build status lines for '{boardUid}': {ex.InnerException?.ToString() ?? ex.ToString()}");
+            }
+        }
+
+        /// <summary>Town Achievement Board prose: an earned-count summary line plus one progress
+        /// line per multi-part achievement (§10.9.2.2). Reads only — AchievementTrackerPatch and
+        /// its Wave 2 successors own every write.</summary>
+        private static void AppendAchievementStatusLines(List<string> sections)
+        {
+            try
+            {
+                var gm = CardUtil.GetGameManagerInstance();
+                if (gm == null)
+                {
+                    return;
+                }
+
+                int earned = 0;
+                bool anyReadable = false;
+                foreach (var statUid in AchievementEarnedStatUids)
+                {
+                    float value = VillageClock.ReadStat(gm, statUid);
+                    if (value < 0f) continue; // unreadable this tick — don't miscount as "not earned"
+                    anyReadable = true;
+                    if (value >= 0.5f) earned++;
+                }
+                if (anyReadable)
+                {
+                    sections.Add($"Achievements earned: {earned} of {AchievementEarnedStatUids.Length}");
+                }
+
+                foreach (var (countStatUid, label, max) in AchievementProgress)
+                {
+                    float count = VillageClock.ReadStat(gm, countStatUid);
+                    if (count < 0f) continue; // stat unreadable — omit rather than show a bogus 0
+                    sections.Add($"{label}: {(int)Math.Round(count)} of {max}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Plugin.Logger.LogDebug($"[VillageHallBoardsPatch] Failed to build achievement status lines: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
         }
 

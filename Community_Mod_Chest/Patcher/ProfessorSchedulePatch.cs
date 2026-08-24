@@ -380,8 +380,17 @@ namespace CommunityModChest.Patcher
 
             if (!resolved && !_refsUnresolvedWarned)
             {
-                _refsUnresolvedWarned = true;
-                Plugin.Logger.LogWarning($"[ProfessorSchedulePatch] ResolveRefs failed (agent null={_agent == null}, academyInterior null={_academyInterior == null}, innInterior null={_innInterior == null}, outdoorNodes null={_outdoorNodes == null}, phaseStat null={_phaseStat == null}) — the Professor can never spawn/schedule until this succeeds.");
+                // Before a run boots (menu-time tick), game data may not be loaded yet and a miss
+                // is expected — only a miss while a GameManager exists is a real failure.
+                if (CardUtil.GetGameManagerInstance() != null)
+                {
+                    _refsUnresolvedWarned = true;
+                    Plugin.Logger.LogWarning($"[ProfessorSchedulePatch] ResolveRefs failed in-game (agent null={_agent == null}, academyInterior null={_academyInterior == null}, innInterior null={_innInterior == null}, outdoorNodes null={_outdoorNodes == null}, phaseStat null={_phaseStat == null}) — the Professor can never spawn/schedule until this succeeds.");
+                }
+                else
+                {
+                    Plugin.Logger.LogDebug("[ProfessorSchedulePatch] ResolveRefs miss before game data load (expected; will retry).");
+                }
             }
 
             return resolved;
@@ -683,7 +692,17 @@ namespace CommunityModChest.Patcher
             // Rarer specialty stock for graduated courses, once per day, only at the Academy.
             if (IsAtAcademy(npc)) FireSpecialtyStock(npc, associatedCard);
 
-            if (heldCount <= WatermarkCount)
+            // Don't drop out of Resident phase while the player is standing right here with him —
+            // cmcStatProfessorPhase gates ALL THREE Commissions (BlueprintNPCStatConditions
+            // ConditionRange {1,1}), so flipping it to Foraging mid-visit hides the Commissions
+            // option instantly even though he hasn't physically gone anywhere yet (owner report
+            // 2026-08-21: "this option will disappear and reappear when we enters and leaves
+            // buildings" — the satchel dropping to/below WatermarkCount from trading or a
+            // delivery mid-conversation was flipping this unconditionally). The movement decision
+            // right above already defers to SharesPlayerEnv; the phase-stat write itself is the
+            // other half of "don't disrupt an ongoing visit" and was missing the same guard.
+            // Re-evaluated next tick once the player leaves, so nothing is silently dropped.
+            if (!withPlayer && heldCount <= WatermarkCount)
             {
                 SetNpcStatValue(npc, _phaseStat, PhaseForaging);
                 // Backdate so the very next Foraging-phase tick wanders immediately instead of

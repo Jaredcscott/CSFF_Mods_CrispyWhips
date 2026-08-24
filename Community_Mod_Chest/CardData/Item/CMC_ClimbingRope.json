@@ -1,0 +1,33 @@
+{
+    "UniqueID": "cmcClimbingRope",
+    "CardName": {
+        "ParentObjectID": "cmcClimbingRope",
+        "LocalizationKey": "CMC_ClimbingRope_CardName",
+        "DefaultText": "Climbing Rope"
+    },
+    "CardDescription": {
+        "ParentObjectID": "cmcClimbingRope",
+        "LocalizationKey": "CMC_ClimbingRope_CardDescription",
+        "DefaultText": "A long coil of rope, reinforced and knotted for climbing rather than hauling. The Weaver swore it would hold on the cliff north of the village, at Greenfalls."
+    },
+    "CardType": 0,
+    "CardImageWarpData": "Rope",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "ObjectWeight": 300.0,
+    "TradingValue": 0.0,
+    "CannotBeTrashed": false,
+    "DoesNotPile": false,
+    "SpoilageTime": { "Active": false },
+    "UsageDurability": { "Active": false },
+    "FuelCapacity": { "Active": false },
+    "Progress": { "Active": false },
+    "SpecialDurability1": { "Active": false },
+    "SpecialDurability2": { "Active": false },
+    "SpecialDurability3": { "Active": false },
+    "SpecialDurability4": { "Active": false },
+    "InventorySlots": [],
+    "CardInteractions": [],
+    "DismantleActions": []
+}

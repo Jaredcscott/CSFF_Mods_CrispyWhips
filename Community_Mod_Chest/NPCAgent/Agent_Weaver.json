@@ -364,6 +364,30 @@
                     "DropCardsInsideInventory": true
                 }
             ]
+        },
+        {
+            "ActionID": "WeaverProduceYarn",
+            "ActionLocalizedName": {
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "WeaverProduceYarn"
+            },
+            "RepeatOptions": 3,
+            "Conditions": {
+                "RequiredEnvironmentWarpData": "cmcEnvVillage",
+                "RequiredEnvironmentWarpType": 3
+            },
+            "DroppedCards": [
+                {
+                    "CollectionName": "Weaver loom stock",
+                    "DropCardsInsideInventory": true,
+                    "DroppedCards": [
+                        { "DroppedCardWarpData": "90ec9637a29a17541a12467c99e73067", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 1 }, "DropChance": { "Active": true, "BaseDropChance": 35.0 } },
+                        { "DroppedCardWarpData": "6286bd90f6ab28f41bc4fa7f08e4fe0d", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 1 }, "DropChance": { "Active": true, "BaseDropChance": 35.0 } },
+                        { "DroppedCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 2 }, "DropChance": { "Active": true, "BaseDropChance": 45.0 } },
+                        { "DroppedCardWarpData": "7adecfbfd3ccd8c4aa34cd61d8c98076", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 2 }, "DropChance": { "Active": true, "BaseDropChance": 45.0 } }
+                    ]
+                }
+            ]
         }
     ],
     "CannotTrade": false,

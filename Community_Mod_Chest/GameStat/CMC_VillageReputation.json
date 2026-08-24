@@ -25,6 +25,9 @@
     "VisibleValueRange": {"x": 0.0, "y": 0.0},
     "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
     "StatusesHaveNoBar": false,
+    "DefaultStatusIcon": { "m_FileID": 0, "m_PathID": 0 },
+    "DefaultStatusIconWarpData": "CMC_VillageHall",
+    "DefaultStatusIconWarpType": 3,
     "Statuses": [],
     "UsesNovelty": false
 }

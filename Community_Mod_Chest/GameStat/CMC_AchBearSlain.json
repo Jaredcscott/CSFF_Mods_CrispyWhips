@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatAchBearSlain",
+    "GameName": {
+        "LocalizationKey": "CMC_AchBearSlain_StatName",
+        "DefaultText": "Achievement Earned: Right to Bear Arms"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_AchBearSlain_StatDescription",
+        "DefaultText": "Hidden flag: 1 once the player has slain a Bear -- the Right to Bear Arms achievement. Clamped 0-1, never resets."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

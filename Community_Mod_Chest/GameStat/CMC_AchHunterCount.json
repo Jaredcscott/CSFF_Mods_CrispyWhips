@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatAchHunterCount",
+    "GameName": {
+        "LocalizationKey": "CMC_AchHunterCount_StatName",
+        "DefaultText": "Achievement Progress: Master Hunter"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_AchHunterCount_StatDescription",
+        "DefaultText": "Derived counter: how many of the 12 Master Hunter member latches (cmcStatAchHunt*) are currently set. Recomputed every AchievementTrackerPatch poll from the member latches -- never written directly. Read by the board's prose progress line ('N of 12')."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 12.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

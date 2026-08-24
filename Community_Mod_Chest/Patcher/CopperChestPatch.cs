@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using CSFFModFramework.Api;
 using CSFFModFramework.Util;
@@ -99,6 +101,32 @@ namespace CommunityModChest.Patcher
             /// <summary>Separate goods ceiling, counted in cards rather than value so a heavy stack
             /// can't crowd the currency out of the chest's ten slots.</summary>
             public int GoodsCap;
+
+            // ── Trust-on-sale (N19) ───────────────────────────────────────────────
+            // Selling into a chest is the one commerce verb the Trust layer previously ignored
+            // (idea N19). All five residents get a bump per completed sale, but not through one
+            // uniform mechanism: Miller/Weaver/Professor/Apothecary share the cmcStat<Resident>Trust
+            // NPCStat family (0-100, resolved on the resident's LIVE NPC instance — see
+            // AddResidentTrust). The Inn Keeper already had his own trust-equivalent BEFORE this
+            // feature (cmcStatInnFriendship, a plain 0-30 PLAYER GameStat that already gates his warm
+            // dialog — QuestChainSchedulePatch's own doc comment) — TrustIsNpcStat routes him through
+            // the simpler GameStat-direct-write path instead of standing up a second, disconnected
+            // "Inn Keeper Trust" NPCStat that no dialog would ever read (root CLAUDE.md Feature
+            // Honesty: a stat nothing reads is dead content, not a fix).
+
+            /// <summary>UID of the resident's Trust-equivalent stat.</summary>
+            public string TrustStatUid;
+            /// <summary>True = <see cref="TrustStatUid"/> is an NPCStat resolved on the live NPC
+            /// (AgentUid). False = it's a plain player GameStat (Inn Keeper only).</summary>
+            public bool TrustIsNpcStat;
+            /// <summary>Trust points added per completed sale — deliberately small; sales are
+            /// frequent enough that a large per-sale bump would blow past the stat's own ceiling in
+            /// a few evenings of trading (§N19 "keep the per-sale bump tiny").</summary>
+            public float TrustGainPerSale;
+            /// <summary>Mirrors the stat's own MinMaxValue.y. <see cref="AddResidentTrust"/> clamps
+            /// to this explicitly rather than trusting an unverified auto-clamp on every write path
+            /// (VillageCrimePatch's own MaxCrime does the same for the same reason).</summary>
+            public float TrustMaxValue;
         }
 
         // Weekly cadence, shared by every chest. Matches CottageResidentSpawnPatch's own satchel
@@ -127,6 +155,10 @@ namespace CommunityModChest.Patcher
                 SearchActionName = "Search for valuables",
                 CurrencyCap = 300f,   // 20 Salt; 3 Salt/week -> ~7 weeks from empty
                 GoodsCap = 10,
+                TrustStatUid = "cmcStatMillerTrust",
+                TrustIsNpcStat = true,
+                TrustGainPerSale = 1.5f,
+                TrustMaxValue = 100f,
             },
             new ChestConfig
             {
@@ -145,6 +177,10 @@ namespace CommunityModChest.Patcher
                 SearchActionName = "Search for valuables",
                 CurrencyCap = 300f,   // same working-trade tier as the Miller
                 GoodsCap = 10,
+                TrustStatUid = "cmcStatWeaverTrust",
+                TrustIsNpcStat = true,
+                TrustGainPerSale = 1.5f,
+                TrustMaxValue = 100f,
             },
             new ChestConfig
             {
@@ -163,6 +199,12 @@ namespace CommunityModChest.Patcher
                 SearchActionName = "Search for valuables",
                 CurrencyCap = 180f,   // 12 Salt; 2 Salt/week -> ~6 weeks. Thin purse, rarer goods.
                 GoodsCap = 8,
+                // New NPCStat (N19) — the Apothecary genuinely had no Trust equivalent before
+                // this feature, unlike the Inn Keeper's pre-existing cmcStatInnFriendship.
+                TrustStatUid = "cmcStatApothecaryTrust",
+                TrustIsNpcStat = true,
+                TrustGainPerSale = 1.5f,
+                TrustMaxValue = 100f,
             },
             new ChestConfig
             {
@@ -181,6 +223,12 @@ namespace CommunityModChest.Patcher
                 SearchActionName = "Search for valuables",
                 CurrencyCap = 500f,   // richest buyer in the village; 5 Salt/week -> ~7 weeks
                 GoodsCap = 10,
+                // Reuses his PRE-EXISTING trust-equivalent GameStat rather than a new NPCStat —
+                // see the TrustIsNpcStat doc comment on ChestConfig for why.
+                TrustStatUid = "cmcStatInnFriendship",
+                TrustIsNpcStat = false,
+                TrustGainPerSale = 0.5f,  // cmcStatInnFriendship's range is 0-30, not 0-100
+                TrustMaxValue = 30f,
             },
             new ChestConfig
             {
@@ -199,6 +247,10 @@ namespace CommunityModChest.Patcher
                 SearchActionName = "Search for valuables",
                 CurrencyCap = 180f,   // a scholar's private savings; specimens carry the value
                 GoodsCap = 8,
+                TrustStatUid = "cmcStatProfessorTrust",
+                TrustIsNpcStat = true,
+                TrustGainPerSale = 1.5f,
+                TrustMaxValue = 100f,
             },
         };
 
@@ -248,6 +300,29 @@ namespace CommunityModChest.Patcher
 
         /// <summary>Crime points a detected burglary costs (§10.8.2 point table).</summary>
         private const float DetectedCrimePoints = 10f;
+
+        /// <summary>Detection-chance REDUCTION while the player carries a Burglar's Kit (N14) — a
+        /// prepared thief tilts the roll in their favour. Deliberately modest: a quarter of the
+        /// night-patrol penalty, so the Kit shaves the odds rather than granting near-immunity;
+        /// RollDetection still floors the final chance well above 0.</summary>
+        private const float BurglarsKitDiscount = 0.05f;
+
+        private const string BurglarsKitUid = "cmcBurglarsKit";
+
+        /// <summary>Miller's chest UID, named separately from <see cref="Chests"/> because the
+        /// restitution CI (N15) is registered once, outside the per-chest loop — see its own doc
+        /// comment on <see cref="RestitutionAfter"/> for why it's Miller-only.</summary>
+        private const string MillerChestUid = "cmcCopperChestMiller";
+
+        private const string RestitutionActionKey = "CMC_CopperChestMiller_CI_Restitution";
+        private const string RestitutionActionName = "Make It Right";
+
+        /// <summary>Crime points paid down per point of dragged-currency value (N15). A single
+        /// Salt (CurrencyValue.SaltValue = 15) pays down 3 crime; a copper Nugget (~100 raw SD4)
+        /// pays down ~20 — a meaningful dent but not a full pardon on its own, consistent with
+        /// JailPatch's DailyCrimePaydown (8 crime/day) being the primary route back to Clean and
+        /// this being a supplementary, player-initiated one (§10.8.7.2 leaves that path intact).</summary>
+        private const float CrimePerCurrencyValue = 0.2f;
 
         private static bool _initialized;
 
@@ -310,6 +385,23 @@ namespace CommunityModChest.Patcher
                     After = ctx => SearchAfter(cfg, ctx),
                 });
             }
+
+            // Restitution ("Make It Right", N15) is Miller-only per the idea's own scope — the
+            // other four chests get no such CI in this pass. One handler, not one per chest;
+            // same Before-captures-value/After-applies-effect shape as CopperChestSellPayout.
+            ActionRouter.Register(new ActionHandler
+            {
+                Name = "CopperChestMillerRestitution",
+                CardUid = MillerChestUid,
+                ActionKeyPrefix = RestitutionActionKey,
+                ActionNamePrefix = RestitutionActionName,
+                Timing = ActionTiming.AfterWrapped,
+                // Captured in Before for the same reason SellPayout captures price there: the CI's
+                // own GivenCardChanges.ModType 3 destroys the dragged card as part of the action, so
+                // by the time After runs ctx.GivenCard's CardModel may already be gone.
+                Before = ctx => { ctx.Tag = CurrencyValue.ValueOf(ctx.GivenCard); return false; },
+                After = ctx => RestitutionAfter(ctx),
+            });
 
             Plugin.Logger.LogDebug($"[CopperChestPatch] initialized for {Chests.Length} chest(s).");
         }
@@ -460,6 +552,10 @@ namespace CommunityModChest.Patcher
 
                 CardVisualsRefresh.RefreshOpenInventoryPopup();
                 Plugin.Logger.LogInfo($"[CopperChestPatch] Sold an item to the {cfg.Name} for {price:0}; handed over {paid} currency card(s) worth {paidValue:0}. Chest wealth now {CurrentWealth(ctx.Card):0}.");
+
+                // N19 — the one commerce verb the Trust layer previously ignored. Only on a
+                // completed sale (paid > 0, reached above), never on a refused/no-op drag.
+                AddResidentTrust(cfg);
             }
             catch (Exception ex)
             {
@@ -499,6 +595,128 @@ namespace CommunityModChest.Patcher
             foreach (var card in payout)
                 if (GiveToPlayer(chest, card)) handed++;
             return handed;
+        }
+
+        // ── Trust bump on sale (§N19) ─────────────────────────────────────────────
+
+        private static MethodInfo _trustGetFromIdMethod; // UniqueIDScriptable.GetFromID(string)
+        private static readonly Dictionary<string, object> _trustStatCache = new(StringComparer.Ordinal);
+
+        /// <summary>
+        /// Bumps <paramref name="cfg"/>'s owner's Trust-equivalent stat by
+        /// <see cref="ChestConfig.TrustGainPerSale"/> after a completed sale. Writes the LIVE stat
+        /// directly, never the read-only player-side mirror QuestChainSchedulePatch polls every 5s
+        /// for blueprint gates — writing the mirror here would just get overwritten by the very next
+        /// poll and would never actually raise the relationship the NPC's own dialog reads.
+        ///
+        /// <para>NPCStat write uses <c>InGameNPCStat.SetStatValueFromEditor(float)</c> — the SAME
+        /// proven idiom GuardOutcomePatch.ClearDownedMarker already uses (confirmed correct by that
+        /// file's own doc comment, "same idiom AnimalLifecycleTicker uses"). NOTE: this deliberately
+        /// does NOT copy ProfessorSchedulePatch.SetNpcStatValue's lookup, which searches for a
+        /// PUBLIC method literally named "SetStatValue" — the decompiled InGameNPCStat only has a
+        /// PRIVATE 2-arg SetStatValue and the public 1-arg SetStatValueFromEditor, so that lookup
+        /// appears to resolve to null on every call (worth checking separately; out of this file's
+        /// scope to fix ProfessorSchedulePatch itself).</para>
+        /// </summary>
+        private static void AddResidentTrust(ChestConfig cfg)
+        {
+            if (cfg == null || string.IsNullOrEmpty(cfg.TrustStatUid) || cfg.TrustGainPerSale <= 0f) return;
+            try
+            {
+                var gm = CardUtil.GetGameManagerInstance();
+                if (gm == null) return;
+
+                if (!cfg.TrustIsNpcStat)
+                {
+                    AddGameStatTrust(gm, cfg);
+                    return;
+                }
+
+                var npc = FindLiveNpc(gm, cfg.AgentUid);
+                if (npc == null) return; // resident hasn't spawned/moved in yet — nothing to bump
+
+                var stat = TrustStatRef(cfg.TrustStatUid);
+                if (stat == null) return;
+
+                if (Reflect.GetMember(npc, "NPCStatsDict") is not IDictionary statsDict || !statsDict.Contains(stat))
+                    return;
+                var inGameStat = statsDict[stat];
+                if (inGameStat == null) return;
+
+                var getStatValue = npc.GetType().GetMethod("GetStatValue",
+                    BindingFlags.Instance | BindingFlags.Public, null, new[] { stat.GetType() }, null);
+                float current = getStatValue?.Invoke(npc, new[] { stat }) is float f ? f : 0f;
+
+                var setter = inGameStat.GetType().GetMethod("SetStatValueFromEditor",
+                    BindingFlags.Instance | BindingFlags.Public, null, new[] { typeof(float) }, null);
+                if (setter == null)
+                {
+                    Plugin.Logger.LogDebug("[CopperChestPatch] InGameNPCStat.SetStatValueFromEditor not found — sale trust bump inactive.");
+                    return;
+                }
+
+                float next = Math.Min(cfg.TrustMaxValue, current + cfg.TrustGainPerSale);
+                setter.Invoke(inGameStat, new object[] { next });
+                Plugin.Logger.LogDebug($"[CopperChestPatch] {cfg.Name}'s trust +{next - current:0.0} from a sale ({current:0.0} -> {next:0.0}).");
+            }
+            catch (Exception ex)
+            {
+                Plugin.Logger.LogDebug($"[CopperChestPatch] AddResidentTrust failed for {cfg.Name}: {ex.InnerException?.ToString() ?? ex.ToString()}");
+            }
+        }
+
+        /// <summary>Inn Keeper only — cmcStatInnFriendship is a plain player GameStat, not an
+        /// NPCStat, so this writes it via the direct StatsDict idiom (memory:
+        /// reference_gamestat_direct_csharp_write) — no live-NPC resolution needed at all.</summary>
+        private static void AddGameStatTrust(object gm, ChestConfig cfg)
+        {
+            var stat = TrustStatRef(cfg.TrustStatUid);
+            if (stat == null) return;
+            if (Reflect.GetMember(gm, "StatsDict") is not IDictionary statsDict || !statsDict.Contains(stat)) return;
+            var inGameStat = statsDict[stat];
+            if (inGameStat == null) return;
+
+            float current = Reflect.GetMember(inGameStat, "SimpleCurrentValue") is float f ? f : 0f;
+            float next = Math.Min(cfg.TrustMaxValue, current + cfg.TrustGainPerSale);
+            Reflect.SetMember(inGameStat, "CurrentBaseValue", next);
+            Plugin.Logger.LogDebug($"[CopperChestPatch] {cfg.Name}'s trust +{next - current:0.0} from a sale ({current:0.0} -> {next:0.0}).");
+        }
+
+        private static bool ResolveTrustGetFromId()
+        {
+            if (_trustGetFromIdMethod != null) return true;
+            var uidType = CardUtil.FindGameType("UniqueIDScriptable");
+            if (uidType == null) return false;
+            _trustGetFromIdMethod = uidType.GetMethods(BindingFlags.Public | BindingFlags.Static)
+                .FirstOrDefault(m => m.Name == "GetFromID" && !m.IsGenericMethodDefinition
+                    && m.GetParameters().Length == 1 && m.GetParameters()[0].ParameterType == typeof(string));
+            return _trustGetFromIdMethod != null;
+        }
+
+        private static object TrustStatRef(string uid)
+        {
+            if (string.IsNullOrEmpty(uid)) return null;
+            if (_trustStatCache.TryGetValue(uid, out var cached)) return cached;
+            if (!ResolveTrustGetFromId()) return null;
+            var stat = _trustGetFromIdMethod.Invoke(null, new object[] { uid });
+            if (stat != null) _trustStatCache[uid] = stat;
+            return stat;
+        }
+
+        /// <summary>Live InGameNPC for an AgentUid, or null. Same AllNPCs/NPCModel.UniqueID walk as
+        /// GuardOutcomePatch's own FindLiveNpc (and, inline, this file's own IsOwnerHome below) —
+        /// kept as a local copy rather than a cross-file call so this file has no compile-time
+        /// dependency on GuardOutcomePatch for a four-line loop.</summary>
+        private static object FindLiveNpc(object gm, string agentUid)
+        {
+            if (Reflect.GetMember(gm, "AllNPCs") is not IEnumerable allNpcs) return null;
+            foreach (var npc in allNpcs)
+            {
+                if (npc == null) continue;
+                var uid = CardUtil.GetCardUniqueId(Reflect.GetMember(npc, "NPCModel"));
+                if (string.Equals(uid, agentUid, StringComparison.OrdinalIgnoreCase)) return npc;
+            }
+            return null;
         }
 
         // ── Theft DA (§10.8.3.6) ──────────────────────────────────────────────────
@@ -556,11 +774,46 @@ namespace CommunityModChest.Patcher
 
             float heatBonus = Math.Min(MaxHeatBonus, CurrentHeatCount(cfg) * HeatPerPriorTheft);
             float patrolBonus = NightPatrolActive() ? NightPatrolBonus : 0f;
+            float kitDiscount = HasBurglarsKit() ? BurglarsKitDiscount : 0f;
+            if (kitDiscount > 0f)
+                Plugin.Logger.LogDebug($"[CopperChestPatch] Burglar's Kit present — detection chance reduced by {kitDiscount:P0} for this roll.");
 
-            float chance = Math.Min(0.95f, BaseDetectionChance + heatBonus + patrolBonus);
+            // Floored well above 0 (not just the raw sum) — a Kit shaves the odds, it doesn't grant
+            // immunity even on a lucky roll with zero heat/patrol active.
+            float chance = Math.Min(0.95f, Math.Max(0.01f, BaseDetectionChance + heatBonus + patrolBonus - kitDiscount));
             bool caught = UnityEngine.Random.value < chance;
-            reason = $"roll {chance:P0} (base {BaseDetectionChance:P0} + heat {heatBonus:P0} + patrol {patrolBonus:P0})";
+            reason = $"roll {chance:P0} (base {BaseDetectionChance:P0} + heat {heatBonus:P0} + patrol {patrolBonus:P0} - kit {kitDiscount:P0})";
             return caught;
+        }
+
+        /// <summary>
+        /// True when the Burglar's Kit (N14) is present with the player right now. This game has no
+        /// separate "carried/pocket inventory" API to check against — confirmed absent fleet-wide
+        /// (memory: reference_no_player_inventory_access — neither GameQuery, Api.Inventory, nor
+        /// ActionRouter expose the player's own carried inventory). <see cref="GameQuery.CardsInPlayerEnv"/>
+        /// (cards in the player's CURRENT environment) is the established substitute this codebase
+        /// already uses fleet-wide for "does the player have X" presence gating — ConnectionGateService,
+        /// SealableGateService, and ConditionalDropService all gate the exact same way, so this reuses
+        /// that idiom rather than inventing new reflection. The player is necessarily standing in
+        /// THIS chest's own interior when the Search DA fires (TryAccrue/IsOwnerHome's own
+        /// CurrentEnvironmentUniqueId gate proves it), so "present in the player's env" here means
+        /// "in the room with the player while they search" — a reasonable reading of "carrying" for
+        /// a small hand tool, given no finer-grained equipped/held concept exists to check instead.
+        /// </summary>
+        private static bool HasBurglarsKit()
+        {
+            try
+            {
+                foreach (var card in GameQuery.CardsInPlayerEnv())
+                    if (string.Equals(CardUtil.GetCardUniqueId(card), BurglarsKitUid, StringComparison.OrdinalIgnoreCase))
+                        return true;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Plugin.Logger.LogDebug($"[CopperChestPatch] HasBurglarsKit check failed (treated as no kit): {ex.InnerException?.ToString() ?? ex.ToString()}");
+                return false;
+            }
         }
 
         /// <summary>
@@ -699,6 +952,39 @@ namespace CommunityModChest.Patcher
             if (season.Equals("Winter", StringComparison.OrdinalIgnoreCase)) return 4;
             Plugin.Logger.LogDebug($"[CopperChestPatch] Unrecognized season name '{season}' — theft heat rollover skipped this call.");
             return 0;
+        }
+
+        // ── Restitution CI — "Make It Right" (Miller only, §N15) ──────────────────
+
+        /// <summary>
+        /// Pays down Village Crime by dragging Salt or a Metal Nugget onto the Miller's chest.
+        /// Registered once (see <see cref="Initialize"/>), not per chest — the idea's own title
+        /// ("Make it right with the MILLER") scopes this to one resident rather than all five;
+        /// extending it later would mean giving the other four chests their own restitution CI +
+        /// CardData entries, not touching this method.
+        ///
+        /// <para>Reuses <see cref="VillageCrimePatch.ReduceCrime"/> directly rather than
+        /// reimplementing the StatsDict write — exactly what the idea text asks for ("reuses the
+        /// existing... ReduceCrime(amount, reason) for a small pay-down").</para>
+        /// </summary>
+        private static void RestitutionAfter(ActionContext ctx)
+        {
+            try
+            {
+                float value = ctx.Tag is float captured ? captured : 0f;
+                if (value <= 0f) return; // not a recognized currency card — nothing to pay down
+
+                float amount = value * CrimePerCurrencyValue;
+                float result = VillageCrimePatch.ReduceCrime(amount, "made it right with the Miller");
+                if (result < 0f) return; // stat unreadable — VillageCrimePatch already logged why
+
+                CardVisualsRefresh.RefreshOpenInventoryPopup();
+                Plugin.Logger.LogInfo($"[CopperChestPatch] Restitution paid to the Miller (value {value:0}) — crime reduced by {amount:0}.");
+            }
+            catch (Exception ex)
+            {
+                Plugin.Logger.LogWarning($"[CopperChestPatch] RestitutionAfter failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
+            }
         }
 
         // ── Chest -> player card movement ─────────────────────────────────────────

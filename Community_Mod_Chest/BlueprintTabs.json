@@ -4,14 +4,16 @@
         "apparelbphandwraps",
         "apparelbpstrawhat",
         "comfortbpbedroll",
-        "comfortbpdownmattress"
+        "comfortbpdownmattress",
+        "cmcbpclimbingrope"
     ],
     "Tab_4_Tailoring_Subtab_2_Cloth_TabName": [
         "apparelbpclothscarf",
         "apparelbpchaperon",
         "apparelbpclothcoat",
         "apparelbpclothmask",
-        "apparelbplongjohns"
+        "apparelbplongjohns",
+        "cmcbpcatbed"
     ],
     "Tab_4_Tailoring_Subtab_3_Leather_TabName": [
         "apparelbpleatherapron",
@@ -40,10 +42,16 @@
         "potterysculpturebpclaybeads",
         "potterysculpturebpstonetiles",
         "potterysculpturebpglazedplate",
-        "potterysculpturebpherbpaste"
+        "potterysculpturebpherbpaste",
+        "bpcmcclayocarina"
     ],
     "Tab_1_Survival_Subtab_5_Cooking_TabName": [
-        "bpcmcapothecaryhealingmixture"
+        "bpcmcapothecaryhealingmixture",
+        "cmcbpherbpoultice",
+        "cmcbptincture"
+    ],
+    "Tab_2_Construction_Subtab_1_WorkingTools_TabName": [
+        "cmcbpburglarskit"
     ],
     "Tab_2_Construction_Subtab_5_HouseBuilding_TabName": [
         "BpCMCCottageMiller",
@@ -56,14 +64,20 @@
         "comfortbpbedrollplace",
         "bpcmcmarketstall",
         "comfortbpincenseburner",
-        "comfortbpcomfortablebed"
+        "comfortbpcomfortablebed",
+        "cmcbpwickerchair",
+        "cmcbpoutfitwardrobe",
+        "comfortbpscentedcandle"
     ],
     "Tab_1_Survival_Subtab_4_Entertainment_TabName": [
         "comfortbpheatherwreath",
         "comfortbpwindchimes",
         "comfortbpstrawmat",
         "comfortbpwovenwallhanging",
-        "comfortbptricolorwallhanging"
+        "comfortbptricolorwallhanging",
+        "bpcmcbonedice",
+        "bpcmcspinningtop",
+        "bpcmcwheeledhorse"
     ],
     "Tab_1_Survival_Subtab_1_Fire_TabName": [
         "ceramiclampbp"

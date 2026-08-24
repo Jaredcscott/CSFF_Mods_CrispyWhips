@@ -9,7 +9,7 @@
     "CardDescription": {
         "ParentObjectID": "apparelhandwraps",
         "LocalizationKey": "apparel_hand_wraps_CardDescription",
-        "DefaultText": "Strips of cloth wrapped around the hands. Offer minimal protection against cuts and cold.\n\n<b>MUST BE EQUIPPED TO WORK</b>"
+        "DefaultText": "Strips of cloth wound around the hands, bound with twine. Offer minimal protection against cuts and cold.\n\n<b>MUST BE EQUIPPED TO WORK</b>"
     },
     "CardType": 0,
     "CardImageWarpData": "HandWraps",

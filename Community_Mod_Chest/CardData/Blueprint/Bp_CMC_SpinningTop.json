@@ -1,0 +1,88 @@
+{
+    "UniqueID": "bpcmcspinningtop",
+    "CardName": {
+        "LocalizationKey": "Bp_CMC_SpinningTop_CardName",
+        "DefaultText": "Spinning Top"
+    },
+    "CardDescription": {
+        "LocalizationKey": "Bp_CMC_SpinningTop_CardDescription",
+        "DefaultText": "Whittle a block of wood into a top and wind it with rope to give it spin."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "LocalizationKey": "Bp_CMC_SpinningTop_UnlockConditionsDesc",
+        "DefaultText": "Basic woodworking — no special training required"
+    },
+    "StartUnlocked": true,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredCardWarpData": "692afc638c39e32428629da58f56136a",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BuildingDaytimeCost": 2,
+    "DeconstructDaytimeCost": 0,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "DroppedCardWarpData": "cmcSpinningTop",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "LongStick",
+    "CardImageWarpType": 3,
+    "BlueprintUnlockTicksCost": 6.0,
+    "ResearchedNotification": 0
+}

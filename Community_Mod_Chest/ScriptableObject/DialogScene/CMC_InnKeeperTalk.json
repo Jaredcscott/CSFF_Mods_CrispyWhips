@@ -5,6 +5,7 @@
     },
     "SceneLinesWarpData": [
         "CMC_InnKeeperTalk_Intro",
+        "CMC_InnKeeperTalk_GuardsConfession",
         "CMC_InnKeeperTalk_TraitWelcome",
         "CMC_InnKeeperTalk_Cat1",
         "CMC_InnKeeperTalk_CatThanks",

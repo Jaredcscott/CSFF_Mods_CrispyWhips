@@ -1,0 +1,10 @@
+{
+    "SceneTitle": {
+        "LocalizationKey": "CMC_ThorneTalk_SceneTitle",
+        "DefaultText": "Guard Nella Thorne"
+    },
+    "SceneLinesWarpData": [
+        "CMC_ThorneTalk_Start"
+    ],
+    "SceneLinesWarpType": 3
+}

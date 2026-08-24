@@ -44,7 +44,34 @@
     "SpecialDurability4": {
         "Active": false
     },
-    "CardInteractions": [],
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_OldGrowthBark_CI_TanHide",
+                "DefaultText": "Tan Hide"
+            },
+            "ActionDescription": {
+                "LocalizationKey": "CMC_OldGrowthBark_CI_TanHide_Desc",
+                "DefaultText": "Rub the bark's tannins into a fleshed hide, curing it into usable leather."
+            },
+            "DaytimeCost": 1,
+            "WorksInverted": true,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "GivenCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "f362a7ba3ad932244b1e9c18569ac98e",
+                "TransformIntoWarpType": 3
+            },
+            "CompatibleCards": {
+                "TriggerCardsWarpData": [
+                    "497d287332908014d8fda729963f57c3"
+                ],
+                "TriggerCardsWarpType": 3
+            }
+        }
+    ],
     "DismantleActions": [],
     "PassiveEffects": []
 }

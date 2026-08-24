@@ -1,0 +1,83 @@
+{
+    "UniqueID": "cmcbpburglarskit",
+    "CardName": {
+        "ParentObjectID": "cmcbpburglarskit",
+        "LocalizationKey": "Bp_CMC_BurglarsKit_CardName",
+        "DefaultText": "Burglar's Kit"
+    },
+    "CardDescription": {
+        "ParentObjectID": "cmcbpburglarskit",
+        "LocalizationKey": "Bp_CMC_BurglarsKit_CardDescription",
+        "DefaultText": "File a scrap nugget into a pick and lash it to a stick pry bar."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "cmcbpburglarskit",
+        "LocalizationKey": "Bp_CMC_BurglarsKit_UnlockConditionsDesc",
+        "DefaultText": "Metal Nugget Needed"
+    },
+    "StartUnlocked": false,
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "HasMetalNugget",
+            "CompletionWeight": 1,
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "CardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintUnlockTicksCost": 8.0,
+    "BuildingDaytimeCost": 2,
+    "DeconstructDaytimeCost": 1,
+    "NeedsRoomInLocationToSpawn": false,
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "3db4c94184af274409f0d3eb16870f64",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BlueprintResult": [
+        {
+            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": { "x": 1, "y": 1 },
+            "DroppedCardWarpData": "cmcBurglarsKit",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": ["Stone"],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+    "CardImageWarpData": "Chisel_Iron",
+    "CardImageWarpType": 3,
+    "ResearchedNotification": 0
+}

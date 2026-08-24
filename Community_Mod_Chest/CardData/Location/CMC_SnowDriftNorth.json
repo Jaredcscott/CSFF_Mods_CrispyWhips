@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "cmcSnowDriftNorth",
     "LocalizationKey": "CMC_SnowDriftNorth_CardDescription",
-    "DefaultText": "Deep winter snow has drifted across the northern road to Stillwater Meadow, burying the path. Dig through it with a shovel to clear the way — once cleared, it stays open for the rest of the winter."
+    "DefaultText": "Deep winter snow has drifted across the northern road to Stillwater Meadow, burying the path. Dig through it with a shovel to clear the way quickly, or claw through it with your bare hands if you have no tool — slower, but it works. Once cleared, it stays open for the rest of the winter."
   },
   "CanBeRenamed": false,
   "AlternateNames": [],
@@ -128,7 +128,44 @@
       ]
     }
   ],
-  "DismantleActions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "cmcSnowDriftNorth",
+        "LocalizationKey": "CMC_SnowDriftNorth_CI_Dig_ByHand_ActionName",
+        "DefaultText": "Dig Through the Snow Drift by Hand"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "cmcSnowDriftNorth",
+        "LocalizationKey": "CMC_SnowDriftNorth_CI_Dig_ByHand_ActionDescription",
+        "DefaultText": "Claw through the drift with your bare hands. Slower and more exhausting than a shovel, but it clears the road to Stillwater Meadow all the same."
+      },
+      "DaytimeCost": 20,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "UsageChange": { "x": -1.0, "y": -1.0 }
+      },
+      "ProducedCards": [
+        {
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "ba39a8f65c6b02745bab30888ca1ee19",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 2 },
+              "DropChance": { "Active": true, "BaseDropChance": 100.0 }
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "PassiveStatEffects": [],
   "PassiveEffects": [],
   "MaxLiquidCapacity": 0.0,

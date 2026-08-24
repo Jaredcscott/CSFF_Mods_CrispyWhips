@@ -265,8 +265,17 @@ namespace CommunityModChest.Patcher
 
             if (!resolved && !_refsUnresolvedWarned)
             {
-                _refsUnresolvedWarned = true;
-                Plugin.Logger.LogWarning($"[ApothecarySchedulePatch] ResolveRefs failed (agent null={_agent == null}, giftedStat null={_giftedStat == null}, potionCraftStat null={_potionCraftStat == null}, cabinInteriorCard null={_cabinInteriorCard == null}, commuteNodes null={_commuteNodes == null}) — the Apothecary can never spawn/schedule until this succeeds.");
+                // Before a run boots (menu-time tick), game data may not be loaded yet and a miss
+                // is expected — only a miss while a GameManager exists is a real failure.
+                if (CardUtil.GetGameManagerInstance() != null)
+                {
+                    _refsUnresolvedWarned = true;
+                    Plugin.Logger.LogWarning($"[ApothecarySchedulePatch] ResolveRefs failed in-game (agent null={_agent == null}, giftedStat null={_giftedStat == null}, potionCraftStat null={_potionCraftStat == null}, cabinInteriorCard null={_cabinInteriorCard == null}, commuteNodes null={_commuteNodes == null}) — the Apothecary can never spawn/schedule until this succeeds.");
+                }
+                else
+                {
+                    Plugin.Logger.LogDebug("[ApothecarySchedulePatch] ResolveRefs miss before game data load (expected; will retry).");
+                }
             }
 
             return resolved;

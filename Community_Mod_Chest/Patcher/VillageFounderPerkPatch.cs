@@ -62,6 +62,25 @@ namespace CommunityModChest.Patcher
             new FounderStructure { Uid = "cmcApothecaryCabin", EnvUid = ForagingForestEnvUid },
         };
 
+        private sealed class TrustBoost
+        {
+            public string AgentUid;
+            public string NpcStatUid;
+            public string LatchUid;
+        }
+
+        // Trust is a per-agent NPCStat (QuestChainSchedulePatch.TrustMirrors owns the same three
+        // UIDs on the read side) — it can only be set on the live InGameNPC instance, which does
+        // not exist until CottageResidentSpawnPatch's own move-in poll spawns the resident. Each
+        // entry is applied once, latched, the first tick FindNPC resolves.
+        private const float TrustBoostValue = 25f;
+        private static readonly TrustBoost[] TrustBoosts =
+        {
+            new TrustBoost { AgentUid = "cmcMillerAgent", NpcStatUid = "cmcStatMillerTrust", LatchUid = "cmcStatFounderMillerTrustBoosted" },
+            new TrustBoost { AgentUid = "cmcWeaverAgent", NpcStatUid = "cmcStatWeaverTrust", LatchUid = "cmcStatFounderWeaverTrustBoosted" },
+            new TrustBoost { AgentUid = "cmcProfessorAgent", NpcStatUid = "cmcStatProfessorTrust", LatchUid = "cmcStatFounderProfessorTrustBoosted" },
+        };
+
         // Stats confirmed to exist as GameStat/NPCStat JSON (Documentation reconciliation
         // pass, 2026-07-22). Village epoch/week are written separately below (derived from
         // CurrentDay, same as VillageClock.Tick does).
@@ -79,9 +98,10 @@ namespace CommunityModChest.Patcher
             ["cmcStatQuestRenownApothecaryHerbs"] = 1f,
             ["cmcStatQuestRenownProfSpecimen"] = 1f,
             ["cmcStatInnFriendship"] = 25f,
-            ["cmcStatMillerTrust"] = 25f,
-            ["cmcStatWeaverTrust"] = 25f,
-            ["cmcStatProfessorTrust"] = 25f,
+            // Miller/Weaver/Professor trust are NPCStats, not GameStats — they cannot be written
+            // through WriteStat (gm.StatsDict holds GameStats only) and no live NPCAgent exists
+            // yet at apply time anyway (residents move in asynchronously, see below). Boosted by
+            // CheckTrustBoost once each resident is actually spawned — see TrustBoosts.
             // Move-in timers: due "yesterday" (CurrentDay - 1 substituted at apply time) so
             // CottageResidentSpawnPatch's own arrival poll spawns each resident the moment the
             // player next stands in their env — reuses its proven chassis unchanged.
@@ -92,6 +112,10 @@ namespace CommunityModChest.Patcher
 
         private static bool _initialized;
         private static MethodInfo _getFromIdMethod;
+        private static MethodInfo _findNpcMethod;
+        private static MethodInfo _hasStatMethod;
+        private static MethodInfo _getStatMethod;
+        private static MethodInfo _setStatValueFromEditorMethod;
         private static readonly Dictionary<string, object> _statCache = new(StringComparer.Ordinal);
 
         public static void Initialize(Harmony harmony)
@@ -101,6 +125,7 @@ namespace CommunityModChest.Patcher
 
             TickEvents.Interval(3f, TryApply, "VillageFounderPerkApply");
             TickEvents.Interval(1f, CheckStructurePlacement, "VillageFounderStructures");
+            TickEvents.Interval(5f, CheckTrustBoost, "VillageFounderTrustBoost");
             Plugin.Logger.LogDebug("[VillageFounderPerkPatch] initialized.");
         }
 
@@ -186,6 +211,97 @@ namespace CommunityModChest.Patcher
             {
                 Plugin.Logger.LogWarning($"[VillageFounderPerkPatch] CheckStructurePlacement failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
+        }
+
+        // Boosts each resident's trust NPCStat to TrustBoostValue the first tick their NPCAgent
+        // is actually live — cannot run any earlier since NPCStats are per-instance (see the
+        // TrustBoosts field comment). QuestChainSchedulePatch.MirrorTrust copies the live value
+        // into the player-facing GameStat mirror on its own 5s poll, so this only needs to touch
+        // the NPCStat itself.
+        private static void CheckTrustBoost()
+        {
+            try
+            {
+                if (!CardUtil.IsPerkEquipped(PerkUid)) return;
+                if (!ResolveGetFromId() || !ResolveNpcStatMethods()) return;
+
+                var gm = CardUtil.GetGameManagerInstance();
+                if (gm == null) return;
+                if (ReadStat(gm, AppliedStatUid) < 0.5f) return; // main fast-forward hasn't run yet
+
+                foreach (var boost in TrustBoosts)
+                {
+                    if (ReadStat(gm, boost.LatchUid) >= 0.5f) continue; // already boosted
+
+                    var agentSo = StatRef(boost.AgentUid);
+                    var npcStatSo = StatRef(boost.NpcStatUid);
+                    if (agentSo == null || npcStatSo == null) continue;
+
+                    object inGameNpc;
+                    try { inGameNpc = _findNpcMethod.Invoke(gm, new object[] { agentSo }); }
+                    catch (Exception ex)
+                    {
+                        Plugin.Logger.LogDebug($"[VillageFounderPerkPatch] FindNPC invoke failed for agent={boost.AgentUid}: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                        continue;
+                    }
+                    if (inGameNpc == null) continue; // resident not spawned yet
+
+                    bool hasStat;
+                    try { hasStat = (bool)_hasStatMethod.Invoke(inGameNpc, new object[] { npcStatSo }); }
+                    catch (Exception ex)
+                    {
+                        Plugin.Logger.LogDebug($"[VillageFounderPerkPatch] HasStat invoke failed for npcStat={boost.NpcStatUid}: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                        continue;
+                    }
+                    if (!hasStat) continue;
+
+                    object inGameNpcStat;
+                    try { inGameNpcStat = _getStatMethod.Invoke(inGameNpc, new object[] { npcStatSo }); }
+                    catch (Exception ex)
+                    {
+                        Plugin.Logger.LogDebug($"[VillageFounderPerkPatch] GetStat invoke failed for npcStat={boost.NpcStatUid}: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                        continue;
+                    }
+                    if (inGameNpcStat == null) continue;
+
+                    try { _setStatValueFromEditorMethod.Invoke(inGameNpcStat, new object[] { TrustBoostValue }); }
+                    catch (Exception ex)
+                    {
+                        Plugin.Logger.LogWarning($"[VillageFounderPerkPatch] SetStatValueFromEditor invoke failed for npcStat={boost.NpcStatUid}: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                        continue;
+                    }
+
+                    if (WriteStat(gm, boost.LatchUid, 1f))
+                        Plugin.Logger.LogInfo($"[VillageFounderPerkPatch] Boosted '{boost.NpcStatUid}' to {TrustBoostValue} for '{boost.AgentUid}'.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Plugin.Logger.LogWarning($"[VillageFounderPerkPatch] CheckTrustBoost failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
+            }
+        }
+
+        // ── NPC trust access — identical idiom to QuestChainSchedulePatch.MirrorTrust ──
+
+        private static bool ResolveNpcStatMethods()
+        {
+            if (_findNpcMethod != null && _hasStatMethod != null && _getStatMethod != null && _setStatValueFromEditorMethod != null) return true;
+
+            var gmType = CardUtil.FindGameType("GameManager");
+            var inGameNpcType = CardUtil.FindGameType("InGameNPC");
+            var inGameNpcStatType = CardUtil.FindGameType("InGameNPCStat");
+            if (gmType == null || inGameNpcType == null || inGameNpcStatType == null) return false;
+
+            _findNpcMethod ??= gmType.GetMethods(BindingFlags.Public | BindingFlags.Instance)
+                .FirstOrDefault(m => m.Name == "FindNPC" && m.GetParameters().Length == 1);
+            _hasStatMethod ??= inGameNpcType.GetMethods(BindingFlags.Public | BindingFlags.Instance)
+                .FirstOrDefault(m => m.Name == "HasStat" && m.GetParameters().Length == 1);
+            _getStatMethod ??= inGameNpcType.GetMethods(BindingFlags.Public | BindingFlags.Instance)
+                .FirstOrDefault(m => m.Name == "GetStat" && m.GetParameters().Length == 1);
+            _setStatValueFromEditorMethod ??= inGameNpcStatType.GetMethods(BindingFlags.Public | BindingFlags.Instance)
+                .FirstOrDefault(m => m.Name == "SetStatValueFromEditor" && m.GetParameters().Length == 1);
+
+            return _findNpcMethod != null && _hasStatMethod != null && _getStatMethod != null && _setStatValueFromEditorMethod != null;
         }
 
         // ── GameStat access — identical idiom to VillageClock/CottageResidentSpawnPatch ──

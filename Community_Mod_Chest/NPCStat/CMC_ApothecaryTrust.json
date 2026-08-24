@@ -1,0 +1,17 @@
+{
+    "UniqueID": "cmcStatApothecaryTrust",
+    "GameName": {
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "Apothecary trust/relationship - raised by selling into her Copper Chest; gates warm dialog"
+    },
+    "DefaultStartingValue": 0.0,
+    "DefaultMinMaxValue": {
+        "x": 0.0,
+        "y": 100.0
+    },
+    "DefaultRate": 0.0,
+    "DefaultMinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    }
+}

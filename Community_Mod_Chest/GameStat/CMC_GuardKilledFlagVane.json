@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatGuardKilledFlagVane",
+    "GameName": {
+        "LocalizationKey": "CMC_GuardKilledFlagVane_StatName",
+        "DefaultText": "Guard Iris Vane Killed Flag"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_GuardKilledFlagVane_StatDescription",
+        "DefaultText": "Hidden 0/1 latch: 1 while Guard Iris Vane's current absence stems from a kill rather than a rout. Set alongside her Down Since timer, but NOT cleared when that timer's 7-day cooldown ends -- it stays set until she is actually re-placed in the Village Jail, so a reload cannot resurrect her at her old post from stale pre-kill save data."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

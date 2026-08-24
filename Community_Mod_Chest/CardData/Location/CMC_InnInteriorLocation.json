@@ -9,7 +9,38 @@
     "LocalizationKey": "CMC_InnInteriorLocation_CardName",
     "DefaultText": "Village Inn"
   },
+  "CardDescription": {
+    "LocalizationKey": "CMC_InnInteriorLocation_CardDescription",
+    "DefaultText": "The common room hums with warmth from the hearth, worn floorboards, and the smell of the evening meal. Easy to lose track of time here."
+  },
   "CardImageWarpData": "VillageInnInterior",
   "CardImageWarpType": 3,
-  "ObjectWeight": 0
+  "ObjectWeight": 0,
+  "PassiveStatEffects": [],
+  "PassiveEffects": [
+    {
+      "EffectName": "Comfort (+10)",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "Conditions": {
+        "NotInBackground": true
+      },
+      "StatModifiers": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 10.0, "y": 10.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ]
+    }
+  ]
 }

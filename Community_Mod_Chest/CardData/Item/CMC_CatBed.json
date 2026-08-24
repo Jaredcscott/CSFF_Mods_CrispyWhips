@@ -1,0 +1,109 @@
+{
+    "UniqueID": "cmcCatBed",
+    "CardName": {
+        "LocalizationKey": "CMC_CatBed_CardName",
+        "DefaultText": "Cat Bed"
+    },
+    "CardDescription": {
+        "LocalizationKey": "CMC_CatBed_CardDescription",
+        "DefaultText": "A wicker basket lined with soft cloth and straw, set out for whichever cat decides to claim it. Doesn't do much for the cat's Care on its own, but a camp that has one feels a little more like a home."
+    },
+    "CardType": 0,
+    "ObjectWeight": 120.0,
+    "TradingValue": 8.0,
+    "DoesNotPile": true,
+    "MaxStack": 1,
+    "CardImageWarpData": "Bedroll",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": ["Cloth"],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": { "Active": false },
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 250.0,
+        "CardStatName": {
+            "LocalizationKey": "CMC_CatBed_UsageDurability",
+            "DefaultText": "Durability"
+        },
+        "MaxValue": 250.0,
+        "RatePerDaytimePoint": -0.1,
+        "HidingOptions": 1,
+        "HasActionOnZero": true,
+        "OnZero": {
+            "ActionDescription": {
+                "LocalizationKey": "CMC_CatBed_WornOut",
+                "DefaultText": "The basket has come apart and the stuffing has scattered."
+            },
+            "ReceivingCardChanges": { "ModType": 3 }
+        },
+        "OverrideIconWarpData": "Durability",
+        "OverrideIconWarpType": 3
+    },
+    "FuelCapacity": { "Active": false },
+    "Progress": { "Active": false },
+    "SpecialDurability1": { "Active": false },
+    "SpecialDurability2": { "Active": false },
+    "SpecialDurability3": { "Active": false },
+    "SpecialDurability4": { "Active": false },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "LocalizationKey": "CMC_CatBed_DA_Dismantle",
+                "DefaultText": "Dismantle"
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": { "ModType": 3 },
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "aa73d89b9f0f04145adce258403d61d0",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 1, "y": 1 }
+                        },
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "62ffe49f7b68c2d4b9cd549ac6942ba3",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 1, "y": 1 }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "PassiveEffects": [
+        {
+            "EffectName": "Comfort (+10)",
+            "OnlyWhenEquipped": false,
+            "EquippedOnBodyOnly": false,
+            "Conditions": {
+                "NotInBackground": true
+            },
+            "StatModifiers": [
+                {
+                    "Stat": { "m_FileID": 0, "m_PathID": 0 },
+                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 10.0, "y": 10.0 },
+                    "RateModifier": { "x": 0.0, "y": 0.0 },
+                    "MinValueModifier": { "x": 0.0, "y": 0.0 },
+                    "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+                    "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatGuardKillsPending",
+    "GameName": {
+        "LocalizationKey": "CMC_GuardKillsPending_StatName",
+        "DefaultText": "Guards Killed (Unanswered For)"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_GuardKillsPending_StatDescription",
+        "DefaultText": "Hidden count of Town Watch guards killed since the player's last full jail sentence. JailPatch reads this to set a heavier sentence (7 days per guard killed; capped at 8) instead of the usual crime-based formula, and resets it to 0 once that sentence is served in full."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 4.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

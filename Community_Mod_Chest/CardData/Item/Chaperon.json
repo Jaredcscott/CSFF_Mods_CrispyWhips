@@ -188,6 +188,47 @@
             ]
         }
     ],
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "apparelchaperon",
+                "LocalizationKey": "apparel_chaperon_CI_Dye_ActionName",
+                "DefaultText": "Dye with Pigment"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "apparelchaperon",
+                "LocalizationKey": "apparel_chaperon_CI_Dye_ActionDescription",
+                "DefaultText": "Rub the charcoal pigment into the cloth hood, darkening it to a deep soot-black."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "potterysculpturepigment"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "StackCompatible": true,
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "apparelchaperondyed",
+                "TransformIntoWarpType": 3,
+                "TransferUsage": true,
+                "SpawnTransformAtSource": true
+            }
+        }
+    ],
     "DismantleActions": [
         {
             "ActionName": {

@@ -9,7 +9,38 @@
     "LocalizationKey": "CMC_ApothecaryCabinInteriorLocation_CardName",
     "DefaultText": "Apothecary's Cabin"
   },
+  "CardDescription": {
+    "LocalizationKey": "CMC_ApothecaryCabinInteriorLocation_CardDescription",
+    "DefaultText": "Bundles of drying herbs sweeten the air of the Apothecary's cabin, and the low fire keeps the chill at bay. A calming place to rest a moment."
+  },
   "CardImageWarpData": "CMC_Alch_Cab_Int",
   "CardImageWarpType": 3,
-  "ObjectWeight": 0
+  "ObjectWeight": 0,
+  "PassiveStatEffects": [],
+  "PassiveEffects": [
+    {
+      "EffectName": "Comfort (+10)",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "Conditions": {
+        "NotInBackground": true
+      },
+      "StatModifiers": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 10.0, "y": 10.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ]
+    }
+  ]
 }

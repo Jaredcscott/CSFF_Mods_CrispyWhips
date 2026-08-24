@@ -26,12 +26,12 @@
     "PerkName": {
         "ParentObjectID": "cmcGuardPerkThorne",
         "LocalizationKey": "CMC_GuardPerk_Thorne_PerkName",
-        "DefaultText": "River Watch"
+        "DefaultText": "Town Square Watch"
     },
     "PerkDescription": {
         "ParentObjectID": "cmcGuardPerkThorne",
         "LocalizationKey": "CMC_GuardPerk_Thorne_PerkDescription",
-        "DefaultText": "Eager and quick to escalate. Works the river crossing and shouts after anyone who runs for it."
+        "DefaultText": "Eager and quick to escalate. Works the town square by day and shouts after anyone who runs for it."
     },
     "PerkUnlockConditions": {
         "ParentObjectID": "",
@@ -78,6 +78,36 @@
         },
         {
             "ModelStatWarpData": "cmcNpcStatGuardDowned",
+            "ModelStatWarpType": 3,
+            "OverrideStartingValue": {
+                "Active": true,
+                "FloatValue": 0.0
+            },
+            "OverrideMinMaxValue": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "OverrideRate": {
+                "Active": false,
+                "FloatValue": 0.0
+            },
+            "OverrideMinMaxRate": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "StatAddedPercentageToModifiersOverride": 0,
+            "StatScalingToModifiers": [],
+            "NPCStatAddedPercentageToModifiersOverride": 0,
+            "NPCStatScalingToModifiers": [],
+            "StatusesOverride": 0,
+            "Statuses": [],
+            "OverrideVisibleIcon": false,
+            "StatusDebugMode": false
+        },
+        {
+            "ModelStatWarpData": "cmcNpcStatGuardKilled",
             "ModelStatWarpType": 3,
             "OverrideStartingValue": {
                 "Active": true,

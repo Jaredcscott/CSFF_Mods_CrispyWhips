@@ -1,0 +1,75 @@
+{
+    "UniqueID": "cmcbpclimbingrope",
+    "CardName": {
+        "ParentObjectID": "cmcbpclimbingrope",
+        "LocalizationKey": "Bp_CMC_ClimbingRope_CardName",
+        "DefaultText": "Climbing Rope"
+    },
+    "CardDescription": {
+        "ParentObjectID": "cmcbpclimbingrope",
+        "LocalizationKey": "Bp_CMC_ClimbingRope_CardDescription",
+        "DefaultText": "Knot and reinforce rope the way the Weaver showed you, sturdy enough to anchor on a cliff face."
+    },
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "cmcbpclimbingrope",
+        "LocalizationKey": "Bp_CMC_ClimbingRope_UnlockConditionsDesc",
+        "DefaultText": "Taught by the Weaver once her errands are done"
+    },
+    "StartUnlocked": false,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [
+        {
+            "ObjectiveName": "WeaverQuestChainComplete",
+            "CompletionWeight": 1,
+            "StatCondition": {
+                "TriggerRange": { "x": 6.5, "y": 20.0 },
+                "StatWarpData": "cmcStatWeaverQuestChain",
+                "StatWarpType": 3
+            },
+            "ConstantlyChecking": false
+        }
+    ],
+    "BlueprintUnlockTicksCost": 4.0,
+    "BuildingDaytimeCost": 2,
+    "DeconstructDaytimeCost": 0,
+    "NeedsRoomInLocationToSpawn": false,
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 4,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+                    "RequiredCardWarpType": 3
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "RequiredCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+                    "RequiredCardWarpType": 3
+                }
+            ],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BlueprintResult": [
+        {
+            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": { "x": 1, "y": 1 },
+            "DroppedCardWarpData": "cmcClimbingRope",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "CardImageWarpData": "Rope",
+    "CardImageWarpType": 3,
+    "ResearchedNotification": 0
+}

@@ -175,6 +175,29 @@
                     "DropCardsInsideInventory": true
                 }
             ]
+        },
+        {
+            "ActionID": "MillerProduceFlour",
+            "ActionLocalizedName": {
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "MillerProduceFlour"
+            },
+            "RepeatOptions": 3,
+            "Conditions": {
+                "RequiredEnvironmentWarpData": "cmcEnvVillage",
+                "RequiredEnvironmentWarpType": 3
+            },
+            "DroppedCards": [
+                {
+                    "CollectionName": "Miller grinding stock",
+                    "DropCardsInsideInventory": true,
+                    "DroppedCards": [
+                        { "DroppedCardWarpData": "7900a60c205568640a887f30cc6ff8f9", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 2 }, "DropChance": { "Active": true, "BaseDropChance": 55.0 } },
+                        { "DroppedCardWarpData": "730e96f4b2a7540448604cd0c1644e97", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 2 }, "DropChance": { "Active": true, "BaseDropChance": 40.0 } },
+                        { "DroppedCardWarpData": "ab30197cd1a147746b807e33f5f91fc3", "DroppedCardWarpType": 3, "Quantity": { "x": 1, "y": 2 }, "DropChance": { "Active": true, "BaseDropChance": 40.0 } }
+                    ]
+                }
+            ]
         }
     ],
     "CannotTrade": false,
