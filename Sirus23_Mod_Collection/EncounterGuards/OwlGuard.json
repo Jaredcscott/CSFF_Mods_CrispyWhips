@@ -1,0 +1,6 @@
+{
+    "Name": "OwlCompanionGuard",
+    "GuardCardUids": ["fc_owl_companion"],
+    "EncounterUids": [],
+    "SuppressChance": 35
+}

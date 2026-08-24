@@ -1,0 +1,100 @@
+{
+    "UniqueID": "wildowl_tracks",
+    "CardName": {
+        "ParentObjectID": "wildowl_tracks",
+        "LocalizationKey": "WildOwl_Tracks_CardName",
+        "DefaultText": "Owl Pellets & Feathers"
+    },
+    "CardDescription": {
+        "ParentObjectID": "wildowl_tracks",
+        "LocalizationKey": "WildOwl_Tracks_CardDescription",
+        "DefaultText": "A scatter of downy grey feathers and a matted pellet of fur and small bones. Something silent hunted here."
+    },
+    "AlternateNames": [
+        {
+            "Conditions": {
+                "Special1Range": {"x": 0.0, "y": 50.0}
+            },
+            "Name": {
+                "ParentObjectID": "wildowl_tracks",
+                "LocalizationKey": "WildOwl_Tracks_AlternateName0",
+                "DefaultText": "Bloodied Feathers"
+            }
+        }
+    ],
+    "CardType": 2,
+    "ObjectWeight": 0.0,
+    "TradingValue": 0.0,
+    "CanBeRenamed": false,
+    "AlwaysUpdate": true,
+    "DoesNotPile": true,
+    "CanBeTrashed": true,
+    "NeedsRoomInLocationToSpawn": false,
+    "CardTags": [],
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "EquipmentTags": [],
+    "FlavourTags": [],
+    "SpiceTags": [],
+    "CardImage": {"m_FileID": 0, "m_PathID": 0},
+    "CardImageWarpData": "OwlTracks",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 48.0,
+        "CardStatName": {
+            "ParentObjectID": "wildowl_tracks",
+            "LocalizationKey": "WildOwl_Tracks_SpoilageTime_CardStatName",
+            "DefaultText": "Freshness"
+        },
+        "MaxValue": 48.0,
+        "RatePerDaytimePoint": -1.0,
+        "HasActionOnZero": true,
+        "OnZero": {
+            "ActionName": {
+                "ParentObjectID": "wildowl_tracks",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "Tracks Faded"
+            },
+            "ReceivingCardChanges": {"ModType": 3}
+        }
+    },
+    "UsageDurability": {
+        "Active": true,
+        "FloatValue": 1.0,
+        "MaxValue": 1.0,
+        "RatePerDaytimePoint": -1.0,
+        "HidingOptions": 2,
+        "HasActionOnZero": true,
+        "OnZero": {
+            "ActionName": {
+                "ParentObjectID": "wildowl_tracks",
+                "LocalizationKey": "IGNOREKEY",
+                "DefaultText": "Tracking Practice"
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "e83cdd915095bf84b97045e3c3bb6ef5",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 1.0, "y": 1.0}
+                }
+            ]
+        }
+    },
+    "SpecialDurability1": {
+        "Active": true,
+        "FloatValue": 100.0,
+        "CardStatName": {
+            "ParentObjectID": "wildowl_tracks",
+            "LocalizationKey": "WildOwl_Tracks_SpecialDurability1_CardStatName",
+            "DefaultText": "Blood"
+        },
+        "MaxValue": 100.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 2
+    },
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "DroppedOnDestroy": [],
+    "EquipSlotType": 0
+}

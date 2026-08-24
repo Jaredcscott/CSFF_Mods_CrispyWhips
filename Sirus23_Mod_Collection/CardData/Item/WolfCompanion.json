@@ -1,0 +1,696 @@
+{
+    "UniqueID": "fc_wolf_companion",
+    "CardName": {
+        "ParentObjectID": "fc_wolf_companion",
+        "LocalizationKey": "FC_WolfCompanion_CardName",
+        "DefaultText": "Wolf Companion"
+    },
+    "CardDescription": {
+        "ParentObjectID": "fc_wolf_companion",
+        "LocalizationKey": "FC_WolfCompanion_CardDescription",
+        "DefaultText": "A loyal wolf that follows you. Keep it fed, watered, and happy or it will eventually leave."
+    },
+    "CardType": 0,
+    "ObjectWeight": 100,
+    "TradingValue": 500,
+    "CardTags": [],
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "EquipmentTags": [],
+    "FlavourTags": [],
+    "SpiceTags": [],
+    "CannotBeTrashed": true,
+    "CannotBeTransferred": true,
+    "DoesNotPile": true,
+    "AlwaysUpdate": true,
+    "CardImage": {"m_FileID": 0, "m_PathID": 0},
+    "CardImageWarpData": "WolfCompanion",
+    "CardImageWarpType": 3,
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_wolf_companion",
+                "LocalizationKey": "FC_WolfCompanion_CI0_ActionName",
+                "DefaultText": "Feed Wolf"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_wolf_companion",
+                "LocalizationKey": "FC_WolfCompanion_CI0_ActionDescription",
+                "DefaultText": "Give the wolf a meal. It wags its tail."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "fe07d4d800bcc8646a0ff2513c78d5df",
+                    "e292e8faac1041f4ab1da9bcf900e751",
+                    "91168c5978471d54aaad816581f63ffd",
+                    "f4be79e87ba98db41a9c9e31bb76c33d",
+                    "5dc9560f81be57c4b9e22780f8a5ad78",
+                    "692c88d91a4fdf0498749339ae6d53f8",
+                    "4093dde8982306b4d8a5a9108ac5f0bb",
+                    "1e3f5517c9203e74b9c76a7bae1a3920",
+                    "ec0f203ea77c79741a70170a2c42e202",
+                    "f6cc4f98e0ab4ae47b4b2c8f5d48da02",
+                    "b25f1f9bfc2a0bc44a93079ed02cb43f",
+                    "699942038046235428420895876b83e2",
+                    "674b640f46671f1418af4559b259b442",
+                    "3dda5e481d296c5409b05ac6e66a9221"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {"TriggerCards": [], "TriggerTags": []},
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "GivenCardChanges": {"ModType": 3},
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "SpoilageChange": {"x": 288.0, "y": 288.0},
+                "ChargesChange": {"x": 20.0, "y": 20.0}
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 10.0, "y": 10.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                },
+                {
+                    "StatWarpData": "3dc9b7924c4bec142af1c255f6df235d",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -15.0, "y": -15.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_wolf_companion",
+                "LocalizationKey": "FC_WolfCompanion_CI1_ActionName",
+                "DefaultText": "Give Water"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_wolf_companion",
+                "LocalizationKey": "FC_WolfCompanion_CI1_ActionDescription",
+                "DefaultText": "Offer the wolf a drink from a water container."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "2ae9292d2b80ccb41a0840ca736e0d12",
+                    "1cecbd7141fa89a4c90686dcd2d92155",
+                    "536f722edbb5e9e4b959b1f3ad25f648"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": ["tag_WaterContainer"],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {"TriggerCards": [], "TriggerTags": []},
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "RequiredGivenDurabilities": {
+                "RequiredLiquidQuantity": 100.0,
+                "HideActionIfNotMet": true
+            },
+            "GivenCardChanges": {
+                "ModType": 0,
+                "ModifyLiquid": true,
+                "LiquidQuantityChange": {"x": -100.0, "y": -100.0}
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "UsageChange": {"x": 96.0, "y": 96.0},
+                "ChargesChange": {"x": 15.0, "y": 15.0}
+            },
+            "StatModifications": []
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_wolf_companion",
+                "LocalizationKey": "FC_WolfCompanion_CI2_ActionName",
+                "DefaultText": "Treat Wounds"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_wolf_companion",
+                "LocalizationKey": "FC_WolfCompanion_CI2_ActionDescription",
+                "DefaultText": "Apply the remedy to the wolf's injuries. It holds still while you work."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "322e42ea161bf2e4bb94747882d1285a",
+                    "44e5ef28c3f047048850e7fd1f60dab6",
+                    "af4e73e4f877a6a4fa2bfe86741d56d8",
+                    "8486fa421f3930a428cc4d650dc55859",
+                    "17bcb4398f0aa9f40a351f45790c70aa",
+                    "6a819fcbe4e87a94cbb279f7bb5284f7",
+                    "9c66dd9251eb1e446b70958f82585af6",
+                    "aa9bd5a17e9e8434cbd5ca6b90e6da39"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {"TriggerCards": [], "TriggerTags": []},
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "GivenCardChanges": {"ModType": 3},
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "Special1Change": {"x": 192.0, "y": 192.0}
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 5.0, "y": 5.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_wolf_companion",
+                "LocalizationKey": "FC_WolfCompanion_CI3_ActionName",
+                "DefaultText": "Give Treat"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_wolf_companion",
+                "LocalizationKey": "FC_WolfCompanion_CI3_ActionDescription",
+                "DefaultText": "Slip the wolf a bone. It wags its tail furiously."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": ["674b640f46671f1418af4559b259b442"],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {"TriggerCards": [], "TriggerTags": []},
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "GivenCardChanges": {"ModType": 3},
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "SpoilageChange": {"x": 96.0, "y": 96.0},
+                "ChargesChange": {"x": 150.0, "y": 150.0}
+            },
+            "StatModifications": []
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_wolf_companion",
+                "LocalizationKey": "FC_WolfCompanion_CI4_ActionName",
+                "DefaultText": "Slaughter"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_wolf_companion",
+                "LocalizationKey": "FC_WolfCompanion_CI4_ActionDescription",
+                "DefaultText": "End the wolf's suffering with a quick knife. Its body remains."
+            },
+            "DaytimeCost": 2,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": ["tag_Cutter"],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {"TriggerCards": [], "TriggerTags": []},
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "GivenCardChanges": {
+                "ModType": 1,
+                "UsageChange": {"x": -1.0, "y": -1.0}
+            },
+            "ReceivingCardChanges": {"ModType": 3},
+            "ProducedCards": [
+                {
+                    "CollectionName": "WolfSlaughter",
+                    "CollectionWeight": 1,
+                    "MinCollectionCount": 1,
+                    "MaxCollectionCount": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "aad9634a9b5273844bbe2e7a119c5b23",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ],
+            "StatModifications": []
+        }
+    ],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_wolf_companion",
+                "LocalizationKey": "FC_WolfCompanion_DA0_ActionName",
+                "DefaultText": "Pet Wolf"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_wolf_companion",
+                "LocalizationKey": "FC_WolfCompanion_DA0_ActionDescription",
+                "DefaultText": "Spend a quiet moment with your companion by the fire."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "ReceivingCardChanges": {"ModType": 1, "ChargesChange": {"x": 50.0, "y": 50.0}},
+            "StatModifications": [
+                {
+                    "StatWarpData": "3dc9b7924c4bec142af1c255f6df235d",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -20.0, "y": -20.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                },
+                {
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -10.0, "y": -10.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                },
+                {
+                    "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 5.0, "y": 5.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_wolf_companion",
+                "LocalizationKey": "FC_WolfCompanion_DA1_ActionName",
+                "DefaultText": "Play with Wolf"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_wolf_companion",
+                "LocalizationKey": "FC_WolfCompanion_DA1_ActionDescription",
+                "DefaultText": "Chase, wrestle and tumble through the forest together. Pure joy."
+            },
+            "DaytimeCost": 2,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "ReceivingCardChanges": {"ModType": 1, "ChargesChange": {"x": 80.0, "y": 80.0}},
+            "StatModifications": [
+                {
+                    "StatWarpData": "3dc9b7924c4bec142af1c255f6df235d",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -35.0, "y": -35.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                },
+                {
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -20.0, "y": -20.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                },
+                {
+                    "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 15.0, "y": 15.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                },
+                {
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -10.0, "y": -10.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_wolf_companion",
+                "LocalizationKey": "FC_WolfCompanion_DA2_ActionName",
+                "DefaultText": "Send on Hunt"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_wolf_companion",
+                "LocalizationKey": "FC_WolfCompanion_DA2_ActionDescription",
+                "DefaultText": "The wolf disappears into the undergrowth. It returns with prey — a squirrel, perhaps a partridge, rarely a hare."
+            },
+            "DaytimeCost": 4,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "ReceivingCardChanges": {"ModType": 0},
+            "StatModifications": []
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_wolf_companion",
+                "LocalizationKey": "FC_WolfCompanion_DA3_ActionName",
+                "DefaultText": "Track Scents"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_wolf_companion",
+                "LocalizationKey": "FC_WolfCompanion_DA3_ActionDescription",
+                "DefaultText": "Follow the wolf as it reads the forest. Your tracking improves."
+            },
+            "DaytimeCost": 3,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "ReceivingCardChanges": {"ModType": 1, "ChargesChange": {"x": 20.0, "y": 20.0}},
+            "StatModifications": [
+                {
+                    "StatWarpData": "e83cdd915095bf84b97045e3c3bb6ef5",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 10.0, "y": 10.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                },
+                {
+                    "StatWarpData": "3dc9b7924c4bec142af1c255f6df235d",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -10.0, "y": -10.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_wolf_companion",
+                "LocalizationKey": "FC_WolfCompanion_DA4_ActionName",
+                "DefaultText": "Guard Camp"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_wolf_companion",
+                "LocalizationKey": "FC_WolfCompanion_DA4_ActionDescription",
+                "DefaultText": "The wolf patrols the perimeter while you rest. You sleep more soundly."
+            },
+            "DaytimeCost": 6,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "ReceivingCardChanges": {"ModType": 1, "ChargesChange": {"x": 30.0, "y": 30.0}},
+            "StatModifications": [
+                {
+                    "StatWarpData": "ca25b2c02ece6674bae6aaba4a6b8c10",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 20.0, "y": 20.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                },
+                {
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -15.0, "y": -15.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                },
+                {
+                    "StatWarpData": "3dc9b7924c4bec142af1c255f6df235d",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -10.0, "y": -10.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_wolf_companion",
+                "LocalizationKey": "FC_WolfCompanion_DA5_ActionName",
+                "DefaultText": "Flush Prey"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_wolf_companion",
+                "LocalizationKey": "FC_WolfCompanion_DA5_ActionDescription",
+                "DefaultText": "Send the wolf ahead on the trail. Prey scatter; you pick off stragglers."
+            },
+            "DaytimeCost": 2,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 0
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "e83cdd915095bf84b97045e3c3bb6ef5",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 10.0, "y": 10.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                },
+                {
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -10.0, "y": -10.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_wolf_companion",
+                "LocalizationKey": "FC_WolfCompanion_DA6_ActionName",
+                "DefaultText": "Bond with Wolf"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_wolf_companion",
+                "LocalizationKey": "FC_WolfCompanion_DA6_ActionDescription",
+                "DefaultText": "Spend the day moving through the forest together. A quiet understanding passes between you. Can only be earned once."
+            },
+            "DaytimeCost": 8,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "ChargesChange": {"x": 40.0, "y": 40.0}
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "3dc9b7924c4bec142af1c255f6df235d",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -20.0, "y": -20.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_wolf_companion",
+                "LocalizationKey": "FC_WolfCompanion_DA7_ActionName",
+                "DefaultText": "Stay Here"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_wolf_companion",
+                "LocalizationKey": "FC_WolfCompanion_DA7_ActionDescription",
+                "DefaultText": "Command the wolf to hold its ground until called back."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "RequiredReceivingDurabilities": {
+                "RequiredSpecial2Percent": {"Active": true, "FloatValue": 0.0, "MaxValue": 0.0},
+                "HideActionIfNotMet": true
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "Special2Change": {"x": 1.0, "y": 1.0}
+            },
+            "StatModifications": []
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_wolf_companion",
+                "LocalizationKey": "FC_WolfCompanion_DA8_ActionName",
+                "DefaultText": "Follow Me"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_wolf_companion",
+                "LocalizationKey": "FC_WolfCompanion_DA8_ActionDescription",
+                "DefaultText": "Whistle for the wolf. It bounds over and falls into step beside you."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "RequiredReceivingDurabilities": {
+                "RequiredSpecial2Percent": {"Active": true, "FloatValue": 1.0, "MaxValue": 1.0},
+                "HideActionIfNotMet": true
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "Special2Change": {"x": -1.0, "y": -1.0}
+            },
+            "StatModifications": []
+        }
+    ],
+    "OnInteractActions": [],
+    "SpoilageTime": {
+        "Active": true,
+        "MaxValue": 672.0,
+        "FloatValue": 672.0,
+        "RatePerDaytimePoint": -1.0,
+        "CardStatName": {
+            "ParentObjectID": "fc_wolf_companion",
+            "LocalizationKey": "FC_WolfCompanion_SpoilageTime_CardStatName",
+            "DefaultText": "Hunger"
+        },
+        "OverrideIconWarpData": "Hunger_Old",
+        "OverrideIconWarpType": 3
+    },
+    "UsageDurability": {
+        "Active": true,
+        "MaxValue": 384.0,
+        "FloatValue": 384.0,
+        "RatePerDaytimePoint": -1.0,
+        "CardStatName": {
+            "ParentObjectID": "fc_wolf_companion",
+            "LocalizationKey": "FC_WolfCompanion_UsageDurability_CardStatName",
+            "DefaultText": "Thirst"
+        },
+        "OverrideIconWarpData": "Thirst_Old",
+        "OverrideIconWarpType": 3
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": true,
+        "MaxValue": 576.0,
+        "FloatValue": 576.0,
+        "RatePerDaytimePoint": -1.0,
+        "CardStatName": {
+            "ParentObjectID": "fc_wolf_companion",
+            "LocalizationKey": "FC_WolfCompanion_Progress_CardStatName",
+            "DefaultText": "Morale"
+        },
+        "OverrideIconWarpData": "Content_Old",
+        "OverrideIconWarpType": 3
+    },
+    "SpecialDurability1": {
+        "Active": true,
+        "MaxValue": 480.0,
+        "FloatValue": 480.0,
+        "RatePerDaytimePoint": 0.0,
+        "OverrideIconWarpData": "Health",
+        "OverrideIconWarpType": 3
+    },
+    "SpecialDurability2": {
+        "Active": true,
+        "MaxValue": 1.0,
+        "FloatValue": 0.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 2
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "EquipSlotType": 0,
+    "SpawnStatDefaults": {
+        "SpoilageTime": 672.0,
+        "UsageDurability": 384.0,
+        "Progress": 576.0,
+        "SpecialDurability1": 480.0,
+        "SpecialDurability2": 0.0
+    }
+}

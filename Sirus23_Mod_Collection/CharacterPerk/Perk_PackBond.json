@@ -1,0 +1,69 @@
+{
+    "UniqueID": "fc_perk_pack_bond",
+    "PerkName": {
+        "ParentObjectID": "fc_perk_pack_bond",
+        "LocalizationKey": "FC_Perk_PackBond_PerkName",
+        "DefaultText": "Pack Bond"
+    },
+    "PerkDescription": {
+        "ParentObjectID": "fc_perk_pack_bond",
+        "LocalizationKey": "FC_Perk_PackBond_PerkDescription",
+        "DefaultText": "Your bond with the wolf runs deep. Heightened instincts sharpen your tracking."
+    },
+    "ActionModifiers": [],
+    "ActionObjectives": [],
+    "AddedCards": [],
+    "AddedStartingHours": 0,
+    "CardsOnBoardObjectives": [],
+    "CheckingNotificationDetails": 0,
+    "CompleteOnLose": false,
+    "CompleteOnWin": false,
+    "DebugCompletion": false,
+    "DifficultyRating": -100,
+    "DisplayPriority": 2900.0,
+    "EditorOnly": false,
+    "EquippedCards": [],
+    "EquippedCardsWarpData": [],
+    "EquippedCardsWarpType": 3,
+    "HiddenUntilUnlocked": true,
+    "StartUnlocked": false,
+    "MoonsCost": 0,
+    "NestedObjectives": [],
+    "NoSafetyMode": false,
+    "NotifyWhenNotChecked": false,
+    "OverrideEnvironment": {"m_FileID": 0, "m_PathID": 0},
+    "OverrideEquipment": false,
+    "OverrideWeather": {"m_FileID": 0, "m_PathID": 0},
+    "PerkIcon": {"m_FileID": 0, "m_PathID": 0},
+    "PerkIconWarpData": "WolfCompanion",
+    "PerkIconWarpType": 3,
+    "PointsCost": 0,
+    "SunsCost": 0,
+    "AddedCardsWarpData": [],
+    "AddedCardsWarpType": 3,
+    "StartingStatModifiers": [
+        {
+            "StatWarpData": "e83cdd915095bf84b97045e3c3bb6ef5",
+            "StatWarpType": 3,
+            "ValueModifier": {"x": 15.0, "y": 15.0},
+            "InstantModifier": true,
+            "ApplyEachTick": false
+        }
+    ],
+    "PassiveStatModifiers": [],
+    "PerkUnlockConditions": {
+        "ParentObjectID": "fc_perk_pack_bond",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "PlayedCharacter": [],
+    "RequiredDifficultyScore": {"x": 0, "y": 0},
+    "StatsObjectives": [],
+    "TagsOnBoardObjectives": [],
+    "TimeObjectives": [],
+    "ResetLockInEditor": false,
+    "TagRequirements": [],
+    "CharacterPerkPerkGroup": "None",
+    "CharacterPerkPerkGroupWarpData": "None",
+    "CharacterPerkPerkGroupWarpType": 3
+}

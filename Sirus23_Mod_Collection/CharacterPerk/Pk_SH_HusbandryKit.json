@@ -1,0 +1,70 @@
+{
+    "UniqueID": "sh_perk_husbandry_kit",
+    "StartUnlocked": false,
+    "ActionObjectives": [],
+    "CardsOnBoardObjectives": [],
+    "TagsOnBoardObjectives": [],
+    "StatsObjectives": [],
+    "TimeObjectives": [],
+    "NestedObjectives": [],
+    "PlayedCharacter": [],
+    "CompleteOnWin": false,
+    "CompleteOnLose": false,
+    "RequiredDifficultyScore": {
+        "x": 0,
+        "y": 0
+    },
+    "EditorOnly": false,
+    "NotifyWhenNotChecked": false,
+    "CheckingNotificationDetails": 0,
+    "DebugCompletion": false,
+    "SunsCost": 0,
+    "MoonsCost": 1,
+    "ResetLockInEditor": false,
+    "PerkName": {
+        "ParentObjectID": "sh_perk_husbandry_kit",
+        "LocalizationKey": "sh_perk_husbandry_kit_PerkName",
+        "DefaultText": "Sheep Husbandry Kit"
+    },
+    "PerkDescription": {
+        "ParentObjectID": "sh_perk_husbandry_kit",
+        "LocalizationKey": "sh_perk_husbandry_kit_PerkDescription",
+        "DefaultText": "Begin your run with a full breeding flock: a ram, a lactating ewe, and a lamb. Everything you need to build a flock from day one."
+    },
+    "PerkUnlockConditions": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "PerkIcon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "PerkIconWarpData": "sh_lactating_sheep",
+    "PerkIconWarpType": 3,
+    "DifficultyRating": 0,
+    "DisplayPriority": 52.0,
+    "HiddenUntilUnlocked": false,
+    "AddedStartingHours": 0,
+    "OverrideEnvironment": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "OverrideWeather": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "AddedCards": [],
+    "AddedCardsWarpData": [
+        "sh_male_sheep",
+        "sh_lactating_sheep",
+        "sh_lamb"
+    ],
+    "AddedCardsWarpType": 3,
+    "EquippedCards": [],
+    "OverrideEquipment": false,
+    "StartingStatModifiers": [],
+    "PassiveStatModifiers": [],
+    "ActionModifiers": [],
+    "CharacterPerkPerkGroup": "72120cda8e1cef540b1b25118dd7edaa"
+}

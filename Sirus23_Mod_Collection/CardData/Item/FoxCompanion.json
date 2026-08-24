@@ -1,0 +1,542 @@
+{
+    "UniqueID": "fc_fox_companion",
+    "CardName": {
+        "ParentObjectID": "fc_fox_companion",
+        "LocalizationKey": "FC_FoxCompanion_CardName",
+        "DefaultText": "Fox Companion"
+    },
+    "CardDescription": {
+        "ParentObjectID": "fc_fox_companion",
+        "LocalizationKey": "FC_FoxCompanion_CardDescription",
+        "DefaultText": "A quick-witted fox that has taken a liking to you. Keep it fed and watered or it will wander off."
+    },
+    "CardType": 0,
+    "ObjectWeight": 100,
+    "TradingValue": 500,
+    "CardTags": [],
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "EquipmentTags": [],
+    "FlavourTags": [],
+    "SpiceTags": [],
+    "CannotBeTrashed": true,
+    "CannotBeTransferred": true,
+    "DoesNotPile": true,
+    "AlwaysUpdate": true,
+    "CardImage": {"m_FileID": 0, "m_PathID": 0},
+    "CardImageWarpData": "FoxCompanion",
+    "CardImageWarpType": 3,
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_fox_companion",
+                "LocalizationKey": "FC_FoxCompanion_CI0_ActionName",
+                "DefaultText": "Feed Fox"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_fox_companion",
+                "LocalizationKey": "FC_FoxCompanion_CI0_ActionDescription",
+                "DefaultText": "Offer the fox a meal. Its ears perk up happily."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "fe07d4d800bcc8646a0ff2513c78d5df",
+                    "e292e8faac1041f4ab1da9bcf900e751",
+                    "91168c5978471d54aaad816581f63ffd",
+                    "f4be79e87ba98db41a9c9e31bb76c33d",
+                    "5dc9560f81be57c4b9e22780f8a5ad78",
+                    "692c88d91a4fdf0498749339ae6d53f8",
+                    "4093dde8982306b4d8a5a9108ac5f0bb",
+                    "1e3f5517c9203e74b9c76a7bae1a3920",
+                    "ec0f203ea77c79741a70170a2c42e202",
+                    "f6cc4f98e0ab4ae47b4b2c8f5d48da02",
+                    "b25f1f9bfc2a0bc44a93079ed02cb43f",
+                    "699942038046235428420895876b83e2",
+                    "674b640f46671f1418af4559b259b442",
+                    "3dda5e481d296c5409b05ac6e66a9221"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {"TriggerCards": [], "TriggerTags": []},
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "GivenCardChanges": {"ModType": 3},
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "SpoilageChange": {"x": 240.0, "y": 240.0},
+                "ChargesChange": {"x": 60.0, "y": 60.0}
+            },
+            "StatModifications": []
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_fox_companion",
+                "LocalizationKey": "FC_FoxCompanion_CI1_ActionName",
+                "DefaultText": "Give Treat"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_fox_companion",
+                "LocalizationKey": "FC_FoxCompanion_CI1_ActionDescription",
+                "DefaultText": "Offer the fox some dried berries. Its eyes light up with excitement."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "0f14d75156adbeb42b1e7616414c236b",
+                    "9955af347ce41af4c9e78ee97f008182",
+                    "4568ba3bab979cf43b79b828c331b514"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {"TriggerCards": [], "TriggerTags": []},
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "GivenCardChanges": {"ModType": 3},
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "SpoilageChange": {"x": 80.0, "y": 80.0},
+                "ChargesChange": {"x": 150.0, "y": 150.0}
+            },
+            "StatModifications": []
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_fox_companion",
+                "LocalizationKey": "FC_FoxCompanion_CI2_ActionName",
+                "DefaultText": "Give Water"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_fox_companion",
+                "LocalizationKey": "FC_FoxCompanion_CI2_ActionDescription",
+                "DefaultText": "Cup water in your hands for the fox. It laps eagerly."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "2ae9292d2b80ccb41a0840ca736e0d12",
+                    "1cecbd7141fa89a4c90686dcd2d92155",
+                    "536f722edbb5e9e4b959b1f3ad25f648"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": ["tag_WaterContainer"],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {"TriggerCards": [], "TriggerTags": []},
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "RequiredGivenDurabilities": {
+                "RequiredLiquidQuantity": 100.0,
+                "HideActionIfNotMet": true
+            },
+            "GivenCardChanges": {
+                "ModType": 0,
+                "ModifyLiquid": true,
+                "LiquidQuantityChange": {"x": -100.0, "y": -100.0}
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "UsageChange": {"x": 96.0, "y": 96.0},
+                "ChargesChange": {"x": 10.0, "y": 10.0}
+            },
+            "StatModifications": []
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_fox_companion",
+                "LocalizationKey": "FC_FoxCompanion_CI3_ActionName",
+                "DefaultText": "Slaughter"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_fox_companion",
+                "LocalizationKey": "FC_FoxCompanion_CI3_ActionDescription",
+                "DefaultText": "Quick and merciful. The fox does not struggle. Its body remains."
+            },
+            "DaytimeCost": 2,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": ["tag_Cutter"],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {"TriggerCards": [], "TriggerTags": []},
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "GivenCardChanges": {
+                "ModType": 1,
+                "UsageChange": {"x": -1.0, "y": -1.0}
+            },
+            "ReceivingCardChanges": {"ModType": 3},
+            "ProducedCards": [
+                {
+                    "CollectionName": "FoxSlaughter",
+                    "CollectionWeight": 1,
+                    "MinCollectionCount": 1,
+                    "MaxCollectionCount": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "f017720bc06f6124099894023755f1c2",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ],
+            "StatModifications": []
+        }
+    ],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_fox_companion",
+                "LocalizationKey": "FC_FoxCompanion_DA0_ActionName",
+                "DefaultText": "Pet Fox"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_fox_companion",
+                "LocalizationKey": "FC_FoxCompanion_DA0_ActionDescription",
+                "DefaultText": "Scratch behind its ears. It leans into your hand."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "ReceivingCardChanges": {"ModType": 1, "ChargesChange": {"x": 50.0, "y": 50.0}},
+            "StatModifications": [
+                {
+                    "StatWarpData": "3dc9b7924c4bec142af1c255f6df235d",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -15.0, "y": -15.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                },
+                {
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -5.0, "y": -5.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_fox_companion",
+                "LocalizationKey": "FC_FoxCompanion_DA1_ActionName",
+                "DefaultText": "Play with Fox"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_fox_companion",
+                "LocalizationKey": "FC_FoxCompanion_DA1_ActionDescription",
+                "DefaultText": "Chase each other through the ferns. Pure mischievous fun."
+            },
+            "DaytimeCost": 2,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "ChargesChange": {"x": 100.0, "y": 100.0},
+                "SpoilageChange": {"x": -20.0, "y": -20.0}
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "3dc9b7924c4bec142af1c255f6df235d",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -30.0, "y": -30.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                },
+                {
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -15.0, "y": -15.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                },
+                {
+                    "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 10.0, "y": 10.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_fox_companion",
+                "LocalizationKey": "FC_FoxCompanion_DA2_ActionName",
+                "DefaultText": "Scout Ahead"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_fox_companion",
+                "LocalizationKey": "FC_FoxCompanion_DA2_ActionDescription",
+                "DefaultText": "Send the fox to nose around. It comes back with something useful."
+            },
+            "DaytimeCost": 3,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 0
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "e83cdd915095bf84b97045e3c3bb6ef5",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 8.0, "y": 8.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                },
+                {
+                    "StatWarpData": "3dc9b7924c4bec142af1c255f6df235d",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -10.0, "y": -10.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_fox_companion",
+                "LocalizationKey": "FC_FoxCompanion_DA3_ActionName",
+                "DefaultText": "Retrieve Partridge"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_fox_companion",
+                "LocalizationKey": "FC_FoxCompanion_DA3_ActionDescription",
+                "DefaultText": "The fox flushes a partridge from the brush and chases it down. It trots back proudly."
+            },
+            "DaytimeCost": 3,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "ReceivingCardChanges": {"ModType": 0},
+            "StatModifications": []
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_fox_companion",
+                "LocalizationKey": "FC_FoxCompanion_DA4_ActionName",
+                "DefaultText": "Stay Here"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_fox_companion",
+                "LocalizationKey": "FC_FoxCompanion_DA4_ActionDescription",
+                "DefaultText": "The fox curls up and refuses to budge until called."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "RequiredReceivingDurabilities": {
+                "RequiredSpecial2Percent": {"Active": true, "FloatValue": 0.0, "MaxValue": 0.0},
+                "HideActionIfNotMet": true
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "Special2Change": {"x": 1.0, "y": 1.0}
+            },
+            "StatModifications": []
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_fox_companion",
+                "LocalizationKey": "FC_FoxCompanion_DA5_ActionName",
+                "DefaultText": "Follow Me"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_fox_companion",
+                "LocalizationKey": "FC_FoxCompanion_DA5_ActionDescription",
+                "DefaultText": "The fox perks its ears and trots after you once more."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "RequiredReceivingDurabilities": {
+                "RequiredSpecial2Percent": {"Active": true, "FloatValue": 1.0, "MaxValue": 1.0},
+                "HideActionIfNotMet": true
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "Special2Change": {"x": -1.0, "y": -1.0}
+            },
+            "StatModifications": []
+        }
+    ],
+    "OnInteractActions": [],
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 480.0,
+        "CardStatName": {
+            "ParentObjectID": "fc_fox_companion",
+            "LocalizationKey": "FC_FoxCompanion_SpoilageTime_CardStatName",
+            "DefaultText": "Hunger"
+        },
+        "MaxValue": 480.0,
+        "RatePerDaytimePoint": -1.0,
+        "OverrideIconWarpData": "Hunger_Old",
+        "OverrideIconWarpType": 3,
+        "HasActionOnZero": true,
+        "RepeatActionOnZero": false,
+        "ShowPopupOnZero": true,
+        "OnZeroNotification": 1,
+        "OnZero": {
+            "ActionName": {
+                "ParentObjectID": "fc_fox_companion",
+                "LocalizationKey": "FC_FoxCompanion_SpoilageTime_OnZero_ActionName",
+                "DefaultText": "Fox Has Died"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_fox_companion",
+                "LocalizationKey": "FC_FoxCompanion_SpoilageTime_OnZero_ActionDescription",
+                "DefaultText": "Neglected and starving, the fox collapsed and died. Its body remains."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ProducedCards": [
+                {
+                    "CollectionName": "FoxDeath",
+                    "CollectionWeight": 1,
+                    "MinCollectionCount": 1,
+                    "MaxCollectionCount": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "f017720bc06f6124099894023755f1c2",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    },
+    "UsageDurability": {
+        "Active": true,
+        "MaxValue": 288.0,
+        "FloatValue": 288.0,
+        "RatePerDaytimePoint": -1.0,
+        "CardStatName": {
+            "ParentObjectID": "fc_fox_companion",
+            "LocalizationKey": "FC_FoxCompanion_UsageDurability_CardStatName",
+            "DefaultText": "Thirst"
+        },
+        "OverrideIconWarpData": "Thirst_Old",
+        "OverrideIconWarpType": 3
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": true,
+        "FloatValue": 480.0,
+        "CardStatName": {
+            "ParentObjectID": "fc_fox_companion",
+            "LocalizationKey": "FC_FoxCompanion_Progress_CardStatName",
+            "DefaultText": "Morale"
+        },
+        "MaxValue": 480.0,
+        "RatePerDaytimePoint": -0.25,
+        "OverrideIconWarpData": "Content_Old",
+        "OverrideIconWarpType": 3
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": true,
+        "MaxValue": 1.0,
+        "FloatValue": 0.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 2
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "EquipSlotType": 0,
+    "SpawnStatDefaults": {
+        "SpoilageTime": 480.0,
+        "UsageDurability": 288.0,
+        "Progress": 480.0,
+        "SpecialDurability2": 0.0
+    }
+}

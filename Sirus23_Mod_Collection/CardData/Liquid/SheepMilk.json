@@ -1,0 +1,388 @@
+{
+    "UniqueID": "sh_sheep_milk",
+    "TradingValue": 15,
+    "CardName": {
+        "ParentObjectID": "sh_sheep_milk",
+        "LocalizationKey": "sh_sheep_milk_CardName",
+        "DefaultText": "Sheep Milk"
+    },
+    "CardDescription": {
+        "ParentObjectID": "sh_sheep_milk",
+        "LocalizationKey": "sh_sheep_milk_CardDescription",
+        "DefaultText": "Fresh sheep milk."
+    },
+    "LiquidSuffixName": {
+        "ParentObjectID": "sh_sheep_milk",
+        "LocalizationKey": "sh_sheep_milk_LiquidSuffixName",
+        "DefaultText": "Sheep Milk"
+    },
+    "CardImage": {"m_FileID": 0, "m_PathID": 0},
+    "CardImageWarpData": "Milk_Old",
+    "CardImageWarpType": 3,
+    "CardBackground": {"m_FileID": 0, "m_PathID": 0},
+    "ShowImageAboveTitle": false,
+    "CardType": 9,
+    "CardTagsWarpData": [
+        "tag_Dairy",
+        "tag_SheepMilk",
+        "tag_Preservable"
+    ],
+    "CardTagsWarpType": 3,
+    "CardTags": [],
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 0.0,
+        "CardStatName": {
+            "ParentObjectID": "",
+            "LocalizationKey": "",
+            "DefaultText": "Bacteria"
+        },
+        "MaxValue": 192.0,
+        "RatePerDaytimePoint": 1.0,
+        "OverrideIconWarpData": "Bacteria",
+        "OverrideIconWarpType": 3,
+        "HasActionOnFull": false
+    },
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_sheep_milk",
+                "LocalizationKey": "sh_sheep_milk_DismantleActions[0].ActionName",
+                "DefaultText": "Drink"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionSoundsWarpData": [
+                "Drink"
+            ],
+            "ActionSoundsWarpType": 3,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 20.0,
+                        "y": 20.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "95ca7c21ffad5e647acc3d9cb5bfcde6",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 30.0,
+                        "y": 30.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 20.0,
+                        "y": 20.0
+                    }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 22.0,
+                        "y": 22.0
+                    }
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "ModifyLiquid": true,
+                "LiquidQuantityChange": {
+                    "x": -150.0,
+                    "y": -150.0
+                }
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_sheep_milk",
+                "LocalizationKey": "sh_sheep_milk_DismantleActions[1].ActionName",
+                "DefaultText": "Skim Cream"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [],
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "sh_cream",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "FinishUnlocking": false
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "ModifyLiquid": true,
+                "LiquidQuantityChange": {
+                    "x": -150.0,
+                    "y": -150.0
+                }
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_sheep_milk",
+                "LocalizationKey": "sh_sheep_milk_DismantleActions[2].ActionName",
+                "DefaultText": "Ferment"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "DaytimeCost": 8,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [],
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "sh_yogurt",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "FinishUnlocking": false
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "ModifyLiquid": true,
+                "LiquidQuantityChange": {
+                    "x": -150.0,
+                    "y": -150.0
+                }
+            }
+        }
+    ],
+    "MaxLiquidCapacity": 0.0,
+    "MaxStack": 1,
+    "DroppedCardShadow": 1,
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_sheep_milk",
+                "LocalizationKey": "sh_sheep_milk_CardInteractions[0].ActionName",
+                "DefaultText": "Warm Milk"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [
+                    "tag_FireSource"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "GivenCardChanges": {
+                "ModType": 0
+            },
+            "CarryOverGivenCard": false,
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "sh_warm_milk",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "FinishUnlocking": false
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "ModifyLiquid": true,
+                "LiquidQuantityChange": {
+                    "x": -150.0,
+                    "y": -150.0
+                }
+            },
+            "RequiredStatValues": [],
+            "RequiredCardsOnBoard": [],
+            "RequiredTagsOnBoard": []
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_sheep_milk",
+                "LocalizationKey": "sh_sheep_milk_CardInteractions[1].ActionName",
+                "DefaultText": "Curdle"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "",
+                "LocalizationKey": "",
+                "DefaultText": ""
+            },
+            "DaytimeCost": 2,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [
+                    "tag_CheeseCloth"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "GivenCardChanges": {
+                "ModType": 1,
+                "UsageChange": {
+                    "x": -1.0,
+                    "y": -1.0
+                }
+            },
+            "CarryOverGivenCard": false,
+            "ProducedCards": [
+                {
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "sh_curdled_milk",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            },
+                            "FinishUnlocking": false
+                        }
+                    ]
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "ModifyLiquid": true,
+                "LiquidQuantityChange": {
+                    "x": -150.0,
+                    "y": -150.0
+                }
+            },
+            "RequiredStatValues": [],
+            "RequiredCardsOnBoard": [],
+            "RequiredTagsOnBoard": []
+        }
+    ]
+}

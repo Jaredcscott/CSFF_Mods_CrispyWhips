@@ -1,0 +1,6 @@
+{
+    "Name": "FoxCompanionGuard",
+    "GuardCardUids": ["fc_fox_companion"],
+    "EncounterUids": [],
+    "SuppressChance": 35
+}

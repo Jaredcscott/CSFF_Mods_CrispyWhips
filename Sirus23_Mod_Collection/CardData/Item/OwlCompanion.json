@@ -1,0 +1,466 @@
+{
+    "UniqueID": "fc_owl_companion",
+    "CardName": {
+        "ParentObjectID": "fc_owl_companion",
+        "LocalizationKey": "FC_OwlCompanion_CardName",
+        "DefaultText": "Owl Companion"
+    },
+    "CardDescription": {
+        "ParentObjectID": "fc_owl_companion",
+        "LocalizationKey": "FC_OwlCompanion_CardDescription",
+        "DefaultText": "A silent owl that perches nearby and watches over your camp at night. Keep it fed and watered or it will fly away."
+    },
+    "CardType": 0,
+    "ObjectWeight": 100,
+    "TradingValue": 500,
+    "CardTags": [],
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "EquipmentTags": [],
+    "FlavourTags": [],
+    "SpiceTags": [],
+    "CannotBeTrashed": true,
+    "CannotBeTransferred": true,
+    "DoesNotPile": true,
+    "AlwaysUpdate": true,
+    "CardImage": {"m_FileID": 0, "m_PathID": 0},
+    "CardImageWarpData": "OwlCompanion",
+    "CardImageWarpType": 3,
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_owl_companion",
+                "LocalizationKey": "FC_OwlCompanion_CI0_ActionName",
+                "DefaultText": "Feed Owl"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_owl_companion",
+                "LocalizationKey": "FC_OwlCompanion_CI0_ActionDescription",
+                "DefaultText": "Offer the owl a scrap of meat. It bobs its head approvingly."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "fe07d4d800bcc8646a0ff2513c78d5df",
+                    "e292e8faac1041f4ab1da9bcf900e751",
+                    "91168c5978471d54aaad816581f63ffd",
+                    "f4be79e87ba98db41a9c9e31bb76c33d",
+                    "5dc9560f81be57c4b9e22780f8a5ad78",
+                    "692c88d91a4fdf0498749339ae6d53f8",
+                    "4093dde8982306b4d8a5a9108ac5f0bb",
+                    "1e3f5517c9203e74b9c76a7bae1a3920"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {"TriggerCards": [], "TriggerTags": []},
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "GivenCardChanges": {"ModType": 3},
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "SpoilageChange": {"x": 240.0, "y": 240.0},
+                "ChargesChange": {"x": 60.0, "y": 60.0}
+            },
+            "StatModifications": []
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_owl_companion",
+                "LocalizationKey": "FC_OwlCompanion_CI1_ActionName",
+                "DefaultText": "Give Treat"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_owl_companion",
+                "LocalizationKey": "FC_OwlCompanion_CI1_ActionDescription",
+                "DefaultText": "Hold out dried meat. The owl blinks once, then snaps it down."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "f4be79e87ba98db41a9c9e31bb76c33d",
+                    "1e3f5517c9203e74b9c76a7bae1a3920"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {"TriggerCards": [], "TriggerTags": []},
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "GivenCardChanges": {"ModType": 3},
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "SpoilageChange": {"x": 80.0, "y": 80.0},
+                "ChargesChange": {"x": 150.0, "y": 150.0}
+            },
+            "StatModifications": []
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_owl_companion",
+                "LocalizationKey": "FC_OwlCompanion_CI2_ActionName",
+                "DefaultText": "Give Water"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_owl_companion",
+                "LocalizationKey": "FC_OwlCompanion_CI2_ActionDescription",
+                "DefaultText": "Pour a small bowl of water for the owl. It drinks in quick precise sips."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "2ae9292d2b80ccb41a0840ca736e0d12",
+                    "1cecbd7141fa89a4c90686dcd2d92155",
+                    "536f722edbb5e9e4b959b1f3ad25f648"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": ["tag_WaterContainer"],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {"TriggerCards": [], "TriggerTags": []},
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "RequiredGivenDurabilities": {
+                "RequiredLiquidQuantity": 100.0,
+                "HideActionIfNotMet": true
+            },
+            "GivenCardChanges": {
+                "ModType": 0,
+                "ModifyLiquid": true,
+                "LiquidQuantityChange": {"x": -100.0, "y": -100.0}
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "UsageChange": {"x": 96.0, "y": 96.0},
+                "ChargesChange": {"x": 10.0, "y": 10.0}
+            },
+            "StatModifications": []
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_owl_companion",
+                "LocalizationKey": "FC_OwlCompanion_CI3_ActionName",
+                "DefaultText": "Slaughter"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_owl_companion",
+                "LocalizationKey": "FC_OwlCompanion_CI3_ActionDescription",
+                "DefaultText": "Put the owl down. Yields a carcass that must be processed with a knife."
+            },
+            "DaytimeCost": 2,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": ["tag_Cutter"],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {"TriggerCards": [], "TriggerTags": []},
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "GivenCardChanges": {
+                "ModType": 1,
+                "UsageChange": {"x": -1.0, "y": -1.0}
+            },
+            "ReceivingCardChanges": {"ModType": 3},
+            "ProducedCards": [
+                {
+                    "CollectionName": "OwlSlaughter",
+                    "CollectionWeight": 1,
+                    "MinCollectionCount": 1,
+                    "MaxCollectionCount": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "wildowl_carcass",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ],
+            "StatModifications": []
+        }
+    ],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_owl_companion",
+                "LocalizationKey": "FC_OwlCompanion_DA0_ActionName",
+                "DefaultText": "Pet Owl"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_owl_companion",
+                "LocalizationKey": "FC_OwlCompanion_DA0_ActionDescription",
+                "DefaultText": "Gently stroke its feathers. It closes its eyes in contentment."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "ReceivingCardChanges": {"ModType": 1, "ChargesChange": {"x": 50.0, "y": 50.0}},
+            "StatModifications": [
+                {
+                    "StatWarpData": "3dc9b7924c4bec142af1c255f6df235d",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -10.0, "y": -10.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_owl_companion",
+                "LocalizationKey": "FC_OwlCompanion_DA1_ActionName",
+                "DefaultText": "Night Watch"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_owl_companion",
+                "LocalizationKey": "FC_OwlCompanion_DA1_ActionDescription",
+                "DefaultText": "Let the owl stand guard while you sleep. You rest more deeply knowing it watches."
+            },
+            "DaytimeCost": 4,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "ChargesChange": {"x": -30.0, "y": -30.0}
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "ca25b2c02ece6674bae6aaba4a6b8c10",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 90.0, "y": 90.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                },
+                {
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -40.0, "y": -40.0},
+                    "InstantModifier": true,
+                    "ApplyEachTick": false
+                }
+            ]
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_owl_companion",
+                "LocalizationKey": "FC_OwlCompanion_DA2_ActionName",
+                "DefaultText": "Retrieve Mouse"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_owl_companion",
+                "LocalizationKey": "FC_OwlCompanion_DA2_ActionDescription",
+                "DefaultText": "The owl drifts silently into the undergrowth and returns with a mouse."
+            },
+            "DaytimeCost": 2,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "ReceivingCardChanges": {"ModType": 0},
+            "StatModifications": []
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_owl_companion",
+                "LocalizationKey": "FC_OwlCompanion_DA3_ActionName",
+                "DefaultText": "Stay Here"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_owl_companion",
+                "LocalizationKey": "FC_OwlCompanion_DA3_ActionDescription",
+                "DefaultText": "The owl settles onto a perch and stops trailing you."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "RequiredReceivingDurabilities": {
+                "RequiredSpecial2Percent": {"Active": true, "FloatValue": 0.0, "MaxValue": 0.0},
+                "HideActionIfNotMet": true
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "Special2Change": {"x": 1.0, "y": 1.0}
+            },
+            "StatModifications": []
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_owl_companion",
+                "LocalizationKey": "FC_OwlCompanion_DA4_ActionName",
+                "DefaultText": "Follow Me"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_owl_companion",
+                "LocalizationKey": "FC_OwlCompanion_DA4_ActionDescription",
+                "DefaultText": "The owl takes wing and resumes shadowing your travels."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "RequiredReceivingDurabilities": {
+                "RequiredSpecial2Percent": {"Active": true, "FloatValue": 1.0, "MaxValue": 1.0},
+                "HideActionIfNotMet": true
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "Special2Change": {"x": -1.0, "y": -1.0}
+            },
+            "StatModifications": []
+        }
+    ],
+    "OnInteractActions": [],
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 480.0,
+        "CardStatName": {
+            "ParentObjectID": "fc_owl_companion",
+            "LocalizationKey": "FC_OwlCompanion_SpoilageTime_CardStatName",
+            "DefaultText": "Hunger"
+        },
+        "MaxValue": 480.0,
+        "RatePerDaytimePoint": -0.5,
+        "OverrideIconWarpData": "Hunger_Old",
+        "OverrideIconWarpType": 3,
+        "HasActionOnZero": true,
+        "RepeatActionOnZero": false,
+        "ShowPopupOnZero": true,
+        "OnZeroNotification": 1,
+        "OnZero": {
+            "ActionName": {
+                "ParentObjectID": "fc_owl_companion",
+                "LocalizationKey": "FC_OwlCompanion_SpoilageTime_OnZero_ActionName",
+                "DefaultText": "Owl Has Flown Away!"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_owl_companion",
+                "LocalizationKey": "FC_OwlCompanion_SpoilageTime_OnZero_ActionDescription",
+                "DefaultText": "Neglected and hungry, the owl has silently flown off into the night."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ProducedCards": [],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    },
+    "UsageDurability": {
+        "Active": true,
+        "MaxValue": 288.0,
+        "FloatValue": 288.0,
+        "RatePerDaytimePoint": -0.5,
+        "CardStatName": {
+            "ParentObjectID": "fc_owl_companion",
+            "LocalizationKey": "FC_OwlCompanion_UsageDurability_CardStatName",
+            "DefaultText": "Thirst"
+        },
+        "OverrideIconWarpData": "Thirst_Old",
+        "OverrideIconWarpType": 3
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": true,
+        "FloatValue": 480.0,
+        "CardStatName": {
+            "ParentObjectID": "fc_owl_companion",
+            "LocalizationKey": "FC_OwlCompanion_Progress_CardStatName",
+            "DefaultText": "Morale"
+        },
+        "MaxValue": 480.0,
+        "RatePerDaytimePoint": -0.2,
+        "OverrideIconWarpData": "Content_Old",
+        "OverrideIconWarpType": 3
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": true,
+        "MaxValue": 1.0,
+        "FloatValue": 0.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 2
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "EquipSlotType": 0,
+    "SpawnStatDefaults": {
+        "SpoilageTime": 480.0,
+        "UsageDurability": 288.0,
+        "Progress": 480.0,
+        "SpecialDurability2": 0.0
+    }
+}

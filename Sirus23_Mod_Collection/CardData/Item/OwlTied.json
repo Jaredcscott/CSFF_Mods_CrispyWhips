@@ -1,0 +1,158 @@
+{
+    "//": "M4 trap catch card — the ALIVE form of the Wild Owl, produced when a vanilla SNARE catches it (PartridgeTied* precedent: snares take birds alive). The framework's TrapIntegrator both weights this card onto the owl's 'Interact with a Trap' agent action AND mirrors it into SnareTrapTriggered's InventoryFilter.AcceptedCards -- without that mirror the caught card would silently fall to the board instead of landing inside the sprung trap (InGameCardBase.cs:3003 CanReceiveInInventory -> CompleteInventoryFilter.SupportsCard).",
+    "UniqueID": "wildowl_tied",
+    "CardName": {
+        "ParentObjectID": "wildowl_tied",
+        "LocalizationKey": "WildOwl_Tied_CardName",
+        "DefaultText": "Snared Owl"
+    },
+    "CardDescription": {
+        "ParentObjectID": "wildowl_tied",
+        "LocalizationKey": "WildOwl_Tied_CardDescription",
+        "DefaultText": "Caught alive in a snare, wings bound and furious. Must be fed regularly or it will work itself free. Can be released, or killed for its carcass."
+    },
+    "CardType": 0,
+    "ObjectWeight": 100,
+    "TradingValue": 40,
+    "DoesNotPile": true,
+    "//CardTags": "Intentionally empty. An earlier draft carried \"tag_Animal\", which is NOT a real vanilla CardTag (it appears nowhere in ScriptableObjectObjectName/CardTag.txt and no mod defines it) -- WarpResolver would have minted an orphan tag that no filter, recipe or condition anywhere recognises. Vanilla's own live-capture cards (PartridgeTiedMale/Female) carry only obfuscated UI tags, so there is no meaningful vanilla tag to copy here.",
+    "CardTags": [],
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "EquipmentTags": [],
+    "FlavourTags": [],
+    "SpiceTags": [],
+    "CardImage": {"m_FileID": 0, "m_PathID": 0},
+    "CardImageWarpData": "OwlTied",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 288.0,
+        "CardStatName": {
+            "ParentObjectID": "wildowl_tied",
+            "LocalizationKey": "WildOwl_Tied_SpoilageTime_CardStatName",
+            "DefaultText": "Hunger"
+        },
+        "MaxValue": 288.0,
+        "RatePerDaytimePoint": -1.0,
+        "OverrideIconWarpData": "Hunger_Old",
+        "OverrideIconWarpType": 3,
+        "HasActionOnZero": true,
+        "RepeatActionOnZero": false,
+        "ShowPopupOnZero": true,
+        "OnZeroNotification": 1,
+        "OnZero": {
+            "ActionName": {
+                "ParentObjectID": "wildowl_tied",
+                "LocalizationKey": "WildOwl_Tied_SpoilageTime_OnZero_ActionName",
+                "DefaultText": "The Owl Has Escaped!"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "wildowl_tied",
+                "LocalizationKey": "WildOwl_Tied_SpoilageTime_OnZero_ActionDescription",
+                "DefaultText": "Left hungry and unattended, the owl worked its bindings loose and vanished into the dark."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ReceivingCardChanges": {"ModType": 3}
+        }
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "wildowl_tied",
+                "LocalizationKey": "WildOwl_Tied_CI0_ActionName",
+                "DefaultText": "Feed Snared Owl"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "wildowl_tied",
+                "LocalizationKey": "WildOwl_Tied_CI0_ActionDescription",
+                "DefaultText": "Offer the bound owl a scrap of meat. It snatches it without gratitude."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": ["tag_WildMeat"],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {"TriggerCards": [], "TriggerTags": []},
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "GivenCardChanges": {"ModType": 3},
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "SpoilageChange": {"x": 144.0, "y": 144.0}
+            },
+            "ProducedCards": [],
+            "StatModifications": []
+        }
+    ],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "wildowl_tied",
+                "LocalizationKey": "WildOwl_Tied_DA0_ActionName",
+                "DefaultText": "Release Snared Owl"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "wildowl_tied",
+                "LocalizationKey": "WildOwl_Tied_DA0_ActionDescription",
+                "DefaultText": "Cut the bindings and let it go. It climbs into the air without a sound, and will not come near this place again for some days."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ReceivingCardChanges": {"ModType": 3},
+            "ProducedCards": [],
+            "StatModifications": []
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "wildowl_tied",
+                "LocalizationKey": "WildOwl_Tied_DA1_ActionName",
+                "DefaultText": "Kill Snared Owl"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "wildowl_tied",
+                "LocalizationKey": "WildOwl_Tied_DA1_ActionDescription",
+                "DefaultText": "A quick, ugly business. Leaves a carcass worth processing."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ReceivingCardChanges": {"ModType": 3},
+            "ProducedCards": [
+                {
+                    "CollectionName": "SnaredOwlKilled",
+                    "CollectionWeight": 1,
+                    "MinCollectionCount": 1,
+                    "MaxCollectionCount": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "wildowl_carcass",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
+                        }
+                    ]
+                }
+            ],
+            "StatModifications": []
+        }
+    ],
+    "EquipSlotType": 0
+}

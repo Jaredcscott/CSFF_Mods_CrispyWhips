@@ -1,0 +1,68 @@
+{
+    "UniqueID": "sh_cheese_stuffed_flatbread",
+    "CardName": {
+        "ParentObjectID": "sh_cheese_stuffed_flatbread",
+        "LocalizationKey": "sh_cheese_stuffed_flatbread_CardName",
+        "DefaultText": "Cheese-Stuffed Flatbread"
+    },
+    "CardDescription": {
+        "ParentObjectID": "sh_cheese_stuffed_flatbread",
+        "LocalizationKey": "sh_cheese_stuffed_flatbread_CardDescription",
+        "DefaultText": "A round of flatbread pressed full of sheep cheese. A satisfying, portable meal."
+    },
+    "CardType": 0,
+    "ObjectWeight": 150.0,
+    "TradingValue": 60,
+    "CardImageWarpData": "sh_cheese_stuffed_flatbread",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [
+        "tag_Food",
+        "tag_Plateable"
+    ],
+    "CardTagsWarpType": 3,
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_cheese_stuffed_flatbread",
+                "LocalizationKey": "sh_cheese_stuffed_flatbread_DismantleActions[0].ActionName",
+                "DefaultText": "Eat"
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 50.0, "y": 50.0 }
+                },
+                {
+                    "StatWarpData": "95ca7c21ffad5e647acc3d9cb5bfcde6",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 3.0, "y": 3.0 }
+                },
+                {
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 22.0, "y": 22.0 }
+                },
+                {
+                    "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 55.0, "y": 55.0 }
+                }
+            ]
+        }
+    ],
+    "EdibleStats": {
+        "Nutrients": 50,
+        "Hydration": 3
+    }
+}

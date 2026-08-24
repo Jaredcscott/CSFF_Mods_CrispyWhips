@@ -1,0 +1,197 @@
+{
+    "UniqueID": "sh_bp_sheep_pen",
+    "CardName": {
+        "ParentObjectID": "sh_bp_sheep_pen",
+        "LocalizationKey": "sh_bp_sheep_pen_CardName",
+        "DefaultText": "Sheep Pen Blueprint"
+    },
+    "CardDescription": {
+        "ParentObjectID": "sh_bp_sheep_pen",
+        "LocalizationKey": "sh_bp_sheep_pen_CardDescription",
+        "DefaultText": "Build a fenced pen to shelter your sheep and rams overnight."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "Enclosure_Door",
+    "CardImageWarpType": 3,
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": "Requires: Rope"
+    },
+    "StartUnlocked": false,
+    "BuildingStatConditions": [],
+    "CardsOnBoard": [
+        {
+            "Card": { "m_FileID": 0, "m_PathID": 0 },
+            "CardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+            "CardWarpType": 3,
+            "Amount": 1,
+            "ConstantlyChecking": false
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 8,
+                    "DontSpend": false,
+                    "Fuel": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroupWarpData": "",
+                    "RequiredTabGroupWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 4,
+                    "DontSpend": false,
+                    "Fuel": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroupWarpData": "",
+                    "RequiredTabGroupWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredCardWarpData": "a7384e5147b23a642809451cc4ef24fb",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 4,
+                    "DontSpend": false,
+                    "Fuel": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroupWarpData": "",
+                    "RequiredTabGroupWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredCardWarpData": "",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 1,
+                    "DontSpend": true,
+                    "Fuel": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroupWarpData": "GpTag_HammeringToolGeneral",
+                    "RequiredTabGroupWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3,
+            "BuildingDaytimeCost": 8
+        }
+    ],
+    "BuildingDaytimeCost": 8,
+    "DeconstructDaytimeCost": 1,
+    "BlueprintUnlockTicksCost": 16,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "DroppedCardWarpData": "sh_sheep_pen_portable",
+            "DroppedCardWarpType": 3,
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "FinishUnlocking": false,
+            "TransferRules": {
+                "Spoilage": 0,
+                "Usage": 0,
+                "Fuel": 0,
+                "Progress": 0,
+                "Special1": 0,
+                "Special2": 0,
+                "Special3": 0,
+                "Special4": 0,
+                "SpoilageValue": 0.0,
+                "UsageValue": 0.0,
+                "FuelValue": 0.0,
+                "ProgressValue": 0.0,
+                "Special1Value": 0.0,
+                "Special2Value": 0.0,
+                "Special3Value": 0.0,
+                "Special4Value": 0.0,
+                "SpoilageFrom": 0,
+                "UsageFrom": 0,
+                "FuelFrom": 0,
+                "ProgressFrom": 0,
+                "Special1From": 0,
+                "Special2From": 0,
+                "Special3From": 0,
+                "Special4From": 0
+            },
+            "DropChance": {
+                "Active": false,
+                "BaseDropChance": 0.0,
+                "DurabilitiesModifiers": [],
+                "StatsModifiers": [],
+                "CardsModifiers": [],
+                "NPCStatsModifiers": []
+            },
+            "DropsDurabilityMultipliers": [],
+            "DropsStatMultipliers": []
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": [
+        "Wood"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3
+}

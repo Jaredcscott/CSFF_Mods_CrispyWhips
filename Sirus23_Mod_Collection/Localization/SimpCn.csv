@@ -1,0 +1,325 @@
+FC_WolfCompanion_CardName,Wolf Companion,狼伙伴
+FC_WolfCompanion_CardDescription,"A loyal wolf that follows you. Keep it fed, watered, and happy or it will eventually leave.",一只忠诚的狼跟随着你。保持喂养、给水和互动，否则它最终会离开。
+FC_Perk_WolfFriend_PerkName,Wolf Friend,狼之友
+FC_Perk_WolfFriend_PerkDescription,Start with a loyal wolf companion.,开始时携带一只忠诚的狼伙伴。
+FC_WolfCompanion_CI0_ActionName,Feed Wolf,喂狼
+FC_WolfCompanion_CI0_ActionDescription,Give the wolf a meal. It wags its tail.,给狼一顿饭。它摇着尾巴。
+FC_WolfCompanion_CI1_ActionName,Give Water,喂水
+FC_WolfCompanion_CI1_ActionDescription,Offer the wolf a drink from a water container.,让狼从盆中喝水。
+FC_WolfCompanion_DA0_ActionName,Pet Wolf,抚摸狼
+FC_WolfCompanion_DA0_ActionDescription,Spend a quiet moment with your companion by the fire.,在火旁与你的伙伴共度一段安静的时光。
+FC_WolfCompanion_DA1_ActionName,Play with Wolf,与狼玩耍
+FC_WolfCompanion_DA1_ActionDescription,"Chase, wrestle and tumble through the forest together. Pure joy.",一起在森林中追逐、摔跤和翻滚。纯粹的快乐。
+FC_WolfCompanion_DA2_ActionName,Send on Hunt,派去狩猎
+FC_WolfCompanion_DA2_ActionDescription,"The wolf disappears into the undergrowth. It returns with prey — a squirrel, perhaps a partridge, rarely a hare.",狼消失在灌木丛中。它带着猎物回来了。
+FC_WolfCompanion_DA3_ActionName,Track Scents,追踪气味
+FC_WolfCompanion_DA3_ActionDescription,Follow the wolf as it reads the forest. Your tracking improves.,跟随狼读懂森林。你的追踪技能提升了。
+FC_WolfCompanion_DA4_ActionName,Guard Camp,守卫营地
+FC_WolfCompanion_DA4_ActionDescription,The wolf patrols the perimeter while you rest. You sleep more soundly.,你休息时狼在周围巡逻。你睡得更安稳了。
+FC_WolfCompanion_DA5_ActionName,Flush Prey,驱赶猎物
+FC_WolfCompanion_DA5_ActionDescription,Send the wolf ahead on the trail. Prey scatter; you pick off stragglers.,让狼在猎径上打前哨。猎物四散逃跑，你拦截落单者。
+FC_WolfCompanion_CI2_ActionName,Treat Wounds,治疗伤口
+FC_WolfCompanion_CI2_ActionDescription,Apply the remedy to the wolf's injuries. It holds still while you work.,将药物涂抹在狼的伤口上。它一动不动地让你处理。
+FC_WolfCompanion_Progress_CardStatName,Morale,士气
+FC_WolfCompanion_SpoilageTime_CardStatName,Hunger,饥饿
+FC_WolfCompanion_UsageDurability_CardStatName,Thirst,口渴
+sh_wild_sheep_CardName,Wild Sheep,野生绵羊
+sh_wild_sheep_CardDescription,"A wild sheep roaming the forest. Offer it fresh meadowgrass to tame it, or slaughter it for resources.",一只在森林中游荡的野生绵羊。喂它新鲜草地牧草可以驯服它，或将其屠宰以获取资源。
+sh_wild_male_sheep_CardName,Wild Ram,野生公羊
+sh_wild_male_sheep_CardDescription,"A wild ram. Offer it fresh meadowgrass to tame it, or slaughter it for resources.",一只野生公羊。喂它新鲜草地牧草可以驯服它，或将其屠宰以获取资源。
+sh_tame_sheep_CardName,Tame Sheep,驯养绵羊
+sh_tame_sheep_CardDescription,"A tame sheep. Shear it for wool, keep it near a ram to breed over time, or slaughter it.",一只驯养的绵羊。剪毛可获取羊毛，让它靠近公羊可随时间繁殖，也可将其屠宰。
+sh_male_sheep_CardName,Ram,公羊
+sh_male_sheep_CardDescription,"A tame ram. Keep it near tame sheep to impregnate them over time, or slaughter it for resources.",一只驯养的公羊。让它靠近驯养的绵羊可随时间使其受孕，也可将其屠宰以获取资源。
+sh_lactating_sheep_CardName,Lactating Sheep,泌乳母羊
+sh_lactating_sheep_CardDescription,"A sheep that recently gave birth. Use a clay bowl to milk it daily, shear it for wool, or slaughter it.",一只刚生产不久的母羊。每天用陶碗为它挤奶，也可剪毛取羊毛，或将其屠宰。
+sh_lamb_CardName,Lamb,羊羔
+sh_lamb_CardDescription,"A young lamb. It will grow into a tame sheep or ram by the end of fall. You can feed it meadowgrass or straw to mature it early, or slaughter it for a small amount of meat and hide.",一只幼小的羊羔。到秋末它会长成驯养的绵羊或公羊。喂它草地牧草或干草可以让它提早成熟，也可将其屠宰以获取少量肉和兽皮。
+sh_sheep_milk_CardName,Sheep Milk,羊奶
+sh_sheep_milk_CardDescription,Fresh sheep milk.,新鲜羊奶。
+sh_sheep_milk_LiquidSuffixName,Sheep Milk,羊奶
+sh_warm_milk_CardName,Warm Milk,温羊奶
+sh_warm_milk_CardDescription,Warmed sheep milk. Comforting and nutritious.,加温后的羊奶。暖心又营养。
+sh_curdled_milk_CardName,Curdled Milk,凝乳
+sh_curdled_milk_CardDescription,Curdled sheep milk. Press it over a fire to make cheese and whey.,凝结的羊奶。在火上压制可制成奶酪和乳清。
+sh_sheep_cheese_CardName,Sheep Cheese,羊奶酪
+sh_sheep_cheese_CardDescription,Fresh sheep cheese. Leave it out to age into a richer variety — the spoilage bar fills as it ages.,新鲜羊奶酪。放置一段时间可熟成为风味更浓郁的品种——变质槽会随熟成而增长。
+sh_aged_sheep_cheese_CardName,Aged Sheep Cheese,熟成羊奶酪
+sh_aged_sheep_cheese_CardDescription,Richly flavoured aged sheep cheese. Excellent nutrition.,风味浓郁的熟成羊奶酪。营养极佳。
+sh_whey_CardName,Whey,乳清
+sh_whey_CardDescription,"Liquid whey, a byproduct of cheese making. Mildly nutritious.",液态乳清，制作奶酪的副产品。营养温和。
+sh_butter_CardName,Butter,黄油
+sh_butter_CardDescription,Churned sheep butter. Rich in fat and calories. Drag a fire source onto it to clarify into pure fat.,搅打而成的羊乳黄油。富含脂肪和热量。拖动火源可澄清为纯净脂肪。
+sh_buttermilk_CardName,Buttermilk,白脱牛奶
+sh_buttermilk_CardDescription,"Tangy buttermilk, a byproduct of churning butter.",酸爽的白脱牛奶，搅打黄油的副产品。
+sh_buttermilk_DismantleActions[0].ActionName,Drink,饮用
+sh_ricotta_CardName,Ricotta,里科塔奶酪
+sh_ricotta_CardDescription,Soft ricotta cheese made from reheated whey.,由重新加热的乳清制成的软质里科塔奶酪。
+sh_wool_CardName,Wool,羊毛
+sh_wool_CardDescription,Raw wool sheared from a sheep. Spin it into yarn.,从绵羊身上剪下的生羊毛。可纺成纱线。
+sh_yarn_CardName,Yarn,纱线
+sh_yarn_CardDescription,Spun wool yarn. Weave it into cloth.,纺好的羊毛纱线。可织成布料。
+sh_woven_cloth_CardName,Woven Cloth,织布
+sh_woven_cloth_CardDescription,Woven woollen cloth. Provides a small amount of warmth. Use it to make warm clothing or blankets. Drag a knife onto it to cut it into cheese cloth.,编织而成的羊毛布料。提供少量保暖。可用来制作保暖衣物或毯子。拖动小刀可将其裁成奶酪纱布。
+sh_wool_tunic_CardName,Wool Tunic,羊毛长衫
+sh_wool_tunic_CardDescription,A warm woollen tunic that provides excellent insulation.,一件保暖的羊毛长衫，隔热效果极佳。
+sh_wool_blanket_CardName,Wool Blanket,羊毛毯
+sh_wool_blanket_CardDescription,A thick woollen blanket. Greatly improves sleep quality in cold weather.,一条厚实的羊毛毯。在寒冷天气中能大幅提升睡眠质量。
+sh_bp_wool_blanket_CardName,Wool Blanket Blueprint,羊毛毯图纸
+sh_bp_wool_blanket_CardDescription,Weave 4 woven cloths together into a thick woollen blanket.,将4块织布缝合成一条厚实的羊毛毯。
+sh_shears_CardName,Shears,剪毛刀
+sh_shears_CardDescription,Metal shears for shearing sheep. Lasts for many uses.,用于给绵羊剪毛的金属剪刀。可使用多次。
+sh_butter_churn_CardName,Butter Churn,黄油搅拌机
+sh_butter_churn_CardDescription,A wooden butter churn. Use it to churn milk into butter and buttermilk.,一台木制黄油搅拌机。用于将羊奶搅拌成黄油和白脱牛奶。
+sh_butter_churn_DismantleActions[0].ActionName,Pick Up,拿起
+sh_butter_churn_DismantleActions[0].ActionDescription,Pack up the butter churn to carry it.,收起黄油搅拌机以便携带。
+sh_butter_churn_portable_CardName,Butter Churn,黄油搅拌机
+sh_butter_churn_portable_CardDescription,"A butter churn, packed for transport. Use Place to set it up.",已打包便于运输的黄油搅拌机。使用「放置」来架设它。
+sh_butter_churn_portable_DismantleActions[0].ActionName,Place,放置
+sh_butter_churn_portable_DismantleActions[0].ActionDescription,Set up the butter churn in your environment.,在你所在的环境中架设黄油搅拌机。
+sh_cheese_cloth_CardName,Cheese Cloth,奶酪纱布
+sh_cheese_cloth_CardDescription,A fine cloth used to curdle milk into cheese.,一块用于将羊奶凝结成奶酪的细纱布。
+sh_sheep_feeder_CardName,Sheep Feeder,羊饲料槽
+sh_sheep_feeder_CardDescription,"A wooden trough for storing herbivore feed (grasses, hay, and other forage) for your sheep.",一个木制饲料槽，用于为你的绵羊储存草食饲料（草、干草和其他牧草）。
+sh_bp_shears_CardName,Shears,剪毛刀
+sh_bp_shears_CardDescription,Craft metal shears for shearing sheep.,打造用于给绵羊剪毛的金属剪刀。
+sh_bp_butter_churn_CardName,Butter Churn,黄油搅拌机
+sh_bp_butter_churn_CardDescription,Build a butter churn to make butter from milk.,建造一台黄油搅拌机，用羊奶制作黄油。
+sh_bp_cheese_cloth_CardName,Cheese Cloth,奶酪纱布
+sh_bp_cheese_cloth_CardDescription,Cut woven cloth into a cheese cloth.,将织布裁剪成奶酪纱布。
+sh_bp_sheep_feeder_CardName,Sheep Feeder,羊饲料槽
+sh_bp_sheep_feeder_CardDescription,Build a feeder to store feed for your sheep.,建造一个饲料槽，为你的绵羊储存饲料。
+sh_tgr_wild_sheep_spawn_CardName,Wild Sheep Spawn,野生绵羊生成点
+sh_tgr_wild_sheep_spawn_CardDescription,Occasionally spawns a wild sheep on the board.,偶尔会在场景中生成一只野生绵羊。
+sh_cheese_cloth_UsageDurability_CardStatName,Durability,耐久度
+sh_shears_UsageDurability_CardStatName,Durability,耐久度
+sh_curdled_milk_CardInteractions[0].ActionName,Press Cheese,压制奶酪
+sh_lactating_sheep_DismantleActions_Milk_ActionName,Milk,挤奶
+sh_lactating_sheep_DismantleActions_Milk_ActionDescription,Milk the sheep to collect fresh milk.,为母羊挤奶以收集新鲜羊奶。
+sh_lactating_sheep_CardInteractions[0].ActionName,Shear,剪毛
+sh_lactating_sheep_CardInteractions[1].ActionName,Slaughter,屠宰
+sh_lactating_sheep_CardInteractions[2].ActionName,Milk,挤奶
+sh_lamb_CardInteractions[0].ActionName,Feed,喂食
+sh_lamb_CardInteractions[1].ActionName,Slaughter,屠宰
+sh_male_sheep_CardInteractions[0].ActionName,Slaughter,屠宰
+sh_sheep_milk_CardInteractions[0].ActionName,Warm Milk,加温羊奶
+sh_sheep_milk_CardInteractions[1].ActionName,Curdle,凝结
+sh_tame_sheep_CardInteractions[0].ActionName,Shear,剪毛
+sh_wild_male_sheep_CardInteractions[0].ActionName,Tame,驯服
+sh_wild_male_sheep_CardInteractions[1].ActionName,Slaughter,屠宰
+sh_wild_sheep_CardInteractions[0].ActionName,Tame,驯服
+sh_wild_sheep_CardInteractions[1].ActionName,Slaughter,屠宰
+sh_perk_shepherds_start_PerkName,Shepherd's Start,牧羊人的起点
+sh_perk_shepherds_start_PerkDescription,"Begin your run with a small flock and shears: two tame sheep, a ram, a lactating ewe, and a pair of shears to start harvesting wool right away.",开局携带一小群羊和剪毛刀：两只驯养绵羊、一只公羊、一只泌乳母羊，以及一把剪毛刀，让你立即开始收获羊毛。
+sh_perk_crafting_kit_PerkName,Shepherd's Crafting Kit,牧羊人工具包
+sh_perk_crafting_kit_PerkDescription,"Start with wool, warm milk, and all processing equipment: a butter churn and cheese cloth. Everything you need to run the wool and dairy chains from day one.",开局携带羊毛、温羊奶以及全套加工设备：黄油搅拌机和奶酪纱布。第一天起就能运转羊毛和乳制品生产链所需的一切。
+sh_perk_start_sheep_PerkName,Start with Sheep,携带绵羊起始
+sh_perk_start_sheep_PerkDescription,Begin your run with a tame sheep. Good for wool and dairy. Pairs well with Start with Shears.,开局携带一只驯养绵羊。适合获取羊毛和乳制品。与「携带剪毛刀起始」搭配良好。
+sh_perk_start_shears_PerkName,Start with Shears,携带剪毛刀起始
+sh_perk_start_shears_PerkDescription,Begin your run with sheep shears. Pairs well with Start with Sheep or Sheep Husbandry Kit.,开局携带剪毛刀。与「携带绵羊起始」或「养羊工具包」搭配良好。
+sh_perk_husbandry_kit_PerkName,Sheep Husbandry Kit,养羊工具包
+sh_perk_husbandry_kit_PerkDescription,"Begin your run with a full breeding flock: a ram, a lactating ewe, and a lamb. Everything you need to build a flock from day one.",开局携带一整套繁殖羊群：一只公羊、一只泌乳母羊和一只羊羔。第一天起就能组建羊群所需的一切。
+sh_butter_churn_CardInteractions[0].ActionName,Churn Butter,搅拌黄油
+sh_whey_CardInteractions[0].ActionName,Heat Whey,加热乳清
+sh_tgr_wild_male_sheep_spawn_CardName,Wild Ram Spawn,野生公羊生成点
+sh_tgr_wild_male_sheep_spawn_CardDescription,Occasionally spawns a wild ram on the board.,偶尔会在场景中生成一只野生公羊。
+sh_aged_sheep_cheese_DismantleActions[0].ActionName,Eat,吃掉
+sh_butter_DismantleActions[0].ActionName,Eat,吃掉
+sh_ricotta_DismantleActions[0].ActionName,Eat,吃掉
+sh_sheep_cheese_DismantleActions[0].ActionName,Eat,吃掉
+sh_sheep_milk_DismantleActions[0].ActionName,Drink,饮用
+sh_warm_milk_DismantleActions[0].ActionName,Drink,饮用
+sh_whey_DismantleActions[0].ActionName,Drink,饮用
+sh_tame_sheep_CardInteractions[1].ActionName,Slaughter,屠宰
+sh_bp_yarn_CardName,Yarn,纱线
+sh_bp_yarn_CardDescription,Spin raw wool into yarn by hand.,用手将生羊毛纺成纱线。
+sh_bp_woven_cloth_CardName,Woven Cloth,织布
+sh_bp_woven_cloth_CardDescription,Weave two skeins of yarn into woven woollen cloth.,将两团纱线织成羊毛织布。
+sh_bp_wool_tunic_CardName,Wool Tunic Blueprint,羊毛长衫图纸
+sh_bp_wool_tunic_CardDescription,Sew a wool blanket into a warm woollen tunic.,将羊毛毯缝制成一件保暖的羊毛长衫。
+sh_cream_CardName,Cream,奶油
+sh_cream_CardDescription,Rich cream skimmed from fresh sheep milk. Fatty and filling.,从新鲜羊奶中撇出的浓郁奶油。油脂丰富，饱腹感强。
+sh_cream_DismantleActions[0].ActionName,Eat,吃掉
+sh_yogurt_CardName,Yogurt,酸奶
+sh_yogurt_CardDescription,Tangy fermented sheep milk. More nutritious and hydrating than fresh milk.,酸爽发酵的羊奶。比新鲜羊奶更有营养、更能补充水分。
+sh_yogurt_DismantleActions[0].ActionName,Eat,吃掉
+sh_clarified_butter_CardName,Clarified Butter,澄清黄油
+sh_clarified_butter_CardDescription,Sheep butter clarified over fire. Pure golden fat — extremely calorie-dense and long-lasting.,经火澄清的羊乳黄油。纯净的金黄脂肪——热量密度极高，耐储存。
+sh_clarified_butter_DismantleActions[0].ActionName,Eat,吃掉
+sh_sheep_milk_DismantleActions[1].ActionName,Skim Cream,撇取奶油
+sh_sheep_milk_DismantleActions[2].ActionName,Ferment,发酵
+sh_butter_CardInteractions[0].ActionName,Clarify,澄清
+sh_warm_milk_DismantleActions[1].ActionName,Ferment,发酵
+sh_cream_DismantleActions[1].ActionName,Culture,培养
+sh_sour_cream_CardName,Sour Cream,酸奶油
+sh_sour_cream_CardDescription,Tangy cultured cream. Rich and filling.,酸爽的发酵奶油。浓郁而饱腹。
+sh_sour_cream_DismantleActions[0].ActionName,Eat,吃掉
+sh_lamb_SpoilageTime_CardStatName,Growth,成长度
+sh_lamb_SpoilageTime_OnZero_ActionName,Fully Grown!,已完全成长！
+sh_lamb_SpoilageTime_OnZero_ActionDescription,The lamb has grown into a full-sized sheep.,羊羔已长成一只成年绵羊。
+sh_woven_cloth_CardInteractions[0].ActionName,Cut Cheese Cloth,裁剪奶酪纱布
+sh_lactating_sheep_SpecialDurability1_CardStatName,Wool,羊毛
+sh_tame_sheep_SpecialDurability1_CardStatName,Wool,羊毛
+sh_sheep_feeder_portable_CardName,Sheep Feeder,羊饲料槽
+sh_sheep_feeder_portable_CardDescription,"A wooden sheep feeder, packed for transport. Use Place to set it up.",已打包便于运输的木制羊饲料槽。使用「放置」来架设它。
+sh_sheep_feeder_portable_DismantleActions[0].ActionName,Place,放置
+sh_sheep_feeder_portable_DismantleActions[0].ActionDescription,Set up the sheep feeder in your environment.,在你所在的环境中架设羊饲料槽。
+sh_sheep_feeder_DismantleActions[0].ActionName,Pick Up,拿起
+sh_sheep_feeder_DismantleActions[0].ActionDescription,Pack up the feeder to carry it.,收起饲料槽以便携带。
+sh_sheep_feeder_DismantleActions[1].ActionName,Tend Flock,照料羊群
+sh_sheep_feeder_DismantleActions[1].ActionDescription,Shear every ready tame sheep nearby in one go.,一次性为附近所有准备好的驯养绵羊剪毛。
+FC_FoxCompanion_CardName,Fox Companion,狐狸伙伴
+FC_FoxCompanion_CardDescription,A quick-witted fox that has taken a liking to you. Keep it fed and watered or it will wander off.,一只机敏的狐狸对你产生了好感。保持喂养和给水，否则它会离你而去。
+FC_FoxCompanion_CI0_ActionName,Feed Fox,喂狐狸
+FC_FoxCompanion_CI0_ActionDescription,Give the fox a meal. Its ears perk up happily.,给狐狸一顿饭。它开心地竖起了耳朵。
+FC_FoxCompanion_DA0_ActionName,Pet Fox,抚摸狐狸
+FC_FoxCompanion_DA0_ActionDescription,Scratch behind its ears. It leans into your hand.,挠挠它的耳后。它靠向了你的手。
+FC_FoxCompanion_DA1_ActionName,Play with Fox,与狐狸玩耍
+FC_FoxCompanion_DA1_ActionDescription,Chase each other through the ferns. Pure mischievous fun.,在蕨丛间互相追逐。纯粹的调皮乐趣。
+FC_FoxCompanion_DA2_ActionName,Scout Ahead,前方侦察
+FC_FoxCompanion_DA2_ActionDescription,Send the fox to nose around. It comes back with something useful.,让狐狸四处探查。它带着有用的东西回来了。
+FC_FoxCompanion_DA3_ActionName,Retrieve Partridge,叼回灰山鹑
+FC_FoxCompanion_DA3_ActionDescription,The fox flushes a partridge from the brush and chases it down. It trots back proudly.,狐狸把一只灰山鹑从灌木丛中赶出并追上了它。它骄傲地小跑回来。
+FC_FoxCompanion_SpoilageTime_CardStatName,Hunger,饥饿
+FC_FoxCompanion_UsageDurability_CardStatName,Thirst,口渴
+FC_FoxCompanion_CI2_ActionName,Give Water,喂水
+FC_FoxCompanion_CI2_ActionDescription,Cup water in your hands for the fox. It laps eagerly.,将水捧在手心递给狐狸。它贪婪地舔饮。
+FC_FoxCompanion_SpoilageTime_OnZero_ActionName,Fox Has Died,狐狸已死亡
+FC_FoxCompanion_SpoilageTime_OnZero_ActionDescription,"Neglected and starving, the fox collapsed and died. Its body remains.",因疏于照料而饥饿难耐，狐狸倒下死去。它的尸体留了下来。
+FC_FoxCompanion_Progress_CardStatName,Morale,士气
+FC_Perk_FoxFriend_PerkName,Fox Friend,狐狸之友
+FC_Perk_FoxFriend_PerkDescription,Start with a curious fox companion.,开始时携带一只好奇的狐狸伙伴。
+FC_OwlCompanion_CardName,Owl Companion,猫头鹰伙伴
+FC_OwlCompanion_CardDescription,A silent owl that perches nearby and watches over your camp at night. Keep it fed and watered or it will fly away.,一只安静的猫头鹰栖息在附近，夜里为你的营地守望。保持喂养和给水，否则它会飞走。
+FC_OwlCompanion_CI0_ActionName,Feed Owl,喂猫头鹰
+FC_OwlCompanion_CI0_ActionDescription,Offer the owl a scrap of meat. It bobs its head approvingly.,给猫头鹰一块肉。它满意地点了点头。
+FC_OwlCompanion_DA0_ActionName,Pet Owl,抚摸猫头鹰
+FC_OwlCompanion_DA0_ActionDescription,Gently stroke its feathers. It closes its eyes in contentment.,轻轻抚摸它的羽毛。它满足地闭上了眼睛。
+FC_OwlCompanion_DA1_ActionName,Night Watch,夜间守望
+FC_OwlCompanion_DA1_ActionDescription,Let the owl stand guard while you sleep. You rest more deeply knowing it watches.,让猫头鹰在你睡觉时放哨。知道有它守护，你睡得更沉了。
+FC_OwlCompanion_DA2_ActionName,Retrieve Mouse,叼回老鼠
+FC_OwlCompanion_DA2_ActionDescription,The owl drifts silently into the undergrowth and returns with a mouse.,猫头鹰无声地滑入灌木丛，叼着一只老鼠回来了。
+FC_OwlCompanion_SpoilageTime_CardStatName,Hunger,饥饿
+FC_OwlCompanion_SpoilageTime_OnZero_ActionName,Owl Has Flown Away!,猫头鹰已飞走！
+FC_OwlCompanion_SpoilageTime_OnZero_ActionDescription,"Neglected and hungry, the owl has silently flown off into the night.",因疏于照料而饥饿，猫头鹰悄然飞入夜色之中。
+FC_OwlCompanion_Progress_CardStatName,Morale,士气
+FC_OwlCompanion_UsageDurability_CardStatName,Thirst,口渴
+FC_OwlCompanion_CI2_ActionName,Give Water,喂水
+FC_OwlCompanion_CI2_ActionDescription,Pour a small bowl of water for the owl. It drinks in quick precise sips.,为猫头鹰倒一小碗水。它啄饮几口，干净利落。
+FC_Perk_OwlFriend_PerkName,Owl Friend,猫头鹰之友
+FC_Perk_OwlFriend_PerkDescription,Start with a wise owl companion.,开始时携带一只睿智的猫头鹰伙伴。
+sh_felted_wool_CardName,Felted Wool,毛毡
+sh_felted_wool_CardDescription,Compressed and matted wool fibres. Can be cut and shaped into warm hats boots and other items without spinning or weaving.,压缩纠结的羊毛纤维。无需纺织即可裁剪塑形，制成保暖帽子、靴子等物品。
+sh_felt_hat_CardName,Felt Hat,毛毡帽
+sh_felt_hat_CardDescription,A thick felt hat shaped from compressed wool. Keeps the head warm in cold weather.,一顶由压缩羊毛塑形而成的厚实毛毡帽。在寒冷天气中保持头部温暖。
+sh_felt_boots_CardName,Felt Boots,毛毡靴
+sh_felt_boots_CardDescription,Dense felt boots that insulate the feet against cold ground. Traditional footwear for harsh winters.,一双厚实的毛毡靴，隔绝地面寒气，保护双脚。适应严冬的传统鞋履。
+sh_bp_felted_wool_CardName,Felted Wool Blueprint,毛毡图纸
+sh_bp_felted_wool_CardDescription,Wet and agitate raw wool to compress the fibres into a dense felt sheet.,将生羊毛浸湿并搅拌，把纤维压缩成一片厚实的毛毡。
+sh_bp_felt_hat_CardName,Felt Hat Blueprint,毛毡帽图纸
+sh_bp_felt_hat_CardDescription,Cut and shape felted wool into a warm winter hat.,将毛毡裁剪塑形，制成一顶保暖的冬帽。
+sh_bp_felt_boots_CardName,Felt Boots Blueprint,毛毡靴图纸
+sh_bp_felt_boots_CardDescription,Form thick felt sheets into boot soles and uppers then bind them with twine.,将厚实的毛毡片制成靴底和靴面，再用麻绳绑紧。
+FC_WolfCompanion_CI3_ActionName,Give Treat,给予零食
+FC_WolfCompanion_CI3_ActionDescription,Slip the wolf a bone. It wags its tail furiously.,偷偷塞给狼一根骨头。它猛烈地摇着尾巴。
+FC_FoxCompanion_CI1_ActionName,Give Treat,给予零食
+FC_FoxCompanion_CI1_ActionDescription,Offer the fox some dried berries. Its eyes light up with excitement.,给狐狸一些干浆果。它的眼睛兴奋地亮了起来。
+FC_OwlCompanion_CI1_ActionName,Give Treat,给予零食
+FC_OwlCompanion_CI1_ActionDescription,Hold out dried meat. The owl blinks once then snaps it down.,递出一些肉干。猫头鹰眨了一下眼，随即一口叼下。
+sh_lanolin_CardName,Lanolin,羊毛脂
+sh_lanolin_CardDescription,A waxy byproduct of shearing.,剪毛产生的蜡质副产品。
+FC_WolfCompanion_CI4_ActionName,Slaughter,屠宰
+FC_WolfCompanion_CI4_ActionDescription,End the wolf's suffering with a quick knife. Its body remains.,用利刃迅速了结狼的痛苦。它的尸体留了下来。
+FC_WolfCompanion_DA6_ActionName,Bond with Wolf,与狼建立羁绊
+FC_WolfCompanion_DA6_ActionDescription,Spend the day moving through the forest together. A quiet understanding passes between you. Can only be earned once.,花一整天时间与它一起穿行森林。你们之间流淌着一份静默的默契。此羁绊只能获得一次。
+FC_FoxCompanion_CI3_ActionName,Slaughter,屠宰
+FC_FoxCompanion_CI3_ActionDescription,Quick and merciful. The fox does not struggle. Its body remains.,迅速而仁慈。狐狸没有挣扎。它的尸体留了下来。
+FC_OwlCompanion_CI3_ActionName,Slaughter,屠宰
+FC_OwlCompanion_CI3_ActionDescription,Put the owl down. Yields a carcass that must be processed with a knife.,结果了猫头鹰。会得到一具需要用小刀处理的尸体。
+FC_Perk_PackBond_PerkName,Pack Bond,狼群羁绊
+FC_Perk_PackBond_PerkDescription,Your bond with the wolf runs deep. Heightened instincts sharpen your tracking.,你与狼的羁绊深厚。敏锐的本能让你的追踪能力更加锐利。
+sh_wool_socks_CardName,Wool Socks,羊毛袜
+sh_wool_socks_CardDescription,Knitted wool socks. Worn beneath boots to keep the feet dry and warm.,针织羊毛袜。穿在靴子里能保持双脚干燥温暖。
+sh_bp_wool_socks_CardName,Wool Socks Blueprint,羊毛袜图纸
+sh_bp_wool_socks_CardDescription,Knit yarn into a pair of warm wool socks.,用纱线织成一双保暖羊毛袜。
+sh_lanolin_salve_CardName,Lanolin Salve,羊毛脂药膏
+sh_lanolin_salve_CardDescription,"A soothing skin balm of lanolin blended with frostleaf. Apply to chafed, wind-burned skin for lasting comfort.",一种由羊毛脂与霜叶调制而成的舒缓护肤膏。涂抹于磨损、风吹皲裂的皮肤上可带来持久舒缓。
+sh_lanolin_salve_DismantleActions[0].ActionName,Apply to Skin,涂抹于皮肤
+sh_bp_lanolin_salve_CardName,Lanolin Salve Blueprint,羊毛脂药膏图纸
+sh_bp_lanolin_salve_CardDescription,Blend lanolin with frostleaf powder into a soothing skin salve.,将羊毛脂与霜叶粉调制成舒缓护肤膏。
+sh_bp_lanolin_salve_UnlockConditionsDesc,Lanolin Needed,需要羊毛脂
+FC_Owl_AgentName,Owl,猫头鹰
+FC_Owl_Tame_ActionName,Attempt to Tame,尝试驯服
+WildOwl_Carcass_CardName,Owl Carcass,猫头鹰尸体
+WildOwl_Carcass_CardDescription,The owl did not survive the encounter. Needs a knife to process.,猫头鹰没能在这次遭遇中幸存。需要用小刀处理。
+WildOwl_Carcass_SpoilageTime_CardStatName,Spoilage,变质
+WildOwl_Carcass_CI0_ActionName,Process Carcass,处理尸体
+WildOwl_Carcass_CI0_ActionDescription,Pluck the feathers and salvage what meat you can.,拔掉羽毛，尽可能回收一些肉。
+FC_WolfCompanion_DA7_ActionName,Stay Here,留在这里
+FC_WolfCompanion_DA7_ActionDescription,Command the wolf to hold its ground until called back.,命令狼原地待命，直到被召回。
+FC_WolfCompanion_DA8_ActionName,Follow Me,跟我来
+FC_WolfCompanion_DA8_ActionDescription,Whistle for the wolf. It bounds over and falls into step beside you.,吹哨召唤狼。它跳跃着跑来，跟在你身边。
+FC_FoxCompanion_DA4_ActionName,Stay Here,留在这里
+FC_FoxCompanion_DA4_ActionDescription,The fox curls up and refuses to budge until called.,狐狸蜷缩下来，不叫不动。
+FC_FoxCompanion_DA5_ActionName,Follow Me,跟我来
+FC_FoxCompanion_DA5_ActionDescription,The fox perks its ears and trots after you once more.,狐狸竖起耳朵，再次小跑跟上你。
+FC_OwlCompanion_DA3_ActionName,Stay Here,留在这里
+FC_OwlCompanion_DA3_ActionDescription,The owl settles onto a perch and stops trailing you.,猫头鹰落在栖木上，不再跟随你。
+FC_OwlCompanion_DA4_ActionName,Follow Me,跟我来
+FC_OwlCompanion_DA4_ActionDescription,The owl takes wing and resumes shadowing your travels.,猫头鹰振翅飞起，再次悄悄跟随你的旅程。
+sh_felt_mittens_CardName,Felt Mittens,毛毡手套
+sh_felt_mittens_CardDescription,Thick felt mittens that shield the hands from biting cold.,一副厚实的毛毡手套，抵御刺骨寒风，保护双手。
+sh_felt_vest_CardName,Felt Vest,毛毡背心
+sh_felt_vest_CardDescription,A sleeveless felt vest that adds an extra layer of warmth over the torso.,一件无袖毛毡背心，为躯干增添一层额外的保暖。
+sh_bp_felt_mittens_CardName,Felt Mittens Blueprint,毛毡手套图纸
+sh_bp_felt_mittens_CardDescription,Cut and stitch felted wool into a pair of warm mittens.,将毛毡裁剪缝制成一副保暖的手套。
+sh_bp_felt_vest_CardName,Felt Vest Blueprint,毛毡背心图纸
+sh_bp_felt_vest_CardDescription,Cut and shape felted wool into a sleeveless vest.,将毛毡裁剪塑形，制成一件无袖背心。
+sh_felt_bedroll_CardName,Felt Bedroll,毛毡睡垫
+sh_felt_bedroll_CardDescription,"A dense felt bedroll, warmer and easier to carry than a simple wool blanket. Improves sleep quality in cold weather.",一张厚实的毛毡睡垫，比普通羊毛毯更保暖、更便于携带。能在寒冷天气中提升睡眠质量。
+sh_bp_felt_bedroll_CardName,Felt Bedroll Blueprint,毛毡睡垫图纸
+sh_bp_felt_bedroll_CardDescription,"Felt a thick layer of wool into a warm, portable bedroll.",将厚厚一层羊毛毡制成温暖便携的睡垫。
+FC_Fox_AgentName,Fox,狐狸
+sh_sheep_pen_CardName,Sheep Pen,羊圈
+sh_sheep_pen_CardDescription,A fenced enclosure for your tame sheep and rams. Sheep and rams left outside a pen overnight risk wandering off or falling to predators - a penned flock is safe.,一个围栏，用于圈养你驯化的绵羊和公羊。夜间未被圈养的绵羊和公羊有走失或被捕食者猎杀的风险——圈养的羊群是安全的。
+sh_sheep_pen_DismantleActions[0].ActionName,Pick Up,拿起
+sh_sheep_pen_DismantleActions[0].ActionDescription,Pack up the pen to carry it. Any sheep or rams inside are set free onto the ground first.,收起羊圈以便携带。里面的绵羊或公羊会先被放到地上。
+sh_sheep_pen_portable_CardName,Sheep Pen,羊圈
+sh_sheep_pen_portable_CardDescription,"A fenced sheep pen, packed for transport. Use Place to set it up.",已打包便于运输的围栏羊圈。使用「放置」来架设它。
+sh_sheep_pen_portable_DismantleActions[0].ActionName,Place,放置
+sh_sheep_pen_portable_DismantleActions[0].ActionDescription,Set up the sheep pen in your environment.,在你所在的环境中架设羊圈。
+sh_bp_sheep_pen_CardName,Sheep Pen Blueprint,羊圈图纸
+sh_bp_sheep_pen_CardDescription,Build a fenced pen to shelter your sheep and rams overnight.,建造一个围栏羊圈，在夜间为你的绵羊和公羊提供庇护。
+sh_sheep_remains_CardName,Sheep Remains,羊的残骸
+sh_sheep_remains_CardDescription,All that's left of a sheep or ram taken by a predator overnight. It was left unpenned - a Sheep Pen keeps the rest of the flock safe.,这是一只绵羊或公羊在夜间被捕食者猎杀后留下的残骸。它当时没有被圈养——羊圈能让羊群的其余部分保持安全。
+WildOwl_Tracks_CardName,Owl Pellets & Feathers,猫头鹰食丸与羽毛
+WildOwl_Tracks_CardDescription,A scatter of downy grey feathers and a matted pellet of fur and small bones. Something silent hunted here.,散落着几根灰色的绒羽，还有一团裹着毛发和细小骨头的食丸。有什么无声的猎手来过这里。
+WildOwl_Tracks_AlternateName0,Bloodied Feathers,染血的羽毛
+WildOwl_Tracks_SpoilageTime_CardStatName,Freshness,新鲜度
+WildOwl_Tracks_SpecialDurability1_CardStatName,Blood,血迹
+sh_buttered_roots_CardName,Buttered Roots,黄油根茎
+sh_buttered_roots_CardDescription,"Roasted cattail root melted with rich sheep butter. A hearty, filling meal.",将黄油融化在烤香蒲根上，做成丰盛饱腹的一餐。
+sh_buttered_roots_DismantleActions[0].ActionName,Eat,吃掉
+sh_butter_CardInteractions[1].ActionName,Butter the Roots,涂黄油
+sh_butter_CardInteractions[1].ActionDescription,Melt butter over roasted cattail root for a richer meal.,将黄油融化在烤香蒲根上，做成更丰盛的一餐。
+sh_cheese_stuffed_flatbread_CardName,Cheese-Stuffed Flatbread,奶酪夹饼
+sh_cheese_stuffed_flatbread_CardDescription,"A round of flatbread pressed full of sheep cheese. A satisfying, portable meal.",塞满羊奶酪的圆形扁面包。令人满足、便于携带的一餐。
+sh_cheese_stuffed_flatbread_DismantleActions[0].ActionName,Eat,吃掉
+sh_sheep_cheese_CardInteractions[0].ActionName,Stuff into Flatbread,塞入饼中
+sh_sheep_cheese_CardInteractions[0].ActionDescription,Press sheep cheese into a round of flatbread.,将羊奶酪压入圆形扁面包中。
+sh_creamy_mash_CardName,Creamy Mash,奶油根泥
+sh_creamy_mash_CardDescription,"Mashed turnroot stirred with rich sheep cream. Smooth, filling, and hydrating.",拌入浓郁羊奶油的土根泥。口感顺滑，饱腹又解渴。
+sh_creamy_mash_DismantleActions[0].ActionName,Eat,吃掉
+sh_cream_CardInteractions[0].ActionName,Stir into Mash,拌入根泥
+sh_cream_CardInteractions[0].ActionDescription,Stir rich cream into mashed turnroot.,将浓郁的羊奶油拌入土根泥中。
+WildOwl_Tied_CardName,Snared Owl,被套住的猫头鹰
+WildOwl_Tied_CardDescription,"Caught alive in a snare, wings bound and furious. Must be fed regularly or it will work itself free. Can be released, or killed for its carcass.",被绳套活捉，双翅被缚，怒不可遏。必须定期喂食，否则它会挣脱逃走。可以放生，也可以杀死取其尸体。
+WildOwl_Tied_SpoilageTime_CardStatName,Hunger,饥饿
+WildOwl_Tied_SpoilageTime_OnZero_ActionName,The Owl Has Escaped!,猫头鹰逃脱了！
+WildOwl_Tied_SpoilageTime_OnZero_ActionDescription,"Left hungry and unattended, the owl worked its bindings loose and vanished into the dark.",无人照料又饥肠辘辘，猫头鹰挣松了束缚，消失在黑暗之中。
+WildOwl_Tied_CI0_ActionName,Feed Snared Owl,喂食被套住的猫头鹰
+WildOwl_Tied_CI0_ActionDescription,Offer the bound owl a scrap of meat. It snatches it without gratitude.,给被缚的猫头鹰递上一块碎肉。它一把夺去，毫无谢意。
+WildOwl_Tied_DA0_ActionName,Release Snared Owl,放走被套住的猫头鹰
+WildOwl_Tied_DA0_ActionDescription,"Cut the bindings and let it go. It climbs into the air without a sound, and will not come near this place again for some days.",割断绳索放它离去。它无声地腾空而起，接下来几天都不会再靠近这里。
+WildOwl_Tied_DA1_ActionName,Kill Snared Owl,杀死被套住的猫头鹰
+WildOwl_Tied_DA1_ActionDescription,"A quick, ugly business. Leaves a carcass worth processing.",干脆而难看的活计，留下一具值得处理的尸体。

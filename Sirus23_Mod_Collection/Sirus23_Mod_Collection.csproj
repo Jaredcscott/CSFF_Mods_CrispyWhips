@@ -1,0 +1,109 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <RootNamespace>Sirus23ModCollection</RootNamespace>
+        <AssemblyName>Sirus23_Mod_Collection</AssemblyName>
+        <LangVersion>latest</LangVersion>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <Nullable>disable</Nullable>
+        <IsPackable>false</IsPackable>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <TargetFramework>net48</TargetFramework>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <GenerateDependencyFile>false</GenerateDependencyFile>
+        <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DebugType>none</DebugType>
+      <DebugSymbols>false</DebugSymbols>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <OutputPath>C:\Program Files (x86)\Steam\steamapps\common\Card Survival Fantasy Forest\BepInEx\plugins\Sirus23_Mod_Collection\</OutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Reference Include="CSFFModFramework">
+            <HintPath>..\HerbsAndFungi\lib\CSFFModFramework.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="0Harmony">
+            <HintPath>..\HerbsAndFungi\lib\0Harmony.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Assembly-CSharp">
+            <HintPath>..\HerbsAndFungi\lib\Assembly-CSharp-nstrip.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="BepInEx">
+            <HintPath>..\HerbsAndFungi\lib\BepInEx.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="DOTween">
+            <HintPath>..\HerbsAndFungi\lib\DOTween.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <!-- UnityEngine DLLs -->
+        <Reference Include="UnityEngine" HintPath="..\HerbsAndFungi\lib\UnityEngine.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Unity.TextMeshPro" HintPath="..\HerbsAndFungi\lib\Unity.TextMeshPro.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule" HintPath="..\HerbsAndFungi\lib\UnityEngine.CoreModule.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.AnimationModule" HintPath="..\HerbsAndFungi\lib\UnityEngine.AnimationModule.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.AssetBundleModule" HintPath="..\HerbsAndFungi\lib\UnityEngine.AssetBundleModule.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.AudioModule" HintPath="..\HerbsAndFungi\lib\UnityEngine.AudioModule.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.ImageConversionModule" HintPath="..\HerbsAndFungi\lib\UnityEngine.ImageConversionModule.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.IMGUIModule" HintPath="..\HerbsAndFungi\lib\UnityEngine.IMGUIModule.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.InputLegacyModule" HintPath="..\HerbsAndFungi\lib\UnityEngine.InputLegacyModule.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.InputModule" HintPath="..\HerbsAndFungi\lib\UnityEngine.InputModule.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.JSONSerializeModule" HintPath="..\HerbsAndFungi\lib\UnityEngine.JSONSerializeModule.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.TextRenderingModule" HintPath="..\HerbsAndFungi\lib\UnityEngine.TextRenderingModule.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.UI" HintPath="..\HerbsAndFungi\lib\UnityEngine.UI.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.UIModule" HintPath="..\HerbsAndFungi\lib\UnityEngine.UIModule.dll">
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.VideoModule" HintPath="..\HerbsAndFungi\lib\UnityEngine.VideoModule.dll">
+            <Private>False</Private>
+        </Reference>
+    </ItemGroup>
+
+    <!-- Copy mod content files to output -->
+    <ItemGroup>
+        <Content Include="ModInfo.json" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="BlueprintTabs.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('BlueprintTabs.json')" />
+        <Content Include="CardData\**\*.json" CopyToOutputDirectory="PreserveNewest" Link="CardData\%(RecursiveDir)%(Filename)%(Extension)" />
+        <Content Include="CharacterPerk\*.json" CopyToOutputDirectory="PreserveNewest" Link="CharacterPerk\%(Filename)%(Extension)" />
+<Content Include="EncounterGuards\*.json" CopyToOutputDirectory="PreserveNewest" Link="EncounterGuards\%(Filename)%(Extension)" />
+        <Content Include="NPCStat\*.json" CopyToOutputDirectory="PreserveNewest" Link="NPCStat\%(Filename)%(Extension)" Condition="Exists('NPCStat')" />
+        <Content Include="NPCDuty\*.json" CopyToOutputDirectory="PreserveNewest" Link="NPCDuty\%(Filename)%(Extension)" Condition="Exists('NPCDuty')" />
+        <Content Include="NPCAgent\*.json" CopyToOutputDirectory="PreserveNewest" Link="NPCAgent\%(Filename)%(Extension)" Condition="Exists('NPCAgent')" />
+        <Content Include="Encounter\*.json" CopyToOutputDirectory="PreserveNewest" Link="Encounter\%(Filename)%(Extension)" Condition="Exists('Encounter')" />
+        <Content Include="Animals\*.json" CopyToOutputDirectory="PreserveNewest" Link="Animals\%(Filename)%(Extension)" Condition="Exists('Animals')" />
+        <Content Include="ScriptableObject\**\*.json" CopyToOutputDirectory="PreserveNewest" Link="ScriptableObject\%(RecursiveDir)%(Filename)%(Extension)" Condition="Exists('ScriptableObject')" />
+        <Content Include="Localization\*.csv" CopyToOutputDirectory="PreserveNewest" Link="Localization\%(Filename)%(Extension)" />
+        <Content Include="Resource\**\*.*" CopyToOutputDirectory="PreserveNewest" Link="Resource\%(RecursiveDir)%(Filename)%(Extension)" />
+    </ItemGroup>
+</Project>

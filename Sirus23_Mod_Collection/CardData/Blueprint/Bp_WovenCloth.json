@@ -1,0 +1,132 @@
+{
+    "UniqueID": "sh_bp_woven_cloth",
+    "CardName": {
+        "ParentObjectID": "sh_bp_woven_cloth",
+        "LocalizationKey": "sh_bp_woven_cloth_CardName",
+        "DefaultText": "Woven Cloth Blueprint"
+    },
+    "CardDescription": {
+        "ParentObjectID": "sh_bp_woven_cloth",
+        "LocalizationKey": "sh_bp_woven_cloth_CardDescription",
+        "DefaultText": "Weave two skeins of yarn into woven woollen cloth."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "sh_woven_cloth",
+    "CardImageWarpType": 3,
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": "Requires: Yarn"
+    },
+    "StartUnlocked": false,
+    "BuildingStatConditions": [],
+    "CardsOnBoard": [
+        {
+            "Card": { "m_FileID": 0, "m_PathID": 0 },
+            "CardWarpData": "sh_yarn",
+            "CardWarpType": 3,
+            "Amount": 1,
+            "ConstantlyChecking": false
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredCardWarpData": "sh_yarn",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 2,
+                    "DontSpend": false,
+                    "Fuel": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroupWarpData": "",
+                    "RequiredTabGroupWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3,
+            "BuildingDaytimeCost": 2
+        }
+    ],
+    "BuildingDaytimeCost": 2,
+    "DeconstructDaytimeCost": 0,
+    "BlueprintUnlockTicksCost": 8,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "DroppedCardWarpData": "sh_woven_cloth",
+            "DroppedCardWarpType": 3,
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "FinishUnlocking": false,
+            "TransferRules": {
+                "Spoilage": 0,
+                "Usage": 0,
+                "Fuel": 0,
+                "Progress": 0,
+                "Special1": 0,
+                "Special2": 0,
+                "Special3": 0,
+                "Special4": 0,
+                "SpoilageValue": 0.0,
+                "UsageValue": 0.0,
+                "FuelValue": 0.0,
+                "ProgressValue": 0.0,
+                "Special1Value": 0.0,
+                "Special2Value": 0.0,
+                "Special3Value": 0.0,
+                "Special4Value": 0.0,
+                "SpoilageFrom": 0,
+                "UsageFrom": 0,
+                "FuelFrom": 0,
+                "ProgressFrom": 0,
+                "Special1From": 0,
+                "Special2From": 0,
+                "Special3From": 0,
+                "Special4From": 0
+            },
+            "DropChance": {
+                "Active": false,
+                "BaseDropChance": 0.0,
+                "DurabilitiesModifiers": [],
+                "StatsModifiers": [],
+                "CardsModifiers": [],
+                "NPCStatsModifiers": []
+            },
+            "DropsDurabilityMultipliers": [],
+            "DropsStatMultipliers": []
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": ["Fiber"],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3
+}

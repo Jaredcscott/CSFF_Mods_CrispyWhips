@@ -1,0 +1,42 @@
+{
+    "UniqueID": "sh_lanolin",
+    "CardName": {
+        "ParentObjectID": "sh_lanolin",
+        "LocalizationKey": "sh_lanolin_CardName",
+        "DefaultText": "Lanolin"
+    },
+    "CardDescription": {
+        "ParentObjectID": "sh_lanolin",
+        "LocalizationKey": "sh_lanolin_CardDescription",
+        "DefaultText": "A waxy byproduct of shearing."
+    },
+    "CardType": 0,
+    "ObjectWeight": 100.0,
+    "TradingValue": 30.0,
+    "CardTags": [],
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "EquipmentTags": [],
+    "FlavourTags": [],
+    "SpiceTags": [],
+    "CannotBeTrashed": false,
+    "CannotBeTransferred": false,
+    "DoesNotPile": false,
+    "AlwaysUpdate": false,
+    "CardImage": {"m_FileID": 0, "m_PathID": 0},
+    "CardImageWarpData": "Fat",
+    "CardImageWarpType": 3,
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "OnInteractActions": [],
+    "SpoilageTime": {"Active": false},
+    "UsageDurability": {"Active": false},
+    "FuelCapacity": {"Active": false},
+    "Progress": {"Active": false},
+    "SpecialDurability1": {"Active": false},
+    "SpecialDurability2": {"Active": false},
+    "SpecialDurability3": {"Active": false},
+    "SpecialDurability4": {"Active": false},
+    "WhenCreatedSoundsWarpData": ["SmallObject_A"],
+    "WhenCreatedSoundsWarpType": 3
+}

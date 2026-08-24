@@ -1,0 +1,19 @@
+{
+  "target": "sh_felt_vest.png",
+  "sourceCard": "CardData/Item/FeltVest.json",
+  "subject": "a sleeveless felted-wool vest laid flat, matted grey-white wool felt with a fine fibrous hand-felted texture, rounded open armholes, a plain seamless front with no cord, strap, rope, tie, lacing, or fastener of any kind",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a sleeveless felted-wool vest laid flat, matted grey-white wool felt with a fine fibrous hand-felted texture, rounded open armholes, a plain seamless front with no cord, no strap, no rope, no tie, no lacing, and no fastener of any kind, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame. Avoid: rope, cord, string, strap, tie, lacing, buckle, button, clasp, fastener, photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame.",
+  "historyId": "D4EErtIBr4F1yznNnQcS",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-08/create-image/XbhdRvvhTk0K7JCPQP3H/image_1787385524161_b45b72b1_1787385524307_6ed25d2f.png",
+  "credits": 90,
+  "note": "One of 3 variants generated in this job (90 credits total for all 3); user selected this one to replace the corded first pass (see RUN_LOG for the superseded entry).",
+  "generated": "2026-08-22"
+}

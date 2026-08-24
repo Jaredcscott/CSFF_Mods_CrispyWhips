@@ -1,0 +1,118 @@
+{
+    "UniqueID": "wildowl_agent",
+    "AgentName": {
+        "DefaultText": "Wild Owl"
+    },
+    "AgentDescription": {
+        "DefaultText": "A silent shape in the dark canopy, drawn toward the light of your camp."
+    },
+    "AgentImageWarpData": "WildOwl",
+    "AgentImageWarpType": 3,
+    "WeightCategoryWarpData": "Light",
+    "WeightCategoryWarpType": 3,
+    "CannotTrade": true,
+    "StartingInventory": [],
+    "//Interactions": "M5 — empty on purpose. Animals/Owl.json's generated Encounter.ApproachButton is authoritative now (AnimalAssetFactory.ApplyApproachButton overwrites this array at load); the former hand-authored Approach -> Encounter_WildOwl.json wiring is deleted.",
+    "Interactions": [],
+    "AgentStats": [
+        {
+            "ModelStatWarpData": "wildowl_stat_exists",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "wildowl_stat_blood",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "wildowl_stat_wildness",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "AgentSatiation",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "cf4a2923e7142524f8aff07c95a916e5",
+            "ModelStatWarpType": 3,
+            "OverrideStartingValue": {
+                "Active": true,
+                "FloatValue": 0.0
+            }
+        },
+        {
+            "ModelStatWarpData": "wildowl_stat_respawn",
+            "ModelStatWarpType": 3
+        },
+        {
+            "ModelStatWarpData": "wildowl_stat_companion_respawn",
+            "ModelStatWarpType": 3
+        }
+    ],
+    "AgentActions": [
+        {
+            "ActionID": "WildOwl_ExistsZero_SpiritWorld",
+            "ActionLocalizedName": {
+                "DefaultText": "WildOwl_ExistsZero_SpiritWorld"
+            },
+            "RepeatOptions": 1,
+            "CannotPerformWhileInCombat": true,
+            "Conditions": {
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "wildowl_stat_exists",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 0.0,
+                            "y": 0.0
+                        }
+                    }
+                ]
+            },
+            "MoveToEnvironmentWarpData": "db69b1711fb0190419ce0c5466591772",
+            "MoveToEnvironmentWarpType": 3,
+            "MoveTiming": 0
+        },
+        {
+            "ActionID": "WildOwl_BloodZero_Death",
+            "ActionLocalizedName": {
+                "DefaultText": "WildOwl_BloodZero_Death"
+            },
+            "RepeatOptions": 1,
+            "CannotPerformWhileInCombat": true,
+            "Conditions": {
+                "RequiredNPCStatValues": [
+                    {
+                        "UseAssociatedAgent": true,
+                        "TargetStatWarpData": "wildowl_stat_blood",
+                        "TargetStatWarpType": 3,
+                        "ConditionRange": {
+                            "x": 0.0,
+                            "y": 4.0
+                        }
+                    }
+                ]
+            },
+            "DroppedCards": [
+                {
+                    "CollectionName": "OwlKilled",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCardWarpData": "wildowl_carcass",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ],
+            "MoveToEnvironmentWarpData": "db69b1711fb0190419ce0c5466591772",
+            "MoveToEnvironmentWarpType": 3,
+            "MoveTiming": 1
+        }
+    ],
+    "DragAndDropActions": []
+}

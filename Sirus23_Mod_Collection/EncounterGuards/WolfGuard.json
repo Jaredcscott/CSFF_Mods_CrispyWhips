@@ -1,0 +1,6 @@
+{
+    "Name": "WolfCompanionFullGuard",
+    "GuardCardUids": ["fc_wolf_companion"],
+    "EncounterUids": [],
+    "SuppressChance": 100
+}

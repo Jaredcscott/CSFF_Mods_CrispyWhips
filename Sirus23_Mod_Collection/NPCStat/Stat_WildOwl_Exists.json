@@ -1,0 +1,8 @@
+{
+    "UniqueID": "wildowl_stat_exists",
+    "GameName": {"DefaultText": "Exists"},
+    "DefaultStartingValue": 1.0,
+    "DefaultMinMaxValue": {"x": 0.0, "y": 1.0},
+    "DefaultRate": 0.0,
+    "DefaultMinMaxRate": {"x": 0.0, "y": 0.0}
+}

@@ -1,0 +1,8 @@
+{
+    "UniqueID": "wildfox_stat_respawn",
+    "GameName": {"DefaultText": "Respawn Timer"},
+    "DefaultStartingValue": 0.0,
+    "DefaultMinMaxValue": {"x": 0.0, "y": 480.0},
+    "DefaultRate": 0.0,
+    "DefaultMinMaxRate": {"x": 0.0, "y": 0.0}
+}

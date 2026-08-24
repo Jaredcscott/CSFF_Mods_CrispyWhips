@@ -1,0 +1,25 @@
+{
+    "UniqueID": "sh_tgr_wild_male_sheep_spawn",
+    "CardName": {
+        "ParentObjectID": "sh_tgr_wild_male_sheep_spawn",
+        "LocalizationKey": "sh_tgr_wild_male_sheep_spawn_CardName",
+        "DefaultText": "Wild Ram Spawn"
+    },
+    "CardDescription": {
+        "ParentObjectID": "sh_tgr_wild_male_sheep_spawn",
+        "LocalizationKey": "sh_tgr_wild_male_sheep_spawn_CardDescription",
+        "DefaultText": "Occasionally spawns a wild ram on the board."
+    },
+    "TriggerCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "TriggerCardWarpData": "sh_wild_male_sheep",
+    "TriggerCardWarpType": 3,
+    "SpawnChance": 15,
+    "SpawnLocation": 1,
+    "TriggerFrequency": 192,
+    "MaxOnBoard": 1,
+    "MaxOnBoardWarpData": [],
+    "MaxOnBoardWarpType": 3
+}

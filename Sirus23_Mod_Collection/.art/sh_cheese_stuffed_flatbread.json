@@ -1,0 +1,18 @@
+{
+  "target": "sh_cheese_stuffed_flatbread.png",
+  "sourceCard": "CardData/Item/CheeseStuffedFlatbread.json",
+  "subject": "a round flatbread pressed and folded to enclose melted sheep cheese, one wedge torn open revealing the stuffed cheese filling oozing slightly, golden-brown griddle-charred crust with a few dark char spots",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a round flatbread pressed and folded to enclose melted sheep cheese, one wedge torn open revealing the stuffed cheese filling oozing slightly, golden-brown griddle-charred crust with a few dark char spots, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame. Avoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame.",
+  "historyId": "HtakwoEgFR3HV2OPwKAl",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-08/create-image/XbhdRvvhTk0K7JCPQP3H/image_1787385256021_02cdf212_1787385256470_e6fad247.png",
+  "credits": 27,
+  "generated": "2026-08-22"
+}

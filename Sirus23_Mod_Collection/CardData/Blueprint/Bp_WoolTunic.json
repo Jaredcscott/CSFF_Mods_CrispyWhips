@@ -1,0 +1,153 @@
+{
+    "UniqueID": "sh_bp_wool_tunic",
+    "CardName": {
+        "ParentObjectID": "sh_bp_wool_tunic",
+        "LocalizationKey": "sh_bp_wool_tunic_CardName",
+        "DefaultText": "Wool Tunic Blueprint"
+    },
+    "CardDescription": {
+        "ParentObjectID": "sh_bp_wool_tunic",
+        "LocalizationKey": "sh_bp_wool_tunic_CardDescription",
+        "DefaultText": "Weave cloth and twine into a warm woollen tunic."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "sh_wool_tunic",
+    "CardImageWarpType": 3,
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": "Requires: Woven Cloth"
+    },
+    "StartUnlocked": false,
+    "BuildingStatConditions": [],
+    "CardsOnBoard": [
+        {
+            "Card": { "m_FileID": 0, "m_PathID": 0 },
+            "CardWarpData": "sh_woven_cloth",
+            "CardWarpType": 3,
+            "Amount": 1,
+            "ConstantlyChecking": false
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredCardWarpData": "sh_woven_cloth",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 3,
+                    "DontSpend": false,
+                    "Fuel": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroupWarpData": "",
+                    "RequiredTabGroupWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 8,
+                    "DontSpend": false,
+                    "Fuel": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroupWarpData": "",
+                    "RequiredTabGroupWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3,
+            "BuildingDaytimeCost": 3
+        }
+    ],
+    "BuildingDaytimeCost": 3,
+    "DeconstructDaytimeCost": 0,
+    "BlueprintUnlockTicksCost": 16,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "DroppedCardWarpData": "sh_wool_tunic",
+            "DroppedCardWarpType": 3,
+            "Quantity": {
+                "x": 1,
+                "y": 1
+            },
+            "FinishUnlocking": false,
+            "TransferRules": {
+                "Spoilage": 0,
+                "Usage": 0,
+                "Fuel": 0,
+                "Progress": 0,
+                "Special1": 0,
+                "Special2": 0,
+                "Special3": 0,
+                "Special4": 0,
+                "SpoilageValue": 0.0,
+                "UsageValue": 0.0,
+                "FuelValue": 0.0,
+                "ProgressValue": 0.0,
+                "Special1Value": 0.0,
+                "Special2Value": 0.0,
+                "Special3Value": 0.0,
+                "Special4Value": 0.0,
+                "SpoilageFrom": 0,
+                "UsageFrom": 0,
+                "FuelFrom": 0,
+                "ProgressFrom": 0,
+                "Special1From": 0,
+                "Special2From": 0,
+                "Special3From": 0,
+                "Special4From": 0
+            },
+            "DropChance": {
+                "Active": false,
+                "BaseDropChance": 0.0,
+                "DurabilitiesModifiers": [],
+                "StatsModifiers": [],
+                "CardsModifiers": [],
+                "NPCStatsModifiers": []
+            },
+            "DropsDurabilityMultipliers": [],
+            "DropsStatMultipliers": []
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": ["Fiber"],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3
+}

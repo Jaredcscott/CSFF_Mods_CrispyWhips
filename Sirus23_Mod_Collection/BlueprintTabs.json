@@ -1,0 +1,29 @@
+{
+    "Tab_5_MetalAndClay_Subtab_1_Utensils_TabName": [
+        "sh_bp_shears"
+    ],
+    "Tab_4_Tailoring_Subtab_2_Cloth_TabName": [
+        "sh_bp_yarn",
+        "sh_bp_woven_cloth",
+        "sh_bp_cheese_cloth",
+        "sh_bp_wool_blanket",
+        "sh_bp_wool_tunic",
+        "sh_bp_felted_wool",
+        "sh_bp_felt_hat",
+        "sh_bp_felt_boots",
+        "sh_bp_wool_socks",
+        "sh_bp_felt_mittens",
+        "sh_bp_felt_vest",
+        "sh_bp_felt_bedroll"
+    ],
+    "Tab_6_Farming_Subtab_2_AnimalHusbandry_TabName": [
+        "sh_bp_sheep_feeder",
+        "sh_bp_sheep_pen"
+    ],
+    "Tab_1_Survival_Subtab_5_Cooking_TabName": [
+        "sh_bp_butter_churn"
+    ],
+    "Tab_1_Survival_Subtab_3_Medical_TabName": [
+        "sh_bp_lanolin_salve"
+    ]
+}

@@ -1,0 +1,68 @@
+{
+    "UniqueID": "sh_buttered_roots",
+    "CardName": {
+        "ParentObjectID": "sh_buttered_roots",
+        "LocalizationKey": "sh_buttered_roots_CardName",
+        "DefaultText": "Buttered Roots"
+    },
+    "CardDescription": {
+        "ParentObjectID": "sh_buttered_roots",
+        "LocalizationKey": "sh_buttered_roots_CardDescription",
+        "DefaultText": "Roasted cattail root melted with rich sheep butter. A hearty, filling meal."
+    },
+    "CardType": 0,
+    "ObjectWeight": 150.0,
+    "TradingValue": 25,
+    "CardImageWarpData": "sh_buttered_roots",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [
+        "tag_Food",
+        "tag_Plateable"
+    ],
+    "CardTagsWarpType": 3,
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_buttered_roots",
+                "LocalizationKey": "sh_buttered_roots_DismantleActions[0].ActionName",
+                "DefaultText": "Eat"
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 35.0, "y": 35.0 }
+                },
+                {
+                    "StatWarpData": "95ca7c21ffad5e647acc3d9cb5bfcde6",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 3.0, "y": 3.0 }
+                },
+                {
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 15.0, "y": 15.0 }
+                },
+                {
+                    "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 40.0, "y": 40.0 }
+                }
+            ]
+        }
+    ],
+    "EdibleStats": {
+        "Nutrients": 35,
+        "Hydration": 3
+    }
+}

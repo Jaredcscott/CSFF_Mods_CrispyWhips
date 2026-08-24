@@ -1,0 +1,98 @@
+{
+    "UniqueID": "wildowl_carcass",
+    "CardName": {
+        "ParentObjectID": "wildowl_carcass",
+        "LocalizationKey": "WildOwl_Carcass_CardName",
+        "DefaultText": "Owl Carcass"
+    },
+    "CardDescription": {
+        "ParentObjectID": "wildowl_carcass",
+        "LocalizationKey": "WildOwl_Carcass_CardDescription",
+        "DefaultText": "The owl did not survive the encounter. Needs a knife to process."
+    },
+    "CardType": 0,
+    "ObjectWeight": 120,
+    "TradingValue": 20,
+    "CardTags": [],
+    "CardTagsWarpData": ["tag_Carcass", "tag_CarcassSmall", "tag_WildMeat", "tag_Preservable"],
+    "CardTagsWarpType": 3,
+    "EquipmentTags": [],
+    "FlavourTags": [],
+    "SpiceTags": [],
+    "CardImage": {"m_FileID": 0, "m_PathID": 0},
+    "CardImageWarpData": "OwlCarcass",
+    "CardImageWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 288.0,
+        "CardStatName": {
+            "ParentObjectID": "wildowl_carcass",
+            "LocalizationKey": "WildOwl_Carcass_SpoilageTime_CardStatName",
+            "DefaultText": "Spoilage"
+        },
+        "MaxValue": 288.0,
+        "RatePerDaytimePoint": 1.0
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "wildowl_carcass",
+                "LocalizationKey": "WildOwl_Carcass_CI0_ActionName",
+                "DefaultText": "Process Carcass"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "wildowl_carcass",
+                "LocalizationKey": "WildOwl_Carcass_CI0_ActionDescription",
+                "DefaultText": "Pluck the feathers and salvage what meat you can."
+            },
+            "DaytimeCost": 2,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": ["tag_Cutter"],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {"TriggerCards": [], "TriggerTags": []},
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "GivenCardChanges": {
+                "ModType": 1,
+                "UsageChange": {"x": -1.0, "y": -1.0}
+            },
+            "ReceivingCardChanges": {"ModType": 3},
+            "ProducedCards": [
+                {
+                    "CollectionName": "OwlCarcassProcess",
+                    "CollectionWeight": 1,
+                    "MinCollectionCount": 1,
+                    "MaxCollectionCount": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "ac7fa8419b608d54fa2002aa589d3f94",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 6, "y": 6}
+                        },
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "5dc9560f81be57c4b9e22780f8a5ad78",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 3, "y": 3}
+                        }
+                    ]
+                }
+            ],
+            "StatModifications": []
+        }
+    ],
+    "EquipSlotType": 0
+}

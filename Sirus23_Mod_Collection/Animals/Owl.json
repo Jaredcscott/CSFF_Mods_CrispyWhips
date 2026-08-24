@@ -1,0 +1,119 @@
+{
+  "//": "M2 manifest — the framework generates the owl's night-visit duty and lifecycle timers from this file (Documentation/Design/Animals_Schema.md).",
+  "//2": "Agent.Ref escape-hatches to the hand-authored NPCAgent/Agent_WildOwl.json, which still owns the art, the Approach interaction (-> Encounter/Encounter_WildOwl.json), the drag-bait 'Attempt to Tame' CI, and its own AgentActions (trapped death, exists-zero Spirit World parking, blood-zero death with carcass drop). The Agent.Stats map tells the framework which hand-authored NPCStats to gate the generated duty on and to use as persistent timer storage.",
+  "//3": "Replaced by these sections (deleted in the M2 conversion): NPCDuty/Duty_WildOwl_NightHunt.json + ScriptableObject/MoveDutyAction/WildOwl_MoveToPlayer.json (now Movement.PlayerAttraction -> a generated duty: teleport to the player at night, LeaveTracks, gated on exists==1 and blood>4) and WildOwlLifecyclePatch's tick timers (now Spawn.DeathRespawnTicks / SuppressWhileCardOnBoard / SuppressedRespawnTicks + ActivityWindow, run by the framework's AnimalLifecycleTicker: 5-day kill respawn, 3-day companion-death respawn, dawn relocation to the Spirit World, run-start reconciliation).",
+  "SchemaVersion": 1,
+  "SpeciesId": "sirus_owl",
+  "DisplayName": "Owl",
+  "LocalizationKey": "FC_Owl_AgentName",
+  "Agent": {
+    "Ref": "wildowl_agent",
+    "Stats": {
+      "Exists": "wildowl_stat_exists",
+      "Blood": "wildowl_stat_blood",
+      "RespawnTimer": "wildowl_stat_respawn",
+      "SuppressRespawnTimer": "wildowl_stat_companion_respawn"
+    }
+  },
+  "ActivityWindow": {
+    "ActiveHours": { "Start": 20, "End": 6 },
+    "Roost": "SpiritWorld"
+  },
+  "Movement": {
+    "PlayerAttraction": {
+      "Enabled": true,
+      "BaseWeight": 1000000000,
+      "MovementType": "Teleport",
+      "OnlyDuringActiveHours": true
+    }
+  },
+  "Spawn": {
+    "DeathRespawnTicks": 480,
+    "SuppressWhileCardOnBoard": "fc_owl_companion",
+    "SuppressedRespawnTicks": 288
+  },
+  "//Tracks": "M3. Replaces the hand-authored DefaultTracks block that used to live in NPCAgent/Agent_WildOwl.json (deleted in this commit) — when a manifest carries a Tracks section it is authoritative and overwrites the agent's own setup. The owl leaves a track in the environment it LEAVES on each night teleport, discoverable when the player next arrives there.",
+  "//Tracks2": "TUNABLE, NOT PLAYTESTED: LifetimeTicks and RevealSkillCurve are first-pass guesses. RevealSkillCurve is ADDITIVE on top of the engine's global curve (Skill_Tracking 0 -> 50%, 150 -> 100%), so negative values are what make a species harder to find than vanilla. -55 at skill 0 puts the total at -5, and TrackingAttemptReport.Success is a hard false at <= 0, so owl tracks are deterministically invisible at Tracking 0 and deterministically found at 150 (100 + 15 >= 100). Retune once the low-skill/high-skill acceptance pass runs.",
+  "Tracks": {
+    "Enabled": true,
+    "TrackCard": "wildowl_tracks",
+    "LifetimeTicks": { "Min": 24, "Max": 48 },
+    "AddedDiscoverChance": 0,
+    "RevealSkill": "Skill_Tracking",
+    "RevealSkillCurve": { "StatRange": [0, 150], "ChanceRange": [-55, 15] },
+    "BloodTrail": true
+  },
+  "//Traps0": "M4 conversion note: the hand-authored 'WildOwl_TrappedDeath' AgentAction was DELETED from NPCAgent/Agent_WildOwl.json in this commit. It was dead pre-M4 wiring (gated on AgentTrapType >= 1, which could never become non-zero while the owl was in no trap's TriggerInteractors) and is superseded by the framework-generated 'Interact with a Trap' action, which retires the agent AND drops the catch AND refills the respawn timer. Left in place it would re-fire exists-1 on every tick after a spring, and would pin the owl permanently retired if the generated trap-type reset action ever failed to run.",
+  "//Traps": "M4. The owl opts into SNARES ONLY and is caught ALIVE as wildowl_tied (the vanilla PartridgeTied* precedent -- snares are the one trap type whose AgentTrapType stamp, 20, promotes a live-capture drop collection). Deadfall/LogTrap/PitTrap are left at the immune sentinel 10000: a bird does not blunder under a falling log or into a pit, and per-type values are opt-in, so the framework only appends the owl to the SNARE's TriggerInteractors list and leaves the other three vanilla trap cards completely untouched.",
+  "//Traps2": "Bait is deliberately NOT authored. Omitting BaitTags/BaitCards makes the framework derive the food pool from the live vanilla trap cards' own InventoryFilter.TagFilters, so 'what the owl will eat' and 'what the player is allowed to bait a snare with' are the same set by construction. Those tag names export as meaningless Unity asset names (Text/ButtonText/Handle/...), so hardcoding one would be both wrong and version-fragile.",
+  "//Traps3": "TUNABLE, NOT PLAYTESTED -- Wariness 25 (between vanilla wolf 25 and fox 30; subtracts from the catch chance, so a snare at Trapping 0 is roughly a coin flip and near-certain at Trapping 150), and the 70/30 alive-vs-carcass split. Vanilla partridge is effectively 100% alive on a snare (carcass base 100 cancelled by a -100 modifier); the owl keeps a 30% carcass outcome so a snared owl is not a guaranteed live capture.",
+  "//Traps4": "CORRECTED: duty selection is NOT weighted-random. InGameNPC sorts duties by weight DESCENDING and picks uniformly only among those tied at the very top, so the highest weight wins outright. An earlier value of 900000000 against the 1e9 player-attraction weight meant the feed duty could never be selected and the trap could never fire. Bait.DutyWeight is therefore set EQUAL to PlayerAttraction.BaseWeight (1e9): both duties tie at the top and the owl picks between visiting the player and raiding bait at 50/50 each time it re-selects. The framework validator now rejects a feed weight below the heaviest movement duty. If the attraction weight is retuned, retune this with it.",
+  "Traps": {
+    "Enabled": true,
+    "Wariness": 25,
+    "PerType": {
+      "Snare": 0,
+      "Deadfall": 10000,
+      "LogTrap": 10000,
+      "PitTrap": 10000
+    },
+    "Bait": {
+      "DutyWeight": 1000000000
+    },
+    "CatchResults": [
+      {
+        "TrapType": "Snare",
+        "Drops": [
+          { "Card": "wildowl_tied", "Weight": 70 },
+          { "Card": "wildowl_carcass", "Weight": 30 }
+        ]
+      }
+    ]
+  },
+  "//Encounter": "M5 — GENERATED, not Ref'd. Encounter_WildOwl.json (the former Ref target) is deleted in this commit: this milestone specifically proves the generator path end-to-end, so the owl now exercises EncounterBuilder instead of re-proving the Ref escape hatch. AnimalAssetFactory.BuildAgent resolves this ONCE per load and threads the SAME Encounter instance to the Approach button (a Ref-path agent's own hand-authored Interactions[] Approach entry is overwritten with it — Agent_WildOwl.json's Interactions array is now empty), the Aggression attack duty below, AND Interactions[].OnFail.AttackChance (TameInteractionBuilder) — one encounter, three consumers.",
+  "//Encounter2": "Values mirror the deleted Encounter_WildOwl.json 1:1 (Blood 40, Awareness [20,60], one attack action + one escape action, EnemyBodyTemplate 'Combat_ BTDuck') so the generated encounter behaves identically to the proven hand-authored one. Damage is generator-computed as [Blood*0.12, Blood*0.35] = [4.8, 14] (the schema has no per-species Damage field in v1) -- close to the old file's hand-tuned [5, 15]. TUNABLE: Cover/Stealth left at generator defaults (the old file never set them either).",
+  "//Aggression": "NEW in M5 — the owl previously had no scheduled attack at all (only the Approach-triggered encounter and the tame-fail-attack branch). Aggression compiles into a GENERATED NPCDuty via DutyBuilder's existing StartEncounterDutyAction idiom, never a cloned vanilla attack duty (those fire a hardwired encounter). TUNABLE, NOT PLAYTESTED: BaseWeight 600 vs the astronomical Movement.PlayerAttraction.BaseWeight (1e9) above -- the attack duty will almost never win selection against the nightly seek-player duty at these weights; retune together if the owl should actually attack with any real frequency once verified in-game. Hours mirror the owl's own night ActivityWindow.",
+  "Encounter": {
+    "BodyTemplate": "Combat_ BTDuck",
+    "Blood": 40,
+    "Size": 7,
+    "Awareness": [20, 60],
+    "Passive": false,
+    "ForceFight": false,
+    "ApproachButton": true,
+    "Aggression": {
+      "Enabled": true,
+      "Hours": { "Start": 22, "End": 4 },
+      "BaseWeight": 600,
+      "RequirePlayerInEnv": true,
+      "MaxPerDay": 1
+    }
+  },
+  "//Interactions": "M6. Replaces the hand-authored 'Attempt to Tame' DragAndDropAction deleted from NPCAgent/Agent_WildOwl.json. Success/fail is resolved by the engine's own native weighted ProducedCards-collection selection (Mechanism B) -- no custom C# roll. Skill_Tracking is reused from this same owl's Tracks mechanic (a skilled tracker understands the bird well enough to approach it).",
+  "//Interactions2": "TUNABLE, NOT PLAYTESTED: SuccessWeight 10 vs FailWeight 10 with WeightRange [0,20] over Skill_Tracking [0,150] -> skill 0 gives 10/(10+10) = 50% success, skill 150 gives 30/(30+10) = 75%. AttackChance 20 means 1 in 5 failures instead fires Encounter.Ref (the owl's own combat encounter already allows an attack branch, EnemyActions[1] Damage 5-15).",
+  "Interactions": [
+    {
+      "Name": "Tame",
+      "LocalizationKey": "FC_Owl_Tame_ActionName",
+      "ActionName": "Attempt to Tame",
+      "ActionDescription": "Offer a mouse, minnow, or dead partridge to earn the owl's trust.",
+      "DaytimeCost": 1,
+      "BaitCards": [
+        "cea21fa218c28ee49a49ba2ffc8eba7c",
+        "992cc6a7e92f4c5438c766327a3cbfcb",
+        "f72ca8f6249870d4b9306c2d779c93a9"
+      ],
+      "Skill": "Skill_Tracking",
+      "SuccessWeight": 10,
+      "SkillBonus": { "StatRange": [0, 150], "WeightRange": [0, 20] },
+      "FailWeight": 10,
+      "OnSuccess": { "GiveCard": "fc_owl_companion", "DespawnAgent": true },
+      "OnFail": { "Flee": true, "AttackChance": 20 }
+    }
+  ],
+  "//Companion": "M6. fc_owl_companion spawns via native ProducedCards resolution at ZERO durability stats (GameManager.GiveCard is void in this game version, so no spawn-time override can apply). CompanionService inits Hunger/Thirst/Morale to full the instant the tame succeeds -- before OwlCompanion.json's own SpoilageTime.HasActionOnZero ('flew away, neglected') can fire on the next daytime-point spend -- and retires+relocates the wild owl in the same action (Attempt-12 interactivity-gap fix).",
+  "Companion": {
+    "Card": "fc_owl_companion",
+    "InitStatsOnSpawn": true
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "_comment": "Edit status to Tested when verified in-game. Edit name to rename a group. Add cards to cards array to reassign them. Re-run /feature-map Sirus23_Mod_Collection to refresh feature-map.md.",
+  "groups": [
+    {
+      "name": "Wolf Companion",
+      "status": "Tested",
+      "_note": "Wolf companion regression verified in-game 2026-07-21 (T2.27). Prior 'fc_perk_pack_bond JSON missing' Inoperative note was stale — perk ships as CharacterPerk/Perk_PackBond.json.",
+      "cards": [
+        "fc_wolf_companion",
+        "fc_perk_wolf_friend",
+        "fc_perk_pack_bond"
+      ]
+    },
+    {
+      "name": "Fox Companion",
+      "status": "Implemented",
+      "cards": [
+        "fc_fox_companion",
+        "fc_perk_fox_friend"
+      ]
+    },
+    {
+      "name": "Owl Companion",
+      "status": "Implemented",
+      "_note": "Wild-owl mechanics (tracks/traps/encounters/tame) are now manifest-driven via Animals/Owl.json (CSFFModFramework Animal System M3-M6, framework 2.25.0) -- built+deployed, not yet in-game verified. Full per-interaction trigger->outcome table: Documentation/Design/Owl_Feature_Map.md.",
+      "cards": [
+        "fc_owl_companion",
+        "fc_perk_owl_friend"
+      ]
+    },
+    {
+      "name": "Sheep Lifecycle",
+      "status": "Implemented",
+      "cards": [
+        "sh_wild_sheep",
+        "sh_wild_male_sheep",
+        "sh_tame_sheep",
+        "sh_male_sheep",
+        "sh_lactating_sheep",
+        "sh_lamb",
+        "sh_tgr_wild_sheep_spawn",
+        "sh_tgr_wild_male_sheep_spawn"
+      ]
+    },
+    {
+      "name": "Shears",
+      "status": "Implemented",
+      "cards": [
+        "sh_shears",
+        "sh_bp_shears",
+        "sh_perk_start_shears"
+      ]
+    },
+    {
+      "name": "Wool Spinning & Weaving",
+      "status": "Implemented",
+      "_note": "Fully blueprint-based (1.20.0+), no vanilla spinning wheel dependency. Superseded the old vanilla-CI-triggered Spin Wool/Weave Cloth/Sew Tunic interactions on sh_wool/sh_yarn/sh_wool_blanket, which referenced a deleted SpinningWheelLocation and have since been removed.",
+      "cards": [
+        "sh_bp_yarn",
+        "sh_bp_woven_cloth",
+        "sh_bp_wool_blanket",
+        "sh_bp_wool_tunic"
+      ]
+    },
+    {
+      "name": "Butter Churn",
+      "status": "Implemented",
+      "cards": [
+        "sh_butter_churn_portable",
+        "sh_butter_churn",
+        "sh_bp_butter_churn"
+      ]
+    },
+    {
+      "name": "Sheep Feeder",
+      "status": "Implemented",
+      "_note": "Placed feeder has no functional CIs or auto-feeding mechanics. Only Pick Up DA. Currently cosmetic/structural.",
+      "cards": [
+        "sh_sheep_feeder_portable",
+        "sh_sheep_feeder",
+        "sh_bp_sheep_feeder"
+      ]
+    },
+    {
+      "name": "Yarn",
+      "status": "Tested",
+      "_note": "sh_bp_yarn has StartUnlocked:true - blueprint available without research. Verify this is intentional.",
+      "cards": [
+        "sh_yarn",
+        "sh_bp_yarn"
+      ]
+    },
+    {
+      "name": "Woven Cloth",
+      "status": "Tested",
+      "cards": [
+        "sh_woven_cloth",
+        "sh_bp_woven_cloth"
+      ]
+    },
+    {
+      "name": "Cheese Cloth",
+      "status": "Tested",
+      "cards": [
+        "sh_cheese_cloth",
+        "sh_bp_cheese_cloth"
+      ]
+    },
+    {
+      "name": "Wool Blanket",
+      "status": "Tested",
+      "cards": [
+        "sh_wool_blanket",
+        "sh_bp_wool_blanket"
+      ]
+    },
+    {
+      "name": "Wool Tunic",
+      "status": "Tested",
+      "cards": [
+        "sh_wool_tunic",
+        "sh_bp_wool_tunic"
+      ]
+    },
+    {
+      "name": "Felt Working",
+      "status": "Tested",
+      "cards": [
+        "sh_felted_wool",
+        "sh_bp_felted_wool",
+        "sh_felt_hat",
+        "sh_bp_felt_hat",
+        "sh_felt_boots",
+        "sh_bp_felt_boots",
+        "sh_wool_socks",
+        "sh_bp_wool_socks"
+      ]
+    },
+    {
+      "name": "Milk & Dairy",
+      "status": "Implemented",
+      "cards": [
+        "sh_sheep_milk",
+        "sh_warm_milk",
+        "sh_cream",
+        "sh_butter",
+        "sh_buttermilk",
+        "sh_clarified_butter"
+      ]
+    },
+    {
+      "name": "Cheese Making",
+      "status": "Implemented",
+      "_note": "Curdled milk acquisition path unconfirmed - needs in-game verification.",
+      "cards": [
+        "sh_curdled_milk",
+        "sh_sheep_cheese",
+        "sh_aged_sheep_cheese",
+        "sh_whey",
+        "sh_ricotta"
+      ]
+    },
+    {
+      "name": "Cultured Dairy",
+      "status": "Implemented",
+      "cards": [
+        "sh_sour_cream",
+        "sh_yogurt"
+      ]
+    },
+    {
+      "name": "Wool (Raw)",
+      "status": "Tested",
+      "cards": [
+        "sh_wool",
+        "sh_lanolin"
+      ]
+    },
+    {
+      "name": "Lanolin Salve",
+      "status": "Implemented",
+      "_note": "Blueprint sh_bp_lanolin_salve (Survival>Medical, gated on sh_lanolin on board): 1 lanolin + 1 vanilla FrostleafPowder -> salve. DA 'Apply to Skin' ModType:3 restores +15 Comfort.",
+      "cards": [
+        "sh_lanolin_salve",
+        "sh_bp_lanolin_salve"
+      ]
+    },
+    {
+      "name": "Shepherd Perks",
+      "status": "Tested",
+      "_note": "Pack Bond perk verified in-game 2026-07-21 (T2.25). Prior 'fc_perk_pack_bond JSON missing' note was stale — perk ships as CharacterPerk/Perk_PackBond.json.",
+      "cards": [
+        "sh_perk_start_sheep",
+        "sh_perk_start_shears",
+        "sh_perk_husbandry_kit",
+        "sh_perk_shepherds_start",
+        "sh_perk_crafting_kit",
+        "fc_perk_pack_bond"
+      ]
+    },
+    {
+      "name": "Wild Sheep Spawns",
+      "status": "Implemented",
+      "cards": [
+        "sh_tgr_wild_sheep_spawn",
+        "sh_tgr_wild_male_sheep_spawn"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+    "UniqueID": "wildowl_stat_wildness",
+    "GameName": {"DefaultText": "Wildness"},
+    "DefaultStartingValue": 100.0,
+    "DefaultMinMaxValue": {"x": 0.0, "y": 100.0},
+    "DefaultRate": 0.0,
+    "DefaultMinMaxRate": {"x": 0.0, "y": 0.0}
+}

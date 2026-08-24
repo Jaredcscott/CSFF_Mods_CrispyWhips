@@ -1,0 +1,325 @@
+FC_WolfCompanion_CardName,Wolf Companion,狼伙伴
+FC_WolfCompanion_CardDescription,"A loyal wolf that follows you. Keep it fed, watered, and happy or it will eventually leave.",一只忠诚的狼跟随着你。保持喂养、给水和互动，否则它最终会离开。
+FC_Perk_WolfFriend_PerkName,Wolf Friend,狼之友
+FC_Perk_WolfFriend_PerkDescription,Start with a loyal wolf companion.,开始时携带一只忠诚的狼伙伴。
+FC_WolfCompanion_CI0_ActionName,Feed Wolf,喂狼
+FC_WolfCompanion_CI0_ActionDescription,Give the wolf a meal. It wags its tail.,给狼一顿饭。它摇着尾巴。
+FC_WolfCompanion_CI1_ActionName,Give Water,喂水
+FC_WolfCompanion_CI1_ActionDescription,Offer the wolf a drink from a water container.,让狼从盆中喝水。
+FC_WolfCompanion_DA0_ActionName,Pet Wolf,抚摸狼
+FC_WolfCompanion_DA0_ActionDescription,Spend a quiet moment with your companion by the fire.,在火旁与你的伙伴共度一段安静的时光。
+FC_WolfCompanion_DA1_ActionName,Play with Wolf,与狼玩耍
+FC_WolfCompanion_DA1_ActionDescription,"Chase, wrestle and tumble through the forest together. Pure joy.",一起在森林中追逐、摔跤和翻滚。纯粹的快乐。
+FC_WolfCompanion_DA2_ActionName,Send on Hunt,派去狩猎
+FC_WolfCompanion_DA2_ActionDescription,"The wolf disappears into the undergrowth. It returns with prey — a squirrel, perhaps a partridge, rarely a hare.",狼消失在灌木丛中。它带着猎物回来了。
+FC_WolfCompanion_DA3_ActionName,Track Scents,追踪气味
+FC_WolfCompanion_DA3_ActionDescription,Follow the wolf as it reads the forest. Your tracking improves.,跟随狼读懂森林。你的追踪技能提升了。
+FC_WolfCompanion_DA4_ActionName,Guard Camp,守卫营地
+FC_WolfCompanion_DA4_ActionDescription,The wolf patrols the perimeter while you rest. You sleep more soundly.,你休息时狼在周围巡逻。你睡得更安稳了。
+FC_WolfCompanion_DA5_ActionName,Flush Prey,驱赶猎物
+FC_WolfCompanion_DA5_ActionDescription,Send the wolf ahead on the trail. Prey scatter; you pick off stragglers.,让狼在猎径上打前哨。猎物四散逃跑，你拦截落单者。
+FC_WolfCompanion_CI2_ActionName,Treat Wounds,治疗伤口
+FC_WolfCompanion_CI2_ActionDescription,Apply the remedy to the wolf's injuries. It holds still while you work.,将药物涂抹在狼的伤口上。它一动不动地让你处理。
+FC_WolfCompanion_Progress_CardStatName,Morale,士气
+FC_WolfCompanion_SpoilageTime_CardStatName,Hunger,饥饿
+FC_WolfCompanion_UsageDurability_CardStatName,Thirst,口渴
+sh_wild_sheep_CardName,Wild Sheep,Wild Sheep
+sh_wild_sheep_CardDescription,"A wild sheep roaming the forest. Offer it fresh meadowgrass to tame it, or slaughter it for resources.","A wild sheep roaming the forest. Offer it fresh meadowgrass to tame it, or slaughter it for resources."
+sh_wild_male_sheep_CardName,Wild Ram,Wild Ram
+sh_wild_male_sheep_CardDescription,"A wild ram. Offer it fresh meadowgrass to tame it, or slaughter it for resources.","A wild ram. Offer it fresh meadowgrass to tame it, or slaughter it for resources."
+sh_tame_sheep_CardName,Tame Sheep,Tame Sheep
+sh_tame_sheep_CardDescription,"A tame sheep. Shear it for wool, keep it near a ram to breed over time, or slaughter it.","A tame sheep. Shear it for wool, keep it near a ram to breed over time, or slaughter it."
+sh_male_sheep_CardName,Ram,Ram
+sh_male_sheep_CardDescription,"A tame ram. Keep it near tame sheep to impregnate them over time, or slaughter it for resources.","A tame ram. Keep it near tame sheep to impregnate them over time, or slaughter it for resources."
+sh_lactating_sheep_CardName,Lactating Sheep,Lactating Sheep
+sh_lactating_sheep_CardDescription,"A sheep that recently gave birth. Use a clay bowl to milk it daily, shear it for wool, or slaughter it.","A sheep that recently gave birth. Use a clay bowl to milk it daily, shear it for wool, or slaughter it."
+sh_lamb_CardName,Lamb,Lamb
+sh_lamb_CardDescription,"A young lamb. It will grow into a tame sheep or ram by the end of fall. You can feed it meadowgrass or straw to mature it early, or slaughter it for a small amount of meat and hide.","A young lamb. It will grow into a tame sheep or ram by the end of fall. You can feed it meadowgrass or straw to mature it early, or slaughter it for a small amount of meat and hide."
+sh_sheep_milk_CardName,Sheep Milk,Sheep Milk
+sh_sheep_milk_CardDescription,Fresh sheep milk.,Fresh sheep milk.
+sh_sheep_milk_LiquidSuffixName,Sheep Milk,Sheep Milk
+sh_warm_milk_CardName,Warm Milk,Warm Milk
+sh_warm_milk_CardDescription,Warmed sheep milk. Comforting and nutritious.,Warmed sheep milk. Comforting and nutritious.
+sh_curdled_milk_CardName,Curdled Milk,Curdled Milk
+sh_curdled_milk_CardDescription,Curdled sheep milk. Press it over a fire to make cheese and whey.,Curdled sheep milk. Press it over a fire to make cheese and whey.
+sh_sheep_cheese_CardName,Sheep Cheese,Sheep Cheese
+sh_sheep_cheese_CardDescription,Fresh sheep cheese. Leave it out to age into a richer variety — the spoilage bar fills as it ages.,Fresh sheep cheese. Leave it out to age into a richer variety — the spoilage bar fills as it ages.
+sh_aged_sheep_cheese_CardName,Aged Sheep Cheese,Aged Sheep Cheese
+sh_aged_sheep_cheese_CardDescription,Richly flavoured aged sheep cheese. Excellent nutrition.,Richly flavoured aged sheep cheese. Excellent nutrition.
+sh_whey_CardName,Whey,Whey
+sh_whey_CardDescription,"Liquid whey, a byproduct of cheese making. Mildly nutritious.","Liquid whey, a byproduct of cheese making. Mildly nutritious."
+sh_butter_CardName,Butter,Butter
+sh_butter_CardDescription,Churned sheep butter. Rich in fat and calories. Drag a fire source onto it to clarify into pure fat.,Churned sheep butter. Rich in fat and calories. Drag a fire source onto it to clarify into pure fat.
+sh_buttermilk_CardName,Buttermilk,Buttermilk
+sh_buttermilk_CardDescription,"Tangy buttermilk, a byproduct of churning butter.","Tangy buttermilk, a byproduct of churning butter."
+sh_buttermilk_DismantleActions[0].ActionName,Drink,Drink
+sh_ricotta_CardName,Ricotta,Ricotta
+sh_ricotta_CardDescription,Soft ricotta cheese made from reheated whey.,Soft ricotta cheese made from reheated whey.
+sh_wool_CardName,Wool,Wool
+sh_wool_CardDescription,Raw wool sheared from a sheep. Spin it into yarn.,Raw wool sheared from a sheep. Spin it into yarn.
+sh_yarn_CardName,Yarn,Yarn
+sh_yarn_CardDescription,Spun wool yarn. Weave it into cloth.,Spun wool yarn. Weave it into cloth.
+sh_woven_cloth_CardName,Woven Cloth,Woven Cloth
+sh_woven_cloth_CardDescription,Woven woollen cloth. Provides a small amount of warmth. Use it to make warm clothing or blankets. Drag a knife onto it to cut it into cheese cloth.,Woven woollen cloth. Provides a small amount of warmth. Use it to make warm clothing or blankets. Drag a knife onto it to cut it into cheese cloth.
+sh_wool_tunic_CardName,Wool Tunic,Wool Tunic
+sh_wool_tunic_CardDescription,A warm woollen tunic that provides excellent insulation.,A warm woollen tunic that provides excellent insulation.
+sh_wool_blanket_CardName,Wool Blanket,Wool Blanket
+sh_wool_blanket_CardDescription,A thick woollen blanket. Greatly improves sleep quality in cold weather.,A thick woollen blanket. Greatly improves sleep quality in cold weather.
+sh_bp_wool_blanket_CardName,Wool Blanket Blueprint,Wool Blanket Blueprint
+sh_bp_wool_blanket_CardDescription,Weave 4 woven cloths together into a thick woollen blanket.,Weave 4 woven cloths together into a thick woollen blanket.
+sh_shears_CardName,Shears,Shears
+sh_shears_CardDescription,Metal shears for shearing sheep. Lasts for many uses.,Metal shears for shearing sheep. Lasts for many uses.
+sh_butter_churn_CardName,Butter Churn,Butter Churn
+sh_butter_churn_CardDescription,A wooden butter churn. Use it to churn milk into butter and buttermilk.,A wooden butter churn. Use it to churn milk into butter and buttermilk.
+sh_butter_churn_DismantleActions[0].ActionName,Pick Up,Pick Up
+sh_butter_churn_DismantleActions[0].ActionDescription,Pack up the butter churn to carry it.,Pack up the butter churn to carry it.
+sh_butter_churn_portable_CardName,Butter Churn,Butter Churn
+sh_butter_churn_portable_CardDescription,"A butter churn, packed for transport. Use Place to set it up.","A butter churn, packed for transport. Use Place to set it up."
+sh_butter_churn_portable_DismantleActions[0].ActionName,Place,Place
+sh_butter_churn_portable_DismantleActions[0].ActionDescription,Set up the butter churn in your environment.,Set up the butter churn in your environment.
+sh_cheese_cloth_CardName,Cheese Cloth,Cheese Cloth
+sh_cheese_cloth_CardDescription,A fine cloth used to curdle milk into cheese.,A fine cloth used to curdle milk into cheese.
+sh_sheep_feeder_CardName,Sheep Feeder,Sheep Feeder
+sh_sheep_feeder_CardDescription,"A wooden trough for storing herbivore feed (grasses, hay, and other forage) for your sheep.","A wooden trough for storing herbivore feed (grasses, hay, and other forage) for your sheep."
+sh_bp_shears_CardName,Shears,Shears
+sh_bp_shears_CardDescription,Craft metal shears for shearing sheep.,Craft metal shears for shearing sheep.
+sh_bp_butter_churn_CardName,Butter Churn,Butter Churn
+sh_bp_butter_churn_CardDescription,Build a butter churn to make butter from milk.,Build a butter churn to make butter from milk.
+sh_bp_cheese_cloth_CardName,Cheese Cloth,Cheese Cloth
+sh_bp_cheese_cloth_CardDescription,Cut woven cloth into a cheese cloth.,Cut woven cloth into a cheese cloth.
+sh_bp_sheep_feeder_CardName,Sheep Feeder,Sheep Feeder
+sh_bp_sheep_feeder_CardDescription,Build a feeder to store feed for your sheep.,Build a feeder to store feed for your sheep.
+sh_tgr_wild_sheep_spawn_CardName,Wild Sheep Spawn,Wild Sheep Spawn
+sh_tgr_wild_sheep_spawn_CardDescription,Occasionally spawns a wild sheep on the board.,Occasionally spawns a wild sheep on the board.
+sh_cheese_cloth_UsageDurability_CardStatName,Durability,Durability
+sh_shears_UsageDurability_CardStatName,Durability,Durability
+sh_curdled_milk_CardInteractions[0].ActionName,Press Cheese,Press Cheese
+sh_lactating_sheep_DismantleActions_Milk_ActionName,Milk,Milk
+sh_lactating_sheep_DismantleActions_Milk_ActionDescription,Milk the sheep to collect fresh milk.,Milk the sheep to collect fresh milk.
+sh_lactating_sheep_CardInteractions[0].ActionName,Shear,Shear
+sh_lactating_sheep_CardInteractions[1].ActionName,Slaughter,Slaughter
+sh_lactating_sheep_CardInteractions[2].ActionName,Milk,Milk
+sh_lamb_CardInteractions[0].ActionName,Feed,Feed
+sh_lamb_CardInteractions[1].ActionName,Slaughter,Slaughter
+sh_male_sheep_CardInteractions[0].ActionName,Slaughter,Slaughter
+sh_sheep_milk_CardInteractions[0].ActionName,Warm Milk,Warm Milk
+sh_sheep_milk_CardInteractions[1].ActionName,Curdle,Curdle
+sh_tame_sheep_CardInteractions[0].ActionName,Shear,Shear
+sh_wild_male_sheep_CardInteractions[0].ActionName,Tame,Tame
+sh_wild_male_sheep_CardInteractions[1].ActionName,Slaughter,Slaughter
+sh_wild_sheep_CardInteractions[0].ActionName,Tame,Tame
+sh_wild_sheep_CardInteractions[1].ActionName,Slaughter,Slaughter
+sh_perk_shepherds_start_PerkName,Shepherd's Start,Shepherd's Start
+sh_perk_shepherds_start_PerkDescription,"Begin your run with a small flock and shears: two tame sheep, a ram, a lactating ewe, and a pair of shears to start harvesting wool right away.","Begin your run with a small flock and shears: two tame sheep, a ram, a lactating ewe, and a pair of shears to start harvesting wool right away."
+sh_perk_crafting_kit_PerkName,Shepherd's Crafting Kit,Shepherd's Crafting Kit
+sh_perk_crafting_kit_PerkDescription,"Start with wool, warm milk, and all processing equipment: a butter churn and cheese cloth. Everything you need to run the wool and dairy chains from day one.","Start with wool, warm milk, and all processing equipment: a butter churn and cheese cloth. Everything you need to run the wool and dairy chains from day one."
+sh_perk_start_sheep_PerkName,Start with Sheep,Start with Sheep
+sh_perk_start_sheep_PerkDescription,Begin your run with a tame sheep. Good for wool and dairy. Pairs well with Start with Shears.,Begin your run with a tame sheep. Good for wool and dairy. Pairs well with Start with Shears.
+sh_perk_start_shears_PerkName,Start with Shears,Start with Shears
+sh_perk_start_shears_PerkDescription,Begin your run with sheep shears. Pairs well with Start with Sheep or Sheep Husbandry Kit.,Begin your run with sheep shears. Pairs well with Start with Sheep or Sheep Husbandry Kit.
+sh_perk_husbandry_kit_PerkName,Sheep Husbandry Kit,Sheep Husbandry Kit
+sh_perk_husbandry_kit_PerkDescription,"Begin your run with a full breeding flock: a ram, a lactating ewe, and a lamb. Everything you need to build a flock from day one.","Begin your run with a full breeding flock: a ram, a lactating ewe, and a lamb. Everything you need to build a flock from day one."
+sh_butter_churn_CardInteractions[0].ActionName,Churn Butter,Churn Butter
+sh_whey_CardInteractions[0].ActionName,Heat Whey,Heat Whey
+sh_tgr_wild_male_sheep_spawn_CardName,Wild Ram Spawn,Wild Ram Spawn
+sh_tgr_wild_male_sheep_spawn_CardDescription,Occasionally spawns a wild ram on the board.,Occasionally spawns a wild ram on the board.
+sh_aged_sheep_cheese_DismantleActions[0].ActionName,Eat,Eat
+sh_butter_DismantleActions[0].ActionName,Eat,Eat
+sh_ricotta_DismantleActions[0].ActionName,Eat,Eat
+sh_sheep_cheese_DismantleActions[0].ActionName,Eat,Eat
+sh_sheep_milk_DismantleActions[0].ActionName,Drink,Drink
+sh_warm_milk_DismantleActions[0].ActionName,Drink,Drink
+sh_whey_DismantleActions[0].ActionName,Drink,Drink
+sh_tame_sheep_CardInteractions[1].ActionName,Slaughter,Slaughter
+sh_bp_yarn_CardName,Yarn,Yarn
+sh_bp_yarn_CardDescription,Spin raw wool into yarn by hand.,Spin raw wool into yarn by hand.
+sh_bp_woven_cloth_CardName,Woven Cloth,Woven Cloth
+sh_bp_woven_cloth_CardDescription,Weave two skeins of yarn into woven woollen cloth.,Weave two skeins of yarn into woven woollen cloth.
+sh_bp_wool_tunic_CardName,Wool Tunic Blueprint,Wool Tunic Blueprint
+sh_bp_wool_tunic_CardDescription,Sew a wool blanket into a warm woollen tunic.,Sew a wool blanket into a warm woollen tunic.
+sh_cream_CardName,Cream,Cream
+sh_cream_CardDescription,Rich cream skimmed from fresh sheep milk. Fatty and filling.,Rich cream skimmed from fresh sheep milk. Fatty and filling.
+sh_cream_DismantleActions[0].ActionName,Eat,Eat
+sh_yogurt_CardName,Yogurt,Yogurt
+sh_yogurt_CardDescription,Tangy fermented sheep milk. More nutritious and hydrating than fresh milk.,Tangy fermented sheep milk. More nutritious and hydrating than fresh milk.
+sh_yogurt_DismantleActions[0].ActionName,Eat,Eat
+sh_clarified_butter_CardName,Clarified Butter,Clarified Butter
+sh_clarified_butter_CardDescription,Sheep butter clarified over fire. Pure golden fat — extremely calorie-dense and long-lasting.,Sheep butter clarified over fire. Pure golden fat — extremely calorie-dense and long-lasting.
+sh_clarified_butter_DismantleActions[0].ActionName,Eat,Eat
+sh_sheep_milk_DismantleActions[1].ActionName,Skim Cream,Skim Cream
+sh_sheep_milk_DismantleActions[2].ActionName,Ferment,Ferment
+sh_butter_CardInteractions[0].ActionName,Clarify,Clarify
+sh_warm_milk_DismantleActions[1].ActionName,Ferment,Ferment
+sh_cream_DismantleActions[1].ActionName,Culture,Culture
+sh_sour_cream_CardName,Sour Cream,Sour Cream
+sh_sour_cream_CardDescription,Tangy cultured cream. Rich and filling.,Tangy cultured cream. Rich and filling.
+sh_sour_cream_DismantleActions[0].ActionName,Eat,Eat
+sh_lamb_SpoilageTime_CardStatName,Growth,Growth
+sh_lamb_SpoilageTime_OnZero_ActionName,Fully Grown!,Fully Grown!
+sh_lamb_SpoilageTime_OnZero_ActionDescription,The lamb has grown into a full-sized sheep.,The lamb has grown into a full-sized sheep.
+sh_woven_cloth_CardInteractions[0].ActionName,Cut Cheese Cloth,Cut Cheese Cloth
+sh_lactating_sheep_SpecialDurability1_CardStatName,Wool,Wool
+sh_tame_sheep_SpecialDurability1_CardStatName,Wool,Wool
+sh_sheep_feeder_portable_CardName,Sheep Feeder,Sheep Feeder
+sh_sheep_feeder_portable_CardDescription,"A wooden sheep feeder, packed for transport. Use Place to set it up.","A wooden sheep feeder, packed for transport. Use Place to set it up."
+sh_sheep_feeder_portable_DismantleActions[0].ActionName,Place,Place
+sh_sheep_feeder_portable_DismantleActions[0].ActionDescription,Set up the sheep feeder in your environment.,Set up the sheep feeder in your environment.
+sh_sheep_feeder_DismantleActions[0].ActionName,Pick Up,Pick Up
+sh_sheep_feeder_DismantleActions[0].ActionDescription,Pack up the feeder to carry it.,Pack up the feeder to carry it.
+sh_sheep_feeder_DismantleActions[1].ActionName,Tend Flock,Tend Flock
+sh_sheep_feeder_DismantleActions[1].ActionDescription,Shear every ready tame sheep nearby in one go.,Shear every ready tame sheep nearby in one go.
+FC_FoxCompanion_CardName,Fox Companion,Fox Companion
+FC_FoxCompanion_CardDescription,A quick-witted fox that has taken a liking to you. Keep it fed and watered or it will wander off.,A quick-witted fox that has taken a liking to you. Keep it fed and watered or it will wander off.
+FC_FoxCompanion_CI0_ActionName,Feed Fox,Feed Fox
+FC_FoxCompanion_CI0_ActionDescription,Give the fox a meal. Its ears perk up happily.,Give the fox a meal. Its ears perk up happily.
+FC_FoxCompanion_DA0_ActionName,Pet Fox,Pet Fox
+FC_FoxCompanion_DA0_ActionDescription,Scratch behind its ears. It leans into your hand.,Scratch behind its ears. It leans into your hand.
+FC_FoxCompanion_DA1_ActionName,Play with Fox,Play with Fox
+FC_FoxCompanion_DA1_ActionDescription,Chase each other through the ferns. Pure mischievous fun.,Chase each other through the ferns. Pure mischievous fun.
+FC_FoxCompanion_DA2_ActionName,Scout Ahead,Scout Ahead
+FC_FoxCompanion_DA2_ActionDescription,Send the fox to nose around. It comes back with something useful.,Send the fox to nose around. It comes back with something useful.
+FC_FoxCompanion_DA3_ActionName,Retrieve Partridge,Retrieve Partridge
+FC_FoxCompanion_DA3_ActionDescription,The fox flushes a partridge from the brush and chases it down. It trots back proudly.,The fox flushes a partridge from the brush and chases it down. It trots back proudly.
+FC_FoxCompanion_SpoilageTime_CardStatName,Hunger,Hunger
+FC_FoxCompanion_UsageDurability_CardStatName,Thirst,口渴
+FC_FoxCompanion_CI2_ActionName,Give Water,喂水
+FC_FoxCompanion_CI2_ActionDescription,Cup water in your hands for the fox. It laps eagerly.,将水捧在手心递给狐狸。它贪婪地舔饮。
+FC_FoxCompanion_SpoilageTime_OnZero_ActionName,Fox Has Died,Fox Has Died
+FC_FoxCompanion_SpoilageTime_OnZero_ActionDescription,"Neglected and starving, the fox collapsed and died. Its body remains.","Neglected and starving, the fox collapsed and died. Its body remains."
+FC_FoxCompanion_Progress_CardStatName,Morale,Morale
+FC_Perk_FoxFriend_PerkName,Fox Friend,Fox Friend
+FC_Perk_FoxFriend_PerkDescription,Start with a curious fox companion.,Start with a curious fox companion.
+FC_OwlCompanion_CardName,Owl Companion,Owl Companion
+FC_OwlCompanion_CardDescription,A silent owl that perches nearby and watches over your camp at night. Keep it fed and watered or it will fly away.,A silent owl that perches nearby and watches over your camp at night. Keep it fed and watered or it will fly away.
+FC_OwlCompanion_CI0_ActionName,Feed Owl,Feed Owl
+FC_OwlCompanion_CI0_ActionDescription,Offer the owl a scrap of meat. It bobs its head approvingly.,Offer the owl a scrap of meat. It bobs its head approvingly.
+FC_OwlCompanion_DA0_ActionName,Pet Owl,Pet Owl
+FC_OwlCompanion_DA0_ActionDescription,Gently stroke its feathers. It closes its eyes in contentment.,Gently stroke its feathers. It closes its eyes in contentment.
+FC_OwlCompanion_DA1_ActionName,Night Watch,Night Watch
+FC_OwlCompanion_DA1_ActionDescription,Let the owl stand guard while you sleep. You rest more deeply knowing it watches.,Let the owl stand guard while you sleep. You rest more deeply knowing it watches.
+FC_OwlCompanion_DA2_ActionName,Retrieve Mouse,Retrieve Mouse
+FC_OwlCompanion_DA2_ActionDescription,The owl drifts silently into the undergrowth and returns with a mouse.,The owl drifts silently into the undergrowth and returns with a mouse.
+FC_OwlCompanion_SpoilageTime_CardStatName,Hunger,Hunger
+FC_OwlCompanion_SpoilageTime_OnZero_ActionName,Owl Has Flown Away!,Owl Has Flown Away!
+FC_OwlCompanion_SpoilageTime_OnZero_ActionDescription,"Neglected and hungry, the owl has silently flown off into the night.","Neglected and hungry, the owl has silently flown off into the night."
+FC_OwlCompanion_Progress_CardStatName,Morale,Morale
+FC_OwlCompanion_UsageDurability_CardStatName,Thirst,口渴
+FC_OwlCompanion_CI2_ActionName,Give Water,喂水
+FC_OwlCompanion_CI2_ActionDescription,Pour a small bowl of water for the owl. It drinks in quick precise sips.,为猫头鹰倒一小碗水。它啄饮几口，干净利落。
+FC_Perk_OwlFriend_PerkName,Owl Friend,Owl Friend
+FC_Perk_OwlFriend_PerkDescription,Start with a wise owl companion.,Start with a wise owl companion.
+sh_felted_wool_CardName,Felted Wool,Felted Wool
+sh_felted_wool_CardDescription,Compressed and matted wool fibres. Can be cut and shaped into warm hats boots and other items without spinning or weaving.,Compressed and matted wool fibres. Can be cut and shaped into warm hats boots and other items without spinning or weaving.
+sh_felt_hat_CardName,Felt Hat,Felt Hat
+sh_felt_hat_CardDescription,A thick felt hat shaped from compressed wool. Keeps the head warm in cold weather.,A thick felt hat shaped from compressed wool. Keeps the head warm in cold weather.
+sh_felt_boots_CardName,Felt Boots,Felt Boots
+sh_felt_boots_CardDescription,Dense felt boots that insulate the feet against cold ground. Traditional footwear for harsh winters.,Dense felt boots that insulate the feet against cold ground. Traditional footwear for harsh winters.
+sh_bp_felted_wool_CardName,Felted Wool Blueprint,Felted Wool Blueprint
+sh_bp_felted_wool_CardDescription,Wet and agitate raw wool to compress the fibres into a dense felt sheet.,Wet and agitate raw wool to compress the fibres into a dense felt sheet.
+sh_bp_felt_hat_CardName,Felt Hat Blueprint,Felt Hat Blueprint
+sh_bp_felt_hat_CardDescription,Cut and shape felted wool into a warm winter hat.,Cut and shape felted wool into a warm winter hat.
+sh_bp_felt_boots_CardName,Felt Boots Blueprint,Felt Boots Blueprint
+sh_bp_felt_boots_CardDescription,Form thick felt sheets into boot soles and uppers then bind them with twine.,Form thick felt sheets into boot soles and uppers then bind them with twine.
+FC_WolfCompanion_CI3_ActionName,Give Treat,Give Treat
+FC_WolfCompanion_CI3_ActionDescription,Slip the wolf a bone. It wags its tail furiously.,Slip the wolf a bone. It wags its tail furiously.
+FC_FoxCompanion_CI1_ActionName,Give Treat,Give Treat
+FC_FoxCompanion_CI1_ActionDescription,Offer the fox some dried berries. Its eyes light up with excitement.,Offer the fox some dried berries. Its eyes light up with excitement.
+FC_OwlCompanion_CI1_ActionName,Give Treat,Give Treat
+FC_OwlCompanion_CI1_ActionDescription,Hold out dried meat. The owl blinks once then snaps it down.,Hold out dried meat. The owl blinks once then snaps it down.
+sh_lanolin_CardName,Lanolin,Lanolin
+sh_lanolin_CardDescription,A waxy byproduct of shearing.,A waxy byproduct of shearing.
+FC_WolfCompanion_CI4_ActionName,Slaughter,Slaughter
+FC_WolfCompanion_CI4_ActionDescription,End the wolf's suffering with a quick knife. Its body remains.,End the wolf's suffering with a quick knife. Its body remains.
+FC_WolfCompanion_DA6_ActionName,Bond with Wolf,Bond with Wolf
+"FC_WolfCompanion_DA6_ActionDescription","Spend the day moving through the forest together. A quiet understanding passes between you. Can only be earned once.","Spend the day moving through the forest together. A quiet understanding passes between you. Can only be earned once."
+FC_FoxCompanion_CI3_ActionName,Slaughter,Slaughter
+FC_FoxCompanion_CI3_ActionDescription,Quick and merciful. The fox does not struggle. Its body remains.,Quick and merciful. The fox does not struggle. Its body remains.
+FC_OwlCompanion_CI3_ActionName,Slaughter,Slaughter
+FC_OwlCompanion_CI3_ActionDescription,Put the owl down. Yields a carcass that must be processed with a knife.,Put the owl down. Yields a carcass that must be processed with a knife.
+FC_Perk_PackBond_PerkName,Pack Bond,Pack Bond
+"FC_Perk_PackBond_PerkDescription","Your bond with the wolf runs deep. Heightened instincts sharpen your tracking.","Your bond with the wolf runs deep. Heightened instincts sharpen your tracking."
+sh_wool_socks_CardName,Wool Socks,Wool Socks
+sh_wool_socks_CardDescription,Knitted wool socks. Worn beneath boots to keep the feet dry and warm.,Knitted wool socks. Worn beneath boots to keep the feet dry and warm.
+sh_bp_wool_socks_CardName,Wool Socks Blueprint,Wool Socks Blueprint
+sh_bp_wool_socks_CardDescription,Knit yarn into a pair of warm wool socks.,Knit yarn into a pair of warm wool socks.
+sh_lanolin_salve_CardName,Lanolin Salve,Lanolin Salve
+sh_lanolin_salve_CardDescription,"A soothing skin balm of lanolin blended with frostleaf. Apply to chafed, wind-burned skin for lasting comfort.","A soothing skin balm of lanolin blended with frostleaf. Apply to chafed, wind-burned skin for lasting comfort."
+sh_lanolin_salve_DismantleActions[0].ActionName,Apply to Skin,Apply to Skin
+sh_bp_lanolin_salve_CardName,Lanolin Salve Blueprint,Lanolin Salve Blueprint
+sh_bp_lanolin_salve_CardDescription,Blend lanolin with frostleaf powder into a soothing skin salve.,Blend lanolin with frostleaf powder into a soothing skin salve.
+sh_bp_lanolin_salve_UnlockConditionsDesc,Lanolin Needed,Lanolin Needed
+FC_Owl_AgentName,Owl,猫头鹰
+FC_Owl_Tame_ActionName,Attempt to Tame,尝试驯服
+WildOwl_Carcass_CardName,Owl Carcass,Owl Carcass
+WildOwl_Carcass_CardDescription,The owl did not survive the encounter. Needs a knife to process.,The owl did not survive the encounter. Needs a knife to process.
+WildOwl_Carcass_SpoilageTime_CardStatName,Spoilage,Spoilage
+WildOwl_Carcass_CI0_ActionName,Process Carcass,Process Carcass
+WildOwl_Carcass_CI0_ActionDescription,Pluck the feathers and salvage what meat you can.,Pluck the feathers and salvage what meat you can.
+FC_WolfCompanion_DA7_ActionName,Stay Here,Stay Here
+FC_WolfCompanion_DA7_ActionDescription,Command the wolf to hold its ground until called back.,Command the wolf to hold its ground until called back.
+FC_WolfCompanion_DA8_ActionName,Follow Me,Follow Me
+FC_WolfCompanion_DA8_ActionDescription,Whistle for the wolf. It bounds over and falls into step beside you.,Whistle for the wolf. It bounds over and falls into step beside you.
+FC_FoxCompanion_DA4_ActionName,Stay Here,Stay Here
+FC_FoxCompanion_DA4_ActionDescription,The fox curls up and refuses to budge until called.,The fox curls up and refuses to budge until called.
+FC_FoxCompanion_DA5_ActionName,Follow Me,Follow Me
+FC_FoxCompanion_DA5_ActionDescription,The fox perks its ears and trots after you once more.,The fox perks its ears and trots after you once more.
+FC_OwlCompanion_DA3_ActionName,Stay Here,Stay Here
+FC_OwlCompanion_DA3_ActionDescription,The owl settles onto a perch and stops trailing you.,The owl settles onto a perch and stops trailing you.
+FC_OwlCompanion_DA4_ActionName,Follow Me,Follow Me
+FC_OwlCompanion_DA4_ActionDescription,The owl takes wing and resumes shadowing your travels.,The owl takes wing and resumes shadowing your travels.
+sh_felt_mittens_CardName,Felt Mittens,Felt Mittens
+sh_felt_mittens_CardDescription,Thick felt mittens that shield the hands from biting cold.,Thick felt mittens that shield the hands from biting cold.
+sh_felt_vest_CardName,Felt Vest,Felt Vest
+sh_felt_vest_CardDescription,A sleeveless felt vest that adds an extra layer of warmth over the torso.,A sleeveless felt vest that adds an extra layer of warmth over the torso.
+sh_bp_felt_mittens_CardName,Felt Mittens Blueprint,Felt Mittens Blueprint
+sh_bp_felt_mittens_CardDescription,Cut and stitch felted wool into a pair of warm mittens.,Cut and stitch felted wool into a pair of warm mittens.
+sh_bp_felt_vest_CardName,Felt Vest Blueprint,Felt Vest Blueprint
+sh_bp_felt_vest_CardDescription,Cut and shape felted wool into a sleeveless vest.,Cut and shape felted wool into a sleeveless vest.
+sh_felt_bedroll_CardName,Felt Bedroll,Felt Bedroll
+sh_felt_bedroll_CardDescription,"A dense felt bedroll, warmer and easier to carry than a simple wool blanket. Improves sleep quality in cold weather.","A dense felt bedroll, warmer and easier to carry than a simple wool blanket. Improves sleep quality in cold weather."
+sh_bp_felt_bedroll_CardName,Felt Bedroll Blueprint,Felt Bedroll Blueprint
+sh_bp_felt_bedroll_CardDescription,"Felt a thick layer of wool into a warm, portable bedroll.","Felt a thick layer of wool into a warm, portable bedroll."
+FC_Fox_AgentName,Fox,Fox
+sh_sheep_pen_CardName,Sheep Pen,Sheep Pen
+sh_sheep_pen_CardDescription,A fenced enclosure for your tame sheep and rams. Sheep and rams left outside a pen overnight risk wandering off or falling to predators - a penned flock is safe.,A fenced enclosure for your tame sheep and rams. Sheep and rams left outside a pen overnight risk wandering off or falling to predators - a penned flock is safe.
+sh_sheep_pen_DismantleActions[0].ActionName,Pick Up,Pick Up
+sh_sheep_pen_DismantleActions[0].ActionDescription,Pack up the pen to carry it. Any sheep or rams inside are set free onto the ground first.,Pack up the pen to carry it. Any sheep or rams inside are set free onto the ground first.
+sh_sheep_pen_portable_CardName,Sheep Pen,Sheep Pen
+sh_sheep_pen_portable_CardDescription,"A fenced sheep pen, packed for transport. Use Place to set it up.","A fenced sheep pen, packed for transport. Use Place to set it up."
+sh_sheep_pen_portable_DismantleActions[0].ActionName,Place,Place
+sh_sheep_pen_portable_DismantleActions[0].ActionDescription,Set up the sheep pen in your environment.,Set up the sheep pen in your environment.
+sh_bp_sheep_pen_CardName,Sheep Pen Blueprint,Sheep Pen Blueprint
+sh_bp_sheep_pen_CardDescription,Build a fenced pen to shelter your sheep and rams overnight.,Build a fenced pen to shelter your sheep and rams overnight.
+sh_sheep_remains_CardName,Sheep Remains,Sheep Remains
+sh_sheep_remains_CardDescription,All that's left of a sheep or ram taken by a predator overnight. It was left unpenned - a Sheep Pen keeps the rest of the flock safe.,All that's left of a sheep or ram taken by a predator overnight. It was left unpenned - a Sheep Pen keeps the rest of the flock safe.
+WildOwl_Tracks_CardName,Owl Pellets & Feathers,Owl Pellets & Feathers
+WildOwl_Tracks_CardDescription,A scatter of downy grey feathers and a matted pellet of fur and small bones. Something silent hunted here.,A scatter of downy grey feathers and a matted pellet of fur and small bones. Something silent hunted here.
+WildOwl_Tracks_AlternateName0,Bloodied Feathers,Bloodied Feathers
+WildOwl_Tracks_SpoilageTime_CardStatName,Freshness,Freshness
+WildOwl_Tracks_SpecialDurability1_CardStatName,Blood,Blood
+sh_buttered_roots_CardName,Buttered Roots
+sh_buttered_roots_CardDescription,"Roasted cattail root melted with rich sheep butter. A hearty, filling meal."
+sh_buttered_roots_DismantleActions[0].ActionName,Eat
+sh_butter_CardInteractions[1].ActionName,Butter the Roots
+sh_butter_CardInteractions[1].ActionDescription,Melt butter over roasted cattail root for a richer meal.
+sh_cheese_stuffed_flatbread_CardName,Cheese-Stuffed Flatbread
+sh_cheese_stuffed_flatbread_CardDescription,"A round of flatbread pressed full of sheep cheese. A satisfying, portable meal."
+sh_cheese_stuffed_flatbread_DismantleActions[0].ActionName,Eat
+sh_sheep_cheese_CardInteractions[0].ActionName,Stuff into Flatbread
+sh_sheep_cheese_CardInteractions[0].ActionDescription,Press sheep cheese into a round of flatbread.
+sh_creamy_mash_CardName,Creamy Mash
+sh_creamy_mash_CardDescription,"Mashed turnroot stirred with rich sheep cream. Smooth, filling, and hydrating."
+sh_creamy_mash_DismantleActions[0].ActionName,Eat
+sh_cream_CardInteractions[0].ActionName,Stir into Mash
+sh_cream_CardInteractions[0].ActionDescription,Stir rich cream into mashed turnroot.
+WildOwl_Tied_CardName,Snared Owl,Snared Owl
+WildOwl_Tied_CardDescription,"Caught alive in a snare, wings bound and furious. Must be fed regularly or it will work itself free. Can be released, or killed for its carcass.","Caught alive in a snare, wings bound and furious. Must be fed regularly or it will work itself free. Can be released, or killed for its carcass."
+WildOwl_Tied_SpoilageTime_CardStatName,Hunger,Hunger
+WildOwl_Tied_SpoilageTime_OnZero_ActionName,The Owl Has Escaped!,The Owl Has Escaped!
+WildOwl_Tied_SpoilageTime_OnZero_ActionDescription,"Left hungry and unattended, the owl worked its bindings loose and vanished into the dark.","Left hungry and unattended, the owl worked its bindings loose and vanished into the dark."
+WildOwl_Tied_CI0_ActionName,Feed Snared Owl,Feed Snared Owl
+WildOwl_Tied_CI0_ActionDescription,Offer the bound owl a scrap of meat. It snatches it without gratitude.,Offer the bound owl a scrap of meat. It snatches it without gratitude.
+WildOwl_Tied_DA0_ActionName,Release Snared Owl,Release Snared Owl
+WildOwl_Tied_DA0_ActionDescription,"Cut the bindings and let it go. It climbs into the air without a sound, and will not come near this place again for some days.","Cut the bindings and let it go. It climbs into the air without a sound, and will not come near this place again for some days."
+WildOwl_Tied_DA1_ActionName,Kill Snared Owl,Kill Snared Owl
+WildOwl_Tied_DA1_ActionDescription,"A quick, ugly business. Leaves a carcass worth processing.","A quick, ugly business. Leaves a carcass worth processing."

@@ -1,0 +1,90 @@
+{
+    "UniqueID": "wildfox_encounter",
+    "EncounterTitle": {"DefaultText": "A Wild Fox"},
+    "EncounterImageWarpData": "Fox_Wild",
+    "EncounterImageWarpType": 3,
+    "EnemyName": {"DefaultText": "the fox"},
+    "UsesPlural": false,
+    "EnemyAwareness": {"x": 25.0, "y": 65.0},
+    "EnemySize": {"x": 8.0, "y": 14.0},
+    "EnemyBodyTemplateWarpData": "Combat_ BTFox",
+    "EnemyBodyTemplateWarpType": 3,
+    "Blood": {
+        "Name": "Blood",
+        "StartingValue": {"x": 40.0, "y": 40.0},
+        "MaxValue": 40.0,
+        "OnZeroEncounterResult": 1
+    },
+    "Stamina": {
+        "Name": "Stamina",
+        "StartingValue": {"x": 100.0, "y": 100.0}
+    },
+    "Morale": {
+        "Name": "Morale",
+        "StartingValue": {"x": 100.0, "y": 100.0}
+    },
+    "Value4": {
+        "Name": "PoisonResistance",
+        "StartingValue": {"x": 12.0, "y": 12.0},
+        "MaxValue": 12.0
+    },
+    "EnemyActions": [
+        {
+            "BaseWeight": 40,
+            "DoesNotAttack": true
+        },
+        {
+            "BaseWeight": 20,
+            "DoesNotAttack": false,
+            "Damage": {"x": 5.0, "y": 15.0}
+        },
+        {
+            "BaseWeight": 15,
+            "DoesNotAttack": true,
+            "IsEscapeAction": true,
+            "ValuesWeightModifiers": {
+                "WeightPerMorale": {
+                    "Active": true,
+                    "DurabilityRange": {"x": 1.0, "y": 100.0},
+                    "InterpWeightRange": {"x": 1, "y": 1}
+                }
+            },
+            "EnemyValueChanges": {
+                "StaminaModifier": {"x": 50.0, "y": 50.0},
+                "MoraleModifier": {"x": 100.0, "y": 100.0}
+            }
+        }
+    ],
+    "PlayerActions": [],
+    "EnemyDefeatedEffects": {
+        "ResultLog": {"LogText": {"DefaultText": "The fox is dead."}},
+        "StatChanges": [],
+        "NPCStatChanges": [
+            {
+                "TargetStatWarpData": "wildfox_stat_blood",
+                "TargetStatWarpType": 3,
+                "UseAssociatedAgent": true,
+                "ValueChange": {"x": -1000.0, "y": -1000.0}
+            }
+        ],
+        "TransferValuesToStats": []
+    },
+    "EnemyEscapedEffects": {
+        "DroppedCards": [],
+        "StatChanges": [],
+        "NPCStatChanges": [],
+        "TransferValuesToStats": []
+    },
+    "PlayerEscapedEffects": {
+        "DroppedCards": [],
+        "StatChanges": [],
+        "NPCStatChanges": [],
+        "TransferValuesToStats": []
+    },
+    "PlayerDemoralizedEffects": {
+        "DroppedCards": [],
+        "StatChanges": [],
+        "NPCStatChanges": [],
+        "TransferValuesToStats": []
+    }
+}

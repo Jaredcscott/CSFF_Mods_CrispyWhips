@@ -1,0 +1,68 @@
+{
+    "UniqueID": "sh_perk_start_sheep",
+    "StartUnlocked": false,
+    "ActionObjectives": [],
+    "CardsOnBoardObjectives": [],
+    "TagsOnBoardObjectives": [],
+    "StatsObjectives": [],
+    "TimeObjectives": [],
+    "NestedObjectives": [],
+    "PlayedCharacter": [],
+    "CompleteOnWin": false,
+    "CompleteOnLose": false,
+    "RequiredDifficultyScore": {
+        "x": 0,
+        "y": 0
+    },
+    "EditorOnly": false,
+    "NotifyWhenNotChecked": false,
+    "CheckingNotificationDetails": 0,
+    "DebugCompletion": false,
+    "SunsCost": 0,
+    "MoonsCost": 2,
+    "ResetLockInEditor": false,
+    "PerkName": {
+        "ParentObjectID": "sh_perk_start_sheep",
+        "LocalizationKey": "sh_perk_start_sheep_PerkName",
+        "DefaultText": "Start with Sheep"
+    },
+    "PerkDescription": {
+        "ParentObjectID": "sh_perk_start_sheep",
+        "LocalizationKey": "sh_perk_start_sheep_PerkDescription",
+        "DefaultText": "Begin your run with a tame sheep. Good for wool and dairy. Pairs well with Start with Shears."
+    },
+    "PerkUnlockConditions": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "PerkIcon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "PerkIconWarpData": "sh_tame_sheep",
+    "PerkIconWarpType": 3,
+    "DifficultyRating": 0,
+    "DisplayPriority": 50.0,
+    "HiddenUntilUnlocked": false,
+    "AddedStartingHours": 0,
+    "OverrideEnvironment": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "OverrideWeather": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "AddedCards": [],
+    "AddedCardsWarpData": [
+        "sh_tame_sheep"
+    ],
+    "AddedCardsWarpType": 3,
+    "EquippedCards": [],
+    "OverrideEquipment": false,
+    "StartingStatModifiers": [],
+    "PassiveStatModifiers": [],
+    "ActionModifiers": [],
+    "CharacterPerkPerkGroup": "72120cda8e1cef540b1b25118dd7edaa"
+}

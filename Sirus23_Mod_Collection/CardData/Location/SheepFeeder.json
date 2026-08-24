@@ -1,0 +1,170 @@
+{
+    "UniqueID": "sh_sheep_feeder",
+    "CardName": {
+        "ParentObjectID": "sh_sheep_feeder",
+        "LocalizationKey": "sh_sheep_feeder_CardName",
+        "DefaultText": "Sheep Feeder"
+    },
+    "CardDescription": {
+        "ParentObjectID": "sh_sheep_feeder",
+        "LocalizationKey": "sh_sheep_feeder_CardDescription",
+        "DefaultText": "A wooden trough for storing herbivore feed (grasses, hay, and other forage) for your sheep."
+    },
+    "CanBeRenamed": false,
+    "AlternateNames": [],
+    "LiquidSuffixName": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardBackground": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "sh_sheep_feeder",
+    "CardImageWarpType": 3,
+    "ShowImageAboveTitle": false,
+    "CardType": 2,
+    "CannotBeTransferred": false,
+    "NotAutoSolvableEvent": false,
+    "ObjectWeight": 2000.0,
+    "TradingValue": 0.0,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Structure"
+    ],
+    "CardTagsWarpType": 3,
+    "EquipmentTags": [],
+    "EquipmentTagsWarpData": [],
+    "EquipmentTagsWarpType": 3,
+    "MapStructureType": 0,
+    "FlavourTags": [],
+    "SpiceTags": [],
+    "AlwaysUpdate": false,
+    "CannotBeTrashed": false,
+    "DoesNotPile": false,
+    "ToggleablePiling": false,
+    "DoesNotPinAutomatically": false,
+    "WhenCreatedSounds": [],
+    "WhenCreatedSoundsWarpData": [
+        "SmallObject_A"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_sheep_feeder",
+                "LocalizationKey": "sh_sheep_feeder_DismantleActions[0].ActionName",
+                "DefaultText": "Pick Up"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "sh_sheep_feeder",
+                "LocalizationKey": "sh_sheep_feeder_DismantleActions[0].ActionDescription",
+                "DefaultText": "Pack up the feeder to carry it."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": ["Wood"],
+            "ActionSoundsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {"m_FileID": 0, "m_PathID": 0},
+                "TransformIntoWarpData": "sh_sheep_feeder_portable",
+                "TransformIntoWarpType": 3,
+                "SpawnTransformAtSource": true
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_sheep_feeder",
+                "LocalizationKey": "sh_sheep_feeder_DismantleActions[1].ActionName",
+                "DefaultText": "Tend Flock"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "sh_sheep_feeder",
+                "LocalizationKey": "sh_sheep_feeder_DismantleActions[1].ActionDescription",
+                "DefaultText": "Shear every ready tame sheep nearby in one go."
+            },
+            "DaytimeCost": 2,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionSoundsWarpData": [],
+            "ActionSoundsWarpType": 3,
+            "ActionTags": [],
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "AlwaysShow": true,
+            "ReceivingCardChanges": {
+                "ModType": 0
+            }
+        }
+    ],
+    "PassiveStatEffects": [],
+    "PassiveEffects": [],
+    "MaxLiquidCapacity": 0.0,
+    "InventorySlots": [
+        { "SlotWeight": 500.0 },
+        { "SlotWeight": 500.0 },
+        { "SlotWeight": 500.0 }
+    ],
+    "InventorySlotsWarpData": [],
+    "InventorySlotsWarpType": 3,
+    "InventoryFilter": {
+        "AcceptedCards": [],
+        "AcceptedCardsWarpData": [],
+        "AcceptedCardsWarpType": 3,
+        "AcceptedTypes": [],
+        "AcceptedTags": [],
+        "AcceptedTagsWarpData": [
+            "tag_FeedHerbi"
+        ],
+        "AcceptedTagsWarpType": 3,
+        "NOTAcceptedCards": [],
+        "NOTAcceptedTypes": [],
+        "NOTAcceptedTags": [],
+        "CardFilters": [],
+        "TagFilters": []
+    },
+    "BlueprintStages": [],
+    "BlueprintResult": [],
+    "IsWeapon": false,
+    "IsArmor": false
+}
