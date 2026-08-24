@@ -1,6 +1,6 @@
 # Herbs and Fungi - Player Guide
 
-**Version:** 1.10.0
+**Version:** 1.10.14
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.65)
 
@@ -58,7 +58,7 @@ All four berries share the same mechanics: eat raw (DismantleAction), add to any
 - **Hemp Seed Oil** — Pressed from seeds in the Oil Press
 
 ### Mushroom Log Cultivation
-- **Inoculated Logs** — Craft from a vanilla log, spoon auger, wood shavings, and 5 matching mushrooms
+- **Inoculated Logs** — Craft from a vanilla log, spoon auger, wood shavings, and 10 matching mushrooms
 - **Supported Types** — Shiitake, Lion's Mane, Reishi, Chicken of the Woods, Golden Oyster, King Oyster
 - **Growth Cycle** — Logs colonize for about 5 days as a Growing Fungal Log, then become the ready log for the inoculated mushroom type
 
@@ -123,7 +123,7 @@ All 16 perks appear in the **Situational** tab during character creation.
 | **Master Herbalist** | 10 Suns | Ginseng, Reishi, Yarrow — fresh & dried |
 | **Smoke Kit** | 1 Moon | Herb Pipe + 4 each of Hemp/Fairyweed/Appleweed/Frostleaf powder + fiber |
 | **Hemp Farmer** | 2 Moons | Pipe, hemp powder, seeds, fresh & dried flowers, stalks for fiber |
-| **Forest Scout** | ★1 Star | Opt-in: an Overgrown Forest Trail gates the Primeval Woods foot route to the foraging forest (clear it with a blade; regrows in ~10 days). A portal always reaches the forest directly. |
+| **Forest Scout** | ★1 Star | +1 Foraging Aid (passive). An Overgrown Forest Trail gates the Primeval Woods foot route to the foraging forest for everyone (clear it with a blade; regrows in ~10 days) — a portal always reaches the forest directly. |
 
 ---
 
@@ -149,7 +149,7 @@ All 16 perks appear in the **Situational** tab during character creation.
 
 ### Mushroom Log Cultivation
 1. Research the matching **Inoculate Mushroom Log** blueprint after finding that mushroom type.
-2. Craft it from 1 vanilla log, a spoon auger, 5 matching mushrooms, and 1 wood shavings.
+2. Craft it from 1 vanilla log, a spoon auger, 10 matching mushrooms, and 1 wood shavings.
 3. Keep the Growing Fungal Log indoors or sheltered while it colonizes for about 5 in-game days.
 4. Harvest the ready log for fresh mushrooms.
 
@@ -205,13 +205,15 @@ The press oil and pickle blueprints appear after their workstations are built an
 
 ## World Map Locations
 
-Herbs and Fungi adds four forest locations to the world map, west of Primeval Woods.
+Herbs and Fungi adds six forest locations to the world map, west of Primeval Woods.
 
 | Location | Access | Description |
 |----------|--------|-------------|
-| **Foraging Path** | West from Primeval Woods | Hub node connecting the three surrounding clearings |
+| **Foraging Path** | West from Primeval Woods | Hub node connecting the surrounding clearings |
 | **Pine Clearing** | North from Foraging Path | Pine forest — pine mushrooms and lingonberries |
+| **Highland Meadow** | North from Pine Clearing | Pine meadow — ginseng, wild ginger, morels, chanterelles, shiitake, black trumpets, and blackcurrant |
 | **Oak Clearing** | West from Foraging Path | Oak forest — oak mushrooms, truffles, and blackcurrant |
+| **Misty Falls** | North from Oak Clearing | Waterfall grove at the west edge of the foraging forest; a hidden path connects back to Waterfall Caves |
 | **Alder Woods** | South from Foraging Path | Alder forest — alder and birch mushrooms and berries |
 
 Each location is a clone of a vanilla forest environment and inherits its usual tree and forage content. The mill race network (WaterDrivenInfrastructure) automatically integrates these locations when WDI is installed.
@@ -247,12 +249,84 @@ The mod injects mushroom drops into vanilla foraging actions across forest biome
 Patching beyond what the framework provides:
 - **GameLoadPatch** — injects hemp into garden plots/tilled fields, adds mushrooms to vanilla foraging, tags vanilla Turnroot/Fireroot as fermentable, populates pickle GpTag content.
 - **PickleVatRoutePatch** — Make Brine in-place liquid swap and pickle BP brine-required gate.
+- **ApothecaryQuestGatePatch** — unlocks Stimulant/Anti-Nausea Tea blueprints independently based on the player obtaining the matching H&F item, rather than both unlocking together via CMC's Apothecary quest.
+- **GpTagContentPatch** — populates pickle-vat `GpTag` content (called from `GameLoadPatch`).
 
 ---
 
 ## Version History
 
-### v1.9.3 (current)
+### v1.10.12 (current)
+- **Entering the foraging forest through the Portal Hub no longer strands you behind the
+  Overgrown Forest Trail.** The trail's challenge card previously only seeded on the Primeval
+  Woods side, so a player who teleported straight to the Foraging Path found the East exit
+  sealed with no clearable path anywhere. The trail card now also seeds on the Foraging Path
+  side, and (with framework 2.23.2+) hacking it clear from either side opens travel in both
+  directions at once. The cleared trail still regrows after about 10 days. Trail card text was
+  also reworded to be direction-neutral.
+
+### v1.10.11
+- Removed 26 spurious `AccessTools.Field` HarmonyX warnings per load by switching the mod's
+  internal reflection field cache to native `Type.GetField` — no behavior change.
+
+### v1.10.10
+- Fixed Misty Falls (the GreenFalls copy at the west end of the foraging forest) showing two
+  waterfall cards instead of one; the clone's inherited "Create a Waterfall if it is missing"
+  maintenance action was re-spawning a duplicate on top of the seeded one.
+
+### v1.10.9
+- **Forest Scout now grants a real passive bonus** — +1 Foraging Aid — instead of costing 1 Star for
+  zero mechanical effect. The v1.10.7 fix (below) made the Overgrown Forest Trail gate apply to every
+  character regardless of the perk, which left Forest Scout doing nothing distinguishable from not
+  taking it. The trail/gate behavior is unchanged; only the perk gained a benefit.
+
+### v1.10.8
+- **"Mix into Hot Water" (Dandelion, Chamomile, Yarrow, Ginseng, Reishi, Lion's Mane) now shows
+  "Not hot enough."** instead of failing silently when the water isn't at least 50% temperature —
+  previously read as "the tea just didn't appear," with no indication why.
+
+### v1.10.7
+- **The Overgrown Forest Trail now blocks the route to the foraging forest by default**, not only
+  after equipping the Forest Scout perk. The perk was never required to hack through the trail —
+  that's gated on tool tags (blade/axe/shovel/antler) on the trail's own interaction — it only
+  controlled whether the overgrowth existed at all. Requires `CSFFModFramework` 2.21.1+.
+
+### v1.10.6
+- **Fixed a bowl-duplication bug**: drinking Dandelion Tea or Chamomile Tea, or applying Herbal
+  Salve, spawned a brand-new Clay Bowl on top of the one that was never actually consumed by those
+  actions (both use a "mix into the bowl" pattern rather than a bowl-as-ingredient pattern) — 2
+  bowls could become 4 after brewing and drinking two cups. All three no longer produce an extra
+  bowl.
+
+### v1.10.5
+- **Chinese localization repair** — `Localization/SimpCn.csv` had drifted again (second confirmed
+  incident): 88 keys with no Chinese row at all and 98 records with English/blank text sitting in the
+  Chinese column. Added and translated all 186, normalized every legacy 2-column row to the canonical
+  3-column format, and fixed 3 rows in `SimpEn.csv`/`SimpCn.csv` independently truncated by an
+  unquoted comma (English players were also affected). No existing translations altered, no rows
+  dropped or reordered.
+
+### v1.10.3
+- **Mushroom log blueprint description fix** — all six mushroom-log inoculation blueprints (Shiitake, Lion's Mane, Reishi, Chicken of the Woods, Golden Oyster, King Oyster) told players to pack the log with 5 matching mushrooms; the actual requirement has been 10 since v1.7.x. Corrected the `CardDescription` text and matching `SimpEn.csv`/`SimpCn.csv` rows to say 10 — no mechanical change, just accurate in-game text.
+
+### v1.10.2
+- **NPC trading values** — all 84 tradeable items now have non-zero prices at trading tables. Prices follow vanilla's scale: berries 5–6 (dried 8–9), mushrooms 6–11, herbs 4–15, teas 12–20 (Ginseng Tea 45), tinctures/salves 30–60, truffles 50–120 (luxury), Ginseng 40–55, pickling gear 8–100, oil-press parts 25–80, Oil Press Kit 400.
+
+### v1.10.1
+- **Apothecary quest gate fix** — Stimulant Tea (Ground Ginseng) and Anti-Nausea Tea (Dried Ginger) now unlock independently based on the player actually obtaining the corresponding H&F item, instead of both unlocking together when CMC's Apothecary herb-fetch quest completed. Matches the mod's soft-dependency design (works with or without CMC installed).
+
+### v1.10.0
+- **Peanut Oil** — press 3 Raw Peanuts + a Clay Bowl on the Oil Press; edible, seasons food, joins the `tag_Oil` lamp-fuel pool.
+- **Peanut Butter** — grind Roasted Peanuts with any grinding tool; a dense, very drying fat-and-protein meal that keeps for two months.
+- **Forager's Trail Mix** — Cooking-tab recipe: 2 Roasted Peanuts + 2 Dried Billberries → 2 travel rations, lighter on thirst than plain roasted peanuts.
+- The peanut cycle no longer dead-ends at "roasted": all three new items consume shipped peanut content.
+
+### v1.9.4
+- **Forest Scout perk**: optional 1-Star trait that adds an Overgrown Forest Trail gate between Primeval Woods and the foraging forest. Clear it with a blade, axe, shovel, or antler; the portal route remains available.
+- **Medicinal herbs and preparations can now be added to stew** (chamomile, dandelion, ginger, ginseng, reishi, yarrow, and their dried/ground/cut variants).
+- Updated peanut artwork for pod, washed pod, raw peanuts, and roasted peanuts.
+
+### v1.9.3
 - Restored 30 localization keys that had been mechanically truncated by historical unbalanced-quote records (GoldenOyster/LionsMane/DryingTray/KingOysterCooked/LionsManeDried/WoodenPantry/HerbalOil* help sections, Hemp Field blueprint description) and recovered 28 Chinese translations from git history.
 
 ### v1.9.2

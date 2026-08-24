@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_ginseng",
+    "TradingValue": 40,
     "CardName": {
         "ParentObjectID": "herbs_fungi_ginseng",
         "LocalizationKey": "herbsfungiginseng_CardName",
@@ -17,7 +18,8 @@
         "tag_Root",
         "tag_Dryable",
         "tag_Plateable",
-        "tag_Fermentable"
+        "tag_Fermentable",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],

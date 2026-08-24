@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_herbal_salve",
+    "TradingValue": 60,
     "CardName": {
         "ParentObjectID": "herbs_fungi_herbal_salve",
         "LocalizationKey": "herbsfungiherbalsalve_CardName",
@@ -13,7 +14,8 @@
     "CardType": 0,
     "CardTagsWarpData": [
         "tag_Consumable",
-        "tag_Medicine"
+        "tag_Medicine",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],
@@ -104,31 +106,6 @@
                     },
                     "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
                     "StatWarpType": 3
-                }
-            ],
-            "ProducedCards": [
-                {
-                    "CollectionName": "",
-                    "CollectionWeight": 1,
-                    "DroppedCards": [
-                        {
-                            "DroppedCard": {
-                                "m_FileID": 0,
-                                "m_PathID": 0
-                            },
-                            "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
-                            "DroppedCardWarpType": 3,
-                            "Quantity": {
-                                "x": 1,
-                                "y": 1
-                            },
-                            "FinishUnlocking": false,
-                            "DropChance": {
-                                "Active": false,
-                                "BaseDropChance": 0.0
-                            }
-                        }
-                    ]
                 }
             ]
         }

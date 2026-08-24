@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_reishi_ground",
+    "TradingValue": 20,
     "CardName": {
         "ParentObjectID": "herbs_fungi_reishi_ground",
         "LocalizationKey": "herbsfungireishiground_CardName",
@@ -389,6 +390,12 @@
                     "Active": true,
                     "FloatValue": 0.5,
                     "MaxValue": 1.0
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "herbs_fungi_reishi_ground",
+                    "LocalizationKey": "herbsfungireishiground_MixTea_FailMessage",
+                    "DefaultText": "Not hot enough."
                 }
             },
             "WorksBothWays": true,

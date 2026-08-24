@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_dried_reishi",
+    "TradingValue": 18,
     "CardName": {
         "ParentObjectID": "herbs_fungi_dried_reishi",
         "LocalizationKey": "herbsfungidriedreishi_CardName",
@@ -18,7 +19,8 @@
         "tag_Fungus",
         "tag_Dried",
         "tag_Millable",
-        "tag_Plateable"
+        "tag_Plateable",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],

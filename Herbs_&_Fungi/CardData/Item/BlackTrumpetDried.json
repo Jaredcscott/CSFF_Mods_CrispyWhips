@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_black_trumpet_dried",
+    "TradingValue": 11,
     "CardName": {
         "ParentObjectID": "herbs_fungi_black_trumpet_dried",
         "LocalizationKey": "herbsfungiblacktrumpetdried_CardName",
@@ -18,7 +19,8 @@
         "tag_Fungus",
         "tag_Heatable",
         "tag_Cookable",
-        "tag_Plateable"
+        "tag_Plateable",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],
@@ -546,7 +548,7 @@
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_black_trumpet_dried",
             "LocalizationKey": "herbsfungiblacktrumpetdried_SpoilageTime_CardStatName",
-            "DefaultText": "Freshness"
+            "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
         "MaxValue": 3600.0,

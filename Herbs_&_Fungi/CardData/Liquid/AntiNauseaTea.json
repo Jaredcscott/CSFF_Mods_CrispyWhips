@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_anti_nausea_tea",
+    "TradingValue": 15,
     "CardName": {
         "ParentObjectID": "herbs_fungi_anti_nausea_tea",
         "LocalizationKey": "herbsfungiantinauseatea_CardName",
@@ -13,7 +14,8 @@
     "CardType": 0,
     "CardTagsWarpData": [
         "tag_Consumable",
-        "tag_Drinkable"
+        "tag_Drinkable",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],

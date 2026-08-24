@@ -44,7 +44,8 @@
         "tag_Foraged",
         "tag_Fungus",
         "tag_Plateable",
-        "tag_HumanFood"
+        "tag_HumanFood",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "EquipmentTags": [],
@@ -91,7 +92,7 @@
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_golden_oyster_cooked",
             "LocalizationKey": "Herbs_And_Fungi_GoldenOysterCooked_SpoilageTime_CardStatName",
-            "DefaultText": "Freshness"
+            "DefaultText": "Spoilage"
         },
         "RandomStartingOffset": 0.0,
         "MaxValue": 480.0,

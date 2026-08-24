@@ -22,14 +22,29 @@
   "OverrideEnvironment": { "m_FileID": 0, "m_PathID": 0 },
   "OverrideEquipment": false,
   "OverrideWeather": { "m_FileID": 0, "m_PathID": 0 },
-  "PassiveStatModifiers": [],
+  "PassiveStatModifiers": [
+    {
+      "Stat": { "m_FileID": 0, "m_PathID": 0 },
+      "StatWarpData": "1cfae8f993bbbce448477637d44b3cb3",
+      "StatWarpType": 3,
+      "ValueModifier": { "x": 0.0, "y": 0.0 },
+      "RateModifier": { "x": 1.0, "y": 1.0 },
+      "MinValueModifier": { "x": 0.0, "y": 0.0 },
+      "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+      "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+      "ApplyEachTick": false,
+      "InstantModifier": false,
+      "IgnoreNovelty": false,
+      "IsInverse": false
+    }
+  ],
   "PerkName": {
     "DefaultText": "Forest Scout",
     "LocalizationKey": "Herbs_And_Fungi_Perk_ForestScout_PerkName",
     "ParentObjectID": "herbs_fungi_perk_forest_scout"
   },
   "PerkDescription": {
-    "DefaultText": "You know where the old foraging trails begin, west of Primeval Woods. The forest is yours — but the paths grow back. An Overgrown Forest Trail waits at Primeval Woods: hack it clear with a blade to open the way in. Left untended it regrows in about ten days, so keep your blade sharp. A portal will always take you straight to the forest if the trail closes on you.",
+    "DefaultText": "You know where the old foraging trails begin, west of Primeval Woods — years scouting these woods sharpened your eye for what's worth picking, granting a steady foraging bonus. An Overgrown Forest Trail waits at Primeval Woods: hack it clear with a blade to open the way in. Left untended it regrows in about ten days, so keep your blade sharp. A portal will always take you straight to the forest if the trail closes on you.",
     "LocalizationKey": "Herbs_And_Fungi_Perk_ForestScout_PerkDescription",
     "ParentObjectID": "herbs_fungi_perk_forest_scout"
   },

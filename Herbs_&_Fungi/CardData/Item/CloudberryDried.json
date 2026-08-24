@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_cloudberry_dried",
+    "TradingValue": 9,
     "CardName": {
         "LocalizationKey": "herbsfungicloudberrydried_CardName",
         "DefaultText": "Dried Cloudberries"
@@ -14,7 +15,8 @@
         "tag_Foraged",
         "tag_Dried",
         "tag_Plateable",
-        "tag_HumanFood"
+        "tag_HumanFood",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],
@@ -31,7 +33,7 @@
         "FloatValue": 0.0,
         "CardStatName": {
             "LocalizationKey": "herbsfungicloudberrydried_SpoilageTime_CardStatName",
-            "DefaultText": "Freshness"
+            "DefaultText": "Spoilage"
         },
         "MaxValue": 3600.0,
         "RatePerDaytimePoint": 1.0,

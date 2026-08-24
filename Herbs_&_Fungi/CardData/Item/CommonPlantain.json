@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_common_plantain",
+    "TradingValue": 8,
     "CardName": {
         "ParentObjectID": "herbs_fungi_common_plantain",
         "LocalizationKey": "herbsfungicommonplantain_CardName",
@@ -14,7 +15,8 @@
     "CardTagsWarpData": [
         "tag_Foraged",
         "tag_Herb",
-        "tag_Dryable"
+        "tag_Dryable",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],

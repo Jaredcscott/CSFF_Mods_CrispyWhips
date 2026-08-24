@@ -146,6 +146,12 @@
                     "Active": true,
                     "FloatValue": 0.5,
                     "MaxValue": 1.0
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "herbs_fungi_lions_mane_ground",
+                    "LocalizationKey": "Herbs_And_Fungi_LionsManeGround_MixTea_FailMessage",
+                    "DefaultText": "Not hot enough."
                 }
             },
             "WorksBothWays": true,

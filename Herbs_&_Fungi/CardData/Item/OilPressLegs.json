@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_oil_press_legs",
+    "TradingValue": 40,
     "CardName": {
         "ParentObjectID": "herbs_fungi_oil_press_legs",
         "LocalizationKey": "herbsfungioilpresslegs_CardName",

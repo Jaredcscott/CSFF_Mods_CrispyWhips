@@ -84,7 +84,7 @@
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_lions_mane_dried",
             "LocalizationKey": "Herbs_And_Fungi_LionsManeDried_SpoilageTime_CardStatName",
-            "DefaultText": "Freshness"
+            "DefaultText": "Spoilage"
         },
         "RandomStartingOffset": 0.0,
         "MaxValue": 3600.0,

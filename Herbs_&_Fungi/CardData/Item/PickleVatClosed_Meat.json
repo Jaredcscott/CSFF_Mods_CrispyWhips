@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_pickle_vat_closed_meat",
+    "TradingValue": 100,
     "CardName": {
         "ParentObjectID": "herbs_fungi_pickle_vat_closed_meat",
         "LocalizationKey": "Herbs_And_Fungi_PickleVatClosedMeat_CardName",
@@ -142,7 +143,13 @@
             "ActionDescription": {
                 "ParentObjectID": "herbs_fungi_pickle_vat_closed_meat",
                 "LocalizationKey": "Herbs_And_Fungi_PickleVatClosedMeat_Uncap_ActionDescription",
-                "DefaultText": "Remove the clay bowl and reopen the vat. The packed meat are lost."
+                "DefaultText": "Remove the clay bowl and reopen the vat. The packed meat is lost."
+            },
+            "ConfirmPopup": true,
+            "CustomConfirmText": {
+                "ParentObjectID": "herbs_fungi_pickle_vat_closed_meat",
+                "LocalizationKey": "Herbs_And_Fungi_PickleVatClosedMeat_Uncap_ConfirmText",
+                "DefaultText": "Discard the packed meat and reopen the vat?"
             },
             "DaytimeCost": 1,
             "UseMiniTicks": 0,

@@ -3655,8 +3655,8 @@
                             "DroppedCardWarpData": "102ec269a8072ca4da7eb7e8218628c0",
                             "DroppedCardWarpType": 3,
                             "Quantity": {
-                                "x": 2,
-                                "y": 2
+                                "x": 4,
+                                "y": 4
                             }
                         },
                         {
@@ -3664,11 +3664,11 @@
                                 "m_FileID": 0,
                                 "m_PathID": 0
                             },
-                            "DroppedCardWarpData": "a3733e0f102863b42b573379f2e67212",
+                            "DroppedCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
                             "DroppedCardWarpType": 3,
                             "Quantity": {
-                                "x": 1,
-                                "y": 1
+                                "x": 2,
+                                "y": 2
                             }
                         }
                     ]

@@ -15,7 +15,8 @@
     "CardTagsWarpData": [
         "tag_Structure",
         "tag_Craftable",
-        "tag_HumanFood"
+        "tag_HumanFood",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "InventorySlotsWarpData": [],

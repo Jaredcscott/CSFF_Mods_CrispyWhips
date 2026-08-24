@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_dandelion_dried",
+    "TradingValue": 8,
     "CardName": {
         "ParentObjectID": "herbs_fungi_dandelion_dried",
         "LocalizationKey": "herbsfungidandeliondried_CardName",
@@ -16,7 +17,8 @@
         "tag_Foraged",
         "tag_Herb",
         "tag_Plateable",
-        "tag_Fermentable"
+        "tag_Fermentable",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],
@@ -93,6 +95,12 @@
                     "Active": true,
                     "FloatValue": 0.5,
                     "MaxValue": 1.0
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "herbs_fungi_dandelion_dried",
+                    "LocalizationKey": "herbsfungidandeliondried_MixTea_FailMessage",
+                    "DefaultText": "Not hot enough."
                 }
             },
             "WorksBothWays": true,

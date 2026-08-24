@@ -8,14 +8,14 @@
   "CardDescription": {
     "ParentObjectID": "herbs_fungi_cleared_forest_trail",
     "LocalizationKey": "Herbs_And_Fungi_ClearedForestTrail_CardDescription",
-    "DefaultText": "The trail into the foraging forest is open. Left untended, the brush will creep back over it in about ten days — keep a blade handy."
+    "DefaultText": "The forest trail is open. Left untended, the brush will creep back over it in about ten days — keep a blade handy."
   },
   "CanBeRenamed": false,
   "AlternateNames": [],
   "CardHelpSection": {
     "ParentObjectID": "herbs_fungi_cleared_forest_trail",
     "LocalizationKey": "Herbs_And_Fungi_ClearedForestTrail_CardHelpSection",
-    "DefaultText": "<b>Regrowth:</b> About 10 days. When the Regrowth bar fills, the trail becomes overgrown again and the foot route into the forest closes until you hack it clear once more."
+    "DefaultText": "<b>Regrowth:</b> About 10 days. When the Regrowth bar fills, the trail becomes overgrown again and the foot route closes until you hack it clear once more."
   },
   "CardType": 2,
   "ObjectWeight": 0.0,

@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_dandelion",
+    "TradingValue": 6,
     "CardName": {
         "ParentObjectID": "herbs_fungi_dandelion",
         "LocalizationKey": "herbsfungidandelion_CardName",
@@ -17,7 +18,8 @@
         "tag_Herb",
         "tag_Dryable",
         "tag_Plateable",
-        "tag_Fermentable"
+        "tag_Fermentable",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],

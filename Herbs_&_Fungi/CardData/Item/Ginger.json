@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_ginger",
+    "TradingValue": 12,
     "CardName": {
         "ParentObjectID": "herbs_fungi_ginger",
         "LocalizationKey": "herbsfungiginger_CardName",
@@ -18,7 +19,8 @@
         "tag_Cookable",
         "tag_Fermentable",
         "tag_Plateable",
-        "tag_HumanFood"
+        "tag_HumanFood",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],

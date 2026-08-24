@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_dried_truffle_cut_fat_coated",
+    "TradingValue": 120,
     "CardName": {
         "ParentObjectID": "herbs_fungi_dried_truffle_cut_fat_coated",
         "LocalizationKey": "herbsfungidriedtrufflecutfatcoated_CardName",
@@ -19,7 +20,8 @@
         "tag_Plateable",
         "tag_Cookable",
         "tag_Heatable",
-        "tag_FastlyCharsOnHighHeat"
+        "tag_FastlyCharsOnHighHeat",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],
@@ -39,7 +41,7 @@
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_dried_truffle_cut_fat_coated",
             "LocalizationKey": "herbsfungidriedtrufflecutfatcoated_SpoilageTime_CardStatName",
-            "DefaultText": "Freshness"
+            "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
         "MaxValue": 3600.0,

@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_plantain_poultice",
+    "TradingValue": 30,
     "CardName": {
         "ParentObjectID": "herbs_fungi_plantain_poultice",
         "LocalizationKey": "herbsfungiplantainpoultice_CardName",
@@ -13,7 +14,8 @@
     "CardType": 0,
     "CardTagsWarpData": [
         "tag_Consumable",
-        "tag_Medicine"
+        "tag_Medicine",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],

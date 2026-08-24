@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_dried_truffle",
+    "TradingValue": 100,
     "CardName": {
         "ParentObjectID": "herbs_fungi_dried_truffle",
         "LocalizationKey": "herbsfungidriedtruffle_CardName",
@@ -16,7 +17,8 @@
         "tag_Vegetable",
         "tag_Fungus",
         "tag_DriedFood",
-        "tag_Plateable"
+        "tag_Plateable",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],
@@ -36,7 +38,7 @@
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_dried_truffle",
             "LocalizationKey": "herbsfungidriedtruffle_SpoilageTime_CardStatName",
-            "DefaultText": "Freshness"
+            "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
         "MaxValue": 3600.0,

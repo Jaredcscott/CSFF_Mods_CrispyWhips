@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_pickle_vat_closed_frogs",
+    "TradingValue": 100,
     "CardName": {
         "ParentObjectID": "herbs_fungi_pickle_vat_closed_frogs",
         "LocalizationKey": "Herbs_And_Fungi_PickleVatClosedFrogs_CardName",
@@ -143,6 +144,12 @@
                 "ParentObjectID": "herbs_fungi_pickle_vat_closed_frogs",
                 "LocalizationKey": "Herbs_And_Fungi_PickleVatClosedFrogs_Uncap_ActionDescription",
                 "DefaultText": "Remove the clay bowl and reopen the vat. The packed frogs are lost."
+            },
+            "ConfirmPopup": true,
+            "CustomConfirmText": {
+                "ParentObjectID": "herbs_fungi_pickle_vat_closed_frogs",
+                "LocalizationKey": "Herbs_And_Fungi_PickleVatClosedFrogs_Uncap_ConfirmText",
+                "DefaultText": "Discard the packed frogs and reopen the vat?"
             },
             "DaytimeCost": 1,
             "UseMiniTicks": 0,

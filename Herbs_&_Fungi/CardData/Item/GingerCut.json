@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_ginger_cut",
+    "TradingValue": 10,
     "CardName": {
         "ParentObjectID": "herbs_fungi_ginger_cut",
         "LocalizationKey": "herbsfungigingercut_CardName",
@@ -14,7 +15,8 @@
     "CardTagsWarpData": [
         "tag_Vegetable",
         "tag_Dryable",
-        "tag_Plateable"
+        "tag_Plateable",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],

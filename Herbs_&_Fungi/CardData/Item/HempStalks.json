@@ -17,7 +17,7 @@
         "DefaultText": "Hemp stalks contain strong fibers that can be extracted and used for making twine, rope, and fabric."
     },
     "ObjectWeight": 75.0,
-    "TradingValue": 0.0,
+    "TradingValue": 6,
     "DoesNotPile": false,
     "DoesNotPinAutomatically": true,
     "CardImage": {

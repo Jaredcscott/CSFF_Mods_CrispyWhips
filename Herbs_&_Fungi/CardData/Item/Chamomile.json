@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_chamomile",
+    "TradingValue": 10,
     "CardName": {
         "ParentObjectID": "herbs_fungi_chamomile",
         "LocalizationKey": "herbsfungichamomile_CardName",
@@ -16,7 +17,8 @@
         "tag_Foraged",
         "tag_Herb",
         "tag_Dryable",
-        "tag_Plateable"
+        "tag_Plateable",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],

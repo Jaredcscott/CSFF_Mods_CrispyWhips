@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_yarrow_ground",
+    "TradingValue": 14,
     "CardName": {
         "ParentObjectID": "herbs_fungi_yarrow_ground",
         "LocalizationKey": "herbsfungiyarrowground_CardName",
@@ -550,6 +551,12 @@
                     "Active": true,
                     "FloatValue": 0.5,
                     "MaxValue": 1.0
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "herbs_fungi_yarrow_ground",
+                    "LocalizationKey": "herbsfungiyarrowground_MixTea_FailMessage",
+                    "DefaultText": "Not hot enough."
                 }
             },
             "WorksBothWays": true,

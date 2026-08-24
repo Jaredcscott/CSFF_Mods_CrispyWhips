@@ -48,7 +48,8 @@
         "tag_Dryable",
         "tag_HumanFood",
         "tag_Fermentable",
-        "tag_Plateable"
+        "tag_Plateable",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "EquipmentTags": [],
@@ -86,7 +87,7 @@
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_golden_oyster",
             "LocalizationKey": "Herbs_And_Fungi_GoldenOyster_SpoilageTime_CardStatName",
-            "DefaultText": "Freshness"
+            "DefaultText": "Spoilage"
         },
         "RandomStartingOffset": 0.0,
         "MaxValue": 720.0,

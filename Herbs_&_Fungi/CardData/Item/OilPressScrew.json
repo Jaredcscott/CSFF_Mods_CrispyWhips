@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_oil_press_screw",
+    "TradingValue": 80,
     "CardName": {
         "ParentObjectID": "herbs_fungi_oil_press_screw",
         "LocalizationKey": "herbsfungioilpressscrew_CardName",

@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_death_cap_tincture",
+    "TradingValue": 60,
     "CardName": {
         "ParentObjectID": "herbs_fungi_death_cap_tincture",
         "LocalizationKey": "herbsfungideathcaptincture_CardName",
@@ -15,7 +16,8 @@
         "tag_Consumable",
         "tag_Drinkable",
         "tag_Medicine",
-        "tag_Poisonous"
+        "tag_Poisonous",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],

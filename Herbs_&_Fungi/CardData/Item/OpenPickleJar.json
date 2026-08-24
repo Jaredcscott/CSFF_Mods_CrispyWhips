@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_open_pickle_jar",
+    "TradingValue": 60,
     "CardName": {
         "ParentObjectID": "herbs_fungi_open_pickle_jar",
         "LocalizationKey": "Herbs_And_Fungi_OpenPickleJar_CardName",

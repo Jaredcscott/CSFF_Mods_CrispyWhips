@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_shiitake",
+    "TradingValue": 8,
     "CardName": {
         "ParentObjectID": "herbs_fungi_shiitake",
         "LocalizationKey": "herbsfungishiitake_CardName",
@@ -20,7 +21,8 @@
         "tag_Dryable",
         "tag_HumanFood",
         "tag_Fermentable",
-        "tag_Plateable"
+        "tag_Plateable",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],

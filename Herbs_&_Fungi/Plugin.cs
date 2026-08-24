@@ -11,7 +11,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.Herbs_And_Fungi";
     public const string PluginName = "Herbs and Fungi";
-    public const string PluginVersion = "1.10.0";
+    public const string PluginVersion = "1.10.14";
 
     internal new static ManualLogSource Logger { get; private set; }
     internal static Plugin Instance { get; private set; }
@@ -28,6 +28,7 @@ internal class Plugin : ContentModPlugin
     {
         TryApply("GameLoadPatch", () => Herbs_And_Fungi.Patcher.GameLoadPatch.ApplyPatch(harmony));
         TryApply("PickleVatRoutePatch", () => Herbs_And_Fungi.Patcher.PickleVatRoutePatch.ApplyPatch(harmony));
+        TryApply("ApothecaryQuestGatePatch", () => Herbs_And_Fungi.Patcher.ApothecaryQuestGatePatch.ApplyPatch(harmony));
         // Forest Scout perk gating moved to WorldMap/MapNodes.json SealableGates (framework
         // CSFFModFramework.Injection.SealableGateService) — HFForestGatePatch.cs retired.
     }

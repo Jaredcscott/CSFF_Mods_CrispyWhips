@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_wild_flowers_dried",
+    "TradingValue": 6,
     "CardName": {
         "ParentObjectID": "herbs_fungi_wild_flowers_dried",
         "LocalizationKey": "herbsfungiwildflowersdried_CardName",
@@ -12,7 +13,8 @@
     },
     "CardType": 0,
     "CardTagsWarpData": [
-        "tag_Foraged"
+        "tag_Foraged",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],

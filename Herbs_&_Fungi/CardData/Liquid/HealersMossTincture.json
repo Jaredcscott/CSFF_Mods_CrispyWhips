@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_healers_moss_tincture",
+    "TradingValue": 60,
     "CardName": {
         "LocalizationKey": "herbsfungihealersmosstincture_CardName",
         "DefaultText": "Healer's Moss Tincture"
@@ -16,7 +17,8 @@
     "CardTagsWarpData": [
         "tag_Consumable",
         "tag_Drinkable",
-        "tag_Medicine"
+        "tag_Medicine",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],

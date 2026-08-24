@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_wild_flowers",
+    "TradingValue": 4,
     "CardName": {
         "ParentObjectID": "herbs_fungi_wild_flowers",
         "LocalizationKey": "herbsfungiwildflowers_CardName",
@@ -13,7 +14,8 @@
     "CardType": 0,
     "CardTagsWarpData": [
         "tag_Foraged",
-        "tag_Dryable"
+        "tag_Dryable",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],
@@ -34,7 +36,7 @@
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_wild_flowers",
             "LocalizationKey": "herbsfungiwildflowers_SpoilageTime_StatName",
-            "DefaultText": "Freshness"
+            "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
         "MaxValue": 576.0,

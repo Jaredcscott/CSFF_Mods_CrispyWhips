@@ -17,7 +17,7 @@
         "DefaultText": "<b>Usage:</b> Place in a container on a fire and heat slowly.\n\n<b>Activation:</b> Requires sustained heat to activate psychoactive properties."
     },
     "ObjectWeight": 75,
-    "TradingValue": 0.0,
+    "TradingValue": 40,
     "AlwaysUpdate": true,
     "CardImage": {
         "m_FileID": 0,
@@ -26,7 +26,8 @@
     "CardImageWarpData": "HempButter",
     "CardImageWarpType": 3,
     "CardTagsWarpData": [
-        "tag_Cookable"
+        "tag_Cookable",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "WhenCreatedSoundsWarpData": [

@@ -28,7 +28,7 @@
       {
         "ConnectionUID": "cc2b63c53be07de4d93f0bdbd544be25",
         "StateModel": "CardPresence",
-        "SealTrigger": { "Type": "PerkEquipped", "UID": "herbs_fungi_perk_forest_scout" },
+        "SealTrigger": { "Type": "Always" },
         "ChallengeCardUID": "herbs_fungi_overgrown_forest_trail",
         "ClearActionKeyPrefix": "Herbs_And_Fungi_OvergrownForestTrail_Hack",
         "ClearedTransformInto": "herbs_fungi_cleared_forest_trail",
@@ -36,7 +36,7 @@
         "DirectionalGates": [
           {
             "WatchEnvUID": "cc2b63c53be07de4d93f0bdbd544be25",
-            "ExcludeCt8Uids": ["hfLocForagingPath", "hfLocPineClearing", "hfLocOakClearing", "hfLocAlderWoods"],
+            "ExcludeCt8Uids": ["hfLocForagingPath", "hfLocPineClearing", "hfLocOakClearing", "hfLocAlderWoods", "hfLocMistyFalls"],
             "ControlsMapLine": true
           },
           {
@@ -73,6 +73,34 @@
         "PathCost": 10.0,
         "TravelDirection": "South",
         "HideConnection": false
+      },
+      {
+        "EnvironmentUID": "hfEnvHighlandMeadow",
+        "PathCost": 10.0,
+        "TravelDirection": "North",
+        "HideConnection": false
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "hfEnvHighlandMeadow",
+    "LocationUID": "hfLocHighlandMeadow",
+    "CloneOfEnvironmentUID": "ca60012d0c6a8394f9bc5cef2e1794ad",
+    "DisplayName": "Highland Meadow",
+    "NameLocalizationKey": "HF_HighlandMeadow_CardName",
+    "EnvNameLocalizationKey": "HF_Env_HighlandMeadow_CardName",
+    "Coords": { "x": -70.0, "y": 0.0, "z": 70.0, "w": 0.0 },
+    "HideFromMap": false,
+    "ExtraDropUIDs": [],
+    "CapacityStats": {
+      "Foraging": { "MaxValue": 1440.0, "InitialValue": 1440.0, "RatePerDTP": -1.0 }
+    },
+    "Connections": [
+      {
+        "EnvironmentUID": "hfEnvPineClearing",
+        "PathCost": 10.0,
+        "TravelDirection": "South",
+        "HideConnection": false
       }
     ]
   },
@@ -100,6 +128,29 @@
         "EnvironmentUID": "hfEnvForagingPath",
         "PathCost": 10.0,
         "TravelDirection": "East",
+        "HideConnection": false
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "hfEnvMistyFalls",
+    "LocationUID": "hfLocMistyFalls",
+    "CloneOfEnvironmentUID": "0c7cd381f10689b49b2ca9ec8819380c",
+    "DisplayName": "Misty Falls",
+    "NameLocalizationKey": "HF_MistyFalls_CardName",
+    "EnvNameLocalizationKey": "HF_Env_MistyFalls_CardName",
+    "Coords": { "x": -80.0, "y": 0.0, "z": 60.0, "w": 0.0 },
+    "HideFromMap": false,
+    "ExtraDropUIDs": [],
+    "StripLegacyBoardUIDs": ["a402094f53f84f247a99773addf4b6df"],
+    "CapacityStats": {
+      "Foraging": { "MaxValue": 1440.0, "InitialValue": 1440.0, "RatePerDTP": -1.0 }
+    },
+    "Connections": [
+      {
+        "EnvironmentUID": "hfEnvOakClearing",
+        "PathCost": 10.0,
+        "TravelDirection": "South",
         "HideConnection": false
       }
     ]

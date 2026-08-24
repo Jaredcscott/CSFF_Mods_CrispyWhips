@@ -70,6 +70,7 @@ namespace Herbs_And_Fungi.Patcher
             {
                 var ctgType = AccessTools.TypeByName("CardTabGroup");
                 if (ctgType == null) { Logger?.LogError("[GpTag] CardTabGroup type not found"); return; }
+                if (!typeof(UnityEngine.Object).IsAssignableFrom(ctgType)) { Logger?.LogError("[GpTag] CardTabGroup is not a UnityEngine.Object subclass"); return; }
                 var cardDataType = AccessTools.TypeByName("CardData");
                 var uidType      = AccessTools.TypeByName("UniqueIDScriptable");
                 if (cardDataType == null || uidType == null) { Logger?.LogError("[GpTag] CardData/UniqueIDScriptable type not found"); return; }

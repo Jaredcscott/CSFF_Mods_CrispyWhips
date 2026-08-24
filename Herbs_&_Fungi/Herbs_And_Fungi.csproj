@@ -97,6 +97,7 @@
         <Content Include="LICENSE" CopyToOutputDirectory="PreserveNewest" Condition="Exists('LICENSE')" />
         <Content Include="ASSET_CREDITS.md" CopyToOutputDirectory="PreserveNewest" Condition="Exists('ASSET_CREDITS.md')" />
         <Content Include="BlueprintTabs.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('BlueprintTabs.json')" />
+        <Content Include="DropInjections.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('DropInjections.json')" />
         <Content Include="CardData\**\*.json" CopyToOutputDirectory="PreserveNewest" Link="CardData\%(RecursiveDir)%(Filename)%(Extension)" />
         <Content Include="CharacterPerk\*.json" CopyToOutputDirectory="PreserveNewest" Link="CharacterPerk\%(Filename)%(Extension)" />
         <Content Include="Localization\*.csv" CopyToOutputDirectory="PreserveNewest" Link="Localization\%(Filename)%(Extension)" />

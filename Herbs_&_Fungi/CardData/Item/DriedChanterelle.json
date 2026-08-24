@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_dried_chanterelle",
+    "TradingValue": 9,
     "CardName": {
         "ParentObjectID": "herbs_fungi_dried_chanterelle",
         "LocalizationKey": "herbsfungidriedchanterelle_CardName",
@@ -19,7 +20,8 @@
         "tag_Dried",
         "tag_Heatable",
         "tag_Cookable",
-        "tag_Plateable"
+        "tag_Plateable",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],

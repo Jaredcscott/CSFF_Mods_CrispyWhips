@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_yarrow_dried",
+    "TradingValue": 12,
     "CardName": {
         "ParentObjectID": "herbs_fungi_yarrow_dried",
         "LocalizationKey": "herbsfungiyarrowdried_CardName",
@@ -17,7 +18,8 @@
         "tag_Foraged",
         "tag_Herb",
         "tag_Millable",
-        "tag_Plateable"
+        "tag_Plateable",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],
@@ -686,7 +688,7 @@
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_yarrow_dried",
             "LocalizationKey": "herbsfungiyarrowdried_SpoilageTime_CardStatName",
-            "DefaultText": "Freshness"
+            "DefaultText": "Spoilage"
         },
         "MinValue": 0.0,
         "MaxValue": 3600.0,

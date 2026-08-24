@@ -186,7 +186,7 @@
                         "FloatValue": 0.0
                     }
                 },
-                "RequiredLiquidQuantity": 100.0,
+                "RequiredLiquidQuantity": 1.0,
                 "RequiredSpecial1Percent": {
                     "Active": false,
                     "FloatValue": 0.0,
@@ -245,7 +245,8 @@
     "DismantleActions": [],
     "CardTagsWarpData": [
         "tag_Foraged",
-        "tag_HumanFood"
+        "tag_HumanFood",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "WhenCreatedSoundsWarpData": [

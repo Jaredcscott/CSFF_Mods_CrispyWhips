@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_mushroom_broth",
+    "TradingValue": 20,
     "CardName": {
         "LocalizationKey": "herbsfungimushroombroth_CardName",
         "DefaultText": "Mushroom Broth"
@@ -16,7 +17,8 @@
     "CardTagsWarpData": [
         "tag_Consumable",
         "tag_Drinkable",
-        "tag_HumanFood"
+        "tag_HumanFood",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],

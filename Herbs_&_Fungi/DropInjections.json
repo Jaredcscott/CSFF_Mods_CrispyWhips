@@ -1,0 +1,73 @@
+[
+  {
+    "Locations": { "Uids": ["hfLocForagingPath"] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_ginseng",         "Chance": 5.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_ginger",           "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_yarrow",           "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_wild_flowers",     "Chance": 12.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_common_plantain",  "Chance": 10.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_chamomile",        "Chance": 8.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_puffball",         "Chance": 8.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_lingonberry",      "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_cloudberry",       "Chance": 3.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_death_cap",        "Chance": 1.0,  "Quantity": [1, 1] }
+    ]
+  },
+  {
+    "Locations": { "Uids": ["hfLocOakClearing"] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_ginseng",    "Chance": 6.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_ginger",     "Chance": 5.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_lingonberry","Chance": 8.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_cloudberry", "Chance": 3.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_death_cap",  "Chance": 1.0, "Quantity": [1, 1] }
+    ]
+  },
+  {
+    "Locations": { "Uids": ["hfLocAlderWoods"] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_ginseng",        "Chance": 5.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_ginger",         "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_yarrow",         "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_wild_flowers",   "Chance": 12.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_common_plantain","Chance": 10.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_chamomile",      "Chance": 8.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_puffball",       "Chance": 8.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_lingonberry",    "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_cloudberry",     "Chance": 3.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_death_cap",      "Chance": 1.0,  "Quantity": [1, 1] }
+    ]
+  },
+  {
+    "Locations": { "Uids": ["hfLocPineClearing"] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_ginseng",    "Chance": 5.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_ginger",     "Chance": 5.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_cloudberry", "Chance": 6.0,  "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_death_cap",  "Chance": 1.0,  "Quantity": [1, 1] }
+    ]
+  },
+  {
+    "Locations": { "Uids": ["hfLocHighlandMeadow"] },
+    "Action": "Forage",
+    "ActionMode": "contains",
+    "Drops": [
+      { "Card": "herbs_fungi_ginseng",        "Chance": 8.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_ginger",         "Chance": 5.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_morel_mushroom", "Chance": 6.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_chanterelle",    "Chance": 6.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_shiitake",       "Chance": 5.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_black_trumpet",  "Chance": 4.0, "Quantity": [1, 1] },
+      { "Card": "herbs_fungi_blackcurrant",   "Chance": 5.0, "Quantity": [1, 1] }
+    ]
+  }
+]

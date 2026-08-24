@@ -105,7 +105,9 @@ namespace Herbs_And_Fungi.Patcher
 
                 // Cache CardTag scan once for both fermentable-tag and pouch-patch methods
                 var cardTagType = AccessTools.TypeByName("CardTag");
-                var allCardTags = cardTagType != null ? Resources.FindObjectsOfTypeAll(cardTagType) : null;
+                var allCardTags = cardTagType != null && typeof(UnityEngine.Object).IsAssignableFrom(cardTagType)
+                    ? Resources.FindObjectsOfTypeAll(cardTagType)
+                    : null;
 
                 // Extend vanilla Turnroot/Fireroot with tag_Fermentable so they work in the pickle vat
                 AddFermentableTagToVanillaRoots(allDataEnumerable, allCardTags);
@@ -142,7 +144,7 @@ namespace Herbs_And_Fungi.Patcher
                 {
                     if (item == null) continue;
 
-                    var uniqueIdField = AccessTools.Field(item.GetType(), "UniqueID");
+                    var uniqueIdField = CachedField(item.GetType(), "UniqueID");
                     var uniqueId = uniqueIdField?.GetValue(item) as string;
 
                     if (uniqueId == "herbs_fungi_hemp_seeds") hempSeeds = item;
@@ -156,7 +158,7 @@ namespace Herbs_And_Fungi.Patcher
                 foreach (var item in allDataEnumerable)
                 {
                     if (item == null) continue;
-                    var cardNameField = item.GetType().GetField("CardName", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+                    var cardNameField = CachedField(item.GetType(), "CardName");
                     var cardNameObj = cardNameField?.GetValue(item);
                     if (cardNameObj == null) continue;
 
@@ -166,7 +168,7 @@ namespace Herbs_And_Fungi.Patcher
                         continue;
 
                     // Add hemp to the plantation card
-                    var plantationCardsField = item.GetType().GetField("PlantationCards", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+                    var plantationCardsField = CachedField(item.GetType(), "PlantationCards");
                     if (plantationCardsField == null) continue;
 
                     var plantationCards = plantationCardsField.GetValue(item);
@@ -180,7 +182,7 @@ namespace Herbs_And_Fungi.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"[HempSeeds] Error adding hemp plantation support: {ex.Message}\n{ex.StackTrace}");
+                Logger?.LogError($"[HempSeeds] Error adding hemp plantation support: {ex}");
             }
         }
 
@@ -223,7 +225,7 @@ namespace Herbs_And_Fungi.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.LogWarning($"[HempSeeds] PlantationCards append failed: {ex.Message}");
+                Logger?.LogWarning($"[HempSeeds] PlantationCards append failed: {ex}");
             }
 
             return false;
@@ -320,11 +322,14 @@ namespace Herbs_And_Fungi.Patcher
                 // Peanuts
                 object peanutPod = null;
 
+                // Vanilla items
+                object wolfsbaneFresh = null;
+
                 foreach (var item in allDataEnumerable)
                 {
                     if (item == null) continue;
 
-                    var uniqueIdField = AccessTools.Field(item.GetType(), "UniqueID");
+                    var uniqueIdField = CachedField(item.GetType(), "UniqueID");
                     var uniqueId = uniqueIdField?.GetValue(item) as string;
 
                     // Original items
@@ -360,6 +365,8 @@ namespace Herbs_And_Fungi.Patcher
                     else if (uniqueId == "herbs_fungi_chamomile") chamomile = item;
                     // Peanuts
                     else if (uniqueId == "herbs_fungi_peanut_pod") peanutPod = item;
+                    // Vanilla items
+                    else if (uniqueId == "ffbc6fdc5dc0eec43b100d0feb63b70d") wolfsbaneFresh = item;
                 }
 
                 int locationsModified = 0;
@@ -374,7 +381,7 @@ namespace Herbs_And_Fungi.Patcher
                     // Get CardName.LocalizationKey to identify location type
                     // UniqueIDs are GUIDs like "b71c4ef8847555b4abcab5730a529145", NOT readable names!
                     // LocalizationKey contains patterns like "GroveOak_MossyGrove_CardName" or "River_GroveOak_FloodedGrove_CardName"
-                    var cardNameField = item.GetType().GetField("CardName", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+                    var cardNameField = CachedField(item.GetType(), "CardName");
                     var cardNameObj = cardNameField?.GetValue(item);
                     if (cardNameObj == null) continue;
 
@@ -400,6 +407,8 @@ namespace Herbs_And_Fungi.Patcher
                     bool isGreenGlade = localizationKey.Contains("GreenGlade");
                     bool isOakenGrove = localizationKey.Contains("OakenGrove");
                     bool isPineMeadow = localizationKey.Contains("PineMeadow");
+                    // Lake Island is a pine grove surrounded by lake water (key contains "LakeIsland")
+                    bool isLakeIsland = localizationKey.Contains("LakeIsland");
 
                     // === EA 0.61 CAVE LOCATIONS ===
                     bool isCaveOldHollow = localizationKey.Contains("CaveOldHollow");
@@ -415,17 +424,18 @@ namespace Herbs_And_Fungi.Patcher
                     // vanilla environment it clones from (verified via CloneOfEnvironmentUID):
                     // hfEnvForagingPath <- Env_GroveOak_SecretGrove, hfEnvOakClearing <-
                     // Env_ClearingOak_MossyClearing, hfEnvPineClearing <- Env_ClearingPine_PineClearing,
-                    // hfEnvAlderWoods <- Env_GroveAlder_AlderGrove.
-                    // hfEnvForagingPath/hfEnvAlderWoods clone Groves (not Clearings) so isClearing
-                    // stays false for them, matching what the LocalizationKey match would have
-                    // produced for their vanilla sources; hfEnvOakClearing/hfEnvPineClearing clone
-                    // actual Clearings so isClearing is set true for them.
-                    var envUniqueIdField = AccessTools.Field(item.GetType(), "UniqueID");
+                    // hfEnvAlderWoods <- Env_GroveAlder_AlderGrove, hfEnvHighlandMeadow <-
+                    // Env_ClearingPine_PineMeadows (treated as PineMeadow+Northern+Clearing+Pine).
+                    var envUniqueIdField = CachedField(item.GetType(), "UniqueID");
                     var envUniqueId = envUniqueIdField?.GetValue(item) as string;
                     if (envUniqueId == "hfEnvForagingPath") isOakGrove = true;
                     else if (envUniqueId == "hfEnvOakClearing") { isOakGrove = true; isClearing = true; }
                     else if (envUniqueId == "hfEnvAlderWoods") isAlderWoods = true;
                     else if (envUniqueId == "hfEnvPineClearing") { isPineForest = true; isClearing = true; }
+                    else if (envUniqueId == "hfEnvHighlandMeadow") { isPineMeadow = true; isClearing = true; isNorthernRegion = true; isPineForest = true; }
+                    else if (envUniqueId == "hfEnvMistyFalls") { isOakGrove = true; isRiverBank = true; }
+                    // Lake Island is water-surrounded — gets river-bank drops in addition to pine-forest drops
+                    if (isLakeIsland) isRiverBank = true;
 
                     if (!isOakGrove && !isAlderWoods && !isPineForest && !isBirchForest && !isWillowArea && !isRiverBank && !isPrimevalWoods && !isClearing && !isWildWoods && !isNorthernRegion && !isPineMeadow && !isUndergroundCave && !isLostWoods && !isGreenGrove && !isGreenGlade && !isOakenGrove) continue;
 
@@ -433,7 +443,7 @@ namespace Herbs_And_Fungi.Patcher
                     string locationType = isNorthernRegion ? "Northern" : (isPrimevalWoods ? "Primeval" : (isWillowArea ? "Willow" : (isWildWoods ? "WildWoods" : (isPineMeadow ? "PineMeadow" : (isOakGrove ? "Oak" : (isAlderWoods ? "Alder" : (isBirchForest ? "Birch" : (isPineForest ? "Pine" : (isUndergroundCave ? "Cave" : "River")))))))));
 
                     // Get DismantleActions array
-                    var dismantleActionsField = AccessTools.Field(item.GetType(), "DismantleActions");
+                    var dismantleActionsField = CachedField(item.GetType(), "DismantleActions");
                     var dismantleActions = dismantleActionsField?.GetValue(item) as IList;
 
                     if (dismantleActions == null || dismantleActions.Count == 0) continue;
@@ -460,7 +470,7 @@ namespace Herbs_And_Fungi.Patcher
                         if (!isForageAction && !isClearAction && !isDigMudOrDirt) continue;
 
                         // Get ProducedCards array
-                        var producedCardsField = AccessTools.Field(action.GetType(), "ProducedCards");
+                        var producedCardsField = CachedField(action.GetType(), "ProducedCards");
                         var producedCards = producedCardsField?.GetValue(action) as IList;
 
                         if (producedCards == null) continue;
@@ -563,6 +573,12 @@ namespace Herbs_And_Fungi.Patcher
                                 AddMushroomDropToAction(producedCards, yarrow, 6.0f, false, false, true);
                             }
 
+                            // Wolfsbane at river banks/waterfalls (8% chance, poisonous — dangerous find) - Spring/Summer/Fall only
+                            if (isRiverBank && wolfsbaneFresh != null)
+                            {
+                                AddMushroomDropToAction(producedCards, wolfsbaneFresh, 8.0f, false, false, true);
+                            }
+
                             // Wild Ginger in river banks and willow areas (6% chance) - Spring/Summer/Fall only
                             if ((isRiverBank || isWillowArea) && ginger != null)
                             {
@@ -585,14 +601,14 @@ namespace Herbs_And_Fungi.Patcher
 
                             // === HEMP ===
 
-                            // Hemp seeds in Primeval Woods (10% chance) - Spring/Summer/Fall only
-                            if (isPrimevalWoods && hempSeeds != null)
+                            // Hemp seeds in Primeval Woods and Lake Island only (10% chance) - Spring/Summer/Fall only
+                            if ((isPrimevalWoods || isLakeIsland) && hempSeeds != null)
                             {
                                 AddMushroomDropToAction(producedCards, hempSeeds, 10.0f, false, false, true);
                             }
 
-                            // Hemp plant in Primeval Woods (15% chance - rare find!) - Spring/Summer/Fall only
-                            if (isPrimevalWoods && hempPlantMature != null)
+                            // Hemp plant in Primeval Woods and Lake Island only (15% chance - rare find!) - Spring/Summer/Fall only
+                            if ((isPrimevalWoods || isLakeIsland) && hempPlantMature != null)
                             {
                                 AddMushroomDropToAction(producedCards, hempPlantMature, 15.0f, false, false, true);
                             }
@@ -715,7 +731,7 @@ namespace Herbs_And_Fungi.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"[Forage] Error adding mushroom drops: {ex.Message}\n{ex.StackTrace}");
+                Logger?.LogError($"[Forage] Error adding mushroom drops: {ex}");
             }
         }
 
@@ -731,7 +747,7 @@ namespace Herbs_And_Fungi.Patcher
                 // Check if mushroom already in this action
                 foreach (var collection in producedCards)
                 {
-                    var dropsField = AccessTools.Field(collection.GetType(), "DroppedCards");
+                    var dropsField = CachedField(collection.GetType(), "DroppedCards");
                     if (dropsField == null) continue;
 
                     var drops = dropsField.GetValue(collection) as Array;
@@ -739,7 +755,7 @@ namespace Herbs_And_Fungi.Patcher
 
                     foreach (var drop in drops)
                     {
-                        var droppedCardField = AccessTools.Field(drop.GetType(), "DroppedCard");
+                        var droppedCardField = CachedField(drop.GetType(), "DroppedCard");
                         if (droppedCardField?.GetValue(drop) == mushroom)
                             return; // Already present
                     }
@@ -749,7 +765,7 @@ namespace Herbs_And_Fungi.Patcher
                 if (producedCards.Count > 0)
                 {
                     var collection = producedCards[0];
-                    var dropsField = AccessTools.Field(collection.GetType(), "DroppedCards");
+                    var dropsField = CachedField(collection.GetType(), "DroppedCards");
                     if (dropsField != null)
                     {
                         var dropsArray = dropsField.GetValue(collection) as Array;
@@ -760,21 +776,21 @@ namespace Herbs_And_Fungi.Patcher
                             Array.Copy(dropsArray, newDropsArray, dropsArray.Length);
 
                             var newDrop = Activator.CreateInstance(dropType);
-                            var droppedCardField = AccessTools.Field(dropType, "DroppedCard");
+                            var droppedCardField = CachedField(dropType, "DroppedCard");
                             if (droppedCardField != null)
                                 droppedCardField.SetValue(newDrop, mushroom);
 
                             // Set Quantity to {1, 1} so the item actually drops
-                            var quantityField = AccessTools.Field(dropType, "Quantity");
+                            var quantityField = CachedField(dropType, "Quantity");
                             if (quantityField != null)
                                 quantityField.SetValue(newDrop, new UnityEngine.Vector2Int(1, 1));
 
-                            var dropChanceField = AccessTools.Field(dropType, "DropChance");
+                            var dropChanceField = CachedField(dropType, "DropChance");
                             if (dropChanceField != null)
                             {
                                 var dropChanceObj = Activator.CreateInstance(dropChanceField.FieldType);
-                                var activeField = AccessTools.Field(dropChanceObj.GetType(), "Active");
-                                var chanceField = AccessTools.Field(dropChanceObj.GetType(), "BaseDropChance");
+                                var activeField = CachedField(dropChanceObj.GetType(), "Active");
+                                var chanceField = CachedField(dropChanceObj.GetType(), "BaseDropChance");
 
                                 if (activeField != null) activeField.SetValue(dropChanceObj, true);
                                 if (chanceField != null) chanceField.SetValue(dropChanceObj, dropChance);
@@ -790,7 +806,7 @@ namespace Herbs_And_Fungi.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"[Forage] Error adding mushroom drop: {ex.Message}\n{ex.StackTrace}");
+                Logger?.LogError($"[Forage] Error adding mushroom drop: {ex}");
             }
         }
 
@@ -908,7 +924,7 @@ namespace Herbs_And_Fungi.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"[Truffle] Error adding Dig for Truffles action: {ex.Message}\n{ex.StackTrace}");
+                Logger?.LogError($"[Truffle] Error adding Dig for Truffles action: {ex}");
             }
         }
 
@@ -948,7 +964,7 @@ namespace Herbs_And_Fungi.Patcher
                 foreach (var item in allDataEnumerable)
                 {
                     if (item == null) continue;
-                    var uniqueIdField = AccessTools.Field(item.GetType(), "UniqueID");
+                    var uniqueIdField = CachedField(item.GetType(), "UniqueID");
                     var uniqueId = uniqueIdField?.GetValue(item) as string;
                     if (uniqueId == TurnrootGuid) turnroot = item;
                     else if (uniqueId == FirerootGuid) fireroot = item;
@@ -960,7 +976,7 @@ namespace Herbs_And_Fungi.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"[FermentableTag] Error: {ex.Message}\n{ex.StackTrace}");
+                Logger?.LogError($"[FermentableTag] Error: {ex}");
             }
         }
 
@@ -985,7 +1001,7 @@ namespace Herbs_And_Fungi.Patcher
             foreach (var item in allDataEnumerable)
             {
                 if (item == null) continue;
-                var uid = AccessTools.Field(item.GetType(), "UniqueID")?.GetValue(item) as string;
+                var uid = CachedField(item.GetType(), "UniqueID")?.GetValue(item) as string;
                 if      (uid == TendonGuid)       tendon       = item;
                 else if (uid == DryingRackGuid)   dryingRack   = item;
                 else if (uid == DryingTrayId)     dryingTray   = item;
@@ -1024,13 +1040,34 @@ namespace Herbs_And_Fungi.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"[TendonDry] {label}: {ex.Message}\n{ex.StackTrace}");
+                Logger?.LogError($"[TendonDry] {label}: {ex}");
             }
         }
 
         private static object GetMember(object target, string name) => Reflect.GetMember(target, name);
 
         private static void SetMember(object target, string name, object value) => Reflect.SetMember(target, name, value);
+
+        // Cached (Type, fieldName) -> FieldInfo lookups for the load-time per-item loops below
+        // (AddHempSeedPlantingSupport, AddMushroomDropsToForaging, AddFermentableTagToVanillaRoots,
+        // AddTendonDryingRecipe, PatchVanillaPouchForPowderStorage), each of which walks the
+        // ENTIRE card database once. Reflect.GetMember already caches by (Type, name) for
+        // value-only reads, but callers here that need the raw FieldInfo itself (SetValue,
+        // FieldType) can't use it — this mirrors the same Dictionary<(Type,string), FieldInfo>
+        // pattern CLAUDE.md calls for instead of re-resolving the same field name per item.
+        private static readonly Dictionary<(Type, string), FieldInfo> _fieldCache = new();
+
+        private static FieldInfo CachedField(Type type, string name)
+        {
+            // Native GetField, not AccessTools.Field: this is probed against every allData type
+            // (SpiceTag, QuestLog, NPCDuty, ...), and AccessTools logs a HarmonyX warning per
+            // miss — 26 warnings per load for fields most types legitimately lack.
+            var key = (type, name);
+            if (!_fieldCache.TryGetValue(key, out var fi))
+                _fieldCache[key] = fi = type.GetField(name,
+                    BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            return fi;
+        }
 
         /// <summary>
         /// Patches the vanilla Pouch (description: "ideal for preserving powders") to actually
@@ -1049,7 +1086,7 @@ namespace Herbs_And_Fungi.Patcher
                 foreach (var item in allDataEnumerable)
                 {
                     if (item == null) continue;
-                    var uid = AccessTools.Field(item.GetType(), "UniqueID")?.GetValue(item) as string;
+                    var uid = CachedField(item.GetType(), "UniqueID")?.GetValue(item) as string;
                     if (uid == PouchGuid) { pouch = item; break; }
                 }
 
@@ -1060,7 +1097,7 @@ namespace Herbs_And_Fungi.Patcher
                 }
 
                 // Give it enough weight capacity for ~10 powder items (each weighs 10)
-                var weightField = AccessTools.Field(pouch.GetType(), "MaxWeightCapacity");
+                var weightField = CachedField(pouch.GetType(), "MaxWeightCapacity");
                 if (weightField == null) { Logger?.LogError("[PouchPatch] MaxWeightCapacity field not found."); return; }
                 weightField.SetValue(pouch, 100.0f);
 

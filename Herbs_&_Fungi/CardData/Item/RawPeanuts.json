@@ -262,7 +262,8 @@
         "tag_Foraged",
         "tag_HumanFood",
         "tag_Plateable",
-        "tag_Heatable"
+        "tag_Heatable",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "WhenCreatedSoundsWarpData": [

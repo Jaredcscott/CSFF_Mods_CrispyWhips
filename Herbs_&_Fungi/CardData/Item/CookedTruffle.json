@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_cooked_truffle",
+    "TradingValue": 90,
     "CardName": {
         "ParentObjectID": "herbs_fungi_cooked_truffle",
         "LocalizationKey": "herbsfungicookedtruffle_CardName",
@@ -17,7 +18,8 @@
         "tag_CookedFood",
         "tag_Plateable",
         "tag_Dryable",
-        "tag_HumanFood"
+        "tag_HumanFood",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],

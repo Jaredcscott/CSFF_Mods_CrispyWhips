@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_common_plantain_dried",
+    "TradingValue": 10,
     "CardName": {
         "ParentObjectID": "herbs_fungi_common_plantain_dried",
         "LocalizationKey": "herbsfungicommonplantaindried_CardName",
@@ -13,7 +14,8 @@
     "CardType": 0,
     "CardTagsWarpData": [
         "tag_Foraged",
-        "tag_Herb"
+        "tag_Herb",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],

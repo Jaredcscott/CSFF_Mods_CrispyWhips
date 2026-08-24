@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_cooked_chicken_of_woods",
+    "TradingValue": 10,
     "CardName": {
         "ParentObjectID": "herbs_fungi_cooked_chicken_of_woods",
         "LocalizationKey": "herbsfungicookedchickenofwoods_CardName",
@@ -17,7 +18,8 @@
         "tag_Fungus",
         "tag_Cooked",
         "tag_Plateable",
-        "tag_HumanFood"
+        "tag_HumanFood",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],

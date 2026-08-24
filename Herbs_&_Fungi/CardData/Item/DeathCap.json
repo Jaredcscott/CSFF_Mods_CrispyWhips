@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_death_cap",
+    "TradingValue": 12,
     "CardName": {
         "ParentObjectID": "herbs_fungi_death_cap",
         "LocalizationKey": "herbsfungideathcap_CardName",
@@ -16,7 +17,8 @@
         "tag_Foraged",
         "tag_Fungus",
         "tag_Poisonous",
-        "tag_Plateable"
+        "tag_Plateable",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],

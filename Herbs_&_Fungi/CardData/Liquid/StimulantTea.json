@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_stimulant_tea",
+    "TradingValue": 18,
     "CardName": {
         "ParentObjectID": "herbs_fungi_stimulant_tea",
         "LocalizationKey": "herbsfungistimulanttea_CardName",
@@ -13,7 +14,8 @@
     "CardType": 0,
     "CardTagsWarpData": [
         "tag_Consumable",
-        "tag_Drinkable"
+        "tag_Drinkable",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],

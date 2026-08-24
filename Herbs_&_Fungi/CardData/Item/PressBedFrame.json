@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_press_bed_frame",
+    "TradingValue": 60,
     "CardName": {
         "ParentObjectID": "herbs_fungi_press_bed_frame",
         "LocalizationKey": "herbsfungipressbedframe_CardName",

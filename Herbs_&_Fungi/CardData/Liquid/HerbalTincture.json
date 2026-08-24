@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_herbal_tincture",
+    "TradingValue": 50,
     "CardName": {
         "ParentObjectID": "herbs_fungi_herbal_tincture",
         "LocalizationKey": "herbsfungiherbaltincture_CardName",
@@ -14,7 +15,8 @@
     "CardTagsWarpData": [
         "tag_Consumable",
         "tag_Drinkable",
-        "tag_Medicine"
+        "tag_Medicine",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],

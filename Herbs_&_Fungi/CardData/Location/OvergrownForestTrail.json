@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "herbs_fungi_overgrown_forest_trail",
     "LocalizationKey": "Herbs_And_Fungi_OvergrownForestTrail_CardDescription",
-    "DefaultText": "Brush and bramble have swallowed the old trail into the foraging forest. Hack it clear with a blade, axe, shovel, or antler to open the way west."
+    "DefaultText": "Brush and bramble have swallowed the old forest trail. Hack it clear with a blade, axe, shovel, or antler to reopen the way through."
   },
   "CanBeRenamed": false,
   "AlternateNames": [],
@@ -46,7 +46,7 @@
       "ActionDescription": {
         "ParentObjectID": "herbs_fungi_overgrown_forest_trail",
         "LocalizationKey": "Herbs_And_Fungi_OvergrownForestTrail_Hack_ActionDescription",
-        "DefaultText": "Cut back the brush with a blade, axe, shovel, or antler to clear the trail. Opens the foot route to the foraging forest."
+        "DefaultText": "Cut back the brush with a blade, axe, shovel, or antler to clear the trail and reopen the foot route."
       },
       "DaytimeCost": 4,
       "UseMiniTicks": 0,

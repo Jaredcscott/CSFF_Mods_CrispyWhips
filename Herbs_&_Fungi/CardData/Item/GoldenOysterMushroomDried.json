@@ -83,7 +83,7 @@
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_golden_oyster_dried",
             "LocalizationKey": "Herbs_And_Fungi_GoldenOysterDried_SpoilageTime_CardStatName",
-            "DefaultText": "Freshness"
+            "DefaultText": "Spoilage"
         },
         "RandomStartingOffset": 0.0,
         "MaxValue": 3600.0,

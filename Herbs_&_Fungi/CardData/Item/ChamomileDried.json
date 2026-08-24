@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_chamomile_dried",
+    "TradingValue": 12,
     "CardName": {
         "ParentObjectID": "herbs_fungi_chamomile_dried",
         "LocalizationKey": "herbsfungichamomiledried_CardName",
@@ -15,7 +16,8 @@
         "tag_Vegetable",
         "tag_Foraged",
         "tag_Herb",
-        "tag_Plateable"
+        "tag_Plateable",
+        "tag_Preservable"
     ],
     "CardTagsWarpType": 3,
     "CardTags": [],
@@ -92,6 +94,12 @@
                     "Active": true,
                     "FloatValue": 0.5,
                     "MaxValue": 1.0
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "herbs_fungi_chamomile_dried",
+                    "LocalizationKey": "herbsfungichamomiledried_MixTea_FailMessage",
+                    "DefaultText": "Not hot enough."
                 }
             },
             "WorksBothWays": true,

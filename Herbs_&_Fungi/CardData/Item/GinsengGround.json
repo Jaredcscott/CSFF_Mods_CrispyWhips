@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_ginseng_ground",
+    "TradingValue": 55,
     "CardName": {
         "ParentObjectID": "herbs_fungi_ginseng_ground",
         "LocalizationKey": "herbsfungiginsengground_CardName",
@@ -389,6 +390,12 @@
                     "Active": true,
                     "FloatValue": 0.5,
                     "MaxValue": 1.0
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "herbs_fungi_ginseng_ground",
+                    "LocalizationKey": "herbsfungiginsengground_MixTea_FailMessage",
+                    "DefaultText": "Not hot enough."
                 }
             },
             "WorksBothWays": true,

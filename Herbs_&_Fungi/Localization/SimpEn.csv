@@ -1,4 +1,4 @@
-﻿Herbs_And_Fungi_Perk_SeedBag_PerkDescription,"Start with variety seeds: 2 Hemp (edible, roastable, grows for fiber & flowers), 2 Rye, 2 Flax, 2 Peas, 2 Wheat. Plant in tilled soil for crops."
+Herbs_And_Fungi_Perk_SeedBag_PerkDescription,"Start with variety seeds: 2 Hemp (edible, roastable, grows for fiber & flowers), 2 Rye, 2 Flax, 2 Peas, 2 Wheat. Plant in tilled soil for crops."
 Herbs_And_Fungi_Perk_SeedBag_PerkName,Seed Bag
 Herbs_And_Fungi_Perk_DryingKit_PerkDescription,"Start with a wooden drying stack (3 tray slots) and 3 woven drying trays (6 drying slots each) for preserving herbs, mushrooms, flowers, and meats. Dried items have extended shelf life."
 Herbs_And_Fungi_Perk_DryingKit_PerkName,Drying Kit
@@ -6,7 +6,7 @@ Herbs_And_Fungi_Perk_AddHemp_PerkDescription,"Start with 10 Hemp Seeds. Edible r
 Herbs_And_Fungi_Perk_AddHemp_PerkName,Add Hemp
 Herbs_And_Fungi_Perk_Stoner_PerkDescription,"Complete hemp testing kit: 1 Herb Pipe with 4 hemp powder, 8 seeds (edible/plantable), 4 raw flowers, 4 dried flowers, and stalks for fiber crafting."
 Herbs_And_Fungi_Perk_Stoner_PerkName,Hemp Farmer
-Herbs_And_Fungi_MorelMushroom_SpoilageTime_CardStatName,Freshness
+Herbs_And_Fungi_MorelMushroom_SpoilageTime_CardStatName,Spoilage
 Herbs_And_Fungi_MorelMushroom_SpoilageTime_OnFull_ActionDescription,Morel Spoiled!
 Herbs_And_Fungi_MorelMushroom_DismantleActions_Eat_ActionName,Eat Raw
 Herbs_And_Fungi_MorelMushroom_DismantleActions_Eat_ActionDescription,Eat the morel raw. Warning: Raw morels contain toxins that cause stomach upset!
@@ -21,7 +21,7 @@ Herbs_And_Fungi_GoldenOyster_CardHelpSection,"<b>Season:</b> Summer
 <b>栖息地:</b> 温暖天气下的硬木原木和树桩。
 
 <b>风味:</b> 独特的类似腰果的坚果味。"
-Herbs_And_Fungi_GoldenOyster_SpoilageTime_CardStatName,Freshness
+Herbs_And_Fungi_GoldenOyster_SpoilageTime_CardStatName,Spoilage
 Herbs_And_Fungi_GoldenOyster_SpoilageTime_OnFull_ActionDescription,Golden Oyster Spoiled!
 Herbs_And_Fungi_GoldenOyster_DismantleActions_Eat_ActionName,Eat Raw
 Herbs_And_Fungi_GoldenOyster_DismantleActions_Eat_ActionDescription,Eat the golden oyster raw. Delicious nutty flavor.
@@ -32,7 +32,7 @@ Herbs_And_Fungi_KingOyster_CardHelpSection,"<b>Season:</b> Summer
 <b>Characteristics:</b> Thick stem with small cap.
 
 <b>Uses:</b> Best when cooked - meaty texture perfect for grilling or stir-fry."
-Herbs_And_Fungi_KingOyster_SpoilageTime_CardStatName,Freshness
+Herbs_And_Fungi_KingOyster_SpoilageTime_CardStatName,Spoilage
 Herbs_And_Fungi_KingOyster_SpoilageTime_OnFull_ActionDescription,King Oyster Spoiled!
 Herbs_And_Fungi_KingOyster_DismantleActions_Eat_ActionName,Eat Raw
 Herbs_And_Fungi_KingOyster_DismantleActions_Eat_ActionDescription,Eat the king oyster raw. Chewy texture but satisfying.
@@ -47,7 +47,7 @@ Herbs_And_Fungi_LionsMane_CardHelpSection,"<b>Season:</b> Late Summer to Fall
 <b>药用:</b> 食用后增强免疫系统。
 
 <b>风味:</b> 温和的海鲜味，类似螃蟹或龙虾。"
-Herbs_And_Fungi_LionsMane_SpoilageTime_CardStatName,Freshness
+Herbs_And_Fungi_LionsMane_SpoilageTime_CardStatName,Spoilage
 Herbs_And_Fungi_LionsMane_SpoilageTime_OnFull_ActionDescription,Lion's Mane Mushroom Spoiled!
 Herbs_And_Fungi_DryingStack_CardName,Drying Stack
 Herbs_And_Fungi_DryingStack_CardDescription,A portable wooden rack that holds up to 3 drying trays in separate slots for efficient herb preservation.
@@ -87,7 +87,7 @@ Herbs_And_Fungi_GoldenOysterCooked_CardHelpSection,"<b>Prepared:</b> Perfectly c
 <b>营养:</b> 烹饪增强了营养价值和风味。
 
 <b>风味:</b> 浓郁的坚果味和嫩滑的口感。"
-Herbs_And_Fungi_GoldenOysterCooked_SpoilageTime_CardStatName,Freshness
+Herbs_And_Fungi_GoldenOysterCooked_SpoilageTime_CardStatName,Spoilage
 Herbs_And_Fungi_GoldenOysterCooked_SpoilageTime_OnFull_ActionDescription,Cooked Golden Oyster Spoiled!
 Herbs_And_Fungi_GoldenOysterCooked_DismantleActions_Eat_ActionName,Eat
 Herbs_And_Fungi_GoldenOysterCooked_DismantleActions_Eat_ActionDescription,Eat the cooked golden oyster. Delicious and highly nutritious.
@@ -102,7 +102,7 @@ Herbs_And_Fungi_KingOysterCooked_CardHelpSection,"<b>Prepared:</b> Perfectly coo
 <b>营养:</b> 烹饪后是蛋白质和营养物质的极佳来源。
 
 <b>口感:</b> 丰满的肉质口感非常令人满意。"
-Herbs_And_Fungi_KingOysterCooked_SpoilageTime_CardStatName,Freshness
+Herbs_And_Fungi_KingOysterCooked_SpoilageTime_CardStatName,Spoilage
 Herbs_And_Fungi_KingOysterCooked_SpoilageTime_OnFull_ActionDescription,Cooked King Oyster Spoiled!
 Herbs_And_Fungi_KingOysterCooked_DismantleActions_Eat_ActionName,Eat
 Herbs_And_Fungi_KingOysterCooked_DismantleActions_Eat_ActionDescription,Eat the cooked king oyster. Very filling and highly nutritious.
@@ -117,7 +117,7 @@ Herbs_And_Fungi_MorelCooked_CardHelpSection,"<b>Prepared:</b> Properly cooked to
 <b>美味:</b> 最受珍视的食用真菌之一。
 
 <b>营养:</b> 极佳的蛋白质和矿物质含量。"
-Herbs_And_Fungi_MorelCooked_SpoilageTime_CardStatName,Freshness
+Herbs_And_Fungi_MorelCooked_SpoilageTime_CardStatName,Spoilage
 Herbs_And_Fungi_MorelCooked_SpoilageTime_OnFull_ActionDescription,Cooked Morel Spoiled!
 Herbs_And_Fungi_MorelCooked_DismantleActions_Eat_ActionName,Eat
 Herbs_And_Fungi_MorelCooked_DismantleActions_Eat_ActionDescription,Eat the cooked morel. Exquisite earthy flavor with no toxins.
@@ -132,7 +132,7 @@ Herbs_And_Fungi_LionsManeDried_CardHelpSection,"<b>Preservation:</b> Dried for e
 <b>药用:</b> 浓缩的免疫增强特性 - 比新鲜的强得多。
 
 <b>用途:</b> 添加到汤中或研磨成粉末以获得最大益处。"
-Herbs_And_Fungi_LionsManeDried_SpoilageTime_CardStatName,Freshness
+Herbs_And_Fungi_LionsManeDried_SpoilageTime_CardStatName,Spoilage
 Herbs_And_Fungi_LionsManeDried_SpoilageTime_OnFull_ActionDescription,Dried Lion's Mane Spoiled!
 Herbs_And_Fungi_LionsManeDried_DismantleActions_Eat_ActionName,Eat Dried
 Herbs_And_Fungi_LionsManeDried_DismantleActions_Eat_ActionDescription,Eat the dried lion's mane. Chewy but packed with concentrated immune-boosting compounds.
@@ -155,7 +155,7 @@ Herbs_And_Fungi_MorelDried_CardHelpSection,"<b>Preservation:</b> Dried for exten
 <b>用途:</b> 添加到汤中或直接食用。食用前仍需烹饪。
 
 <b>优势:</b> 浓缩的土味和延长的储存时间。"
-Herbs_And_Fungi_MorelDried_SpoilageTime_CardStatName,Freshness
+Herbs_And_Fungi_MorelDried_SpoilageTime_CardStatName,Spoilage
 Herbs_And_Fungi_MorelDried_SpoilageTime_OnFull_ActionDescription,Dried Morel Spoiled!
 Herbs_And_Fungi_MorelDried_DismantleActions_Eat_ActionName,Eat
 Herbs_And_Fungi_MorelDried_DismantleActions_Eat_ActionDescription,Eat the dried morel. Chewy texture with concentrated earthy flavor.
@@ -216,7 +216,7 @@ herbsfungidriedginseng_Eat_Desc,Eat the dried ginseng for a powerful energy boos
 Herbs_And_Fungi_LionsManeCooked_CardName,Cooked Lion's Mane
 Herbs_And_Fungi_LionsManeCooked_CardDescription,Perfectly cooked lion's mane mushroom with a delicate seafood-like flavor. A gourmet treat that provides excellent nutrition and boosts mood.
 Herbs_And_Fungi_LionsManeCooked_CardHelpSection,<b>Prepared:</b> Properly cooked for optimal flavor.
-Herbs_And_Fungi_LionsManeCooked_SpoilageTime_CardStatName,Freshness
+Herbs_And_Fungi_LionsManeCooked_SpoilageTime_CardStatName,Spoilage
 Herbs_And_Fungi_LionsManeCooked_SpoilageTime_OnFull_ActionDescription,Cooked Lion's Mane Spoiled!
 Herbs_And_Fungi_LionsManeCooked_DismantleActions_Eat_ActionName,Eat
 Herbs_And_Fungi_LionsManeCooked_DismantleActions_Eat_ActionDescription,Eat the cooked lion's mane. Delicious seafood-like flavor with excellent nutrition.
@@ -239,7 +239,7 @@ Herbs_And_Fungi_Bp_HerbPipe_CardDescription,"A carved wooden pipe for smoking he
 Herbs_And_Fungi_GoldenOysterDried_CardName,Dried Golden Oyster
 Herbs_And_Fungi_GoldenOysterDried_DismantleActions_Eat_ActionDescription,Eat the dried golden oyster. Chewy with concentrated flavor.
 Herbs_And_Fungi_GoldenOysterDried_DismantleActions_Eat_ActionName,Eat Dried
-Herbs_And_Fungi_GoldenOysterDried_SpoilageTime_CardStatName,Freshness
+Herbs_And_Fungi_GoldenOysterDried_SpoilageTime_CardStatName,Spoilage
 Herbs_And_Fungi_GoldenOysterDried_SpoilageTime_OnFull_ActionDescription,Dried Golden Oyster Spoiled!
 Herbs_And_Fungi_GoldenOyster_SpecialDurability1_CardStatName,Cook
 Herbs_And_Fungi_GoldenOyster_SpecialDurability1_OnFull_ActionDescription,Golden Oyster Cooked!
@@ -247,7 +247,7 @@ Herbs_And_Fungi_KingOysterDried_CardDescription,"Dried king oyster mushrooms. Th
 Herbs_And_Fungi_KingOysterDried_CardName,Dried King Oyster
 Herbs_And_Fungi_KingOysterDried_DismantleActions_Eat_ActionDescription,Eat the dried king oyster mushroom. Very chewy with intense umami flavor.
 Herbs_And_Fungi_KingOysterDried_DismantleActions_Eat_ActionName,Eat Dried
-Herbs_And_Fungi_KingOysterDried_SpoilageTime_CardStatName,Freshness
+Herbs_And_Fungi_KingOysterDried_SpoilageTime_CardStatName,Spoilage
 Herbs_And_Fungi_KingOysterDried_SpoilageTime_OnFull_ActionDescription,Dried King Oyster Spoiled!
 Herbs_And_Fungi_KingOyster_SpecialDurability1_CardStatName,Cook
 Herbs_And_Fungi_KingOyster_SpecialDurability1_OnFull_ActionDescription,King Oyster Cooked!
@@ -255,6 +255,7 @@ Herbs_And_Fungi_LionsManeDried_Grind,Grind
 Herbs_And_Fungi_LionsManeDried_Grind_Desc,Grind the dried lion's mane into powder using stones or grinding tools.
 Herbs_And_Fungi_LionsManeGround_MixTea,Mix into Hot Water
 Herbs_And_Fungi_LionsManeGround_MixTea_Desc,Mix lion's mane powder into hot water to create a brain-boosting medicinal tea.
+Herbs_And_Fungi_LionsManeGround_MixTea_FailMessage,Not hot enough.
 Herbs_And_Fungi_LionsMane_DismantleActions_Chew_ActionDescription,"Chew the lion's mane mushroom. Less effective than dried/ground, but provides weak immune boost. Can chew 3 times.",咀嚼狮鬃菇。效果不如干燥/研磨的，但提供微弱的免疫增强。可咀嚼3次。
 Herbs_And_Fungi_Perk_CulinaryKit_PerkName,Culinary Kit
 Herbs_And_Fungi_Perk_MedicalMushrooms_PerkDescription,"Start with medicinal mushrooms: Lion's Mane (cognitive boost, chewable 3x or grindable), Shiitake (immune system support), Reishi (longevity and wellness, chewable or grindable), and Spirit Mushrooms (vanilla rare medicinal). Dry and grind for powerful medicinal powders or teas."
@@ -296,18 +297,21 @@ herbsfungiyarrowground_Eat,Eat
 herbsfungiyarrowground_Eat_Desc,Eat the concentrated yarrow powder. Very effective at stopping bleeding and fighting infection.
 herbsfungiyarrowground_MixTea,Mix into Hot Water
 herbsfungiyarrowground_MixTea_Desc,Mix yarrow powder into hot water to create healing tea.
+herbsfungiyarrowground_MixTea_FailMessage,Not hot enough.
 herbsfungiginsengground_CardName,Ground Ginseng
 herbsfungiginsengground_CardDescription,"Finely ground dried ginseng root powder. Can be consumed directly for potent energy and immune benefits, or mixed with hot water to make revitalizing tea."
 herbsfungiginsengground_Eat,Eat
 herbsfungiginsengground_Eat_Desc,"Eat the concentrated ginseng powder. Provides a powerful boost to energy, vitality and immune function."
 herbsfungiginsengground_MixTea,Mix into Hot Water
 herbsfungiginsengground_MixTea_Desc,Mix ginseng powder into hot water to create revitalizing tea.
+herbsfungiginsengground_MixTea_FailMessage,Not hot enough.
 herbsfungireishiground_CardName,Ground Reishi
 herbsfungireishiground_CardDescription,"Finely ground dried reishi mushroom powder. Can be consumed directly for potent medicinal benefits, or brewed into therapeutic tea."
 herbsfungireishiground_Eat,Eat
 herbsfungireishiground_Eat_Desc,Eat the concentrated reishi powder. Provides powerful immune support and stress relief.
 herbsfungireishiground_MixTea,Mix into Hot Water
 herbsfungireishiground_MixTea_Desc,Mix reishi powder into hot water to create therapeutic medicinal tea.
+herbsfungireishiground_MixTea_FailMessage,Not hot enough.
 herbsfungiginsengtea_CardName,Ginseng Tea
 herbsfungiginsengtea_CardDescription,A revitalizing herbal tea brewed from ground ginseng root. Reduces fatigue and boosts mental clarity.
 herbsfungiginsengtea_CardHelpSection,"<b>Preparation:</b> Mix ground ginseng with hot water in a bowl.
@@ -633,11 +637,6 @@ Herbs_And_Fungi_PickleBrine_CardName,Pickle Brine
 Herbs_And_Fungi_PickleBrine_CardDescription,A salt-water brine for fermenting and preserving fermentable foods. Items soaked in sealed brine will last for a long time.
 Herbs_And_Fungi_PicklingVat_MakeBrine_ActionName,Make Brine
 Herbs_And_Fungi_PicklingVat_MakeBrine_ActionDescription,Dissolve salt into the water to form pickle brine.
-Herbs_And_Fungi_PickleVatSealed_CardName,Sealed Pickle Vat
-Herbs_And_Fungi_PickleVatSealed_CardDescription,A water-sealed pickle vat fermenting in place. Takes about 5 days to fully pickle its contents.
-Herbs_And_Fungi_PickleVatSealed_Progress_CardStatName,Fermenting
-Herbs_And_Fungi_PickleVatSealed_Progress_OnZero_ActionDescription,Pickling Complete!
-Herbs_And_Fungi_PickleVatSealed_SpecialDurability2_CardStatName,Quality
 Herbs_And_Fungi_HempSeedOil_CardName,Hemp Seed Oil
 Herbs_And_Fungi_HempSeedOil_CardDescription,"Cold-pressed oil extracted from hemp seeds, served in a clay bowl. Nutty and rich. Eat it, season food with it, or render it into lamp oil."
 Herbs_And_Fungi_HempSeedOil_CardHelpSection,"<b>Crafted:</b> By pressing 3 Hemp Seeds + Clay Bowl on a placed Oil Press.
@@ -779,6 +778,7 @@ Herbs_And_Fungi_PickleVatClosedFrogs_Seal_ActionName,Seal
 Herbs_And_Fungi_PickleVatClosedFrogs_Seal_ActionDescription,Pour water over the lid to seal the vat. Begin the frogs pickling cycle.
 Herbs_And_Fungi_PickleVatClosedFrogs_Uncap_ActionName,Uncap
 Herbs_And_Fungi_PickleVatClosedFrogs_Uncap_ActionDescription,Remove the clay bowl and reopen the vat. The packed frogs are lost.
+Herbs_And_Fungi_PickleVatClosedFrogs_Uncap_ConfirmText,Discard the packed frogs and reopen the vat?
 Herbs_And_Fungi_PickleVatSealedFrogs_CardName,Sealed Pickled Frogs
 Herbs_And_Fungi_PickleVatSealedFrogs_CardDescription,A water-sealed vat fermenting frogs. Takes about 7 days to finish.
 Herbs_And_Fungi_PickleVatSealedFrogs_Progress_CardStatName,Fermenting
@@ -793,6 +793,7 @@ Herbs_And_Fungi_PickleVatClosedVegetables_Seal_ActionName,Seal
 Herbs_And_Fungi_PickleVatClosedVegetables_Seal_ActionDescription,Pour water over the lid to seal the vat. Begin the vegetables pickling cycle.
 Herbs_And_Fungi_PickleVatClosedVegetables_Uncap_ActionName,Uncap
 Herbs_And_Fungi_PickleVatClosedVegetables_Uncap_ActionDescription,Remove the clay bowl and reopen the vat. The packed vegetables are lost.
+Herbs_And_Fungi_PickleVatClosedVegetables_Uncap_ConfirmText,Discard the packed vegetables and reopen the vat?
 Herbs_And_Fungi_PickleVatSealedVegetables_CardName,Sealed Pickled Vegetables
 Herbs_And_Fungi_PickleVatSealedVegetables_CardDescription,A water-sealed vat fermenting vegetables. Takes about 7 days to finish.
 Herbs_And_Fungi_PickleVatSealedVegetables_Progress_CardStatName,Fermenting
@@ -807,6 +808,7 @@ Herbs_And_Fungi_PickleVatClosedMushrooms_Seal_ActionName,Seal
 Herbs_And_Fungi_PickleVatClosedMushrooms_Seal_ActionDescription,Pour water over the lid to seal the vat. Begin the mushrooms pickling cycle.
 Herbs_And_Fungi_PickleVatClosedMushrooms_Uncap_ActionName,Uncap
 Herbs_And_Fungi_PickleVatClosedMushrooms_Uncap_ActionDescription,Remove the clay bowl and reopen the vat. The packed mushrooms are lost.
+Herbs_And_Fungi_PickleVatClosedMushrooms_Uncap_ConfirmText,Discard the packed mushrooms and reopen the vat?
 Herbs_And_Fungi_PickleVatSealedMushrooms_CardName,Sealed Pickled Mushrooms
 Herbs_And_Fungi_PickleVatSealedMushrooms_CardDescription,A water-sealed vat fermenting mushrooms. Takes about 7 days to finish.
 Herbs_And_Fungi_PickleVatSealedMushrooms_Progress_CardStatName,Fermenting
@@ -820,7 +822,8 @@ Herbs_And_Fungi_PickleVatClosedMeat_SpecialDurability2_CardStatName,Quality
 Herbs_And_Fungi_PickleVatClosedMeat_Seal_ActionName,Seal
 Herbs_And_Fungi_PickleVatClosedMeat_Seal_ActionDescription,Pour water over the lid to seal the vat. Begin the meat pickling cycle.
 Herbs_And_Fungi_PickleVatClosedMeat_Uncap_ActionName,Uncap
-Herbs_And_Fungi_PickleVatClosedMeat_Uncap_ActionDescription,Remove the clay bowl and reopen the vat. The packed meat are lost.
+Herbs_And_Fungi_PickleVatClosedMeat_Uncap_ActionDescription,Remove the clay bowl and reopen the vat. The packed meat is lost.
+Herbs_And_Fungi_PickleVatClosedMeat_Uncap_ConfirmText,Discard the packed meat and reopen the vat?
 Herbs_And_Fungi_PickleVatSealedMeat_CardName,Sealed Pickled Meat
 Herbs_And_Fungi_PickleVatSealedMeat_CardDescription,A water-sealed vat fermenting meat. Takes about 7 days to finish.
 Herbs_And_Fungi_PickleVatSealedMeat_Progress_CardStatName,Fermenting
@@ -897,7 +900,7 @@ Herbs_And_Fungi_MushroomLogShiitakeMature_CardHelpSection,"<b>Harvest:</b> Pick 
 Herbs_And_Fungi_MushroomLogShiitakeMature_Harvest_ActionName,Harvest
 Herbs_And_Fungi_MushroomLogShiitakeMature_Harvest_ActionDescription,Pick 20 fresh shiitake mushrooms and break down the spent log.
 Herbs_And_Fungi_Bp_MushroomLogShiitake_CardName,Inoculate Shiitake Log
-Herbs_And_Fungi_Bp_MushroomLogShiitake_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 5 shiitake mushrooms and wood shavings.,"
+Herbs_And_Fungi_Bp_MushroomLogShiitake_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 shiitake mushrooms and wood shavings.,"
 Herbs_And_Fungi_Bp_MushroomLogShiitake_UnlockConditionsDesc,Unlocked after obtaining a shiitake mushroom
 Herbs_And_Fungi_MushroomLogLionsManeGrowing_CardName,Growing Fungal Log
 Herbs_And_Fungi_MushroomLogLionsManeGrowing_CardDescription,A freshly inoculated mushroom log. Keep it indoors or sheltered while the mycelium runs through the deadwood.
@@ -914,7 +917,7 @@ Herbs_And_Fungi_MushroomLogLionsManeMature_CardHelpSection,"<b>Harvest:</b> Pick
 Herbs_And_Fungi_MushroomLogLionsManeMature_Harvest_ActionName,Harvest
 Herbs_And_Fungi_MushroomLogLionsManeMature_Harvest_ActionDescription,Pick 20 fresh lion's mane mushrooms and break down the spent log.
 Herbs_And_Fungi_Bp_MushroomLogLionsMane_CardName,Inoculate Lion's Mane Log
-Herbs_And_Fungi_Bp_MushroomLogLionsMane_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 5 lion's mane mushrooms and wood shavings.,"
+Herbs_And_Fungi_Bp_MushroomLogLionsMane_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 lion's mane mushrooms and wood shavings.,"
 Herbs_And_Fungi_Bp_MushroomLogLionsMane_UnlockConditionsDesc,Unlocked after obtaining a lion's mane mushroom
 Herbs_And_Fungi_MushroomLogReishiGrowing_CardName,Growing Fungal Log
 Herbs_And_Fungi_MushroomLogReishiGrowing_CardDescription,A freshly inoculated mushroom log. Keep it indoors or sheltered while the mycelium runs through the deadwood.
@@ -931,7 +934,7 @@ Herbs_And_Fungi_MushroomLogReishiMature_CardHelpSection,"<b>Harvest:</b> Pick th
 Herbs_And_Fungi_MushroomLogReishiMature_Harvest_ActionName,Harvest
 Herbs_And_Fungi_MushroomLogReishiMature_Harvest_ActionDescription,Pick 20 fresh reishi mushrooms and break down the spent log.
 Herbs_And_Fungi_Bp_MushroomLogReishi_CardName,Inoculate Reishi Log
-Herbs_And_Fungi_Bp_MushroomLogReishi_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 5 reishi mushrooms and wood shavings.,"
+Herbs_And_Fungi_Bp_MushroomLogReishi_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 reishi mushrooms and wood shavings.,"
 Herbs_And_Fungi_Bp_MushroomLogReishi_UnlockConditionsDesc,Unlocked after obtaining a reishi mushroom
 Herbs_And_Fungi_MushroomLogChickenOfWoodsGrowing_CardName,Growing Fungal Log
 Herbs_And_Fungi_MushroomLogChickenOfWoodsGrowing_CardDescription,A freshly inoculated mushroom log. Keep it indoors or sheltered while the mycelium runs through the deadwood.
@@ -948,7 +951,7 @@ Herbs_And_Fungi_MushroomLogChickenOfWoodsMature_CardHelpSection,"<b>Harvest:</b>
 Herbs_And_Fungi_MushroomLogChickenOfWoodsMature_Harvest_ActionName,Harvest
 Herbs_And_Fungi_MushroomLogChickenOfWoodsMature_Harvest_ActionDescription,Pick 20 fresh chicken of the woods mushrooms and break down the spent log.
 Herbs_And_Fungi_Bp_MushroomLogChickenOfWoods_CardName,Inoculate Chicken Log
-Herbs_And_Fungi_Bp_MushroomLogChickenOfWoods_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 5 chicken of the woods mushrooms and wood shavings.,"
+Herbs_And_Fungi_Bp_MushroomLogChickenOfWoods_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 chicken of the woods mushrooms and wood shavings.,"
 Herbs_And_Fungi_Bp_MushroomLogChickenOfWoods_UnlockConditionsDesc,Unlocked after obtaining chicken of the woods
 Herbs_And_Fungi_MushroomLogGoldenOysterGrowing_CardName,Growing Fungal Log
 Herbs_And_Fungi_MushroomLogGoldenOysterGrowing_CardDescription,A freshly inoculated mushroom log. Keep it indoors or sheltered while the mycelium runs through the deadwood.
@@ -965,7 +968,7 @@ Herbs_And_Fungi_MushroomLogGoldenOysterMature_CardHelpSection,"<b>Harvest:</b> P
 Herbs_And_Fungi_MushroomLogGoldenOysterMature_Harvest_ActionName,Harvest
 Herbs_And_Fungi_MushroomLogGoldenOysterMature_Harvest_ActionDescription,Pick 20 fresh golden oyster mushrooms and break down the spent log.
 Herbs_And_Fungi_Bp_MushroomLogGoldenOyster_CardName,Inoculate Golden Oyster Log
-Herbs_And_Fungi_Bp_MushroomLogGoldenOyster_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 5 golden oyster mushrooms and wood shavings.,"
+Herbs_And_Fungi_Bp_MushroomLogGoldenOyster_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 golden oyster mushrooms and wood shavings.,"
 Herbs_And_Fungi_Bp_MushroomLogGoldenOyster_UnlockConditionsDesc,Unlocked after obtaining a golden oyster mushroom
 Herbs_And_Fungi_MushroomLogKingOysterGrowing_CardName,Growing Fungal Log
 Herbs_And_Fungi_MushroomLogKingOysterGrowing_CardDescription,A freshly inoculated mushroom log. Keep it indoors or sheltered while the mycelium runs through the deadwood.
@@ -982,19 +985,8 @@ Herbs_And_Fungi_MushroomLogKingOysterMature_CardHelpSection,"<b>Harvest:</b> Pic
 Herbs_And_Fungi_MushroomLogKingOysterMature_Harvest_ActionName,Harvest
 Herbs_And_Fungi_MushroomLogKingOysterMature_Harvest_ActionDescription,Pick 20 fresh king oyster mushrooms and break down the spent log.
 Herbs_And_Fungi_Bp_MushroomLogKingOyster_CardName,Inoculate King Oyster Log
-Herbs_And_Fungi_Bp_MushroomLogKingOyster_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 5 king oyster mushrooms and wood shavings.,"
+Herbs_And_Fungi_Bp_MushroomLogKingOyster_CardDescription,"Use a spoon auger to bore spawn holes in a vanilla log, then pack it with 10 king oyster mushrooms and wood shavings.,"
 Herbs_And_Fungi_Bp_MushroomLogKingOyster_UnlockConditionsDesc,Unlocked after obtaining a king oyster mushroom
-Herbs_And_Fungi_PickleVatClosed_CardName,Closed Pickle Vat
-Herbs_And_Fungi_PickleVatClosed_CardDescription,A pickle vat capped with a clay bowl. Pour water over the lid to water-seal the jar for fermentation.
-Herbs_And_Fungi_PickleVatClosed_Seal_ActionName,Seal
-Herbs_And_Fungi_PickleVatClosed_Seal_ActionDescription,Pour water over the lid to create a water seal. Places the jar in your environment to begin fermenting.
-Herbs_And_Fungi_PickleVatClosed_Uncap_ActionName,Uncap
-Herbs_And_Fungi_PickleVatClosed_Uncap_ActionDescription,Remove the clay bowl lid and reopen the vat.
-Herbs_And_Fungi_PickleVatClosed_SpecialDurability2_CardStatName,Quality
-Herbs_And_Fungi_PickleVatReady_CardName,Ready Pickle Vat
-Herbs_And_Fungi_PickleVatReady_CardDescription,Fermentation is complete. Harvest the vat to crack it open and reclaim the empty vat and bowl.
-Herbs_And_Fungi_PickleVatReady_Harvest_ActionName,Harvest
-Herbs_And_Fungi_PickleVatReady_Harvest_ActionDescription,Crack the seal and reclaim the empty vat and bowl.
 Herbs_And_Fungi_Bp_DryingStack_CardName,Drying Stack
 Herbs_And_Fungi_Bp_DryingStack_CardDescription,A vertical wooden rack for storing multiple drying trays. Requires 4 planks and a hammer.
 Herbs_And_Fungi_Bp_DryingStack_UnlockConditionsDesc,Unlocked after crafting or obtaining a Drying Tray
@@ -1213,7 +1205,7 @@ herbsfungiblackcurrant_CardHelpSection,"<b>Season:</b> Summer
 <b>Uses:</b> Eat raw, dry for long-term storage, or ferment into wine.
 
 <b>Benefits:</b> Good nutrition and hydration."
-herbsfungiblackcurrant_SpoilageTime_CardStatName,Freshness
+herbsfungiblackcurrant_SpoilageTime_CardStatName,Spoilage
 herbsfungiblackcurrant_SpoilageTime_OnFull,Blackcurrants spoiled!
 herbsfungiblackcurrant_UsageDurability_CardStatName,Dryness
 herbsfungiblackcurrant_UsageDurability_OnFull,Blackcurrants dried!
@@ -1221,7 +1213,7 @@ herbsfungiblackcurrant_Eat_ActionName,Eat
 herbsfungiblackcurrant_Eat_ActionDescription,Eat the blackcurrants. Tart and nutritious.
 herbsfungiblackcurrantdried_CardName,Dried Blackcurrants
 herbsfungiblackcurrantdried_CardDescription,"Shriveled dark blackcurrants with concentrated flavor and extended shelf life. Dense and chewy, good for long journeys."
-herbsfungiblackcurrantdried_SpoilageTime_CardStatName,Freshness
+herbsfungiblackcurrantdried_SpoilageTime_CardStatName,Spoilage
 herbsfungiblackcurrantdried_SpoilageTime_OnFull,Dried blackcurrants lost their flavor.
 herbsfungiblackcurrantdried_Eat_ActionName,Eat
 herbsfungiblackcurrantdried_Eat_ActionDescription,Eat the dried blackcurrants. Chewy and concentrated.
@@ -1234,7 +1226,7 @@ herbsfungiredcurrant_CardHelpSection,"<b>Season:</b> Summer
 <b>Uses:</b> Eat raw, dry for long-term storage, or ferment into wine.
 
 <b>Benefits:</b> Good nutrition and hydration."
-herbsfungiredcurrant_SpoilageTime_CardStatName,Freshness
+herbsfungiredcurrant_SpoilageTime_CardStatName,Spoilage
 herbsfungiredcurrant_SpoilageTime_OnFull,Redcurrants spoiled!
 herbsfungiredcurrant_UsageDurability_CardStatName,Dryness
 herbsfungiredcurrant_UsageDurability_OnFull,Redcurrants dried!
@@ -1242,7 +1234,7 @@ herbsfungiredcurrant_Eat_ActionName,Eat
 herbsfungiredcurrant_Eat_ActionDescription,Eat the redcurrants. Sweet-tart and refreshing.
 herbsfungiredcurrantdried_CardName,Dried Redcurrants
 herbsfungiredcurrantdried_CardDescription,Tangy dried redcurrants with a pleasant sweet-sour punch. Lightweight travel rations that keep for a very long time.
-herbsfungiredcurrantdried_SpoilageTime_CardStatName,Freshness
+herbsfungiredcurrantdried_SpoilageTime_CardStatName,Spoilage
 herbsfungiredcurrantdried_SpoilageTime_OnFull,Dried redcurrants lost their flavor.
 herbsfungiredcurrantdried_Eat_ActionName,Eat
 herbsfungiredcurrantdried_Eat_ActionDescription,Eat the dried redcurrants. Tangy and satisfying.
@@ -1255,7 +1247,7 @@ herbsfungilingonberry_CardHelpSection,"<b>Season:</b> Late Summer to Autumn
 <b>Uses:</b> Eat raw, dry for long-term storage, or ferment.
 
 <b>Benefits:</b> Abundant and reliable survival food."
-herbsfungilingonberry_SpoilageTime_CardStatName,Freshness
+herbsfungilingonberry_SpoilageTime_CardStatName,Spoilage
 herbsfungilingonberry_SpoilageTime_OnFull,Lingonberries spoiled!
 herbsfungilingonberry_UsageDurability_CardStatName,Dryness
 herbsfungilingonberry_UsageDurability_OnFull,Lingonberries dried!
@@ -1263,7 +1255,7 @@ herbsfungilingonberry_Eat_ActionName,Eat
 herbsfungilingonberry_Eat_ActionDescription,Eat the lingonberries. Tart but filling.
 herbsfungilingonberrydried_CardName,Dried Lingonberries
 herbsfungilingonberrydried_CardDescription,"Dried lingonberries with a pleasant tartness. A staple of northern survival — durable, lightweight, and nutritious."
-herbsfungilingonberrydried_SpoilageTime_CardStatName,Freshness
+herbsfungilingonberrydried_SpoilageTime_CardStatName,Spoilage
 herbsfungilingonberrydried_SpoilageTime_OnFull,Dried lingonberries lost their flavor.
 herbsfungilingonberrydried_Eat_ActionName,Eat
 herbsfungilingonberrydried_Eat_ActionDescription,Eat the dried lingonberries. A reliable trail ration.
@@ -1276,7 +1268,7 @@ herbsfungicloudberry_CardHelpSection,"<b>Season:</b> Late Summer
 <b>Uses:</b> Eat raw, dry for long-term storage, or ferment.
 
 <b>Benefits:</b> Excellent nutrition. Rare and rewarding find."
-herbsfungicloudberry_SpoilageTime_CardStatName,Freshness
+herbsfungicloudberry_SpoilageTime_CardStatName,Spoilage
 herbsfungicloudberry_SpoilageTime_OnFull,Cloudberries spoiled!
 herbsfungicloudberry_UsageDurability_CardStatName,Dryness
 herbsfungicloudberry_UsageDurability_OnFull,Cloudberries dried!
@@ -1284,17 +1276,17 @@ herbsfungicloudberry_Eat_ActionName,Eat
 herbsfungicloudberry_Eat_ActionDescription,"Eat the cloudberries. Soft, sweet, and highly nutritious."
 herbsfungicloudberrydried_CardName,Dried Cloudberries
 herbsfungicloudberrydried_CardDescription,Carefully dried cloudberries with intensified sweetness and remarkable keeping quality. A precious long-term ration from a rare ingredient.
-herbsfungicloudberrydried_SpoilageTime_CardStatName,Freshness
+herbsfungicloudberrydried_SpoilageTime_CardStatName,Spoilage
 herbsfungicloudberrydried_SpoilageTime_OnFull,Dried cloudberries lost their flavor.
 herbsfungicloudberrydried_Eat_ActionName,Eat
 herbsfungicloudberrydried_Eat_ActionDescription,Eat the dried cloudberries. Sweet and highly sustaining.
 herbsfungiwildflowers_CardName,Wild Flowers
 herbsfungiwildflowers_CardDescription,A small bundle of colourful wildflowers. Dry them to craft flower garlands.
 herbsfungiwildflowers_CardHelpSection,Wild Flowers
-herbsfungiwildflowers_SpoilageTime_StatName,Freshness
+herbsfungiwildflowers_SpoilageTime_StatName,Spoilage
 herbsfungiwildflowers_SpoilageTime_OnFull,The flowers have wilted and crumbled.
 herbsfungiwildflowers_UsageDurability_StatName,Dry
-herbsfungiwildflowers_UsageDurability_OnFull,The flowers have dried
+herbsfungiwildflowers_UsageDurability_OnFull,"The flowers have dried, preserving their colour and form."
 herbsfungiwildflowersdried_CardName,Dried Wild Flowers
 herbsfungiwildflowersdried_CardDescription,Carefully dried wildflowers. Craft them with rope into a flower garland.
 herbsfungiwildflowersdried_CardHelpSection,Dried Wild Flowers
@@ -1315,16 +1307,17 @@ herbsfungidandeliondried_CardHelpSection,Dried Dandelion
 herbsfungidandeliondried_SpoilageTime_StatName,Spoilage
 herbsfungidandeliondried_SpoilageTime_OnFull,The dried dandelion has finally crumbled away.
 herbsfungidandeliondried_Eat,Eat
-herbsfungidandeliondried_Eat_Desc,Eat the dried dandelion. More concentrated than fresh
+herbsfungidandeliondried_Eat_Desc,"Eat the dried dandelion flowers. More concentrated than fresh, with a pleasantly bitter flavour."
 herbsfungidandeliondried_MixTea,Mix into Hot Water
 herbsfungidandeliondried_MixTea_Desc,Steep dried dandelion in hot water to brew a mild herbal tea.
+herbsfungidandeliondried_MixTea_FailMessage,Not hot enough.
 herbsfungicommonplantain_CardName,Common Plantain
 herbsfungicommonplantain_CardDescription,A wide-leafed medicinal herb. Dry for use in wound poultices.
 herbsfungicommonplantain_CardHelpSection,Common Plantain
 herbsfungicommonplantain_SpoilageTime_StatName,Spoilage
 herbsfungicommonplantain_SpoilageTime_OnFull,The plantain leaves have rotted.
 herbsfungicommonplantain_UsageDurability_StatName,Dry
-herbsfungicommonplantain_UsageDurability_OnFull,The plantain leaves have dried
+herbsfungicommonplantain_UsageDurability_OnFull,"The plantain leaves have dried, concentrating their medicinal properties."
 herbsfungicommonplantaindried_CardName,Dried Common Plantain
 herbsfungicommonplantaindried_CardDescription,Dried plantain leaves. A key ingredient for wound poultices.
 herbsfungicommonplantaindried_CardHelpSection,Dried Common Plantain
@@ -1370,25 +1363,26 @@ herbsfungichamomiledried_Eat,Eat
 herbsfungichamomiledried_Eat_Desc,Consume the dried chamomile. Its soothing properties help ease tension.
 herbsfungichamomiledried_MixTea,Mix into Hot Water
 herbsfungichamomiledried_MixTea_Desc,Steep dried chamomile in hot water to brew a soothing tea.
+herbsfungichamomiledried_MixTea_FailMessage,Not hot enough.
 herbsfungichamomiletea_CardName,Chamomile Tea
 herbsfungichamomiletea_CardDescription,A calming herbal tea brewed from dried chamomile flowers. Eases stress and soothes the mind.
 herbsfungichamomiletea_SpoilageTime_StatName,Spoilage
 herbsfungichamomiletea_Spoiled,The chamomile tea has spoiled.
 herbsfungichamomiletea_Drink,Drink
 herbsfungichamomiletea_Drink_Desc,Drink the calming chamomile tea. Reduces stress and soothes the spirit.
-herbsfungiblacktrumpetdried_SpoilageTime_CardStatName,Freshness
+herbsfungiblacktrumpetdried_SpoilageTime_CardStatName,Spoilage
 herbsfungiblacktrumpetdried_SpoilageTime_OnEmpty,This has spoiled.
-herbsfungidriedginger_SpoilageTime_CardStatName,Freshness
+herbsfungidriedginger_SpoilageTime_CardStatName,Spoilage
 herbsfungidriedginger_SpoilageTime_OnEmpty,This has spoiled.
-herbsfungidriedtruffle_SpoilageTime_CardStatName,Freshness
+herbsfungidriedtruffle_SpoilageTime_CardStatName,Spoilage
 herbsfungidriedtruffle_SpoilageTime_OnEmpty,This has spoiled.
-herbsfungidriedtrufflecut_SpoilageTime_CardStatName,Freshness
+herbsfungidriedtrufflecut_SpoilageTime_CardStatName,Spoilage
 herbsfungidriedtrufflecut_SpoilageTime_OnEmpty,This has spoiled.
-herbsfungidriedtrufflecutfatcoated_SpoilageTime_CardStatName,Freshness
+herbsfungidriedtrufflecutfatcoated_SpoilageTime_CardStatName,Spoilage
 herbsfungidriedtrufflecutfatcoated_SpoilageTime_OnEmpty,This has spoiled.
-herbsfungishiitakedried_SpoilageTime_CardStatName,Freshness
+herbsfungishiitakedried_SpoilageTime_CardStatName,Spoilage
 herbsfungishiitakedried_SpoilageTime_OnEmpty,This has spoiled.
-herbsfungiyarrowdried_SpoilageTime_CardStatName,Freshness
+herbsfungiyarrowdried_SpoilageTime_CardStatName,Spoilage
 herbsfungiyarrowdried_SpoilageTime_OnEmpty,This has spoiled.
 herbsfungimushroombroth_CardName,Mushroom Broth
 herbsfungimushroombroth_CardDescription,"A bowl of rich, earthy broth simmered from dried shiitake and king oyster mushrooms. Warming, nourishing, and deeply satisfying."
@@ -1424,17 +1418,21 @@ HF_PineClearing_CardName,Pine Clearing
 HF_Env_PineClearing_CardName,Pine Clearing
 HF_OakClearing_CardName,Oak Clearing
 HF_Env_OakClearing_CardName,Oak Clearing
+HF_MistyFalls_CardName,Misty Falls
+HF_Env_MistyFalls_CardName,Misty Falls
 HF_AlderWoods_CardName,Alder Woods
 HF_Env_AlderWoods_CardName,Alder Woods
+HF_HighlandMeadow_CardName,Highland Meadow
+HF_Env_HighlandMeadow_CardName,Highland Meadow
 Herbs_And_Fungi_Perk_ForestScout_PerkName,Forest Scout
-Herbs_And_Fungi_Perk_ForestScout_PerkDescription,"You know where the old foraging trails begin, west of Primeval Woods. The forest is yours — but the paths grow back. An Overgrown Forest Trail waits at Primeval Woods: hack it clear with a blade to open the way in. Left untended it regrows in about ten days, so keep your blade sharp. A portal will always take you straight to the forest if the trail closes on you."
+Herbs_And_Fungi_Perk_ForestScout_PerkDescription,"You know where the old foraging trails begin, west of Primeval Woods — years scouting these woods sharpened your eye for what's worth picking, granting a steady foraging bonus. An Overgrown Forest Trail waits at Primeval Woods: hack it clear with a blade to open the way in. Left untended it regrows in about ten days, so keep your blade sharp. A portal will always take you straight to the forest if the trail closes on you."
 Herbs_And_Fungi_OvergrownForestTrail_CardName,Overgrown Forest Trail
-Herbs_And_Fungi_OvergrownForestTrail_CardDescription,"Brush and bramble have swallowed the old trail into the foraging forest. Hack it clear with a blade, axe, shovel, or antler to open the way west."
+Herbs_And_Fungi_OvergrownForestTrail_CardDescription,"Brush and bramble have swallowed the old forest trail. Hack it clear with a blade, axe, shovel, or antler to reopen the way through."
 Herbs_And_Fungi_OvergrownForestTrail_Hack_ActionName,Hack Through
-Herbs_And_Fungi_OvergrownForestTrail_Hack_ActionDescription,"Cut back the brush with a blade, axe, shovel, or antler to clear the trail. Opens the foot route to the foraging forest."
+Herbs_And_Fungi_OvergrownForestTrail_Hack_ActionDescription,"Cut back the brush with a blade, axe, shovel, or antler to clear the trail and reopen the foot route."
 Herbs_And_Fungi_ClearedForestTrail_CardName,Cleared Forest Trail
-Herbs_And_Fungi_ClearedForestTrail_CardDescription,"The trail into the foraging forest is open. Left untended, the brush will creep back over it in about ten days — keep a blade handy."
-Herbs_And_Fungi_ClearedForestTrail_CardHelpSection,"<b>Regrowth:</b> About 10 days. When the Regrowth bar fills, the trail becomes overgrown again and the foot route into the forest closes until you hack it clear once more."
+Herbs_And_Fungi_ClearedForestTrail_CardDescription,"The forest trail is open. Left untended, the brush will creep back over it in about ten days — keep a blade handy."
+Herbs_And_Fungi_ClearedForestTrail_CardHelpSection,"<b>Regrowth:</b> About 10 days. When the Regrowth bar fills, the trail becomes overgrown again and the foot route closes until you hack it clear once more."
 Herbs_And_Fungi_ClearedForestTrail_Regrowth_CardStatName,Regrowth
 Herbs_And_Fungi_ClearedForestTrail_Regrowth_OnFull_ActionDescription,The forest trail has grown over again.
 Herbs_And_Fungi_PeanutPod_CardName,Peanut Pod

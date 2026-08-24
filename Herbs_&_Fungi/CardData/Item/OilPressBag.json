@@ -1,5 +1,6 @@
 {
     "UniqueID": "herbs_fungi_oil_press_bag",
+    "TradingValue": 30,
     "CardName": {
         "ParentObjectID": "herbs_fungi_oil_press_bag",
         "LocalizationKey": "herbsfungioilpressbag_CardName",

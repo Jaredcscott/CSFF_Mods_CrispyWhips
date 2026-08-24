@@ -1,0 +1,30 @@
+{
+    "UniqueID": "herbs_fungi_quest_ginger_collection",
+    "GameName": {
+        "LocalizationKey": "Herbs_And_Fungi_Quest_Ginger_Collection_StatName",
+        "DefaultText": "Ginger Quest Completed"
+    },
+    "Description": {
+        "LocalizationKey": "Herbs_And_Fungi_Quest_Ginger_Collection_StatDescription",
+        "DefaultText": "Hidden flag: 1 once Dried Ginger has been obtained, or the CMC Apothecary's herb quest is completed (whichever first). Gates the Anti-Nausea Tea blueprint."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 10.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}
