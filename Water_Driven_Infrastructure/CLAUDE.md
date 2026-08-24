@@ -10,3 +10,6 @@ Actual EA 0.65 signature (`.decomp/GameManager.cs`): `ActionRoutine(CardAction _
 
 ## Smelting (cross-reference)
 See `AdvancedCopperTools/CLAUDE.md` for full smelting container tag rules. Critical: include both `tag_SmeltingContainer` AND `tag_SmeltingContainerIron` on any forge structure. Never mix SmeltingRecipeInjector and Progress-based smelting on the same item (WDI gears bug: gave 48 copper instead of 12).
+
+## Hammer All quality (Workshop)
+Vanilla smithing items carry **TWO** quality stats — `SpecialDurability2` "Metal Quality" AND `SpecialDurability3` "Quality" (the player-visible line), plus `SpecialDurability1` "Strikes". `ApplyWorkshopQualityBoost`/`IsMetalQualityTool` must boost/match BOTH via `QualityDurabilitySlots` — boosting SD2 only leaves "Quality" frozen (looks like a no-op; fixed 2026-08-23). Quality gain requires **Strikes > 0**: the "quality-only" fallback bucket EXCLUDES any Smith/`tag_Hammer`-hammerable item (`IsSmithHammerable`), so an item at 0 Strikes can't farm free quality. Full detail: memory `reference_smithing_dual_quality_stats`.

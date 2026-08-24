@@ -2,6 +2,26 @@
 
 All notable changes to this mod are documented here.
 
+## [1.10.19] — 2026-08-23
+
+### Fixed
+- **Hammer All's Metal Quality boost never actually moved the "Quality" number players see on hammerable metal items.** The 1.10.15 investigation concluded the boost logic was sound and the missing display was purely a vanilla `AlwaysHide` quirk — but a follow-up pass found a real bug underneath that conclusion: vanilla metal-bar items (e.g. `MetalBarUnfinished`) carry **two** independent quality-named stats, `SpecialDurability2` ("Metal Quality", hidden) and `SpecialDurability3` ("Quality", the one shown in the inspection popup). `ApplyWorkshopQualityBoost` only ever boosted SD2, so "Metal Quality" climbed +5 per Hammer All press exactly as intended while the player-visible "Quality" line stayed frozen — indistinguishable in-game from the boost doing nothing at all. Confirmed via in-game log and screenshots on 2026-08-23. Now boosts both active "Quality"-named slots, matching how `CompleteHammeredCard` already carries both SD2 and SD3 through a finished transform. Quality gain still requires the item to have taken at least one Strike (`SpecialDurability1 > 0`) — a same-day follow-up excludes any Smith-hammerable item from the "quality-only" fallback bucket so an item sitting at 0 Strikes can't farm free quality through that path.
+
+## [1.10.18] — 2026-08-22
+
+### Fixed
+- **Vanilla iron items (Iron Nuggets, Unfinished/Finished Wrought Iron Bars) never registered as "in a smelting container" in the Forge or Workshop, so their `Smelted` (Progress) stat only ever drained instead of filling.** The vanilla `tag_SmeltingContainer` tag that these items' PassiveEffects check by object reference is an obfuscated-name asset (`PulsingOutline_7769` under EA 0.66i) — WarpResolver's name-based lookup for the plain `"tag_SmeltingContainer"` string in the Forge/Workshop's `CardTagsWarpData` doesn't find that exact vanilla object, so it silently created a different SO that never matches. Only the iron-specific variant of this problem (`tag_SmeltingContainerIron`, gating Temperature) had a fix; the general container-tag fix was missing. Generalized the existing iron-tag injection (`InjectSmeltingContainerIronTag` in `GameLoadPatch.cs`) to also extract and inject the vanilla `tag_SmeltingContainer` SO (sourced from `MetalBarUnfinished`'s own PassiveEffects) into both stations, alongside the existing iron-specific injection.
+
+## [1.10.17] — 2026-08-22
+
+### Changed
+- **Forge and Workshop self-smelting (iron parts/bearing/axle/wrench, copper gears/saw blades) now retains the melted item's own quality instead of always flattening it to the 50% floor.** Blast already read the smelted item's quality and carried it into the resulting nuggets (floored at 50% so machine processing never *lowers* quality); the two `Progress`→`OnFull` self-smelt paths added in 1.10.16 only ever applied the flat 50% floor and ignored the source item's actual quality. Both paths now snapshot the melted item's `SpecialDurability2` quality percentage before it's consumed and apply the same "retain quality, floor at 50%" rule Blast uses. WDI's own iron parts and copper gears carry no quality stat of their own, so in practice they still resolve to the 50% default — but any item (present or future, WDI or another mod) that self-smelts via this path and DOES carry a quality stat now has that quality honored in the nuggets it produces.
+
+## [1.10.16] — 2026-08-22
+
+### Fixed
+- **Copper Nuggets smelted from Copper Gears/Saw Blades (and any other self-smelting metal item) came out at 0% quality**, unlike Blast/iron-item smelting which already floors quality at 50%. These items melt via a `Progress` → `OnFull` → `ProducedCards` JSON path (no C# involved), and `ProducedCards` cannot set a spawned card's quality stats — so the resulting nuggets kept whatever quality the source item had, including 0% for items spawned directly (e.g. via dev/debug spawn) rather than crafted through a blueprint. Only the 4 hardcoded iron parts (`IronSmeltItemIds`) had a quality-floor fix; copper gears/blades did not. Added a second GiveCard hook that discovers *any* self-smelting item at runtime (any CardData whose `Progress.OnFull.ProducedCards` includes a copper nugget) rather than a hardcoded list, and floors its output nuggets' quality the same way Blast/iron smelting already does — so the Forge and Workshop now always apply a minimum quality to every nugget they produce, regardless of the source item's own quality.
+
 ## [1.10.15] — 2026-08-19
 
 ### Fixed

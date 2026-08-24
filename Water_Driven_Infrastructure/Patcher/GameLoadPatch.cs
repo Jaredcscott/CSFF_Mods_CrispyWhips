@@ -82,7 +82,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 InjectActFastenerAlternates(allData, Logger);
                 InjectVanillaGrindablesIntoMillFilter(allData, Logger);
 
-                Logger?.LogDebug("[WDI] GameLoadPatch: LoadMainGameData postfix completed (kiln recipes, greenstone smelt, iron tag, mill race improvements, ACT fastener alternates, mill grindables filter).");
+                Logger?.LogDebug("[WDI] GameLoadPatch: LoadMainGameData postfix completed (kiln recipes, greenstone smelt, smelting container tags, mill race improvements, ACT fastener alternates, mill grindables filter).");
             }
             catch (Exception ex)
             {
@@ -914,11 +914,25 @@ namespace WaterDrivenInfrastructure.Patcher
             }
         }
 
+        // Injects the vanilla identity-matched SO for BOTH container tags metal items check by
+        // reference: tag_SmeltingContainerIron (from MetalNugget's iron-gated PassiveEffects —
+        // drains FuelCapacity/Temperature -300/DTP outside a proper iron container) AND the
+        // general tag_SmeltingContainer (from MetalBarUnfinished's "Lose Smelting if not in /
+        // not hot enough smelting container" PassiveEffects — drains Progress/"Smelted" whenever
+        // this identity check fails). WarpResolver resolves the human-readable tag string by
+        // name; if the vanilla SO's runtime .name is an obfuscated asset name (changes across
+        // game builds — was "LayoutElement_6968"/"TextMeshProUGUI_6687" under EA 0.64f, now
+        // "PulsingOutline_7771"/"PulsingOutline_7769" under EA 0.66i), WarpResolver creates a
+        // NEW SO that won't match the reference these vanilla PassiveEffects check by identity.
+        // Only the iron tag had this fix before — the general tag was never injected, so a
+        // vanilla Unfinished Wrought Iron Bar sitting in the WDI forge never registered as
+        // "in a smelting container" and its Smelted (Progress) stat only ever drained.
         static void InjectSmeltingContainerIronTag(IEnumerable allData, ManualLogSource logger)
         {
             try
             {
                 const string METAL_NUGGET_UID = "4b0f4937a5ecb90499428c8c10288afc";
+                const string METAL_BAR_UNFINISHED_UID = "b92071e54dac7e54db99b48794e737ad";
                 var wdiForgeUids = new HashSet<string>
                 {
                     "water_sawmill_forge_placed",
@@ -926,128 +940,185 @@ namespace WaterDrivenInfrastructure.Patcher
                 };
 
                 object metalNugget = null;
+                object metalBarUnfinished = null;
                 var wdiForges = new List<object>();
 
                 foreach (var entry in allData)
                 {
                     if (!(entry is UniqueIDScriptable s)) continue;
                     if (s.UniqueID == METAL_NUGGET_UID) metalNugget = s;
+                    else if (s.UniqueID == METAL_BAR_UNFINISHED_UID) metalBarUnfinished = s;
                     else if (wdiForgeUids.Contains(s.UniqueID)) wdiForges.Add(s);
                 }
 
-                if (metalNugget == null) { logger?.LogError("[IronSmelt] MetalNugget not found"); return; }
                 if (wdiForges.Count == 0) { logger?.LogError("[IronSmelt] WDI forge/workshop not found"); return; }
 
-                var passiveEffectsField = metalNugget.GetType().GetField("PassiveEffects", InstanceFlags);
-                if (passiveEffectsField == null) { logger?.LogError("[IronSmelt] PassiveEffects field not found"); return; }
-
-                var passiveEffects = passiveEffectsField.GetValue(metalNugget) as Array;
-                if (passiveEffects == null || passiveEffects.Length == 0) { logger?.LogError("[IronSmelt] MetalNugget has no PassiveEffects"); return; }
-
-                var peType = passiveEffects.GetType().GetElementType();
-                var conditionsField = peType?.GetField("Conditions", InstanceFlags);
-                if (conditionsField == null) { logger?.LogError("[IronSmelt] Conditions field not found on PassiveEffect"); return; }
-
-                // Extract the vanilla LayoutElement_6968 SO from either:
-                //   PE0.Conditions.RequiredNOTContainerTags (fires when NOT in iron container)
-                //   PE1.Conditions.RequiredContainerTags (fires when IN iron container but cold)
-                object smeltingContainerIronTag = null;
-                for (int i = 0; i < passiveEffects.Length; i++)
+                if (metalNugget == null)
                 {
-                    var pe = passiveEffects.GetValue(i);
-                    if (pe == null) continue;
-                    var conditions = conditionsField.GetValue(pe);
-                    if (conditions == null) continue;
-                    var condType = conditions.GetType();
-
-                    // Try RequiredNOTContainerTags first (PE0)
-                    var reqNotField = condType.GetField("RequiredNOTContainerTags", InstanceFlags);
-                    if (reqNotField != null)
+                    logger?.LogError("[IronSmelt] MetalNugget not found");
+                }
+                else
+                {
+                    var ironTag = FindContainerTagSO(metalNugget, requireIronGate: true, logger, "IronSmelt");
+                    if (ironTag == null)
                     {
-                        var notTags = reqNotField.GetValue(conditions) as Array;
-                        if (notTags != null && notTags.Length > 0)
-                        {
-                            smeltingContainerIronTag = notTags.GetValue(0);
-                            if (smeltingContainerIronTag != null) break;
-                        }
+                        logger?.LogError("[IronSmelt] tag_SmeltingContainerIron SO not found in MetalNugget PassiveEffects");
                     }
-
-                    // Fall back to RequiredContainerTags (PE1)
-                    var reqField = condType.GetField("RequiredContainerTags", InstanceFlags);
-                    if (reqField != null)
+                    else
                     {
-                        var tags = reqField.GetValue(conditions) as Array;
-                        if (tags != null && tags.Length > 0)
+                        var tagRuntimeName = (ironTag as UnityEngine.Object)?.name ?? "?";
+                        if (!tagRuntimeName.Contains("Iron") && !tagRuntimeName.Contains("6968")
+                            && !tagRuntimeName.Contains("1000") && !tagRuntimeName.Contains("Temperature")
+                            && !tagRuntimeName.StartsWith("PulsingOutline"))
                         {
-                            smeltingContainerIronTag = tags.GetValue(0);
-                            if (smeltingContainerIronTag != null) break;
+                            logger?.LogError($"[IronSmelt] Extracted SO '{tagRuntimeName}' does not look like tag_SmeltingContainerIron — aborting injection");
+                        }
+                        else
+                        {
+                            InjectContainerTag(wdiForges, ironTag, tagRuntimeName, "tag_SmeltingContainerIron", logger);
                         }
                     }
                 }
 
-                if (smeltingContainerIronTag == null)
+                if (metalBarUnfinished == null)
                 {
-                    logger?.LogError("[IronSmelt] tag_SmeltingContainerIron SO not found in MetalNugget PE RequiredNOTContainerTags");
-                    return;
+                    logger?.LogError("[IronSmelt] MetalBarUnfinished not found");
                 }
-
-                var tagRuntimeName = (smeltingContainerIronTag as UnityEngine.Object)?.name ?? "?";
-                logger?.LogDebug($"[IronSmelt] Vanilla tag_SmeltingContainerIron SO: '{tagRuntimeName}'");
-                if (!tagRuntimeName.Contains("Iron") && !tagRuntimeName.Contains("6968")
-                    && !tagRuntimeName.Contains("1000") && !tagRuntimeName.Contains("Temperature"))
+                else
                 {
-                    logger?.LogError($"[IronSmelt] Extracted SO '{tagRuntimeName}' does not look like tag_SmeltingContainerIron — aborting injection");
-                    return;
-                }
-
-                foreach (var forge in wdiForges)
-                {
-                    var uid = (forge as UniqueIDScriptable)?.UniqueID ?? "?";
-                    var cardTagsField = forge.GetType().GetField("CardTags", InstanceFlags);
-                    if (cardTagsField == null) { logger?.LogError($"[IronSmelt] CardTags field not found on {uid}"); continue; }
-
-                    var cardTags = cardTagsField.GetValue(forge) as Array;
-                    int existingLen = cardTags?.Length ?? 0;
-
-                    // Check for exact reference match first
-                    for (int i = 0; i < existingLen; i++)
+                    var generalTag = FindContainerTagSO(metalBarUnfinished, requireIronGate: false, logger, "IronSmelt");
+                    if (generalTag == null)
                     {
-                        if (ReferenceEquals(cardTags.GetValue(i), smeltingContainerIronTag))
-                        {
-                            logger?.LogDebug($"[IronSmelt] {uid}: already has vanilla SO by reference — no change needed");
-                            goto nextForge;
-                        }
+                        logger?.LogError("[IronSmelt] tag_SmeltingContainer SO not found in MetalBarUnfinished PassiveEffects");
                     }
-
-                    // Look for a same-name SO to replace (WarpResolver created wrong instance)
-                    for (int i = 0; i < existingLen; i++)
+                    else
                     {
-                        var t = cardTags?.GetValue(i) as UnityEngine.Object;
-                        if (t != null && t.name == tagRuntimeName)
-                        {
-                            cardTags.SetValue(smeltingContainerIronTag, i);
-                            logger?.LogDebug($"[IronSmelt] {uid}: replaced wrong '{tagRuntimeName}' instance with vanilla SO at index {i}");
-                            goto nextForge;
-                        }
+                        var tagRuntimeName = (generalTag as UnityEngine.Object)?.name ?? "?";
+                        InjectContainerTag(wdiForges, generalTag, tagRuntimeName, "tag_SmeltingContainer", logger);
                     }
-
-                    // Not present at all — append
-                    {
-                        var elemType = cardTagsField.FieldType.GetElementType() ?? typeof(UnityEngine.Object);
-                        var newTags = Array.CreateInstance(elemType, existingLen + 1);
-                        if (cardTags != null && existingLen > 0)
-                            Array.Copy(cardTags, newTags, existingLen);
-                        newTags.SetValue(smeltingContainerIronTag, existingLen);
-                        cardTagsField.SetValue(forge, newTags);
-                        logger?.LogDebug($"[IronSmelt] {uid}: appended vanilla tag_SmeltingContainerIron SO '{tagRuntimeName}'");
-                    }
-
-                    nextForge:;
                 }
             }
             catch (Exception ex)
             {
                 logger?.LogError($"[IronSmelt] Error: {ex.InnerException?.ToString() ?? ex.ToString()}");
+            }
+        }
+
+        // Scans a vanilla card's PassiveEffects for a container-tag identity check
+        // (RequiredNOTContainerTags, fallback RequiredContainerTags) and returns the SO.
+        // requireIronGate disambiguates which tag to pick when a card (like MetalBarUnfinished)
+        // carries PassiveEffects for BOTH the iron-specific and the general container tag:
+        // true = only consider PEs gated to iron (Special4Range == [200,200]); false = only
+        // consider PEs with no metal-type gate (the general tag every metal type shares).
+        static object FindContainerTagSO(object cardObj, bool requireIronGate, ManualLogSource logger, string logPrefix)
+        {
+            var passiveEffectsField = cardObj.GetType().GetField("PassiveEffects", InstanceFlags);
+            var passiveEffects = passiveEffectsField?.GetValue(cardObj) as Array;
+            if (passiveEffects == null || passiveEffects.Length == 0)
+            {
+                logger?.LogDebug($"[{logPrefix}] {(cardObj as UniqueIDScriptable)?.UniqueID}: no PassiveEffects");
+                return null;
+            }
+
+            var peType = passiveEffects.GetType().GetElementType();
+            var conditionsField = peType?.GetField("Conditions", InstanceFlags);
+            if (conditionsField == null) return null;
+
+            for (int i = 0; i < passiveEffects.Length; i++)
+            {
+                var pe = passiveEffects.GetValue(i);
+                if (pe == null) continue;
+                var conditions = conditionsField.GetValue(pe);
+                if (conditions == null) continue;
+                var condType = conditions.GetType();
+
+                if (IsIronGatedCondition(condType, conditions) != requireIronGate) continue;
+
+                var reqNotField = condType.GetField("RequiredNOTContainerTags", InstanceFlags);
+                var notTags = reqNotField?.GetValue(conditions) as Array;
+                if (notTags != null && notTags.Length > 0 && notTags.GetValue(0) != null)
+                    return notTags.GetValue(0);
+
+                var reqField = condType.GetField("RequiredContainerTags", InstanceFlags);
+                var tags = reqField?.GetValue(conditions) as Array;
+                if (tags != null && tags.Length > 0 && tags.GetValue(0) != null)
+                    return tags.GetValue(0);
+            }
+
+            return null;
+        }
+
+        // A PE's container-tag check is "iron-gated" when its ReceivingRequiredDurabilityRanges
+        // .Special4Range == [200,200] (Metal Type == iron exactly). MetalBarUnfinished carries
+        // both an iron-gated pair (PE0/PE1, tag_SmeltingContainerIron) and an ungated pair
+        // (PE3/PE4, general tag_SmeltingContainer) — this is how FindContainerTagSO tells them apart.
+        static bool IsIronGatedCondition(Type condType, object conditions)
+        {
+            var rrdrField = condType.GetField("ReceivingRequiredDurabilityRanges", InstanceFlags);
+            var rrdr = rrdrField?.GetValue(conditions);
+            if (rrdr == null) return false;
+
+            var s4Field = rrdr.GetType().GetField("Special4Range", InstanceFlags);
+            var s4 = s4Field?.GetValue(rrdr);
+            if (s4 == null) return false;
+
+            var xField = s4.GetType().GetField("x", InstanceFlags);
+            var yField = s4.GetType().GetField("y", InstanceFlags);
+            if (xField == null || yField == null) return false;
+
+            float x = Convert.ToSingle(xField.GetValue(s4));
+            float y = Convert.ToSingle(yField.GetValue(s4));
+            return Math.Abs(x - 200f) < 0.01f && Math.Abs(y - 200f) < 0.01f;
+        }
+
+        // Appends/replaces `tagSO` (identified by its vanilla runtime name `tagRuntimeName`) on
+        // every forge's CardTags, by reference — mirrors the reference-then-name-then-append
+        // resolution `InjectSmeltingContainerIronTag` originally used for the iron tag alone.
+        static void InjectContainerTag(List<object> wdiForges, object tagSO, string tagRuntimeName, string tagLabel, ManualLogSource logger)
+        {
+            foreach (var forge in wdiForges)
+            {
+                var uid = (forge as UniqueIDScriptable)?.UniqueID ?? "?";
+                var cardTagsField = forge.GetType().GetField("CardTags", InstanceFlags);
+                if (cardTagsField == null) { logger?.LogError($"[IronSmelt] CardTags field not found on {uid}"); continue; }
+
+                var cardTags = cardTagsField.GetValue(forge) as Array;
+                int existingLen = cardTags?.Length ?? 0;
+
+                // Check for exact reference match first
+                for (int i = 0; i < existingLen; i++)
+                {
+                    if (ReferenceEquals(cardTags.GetValue(i), tagSO))
+                    {
+                        logger?.LogDebug($"[IronSmelt] {uid}: already has vanilla {tagLabel} SO by reference — no change needed");
+                        goto nextForge;
+                    }
+                }
+
+                // Look for a same-name SO to replace (WarpResolver created wrong instance)
+                for (int i = 0; i < existingLen; i++)
+                {
+                    var t = cardTags?.GetValue(i) as UnityEngine.Object;
+                    if (t != null && t.name == tagRuntimeName)
+                    {
+                        cardTags.SetValue(tagSO, i);
+                        logger?.LogDebug($"[IronSmelt] {uid}: replaced wrong '{tagRuntimeName}' instance with vanilla {tagLabel} SO at index {i}");
+                        goto nextForge;
+                    }
+                }
+
+                // Not present at all — append
+                {
+                    var elemType = cardTagsField.FieldType.GetElementType() ?? typeof(UnityEngine.Object);
+                    var newTags = Array.CreateInstance(elemType, existingLen + 1);
+                    if (cardTags != null && existingLen > 0)
+                        Array.Copy(cardTags, newTags, existingLen);
+                    newTags.SetValue(tagSO, existingLen);
+                    cardTagsField.SetValue(forge, newTags);
+                    logger?.LogDebug($"[IronSmelt] {uid}: appended vanilla {tagLabel} SO '{tagRuntimeName}'");
+                }
+
+                nextForge:;
             }
         }
 

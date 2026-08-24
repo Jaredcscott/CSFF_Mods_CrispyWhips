@@ -387,19 +387,43 @@ namespace WaterDrivenInfrastructure.Patcher
             });
 
             // Iron item OnFull smelting (Parts/Bearing/Axle/Wrench) — snapshot existing
-            // nugget IDs before the action runs so newly spawned iron nuggets can be
-            // identified and typed/quality-fixed afterward. Fires on every action on
-            // these 4 cards (matches the original unconditional-per-action check).
+            // nugget IDs AND the source item's own quality (SpecialDurability2, read before
+            // the action consumes it) so newly spawned iron nuggets can be typed/quality-fixed
+            // afterward. Fires on every action on these 4 cards (matches the original
+            // unconditional-per-action check). These 4 items ship with no quality stat of
+            // their own, so this normally resolves to the NuggetSmeltQuality default floor —
+            // but a future iron item WITH a quality stat is now honored automatically.
             ActionRouter.Register(new ActionHandler
             {
                 Name = "IronSmeltType",
                 CardPredicate = ctx => IronSmeltItemIds.Contains(ctx.CardUid),
                 Timing = ActionTiming.AfterWrapped,
-                Before = ctx => { ctx.Tag = SnapshotCardIdsByUniqueId(CopperNuggetGUID); return true; },
+                Before = ctx => { ctx.Tag = (SnapshotCardIdsByUniqueId(CopperNuggetGUID), GetSourceQualityPercent(ctx.Card)); return true; },
                 After = ctx =>
                 {
-                    if (ctx.Tag is HashSet<int> preIds && ApplyIronBarType(preIds) == 0)
-                        StartDelayedIronBarTypeRetry(preIds);
+                    if (ctx.Tag is ValueTuple<HashSet<int>, float> tagged && ApplyIronBarType(tagged.Item1, tagged.Item2) == 0)
+                        StartDelayedIronBarTypeRetry(tagged.Item1, tagged.Item2);
+                }
+            });
+
+            // Copper self-smelt items (gears/blades/etc.) — any item whose Progress OnFull
+            // ProducedCards a copper nugget, discovered dynamically (see GetSelfSmeltCopperItemIds)
+            // instead of a hardcoded UID list, so a new self-smelting item is covered without a
+            // code change. Nuggets inherit the melted item's own quality percentage (Blast's
+            // "machine processing must never lower quality" rule — see ApplyBlastNuggetQuality),
+            // floored at NuggetSmeltQuality when the source item has no quality stat of its own.
+            // SD4 type is left untouched (stays copper), unlike IronSmeltType above which also
+            // stamps SD4=Iron.
+            ActionRouter.Register(new ActionHandler
+            {
+                Name = "CopperSelfSmeltQuality",
+                CardPredicate = ctx => GetSelfSmeltCopperItemIds().Contains(ctx.CardUid),
+                Timing = ActionTiming.AfterWrapped,
+                Before = ctx => { ctx.Tag = (SnapshotCardIdsByUniqueId(CopperNuggetGUID), GetSourceQualityPercent(ctx.Card)); return true; },
+                After = ctx =>
+                {
+                    if (ctx.Tag is ValueTuple<HashSet<int>, float> tagged && ApplyCopperSelfSmeltQuality(tagged.Item1, tagged.Item2) == 0)
+                        StartDelayedCopperSelfSmeltQualityRetry(tagged.Item1, tagged.Item2);
                 }
             });
         }
@@ -468,6 +492,19 @@ namespace WaterDrivenInfrastructure.Patcher
             return false;
         }
 
+        // Reads a melted item's own quality (SpecialDurability2) as a 0-1 percentage, for
+        // carrying into the nuggets it smelts into. Returns 0 when the item has no quality
+        // stat of its own (e.g. WDI's fixed iron parts/gears) — callers then fall back to
+        // the NuggetSmeltQuality default via ApplyBlastNuggetQuality's Math.Max floor.
+        private static float GetSourceQualityPercent(object item)
+        {
+            if (item == null) return 0f;
+            float v = CardUtil.GetDurability(item, "SpecialDurability2");
+            if (float.IsNaN(v) || v <= 0f) return 0f;
+            float m = CardUtil.GetDurabilityMax(item, "SpecialDurability2");
+            return (!float.IsNaN(m) && m > 0f) ? v / m : v / 100f;
+        }
+
         private static void HandleBlastAllInner(object workshop)
         {
             // Every Blast burns a full fuel charge — leave a pile of vanilla Ash behind
@@ -519,10 +556,7 @@ namespace WaterDrivenInfrastructure.Patcher
             float bestQualityPct = 0f;
             foreach (var (item, _) in toSmelt)
             {
-                float v = CardUtil.GetDurability(item, "SpecialDurability2");
-                if (float.IsNaN(v) || v <= 0f) continue;
-                float m = CardUtil.GetDurabilityMax(item, "SpecialDurability2");
-                float pct = (!float.IsNaN(m) && m > 0f) ? v / m : v / 100f;
+                float pct = GetSourceQualityPercent(item);
                 if (pct > bestQualityPct) bestQualityPct = pct;
             }
 
@@ -1266,6 +1300,13 @@ namespace WaterDrivenInfrastructure.Patcher
                     ok &= SetMinimumDurabilityStatValue(__0, "SpecialDurability3", NuggetSmeltQuality);
                     if (ok) Logger?.LogDebug("[ActionIntercept] IronSmelt (GiveCard): set Type=200 quality=50 on iron nugget");
                 }
+                else if (IsCopperSelfSmeltPending())
+                {
+                    bool ok = SetMinimumDurabilityStatValue(__0, "SpecialDurability1", NuggetSmeltQuality);
+                    ok &= SetMinimumDurabilityStatValue(__0, "SpecialDurability2", NuggetSmeltQuality);
+                    ok &= SetMinimumDurabilityStatValue(__0, "SpecialDurability3", NuggetSmeltQuality);
+                    if (ok) Logger?.LogDebug("[ActionIntercept] CopperSelfSmelt (GiveCard): quality>=50 on copper nugget");
+                }
             }
             catch (Exception ex)
             {
@@ -1294,14 +1335,14 @@ namespace WaterDrivenInfrastructure.Patcher
         // frame, so a failed first attempt (e.g. GiveCard hasn't registered the new
         // nugget in AllCards yet) is retried via a decoupled one-frame-later coroutine —
         // the same pattern as StartDelayedNuggetInitialization/StartDelayedLumpInitialization.
-        private static void StartDelayedIronBarTypeRetry(HashSet<int> preIds)
+        private static void StartDelayedIronBarTypeRetry(HashSet<int> preIds, float sourceQualityPct)
         {
             try
             {
                 var gm = CardUtil.GetGameManagerInstance();
                 if (gm is UnityEngine.MonoBehaviour mb)
                 {
-                    mb.StartCoroutine(RetryIronBarTypeAfterOneFrame(preIds));
+                    mb.StartCoroutine(RetryIronBarTypeAfterOneFrame(preIds, sourceQualityPct));
                     return;
                 }
             }
@@ -1309,16 +1350,16 @@ namespace WaterDrivenInfrastructure.Patcher
             {
                 Logger?.LogError($"[ActionIntercept] StartDelayedIronBarTypeRetry: {ex.Message}");
             }
-            ApplyIronBarType(preIds);
+            ApplyIronBarType(preIds, sourceQualityPct);
         }
 
-        private static IEnumerator RetryIronBarTypeAfterOneFrame(HashSet<int> preIds)
+        private static IEnumerator RetryIronBarTypeAfterOneFrame(HashSet<int> preIds, float sourceQualityPct)
         {
             yield return null;
-            ApplyIronBarType(preIds);
+            ApplyIronBarType(preIds, sourceQualityPct);
         }
 
-        private static int ApplyIronBarType(HashSet<int> preIds)
+        private static int ApplyIronBarType(HashSet<int> preIds, float sourceQualityPct)
         {
             int updated = 0;
             try
@@ -1332,16 +1373,152 @@ namespace WaterDrivenInfrastructure.Patcher
                     if (!float.IsNaN(sd4) && sd4 > 0f) continue; // already typed
 
                     bool ok = CardUtil.SetDurability(card, "SpecialDurability4", IronBarMetalType);
-                    ok &= SetMinimumDurabilityStatValue(card, "SpecialDurability1", NuggetSmeltQuality);
-                    ok &= SetMinimumDurabilityStatValue(card, "SpecialDurability2", NuggetSmeltQuality);
-                    ok &= SetMinimumDurabilityStatValue(card, "SpecialDurability3", NuggetSmeltQuality);
+                    ok &= ApplyBlastNuggetQuality(card, sourceQualityPct);
                     if (ok) updated++;
                 }
             }
             catch (Exception ex) { Logger?.LogError($"[ActionIntercept] ApplyIronBarType: {ex.Message}"); }
 
             if (updated > 0)
-                Logger?.LogDebug($"[ActionIntercept] IronSmelt: set Type=200 quality=50 on {updated} iron nugget(s)");
+                Logger?.LogDebug($"[ActionIntercept] IronSmelt: set Type=200 quality>={NuggetSmeltQuality} (source={sourceQualityPct:P0}) on {updated} iron nugget(s)");
+            return updated;
+        }
+
+        // ============================================================
+        //  COPPER SELF-SMELT ITEMS — quality floor on nuggets from Progress OnFull
+        //  Mirrors the iron handling above, but the item set is DISCOVERED at runtime
+        //  (any CardData whose Progress.OnFull ProducedCards a copper nugget) instead
+        //  of a hardcoded UID list, so gears/blades/future mod items are all covered
+        //  without a code change. SD4 type is left alone (stays copper) — only the
+        //  forge/workshop's "machine processing must never lower quality" floor applies.
+        // ============================================================
+
+        private static HashSet<string> _selfSmeltCopperItemIds;
+
+        private static HashSet<string> GetSelfSmeltCopperItemIds()
+        {
+            if (_selfSmeltCopperItemIds != null) return _selfSmeltCopperItemIds;
+
+            var set = new HashSet<string>(StringComparer.Ordinal);
+            try
+            {
+                foreach (var cardData in CardUtil.FindCardsWhere(ProducesCopperNuggetOnFull))
+                {
+                    string uid = CardUtil.GetCardUniqueId(cardData);
+                    if (!string.IsNullOrEmpty(uid)) set.Add(uid);
+                }
+                set.ExceptWith(IronSmeltItemIds); // those get SD4-typed by IronSmeltType instead
+            }
+            catch (Exception ex)
+            {
+                Logger?.LogError($"[ActionIntercept] GetSelfSmeltCopperItemIds: {ex.Message}");
+            }
+
+            Logger?.LogDebug($"[ActionIntercept] Discovered {set.Count} self-smelt-to-copper-nugget item(s): {string.Join(", ", set)}");
+            _selfSmeltCopperItemIds = set;
+            return set;
+        }
+
+        private static bool ProducesCopperNuggetOnFull(object cardData)
+        {
+            try
+            {
+                if (cardData == null) return false;
+                var progress = cardData.GetType().GetField("Progress", Flags)?.GetValue(cardData);
+                if (progress == null) return false;
+                if (!(progress.GetType().GetField("Active", Flags)?.GetValue(progress) is bool active) || !active) return false;
+                if (!(progress.GetType().GetField("HasActionOnFull", Flags)?.GetValue(progress) is bool hasOnFull) || !hasOnFull) return false;
+
+                var onFull = progress.GetType().GetField("OnFull", Flags)?.GetValue(progress);
+                var produced = onFull?.GetType().GetField("ProducedCards", Flags)?.GetValue(onFull) as IList;
+                if (produced == null) return false;
+
+                foreach (var coll in produced)
+                {
+                    var drops = coll?.GetType().GetField("DroppedCards", Flags)?.GetValue(coll) as IList;
+                    if (drops == null) continue;
+                    foreach (var drop in drops)
+                    {
+                        if (drop == null) continue;
+                        var warp = drop.GetType().GetField("DroppedCardWarpData", Flags)?.GetValue(drop) as string;
+                        if (string.Equals(warp, CopperNuggetGUID, StringComparison.Ordinal)) return true;
+
+                        var dc = drop.GetType().GetField("DroppedCard", Flags)?.GetValue(drop);
+                        if (dc != null && string.Equals(GetUniqueIdFromObject(dc), CopperNuggetGUID, StringComparison.Ordinal)) return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger?.LogDebug($"[ActionIntercept] ProducesCopperNuggetOnFull: {ex.Message}");
+            }
+            return false;
+        }
+
+        private static bool IsCopperSelfSmeltPending()
+        {
+            try
+            {
+                var ids = GetSelfSmeltCopperItemIds();
+                if (ids.Count == 0) return false;
+
+                foreach (var card in EnumerateKnownCards())
+                {
+                    if (!ids.Contains(CardUtil.GetCardUniqueId(card))) continue;
+                    float progress = CardUtil.GetDurability(card, "Progress");
+                    float max = CardUtil.GetDurabilityMax(card, "Progress");
+                    if (!float.IsNaN(progress) && !float.IsNaN(max) && max > 0f && progress >= max)
+                        return true;
+                }
+            }
+            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] IsCopperSelfSmeltPending: {ex.Message}"); }
+            return false;
+        }
+
+        private static void StartDelayedCopperSelfSmeltQualityRetry(HashSet<int> preIds, float sourceQualityPct)
+        {
+            try
+            {
+                var gm = CardUtil.GetGameManagerInstance();
+                if (gm is UnityEngine.MonoBehaviour mb)
+                {
+                    mb.StartCoroutine(RetryCopperSelfSmeltQualityAfterOneFrame(preIds, sourceQualityPct));
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger?.LogError($"[ActionIntercept] StartDelayedCopperSelfSmeltQualityRetry: {ex.Message}");
+            }
+            ApplyCopperSelfSmeltQuality(preIds, sourceQualityPct);
+        }
+
+        private static IEnumerator RetryCopperSelfSmeltQualityAfterOneFrame(HashSet<int> preIds, float sourceQualityPct)
+        {
+            yield return null;
+            ApplyCopperSelfSmeltQuality(preIds, sourceQualityPct);
+        }
+
+        private static int ApplyCopperSelfSmeltQuality(HashSet<int> preIds, float sourceQualityPct)
+        {
+            int updated = 0;
+            try
+            {
+                foreach (var card in EnumerateKnownCards())
+                {
+                    if (CardUtil.GetCardUniqueId(card) != CopperNuggetGUID) continue;
+                    if (card is UnityEngine.Object uo && preIds != null && preIds.Contains(uo.GetInstanceID())) continue;
+
+                    float sd4 = CardUtil.GetDurability(card, "SpecialDurability4");
+                    if (!float.IsNaN(sd4) && sd4 > 0f) continue; // already typed (iron/sluice) — leave alone
+
+                    if (ApplyBlastNuggetQuality(card, sourceQualityPct)) updated++;
+                }
+            }
+            catch (Exception ex) { Logger?.LogError($"[ActionIntercept] ApplyCopperSelfSmeltQuality: {ex.Message}"); }
+
+            if (updated > 0)
+                Logger?.LogDebug($"[ActionIntercept] CopperSelfSmelt: quality>={NuggetSmeltQuality} (source={sourceQualityPct:P0}) on {updated} copper nugget(s)");
             return updated;
         }
 
@@ -1358,6 +1535,8 @@ namespace WaterDrivenInfrastructure.Patcher
 
         private static bool HandleHammerAllInner(object forge, bool workshopQualityBoost)
         {
+            Logger?.LogDebug($"[HammerDiag] HammerAll fired on '{CardUtil.GetCardUniqueId(forge)}' (workshopQualityBoost={workshopQualityBoost})");
+
             var inventory = CardUtil.GetInventoryList(forge);
             if (inventory == null || inventory.Count == 0)
             {
@@ -1403,11 +1582,11 @@ namespace WaterDrivenInfrastructure.Patcher
                     {
                         foreach (var inner in innerCards)
                         {
-                            if (inner != null && !alreadyProcessed.Contains(inner) && IsMetalQualityTool(inner))
+                            if (inner != null && !alreadyProcessed.Contains(inner) && IsMetalQualityTool(inner) && !IsSmithHammerable(inner))
                                 qualityOnlyItems.Add(inner);
                         }
                     }
-                    else if (!alreadyProcessed.Contains(slotItem) && IsMetalQualityTool(slotItem))
+                    else if (!alreadyProcessed.Contains(slotItem) && IsMetalQualityTool(slotItem) && !IsSmithHammerable(slotItem))
                     {
                         qualityOnlyItems.Add(slotItem);
                     }
@@ -1420,8 +1599,8 @@ namespace WaterDrivenInfrastructure.Patcher
                 return false;
             }
 
-            Logger?.Log(LogLevel.Debug,
-                $"[ActionIntercept] HammerAll: {toAdvance.Count} advance, {toComplete.Count} complete, {qualityOnlyItems.Count} quality-only");
+            Logger?.LogDebug(
+                $"[HammerDiag] HammerAll: {toAdvance.Count} advance, {toComplete.Count} complete, {qualityOnlyItems.Count} quality-only");
 
             if (workshopQualityBoost)
             {
@@ -1438,8 +1617,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     IncrementAccumulatingStrikeCount(card);
                     RefreshCardDurabilityVisuals(card);
                 }
-                if (boosted > 0)
-                    Logger?.Log(LogLevel.Debug, $"[ActionIntercept] HammerAll: workshop quality boosted {boosted} item(s) by +{WorkshopMetalQualityBoost}");
+                Logger?.LogDebug($"[HammerDiag] HammerAll: workshop quality boosted {boosted} item(s) by +{WorkshopMetalQualityBoost}");
             }
 
             // Apply one hit to items that don't finish yet
@@ -1607,19 +1785,45 @@ namespace WaterDrivenInfrastructure.Patcher
 
         private static bool ApplyWorkshopQualityBoost(object card)
         {
-            if (!IsMetalQualityTool(card)) return false;
+            // Confirmed 2026-08-23 via in-game log + screenshots: vanilla metal-bar items
+            // (e.g. MetalBarUnfinished) carry TWO independent quality-named stats —
+            // SpecialDurability2 "Metal Quality" AND SpecialDurability3 "Quality". This
+            // used to boost SD2 only, so the player-visible "Quality" line (SD3) never
+            // moved while "Metal Quality" (SD2) correctly climbed +5/press. Boost both
+            // active "Quality"-named slots — matches CompleteHammeredCard's existing
+            // treatment of SD2+SD3 as equally load-bearing quality carried through a
+            // transform (ApplyMinimumQualityPercent call for each below it).
+            string uid = CardUtil.GetCardUniqueId(card) ?? "<null-uid>";
+            object cardData = GetCardData(card);
+            if (cardData == null)
+            {
+                Logger?.LogDebug($"[HammerDiag] QualityBoost skip '{uid}': CardModel null");
+                return false;
+            }
 
-            float currentQuality = CardUtil.GetDurability(card, "SpecialDurability2");
-            if (float.IsNaN(currentQuality)) return false;
+            bool anyBoosted = false;
+            foreach (var stat in QualityDurabilitySlots)
+            {
+                if (!IsDurabilityDefinitionActive(cardData, stat) || !DurabilityStatNameContains(cardData, stat, "Quality"))
+                    continue;
 
-            float maxQuality = CardUtil.GetDurabilityMax(card, "SpecialDurability2");
-            if (float.IsNaN(maxQuality) || maxQuality <= 0f) maxQuality = 100f;
+                float currentQuality = CardUtil.GetDurability(card, stat);
+                if (float.IsNaN(currentQuality)) continue;
 
-            float newQuality = Math.Min(maxQuality, currentQuality + WorkshopMetalQualityBoost);
-            if (newQuality <= currentQuality) return false;
+                float maxQuality = CardUtil.GetDurabilityMax(card, stat);
+                if (float.IsNaN(maxQuality) || maxQuality <= 0f) maxQuality = 100f;
 
-            return CardUtil.SetDurability(card, "SpecialDurability2", newQuality);
+                float newQuality = Math.Min(maxQuality, currentQuality + WorkshopMetalQualityBoost);
+                if (newQuality <= currentQuality) continue;
+
+                bool ok = CardUtil.SetDurability(card, stat, newQuality);
+                Logger?.LogDebug($"[HammerDiag] QualityBoost '{uid}' {stat}: {currentQuality:F1} -> {newQuality:F1} (cap {maxQuality:F1}), ok={ok}");
+                anyBoosted |= ok;
+            }
+            return anyBoosted;
         }
+
+        private static readonly string[] QualityDurabilitySlots = { "SpecialDurability2", "SpecialDurability3" };
 
         // Increments SD1 "Strikes" by +1 for ACT items that accumulate strikes upward
         // (HasActionOnZero = false means there's no transform — just a running counter).
@@ -1656,11 +1860,16 @@ namespace WaterDrivenInfrastructure.Patcher
             // No card-tag gate here: the real candidates (vanilla MetalNugget,
             // MetalBarUnfinished) carry no gameplay tags at all — the workshop's own
             // InventoryFilter has to allowlist MetalNugget by exact UID for the same
-            // reason. An active "...Quality"-named SpecialDurability2 is already a
-            // reliable, narrow signal (WDI's own Copper Gears fail it since their
-            // SD2 is inactive), so it stands alone.
-            return IsDurabilityDefinitionActive(cardData, "SpecialDurability2")
-                && DurabilityStatNameContains(cardData, "SpecialDurability2", "Quality");
+            // reason. An active "...Quality"-named SpecialDurability2/3 is already a
+            // reliable, narrow signal (WDI's own Copper Gears fail it since both are
+            // inactive), so it stands alone. Checks both slots — vanilla metal-bar
+            // items carry independent "Metal Quality" (SD2) AND "Quality" (SD3) stats.
+            foreach (var stat in QualityDurabilitySlots)
+            {
+                if (IsDurabilityDefinitionActive(cardData, stat) && DurabilityStatNameContains(cardData, stat, "Quality"))
+                    return true;
+            }
+            return false;
         }
 
         private static bool IsDurabilityDefinitionActive(object cardData, string statName)
@@ -1695,6 +1904,13 @@ namespace WaterDrivenInfrastructure.Patcher
             public string onZeroResultId; // UniqueID to spawn when Strikes reach 0
             public string[] transferStats; // Durability values transferred by OnZero.ReceivingCardChanges
         }
+
+        // Excludes any item with a Smith/tag_Hammer CardInteraction from the "quality-only"
+        // fallback bucket, regardless of its current Strikes value — a Smith-hammerable item
+        // stuck at 0 Strikes (never progressed, or an ACT accumulating-counter item at its
+        // cap) must NOT get a free, unlimited quality boost via that bucket. Quality-only
+        // boosting is reserved for genuine no-Strikes materials (raw heated nuggets).
+        private static bool IsSmithHammerable(object card) => GetHammerHitInfo(card).canHammer;
 
         private static HammerHitInfo GetHammerHitInfo(object card)
         {

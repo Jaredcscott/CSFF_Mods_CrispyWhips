@@ -1,7 +1,9 @@
 # Roadmap: Water Driven Infrastructure
-Version at time of writing: 1.10.13
-Date: 2026-08-16
-Audit score: 10/10 (consolidated 2026-08-16 — release ready; see `.audit/summary.md`)
+Version at time of writing: 1.10.19
+Date: 2026-08-23
+Audit score: 10/10 (consolidated 2026-08-23 — release ready; critical-analysis + code-quality both re-ran against v1.10.19; see `.audit/summary.md`)
+
+**Since 1.10.13**: six patch releases, all quality-floor/smelting-tag bugfixes (no new items/blueprints/structures): general `tag_SmeltingContainer` injection generalized alongside the pre-existing iron-only tag (1.10.18); source-item quality now carries into self-smelted copper AND iron nuggets via a shared `GetSourceQualityPercent`/`ApplyBlastNuggetQuality` path (1.10.16–1.10.17); Hammer All's Metal Quality boost now moves both the SD2 and SD3 quality stats — the player-visible "Quality" line was previously frozen despite the boost applying correctly under the hood (1.10.19, confirmed via in-game log same day). `/critical-analysis` and `/code-quality` both re-ran 2026-08-23 against the full diff since 08-16: **SOLID** / **10/10**, 0 failures — the two flagged pre-flight WARNINGs (V6 sync-drain, A3 substring-match) confirmed false positive.
 
 ## Current State
 
