@@ -37,7 +37,8 @@ namespace mod_update_manager
                         if (file.IndexOf(Path.DirectorySeparatorChar + "SpriteCache" + Path.DirectorySeparatorChar,
                                          StringComparison.OrdinalIgnoreCase) >= 0)
                             continue;
-                        try { File.Delete(file); } catch { /* file may be briefly locked; non-fatal */ }
+                        try { File.Delete(file); }
+                        catch (Exception ex) { Plugin.Logger.LogDebug($"Suite wipe: could not delete {file} (locked?); may orphan: {ex.Message}"); }
                     }
                 }
                 else

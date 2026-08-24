@@ -7,7 +7,7 @@ internal class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.mod_update_manager";
     public const string PluginName = "Mod_Update_Manager";
-    public const string PluginVersion = "2.1.11";
+    public const string PluginVersion = "2.1.23";
 
     internal new static ManualLogSource Logger;
     public static Plugin Instance { get; private set; }
@@ -173,7 +173,7 @@ internal class Plugin : BaseUnityPlugin
         }
         else if (!_config.HasApiKey)
         {
-            Logger.LogDebug("No Nexus API key configured. Press F8 to open settings and configure your API key.");
+            Logger.LogDebug($"No Nexus API key configured. Press {_config.ToggleUIKey.Value} to open the dashboard, then the Settings tab, to configure your API key.");
         }
     }
 

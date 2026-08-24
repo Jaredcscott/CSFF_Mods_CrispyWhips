@@ -1,18 +1,19 @@
 # Mod Update Manager - Feature Status
 
-Date: 2026-06-13
+Date: 2026-08-04
 
 This document describes what is actually wired in the shipped mod. Planned features live under `Documentation/Ideas/Mod_Update_Manager/`.
 
 ## Shipped
 
+- **Crispywhips Mod Suite installer** (the "Install & Update" tab, default on open, shipped v2.1.5) — one-click install/update of the 8-mod crispywhips family from ZIPs embedded directly in the MUM DLL (`ModSuiteExtractor.cs`, `SuiteVersionReader.cs`, `MiniZip.cs`, `SuiteModRegistry.cs`). Batch selection ("Select Out of Date / Not Installed" / "Select All") + "Apply Updates" extracts chosen mods straight into `BepInEx/plugins/`, preserving the framework's `SpriteCache/`. Works fully offline; no Nexus API key needed for this tab.
 - Installed-mod scanning for standard plugin folders and one nested ModInfo.json level.
 - Manual and built-in Nexus ID mapping.
 - Nexus update checks with version comparison.
 - Optional 24-hour API response caching with coalesced end-of-pass disk flush.
 - Optional scheduled background checks for mapped mods.
 - Optional slow Nexus ID discovery, disabled by default.
-- IMGUI dashboard tabs for all mods, update candidates, up-to-date mods, unmapped mods, conflicts, analytics, and settings.
+- IMGUI dashboard tabs: Install & Update, My Mods (All / Updates Available / Up to Date / Unmapped sub-tabs), Conflicts, Settings (Analytics folded in).
 - Lightweight conflict hints based on known names and broad functionality patterns.
 - Basic update analytics derived from the current checked mod list.
 - Favorites and Ignore — star mods to highlight them; ignore mods to exclude from update checks. Both states persist across sessions.
@@ -25,14 +26,13 @@ This document describes what is actually wired in the shipped mod. Planned featu
 
 ## Not Shipped
 
-- Automatic downloads or installs.
-- One-click updates.
-- Batch update installation.
 - Backup-before-update behavior.
 - Rollback UI.
 - Version timeline UI.
 - Automatic beta compatibility validation.
 - Security scanning, cloud sync, or AI recommendations.
+- Read-only mod profiles (save/diff an enabled-set) — see `ROADMAP.md` Long-term Vision.
+- Self-update staging (MUM cannot overwrite its own running DLL) — see `Documentation/Ideas/Mod_Update_Manager/Embedded_Mod_Suite_Integration.md`.
 
 ## Build Status
 

@@ -62,8 +62,12 @@ namespace mod_update_manager
                 }
                 return 0;
             }
-            catch
+            catch (Exception ex)
             {
+                // Data-read path (version string parse, runs per mod per stats refresh) —
+                // breadcrumb so an unexpected version format silently reporting "0 behind"
+                // is diagnosable instead of invisible.
+                Plugin.Logger.LogDebug($"[ModComparisonView] CountVersionsBehind('{currentVersion}', '{latestVersion}') failed: {ex.Message}");
                 return 0;
             }
         }
@@ -90,8 +94,12 @@ namespace mod_update_manager
 
                 return false;
             }
-            catch
+            catch (Exception ex)
             {
+                // Data-read path (version string parse, runs per mod per stats refresh) —
+                // breadcrumb so an unexpected version format silently reporting "not major"
+                // is diagnosable instead of invisible.
+                Plugin.Logger.LogDebug($"[ModComparisonView] DetectBreakingChanges('{currentVersion}', '{latestVersion}') failed: {ex.Message}");
                 return false;
             }
         }

@@ -230,15 +230,17 @@ namespace mod_update_manager
                     if (found) _consecutiveMisses = 0;
                     else _consecutiveMisses++;
 
-                    // Small delay between requests
-                    yield return new WaitForSeconds(0.2f);
+                    // Small delay between requests. Realtime — this background scan must keep
+                    // making progress even while the game sits at timeScale=0 (paused / waiting
+                    // for player action / FadeToBlack), same as UpdateChecker's polling waits.
+                    yield return new WaitForSecondsRealtime(0.2f);
                 }
 
                 // Save cache after each batch
                 SaveDiscoveryCache();
 
-                // Wait before next batch
-                yield return new WaitForSeconds(DISCOVERY_INTERVAL);
+                // Wait before next batch (realtime — see above).
+                yield return new WaitForSecondsRealtime(DISCOVERY_INTERVAL);
             }
 
             _isDiscovering = false;

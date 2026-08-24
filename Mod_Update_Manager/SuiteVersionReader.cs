@@ -36,7 +36,7 @@ namespace mod_update_manager
             }
             catch (Exception ex)
             {
-                Plugin.Logger.LogDebug($"SuiteVersionReader: failed reading embedded version for {entry.FolderName}: {ex.Message}");
+                Plugin.Logger.LogWarning($"SuiteVersionReader: failed reading embedded version for {entry.FolderName}: {ex.Message}");
                 return null;
             }
         }
@@ -55,8 +55,9 @@ namespace mod_update_manager
                 var parsed = SimpleJson.DeserializeModInfo(json);
                 return parsed?.Version;
             }
-            catch
+            catch (Exception ex)
             {
+                Plugin.Logger.LogWarning($"SuiteVersionReader: failed reading installed version for {entry.FolderName}: {ex.Message}");
                 return null;
             }
         }

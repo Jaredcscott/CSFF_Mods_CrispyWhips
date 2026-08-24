@@ -5,6 +5,44 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [2.1.22] — 2026-08-16
+
+### Added
+
+- **Homestead Perks joins the suite** — the Install & Update tab now lists a 9th installable/updatable mod alongside the existing 8: Homestead Perks (thirteen character-creation perks granting placeable structure kits — Homestead, Cabin, Mud Hut, Well, Cellar, Log Bed, Furnace, Forge, Oven, Rain Cistern, Tanning Pit, Pit Trap, and Path kits), registered in the Content category with its own embedded suite ZIP.
+
+Versions 2.1.19–2.1.21 that preceded this were intermediate version-string-only steps with no independent content; this entry covers the full jump from 2.1.18.
+
+---
+
+## [2.1.18] — 2026-08-11
+
+### Changed
+
+- **Repackaged the embedded mod suite bundle** used by the Install & Update tab — refreshed all 8 embedded suite ZIPs with each mod's latest release as of 2026-08-09: Community Mod Chest 1.46.4 (new village WorldMap nodes), Advanced Copper Tools 1.15.7, Herbs & Fungi 1.10.9, Quick Transfer 1.7.6, Skill Speed Boost 1.9.6, Water-Driven Infrastructure 1.10.5, Repeat Action 2.0.1, and CSFF Mod Framework 2.21.3. Installing or updating via the suite tab no longer extracts stale copies (embedded DLL payload grew from ~35 MB to ~39.8 MB). This repackage shipped as 2.1.16; versions 2.1.17 and 2.1.18 that followed (2026-08-09 to 2026-08-11) are version-string-only rebuilds with no further bundle or code changes.
+
+---
+
+## [2.1.15] — 2026-08-07
+
+### Fixed
+
+- **Chinese localization never shipped.** The `.csproj` had no `Content Include` for `Localization/*.csv`, so `bin/Release/Localization/` was empty regardless of what existed in source — and the two Chinese strings that did exist were stranded in `SimpEn.csv`'s unused 3rd column (the loader reads `SimpEn.csv` only in English mode). Added the `Localization\*.csv` content item and created `Localization/SimpCn.csv` with both rows.
+
+---
+
+## [2.1.14] — 2026-08-04
+
+### Fixed
+
+- **Suite-ZIP version-read failures were logged at Debug level**, invisible under BepInEx's default log filter, even though the README's Troubleshooting section explicitly points users at `LogOutput.log` for this exact case ("Install & Update tab shows 'Unknown' status for every mod"). `SuiteVersionReader.cs` now logs these failures at Warning, so the documented troubleshooting step actually surfaces something.
+
+### Changed
+
+- `FEATURES_IMPLEMENTED.md` and `IMPLEMENTATION_SUMMARY.md` (internal dev docs) refreshed to reflect the Install & Update suite installer shipped in v2.1.5 — both had drifted stale and still described it as unshipped/planned.
+
+---
+
 ## [2.1.9] — 2026-07-12
 
 ### Fixed

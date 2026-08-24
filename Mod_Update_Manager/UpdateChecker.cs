@@ -127,14 +127,14 @@ namespace mod_update_manager
                     OnModChecked?.Invoke(mod);
                 });
 
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSecondsRealtime(0.5f);
             }
 
             // Poll until all staggered requests finish
             while (_checksCompleted < _totalChecks)
             {
                 OnStatusUpdate?.Invoke($"Checking mods... ({_checksCompleted}/{_totalChecks})");
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSecondsRealtime(0.2f);
             }
 
             foreach (var mod in _installedMods.Where(m => GetNexusModId(m) == null))
