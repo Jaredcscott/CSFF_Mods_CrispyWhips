@@ -296,7 +296,14 @@ public static class CardUtil
         if (!_gmReflected)
         {
             _gmReflected = true;
-            _gmType = Reflection.ReflectionCache.FindType("GameManager");
+            // FindType (not FindTypeInAssemblyCSharp) previously scanned every loaded assembly
+            // and could silently resolve a third-party mod's shadowing "GameManager" type (e.g.
+            // ModCore's own) when one is installed -- every downstream GetField/GetMethod/
+            // GetProperty lookup against it then fails with no indication why. See root
+            // CLAUDE.md "Runtime Card Spawning" and ReflectionCache.FindTypeInAssemblyCSharp's
+            // own doc comment.
+            _gmType = Reflection.ReflectionCache.FindTypeInAssemblyCSharp("GameManager");
+            Log.Info($"CardUtil.GetGameManagerInstance: resolved GameManager type = {_gmType?.AssemblyQualifiedName ?? "NULL"}");
             if (_gmType != null)
             {
                 const BindingFlags StaticAll = BindingFlags.Static | BindingFlags.Public
@@ -378,11 +385,29 @@ public static class CardUtil
         }
     }
 
+    /// <summary>
+    /// True when the CT10 improvement <paramref name="impUID"/> is COMPLETE in environment
+    /// <paramref name="envUID"/>. While the player is standing in the queried env, the live
+    /// improvement card's <c>BlueprintData.CurrentStage &gt;= BlueprintSteps</c> is authoritative
+    /// (2.23.0): the persisted <c>CurrentlyBuiltImprovements</c> list means "present / being
+    /// built" — vanilla registers it at construction START and re-syncs it only at
+    /// <c>InGameCardBase.Init()</c> — so reading only the list either opened
+    /// ImprovementBuilt-gated connections before construction finished, or (when registration
+    /// hadn't fired for the flow) kept them locked until the player left and re-entered the env
+    /// (Documentation/Retrospectives/river-bridge.md). Falls back to the persisted list whenever
+    /// the queried env is not the player's current env or no live instance is on the board.
+    /// Save-safe: improvements are exempt from <c>BlueprintSaveData</c>'s stage clamp
+    /// (<c>_Clamp</c> is <c>CardType != EnvImprovement</c> at every save site), so a completed
+    /// stage survives reload intact.
+    /// </summary>
     public static bool IsImprovementBuilt(string envUID, string impUID)
     {
         if (string.IsNullOrEmpty(envUID) || string.IsNullOrEmpty(impUID)) return false;
         try
         {
+            var live = LiveImprovementCompleteOnCurrentBoard(envUID, impUID);
+            if (live.HasValue) return live.Value;
+
             var gm = GetGameManagerInstance();
             if (gm == null) return false;
             var envDataField = GetCachedField(gm.GetType(), "EnvironmentsData");
@@ -409,6 +434,52 @@ public static class CardUtil
         }
         catch (Exception ex) { Log.Debug($"CardUtil: improvement-built query for '{impUID}' threw: {ex}"); }
         return false;
+    }
+
+    /// <summary>
+    /// Live-board completion read backing <see cref="IsImprovementBuilt"/>. Returns true/false
+    /// when the player is standing in <paramref name="envUID"/> AND a live instance of the
+    /// improvement with readable blueprint state is on the board (any complete instance counts —
+    /// iterate EVERY match, never first-match, per the UniqueOnBoard duplicate-instance rule);
+    /// null (no verdict — caller falls back to the persisted list) in every other case.
+    /// <c>GameManager.ImprovementCards</c>/<c>AllCards</c> are current-env-scoped, so a non-null
+    /// verdict is only possible for the current env by construction.
+    /// </summary>
+    private static bool? LiveImprovementCompleteOnCurrentBoard(string envUID, string impUID)
+    {
+        try
+        {
+            var currentEnvUid = Api.GameQuery.CurrentEnvironmentUniqueId;
+            if (currentEnvUid == null || !envUID.Equals(currentEnvUid, StringComparison.Ordinal))
+                return null;
+
+            var gm = GetGameManagerInstance();
+            if (gm == null) return null;
+            var cards = (GetMemberValue(gm, "ImprovementCards") ?? GetMemberValue(gm, "AllCards"))
+                as IEnumerable;
+            if (cards == null) return null;
+
+            bool sawIncomplete = false;
+            foreach (var card in cards)
+            {
+                if (card == null) continue;
+                if (!impUID.Equals(GetCardUniqueId(card), StringComparison.Ordinal)) continue;
+
+                var blueprintData = GetMemberValue(card, "BlueprintData");
+                var currentStage = blueprintData == null ? null : GetMemberValue(blueprintData, "CurrentStage");
+                var blueprintSteps = GetMemberValue(card, "BlueprintSteps");
+                if (currentStage == null || blueprintSteps == null) continue;   // unreadable instance → no verdict from it
+
+                if (Convert.ToInt32(currentStage) >= Convert.ToInt32(blueprintSteps)) return true;
+                sawIncomplete = true;
+            }
+            return sawIncomplete ? false : (bool?)null;
+        }
+        catch (Exception ex)
+        {
+            Log.Debug($"CardUtil: live improvement-stage read for '{impUID}' threw: {ex}");
+            return null;
+        }
     }
 
     /// <summary>

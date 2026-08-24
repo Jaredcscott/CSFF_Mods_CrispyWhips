@@ -11,9 +11,11 @@ namespace CSFFModFramework.Injection;
 
 /// <summary>
 /// Evaluates declarative <c>ConnectionGates</c> from <c>WorldMap/MapNodes.json</c> and
-/// C#-registered gates at run start, on improvement completion, and on a 5 s periodic
-/// re-check (2.20.0 — state-change-guarded, so mid-run stat/season/perk changes take
-/// effect without a reload) to show or hide world-map connections and their travel DAs.
+/// C#-registered gates at run start, on every improvement construction-stage change
+/// (2.23.0 — <c>SetBlueprintStage</c> covers hand-builds; <c>CompleteImprovement</c> alone
+/// only covers insta-completes), and on a 5 s periodic re-check (2.20.0 —
+/// state-change-guarded, so mid-run stat/season/perk changes take effect without a reload)
+/// to show or hide world-map connections and their travel DAs.
 ///
 /// <para>JSON example:
 /// <code>

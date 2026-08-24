@@ -33,6 +33,7 @@ internal static class WikiModQuickFindFix
     private static bool _dataStorePatched;
     private static bool _deferredStarted;
     private static int _processCardNreCount;
+    private static int _lastAssemblyCount = -1;
     private const int MaxProcessCardNreLogs = 5;
     private const int DeferredAttempts = 120;
 
@@ -58,6 +59,13 @@ internal static class WikiModQuickFindFix
 
     private static void TryApplyPatch(Harmony harmony)
     {
+        // FindType results can only change when a new assembly loads (types never appear inside
+        // an already-loaded assembly). Without this gate, the WikiMod-absent case burned the full
+        // 120-frame deferred retry on all-assembly type scans (~240 scans + 240 log lines/load).
+        var assemblyCount = AppDomain.CurrentDomain.GetAssemblies().Length;
+        if (assemblyCount == _lastAssemblyCount) return;
+        _lastAssemblyCount = assemblyCount;
+
         // Only patch if WikiMod is installed; avoids Warn spam for users who don't have it.
         var type = Reflection.ReflectionCache.FindType("WikiMod.QuickFindWindow");
         if (type != null && !_quickFindPatched)

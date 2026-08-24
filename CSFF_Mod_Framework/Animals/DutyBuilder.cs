@@ -42,7 +42,7 @@ internal static class DutyBuilder
     /// <summary>Builds every generated + custom duty for the species and appends them to
     /// <paramref name="agent"/>.AgentDuties (idempotent by duty UniqueID). Returns the number
     /// of duties attached.</summary>
-    public static int AttachDuties(NPCAgent agent, AnimalManifest m, SpeciesStats stats, CardData roostEnv)
+    public static int AttachDuties(NPCAgent agent, AnimalManifest m, SpeciesStats stats, CardData roostEnv, Encounter encounter = null)
     {
         var refs = new List<NPCDutyRef>();
 
@@ -64,7 +64,7 @@ internal static class DutyBuilder
                     : MoveDutyAction.MovementTypes.Pathfind;
                 move.MoveDestination = MoveDutyAction.MoveDutyOptions.MoveToPlayer;
                 move.MoveAwayFromDestination = m.FleeFromPlayer;
-                move.LeaveTracks = true;
+                move.LeaveTracks = TrackBuilder.LeaveTracksOnGeneratedMoves(m);
                 duty.ActionSequence = new NPCDutyAction[] { move };
 
                 refs.Add(NewDutyRef(duty, m.PlayerAttractionBaseWeight, paDistanceWeight: m));
@@ -94,7 +94,7 @@ internal static class DutyBuilder
                     move.MoveToEnvironments = envs;
                     move.DestinationSelection = MoveDutyAction.TargetEnvSelectionOptions.Random;
                     move.IgnoreCurrentLocation = true;
-                    move.LeaveTracks = true;
+                    move.LeaveTracks = TrackBuilder.LeaveTracksOnGeneratedMoves(m);
                     var wait = NewAction<WaitDutyAction>($"csffmfw_{m.SpeciesId}_wander_1_wait");
                     wait.WaitFor = new Vector2Int(2, 4);
                     duty.ActionSequence = new NPCDutyAction[] { move, wait };
@@ -138,6 +138,61 @@ internal static class DutyBuilder
 
                 refs.Add(NewDutyRef(duty, baseWeight: 10));
             }
+        }
+
+        // --- feed/bait duty (Traps.BaitTags / Traps.BaitCards) --------------------------
+        // The trap-firing mechanism, not a flavour duty: destroying bait routes through
+        // GameManager.RemoveCard, which raises the RemoveItemFromInventory trigger the vanilla
+        // traps' OnInteractAction listens for. No bait declared = no feed duty = the species can
+        // still be caught, but only if the player's trap is baited by something ELSE it eats.
+        if (m.HasTraps && m.TrapsEnabled)
+        {
+            var uid = AnimalUid.For(m.SpeciesId, AnimalUid.PartDutyFeed);
+            var duty = NewDuty(uid, $"csffmfw_{m.SpeciesId}_feed", "Looking for food", m);
+            if (duty != null)
+            {
+                if (m.HasActivityWindow)
+                    duty.ValidTimesOfDay = new[] { AnimalAssetFactory.MakeHourWindow(m.ActiveStart, m.ActiveEnd) };
+                SetDutyGate(duty, stats, agent, m.FeedHungerBelow);
+
+                var eat = BuildAffectItemsAction($"csffmfw_{m.SpeciesId}_feed_0_eat",
+                    m.BaitTags, m.BaitCards, inTrapContainers: true, m);
+                if (eat != null)
+                {
+                    duty.ActionSequence = new NPCDutyAction[] { eat };
+                    refs.Add(NewDutyRef(duty, m.FeedDutyWeight));
+                }
+                else
+                    Log.Warn($"Animals: {m.SourceFile}: feed duty could not be compiled — species will not take bait");
+            }
+        }
+
+        // --- night-attack duty (Encounter.Aggression) -----------------------------------
+        // GENERATED via StartEncounterDutyAction — never a cloned vanilla attack duty (those
+        // fire a hardwired encounter, research §5.1 / M5 spike Q3).
+        if (m.AggressionEnabled && encounter != null)
+        {
+            var uid = AnimalUid.For(m.SpeciesId, AnimalUid.PartDutyAttack);
+            var duty = NewDuty(uid, $"csffmfw_{m.SpeciesId}_attack", "Attacking", m);
+            if (duty != null)
+            {
+                if (m.HasAggressionHours)
+                    duty.ValidTimesOfDay = new[] { AnimalAssetFactory.MakeHourWindow(m.AggressionStart, m.AggressionEnd) };
+                duty.MaxPerformPerDay = m.AggressionMaxPerDay;
+                SetDutyGate(duty, stats);
+
+                var start = NewAction<StartEncounterDutyAction>($"csffmfw_{m.SpeciesId}_attack_0_encounter");
+                start.DroppedEncounter = encounter;
+                start.SkipEncounterEvent = false;
+                start.CanStartFromDifferentLocation = !m.AggressionRequirePlayerInEnv;
+                duty.ActionSequence = new NPCDutyAction[] { start };
+
+                refs.Add(NewDutyRef(duty, m.AggressionBaseWeight));
+            }
+        }
+        else if (m.AggressionEnabled)
+        {
+            Log.Warn($"Animals: {m.SourceFile}: Encounter.Aggression.Enabled but no Encounter could be resolved — attack duty skipped");
         }
 
         // --- CustomDuties DSL ------------------------------------------------------------
@@ -251,7 +306,7 @@ internal static class DutyBuilder
                     ? MoveDutyAction.MovementTypes.Teleport
                     : MoveDutyAction.MovementTypes.Pathfind;
                 move.MoveAwayFromDestination = a.AwayFrom;
-                move.LeaveTracks = a.LeaveTracks;
+                move.LeaveTracks = TrackBuilder.LeaveTracksOnCustomMove(m, a.LeaveTracks);
                 move.DestinationSelection = a.Selection switch
                 {
                     "Furthest" => MoveDutyAction.TargetEnvSelectionOptions.Furthest,
@@ -311,10 +366,140 @@ internal static class DutyBuilder
                 start.CanStartFromDifferentLocation = !a.RequirePlayerEnv;
                 return start;
             }
+            case "AffectItems":
+                return BuildAffectItemsAction(soName + "_affect", a.ItemTags, a.ItemCards, a.InTrapContainers, m);
             default:
                 Log.Warn($"Animals: {m.SourceFile}: duty action type '{a.Type}' unsupported in this milestone — action skipped");
                 return null;
         }
+    }
+
+    // -------------------------------------------------------------- AffectItems (M4) ---
+
+    private static FieldInfo _affectTypeField;
+    private static FieldInfo _itemModificationField;
+    private static FieldInfo _simpleDurationField;
+    private static FieldInfo _searchPriorityField;
+    private static FieldInfo _ownershipPriorityField;
+    private static FieldInfo _dutyPriorityField;
+    private static FieldInfo _containersField;
+    private static FieldInfo _canUsePlayerHandField;
+    private static FieldInfo _selectionTagsField;
+    private static FieldInfo _invertPreferenceField;
+
+    /// <summary>Compiles an <c>AffectItems</c> DSL action into a real
+    /// <see cref="AffectItemsDutyAction"/>. Almost every field on that class and on its
+    /// <c>NPCItemSelectionSettings</c> is a private <c>[SerializeField]</c>, so this is reflection
+    /// throughout — the same CreateInstance-plus-reflection approach the rest of this builder uses
+    /// for vanilla's non-JSON-authorable duty actions.
+    ///
+    /// <para>v1 emits the <c>SimpleCardChange</c> + <c>CardModifications.Destroy</c> shape only.
+    /// That is deliberate and is the whole trap mechanism: <c>AffectItemsDutyAction</c>'s
+    /// SimpleCardChange path builds a throwaway "Consume" <c>CardAction</c> carrying ONLY
+    /// <c>ReceivingCardChanges</c> (<c>AffectItemsDutyAction.GenerateSimpleAction</c>), destroying
+    /// the bait, which routes through <c>GameManager.RemoveCard</c> → the trap's
+    /// <c>RemoveItemFromInventory</c> OnInteractAction.</para>
+    ///
+    /// <para><b>Known limit, deliberately not worked around:</b> because that generated action
+    /// carries no <c>StatModifications</c>/<c>NPCStatModifications</c>, this path has NO hook to
+    /// write the eater's satiation. Feeding therefore consumes bait but does not currently reset
+    /// AgentSatiation — see the deferred design decision in the M4 plan. Inventing a satiation
+    /// write here would mean a second stat owner racing
+    /// <see cref="AnimalLifecycleTicker"/>, which the generator invariants forbid.</para></summary>
+    private static NPCDutyAction BuildAffectItemsAction(string soName, List<string> itemTags, List<string> itemCards,
+        bool inTrapContainers, AnimalManifest m)
+    {
+        var pool = new List<CardOrTagQuantity>();
+        foreach (var tagName in itemTags)
+        {
+            if (Database.GetTypedSO(typeof(CardTag), tagName) is CardTag tag)
+                pool.Add(new CardOrTagQuantity(tag));
+            else
+                Log.Warn($"Animals: {m.SourceFile}: AffectItems ItemTag '{tagName}' not found — omitted from the item pool");
+        }
+        foreach (var cardUid in itemCards)
+        {
+            var card = GameRegistry.GetByUid<CardData>(cardUid);
+            if (card != null)
+                pool.Add(new CardOrTagQuantity(card));
+            else
+                Log.Warn($"Animals: {m.SourceFile}: AffectItems ItemCard '{cardUid}' not found — omitted from the item pool");
+        }
+
+        // Default bait pool = whatever the vanilla traps themselves accept. Keeps "what the
+        // animal eats" and "what the player can bait a trap with" the same set by construction;
+        // see TrapIntegrator.VanillaBaitTags for why this is derived and never authored.
+        if (pool.Count == 0 && inTrapContainers)
+        {
+            var derived = TrapIntegrator.VanillaBaitTags();
+            foreach (var tag in derived) pool.Add(new CardOrTagQuantity(tag));
+            if (derived.Length > 0)
+                Log.Debug($"Animals: {m.SpeciesId}: bait pool defaulted to the {derived.Length} tag(s) the vanilla traps accept: "
+                        + string.Join(", ", derived.Select(t => t.name)));
+        }
+
+        if (pool.Count == 0)
+        {
+            Log.Warn($"Animals: {m.SourceFile}: AffectItems action has an empty item pool — action skipped");
+            return null;
+        }
+
+        var action = NewAction<AffectItemsDutyAction>(soName);
+
+        _affectTypeField ??= AccessTools.Field(typeof(AffectItemsDutyAction), "AffectType");
+        _itemModificationField ??= AccessTools.Field(typeof(AffectItemsDutyAction), "ItemModification");
+        _simpleDurationField ??= AccessTools.Field(typeof(AffectItemsDutyAction), "SimpleAffectDuration");
+        if (_affectTypeField == null || _itemModificationField == null)
+        {
+            Log.Error("Animals: AffectItemsDutyAction.AffectType/ItemModification not found — feed/bait actions unavailable");
+            return null;
+        }
+
+        // AffectTypes is a PRIVATE nested enum; 0 == SimpleCardChange.
+        _affectTypeField.SetValue(action, Enum.ToObject(_affectTypeField.FieldType, 0));
+        _itemModificationField.SetValue(action, new CardStateChange { ModType = CardModifications.Destroy });
+        _simpleDurationField?.SetValue(action, 0);
+
+        var selection = new NPCItemSelectionSettings { ItemPool = pool, DebugItemSelection = false };
+
+        _searchPriorityField ??= AccessTools.Field(typeof(NPCItemSelectionSettings), "SearchPriority");
+        _ownershipPriorityField ??= AccessTools.Field(typeof(NPCItemSelectionSettings), "OwnershipPriority");
+        _dutyPriorityField ??= AccessTools.Field(typeof(NPCItemSelectionSettings), "DutyPriority");
+        _containersField ??= AccessTools.Field(typeof(NPCItemSelectionSettings), "Containers");
+        _canUsePlayerHandField ??= AccessTools.Field(typeof(NPCItemSelectionSettings), "CanUsePlayerHand");
+        _selectionTagsField ??= AccessTools.Field(typeof(NPCItemSelectionSettings), "SelectionTags");
+        _invertPreferenceField ??= AccessTools.Field(typeof(NPCItemSelectionSettings), "InvertPreference");
+
+        // OnlyEnvironment (3): a wild animal eats what is lying in the world, never out of its own
+        // inventory — and bait sits in a trap on the board.
+        _searchPriorityField?.SetValue(selection, Enum.ToObject(_searchPriorityField.FieldType, 3));
+        _ownershipPriorityField?.SetValue(selection, Enum.ToObject(_ownershipPriorityField.FieldType, 0)); // IgnoreOwnership
+        _dutyPriorityField?.SetValue(selection, Enum.ToObject(_dutyPriorityField.FieldType, 0));           // IgnoreDuty
+        _canUsePlayerHandField?.SetValue(selection, false);
+        _selectionTagsField?.SetValue(selection, Array.Empty<ItemSelectionTag>());
+        _invertPreferenceField?.SetValue(selection, false);
+
+        var containers = new LookInContainersSettings(_CanLook: true)
+        {
+            AllowedContainers = new List<CardOrTagRef>(),
+            NOTAllowedContainers = new List<CardOrTagRef>(),
+        };
+        if (inTrapContainers)
+        {
+            // Derived live off the vanilla trap cards — never a hardcoded (and version-unstable)
+            // obfuscated tag name. See TrapIntegrator.TrapContainerTags.
+            var trapTags = TrapIntegrator.TrapContainerTags();
+            foreach (var tag in trapTags)
+                containers.AllowedContainers.Add(new CardOrTagRef { Target = tag });
+            if (trapTags.Length == 0)
+                Log.Warn($"Animals: {m.SourceFile}: no trap-container tag available — the feed duty will not reach bait inside traps");
+        }
+        _containersField?.SetValue(selection, containers);
+
+        action.ItemSelection = selection;
+        Log.Debug($"Animals: {m.SpeciesId}: AffectItems action '{soName}' — pool {pool.Count} entr(y/ies), "
+                + $"{containers.AllowedContainers.Count} allowed container tag(s), Destroy");
+        return action;
     }
 
     /// <summary>Gates duty *selection* on the species being alive and on-stage: exists in
@@ -322,8 +507,38 @@ internal static class DutyBuilder
     /// retired agent's duties simply stop being selected — the exact fix that ended the owl's
     /// "dies repeatedly after respawning at Duck Point" loop.</summary>
     private static void SetDutyGate(NPCDuty duty, SpeciesStats stats)
+        => SetDutyGate(duty, stats, null, null);
+
+    /// <summary>As above, plus an optional "only when hungry" gate for the generated feed duty.
+    /// The satiation condition is added ONLY when the agent actually carries the vanilla
+    /// AgentSatiation stat — a condition on a stat an agent does not own is a permanent false,
+    /// which would silently make the feed duty unselectable (and on the Ref path, where the author
+    /// wires their own stat set, that is the common case).</summary>
+    private static void SetDutyGate(NPCDuty duty, SpeciesStats stats, NPCAgent agent, double? satiationBelow)
     {
         var conditions = new List<NPCStatCondition>();
+
+        if (agent != null && satiationBelow is { } threshold)
+        {
+            var satiation = Database.GetTypedSO(typeof(NPCStat), "AgentSatiation") as NPCStat;
+            bool agentHasIt = satiation != null
+                && (agent.AgentStats ?? Array.Empty<NPCStatInstance>()).Any(i => i.ModelStat == satiation);
+            if (agentHasIt)
+                conditions.Add(new NPCStatCondition
+                {
+                    UseAssociatedAgent = true,
+                    TargetStat = satiation,
+                    ConditionRange = new Vector2(0f, (float)threshold),
+                });
+            else
+                // Warn, not Debug: an ungated feed duty means an ALWAYS-hungry animal that raids
+                // every reachable container every time the duty is selected. BepInEx suppresses
+                // Debug by default, so this would otherwise be invisible.
+                Log.Warn($"Animals: '{agent.name}' carries no AgentSatiation stat — its feed duty runs UNGATED by hunger "
+                       + "(the animal will raid bait whenever the duty is selected). Add AgentSatiation to the agent, or "
+                       + "omit Traps.Bait.WhenSatiationBelow to make this explicit.");
+        }
+
         if (stats?.Exists != null)
             conditions.Add(new NPCStatCondition
             {

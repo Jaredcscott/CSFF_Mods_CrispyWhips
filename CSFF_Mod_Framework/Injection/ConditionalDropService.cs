@@ -127,9 +127,14 @@ internal static class ConditionalDropService
     internal static void OnEnvArrival(string envUID)
     {
         if (string.IsNullOrEmpty(envUID)) return;
-        if (!_dropsByEnv.ContainsKey(envUID)) return;
+        if (!_dropsByEnv.ContainsKey(envUID))
+        {
+            Log.Debug($"ConditionalDropService: OnEnvArrival('{envUID}') — no registered drops for this env (known: {string.Join(",", _dropsByEnv.Keys)})");
+            return;
+        }
 
         bool firstVisit = _visitedEnvs.Add(envUID);  // returns true on first insert
+        Log.Debug($"ConditionalDropService: OnEnvArrival('{envUID}') firstVisit={firstVisit} — evaluating {_dropsByEnv[envUID].Count} drop(s)");
         EvaluateEnv(envUID, firstVisit);
     }
 
@@ -171,6 +176,7 @@ internal static class ConditionalDropService
     private static void SpawnIfNeeded(ConditionalDropDefinition drop, CardData card)
     {
         int count = CountOnBoard(drop.UID);
+        Log.Debug($"ConditionalDropService: SpawnIfNeeded('{drop.UID}') count={count} max={drop.MaxOnBoard}");
         if (count >= drop.MaxOnBoard) return;
 
         for (int n = count; n < drop.MaxOnBoard; n++)

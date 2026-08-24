@@ -14,7 +14,17 @@ namespace CSFFModFramework.Animals;
 ///
 /// <para>Milestone status: M1 — schema loader/validator, minimal Hag-style lifecycle
 /// (appear at home env during active hours / park in Spirit World otherwise), spawn
-/// registration via <see cref="SpawnRegistrar"/>, Approach-button encounter smoke test.</para>
+/// registration via <see cref="SpawnRegistrar"/>, Approach-button encounter smoke test.
+/// M2 — generated duties (<see cref="DutyBuilder"/>) + lifecycle timers
+/// (<see cref="AnimalLifecycleTicker"/>). M3 — discoverable tracks
+/// (<see cref="TrackBuilder"/>), applied inside <see cref="AnimalAssetFactory.BuildAgent"/>
+/// alongside the duty build because it needs the same resolved species-stat context; this class
+/// resets its per-load counter and reports the total. M5 — generated Encounters + the Aggression
+/// attack duty (<see cref="EncounterBuilder"/>), resolved inside
+/// <see cref="AnimalAssetFactory.BuildAgent"/> before duty/interaction wiring so both the Approach
+/// button and the attack duty can target it. M6 — Interactions/Tame
+/// (<see cref="TameInteractionBuilder"/>) and the post-tame companion service
+/// (<see cref="CompanionService"/>), both reset+re-armed on every load the same way.</para>
 /// </summary>
 internal static class AnimalService
 {
@@ -33,6 +43,11 @@ internal static class AnimalService
 
         _species.Clear();
         AnimalLifecycleTicker.Clear();
+        TrackBuilder.Reset();
+        TrapIntegrator.Reset();
+        EncounterBuilder.Reset();
+        TameInteractionBuilder.Reset();
+        CompanionService.Reset();
         var result = AnimalLoader.LoadAll(mods);
 
         foreach (var manifest in result.Accepted)
@@ -50,7 +65,12 @@ internal static class AnimalService
         if (_species.Count == 0 && result.Rejected == 0) return;
 
         Log.Info($"Animals: {_species.Count} species loaded from {result.Mods.Count} mod(s)"
-               + (result.Rejected > 0 ? $", {result.Rejected} rejected (see errors above)" : ""));
+               + (result.Rejected > 0 ? $", {result.Rejected} rejected (see errors above)" : "")
+               + (TrackBuilder.AppliedCount > 0 ? $", {TrackBuilder.AppliedCount} leaving discoverable tracks" : "")
+               + (TrapIntegrator.AppliedCount > 0 ? $", {TrapIntegrator.AppliedCount} catchable by vanilla traps" : "")
+               + (EncounterBuilder.AppliedCount > 0 ? $", {EncounterBuilder.AppliedCount} generated encounter(s)" : "")
+               + (TameInteractionBuilder.AppliedCount > 0 ? $", {TameInteractionBuilder.AppliedCount} tame/attempt interaction(s)" : "")
+               + (CompanionService.AppliedCount > 0 ? $", {CompanionService.AppliedCount} companion link(s) armed" : ""));
 
         if (_species.Count > 0) SubscribeRunStartCheck();
     }

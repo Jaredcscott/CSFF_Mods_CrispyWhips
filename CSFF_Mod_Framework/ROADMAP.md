@@ -1,117 +1,111 @@
 # Roadmap: CSFF Mod Framework
-Version at time of writing: 2.22.1
-Date: 2026-08-12
-Audit score: 9/10 — PASS (0 CRITICAL, 0 DESIGN GAP, 1 WARNING — documentation-only; consolidated 2026-08-12)
+Version at time of writing: 2.25.3
+Date: 2026-08-23
+Audit score: 10/10 (release-ready) — consolidated 2026-08-23, critical-analysis SOLID, code-quality 9/10 standalone (1 new low-severity finding, below canonical score threshold)
 
 ## Current State
 
-**Theme**: The engine layer for every in-house CSFF mod — mod discovery, JSON/data loading, WarpData resolution (incl. nested arrays and non-UID SO bodies), sprite/audio/GIF/localization loading, and a large family of declarative injectors (blueprint tabs, perks, `NPCCharacterPerk`, smelting, drops, environment improvements, trading values, WorldMap nodes + connection gates, Portal Hub, STAs, NPC agents). Content mods only write C# for genuinely mod-specific logic.
+**Theme**: The single standalone engine every in-house CSFF mod depends on — mod discovery, JSON data loading, WarpData resolution, sprite/audio/GIF loading, localization, and a large family of declarative injectors (blueprint tabs, perks, smelting/drop/improvement/trading-value injection, WorldMap nodes, the cross-mod Portal Hub, the declarative Animal Modding System) plus Tier 1/2/3 `Api.*` helper surfaces. Mods only write C# for mod-specific logic.
 
-**Content** (the framework's own minimal built-in demo set): 1 item (Portal Kit `csffmfw_portal_kit`, CT0) / 1 blueprint (`Bp_PortalKit`, CT7) / 2 placed structures (Portal Hub `csffmfwportalplaced` CT2 + exit card `csffmfw_hub_exit`) / 1 perk (Arcane Wayfinder `csffmfw_perk_wayfinder`) / 2 custom images (`Portal_Kit`, `Portal_Placed`). Deliberately tiny — the framework is engine code (~132 `.cs` files), not content. Every card has custom art; no art gaps.
+**Content**: 1 item / 1 blueprint / 2 structures / 1 perk / 2 custom images — the bundled Portal Hub kit (`CardData/Hub/`). This is engine-support content, not a content mod; the framework's real "surface" is its injectors and `Api.*` classes.
 
-**Stability**: 9/10 — PASS. Zero open CRITICAL, zero design gaps, acquisition coverage clean (0 unreachable / 0 dead-end). Build clean (0 errors / 0 warnings), versions synced **2.22.1×3**, bin/Release sync 0 drift, localization CLEAN including Chinese parity (13/13 EN + 13/13 CN). Code-quality 10/10 (re-run 2026-08-12) and critical-analysis **SOLID (re-run 2026-08-12 against v2.22.1)**. The single point off is verification/documentation debt (see Open work), not correctness debt — the framework is exportable. The one open WARNING is developer-doc honesty (README Game Version line), not a functional defect.
+**Since 2.23.2**: the Animal Modding System (M3–M6) shipped and passed its own critical-analysis (2026-08-19); `SealableGateService` gained the v2.25.3 MultiHit durability-epsilon fix (confirmed in-game 2026-08-22, fleet-wide fix for ACT/CMC softlocked gates) plus a NEW 1-second poll-driven self-healing backstop (reviewed 2026-08-23, SOLID — one low-severity D4 finding: `FindCardOnPlayerBoard` is a first-match resolver, not urgent given today's singleton-in-practice usage); `TrapIntegrator` gained a small `NOT_USED_` orphaned-vanilla-card exclusion.
 
-**Open work**:
-- **M6 (verify the v2.22.1 connection-gate fix, actionable — adversarial DONE, in-game pending)** — v2.22.1 (committed 2026-08-12) added `CardUtil.EnvKeyMatchesUid` and routed `IsImprovementBuilt`/`MarkImprovementBuilt`/`SealableGateService.IsTargetEnvEntry` through it, fixing the names-annotated `DictionaryKey` mismatch that left a hand-built River Bridge from unlocking the CMC River Clearing → Village Path connection and made SealableGates marker *reads* miss save-loaded entries (memory `reference_envdictkey_names_annotated_matching`). code-quality re-ran clean 2026-08-12 **and `/critical-analysis` re-ran 2026-08-12 against v2.22.1, confirming the delta SOLID / additive-only (cannot regress).** Remaining: **in-game** verify the River Bridge East unlock and a dug-open-then-reload SealableGate marker read — the one change with no in-game pass.
-- **W1 (README "Game Version" line stale again, actionable)** — `README.md:8` reads `EA 0.66d`; the repo advanced the game-data target to **EA 0.66f** on 2026-08-12 (`VanillaIds.json` `EA_0-66d`→`EA_0-66f`, commit `8201b449d` — the same v2.22.1 commit that touched README). Per CLAUDE.md §Docs-Honesty, a commit changing a compat claim should update the claim in the same commit. Developer-doc honesty only; zero runtime/player impact.
-- **M3 (README In-House Mods table, actionable)** — all 9 sibling versions stale (e.g. CMC shown `1.10.1`, actual ~`1.46.x`; Repeat Action `1.6.2`, actual `2.0.1`; MUM `2.1.2`, actual `2.1.16`). Informational cross-reference only. Bundle with W1.
-- **M7 (developer game-data path stale, actionable)** — `README.md:157-158` hardcode `Documentation/GameData/CSFF-JsonData_EA_0-65/`; CLAUDE.md §Key File Locations mandates the stable `CSFF-JsonData_Current/` alias. Bundle with W1.
-- **In-game EA 0.66 verification (unrecorded)** — the framework builds clean against the real EA 0.66 assembly, but Harmony patch-apply verification at game launch is not yet captured in any log artifact. (EA is at 0.66f per memory `project_game_version` — fold the launch check into the next play session.)
-- (RESOLVED / dropped) **W (Hub card WarpData compliance)** — **false positive**; re-verified 2026-08-12 that `csffmfw_portal_kit.json:16` and `csffmfwportalplaced.json:16` (and `Bp_PortalKit.json:92`) all carry `CardImageWarpType: 3`. No longer a Phase 1 item. **Chinese `SimpCn.csv`** — 13/13, parity CLEAN.
-- (Y) `questinjector-blueprint-reset-risk` — CMC 1.7.0 blueprint-research reset; root cause undiagnosed. Mitigated: `QuestInjector` hard-gated OFF by default (`EnableQuestInjection=false`). Not release-blocking, but blocks every quest-chain idea mod.
-- (Y) `RETRO_CLOSURE_PLAN_2026-07-23` — plan to field-exercise `SealableGates.ResealCondition` + `CharacterRosterInjector` never resumed; disposable harness fixtures deleted 2026-07-27.
-- **Shipped-but-unexercised injection paths** — `SealableGates.ResealCondition` (first CMC consumer landed via village winter snow-drift 1.35.0, unplaytested), `CharacterRosterInjector` (no consumer), `NPCCharacterPerk` loading (new 2.20.0, no consumer).
+**Stability**: 10/10 — 0 CRITICAL, 0 DESIGN GAP. `critical-analysis` re-ran 2026-08-23 (SOLID, full diff review since 08-19). `code-quality` re-ran 2026-08-23 covering the Animal System + the SealableGateService/TrapIntegrator delta (closing a coverage gap open since 08-13) — 1 new low-severity Warning (M8, see Phase 1). Build clean (0/0), versions synced 2.25.3×3, EN 13/13 + Chinese parity CLEAN, bin/Release 0 drift.
 
-**Framework compliance**: N/A in the usual sense — this **is** the framework. It *provides* Tier 1 (`Api.Reflect`/`Collections`/`Inventory`/`Gate`/`VanillaIds`/`CardUtil`/`GameQuery`), Tier 2 (`Api.ActionRouter`/`SpawnService`/`TickEvents`/`EncounterGuards`/`ContentModPlugin`), and Tier 3 (`Api.CardFinder`/`StatAccess`/`RecipeInjector`/`ContainerSort`/`BlueprintAlternates`). Code-quality is 10/10: no `DropCollectionGuardPatch`, no unfiltered hot-path prefixes, no `ModLoaderVerison`/`ModEditorVersion`, all normalizers mod-prefix-filtered, `GameManager` resolution routed through `ReflectionCache.FindTypeInAssemblyCSharp`.
+**Open work**: Two 🟡 framework retrospectives — `questinjector-blueprint-reset-risk` (QuestInjector hard-gated OFF since 2.17.0 after the CMC 1.7.0 blueprint-reset; root cause never diagnosed) and `RETRO_CLOSURE_PLAN_2026-07-23` (3 shipped-but-never-exercised paths; Phase 0 reverted as a safety cleanup 2026-07-27). Both self-disclosed and mitigated — nothing armed, no live risk.
+
+**Framework compliance**: This mod DEFINES the Tier 1/2/3 API surface (`Api.Reflect`, `Api.ActionRouter`, `Api.SpawnService`, `Api.TickEvents`, `Api.EncounterGuards`, `Api.CardFinder`, `Api.StatAccess`, `Api.RecipeInjector`, `Api.BlueprintAlternates`, etc.). All are honestly documented; the one unused API (`Api.ContainerSort`) is disclosed as unused rather than overclaimed.
 
 ---
 
-## Phase 0: Stabilize  *(SKIP — audit score 9/10 ≥ 8, and both open retros are yellow/Open Plan, not red)*
+## Phase 0: Stabilize  *(skipped — audit score 10/10, no framework-blocking open retrospectives)*
 
-Nothing release-blocking. The framework is exportable at 9/10. The one item worth doing before advertising the v2.22.1 gate fix further is the M6 **in-game** verification (a single playtest — the adversarial `/critical-analysis` half is already done), which lands in Phase 1.
+No CRITICAL issues and no armed risk. The two open framework retrospectives are verification-debt / gated-OFF, not stability blockers. Nothing to stabilize before new work lands.
 
 ---
 
-## Phase 1: Foundation
+## Phase 1: Foundation — close the verification debt
 
-> Table-stakes hygiene + the one just-landed change that needs an in-game pass. All low-cost, all reduce future verification/documentation debt.
+> The single most valuable open action. Version/localization hygiene is already green; the gap is *in-game exercise* of five shipped, code-reviewed, adversarially-confirmed fixes that no human has yet played.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| **W1 + M3 + M7 — one README doc pass** — Game Version → EA 0.66f (with the 7/9 NStrip-staleness caveat); refresh the In-House Mods sibling-version table (all 9 stale); swap the hardcoded game-data path (README.md:157-158) to the `CSFF-JsonData_Current/` alias | Docs hygiene / honesty | P1 | Quick |
-| **M6** — in-game verify the CMC River Bridge → Village Path unlock and a dug-open-then-reload SealableGate marker read (the adversarial `/critical-analysis` re-run is DONE 2026-08-12, SOLID) | Runtime verify | P1 | Quick–Medium |
-| In-game EA-version verification — launch, check `LogOutput.log`/`Player.log` for `HarmonyLib` patch-apply exceptions / `MissingMethodException` during `Awake`; confirm the normal ~10–15 Info-line summary (EA at 0.66f) | Runtime verify | P1 | Quick |
-| **M2** — add `NoSafetyMode` to `csffmfw_perk_wayfinder.json` (cosmetic — do next time the file is touched) | Polish | P2 | Quick |
-| **M1** — optional: `/repair-items` to add 11 boilerplate fields to Portal Kit (no runtime impact) | Polish | P3 | Quick |
+| In-game verify CardPresence gate-wide reseal (v2.23.2) — dig open a portal-path gate, cross, reload → no softlock, gate stays open | Verification | P1 | Medium |
+| In-game verify `SetBlueprintStage` connection-gate hook (v2.23.0) — build CMC River Bridge → East travel to Village Path unlocks (closes the 🔴 river-bridge retro's stated root cause) | Verification | P1 | Medium |
+| In-game verify `EnvKeyMatchesUid` post-leave env-key match (v2.22.1) — River Bridge unlock + dug-open-then-reload SealableGate marker read | Verification | P1 | Medium |
+| In-game verify `RebuildPathfindingLookup` (v2.23.1) — path across a freshly-injected clone node uses fresh edges, not stale `MapDict` | Verification | P1 | Medium |
+| In-game verify outdoor-trigger gate (v2.22.2) — a wild-animal outdoor trigger no longer fires in a cave/interior and still fires outdoors | Verification | P1 | Quick |
+| In-game verify the new `SealableGateService` MultiHit poll backstop (v2.25.3) — a gate left at near-zero durability with no further player action should open within ~1s and log `cleared (poll)` | Verification | P1 | Quick |
+| Add an export-gate check greppping README Game Version against `CURRENT_VERSION.txt` so the doc doesn't drift stale on the next game-data bump | Tooling | P2 | Quick |
+| M8 (code-quality, 2026-08-23): harden `SealableGateService.FindCardOnPlayerBoard` to reconcile ALL matching instances, not just the first, if a MultiHit challenge-card UID is ever duplicated | Robustness | P3 | Quick — not urgent, no reproduced bug |
 
-> **Resolved since the 2026-08-11 roadmap** (no longer Phase 1 items): **W (Hub `CardImageWarpType: 3`** — confirmed already present, false positive); **W2 (README Game Version → EA 0.66d, fixed 2026-08-11 — but see W1: stale again at 0.66f)**; Chinese `SimpCn.csv` (13/13, parity CLEAN); bin/Release deploy hygiene (0 drift); D16 (`WaitForSeconds` → `WaitForSecondsRealtime`), D17 breadcrumb pass, A4 (`GameManager` resolution), G4 (CardUtil catches) — all landed in earlier fix passes.
+All six verification items can be batched into one play session; sequence them via `/playthrough-test-plan`.
 
 ---
 
-## Phase 2: Core Expansion
+## Phase 2: Core Expansion — activate the loaded-but-dormant types
 
-> Engine features that unblock the most downstream mods. The framework's "content" is its API surface.
+> The framework loads and registers several ScriptableObject types (since 2.1.0) that have no activation/injection surface yet. These are the highest-leverage engine additions because each unblocks a named downstream/idea mod.
 
-### Activate the loaded-but-dormant SO types
-**What**: thin injectors for `FlavourTag`, `CookingRecipeGroup`, `BookmarkGroup`, `ConstructionCardGroup`, `GameModifierPackage` — all load+register since 2.1.0 but have no activation/injection surface.
-**Why**: FlavourTag = trivial SpiceTag parity (2-field schema); `ConstructionCardGroup` (12 vanilla instances) has a named consumer (DecorationAndComfort idea mod); `CookingRecipeGroup` lets station mods register in the cooking UI properly. Closes the gap-audit Phase 1 tail.
-**Requires**: none (mirror `PerkInjector`/`BlueprintInjector`).
-**Complexity**: Medium (per type; FlavourTag is Quick).
+### FlavourTag / CookingRecipeGroup / BookmarkGroup thin injectors
+**What**: thin injectors mirroring `PerkInjector`/`BlueprintInjector` for the small dormant types. `FlavourTag` is near-trivial (SpiceTag parity, 2-field schema).
+**Why**: they load + register but never inject — dead capacity today. `CookingRecipeGroup` unblocks CookingExpanded / DairyWorkshop / Brewery idea mods.
+**Requires**: none.
+**Complexity**: Medium (FlavourTag Quick).
 
-### First consumer + cookbook doc for `NPCCharacterPerk` (shipped 2.20.0)
-**What**: land CMC Village Guards as the acceptance proof (`NPCCharacterPerk/*.json`), then add a `CSFF_Patterns.md` "Adding a Shared-Chassis NPC Variant" cookbook entry.
-**Why**: 2.20.0 shipped the loader but no mod exercises it — a fresh shipped-but-unexercised path. The engine is only proven when a real consumer ships + playtests.
-**Requires**: CMC Village Guards build (master plan section 10.8).
+### ConstructionCardGroup injector
+**What**: an injector for the 12 vanilla `ConstructionCardGroup` instances (loaded since 2.1.0, never activated).
+**Why**: the only currently-loaded type with zero activation surface AND a named consumer (DecorationAndComfort idea mod's door/wall/room variants).
+**Requires**: none.
 **Complexity**: Medium.
 
-### Author-facing schema docs for the shipped Animal subsystem (`Animals/*.json`, v1)
-**What**: `CSFF_Patterns.md` cookbook entry — the code is done (`AnimalService`/`AnimalLoader`/`DutyBuilder`/lifecycle ticker) but has zero authoring guide, so it's unreachable by external authors. (Concrete engine-side next milestone is Animal M4 feed duty — see `Documentation/Plans/CSFFModFramework/Animal_System_Completion_Plan.md`.)
-**Why**: highest-value docs gap — a fully-shipped subsystem no one outside the repo can use.
+### GameModifierPackage standalone activation (`Modifiers.json`)
+**What**: a way to apply a difficulty/challenge package without needing a full `PlayerCharacter`.
+**Why**: loads + is reachable via `EasyPackageWarpData`, but challenge mods can't apply one standalone today.
 **Requires**: none.
 **Complexity**: Medium.
 
 ---
 
-## Phase 3: Integration & Depth
+## Phase 3: Integration & Depth — generalize shipped subsystems + the save-compat harness
 
-> Cross-mod hooks and generalizations that retire duplicated per-mod C#.
-
-### `ProcessAllService` (Grind All / Hammer All / Blast All)
-**What**: one declarative shape (or thin `Api` registration) for "process all inventory" buttons shared across ACT + WDI.
-**Why**: the centralization plan parked this until ActionRouter + Inventory + SpawnService landed — they now have, so it's unblocked.
-**Requires**: coordination with ACT + WDI versions.
-**Complexity**: Medium.
-
-### Fleet adoption of `DropInjections.json` + `TradingValues.json`
-**What**: H&F migrates ~400 LOC forage C# to `DropInjections.json` (CMC already did as the acceptance proof); each content mod ships a `TradingValues.json` price table (2.18.0; CMC table built, not yet deployed/tested).
-**Why**: both are shipped engine features with partial adoption — closing the fleet loop retires duplicated code and fixes vanilla 0-cost NPC trades.
-**Requires**: per-mod authoring passes.
-**Complexity**: Medium (per mod).
-
-### Playtest + author-time validation for connection gates (`LockConditions` 2.20.0/2.20.2; `EnvKeyMatchesUid` 2.22.1)
-**What**: playtest CMC's `cmcStatVillageCrime` banishment gate (first `LockConditions` consumer) AND the v2.22.1 River Bridge East-unlock fix; add an author-time `/audit-environments` check for a `LockConditions`+`GateConditions` pair that can never both hold. Fold in the same author-time check for the `HideTravelDA:true`+`RestoreDAOnUnlock:false` red-X compass slot (v2.17.1 catches it only at runtime).
-**Why**: the mid-run re-eval, `LockConditions`, and post-leave env-key match paths are only load-verified; catch misconfig at export instead of in a player save.
-**Requires**: none.
-**Complexity**: Medium.
-
-### Root-cause QuestInjector so its default-OFF gate can flip back on
-**What**: run the single-variable graduation test (enable → ship a quest → save → reload); if the reset recurs, the fix likely lives next to `ForeignInstanceReconciler`.
-**Why**: every quest-chain idea mod is dead behind the gate.
-**Requires**: read `questinjector-blueprint-reset-risk.md` in full first; re-author `RETRO_CLOSURE_PLAN` Phase 0 (harness deleted 2026-07-27).
+### Save-compat test harness (highest-risk gap)
+**What**: scripted save fixtures for the add → save → remove-mod → load matrix.
+**Why**: `QuestInjector` (gated OFF), `SealableGates.ResealCondition` (first CMC consumer unplaytested), `CharacterRosterInjector` (no consumer ever), `NPCCharacterPerk` loading (no consumer) all lack a completed real-world exercise. A harness is the durable way to close them — and the route to root-causing the QuestInjector blueprint-reset so its default-OFF gate can flip back on.
+**Requires**: re-author the disposable fixtures deleted 2026-07-27.
 **Complexity**: Complex.
 
+### ProcessAllService (Grind All / Hammer All / Blast All)
+**What**: one framework shape for batch-processing actions.
+**Why**: now unblocked (ActionRouter + Inventory + SpawnService all shipped); ACT + WDI are waiting consumers.
+**Requires**: none (dependencies shipped).
+**Complexity**: Medium.
+
+### Generalize WildlifeRaidService → `Api.Raid` / `Raids.json`
+**What**: keep the engine (roll, container scan, sealed exemption, dedup gate) in the framework; expose rule values declaratively.
+**Why**: fully shipped but locked to one hardcoded rule (bear → spoil `tag_NotSafeFromAnimals`).
+**Requires**: none.
+**Complexity**: Medium.
+
+### Animal M4 feed duty (`AffectItems` action)
+**What**: the next milestone of the already-shipped Animal subsystem; `AnimalValidator.cs:262` hard-rejects it today.
+**Why**: Sirus23 is the first/only animal-layer consumer and the natural driver.
+**Requires**: Animal cookbook docs (Phase 4) to be reachable by authors.
+**Complexity**: Medium. See `Documentation/Plans/CSFFModFramework/Animal_System_Plan.md` (M4).
+
 ---
 
-## Phase 4: Polish
-
-> Art, animation, text. Minimal for an engine mod.
+## Phase 4: Polish — docs + own-content completeness
 
 | Item | What | Complexity |
 |------|------|------------|
-| Portal Hub GIF | Optional idle animation on the placed CT2 active state | Medium |
-| Description pass | Spot-check the 4 Hub cards + Wayfinder perk descriptions against actual behavior after the 2.20.x/2.22.x gate changes | Quick |
-
-*No missing/placeholder art — both custom cards (`Portal_Kit`, `Portal_Placed`) ship real PNGs. Chinese localization complete (13/13).*
+| Animal subsystem cookbook | Add a `CSFF_Patterns.md` "Adding a Roaming Animal" section — code is done, but the subsystem is unreachable by external authors with no doc | Medium |
+| Injector cookbook sections | "Adding a Spirit / Trader / Location / Quest Chain / Character / Shared-Chassis NPC Variant (`NPCCharacterPerk`)" entries for the shipped NPC/Quest/Character/Map injectors | Medium |
+| Portal Kit item completeness (M1) | `/repair-items` — add the 9 omitted boilerplate fields so the framework's own gold-standard content models the completeness the audit skills enforce downstream (cosmetic, no runtime impact) | Quick |
+| Wayfinder perk completeness (M2) | `/edit-perk` — add the `NoSafetyMode` field (defaults false; non-functional today) | Quick |
+| DropInjector field cache (M4) | Cache the one uncached `AccessTools.Field` lookup (load-time only) | Quick |
+| Author-time gate-misconfig check | Fold the v2.17.1 runtime Warn (`HideTravelDA:true` + `RestoreDAOnUnlock:false`) and a `LockConditions`/`GateConditions` mutual-exclusion check into the F21–F27 WorldMap validators so they block export instead of surfacing in a player save | Medium |
 
 ---
 
@@ -119,14 +113,14 @@ Nothing release-blocking. The framework is exportable at 9/10. The one item wort
 
 > Where the framework should be at v3.0.
 
-The framework's endpoint is a **fully declarative content pipeline**: every vanilla-adjacent content type (animals, encounters, quests, characters, cooking recipes, construction groups, difficulty packages) authored purely in JSON with a matching `CSFF_Patterns.md` cookbook entry and an author-time validator, so a content-mod author never writes reflection C# for a supported type. Today ~half the injectors are shipped-but-undocumented or shipped-but-unexercised; closing that gap (docs + a save-compat test harness for the add → save → remove-mod → load matrix) is the single biggest robustness win. The generalization of one-rule subsystems (`WildlifeRaidService` → `Api.Raid`/`Raids.json`) and a save-persistent `Api.ModState` helper are the natural v3.0 additions once the current dormant-type + verification-debt backlog clears.
+At v3.0 the framework closes its "loaded-but-dormant" gap entirely — every ScriptableObject type it registers has an activation/injection surface and a `CSFF_Patterns.md` cookbook entry, so an external author can reach every subsystem (Animals, NPCs, Quests, Characters, Cooking groups, Construction groups, challenge packages) declaratively without reading framework source. The verification debt is retired by a real save-compat harness that lets `QuestInjector` graduate from hard-gated-OFF back to supported. The remaining hardcoded subsystems (`WildlifeRaidService`, the single-rule raid) become declarative (`Raids.json`), and `ProcessAllService` lands as the shared Grind/Hammer/Blast-All shape all the industry mods want.
 
 **Potential major additions** (not yet justified — revisit after Phase 3):
-- **Save-compat test harness** — scripted save fixtures so injection regressions (the QuestInjector class of bug) surface before ship, not in player saves. Highest-risk gap.
-- **`Api.ModState`** — keyed save-persistent blob for mod state the card system can't hold (NPC trust, companion morale, world-hardship toggles).
-- **Encounter activation + wiring** — Encounter loads since 2.1.0 but nothing exercises it; unblocks every spirit/hostile-encounter idea mod. Diagnostics-first.
+- `Api.ModState` save-persistent helper — a sanctioned way for mods to persist small state across save/load without the blueprint-reset risk that QuestInjector hit.
+- `CompanionService` — generalize the Sirus23 companion follow/stay pattern into a framework surface (currently open-coded per mod).
+- `ActionInjections.json` / `RecipeInjections.json` generalization + `GameSourceModify` nested-append — declarative reach for the last patterns that still require mod C#.
 
-These live in `Documentation/Ideas/CSFFModFramework/IDEAS.md` (already spec'd).
+These live in `Documentation/Ideas/CSFFModFramework/IDEAS.md` (full deferred-spec list) and the two Animal plan docs under `Documentation/Plans/CSFFModFramework/`.
 
 ---
 
@@ -134,21 +128,23 @@ These live in `Documentation/Ideas/CSFFModFramework/IDEAS.md` (already spec'd).
 
 | Trigger | Action |
 |---------|--------|
-| After any new content phase | Run `/audit-mod CSFFModFramework` and update this roadmap |
-| Game version update | Swap `lib/Assembly-CSharp.dll` for the new game binary FIRST, rebuild, diff every `[HarmonyPatch(typeof(...))]` target, run `/update-mod-version`, re-run `/diagnose-log` (the P4 lesson) |
+| After any new injector/API phase | Run `/audit-mod CSFFModFramework` and update this roadmap |
+| Game version update | Refresh `lib/Assembly-CSharp.dll` from the live game, rebuild, run `/decompile-assembly` + `/extract-latest-carddata`, re-run `/diagnose-log` (framework lib is the fleet canonical — every content mod copies from it) |
 | After fixing a critical issue | Run `/critical-analysis CSFFModFramework` to verify the fix |
-| After Phase 2 complete | Run `/export-to-repo CSFFModFramework` and bump minor version |
-| Fleet EA-version bump | Every one of the other 9 mods ships its own independently-stale `lib/Assembly-CSharp.dll` — any with compile-time `[HarmonyPatch(typeof(...))]` attributes needs the same lib-swap-and-rebuild (7 of 9 use NStrip'd libs that must be regenerated externally, not copied) |
+| After each Tier/injector addition | Add the matching `CSFF_Patterns.md` cookbook entry in the SAME commit — a shipped injector with no doc is unreachable |
+| Before re-enabling QuestInjector | Run the single-variable graduation test on a disposable save (does blueprint research survive save/reload?) per `questinjector-blueprint-reset-risk.md` — never ship it enabled without this |
 
 ---
 
 ## Skill Cheatsheet for This Mod
 
 ```
-/audit-mod CSFFModFramework         — full health check, updates .audit/
-/critical-analysis CSFFModFramework — adversarial review
-/build-mod CSFFModFramework         — build Release DLL
-/deploy-mods CSFFModFramework       — build + deploy to game (or Deploy-Mods.ps1 -CSFFMFW)
-/update-mod-version CSFFModFramework <ver> — bump version in all files
-/export-to-repo CSFFModFramework    — push to public repo
+/audit-mod CSFFModFramework          — full health check, updates .audit/
+/critical-analysis CSFFModFramework  — adversarial review
+/consolidate-audit CSFFModFramework  — merge sub-audits → summary/ideas/ROADMAP/plan
+/playthrough-test-plan               — sequence the Phase 1 in-game verification batch
+/build-mod CSFFModFramework          — build Release DLL
+/deploy-mods -CSFFMFW                — build + deploy framework to game (deploy FIRST in any batch)
+/repair-items CSFFModFramework       — auto-fix the Portal Kit boilerplate (M1)
+/export-to-repo CSFFModFramework     — push to public repo
 ```

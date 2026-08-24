@@ -240,6 +240,11 @@ internal static class ModDiscovery
 
         mod.HasAnimals =
             HasAnyFile(Path.Combine(dir, "Animals"), new[] { "*.json" }, SearchOption.TopDirectoryOnly);
+
+        mod.HasFlavourMatrix =
+            HasAnyFile(Path.Combine(dir, "FlavourMatrix"), new[] { "*.json" }, SearchOption.TopDirectoryOnly);
+
+        mod.HasModifiers = File.Exists(Path.Combine(dir, "Modifiers.json"));
     }
 
     private static bool HasGSMBulkMatch(string modDir)

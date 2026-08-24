@@ -788,6 +788,22 @@ internal static class WarpResolver
             if (resolved != null && targetType.IsInstanceOfType(resolved))
                 return resolved;
         }
+        else
+        {
+            // === Shared base-type fields that may hold a UniqueIDScriptable instance at
+            // runtime even though the DECLARED field type is a supertype the check above
+            // doesn't match — e.g. NPCDutyOrDutyTagRef.Target is declared bare
+            // `ScriptableObject` (a union of NPCDuty/NPCDutyTag), so a WarpData GUID
+            // pointing at an NPCDuty (NPCDuty : UniqueIDScriptable) previously fell
+            // straight through to the name-keyed path below and never resolved — the
+            // GUID never matches any SO's `.name`. Try the same UID resolver first: a
+            // 32-char hex GUID never collides with a real SO `.name`, so a miss here is
+            // harmless and falls through unchanged to the name-based resolution below
+            // (CardTag, ActionTag, NPCDutyTag, ...).
+            var byUid = GameRegistry.GetByUid(id);
+            if (byUid != null && targetType.IsInstanceOfType(byUid))
+                return byUid;
+        }
 
         // === For non-UniqueIDScriptable types (CardTag, ActionTag, etc.): resolve by name ===
         if (typeof(ScriptableObject).IsAssignableFrom(targetType))

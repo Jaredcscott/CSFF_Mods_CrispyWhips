@@ -5,7 +5,7 @@ public class Plugin : BaseUnityPlugin
 {
     public const string PluginGuid = "crispywhips.CSFFModFramework";
     public const string PluginName = "CSFF Mod Framework";
-    public const string PluginVersion = "2.22.2";
+    public const string PluginVersion = "2.25.4";
 
     public static Plugin Instance { get; private set; }
     internal new static ManualLogSource Logger { get; private set; }
@@ -137,6 +137,11 @@ public class Plugin : BaseUnityPlugin
         // can't leave RootAction stuck, which otherwise permanently locks the player out of
         // every action ("I can't do two things at once...") until the app is restarted.
         Patching.BugFixes.ChangeEnvironmentCrashGuard.ApplyPatch(Harmony);
+        // Same underlying vanilla bug as above, but patched at the root (AddInstancedEnv
+        // itself) instead of one caller — covers GameManager.ProduceCards and every other
+        // unguarded call site, not just ChangeEnvironment. Confirmed in the wild via a
+        // permanent action-lock while placing a Rain Cistern Kit (2026-08-14).
+        Patching.BugFixes.AddInstancedEnvCrashGuard.ApplyPatch(Harmony);
 
         // No-op — portal travel now uses game-default ChangeEnvironment behavior:
         // slot items travel with the player; floor/placed items stay at source.
@@ -178,6 +183,11 @@ public class Plugin : BaseUnityPlugin
         // every travel and counts GiveCard invocations during CheckForTracks. Used
         // to investigate the 1–2 s freeze when entering a location with fresh tracks.
         Patching.Diagnostics.TrackingTimingDiagnostics.Configure(Config, Harmony);
+
+        // Opt-in diagnostic: logs mod blueprints that BlueprintModelsScreen.FindTabFor
+        // fails to resolve, and why — used to investigate mod blueprints appearing under
+        // their own crafting-journal tab but never showing up in Search.
+        Patching.Diagnostics.BlueprintSearchDiagnostic.Configure(Config, Harmony);
 
         Util.Log.Info($"{PluginName} v{PluginVersion} loaded. ({Harmony.GetPatchedMethods().Count()} methods patched)");
     }

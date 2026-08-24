@@ -471,9 +471,13 @@ internal static class JsonDataLoader
                     steps.Add(new FieldInitStep(field, FieldInitKind.EmptyString, null));
                 // Serializable class fields (LocalizedString, etc.). Skip Unity Object types
                 // (Sprite, AudioClip) — resolved later by WarpResolver. The instance null-check
-                // is deferred to apply time.
+                // is deferred to apply time. Types with no parameterless ctor (DurabilityStat,
+                // Optional*) are excluded up front: Activator can only throw on them and the
+                // field stays null either way — the throw-per-instance version cost ~8k caught
+                // MissingMethodExceptions per load.
                 else if (ft.IsClass && ft.IsSerializable
-                         && !typeof(UnityEngine.Object).IsAssignableFrom(ft))
+                         && !typeof(UnityEngine.Object).IsAssignableFrom(ft)
+                         && Reflection.ReflectionCache.HasParameterlessCtor(ft))
                     steps.Add(new FieldInitStep(field, FieldInitKind.NewSerializable, null));
             }
             currentType = currentType.BaseType;

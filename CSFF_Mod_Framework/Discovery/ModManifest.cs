@@ -54,18 +54,20 @@ internal class ModManifest
     /// <c>InjectImprovementInto.json</c>, <c>WorldMap/MapNodes.json</c>/<c>FullMap.json</c>,
     /// <c>EncounterGuards/*.json</c>, <c>Quests.json</c>, <c>Characters.json</c>,
     /// <c>WorldMap/HubPortals.json</c>, <c>MapMod.json</c>, <c>Animals/*.json</c>,
-    /// <c>TradingValues.json</c>, or a <c>GameSourceModify/</c> patch using the framework's
-    /// bulk-match extension (<c>MatchTagWarpData</c>/<c>MatchTypeWarpData</c> — Pikachu's own
-    /// GameSourceModify only supports single-UID targeting). Some mods are exported by the
-    /// ModEditor tool with <see cref="ModLoaderVerison"/> stamped in regardless of which loader
-    /// they actually target; when one of these framework-exclusive files is present, the mod is
-    /// framework-format content mistagged as ModLoader-native. See ModDiscovery.DiscoverMods,
+    /// <c>TradingValues.json</c>, <c>FlavourMatrix/*.json</c>, <c>Modifiers.json</c>, or a
+    /// <c>GameSourceModify/</c> patch
+    /// using the framework's bulk-match extension (<c>MatchTagWarpData</c>/<c>MatchTypeWarpData</c>
+    /// — Pikachu's own GameSourceModify only supports single-UID targeting). Some mods are exported
+    /// by the ModEditor tool with <see cref="ModLoaderVerison"/> stamped in regardless of which
+    /// loader they actually target; when one of these framework-exclusive files is present, the mod
+    /// is framework-format content mistagged as ModLoader-native. See ModDiscovery.DiscoverMods,
     /// which uses this to override the ModLoaderVerison coexistence skip.
     /// </summary>
     public bool HasFrameworkOnlyMarkers =>
         HasBlueprintTabs || HasSmeltingRecipes || HasDropInjections || HasImprovementInjections ||
         HasWorldMapNodes || HasEncounterGuards || HasQuestManifest || HasCharacterManifest ||
-        HasHubPortals || HasMapMod || HasAnimals || HasTradingValues || HasGSMTagOrTypeMatch;
+        HasHubPortals || HasMapMod || HasAnimals || HasTradingValues || HasFlavourMatrix ||
+        HasModifiers || HasGSMTagOrTypeMatch;
 
     // ── Feature flags (populated by ModDiscovery after JSON parse; never deserialized) ──
     // These let LoadOrchestrator skip phases whose content isn't present in any mod.
@@ -90,6 +92,8 @@ internal class ModManifest
     [NonSerialized] public bool HasMapMod;              // MapMod.json (portal world registration)
     [NonSerialized] public bool HasAnimals;             // Animals/*.json (declarative animal species)
     [NonSerialized] public bool HasTradingValues;       // TradingValues.json (bulk CardData.TradingValue repricing)
+    [NonSerialized] public bool HasFlavourMatrix;       // FlavourMatrix/*.json (FlavourTag synergy pairs)
+    [NonSerialized] public bool HasModifiers;           // Modifiers.json (auto-apply GameModifierPackages)
 
     public static ModManifest FromJson(string json, string directoryPath)
     {

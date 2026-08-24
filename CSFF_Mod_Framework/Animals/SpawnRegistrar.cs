@@ -117,7 +117,7 @@ internal static class SpawnRegistrar
         if (appended > 0)
         {
             world.NPCAgents = entries;
-            Log.Info($"Animals: registered {appended} agent(s) in WorldSettings '{world.name}' ({entries.Length} total) — GameManager.Awake will create them");
+            Log.Debug($"Animals: registered {appended} agent(s) in WorldSettings '{world.name}' ({entries.Length} total) — GameManager.Awake will create them");
         }
     }
 }

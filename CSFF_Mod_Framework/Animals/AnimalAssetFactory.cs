@@ -26,10 +26,6 @@ namespace CSFFModFramework.Animals;
 /// </summary>
 internal static class AnimalAssetFactory
 {
-    /// <summary>Vanilla Combat_EncounterDuck — M1 smoke-test default for the Approach button
-    /// until EncounterBuilder lands in M5.</summary>
-    private const string DuckEncounterUid = "e774dab1421d04d458199c9973472c9f";
-
     private static FieldInfo _uidField;
 
     public static NPCAgent BuildAgent(AnimalManifest m)
@@ -41,6 +37,14 @@ internal static class AnimalAssetFactory
             return null;
         }
         var roostEnv = ResolveRoost(m, spiritWorld);
+
+        // M5: resolve/generate the encounter BEFORE the agent — both the Approach button and the
+        // Aggression attack duty need it. Resolving here (not inside BuildGeneratedAgent) also
+        // lets a Ref-path agent's Approach button be pointed at a GENERATED encounter: the
+        // hand-authored agent's own Interactions were fixed at WarpResolver time (which runs
+        // before AnimalService/EncounterBuilder), so only a post-resolution SO-reference
+        // overwrite here — not the stale WarpData string — can retarget it.
+        var encounter = EncounterBuilder.Resolve(m);
 
         NPCAgent agent;
         DutyBuilder.SpeciesStats stats;
@@ -60,11 +64,30 @@ internal static class AnimalAssetFactory
             if (agent == null) return null;
         }
 
-        int duties = DutyBuilder.AttachDuties(agent, m, stats, roostEnv);
+        ApplyApproachButton(agent, m, encounter);
+
+        int duties = DutyBuilder.AttachDuties(agent, m, stats, roostEnv, encounter);
         if (duties > 0)
             Log.Debug($"Animals: {m.SpeciesId}: {duties} generated dut(y/ies) on '{agent.name}'");
 
-        RegisterTicker(m, agent, stats, roostEnv);
+        // M3: same load phase as the duty build — the LeaveTracks flags DutyBuilder just stamped
+        // are inert unless the agent's DefaultTracks.Active is set here (MoveDutyAction reads
+        // NPCModel.DefaultTracks at lay time, not the action).
+        TrackBuilder.Apply(agent, m, stats);
+
+        // M4: after the duty build (the feed duty is one of those duties) and after the agent is
+        // otherwise complete — this is the phase that mutates SHARED VANILLA trap cards, so it
+        // runs last, only for species that actually opted in, and never on a species that failed
+        // to build.
+        bool trapped = TrapIntegrator.Apply(agent, m, stats);
+
+        // M6: Interactions compile onto the agent's own DragAndDropActions/DismantleActions
+        // (works on both the generated and Agent.Ref paths); CompanionService then watches
+        // for a successful roll to retire the wild agent and init the spawned companion.
+        TameInteractionBuilder.Apply(agent, m, stats, encounter);
+        CompanionService.Apply(agent, m, stats, spiritWorld);
+
+        RegisterTicker(m, agent, stats, roostEnv, trapped);
         return agent;
     }
 
@@ -135,7 +158,7 @@ internal static class AnimalAssetFactory
             Log.Warn($"Animals: {m.SourceFile}: Carcass.Card '{m.CarcassCard}' not found — death action will drop nothing");
         agent.AgentActions = LifecycleTemplateBuilder.BuildLifecycle(m, homeEnv, spiritWorld, stats, carcass);
 
-        agent.Interactions = BuildInteractions(m);
+        agent.Interactions = Array.Empty<NPCInteractionButton>();   // ApplyApproachButton populates this after BuildAgent resolves the encounter
 
         if (!Register(agent, m)) return null;
         return agent;
@@ -243,12 +266,15 @@ internal static class AnimalAssetFactory
         return env;
     }
 
-    private static void RegisterTicker(AnimalManifest m, NPCAgent agent, DutyBuilder.SpeciesStats stats, CardData roostEnv)
+    private static void RegisterTicker(AnimalManifest m, NPCAgent agent, DutyBuilder.SpeciesStats stats, CardData roostEnv,
+        bool trapped = false)
     {
         bool wantsWindow = m.HasActivityWindow;
         bool wantsKillTimer = m.DeathRespawnTicks > 0;
         bool wantsSuppression = m.SuppressWhileCardOnBoard != null;
-        if (!wantsWindow && !wantsKillTimer && !wantsSuppression) return;
+        // A trappable species needs the ticker even with no timers: it owns the leftover
+        // AgentTrapType clear, which cannot live in an agent action without racing the catch.
+        if (!wantsWindow && !wantsKillTimer && !wantsSuppression && !trapped) return;
 
         if (wantsKillTimer && (stats.Blood == null || stats.RespawnTimer == null))
         {
@@ -275,33 +301,35 @@ internal static class AnimalAssetFactory
             DeathRespawnTicks = wantsKillTimer ? m.DeathRespawnTicks : 0,
             SuppressCardUid = wantsSuppression ? m.SuppressWhileCardOnBoard : null,
             SuppressedRespawnTicks = m.SuppressedRespawnTicks,
+            // M4: non-null only for trappable species — enables the leftover-stamp clear.
+            TrapTypeStat = trapped ? Database.GetTypedSO(typeof(NPCStat), "AgentTrapType") as NPCStat : null,
         });
     }
 
-    private static NPCInteractionButton[] BuildInteractions(AnimalManifest m)
+    /// <summary>M5: adds/replaces the "Approach" (ButtonType.Encounter) interaction button,
+    /// pointed at whatever <see cref="EncounterBuilder.Resolve"/> returned (Ref, generated, or the
+    /// vanilla-duck last resort). Runs for BOTH agent paths: a generated agent starts with empty
+    /// Interactions (see BuildGeneratedAgent); a Ref-path agent's own hand-authored Encounter
+    /// button — fixed at WarpResolver time, before this runs — is REPLACED here so the manifest's
+    /// Encounter section stays authoritative, matching the Tracks/Traps Ref-path override
+    /// precedent. Any OTHER interaction button (non-Encounter) on a Ref-path agent is preserved.</summary>
+    private static void ApplyApproachButton(NPCAgent agent, AnimalManifest m, Encounter encounter)
     {
-        if (!m.ApproachButton) return Array.Empty<NPCInteractionButton>();
+        if (!m.ApproachButton || encounter == null) return;
 
-        var encounterUid = m.EncounterRef ?? DuckEncounterUid;
-        if (GameRegistry.GetByUid(encounterUid) is not Encounter encounter)
+        var button = new NPCInteractionButton
         {
-            Log.Warn($"Animals: {m.SourceFile}: encounter '{encounterUid}' not found — Approach button skipped");
-            return Array.Empty<NPCInteractionButton>();
-        }
-        if (m.EncounterRef == null)
-            Log.Warn($"Animals: {m.SourceFile}: no Encounter.Ref — Approach wired to vanilla Combat_EncounterDuck (M1 smoke test; EncounterBuilder lands in M5)");
-
-        return new[]
-        {
-            new NPCInteractionButton
-            {
-                ButtonName = new LocalizedString { ParentObjectID = "", LocalizationKey = "IGNOREKEY", DefaultText = "Approach" },
-                Conditions = EmptyCondition(),
-                ButtonType = NPCButtonOptions.Encounter,
-                DroppedEncounter = encounter,
-                SkipEncounterEvent = false,
-            },
+            ButtonName = new LocalizedString { ParentObjectID = "", LocalizationKey = "IGNOREKEY", DefaultText = "Approach" },
+            Conditions = EmptyCondition(),
+            ButtonType = NPCButtonOptions.Encounter,
+            DroppedEncounter = encounter,
+            SkipEncounterEvent = false,
         };
+
+        var kept = (agent.Interactions ?? Array.Empty<NPCInteractionButton>())
+            .Where(b => b.ButtonType != NPCButtonOptions.Encounter)
+            .ToArray();
+        agent.Interactions = kept.Append(button).ToArray();
     }
 
     // --------------------------------------------------------------- registration ---

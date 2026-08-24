@@ -321,4 +321,16 @@ internal static class ReflectionCache
             _methodCache[key] = method; // only cache successful lookups; null stays uncached so retries can succeed
         return method;
     }
+
+    /// <summary>
+    /// True if the type has a parameterless constructor (public or non-public) — i.e.
+    /// <c>Activator.CreateInstance(t, nonPublic: true)</c> can succeed. Load-time field-init
+    /// paths use this to skip types that would only throw MissingMethodException and leave
+    /// the field null anyway (game types like DurabilityStat / Optional* have ctor-with-args
+    /// only; blind Activator calls on them produced ~8k caught throws per load, 2026-08-14).
+    /// </summary>
+    public static bool HasParameterlessCtor(Type t) =>
+        t != null && t.GetConstructor(
+            BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic,
+            null, Type.EmptyTypes, null) != null;
 }

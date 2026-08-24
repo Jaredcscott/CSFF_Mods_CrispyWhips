@@ -6,6 +6,8 @@
     "LocalizationKey": "CSFFMFW_HubExit_CardName",
     "DefaultText": "Exit"
   },
+  "CardImageWarpData": "Portal_Placed",
+  "CardImageWarpType": 3,
   "UniqueOnBoard": true,
   "CanDragItemsToTravel": true,
   "DismantleActions": [

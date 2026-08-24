@@ -42,6 +42,9 @@ internal static class AnimalLifecycleTicker
         public int DeathRespawnTicks;              // 0 = kill-respawn timer disabled
         public string SuppressCardUid;             // null = suppression disabled
         public int SuppressedRespawnTicks;
+        /// <summary>M4: the vanilla AgentTrapType stat, set only for species that opted into
+        /// traps. Non-null enables the per-tick stamp clear below.</summary>
+        public NPCStat TrapTypeStat;
 
         // Per-run state (reset at OnGMInitialized)
         internal InGameNPC Npc;
@@ -93,7 +96,7 @@ internal static class AnimalLifecycleTicker
                     {
                         existsStat.SetStatValueFromEditor(0f);
                         Relocate(s);
-                        Log.Info($"Animals: {s.SpeciesId}: suppressor card on board at run start — wild spawn suppressed until it departs");
+                        Log.Debug($"Animals: {s.SpeciesId}: suppressor card on board at run start — wild spawn suppressed until it departs");
                     }
                     continue;
                 }
@@ -105,7 +108,7 @@ internal static class AnimalLifecycleTicker
                 bool active = InActiveWindow(s);
                 s.WasActiveWindow = active;
                 if (!active && Relocate(s))
-                    Log.Info($"Animals: {s.SpeciesId}: loaded outside active hours — relocated to roost");
+                    Log.Debug($"Animals: {s.SpeciesId}: loaded outside active hours — relocated to roost");
             }
             catch (Exception ex)
             {
@@ -126,6 +129,7 @@ internal static class AnimalLifecycleTicker
                 TickWindowRelocation(s);
                 TickKillRespawn(s);
                 TickSuppressedRespawn(s);
+                TickTrapTypeReset(s);
             }
             catch (Exception ex)
             {
@@ -151,7 +155,7 @@ internal static class AnimalLifecycleTicker
         if (!s.WasActiveWindow) return;
         s.WasActiveWindow = false;
         if (Relocate(s))
-            Log.Info($"Animals: {s.SpeciesId}: active window closed — relocated to roost");
+            Log.Debug($"Animals: {s.SpeciesId}: active window closed — relocated to roost");
     }
 
     private static void TickKillRespawn(SpeciesLifecycle s)
@@ -173,7 +177,7 @@ internal static class AnimalLifecycleTicker
         {
             s.WasDead = true;
             timer.SetStatValueFromEditor(0f);
-            Log.Info($"Animals: {s.SpeciesId}: blood depleted — {s.DeathRespawnTicks}-tick respawn timer started");
+            Log.Debug($"Animals: {s.SpeciesId}: blood depleted — {s.DeathRespawnTicks}-tick respawn timer started");
         }
 
         float elapsed = timer.CurrentValue + 1f;
@@ -182,13 +186,37 @@ internal static class AnimalLifecycleTicker
             HealToMax(blood);
             timer.SetStatValueFromEditor(0f);
             s.WasDead = false;
-            Log.Info($"Animals: {s.SpeciesId}: respawn timer elapsed — healed, eligible to reappear");
+            Log.Debug($"Animals: {s.SpeciesId}: respawn timer elapsed — healed, eligible to reappear");
         }
         else
         {
             timer.SetStatValueFromEditor(elapsed);
             Log.Debug($"Animals: {s.SpeciesId}: kill-respawn timer {elapsed:F0}/{s.DeathRespawnTicks}");
         }
+    }
+
+    /// <summary>M4: clears a leftover <c>AgentTrapType</c> stamp.
+    ///
+    /// <para>The stamp lands on EVERY trap spring, including one whose catch roll failed — and a
+    /// failed roll produces no catch action, so nothing clears it. Left alone it accumulates
+    /// (20 + 20 = 40), and 40 is a DIFFERENT trap's type code, so the next successful catch would
+    /// select the wrong trap's catch card entirely.</para>
+    ///
+    /// <para>This deliberately lives on the framework tick rather than in a generated
+    /// <c>Repeat</c> agent action. An agent action is eligible in the engine's pre-request
+    /// <c>CheckForActions</c> sweep on the very tick a trap springs, and would zero the stamp
+    /// before the catch action reads it — the race documented in
+    /// <see cref="TrapIntegrator"/>. The framework tick runs outside that sweep, so it cannot
+    /// race the catch; the successful-catch path clears its own stamp inline.</para></summary>
+    private static void TickTrapTypeReset(SpeciesLifecycle s)
+    {
+        if (s.TrapTypeStat == null) return;
+        if (!TryGetStat(s, s.TrapTypeStat, out var stamp)) return;
+        if (stamp.CurrentValue <= 0f) return;
+
+        Log.Debug($"Animals: {s.SpeciesId}: clearing leftover AgentTrapType stamp {stamp.CurrentValue:F0} "
+                + "(trap sprang without a successful catch)");
+        stamp.SetStatValueFromEditor(0f);
     }
 
     private static void TickSuppressedRespawn(SpeciesLifecycle s)
@@ -205,7 +233,7 @@ internal static class AnimalLifecycleTicker
             // post-tame retirement (stale cache, predicate miss). Force-retire now.
             if (exists.CurrentValue >= 1f && suppressorPresent)
             {
-                Log.Info($"Animals: {s.SpeciesId}: wild agent still exists while suppressor card is on board — force-retiring");
+                Log.Debug($"Animals: {s.SpeciesId}: wild agent still exists while suppressor card is on board — force-retiring");
                 exists.SetStatValueFromEditor(0f);
                 Relocate(s);
             }
@@ -216,7 +244,7 @@ internal static class AnimalLifecycleTicker
         if (s.SuppressedRespawnTicks <= 0) return;
 
         if (timer.CurrentValue <= 0f)
-            Log.Info($"Animals: {s.SpeciesId}: suppressor card gone — {s.SuppressedRespawnTicks}-tick respawn timer started");
+            Log.Debug($"Animals: {s.SpeciesId}: suppressor card gone — {s.SuppressedRespawnTicks}-tick respawn timer started");
 
         float elapsed = timer.CurrentValue + 1f;
         if (elapsed >= s.SuppressedRespawnTicks)
@@ -224,7 +252,7 @@ internal static class AnimalLifecycleTicker
             exists.SetStatValueFromEditor(1f);
             if (TryGetStat(s, s.Stats.Blood, out var blood)) HealToMax(blood);
             timer.SetStatValueFromEditor(0f);
-            Log.Info($"Animals: {s.SpeciesId}: suppressed-respawn timer elapsed — a fresh wild agent is eligible to appear");
+            Log.Debug($"Animals: {s.SpeciesId}: suppressed-respawn timer elapsed — a fresh wild agent is eligible to appear");
         }
         else
         {

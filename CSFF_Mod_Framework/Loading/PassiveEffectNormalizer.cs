@@ -211,11 +211,17 @@ internal static class PassiveEffectNormalizer
         if (!_initFieldsCache.TryGetValue(type, out var fields))
         {
             // Filter once and cache — keeps only fields that can ever be null-initialized.
+            // Non-array class types must also have a parameterless ctor: Activator can only
+            // throw MissingMethodException on the rest (DynamicLayoutSlot, OptionalRangeValue)
+            // and the field stays null either way.
             fields = type.GetFields(InstanceFlags)
                          .Where(f => !f.IsInitOnly && !f.IsLiteral
                                      && !f.FieldType.IsValueType
                                      && f.FieldType != typeof(string)
-                                     && !typeof(UnityEngine.Object).IsAssignableFrom(f.FieldType))
+                                     && !typeof(UnityEngine.Object).IsAssignableFrom(f.FieldType)
+                                     && (f.FieldType.IsArray
+                                         || (!f.FieldType.IsAbstract && !f.FieldType.IsInterface
+                                             && Reflection.ReflectionCache.HasParameterlessCtor(f.FieldType))))
                          .ToArray();
             _initFieldsCache[type] = fields;
         }

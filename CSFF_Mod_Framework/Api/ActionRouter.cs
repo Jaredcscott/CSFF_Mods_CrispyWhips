@@ -398,11 +398,42 @@ public static class ActionRouter
         __result = RunWrapped(__result, ws);
     }
 
+    // MoveNext is stepped manually (rather than `while (original.MoveNext()) yield return ...`)
+    // so a throw from the WRAPPED GAME'S OWN coroutine can be caught outside the yield — C#
+    // iterators cannot yield inside a try block that has a catch clause. Without this, an
+    // exception mid-action (e.g. a bad dialog/stat-mod state) propagates out of this wrapper
+    // uncaught, the same failure shape already fixed once for GameManager.ChangeEnvironment
+    // (see Patching/BugFixes/ChangeEnvironmentCrashGuard.cs): the coroutine never reaches the
+    // point where the game clears RootAction, so PerformingAction stays true forever and every
+    // later action shows "I can't do two things at once..." with no recovery short of quitting.
     private static IEnumerator RunWrapped(IEnumerator original, WrapState ws)
     {
+        bool completedCleanly = true;
         if (original != null)
-            while (original.MoveNext())
+        {
+            while (true)
+            {
+                bool moved;
+                try
+                {
+                    moved = original.MoveNext();
+                }
+                catch (Exception ex)
+                {
+                    completedCleanly = false;
+                    Log.Error($"[ActionRouter] wrapped action coroutine threw and was suppressed to prevent a "
+                        + $"permanent action-lock (\"I can't do two things at once\"). Route='{ws.Ctx?.Route}' "
+                        + $"Action='{ws.Ctx?.ActionName ?? ws.Ctx?.ActionKey}' Card='{ws.Ctx?.CardUid}'. Exception: {ex}");
+                    break;
+                }
+                if (!moved) break;
                 yield return original.Current;
+            }
+        }
+
+        // The action didn't finish normally — skip After handlers, whose contract assumes
+        // the wrapped action actually completed.
+        if (!completedCleanly) yield break;
 
         foreach (var h in ws.Handlers)
         {

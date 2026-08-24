@@ -21,12 +21,15 @@ namespace CSFFModFramework.Injection;
 ///     <see cref="ConnectionGateService.RegisterEdgeGate"/>) — this construct's job is purely
 ///     to translate JSON into the right calls and manage the challenge-card lifecycle
 ///     (seeding, clear-action detection, marker persistence).</item>
-///   <item><b>CardPresence</b> (H&amp;F's forest-trail model) — no marker. Sealed/open state is
-///     derived from which of <see cref="SealableGateDefinition.ChallengeCardUID"/> /
-///     <see cref="SealableGateDefinition.ClearedTransformInto"/> is currently present on each
-///     independently-evaluated <see cref="DirectionalGateSide"/>'s board/env-save. A native
-///     card-JSON regrowth timer (not this service) handles reseal by transforming the cleared
-///     card back — the service simply re-syncs DA/map-line state to match on every poll.</item>
+///   <item><b>CardPresence</b> (H&amp;F's forest-trail model) — no marker. Cleared state is
+///     <b>gate-wide</b>: the gate is open while the
+///     <see cref="SealableGateDefinition.ClearedTransformInto"/> card is present at ANY of its
+///     watch/seed envs, so one clearance from either side opens every
+///     <see cref="DirectionalGateSide"/> at once (a portal player who lands behind the gate
+///     hacks the card seeded on their side and the exit opens too). Unseeded-everywhere still
+///     defaults to sealed. A native card-JSON regrowth timer (not this service) handles reseal
+///     by transforming the cleared card back — the service simply re-syncs DA/map-line state
+///     to match on every poll.</item>
 /// </list>
 ///
 /// <para>Graceful degradation (CLAUDE.md): every read failure leaves the gate's affected
@@ -157,7 +160,10 @@ internal static class SealableGateService
     private static void OnClearActionFired(GateState state, ActionContext ctx)
     {
         var g = state.Def;
-        if (!EvalTrigger(g.SealTrigger)) return;   // never gated for this player — nothing to clear
+        bool triggerActive = EvalTrigger(g.SealTrigger);
+        Log.Debug($"SealableGateService: OnClearActionFired '{g.ChallengeCardUID}' triggerActive={triggerActive} "
+            + $"route={ctx?.Route} actionKey={ctx?.ActionKey} multiHit={g.MultiHit}");
+        if (!triggerActive) return;   // never gated for this player — nothing to clear
 
         if (IsCardPresence(g))
         {
@@ -174,11 +180,52 @@ internal static class SealableGateService
         // cleared (mirrors ACT's IsPassageCleared check).
         if (g.MultiHit && !IsChallengeCardCleared(ctx, g.ChallengeCardUID)) return;
 
-        Log.Info($"SealableGateService: '{g.ChallengeCardUID}' cleared — opening '{g.ConnectionUID}' (marker '{g.MarkerUID}' on '{g.MarkerEnvUID}')");
+        MarkGateCleared(state, "action");
+    }
+
+    private static void MarkGateCleared(GateState state, string source)
+    {
+        var g = state.Def;
+        Log.Info($"SealableGateService: '{g.ChallengeCardUID}' cleared ({source}) — opening '{g.ConnectionUID}' (marker '{g.MarkerUID}' on '{g.MarkerEnvUID}')");
         state.ClearedThisSession = true;
         WriteMarker(g);
         ConnectionGateService.EvaluateAll();
     }
+
+    // Self-healing backstop for MultiHit marker gates: the reactive check in
+    // OnClearActionFired only runs when the player performs another action on the challenge
+    // card, but the durability-epsilon bug (see ClearedDurabilityEpsilon) could leave a gate's
+    // card sitting at a near-zero-but-not-quite-cleared reading with no further action
+    // available to re-trigger the check. Polled every second alongside seeding/reseal so an
+    // already-effectively-cleared card gets picked up without requiring one more player
+    // interaction. Deliberately does NOT treat "card not found" as cleared here (unlike the
+    // reactive IsChallengeCardCleared, which only runs when the player just interacted with
+    // the card) — GameQuery.CardsInPlayerEnv() only sees the player's CURRENT board, so
+    // "not found" during an unrelated poll tick usually just means the player walked away
+    // (or the card hasn't finished spawning yet this tick), not that it was destroyed.
+    private static void CheckMultiHitClearedByPoll(GateState state)
+    {
+        var g = state.Def;
+        if (!g.MultiHit || state.ClearedThisSession || IsMarkerSet(g)) return;
+
+        var card = FindCardOnPlayerBoard(g.ChallengeCardUID);
+        if (card == null) return;
+
+        var val = CardUtil.GetMemberValue(card, "CurrentUsageDurability");
+        if (val == null) return;
+        bool cleared;
+        try { cleared = Convert.ToSingle(val) <= ClearedDurabilityEpsilon; }
+        catch (Exception ex) { Log.Debug($"SealableGateService: poll durability read failed for '{g.ChallengeCardUID}': {ex.GetType().Name} {ex.Message}"); return; }
+        if (cleared) MarkGateCleared(state, "poll");
+    }
+
+    // Repeated -1.0 UsageChange hits (3.0 → 2.0 → 1.0 → 0.0) don't land on an exact 0.0 float —
+    // observed residues of ~1e-6 to ~2e-6 after the "clearing" hit (confirmed via diagnostic
+    // logging on cmcSnowDriftSouth, 2026-08-22). An exact `<= 0f` comparison reads that residue
+    // as "not yet cleared" forever, permanently softlocking the gate even though the challenge
+    // card is visually/functionally empty. Shared by every MultiHit gate (ACT's collapsed-wall
+    // salt/copper/iron/tin/quarry gates, CMC's Deadfall + Snow Drift gates) — fix once, here.
+    private const float ClearedDurabilityEpsilon = 0.01f;
 
     private static bool IsChallengeCardCleared(ActionContext ctx, string wallUid)
     {
@@ -190,7 +237,7 @@ internal static class SealableGateService
             var val = CardUtil.GetMemberValue(card, "CurrentUsageDurability");
             if (val != null)
             {
-                try { return Convert.ToSingle(val) <= 0f; }
+                try { return Convert.ToSingle(val) <= ClearedDurabilityEpsilon; }
                 catch (Exception ex) { Log.Debug($"SealableGateService: CurrentUsageDurability conversion failed for '{wallUid}' — falling through: {ex.GetType().Name} {ex.Message}"); }
             }
         }
@@ -266,13 +313,14 @@ internal static class SealableGateService
         catch (Exception ex) { Log.Warn($"SealableGateService: EnsureInjected failed: {ex.Message}"); }
 
         bool gated = EvalTrigger(g.SealTrigger);
+        bool clearedAnywhere = gated && IsGateClearedAnywhere(state);
         var worldMapSo = WorldMapInjector.GetWorldMapSo();
-        Log.Debug($"SealableGateService: [DIAG] SyncCardPresenceGate '{g.ChallengeCardUID}' gated={gated} sides={g.DirectionalGates.Count}");
+        Log.Debug($"SealableGateService: [DIAG] SyncCardPresenceGate '{g.ChallengeCardUID}' gated={gated} clearedAnywhere={clearedAnywhere} sides={g.DirectionalGates.Count}");
 
         for (int i = 0; i < g.DirectionalGates.Count; i++)
         {
             var side = g.DirectionalGates[i];
-            bool sealedHere = gated && IsSealedAt(side.WatchEnvUID, g.ChallengeCardUID, g.ClearedTransformInto);
+            bool sealedHere = gated && !clearedAnywhere;
 
             var ct8 = ResolveSideCt8(state, i, side);
             string ct8Uid = ct8 != null ? CardUtil.GetCardUniqueId(ct8) : null;
@@ -297,22 +345,49 @@ internal static class SealableGateService
         if (state.SeedRequestedEnvUIDs.Contains(curEnv)) return;
         if (IsCardOnPlayerBoard(g.ChallengeCardUID) || IsCardOnPlayerBoard(g.ClearedTransformInto))
         { state.SeedRequestedEnvUIDs.Add(curEnv); return; }
+        // Gate already cleared from another side — don't seed a blocker card next to an open
+        // path. Deliberately NOT marked in SeedRequestedEnvUIDs: when the cleared card regrows
+        // (native card timer) the gate re-seals, and this env must still be able to seed then.
+        if (IsGateClearedAnywhere(state)) return;
         state.SeedRequestedEnvUIDs.Add(curEnv);
         SpawnService.Spawn(g.ChallengeCardUID);
         Log.Info($"SealableGateService: seeded '{g.ChallengeCardUID}' on '{curEnv}' (CardPresence)");
     }
 
     /// <summary>
-    /// True when the challenge card should be treated as sealed for env <paramref name="envUID"/>:
-    /// the cleared-state card is absent there (whether the challenge card is present, or neither
-    /// card has been seeded yet — unseeded defaults to sealed for a gated player, matching
-    /// H&amp;F's documented "never let a perk player slip through before clearing" rule).
+    /// True when the gate's cleared-state card (<c>ClearedTransformInto</c>) is present at ANY
+    /// of its watch/seed envs (owner env included). CardPresence cleared state is deliberately
+    /// gate-wide, not per-side: one clearance from EITHER side opens every side — a player who
+    /// enters via the Portal Hub lands BEHIND the gate without ever visiting the far-side seed
+    /// env, and per-side sealed state left them nothing reachable to clear (H&amp;F Foraging
+    /// Path softlock, 2026-08-15). Unseeded-everywhere still defaults to sealed, preserving the
+    /// "never let a perk player slip through before clearing" rule.
     /// </summary>
-    private static bool IsSealedAt(string envUID, string challengeUID, string clearedUID)
+    private static bool IsGateClearedAnywhere(GateState state)
     {
-        bool atEnv = envUID.Equals(GameQuery.CurrentEnvironmentUniqueId, StringComparison.Ordinal);
-        bool cleared = atEnv ? IsCardOnPlayerBoard(clearedUID) : EnvSaveContainsCard(envUID, clearedUID);
-        return !cleared;
+        var g = state.Def;
+        if (string.IsNullOrEmpty(g.ClearedTransformInto)) return false;
+
+        var envs = new HashSet<string>(StringComparer.Ordinal);
+        if (!string.IsNullOrEmpty(state.OwnerEnvUID)) envs.Add(state.OwnerEnvUID);
+        if (g.DirectionalGates != null)
+            foreach (var side in g.DirectionalGates)
+                if (!string.IsNullOrEmpty(side?.WatchEnvUID)) envs.Add(side.WatchEnvUID);
+        if (g.SeedOnEnvUIDs != null)
+            foreach (var env in g.SeedOnEnvUIDs)
+                if (!string.IsNullOrEmpty(env)) envs.Add(env);
+
+        var cur = GameQuery.CurrentEnvironmentUniqueId;
+        foreach (var env in envs)
+        {
+            // Current env reads the live board — EnvironmentsData lags behind it until the
+            // next save/transition. All other envs read the env save.
+            bool cleared = env.Equals(cur, StringComparison.Ordinal)
+                ? IsCardOnPlayerBoard(g.ClearedTransformInto)
+                : EnvSaveContainsCard(env, g.ClearedTransformInto);
+            if (cleared) return true;
+        }
+        return false;
     }
 
     private static object ResolveSideCt8(GateState state, int sideIndex, DirectionalGateSide side)
@@ -508,6 +583,7 @@ internal static class SealableGateService
                 {
                     anyMarkerActive = true;
                     SeedMarkerChallengeCard(state);
+                    CheckMultiHitClearedByPoll(state);
                     CheckResealTimer(state);
                 }
             }
@@ -531,6 +607,15 @@ internal static class SealableGateService
             if (uid.Equals(CardUtil.GetCardUniqueId(card), StringComparison.Ordinal))
                 return true;
         return false;
+    }
+
+    private static object FindCardOnPlayerBoard(string uid)
+    {
+        if (string.IsNullOrEmpty(uid)) return null;
+        foreach (var card in GameQuery.CardsInPlayerEnv())
+            if (uid.Equals(CardUtil.GetCardUniqueId(card), StringComparison.Ordinal))
+                return card;
+        return null;
     }
 
     private static bool EnvSaveContainsCard(string envUid, string cardUid)

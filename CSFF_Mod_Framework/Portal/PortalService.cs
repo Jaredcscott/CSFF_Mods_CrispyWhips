@@ -45,49 +45,87 @@ internal static class PortalService
     internal static void InjectExitCardsIntoModHubs()
     {
         int injected = 0;
+        int skippedOwnExit = 0;
+        int worldsSeen = 0;
         foreach (var world in PortalRegistry.Worlds)
         {
             if (world.Index == 0 || string.IsNullOrEmpty(world.EnvironmentUID)) continue;
+            worldsSeen++;
 
             // Clone-env worlds (registered via MapNodes.json — e.g. ACT's mining caves, H&F's
             // foraging path) are reached by world-map travel and MAY carry their own authored exit
             // back to vanilla (a VanillaExits compass exit, or a plain Connections edge straight to
-            // a non-clone environment) — injecting the portal-return "Exit" card there would clutter
-            // the board and duplicate the existing exit, so those keep the skip. See
-            // Documentation/Retrospectives/act-cave-mining-drops.md.
-            //
-            // BUT a clone env can ALSO be a MapMod.json portal destination with NO such exit — every
-            // Connections entry it has points only at sibling clone nodes, and the sole route back
-            // toward vanilla is behind a ConnectionGate the player may never satisfy (CMC's
-            // cmcEnvVillage: gated on the river bridge being built or a trait perk). Teleporting
-            // there via the Portal Hub then strands the player with no return card AND no walkable
-            // way out. WorldMapInjector.CloneNodeHasOwnExit distinguishes the two cases — only skip
-            // when the node actually has its own way out.
-            if (WorldMapInjector.IsCloneEnvNode(world.EnvironmentUID) && WorldMapInjector.CloneNodeHasOwnExit(world.EnvironmentUID))
-            {
-                Log.Debug($"[PortalService] skipping hub_exit injection for clone-env world '{world.WorldName}' ('{world.EnvironmentUID}') — reached by map travel, has its own exit");
-                continue;
-            }
+            // a non-clone environment). That own exit lives as a DismantleAction on the clone node's
+            // CT8 location card — which is NOT part of the environment's initial board state; it is
+            // (re)spawned on demand by WorldMapInjector's run-start/mid-game CT8-recovery paths. This
+            // used to be treated as sufficient reason to skip the hub_exit safety net for such worlds
+            // (see git history for the prior "skippedOwnExit" branch) — but a portal jump straight
+            // into a clone env the player has never walked to before does NOT reliably trigger that
+            // CT8 recovery in time (confirmed 2026-08-17: player portaled into ACT's Metal Mines
+            // (actTinCaveEnv, VanillaExits-only "own exit") and found no exit of any kind, while
+            // hub_exit injected into cmcEnvVillage in the SAME session worked correctly both ways).
+            // So: ALWAYS inject the hub_exit safety net for every clone-env portal destination,
+            // regardless of whether it also declares its own exit — idempotent (HubPortalInjector
+            // skips if already present), so this only adds a guaranteed fallback, never a duplicate.
+            bool isClone = WorldMapInjector.IsCloneEnvNode(world.EnvironmentUID);
+            bool hasOwnExit = isClone && WorldMapInjector.CloneNodeHasOwnExit(world.EnvironmentUID);
+            if (isClone && hasOwnExit) skippedOwnExit++; // diagnostic count only — no longer skips injection
 
-            if (HubPortalInjector.InjectIntoDefaultEnvCardDrops(world.EnvironmentUID, HubExitUid))
-            {
-                injected++;
-                Log.Debug($"[PortalService] injected hub_exit into '{world.WorldName}' CT4 hub");
-            }
+            bool ok = HubPortalInjector.InjectIntoDefaultEnvCardDrops(world.EnvironmentUID, HubExitUid);
+            Log.Info($"[PortalService] hub_exit injection for '{world.WorldName}' ('{world.EnvironmentUID}', isClone={isClone}, hasOwnExit={hasOwnExit}): {(ok ? "injected" : "NOT injected (see HubPortalInjector log above for reason — already-present or resolve failure)")}");
+            if (ok) injected++;
         }
-        if (injected > 0)
-            Log.Info($"[PortalService] hub_exit auto-injected into {injected} mod CT4 hub(s)");
+        Log.Info($"[PortalService] InjectExitCardsIntoModHubs summary: {worldsSeen} world(s) seen, {injected} injected, {skippedOwnExit} also had a declared own-exit (not skipped)");
+    }
+
+    /// <summary>
+    /// Mid-game / run-start safety net, called by <see cref="WorldMapInjector"/>'s env-arrival
+    /// watch on every environment change. <see cref="InjectExitCardsIntoModHubs"/> only writes
+    /// into <c>DefaultEnvCardDrops</c>, which the game seeds into <c>EnvironmentsData</c> ONLY on
+    /// a board's first-ever generation (<c>WorldMapInjector.PreCreateCloneEnvSaveData</c>'s
+    /// <c>GetEnvSaveData</c> call is idempotent and returns the existing entry unchanged once
+    /// populated). A player who already visited a hub world before this fix existed — or whose
+    /// board was seeded some other way — has a fully-populated board with no
+    /// <c>csffmfw_hub_exit</c> and no route back; re-injecting into DefaultEnvCardDrops can never
+    /// retrofit that saved board. Direct-spawn on arrival instead, mirroring
+    /// <c>WorldMapInjector.OnEnvWatchTick</c>'s CT8 recovery. Idempotent: no-ops if the card is
+    /// already on the board.
+    /// </summary>
+    internal static void EnsureHubExitOnArrival(string envUid)
+    {
+        if (string.IsNullOrEmpty(envUid)) return;
+
+        bool isRegisteredWorld = false;
+        foreach (var world in PortalRegistry.Worlds)
+        {
+            if (world.Index == 0) continue;
+            if (string.Equals(world.EnvironmentUID, envUid, StringComparison.OrdinalIgnoreCase))
+            { isRegisteredWorld = true; break; }
+        }
+        if (!isRegisteredWorld) return;
+
+        foreach (var c in GameQuery.CardsInPlayerEnv())
+        {
+            if (string.Equals(CardUtil.GetCardUniqueId(c), HubExitUid, StringComparison.OrdinalIgnoreCase))
+                return; // already present — nothing to do
+        }
+
+        Log.Info($"[PortalService] hub_exit missing on arrival at '{envUid}' — spawning (mid-game/run-start recovery)");
+        SpawnService.Spawn(HubExitUid);
     }
 
     // ─── Environment travel helper ──────────────────────────────────────────
 
     private static MethodInfo _addCardFromSourceMethod;
 
-    // Session-scoped: the environment the player was standing in just before their last
-    // outbound Portal Hub trip. Backs the "Return to Portal" button on csffmfw_hub_exit —
-    // see StartReturnTravel. Not persisted across a save reload; re-captured fresh on every
-    // outbound trip, so it self-corrects and a reload just means "no return recorded yet."
-    private static string _returnEnvUid;
+    // Session-scoped: for each mod-hub environment the player has arrived at via an outbound
+    // Portal Hub trip, the environment they departed from. Keyed by arrival env UID (NOT a
+    // single shared field) — a player who visits two different mod hubs in the same session
+    // must get routed back to EACH hub's own departure point, not whichever was visited most
+    // recently. Backs the "Return to Portal" button on csffmfw_hub_exit — see StartReturnTravel.
+    // Not persisted across a save reload; re-captured fresh on every outbound trip, so entries
+    // self-correct and a reload just means "no return recorded yet" for that arrival env.
+    private static readonly Dictionary<string, string> _returnEnvByArrival = new();
 
     private static void StartEnvironmentTravel(CardData cardData, object sourceCard, string worldName, bool recordReturn = false)
     {
@@ -99,12 +137,14 @@ internal static class PortalService
             var currentUid = GameQuery.CurrentEnvironmentUniqueId;
             if (!string.IsNullOrEmpty(currentUid) && currentUid != cardData.UniqueID)
             {
-                _returnEnvUid = currentUid;
-                Log.Debug($"[PortalService] recorded return env '{_returnEnvUid}' before traveling to '{worldName}'");
+                _returnEnvByArrival[cardData.UniqueID] = currentUid;
+                // Info until T2.63/T2.77 are diagnosed — confirms the dictionary write fires
+                // per-hub-visit in a normal player log. Click-frequency, not a hot path.
+                Log.Info($"[PortalService] recorded return env '{currentUid}' for arrival '{cardData.UniqueID}' before traveling to '{worldName}'");
             }
         }
 
-        Log.Debug($"[PortalService] hub travel button clicked: '{worldName}' -> '{cardData.UniqueID}'");
+        Log.Info($"[PortalService] hub travel button clicked: '{worldName}' -> '{cardData.UniqueID}'");
 
         // GameManager.GiveCard(card, false) uses the cheat/no-source AddCard path. For CT4
         // environment travel that can leave CurrentEnvironment unset when the action started from
@@ -113,12 +153,12 @@ internal static class PortalService
         // travel actions and keeps the environment transition state coherent.
         if (TryStartAddCardFromSource(cardData, sourceCard))
         {
-            Log.Debug($"[PortalService] hub travel to '{worldName}' started via source-card AddCard path");
+            Log.Info($"[PortalService] hub travel to '{worldName}' started via source-card AddCard path");
             return;
         }
 
         if (GiveCardViaReflection(cardData))
-            Log.Debug($"[PortalService] hub travel to '{worldName}' started via GiveCard reflection fallback");
+            Log.Info($"[PortalService] hub travel to '{worldName}' started via GiveCard reflection fallback");
         else
             Log.Error($"[PortalService] hub travel to '{worldName}' FAILED — both AddCard-from-source and GiveCard reflection paths failed");
     }
@@ -458,22 +498,25 @@ internal static class PortalService
             Timing          = ActionTiming.AfterWrapped,
             After           = ctx => StartReturnTravel(ctx.Card),
         });
-        Log.Debug("[PortalService] hub exit return handler registered");
+        Log.Info("[PortalService] hub exit return handler registered");
     }
 
     private static void StartReturnTravel(object sourceCard)
     {
-        if (string.IsNullOrEmpty(_returnEnvUid))
+        var currentUid = GameQuery.CurrentEnvironmentUniqueId;
+        if (string.IsNullOrEmpty(currentUid) || !_returnEnvByArrival.TryGetValue(currentUid, out var returnEnvUid) || string.IsNullOrEmpty(returnEnvUid))
         {
-            Log.Warn("[PortalService] 'Return to Portal' clicked but no return environment is recorded "
-                + "this session (player likely didn't arrive here via a Portal Hub trip) — no-op.");
+            Log.Warn($"[PortalService] 'Return to Portal' clicked but no return environment is recorded "
+                + $"this session for the current environment '{currentUid ?? "(null)"}' (recorded arrivals: "
+                + $"[{string.Join(", ", _returnEnvByArrival.Keys)}]) — player likely didn't arrive here via a "
+                + "Portal Hub trip this session (walk-in or post-save-reload) — no-op.");
             return;
         }
 
-        var returnCard = GameRegistry.GetByUid(_returnEnvUid) as CardData;
+        var returnCard = GameRegistry.GetByUid(returnEnvUid) as CardData;
         if (returnCard == null)
         {
-            Log.Warn($"[PortalService] 'Return to Portal': recorded env UID '{_returnEnvUid}' not found in registry — no-op.");
+            Log.Warn($"[PortalService] 'Return to Portal': recorded env UID '{returnEnvUid}' not found in registry — no-op.");
             return;
         }
 

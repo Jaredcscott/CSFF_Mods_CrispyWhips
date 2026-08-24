@@ -158,6 +158,48 @@ internal static class LoadOrchestrator
             else
                 Log.Debug("[Skip] EncounterGuardLoader: no mod ships EncounterGuards/ JSON");
 
+            // 5f3. Resolve declarative FlavourTag synergy pairs (FlavourMatrix/*.json) and install
+            //      the GameManager.InitializeStatsAndActions boot postfix that appends them to
+            //      FlavourSystemRules.FlavourMatrix. FlavourSystemRules is a scene-scoped plain
+            //      ScriptableObject (not UniqueIDScriptable, not in AllData at load time) reached
+            //      only via GameManager.FlavourRules — LoadAll must resolve FlavourTag UIDs now
+            //      (they ARE UID-registered already) so ApplyPatch's postfix never re-reads JSON.
+            //      Called here (not from Plugin.Awake, unlike most other ApplyPatch call sites) so
+            //      the patch installs strictly after LoadAll populates its pair cache.
+            if (mods.Any(m => m.HasFlavourMatrix))
+            {
+                RunPhase(sw, "FlavourMatrixInjector", () =>
+                {
+                    FlavourMatrixInjector.LoadAll(mods);
+                    FlavourMatrixInjector.ApplyPatch(Plugin.Harmony);
+                });
+            }
+            else
+                Log.Debug("[Skip] FlavourMatrixInjector: no mod ships FlavourMatrix/ JSON");
+
+            // 5f4. Resolve declarative auto-apply GameModifierPackages (Modifiers.json) and install
+            //      the MainMenu.StartGame postfix that appends them to GameManager
+            //      .CurrentModifierPackages. There is no AllData collection to inject into at this
+            //      phase: the consuming list is created by MainMenu.StartGame itself
+            //      (.decomp/MainMenu.cs:1362-1363), long after this runs, and consumed one-shot from
+            //      GameManager.Awake (StartingStatModifiers applies inside InitializeStatsAndActions,
+            //      GameManager.cs:2984, called from Awake at :2385 - NOT directly in Awake; AddedCards
+            //      via InitializeModifierPackages GameManager.cs:3466, reached directly from Awake).
+            //      LoadAll resolves the UIDs now
+            //      (GameModifierPackage IS UID-registered already) so the postfix never re-reads
+            //      JSON. Character-linked packages (EasyPackageWarpData) need none of this.
+            //      No ordering dependency with 5f3.
+            if (mods.Any(m => m.HasModifiers))
+            {
+                RunPhase(sw, "ModifierPackageInjector", () =>
+                {
+                    ModifierPackageInjector.LoadAll(mods);
+                    ModifierPackageInjector.ApplyPatch(Plugin.Harmony);
+                });
+            }
+            else
+                Log.Debug("[Skip] ModifierPackageInjector: no mod ships Modifiers.json");
+
             // 5g. Validate mod SelfTriggeredActions and arm the run-start activation check.
             //     No injection needed: GameManager.InitializeStatsAndActions() discovers STAs
             //     by iterating DataBase.AllData, where JsonDataLoader already registered them.

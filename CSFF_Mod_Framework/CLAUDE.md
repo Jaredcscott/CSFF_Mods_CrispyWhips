@@ -3,7 +3,7 @@
 These rules apply when editing `CSFFModFramework/` source. Content mod authors need only the summary in the root `CLAUDE.md`.
 
 ## Framework Scope
-Handles: JSON loading, WarpData resolution (incl. nested arrays), sprite/audio/localization, DataMap, perk injection (target group + removal from wrong groups; `"CharacterPerkPerkGroup": "None"` = keep out of all groups, for runtime-granted in-run perks), blueprint tab injection (`BlueprintTabs.json`), ProducedCards normalization, AlwaysUpdate, OverrideEnvironment clearing on perks, spawn trigger evaluation (`CardData/Trigger/*.json`), quest attachment (`Quests.json`), character rosters (`Characters.json`), encounter guards (`EncounterGuards/*.json`), bulk trading-value repricing (`TradingValues.json`, 2.18.0+).
+Handles: JSON loading, WarpData resolution (incl. nested arrays), sprite/audio/localization, DataMap, perk injection (target group + removal from wrong groups; `"CharacterPerkPerkGroup": "None"` = keep out of all groups, for runtime-granted in-run perks), blueprint tab injection (`BlueprintTabs.json`), ProducedCards normalization, AlwaysUpdate, OverrideEnvironment clearing on perks, spawn trigger evaluation (`CardData/Trigger/*.json`), quest attachment (`Quests.json`), character rosters (`Characters.json`), encounter guards (`EncounterGuards/*.json`), bulk trading-value repricing (`TradingValues.json`, 2.18.0+), flavour-synergy pairs (`FlavourMatrix/*.json`, 2.23.6+), `GameModifierPackage` standalone auto-apply (`Modifiers.json`, 2.23.7+).
 
 Internal component notes:
 - WarpResolver handles both `Array` and `List<T>` field types (e.g. `PerkGroup.ContainedPerks` is `List<T>`).
@@ -23,6 +23,8 @@ Internal component notes:
 - **NEVER re-read mod JSON from disk in downstream services** — reuse `JsonDataLoader.JsonByUniqueId` / `JsonDataLoader.AllModUniqueIds`.
 - **Cache `AccessTools.Field` lookups by (Type, fieldName).** Repeated reflection over 1,283 cards is slow.
 - When accessing `LocalizedString` via reflection, check both field AND property; check `DefaultText` content (default-initialized structs box non-null).
+- **NEVER blind-call `Activator.CreateInstance` over reflected fields in a per-instance load loop.** Game data types like `DurabilityStat` / `Optional*` / `DynamicLayoutSlot` have arg-only constructors; a blind Activator call throws `MissingMethodException` per field per card (~8,000 caught throws/load, 2026-08-14), and the field stays null anyway. Probe `ReflectionCache.HasParameterlessCtor(t)` (cached per type) and skip the impossible ones. Fixed in `CreateInstanceSafe` + `PassiveEffectNormalizer` 2.22.5.
+- **Use `IndexOf(..., StringComparison.Ordinal)` — NOT `OrdinalIgnoreCase` — for hot string scans over the mod-JSON corpus.** Mono's OrdinalIgnoreCase IndexOf is char-by-char (~20× slower); it cost `WorldMapInjector.ResolveDeferredCloneRefs` ~8.5s. If case-insensitivity is needed on ASCII data (UIDs), lower both sides once and compare Ordinal. Fixed 2.22.5.
 - `Paths.BepInExPath` does NOT exist — use `PathUtil.FrameworkDir` or `PathUtil.PluginsDir`.
 
 ## Compatibility Stubs

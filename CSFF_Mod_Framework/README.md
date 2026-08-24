@@ -4,14 +4,21 @@ Standalone modding framework for Card Survival: Fantasy Forest. Provides mod dis
 
 ## Status
 
-- **Version:** 2.22.2
-- **Game Version**: EA 0.66d (framework `lib/Assembly-CSharp.dll` refreshed and rebuilt clean
-  against the live EA 0.66d game assembly on 2026-08-10 — decompile + VanillaIds registry
-  regenerated same day; in-game Harmony patch-apply verification still pending)
-- The other 9 in-house mods have not yet been individually re-verified against EA 0.66d — most
+- **Version:** 2.25.4
+- **Game Version**: EA 0.66h (framework `lib/Assembly-CSharp.dll` refreshed and rebuilt clean
+  against the live EA 0.66h game assembly — decompile + VanillaIds registry regenerated same day;
+  patch-note review of the 0.66h changelog (Rain Cistern demolish, NPC sleep/travel UI fix, NPC
+  clothing weight fix, NPC-worn indicator, Partner Enclosure cleaning, Cave Clean Duty, Quiver
+  blueprint tab move) confirmed zero required mod JSON/C# changes; in-game Harmony patch-apply
+  verification still pending)
+- The other 9 in-house mods have not yet been individually re-verified against EA 0.66h — most
   ship their own separate compile-time `lib/Assembly-CSharp.dll` or NStrip'd variant (not shared
-  with the framework's), and several NStrip copies remain months-stale pending regeneration with
-  the user's external NStrip tool.
+  with the framework's). 7 of 9 mods (`AdvancedCopperTools`, `HerbsAndFungi`, `Mod_Update_Manager`,
+  `QuickTransfer`, `SkillSpeedBoost`, `WaterDrivenInfrastructure`, plus `Sirus23_Mod_Collection`/
+  `Community_Mod_Chest` referencing `HerbsAndFungi`'s copy) carry an NStrip'd
+  `lib/Assembly-CSharp-nstrip.dll` that remains stale pending regeneration with the user's external
+  NStrip tool — only `CSFFModFramework` and `RepeatAction` use a plain (non-NStrip) DLL that can be
+  fixed by a simple copy.
 
 ## What Changed in 2.0.0 (2026-04-26)
 
@@ -66,15 +73,15 @@ ConfigurationManager is recommended for an in-game UI.
 
 | Mod | Plugins Folder | Version | Description |
 |---|---|---|---|
-| Advanced Copper Tools | `Advanced_Copper_Tools` | 1.11.5 | Copper metalworking, wheelbarrow, bathtub, stove, lantern, oil chain, tea kettle, tea blending station, copper chest |
-| Community Mod Chest | `Community_Mod_Chest` | 1.10.1 | Community-suggested content: apparel, weapons and armor, 39 character-creation traits, pottery, decorations, fishing gear, and a four-location village area east of the River Clearing |
-| Herbs and Fungi | `Herbs_And_Fungi` | 1.9.3 | Herbalism, mushroom foraging, hemp farming, oil press, pickle fermentation, drying racks, medicinal teas, 15 perks |
-| Sirus23 Mod Collection | `Sirus23_Mod_Collection` | 1.3.3 | Three animal companions (wolf, fox, owl), full sheep husbandry chain, and a felt-working pathway |
-| Water Driven Infrastructure | `Water_Driven_Infrastructure` | 1.8.0 | Water wheels, sawmills, grinding mills, ore sluices (river/lake adjacent) |
-| Quick Transfer | `Quick_Transfer` | 1.7.1 | Shift/Ctrl/Ctrl+Shift+Right-Click multi-card transfer with live preset indicator |
-| Repeat Action | `Repeat_Action` | 1.6.2 | Repeat last action with configurable keybinds and safety limits |
-| Skill Speed Boost | `Skill_Speed_Boost` | 1.9.2 | Per-skill XP multipliers, difficulty profiles, staleness decay, synergies, level scaling |
-| Mod Update Manager | `Mod_Update_Manager` | 2.1.2 | Nexus Mods update checker with in-game UI (F3), plus a one-click installer/updater for this whole mod family |
+| Advanced Copper Tools | `Advanced_Copper_Tools` | 1.15.9 | Copper metalworking, wheelbarrow, bathtub, stove, lantern, oil chain, tea kettle, tea blending station, copper chest |
+| Community Mod Chest | `Community_Mod_Chest` | 1.58.0 | Community-suggested content: apparel, weapons and armor, 39 character-creation traits, pottery, decorations, fishing gear, and a four-location village area east of the River Clearing |
+| Herbs and Fungi | `Herbs_And_Fungi` | 1.10.12 | Herbalism, mushroom foraging, hemp farming, oil press, pickle fermentation, drying racks, medicinal teas, 15 perks |
+| Sirus23 Mod Collection | `Sirus23_Mod_Collection` | 1.20.0 | Three animal companions (wolf, fox, owl), full sheep husbandry chain, and a felt-working pathway |
+| Water Driven Infrastructure | `Water_Driven_Infrastructure` | 1.10.8 | Water wheels, sawmills, grinding mills, ore sluices (river/lake adjacent) |
+| Quick Transfer | `Quick_Transfer` | 1.7.6 | Shift/Ctrl/Ctrl+Shift+Right-Click multi-card transfer with live preset indicator |
+| Repeat Action | `Repeat_Action` | 2.0.1 | Repeat last action with configurable keybinds and safety limits |
+| Skill Speed Boost | `Skill_Speed_Boost` | 1.9.6 | Per-skill XP multipliers, difficulty profiles, staleness decay, synergies, level scaling |
+| Mod Update Manager | `Mod_Update_Manager` | 2.1.18 | Nexus Mods update checker with in-game UI (F3), plus a one-click installer/updater for this whole mod family |
 
 Every in-house mod declares `[BepInDependency("crispywhips.CSFFModFramework", BepInDependency.DependencyFlags.SoftDependency)]` for load ordering. None are truly framework-independent any more: Quick Transfer, Repeat Action, and Skill Speed Boost were originally pure-BepInEx QoL mods, but all three now call into the framework's Tier 1 utility API (`Api.Reflect`, `Api.CardUtil`, `Api.StatAccess`) for at least part of their core logic (QT's card-click reflection lookup; RA's card-identification helpers; SSB's staleness/area-familiarity/morning-bonus patches) — they will still load without the framework present, but that code path throws if it's missing. Mod Update Manager has no runtime dependency on the framework or any other mod; it only recognizes them by name/folder for Nexus tracking and its bundled-suite installer (see its own README).
 
@@ -90,7 +97,9 @@ CSFFModFramework (base — no dependencies)
  ├─ soft: AdvancedCopperTools
  │   └─ soft: HerbsAndFungi (optional — enables the Render Hemp Seed Oil recipe)
  ├─ soft: Community_Mod_Chest
- │   └─ soft (functionally required for River Bridge / Market Stall / Academy Armorer course): AdvancedCopperTools
+ │   └─ HARD: AdvancedCopperTools (2026-08-15 — River Bridge / Copper Bed Frame / Market Stall's Copper Pantry
+ │       have no fallback; CMC will not load without ACT. Deliberate, documented exception to the
+ │       "no content mod hard-depends on another content mod" doctrine — see IDEAS_OVERVIEW.md §3.3 rule 2)
  └─ soft: WaterDrivenInfrastructure
      └─ soft (enhanced by): AdvancedCopperTools (fasteners/Workshop output prefer ACT's items when installed, WDI-native otherwise — no mod in this repo has a hard cross-mod dependency)
 
@@ -101,9 +110,9 @@ Mod_Update_Manager — standalone, zero dependencies (bundles copies of the mods
 
 ## What the Framework Handles
 
-- **Mod discovery** — scans `BepInEx/plugins/` two levels deep for `ModInfo.json`. When a Pikachu ModLoader/ModCore install is detected, mods carrying the `ModLoaderVerison` manifest field are normally skipped (that loader owns them) — **unless** the mod ships a framework-exclusive declarative file (`BlueprintTabs.json`, `SmeltingRecipes.json`, `DropInjections.json`, `InjectImprovementInto.json`, `WorldMap/MapNodes.json`, `EncounterGuards/*.json`, `Quests.json`, `Characters.json`, `MapMod.json`), in which case it's reclaimed and loaded through the framework instead (since 2.11.1). Same-named duplicate mod folders are deduplicated by picking the one with more content files, not the newer mtime.
+- **Mod discovery** — scans `BepInEx/plugins/` two levels deep for `ModInfo.json`. When a Pikachu ModLoader/ModCore install is detected, mods carrying the `ModLoaderVerison` manifest field are normally skipped (that loader owns them) — **unless** the mod ships a framework-exclusive declarative file (`BlueprintTabs.json`, `SmeltingRecipes.json`, `DropInjections.json`, `InjectImprovementInto.json`, `WorldMap/MapNodes.json`, `EncounterGuards/*.json`, `Quests.json`, `Characters.json`, `MapMod.json`, `Modifiers.json`, `FlavourMatrix/*.json`), in which case it's reclaimed and loaded through the framework instead (since 2.11.1). Same-named duplicate mod folders are deduplicated by picking the one with more content files, not the newer mtime.
 - **Map cache indexing** — parses declared/generated `Data/*Map*.json` files once and exposes them through `MapCacheRegistry`
-- **JSON data loading** — from each mod's top-level content directories (folder name = type name, matching the vanilla JSON export layout): `CardData`, `CharacterPerk`, `PerkGroup`, `GameStat`, `SpiceTag`, and (since 2.1.0) `FlavourTag`, `NPCStat`, `NPCDuty`, `NPCHidingGroup`, `NPCAgent`, `Encounter`, `SelfTriggeredAction`, `Objective`, `QuestLog`, `GameModifierPackage`, `PlayerCharacter`, `CookingRecipeGroup`, `ConstructionCardGroup`, `BookmarkGroup`, `LocalTickCounter`. Any other ScriptableObject type loads generically from `ScriptableObject/<TypeName>/`. **Scope note:** the 2.1.0 types are loaded and registered in the game's UID registry, and WarpData references to/from them resolve — but most are not yet *activated* (no NPC agent spawning, no quest attachment, no character-select injection). Exception: **`SelfTriggeredAction` is fully active since 2.2.0** (see below). The remaining injectors are planned in later phases; today those types are usable wherever vanilla code resolves them by GUID reference. Feature-detect via `Api.Framework.SupportsContentType(...)`.
+- **JSON data loading** — from each mod's top-level content directories (folder name = type name, matching the vanilla JSON export layout): `CardData`, `CharacterPerk`, `PerkGroup`, `GameStat`, `SpiceTag`, and (since 2.1.0) `FlavourTag`, `NPCStat`, `NPCDuty`, `NPCHidingGroup`, `NPCAgent`, `Encounter`, `SelfTriggeredAction`, `Objective`, `QuestLog`, `GameModifierPackage`, `PlayerCharacter`, `CookingRecipeGroup`, `ConstructionCardGroup`, `BookmarkGroup`, `LocalTickCounter`. Any other ScriptableObject type loads generically from `ScriptableObject/<TypeName>/`. **Scope note (updated 2.23.7):** the 2.1.0 types are loaded and registered in the game's UID registry, and WarpData references to/from them resolve — a 2026-08-16 decomp trace found most of them were ALREADY fully activated by vanilla's own `GameManager.InitializeStatsAndActions()` boot loop with zero framework code needed (`CookingRecipeGroup`, `BookmarkGroup`, `ConstructionCardGroup`, `FlavourTag`'s base tag, and `GameModifierPackage` via a character's `EasyPackageWarpData`) — see `Documentation/CSFF_Patterns.md`'s "Shipping a ..." cookbook sections for each. The framework now ships real activation code for the two genuine gaps: **`FlavourTag` pairwise synergy** (`FlavourMatrix/*.json`, since 2.23.6) and **`GameModifierPackage` standalone/character-independent auto-apply** (`Modifiers.json`, since 2.23.7) — both in-game unverified as of this writing. `SelfTriggeredAction` is fully active since 2.2.0 (see below). Feature-detect via `Api.Framework.SupportsContentType(...)`.
 - **WarpData resolution** — UniqueID/GUID references, runtime tag creation, nested array expansion, both array and `List<T>` field types
 - **Sprite / Audio / Localization** — loads from each mod's `Resource/` and `Localization/` folders
 - **Perk injection** — adds perks to the target `PerkGroup` and removes them from groups the engine auto-placed them into (e.g., Sex/Romance). `"CharacterPerkPerkGroup": "None"` (since 2.11.0) keeps a perk out of every group instead — for perks granted only at runtime via `AddedInRunPerksWarpData` (e.g. CMC Academy course "Graduate" perks)
@@ -154,8 +163,8 @@ Mods only need C# for **mod-specific logic**: custom action interception, forage
 
 ## Key File Locations
 
-- Vanilla game data dump: `Documentation/GameData/CSFF-JsonData_EA_0-65/`
-- GUID lookups: `Documentation/GameData/CSFF-JsonData_EA_0-65/UniqueIDScriptableGUID/`
+- Vanilla game data dump: `Documentation/GameData/CSFF-JsonData_Current/` (stable alias; repointed by `Development_Tools/Set-GameDataVersion.ps1` after each game update — currently EA 0.66h)
+- GUID lookups: `Documentation/GameData/CSFF-JsonData_Current/UniqueIDScriptableGUID/`
 - LitJSON source: `Stubs/LitJson/LitJsonStub.cs` → `LitJSON.dll` (v0.19.0.0)
 
 ---
@@ -345,6 +354,25 @@ Null arrays are normalized by the framework but it is cleaner to supply empty ar
 
 ---
 
+## Declarative Animal System (`Animals/*.json` — v2.23.5+)
+
+A separate, higher-level system from the raw NPCAgent authoring above: a content mod adds a wild
+animal (nocturnal/diurnal presence, wandering, discoverable tracks, trap catchability, combat
+encounters, tame + companion) from **one manifest file, zero mod-side C#**, at
+`<ModFolder>/Animals/<Species>.json`. The framework generates the full `NPCAgent` graph, its duties,
+lifecycle timers, tracks, trap integration, encounter, and tame/companion interactions from it — or
+a manifest can `Ref` a hand-authored `NPCAgent`/`Encounter` for bespoke pieces and let the framework
+fill only the remaining gaps (spawn registration, duties, lifecycle). Toggle: `Animals.AnimalsEnabled`
+config (default `true`).
+
+Full author-facing cookbook (schema overview, escape hatches, worked examples, debugging invariants):
+`Documentation/CSFF_Patterns.md` § Adding a Roaming Animal. Complete field reference:
+`Documentation/Design/Animals_Schema.md`. Shipped examples: `Sirus23_Mod_Collection/Animals/Owl.json`
+(full generation), `Animals/Fox.json` (Ref-path), `Animals/TestHare.json` (minimal generated
+herbivore, no PNG/C#/other files needed).
+
+---
+
 ## Public Utility API (Tier 1 — v2.4.0)
 
 Public helpers for content-mod C# under `CSFFModFramework.Api` (plus the long-standing
@@ -417,7 +445,19 @@ attach it with a root manifest:
 - **`PlayerCharacter/*.json` + `Characters.json`** — each entry adds a character to a
   select-screen roster: `{ "Characters": [ { "Character": "<uid-or-name>",
   "Roster": "Fates" } ] }` (`Fates` | `Ways` | `Both`). `GameModifierPackage` needs no
-  manifest — reference it from the character's `EasyPackageWarpData`.
+  manifest for this path — reference it from the character's `EasyPackageWarpData`
+  (`EasyPackageWarpType: 3`) and the player toggles it as the Easy Package at character
+  creation.
+- **`GameModifierPackage/*.json` + `Modifiers.json`** (2.23.7+) — the
+  character-INDEPENDENT path, for challenge / total-conversion mods:
+  `{ "AutoApplyPackages": ["<GameModifierPackage uid>"] }` applies the listed packages'
+  `StartingStatModifiers` + `AddedCards` to **every new game**, whichever character the
+  player picks. Appended in a `MainMenu.StartGame` postfix, so it rides vanilla's own
+  one-shot new-game application and save round-trip. New games only (no effect on an
+  existing save), no player opt-in/opt-out UI, and additive with a character's own
+  `EasyPackage`. **In-game unverified** — no mod ships `Modifiers.json` yet. Both paths
+  are documented end to end in `Documentation/CSFF_Patterns.md` §§ "GameModifierPackage
+  — character-linked" and "GameModifierPackage — standalone auto-apply".
 
 > **Status (v2.17.0)**: injectors are implemented and validated against the EA 0.65
 > data model (PlayerCharacter.Quests holds QuestLog refs; Gamemode "CharacterList"

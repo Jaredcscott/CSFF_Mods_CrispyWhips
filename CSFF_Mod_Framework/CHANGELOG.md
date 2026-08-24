@@ -4,6 +4,469 @@ All notable changes to CSFFModFramework are documented here.
 
 ---
 
+## [2.25.4] — 2026-08-23
+
+### Fixed — Animal Modding System: two `EncounterBuilder` bugs reported by a Sirus23 player
+
+- **A Ref-path species with no manifest `Encounter` section had its own hand-authored Approach/combat encounter silently replaced by the vanilla duck.** `EncounterBuilder.Resolve`'s last-resort fallback (`Combat_EncounterDuck`) triggered any time `ApproachButton` was at its schema default (`true`) and no `Encounter.Ref`/generation fields were authored — including for a `Agent.Ref` species that already has its own correct encounter wired at the agent-JSON level. `AnimalAssetFactory.ApplyApproachButton` then unconditionally overwrote the agent's real Approach button with this duck fallback. Symptom (reported by a player, confirmed against Sirus23's `Animals/Fox.json`, which has no `Encounter` section): fighting the tamable Wild Fox showed the vanilla duck, and the fox could never actually be killed — the duck encounter's `EnemyDefeatedEffects` targets the vanilla duck's own NPCStat, not `wildfox_stat_blood`, so the real agent's Blood/Exists never reached zero. Fixed: `Resolve` now leaves a Ref-path agent's own encounter untouched (returns `null`) when the manifest authors no `Encounter.Ref`/generation — the duck fallback is reserved for the fully-generated-agent path, which has no encounter of its own to fall back on.
+- **The generated-Encounter path never set `Encounter.EncounterImage`**, unlike a hand-authored Encounter JSON (which always carries `EncounterImageWarpData`) — the combat popup rendered a blank enemy icon for any species on the generated path. Symptom (reported by a player): Sirus23's Wild Owl (the only species currently using generation) is missing its combat icon. Fixed: `EncounterBuilder.BuildGenerated` now resolves an `EncounterImage`, reusing the species' own portrait sprite (`m.Sprite` on the fully-generated path, or the Ref-path agent's already-resolved `AgentImage`).
+
+## [2.25.3] — 2026-08-22
+
+### Fixed
+
+- **`SealableGateService.IsChallengeCardCleared` permanently softlocked any MultiHit durability gate whose final hit didn't land on an exact `0.0` float.** Repeated `-1.0` `UsageChange` hits (e.g. 3.0 → 2.0 → 1.0 → 0.0 over three separate action calls) accumulate floating-point rounding error — confirmed via diagnostic logging on a real player's Snow Drift dig: the third hit left `CurrentUsageDurability` at `1.735985E-06`, a tiny positive residue, not exactly zero. The check was `<= 0f`, so the gate never registered the challenge card as cleared even though it was visually/functionally empty — the associated road/passage stayed locked forever, no matter how many times the player dug/chopped. Changed to a small epsilon tolerance (`<= 0.01f`). This is a shared helper — every MultiHit `SealableGates` entry in the fleet (ACT's collapsed-wall salt/copper/iron/tin/quarry gates, CMC's Deadfall and Snow Drift gates) carried the same latent bug; this fixes all of them at once, not just the one that got caught.
+- **Added a poll-driven self-healing backstop for MultiHit marker gates** so a card already stuck at a near-zero (but not `<= 0f`) durability reading from the bug above reopens its gate automatically on the next 1-second poll tick, without requiring the player to perform one more action on it. Deliberately does not treat "challenge card not found" as cleared during the poll (only an actual low-durability reading counts) — `GameQuery.CardsInPlayerEnv()` only sees the player's current board, so "not found" during an unrelated tick usually just means the player walked away, not that the card was destroyed.
+
+## [2.25.2] — 2026-08-17
+
+### Fixed — CRITICAL: Animal System `Encounter`/`Aggression` manifest section was never parsed
+
+`Animals/AnimalSchema.cs`'s `Encounter` block only ever read `Ref`/`ApproachButton` from the JSON —
+`BodyTemplate`, `Blood`, `Size`, `Awareness`/`Cover`/`Stealth`, `Passive`, `ForceFight`, and the
+entire `Aggression` sub-block were silently discarded regardless of what a manifest specified (9
+`CS0649` "field never assigned" compiler warnings on a clean rebuild confirmed zero read sites for
+any of them anywhere in the framework). Net effect: `Encounter` *generation* could never activate
+from any manifest, and the `Aggression` scheduled-attack duty could never attach — both silently,
+because the log lines documenting each "skip" case are themselves gated on the same always-false
+flags. Every manifest requesting encounter generation (the Owl, as of its M5 conversion) fell back
+to the vanilla `Combat_EncounterDuck` instead. Added the missing parse block; framework rebuilds
+clean (0 warnings, was 9). Found via a routine rebuild during the M3–M6 acceptance/polish pass, before
+any in-game testing — see `Documentation/Plans/CSFFModFramework/Animal_System_Plan.md` § M5.
+
+### Changed — Animal System log-level rebalancing
+
+Diagnostics now track verification status again: promoted M5/M6 attempt-time lines
+(`CompanionService`, `TameInteractionBuilder`, `EncounterBuilder`) from `LogDebug` to `LogInfo` (these
+milestones remain unverified in-game — matches the convention M3/M4 already followed); demoted
+confirmed-in-game M0/M2 lines (`SpawnRegistrar`, `AnimalLifecycleTicker`) from `LogInfo` to `LogDebug`
+(verified since 2026-07-11/21).
+
+### Added
+
+- `Documentation/CSFF_Patterns.md` § Adding a Roaming Animal — schema overview, the `Ref`/
+  `CustomDuties` escape hatches, and cross-milestone debugging-cycle invariants, closing the
+  cookbook's remaining front-matter gap (M3–M6 subsections already existed).
+- README.md § Declarative Animal System — the framework's own README previously had no section
+  describing this capability at all despite it being complete through M6.
+
+### Tooling
+
+- `Development_Tools/Audit-Mod-Preflight.ps1` now scans a content mod's `Animals/*.json` for
+  `Card`/`GiveCard` producer references (trap catch results, carcass drops, tame companions) — closes
+  a false-positive class where the Animal System's framework-injected, cross-mod acquisition paths
+  (e.g. a snare catch card mirrored into a vanilla trap's inventory at load time) were invisible to
+  static per-mod JSON scanning and flagged CRITICAL "no acquisition path".
+
+---
+
+## [2.25.1] — 2026-08-16
+
+### Fixed — Animal System M4 (traps), from an adversarial review of 2.24.0
+
+Six defects, four of which made the trap loop non-functional rather than merely wrong. None would
+have produced an error or a log line in play; the symptom would have been "nothing happened".
+
+- **The generated feed duty could never be selected, so no trap could ever fire.** Duty selection
+  is NOT weighted-random: `InGameNPC` sorts duties by weight descending and picks uniformly only
+  among those tied at the very top (`InGameNPC.cs:2121-2144`). A feed duty weighted below a
+  concurrently-selectable movement duty is therefore never chosen at all. `AnimalValidator` now
+  rejects `Traps.Bait.DutyWeight` below the species' heaviest movement duty, and the shipped owl
+  ties at 1e9 instead of sitting at 9e8.
+- **A standalone trap-type reset action zeroed the stamp before the catch action read it.** On the
+  springing tick the engine runs `CheckForActions()` twice — once right after the stat stamp
+  (`GameManager.cs:4364`, reached because `InGameNPCStat.ApplyInstantModifier` schedules a sweep
+  for any non-zero delta) and again only after `CurrentActionRequest` is assigned
+  (`GameManager.cs:4396`). Any `Repeat` action is eligible in that first pass, so the reset won the
+  race and every trap-type gate evaluated out of range. Vanilla ships the same pattern and has the
+  same race, so mirroring it was not an option. The catch action now clears its own stamp inline,
+  and a stamp left by a FAILED roll is cleared by `AnimalLifecycleTicker` on the framework tick,
+  outside the engine's action sweep.
+- **An all-zero-weight collection set degrades to a uniform lottery, not to "no drop".**
+  `GameManager.cs:7594-7599` short-circuits `TotalValue == 0` to `Random.Range(0, length)`,
+  ignoring all weights — so a missed gate silently randomised the catch card across every trap
+  type. The fallback collection now carries a non-zero base weight (vanilla's carcass-base-100
+  layout), making the out-of-range read deterministic.
+- **`MoveTiming` defaulted to `MoveBeforeOtherEffects` on the catch action.** The agent was
+  relocated to the Spirit World before the drop was computed, so the catch card was registered
+  against the wrong environment while its container was still the trap. Now
+  `MoveAfterOtherEffects`, matching every vanilla agent action that both drops and moves.
+- **The derived trap-container tag set included a generic storage tag** carried by ~30 vanilla
+  cards (Basket, ClayJar, ClayStoragePot, ClothSack, CookingPot, Shelf, …). Because the feed
+  action destroys what it selects, a hungry animal would have deleted food out of the player's
+  storage. The derivation now intersects the triggered traps as well and drops any tag carried by
+  a non-trap card.
+- **The catch action's respawn-timer refill was a structural no-op.** `AnimalLifecycleTicker`'s
+  kill-respawn path keys on blood, which a trapped agent never loses, and forces the timer back to
+  0 on the next tick. Removed; `AnimalValidator` now requires `Spawn.SuppressWhileCardOnBoard` on
+  a trappable species, which is the only respawn path that keys on `exists`.
+
+### Also
+
+- `CannotPerformWhileInCombat` on the catch action set to false (vanilla's value) — true silently
+  consumed the bait and produced nothing; `CollectionUses` matched to vanilla's `(0,0)`;
+  `TriggerInteractors` joining now filters to the action whose `TriggerActionInAgent` actually
+  routes the catch; catch cards are mirrored only after the species has successfully joined a trap
+  and only for trap types it opted into; the `AgentTrapType` by-name lookup is cross-checked
+  against the by-GUID instance the trap cards stamp; an author-declared `AgentTrapType` whose range
+  is too small to hold the stamp is now an Error instead of a silent clamp; a feed duty running
+  ungated by hunger is now a Warn instead of a suppressed Debug.
+
+---
+
+## [2.25.0] — 2026-08-16
+
+### Added
+
+- **`Animals/TameInteractionBuilder.cs` + `Animals/CompanionService.cs` (Animal System M6)** — a
+  declarative `Interactions` section in an `Animals/<Species>.json` manifest now generates a
+  skill-gated attempt-interaction (e.g. Tame) with no mod-side C#: `BaitCards`/`BaitTags` present
+  compiles a drag-bait `CardOnCardAction` (`NPCAgent.DragAndDropActions`), otherwise a click-button
+  `DismantleCardAction` (`NPCAgent.DismantleActions`, `AlwaysShow: true` set automatically). Success
+  and fail are resolved entirely by the engine's own native weighted `CardsDropCollection` selection
+  over `ProducedCards` — a Success collection with an optional skill-scaled
+  `StatsDropChanceModifiers` bonus (saturating, not collapsing, past the configured skill cap) vs.
+  Fail collections, one of which can carry `DroppedEncounter` to turn `OnFail.AttackChance`% of
+  fails into a real fight. No custom RNG anywhere in the builder.
+- **`Companion` schema section** — paired with `Interactions[].OnSuccess.GiveCard`, drives a new
+  `CompanionService` that watches for a successful roll (via `Api.ActionRouter`
+  `AfterWrapped`, `CardPredicate`-matched against the species' live `InGameNPC.AssociatedCard`) to
+  retire the wild agent (synchronous `GameManager.MoveNPC`, closing the Attempt-12
+  interactivity gap) and init the freshly-spawned companion's zeroed durability stats to full
+  (`GameManager.GiveCard` is `void`, so no spawn-time override can otherwise apply). An optional
+  `Flee` reaction relocates the wild agent on any failed attempt. Author guide:
+  `Documentation/CSFF_Patterns.md` § Adding a Roaming Animal → Tame + companion.
+- Sirus23's Wild Owl now drives its entire tame/companion flow from `Animals/Owl.json` — the
+  hand-authored "Attempt to Tame" `DragAndDropAction` in `NPCAgent/Agent_WildOwl.json` and the
+  owl-specific `WildOwlLifecyclePatch.cs`/`CompanionHuntPatch.cs` C# (tame retirement + stat init)
+  are gone; zero owl-specific mod C# remains for tame/companion.
+
+---
+
+## [2.24.0] — 2026-08-16
+
+### Added
+
+- **`Animals/TrapIntegrator.cs` (Animal System M4)** — a declarative `Traps` section in an
+  `Animals/<Species>.json` manifest now makes a modded animal catchable by the four vanilla land
+  traps, with no mod-side C#. The framework stamps the six trap NPCStats onto the agent, generates
+  its `"Interact with a Trap"` catch action (alive-vs-carcass chosen by weighted collections gated
+  on the `AgentTrapType` stamp) plus a paired trap-type reset action, mirrors the catch cards into
+  the Triggered traps' inventory filters, and generates a feed duty so the animal actually takes
+  bait. Author guide: `Documentation/CSFF_Patterns.md` § Adding a Roaming Animal → Traps + bait.
+- **`AffectItems` duty-action type** — un-blocked in `AnimalValidator` and compiled by
+  `DutyBuilder` into a real `AffectItemsDutyAction` (`SimpleCardChange` + `Destroy`, v1). Destroying
+  bait is what raises the `RemoveItemFromInventory` trigger the vanilla traps listen for.
+
+### Notes on the shared-vanilla mutation
+
+`TrapIntegrator` is the only place the animal system writes to shared vanilla data. Every write is
+append-only and idempotent by object identity, scoped to just the trap types a manifest opts into
+(an unlisted or immune type is never touched), and fail-soft per trap. Tag identities — the
+trap-container tag and the bait pool — are derived off the LIVE trap cards at load rather than by
+name: obfuscated export names are not stable across game versions (the container tag recorded as
+`Image_7173` under EA 0.65h does not exist in 0.66h). If derivation fails the phase logs one Error
+and skips traps rather than throwing.
+
+### Corrections to prior research (verified against EA 0.66h)
+
+- There are **six** trap NPCStats, not seven: `AgentTrapType`, `AgentTrapCunning`, and four
+  per-type variants.
+- `AgentTrapType`'s own in-game doc string is wrong for two traps — the cards stamp LogTrap **30**
+  and PitTrap **40**, the reverse of what the stat describes. Card values are authoritative.
+- The catch-card filter mirror is **required, not precautionary**: the drop path checks the
+  destination container (`NPCAction.ToAction` → `GameManager.AddCard` → `GetIndexForInventory` →
+  `CanReceiveInInventory` → `CompleteInventoryFilter.SupportsCard`). An unmirrored catch card
+  silently lands on the board instead of in the trap — vanilla itself has this bug with
+  `PartridgeTiedMale`.
+
+### Known gap
+
+Feeding consumes bait but does not reset `AgentSatiation`: the `SimpleCardChange` path builds a
+throwaway "Consume" `CardAction` carrying only `ReceivingCardChanges`, so it has no NPC-stat hook.
+Deferred design decision — see the M4 section of
+`Documentation/Plans/CSFFModFramework/Animal_System_Plan.md`.
+
+---
+
+## [2.23.7] — 2026-08-16
+
+### Added
+
+- **`ModifierPackageInjector`** (`Injection/ModifierPackageInjector.cs`) — standalone,
+  character-independent activation for `GameModifierPackage`. A mod ships `Modifiers.json` in its
+  root (`{ "AutoApplyPackages": ["<GameModifierPackage UID>"] }`) and the listed packages are
+  applied to EVERY new game regardless of which character the player selects — the missing path for
+  challenge / total-conversion mods, which previously had to ship a whole `PlayerCharacter` just to
+  carry an `EasyPackage`. Implemented as a Harmony postfix on **`MainMenu.StartGame(int)`**, which
+  is where vanilla creates and fills `GameManager.CurrentModifierPackages`
+  (`.decomp/MainMenu.cs:1362-1363`) immediately before the new-game scene load; appending there
+  rides vanilla's own one-shot application of `StartingStatModifiers` (inside
+  `InitializeStatsAndActions()`, `GameManager.cs:2984`, called from `Awake` at `:2385` — not
+  directly in `Awake`) and `AddedCards` (`InitializeModifierPackages`, `GameManager.cs:3466`,
+  reached directly from `Awake`), plus the existing save
+  round-trip, with no reimplementation. A paired prefix captures the list reference so the postfix
+  fires exactly once — `StartGame` is a multi-step state machine that returns early on every pass
+  but the last. Packages already present (e.g. the character's own `EasyPackage`) are never
+  double-added. Adds the `HasModifiers` mod-manifest flag (also folded into
+  `HasFrameworkOnlyMarkers` for ModLoader coexistence detection, consistent with every other
+  framework-exclusive declarative file). Self-no-ops (zero patch installed) when no mod ships a
+  resolvable `Modifiers.json`. **In-game unverified** — no mod ships `Modifiers.json` yet.
+
+### Fixed (documentation)
+
+- **Cookbook coverage for both `GameModifierPackage` activation paths** —
+  `Documentation/CSFF_Patterns.md` gained "GameModifierPackage — character-linked (existing, no code
+  needed)" and "GameModifierPackage — standalone auto-apply (`Modifiers.json`)". The character-linked
+  path (`PlayerCharacter.EasyPackageWarpData` → Easy Package toggle at character creation) was fully
+  functional before this release and needed no framework code — the gap was purely that it had never
+  been documented or exercised. The new sections trace both paths end to end (load → selection →
+  `MainMenu.StartGame` → `GameManager.Awake`'s one-shot apply → save round-trip) and state the
+  auto-apply path's boundaries: new games only, no player opt-in/opt-out UI, additive with the
+  character-linked path.
+- **Adversarial review pass (same day)** caught and fixed: an unresolvable `"Stone"` vanilla card
+  reference in the cookbook's only worked example (root CLAUDE.md §Vanilla Item References — vanilla
+  refs need the GUID, not a human-readable name; corrected to the real `StoneSmall` GUID), a
+  mis-cited `MainMenu` method name, an incomplete `StartingStatModifiers` gate description, and a
+  README section self-contradicting the new cookbook content. See
+  `Documentation/Plans/CSFFModFramework/Audit_Remediation_Plan.md`'s Promotion Log for the full list.
+
+---
+
+## [2.23.6] — 2026-08-16
+
+### Added
+
+- **`FlavourMatrixInjector`** (`Injection/FlavourMatrixInjector.cs`) — activates
+  `FlavourSystemRules.FlavourMatrix`, the vanilla flavour-synergy pairwise table, which was
+  unreachable from JSON: `FlavourSystemRules` is a plain scene-scoped `ScriptableObject` (not
+  `UniqueIDScriptable`, not in `DataBase.AllData` at load time), reached only through the single
+  Inspector-wired `GameManager.FlavourRules` field — the same class of problem as `StatListTab`
+  (root CLAUDE.md §GameSourceModify). A new `GameManager.InitializeStatsAndActions` Harmony
+  postfix (mirroring `Community_Mod_Chest/Patcher/StatTabInjectionPatch.cs`) resolves declarative
+  `<ModFolder>/FlavourMatrix/*.json` files (one synergy pair per file: `TagA`/`TagB` FlavourTag
+  UIDs + a `Synergy` value) once at load time and appends each pair idempotently every boot.
+  Self-no-ops (zero patch installed) when no mod ships `FlavourMatrix/*.json`. Adds the
+  `HasFlavourMatrix` mod-manifest flag (also folded into `HasFrameworkOnlyMarkers` for ModLoader
+  coexistence detection, consistent with every other framework-exclusive declarative file).
+
+### Fixed (documentation)
+
+- **Cookbook coverage for four previously-undocumented loaded-but-dormant SO types** —
+  `Documentation/CSFF_Patterns.md` gained "Shipping a CookingRecipeGroup", "Shipping a
+  BookmarkGroup", "Shipping a ConstructionCardGroup", and "Shipping a FlavourTag" (+ the
+  FlavourMatrix synergy-pair subsection above). A ground-truth decomp trace found three of these
+  four types (`CookingRecipeGroup`, `BookmarkGroup`, `ConstructionCardGroup`) **self-activate with
+  zero injector code** — vanilla's own `GameManager.InitializeStatsAndActions()` already collects
+  every loaded instance from `DataBase.AllData` (`.decomp/GameManager.cs:2693-2820`); only the
+  FlavourMatrix synergy table (above) needed engine work. Closes the N1/N2 Near-Term ideas
+  (`.audit/ideas.md` "From Deferred Specs" #2/#3) — see the dated resolution note there for the
+  full finding.
+
+---
+
+## [2.23.5] — 2026-08-16
+
+No dedicated entry was recorded when this version shipped (a concurrent session's Animal-system
+work landed the same day, per `.audit/ideas.md`'s "v2.23.5 landed the same day" note) — left as a
+placeholder rather than silently skipping the version number in this file's history.
+
+---
+
+## [2.23.4] — 2026-08-16
+
+### Changed
+
+- **Portal Hub diagnostics promoted `Log.Debug` → `Log.Info`** (investigating the still-open
+  T2.63/T2.77 portal-return failures — two prior fix rounds retested FAIL in-game). Now visible
+  in a normal player log: `PortalService.InjectExitCardsIntoModHubs` per-world skip/outcome
+  lines, the `_returnEnvByArrival` record-on-travel write, hub-travel click + travel-path lines,
+  exit-handler registration, and `HubPortalInjector.AppendCardDrop`'s idempotent-skip reason.
+  The "Return to Portal" no-op warning now names the current env UID and the recorded arrival
+  keys. `HubPortalInjector` also gained `Log.Warn` breadcrumbs on its three previously fully
+  silent false-return paths (CardData type unresolved, `CardDrop.DroppedCard` field unresolved,
+  `AppendCardDrop` reflection-guard). No behavior change — instrumentation only.
+
+## [2.23.2] — 2026-08-15
+
+### Added
+
+- **Opt-in `BlueprintSearchDiagnostic`** (`[Diagnostics] LogBlueprintSearchMisses`, off by
+  default) — logs, once per UID, why a mod blueprint that appears fine under its own
+  crafting-journal tab is missing from the journal's Search box: no
+  `GameManager.BlueprintModelStates` entry for the card instance, vs. not present in any
+  `BlueprintTabs[].IncludedCards`. Added to investigate a 2026-08-15 fleet-wide report of this
+  symptom; no root cause identified yet.
+
+### Fixed
+
+- **CardPresence `SealableGates` (H&F's forest-trail model) could permanently softlock a player
+  who entered the gated area through the Portal Hub.** Sealed/open state was evaluated per
+  `DirectionalGates` side against a single watch env, and the challenge card only seeded on the
+  envs listed in `SeedOnEnvUIDs` — a portal player who landed behind the gate without ever
+  visiting the seed env found every exit sealed and nothing anywhere to clear (unseeded
+  deliberately defaults to sealed). Cleared state is now **gate-wide**: the gate is open while
+  the `ClearedTransformInto` card is present at ANY of its watch/seed envs (owner env included),
+  so one clearance from either side opens every side at once. Seeding now also skips while the
+  gate is cleared anywhere, so a blocker card can no longer spawn next to an already-open path;
+  once the cleared card's native regrowth timer transforms it back, the gate re-seals and
+  seeding re-arms as before. Mods should list BOTH sides of the gated connection in
+  `SeedOnEnvUIDs` so a player on either side always has a physical card to clear.
+
+### Technical
+
+- **Refreshed vanilla reference data to EA 0.66h.** Extracted
+  `Documentation/GameData/CSFF-JsonData_EA_0-66h/` (28,859 files, +96 vs. 0.66g), regenerated
+  `Resources/VanillaIds.json` from it, and repointed the `CSFF-JsonData_Current` alias.
+  `lib/Assembly-CSharp.dll` refreshed to the live 0.66h binary and rebuilt clean (0 errors/0
+  warnings). Patch-note review (Rain Cistern demolish, NPC sleep/travel UI fix, NPC clothing
+  weight fix, NPC-worn indicator, Partner Enclosure cleaning, Cave Clean Duty, Quiver blueprint
+  tab move) confirmed zero required mod JSON/C# changes.
+
+## [2.23.1] — 2026-08-14
+
+### Fixed
+
+- **NPCDuty pathfinding (`MoveDutyAction`'s `MoveToPlayer`/`MoveToSpecificEnvironment`) could
+  never route an NPC into, out of, or through ANY mod-injected WorldMap node, for the entire
+  session** — root cause of CMC's long-open "recruited Partner never crosses into a mod WorldMap
+  node" report (e.g. refusing to cross a freshly-built river bridge into village territory), and
+  equally affecting every other mod's Duty-driven movement onto a modded node (e.g. WDI's
+  Grinding Mill duty). `WorldMapData.MapDict` — the dictionary `WorldMapData.GetPathNonAlloc`'s
+  A* search actually queries — is built once by `GameManager.FinishInitializing` calling
+  `InitializeMapDictionnary()` EARLY (immediately after save data loads), purely from
+  `WorldMapData.Environments` as it stood at that moment. `WorldMapInjector.InjectIntoWorldMap`
+  (this framework's own node/edge injection) only runs LATE, at `GameManager.OnGMInitialized` —
+  `WorldMapData` isn't loaded into memory any earlier — so every mod node landed in `Environments`
+  AFTER the pathfinding lookup was already snapshotted without it. Player-driven travel was never
+  affected (a travel DA click reads `CardData.DismantleActions`/`GetTravelDestination` directly,
+  no A* involved), which is why the bug was invisible to every travel-DA-based playtest.
+  `WorldMapInjector.RebuildPathfindingLookup` now re-runs `InitializeMapDictionnary()` immediately
+  after node injection completes, then replays `LoadInstancedEnvironments` with the current save's
+  data (instanced envs load earlier and aren't part of the base `Environments` list, so the rebuild
+  would otherwise silently drop them — `LoadInstancedEnvironment` is itself idempotent, so the
+  replay is side-effect-free). Runs once per process, exactly when needed: subsequent same-process
+  game loads re-run vanilla's own `InitializeMapDictionnary()` against an `Environments` list that
+  already carries the mod nodes permanently, so no further rebuild is necessary.
+
+## [2.23.0] — 2026-08-14
+
+### Fixed
+
+- **A hand-built environment improvement now opens its `ImprovementBuilt`-gated map connection
+  the moment the final construction stage completes** — no more walking to another tile and
+  back (or waiting) before the new travel direction becomes clickable. Root cause was
+  two-layered (Documentation/Retrospectives/river-bridge.md — CMC River Bridge → Village Path):
+  1. `ConnectionGatePatch` only hooked `InGameCardBase.CompleteImprovement()`, which is the
+     insta-complete path (perk pre-builds, the SpawnCard auto-complete queue). A player-built
+     improvement advances through `InGameCardBase.SetBlueprintStage(int)`
+     (`BlueprintConstructionPopup` → `IncreaseBlueprintStage`) and never calls
+     `CompleteImprovement`, so no gate re-evaluation ever fired at hand-build completion. The
+     patch now postfixes BOTH paths; the stage postfix also replays vanilla's own idempotent
+     `GM.StartBuildingImprovement` registration so `CurrentlyBuiltImprovements` is persisted
+     correctly at the exact completion moment (survives an immediate save/quit).
+  2. `CardUtil.IsImprovementBuilt` read only the persisted `CurrentlyBuiltImprovements` list,
+     whose vanilla semantics is "present / being built" (registered at construction START,
+     re-synced only at `InGameCardBase.Init()` on env re-entry) — wrong in both directions:
+     it could open a gate before construction finished, or keep it locked until the player
+     left and re-entered. While the player is standing in the queried env, the live
+     improvement card's `BlueprintData.CurrentStage >= BlueprintSteps` is now authoritative
+     (every matching instance is checked, per the UniqueOnBoard duplicate-instance rule); the
+     persisted list remains the fallback for non-current envs. Save-safe: improvements are
+     exempt from `BlueprintSaveData`'s stage clamp, so a completed stage survives reload.
+  Consumers inherit the corrected semantics: `ConnectionGateService`/`ConditionalDropService`
+  `ImprovementBuilt` conditions and CMC's `ProfessorSchedulePatch` bridge check now mean
+  "fully built", not "construction started".
+
+## [2.22.6] — 2026-08-14
+
+### Fixed
+
+- **"Return to Portal" could send the player to the wrong environment after visiting two
+  different mod hubs in the same session.** `PortalService`'s return-trip mechanism tracked the
+  departure environment in a single shared `_returnEnvUid` static field, written on every
+  outbound Portal Hub trip regardless of which mod hub the player was traveling to. A player who
+  visited mod hub A, then mod hub B, then clicked the "Exit" card back in hub A got routed to
+  hub B's departure point (whichever trip was most recent), not hub A's own departure point.
+  Replaced with a `Dictionary<string, string>` keyed by arrival environment UID, so each mod
+  hub's exit card now looks up its own recorded departure point independently. Found via a
+  2026-08-13 playthrough report ("portal hub return button did not work as expected").
+  Walk-in arrivals and post-reload sessions still show the pre-existing "no return recorded"
+  no-op — that limitation is unchanged and by design (see `PortalService.cs` class doc).
+
+## [2.22.5] — 2026-08-14
+
+### Fixed
+
+- **Load-time field init no longer throws ~8,000 caught `MissingMethodException`s per load.**
+  `JsonDataLoader.CreateInstanceSafe` and `PassiveEffectNormalizer.InitializeNullFields` blindly
+  called `Activator.CreateInstance` on every serializable class field, including game types with
+  no parameterless constructor (`DurabilityStat`, `OptionalIntValue`, `DynamicLayoutSlot`, all
+  `Optional*`) — each call threw, was caught, and left the field null, which is exactly what
+  skipping does. Both init plans now probe for a parameterless ctor once per type
+  (`ReflectionCache.HasParameterlessCtor`) and skip the impossible ones. Behavior is identical;
+  the throw storm and its ~8,600 VerboseLogging breadcrumb lines (a measurable share of the
+  `JsonDataLoader` phase time — ~1ms per logged line observed 2026-08-14) are gone.
+- **`WorldMapInjector.ResolveDeferredCloneRefs` no longer costs seconds on large installs**
+  (8.5s observed with the full mod suite, 2026-08-14). The clone-UID prefilter scanned the entire
+  mod JSON corpus with `IndexOf(..., OrdinalIgnoreCase)` per clone UID — Mono's OrdinalIgnoreCase
+  IndexOf is char-by-char, ~20× slower than Ordinal. Both sides are now lowered once and scanned
+  Ordinal (UIDs are ASCII, so results are identical).
+- **`WikiModQuickFindFix` no longer burns its 120-frame deferred retry on full all-assembly type
+  scans when WikiMod isn't installed** (~240 scans + 240 VerboseLogging lines per load). Retries
+  now short-circuit unless a new assembly has loaded since the last attempt — type lookups can
+  only change when one does.
+
+- **`WarpResolver.Lookup` could not resolve a `*WarpData` GUID into a field declared as a shared
+  base type that holds a `UniqueIDScriptable` instance polymorphically at runtime** — e.g.
+  vanilla `NPCDutyOrDutyTagRef.Target` is declared bare `ScriptableObject` (a union of
+  `NPCDuty`/`NPCDutyTag`), not `NPCDuty` directly. The GUID-lookup branch was gated on
+  `typeof(UniqueIDScriptable).IsAssignableFrom(targetType)`, which is false when `targetType` is
+  the *parent* class rather than `UniqueIDScriptable` or a subtype — so a `CompatibleNPCDuties[].
+  TargetWarpData` GUID fell straight through to the name-keyed lookup path and silently never
+  resolved (zero log output beyond the generic unresolved-refs summary). `Lookup` now also tries
+  `GameRegistry.GetByUid` for any `ScriptableObject`/`UnityEngine.Object`-typed field that isn't
+  itself a `UniqueIDScriptable` subtype, before falling back to name-based resolution — a 32-char
+  hex GUID never collides with a real SO `.name`, so this is purely additive. First surfaced by
+  WaterDrivenInfrastructure 1.10.7's Forge/Workshop `PartnerDuty_Firekeeping` marking (see
+  `Documentation/Plans/Fleet/Duties_Ownership_Plan.md`), caught by adversarial review before ship.
+
+## [2.22.4] — 2026-08-14
+
+### Fixed
+
+- **Placing/building a card could still permanently lock every action with "I can't do two
+  things at once...", even with the 2.20.6 `ChangeEnvironmentCrashGuard` in place.** That fix
+  only covered `GameManager.ChangeEnvironment`'s call into `WorldMapData.AddInstancedEnv`, but
+  vanilla has several other unguarded call sites — confirmed in the wild via
+  `GameManager.ProduceCards` (the coroutine that spawns a card's crafted/built output),
+  triggered by placing a Rain Cistern Kit. Same underlying vanilla bug: `AddInstancedEnv` throws
+  an unhandled `ArgumentException` when two independently-registered instanced environments both
+  compute the default map Coordinates `(0,0,0,0)` in one session, aborting whichever coroutine
+  called it mid-flight and leaving `GameManager.RootAction` stuck forever. Added
+  `Patching/BugFixes/AddInstancedEnvCrashGuard.cs`, a Harmony finalizer on `AddInstancedEnv`
+  itself instead of on any one caller — covers `ChangeEnvironment`, `ProduceCards`, and every
+  other current or future call path in one place, with the same graceful-skip outcome as the
+  2.20.6 fix (the colliding env just doesn't get pre-registered that time).
+
+## [2.22.3] — 2026-08-13
+
+### Changed
+
+- **Hardening: `Api.ActionRouter`'s wrapped-action coroutine can no longer strand the game in a
+  permanent action-lock.** `RunWrapped` drove the wrapped game coroutine with a bare
+  `while (original.MoveNext()) yield return ...` — if the underlying game action threw partway
+  through, the exception propagated out of the wrapper uncaught, the same failure shape already
+  fixed once for `GameManager.ChangeEnvironment` (`ChangeEnvironmentCrashGuard`, 2.20.6): the
+  coroutine never reaches the point where the game clears `RootAction`, so `PerformingAction`
+  stays true forever and every later action shows "I can't do two things at once..." with no
+  recovery short of quitting. `RunWrapped` now steps `MoveNext()` manually with a try/catch
+  outside the `yield` (required — C# iterators cannot `yield` inside a try block that has a
+  `catch`), logs the route/action/card at `Error` level, and ends the coroutine gracefully
+  instead of propagating. `After` handlers are skipped when the wrapped action didn't complete
+  cleanly, since their contract assumes success. No known reproduction yet — added as defensive
+  hardening while investigating a CMC player report of an unexplained "can't go anywhere" lock.
+
 ## [2.22.2] — 2026-08-12
 
 ### Fixed

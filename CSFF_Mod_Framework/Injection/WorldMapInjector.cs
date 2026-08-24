@@ -101,6 +101,8 @@ internal static class WorldMapInjector
     private static FullMapDefinition _fullMapDef;           // set by PrepareAll; drives replacement mode
     private static object _cachedGlobalTravelDaTemplate;    // fallback template for CT8s with no DAs
     private static Type _gmType;                            // GameManager from Assembly-CSharp (cached; avoids ModCore shadowing)
+    private static MethodInfo _initMapDictMethod;           // WorldMapData.InitializeMapDictionnary()
+    private static MethodInfo _loadInstancedEnvsMethod;     // WorldMapData.LoadInstancedEnvironments(List<EnvironmentSaveDataByReference>, List<InstancedEnvMap>)
 
     // Clone CT4 uid → backup CT8 UID list for CheckAndSpawnMissingLocationCards: run-start safety
     // net ensuring the CT8 appears on the board when loading a save inside a clone env.
@@ -351,6 +353,14 @@ internal static class WorldMapInjector
         var jsonByUid   = Loading.JsonDataLoader.JsonByUniqueId;
         var parsedByUid = Loading.JsonDataLoader.ParsedJsonByUniqueId;
 
+        // Lower both sides once and compare Ordinal: Mono's OrdinalIgnoreCase IndexOf is
+        // char-by-char (~20x slower), and this prefilter scans the whole mod JSON corpus per
+        // clone UID — the IgnoreCase version alone cost ~8.5s of load time (2026-08-14).
+        // UIDs are ASCII, so lowered-Ordinal is equivalent.
+        var cloneUidsLower = new string[cloneUids.Count];
+        int lu = 0;
+        foreach (var uid in cloneUids) cloneUidsLower[lu++] = uid.ToLowerInvariant();
+
         int refsFilled = 0, cardsTouched = 0, skippedAdd = 0;
         foreach (var kvp in jsonByUid)
         {
@@ -358,10 +368,11 @@ internal static class WorldMapInjector
             if (string.IsNullOrEmpty(raw)) continue;
 
             // Cheap pre-filter: only consider cards whose raw JSON names a clone UID.
+            var rawLower = raw.ToLowerInvariant();
             bool mentionsClone = false;
-            foreach (var uid in cloneUids)
+            foreach (var uidLower in cloneUidsLower)
             {
-                if (raw.IndexOf(uid, StringComparison.OrdinalIgnoreCase) >= 0) { mentionsClone = true; break; }
+                if (rawLower.IndexOf(uidLower, StringComparison.Ordinal) >= 0) { mentionsClone = true; break; }
             }
             if (!mentionsClone) continue;
 
@@ -779,6 +790,12 @@ internal static class WorldMapInjector
         string modeLabel = replacementMode ? " (full replacement)" : "";
         Log.Info($"WorldMapInjector: {injected} node(s) injected{modeLabel}, {already} already present, {skipped} skipped");
 
+        // See RebuildPathfindingLookup's doc comment: WorldMapData.MapDict (the A* pathfinding
+        // lookup) is snapshotted from Environments EARLIER in GameManager.FinishInitializing
+        // than this injector runs, so newly-injected nodes are otherwise invisible to NPCDuty
+        // pathfinding for the rest of the session even though they're present in Environments.
+        if (injected > 0) RebuildPathfindingLookup(worldMapSo);
+
         // Travel DA injection was moved to PrepareAll (load time, Phase 5i) so the
         // DismantleActions array is on the CardData SO before any InGameCardBase is
         // ever created from it. See the comment block in PrepareAll for the full rationale.
@@ -788,6 +805,75 @@ internal static class WorldMapInjector
         // started here, the idempotency gate (_injectedIntoWorldMap) would prevent it from
         // running on runs 2+ within the same process — exactly the case where a player who
         // saved inside a clone env needs it most.
+    }
+
+    /// <summary>
+    /// <c>WorldMapData.MapDict</c> — the dictionary <c>Pathfinder.GetAStarNonAlloc</c> actually
+    /// queries via <c>WorldMapData.GetEnvData</c>/<c>GetPathNonAlloc</c> — is built ONCE by
+    /// <c>GameManager.FinishInitializing</c> calling <c>InitializeMapDictionnary()</c> EARLY in
+    /// that method (immediately after loading save data, well before <c>CurrentGamemode</c> is
+    /// even set), purely from <c>WorldMapData.Environments</c> at that moment. This injector
+    /// only appends mod nodes/edges to <c>Environments</c> LATE, at <c>OnGMInitialized</c> — per
+    /// this class's own doc comment, <c>WorldMapData</c> isn't loaded into memory any earlier.
+    /// The result: every mod-injected node lands in <c>Environments</c> AFTER the lookup
+    /// dictionary was already snapshotted from the vanilla-only list, so <c>MapDict</c> never
+    /// contains a single modded environment for the rest of that process's first session.
+    /// Player-driven travel is unaffected (a travel DA click reads
+    /// <c>CardData.DismantleActions</c>/<c>GetTravelDestination</c> directly — no A* involved),
+    /// but ANY <c>NPCDuty</c> using <c>MoveDutyAction</c>'s A* pathfinding
+    /// (<c>MoveToPlayer</c>/<c>MoveToSpecificEnvironment</c>) can never route into, out of, or
+    /// through a modded node. Confirmed root cause of CMC's long-open "Partner never crosses
+    /// into a mod WorldMap node" report (recruited companions refusing to cross a just-built
+    /// river bridge into modded village territory — see CMC's <c>CompanionFollowDiagnostics</c>
+    /// and <c>PartnerIndoorFollowPatch</c> doc comments) and equally affects any other mod's
+    /// NPCDuty-driven movement onto/through a modded node (e.g. WDI's <c>MillDutyPatch</c>).
+    ///
+    /// Fix: re-run <c>InitializeMapDictionnary()</c> now that <c>Environments</c> is complete —
+    /// safe because the method derives the lookup purely, deterministically from that list —
+    /// then replay <c>LoadInstancedEnvironments</c> with the current save's data. Instanced envs
+    /// (cabin/cave interiors) load BEFORE <c>OnGMInitialized</c>
+    /// (<c>GameManager.FinishInitializing</c> calls <c>LoadInstancedEnvironments</c> before
+    /// firing <c>OnGMInitialized</c>) and are NOT part of the base <c>Environments</c> list, so a
+    /// bare <c>InitializeMapDictionnary()</c> re-run would silently drop them from the lookup;
+    /// replaying the load restores them without side effects — <c>LoadInstancedEnvironment</c>
+    /// is itself idempotent, skipping any env already present in <c>MapDict</c>. Only runs once
+    /// per process (guarded by the <c>injected &gt; 0</c> caller check, itself gated by the
+    /// session-once <c>_injectedIntoWorldMap</c> fast path) — subsequent same-process game loads
+    /// re-run the vanilla <c>InitializeMapDictionnary()</c> against an <c>Environments</c> list
+    /// that already carries the mod nodes permanently, so no further rebuild is needed.
+    /// </summary>
+    private static void RebuildPathfindingLookup(object worldMapSo)
+    {
+        try
+        {
+            var initMethod = _initMapDictMethod ??= AccessTools.Method(_worldMapDataType, "InitializeMapDictionnary");
+            if (initMethod == null)
+            {
+                Log.Warn("WorldMapInjector: WorldMapData.InitializeMapDictionnary not found — modded nodes will be unreachable by NPCDuty pathfinding this session.");
+                return;
+            }
+            initMethod.Invoke(worldMapSo, null);
+
+            var loadInstancedMethod = _loadInstancedEnvsMethod ??= AccessTools.Method(_worldMapDataType, "LoadInstancedEnvironments");
+            var gm = CardUtil.GetGameManagerInstance();
+            var saveData = gm == null ? null : CardUtil.GetMemberValue(gm, "CurrentSaveData");
+            if (loadInstancedMethod != null && saveData != null)
+            {
+                var envsData = CardUtil.GetMemberValue(saveData, "EnvironmentsData");
+                var instancedMaps = CardUtil.GetMemberValue(saveData, "InstancedEnvironmentMaps");
+                loadInstancedMethod.Invoke(worldMapSo, new object[] { envsData, instancedMaps });
+            }
+            else if (loadInstancedMethod == null)
+            {
+                Log.Debug("WorldMapInjector: WorldMapData.LoadInstancedEnvironments not found — instanced-env pathfinding entries not replayed after rebuild.");
+            }
+
+            Log.Info("WorldMapInjector: rebuilt WorldMapData pathfinding lookup (MapDict) to include injected node(s) — NPCDuty pathfinding can now reach modded environments this session.");
+        }
+        catch (Exception ex)
+        {
+            Log.Warn($"WorldMapInjector: RebuildPathfindingLookup failed: {Log.ExceptionText(ex)}");
+        }
     }
 
     /// <summary>
@@ -872,9 +958,17 @@ internal static class WorldMapInjector
         var prevEnv = _lastWatchedEnv;
         _lastWatchedEnv = curEnv;
 
+        Log.Debug($"WorldMapInjector: env watch detected change '{prevEnv ?? "?"}' -> '{curEnv}'");
+
         // Notify conditional drop service on any env change (before the clone-env guard below).
         try { ConditionalDropService.OnEnvArrival(curEnv); }
         catch (Exception ex) { Log.Warn($"WorldMapInjector: ConditionalDropService.OnEnvArrival failed: {ex.GetType().Name}: {ex.Message}"); }
+
+        // Portal hub_exit recovery — independent of the clone-env CT8 guard below, since a
+        // registered portal world's board can already be fully seeded (no CT8 recovery needed)
+        // while still missing csffmfw_hub_exit from before PortalService always-injected it.
+        try { PortalService.EnsureHubExitOnArrival(curEnv); }
+        catch (Exception ex) { Log.Warn($"WorldMapInjector: PortalService.EnsureHubExitOnArrival failed: {ex.GetType().Name}: {ex.Message}"); }
 
         // Only do CT8 clone-env spawn recovery if we have clone envs.
         if (_cloneEnvSpawnList.Count == 0) return;
@@ -1024,8 +1118,11 @@ internal static class WorldMapInjector
 
         // Mid-game env watch: 1s real-time poll catches env changes after portal travel that
         // CheckAndSpawnMissingLocationCards (run-start only) cannot cover. Also drives
-        // ConditionalDropService.OnEnvArrival for any env with ConditionalDrops.
-        if (_cloneEnvSpawnList.Count > 0 || ConditionalDropService.HasDrops)
+        // ConditionalDropService.OnEnvArrival for any env with ConditionalDrops, and
+        // PortalService.EnsureHubExitOnArrival for any registered portal world (Index > 0) —
+        // the latter must not be gated on _cloneEnvSpawnList/HasDrops alone, since a portal
+        // world's hub_exit gap can exist independent of both.
+        if (_cloneEnvSpawnList.Count > 0 || ConditionalDropService.HasDrops || PortalRegistry.Worlds.Count > 1)
             StartMidGameEnvWatch();
     }
 

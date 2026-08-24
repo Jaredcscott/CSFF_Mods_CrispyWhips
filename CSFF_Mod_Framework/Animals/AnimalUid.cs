@@ -26,7 +26,12 @@ internal static class AnimalUid
     public const string PartDutySeekPlayer = "duty_seekplayer";
     public const string PartDutyWander = "duty_wander";
     public const string PartDutyRoost = "duty_roost";
+    public const string PartDutyFeed = "duty_feed";
+    public const string PartDutyAttack = "duty_attack";
     public const string PartDutyCustomPrefix = "duty_custom_";
+
+    // Generated Encounter (M5).
+    public const string PartEncounter = "encounter";
 
     public static string For(string speciesId, string part)
     {

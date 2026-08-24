@@ -28,6 +28,8 @@ public static class GameQuery
     private static PropertyInfo _leavingEnvProp;
     private static PropertyInfo _envTransitionProp;
     private static FieldInfo _daysPerMoonField;
+    private static FieldInfo _daySettingsField;
+    private static FieldInfo _daysPerYearField;
     private static PropertyInfo _allCardsProp;
     private static FieldInfo _allCardsField;
 
@@ -168,6 +170,35 @@ public static class GameQuery
         {
             int dpm = DaysPerMoon;
             return dpm <= 0 ? 0f : (CurrentDay % dpm) / (float)dpm;
+        }
+    }
+
+    // ── Year ──────────────────────────────────────────────────────────────────
+
+    /// <summary>
+    /// In-game days per year (from GameManager.DaySettings.DaysPerYear — a live gamemode
+    /// setting, NOT a hardcoded constant; confirmed 120 in the shipped EA 0.66h data but a
+    /// custom gamemode can change it). Returns the same 120 default before game init, so a
+    /// day-length comparison (e.g. CurrentDay &gt;= DaysPerYear) can't false-trigger at boot
+    /// when CurrentDay also defaults to 0.
+    /// </summary>
+    public static int DaysPerYear
+    {
+        get
+        {
+            const int fallback = 120;
+            if (!TryResolve()) return fallback;
+            var gm = GetGM();
+            if (gm == null) return fallback;
+            try
+            {
+                var daySettings = _daySettingsField?.GetValue(gm);
+                if (daySettings == null) return fallback;
+                _daysPerYearField ??= daySettings.GetType().GetField("DaysPerYear", Flags);
+                if (_daysPerYearField != null) return Convert.ToInt32(_daysPerYearField.GetValue(daySettings));
+            }
+            catch (Exception ex) { Log.Debug($"[GameQuery] DaysPerYear read threw: {Log.ExceptionText(ex)}"); }
+            return fallback;
         }
     }
 
@@ -411,6 +442,7 @@ public static class GameQuery
         _leavingEnvProp    = _gmType.GetProperty("LeavingEnvironment", Flags);
         _envTransitionProp = _gmType.GetProperty("EnvironmentTransition", Flags);
         _daysPerMoonField  = _gmType.GetField("DaysPerMoon", Flags);
+        _daySettingsField  = _gmType.GetField("DaySettings", Flags);
 
         foreach (var name in new[] { "AllCards", "AllInGameCards", "InGameCards" })
         {
