@@ -509,10 +509,6 @@ CharacterTraits_Perk_Aged_PerkName,Aged,年迈
 CharacterTraits_Perk_Aged_PerkDescription,The years have taken their toll. Your body recovers stamina more slowly and aches linger longer than they should.,岁月在你身上留下了痕迹。体力恢复得更慢，疼痛也比常理更久不散。
 CharacterTraits_Perk_Bleeder_PerkName,Bleeder,凝血不良
 CharacterTraits_Perk_Bleeder_PerkDescription,"Your blood does not clot well. Wounds bleed for significantly longer than they should, making even minor injuries into dangerous situations.",你的血液难以凝结。伤口出血的时间明显长于常理，哪怕是轻伤也可能演变为危险的局面。
-CharacterTraits_Perk_WeakCourage_PerkName,Weak Courage,微弱勇气
-CharacterTraits_Perk_WeakCourage_PerkDescription,"You have a bit more nerve than most. A modest, permanent boost to your Courage makes scary actions somewhat easier without erasing your fear entirely.",你比大多数人更有一点胆量。你的勇气获得小幅永久提升，让可怕的行动略微容易一些，但恐惧感并未完全消失。
-CharacterTraits_Perk_WeakCowardice_PerkName,Weak Cowardice,轻度怯懦
-CharacterTraits_Perk_WeakCowardice_PerkDescription,"Your nerve falters more easily than most. A modest, permanent reduction to your Courage makes scary actions a little harder to push through — but you still have enough grit to act when it truly matters.",你比大多数人更容易胆怯。你的勇气受到小幅永久削弱，让可怕的行动稍难坚持——但在真正关键的时刻，你仍有足够的勇气去行动。
 CharacterTraits_Perk_SpirituallyTroubled_PerkName,Spiritually Troubled,灵性不安
 CharacterTraits_Perk_SpirituallyTroubled_PerkDescription,"The spirits do not look kindly upon you. Stress weighs heavier and lingers longer, and the unease of an unfriendly spirit world keeps your nerves on edge.",灵体并不善待你。压力压得更重、消退得更慢，来自不友善灵界的不安也让你的神经时刻紧绷。
 CharacterTraits_Perk_WeakenedGrowth_PerkName,Weakened Growth,生长迟滞

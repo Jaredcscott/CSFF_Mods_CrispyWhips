@@ -449,10 +449,6 @@ CharacterTraits_Perk_Aged_PerkName,Aged
 CharacterTraits_Perk_Aged_PerkDescription,The years have taken their toll. Your body recovers stamina more slowly and aches linger longer than they should.
 CharacterTraits_Perk_Bleeder_PerkName,Bleeder
 CharacterTraits_Perk_Bleeder_PerkDescription,"Your blood does not clot well. Wounds bleed for significantly longer than they should, making even minor injuries into dangerous situations."
-CharacterTraits_Perk_WeakCourage_PerkName,Weak Courage
-CharacterTraits_Perk_WeakCourage_PerkDescription,"You have a bit more nerve than most. A modest, permanent boost to your Courage makes scary actions somewhat easier without erasing your fear entirely."
-CharacterTraits_Perk_WeakCowardice_PerkName,Weak Cowardice
-CharacterTraits_Perk_WeakCowardice_PerkDescription,"Your nerve falters more easily than most. A modest, permanent reduction to your Courage makes scary actions a little harder to push through — but you still have enough grit to act when it truly matters."
 CharacterTraits_Perk_SpirituallyTroubled_PerkName,Spiritually Troubled
 CharacterTraits_Perk_SpirituallyTroubled_PerkDescription,"The spirits do not look kindly upon you. Stress weighs heavier and lingers longer, and the unease of an unfriendly spirit world keeps your nerves on edge."
 CharacterTraits_Perk_WeakenedGrowth_PerkName,Weakened Growth

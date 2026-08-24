@@ -1,28 +1,20 @@
 using System;
-using CSFFModFramework.Api;
 using CSFFModFramework.Util;
 
 namespace CommunityModChest.Patcher
 {
     /// <summary>
     /// Shared currency-value formula for the Inn/Academy "Deposit Currency" CIs.
-    /// Salt is a flat value; Nuggets are priced off their own SpecialDurability4
-    /// metal-type reading (memory: reference_metal_type_sd4), so every metal tier
-    /// (copper/bronze/tin/iron) is supported without needing per-metal item variants.
-    /// Nuggets carry a 2.25x multiplier over their raw SD4 reading: a mint-scale coin
-    /// credits half its SD4 reading, and DurosCoinage mints 5 coins per nugget, so an
-    /// unminted nugget (raw ore, no smithing labor) is priced 10% under that
-    /// mint-then-deposit equivalent (copper: 100 SD4 -> 225 credit, vs. 250 if minted
-    /// first) — just enough of a discount to encourage coin production without making
-    /// raw-ore deposits pointless.
-    /// Duros Coins themselves are priced off their own CardData.TradingValue — the
-    /// same field the vanilla innkeeper reads — NOT the SD4/2 mint-scale formula.
-    /// DurosCoinage's higher denominations (Ghost Copper, Bronze, White Copper, Pure
-    /// Tin, ...) are priced by rarity/denomination, not raw metal-purity SD4, so the
-    /// SD4/2 approximation only happened to match the base Copper Coin and badly
-    /// undervalued every other tier (player report 2026-08-23: e.g. a 1800-value Pure
-    /// Tin Coin deposited as 60, matching Tin's SD4=120 rather than its real worth).
-    /// SD4/2 remains a fallback for a coin with no TradingValue set.
+    /// Salt is a flat value; Nuggets and Duros Coins are priced off their own
+    /// SpecialDurability4 metal-type reading (memory: reference_metal_type_sd4),
+    /// so every metal tier (copper/bronze/tin/iron) is supported without needing
+    /// per-metal item variants.
+    /// Nuggets carry a 2.25x multiplier over their raw SD4 reading: a coin
+    /// credits half its SD4 reading, and DurosCoinage mints 5 coins per nugget,
+    /// so an unminted nugget (raw ore, no smithing labor) is priced 10% under
+    /// that mint-then-deposit equivalent (copper: 100 SD4 -> 225 credit, vs.
+    /// 250 if minted first) — just enough of a discount to encourage coin
+    /// production without making raw-ore deposits pointless.
     /// </summary>
     internal static class CurrencyValue
     {
@@ -46,19 +38,9 @@ namespace CommunityModChest.Patcher
             if (uid.Equals(NuggetGuid, StringComparison.OrdinalIgnoreCase))
                 return MetalTypeValue(givenCard) * NuggetValueMultiplier;
             if (uid.Equals(CoinUid, StringComparison.OrdinalIgnoreCase))
-                return CoinValue(givenCard);
+                return MetalTypeValue(givenCard) / 2f;
 
             return 0f;
-        }
-
-        private static float CoinValue(object card)
-        {
-            var cardData = CardUtil.GetCardData(card);
-            float tradingValue = Reflect.GetFloat(cardData, "TradingValue", 0f);
-            if (tradingValue > 0f) return tradingValue;
-
-            // Fallback for a coin with no TradingValue set (older DurosCoinage data).
-            return MetalTypeValue(card) / 2f;
         }
 
         private static float MetalTypeValue(object card)
