@@ -7,12 +7,11 @@ using UnityEngine;
 namespace Repeat_Action;
 
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
-[BepInDependency("crispywhips.CSFFModFramework", BepInDependency.DependencyFlags.SoftDependency)]
 public class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.repeat_action";
     public const string PluginName = "Repeat_Action";
-    public const string PluginVersion = "1.6.4";
+    public const string PluginVersion = "2.0.2";
 
     internal new static ManualLogSource Logger;
     private static Harmony _harmony;
@@ -34,20 +33,10 @@ public class Plugin : BaseUnityPlugin
     public static ConfigEntry<int> SatiationStopThreshold { get; private set; }
     public static ConfigEntry<int> HydrationStopThreshold { get; private set; }
     public static ConfigEntry<float> ActionCompletionTimeout { get; private set; }
-    public static ConfigEntry<int> Gate1TimeoutFrames { get; private set; }
-    public static ConfigEntry<float> PreTravelRestTimeout { get; private set; }
 
     // Runtime state - Current repeat count setting
     public static int CurrentRepeatCount { get; set; } = 5;
 
-    // Mouse click tracking for player-action detection fallback
-    private static int _lastMouseClickFrame = -999;
-    /// <summary>
-    /// True if the player physically clicked the mouse within the last ~0.5 seconds.
-    /// Used as a fallback gate for actions that bypass InspectionPopup.OnButtonClicked.
-    /// </summary>
-    public static bool PlayerRecentlyClicked => Time.frameCount - _lastMouseClickFrame < 30;
-    
     // Visual notification
     private static float _notificationEndTime = 0f;
     private static string _notificationText = "";
@@ -149,19 +138,7 @@ public class Plugin : BaseUnityPlugin
             "Timeout Settings",
             "Action Completion Timeout (seconds)",
             30f,
-            "Maximum time to wait for an action to complete before aborting the repeat sequence");
-
-        Gate1TimeoutFrames = Config.Bind(
-            "Timeout Settings",
-            "Gate 1 Timeout (frames)",
-            60,
-            "Number of frames to wait for ActionRoutine to fire after a button click (at 60fps, 60 frames ≈ 1 second)");
-
-        PreTravelRestTimeout = Config.Bind(
-            "Timeout Settings",
-            "Pre-Travel Rest Timeout (seconds)",
-            15f,
-            "Maximum time to wait for a rest action to complete before travel");
+            "Maximum time to wait for the game to be ready before aborting the repeat sequence");
 
         CurrentRepeatCount = DefaultRepeatCount.Value;
 
@@ -181,10 +158,6 @@ public class Plugin : BaseUnityPlugin
 
     private void Update()
     {
-        // Track mouse clicks for player-action detection
-        if (Input.GetMouseButtonDown(0))
-            _lastMouseClickFrame = Time.frameCount;
-
         bool modifier1Held = Input.GetKey(RepeatModifierKey.Value);
         bool modifier2Held = Input.GetKey(RepeatModifierKey2.Value);
         bool modifierHeld = modifier1Held || modifier2Held;

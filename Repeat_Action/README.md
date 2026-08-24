@@ -1,6 +1,6 @@
 # Repeat Action
 
-**Version:** 1.6.4
+**Version:** 2.0.2
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.65)
 
@@ -16,23 +16,23 @@ A quality-of-life mod that lets you automatically repeat your last action multip
 - **Stat Thresholds**: Configurable per-stat stop conditions — set a Satiation, Hydration, or Stamina % floor and the repeat halts before you hit critical levels
 - **Tool-Break Stop**: Stops automatically when a drag-drop tool transforms (e.g. axe wears out mid-run)
 - **Cancel Anytime**: Press `Shift+R` again while repeating to cancel
-- **Smart Travel**: Rests before each travel step to ensure stamina, then moves in the chosen direction. Stops automatically when there's no path forward, a critical stat event triggers, or you cancel. Each step: Rest → Travel → repeat.
-- **Smart Chopping**: Automatically rests between chop/cut/fell iterations to recover stamina and allow small trees to respawn
+- **Travel Support**: Repeat a direction action (North/South/East/West) to keep moving — the mod finds the matching direction on each new location card and stops cleanly when there's no path forward
 - **Drag-Drop Support**: Repeat drag-drop actions like making twine, soaking reeds, or chopping trees with tools
-- **Pick Up Support**: Repeat picking up soaking reeds, flax stems, and nettle stems
-- **Event-Aware**: Stops the repeat sequence if a game event popup (dehydration, starvation, encounters, etc.) triggers mid-run
+- **Stack Support**: Repeat stack-button actions on card piles
+- **Event-Aware**: With `Stop On Low Stats` enabled, the run stops when a critical stat condition starts blocking actions (dehydration, starvation, etc.); other popups pause the run until you dismiss them
+- **Honest Stop Reasons**: When a repeat stops early, the notification shows the game's own reason (e.g. a missing requirement), not a guess
 
 ## Installation
 
 ### Requirements
 - [BepInEx 5.x](https://github.com/BepInEx/BepInEx/releases) for Card Survival: Fantasy Forest
-- **CSFFModFramework** (recommended) — Repeat Action's card-identification helper calls the framework's `Api.CardUtil`/`Api.Reflect` utilities. The mod declares `CSFFModFramework` as a `SoftDependency` for load order; without it installed, that helper throws and action-repeat replay can fail.
+
+Repeat Action is fully standalone as of 2.0.0 — it no longer uses CSFFModFramework.
 
 ### Steps
 1. Install [BepInEx 5.x](https://github.com/BepInEx/BepInEx/releases) for Card Survival: Fantasy Forest
-2. Install CSFFModFramework in `BepInEx/plugins/CSFF_Mod_Framework/`
-3. Download this mod and extract to your `BepInEx/plugins/` folder
-4. Launch the game
+2. Download this mod and extract to your `BepInEx/plugins/` folder
+3. Launch the game
 
 ## Usage
 
@@ -89,21 +89,15 @@ Satiation Stop Threshold (%) = 0
 Hydration Stop Threshold (%) = 0
 
 [Timeout Settings]
-# Maximum seconds to wait for an action to complete before aborting the repeat sequence
+# Maximum seconds to wait for the game to be ready before aborting the repeat sequence
 Action Completion Timeout (seconds) = 30
-
-# Frames to wait for ActionRoutine to fire after a button click (60 frames ≈ 1 second at 60fps)
-Gate 1 Timeout (frames) = 60
-
-# Maximum seconds to wait for a rest action to complete before travel
-Pre-Travel Rest Timeout (seconds) = 15
 ```
 
 ## Compatibility
 
 - **Quick Transfer**: This mod uses `Shift` as its modifier key, while Quick Transfer uses `Ctrl`, so they work together without conflict.
 - **Other Mods**: Should be compatible with most mods. If you experience issues, please report them.
-- **Dependencies:** `CSFFModFramework` (soft — see Requirements above). No dependency on any content mod, and no other mod depends on Repeat Action.
+- **Dependencies:** None — fully standalone. No dependency on the framework or any content mod, and no other mod depends on Repeat Action.
 
 ## Supported Actions
 
@@ -111,15 +105,16 @@ Pre-Travel Rest Timeout (seconds) = 15
 
 Examples of actions that work: Forage, Clear, Eat, Drink, Cook, Boil, Roast, Fry, Bake, Smoke, Dry, Make, Build, Plant, Harvest, Mine, Chop, Craft, Grind, Dig, Butcher, Skin, Tan, Sew, Smith, Repair, Fill, Pour, Brew, Ferment, Wash, Feed, Water, Till, Train, and any mod-added action.
 
-### Special Behaviors
+### How replay works (2.0.0)
 
-| Action Category | Special Handling |
-|-----------------|-----------------|
-| **Eat** | Popup-based replay; stops when card is consumed and no more of the same item exist |
-| **Drink** | Stops when the container runs dry |
-| **Chop / Cut / Fell** | Automatically rests between iterations to recover stamina; waits for trees to respawn |
-| **Travel (N/S/E/W)** | Rests before each step for stamina; stops when no path forward or a stat event triggers |
-| **Drag-drop (Twine, Wash, etc.)** | Refreshes given and receiving card each iteration; stops when either is exhausted |
+Each iteration, the mod re-finds your target card (by its card type, so a consumed-and-respawned target of the same kind still counts), re-finds the action on that live card, runs **the game's own availability check** (the same one that greys out buttons), and then dispatches through the game's own action pipeline — exactly as if you had clicked the button again. The iteration counts as done when the game finishes the action.
+
+| Action Category | Behavior |
+|-----------------|-----------|
+| **Eat / Drink** | Stops when the item or container is used up and no identical one is available |
+| **Travel (N/S/E/W)** | Finds the matching direction action on each new location card; stops when there's no path forward |
+| **Drag-drop (Twine, Wash, etc.)** | Re-finds given and receiving cards each iteration; stops when either is gone |
+| **Rest / Relax** | Never overwrites your primary action — resting between chops keeps `Shift+R` on the chop |
 
 ### Not Supported
 
@@ -134,7 +129,7 @@ Examples of actions that work: Forage, Clear, Eat, Drink, Cook, Boil, Roast, Fry
 **Q: The action doesn't repeat**
 - Make sure you're pressing `Shift+R` (not just `R`)
 - The action must be a player-initiated action (not a passive/automatic one)
-- A notification saying "'ActionName' is not supported" means it matched the mod's short blocklist (currently just the event-popup "Continue" button)
+- A notification saying "'ActionName' is not supported" means the action is not replayable — either it matched the mod's short blocklist (currently just the event-popup "Continue" button) or it was a non-repeatable one-off (e.g. discard, finish-game)
 - Check the config file to verify keybinds
 
 **Q: Repeat stops early / an action "doesn't actually repeat"**
@@ -145,18 +140,13 @@ The mod never forces an action through — each iteration re-runs the game's own
 - A required stat dropped too low (check "Stop On Low Stats" and the per-stat threshold settings)
 - The card no longer meets the action's conditions (field not grown, container empty, wrong card state)
 - A one-shot action reached its limit (Skin, Pick Up hide, etc. — these can only happen once per card)
-- For drag-drop, if the tool breaks the mod stops with "source exhausted"
-- For travel, if there's no path in that direction the mod stops with "Can't go [direction]"
+- For drag-drop, if the source card is used up the mod stops with "source used up"
+- For travel, if there's no path in that direction the mod stops with "no more targets"
 
-In all of these cases the repeat stops cleanly — check the on-screen notification for the specific reason.
+In all of these cases the repeat stops cleanly — the on-screen notification shows the specific reason, using the game's own requirement message where available (e.g. a missing stat or tool).
 
-**Q: Chopping trees is slow**
-- The mod rests between chops to recover stamina and allow small tree respawns — this is intentional
-- Each chop-rest cycle takes roughly one game tick
-
-**Q: Travel is slow**
-- The mod rests before each travel step to ensure you have stamina — this is intentional
-- The rest also checks for stat events (dehydration, starvation) and stops if one triggers
+**Q: Repeat stops with a stamina/requirement message**
+- The mod does not auto-rest for you (2.0.0 removed the automatic rest-between-iterations). Rest manually, then press `Shift+R` again — resting does not overwrite your last repeated action.
 
 **Q: Mod not loading**
 - Verify BepInEx is installed correctly

@@ -1,5 +1,34 @@
 # Repeat Action — Changelog
 
+## [2.0.1] — 2026-08-08
+
+### Fixed
+
+- **EA 0.66bb compatibility.** Repeat stopped working after the game update — the game's `CardAction.CollectActionModifiers` gained an `InGameNPC` parameter, so the mod's availability check threw `MissingMethodException` on every dispatch. Rebuilt against the 0.66bb game assembly and updated the call. No behavior change otherwise.
+
+## [2.0.0] — 2026-07-20
+
+### Changed
+
+- **Complete replay-engine rewrite (native dispatch).** The mod no longer replays actions by simulating popup button clicks and guessing whether they worked. It now captures your click at the game's own dispatch layer (`GameManager.PerformAction` and its stack / drag-drop / group variants) and replays by calling that same layer directly: re-find the target card, re-find the action on the live card, run the game's own availability check, dispatch, and wait for the game to finish the action. This removes the three root causes of "repeat almost never works":
+  - Button-index replay clicking the wrong (or no) button when the popup layout shifted.
+  - The "no effect" validator that killed valid iterations of any action that doesn't advance the game clock or destroy its card (most crafting/production actions).
+  - Requirement checks running against stale action state, producing spurious "Action unavailable" stops.
+- Stop reasons now surface the game's own blocked-action message (e.g. missing stat/tool) instead of a heuristic guess, and every stop reason is logged at Info level.
+- ~3,700 lines of heuristics replaced by ~600 lines of typed code compiled against the current game assembly (EA 0.65h).
+
+### Removed
+
+- **Automatic rest-between-iterations** (Smart Travel pre-rest, Smart Chopping rest). If a repeat stops for stamina, rest manually and press `Shift+R` — rest/relax still never overwrites your captured primary action.
+- **CSFFModFramework dependency** — the mod is now fully standalone.
+- Obsolete config entries: `Gate 1 Timeout (frames)`, `Pre-Travel Rest Timeout (seconds)` (harmless if still present in your cfg).
+
+### Fixed
+
+- Repeat now works for the broad class of actions that produce output without consuming their card (craft, process, harvest-style actions) — previously these stopped after one iteration with "Stopped - no effect".
+- Stat-threshold safety stops (Stamina/Satiation/Hydration floors) now actually work — 1.x read runtime stat values from a location where they don't exist, so thresholds silently never triggered.
+- Travel repeat re-finds the direction action on the new location card each step instead of relying on the old location's popup.
+
 ## [1.6.3] — 2026-07-12
 
 ### Changed

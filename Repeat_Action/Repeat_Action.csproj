@@ -33,18 +33,13 @@
             <Private>False</Private>
         </Reference>
         <Reference Include="Assembly-CSharp">
-            <HintPath>lib\Assembly-CSharp-nstrip.dll</HintPath>
+            <HintPath>lib\Assembly-CSharp.dll</HintPath>
             <Private>False</Private>
         </Reference>
         <Reference Include="BepInEx">
             <HintPath>lib\BepInEx.dll</HintPath>
             <Private>False</Private>
         </Reference>
-        <Reference Include="CSFFModFramework">
-            <HintPath>lib\CSFFModFramework.dll</HintPath>
-            <Private>False</Private>
-        </Reference>
-
         <!-- UnityEngine DLLs -->
         <Reference Include="UnityEngine" HintPath="lib\UnityEngine.dll">
             <Private>False</Private>
