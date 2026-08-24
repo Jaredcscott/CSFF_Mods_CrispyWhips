@@ -25,6 +25,10 @@ internal static class AreaFamiliarityPatch
 
     private static int _receivingCardArgIndex = 1;
 
+    // D17: fires on every ActionRoutine call while familiarity is enabled — log the first
+    // failure only so a future field-rename leaves a breadcrumb without spamming the log.
+    private static bool _locationUidFailureLogged;
+
     public static void ApplyPatch(Harmony harmony)
     {
         try
@@ -136,7 +140,14 @@ internal static class AreaFamiliarityPatch
             var uid = Reflect.GetMember(cardModel, "UniqueID") as string;
             return string.IsNullOrWhiteSpace(uid) ? null : uid.Trim();
         }
-        catch { }
+        catch (Exception ex)
+        {
+            if (!_locationUidFailureLogged)
+            {
+                _locationUidFailureLogged = true;
+                Logger?.LogDebug($"[AreaFamiliarity] TryGetLocationUid reflection failed (familiarity tracking will silently stop): {ex.Message}");
+            }
+        }
         return null;
     }
 }

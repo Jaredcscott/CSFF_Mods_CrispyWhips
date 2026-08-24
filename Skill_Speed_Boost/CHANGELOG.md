@@ -5,6 +5,14 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.9.6] — 2026-08-09
+
+### Diagnostic
+
+- Added temporary `LogInfo` diagnostics to `MorningBonusPatch.ChangeStat_Post` to investigate a player-reported vanilla bug (EA 0.66a+) where a large stat penalty (e.g. the -150 Stealth hit from an extinguished campfire) is allegedly misapplied as a positive XP gain. Logs the raw before/after/delta on any skill-stat change of magnitude ≥50 before this mod's XP-bonus math runs, and separately logs if a bonus is then compounded on top of it. No behavior change — informational only, to confirm or rule out this mod as a contributor before deciding on a fix. Will be removed/demoted once the report is resolved.
+
+---
+
 ## [1.9.5] — 2026-07-16
 
 ### Fixed

@@ -31,6 +31,12 @@ internal static class MorningBonusPatch
     private static FieldInfo _temporaryModifiedValueField;
     private static bool _modRoutingReflected;
 
+    // D17: each reflection catch below logs its first failure only, then stays quiet —
+    // these fire on every XP-write / every skill-stat change, so unconditional LogDebug
+    // would spam LogOutput.log, but a future field-rename must leave at least one breadcrumb.
+    private static bool _setCurrentValueFailureLogged;
+    private static bool _morningWindowFailureLogged;
+
     private static int _statArgIndex = 0;
     private static int _modificationArgIndex = 2;
 
@@ -85,6 +91,21 @@ internal static class MorningBonusPatch
         float after = SafeGetCurrentValue(stat);
 
         float delta = after - before;
+
+        // TEMP DIAGNOSTIC (2026-08-09): investigating a player-reported vanilla bug (EA
+        // 0.66a+) where a large stat penalty — e.g. the -150 Stealth hit from an
+        // extinguished campfire — is allegedly misapplied as a positive XP gain. Logged
+        // BEFORE the sign/skill-stat gates below so we can see the raw delta vanilla's own
+        // ChangeStatValue coroutine produced: if it already arrives positive, our
+        // multipliers (expMult/morning/synergy/levelScaling) would compound it further.
+        // Remove once the report is confirmed or ruled out (CLAUDE.md Debugging Discipline
+        // — LogInfo, not LogDebug, so it survives BepInEx's default log filter).
+        if (Math.Abs(delta) >= 50f && IsSkillStat(stat))
+        {
+            var diagUid = StatAccess.GetUniqueId(stat) ?? "?";
+            Logger.LogInfo($"[MorningBonus][DIAG] Large delta on skill stat '{diagUid}': before={before:F2} after={after:F2} delta={delta:F2} modification={modification}");
+        }
+
         if (delta <= 0f) yield break;            // not an XP gain — skip
         if (!IsSkillStat(stat)) yield break;     // not a tracked skill
 
@@ -158,7 +179,13 @@ internal static class MorningBonusPatch
         float bonus = delta * (multiplier - 1f);
         float capped = Math.Min(after + bonus, maxVal);
         if (capped > after)
+        {
+            // TEMP DIAGNOSTIC (2026-08-09) — see note above. Confirms whether this patch
+            // amplified an already-large (possibly buggy) vanilla delta.
+            if (delta >= 50f)
+                Logger.LogInfo($"[MorningBonus][DIAG] Applying bonus on top of large delta: after={after:F2} bonus={bonus:F2} capped={capped:F2} multiplier={multiplier:F2}");
             SetCurrentValue(stat, capped, modification);
+        }
     }
 
     // ── Reflection helpers ────────────────────────────────────────────────────
@@ -265,7 +292,14 @@ internal static class MorningBonusPatch
             float current = Convert.ToSingle(targetField.GetValue(stat));
             targetField.SetValue(stat, current + adjustment);
         }
-        catch { }
+        catch (Exception ex)
+        {
+            if (!_setCurrentValueFailureLogged)
+            {
+                _setCurrentValueFailureLogged = true;
+                Logger?.LogDebug($"[MorningBonus] SetCurrentValue reflection failed (bonuses will silently stop applying): {ex.Message}");
+            }
+        }
     }
 
     private static FieldInfo GetValueFieldForModification(object modification)
@@ -292,7 +326,13 @@ internal static class MorningBonusPatch
             var statModel = StatAccess.GetStatModel(stat);
             return Reflect.GetBool(statModel, "UsesNovelty", false);
         }
-        catch { }
+        catch (Exception ex)
+        {
+            // Gates ChangeStat_Post, which runs on EVERY stat change in the game (CLAUDE.md
+            // Runtime Stat Change Hook) — a silent failure here would disable the entire
+            // morning-bonus feature for a stat with zero diagnostic trail.
+            Logger?.LogDebug($"[MorningBonus] IsSkillStat check failed, treating as non-skill: {ex.Message}");
+        }
         return false;
     }
 
@@ -331,7 +371,14 @@ internal static class MorningBonusPatch
                 ? hour >= start && hour < end
                 : hour >= start || hour < end;
         }
-        catch { }
+        catch (Exception ex)
+        {
+            if (!_morningWindowFailureLogged)
+            {
+                _morningWindowFailureLogged = true;
+                Logger?.LogDebug($"[MorningBonus] IsMorningWindow reflection failed (morning bonus will silently stop applying): {ex.Message}");
+            }
+        }
         return false;
     }
 

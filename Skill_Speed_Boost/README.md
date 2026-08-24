@@ -1,6 +1,6 @@
 # Skill Speed Boost
 
-**Version:** 1.9.5
+**Version:** 1.9.7
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.65)
 
@@ -136,7 +136,10 @@ Any skill added by another mod is picked up the same way automatically — no up
 
 ## Version History
 
-### v1.9.5 (current)
+### v1.9.6 (current)
+- Added temporary diagnostic logging (`LogInfo`) in `MorningBonusPatch` to investigate a player-reported vanilla bug (EA 0.66a+) where a large stat penalty — e.g. the -150 Stealth hit from an extinguished campfire — is allegedly misapplied as a positive XP gain. Logs the raw before/after/delta on any skill-stat change of magnitude ≥50, and separately logs if a bonus is then compounded on top of it. Informational only — no behavior change. Will be removed/demoted once the report is resolved.
+
+### v1.9.5
 - **Fixed:** Morning Bonus window was computed as "hours since day start" instead of the actual in-game clock hour, omitting `DaySettings.DayStartingHour`. `MorningStartHour`/`MorningEndHour` are now true clock hours (0 = midnight, 12 = noon) — the default 5–9 window now fires at the advertised early-morning hours instead of 09:00–13:00.
 
 ### v1.9.3–v1.9.4

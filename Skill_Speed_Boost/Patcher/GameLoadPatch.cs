@@ -179,9 +179,14 @@ namespace Skill_Speed_Boost.Patcher
                             updatedCount++;
                         }
                     }
-                    catch
+                    catch (Exception exSkill)
                     {
-                        // Skip stats that don't match expected shapes.
+                        // Skip stats that don't match expected shapes. Breadcrumb so a
+                        // reflection/field-shape drift on the staleness path isn't invisible
+                        // (fleet-wide silent-catch rule / preflight D17). skillName is declared
+                        // inside the try, so it isn't referenced here.
+                        Logger.LogDebug(
+                            $"[SkillSpeedBoost] skipped a skill stat during staleness apply (unexpected field shape): {exSkill.GetType().Name}: {exSkill.Message}");
                     }
                 }
 
