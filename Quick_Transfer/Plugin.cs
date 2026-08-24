@@ -9,7 +9,7 @@ public class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.quick_transfer";
     public const string PluginName = "Quick_Transfer";
-    public const string PluginVersion = "1.7.3";
+    public const string PluginVersion = "1.7.7";
 
     internal new static ManualLogSource Logger;
     private static Harmony _harmony;

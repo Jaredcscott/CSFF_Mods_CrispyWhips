@@ -12,6 +12,10 @@ namespace Quick_Transfer.Patcher
         private static Type cardGraphicsType;
         private static MethodInfo onPointerClickMethod;
 
+        // Lazily-resolved, cached reflection handle for DynamicLayoutSlot.CardPileCount(bool).
+        private static MethodInfo cardPileCountMethod;
+        private static Type cardPileCountMethodOwner;
+
         // Re-entrancy guard
         private static bool isTransferring = false;
 
@@ -41,6 +45,10 @@ namespace Quick_Transfer.Patcher
                     harmony.Patch(onPointerClickMethod,
                         prefix: new HarmonyMethod(prefixMethod),
                         postfix: new HarmonyMethod(postfixMethod));
+                }
+                else
+                {
+                    Logger.LogError("CardGraphics.OnPointerClick not found — QuickTransfer inactive.");
                 }
             }
             catch (Exception ex)
@@ -156,6 +164,13 @@ namespace Quick_Transfer.Patcher
                 }
 
                 consecutiveFailures = 0;
+
+                // Snapshot the slot's pile count so a refused move (destination full/incompatible —
+                // vanilla leaves the card in place, e.g. GraphicsManager.MoveCardToSlot on an
+                // over-weight target) can be told apart from an actual transfer. Invoke() not
+                // throwing does NOT mean the card moved.
+                int pileCountBefore = GetPileCount(sourceSlot);
+
                 var newPointer = new PointerEventData(EventSystem.current);
                 newPointer.button = PointerEventData.InputButton.Right;
 
@@ -163,7 +178,6 @@ namespace Quick_Transfer.Patcher
                 try
                 {
                     onPointerClickMethod.Invoke(candidate, new object[] { newPointer });
-                    transferred++;
                 }
                 catch (Exception ex)
                 {
@@ -175,9 +189,55 @@ namespace Quick_Transfer.Patcher
                 {
                     isTransferring = false;
                 }
+
+                int pileCountAfter = GetPileCount(sourceSlot);
+
+                // A negative count means the pile-count API couldn't be resolved via reflection;
+                // fall back to the prior "assume success" behavior rather than stalling forever.
+                bool countUnknown = pileCountBefore < 0 || pileCountAfter < 0;
+                bool progressMade = countUnknown || pileCountAfter < pileCountBefore;
+
+                if (progressMade)
+                {
+                    transferred++;
+                    continue;
+                }
+
+                consecutiveFailures++;
+                Logger.LogDebug($"[QT] No progress (pile count unchanged at {pileCountAfter}) — destination likely refused the transfer");
+                if (consecutiveFailures >= MaxConsecutiveFailures)
+                {
+                    Logger.LogDebug($"[QT] Done (no progress): transferred {1 + transferred} cards total, stopping after {MaxConsecutiveFailures} refused transfers");
+                    yield break;
+                }
             }
 
             Logger.LogDebug($"[QT] Done: transferred {1 + transferred} cards total (reached requested count)");
+        }
+
+        // Reads DynamicLayoutSlot.CardPileCount(bool) via cached reflection. Returns -1 if the
+        // method can't be resolved (caller treats -1 as "can't tell — assume success").
+        static int GetPileCount(object slot)
+        {
+            if (slot == null) return -1;
+            try
+            {
+                var slotType = slot.GetType();
+                if (cardPileCountMethod == null || cardPileCountMethodOwner != slotType)
+                {
+                    cardPileCountMethod = AccessTools.Method(slotType, "CardPileCount");
+                    cardPileCountMethodOwner = slotType;
+                }
+                if (cardPileCountMethod == null) return -1;
+
+                var result = cardPileCountMethod.Invoke(slot, new object[] { true });
+                return result is int count ? count : -1;
+            }
+            catch (Exception ex)
+            {
+                Logger.LogDebug($"[QT] GetPileCount reflection failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                return -1;
+            }
         }
 
         static object FindFirstCandidate(object sourceSlot, string uniqueId)

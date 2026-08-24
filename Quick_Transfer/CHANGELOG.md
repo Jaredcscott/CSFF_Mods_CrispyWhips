@@ -2,6 +2,21 @@
 
 All notable changes to this mod are documented here.
 
+## [1.7.6] — 2026-08-09
+
+### Documentation
+- Publish-pass review: verified README.md and ModInfo.json feature descriptions against shipped C# source (modifier presets, adjustable presets, live indicator, Full Stack Mode, Legacy Custom Mode, and the `CannotBeTransferred` guard in `QuickTransferPatch.IsValidCandidate`) — no discrepancies found, no content changes needed. Version bump only.
+
+## [1.7.5] — 2026-08-04
+
+### Fixed
+- `OnPointerClick` method-resolution failure (e.g. a future game update renaming/re-signaturing `CardGraphics.OnPointerClick`) now logs an error instead of silently skipping the Harmony patch. Previously the mod would print its "loaded." line, apply nothing, and go completely inert with zero trace in the log — this closes that diagnostic gap (`Patcher/QuickTransferPatch.cs`).
+
+## [1.7.4] — 2026-07-23
+
+### Fixed
+- Bulk-transfer coroutine no longer stalls silently against a refused destination (e.g. a full/over-weight inventory). Previously it counted every re-invoked right-click as a successful transfer regardless of whether the card actually moved, so a rejected move made it grind through the entire remaining count (up to ~9,998 no-op iterations in Full Stack Mode) while repeatedly re-triggering the destination's "cannot carry" feedback. The coroutine now compares the source slot's pile count before and after each invoke and stops after 3 consecutive no-progress attempts, same as it already did for an empty source slot.
+
 ## [1.7.2] — 2026-07-12
 
 ### Changed

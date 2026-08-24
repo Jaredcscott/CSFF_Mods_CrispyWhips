@@ -1,6 +1,6 @@
 # Quick Transfer
 
-**Version:** 1.7.3
+**Version:** 1.7.7
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.65)
 
