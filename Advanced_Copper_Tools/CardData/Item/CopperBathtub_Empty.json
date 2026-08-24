@@ -44,13 +44,63 @@
     "Active": false
   },
   "FuelCapacity": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_copper_bathtub_empty",
+      "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Empty_FuelCapacity_CardStatName",
+      "DefaultText": "Firewood"
+    },
+    "MaxValue": 96.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "ShowPopupOnZero": false,
+    "HasActionOnFull": false,
+    "ShowPopupOnFull": false,
+    "CountsForTradingValue": false,
+    "OverrideIcon": { "m_FileID": 0, "m_PathID": 0 },
+    "OverrideIconWarpData": "Flame",
+    "OverrideIconWarpType": 3
   },
   "Progress": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_copper_bathtub_empty",
+      "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Empty_Progress_CardStatName",
+      "DefaultText": "Charcoal"
+    },
+    "MaxValue": 16.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 3,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": false,
+    "OverrideIcon": { "m_FileID": 0, "m_PathID": 0 },
+    "OverrideIconWarpData": "Hot",
+    "OverrideIconWarpType": 3
   },
   "SpecialDurability1": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_copper_bathtub_empty",
+      "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Empty_Special1_CardStatName",
+      "DefaultText": "Ash Amount"
+    },
+    "MaxValue": 48.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": false
   },
   "SpecialDurability2": {
     "Active": false
@@ -211,7 +261,10 @@
         },
         "TransformIntoWarpData": "advanced_copper_tools_copper_bathtub_empty_placed",
         "TransformIntoWarpType": 3,
-        "SpawnTransformAtSource": true
+        "SpawnTransformAtSource": true,
+        "TransferFuel": true,
+        "TransferCharges": true,
+        "TransferSpecial1": true
       }
     },
     {

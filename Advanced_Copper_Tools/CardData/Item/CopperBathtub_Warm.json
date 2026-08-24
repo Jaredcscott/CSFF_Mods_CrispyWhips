@@ -50,7 +50,7 @@
       "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Warm_FuelCapacity_CardStatName",
       "DefaultText": "Heat"
     },
-    "MaxValue": 24.0,
+    "MaxValue": 96.0,
     "RatePerDaytimePoint": -0.25,
     "HidingOptions": 0,
     "TextDisplay": 0,
@@ -72,7 +72,11 @@
         },
         "TransformIntoWarpData": "advanced_copper_tools_copper_bathtub_full",
         "TransformIntoWarpType": 3,
-        "SpawnTransformAtSource": true
+        "SpawnTransformAtSource": true,
+        "TransferFuel": true,
+        "TransferCharges": true,
+        "TransferSpecial1": true,
+        "TransferSpecial2": true
       }
     },
     "HasActionOnFull": false,
@@ -82,13 +86,61 @@
     "OverrideIconWarpType": 3
   },
   "Progress": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_copper_bathtub_warm",
+      "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Progress_CardStatName",
+      "DefaultText": "Charcoal"
+    },
+    "MaxValue": 16.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": false,
+    "OverrideIcon": { "m_FileID": 0, "m_PathID": 0 },
+    "OverrideIconWarpData": "Hot",
+    "OverrideIconWarpType": 3
   },
   "SpecialDurability1": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_copper_bathtub_warm",
+      "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Special1_CardStatName",
+      "DefaultText": "Ash Amount"
+    },
+    "MaxValue": 48.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": false
   },
   "SpecialDurability2": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_copper_bathtub_warm",
+      "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_WaterLevel_CardStatName",
+      "DefaultText": "Water Level"
+    },
+    "MaxValue": 2400.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "HasActionOnFull": false,
+    "CountsForTradingValue": false,
+    "OverrideIcon": { "m_FileID": 0, "m_PathID": 0 },
+    "OverrideIconWarpData": "Water",
+    "OverrideIconWarpType": 3
   },
   "SpecialDurability3": {
     "Active": false
@@ -174,7 +226,11 @@
         },
         "TransformIntoWarpData": "advanced_copper_tools_copper_bathtub_warm_placed",
         "TransformIntoWarpType": 3,
-        "SpawnTransformAtSource": true
+        "SpawnTransformAtSource": true,
+        "TransferFuel": true,
+        "TransferCharges": true,
+        "TransferSpecial1": true,
+        "TransferSpecial2": true
       }
     }
   ],

@@ -182,11 +182,18 @@
         "actCopperCaveLoc",
         "actTinCaveLoc",
         "actIronCaveLoc",
+        "actSaltMineLoc",
+        "actRockQuarryLoc",
         "act_tin_vein",
         "act_iron_vein",
+        "act_salt_vein",
+        "act_rock_vein",
         "act_tin_ore",
         "act_tin_solder",
         "act_iron_nail",
+        "act_collapsed_wall_salt",
+        "act_collapsed_wall_quarry",
+        "act_collapsed_wall_salt_quarry",
         "advanced_copper_tools_bp_tin_solder",
         "advanced_copper_tools_bp_iron_nails"
       ]

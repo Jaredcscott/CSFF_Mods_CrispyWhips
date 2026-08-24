@@ -405,7 +405,7 @@
         "TransformIntoWarpType": 3,
         "SpawnTransformAtSource": true,
         "TransferFuel": true,
-        "TransferProgress": true,
+        "TransferCharges": true,
         "TransferSpecial1": true,
         "TransferSpecial2": true
       }
@@ -473,7 +473,7 @@
         "TransformIntoWarpType": 3,
         "SpawnTransformAtSource": true,
         "TransferFuel": true,
-        "TransferProgress": true,
+        "TransferCharges": true,
         "TransferSpecial1": true,
         "TransferSpecial2": true
       }
@@ -630,7 +630,11 @@
         },
         "TransformIntoWarpData": "advanced_copper_tools_copper_bathtub_full",
         "TransformIntoWarpType": 3,
-        "SpawnTransformAtSource": true
+        "SpawnTransformAtSource": true,
+        "TransferFuel": true,
+        "TransferCharges": true,
+        "TransferSpecial1": true,
+        "TransferSpecial2": true
       }
     },
     {

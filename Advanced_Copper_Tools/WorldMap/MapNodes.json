@@ -17,7 +17,27 @@
       "e02259f0e9b90114484b2c6ec43b546d",
       "977cc7d7233e1844b8c5aeed108e1e47"
     ],
-    "Connections": []
+    "Connections": [
+      {
+        "EnvironmentUID": "actSaltMineEnv",
+        "PathCost": 10.0,
+        "TravelDirection": "East",
+        "HideConnection": false
+      }
+    ],
+    "SealableGates": [
+      {
+        "ConnectionUID": "actSaltMineEnv",
+        "Granularity": "Edge",
+        "SealTrigger": { "Type": "Always" },
+        "ChallengeCardUID": "act_collapsed_wall_salt",
+        "ClearActionKeyPrefix": "Advanced_Copper_Tools_CollapsedWallSalt_Dig",
+        "MultiHit": true,
+        "MarkerUID": "act_cave_salt_dug",
+        "MarkerEnvUID": "actTinCaveEnv",
+        "SeedOnEnvUIDs": ["actCopperCaveEnv", "actSaltMineEnv"]
+      }
+    ]
   },
   {
     "EnvironmentUID": "actTinCaveEnv",
@@ -43,6 +63,12 @@
         "PathCost": 10.0,
         "TravelDirection": "North",
         "HideConnection": false
+      },
+      {
+        "EnvironmentUID": "actRockQuarryEnv",
+        "PathCost": 10.0,
+        "TravelDirection": "East",
+        "HideConnection": false
       }
     ],
     "VanillaExits": [
@@ -58,7 +84,7 @@
       {
         "ConnectionUID": "actCopperCaveEnv",
         "Granularity": "Env",
-        "SealTrigger": { "Type": "PerkEquipped", "UID": "advanced_copper_tools_perk_cave_prospector" },
+        "SealTrigger": { "Type": "Always" },
         "ChallengeCardUID": "act_collapsed_wall_copper",
         "ClearActionKeyPrefix": "Advanced_Copper_Tools_CollapsedWallCopper_Dig",
         "MultiHit": true,
@@ -69,7 +95,7 @@
       {
         "ConnectionUID": "actIronCaveEnv",
         "Granularity": "Env",
-        "SealTrigger": { "Type": "PerkEquipped", "UID": "advanced_copper_tools_perk_cave_prospector" },
+        "SealTrigger": { "Type": "Always" },
         "ChallengeCardUID": "act_collapsed_wall_iron",
         "ClearActionKeyPrefix": "Advanced_Copper_Tools_CollapsedWallIron_Dig",
         "MultiHit": true,
@@ -80,13 +106,24 @@
       {
         "ConnectionUID": "17d6cfe8ff886b643afee74dc18760a7",
         "Granularity": "Edge",
-        "SealTrigger": { "Type": "PerkEquipped", "UID": "advanced_copper_tools_perk_cave_prospector" },
+        "SealTrigger": { "Type": "Always" },
         "ChallengeCardUID": "act_collapsed_wall_tin",
         "ClearActionKeyPrefix": "Advanced_Copper_Tools_CollapsedWallTin_Dig",
         "MultiHit": true,
         "MarkerUID": "act_cave_tin_dug",
         "MarkerEnvUID": "actTinCaveEnv",
         "SeedOnEnvUIDs": ["actTinCaveEnv", "17d6cfe8ff886b643afee74dc18760a7"]
+      },
+      {
+        "ConnectionUID": "actRockQuarryEnv",
+        "Granularity": "Edge",
+        "SealTrigger": { "Type": "Always" },
+        "ChallengeCardUID": "act_collapsed_wall_quarry",
+        "ClearActionKeyPrefix": "Advanced_Copper_Tools_CollapsedWallQuarry_Dig",
+        "MultiHit": true,
+        "MarkerUID": "act_cave_quarry_dug",
+        "MarkerEnvUID": "actTinCaveEnv",
+        "SeedOnEnvUIDs": ["actTinCaveEnv", "actRockQuarryEnv"]
       }
     ]
   },
@@ -116,5 +153,65 @@
         "HideConnection": false
       }
     ]
+  },
+  {
+    "EnvironmentUID": "actSaltMineEnv",
+    "LocationUID": "actSaltMineLoc",
+    "CloneOfEnvironmentUID": "17d6cfe8ff886b643afee74dc18760a7",
+    "DisplayName": "Salt Mine",
+    "NameLocalizationKey": "Advanced_Copper_Tools_SaltMineCave_CardName",
+    "EnvNameLocalizationKey": "Advanced_Copper_Tools_Env_SaltMineCave_CardName",
+    "Coords": { "x": 30.0, "y": 0.0, "z": 40.0, "w": 0.0 },
+    "CardImage": "Mines",
+    "HideFromMap": false,
+    "StripAllInheritedDrops": true,
+    "ExtraDropUIDs": ["act_salt_vein", "act_salt_vein", "act_salt_vein"],
+    "StripLegacyBoardUIDs": [
+      "b956acdc408dbbe498aa17ab8830d5e1",
+      "d65ae569ebecad94c96896687c376fa3",
+      "e02259f0e9b90114484b2c6ec43b546d",
+      "977cc7d7233e1844b8c5aeed108e1e47"
+    ],
+    "Connections": [
+      {
+        "EnvironmentUID": "actRockQuarryEnv",
+        "PathCost": 10.0,
+        "TravelDirection": "South",
+        "HideConnection": false
+      }
+    ],
+    "SealableGates": [
+      {
+        "ConnectionUID": "actRockQuarryEnv",
+        "Granularity": "Edge",
+        "SealTrigger": { "Type": "Always" },
+        "ChallengeCardUID": "act_collapsed_wall_salt_quarry",
+        "ClearActionKeyPrefix": "Advanced_Copper_Tools_CollapsedWallSaltQuarry_Dig",
+        "MultiHit": true,
+        "MarkerUID": "act_cave_salt_quarry_dug",
+        "MarkerEnvUID": "actTinCaveEnv",
+        "SeedOnEnvUIDs": ["actSaltMineEnv", "actRockQuarryEnv"]
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "actRockQuarryEnv",
+    "LocationUID": "actRockQuarryLoc",
+    "CloneOfEnvironmentUID": "17d6cfe8ff886b643afee74dc18760a7",
+    "DisplayName": "Rock Quarry",
+    "NameLocalizationKey": "Advanced_Copper_Tools_RockQuarryCave_CardName",
+    "EnvNameLocalizationKey": "Advanced_Copper_Tools_Env_RockQuarryCave_CardName",
+    "Coords": { "x": 30.0, "y": 0.0, "z": 30.0, "w": 0.0 },
+    "CardImage": "Tunnel_Shaft",
+    "HideFromMap": false,
+    "StripAllInheritedDrops": true,
+    "ExtraDropUIDs": ["act_rock_vein", "act_rock_vein", "act_rock_vein"],
+    "StripLegacyBoardUIDs": [
+      "b956acdc408dbbe498aa17ab8830d5e1",
+      "d65ae569ebecad94c96896687c376fa3",
+      "e02259f0e9b90114484b2c6ec43b546d",
+      "977cc7d7233e1844b8c5aeed108e1e47"
+    ],
+    "Connections": []
   }
 ]

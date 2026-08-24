@@ -1,7 +1,7 @@
 # Advanced Copper Tools
 
 **Quality of Life & Advanced Metalworking**
-**Version:** 1.14.0
+**Version:** 1.16.1
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.65)
 
@@ -27,7 +27,7 @@ Major systems:
 - **Tea Blending Station** — 3-variant kit / placed / lit workstation with six herb-and-grinding slots, a built-in 8-bowl water reservoir, passive drying, a "Grind All" action, a heated reservoir while lit, and three brewable herbal teas (Calming from willow bark, Warming from wild garlic, Focus from spirit mushrooms)
 - **Copper Chest** (formerly "Copper Pantry") — Sealed, animal-safe storage that slows spoilage to 20% of normal
 - **Iron-Grade Armor** — Iron Sheet forged from iron nuggets feeds a tougher iron helmet/bracers/greaves/armor tier with higher Armor Values and durability than copper
-- **Copper Watering Can** — Fill from any shallow water source; pour into containers, douse fires, or drink in a pinch
+- **Copper Watering Can** — Fill from any shallow water source; carry it for a quick drink, or empty it out when you're done
 - **Copper-Rim Chamberpot** — Minor hygiene item; small mood bonus for four uses before it needs emptying
 
 ---
@@ -38,10 +38,10 @@ Blueprints register into vanilla crafting tabs via `BlueprintTabs.json`:
 
 | Tab | Blueprints |
 |-----|-----------|
-| **Survival → Support** | Rendered Oil, Render Hemp Seed Oil |
+| **Survival → Support** | Rendered Oil, Rendered Fish Oil, Render Hemp Seed Oil |
 | **Survival → Fire** | Copper Brazier |
 | **Metal & Clay → Metal Crafts** | Metal Sheet, Copper Nail, Forged Pan Blank, Wheel Rim, Wheel Hub (forged), Cast Wheel Hub, Cast Stove Top, Iron Sheet |
-| **Construction → Metal Tools** | Wearable Metal Pan, Large Saw, Lantern Oilwell, Copper Tea Kettle, Copper Oil Flask, Copper Cauldron, Copper Helmet, Copper Bracers, Copper Greaves, Copper Armor, Copper Watering Can, Iron Helmet, Iron Bracers, Iron Greaves, Iron Armor |
+| **Construction → Metal Tools** | Wearable Metal Pan, Large Saw, Lantern Oilwell, Copper Tea Kettle, Copper Oil Flask, Copper Cauldron, Copper Helmet, Copper Bracers, Copper Greaves, Copper Armor, Copper Watering Can, Iron Helmet, Iron Bracers, Iron Greaves, Iron Armor (Male), Iron Armor (Female) |
 | **Construction → Advanced Tools** | Metal Lantern, Wheelbarrow Bucket, Wheelbarrow Handles, Wheel Assembly, Wheelbarrow |
 | **Construction → Furniture** | Small Copper Stove, Copper Bathtub, Tea Blending Station, Copper Chest, Copper Brazier, Copper-Rim Chamberpot |
 
@@ -129,6 +129,21 @@ Helmet and Armor are research-gated by having a Metal Sheet; Bracers and Greaves
 
 ---
 
+## Bronze Armor Set
+
+A mid-tier armor set slotting between Copper and Iron, using the same forged-armor pattern. Each piece requires a **bronze-grade** Metal Sheet — a sheet cast from Ghost Bronze, Tin Bronze, or White Bronze nuggets (any metal in the SD4 100–140 band above plain copper), not a new item.
+
+| Piece | Protection | Recipe | Build | Unlock |
+|-------|------------|--------|------:|-------:|
+| **Bronze Helmet** | Head +37.5 | 2 bronze-grade metal sheets + 4 copper nails + 1 small leather + 2 sinew + hammer (no spend) + 1 Tin Solder | 4 ticks | 28 ticks |
+| **Bronze Bracers** | Arms +17.5 each | 2 bronze-grade metal sheets + 4 copper nails + 1 small leather + 2 sinew + hammer (no spend) + 1 Tin Solder | 4 ticks | 28 ticks |
+| **Bronze Greaves** | Legs +17.5 each | 2 bronze-grade metal sheets + 4 copper nails + 1 small leather + 2 sinew + hammer (no spend) + 1 Tin Solder | 4 ticks | 28 ticks |
+| **Bronze Armor** | Torso +37.5 | 4 bronze-grade metal sheets + 4 copper nails + 1 medium leather + 4 sinew + hammer (no spend) + 1 Tin Solder | 6 ticks | 32 ticks |
+
+All four appear under **Construction → Metal Tools** alongside the Copper and Iron sets. Durability is 120 (vs. Copper's 100 and Iron's 140), furnace-recyclable like every other ACT armor piece.
+
+---
+
 ## Wheelbarrow
 
 A wearable container that carries items at reduced effective weight. Built from four sub-assemblies plus the wheel pipeline.
@@ -164,7 +179,7 @@ A 3-state placed structure for cleansing and morale.
 - **Full (Cold)** — Take a cold bath for cleansing and a modest morale boost. Add firewood and light to heat the water.
 - **Warm** — 24 max Heat (drains at −0.25/dtp ≈ ~1 day per fill). Take a warm bath for deep cleansing, major morale, spiritual boost, and body warmth.
 
-**Actions**: Fill / Add Firewood / Light / Take Cold Bath / Take Warm Bath / Empty / Pick Up / Dismantle.
+**Actions**: Fill / Add Firewood / Light / Take Cold Bath / Take Warm Bath / Take Hot Bath (≥50% heat) / Wash with Soap (drag in vanilla Soap for a bigger cleansing and mood boost) / Empty / Pick Up / Dismantle.
 
 ---
 
@@ -194,6 +209,7 @@ When fuel runs out, lit variants auto-extinguish back to their unlit counterpart
 | Blueprint | Recipe | Build | Unlock |
 |-----------|--------|------:|------:|
 | **Rendered Oil** | 2 animal fat + 1 clay bowl, over a fire | 4 ticks | 16 ticks |
+| **Rendered Fish Oil** | 2 fatty fish meat + 1 clay bowl, over a fire | 4 ticks | 16 ticks |
 | **Render Hemp Seed Oil** | 1 hemp seed oil → 1 oil (requires H&F installed)¹ | 4 ticks | 16 ticks |
 | **Lantern Oilwell** | 1 metal sheet + 1 twine + hammer (no spend) + 1 Tin Solder | 2 ticks | 16 ticks |
 | **Copper Oil Flask** | 2 metal sheets + 1 medium leather + hammer (no spend) + 1 Tin Solder | 3 ticks | 16 ticks |
@@ -247,7 +263,7 @@ A dedicated workbench with six herb-and-grinding slots, a built-in 8-bowl water 
 
 **Grind All action**: One DismantleAction button reads each card's own Grind CardInteraction and produces every dried-or-millable item's ground variant. Powered by a Harmony prefix on `GameManager.ActionRoutine` / `PerformStackActionRoutine` — pure JSON could not implement this since `tag_Millable` items don't expose an OnFull transform.
 
-**Reservoir (built-in 300-capacity)**: Drag clay bowls of water onto the station to fill it. Use "Draw Cold Water" with an empty bowl to extract cold water. While lit, the station heats its own held liquid via a Harmony per-tick patch (Water Temp 0 → 12, ~30 in-game minutes from cold), and you can use "Draw Hot Water" once the reservoir is at 50%+ heat.
+**Reservoir (built-in 8-charge Water Charges tank)**: Drag clay bowls of water onto the station to fill it. Use "Draw Cold Water" with an empty bowl to extract cold water. While lit, the station heats its own held liquid via a Harmony per-tick patch (Water Temp 0 → 12, ~30 in-game minutes from cold), and you can use "Draw Hot Water" once the reservoir is at 50%+ heat.
 
 **Light Fire / Extinguish / Pick Up**: Drag a fire source (gated by ≥10% fuel) to light. Extinguish via DismantleAction. Pick Up requires the reservoir empty and the station unlit; it transforms back to the kit with fuel and contents intact.
 
@@ -277,6 +293,22 @@ A sealed copper chest with thick insulated walls (build 10 ticks, unlock 64 tick
 
 ---
 
+## Ore Chest
+
+A high-capacity, animal-safe sealed metal crate built for hauling the cave network's bulk raws — Greenstone, Bog Iron, Tin Ore, Salt, and Stone — rather than food (build 10 ticks, unlock 64 ticks; 6 metal sheets + 4 planks + 8 copper nails + hammer + 1 Tin Solder).
+
+- 6000 weight capacity (item) / 15000 weight capacity (placed) — no spoilage protection, just space
+- **Animal-safe**: wildlife cannot raid this crate
+- Appears under **Construction → Furniture**
+
+---
+
+## Salt-Cured Meat
+
+Raw meat packed in Salt and left to cure into a slow-spoiling travel ration (1 raw meat + 2 Salt; build 2 ticks, unlock 8 ticks; Survival → Support). Gives the Salt Mine a self-contained ACT payoff beyond feeding vanilla cooking — the salt content also leaves you thirstier than a plain cooked meat would.
+
+---
+
 ## Smelting Recovery
 
 All crafted metal items can be melted back down for nuggets in the furnace (the Copper Oil Flask is the sole exception — its leather binding is not recovered):
@@ -288,14 +320,17 @@ All crafted metal items can be melted back down for nuggets in the furnace (the 
 | Wearable Metal Pan | 5 |
 | Metal Sheet / Wheel Hub / Wheel Rim / Stove Top Mold / Cast Stove Top / Lantern Oilwell | 6 |
 | Wheel Assembly | 12 |
+| Bronze Bracers | 13 |
 | Large Saw | 16 |
 | Metal Lantern | 18 |
 | Copper Tea Kettle | 18 |
 | Copper Bracers | 11 |
 | Copper Helmet | 15 |
 | Copper Greaves | 15 |
+| Bronze Helmet / Bronze Greaves | 17 |
 | Copper Armor | 23 |
 | Copper Brazier | 22 |
+| Bronze Armor | 26 |
 | Small Copper Stove / Copper Chest | 30 |
 | Copper Cauldron | 34 |
 | Tea Station Kit / Wheelbarrow Bucket | 48 |
@@ -307,22 +342,26 @@ All recipes use a duration of 8 ticks in the smelter.
 
 ## Cave System
 
-ACT adds three cave environments east of the Waterfall Caves on the world map. The Tin Vein Cave is the entry point, accessible by travelling from Waterfall Caves.
+ACT adds five cave environments east of the Waterfall Caves on the world map. The Tin Vein Cave (Metal Mines) is the entry point, accessible by travelling from Waterfall Caves.
 
 | Cave | Contents | Notes |
 |------|----------|-------|
-| **Tin Vein Cave** | 3 × Tin Vein | Hub — enter via Waterfall Caves to the west; connects north to Copper Vein Cave, south to Iron Vein Cave |
-| **Copper Vein Cave** | 3 × Copper Vein | North of Tin Vein Cave |
+| **Tin Vein Cave** (Metal Mines) | 3 × Tin Vein | Hub — enter via Waterfall Caves to the west; connects north to Copper Vein Cave, south to Iron Vein Cave, east to Rock Quarry |
+| **Copper Vein Cave** | 3 × Copper Vein | North of Tin Vein Cave; connects east to Salt Mine |
 | **Iron Vein Cave** | 3 × Iron Vein | South of Tin Vein Cave |
+| **Salt Mine** | 3 × Salt Vein | East of Copper Vein Cave; connects south to Rock Quarry |
+| **Rock Quarry** | 3 × Rock Vein | East of Tin Vein Cave; connects north to Salt Mine |
 
-Each vein supports a **Mine** action (pickaxe, 3 ticks / ~45 min) and a **Chip Away** action (axe, hammer, shovel, or antler, 8 ticks / 2 hours). Mining with a pickaxe yields 1–2 ore per strike; chipping away yields 1 per strike and costs more tool durability.
+Each vein supports a **Mine** action (pickaxe, 3 ticks / ~45 min) and a **Chip Away** action (axe, hammer, shovel, or antler, 8 ticks / 2 hours). Mining with a pickaxe yields 1–2 ore per strike; chipping away yields 1 per strike and costs more tool durability. (Rock Vein is the exception — see below.)
 
 **Ore yields and uses:**
 - **Copper Vein** → Greenstone (1–2 per strike). Smelt in any forge/furnace for vanilla copper nuggets.
 - **Iron Vein** → Bog Iron (1–2 per strike). Smelt via the standard vanilla path for wrought iron. Finding Bog Iron also unlocks the **Forge Iron Nails** blueprint (requires iron-grade metal nuggets; Metal Crafts tab).
 - **Tin Vein** → Tin Ore (1–2 per strike). Smelt in any forge/furnace to produce a **tin-grade metal nugget** (vanilla metal nugget, tin type). Use tin-grade nuggets to forge **Tin Solder** via the **Forge Tin Solder** blueprint (Metal Crafts tab, unlocked by possessing Tin Ore; 1 tin-grade nugget yields 2 Tin Solder).
+- **Salt Vein** → vanilla Salt (1–2 per strike).
+- **Rock Vein** → vanilla Stone and Heavy Stone in bulk. Both the **Mine Stone** (pickaxe) and **Chip Away** actions yield a guaranteed 3 Stone + 3 Heavy Stone per strike. 6 strikes before depleting (same as every other vein), for a total of 18 Stone + 18 Heavy Stone per vein.
 
-**Tin Solder is a hard dependency for most of the mod.** Nearly every finished ACT blueprint beyond the raw-material tier (Metal Sheet, Copper Nail, Forged Pan Blank, Cast Stove Top, Wheel Hub, Wheel Rim) additionally requires 1 Tin Solder: Small Copper Stove, Wearable Metal Pan, Large Copper Saw, all four copper armor pieces, every Wheelbarrow sub-assembly, Copper Bathtub, Metal Lantern, Lantern Oilwell, Copper Oil Flask, Copper Tea Kettle, Copper Cauldron, Copper Brazier, and Copper Chest. In practice, reaching the Tin Vein Cave (via Waterfall Caves) is required before most of this mod's content becomes buildable.
+**Tin Solder is a hard dependency for most of the mod.** Nearly every finished ACT blueprint beyond the raw-material tier (Metal Sheet, Copper Nail, Forged Pan Blank, Cast Stove Top, Wheel Hub, Wheel Rim) additionally requires 1 Tin Solder: Small Copper Stove, Wearable Metal Pan, Large Copper Saw, all four copper armor pieces, every Wheelbarrow sub-assembly, Copper Bathtub, Metal Lantern, Lantern Oilwell, Copper Oil Flask, Copper Tea Kettle, Copper Cauldron, Copper Brazier, and Copper Chest. In practice, reaching the Tin Vein Cave (via Waterfall Caves) is required before most of this mod's content becomes buildable. If WaterDrivenInfrastructure is installed, its Alloy Solder is accepted as a substitute everywhere Tin Solder is required (v1.15.3+).
 
 ---
 
@@ -338,6 +377,7 @@ Each vein supports a **Mine** action (pickaxe, 3 ticks / ~45 min) and a **Chip A
 | **Large Saw** | 45 Suns | Start with a Large Copper Saw. |
 | **Tea Blending Station** | 2 Moons | Start with a Tea Station Kit ready to place. |
 | **Building Materials** | 2 Moons | Start with 10 planks, 10 small leather, 10 long sticks, 20 mud bricks, 1 large cloth, and 1 spoon auger. |
+| **Cave Prospector** | ★1 (±0 difficulty) | Opt-in challenge trait. The passages between the Tin, Copper, Iron, Salt, and Rock Quarry caves start collapsed — dig through each Collapsed Rock Face (pickaxe, shovel, axe, antler, or knife) to open the way, recovering loose stone. Without this perk the cave network is open from the start. |
 
 All perks land on the Situational tab via the framework's perk injector.
 
@@ -371,7 +411,7 @@ These hooks are mod-scoped and filter on this mod's UniqueIDs. The exception is 
 1. Install BepInEx if not already installed.
 2. Install CSFFModFramework in `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. Drop this mod folder at `BepInEx/plugins/Advanced_Copper_Tools/`.
-4. Launch the game — content loads automatically; check `BepInEx/LogOutput.log` for `Advanced_Copper_Tools v1.14.0 loaded.`
+4. Launch the game — content loads automatically; check `BepInEx/LogOutput.log` for `Advanced_Copper_Tools v1.16.1 loaded.`
 
 ### Deployed file structure
 
@@ -404,14 +444,14 @@ BepInEx/plugins/Advanced_Copper_Tools/
 
 Other in-house mods build directly on top of ACT's content:
 
-- **WaterDrivenInfrastructure** — optional compatibility. WDI is fully playable without ACT, but if ACT is installed it accepts ACT Copper Nails, Tin Solder, and Copper Sheet interchangeably with its own fasteners and uses ACT outputs from matching Workshop actions.
+- **WaterDrivenInfrastructure** — optional compatibility. WDI is fully playable without ACT, but if ACT is installed it accepts ACT Copper Nails, Tin Solder, and Copper Sheet interchangeably with its own fasteners and uses ACT outputs from matching Workshop actions. The reverse also holds (v1.15.3+): ACT's iron-tier armor accepts WDI's Copper/Iron Rivets alongside Copper Nail, and any ACT recipe requiring Tin Solder also accepts WDI's Alloy Solder.
 - **Community Mod Chest** — functional dependency for three features: the River Bridge improvement (unlocks the Village area), the Market Stall blueprint (consumes a Copper Pantry/Copper Chest), and the Village Academy's Armorer course (hidden entirely if ACT isn't installed).
 
 ---
 
 ## Troubleshooting
 
-**Blueprints not appearing?** Verify CSFFModFramework is loaded — check `LogOutput.log` for `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.14.0 loaded.`
+**Blueprints not appearing?** Verify CSFFModFramework is loaded — check `LogOutput.log` for `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.16.1 loaded.`
 
 **Pan / kettle won't boil?** It must be on a *lit* fire source with fuel remaining. Vanilla water types boil via their own `LiquidFuelValue` OnFull transform; if the liquid isn't a heatable type, nothing happens.
 
@@ -425,7 +465,55 @@ Other in-house mods build directly on top of ACT's content:
 
 ## Version History
 
-### v1.14.0 (current)
+### v1.16.0 (current)
+- Added Ore Chest (high-capacity bulk-raws storage), Salt-Cured Meat (slow-spoiling ration), Bronze/White-Bronze armor tier (Helmet/Bracers/Greaves/Armor), and a Wash with Soap bathtub interaction. See CHANGELOG.md for full detail.
+
+### v1.15.9
+- Internal: Copper Stove, Copper Brazier, and Metal Lantern (lit and unlit variants of each) are now marked compatible with the vanilla Firekeeping duty, so a recruited Partner NPC can potentially be assigned to tend their fuel. Not yet verified in-game — no player-facing behavior claim until confirmed.
+
+### v1.15.8
+- **Powder ground at the Tea Station no longer vanishes when poured into bottles, cloth bags, or wooden barrels** (Nexus bug report, 2026-08-10). The Grind All in-place transform was resetting the pour quantity powders carry to 0, so the game's built-in pour-into-container action destroyed the powder card and added no liquid. Note: powder ground before this update still carries the zero quantity in your save — grind fresh material after updating.
+- **Tin Ore can now be smelted in any smelting container**, not only iron-capable ones — it was incorrectly gated on `tag_SmeltingContainerIron` instead of the general smelting tag every other smeltable item uses.
+
+### v1.15.7
+- Documentation review for publish; no functional changes. README/ModInfo verified up to date against all shipped content through v1.15.6 (Salt Mine/Rock Quarry, bathtub Hot Bath tier, iron armor Male/Female split, tin solder/nail cross-mod interchangeability, and related fixes) — version bump only.
+
+### v1.15.6
+- **Collapsed Rock Face walls now spawn for every player by default**, not only after equipping
+  the Cave Prospector perk. The perk was never required to dig through a wall — that's gated on
+  tool tags (pickaxe/shovel/axe/antler/knife) on the wall's own interaction — it only controlled
+  whether the wall existed at all. Requires `CSFFModFramework` 2.21.1+.
+
+### v1.15.3
+- Iron-tier armor fastener slots now also accept Copper Nail and both WaterDrivenInfrastructure rivets (previously only Iron Nail) — cross-tier fastener interchangeability is now bidirectional.
+- New Tin Solder ↔ WaterDrivenInfrastructure Alloy Solder interchangeability.
+- Copper Watering Can's description/help text/README no longer advertise the unimplemented "douse fires" and "pour into any water container" interactions — corrected to describe what it actually does (Fill from Water, Drink, Empty Out).
+- Tea Blending Station's README reservoir description corrected to "8-charge Water Charges tank" (was incorrectly stated as "300-capacity").
+- Fixed Oil.json's card art reference (was pointing at a nonexistent sprite name and rendering blank).
+- Calming/Focus/Warming Tea's spoilage stat relabeled "Spoilage" (was "Freshness").
+
+### v1.15.2
+- **Rock Vein yield is now deterministic: 3 Stone + 3 Heavy Stone per strike, guaranteed**, on both the Mine Stone (pickaxe) and Chip Away actions — replacing the previous mixed guaranteed/chance drop table. Every Rock Vein is now worth exactly 18 Stone + 18 Heavy Stone regardless of which tool is used.
+
+### v1.15.1
+- Clearing a Collapsed Rock Face now recovers 3 Heavy Stone (up from 1) alongside the existing 3 Stone, across all six tunnels (Copper, Tin, Iron, Salt, Salt↔Quarry, Quarry).
+- Rock Vein now also yields Heavy Stone (50% per pickaxe strike, 25% per chip-away strike), matching the Collapsed Rock Face tunnels. It already shared the 6-strike depletion count with every other vein.
+
+### v1.15.0
+- Added two new cave locations: **Salt Mine** (east of Copper Vein Cave, 3 × Salt Vein) and **Rock Quarry** (east of Tin Vein Cave, 3 × Rock Vein, bulk stone), connected to each other north–south. Both new passages use the same Collapsed Rock Face / Cave Prospector perk gating as the existing network.
+
+### v1.14.3
+- Bathtub pick-up now preserves invested firewood, water level, ash, and charcoal progress instead of silently discarding it; a picked-up Warm tub stays a Warm kit instead of degrading to cold. Also fixed a pre-existing bug where the declared "transfer charcoal progress" JSON key didn't match a real game field and silently did nothing.
+- Iron Sheet's research-discovery gate now actually requires an iron-grade nugget (previously fired on any metal nugget).
+- Collapsed Rock Face (Copper/Iron Vein Caves) now uses the vanilla rockfall sprite instead of tin-vein art.
+
+### v1.14.2
+- Small Copper Stove now has an NPC trading value (1500), anchored to vanilla copper goods.
+
+### v1.14.1
+- **Iron Armor now offers separate Male/Female torso variants** (`IronArmor_M.png` / `IronArmor_F.png`), matching the body-model split other armor already respects. Same protection (Torso +45) and recipe as before — art only.
+
+### v1.14.0
 - Fixed Iron Sheet's card art: it referenced the now-removed `IronSheet.png` sprite (replaced by the image-upgrade pass's `MetalSheet_Iron.png`) on both the item and its blueprint — was silently falling back to a missing-sprite placeholder in-game.
 - **Copper/Iron Sheet now interchangeable with WaterDrivenInfrastructure's Cast Copper/Iron Sheet** (same tier only — Iron Sheet only pairs with Cast Iron Sheet) when WDI is installed. Nails were already cross-mod/cross-tier interchangeable with WDI's rivets (v1.11.5 and earlier); this closes the equivalent gap for sheets, and additionally makes Copper Nail accept WDI's new Iron Rivet. Soft dependency — no behavior change when WDI isn't installed.
 

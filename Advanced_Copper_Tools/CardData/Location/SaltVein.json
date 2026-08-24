@@ -1,14 +1,14 @@
 {
-  "UniqueID": "act_collapsed_wall_tin",
+  "UniqueID": "act_salt_vein",
   "CardName": {
-    "ParentObjectID": "act_collapsed_wall_tin",
-    "LocalizationKey": "Advanced_Copper_Tools_CollapsedWallTin_CardName",
-    "DefaultText": "Collapsed Rock Face"
+    "ParentObjectID": "act_salt_vein",
+    "LocalizationKey": "Advanced_Copper_Tools_SaltVein_CardName",
+    "DefaultText": "Salt Vein"
   },
   "CardDescription": {
-    "ParentObjectID": "act_collapsed_wall_tin",
-    "LocalizationKey": "Advanced_Copper_Tools_CollapsedWallTin_CardDescription",
-    "DefaultText": "A cave-in blocks the eastern passage beyond the waterfall. Dig through it with a pickaxe, shovel, axe, antler, or knife to access the tin, copper, and iron vein caves — once cleared, the passage stays open."
+    "ParentObjectID": "act_salt_vein",
+    "LocalizationKey": "Advanced_Copper_Tools_SaltVein_CardDescription",
+    "DefaultText": "A crusted seam of rock salt embedded in cave rock. Mine with a pickaxe for best results, or chip away with an axe, hammer, shovel, or antler. Produces salt."
   },
   "CanBeRenamed": false,
   "AlternateNames": [],
@@ -16,11 +16,11 @@
   "CardHelpSection": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
   "CardBackground": { "m_FileID": 0, "m_PathID": 0 },
-  "CardImageWarpData": "Tunnel_1",
+  "CardImageWarpData": "act_tin_vein",
   "CardImageWarpType": 3,
   "ShowImageAboveTitle": false,
   "CardType": 2,
-  "CannotBeTransferred": true,
+  "CannotBeTransferred": false,
   "NotAutoSolvableEvent": false,
   "ObjectWeight": 0.0,
   "TradingValue": 0.0,
@@ -44,10 +44,10 @@
   "SpoilageTime": { "Active": false },
   "UsageDurability": {
     "Active": true,
-    "FloatValue": 3.0,
+    "FloatValue": 6.0,
     "CardStatName": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
     "RandomStartingOffset": 0.0,
-    "MaxValue": 3.0,
+    "MaxValue": 6.0,
     "RatePerDaytimePoint": 0.0,
     "HidingOptions": 0,
     "TextDisplay": 0,
@@ -80,14 +80,72 @@
   "CardInteractions": [
     {
       "ActionName": {
-        "ParentObjectID": "act_collapsed_wall_tin",
-        "LocalizationKey": "Advanced_Copper_Tools_CollapsedWallTin_Dig_ActionName",
-        "DefaultText": "Dig Through"
+        "ParentObjectID": "act_salt_vein",
+        "LocalizationKey": "Advanced_Copper_Tools_SaltVein_Mine_ActionName",
+        "DefaultText": "Mine Salt"
       },
       "ActionDescription": {
-        "ParentObjectID": "act_collapsed_wall_tin",
-        "LocalizationKey": "Advanced_Copper_Tools_CollapsedWallTin_Dig_ActionDescription",
-        "DefaultText": "Break through the collapsed rock with a pickaxe, shovel, axe, antler, or knife. Opens the eastern passage to the cave network beyond the falls."
+        "ParentObjectID": "act_salt_vein",
+        "LocalizationKey": "Advanced_Copper_Tools_SaltVein_Mine_ActionDescription",
+        "DefaultText": "Strike the vein with a pickaxe to extract salt."
+      },
+      "DaytimeCost": 3,
+      "UseMiniTicks": 0,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ActionSoundsWarpData": [ "HittingStone" ],
+      "ActionSoundsWarpType": 3,
+      "RequiredStatValues": [],
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "fd161ef9dac659f458306949689088d2",
+          "a8b3d99a923d83340a2f039617f3dff3"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "GivenCardChanges": {
+        "ModType": 1,
+        "UsageChange": { "x": -4.0, "y": -4.0 }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "UsageChange": { "x": -1.0, "y": -1.0 }
+      },
+      "ProducedCards": [
+        {
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 },
+              "DropChance": { "Active": true, "BaseDropChance": 100.0 }
+            },
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 },
+              "DropChance": { "Active": true, "BaseDropChance": 50.0 }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "act_salt_vein",
+        "LocalizationKey": "Advanced_Copper_Tools_SaltVein_MineRough_ActionName",
+        "DefaultText": "Chip Away"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "act_salt_vein",
+        "LocalizationKey": "Advanced_Copper_Tools_SaltVein_MineRough_ActionDescription",
+        "DefaultText": "Strike the vein with an axe, hammer, shovel, or antler. Slower than a pickaxe — yields one salt per strike."
       },
       "DaytimeCost": 8,
       "UseMiniTicks": 0,
@@ -102,15 +160,25 @@
         "TriggerCards": [],
         "TriggerTags": [],
         "TriggerCardsWarpData": [
-          "c1681bf59e15f3045aee3cbc58ec9b0c"
+          "5c22db296fcde9a4da7dab850195c04a",
+          "20e72cdaaf2bbc247a6ee0abcc1347a4",
+          "bd517943b89f4e149893ffe4489a96e6",
+          "968d89b358ccf624a9e34f659166a0a1",
+          "634cea69c95dbb5468e9795b067bc623",
+          "5a5b31be26b363c4da6e9cd65750500f",
+          "95da1742320318348b0fa4f03e81c2f3",
+          "e118b8cd90f14b048aab78a0d37e8f61",
+          "2914e01d9af26f24d92ff61389fb0195",
+          "2466c0bf349c4f84db55a4ee8ad67300",
+          "3587432ac7e29784991ff2cccf92891d",
+          "c1681bf59e15f3045aee3cbc58ec9b0c",
+          "8cae876b49f3aef45afc1ad96b1a4628"
         ],
-        "TriggerCardsWarpType": 3,
-        "TriggerTagsWarpData": [ "tag_MiningTool", "tag_Shovel", "tag_Axe", "tag_Cutter" ],
-        "TriggerTagsWarpType": 3
+        "TriggerCardsWarpType": 3
       },
       "GivenCardChanges": {
         "ModType": 1,
-        "UsageChange": { "x": -2.0, "y": -2.0 }
+        "UsageChange": { "x": -3.0, "y": -3.0 }
       },
       "ReceivingCardChanges": {
         "ModType": 1,
@@ -121,16 +189,9 @@
           "DroppedCards": [
             {
               "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
-              "DroppedCardWarpData": "a7384e5147b23a642809451cc4ef24fb",
+              "DroppedCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
               "DroppedCardWarpType": 3,
-              "Quantity": { "x": 3, "y": 3 },
-              "DropChance": { "Active": true, "BaseDropChance": 100.0 }
-            },
-            {
-              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
-              "DroppedCardWarpData": "8695a7aa22521aa45be582d3c1558f78",
-              "DroppedCardWarpType": 3,
-              "Quantity": { "x": 3, "y": 3 },
+              "Quantity": { "x": 1, "y": 1 },
               "DropChance": { "Active": true, "BaseDropChance": 100.0 }
             }
           ]

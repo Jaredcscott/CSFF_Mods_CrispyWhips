@@ -1,0 +1,131 @@
+{
+  "UniqueID": "advanced_copper_tools_salt_cured_meat",
+  "TradingValue": 30,
+  "CardName": {
+    "ParentObjectID": "advanced_copper_tools_salt_cured_meat",
+    "LocalizationKey": "Advanced_Copper_Tools_SaltCuredMeat_CardName",
+    "DefaultText": "Salt-Cured Meat"
+  },
+  "CardDescription": {
+    "ParentObjectID": "advanced_copper_tools_salt_cured_meat",
+    "LocalizationKey": "Advanced_Copper_Tools_SaltCuredMeat_CardDescription",
+    "DefaultText": "Raw meat packed in salt and left to cure. A filling, slow-spoiling travel ration - though the salt will leave you thirsty."
+  },
+  "CardType": 0,
+  "CardTagsWarpData": [
+    "tag_Cookable",
+    "tag_Plateable",
+    "tag_Preservable"
+  ],
+  "CardTagsWarpType": 3,
+  "CardTags": [],
+  "InventorySlotsWarpData": [],
+  "InventorySlotsWarpType": 3,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "Meat_Cooked",
+  "CardImageWarpType": 3,
+  "SpoilageTime": {
+    "ParentObjectID": "advanced_copper_tools_salt_cured_meat",
+    "LocalizationKey": "Advanced_Copper_Tools_SaltCuredMeat_SpoilageTime_StatName",
+    "Active": true,
+    "FloatValue": 0.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_salt_cured_meat",
+      "LocalizationKey": "Advanced_Copper_Tools_SaltCuredMeat_SpoilageTime_StatName",
+      "DefaultText": "Spoilage"
+    },
+    "MinValue": 0.0,
+    "MaxValue": 2000.0,
+    "RatePerDaytimePoint": 1.0,
+    "RateMultiplier": 1.0,
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_salt_cured_meat",
+        "LocalizationKey": "Advanced_Copper_Tools_SaltCuredMeat_SpoilageTime_OnFull",
+        "DefaultText": "The salt-cured meat has finally spoiled."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  },
+  "CardInteractions": [],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_salt_cured_meat",
+        "LocalizationKey": "Advanced_Copper_Tools_SaltCuredMeat_Eat",
+        "DefaultText": "Eat"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_salt_cured_meat",
+        "LocalizationKey": "Advanced_Copper_Tools_SaltCuredMeat_Eat_Desc",
+        "DefaultText": "Eat the salt-cured meat. Filling, but salty."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "ActionTags": [],
+      "ActionTagsWarpData": [
+        "EatingAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "StatModifications": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 25, "y": 25 },
+          "TriggerStat": { "m_FileID": 0, "m_PathID": 0 },
+          "TriggerStatWarpData": "",
+          "TriggerStatWarpType": 3,
+          "TriggerValue": { "x": 0.0, "y": 0.0 },
+          "TriggerStatValueIsMax": false
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "95ca7c21ffad5e647acc3d9cb5bfcde6",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -5, "y": -5 },
+          "TriggerStat": { "m_FileID": 0, "m_PathID": 0 },
+          "TriggerStatWarpData": "",
+          "TriggerStatWarpType": 3,
+          "TriggerValue": { "x": 0.0, "y": 0.0 },
+          "TriggerStatValueIsMax": false
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 20, "y": 20 },
+          "TriggerStat": { "m_FileID": 0, "m_PathID": 0 },
+          "TriggerStatWarpData": "",
+          "TriggerStatWarpType": 3,
+          "TriggerValue": { "x": 0.0, "y": 0.0 },
+          "TriggerStatValueIsMax": false
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 25, "y": 25 },
+          "TriggerStat": { "m_FileID": 0, "m_PathID": 0 },
+          "TriggerStatWarpData": "",
+          "TriggerStatWarpType": 3,
+          "TriggerValue": { "x": 0.0, "y": 0.0 },
+          "TriggerStatValueIsMax": false
+        }
+      ]
+    }
+  ],
+  "ObjectWeight": 40,
+  "MaxStack": 20,
+  "DroppedCardShadow": 1,
+  "FlavourTags": []
+}

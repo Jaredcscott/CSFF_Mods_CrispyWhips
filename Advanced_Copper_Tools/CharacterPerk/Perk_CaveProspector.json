@@ -29,7 +29,7 @@
     "ParentObjectID": "advanced_copper_tools_perk_cave_prospector"
   },
   "PerkDescription": {
-    "DefaultText": "You've mapped the cave network east of the falls. The tin, copper, and iron veins are real — but the passages between them have caved in. Reach the caves through a portal, then dig through each Collapsed Rock Face with a pickaxe, shovel, axe, antler, or knife to open the way deeper. A one-time dig per passage, and loose stone for your trouble.",
+    "DefaultText": "You've mapped the cave network east of the falls. The tin, copper, iron, salt, and stone veins are real — but the passages between them have caved in. Reach the caves through a portal, then dig through each Collapsed Rock Face with a pickaxe, shovel, axe, antler, or knife to open the way deeper. A one-time dig per passage, and loose stone for your trouble.",
     "LocalizationKey": "Advanced_Copper_Tools_Perk_CaveProspector_PerkDescription",
     "ParentObjectID": "advanced_copper_tools_perk_cave_prospector"
   },

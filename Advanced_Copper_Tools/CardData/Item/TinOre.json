@@ -25,7 +25,7 @@
   "ObjectWeight": 150.0,
   "TradingValue": 6.0,
   "CardTags": [],
-  "CardTagsWarpData": [ "tag_Preservable", "tag_Metal" ],
+  "CardTagsWarpData": [ "tag_Preservable", "tag_Metal", "tag_SmeltsAt1100" ],
   "CardTagsWarpType": 3,
   "EquipmentTags": [],
   "MapStructureType": 0,
@@ -115,7 +115,7 @@
         "NotInBackground": false,
         "InBackground": false,
         "PlayerUsesCard": 0,
-        "RequiredNOTContainerTagsWarpData": [ "tag_SmeltingContainerIron" ],
+        "RequiredNOTContainerTagsWarpData": [ "tag_SmeltingContainer" ],
         "RequiredNOTContainerTagsWarpType": 3
       },
       "StatChanges": [],
@@ -134,7 +134,7 @@
         "NotInBackground": false,
         "InBackground": false,
         "PlayerUsesCard": 0,
-        "RequiredContainerTagsWarpData": [ "tag_SmeltingContainerIron" ],
+        "RequiredContainerTagsWarpData": [ "tag_SmeltingContainer" ],
         "RequiredContainerTagsWarpType": 3,
         "ReceivingContainerRequiredDurabilityRanges": {
           "SpoilageRange": { "x": 0.0, "y": 899.0 },
@@ -164,7 +164,7 @@
         "NotInBackground": false,
         "InBackground": false,
         "PlayerUsesCard": 0,
-        "RequiredContainerTagsWarpData": [ "tag_SmeltingContainerIron" ],
+        "RequiredContainerTagsWarpData": [ "tag_SmeltingContainer" ],
         "RequiredContainerTagsWarpType": 3,
         "ReceivingContainerRequiredDurabilityRanges": {
           "SpoilageRange": { "x": 900.0, "y": 3000.0 },

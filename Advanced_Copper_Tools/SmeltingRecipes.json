@@ -135,8 +135,33 @@
     "Duration": 8
   },
   {
-    "Item": "act_iron_breastplate",
+    "Item": "act_iron_breastplate_m",
     "NuggetReturn": 30,
+    "Duration": 8
+  },
+  {
+    "Item": "act_iron_breastplate_f",
+    "NuggetReturn": 30,
+    "Duration": 8
+  },
+  {
+    "Item": "act_bronze_helmet",
+    "NuggetReturn": 17,
+    "Duration": 8
+  },
+  {
+    "Item": "act_bronze_gauntlets",
+    "NuggetReturn": 13,
+    "Duration": 8
+  },
+  {
+    "Item": "act_bronze_greaves",
+    "NuggetReturn": 17,
+    "Duration": 8
+  },
+  {
+    "Item": "act_bronze_breastplate",
+    "NuggetReturn": 26,
     "Duration": 8
   }
 ]

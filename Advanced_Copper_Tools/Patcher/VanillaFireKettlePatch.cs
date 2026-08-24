@@ -151,7 +151,7 @@ namespace Advanced_Copper_Tools.Patcher
                 // Locate tag_HeatAbleAndBoilableLiquid for the CookingRecipe CompatibleTags
                 var cardTagType = AccessTools.TypeByName("CardTag");
                 UnityEngine.Object heatableTag = null;
-                if (cardTagType != null)
+                if (cardTagType != null && typeof(UnityEngine.Object).IsAssignableFrom(cardTagType))
                 {
                     foreach (var t in Resources.FindObjectsOfTypeAll(cardTagType))
                     {

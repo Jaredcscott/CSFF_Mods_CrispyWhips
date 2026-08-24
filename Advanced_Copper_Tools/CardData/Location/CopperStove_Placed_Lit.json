@@ -38,6 +38,11 @@
   "NotAutoSolvableEvent": false,
   "ObjectWeight": 300.0,
   "TradingValue": 250.0,
+  "UsesOwnershipSystem": false,
+  "CompatibleDutiesWarpData": [
+    "6147eff5b0fe3014ca57364f4d075514"
+  ],
+  "CompatibleDutiesWarpType": 3,
   "CardTags": [],
   "CardTagsWarpData": [
     "tag_Preservable",
@@ -286,7 +291,13 @@
       },
       "GivenCardChanges": {
         "ModType": 3
-      }
+      },
+      "CompatibleNPCDuties": [
+        {
+          "TargetWarpData": "6147eff5b0fe3014ca57364f4d075514",
+          "TargetWarpType": 3
+        }
+      ]
     },
     {
       "ActionName": {
@@ -334,7 +345,13 @@
           "x": -3.0,
           "y": -3.0
         }
-      }
+      },
+      "CompatibleNPCDuties": [
+        {
+          "TargetWarpData": "6147eff5b0fe3014ca57364f4d075514",
+          "TargetWarpType": 3
+        }
+      ]
     },
     {
       "ActionName": {
@@ -378,7 +395,13 @@
       },
       "GivenCardChanges": {
         "ModType": 3
-      }
+      },
+      "CompatibleNPCDuties": [
+        {
+          "TargetWarpData": "6147eff5b0fe3014ca57364f4d075514",
+          "TargetWarpType": 3
+        }
+      ]
     }
   ],
   "DismantleActions": [

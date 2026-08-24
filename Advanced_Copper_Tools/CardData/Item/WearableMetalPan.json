@@ -585,7 +585,15 @@
         }
       ],
       "RequiredReceivingLiquidContent": {
-        "IsActive": true
+        "IsActive": true,
+        "RequiredLiquid": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "RequiredQuantity": {
+          "x": 0.0,
+          "y": 0.0
+        }
       },
       "ProducedCards": [
         {

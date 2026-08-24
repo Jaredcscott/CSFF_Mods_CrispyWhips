@@ -24,7 +24,7 @@
   },
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
   "CardBackground": { "m_FileID": 0, "m_PathID": 0 },
-  "CardImageWarpData": "ClayBowl",
+  "CardImageWarpData": "Bowl_Clay",
   "CardImageWarpType": 3,
   "ShowImageAboveTitle": false,
   "CardType": 0,
@@ -34,7 +34,7 @@
   "TradingValue": 40.0,
   "MaxStack": 4,
   "CardTags": [],
-  "CardTagsWarpData": [ "tag_HumanFood", "tag_Heatable" ],
+  "CardTagsWarpData": [ "tag_HumanFood", "tag_Heatable", "tag_Preservable" ],
   "CardTagsWarpType": 3,
   "EquipmentTags": [],
   "EquipmentTagsWarpData": [],
@@ -56,7 +56,7 @@
     "CardStatName": {
       "ParentObjectID": "advanced_copper_tools_warming_tea",
       "LocalizationKey": "",
-      "DefaultText": "Freshness"
+      "DefaultText": "Spoilage"
     },
     "MaxValue": 48.0,
     "RatePerDaytimePoint": -1.0,

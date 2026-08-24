@@ -78,7 +78,7 @@
         "TransformIntoWarpType": 3,
         "SpawnTransformAtSource": true,
         "TransferFuel": true,
-        "TransferProgress": true,
+        "TransferCharges": true,
         "TransferSpecial1": true,
         "TransferSpecial2": true
       }
@@ -413,6 +413,74 @@
           "x": 300.0,
           "y": 300.0
         }
+      }
+    },
+    {
+      "ActionName": {
+        "ParentObjectID": "advanced_copper_tools_copper_bathtub_warm_placed",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Warm_WashWithSoap_ActionName",
+        "DefaultText": "Wash with Soap"
+      },
+      "ActionDescription": {
+        "ParentObjectID": "advanced_copper_tools_copper_bathtub_warm_placed",
+        "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Warm_WashWithSoap_ActionDescription",
+        "DefaultText": "Scrub down with soap for an extra-deep clean and a bigger mood boost."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "ActionSounds": [],
+      "ActionTags": [],
+      "ActionSoundsWarpData": [
+        "Water"
+      ],
+      "ActionSoundsWarpType": 3,
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "14f601937c7451340bcb742e1afb6ef4"
+        ],
+        "TriggerCardsWarpType": 3
+      },
+      "StackCompatible": false,
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial2Percent": {
+          "Active": true,
+          "FloatValue": 0.1,
+          "MaxValue": 1.0
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "ParentObjectID": "advanced_copper_tools_copper_bathtub_warm_placed",
+          "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Warm_WashWithSoap_FailMessage",
+          "DefaultText": "Need water in the bathtub first."
+        }
+      },
+      "StatModifications": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "ValueModifier": { "x": -100.0, "y": -100.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+          "StatWarpType": 3
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "ValueModifier": { "x": 30.0, "y": 40.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
+          "StatWarpType": 3
+        }
+      ],
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
       }
     }
   ],
@@ -754,9 +822,13 @@
           "m_FileID": 0,
           "m_PathID": 0
         },
-        "TransformIntoWarpData": "advanced_copper_tools_copper_bathtub_full",
+        "TransformIntoWarpData": "advanced_copper_tools_copper_bathtub_warm",
         "TransformIntoWarpType": 3,
-        "SpawnTransformAtSource": true
+        "SpawnTransformAtSource": true,
+        "TransferFuel": true,
+        "TransferCharges": true,
+        "TransferSpecial1": true,
+        "TransferSpecial2": true
       }
     },
     {

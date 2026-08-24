@@ -21,7 +21,6 @@ namespace Advanced_Copper_Tools.Patcher
         // (30 in-game minutes), matching the player's expectation of "lit kettle".
         private const float HeatPerDtp = 200f;
 
-        private static Type _cardBaseType;
         private static bool _disabled;
         private static bool _liquidFuelMissingLogged;
         private static int _logCount;
@@ -30,13 +29,6 @@ namespace Advanced_Copper_Tools.Patcher
         {
             try
             {
-                _cardBaseType = CardUtil.FindGameType("InGameCardBase");
-                if (_cardBaseType == null)
-                {
-                    Logger?.LogError("[HeatHeldLiquid] InGameCardBase type not found");
-                    return;
-                }
-
                 // Fires once per in-game DTP change (framework tick gate) instead of a
                 // hand-rolled GameManager.Update patch with manual DTP-change detection.
                 TickEvents.DtpTick += OnDtpTick;
@@ -63,23 +55,19 @@ namespace Advanced_Copper_Tools.Patcher
             }
         }
 
+        // CardFinder.FindAll(uid) reuses its InGameCardBase scan until GameManager.AllCards.Count
+        // changes, instead of re-scanning the whole scene on every DTP tick (F4 hardening).
         private static void TickAllLitStations()
         {
-            var cards = UnityEngine.Object.FindObjectsOfType(_cardBaseType);
-            if (cards == null) return;
+            var stations = CardFinder.FindAll(LitStationUID);
+            if (stations.Count == 0) return;
             int touched = 0;
-            foreach (var c in cards)
+            foreach (var c in stations)
             {
-                if (!IsLitStation(c)) continue;
                 if (TryHeat(c)) touched++;
             }
             if (touched > 0 && _logCount++ < 4)
                 Logger?.LogDebug($"[HeatHeldLiquid] heated held liquid on {touched} lit station(s).");
-        }
-
-        private static bool IsLitStation(object card)
-        {
-            return card != null && CardUtil.GetCardUniqueId(card) == LitStationUID;
         }
 
         private static bool TryHeat(object card)

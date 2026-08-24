@@ -67,8 +67,10 @@ namespace Advanced_Copper_Tools.Patcher
 
         private static void ApplyOrePropertiesWithRetry(SmeltSnapshot snapshot, float metalType)
         {
-            if (ApplyOreProperties(snapshot, metalType) == 0)
-                Plugin.Instance.StartCoroutine(RetryNextFrame(snapshot, metalType));
+            if (ApplyOreProperties(snapshot, metalType) != 0) return;
+            var host = Plugin.Instance;
+            if (host == null) return;
+            host.StartCoroutine(RetryNextFrame(snapshot, metalType));
         }
 
         // OnFull's spawned nugget can materialize a frame after the action coroutine drains

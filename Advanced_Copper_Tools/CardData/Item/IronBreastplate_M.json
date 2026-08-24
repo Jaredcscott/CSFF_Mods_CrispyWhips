@@ -1,13 +1,13 @@
 {
-  "UniqueID": "act_iron_breastplate",
+  "UniqueID": "act_iron_breastplate_m",
   "CardName": {
-    "ParentObjectID": "act_iron_breastplate",
-    "LocalizationKey": "Advanced_Copper_Tools_IronBreastplate_CardName",
-    "DefaultText": "Iron Armor"
+    "ParentObjectID": "act_iron_breastplate_m",
+    "LocalizationKey": "Advanced_Copper_Tools_IronBreastplateM_CardName",
+    "DefaultText": "Iron Armor (Male)"
   },
   "CardDescription": {
-    "ParentObjectID": "act_iron_breastplate",
-    "LocalizationKey": "Advanced_Copper_Tools_IronBreastplate_CardDescription",
+    "ParentObjectID": "act_iron_breastplate_m",
+    "LocalizationKey": "Advanced_Copper_Tools_IronBreastplateM_CardDescription",
     "DefaultText": "A sturdy suit of iron armor offering superior torso protection to its copper counterpart. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
   },
   "CardType": 0,
@@ -15,7 +15,7 @@
   "WeightReductionWhenEquipped": -440.0,
   "TradingValue": 170.0,
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
-  "CardImageWarpData": "IronArmor",
+  "CardImageWarpData": "IronArmor_M",
   "CardImageWarpType": 3,
   "CardTagsWarpData": [ "tag_Metal", "tag_SmeltsAt1100", "tag_SpiritEnchantable" ],
   "CardTagsWarpType": 3,
@@ -64,8 +64,8 @@
     "Active": true,
     "FloatValue": 140.0,
     "CardStatName": {
-      "ParentObjectID": "act_iron_breastplate",
-      "LocalizationKey": "Advanced_Copper_Tools_IronBreastplate_UsageDurability.CardStatName",
+      "ParentObjectID": "act_iron_breastplate_m",
+      "LocalizationKey": "Advanced_Copper_Tools_IronBreastplateM_UsageDurability.CardStatName",
       "DefaultText": "Durability"
     },
     "MaxValue": 140.0,
@@ -75,7 +75,7 @@
     "NumberPrecision": 0,
     "HasActionOnZero": true,
     "OnZero": {
-      "ActionDescription": { "ParentObjectID": "act_iron_breastplate", "LocalizationKey": "", "DefaultText": "Armor Broken!" },
+      "ActionDescription": { "ParentObjectID": "act_iron_breastplate_m", "LocalizationKey": "", "DefaultText": "Armor Broken!" },
       "OnZeroNotification": 1,
       "ProducedCards": [],
       "ReceivingCardChanges": { "ModType": 3 }
@@ -85,7 +85,7 @@
   "FuelCapacity": {
     "Active": true,
     "FloatValue": 0.0,
-    "CardStatName": { "ParentObjectID": "act_iron_breastplate", "LocalizationKey": "", "DefaultText": "Temperature" },
+    "CardStatName": { "ParentObjectID": "act_iron_breastplate_m", "LocalizationKey": "", "DefaultText": "Temperature" },
     "MaxValue": 200.0,
     "RatePerDaytimePoint": -25.0,
     "HidingOptions": 3,
@@ -107,13 +107,13 @@
   "DismantleActions": [
     {
       "ActionName": {
-        "ParentObjectID": "act_iron_breastplate",
-        "LocalizationKey": "Advanced_Copper_Tools_IronBreastplate_Dismantle_ActionName",
+        "ParentObjectID": "act_iron_breastplate_m",
+        "LocalizationKey": "Advanced_Copper_Tools_IronBreastplateM_Dismantle_ActionName",
         "DefaultText": "Dismantle"
       },
       "ActionDescription": {
-        "ParentObjectID": "act_iron_breastplate",
-        "LocalizationKey": "Advanced_Copper_Tools_IronBreastplate_Dismantle_ActionDescription",
+        "ParentObjectID": "act_iron_breastplate_m",
+        "LocalizationKey": "Advanced_Copper_Tools_IronBreastplateM_Dismantle_ActionDescription",
         "DefaultText": "Break apart the armor to recover materials."
       },
       "DaytimeCost": 3,

@@ -1,14 +1,14 @@
 {
-  "UniqueID": "act_collapsed_wall_tin",
+  "UniqueID": "act_collapsed_wall_salt",
   "CardName": {
-    "ParentObjectID": "act_collapsed_wall_tin",
-    "LocalizationKey": "Advanced_Copper_Tools_CollapsedWallTin_CardName",
+    "ParentObjectID": "act_collapsed_wall_salt",
+    "LocalizationKey": "Advanced_Copper_Tools_CollapsedWallSalt_CardName",
     "DefaultText": "Collapsed Rock Face"
   },
   "CardDescription": {
-    "ParentObjectID": "act_collapsed_wall_tin",
-    "LocalizationKey": "Advanced_Copper_Tools_CollapsedWallTin_CardDescription",
-    "DefaultText": "A cave-in blocks the eastern passage beyond the waterfall. Dig through it with a pickaxe, shovel, axe, antler, or knife to access the tin, copper, and iron vein caves — once cleared, the passage stays open."
+    "ParentObjectID": "act_collapsed_wall_salt",
+    "LocalizationKey": "Advanced_Copper_Tools_CollapsedWallSalt_CardDescription",
+    "DefaultText": "The passage east to the salt mine is blocked by fallen rock. Dig through it with a pickaxe, shovel, axe, antler, or knife to open the way — once cleared, it stays open."
   },
   "CanBeRenamed": false,
   "AlternateNames": [],
@@ -80,14 +80,14 @@
   "CardInteractions": [
     {
       "ActionName": {
-        "ParentObjectID": "act_collapsed_wall_tin",
-        "LocalizationKey": "Advanced_Copper_Tools_CollapsedWallTin_Dig_ActionName",
+        "ParentObjectID": "act_collapsed_wall_salt",
+        "LocalizationKey": "Advanced_Copper_Tools_CollapsedWallSalt_Dig_ActionName",
         "DefaultText": "Dig Through"
       },
       "ActionDescription": {
-        "ParentObjectID": "act_collapsed_wall_tin",
-        "LocalizationKey": "Advanced_Copper_Tools_CollapsedWallTin_Dig_ActionDescription",
-        "DefaultText": "Break through the collapsed rock with a pickaxe, shovel, axe, antler, or knife. Opens the eastern passage to the cave network beyond the falls."
+        "ParentObjectID": "act_collapsed_wall_salt",
+        "LocalizationKey": "Advanced_Copper_Tools_CollapsedWallSalt_Dig_ActionDescription",
+        "DefaultText": "Break through the collapsed rock with a pickaxe, shovel, axe, antler, or knife. Opens the passage to the salt mine."
       },
       "DaytimeCost": 8,
       "UseMiniTicks": 0,

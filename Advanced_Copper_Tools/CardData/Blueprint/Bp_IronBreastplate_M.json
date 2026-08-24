@@ -1,26 +1,26 @@
 {
-  "UniqueID": "act_bp_iron_sheet",
+  "UniqueID": "act_bp_iron_breastplate_m",
   "CardName": {
-    "ParentObjectID": "act_bp_iron_sheet",
-    "LocalizationKey": "Advanced_Copper_Tools_Bp_IronSheet_CardName",
-    "DefaultText": "Iron Sheet"
+    "ParentObjectID": "act_bp_iron_breastplate_m",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_IronBreastplateM_CardName",
+    "DefaultText": "Iron Armor (Male)"
   },
   "CardDescription": {
-    "ParentObjectID": "act_bp_iron_sheet",
-    "LocalizationKey": "Advanced_Copper_Tools_Bp_IronSheet_CardDescription",
-    "DefaultText": "Hammer iron nuggets flat into a sheet, ready for iron-grade tools and armor."
+    "ParentObjectID": "act_bp_iron_breastplate_m",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_IronBreastplateM_CardDescription",
+    "DefaultText": "Forge a suit of iron armor for superior torso protection."
   },
   "CardType": 7,
   "UnlockConditionsDesc": {
-    "ParentObjectID": "act_bp_iron_sheet",
-    "LocalizationKey": "Advanced_Copper_Tools_Bp_IronSheet_UnlockConditionsDesc",
-    "DefaultText": "Iron Nugget Needed"
+    "ParentObjectID": "act_bp_iron_breastplate_m",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_IronBreastplateM_UnlockConditionsDesc",
+    "DefaultText": "Iron Sheet Needed"
   },
   "BuildingStatConditions": [],
   "StartUnlocked": false,
   "CardsOnBoard": [
     {
-      "ObjectiveName": "HasIronNugget",
+      "ObjectiveName": "HasIronSheet",
       "CompletionWeight": 1,
       "Card": { "m_FileID": 0, "m_PathID": 0 },
       "Quantity": 1,
@@ -28,18 +28,7 @@
       "OnlyInEnvironment": { "m_FileID": 0, "m_PathID": 0 },
       "OnlyIfEquipped": false,
       "OnlyInContainer": { "Target": { "m_FileID": 0, "m_PathID": 0 } },
-      "WithDurabilities": {
-        "SpoilageRange": { "x": 0.0, "y": 0.0 },
-        "UsageRange": { "x": 0.0, "y": 0.0 },
-        "FuelRange": { "x": 0.0, "y": 0.0 },
-        "ProgressRange": { "x": 0.0, "y": 0.0 },
-        "Special1Range": { "x": 0.0, "y": 0.0 },
-        "Special2Range": { "x": 0.0, "y": 0.0 },
-        "Special3Range": { "x": 0.0, "y": 0.0 },
-        "Special4Range": { "x": 200.0, "y": 200.0 },
-        "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
-      },
-      "CardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
+      "CardWarpData": "act_iron_sheet",
       "CardWarpType": 3
     }
   ],
@@ -51,11 +40,31 @@
       "RequiredElements": [
         {
           "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
-          "RequiredQuantity": 3,
+          "RequiredQuantity": 4,
           "DontSpend": false,
-          "RequiredCardWarpData": "4b0f4937a5ecb90499428c8c10288afc",
-          "RequiredCardWarpType": 3,
-          "Special4": { "Active": true, "FloatValue": 200.0, "MaxValue": 200.0 }
+          "RequiredCardWarpData": "act_iron_sheet",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 4,
+          "DontSpend": false,
+          "RequiredCardWarpData": "act_iron_nail",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "f362a7ba3ad932244b1e9c18569ac98e",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 4,
+          "DontSpend": false,
+          "RequiredCardWarpData": "e2d62c5b98d164745b276da572605efe",
+          "RequiredCardWarpType": 3
         },
         {
           "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
@@ -75,13 +84,13 @@
       "StepActionTagsWarpType": 3
     }
   ],
-  "BuildingDaytimeCost": 4,
-  "DeconstructDaytimeCost": 0,
+  "BuildingDaytimeCost": 6,
+  "DeconstructDaytimeCost": 2,
   "BlueprintResult": [
     {
       "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
       "Quantity": { "x": 1, "y": 1 },
-      "DroppedCardWarpData": "act_iron_sheet",
+      "DroppedCardWarpData": "act_iron_breastplate_m",
       "DroppedCardWarpType": 3
     }
   ],
@@ -91,8 +100,8 @@
   "BlueprintActionTagsWarpData": [ "HandAction", "CraftAction" ],
   "BlueprintActionTagsWarpType": 3,
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
-  "CardImageWarpData": "MetalSheet_Iron",
+  "CardImageWarpData": "IronArmor_M",
   "CardImageWarpType": 3,
-  "BlueprintUnlockTicksCost": 16.0,
+  "BlueprintUnlockTicksCost": 40.0,
   "ResearchedNotification": 0
 }

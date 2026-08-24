@@ -160,6 +160,8 @@ namespace Advanced_Copper_Tools.Patcher
                     return false;
                 }
 
+                LogPileState("Transform BEFORE", card);
+
                 if (!CardUtil.TrySetCardModel(card, targetData))
                 {
                     Logger?.LogError($"[TeaStation] Transform: CardModel not settable on {card.GetType().Name}");
@@ -171,7 +173,10 @@ namespace Advanced_Copper_Tools.Patcher
                 ResetRuntimeStateForNewModel(card, targetData);
                 RestorePlacementIfNeeded(card, placement);
 
-                Logger?.Log(LogLevel.Debug, $"[TeaStation] Transformed → {targetUniqueId}");
+                LogPileState("Transform AFTER", card);
+                // Info until the 1.15.8 pour-quantity fix is play-verified; then demote to Debug.
+                Logger?.LogInfo($"[TeaStation] Transformed → {targetUniqueId} " +
+                    $"(pour qty {CardUtil.ToFloat(CardUtil.GetMemberValue(card, "CurrentLiquidQuantity"))})");
                 return true;
             }
             catch (Exception ex)
@@ -225,6 +230,59 @@ namespace Advanced_Copper_Tools.Patcher
             }
         }
 
+        // ============================================================
+        //  DIAGNOSTIC — pile/container membership around the transform.
+        //  Originally added chasing the "ground powder vanishes when put into
+        //  bottles/cloth bags" report as a pile-desync hypothesis. Root cause
+        //  turned out to be ResetRuntimeStateForNewModel zeroing
+        //  CurrentLiquidQuantity (see comment there) — pile linkage was never
+        //  at fault. Kept at Debug level for future station debugging.
+        // ============================================================
+        private static void LogPileState(string label, object card)
+        {
+            try
+            {
+                if (card == null) { Logger?.Log(LogLevel.Debug, $"[TeaStation] {label}: card is null"); return; }
+
+                var cardData = CardUtil.GetCardData(card);
+                string uid = cardData != null ? (CardUtil.GetMemberValue(cardData, "UniqueID") as string) : null;
+
+                var container = CardUtil.GetMemberValue(card, "CurrentContainer");
+                var slot = CardUtil.GetMemberValue(card, "CurrentSlot");
+
+                int pileCount = -1;
+                bool pileContainsCard = false;
+                if (slot != null)
+                {
+                    var getCardPile = slot.GetType().GetMethod("GetCardPile", Flags);
+                    if (getCardPile != null)
+                    {
+                        var ps = getCardPile.GetParameters();
+                        var args = new object[ps.Length];
+                        for (int i = 0; i < ps.Length; i++)
+                            args[i] = ps[i].HasDefaultValue ? ps[i].DefaultValue : false;
+                        if (getCardPile.Invoke(slot, args) is IList pile)
+                        {
+                            pileCount = pile.Count;
+                            foreach (var entry in pile)
+                            {
+                                if (ReferenceEquals(entry, card)) { pileContainsCard = true; break; }
+                            }
+                        }
+                    }
+                }
+
+                Logger?.Log(LogLevel.Debug,
+                    $"[TeaStation] {label}: uid={uid ?? "<null>"} hash={card.GetHashCode()} " +
+                    $"container={(container != null ? "set" : "null")} slot={(slot != null ? "set" : "null")} " +
+                    $"pileCount={pileCount} pileContainsCard={pileContainsCard}");
+            }
+            catch (Exception ex)
+            {
+                Logger?.Log(LogLevel.Debug, $"[TeaStation] {label}: LogPileState threw: {FullException(ex)}");
+            }
+        }
+
         private static void ResetRuntimeStateForNewModel(object card, object targetData)
         {
             if (card == null || targetData == null) return;
@@ -239,7 +297,16 @@ namespace Advanced_Copper_Tools.Patcher
                     CardUtil.SetMemberValue(card, _durabilityRateFields[i], active ? GetFloatMember(stat, "RatePerDaytimePoint") : 0f);
                 }
 
-                CardUtil.SetMemberValue(card, "CurrentLiquidQuantity", 0f);
+                // Powders (solids with a pourable liquid form: flour, medicine powder)
+                // carry their pour quantity in CurrentLiquidQuantity — vanilla fresh-card
+                // init sets it to SolidToLiquidInfo.LiquidQuantity. The game's generated
+                // solid→liquid pour action (CardData.GenerateSolidToLiquidTransferAction)
+                // ALWAYS destroys the given solid (GivenCardChanges.ModType = Destroy) and
+                // adds CurrentLiquidQuantity of liquid to the container — leaving this at 0
+                // made station-ground powder vanish when dragged onto bottles / cloth bags /
+                // barrels (Nexus report 2026-08-10). ReinitCard→SetModel has already
+                // populated SolidToLiquidInfo for the NEW model when this runs.
+                CardUtil.SetMemberValue(card, "CurrentLiquidQuantity", InitialLiquidQuantityFor(card));
                 CardUtil.SetMemberValue(card, "BaseEvaporationRate", 0f);
                 CardUtil.SetMemberValue(card, "IgnoreTickDurabilityChanges", false);
 
@@ -249,6 +316,23 @@ namespace Advanced_Copper_Tools.Patcher
             catch (Exception ex)
             {
                 Logger?.Log(LogLevel.Debug, $"[TeaStation] ResetRuntimeState failed: {FullException(ex)}");
+            }
+        }
+
+        private static float InitialLiquidQuantityFor(object card)
+        {
+            try
+            {
+                object conv = CardUtil.GetMemberValue(card, "SolidToLiquidInfo");
+                if (conv == null) return 0f;
+                object toLiquid = CardUtil.GetMemberValue(conv, "ToLiquidCard");
+                if (!(toLiquid is UnityEngine.Object uo) || uo == null) return 0f;
+                return GetFloatMember(conv, "LiquidQuantity");
+            }
+            catch (Exception ex)
+            {
+                Logger?.Log(LogLevel.Debug, $"[TeaStation] InitialLiquidQuantityFor failed: {FullException(ex)}");
+                return 0f;
             }
         }
 
@@ -438,7 +522,10 @@ namespace Advanced_Copper_Tools.Patcher
                         }
                     }
                 }
-                catch { /* fall through to default 200 */ }
+                catch (Exception ex)
+                {
+                    Logger?.LogDebug($"[TeaStation] DrawBoiled: FuelCapacity.MaxValue probe failed, falling back to default {BoiledWaterTemperature}: {ex.Message}");
+                }
 
                 fuelField.SetValue(liquid, target);
                 Logger?.LogDebug(

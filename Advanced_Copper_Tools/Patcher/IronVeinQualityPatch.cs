@@ -43,8 +43,10 @@ namespace Advanced_Copper_Tools.Patcher
 
         private static void ApplyQualityWithRetry(HashSet<int> preIds)
         {
-            if (ApplyQuality(preIds) == 0)
-                Plugin.Instance.StartCoroutine(RetryNextFrame(preIds));
+            if (ApplyQuality(preIds) != 0) return;
+            var host = Plugin.Instance;
+            if (host == null) return;
+            host.StartCoroutine(RetryNextFrame(preIds));
         }
 
         // Mirrors NuggetSmelt's retry: a produced card can materialize a frame after the

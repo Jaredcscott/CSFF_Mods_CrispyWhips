@@ -16,7 +16,7 @@
   "CardHelpSection": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
   "CardBackground": { "m_FileID": 0, "m_PathID": 0 },
-  "CardImageWarpData": "act_tin_vein",
+  "CardImageWarpData": "Tunnel_1",
   "CardImageWarpType": 3,
   "ShowImageAboveTitle": false,
   "CardType": 2,
@@ -130,7 +130,7 @@
               "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
               "DroppedCardWarpData": "8695a7aa22521aa45be582d3c1558f78",
               "DroppedCardWarpType": 3,
-              "Quantity": { "x": 1, "y": 1 },
+              "Quantity": { "x": 3, "y": 3 },
               "DropChance": { "Active": true, "BaseDropChance": 100.0 }
             }
           ]

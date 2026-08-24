@@ -1,26 +1,26 @@
 {
-  "UniqueID": "act_bp_iron_breastplate",
+  "UniqueID": "advanced_copper_tools_bp_ore_chest",
   "CardName": {
-    "ParentObjectID": "act_bp_iron_breastplate",
-    "LocalizationKey": "Advanced_Copper_Tools_Bp_IronBreastplate_CardName",
-    "DefaultText": "Iron Armor"
+    "ParentObjectID": "advanced_copper_tools_bp_ore_chest",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_OreChest_CardName",
+    "DefaultText": "Ore Chest"
   },
   "CardDescription": {
-    "ParentObjectID": "act_bp_iron_breastplate",
-    "LocalizationKey": "Advanced_Copper_Tools_Bp_IronBreastplate_CardDescription",
-    "DefaultText": "Forge a suit of iron armor for superior torso protection."
+    "ParentObjectID": "advanced_copper_tools_bp_ore_chest",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_OreChest_CardDescription",
+    "DefaultText": "Build a high-capacity sealed metal crate for bulk ore, stone, and salt. Requires 6 metal sheets, 4 planks, 8 copper nails, and a hammer."
   },
   "CardType": 7,
   "UnlockConditionsDesc": {
-    "ParentObjectID": "act_bp_iron_breastplate",
-    "LocalizationKey": "Advanced_Copper_Tools_Bp_IronBreastplate_UnlockConditionsDesc",
-    "DefaultText": "Iron Sheet Needed"
+    "ParentObjectID": "advanced_copper_tools_bp_ore_chest",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_OreChest_UnlockConditionsDesc",
+    "DefaultText": "Copper Sheet Needed"
   },
   "BuildingStatConditions": [],
   "StartUnlocked": false,
   "CardsOnBoard": [
     {
-      "ObjectiveName": "HasIronSheet",
+      "ObjectiveName": "HasMetalSheet",
       "CompletionWeight": 1,
       "Card": { "m_FileID": 0, "m_PathID": 0 },
       "Quantity": 1,
@@ -28,7 +28,7 @@
       "OnlyInEnvironment": { "m_FileID": 0, "m_PathID": 0 },
       "OnlyIfEquipped": false,
       "OnlyInContainer": { "Target": { "m_FileID": 0, "m_PathID": 0 } },
-      "CardWarpData": "act_iron_sheet",
+      "CardWarpData": "advanced_copper_tools_metal_sheet",
       "CardWarpType": 3
     }
   ],
@@ -40,30 +40,24 @@
       "RequiredElements": [
         {
           "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
-          "RequiredQuantity": 4,
+          "RequiredQuantity": 6,
           "DontSpend": false,
-          "RequiredCardWarpData": "act_iron_sheet",
+          "AffectResultDurabilities": { "MaskValue": 448 },
+          "RequiredCardWarpData": "advanced_copper_tools_metal_sheet",
           "RequiredCardWarpType": 3
         },
         {
           "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
           "RequiredQuantity": 4,
           "DontSpend": false,
-          "RequiredCardWarpData": "act_iron_nail",
+          "RequiredCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
           "RequiredCardWarpType": 3
         },
         {
           "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
-          "RequiredQuantity": 1,
+          "RequiredQuantity": 8,
           "DontSpend": false,
-          "RequiredCardWarpData": "f362a7ba3ad932244b1e9c18569ac98e",
-          "RequiredCardWarpType": 3
-        },
-        {
-          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
-          "RequiredQuantity": 4,
-          "DontSpend": false,
-          "RequiredCardWarpData": "e2d62c5b98d164745b276da572605efe",
+          "RequiredCardWarpData": "advanced_copper_tools_copper_nails",
           "RequiredCardWarpType": 3
         },
         {
@@ -77,20 +71,27 @@
           "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
           "RequiredTabGroupWarpData": "GpTag_HammeringToolGeneral",
           "RequiredTabGroupWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "act_tin_solder",
+          "RequiredCardWarpType": 3
         }
       ],
       "StepActionTags": [],
-      "StepActionTagsWarpData": [],
+      "StepActionTagsWarpData": [ "ToolAction" ],
       "StepActionTagsWarpType": 3
     }
   ],
-  "BuildingDaytimeCost": 6,
-  "DeconstructDaytimeCost": 2,
+  "BuildingDaytimeCost": 10,
+  "DeconstructDaytimeCost": 3,
   "BlueprintResult": [
     {
       "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
       "Quantity": { "x": 1, "y": 1 },
-      "DroppedCardWarpData": "act_iron_breastplate",
+      "DroppedCardWarpData": "advanced_copper_tools_ore_chest",
       "DroppedCardWarpType": 3
     }
   ],
@@ -100,8 +101,8 @@
   "BlueprintActionTagsWarpData": [ "HandAction", "CraftAction" ],
   "BlueprintActionTagsWarpType": 3,
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
-  "CardImageWarpData": "IronArmor",
+  "CardImageWarpData": "Copper_Chest",
   "CardImageWarpType": 3,
-  "BlueprintUnlockTicksCost": 40.0,
+  "BlueprintUnlockTicksCost": 64.0,
   "ResearchedNotification": 0
 }

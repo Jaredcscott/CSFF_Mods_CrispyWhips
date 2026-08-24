@@ -69,12 +69,13 @@ namespace Advanced_Copper_Tools.Patcher
         // Makes every blueprint/improvement element that requires copper nails also accept iron
         // nails, and — since WDI's rivets are the same fastener commodity under a different mod
         // (root CLAUDE.md §Soft-dep doctrine, R-mechanism ALT) — WDI's Copper/Iron Rivet too.
-        // Delegates to the framework's shared helper (CSFFModFramework.Api.BlueprintAlternates),
-        // which accumulates across repeated calls for the same primary (framework 2.17.0+)
-        // instead of clobbering, so all three alternates end up accepted on the same slot. WDI's
-        // UIDs are referenced directly as plain strings — AddAlternateIngredient no-ops (and
-        // logs at Debug) when the alternate doesn't resolve, so this stays a soft dependency even
-        // though WaterDrivenInfrastructure isn't installed.
+        // Additionally, iron-tier armor slots (which require iron nails) also accept copper nails
+        // and rivets, so players can use whichever fastener tier they have available. Delegates to
+        // the framework's shared helper (CSFFModFramework.Api.BlueprintAlternates), which
+        // accumulates across repeated calls for the same primary (framework 2.17.0+) instead of
+        // clobbering, so all alternates end up accepted on the same slot. WDI's UIDs are
+        // referenced directly as plain strings — AddAlternateIngredient no-ops when WDI isn't
+        // installed.
         private static void PatchNailInterchangeability(IEnumerable allData)
         {
             const string CopperNailUid = "advanced_copper_tools_copper_nails";
@@ -83,12 +84,38 @@ namespace Advanced_Copper_Tools.Patcher
             const string WdiIronRivetUid = "water_sawmill_iron_rivet";
 
             // BlueprintAlternates already logs its own Info-level summary line.
+            // Copper nail slots accept all fastener types.
             CSFFModFramework.Api.BlueprintAlternates.AddAlternateIngredient(
                 allData, CopperNailUid, IronNailUid, "ACT Copper Nail / Iron Nail");
             CSFFModFramework.Api.BlueprintAlternates.AddAlternateIngredient(
                 allData, CopperNailUid, WdiCopperRivetUid, "ACT Copper Nail / WDI Copper Rivet");
             CSFFModFramework.Api.BlueprintAlternates.AddAlternateIngredient(
                 allData, CopperNailUid, WdiIronRivetUid, "ACT Copper Nail / WDI Iron Rivet");
+            
+            // Iron nail slots (armor) also accept copper nails and rivets — all fasteners are
+            // cross-compatible regardless of metal tier or mod source.
+            CSFFModFramework.Api.BlueprintAlternates.AddAlternateIngredient(
+                allData, IronNailUid, CopperNailUid, "ACT Iron Nail / Copper Nail");
+            CSFFModFramework.Api.BlueprintAlternates.AddAlternateIngredient(
+                allData, IronNailUid, WdiCopperRivetUid, "ACT Iron Nail / WDI Copper Rivet");
+            CSFFModFramework.Api.BlueprintAlternates.AddAlternateIngredient(
+                allData, IronNailUid, WdiIronRivetUid, "ACT Iron Nail / WDI Iron Rivet");
+            
+            PatchSolderInterchangeability(allData);
+        }
+
+        // Makes every blueprint/improvement element that requires tin solder also accept WDI's
+        // alloy solder. Both solders are generic fasteners; ACT's tin solder is crafted from tin
+        // ore (cave expedition cost), WDI's alloy solder is crafted from copper nuggets (cheaper).
+        // With both mods installed, a player can use whichever they have available. WDI's UID is
+        // referenced as a plain string — AddAlternateIngredient no-ops when WDI isn't installed.
+        private static void PatchSolderInterchangeability(IEnumerable allData)
+        {
+            const string TinSolderUid = "act_tin_solder";
+            const string WdiAlloySolderUid = "water_sawmill_alloy_solder";
+
+            CSFFModFramework.Api.BlueprintAlternates.AddAlternateIngredient(
+                allData, TinSolderUid, WdiAlloySolderUid, "ACT Tin Solder / WDI Alloy Solder");
         }
 
         // Same-tier, cross-mod acceptance for sheet material: ACT's Copper/Iron Sheet slots also
@@ -178,19 +205,6 @@ namespace Advanced_Copper_Tools.Patcher
             {
                 Logger.LogError($"[ACT-Fix] {uid}: FixArmorMultiplier failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
-        }
-
-        private static void SetStatFloat(object card, string statFieldName, string subFieldName, float value, BindingFlags flags)
-        {
-            var statField = card.GetType().GetField(statFieldName, flags);
-            if (statField == null) return;
-            var stat = statField.GetValue(card);
-            if (stat == null) return;
-            var floatField = stat.GetType().GetField(subFieldName, flags);
-            if (floatField == null) return;
-            floatField.SetValue(stat, value);
-            // Write back in case the stat is a value type (struct).
-            statField.SetValue(card, stat);
         }
 
         private static void PatchEncounterArmorRepair(Harmony harmony)

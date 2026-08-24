@@ -1,5 +1,6 @@
 {
   "UniqueID": "advanced_copper_tools_copper_stove",
+  "TradingValue": 1500,
   "CardName": {
     "ParentObjectID": "advanced_copper_tools_copper_stove",
     "LocalizationKey": "Advanced_Copper_Tools_CopperStove_CardName",

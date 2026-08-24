@@ -580,24 +580,24 @@ Advanced_Copper_Tools_IronVein_Mine_ActionDescription,Strike the vein with a pic
 Advanced_Copper_Tools_IronVein_MineRough_ActionName,Chip Away,凿击
 Advanced_Copper_Tools_IronVein_MineRough_ActionDescription,"Strike the vein with an axe, hammer, shovel, or antler. Slower than a pickaxe — yields one piece of bog iron per strike.",用斧头、锤子、铲子或鹿角凿击矿脉。比镐慢——每次凿击产出一块干燥沼铁。
 Advanced_Copper_Tools_TinOre_CardName,Tin Ore,锡矿石
-Advanced_Copper_Tools_TinOre_CardDescription,A crude tin ore chunk. Smelt it in a forge or furnace at 900°C to produce a tin-grade metal nugget.,一块原始锡矿石。在锻炉或熔炉中加热至900℃以上，可冶炼出一块锡锄。
+Advanced_Copper_Tools_TinOre_CardDescription,A crude tin ore chunk. Smelt it in a forge or furnace at 900°C to produce a tin-grade metal nugget.,一块原始锡矿石。在锻炉或熔炉中加热至900℃以上，可冶炼出一块锡块。
 Advanced_Copper_Tools_IronNail_CardName,Iron Nail,铁钉
 Advanced_Copper_Tools_IronNail_CardDescription,A hand-forged iron nail. Stronger than copper. Interchangeable with copper nails in all constructions.,手工锻造的铁钉。比铜更坚固，可替代铜钉用于所有建筑。
 Advanced_Copper_Tools_IronNail_CardHelpSection,"<b>Crafted:</b> From 2 iron nuggets using a hammer (yields 4).
 
 <b>Uses:</b> Construction and crafting — accepted anywhere copper nails are required.
 
-<b>Smelts:</b> Returns 1 iron nugget in a furnace at 1100C+.,"
+<b>Smelts:</b> Returns 1 iron nugget in a furnace at 1100C+."
 Advanced_Copper_Tools_TinSolder_CardName,Tin Solder,锡焊料
 Advanced_Copper_Tools_TinSolder_CardDescription,A tin solder stick. Useful for joining metal parts or sealing seams.,锡焊料棒。用于连接金属零件或密封接缝。
 Advanced_Copper_Tools_Bp_IronNails_CardName,Forge Iron Nails,锻造铁钉
-Advanced_Copper_Tools_Bp_IronNails_CardDescription,Forge iron-grade metal nuggets into a set of iron nails.,用铁锄锻造一批铁钉。
+Advanced_Copper_Tools_Bp_IronNails_CardDescription,Forge iron-grade metal nuggets into a set of iron nails.,用铁块锻造一批铁钉。
 Advanced_Copper_Tools_Bp_IronNails_UnlockConditionsDesc,Dried Bog Iron Needed,需要干沼铁
 Advanced_Copper_Tools_Bp_TinSolder_CardName,Forge Tin Solder,锻造锡焊料
-Advanced_Copper_Tools_Bp_TinSolder_CardDescription,Melt a tin-grade metal nugget into solder sticks.,将锡锄燔铸成焊料棒。
+Advanced_Copper_Tools_Bp_TinSolder_CardDescription,Melt a tin-grade metal nugget into solder sticks.,将锡块熔铸成焊料棒。
 Advanced_Copper_Tools_Bp_TinSolder_UnlockConditionsDesc,Tin Nugget Needed,需要锡块
 Advanced_Copper_Tools_Perk_CaveProspector_PerkName,Cave Prospector
-Advanced_Copper_Tools_Perk_CaveProspector_PerkDescription,"You've mapped the cave network east of the falls. The tin, copper, and iron veins are real — but the passages between them have caved in. Reach the caves through a portal, then dig through each Collapsed Rock Face with a pickaxe, shovel, axe, antler, or knife to open the way deeper. A one-time dig per passage, and loose stone for your trouble."
+Advanced_Copper_Tools_Perk_CaveProspector_PerkDescription,"You've mapped the cave network east of the falls. The tin, copper, iron, salt, and stone veins are real — but the passages between them have caved in. Reach the caves through a portal, then dig through each Collapsed Rock Face with a pickaxe, shovel, axe, antler, or knife to open the way deeper. A one-time dig per passage, and loose stone for your trouble."
 Advanced_Copper_Tools_CollapsedWallCopper_CardName,Collapsed Rock Face
 Advanced_Copper_Tools_CollapsedWallCopper_CardDescription,"The passage north to the copper vein cave is blocked by fallen rock. Dig through it with a pickaxe, shovel, axe, antler, or knife to open the way — once cleared, it stays open."
 Advanced_Copper_Tools_CollapsedWallCopper_Dig_ActionName,Dig Through
@@ -610,6 +610,34 @@ Advanced_Copper_Tools_CollapsedWallTin_CardName,Collapsed Rock Face
 Advanced_Copper_Tools_CollapsedWallTin_CardDescription,"A cave-in blocks the eastern passage beyond the waterfall. Dig through it with a pickaxe, shovel, axe, antler, or knife to access the tin, copper, and iron vein caves — once cleared, the passage stays open."
 Advanced_Copper_Tools_CollapsedWallTin_Dig_ActionName,Dig Through
 Advanced_Copper_Tools_CollapsedWallTin_Dig_ActionDescription,"Break through the collapsed rock with a pickaxe, shovel, axe, antler, or knife. Opens the eastern passage to the cave network beyond the falls."
+Advanced_Copper_Tools_SaltMineCave_CardName,Salt Mine,盐矿洞
+Advanced_Copper_Tools_Env_SaltMineCave_CardName,Salt Mine,盐矿洞
+Advanced_Copper_Tools_RockQuarryCave_CardName,Rock Quarry,采石场
+Advanced_Copper_Tools_Env_RockQuarryCave_CardName,Rock Quarry,采石场
+Advanced_Copper_Tools_SaltVein_CardName,Salt Vein,盐矿脉
+Advanced_Copper_Tools_SaltVein_CardDescription,"A crusted seam of rock salt embedded in cave rock. Mine with a pickaxe for best results, or chip away with an axe, hammer, shovel, or antler. Produces salt.",嵌入洞穴岩石中的盐矿脉。用镐开采效率最佳，也可用斧头、锤子、铲子或鹿角凿击。
+Advanced_Copper_Tools_SaltVein_Mine_ActionName,Mine Salt,开采盐矿
+Advanced_Copper_Tools_SaltVein_Mine_ActionDescription,Strike the vein with a pickaxe to extract salt.,用镐敲击矿脉以提取盐。
+Advanced_Copper_Tools_SaltVein_MineRough_ActionName,Chip Away,凿击
+Advanced_Copper_Tools_SaltVein_MineRough_ActionDescription,"Strike the vein with an axe, hammer, shovel, or antler. Slower than a pickaxe — yields one salt per strike.",用斧头、锤子、铲子或鹿角凿击矿脉。比镐慢——每次凿击产出一份盐。
+Advanced_Copper_Tools_RockVein_CardName,Rock Vein,石矿脉
+Advanced_Copper_Tools_RockVein_CardDescription,"A thick face of quarry-grade stone embedded in cave rock. Mine with a pickaxe, or chip away with an axe, hammer, shovel, or antler — either way yields 3 stone and 3 heavy stone per strike. Depletes after 6 strikes.",嵌入洞穴岩石中的大片采石岩层。用镐开采，或用斧头、锤子、铲子或鹿角凿击——每次敲击都能获得3块石料和3块沉重石料，共可敲击6次。
+Advanced_Copper_Tools_RockVein_Mine_ActionName,Mine Stone,开采石料
+Advanced_Copper_Tools_RockVein_Mine_ActionDescription,Strike the rock face with a pickaxe to break loose 3 stone and 3 heavy stone.,用镐敲击岩层，敲下3块石料和3块沉重石料。
+Advanced_Copper_Tools_RockVein_MineRough_ActionName,Chip Away,凿击
+Advanced_Copper_Tools_RockVein_MineRough_ActionDescription,"Strike the rock face with an axe, hammer, shovel, or antler to break loose 3 stone and 3 heavy stone.",用斧头、锤子、铲子或鹿角凿击岩层，敲下3块石料和3块沉重石料。
+Advanced_Copper_Tools_CollapsedWallSalt_CardName,Collapsed Rock Face
+Advanced_Copper_Tools_CollapsedWallSalt_CardDescription,"The passage east to the salt mine is blocked by fallen rock. Dig through it with a pickaxe, shovel, axe, antler, or knife to open the way — once cleared, it stays open."
+Advanced_Copper_Tools_CollapsedWallSalt_Dig_ActionName,Dig Through
+Advanced_Copper_Tools_CollapsedWallSalt_Dig_ActionDescription,"Break through the collapsed rock with a pickaxe, shovel, axe, antler, or knife. Opens the passage to the salt mine."
+Advanced_Copper_Tools_CollapsedWallQuarry_CardName,Collapsed Rock Face
+Advanced_Copper_Tools_CollapsedWallQuarry_CardDescription,"The passage east to the rock quarry is blocked by fallen rock. Dig through it with a pickaxe, shovel, axe, antler, or knife to open the way — once cleared, it stays open."
+Advanced_Copper_Tools_CollapsedWallQuarry_Dig_ActionName,Dig Through
+Advanced_Copper_Tools_CollapsedWallQuarry_Dig_ActionDescription,"Break through the collapsed rock with a pickaxe, shovel, axe, antler, or knife. Opens the passage to the rock quarry."
+Advanced_Copper_Tools_CollapsedWallSaltQuarry_CardName,Collapsed Rock Face
+Advanced_Copper_Tools_CollapsedWallSaltQuarry_CardDescription,"The passage between the salt mine and the rock quarry is blocked by fallen rock. Dig through it with a pickaxe, shovel, axe, antler, or knife to open the way — once cleared, it stays open."
+Advanced_Copper_Tools_CollapsedWallSaltQuarry_Dig_ActionName,Dig Through
+Advanced_Copper_Tools_CollapsedWallSaltQuarry_Dig_ActionDescription,"Break through the collapsed rock with a pickaxe, shovel, axe, antler, or knife. Opens the passage between the salt mine and the rock quarry."
 Advanced_Copper_Tools_CalmingTea_CardName,Calming Tea,安神茶
 Advanced_Copper_Tools_CalmingTea_CardDescription,A soothing brew of dried willow bark steeped in hot water. Quiets the nerves and eases stress.,用干柳树皮在热水中冲泡的舒缓茶饮。能安定神经、缓解压力。
 Advanced_Copper_Tools_CalmingTea_CardHelpSection,"<b>Brewed:</b> At a lit Tea Station — dried willow bark plus a Water Charge, once the reservoir is hot.
@@ -654,12 +682,12 @@ Advanced_Copper_Tools_CopperCauldron_AlternateNames[3].Name,Tin Bronze Cauldron,
 Advanced_Copper_Tools_CopperCauldron_AlternateNames[4].Name,White Bronze Cauldron,白青铜大锅
 Advanced_Copper_Tools_CopperCauldron_SpecialDurability4.CardStatName,Metal Type,金属类型
 Advanced_Copper_Tools_CopperWateringCan_CardName,Copper Watering Can,铜制洒水壶
-Advanced_Copper_Tools_CopperWateringCan_CardDescription,"A hammered copper can with a rope-bound handle and a perforated spout. Carries water for dousing fires, filling other containers, or watering plants.",一只锤打成型的铜壶，带绳绑手柄和带孔壶嘴。可用来装水灭火、给其他容器加水，或浇灌植物。
+Advanced_Copper_Tools_CopperWateringCan_CardDescription,"A hammered copper can with a rope-bound handle and a perforated spout. Fill it from any shallow water source and carry it for a quick drink, or empty it out when you're done.",一只锤打成型的铜壶，带绳绑手柄和带孔壶嘴。可在任何浅水源处装满，随身携带以便随时饮用，用完后倒空即可。
 Advanced_Copper_Tools_CopperWateringCan_CardHelpSection,"<b>Fill:</b> Drag onto a river, pond, or other shallow water source.
 
-<b>Uses:</b> Pour into any water container (drag the can onto it), douse open flames, or drink in a pinch. Holds 1500 ml.","<b>装水：</b>拖到河流、池塘或其他浅水源上即可。
+<b>Uses:</b> Drink in a pinch, or empty it out onto the ground when you're done. Holds 1500 ml.","<b>装水：</b>拖到河流、池塘或其他浅水源上即可。
 
-<b>用途：</b>倒入任何盛水容器（把壶拖到容器上）、浇灭明火，或紧急情况下饮用。容量1500毫升。"
+<b>用途：</b>紧急情况下饮用，或用完后倒空。容量1500毫升。"
 Advanced_Copper_Tools_CopperWateringCan_Fill_ActionName,Fill from Water,从水源装水
 Advanced_Copper_Tools_CopperWateringCan_Fill_ActionDescription,Dip the can into the water to fill it.,把壶浸入水中装满。
 Advanced_Copper_Tools_CopperWateringCan_Drink_ActionName,Drink,饮用
@@ -717,14 +745,85 @@ Advanced_Copper_Tools_IronGreaves_Dismantle_ActionDescription,Break apart the gr
 Advanced_Copper_Tools_Bp_IronGreaves_CardName,Iron Greaves,铁护胫
 Advanced_Copper_Tools_Bp_IronGreaves_CardDescription,Forge iron greaves for superior leg protection.,锻造铁护胫，获得更强的腿部防护。
 Advanced_Copper_Tools_Bp_IronGreaves_UnlockConditionsDesc,Iron Sheet Needed,需要铁板
-Advanced_Copper_Tools_IronBreastplate_CardName,Iron Armor,铁铠甲
-Advanced_Copper_Tools_IronBreastplate_CardDescription,A sturdy suit of iron armor offering superior torso protection to its copper counterpart. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.,一套坚固的铁铠甲，躯干防护优于铜制版本。可在熔炉中回收。必须装备在装备栏才能生效。
-Advanced_Copper_Tools_IronBreastplate_UsageDurability.CardStatName,Durability,耐久度
-Advanced_Copper_Tools_IronBreastplate_Dismantle_ActionName,Dismantle,拆解
-Advanced_Copper_Tools_IronBreastplate_Dismantle_ActionDescription,Break apart the armor to recover materials.,拆解铠甲以回收材料。
-Advanced_Copper_Tools_Bp_IronBreastplate_CardName,Iron Armor,铁铠甲
-Advanced_Copper_Tools_Bp_IronBreastplate_CardDescription,Forge a suit of iron armor for superior torso protection.,锻造一套铁铠甲，获得更强的躯干防护。
-Advanced_Copper_Tools_Bp_IronBreastplate_UnlockConditionsDesc,Iron Sheet Needed,需要铁板
+Advanced_Copper_Tools_IronBreastplateM_CardName,Iron Armor (Male),铁铠甲（男款）
+Advanced_Copper_Tools_IronBreastplateM_CardDescription,A sturdy suit of iron armor offering superior torso protection to its copper counterpart. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.,一套坚固的铁铠甲，躯干防护优于铜制版本。可在熔炉中回收。必须装备在装备栏才能生效。
+Advanced_Copper_Tools_IronBreastplateM_UsageDurability.CardStatName,Durability,耐久度
+Advanced_Copper_Tools_IronBreastplateM_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_IronBreastplateM_Dismantle_ActionDescription,Break apart the armor to recover materials.,拆解铠甲以回收材料。
+Advanced_Copper_Tools_Bp_IronBreastplateM_CardName,Iron Armor (Male),铁铠甲（男款）
+Advanced_Copper_Tools_Bp_IronBreastplateM_CardDescription,Forge a suit of iron armor for superior torso protection.,锻造一套铁铠甲，获得更强的躯干防护。
+Advanced_Copper_Tools_Bp_IronBreastplateM_UnlockConditionsDesc,Iron Sheet Needed,需要铁板
+Advanced_Copper_Tools_IronBreastplateF_CardName,Iron Armor (Female),铁铠甲（女款）
+Advanced_Copper_Tools_IronBreastplateF_CardDescription,A sturdy suit of iron armor offering superior torso protection to its copper counterpart. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK.,一套坚固的铁铠甲，躯干防护优于铜制版本。可在熔炉中回收。必须装备在装备栏才能生效。
+Advanced_Copper_Tools_IronBreastplateF_UsageDurability.CardStatName,Durability,耐久度
+Advanced_Copper_Tools_IronBreastplateF_Dismantle_ActionName,Dismantle,拆解
+Advanced_Copper_Tools_IronBreastplateF_Dismantle_ActionDescription,Break apart the armor to recover materials.,拆解铠甲以回收材料。
+Advanced_Copper_Tools_Bp_IronBreastplateF_CardName,Iron Armor (Female),铁铠甲（女款）
+Advanced_Copper_Tools_Bp_IronBreastplateF_CardDescription,Forge a suit of iron armor for superior torso protection.,锻造一套铁铠甲，获得更强的躯干防护。
+Advanced_Copper_Tools_Bp_IronBreastplateF_UnlockConditionsDesc,Iron Sheet Needed,需要铁板
 Advanced_Copper_Tools_Bp_RenderFishOil_CardName,Rendered Fish Oil,熬制鱼油
 Advanced_Copper_Tools_Bp_RenderFishOil_CardDescription,Render 2 fatty fish meat in a clay bowl over a fire to produce cooking oil and lamp fuel.,在火上用陶碗熬制2块肥鱼肉，制成食用油和灯油。
 Advanced_Copper_Tools_Bp_RenderFishOil_UnlockConditionsDesc,Fatty Fish Meat Needed,需要肥鱼肉
+Advanced_Copper_Tools_OreChest_CardName,Ore Chest
+Advanced_Copper_Tools_OreChest_CardDescription,"A high-capacity sealed metal crate built for hauling bulk mining raws. No spoilage protection, just a lot of space."
+Advanced_Copper_Tools_OreChest_CardHelpSection,"<b>Capacity:</b> 6000 weight, built for ore/stone/salt stacks.
+
+<b>Animal-safe:</b> Yes. Wildlife cannot raid this crate."
+Advanced_Copper_Tools_OreChest_DismantleActions_Place_ActionName,Place
+Advanced_Copper_Tools_OreChest_DismantleActions_Place_ActionDescription,Set the ore chest down in your environment.
+Advanced_Copper_Tools_OreChest_DismantleActions_Dismantle_ActionName,Dismantle
+Advanced_Copper_Tools_OreChest_DismantleActions_Dismantle_ActionDescription,Take the ore chest apart to recover some of the sheets.
+Advanced_Copper_Tools_OreChest_DismantleActions_Dismantle_FailMessage,Empty the crate first.
+Advanced_Copper_Tools_OreChest_Placed_CardHelpSection,"<b>Capacity:</b> 15000 weight, built for ore/stone/salt stacks.
+
+<b>Animal-safe:</b> Yes. Wildlife cannot raid this crate."
+Advanced_Copper_Tools_OreChestPlaced_DismantleActions_PickUp_ActionName,Pick Up
+Advanced_Copper_Tools_OreChestPlaced_DismantleActions_PickUp_ActionDescription,Pick up the ore chest to carry it.
+Advanced_Copper_Tools_OreChestPlaced_DismantleActions_PickUp_FailMessage,Empty the crate before picking it up.
+Advanced_Copper_Tools_Bp_OreChest_CardName,Ore Chest
+Advanced_Copper_Tools_Bp_OreChest_CardDescription,"Build a high-capacity sealed metal crate for bulk ore, stone, and salt. Requires 6 metal sheets, 4 planks, 8 copper nails, and a hammer."
+Advanced_Copper_Tools_Bp_OreChest_UnlockConditionsDesc,Copper Sheet Needed
+Advanced_Copper_Tools_SaltCuredMeat_CardName,Salt-Cured Meat
+Advanced_Copper_Tools_SaltCuredMeat_CardDescription,"Raw meat packed in salt and left to cure. A filling, slow-spoiling travel ration - though the salt will leave you thirsty."
+Advanced_Copper_Tools_SaltCuredMeat_SpoilageTime_StatName,Spoilage
+Advanced_Copper_Tools_SaltCuredMeat_SpoilageTime_OnFull,The salt-cured meat has finally spoiled.
+Advanced_Copper_Tools_SaltCuredMeat_Eat,Eat
+Advanced_Copper_Tools_SaltCuredMeat_Eat_Desc,"Eat the salt-cured meat. Filling, but salty."
+Advanced_Copper_Tools_Bp_SaltCuredMeat_CardName,Salt-Cured Meat
+Advanced_Copper_Tools_Bp_SaltCuredMeat_CardDescription,Pack raw meat in salt to cure it into a slow-spoiling travel ration. Requires 1 raw meat and 2 salt.
+Advanced_Copper_Tools_Bp_SaltCuredMeat_UnlockConditionsDesc,Salt Needed
+Advanced_Copper_Tools_BronzeHelmet_CardName,Bronze Helmet
+Advanced_Copper_Tools_BronzeHelmet_CardDescription,"A hammered bronze helmet, tougher than copper but lighter than iron. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+Advanced_Copper_Tools_BronzeHelmet_UsageDurability.CardStatName,Durability
+Advanced_Copper_Tools_BronzeHelmet_Dismantle_ActionName,Dismantle
+Advanced_Copper_Tools_BronzeHelmet_Dismantle_ActionDescription,Break apart the helmet to recover materials.
+Advanced_Copper_Tools_BronzeGauntlets_CardName,Bronze Bracers
+Advanced_Copper_Tools_BronzeGauntlets_CardDescription,"Hammered bronze bracers protecting both arms, tougher than copper. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+Advanced_Copper_Tools_BronzeGauntlets_UsageDurability.CardStatName,Durability
+Advanced_Copper_Tools_BronzeGauntlets_Dismantle_ActionName,Dismantle
+Advanced_Copper_Tools_BronzeGauntlets_Dismantle_ActionDescription,Break apart the bracers to recover materials.
+Advanced_Copper_Tools_BronzeGreaves_CardName,Bronze Greaves
+Advanced_Copper_Tools_BronzeGreaves_CardDescription,"Hammered bronze greaves protecting both legs, tougher than copper. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+Advanced_Copper_Tools_BronzeGreaves_UsageDurability.CardStatName,Durability
+Advanced_Copper_Tools_BronzeGreaves_Dismantle_ActionName,Dismantle
+Advanced_Copper_Tools_BronzeGreaves_Dismantle_ActionDescription,Break apart the greaves to recover materials.
+Advanced_Copper_Tools_BronzeBreastplate_CardName,Bronze Armor
+Advanced_Copper_Tools_BronzeBreastplate_CardDescription,"A sturdy suit of bronze armor, offering torso protection between copper and iron tiers. Can be recycled in a furnace. MUST BE EQUIPPED ON EQUIPMENT SLOT TO WORK."
+Advanced_Copper_Tools_BronzeBreastplate_UsageDurability.CardStatName,Durability
+Advanced_Copper_Tools_BronzeBreastplate_Dismantle_ActionName,Dismantle
+Advanced_Copper_Tools_BronzeBreastplate_Dismantle_ActionDescription,Break apart the armor to recover materials.
+Advanced_Copper_Tools_Bp_BronzeHelmet_CardName,Bronze Helmet
+Advanced_Copper_Tools_Bp_BronzeHelmet_CardDescription,Craft a bronze helmet for head protection between copper and iron tiers. Requires a bronze-grade metal sheet.
+Advanced_Copper_Tools_Bp_BronzeHelmet_UnlockConditionsDesc,Bronze Sheet Needed
+Advanced_Copper_Tools_Bp_BronzeGauntlets_CardName,Bronze Bracers
+Advanced_Copper_Tools_Bp_BronzeGauntlets_CardDescription,Craft bronze bracers for arm protection between copper and iron tiers. Requires a bronze-grade metal sheet.
+Advanced_Copper_Tools_Bp_BronzeGauntlets_UnlockConditionsDesc,Bronze Sheet Needed
+Advanced_Copper_Tools_Bp_BronzeGreaves_CardName,Bronze Greaves
+Advanced_Copper_Tools_Bp_BronzeGreaves_CardDescription,Craft bronze greaves for leg protection between copper and iron tiers. Requires a bronze-grade metal sheet.
+Advanced_Copper_Tools_Bp_BronzeGreaves_UnlockConditionsDesc,Bronze Sheet Needed
+Advanced_Copper_Tools_Bp_BronzeBreastplate_CardName,Bronze Armor
+Advanced_Copper_Tools_Bp_BronzeBreastplate_CardDescription,Craft a suit of bronze torso armor between copper and iron tiers. Requires bronze-grade metal sheets.
+Advanced_Copper_Tools_Bp_BronzeBreastplate_UnlockConditionsDesc,Bronze Sheet Needed
+Advanced_Copper_Tools_CopperBathtub_Warm_WashWithSoap_ActionName,Wash with Soap
+Advanced_Copper_Tools_CopperBathtub_Warm_WashWithSoap_ActionDescription,Scrub down with soap for an extra-deep clean and a bigger mood boost.
+Advanced_Copper_Tools_CopperBathtub_Warm_WashWithSoap_FailMessage,Need water in the bathtub first.

@@ -20,6 +20,11 @@
   "ObjectWeight": 200.0,
   "TradingValue": 150.0,
   "DoesNotPile": true,
+  "UsesOwnershipSystem": true,
+  "CompatibleDutiesWarpData": [
+    "6147eff5b0fe3014ca57364f4d075514"
+  ],
+  "CompatibleDutiesWarpType": 3,
   "CardTags": [],
   "CardTagsWarpData": ["tag_Preservable", "tag_Structure"],
   "CardTagsWarpType": 3,
@@ -128,6 +133,12 @@
             }
           ]
         }
+      ],
+      "CompatibleNPCDuties": [
+        {
+          "TargetWarpData": "6147eff5b0fe3014ca57364f4d075514",
+          "TargetWarpType": 3
+        }
       ]
     },
     {
@@ -172,7 +183,13 @@
           "x": -24.0,
           "y": -24.0
         }
-      }
+      },
+      "CompatibleNPCDuties": [
+        {
+          "TargetWarpData": "6147eff5b0fe3014ca57364f4d075514",
+          "TargetWarpType": 3
+        }
+      ]
     },
     {
       "ActionName": {

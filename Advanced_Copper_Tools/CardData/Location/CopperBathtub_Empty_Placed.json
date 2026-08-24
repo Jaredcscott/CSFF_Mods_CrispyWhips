@@ -161,7 +161,7 @@
         "TransformIntoWarpType": 3,
         "SpawnTransformAtSource": true,
         "TransferFuel": true,
-        "TransferProgress": true,
+        "TransferCharges": true,
         "TransferSpecial1": true
       }
     },
@@ -232,7 +232,7 @@
         "TransformIntoWarpType": 3,
         "SpawnTransformAtSource": true,
         "TransferFuel": true,
-        "TransferProgress": true,
+        "TransferCharges": true,
         "TransferSpecial1": true
       }
     },
@@ -428,7 +428,7 @@
         "TransformIntoWarpType": 3,
         "SpawnTransformAtSource": true,
         "TransferFuel": true,
-        "TransferProgress": true,
+        "TransferCharges": true,
         "TransferSpecial1": true
       }
     },
