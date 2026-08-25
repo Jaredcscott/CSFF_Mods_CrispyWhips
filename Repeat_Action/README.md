@@ -2,7 +2,7 @@
 
 **Version:** 2.0.2
 **Author:** Jared (crispywhips)
-**For:** Card Survival: Fantasy Forest (EA 0.65)
+**For:** Card Survival: Fantasy Forest (EA 0.66)
 
 A quality-of-life mod that lets you automatically repeat your last action multiple times with a single keypress.
 

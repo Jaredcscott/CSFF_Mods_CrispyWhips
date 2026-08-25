@@ -1,5 +1,11 @@
 # Repeat Action — Changelog
 
+## [2.0.2] — 2026-08-16
+
+### Changed
+
+- **Version-sync / game-data refresh bump.** No source changes to `ActionPatch.cs` or `Plugin.cs` — `lib/Assembly-CSharp.dll` was refreshed against the EA 0.66h game update (per CLAUDE.md's Game-Update Reference Refresh rule; RepeatAction compiles directly against the plain assembly) and the mod rebuilt clean. No player-visible behavior change.
+
 ## [2.0.1] — 2026-08-08
 
 ### Fixed
