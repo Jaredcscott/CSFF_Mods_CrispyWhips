@@ -1,6 +1,6 @@
 # Mod Update Manager
 
-**Version:** 2.1.23  
+**Version:** 2.1.25  
 **Author:** Jared (crispywhips)  
 **For:** Card Survival: Fantasy Forest (EA 0.65)
 
@@ -14,7 +14,7 @@ It also does not validate game-beta compatibility by itself. When a mod update i
 
 ## Shipped Features
 
-- **Crispywhips Mod Suite installer** — the "Install & Update" tab (the default tab on open) lets you install or update the whole crispywhips in-house mod family in one click: CSFF Mod Framework, Advanced Copper Tools, Herbs & Fungi, Water Driven Infrastructure, Community Mod Chest, Repeat Action, Quick Transfer, and Skill Speed Boost. Each of these mods ships bundled inside the Mod Update Manager DLL itself as an embedded ZIP — no separate download or manual copy is needed. Per-mod rows show installed vs. bundled version and a status badge (`[Up to Date]` / `[Update Available]` / `[Not Installed]`); "Select Out of Date / Not Installed" or "Select All" plus "Apply Updates" extracts the selected mods straight into `BepInEx/plugins/`, preserving the framework's `SpriteCache/`. A restart-required banner (with a one-click game-quit button) appears after applying. **Sirus23 Mod Collection is not part of this bundle** — install it separately. This does not touch Nexus and needs no API key.
+- **Crispywhips Mod Suite installer** — the "Install & Update" tab (the default tab on open) lets you install or update the whole crispywhips in-house mod family in one click: CSFF Mod Framework, Advanced Copper Tools, Herbs & Fungi, Water Driven Infrastructure, Community Mod Chest, Homestead Perks, Repeat Action, Quick Transfer, and Skill Speed Boost. Each of these mods ships bundled inside the Mod Update Manager DLL itself as an embedded ZIP — no separate download or manual copy is needed. Per-mod rows show installed vs. bundled version and a status badge (`[Up to Date]` / `[Update Available]` / `[Not Installed]`); "Select Out of Date / Not Installed" or "Select All" plus "Apply Updates" extracts the selected mods straight into `BepInEx/plugins/`, preserving the framework's `SpriteCache/`. A restart-required banner (with a one-click game-quit button) appears after applying. **Sirus23 Mod Collection is not part of this bundle** — install it separately. This does not touch Nexus and needs no API key.
 - Scans installed mods on game startup and from the UI.
 - Reads `ModInfo.json` from standard plugin folders and one nested folder level; also detects loose plugin DLLs without a `ModInfo.json` (listed with an Unknown version).
 - Checks mapped mods against Nexus Mods when an API key is configured.
@@ -43,7 +43,7 @@ It also does not validate game-beta compatibility by itself. When a mod update i
 | Nexus Mods API Key | Free, requires Nexus account (only needed for the **My Mods** tab's Nexus checks — the **Install & Update** suite tab works fully offline) |
 | Internet Connection | Needed to check for updates (not needed for the Install & Update suite tab, which extracts from mods bundled in its own DLL) |
 
-**Dependencies:** none. Mod Update Manager has no runtime dependency on CSFFModFramework or any other mod, and no `[BepInDependency]` declarations — it is a fully standalone BepInEx plugin. It does, however, bundle copies of eight other in-house mods inside its own DLL for the Install & Update tab (see "Shipped Features"), and its built-in Nexus ID registry recognizes those and other CSFF mods by name for update tracking — neither of these makes MUM require them to run.
+**Dependencies:** none. Mod Update Manager has no runtime dependency on CSFFModFramework or any other mod, and no `[BepInDependency]` declarations — it is a fully standalone BepInEx plugin. It does, however, bundle copies of nine other in-house mods inside its own DLL for the Install & Update tab (see "Shipped Features"), and its built-in Nexus ID registry recognizes those and other CSFF mods by name for update tracking — neither of these makes MUM require them to run.
 
 ## Installation
 
@@ -118,7 +118,7 @@ For beta-compatible mod releases, include the supported CSFF build in the publis
 **Window does not open with F3**
 - Check `BepInEx/LogOutput.log` for errors.
 - Verify BepInEx is installed correctly.
-- Look for `Mod_Update_Manager v2.1.23 loaded.` in the log.
+- Look for `Mod_Update_Manager v2.1.25 loaded.` in the log.
 
 **Install & Update tab shows "Unknown" status for every mod**
 - The embedded suite ZIPs failed to read (`SuiteVersionReader.RefreshAll` logs an error). Check `LogOutput.log`; this doesn't affect the Nexus-tracking tabs.

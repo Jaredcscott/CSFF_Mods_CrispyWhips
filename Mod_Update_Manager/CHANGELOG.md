@@ -5,6 +5,22 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [2.1.24] — 2026-08-24
+
+### Changed
+
+- **Refreshed the embedded mod suite bundle** to pick up two fleet releases that shipped after the 2.1.23 repackage: Community Mod Chest 1.68.1 (Quiet Village character perk — stands down the Watch and keeps NPCs home — plus an NPC scheduler performance pass) and CSFF Mod Framework 2.25.7 (fixes a Portal Hub travel map-overlap/board-corruption bug introduced upstream, adds the `Reflect.IsAlive` helper CMC's scheduler pass relies on). The other 7 bundled mods (Advanced Copper Tools, Herbs & Fungi, Quick Transfer, Repeat Action, Skill Speed Boost, Water-Driven Infrastructure, Homestead Perks) are unchanged from 2.1.23.
+
+---
+
+## [2.1.23] — 2026-08-23
+
+### Changed
+
+- **Repackaged the embedded mod suite bundle** used by the Install & Update tab — refreshed all 9 embedded suite ZIPs with each mod's latest release as of 2026-08-23: Advanced Copper Tools 1.16.1, Community Mod Chest 1.67.6, Herbs & Fungi 1.10.14, Quick Transfer 1.7.7, Repeat Action 2.0.2, Skill Speed Boost 1.9.7, Water-Driven Infrastructure 1.10.19, Homestead Perks 1.2.3, and CSFF Mod Framework 2.25.3 — replacing the versions bundled since 2.1.18/2.1.22. Embedded DLL payload grew from ~38.6 MB to ~39.6 MB.
+
+---
+
 ## [2.1.22] — 2026-08-16
 
 ### Added
