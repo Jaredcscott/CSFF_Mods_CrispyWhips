@@ -136,7 +136,11 @@ Any skill added by another mod is picked up the same way automatically — no up
 
 ## Version History
 
-### v1.9.6 (current)
+### v1.9.7 (current)
+- Removed the temporary `[MorningBonus][DIAG]` diagnostic logging added in v1.9.6 — the capture window closed without a reproduction against this mod's code path. No behavior change.
+- Silent-catch reflection breadcrumbs in `MorningBonusPatch` and `AreaFamiliarityPatch` upgraded from `LogDebug` (invisible by default) to `LogWarning`, so a future field-rename that breaks bonus/familiarity tracking now shows up in `LogOutput.log`.
+
+### v1.9.6
 - Added temporary diagnostic logging (`LogInfo`) in `MorningBonusPatch` to investigate a player-reported vanilla bug (EA 0.66a+) where a large stat penalty — e.g. the -150 Stealth hit from an extinguished campfire — is allegedly misapplied as a positive XP gain. Logs the raw before/after/delta on any skill-stat change of magnitude ≥50, and separately logs if a bonus is then compounded on top of it. Informational only — no behavior change. Will be removed/demoted once the report is resolved.
 
 ### v1.9.5

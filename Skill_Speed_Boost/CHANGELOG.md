@@ -5,6 +5,22 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.9.7] — 2026-08-24
+
+### Changed
+
+- **Removed the temporary `[MorningBonus][DIAG]` diagnostic logging added in v1.9.6.** The
+  capture window for the player-reported vanilla bug (a large stat penalty, e.g. the -150
+  Stealth hit from an extinguished campfire, allegedly misapplied as a positive XP gain) closed
+  without a reproduction against this mod's code path. No behavior change from this mod either
+  way — the diagnostics were informational only, and removing them restores the pre-1.9.6 log
+  output.
+- **Silent-catch reflection breadcrumbs upgraded `LogDebug` → `LogWarning`** in
+  `MorningBonusPatch` (`SetCurrentValue`, `IsMorningWindow`) and `AreaFamiliarityPatch`
+  (`TryGetLocationUid`). BepInEx's default filter suppresses `LogDebug`, so a future
+  field-rename that silently breaks bonus application or area-familiarity tracking is now
+  actually visible in `LogOutput.log` by default instead of invisible.
+
 ## [1.9.6] — 2026-08-09
 
 ### Diagnostic

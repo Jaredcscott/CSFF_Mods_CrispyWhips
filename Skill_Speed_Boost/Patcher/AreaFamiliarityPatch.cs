@@ -145,7 +145,7 @@ internal static class AreaFamiliarityPatch
             if (!_locationUidFailureLogged)
             {
                 _locationUidFailureLogged = true;
-                Logger?.LogDebug($"[AreaFamiliarity] TryGetLocationUid reflection failed (familiarity tracking will silently stop): {ex.Message}");
+                Logger?.LogWarning($"[AreaFamiliarity] TryGetLocationUid reflection failed (familiarity tracking will silently stop): {ex.Message}");
             }
         }
         return null;

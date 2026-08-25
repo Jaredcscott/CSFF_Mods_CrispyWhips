@@ -1,109 +1,103 @@
-﻿# Roadmap: Skill Speed Boost
-Version at time of writing: 1.9.5
-Date: 2026-07-27
-Audit score: 10/10 — PASS (consolidated 2026-07-27)
+# Roadmap: Skill Speed Boost
+Version at time of writing: 1.9.7
+Date: 2026-08-24
+Audit score: 10/10 — PASS (consolidated 2026-08-24)
 
 ## Current State
 
-**Theme**: A pure-C# utility mod that gives players fine-grained control over skill progression in CSFF — per-skill XP multipliers, natural staleness decay, morning/area/synergy/level-scaling bonuses, and one-key difficulty presets. For players who want to tune the grind up or down without touching content.
+**Theme**: A pure-C# utility mod that gives players fine-grained control over skill progression in CSFF — per-skill XP multipliers (0–10x), natural staleness decay (global or per-skill), and stacking morning / area-familiarity / synergy / level-scaling bonuses plus one-key difficulty presets. For players who want to tune the grind up or down without touching content.
 
-**Content**: 0 items / 0 blueprints / 0 structures / 0 perks / 0 custom images. Ships 9 C# source files (`Plugin`, `DifficultyProfiles`, `SkillSynergies`, `SkillConfigManager`, `GlobalUsing`, and `Patcher/{GameLoadPatch, MorningBonusPatch, AreaFamiliarityPatch, AreaFamiliarityService}`) — all 9 advertised features wired to live code.
+**Content**: 0 items / 0 blueprints / 0 structures / 0 perks / 0 custom images. Ships 9 C# source files (`Plugin`, `DifficultyProfiles`, `SkillSynergies`, `SkillConfigManager`, `GlobalUsing`, and `Patcher/{GameLoadPatch, MorningBonusPatch, AreaFamiliarityPatch, AreaFamiliarityService}`) — all 9 advertised features wired to live, re-verified code.
 
-**Stability**: 10/10 — 0 CRITICAL, 0 DESIGN GAP, 0 genuine WARNING (the lone E16 "missing SimpEn.csv" is a documented false positive for a card-less mod). Passes `/audit-mod`, `/critical-analysis` (SOLID), and `/code-quality` (10/10).
+**Stability**: 10/10 — 0 CRITICAL, 0 DESIGN GAP, 0 genuine WARNING. The lone E16 "missing SimpEn.csv" is a documented false positive for a card-less mod. The two log-hygiene warnings from `code-quality.md` (leftover `[MorningBonus][DIAG]` LogInfo; breadcrumbs at invisible LogDebug) were both **fixed 2026-08-24** but sit **uncommitted** in the working tree — commit them. Passes `/audit-mod`, `/critical-analysis` (SOLID), and `/code-quality` (10/10).
 
-**Open work**: None. Zero open retrospectives for SSB/SkillSpeedBoost/`crispywhips.skill_speed_boost`. One non-blocking runtime-verification debt: the v1.9.5 Morning Bonus clock-hour fix builds clean and is decomp-derived but has not been exercised in a live session.
+**Open work**: None blocking. Zero open retrospectives for SSB/SkillSpeedBoost/`crispywhips.skill_speed_boost`. Three non-blocking items: (1) commit the 2026-08-24 log-hygiene fixes; (2) the v1.9.5 Morning Bonus clock-hour fix is decomp-derived, builds clean, but has never been exercised in a live session; (3) README.md Version History + CHANGELOG.md lag the 1.9.7 version string (cosmetic).
 
-**Framework compliance**: Uses the framework's shared reflection tier (`Api.Reflect`/`Api.StatAccess`/`Api.CardUtil`, 41 references across the three patch files — the v1.9.2 migration that removed ~320 lines of bespoke reflection). `[BepInDependency(..., SoftDependency)]` present; explicit per-class `ApplyPatch(harmony)` (no `PatchAll`); `UnpatchSelf()` on destroy. The two hot-path coroutine postfixes (`ChangeStatValue`, `ActionRoutine`) are the CLAUDE.md-sanctioned single-composition/IEnumerator-wrap pattern — there is no Tier-2 `ActionRouter`/`SpawnService` equivalent for "observe every skill-XP delta," so this is correct, not a gap. No deprecated patterns (no `DropCollectionGuardPatch`, no unfiltered hot-path prefixes, no `ModLoaderVerison`).
+**Framework compliance**: Tier 2 — heavy, correct adoption. Both hot-path coroutine postfixes (`ChangeStatValue`, `ActionRoutine`) use the CLAUDE.md single-composition IEnumerator-wrap pattern and the framework's `Api.Reflect` / `Api.StatAccess` / `Api.CardUtil` helpers (35 call sites across the 3 patch files); `[BepInDependency(..., SoftDependency)]` present, `ApplyPatch(harmony)` per-class in try/catch, `OnDestroy`→`UnpatchSelf()`. No deprecated patterns (`DropCollectionGuardPatch`, unfiltered hot-path prefixes, manual perk/blueprint injection, `ModLoaderVerison`). No further Tier-2 migration owed.
 
 ---
 
-## Phase 0: Stabilize  *(skipped — audit score 10/10, no open retrospectives)*
+## Phase 0: Stabilize  *(audit score ≥ 8 and no open retrospectives — mostly skippable)*
 
-Nothing to stabilize. The mod is release-ready.
+> Nothing here breaks the mod. One housekeeping item only.
+
+| Item | Type | Priority | Complexity |
+|------|------|----------|------------|
+| Commit the 2026-08-24 log-hygiene fixes (DIAG LogInfo removed, 3 breadcrumbs LogDebug→LogWarning; `MorningBonusPatch.cs`, `AreaFamiliarityPatch.cs`) | Housekeeping | P0 | Quick |
 
 ---
 
 ## Phase 1: Foundation
 
-> Table-stakes health items. Version hygiene is already clean (1.9.5 across ModInfo/Plugin.cs/README); the only outstanding foundation item is closing the last verification debt.
+> Table-stakes hygiene. All Quick.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Runtime-verify the v1.9.5 Morning Bonus clock-hour fix in a live session | Verification | P1 | Quick |
-| (Localization) — N/A: card-less mod, all player text is BepInEx config-entry descriptions, not CSV-localized; no SimpEn/SimpCn.csv needed | — | — | — |
+| Add a `[1.9.7]` entry to CHANGELOG.md and a matching README.md Version History row (note it is a version-string-only bump) | Docs hygiene | P1 | Quick |
+| Live-session verify the Morning Bonus 05:00–09:00 window (enable `MorningBonusEnabled`, gain XP at ~06:00 and ~11:00; confirm bonus only fires in-window) | Runtime verification | P1 | Quick |
+| Refresh ROADMAP.md "Version at time of writing" on each release (was stale at 1.9.5 before this pass) | Docs hygiene | P1 | Quick |
+| Optional: fold a latched `LogWarning` into the last silent early-return on the `SetCurrentValue` write path (`MorningBonusPatch.cs`) | Log hygiene | P2 | Quick |
 
-**Morning Bonus verification steps**: enable `MorningBonusEnabled`, keep default `MorningStartHour=5`/`MorningEndHour=9`; gain skill XP once at in-game clock hour ~06:00 (bonus should apply) and once at ~11:00 (bonus should NOT apply). Confirms the `DayStartingHour`-aware `IsMorningWindow` fires only in the advertised 05:00–09:00 window. This unblocks the Night-Owl / per-skill-window / time-window-arbitration ideas that build on the same clock math.
+*Localization: N/A — card-less utility mod; all player-facing text is BepInEx config-entry descriptions, not CSV-localized CardData. Do NOT create a dummy `SimpCn.csv`/`SimpEn.csv`.*
 
 ---
 
 ## Phase 2: Core Expansion
 
-> The highest-value near-term additions from `Documentation/Ideas/SkillSpeedBoost/IDEAS.md`. Every one composes as a single `multiplier *= …` line inside `MorningBonusPatch.ChangeStat_Post` (iterator postfixes can't compose — there is exactly one composition point). Prioritize the three that refine already-shipped features, since they cannot regress balance at their defaults.
+> The most impactful config-depth additions. Each composes as one more `multiplier *= …` line in the single `MorningBonusPatch.ChangeStat_Post` composition point (iterator postfixes can't compose — see Guardrails). All Near-Term in `Documentation/Ideas/SkillSpeedBoost/IDEAS.md`.
 
-### `AreaFamiliarityMinBonus` — starting-familiarity floor
-**What**: Add a config float (0–1, default 0) so the familiarity ramp is `Min + (Max − Min)·fraction` instead of always starting at 0. One-line change in `AreaFamiliarityService.GetMultiplier`.
-**Why**: A brand-new location currently grants zero bonus, so the early game feels flat. Min=0 reproduces today's behavior exactly — arithmetically incapable of regressing the default.
-**Requires**: none
-**Complexity**: Quick
+### Extend Difficulty Profiles to the post-v1.7 knobs + "Immersive" preset
+**What**: `DifficultyProfiles.ApplyProfileSettings` currently writes through only `SkillExpMultiplier` + `EnableSkillStaleness`. Add write-throughs for `AreaFamiliarityEnabled` / `LevelScalingEnabled` / `MorningBonusEnabled` / `EnableSkillSynergies`, plus a new "Immersive" preset.
+**Why**: Closes the "one key sets everything" half-truth — the advertised presets today touch 2 of the mod's 8 knobs. Profile plumbing + `SettingChanged` fire path already exist; added write-through lines only, no new hook.
+**Requires**: none.
+**Complexity**: Quick–Medium.
 
-### Effective-Settings Summary Log
-**What**: On load, emit one config-gated Info line per skill from the existing `GameLoadPatch` scan showing the resolved stack (global × per-skill multiplier, staleness on/off + rate), behind `LogEffectiveSettings` (default false).
-**Why**: The README's #1 troubleshooting item is "changes didn't apply" / "per-skill settings not working." This lets a player confirm their config took effect without a decompiler. Pure logging — zero gameplay change.
-**Requires**: none
-**Complexity**: Quick
+### Effective-Settings Summary Log (QoL)
+**What**: On load, emit one config-gated `LogInfo` line per skill from the existing `GameLoadPatch.LoadMainGameData_Postfix` scan showing the resolved stack (global × per-skill multiplier, staleness on/off + rate). Config `LogEffectiveSettings` (default false).
+**Why**: Directly answers README's #1 troubleshooting entry ("changes didn't apply" / "per-skill settings not working") — a player can confirm their config took effect without a decompiler. Pure logging; cannot regress balance.
+**Requires**: none.
+**Complexity**: Quick.
 
-### Extend Difficulty Profiles to the post-v1.7 knobs
-**What**: Make `DifficultyProfiles.ApplyProfileSettings` write through `AreaFamiliarityEnabled` / `LevelScalingEnabled` / `MorningBonusEnabled` / `EnableSkillSynergies` (currently only `SkillExpMultiplier` + `EnableSkillStaleness`), and add an "Immersive" preset.
-**Why**: "One key sets everything" is only half true today — four newer features are untouched by any profile. Profile plumbing + `SettingChanged` fire path already exist; this is added write-through lines only.
-**Requires**: none
-**Complexity**: Medium
-
-### Additional near-term bonus knobs (each one `multiplier *=` line)
-**What**: Well-Rested / Well-Fed XP bonus (reads player condition stat); Level-Scaling curve toggle (`LevelScalingCurve` enum Linear/EaseIn/EaseOut); `MaxComposedMultiplier` clamp + diagnostic warn (the stacked total can silently hit 30x+); Daily First-Use "warm-up" bonus.
-**Why**: Low-risk depth for the tuning audience; all default-off or default-uncapped so they can't regress balance.
-**Requires**: none (Well-Rested reuses the `GameManager.Instance` reflection pattern already in `IsMorningWindow`)
-**Complexity**: Quick–Medium each
+### `MaxComposedMultiplier` clamp + diagnostic warn
+**What**: Clamp the multiplicatively-stacked total right before `if (multiplier <= 1f) yield break;` in `ChangeStat_Post`, with a config-gated warn when the cap is hit. Config `MaxComposedMultiplier` (default 0 = uncapped).
+**Why**: Morning × per-skill × familiarity × synergy × level-scaling stack with no visibility; a maxed config can silently exceed 30x. Default keeps current behavior exactly.
+**Requires**: none.
+**Complexity**: Quick.
 
 ---
 
 ## Phase 3: Integration & Depth
 
-> Cross-mod hooks. All soft-dependency only — SSB stays fully functional without any partner mod.
+> Cross-mod hooks and richer progression. All soft-dependency only — SSB stays fully functional without any partner mod.
 
-### `SkillXpModifierService` — single public extension point *(do this first; it unlocks the rest)*
-**What**: Add one public registration surface — `SkillXpModifierService.Register(Func<string skillName, float multiplier> provider)` — and have `ChangeStat_Post` fold every registered provider into the composed multiplier as one more loop.
-**Why**: Every cross-mod idea below (Focus Tonic, combat combo, Study Desk, weather) currently proposes its own bespoke public setter. One provider list turns them all into consumer-side changes with zero further SSB edits. Supersedes the three separate "promote `SkillSynergies` to public" open questions.
-**Requires**: design decisions on provider ordering/cap and hot-path cost (both logged in IDEAS.md)
-**Complexity**: Medium
+### `SkillXpModifierService` — single public extension point *(design decision first)*
+**What**: One registration surface — `SkillXpModifierService.Register(Func<string skillName, float multiplier> provider)` — folded into `ChangeStat_Post`'s composed multiplier as one more loop. Supersedes the informal "promote `SkillSynergies` to public" idea.
+**Why**: Every cross-mod idea below currently wants a bespoke public setter. This turns each into a consumer-side change with zero further SSB edits.
+**Requires**: decisions on provider ordering/cap interaction, per-tick delegate cost vs. action-start caching, and API-stability commitment.
+**Complexity**: Medium.
 
-### RepeatAction (RA) — compatibility check + anti-AFK guard
-**What**: (1) Verify SSB's multipliers actually fire on RA-driven repetitions; (2) if so, add optional `ExcludeAutomatedFromSynergy` so AFK looping can't cheese the +50% synergy combo.
-**Why**: The synergy combo is meant to reward deliberate chaining, not automation.
-**Requires**: RA behavior verification
-**Complexity**: Medium
+### Concrete cross-mod consumers (after the service lands)
+**What**: RepeatAction — verify multipliers fire on RA-driven repeats + optional `ExcludeAutomatedFromSynergy` to stop AFK combo-cheesing; H&F "Focus Tonic" consumable → timed global XP flag; ACT/WDI/CMC station-anchored themed XP bonus via `AreaFamiliarityPatch.CurrentLocationUid`; MUM ship/swap external Difficulty-Profile "balance packs"; a future combat mod chaining kills into `SkillSynergies`.
+**Why**: Mutual benefit; SSB becomes the fleet's progression-tuning backbone.
+**Requires**: `SkillXpModifierService` above; coordination with each partner mod's version.
+**Complexity**: Medium (mostly consumer-side).
 
-### Station / location-anchored XP bonuses (ACT, WDI, CMC)
-**What**: A `StudyLocationUID`→multiplier map read via `AreaFamiliarityPatch.CurrentLocationUid` (already exposed) — grants a themed bonus while working at a designated station/desk. Any mod's CT2 station UID qualifies by being named in config.
-**Why**: Gives ACT/WDI/CMC placed structures a skill-leveling payoff with no code change on their side.
-**Requires**: `SkillXpModifierService` (cleanest) or a standalone config map
-**Complexity**: Medium
-
-### H&F "Focus Tonic" → temporary global XP boost
-**What**: A consumable that sets a timed flag SSB reads as a bonus (e.g. +25% all-skill for one in-game day).
-**Why**: Natural herb-mod synergy; a concrete first consumer of `SkillXpModifierService`.
-**Requires**: `SkillXpModifierService`; H&F ships the consumable
-**Complexity**: Medium
+### Condition- and time-based bonus knobs
+**What**: Well-Rested / Well-Fed XP bonus (reads player condition stat via `GameManager.Instance`, mirrors morning-bonus path); its inverse `DisableXpGainWhileStarving` low-condition suppression; Daily First-Use "warm-up" bonus; Level Scaling curve toggle (Linear/EaseIn/EaseOut); Night-Owl `IsNightWindow()`.
+**Why**: Deepens the "tune the grind" identity and gives Hardcore/Immersive profiles both carrots and sticks.
+**Requires**: Night-Owl is **blocked** on the Phase 1 Morning-window runtime verification (shared clock math); the rest are independent.
+**Complexity**: Quick–Medium each.
 
 ---
 
 ## Phase 4: Polish
 
-> No art or animation work applies — the mod ships zero cards. Polish here is documentation and QoL.
+> N/A for art — 0 CardData / 0 custom images / 0 GIF candidates. Polish here is docs and log accuracy.
 
 | Item | What | Complexity |
 |------|------|------------|
-| README caveat accuracy | The "changes apply after reloading a save" caveat is correct today; revisit only if the live `NoveltyCooldownDuration` re-tune investigation (Long-term) removes it | Quick |
-| Config-description clarity pass | Ensure every BepInEx config-entry description matches current behavior (this is SSB's only player-facing text surface) | Quick |
+| Docs sync pass | Keep README.md Version History + CHANGELOG.md in lockstep with the version string on every bump | Quick |
+| Description accuracy | Re-confirm ModInfo.json Description enumerates only shipped features after each Phase 2/3 addition | Quick |
 
 ---
 
@@ -111,14 +105,14 @@ Nothing to stabilize. The mod is release-ready.
 
 > Where Skill Speed Boost should be at v2.0.
 
-SSB's natural endpoint is a **composable skill-progression platform**: a single, well-documented public modifier-provider API (`SkillXpModifierService`) that any other mod in the suite — or a community mod — can register into, so consumables, stations, combat kills, weather, and seasons all feed the one composition point without SSB ever needing to know about them. Everything the mod does stays "one `multiplier *=` line," but the set of things that can contribute a line becomes open-ended.
+SSB's natural endpoint is "the fleet's progression-tuning backbone": a single, generic `SkillXpModifierService` any other mod (or a future combat/companion system) registers an XP-modifier provider against, plus a complete, honest set of difficulty presets that move every knob. It stays a zero-content, save-safe utility — the value is breadth and composability of tuning knobs, never CardData. The biggest addition that only becomes justified at that scale is a small optional persistence file (for streak / rested-XP-bank / familiarity-decay ideas that today can't survive a reload), gated behind an explicit opt-in so the "no save-file modifications" guarantee holds by default.
 
-**Potential major additions** (not yet justified at current scope — revisit after Phase 3):
-- **Persistence layer** (small state file like `AreaFamiliarity.tsv`) — several deferred ideas (Consecutive-Day Streak, Rested-XP Bank, Level Milestones) are all blocked on the mod having no save hook today; one shared persistence file justifies the whole cluster at once.
-- **Area Familiarity decay** — mirror the mod's own staleness philosophy for locations (familiarity fades after N unvisited days); needs a TSV schema change, so bundle with the persistence work.
-- **Live `NoveltyCooldownDuration` re-tune without save reload** — investigate why the deep-stat-graph hot-reload was unstable (Plugin.cs:206) and whether just the two novelty fields can be re-poked mid-session; would drop the "reload to apply" caveat from all staleness/profile changes.
+**Potential major additions** (not yet justified — revisit after Phase 3):
+- `SkillXpModifierService` public API + first real consumers — turns SSB into an extensible platform rather than a closed tuner.
+- Optional persistence layer (streak bonus, rested-XP bank, area-familiarity decay) — unlocks the whole "stateful progression" idea cluster that in-memory-only design currently blocks.
+- Seasonal / biome / tool-quality XP weighting — each needs a confirmed data hook (`GameQuery.CurrentSeason` null-risk; tool capture at the paired `ActionRoutine` hook) before design.
 
-These live in `Documentation/Ideas/SkillSpeedBoost/IDEAS.md` (full specs, four dated generation passes).
+These live in `Documentation/Ideas/SkillSpeedBoost/IDEAS.md` (Medium-Term / Long-Term sections) — already spec'd.
 
 ---
 
@@ -126,11 +120,10 @@ These live in `Documentation/Ideas/SkillSpeedBoost/IDEAS.md` (full specs, four d
 
 | Trigger | Action |
 |---------|--------|
-| After any new feature phase | Run `/audit-mod SkillSpeedBoost` and update this roadmap |
-| Game version update | Run `/update-mod-version`, check CLAUDE.md for EA version notes, re-run `/diagnose-log` |
-| After adding a runtime bonus | Run `/critical-analysis SkillSpeedBoost` (verify the single-composition-point rule held) |
-| After Phase 2 complete | Run `/export-to-repo SkillSpeedBoost` and bump minor version |
-| Once the Morning Bonus fix is verified in-game | Close the runtime-verification debt in `.audit/summary.md` |
+| After any new config/feature phase | Run `/audit-mod SkillSpeedBoost` (+ `/code-quality`) and update this roadmap |
+| Game version update | Run `/update-mod-version`, check CLAUDE.md for EA version notes, re-run `/diagnose-log`; refresh `lib/Assembly-CSharp.dll` if the mod makes direct typed game calls |
+| After the Morning-window live check | Update W3 status here and in `.audit/summary.md`; unblock Night-Owl if it passes |
+| Before each public release | Sync ModInfo/Plugin.cs/README/CHANGELOG version strings; `/export-to-repo SkillSpeedBoost` |
 
 ---
 
@@ -138,6 +131,7 @@ These live in `Documentation/Ideas/SkillSpeedBoost/IDEAS.md` (full specs, four d
 
 ```
 /audit-mod SkillSpeedBoost         — full health check, updates .audit/
+/code-quality SkillSpeedBoost      — C# reliability/maintainability scan
 /critical-analysis SkillSpeedBoost — adversarial review
 /build-mod SkillSpeedBoost         — build Release DLL
 /deploy-mods SkillSpeedBoost       — build + deploy to game
