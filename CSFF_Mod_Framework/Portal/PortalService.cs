@@ -35,6 +35,11 @@ internal static class PortalService
     // so the player always has a "Return to Portal" button inside any registered mod world.
     private const string HubExitUid = "653ab779572b47039c856911d02c9d51"; // csffmfw_hub_exit
 
+    // csffmfw_hub_exit.json declares SpoilageTime (24h despawn timer, HasActionOnZero → destroy)
+    // at FloatValue 96 — 1 in-game day = 96 daytime points (CLAUDE.md time-scale convention).
+    // Keep this in sync with the JSON if the lifetime ever changes.
+    private const float ExitLifetimeDtp = 96f;
+
     // ─── Exit card injection ─────────────────────────────────────────────────
 
     /// <summary>
@@ -106,15 +111,91 @@ internal static class PortalService
 
         foreach (var c in GameQuery.CardsInPlayerEnv())
         {
-            if (string.Equals(CardUtil.GetCardUniqueId(c), HubExitUid, StringComparison.OrdinalIgnoreCase))
-                return; // already present — nothing to do
+            if (!string.Equals(CardUtil.GetCardUniqueId(c), HubExitUid, StringComparison.OrdinalIgnoreCase))
+                continue;
+            // Diagnostic until the DefaultEnvCardDrops spawn path (a fresh board's first-ever
+            // generation) is confirmed to correctly seed SpoilageTime from the JSON FloatValue —
+            // unlike GiveCard (see below), this path does NOT go through GameManager.GiveCard, so
+            // it should be safe, but it has no prior confirmed case in this codebase either way.
+            Log.Info($"[PortalService] hub_exit already present at '{envUid}' — SpoilageTime={CardUtil.GetDurability(c, "SpoilageTime"):0.#}/{ExitLifetimeDtp:0.#}");
+            return; // already present — nothing to do
         }
 
         Log.Info($"[PortalService] hub_exit missing on arrival at '{envUid}' — spawning (mid-game/run-start recovery)");
         SpawnService.Spawn(HubExitUid);
+
+        // GameManager.GiveCard returns void in this game version, so SpawnService.Spawn cannot
+        // hand back the new instance to apply overrides directly — and GiveCard-spawned cards are
+        // NOT guaranteed to carry their CardData JSON's FloatValue (confirmed pattern: companion/
+        // perk-AddedCards spawns observed starting at 0 for ALL durability stats regardless of
+        // JSON default — see reference_givecard_postfix_stat_init). csffmfw_hub_exit's 24h despawn
+        // timer (SpoilageTime, HasActionOnZero → destroy) would self-destruct on the very next
+        // decay tick if it spawned at 0. Fix synchronously, in the same call — GiveCard is a plain
+        // void method (not a coroutine), so the spawned card is already in AllCards by the time it
+        // returns, and this all runs before any DTP tick can evaluate the zero-check (see
+        // reference_onzero_destroy_races_dtp_tick — a REACTIVE tick-hooked fix loses that race;
+        // this synchronous one does not).
+        foreach (var c in GameQuery.CardsInPlayerEnv())
+        {
+            if (!string.Equals(CardUtil.GetCardUniqueId(c), HubExitUid, StringComparison.OrdinalIgnoreCase))
+                continue;
+            if (CardUtil.SetDurability(c, "SpoilageTime", ExitLifetimeDtp))
+                Log.Info($"[PortalService] hub_exit spawned at '{envUid}' — SpoilageTime initialized to {ExitLifetimeDtp:0.#} (24h despawn timer armed)");
+            else
+                Log.Warn($"[PortalService] hub_exit spawned at '{envUid}' but SetDurability(SpoilageTime) failed — despawn timer may be stuck at 0 (risk of instant self-destruct)");
+            return;
+        }
+        Log.Warn($"[PortalService] hub_exit spawn requested at '{envUid}' but the new instance was not found in CardsInPlayerEnv() immediately after — despawn timer could not be initialized");
     }
 
     // ─── Environment travel helper ──────────────────────────────────────────
+
+    private static FieldInfo _nextEnvironmentField;
+
+    /// <summary>
+    /// Vanilla invariant (confirmed via decompile, <c>GameManager.cs</c>): every travel call site
+    /// that adds a CardType.Environment card wholesale-reassigns <c>NextEnvironment = travel</c>
+    /// (a freshly built <c>EnvID</c>) IMMEDIATELY before calling <c>AddCard</c> — e.g.
+    /// <c>ProduceCards</c>'s <c>NextEnvironment = travel; AddCard(NextEnvironment.EnvCard, ...)</c>.
+    /// <c>AddCard</c>'s own CardTypes.Environment branch only does a PARTIAL update
+    /// (<c>NextEnvironment.SetMainEnvCard(_Data)</c>, which mutates <c>MainEnvCard</c> in place but
+    /// leaves <c>NextEnvironment.ParentEnvs</c> — and its cached <c>EnvDictKey</c> — untouched).
+    /// <c>EnvDictKey.Generate</c> factors <c>ParentEnvs</c> into the int key REGARDLESS of whether
+    /// the destination is instanced (unlike the string key, which short-circuits for non-instanced
+    /// envs) — so if the player's last real environment carried a parent-env chain (e.g. they were
+    /// in an instanced interior room), that stale chain rides along into the new
+    /// <c>NextEnvironment</c>'s key, producing a malformed <c>EnvironmentsData</c> lookup key that
+    /// doesn't match the destination's real persisted board. Both of this class's reflection-based
+    /// travel paths (<see cref="TryStartAddCardFromSource"/> and <see cref="GiveCardViaReflection"/>)
+    /// call <c>AddCard</c>/<c>GiveCard</c> directly and skip the wholesale reassignment vanilla
+    /// always does first — root cause of the "two maps overlap" / board-corruption report
+    /// (2026-08-24 player report: portal arrival showed duplicate map content, later save-reload
+    /// lost unrelated board state). Fix: replicate the vanilla wholesale reassignment here, for any
+    /// CardType.Environment destination, before invoking either reflected method.
+    /// </summary>
+    private static void PrepareNextEnvironment(object gmInstance, Type gmType, CardData cardData)
+    {
+        if (cardData == null || cardData.CardType != CardTypes.Environment)
+            return; // legacy CT8 SacredSiteUID fallback — not a real env transition, leave untouched
+
+        try
+        {
+            _nextEnvironmentField ??= AccessTools.Field(gmType, "NextEnvironment");
+            if (_nextEnvironmentField == null)
+            {
+                Log.Warn("[PortalService] GameManager.NextEnvironment field not found — env transition may carry a stale parent-environment chain from the player's last real transition (board-overlap risk).");
+                return;
+            }
+
+            var freshEnvId = new EnvID(cardData);
+            _nextEnvironmentField.SetValue(gmInstance, freshEnvId);
+            Log.Info($"[PortalService] reset GameManager.NextEnvironment to '{cardData.UniqueID}' (fresh EnvID, no stale ParentEnvs) before environment-card AddCard/GiveCard");
+        }
+        catch (Exception ex)
+        {
+            Log.Warn($"[PortalService] PrepareNextEnvironment failed for '{cardData.UniqueID}': {Log.ExceptionText(ex)}");
+        }
+    }
 
     private static MethodInfo _addCardFromSourceMethod;
 
@@ -175,6 +256,7 @@ internal static class PortalService
                 return false;
 
             var gmType = gmInstance.GetType();
+            PrepareNextEnvironment(gmInstance, gmType, cardData);
             _addCardFromSourceMethod ??= gmType
                 .GetMethods(BindingFlags.Instance | BindingFlags.NonPublic)
                 .FirstOrDefault(m =>
@@ -275,6 +357,12 @@ internal static class PortalService
 
         try
         {
+            // Static GiveCard funnels into the same AddCard overload as the source-card path
+            // (confirmed via decompile) — it needs the same NextEnvironment prep for a CT4 target.
+            var gmInstance = CardUtil.GetGameManagerInstance();
+            if (gmInstance != null)
+                PrepareNextEnvironment(gmInstance, gmInstance.GetType(), cardData);
+
             _giveCardMethod.Invoke(null, new object[] { cardData, false });
             return true;
         }
@@ -510,6 +598,7 @@ internal static class PortalService
                 + $"this session for the current environment '{currentUid ?? "(null)"}' (recorded arrivals: "
                 + $"[{string.Join(", ", _returnEnvByArrival.Keys)}]) — player likely didn't arrive here via a "
                 + "Portal Hub trip this session (walk-in or post-save-reload) — no-op.");
+            ShowNoReturnRecordedMessage();
             return;
         }
 
@@ -517,10 +606,40 @@ internal static class PortalService
         if (returnCard == null)
         {
             Log.Warn($"[PortalService] 'Return to Portal': recorded env UID '{returnEnvUid}' not found in registry — no-op.");
+            ShowNoReturnRecordedMessage();
             return;
         }
 
         StartEnvironmentTravel(returnCard, sourceCard, "Portal");
+    }
+
+    /// <summary>
+    /// The no-op branches of <see cref="StartReturnTravel"/> previously only wrote a Log.Warn —
+    /// invisible to the player, so the exit card felt silently broken (2026-08-24 player report:
+    /// "used the portal exit but it won't work", clicking produced zero feedback). Surfaces the
+    /// same explanation via vanilla's own "can't do that right now" popup
+    /// (<c>GraphicsManager.Instance.MessagePopup</c> — same mechanism vanilla itself uses, e.g.
+    /// <c>GameManager.cs</c>'s NPC-deletion confirmation).
+    /// </summary>
+    private static void ShowNoReturnRecordedMessage()
+    {
+        try
+        {
+            var popup = GraphicsManager.Instance?.MessagePopup;
+            if (popup == null)
+            {
+                Log.Warn("[PortalService] GraphicsManager.Instance.MessagePopup unavailable — could not show 'Return to Portal' no-op feedback to player.");
+                return;
+            }
+            popup.Setup(
+                "Return to Portal",
+                "This exit doesn't know where to send you back yet. It only remembers a return trip after you travel OUT through a placed Portal Hub this session — if you loaded a save (or walked in) already standing here, build/use a Portal Hub to travel to another world first, then this exit will bring you back here.",
+                null);
+        }
+        catch (Exception ex)
+        {
+            Log.Warn($"[PortalService] ShowNoReturnRecordedMessage failed: {Log.ExceptionText(ex)}");
+        }
     }
 
     // ─── Misc helpers ────────────────────────────────────────────────────────

@@ -39,8 +39,9 @@ internal static class TrackingTimingDiagnostics
     public static void Configure(BepInEx.Configuration.ConfigFile config, Harmony harmony)
     {
         var enabled = config.Bind("Diagnostics", "LogTrackTiming", false,
-            "When true, logs CPU time spent in EnvironmentSaveData.CheckForTracks "
-            + "and GameManager.ChangeEnvironment on every travel, plus the number "
+            "When true, logs CPU time spent in EnvironmentSaveDataByReference.CheckForTracks "
+            + "and GameManager.ChangeEnvironment on every travel, tagged with the "
+            + "destination environment, plus the number "
             + "of GameManager.GiveCard calls that fired during CheckForTracks and "
             + "the number of GameManager.ApplyRates catch-up ticks + resulting "
             + "AllCards.Count during ChangeEnvironment. Use to diagnose long "
@@ -57,7 +58,17 @@ internal static class TrackingTimingDiagnostics
         var applyRatesPre = new HarmonyMethod(
             AccessTools.Method(typeof(TrackingTimingDiagnostics), nameof(ApplyRates_Prefix)));
 
-        bool a = SafePatcher.TryPatch(harmony, "EnvironmentSaveData", "CheckForTracks", postfix: checkForTracksPost);
+        // NOTE: the live gameplay dictionary is GameManager.EnvironmentsData,
+        // typed Dictionary<EnvDictKey, EnvironmentSaveDataByReference> — a
+        // separate, unrelated class from EnvironmentSaveData (same method name/
+        // signature, no shared base type). Patching "EnvironmentSaveData" finds
+        // and patches a real method (SafePatcher reports success), but that
+        // class's CheckForTracks is never invoked by actual travel, so the
+        // postfix silently never logs. Confirmed 2026-08-24: a live diagnostic
+        // session logged 10 ChangeEnvironment entries and zero CheckForTracks
+        // entries despite the patch reporting "enabled". See
+        // Documentation/Retrospectives/thicketpine-north-loadtimes-2026-08-24.md.
+        bool a = SafePatcher.TryPatch(harmony, "EnvironmentSaveDataByReference", "CheckForTracks", postfix: checkForTracksPost);
         bool b = SafePatcher.TryPatch(harmony, "GameManager", "ChangeEnvironment", postfix: changeEnvPost);
         bool c = SafePatcher.TryPatch(harmony, "GameManager", "GiveCard", prefix: giveCardPre);
         bool d = SafePatcher.TryPatch(harmony, "GameManager", "ApplyRates", prefix: applyRatesPre);
@@ -66,8 +77,14 @@ internal static class TrackingTimingDiagnostics
                       + "Travel between locations to produce timing entries in this log.");
     }
 
-    static IEnumerator CheckForTracks_Postfix(IEnumerator result)
+    // __instance is read here (not inside the while loop) because this whole
+    // method is itself the compiled iterator body — none of it runs until the
+    // wrapper's first MoveNext(), which happens synchronously when the caller
+    // starts the coroutine, before anything else can touch the env identity.
+    // Same timing this class already relies on for the Interlocked counters.
+    static IEnumerator CheckForTracks_Postfix(IEnumerator result, EnvironmentSaveDataByReference __instance)
     {
+        string envLabel = __instance?.DictionaryKey ?? "?";
         Interlocked.Increment(ref _inCheckForTracks);
         int spawnsBefore = Volatile.Read(ref _giveCardCount);
         long cpuTicks = 0;
@@ -90,12 +107,15 @@ internal static class TrackingTimingDiagnostics
             Interlocked.Decrement(ref _inCheckForTracks);
             int spawned = Volatile.Read(ref _giveCardCount) - spawnsBefore;
             double ms = cpuTicks * 1000.0 / Stopwatch.Frequency;
-            Util.Log.Info($"CheckForTracks: CPU {ms:F1}ms across {steps} step(s), GiveCard×{spawned}");
+            Util.Log.Info($"CheckForTracks[{envLabel}]: CPU {ms:F1}ms across {steps} step(s), GiveCard×{spawned}");
         }
     }
 
-    static IEnumerator ChangeEnvironment_Postfix(IEnumerator result)
+    static IEnumerator ChangeEnvironment_Postfix(IEnumerator result, GameManager __instance)
     {
+        string envLabel = "?";
+        try { envLabel = __instance != null ? __instance.NextEnvironment.ToString() : "?"; }
+        catch (Exception ex) { Util.Log.Debug($"TrackingTimingDiagnostics: could not read NextEnvironment: {ex.Message}"); }
         Interlocked.Increment(ref _inChangeEnvironment);
         int ratesBefore = Volatile.Read(ref _applyRatesCount);
         long cpuTicks = 0;
@@ -121,7 +141,7 @@ internal static class TrackingTimingDiagnostics
             int cardCount = -1;
             try { cardCount = MBSingleton<GameManager>.Instance ? MBSingleton<GameManager>.Instance.AllCards.Count : -1; }
             catch (Exception ex) { Util.Log.Debug($"TrackingTimingDiagnostics: could not read AllCards.Count: {ex.Message}"); }
-            Util.Log.Info($"ChangeEnvironment: CPU {ms:F1}ms across {steps} step(s), "
+            Util.Log.Info($"ChangeEnvironment[{envLabel}]: CPU {ms:F1}ms across {steps} step(s), "
                           + $"ApplyRates(catch-up ticks)×{catchupTicks}, AllCards={cardCount}");
         }
     }

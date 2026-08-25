@@ -1476,11 +1476,121 @@ internal static class WorldMapInjector
             if (created > 0 || reseeded > 0)
                 Log.Info($"WorldMapInjector: pre-created EnvironmentsData for {created} clone env(s) — DefaultEnvCardDrops seeded for first visit" +
                          (reseeded > 0 ? $"; re-seeded {reseeded} stale entry/entries (old-save fix)" : ""));
+
+            // Trim duplicate DefaultEnvCardDrops cards (Pond, Pine Tree, etc.) beyond their declared
+            // max quantity. Unlike the reseed checks above (which wipe+recreate the WHOLE entry and
+            // are gated on StripAllInheritedDrops+ExtraDropUIDs, i.e. ACT-cave-style nodes only), this
+            // runs for EVERY clone node and never touches anything except the specific over-count
+            // cards, so it is safe on nodes that also carry player-built improvements or dropped items.
+            int trimmedCards = 0, trimmedNodes = 0;
+            foreach (var prep in cloneNodes)
+            {
+                try
+                {
+                    int n = TrimExcessDefaultDrops(prep, getEnvSaveData, gmInstance, envSaveDataType);
+                    if (n > 0) { trimmedCards += n; trimmedNodes++; }
+                }
+                catch (Exception ex)
+                {
+                    Log.Warn($"WorldMapInjector: TrimExcessDefaultDrops — '{prep.Def.EnvironmentUID}' failed: {ex.GetType().Name}: {ex.Message}");
+                }
+            }
+            if (trimmedCards > 0)
+                Log.Info($"WorldMapInjector: trimmed {trimmedCards} duplicate default-drop card(s) across {trimmedNodes} clone env(s) (over declared DefaultEnvCardDrops quantity)");
         }
         catch (Exception ex)
         {
             Log.Error($"WorldMapInjector: PreCreateCloneEnvSaveData failed: {Log.ExceptionText(ex)}");
         }
+    }
+
+    /// <summary>
+    /// Trims a clone env's SAVED board down to the declared max quantity for each of its own
+    /// (post-clone, post-ExtraDropUIDs-append) <c>DefaultEnvCardDrops</c> UIDs — e.g. Pond / Pine
+    /// Tree / Small Pine Tree, all vanilla <c>UniqueOnBoard:true</c> terrain features that should
+    /// only ever have one live copy per board.
+    ///
+    /// <para><strong>Root cause this heals:</strong> vanilla's own <c>GameManager.
+    /// CheckForMissingDefaultCardsInEnv</c> (fires on every environment arrival) re-adds any
+    /// <c>UniqueOnBoard</c> default-drop card it believes is missing from the board. Its "is the
+    /// location card already present" early-out reads <c>GetExplorableCard</c>, which matches by
+    /// <c>EnvID</c> — the same environment-identity machinery documented as fragile for clone envs
+    /// elsewhere in this class (see <see cref="PrepareNode"/> and
+    /// [[reference_gamemanager_nextenvironment_travel_invariant]]). When that early-out
+    /// mis-fires once on a clone env's first visit, vanilla adds a second, independently-tagged
+    /// copy of every <c>UniqueOnBoard</c> default drop; because the fresh copy IS correctly tagged,
+    /// later visits pass the check and no further copies accumulate — the board is left with
+    /// permanently exactly double (never triple+) of Pond/Pine Tree/Small Pine Tree, which matches
+    /// the reported symptom exactly. This trim is a self-healing safety net independent of whatever
+    /// combination of engine timing produced the initial duplicate — it runs every boot and simply
+    /// caps each UID at its authored quantity, so it also protects against any other future source
+    /// of the same over-count.</para>
+    ///
+    /// <para>Only removes cards whose UID matches one of this env's own DefaultEnvCardDrops entries
+    /// (never the CT8 location card itself — <c>CardTypes.Explorable</c> entries are skipped, they
+    /// are presence-deduped by design, see the <c>_cloneEnvSpawnList</c> doc comment above) and only
+    /// the count in excess of the declared <c>Quantity.y</c> max — everything else on the board
+    /// (improvements, player-dropped items, other terrain) is left untouched.</para>
+    /// </summary>
+    /// <returns>Number of excess cards removed.</returns>
+    private static int TrimExcessDefaultDrops(PreparedNode prep, MethodInfo getEnvSaveData, object gmInstance, Type envSaveDataType)
+    {
+        if (prep.EnvCard is not CardData envCardData) return 0;
+        var drops = envCardData.DefaultEnvCardDrops;
+        if (drops == null || drops.Length == 0) return 0;
+
+        // Expected max live copies per UID (skip the CT8/Explorable entry — never trimmed).
+        var expectedMax = new Dictionary<string, int>(StringComparer.Ordinal);
+        foreach (var drop in drops)
+        {
+            if (drop.DroppedCard == null || drop.DroppedCard.CardType == CardTypes.Explorable) continue;
+            var uid = drop.DroppedCard.UniqueID;
+            if (string.IsNullOrEmpty(uid)) continue;
+            int max = Math.Max(drop.ScaledQuantity(envCardData).y, 1);
+            expectedMax[uid] = expectedMax.TryGetValue(uid, out var existingMax) ? existingMax + max : max;
+        }
+        if (expectedMax.Count == 0) return 0;
+
+        var envId = CreateEnvId(prep.EnvCard);
+        if (envId == null) return 0;
+        object entry;
+        try { entry = getEnvSaveData.Invoke(gmInstance, new object[] { envId, false }); }
+        catch (Exception ex)
+        {
+            Log.Debug($"WorldMapInjector: TrimExcessDefaultDrops — GetEnvSaveData failed for '{prep.Def.EnvironmentUID}': {ex.GetType().Name}");
+            return 0;
+        }
+        if (entry == null) return 0;
+
+        var regularCardsProp = envSaveDataType?.GetProperty("GetRegularCards", BindingFlags.Instance | BindingFlags.Public);
+        if (regularCardsProp?.GetValue(entry) is not System.Collections.IList regularCards || regularCards.Count == 0)
+            return 0;
+
+        FieldInfo cardIdField = null;
+        var seenCounts = new Dictionary<string, int>(StringComparer.Ordinal);
+        var indicesToRemove = new List<int>();
+        for (int i = 0; i < regularCards.Count; i++)
+        {
+            var card = regularCards[i];
+            if (card == null) continue;
+            cardIdField ??= CardUtil.GetCachedField(card.GetType(), "CardID");
+            var rawId = cardIdField?.GetValue(card) as string;
+            if (string.IsNullOrEmpty(rawId)) continue;
+            var uid = UniqueIDScriptable.LoadID(rawId);
+            if (uid == null || !expectedMax.TryGetValue(uid, out var max)) continue;
+
+            int seen = seenCounts.TryGetValue(uid, out var c) ? c : 0;
+            seenCounts[uid] = seen + 1;
+            if (seen >= max) indicesToRemove.Add(i);
+        }
+        if (indicesToRemove.Count == 0) return 0;
+
+        // Remove highest index first so earlier indices stay valid.
+        for (int k = indicesToRemove.Count - 1; k >= 0; k--)
+            regularCards.RemoveAt(indicesToRemove[k]);
+
+        Log.Debug($"WorldMapInjector: '{prep.Def.EnvironmentUID}' — trimmed {indicesToRemove.Count} duplicate default-drop card(s)");
+        return indicesToRemove.Count;
     }
 
     /// <summary>

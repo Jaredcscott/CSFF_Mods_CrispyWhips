@@ -398,30 +398,33 @@ internal static class BlueprintContainerSaveLoadFix
                 : null;
             if (stateType == null || !stateType.IsEnum) return;
 
-            // Parse Available and Purchased enum values (fallback to int if name not found).
-            object available, purchased;
-            try { available = Enum.Parse(stateType, "Available"); }
-            catch (Exception ex) { Log.Debug($"[BlueprintContainerSaveLoadFix] RestoreModBlueprintStates: enum parse of 'Available' failed on {stateType.Name}, using int fallback: {ex.GetType().Name} {ex.Message}"); available = Enum.ToObject(stateType, 1); }
-            try { purchased = Enum.Parse(stateType, "Purchased"); }
-            catch (Exception ex)
-            {
-                Log.Debug($"[BlueprintContainerSaveLoadFix] RestoreModBlueprintStates: enum parse of 'Purchased' failed on {stateType.Name}, trying 'Researched': {ex.GetType().Name} {ex.Message}");
-                try { purchased = Enum.Parse(stateType, "Researched"); }
-                catch (Exception ex2) { Log.Debug($"[BlueprintContainerSaveLoadFix] RestoreModBlueprintStates: enum parse of 'Researched' failed on {stateType.Name}, using int fallback: {ex2.GetType().Name} {ex2.Message}"); purchased = Enum.ToObject(stateType, 2); }
-            }
+            // BlueprintModelState has no "Purchased"/"Researched" member (vanilla: Available,
+            // Purchasable, Locked, Hidden — confirmed via GameManager.SetBpAvailable, which
+            // sets BlueprintModelState.Available for a fully-researched blueprint, and the
+            // PurchasableBlueprintCards branch, which sets BlueprintModelState.Purchasable).
+            // researchedState = fully researched/unlocked; purchasableState = visible/startable
+            // but not yet researched. (Fixed 2026-08-24: previously tried nonexistent names
+            // "Purchased"/"Researched" and fell back to int 2 = Locked, which would re-lock an
+            // already-researched mod blueprint on load whenever the primary FinishInitializing
+            // restore path missed it.)
+            object researchedState, purchasableState;
+            try { researchedState = Enum.Parse(stateType, "Available"); }
+            catch (Exception ex) { Log.Debug($"[BlueprintContainerSaveLoadFix] RestoreModBlueprintStates: enum parse of 'Available' failed on {stateType.Name}, using int fallback: {ex.GetType().Name} {ex.Message}"); researchedState = Enum.ToObject(stateType, 0); }
+            try { purchasableState = Enum.Parse(stateType, "Purchasable"); }
+            catch (Exception ex) { Log.Debug($"[BlueprintContainerSaveLoadFix] RestoreModBlueprintStates: enum parse of 'Purchasable' failed on {stateType.Name}, using int fallback: {ex.GetType().Name} {ex.Message}"); purchasableState = Enum.ToObject(stateType, 1); }
 
             // Build sets of UIDs from the game's in-memory blueprint state lists so we can
             // restore the correct state for blueprints that FinishInitializing missed.
             // EA 0.64f stores both lists as List<CardData> and renamed the researched list
             // to FinishedBlueprintResearch, while older versions used save-entry strings.
-            var purchasedUids = BuildUidSet(gmInstance, gmType,
+            var researchedUids = BuildUidSet(gmInstance, gmType,
                 "FinishedBlueprintResearch",
                 "ResearchedBlueprintCards");
-            var availableUids = BuildUidSet(gmInstance, gmType,
+            var purchasableUids = BuildUidSet(gmInstance, gmType,
                 "PurchasableBlueprintCards",
                 "AvailableBlueprintCards");
 
-            Log.Debug($"[BlueprintStateFix] RestoreModBlueprintStates: purchasedUids={purchasedUids.Count}, availableUids={availableUids.Count}");
+            Log.Debug($"[BlueprintStateFix] RestoreModBlueprintStates: researchedUids={researchedUids.Count}, purchasableUids={purchasableUids.Count}");
 
             int added = 0;
             int restored = 0;
@@ -447,10 +450,10 @@ internal static class BlueprintContainerSaveLoadFix
 
                 // Retroactively restore state from the game's in-memory save data.
                 object targetState;
-                if (purchasedUids.Contains(uid))
-                    targetState = purchased;
-                else if (availableUids.Contains(uid))
-                    targetState = available;
+                if (researchedUids.Contains(uid))
+                    targetState = researchedState;
+                else if (purchasableUids.Contains(uid))
+                    targetState = purchasableState;
                 else
                     continue; // blueprint was NotAvailable/undiscovered — don't seed
 

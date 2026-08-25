@@ -126,6 +126,23 @@ public static class Reflect
         return null;
     }
 
+    // ── Liveness check ───────────────────────────────────────────────────────
+
+    /// <summary>
+    /// True if <paramref name="instance"/> is non-null and, for a <c>UnityEngine.Object</c>
+    /// held as a boxed <c>object</c>, not a destroyed Unity object. A destroyed
+    /// <c>UnityEngine.Object</c> is NOT C#-null under a bare <c>object</c>-typed <c>!= null</c>
+    /// check — the engine's null-equality override only applies when the STATIC type is
+    /// <c>UnityEngine.Object</c> (CLAUDE.md §Harmony Patching Pitfalls). Use this to validate a
+    /// cached reflection-held reference (e.g. a cached <c>InGameNPC</c>) before trusting it,
+    /// instead of re-scanning a roster every tick to confirm what was already found last tick.
+    /// </summary>
+    public static bool IsAlive(object instance)
+    {
+        if (instance == null) return false;
+        return !(instance is UnityEngine.Object uo && uo == null);
+    }
+
     // ── Type lookup ──────────────────────────────────────────────────────────
 
     /// <summary>

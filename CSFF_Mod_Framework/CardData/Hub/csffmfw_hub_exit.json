@@ -10,6 +10,19 @@
   "CardImageWarpType": 3,
   "UniqueOnBoard": true,
   "CanDragItemsToTravel": true,
+  "SpoilageTime": {
+    "Active": true,
+    "FloatValue": 96.0,
+    "MaxValue": 96.0,
+    "RatePerDaytimePoint": -1.0,
+    "HidingOptions": 2,
+    "HasActionOnZero": true,
+    "OnZero": {
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  },
   "DismantleActions": [
     {
       "ActionName": {

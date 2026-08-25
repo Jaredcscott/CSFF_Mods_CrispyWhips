@@ -208,15 +208,19 @@ internal static class SealableGateService
         var g = state.Def;
         if (!g.MultiHit || state.ClearedThisSession || IsMarkerSet(g)) return;
 
-        var card = FindCardOnPlayerBoard(g.ChallengeCardUID);
-        if (card == null) return;
-
-        var val = CardUtil.GetMemberValue(card, "CurrentUsageDurability");
-        if (val == null) return;
-        bool cleared;
-        try { cleared = Convert.ToSingle(val) <= ClearedDurabilityEpsilon; }
-        catch (Exception ex) { Log.Debug($"SealableGateService: poll durability read failed for '{g.ChallengeCardUID}': {ex.GetType().Name} {ex.Message}"); return; }
-        if (cleared) MarkGateCleared(state, "poll");
+        // Reconcile ALL matching instances, not just the first found — if this UID were ever
+        // duplicated on the board (see CLAUDE.md § Runtime Card State Caching, manifestation 4),
+        // trusting only the first match could poll an orphaned duplicate forever while the
+        // instance the player actually cleared sits at zero, unseen.
+        foreach (var card in FindAllCardsOnPlayerBoard(g.ChallengeCardUID))
+        {
+            var val = CardUtil.GetMemberValue(card, "CurrentUsageDurability");
+            if (val == null) continue;
+            bool cleared;
+            try { cleared = Convert.ToSingle(val) <= ClearedDurabilityEpsilon; }
+            catch (Exception ex) { Log.Debug($"SealableGateService: poll durability read failed for '{g.ChallengeCardUID}': {ex.GetType().Name} {ex.Message}"); continue; }
+            if (cleared) { MarkGateCleared(state, "poll"); return; }
+        }
     }
 
     // Repeated -1.0 UsageChange hits (3.0 → 2.0 → 1.0 → 0.0) don't land on an exact 0.0 float —
@@ -609,13 +613,12 @@ internal static class SealableGateService
         return false;
     }
 
-    private static object FindCardOnPlayerBoard(string uid)
+    private static IEnumerable<object> FindAllCardsOnPlayerBoard(string uid)
     {
-        if (string.IsNullOrEmpty(uid)) return null;
+        if (string.IsNullOrEmpty(uid)) yield break;
         foreach (var card in GameQuery.CardsInPlayerEnv())
             if (uid.Equals(CardUtil.GetCardUniqueId(card), StringComparison.Ordinal))
-                return card;
-        return null;
+                yield return card;
     }
 
     private static bool EnvSaveContainsCard(string envUid, string cardUid)

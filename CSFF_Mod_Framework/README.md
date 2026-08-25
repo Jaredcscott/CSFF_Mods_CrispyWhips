@@ -4,14 +4,13 @@ Standalone modding framework for Card Survival: Fantasy Forest. Provides mod dis
 
 ## Status
 
-- **Version:** 2.25.4
-- **Game Version**: EA 0.66h (framework `lib/Assembly-CSharp.dll` refreshed and rebuilt clean
-  against the live EA 0.66h game assembly — decompile + VanillaIds registry regenerated same day;
-  patch-note review of the 0.66h changelog (Rain Cistern demolish, NPC sleep/travel UI fix, NPC
-  clothing weight fix, NPC-worn indicator, Partner Enclosure cleaning, Cave Clean Duty, Quiver
-  blueprint tab move) confirmed zero required mod JSON/C# changes; in-game Harmony patch-apply
-  verification still pending)
-- The other 9 in-house mods have not yet been individually re-verified against EA 0.66h — most
+- **Version:** 2.25.11
+- **Game Version**: EA 0.66i (4-item Partner/NPC patch note — Garden/Field inspect fix, NPC
+  weight-loss/appetite rebalance, weight→appetite coupling, less frequent NPC temperature
+  complaints; vanilla JSON delta 0 vs 0.66h. Framework `lib/Assembly-CSharp.dll` refreshed and
+  rebuilt clean against the live EA 0.66i game assembly; decompile + VanillaIds registry
+  regenerated same day; full patch-note review found zero required mod JSON/C# changes)
+- The other 9 in-house mods have not yet been individually re-verified against EA 0.66i — most
   ship their own separate compile-time `lib/Assembly-CSharp.dll` or NStrip'd variant (not shared
   with the framework's). 7 of 9 mods (`AdvancedCopperTools`, `HerbsAndFungi`, `Mod_Update_Manager`,
   `QuickTransfer`, `SkillSpeedBoost`, `WaterDrivenInfrastructure`, plus `Sirus23_Mod_Collection`/
@@ -73,15 +72,15 @@ ConfigurationManager is recommended for an in-game UI.
 
 | Mod | Plugins Folder | Version | Description |
 |---|---|---|---|
-| Advanced Copper Tools | `Advanced_Copper_Tools` | 1.15.9 | Copper metalworking, wheelbarrow, bathtub, stove, lantern, oil chain, tea kettle, tea blending station, copper chest |
-| Community Mod Chest | `Community_Mod_Chest` | 1.58.0 | Community-suggested content: apparel, weapons and armor, 39 character-creation traits, pottery, decorations, fishing gear, and a four-location village area east of the River Clearing |
-| Herbs and Fungi | `Herbs_And_Fungi` | 1.10.12 | Herbalism, mushroom foraging, hemp farming, oil press, pickle fermentation, drying racks, medicinal teas, 15 perks |
-| Sirus23 Mod Collection | `Sirus23_Mod_Collection` | 1.20.0 | Three animal companions (wolf, fox, owl), full sheep husbandry chain, and a felt-working pathway |
-| Water Driven Infrastructure | `Water_Driven_Infrastructure` | 1.10.8 | Water wheels, sawmills, grinding mills, ore sluices (river/lake adjacent) |
-| Quick Transfer | `Quick_Transfer` | 1.7.6 | Shift/Ctrl/Ctrl+Shift+Right-Click multi-card transfer with live preset indicator |
-| Repeat Action | `Repeat_Action` | 2.0.1 | Repeat last action with configurable keybinds and safety limits |
-| Skill Speed Boost | `Skill_Speed_Boost` | 1.9.6 | Per-skill XP multipliers, difficulty profiles, staleness decay, synergies, level scaling |
-| Mod Update Manager | `Mod_Update_Manager` | 2.1.18 | Nexus Mods update checker with in-game UI (F3), plus a one-click installer/updater for this whole mod family |
+| Advanced Copper Tools | `Advanced_Copper_Tools` | 1.16.2 | Copper metalworking, wheelbarrow, bathtub, stove, lantern, oil chain, tea kettle, tea blending station, copper chest |
+| Community Mod Chest | `Community_Mod_Chest` | 1.68.1 | Community-suggested content: apparel, weapons and armor, character-creation traits, pottery, decorations, fishing gear, and a village area east of the River Clearing |
+| Herbs and Fungi | `Herbs_And_Fungi` | 1.10.15 | Herbalism, mushroom foraging, hemp farming, oil press, pickle fermentation, drying racks, medicinal teas, perks |
+| Sirus23 Mod Collection | `Sirus23_Mod_Collection` | 1.20.2 | Three animal companions (wolf, fox, owl), full sheep husbandry chain, and a felt-working pathway |
+| Water Driven Infrastructure | `Water_Driven_Infrastructure` | 1.10.19 | Water wheels, sawmills, grinding mills, ore sluices (river/lake adjacent) |
+| Quick Transfer | `Quick_Transfer` | 1.7.7 | Shift/Ctrl/Ctrl+Shift+Right-Click multi-card transfer with live preset indicator |
+| Repeat Action | `Repeat_Action` | 2.0.2 | Repeat last action with configurable keybinds and safety limits |
+| Skill Speed Boost | `Skill_Speed_Boost` | 1.9.7 | Per-skill XP multipliers, difficulty profiles, staleness decay, synergies, level scaling |
+| Mod Update Manager | `Mod_Update_Manager` | 2.1.24 | Nexus Mods update checker with in-game UI (F3), plus a one-click installer/updater for this whole mod family |
 
 Every in-house mod declares `[BepInDependency("crispywhips.CSFFModFramework", BepInDependency.DependencyFlags.SoftDependency)]` for load ordering. None are truly framework-independent any more: Quick Transfer, Repeat Action, and Skill Speed Boost were originally pure-BepInEx QoL mods, but all three now call into the framework's Tier 1 utility API (`Api.Reflect`, `Api.CardUtil`, `Api.StatAccess`) for at least part of their core logic (QT's card-click reflection lookup; RA's card-identification helpers; SSB's staleness/area-familiarity/morning-bonus patches) — they will still load without the framework present, but that code path throws if it's missing. Mod Update Manager has no runtime dependency on the framework or any other mod; it only recognizes them by name/folder for Nexus tracking and its bundled-suite installer (see its own README).
 

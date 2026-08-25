@@ -6,7 +6,24 @@ namespace CSFFModFramework.Loading;
 /// <summary>
 /// Backfills null <c>NPCAction.DroppedCards</c> (<c>CardsDropCollection[]</c>) to an empty array on
 /// every mod-loaded <see cref="NPCAgent"/>, and (defensively) rebuilds a populated one from the raw
-/// parsed JSON if it is ever found null despite a JSON block being present.
+/// parsed JSON if it is ever found null despite a JSON block being present. Also backfills null
+/// <c>NPCAction.NPCStatModifications</c> (<c>NPCStatInstantModifier[]</c>) to an empty array — same
+/// defect class, different field, different unguarded consumer.
+///
+/// <para><b>NPCStatModifications — confirmed 2026-08-24 (WikiMod 3.3.1, live player log).</b>
+/// Neither <see cref="NPCAction"/> field has a C# field initializer, so an action authored with no
+/// JSON block for it stays hard <c>null</c> after <c>JsonUtility.FromJsonOverwrite</c>. Unlike
+/// <c>DroppedCards</c>, the game's own <c>NPCAction.ToAction()</c> never iterates
+/// <c>NPCStatModifications</c> unguarded — it is passed straight through to <c>CardAction</c>. The
+/// crash instead comes from a third-party mod: WikiMod's
+/// <c>EnvironmentManager.ApplyNPCRespawnMultiplier</c> does
+/// <c>for (int i = 0; i &lt; action.NPCStatModifications.Length; i++)</c> with no null-guard, NREing
+/// (caught by WikiMod's own <c>Helper.TryCall</c>, so non-fatal, but it aborts that NPC's respawn/
+/// encounter-level scaling and spams `[Error : WikiMod]` every load). Verified via <c>ilspycmd</c>
+/// decompile of the installed <c>WikiMod.dll</c>, and confirmed against CMC's Apothecary/InnKeeper/
+/// Miller/Professor/Weaver and Sirus23's WildOwl — all 33 of their <c>AgentActions</c> entries
+/// genuinely omit <c>NPCStatModifications</c> (no rebuild-from-raw-JSON needed, unlike DroppedCards;
+/// there is nothing to rebuild).</para>
 ///
 /// <para><b>Primary purpose — prevent an <c>NPCAction.ToAction()</c> NRE.</b> An NPCAgent action
 /// authored with NO <c>DroppedCards</c> JSON block leaves the field hard <c>null</c> after
@@ -53,7 +70,7 @@ internal static class NPCActionDroppedCardsRepair
 
     public static void RepairAll()
     {
-        int actionsRebuilt = 0, actionsBackfilled = 0, collectionsBuilt = 0;
+        int actionsRebuilt = 0, actionsBackfilled = 0, collectionsBuilt = 0, statModsBackfilled = 0;
 
         foreach (var obj in JsonDataLoader.LoadedObjectsByUniqueId.Values)
         {
@@ -68,7 +85,15 @@ internal static class NPCActionDroppedCardsRepair
             for (int i = 0; i < agent.AgentActions.Length; i++)
             {
                 var action = agent.AgentActions[i];
-                if (action == null || action.DroppedCards != null) continue;
+                if (action == null) continue;
+
+                if (action.NPCStatModifications == null)
+                {
+                    action.NPCStatModifications = Array.Empty<NPCStatInstantModifier>();
+                    statModsBackfilled++;
+                }
+
+                if (action.DroppedCards != null) continue;
 
                 var actionDict = (actionList != null && i < actionList.Count) ? actionList[i] as Dictionary<string, object> : null;
                 var dropList = (actionDict != null && actionDict.TryGetValue("DroppedCards", out var rawDrops))
@@ -95,6 +120,8 @@ internal static class NPCActionDroppedCardsRepair
 
         if (actionsRebuilt > 0 || actionsBackfilled > 0)
             Log.Info($"NPCActionDroppedCardsRepair: rebuilt {collectionsBuilt} drop collection(s) across {actionsRebuilt} NPCAction(s), backfilled {actionsBackfilled} empty (prevents NPCAction.ToAction NRE on actions with no DroppedCards block)");
+        if (statModsBackfilled > 0)
+            Log.Info($"NPCActionDroppedCardsRepair: backfilled NPCStatModifications to empty on {statModsBackfilled} NPCAction(s) (prevents third-party mods iterating it unguarded, e.g. WikiMod's ApplyNPCRespawnMultiplier)");
     }
 
     private static CardsDropCollection BuildCollection(Dictionary<string, object> dict, string agentUid, string actionId)
