@@ -1424,8 +1424,6 @@ HF_AlderWoods_CardName,Alder Woods
 HF_Env_AlderWoods_CardName,Alder Woods
 HF_HighlandMeadow_CardName,Highland Meadow
 HF_Env_HighlandMeadow_CardName,Highland Meadow
-Herbs_And_Fungi_Perk_ForestScout_PerkName,Forest Scout
-Herbs_And_Fungi_Perk_ForestScout_PerkDescription,"You know where the old foraging trails begin, west of Primeval Woods — years scouting these woods sharpened your eye for what's worth picking, granting a steady foraging bonus. An Overgrown Forest Trail waits at Primeval Woods: hack it clear with a blade to open the way in. Left untended it regrows in about ten days, so keep your blade sharp. A portal will always take you straight to the forest if the trail closes on you."
 Herbs_And_Fungi_OvergrownForestTrail_CardName,Overgrown Forest Trail
 Herbs_And_Fungi_OvergrownForestTrail_CardDescription,"Brush and bramble have swallowed the old forest trail. Hack it clear with a blade, axe, shovel, or antler to reopen the way through."
 Herbs_And_Fungi_OvergrownForestTrail_Hack_ActionName,Hack Through

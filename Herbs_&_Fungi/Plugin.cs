@@ -11,7 +11,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.Herbs_And_Fungi";
     public const string PluginName = "Herbs and Fungi";
-    public const string PluginVersion = "1.10.14";
+    public const string PluginVersion = "1.10.15";
 
     internal new static ManualLogSource Logger { get; private set; }
     internal static Plugin Instance { get; private set; }

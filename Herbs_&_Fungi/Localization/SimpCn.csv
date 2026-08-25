@@ -1511,8 +1511,6 @@ herbsfungihealersmosstincture_CardHelpSection,"<b>Made by:</b> Blueprint: Healer
 <b>优点:</b> 显著减轻感染。味苦。"
 HF_MistyFalls_CardName,Misty Falls,迷雾瀑布
 HF_Env_MistyFalls_CardName,Misty Falls,迷雾瀑布
-Herbs_And_Fungi_Perk_ForestScout_PerkName,Forest Scout,森林侦查者
-Herbs_And_Fungi_Perk_ForestScout_PerkDescription,"You know where the old foraging trails begin, west of Primeval Woods — years scouting these woods sharpened your eye for what's worth picking, granting a steady foraging bonus. An Overgrown Forest Trail waits at Primeval Woods: hack it clear with a blade to open the way in. Left untended it regrows in about ten days, so keep your blade sharp. A portal will always take you straight to the forest if the trail closes on you.",你知道古老觅食小径的起点，就在原初森林以西——多年在这片森林中侦察的经历练就了你识别可采集之物的眼力，带来稳定的觅食加成。原初森林处有一条杂草丛生的森林小径：用刀砍清即可开辟进入的道路。若放任不管，大约十天后会重新长满，所以要保持刀刃锋利。如果小径被堵，传送门总能带你直达森林。
 Herbs_And_Fungi_OvergrownForestTrail_CardName,Overgrown Forest Trail,杂草丛生的森林小径
 Herbs_And_Fungi_OvergrownForestTrail_CardDescription,"Brush and bramble have swallowed the old forest trail. Hack it clear with a blade, axe, shovel, or antler to reopen the way through.",灌木和荆棘已吞没了这条森林旧径。用刀、斧头、铲子或鹿角砍清即可重新打通道路。
 Herbs_And_Fungi_OvergrownForestTrail_Hack_ActionName,Hack Through,砍开

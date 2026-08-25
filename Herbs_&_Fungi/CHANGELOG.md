@@ -4,6 +4,16 @@ All notable changes to this mod. Dates are release dates.
 
 ---
 
+## [1.10.15] — 2026-08-24
+
+### Removed
+- **Forest Scout perk removed.** The Overgrown Forest Trail gate it described has applied to every
+  character by default since v1.10.7 — the perk itself no longer controlled access to anything, and
+  the only thing left to justify its 1-Star cost was a `+1 Foraging Aid` passive bonus (added in
+  v1.10.9 as a band-aid once the gate went default). Removing the perk removes that bonus too rather
+  than reinventing a hidden always-on replacement for it — the mod now has one fewer redundant
+  character-creation choice. Character-creation perk count: 16 → 15.
+
 ## [1.10.14] — 2026-08-19
 
 ### Fixed

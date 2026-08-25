@@ -1,6 +1,6 @@
 # Herbs and Fungi - Player Guide
 
-**Version:** 1.10.14
+**Version:** 1.10.15
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.65)
 
@@ -98,13 +98,14 @@ All four berries share the same mechanics: eat raw (DismantleAction), add to any
 - **Appleweed Herbal Oil**
 - **Fairyweed Herbal Oil**
 - **Frostleaf Herbal Oil**
+- **Peanut Oil** (cooking)
 - **Bowl of Truffle Oil**
 
 ---
 
 ## Character Creation Perks
 
-All 16 perks appear in the **Situational** tab during character creation.
+All 15 perks appear in the **Situational** tab during character creation.
 
 | Perk | Cost | Highlights |
 |------|------|------------|
@@ -123,7 +124,6 @@ All 16 perks appear in the **Situational** tab during character creation.
 | **Master Herbalist** | 10 Suns | Ginseng, Reishi, Yarrow — fresh & dried |
 | **Smoke Kit** | 1 Moon | Herb Pipe + 4 each of Hemp/Fairyweed/Appleweed/Frostleaf powder + fiber |
 | **Hemp Farmer** | 2 Moons | Pipe, hemp powder, seeds, fresh & dried flowers, stalks for fiber |
-| **Forest Scout** | ★1 Star | +1 Foraging Aid (passive). An Overgrown Forest Trail gates the Primeval Woods foot route to the foraging forest for everyone (clear it with a blade; regrows in ~10 days) — a portal always reaches the forest directly. |
 
 ---
 
@@ -192,7 +192,7 @@ Mod blueprints are injected into vanilla tabs:
 | Tab | Blueprints |
 |-----|-----------|
 | **Support** | Herb Pipe, Drying Tray, Flower Garland |
-| **Cooking** | Mushroom Broth, Sleep Tea, Anti-Nausea Tea, Stimulant Tea |
+| **Cooking** | Mushroom Broth, Sleep Tea, Anti-Nausea Tea, Stimulant Tea, Forager's Trail Mix |
 | **Medical** | Pain Relief Powder, Herbal Salve, Plantain Poultice, Herbal Tincture, Healer's Moss Tincture, Death Cap Tincture |
 | **Utensils** | Unfired Pickle Vat |
 | **Materials** | Oil Press Legs/Frame, Press Bed Frame, Pressing Screw, Pressing Bag, Press Plate, Oil Press Utensils, Prepared Press Bag |
@@ -256,7 +256,29 @@ Patching beyond what the framework provides:
 
 ## Version History
 
-### v1.10.12 (current)
+### v1.10.15 (current)
+- **Forest Scout perk removed.** The Overgrown Forest Trail gate it described has applied to
+  every character by default since v1.10.7 — the perk itself no longer controlled access to
+  anything, and the only thing left to justify its 1-Star cost was a `+1 Foraging Aid` passive
+  bonus (added in v1.10.9 as a band-aid once the gate went default). Removing the perk removes
+  that bonus too. Character-creation perk count: 16 → 15 (see table above).
+
+### v1.10.14
+- **Pickle vat: "Uncap" no longer destroys packed food with a single accidental click.** The
+  Closed-stage vat's "Uncap" button sat right next to "Seal" and discarded the 5 packed
+  ingredients with no warning beyond its own tooltip text. Uncap now shows a confirmation prompt
+  ("Discard the packed [food] and reopen the vat?") on all four variants (Frogs/Meat/Mushrooms/
+  Vegetables) before it fires.
+- Sealed (fermenting) pickle vat now has a `DroppedOnDestroy` fallback, matching the Ready stage:
+  removing it mid-ferment returns the empty vat + jar instead of vanishing with nothing recovered.
+- Fixed "The packed meat are lost" grammar in the Uncap description.
+- Removed 16 orphaned localization rows left over from an earlier single-recipe version of the
+  vat.
+
+### v1.10.13
+- Version sync bump alongside a repo-wide release; no HerbsAndFungi content changes.
+
+### v1.10.12
 - **Entering the foraging forest through the Portal Hub no longer strands you behind the
   Overgrown Forest Trail.** The trail's challenge card previously only seeded on the Primeval
   Woods side, so a player who teleported straight to the Foraging Path found the East exit
