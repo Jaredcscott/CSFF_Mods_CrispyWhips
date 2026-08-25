@@ -726,8 +726,6 @@ Advanced_Copper_Tools_Bp_IronNails_UnlockConditionsDesc,Dried Bog Iron Needed,�
 Advanced_Copper_Tools_Bp_TinSolder_CardName,Forge Tin Solder,锻造锡焊料
 Advanced_Copper_Tools_Bp_TinSolder_CardDescription,Melt a tin-grade metal nugget into solder sticks.,将锡块熔铸成焊料棒。
 Advanced_Copper_Tools_Bp_TinSolder_UnlockConditionsDesc,Tin Nugget Needed,需要锡块
-Advanced_Copper_Tools_Perk_CaveProspector_PerkName,Cave Prospector,洞穴探矿者
-Advanced_Copper_Tools_Perk_CaveProspector_PerkDescription,"You've mapped the cave network east of the falls. The tin, copper, iron, salt, and stone veins are real — but the passages between them have caved in. Reach the caves through a portal, then dig through each Collapsed Rock Face with a pickaxe, shovel, axe, antler, or knife to open the way deeper. A one-time dig per passage, and loose stone for your trouble.",你已经绘制出瀑布东边的洞穴网络地图。锡、铜、铁、盐和石料矿脉确实存在——但矿洞之间的通道已经塌陷。通过传送门抵达洞穴后，用镐、铲子、斧头、鹿角或小刀挖通每一处坍塌的岩壁，即可打通深处的道路。每条通道只需挖通一次，还能顺便回收一些散落的石料。
 Advanced_Copper_Tools_CollapsedWallCopper_CardName,Collapsed Rock Face,坍塌的岩壁
 Advanced_Copper_Tools_CollapsedWallCopper_CardDescription,"The passage north to the copper vein cave is blocked by fallen rock. Dig through it with a pickaxe, shovel, axe, antler, or knife to open the way — once cleared, it stays open.",通往北边铜矿洞的通道被落石堵住了。用镐、铲子、斧头、鹿角或小刀挖通它即可开路——一旦清除，通道将保持畅通。
 Advanced_Copper_Tools_CollapsedWallCopper_Dig_ActionName,Dig Through,挖通

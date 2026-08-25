@@ -1,7 +1,7 @@
 # Advanced Copper Tools
 
 **Quality of Life & Advanced Metalworking**
-**Version:** 1.16.1
+**Version:** 1.16.2
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.65)
 
@@ -377,7 +377,6 @@ Each vein supports a **Mine** action (pickaxe, 3 ticks / ~45 min) and a **Chip A
 | **Large Saw** | 45 Suns | Start with a Large Copper Saw. |
 | **Tea Blending Station** | 2 Moons | Start with a Tea Station Kit ready to place. |
 | **Building Materials** | 2 Moons | Start with 10 planks, 10 small leather, 10 long sticks, 20 mud bricks, 1 large cloth, and 1 spoon auger. |
-| **Cave Prospector** | ★1 (±0 difficulty) | Opt-in challenge trait. The passages between the Tin, Copper, Iron, Salt, and Rock Quarry caves start collapsed — dig through each Collapsed Rock Face (pickaxe, shovel, axe, antler, or knife) to open the way, recovering loose stone. Without this perk the cave network is open from the start. |
 
 All perks land on the Situational tab via the framework's perk injector.
 
@@ -411,7 +410,7 @@ These hooks are mod-scoped and filter on this mod's UniqueIDs. The exception is 
 1. Install BepInEx if not already installed.
 2. Install CSFFModFramework in `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. Drop this mod folder at `BepInEx/plugins/Advanced_Copper_Tools/`.
-4. Launch the game — content loads automatically; check `BepInEx/LogOutput.log` for `Advanced_Copper_Tools v1.16.1 loaded.`
+4. Launch the game — content loads automatically; check `BepInEx/LogOutput.log` for `Advanced_Copper_Tools v1.16.2 loaded.`
 
 ### Deployed file structure
 
@@ -451,7 +450,7 @@ Other in-house mods build directly on top of ACT's content:
 
 ## Troubleshooting
 
-**Blueprints not appearing?** Verify CSFFModFramework is loaded — check `LogOutput.log` for `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.16.1 loaded.`
+**Blueprints not appearing?** Verify CSFFModFramework is loaded — check `LogOutput.log` for `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.16.2 loaded.`
 
 **Pan / kettle won't boil?** It must be on a *lit* fire source with fuel remaining. Vanilla water types boil via their own `LiquidFuelValue` OnFull transform; if the liquid isn't a heatable type, nothing happens.
 
@@ -465,7 +464,13 @@ Other in-house mods build directly on top of ACT's content:
 
 ## Version History
 
-### v1.16.0 (current)
+### v1.16.2 (current)
+- **Removed the Cave Prospector perk.** The Collapsed Rock Face gates it described have applied to every character by default since v1.15.6 — the perk itself controlled nothing and, unlike Forest Scout in HerbsAndFungi, was never given a compensating stat bonus, so its 1-Star cost bought no mechanical effect. The cave network (portal + dig-through access) is unchanged.
+
+### v1.16.1
+- Fixed blank card art on the Rendered Fish Oil and Salt-Cured Meat blueprints (bad sprite references); both now use vanilla art matching their descriptions.
+
+### v1.16.0
 - Added Ore Chest (high-capacity bulk-raws storage), Salt-Cured Meat (slow-spoiling ration), Bronze/White-Bronze armor tier (Helmet/Bracers/Greaves/Armor), and a Wash with Soap bathtub interaction. See CHANGELOG.md for full detail.
 
 ### v1.15.9

@@ -2,6 +2,15 @@
 
 All notable changes to this mod are documented here.
 
+## [1.16.2] — 2026-08-24
+
+### Removed
+- **Cave Prospector perk removed.** The Collapsed Rock Face gates it described have applied to every
+  character by default since v1.15.6 — the perk itself controlled nothing, and unlike Forest Scout
+  in HerbsAndFungi it was never given a compensating stat bonus, so its 1-Star cost bought literally
+  no mechanical effect. The cave network (portal + dig-through access) is unchanged; only the
+  do-nothing perk pick is gone.
+
 ## [1.16.1] — 2026-08-16
 
 ### Fixed
