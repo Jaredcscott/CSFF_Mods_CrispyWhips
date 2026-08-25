@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.3 (2026-08-16)
+- `ModInfo.json` Description corrected: the Path Kit blurb still said "3 kits" after the 1.2.2
+  fix bumped the actual grant to 6 — description now matches what the perk ships.
+
 ## 1.2.2 (2026-08-14)
 - Path Kit perk now grants 6 Path Kits instead of 3 — completing a road direction actually
   consumes 2 kits per direction in practice, so 3 kits only covered 1.5 directions.
