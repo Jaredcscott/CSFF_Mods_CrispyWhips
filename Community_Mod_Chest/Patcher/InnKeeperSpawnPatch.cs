@@ -65,6 +65,7 @@ namespace CommunityModChest.Patcher
 
         // Resolved once game data is loaded.
         private static object _agent;       // NPCAgent
+        private static object _liveNpc;     // cached InGameNPC, validated by FindLiveNpc before trusting it
         private static object _innInterior; // CardData
 
         // Reflection handles, resolved once.
@@ -215,6 +216,15 @@ namespace CommunityModChest.Patcher
         // operating on all matches.
         private static object FindLiveNpc(object gm)
         {
+            // Fast path: the scan below always returns on the FIRST match with a live board
+            // card, so if the cached instance is alive and already has one, a full rescan
+            // could never prefer anything different — skip it. This runs every 1s (arrival)
+            // and 30s (restock) forever, so once the Keeper is spawned and stable this avoids
+            // re-scanning the whole NPC roster every tick. Falls through to the full scan
+            // (with its duplicate-detection warning intact) for every less-certain state.
+            if (Alive(_liveNpc) != null && IsInnKeeperAgent(Reflect.GetMember(_liveNpc, "NPCModel")) && Alive(Reflect.GetMember(_liveNpc, "AssociatedCard")) != null)
+                return _liveNpc;
+
             if (Reflect.GetMember(gm, "AllNPCs") is not IEnumerable allNpcs) return null;
             object firstMatch = null;
             int matchCount = 0;
@@ -224,10 +234,11 @@ namespace CommunityModChest.Patcher
                 if (!IsInnKeeperAgent(Reflect.GetMember(npc, "NPCModel"))) continue;
                 matchCount++;
                 firstMatch ??= npc;
-                if (Alive(Reflect.GetMember(npc, "AssociatedCard")) != null) return npc;
+                if (Alive(Reflect.GetMember(npc, "AssociatedCard")) != null) { _liveNpc = npc; return npc; }
             }
             if (matchCount > 1)
                 Plugin.Logger.LogWarning($"[InnKeeperSpawnPatch] {matchCount} '{InnKeeperAgentUid}' NPC instances found in AllNPCs and none has a board card yet — falling back to the first found; this can desync from whichever instance the player actually sees once cards exist.");
+            _liveNpc = firstMatch;
             return firstMatch;
         }
 

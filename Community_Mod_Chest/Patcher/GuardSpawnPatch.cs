@@ -46,6 +46,7 @@ namespace CommunityModChest.Patcher
             public string AgentUid;
             public string SpawnEnvUid;  // post the guard first appears at
             public object Agent;        // NPCAgent, resolved lazily
+            public object LiveNpc;      // cached InGameNPC, validated by FindLiveNpc before trusting it
         }
 
         private static readonly Guard[] Guards =
@@ -143,14 +144,28 @@ namespace CommunityModChest.Patcher
             return true;
         }
 
+        // Checks the cached reference first (O(1): a liveness check + one reflected member
+        // read) before falling back to a full AllNPCs scan — this runs every 1s for all 4
+        // guards forever via CheckAndSpawnOnArrival, so once a guard is spawned and stable
+        // this avoids re-scanning the whole NPC roster every tick just to confirm what was
+        // already found last tick. Cache is invalidated (re-scans) if the guard's InGameNPC
+        // is destroyed/despawned or the cached reference's NPCModel no longer matches.
         private static object FindLiveNpc(object gm, Guard guard)
         {
+            if (Reflect.IsAlive(guard.LiveNpc) && ReferenceEquals(Reflect.GetMember(guard.LiveNpc, "NPCModel"), guard.Agent))
+                return guard.LiveNpc;
+
             if (Reflect.GetMember(gm, "AllNPCs") is not IEnumerable allNpcs) return null;
             foreach (var npc in allNpcs)
             {
                 if (npc == null) continue;
-                if (ReferenceEquals(Reflect.GetMember(npc, "NPCModel"), guard.Agent)) return npc;
+                if (ReferenceEquals(Reflect.GetMember(npc, "NPCModel"), guard.Agent))
+                {
+                    guard.LiveNpc = npc;
+                    return npc;
+                }
             }
+            guard.LiveNpc = null;
             return null;
         }
 
@@ -174,6 +189,11 @@ namespace CommunityModChest.Patcher
             try
             {
                 if (!ResolveTypes()) return;
+
+                // "Quiet Village" perk — the Watch has stood down for the whole run. No saved
+                // guard is restored, so a character who equipped this trait never pays any guard
+                // NPCDuty/patrol overhead even on a save that predates this check.
+                if (QuietVillagePerkPatch.IsActive()) return;
 
                 var saveData = Reflect.GetMember(__instance, "CurrentSaveData");
                 if (saveData == null) return;
@@ -230,6 +250,10 @@ namespace CommunityModChest.Patcher
             {
                 if (!ResolveTypes()) return;
                 if (!GuardDutyPatch.DutiesReady) return; // §10.8.0.1 rule 6
+
+                // "Quiet Village" perk — the Watch has stood down for the whole run; none of the
+                // four guards ever take up a post, so their patrol/chase duties never get evaluated.
+                if (QuietVillagePerkPatch.IsActive()) return;
 
                 var gm = CardUtil.GetGameManagerInstance();
                 if (gm == null) return;

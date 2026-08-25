@@ -28,6 +28,7 @@ namespace CommunityModChest.Patcher
         private static bool _initialized;
 
         private static object _agent; // NPCAgent
+        private static object _liveNpc; // cached InGameNPC, validated by FindLiveNpc before trusting it
 
         private static Type _gmType;
         private static Type _npcAgentType;
@@ -110,14 +111,25 @@ namespace CommunityModChest.Patcher
             return true;
         }
 
+        // Checks the cached reference first (O(1)) before falling back to a full AllNPCs
+        // scan — this runs every 3s forever, so once Ash is spawned and stable this avoids
+        // re-scanning the whole NPC roster every tick.
         private static object FindLiveNpc(object gm)
         {
+            if (Reflect.IsAlive(_liveNpc) && ReferenceEquals(Reflect.GetMember(_liveNpc, "NPCModel"), _agent))
+                return _liveNpc;
+
             if (Reflect.GetMember(gm, "AllNPCs") is not IEnumerable allNpcs) return null;
             foreach (var npc in allNpcs)
             {
                 if (npc == null) continue;
-                if (ReferenceEquals(Reflect.GetMember(npc, "NPCModel"), _agent)) return npc;
+                if (ReferenceEquals(Reflect.GetMember(npc, "NPCModel"), _agent))
+                {
+                    _liveNpc = npc;
+                    return npc;
+                }
             }
+            _liveNpc = null;
             return null;
         }
 

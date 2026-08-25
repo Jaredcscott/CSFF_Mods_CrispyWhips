@@ -117,6 +117,7 @@ namespace CommunityModChest.Patcher
 
         // Resolved once game data is loaded.
         private static object _agent;            // NPCAgent
+        private static object _liveNpc;           // cached InGameNPC, validated by FindLiveNpc before trusting it
         private static object[] _commuteNodes;    // CardData[5], see CommuteNodeUids
         private static object _cabinInteriorCard; // CardData (cmcApothecaryCabinInterior, CT4)
         private static object _academyInteriorCard; // CardData (cmcAcademyInterior, CT4)
@@ -319,6 +320,16 @@ namespace CommunityModChest.Patcher
                 if (HandlePotionCraft(gm, npc, associatedCard))
                 {
                     SyncPortrait(npc, ApPortrait.Potions);
+                    return;
+                }
+
+                // "Quiet Village" perk — skip the daily commute timetable and just head for the
+                // cabin. Still runs after restock/chest accrual/brewing above, so none of her
+                // economy content is affected — only her travel/wander behavior.
+                if (QuietVillagePerkPatch.IsActive())
+                {
+                    RunCommute(gm, npc, DestInterior);
+                    SyncPortrait(npc, ActualPortrait(npc));
                     return;
                 }
 
@@ -566,14 +577,25 @@ namespace CommunityModChest.Patcher
 
         // ── NPC / stat lookup ─────────────────────────────────────────────────────
 
+        // Checks the cached reference first (O(1)) before falling back to a full AllNPCs
+        // scan — this runs every 1s via RunScheduler, so once the Apothecary is spawned and
+        // stable this avoids re-scanning the whole NPC roster every tick.
         private static object FindLiveNpc(object gm)
         {
+            if (Reflect.IsAlive(_liveNpc) && ReferenceEquals(Reflect.GetMember(_liveNpc, "NPCModel"), _agent))
+                return _liveNpc;
+
             if (Reflect.GetMember(gm, "AllNPCs") is not IEnumerable allNpcs) return null;
             foreach (var npc in allNpcs)
             {
                 if (npc == null) continue;
-                if (ReferenceEquals(Reflect.GetMember(npc, "NPCModel"), _agent)) return npc;
+                if (ReferenceEquals(Reflect.GetMember(npc, "NPCModel"), _agent))
+                {
+                    _liveNpc = npc;
+                    return npc;
+                }
             }
+            _liveNpc = null;
             return null;
         }
 

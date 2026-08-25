@@ -89,7 +89,11 @@ namespace CommunityModChest.Patcher
         private const string WorkPostEnvUid = "cmcEnvVillage";
         private const int WorkStartHour = 6;
         private const int WorkEndHour = 18; // ends exactly when CottageResidentSchedulePatch's guaranteed Inn visit begins
-        private const int WorkBaseWeight = 20; // only duty on either agent — value is inconsequential
+        // Only duty on either agent — value is inconsequential, EXCEPT that it must stay > 0 (see
+        // reference_npcduty_authoring_footguns). internal so QuietVillagePerkPatch can restore this
+        // exact value after suppressing it for the "Quiet Village" perk, instead of duplicating the
+        // literal and risking drift.
+        internal const int WorkBaseWeight = 20;
 
         private static bool _initialized;
         private static bool _dutiesBuilt;

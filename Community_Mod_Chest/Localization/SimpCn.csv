@@ -373,6 +373,8 @@ CharacterTraits_Perk_VillageInn_PerkName,Village Inn,旅店旧友
 CharacterTraits_Perk_VillageInn_PerkDescription,"The innkeeper across the river already counts you among friends. You start with a head start on his friendship, and he skips the formal introductions: the village's construction projects, trade, and Academy study are open to you from your first day.",河对岸的旅店老板早已将你视为朋友。开局即拥有领先的友谊值，他也省去了寒暄客套：从第一天起，村庄的建设项目、交易与学院课程便已向你敞开。
 CharacterTraits_Perk_VillageFounder_PerkName,Village Founder,村庄奠基人
 CharacterTraits_Perk_VillageFounder_PerkDescription,"You've been here before — long before today. The Miller's Cottage, the Weaver's Cottage, the Village Hall, and the Apothecary's Cabin are already standing, their residents already moved in, and the Inn Keeper, Professor, Miller, Weaver, and Apothecary all treat you like an old friend. All four of their first errands are already settled.",你早已来过此地——远在今日之前。磨坊主的小屋、织工的小屋、村公所与药剂师的小屋都已建成，住户也已入住，旅店老板、教授、磨坊主、织工与药剂师都将你视为故交。他们四人的第一件差事都已经办妥。
+CharacterTraits_Perk_QuietVillage_PerkName,Quiet Village,寂静村庄
+CharacterTraits_Perk_QuietVillage_PerkDescription,"The village keeps to itself. The Miller, Weaver, Apothecary, and Professor stay at home, the Academy, or the Inn instead of travelling or foraging, and the Town Watch has stood down entirely -- none of the four guards take up their posts. Reduces simulation overhead, at the cost of the Watch's crime-and-pursuit content and the villagers' wandering and forage behavior. Recommended on lower-end systems.",村庄变得安静起来。磨坊主、织工、药剂师和教授都留在家中、学院或旅店，不再外出旅行或采集，镇守卫队也已全面撤岗——四名守卫都不再驻守岗位。这能降低模拟运算负担，但代价是失去守卫队的犯罪与追捕内容，以及村民的游荡与采集行为。推荐配置较低的电脑使用。
 CharacterTraits_Perk_Graduate_PerkName,Graduate,毕业生
 CharacterTraits_Perk_Graduate_PerkDescription,"You already hold a full Academy education. Architecture, Metallurgy, Herbalism, Fishing, Armorer, Medicine, and Carpentry are all complete — you carry every discipline's graduate perk and their blueprint rewards from the start, without ever setting foot in the Lecture Hall or the Carpentry Bench.",你已完成学院的全部学业。建筑学、冶金学、药草学、钓鱼、制甲、医学与木工课程悉数修毕——从一开始你就拥有每门学科的毕业生特质及其蓝图奖励，无需踏入讲堂或木工台半步。
 Combat_And_Armor_StoneMace_OnZero,Stone Mace Broken!,石锤已损坏！
@@ -509,6 +511,10 @@ CharacterTraits_Perk_Aged_PerkName,Aged,年迈
 CharacterTraits_Perk_Aged_PerkDescription,The years have taken their toll. Your body recovers stamina more slowly and aches linger longer than they should.,岁月在你身上留下了痕迹。体力恢复得更慢，疼痛也比常理更久不散。
 CharacterTraits_Perk_Bleeder_PerkName,Bleeder,凝血不良
 CharacterTraits_Perk_Bleeder_PerkDescription,"Your blood does not clot well. Wounds bleed for significantly longer than they should, making even minor injuries into dangerous situations.",你的血液难以凝结。伤口出血的时间明显长于常理，哪怕是轻伤也可能演变为危险的局面。
+CharacterTraits_Perk_WeakCourage_PerkName,Weak Courage,微弱勇气
+CharacterTraits_Perk_WeakCourage_PerkDescription,"You have a bit more nerve than most. A modest, permanent boost to your Courage makes scary actions somewhat easier without erasing your fear entirely.",你比大多数人更有一点胆量。你的勇气获得小幅永久提升，让可怕的行动略微容易一些，但恐惧感并未完全消失。
+CharacterTraits_Perk_WeakCowardice_PerkName,Weak Cowardice,轻度怯懦
+CharacterTraits_Perk_WeakCowardice_PerkDescription,"Your nerve falters more easily than most. A modest, permanent reduction to your Courage makes scary actions a little harder to push through — but you still have enough grit to act when it truly matters.",你比大多数人更容易胆怯。你的勇气受到小幅永久削弱，让可怕的行动稍难坚持——但在真正关键的时刻，你仍有足够的勇气去行动。
 CharacterTraits_Perk_SpirituallyTroubled_PerkName,Spiritually Troubled,灵性不安
 CharacterTraits_Perk_SpirituallyTroubled_PerkDescription,"The spirits do not look kindly upon you. Stress weighs heavier and lingers longer, and the unease of an unfriendly spirit world keeps your nerves on edge.",灵体并不善待你。压力压得更重、消退得更慢，来自不友善灵界的不安也让你的神经时刻紧绷。
 CharacterTraits_Perk_WeakenedGrowth_PerkName,Weakened Growth,生长迟滞

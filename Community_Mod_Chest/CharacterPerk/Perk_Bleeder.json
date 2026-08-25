@@ -40,12 +40,12 @@
             "StatWarpData": "7f4598bd0e82e7b499da3848e452c39f",
             "StatWarpType": 3,
             "ValueModifier": {
-                "x": 0.0,
-                "y": 0.0
+                "x": 2.0,
+                "y": 2.0
             },
             "RateModifier": {
-                "x": 0.5,
-                "y": 0.5
+                "x": 0.0,
+                "y": 0.0
             },
             "MinValueModifier": {
                 "x": 0.0,

@@ -27,7 +27,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.CommunityModChest";
     public const string PluginName = "Community Mod Chest";
-    public const string PluginVersion = "1.67.6";
+    public const string PluginVersion = "1.68.1";
 
     internal new static ManualLogSource Logger { get; private set; }
     internal static ConfigEntry<bool> EnableAshPartnerSpike { get; private set; }
@@ -223,6 +223,11 @@ internal class Plugin : ContentModPlugin
         TryApply("HerbalismForagePatch", () => HerbalismForagePatch.Apply(harmony));
         // Village Founder perk — instantly fast-forwards every shipped village beat.
         TryApply("VillageFounderPerkPatch", () => VillageFounderPerkPatch.Initialize(harmony));
+        // Quiet Village perk (performance/accessibility) — stands the Watch down and keeps the
+        // named villagers home/Academy/Inn instead of roaming. Reads GuardSpawnPatch/the resident
+        // schedulers' own perk checks; this only owns the Miller/Weaver work-duty weight sync, so
+        // registration order relative to those patches doesn't matter.
+        TryApply("QuietVillagePerkPatch", () => QuietVillagePerkPatch.Initialize());
         // Quest-chain chassis (PR-2, Village_Master_Plan.md §3.4) — arms each villager's next
         // main-chain quest one village-week after the last was thanked.
         TryApply("QuestChainSchedulePatch", () => QuestChainSchedulePatch.Initialize());

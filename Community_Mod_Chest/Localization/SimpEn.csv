@@ -313,6 +313,8 @@ CharacterTraits_Perk_VillageInn_PerkName,Village Inn
 CharacterTraits_Perk_VillageInn_PerkDescription,"The innkeeper across the river already counts you among friends. You start with a head start on his friendship, and he skips the formal introductions: the village's construction projects, trade, and Academy study are open to you from your first day."
 CharacterTraits_Perk_VillageFounder_PerkName,Village Founder
 CharacterTraits_Perk_VillageFounder_PerkDescription,"You've been here before — long before today. The Miller's Cottage, the Weaver's Cottage, the Village Hall, and the Apothecary's Cabin are already standing, their residents already moved in, and the Inn Keeper, Professor, Miller, Weaver, and Apothecary all treat you like an old friend. All four of their first errands are already settled."
+CharacterTraits_Perk_QuietVillage_PerkName,Quiet Village
+CharacterTraits_Perk_QuietVillage_PerkDescription,"The village keeps to itself. The Miller, Weaver, Apothecary, and Professor stay at home, the Academy, or the Inn instead of travelling or foraging, and the Town Watch has stood down entirely -- none of the four guards take up their posts. Reduces simulation overhead, at the cost of the Watch's crime-and-pursuit content and the villagers' wandering and forage behavior. Recommended on lower-end systems."
 CharacterTraits_Perk_Graduate_PerkName,Graduate
 CharacterTraits_Perk_Graduate_PerkDescription,"You already hold a full Academy education. Architecture, Metallurgy, Herbalism, Fishing, Armorer, Medicine, and Carpentry are all complete — you carry every discipline's graduate perk and their blueprint rewards from the start, without ever setting foot in the Lecture Hall or the Carpentry Bench."
 Combat_And_Armor_StoneMace_OnZero,Stone Mace Broken!
@@ -449,6 +451,10 @@ CharacterTraits_Perk_Aged_PerkName,Aged
 CharacterTraits_Perk_Aged_PerkDescription,The years have taken their toll. Your body recovers stamina more slowly and aches linger longer than they should.
 CharacterTraits_Perk_Bleeder_PerkName,Bleeder
 CharacterTraits_Perk_Bleeder_PerkDescription,"Your blood does not clot well. Wounds bleed for significantly longer than they should, making even minor injuries into dangerous situations."
+CharacterTraits_Perk_WeakCourage_PerkName,Weak Courage
+CharacterTraits_Perk_WeakCourage_PerkDescription,"You have a bit more nerve than most. A modest, permanent boost to your Courage makes scary actions somewhat easier without erasing your fear entirely."
+CharacterTraits_Perk_WeakCowardice_PerkName,Weak Cowardice
+CharacterTraits_Perk_WeakCowardice_PerkDescription,"Your nerve falters more easily than most. A modest, permanent reduction to your Courage makes scary actions a little harder to push through — but you still have enough grit to act when it truly matters."
 CharacterTraits_Perk_SpirituallyTroubled_PerkName,Spiritually Troubled
 CharacterTraits_Perk_SpirituallyTroubled_PerkDescription,"The spirits do not look kindly upon you. Stress weighs heavier and lingers longer, and the unease of an unfriendly spirit world keeps your nerves on edge."
 CharacterTraits_Perk_WeakenedGrowth_PerkName,Weakened Growth

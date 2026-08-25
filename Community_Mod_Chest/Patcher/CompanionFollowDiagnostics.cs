@@ -118,7 +118,17 @@ namespace CommunityModChest.Patcher
                     bool sameEnv = Reflect.GetBool(npcEnv, "MatchesPlayerEnv");
                     string npcEnvName = Reflect.GetMember(npcEnv, "SimpleEnvName") as string ?? "?";
                     string playerEnvUid = GameQuery.CurrentEnvironmentUniqueId ?? "?";
-                    string state = sameEnv ? "same" : $"diff:{npcEnvName}->{playerEnvUid}";
+
+                    // Dedup key is deliberately just "same"/"diff" (NOT the specific env names) —
+                    // while a companion is stuck (the exact condition this diagnostic exists to
+                    // catch), the player keeps moving through different CMC nodes, so a key that
+                    // included playerEnvUid re-triggered the expensive Describe()/ProbeMove() A*
+                    // pathfind below on almost every 15s tick for as long as the bug reproduces —
+                    // the worst-case cost landing exactly when it's most likely to fire. This still
+                    // logs once on every actual stuck<->caught-up transition (the diagnostic's whole
+                    // purpose); it just stops re-probing on every subsequent player env change while
+                    // the state itself hasn't changed.
+                    string state = sameEnv ? "same" : "diff";
 
                     if (_lastLoggedState.TryGetValue(label, out var last) && last == state) continue;
                     _lastLoggedState[label] = state;

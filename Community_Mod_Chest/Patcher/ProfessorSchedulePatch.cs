@@ -197,6 +197,7 @@ namespace CommunityModChest.Patcher
 
         // Resolved once game data is loaded.
         private static object _agent;           // NPCAgent
+        private static object _liveNpc;         // cached InGameNPC, validated by FindProfessorNpc before trusting it
         private static object _academyInterior;  // CardData
         private static object _innInterior;      // CardData
         private static object[] _outdoorNodes;   // CardData[4]
@@ -417,14 +418,25 @@ namespace CommunityModChest.Patcher
             return false;
         }
 
+        // Checks the cached reference first (O(1)) before falling back to a full AllNPCs
+        // scan — this runs every 1s (arrival check + scheduler), so once the Professor is
+        // spawned and stable this avoids re-scanning the whole NPC roster every tick.
         private static object FindProfessorNpc(object gm)
         {
+            if (Reflect.IsAlive(_liveNpc) && ReferenceEquals(Reflect.GetMember(_liveNpc, "NPCModel"), _agent))
+                return _liveNpc;
+
             if (Reflect.GetMember(gm, "AllNPCs") is not IEnumerable allNpcs) return null;
             foreach (var npc in allNpcs)
             {
                 if (npc == null) continue;
-                if (ReferenceEquals(Reflect.GetMember(npc, "NPCModel"), _agent)) return npc;
+                if (ReferenceEquals(Reflect.GetMember(npc, "NPCModel"), _agent))
+                {
+                    _liveNpc = npc;
+                    return npc;
+                }
             }
+            _liveNpc = null;
             return null;
         }
 
@@ -574,7 +586,18 @@ namespace CommunityModChest.Patcher
                 SyncNarrativeStats(npc);
                 LogCommissionDiagnostics(gm, npc, associatedCard);
 
-                if (phase < 0.5f)
+                if (QuietVillagePerkPatch.IsActive())
+                {
+                    // Settle him into the Academy instead of leaving him stuck mid-Foraging-phase
+                    // with an empty satchel — Resident phase is what makes Commissions/course
+                    // eligibility available, so this keeps that content working while cutting the
+                    // wander/forage computation the Foraging phase would otherwise keep doing.
+                    if (phase < 0.5f) SetNpcStatValue(npc, _phaseStat, PhaseResident);
+                    _wanderTargetUid = null;
+                    if (_academyCaptured && !SharesPlayerEnv(npc))
+                        WalkTowards(gm, npc, VillageEnvUid, _academyEnvId);
+                }
+                else if (phase < 0.5f)
                     RunForagingPhase(gm, npc, associatedCard, heldCount, isNight);
                 else
                     RunResidentPhase(gm, npc, associatedCard, heldCount, isNight);

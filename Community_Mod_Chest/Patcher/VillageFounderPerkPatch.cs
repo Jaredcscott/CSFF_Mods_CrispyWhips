@@ -160,8 +160,10 @@ namespace CommunityModChest.Patcher
                 // Village. CheckStructurePlacement (below) places each building the first
                 // time the player stands in its home env.
 
-                WriteStat(gm, AppliedStatUid, 1f);
-                Plugin.Logger.LogInfo("[VillageFounderPerkPatch] Village Founder perk applied — village fast-forwarded; buildings appear on first visit to the Village / Foraging Forest.");
+                if (WriteStat(gm, AppliedStatUid, 1f))
+                    Plugin.Logger.LogInfo("[VillageFounderPerkPatch] Village Founder perk applied — village fast-forwarded; buildings appear on first visit to the Village / Foraging Forest.");
+                else
+                    Plugin.Logger.LogWarning("[VillageFounderPerkPatch] AppliedStatUid write failed — will retry next tick; quest stats may be re-stamped until this resolves.");
             }
             catch (Exception ex)
             {

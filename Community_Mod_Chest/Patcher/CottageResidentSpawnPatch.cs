@@ -80,6 +80,7 @@ namespace CommunityModChest.Patcher
             public string ChestAccrualAgentUid;
 
             public object Agent;        // NPCAgent, resolved lazily
+            public object LiveNpc;      // cached InGameNPC, validated by FindLiveNpc before trusting it
             public object MoveInStat;   // GameStat SO, resolved lazily
         }
 
@@ -259,14 +260,25 @@ namespace CommunityModChest.Patcher
         }
 
         // Returns the live InGameNPC for the resident's agent, or null if not created yet.
+        // Checks the cached reference first (O(1)) before falling back to a full AllNPCs
+        // scan — this runs every 1s for all 3 residents forever, so once a resident is
+        // spawned and stable this avoids re-scanning the whole NPC roster every tick.
         private static object FindLiveNpc(object gm, Resident resident)
         {
+            if (Reflect.IsAlive(resident.LiveNpc) && ReferenceEquals(Reflect.GetMember(resident.LiveNpc, "NPCModel"), resident.Agent))
+                return resident.LiveNpc;
+
             if (Reflect.GetMember(gm, "AllNPCs") is not IEnumerable allNpcs) return null;
             foreach (var npc in allNpcs)
             {
                 if (npc == null) continue;
-                if (ReferenceEquals(Reflect.GetMember(npc, "NPCModel"), resident.Agent)) return npc;
+                if (ReferenceEquals(Reflect.GetMember(npc, "NPCModel"), resident.Agent))
+                {
+                    resident.LiveNpc = npc;
+                    return npc;
+                }
             }
+            resident.LiveNpc = null;
             return null;
         }
 

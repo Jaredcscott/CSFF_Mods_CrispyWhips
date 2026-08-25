@@ -5,6 +5,30 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.68.1] — 2026-08-24
+
+### Changed
+
+- **NPC scheduler performance: cached resolved NPC references instead of re-scanning the full NPC roster every tick.** Player-reported performance concern: the game's own NPC pathfinding/AI is known to be costly (community-reported since a past game update), and CMC's growing roster of scheduled NPCs (Apothecary, Professor, Miller, Weaver, the 4 Village Guards, InnKeeper, Ash, and the 3 Cottage residents) compounds it. Investigation found a distinct, independently-fixable inefficiency layered on top: about a dozen 1–3 second pollers (`ApothecarySchedulePatch`, `ProfessorSchedulePatch`, `CottageResidentSchedulePatch`, `CottageResidentSpawnPatch`, `GuardSpawnPatch`, `InnKeeperSpawnPatch`, `AshPartnerSpawnPatch`) each ran their own full linear scan of `GameManager.AllNPCs` every tick, forever, purely to re-confirm an NPC that had already been found and hadn't gone anywhere — `GuardSpawnPatch` alone did this 4× per second for the life of every save. Each now caches its resolved `InGameNPC` reference (mirroring the pattern `CSFFModFramework/Animals/AnimalLifecycleTicker` already used correctly) and only re-scans the roster when the cached reference is actually gone (destroyed/despawned) or hasn't been found yet — a new `Reflect.IsAlive` framework helper (CSFFModFramework 2.25.7) handles the Unity-destroyed-object check safely. Behavior is unchanged; this only removes redundant work in the common steady-state case.
+- **`CompanionFollowDiagnostics` (a still-armed temporary diagnostic tracking whether companions can cross into modded map nodes, pending confirmation of a framework-level pathfinding fix) no longer re-runs its expensive real A\* pathfind probe on every player environment change while a companion is stuck** — its dedup key tracked the specific player environment, so while reproducing the exact bug it exists to catch, it re-probed on almost every 15-second tick as the player kept moving. It now dedups on stuck-vs-caught-up state alone, still logging every real transition, at a fraction of the cost.
+
+## [1.68.0] — 2026-08-24
+
+### Added
+
+- **New "Quiet Village" character-creation trait (performance/accessibility).** Trades away the village's roaming NPC content for reduced simulation overhead: the Miller, Weaver, Apothecary, and Professor stay at home, the Academy, or the Inn instead of commuting or foraging, and none of the four Town Watch guards ever take up their posts — their patrol/chase/warden/summon duties are never spawned or evaluated for the whole run. The Inn Keeper needed no change, since he never leaves the Inn under any schedule. Free (0 Suns) — this is an opt-in accessibility toggle, not a gameplay advantage.
+
+## [1.67.7] — 2026-08-23
+
+### Fixed
+
+- **Bleeder inflicted a real, unstoppable bleeding status with no wounds present, instead of just making existing wounds bleed longer.** The trait applied an unbounded per-tick RateModifier to the player's BloodLoss stat, so BloodLoss climbed toward its max and stayed there indefinitely — there was no way to actually recover from it in-game short of a witch ritual. Bleeder (and the same runaway-rate pattern on `Aged`, `DeadlyDisease`, `Fugitive`, `Leper`, `LostTourist`, `SeasonalAllergies`, `SensitiveSkin`, and `SpirituallyTroubled`) now apply a fixed, permanent stat offset instead — matching how the base game's own harsh drawback traits (Weak Immune System, Pain Sensitivity) are built: a constant `ValueModifier` with `RateModifier` zeroed, not an ever-increasing rate. These traits still make Pain/Nausea/Rash/Stress/Fear/Loneliness/SunAllergy/BloodLoss permanently worse, but at a fixed, survivable severity instead of spiraling to a maxed-out stat over a few in-game days.
+- **Depositing higher-value Duros Coins (Ghost Copper, Bronze, Iron, White Copper, Pure Tin) at the Inn/Academy counter credited far less than the coin's actual worth**, even though trading the same coin with the innkeeper paid full value. The deposit formula approximated a coin's value from its raw metal-purity stat (`SpecialDurability4`), which only happens to line up with a plain Copper Coin — every higher denomination is priced by DurosCoinage as its own worth, not metal purity, so the approximation undervalued them (e.g. a 1800-value Pure Tin Coin credited only 60). Deposits now read the coin's own `TradingValue` — the same field the innkeeper correctly uses — falling back to the old metal-purity formula only if a coin has no trading value set.
+
+### Added
+
+- **Two new milder Courage traits: Weak Courage and Weak Cowardice.** The base game's Brave/Fainthearted traits swing Courage by a full ±10000 — enough to make a character permanently fearless or permanently unable to push through scary actions regardless of circumstance. These new traits shift Courage by a much smaller fixed +50/-100, leaving room for other factors (like Pain) to still tip the balance — e.g. enough courage to grit through stitching a wound at high Pain, but not enough to do it comfortably at low Pain.
+
 ## [1.67.6] — 2026-08-22
 
 ### Changed
