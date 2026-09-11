@@ -41,7 +41,11 @@
         "herbs_fungi_bp_oil_press_herbal_hemp",
         "herbs_fungi_bp_oil_press_herbal_fairyweed",
         "herbs_fungi_bp_oil_press_herbal_appleweed",
-        "herbs_fungi_bp_oil_press_herbal_frostleaf"
+        "herbs_fungi_bp_oil_press_herbal_frostleaf",
+        "herbs_fungi_bp_oil_press_herbal_yarrow",
+        "herbs_fungi_bp_oil_press_herbal_chamomile",
+        "herbs_fungi_bp_oil_press_herbal_ginseng",
+        "herbs_fungi_bp_oil_press_flax"
     ],
     "ContainedBlueprintCardsWarpType": 3,
     "ContainedBlueprintsDontStartUnlocked": false,

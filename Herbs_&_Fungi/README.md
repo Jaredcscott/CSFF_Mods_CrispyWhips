@@ -1,6 +1,6 @@
 # Herbs and Fungi - Player Guide
 
-**Version:** 1.10.15
+**Version:** 1.13.0
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.65)
 
@@ -66,7 +66,9 @@ All four berries share the same mechanics: eat raw (DismantleAction), add to any
 - **Drying Tray** — 6-slot tray for drying herbs, mushrooms, hemp flower, or meat
 - **Drying Stack** — Placeable furniture holding up to 3 drying trays
 - **Wooden Pantry** — Sealed cool-storage furniture
+- **Apothecary Shelf**: Filtered store for herbs, fungi, powders and medicines; slows their spoilage further than the pantry does
 - **Herb Pipe** — Carved wooden pipe; reusable with herbal powders
+- **Herbal Incense Bundle**: Burnable bundle of dried flowers and herbs; eases stress across the room while it smoulders
 - **Flower Garland** — Decorative craft from dried wild flowers; hang for a small morale boost
 - **Oil Press** — Multi-stage workstation for pressing oils from seeds, truffles, and herbs
 - **Pickle Vat** — Clay fermentation vessel for preserving foods over long periods
@@ -105,7 +107,7 @@ All four berries share the same mechanics: eat raw (DismantleAction), add to any
 
 ## Character Creation Perks
 
-All 15 perks appear in the **Situational** tab during character creation.
+All 16 perks appear in the **Situational** tab during character creation.
 
 | Perk | Cost | Highlights |
 |------|------|------------|
@@ -124,6 +126,7 @@ All 15 perks appear in the **Situational** tab during character creation.
 | **Master Herbalist** | 10 Suns | Ginseng, Reishi, Yarrow — fresh & dried |
 | **Smoke Kit** | 1 Moon | Herb Pipe + 4 each of Hemp/Fairyweed/Appleweed/Frostleaf powder + fiber |
 | **Hemp Farmer** | 2 Moons | Pipe, hemp powder, seeds, fresh & dried flowers, stalks for fiber |
+| **Herbalist's Advantage** | 30 Suns | Herbalism head start; biases a skill rather than granting items |
 
 ---
 
@@ -170,7 +173,7 @@ A four-variant clay fermentation chain (see CLAUDE.md "4-variant fermentation ch
 3. Add fermentable ingredients (Ginger and the vanilla Turnroot/Fireroot are tagged `tag_Fermentable` by this mod; specific pickle blueprints accept others).
 4. **Cap with Clay Bowl** → **Closed Pickle Vat**, then seal it (drag water) → **Sealed Pickle Vat** (placed structure).
 5. Wait — the seal counts down over 7 in-game days. Choosing a content blueprint (Frogs, Meat, Mushrooms, or Vegetables) is required up front before closing the vat; there is no generic/untyped seal option.
-6. When the timer expires, the vat becomes a **Ready Pickle Vat**. Harvest to spawn the pickled goods, an **Open Pickle Jar** (use "Return Bowl" to reclaim the clay bowl lid), plus an empty fired vat for reuse.
+6. When the timer expires, the vat becomes a **Ready Pickle Vat** named for its contents (e.g. **Pickled Frogs**) holding **5 servings**. Eat servings straight from the vat with the **Eat** action. Emptying the last serving (or destroying the vat at any point, including mid-ferment) returns an **Open Pickle Jar** (use "Return Bowl" to reclaim the clay bowl lid) plus the empty fired vat for reuse.
 
 The pickle blueprints (Frogs, Meat, Mushrooms, Vegetables) gate on the vat containing pickle brine — water alone won't satisfy them.
 
@@ -183,6 +186,11 @@ The pickle blueprints (Frogs, Meat, Mushrooms, Vegetables) gate on the vat conta
 ### Truffle Cooking (Special)
 **Dried Truffle Slices (cut)** have a **Coat with Fat** hand action — drag Fat, a Fat Chunk, a Butter Chunk, or Milk Butter onto the slice to consume it and turn the slices into **Fat-Coated Dried Truffle Slices** (any char progress already accumulated carries over). Heat the fat-coated slices as normal and they finish cooking into a **Cooked Truffle** instead of charring. Skip the fat coating and heating the raw slices chars them to ash instead.
 
+### Truffle Condiments (v1.13.0)
+- **Truffle Butter** — drag Fat, a Fat Chunk, a Butter Chunk or Milk Butter onto a fresh **Truffle** (either direction). The fat is used up and the truffle becomes a block of Truffle Butter: Strong Earthy, Strong Savoury, Medium Buttery. Eat it, or add it to any stew. Keeps about a week.
+- **Truffle Salt** — drag vanilla **Salt** onto a whole **Dried Truffle** (either direction) and grind them together (one time unit, no tool needed). The salt is used up and the truffle becomes a finishing salt that never spoils: Strong Earthy, Strong Savoury, Subtle Salty. Add it to any stew.
+- Neither has been confirmed in-game yet (tracked as T2.230). Nutrition, trading values and flavour strengths are provisional.
+
 ---
 
 ## Blueprint Tabs
@@ -191,13 +199,13 @@ Mod blueprints are injected into vanilla tabs:
 
 | Tab | Blueprints |
 |-----|-----------|
-| **Support** | Herb Pipe, Drying Tray, Flower Garland |
-| **Cooking** | Mushroom Broth, Sleep Tea, Anti-Nausea Tea, Stimulant Tea, Forager's Trail Mix |
+| **Support** | Herb Pipe, Drying Tray, Flower Garland, Herbal Incense Bundle |
+| **Cooking** | Mushroom Broth, Reishi Broth, Lion's Mane Broth, Chanterelle Broth, Sleep Tea, Anti-Nausea Tea, Stimulant Tea, Forager's Trail Mix, Berry Preserve |
 | **Medical** | Pain Relief Powder, Herbal Salve, Plantain Poultice, Herbal Tincture, Healer's Moss Tincture, Death Cap Tincture |
 | **Utensils** | Unfired Pickle Vat |
 | **Materials** | Oil Press Legs/Frame, Press Bed Frame, Pressing Screw, Pressing Bag, Press Plate, Oil Press Utensils, Prepared Press Bag |
 | **Farming Agriculture** | Hemp Field, Plant Hemp Seeds, Inoculate Shiitake / Lion's Mane / Reishi / Chicken / Golden Oyster / King Oyster Log |
-| **Furniture** | Wooden Pantry, Drying Stack, Oil Press Kit |
+| **Furniture** | Wooden Pantry, Drying Stack, Oil Press Kit, Apothecary Shelf |
 
 The press oil and pickle blueprints appear after their workstations are built and the relevant ingredients are present.
 
@@ -256,7 +264,59 @@ Patching beyond what the framework provides:
 
 ## Version History
 
-### v1.10.15 (current)
+### v1.13.0 (current)
+- **Added Truffle Butter and Truffle Salt** (see Truffle Condiments above): fat plus a fresh truffle,
+  and salt ground with a whole dried truffle. Neither is confirmed in-game yet (T2.230).
+- **Fixed: nearly every flavour this mod declared was inert.** `FlavourTags` intensity is an engine
+  enum (0 Medium, 1 Strong, 2 Subtle); the mod had authored it on a 1 to 7 scale, and the game
+  treats anything outside the enum as zero flavour. 91 of 205 entries contributed nothing, and the
+  in-range ones meant the wrong thing. All remapped (1 and 2 to Subtle, 3 and 4 to Medium, 5 and up to
+  Strong). Stews made from this mod's ingredients will score differently from now on. Not yet
+  confirmed at a running game (T2.231).
+
+### v1.12.0
+- **Added the Apothecary Shelf**, a filtered store for herbs, fungi, powders and medicines that
+  slows their spoilage to 60% of normal, against the Wooden Pantry's 75%. Cheaper and narrower than
+  that pantry: 3 planks, 2 twine and a hammer, unlocked once you have dried yarrow.
+- **Added the Herbal Incense Bundle**, the mod's first ambient effect. Bind 2 dried wild flowers,
+  1 dried chamomile, 1 dried yarrow and 1 twine, light it, and while it smoulders it eases Stress
+  and raises Sanctuary from anywhere on your board. Burns down over about three hours and is
+  consumed. Snuff it out to keep the remainder.
+- Neither is confirmed in-game yet; both are tracked for a playthrough pass. All their tuning
+  values are provisional.
+
+### v1.11.0
+- **Added three more pressed oils** (Yarrow, Chamomile, Ginseng), taking the Oil Press from 8 to 11.
+- **Added Linseed Oil**, the first use in this mod for the Seed Bag perk's flax seeds.
+- **Added the Herbalist's Advantage perk**, the mod's first perk that biases a skill rather than
+  granting items.
+- **Added three culinary mushroom seasoning powders** (Black Trumpet, Shiitake, King Oyster).
+- **Added three mushroom broths with distinct effects** (Reishi, Lion's Mane, Chanterelle).
+- **Added Berry Preserve**, the mod's first concentrated-sugar preservation path.
+- **Fixed: Peanut Oil's spice effect did nothing.** It referenced a spice tag with no backing file,
+  so the oil silently contributed no flavour or stat effect when cooked with.
+
+### v1.10.18
+- **Fixed: destroying or harvesting a Pickle Vat (Ready or Sealed, all 4 flavors) returned
+  nothing.** All 8 variant files authored `DroppedOnDestroy` in the wrong JSON shape, so the
+  drop silently produced nothing — no error, just an empty destroy. Destroying or emptying a
+  vat now correctly returns the reusable fired vat plus an Open Pickle Jar, matching the Pickle
+  Vat walkthrough above.
+
+### v1.10.17
+- **Fixed: Active Hemp Butter never solidified.** Its Wetness stat started at 0 with a negative
+  drain rate, so the engine's OnZero action (which only fires on a positive-to-zero crossing)
+  never triggered — the advertised 3-dose Hemp Butter was unreachable. Wetness now starts full
+  and drains down to trigger the transform.
+
+### v1.10.16
+- **Reduced forage-table bloat.** A double-counting bug in the biome matcher gave Oak/Alder/Pine
+  Clearings both their specific forage drop set AND the full generic-clearing drop set stacked
+  on top. Fixed.
+- New `ForageDropDensityScale` config (`[Performance]`, default `1.0`) — lower it if forage
+  variety still feels too dense after the fix above.
+
+### v1.10.15
 - **Forest Scout perk removed.** The Overgrown Forest Trail gate it described has applied to
   every character by default since v1.10.7 — the perk itself no longer controlled access to
   anything, and the only thing left to justify its 1-Star cost was a `+1 Foraging Aid` passive

@@ -408,6 +408,55 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_truffle",
+                "LocalizationKey": "Herbs_And_Fungi_Truffle_MakeButter_ActionName",
+                "DefaultText": "Make Truffle Butter"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_truffle",
+                "LocalizationKey": "Herbs_And_Fungi_Truffle_MakeButter_ActionDescription",
+                "DefaultText": "Work the fresh truffle through the fat or butter. The fat is used up and the truffle becomes Truffle Butter."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "RequiredGivenContainer": [],
+            "RequiredGivenContainerTag": [],
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "0eb3634f696991b4d97b91626270e035",
+                    "39ec586d846bac14e96e7f8c2431945d",
+                    "6d12c7ac4b8baf24fabeeedd77dc60da",
+                    "e2c13510dfb6fde418f280891ce797a3"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "WorksInverted": false,
+            "WorksBothWays": true,
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_truffle_butter",
+                "TransformIntoWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_truffle",
                 "LocalizationKey": "",
                 "DefaultText": "Add to Stew"
             },
@@ -539,7 +588,7 @@
             },
             "FlavourWarpData": "79e30fba7cf532345b483833c449a3ae",
             "FlavourWarpType": 3,
-            "Intensity": 3
+            "Intensity": 0
         },
         {
             "Flavour": {
@@ -548,7 +597,7 @@
             },
             "FlavourWarpData": "55ebfecd567382b44a9d2c176c5b5156",
             "FlavourWarpType": 3,
-            "Intensity": 3
+            "Intensity": 0
         },
         {
             "Flavour": {

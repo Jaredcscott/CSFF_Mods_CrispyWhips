@@ -17,6 +17,31 @@ namespace Herbs_And_Fungi.Patcher
     public static class GameLoadPatch
     {
         private static ManualLogSource Logger => Plugin.Logger;
+        private static float DensityScale => Plugin.ForageDropDensityScale?.Value ?? 1.0f;
+
+        // Allowed-season set for a forage drop. Flags, so a drop can permit any subset of seasons.
+        [Flags]
+        private enum HfSeason
+        {
+            None = 0,
+            Spring = 1,
+            Summer = 2,
+            Autumn = 4,
+            Winter = 8,
+            SpringSummerFall = Spring | Summer | Autumn,
+            All = Spring | Summer | Autumn | Winter,
+        }
+
+        // The four vanilla SeasonCounter GameStats (each is a Season.DayCounterStat). Resolved once
+        // per load from AllData in AddMushroomDropsToForaging; consumed by ApplySeasonSuppression.
+        // Assumption (verified in-game via /playthrough-test-plan, not offline): SeasonCounter_X reads
+        // >= 1 only while season X is active and drops out of the [1, N] range otherwise — the same
+        // mutual-exclusivity the game's own SeasonsSettings.GetCurrentSeason()/Season.IsActive rely on.
+        private const string SeasonSpringGuid = "6f3f0faaf50a7974e915ae0915f7e241";
+        private const string SeasonSummerGuid = "4a9284146ffc28242b1f591ac7f7541f";
+        private const string SeasonAutumnGuid = "f6f436140ffd58644a6438c0838e05a1";
+        private const string SeasonWinterGuid = "20042dca062d34a4b8e2968f9dc11f9f";
+        private static object _seasonStatSpring, _seasonStatSummer, _seasonStatAutumn, _seasonStatWinter;
 
         /// <summary>
         /// Registers all Harmony patches for game load and UI initialization.
@@ -282,6 +307,9 @@ namespace Herbs_And_Fungi.Patcher
         {
             try
             {
+                // Re-resolve the season stats fresh each load (SO instances can differ across reloads).
+                _seasonStatSpring = _seasonStatSummer = _seasonStatAutumn = _seasonStatWinter = null;
+
                 // Get our cards from the database - original mushrooms
                 object morelMushroom = null;
                 object kingOyster = null;
@@ -367,7 +395,15 @@ namespace Herbs_And_Fungi.Patcher
                     else if (uniqueId == "herbs_fungi_peanut_pod") peanutPod = item;
                     // Vanilla items
                     else if (uniqueId == "ffbc6fdc5dc0eec43b100d0feb63b70d") wolfsbaneFresh = item;
+                    // Season counter GameStats (for seasonal drop gating)
+                    else if (uniqueId == SeasonSpringGuid) _seasonStatSpring = item;
+                    else if (uniqueId == SeasonSummerGuid) _seasonStatSummer = item;
+                    else if (uniqueId == SeasonAutumnGuid) _seasonStatAutumn = item;
+                    else if (uniqueId == SeasonWinterGuid) _seasonStatWinter = item;
                 }
+
+                if (_seasonStatSpring == null || _seasonStatSummer == null || _seasonStatAutumn == null || _seasonStatWinter == null)
+                    Logger?.LogWarning($"[Forage] Season counter stats not fully resolved (spring={_seasonStatSpring != null}, summer={_seasonStatSummer != null}, autumn={_seasonStatAutumn != null}, winter={_seasonStatWinter != null}); seasonal drops for any unresolved season will fall back to year-round.");
 
                 int locationsModified = 0;
                 int forageActionsModified = 0;
@@ -400,7 +436,14 @@ namespace Herbs_And_Fungi.Patcher
                     bool isPrimevalWoods = localizationKey.Contains("PrimevalWoods");
                     // Northern region: areas above Grenfell Falls (NorthernLakeBank, NorthernRapids)
                     bool isNorthernRegion = localizationKey.Contains("Northern");
-                    bool isClearing = localizationKey.Contains("Clearing");
+                    // "ClearingOak"/"ClearingAlder"/"ClearingPine" structurally contain "Clearing"
+                    // as a substring, so a bare Contains("Clearing") double-stacks the full generic
+                    // clearing drop set on top of the already-specific biome drop set for those three
+                    // location types. Exclude them so each location only matches its most specific bucket.
+                    bool isClearing = localizationKey.Contains("Clearing")
+                        && !localizationKey.Contains("ClearingOak")
+                        && !localizationKey.Contains("ClearingAlder")
+                        && !localizationKey.Contains("ClearingPine");
                     bool isWildWoods = localizationKey.Contains("WildWoods");
                     bool isLostWoods = localizationKey.Contains("LostWoods");
                     bool isGreenGrove = localizationKey.Contains("GreenGrove");
@@ -483,26 +526,26 @@ namespace Herbs_And_Fungi.Patcher
                             // Morels in oak/alder forests and river banks (8% chance)
                             if ((isOakGrove || isAlderWoods || isRiverBank) && morelMushroom != null)
                             {
-                                AddMushroomDropToAction(producedCards, morelMushroom, 8.0f, true, false);
+                                AddMushroomDropToAction(producedCards, morelMushroom, 8.0f);
                             }
 
                             // Lion's Mane in oak/alder forests (8% chance) - Spring/Summer/Fall only
                             if ((isOakGrove || isAlderWoods) && lionsManeMushroom != null)
                             {
-                                AddMushroomDropToAction(producedCards, lionsManeMushroom, 8.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, lionsManeMushroom, 8.0f, HfSeason.SpringSummerFall);
                             }
 
                             // === CAVES: Lion's Mane and Black Trumpet ===
                             // Lion's Mane in caves (8% chance) - Spring/Summer/Fall only
                             if (isUndergroundCave && lionsManeMushroom != null)
                             {
-                                AddMushroomDropToAction(producedCards, lionsManeMushroom, 8.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, lionsManeMushroom, 8.0f, HfSeason.SpringSummerFall);
                             }
 
                             // Black Trumpet in caves (6% chance) - Spring/Summer/Fall only
                             if (isUndergroundCave && blackTrumpet != null)
                             {
-                                AddMushroomDropToAction(producedCards, blackTrumpet, 6.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, blackTrumpet, 6.0f, HfSeason.SpringSummerFall);
                             }
 
                             // Oyster mushrooms in oak/alder AND pine forests (King 8%, Golden 14%)
@@ -510,11 +553,11 @@ namespace Herbs_And_Fungi.Patcher
                             {
                                 if (kingOyster != null)
                                 {
-                                    AddMushroomDropToAction(producedCards, kingOyster, 8.0f, true, true);
+                                    AddMushroomDropToAction(producedCards, kingOyster, 8.0f);
                                 }
                                 if (goldenOyster != null)
                                 {
-                                    AddMushroomDropToAction(producedCards, goldenOyster, 14.0f, true, true);
+                                    AddMushroomDropToAction(producedCards, goldenOyster, 14.0f);
                                 }
                             }
 
@@ -523,35 +566,35 @@ namespace Herbs_And_Fungi.Patcher
                             // Chanterelle in oak/alder AND birch forests (8% chance) - Spring/Summer/Fall only
                             if ((isOakGrove || isAlderWoods || isBirchForest) && chanterelle != null)
                             {
-                                AddMushroomDropToAction(producedCards, chanterelle, 8.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, chanterelle, 8.0f, HfSeason.SpringSummerFall);
                             }
 
                             // Reishi in oak/alder AND pine forests (4% chance - medicinal) - Spring/Summer/Fall only
                             if ((isOakGrove || isAlderWoods || isPineForest) && reishi != null)
                             {
-                                AddMushroomDropToAction(producedCards, reishi, 4.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, reishi, 4.0f, HfSeason.SpringSummerFall);
                             }
 
                             // Puffball in clearings (10% chance - large food source) - Spring/Summer/Fall only
                             if (isClearing && puffball != null)
                             {
-                                AddMushroomDropToAction(producedCards, puffball, 10.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, puffball, 10.0f, HfSeason.SpringSummerFall);
                             }
 
                             // Chicken of the Woods near Willow trees (12%) and Oak/Alder groves (6%) - Spring/Summer/Fall only
                             if (isWillowArea && chickenOfWoods != null)
                             {
-                                AddMushroomDropToAction(producedCards, chickenOfWoods, 12.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, chickenOfWoods, 12.0f, HfSeason.SpringSummerFall);
                             }
                             else if ((isOakGrove || isAlderWoods) && chickenOfWoods != null)
                             {
-                                AddMushroomDropToAction(producedCards, chickenOfWoods, 6.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, chickenOfWoods, 6.0f, HfSeason.SpringSummerFall);
                             }
 
                             // Death Cap in northern region above Grenfell Falls only (1% chance) - Spring/Summer/Fall only
                             if (isNorthernRegion && deathCap != null)
                             {
-                                AddMushroomDropToAction(producedCards, deathCap, 1.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, deathCap, 1.0f, HfSeason.SpringSummerFall);
                             }
 
                             // === NEW HERBS ===
@@ -559,30 +602,30 @@ namespace Herbs_And_Fungi.Patcher
                             // Ginseng in Primeval Woods, Lost Woods, Green Grove, Green Glade, Oaken Grove (5% chance) - Spring/Summer/Fall only
                             if ((isPrimevalWoods || isLostWoods || isGreenGrove || isGreenGlade || isOakenGrove) && ginseng != null)
                             {
-                                AddMushroomDropToAction(producedCards, ginseng, 5.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, ginseng, 5.0f, HfSeason.SpringSummerFall);
                             }
 
                             // Yarrow in pine meadows specifically (18% chance - 3x normal) - Spring/Summer/Fall only
                             if (isPineMeadow && yarrow != null)
                             {
-                                AddMushroomDropToAction(producedCards, yarrow, 18.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, yarrow, 18.0f, HfSeason.SpringSummerFall);
                             }
                             // Yarrow in other clearings (6% chance) - Spring/Summer/Fall only
                             else if (isClearing && !isPineMeadow && yarrow != null)
                             {
-                                AddMushroomDropToAction(producedCards, yarrow, 6.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, yarrow, 6.0f, HfSeason.SpringSummerFall);
                             }
 
                             // Wolfsbane at river banks/waterfalls (8% chance, poisonous — dangerous find) - Spring/Summer/Fall only
                             if (isRiverBank && wolfsbaneFresh != null)
                             {
-                                AddMushroomDropToAction(producedCards, wolfsbaneFresh, 8.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, wolfsbaneFresh, 8.0f, HfSeason.SpringSummerFall);
                             }
 
                             // Wild Ginger in river banks and willow areas (6% chance) - Spring/Summer/Fall only
                             if ((isRiverBank || isWillowArea) && ginger != null)
                             {
-                                AddMushroomDropToAction(producedCards, ginger, 6.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, ginger, 6.0f, HfSeason.SpringSummerFall);
                             }
 
                             // === NEWEST MUSHROOMS ===
@@ -590,13 +633,13 @@ namespace Herbs_And_Fungi.Patcher
                             // Black Trumpet in oak/alder groves (6% chance - gourmet) - Spring/Summer/Fall only
                             if ((isOakGrove || isAlderWoods) && blackTrumpet != null)
                             {
-                                AddMushroomDropToAction(producedCards, blackTrumpet, 6.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, blackTrumpet, 6.0f, HfSeason.SpringSummerFall);
                             }
 
                             // Shiitake in oak/alder forests and dead wood areas (8% chance - immune boost) - Spring/Summer/Fall only
                             if ((isOakGrove || isAlderWoods || isPrimevalWoods) && shiitake != null)
                             {
-                                AddMushroomDropToAction(producedCards, shiitake, 8.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, shiitake, 8.0f, HfSeason.SpringSummerFall);
                             }
 
                             // === HEMP ===
@@ -604,89 +647,89 @@ namespace Herbs_And_Fungi.Patcher
                             // Hemp seeds in Primeval Woods and Lake Island only (10% chance) - Spring/Summer/Fall only
                             if ((isPrimevalWoods || isLakeIsland) && hempSeeds != null)
                             {
-                                AddMushroomDropToAction(producedCards, hempSeeds, 10.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, hempSeeds, 10.0f, HfSeason.SpringSummerFall);
                             }
 
                             // Hemp plant in Primeval Woods and Lake Island only (15% chance - rare find!) - Spring/Summer/Fall only
                             if ((isPrimevalWoods || isLakeIsland) && hempPlantMature != null)
                             {
-                                AddMushroomDropToAction(producedCards, hempPlantMature, 15.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, hempPlantMature, 15.0f, HfSeason.SpringSummerFall);
                             }
 
                             // === BERRIES ===
 
                             // Blackcurrant: birch (12%), river banks (8%), oak/alder (5%) - Summer only
                             if (isBirchForest && blackcurrant != null)
-                                AddMushroomDropToAction(producedCards, blackcurrant, 12.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, blackcurrant, 12.0f, HfSeason.Summer);
                             if (isRiverBank && blackcurrant != null)
-                                AddMushroomDropToAction(producedCards, blackcurrant, 8.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, blackcurrant, 8.0f, HfSeason.Summer);
                             if ((isOakGrove || isAlderWoods) && blackcurrant != null)
-                                AddMushroomDropToAction(producedCards, blackcurrant, 5.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, blackcurrant, 5.0f, HfSeason.Summer);
 
                             // Redcurrant: oak/alder (12%), birch (8%), clearings (6%) - Summer only
                             if ((isOakGrove || isAlderWoods) && redcurrant != null)
-                                AddMushroomDropToAction(producedCards, redcurrant, 12.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, redcurrant, 12.0f, HfSeason.Summer);
                             if (isBirchForest && redcurrant != null)
-                                AddMushroomDropToAction(producedCards, redcurrant, 8.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, redcurrant, 8.0f, HfSeason.Summer);
                             if (isClearing && !isPineMeadow && redcurrant != null)
-                                AddMushroomDropToAction(producedCards, redcurrant, 6.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, redcurrant, 6.0f, HfSeason.Summer);
 
                             // Lingonberry: pine meadow (18%), pine forest (16%), northern (12%) - Late Summer/Fall
                             if (isPineMeadow && lingonberry != null)
-                                AddMushroomDropToAction(producedCards, lingonberry, 18.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, lingonberry, 18.0f, HfSeason.Summer | HfSeason.Autumn);
                             else if (isPineForest && lingonberry != null)
-                                AddMushroomDropToAction(producedCards, lingonberry, 16.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, lingonberry, 16.0f, HfSeason.Summer | HfSeason.Autumn);
                             if (isNorthernRegion && lingonberry != null)
-                                AddMushroomDropToAction(producedCards, lingonberry, 12.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, lingonberry, 12.0f, HfSeason.Summer | HfSeason.Autumn);
 
                             // Cloudberry: northern (10%), pine meadow (6%) - rare northern delicacy
                             if (isNorthernRegion && cloudberry != null)
-                                AddMushroomDropToAction(producedCards, cloudberry, 10.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, cloudberry, 10.0f, HfSeason.SpringSummerFall);
                             if (isPineMeadow && cloudberry != null)
-                                AddMushroomDropToAction(producedCards, cloudberry, 6.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, cloudberry, 6.0f, HfSeason.SpringSummerFall);
 
                             // === PHASE 1 DECORATIVE/MEDICINAL PLANTS (boosted rates for low-benefit items) ===
 
                             // Wild Flowers: clearings (20%), pine meadow (16%), river banks (12%)
                             if (isClearing && wildFlowers != null)
-                                AddMushroomDropToAction(producedCards, wildFlowers, 20.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, wildFlowers, 20.0f, HfSeason.SpringSummerFall);
                             if (isPineMeadow && wildFlowers != null)
-                                AddMushroomDropToAction(producedCards, wildFlowers, 16.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, wildFlowers, 16.0f, HfSeason.SpringSummerFall);
                             if (isRiverBank && wildFlowers != null)
-                                AddMushroomDropToAction(producedCards, wildFlowers, 12.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, wildFlowers, 12.0f, HfSeason.SpringSummerFall);
 
                             // Dandelion: clearings (20%), river banks (14%), oak/alder groves (12%)
                             if (isClearing && dandelion != null)
-                                AddMushroomDropToAction(producedCards, dandelion, 20.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, dandelion, 20.0f, HfSeason.SpringSummerFall);
                             if (isRiverBank && dandelion != null)
-                                AddMushroomDropToAction(producedCards, dandelion, 14.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, dandelion, 14.0f, HfSeason.SpringSummerFall);
                             if ((isOakGrove || isAlderWoods) && dandelion != null)
-                                AddMushroomDropToAction(producedCards, dandelion, 12.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, dandelion, 12.0f, HfSeason.SpringSummerFall);
 
                             // Common Plantain: clearings (16%), river banks (14%), birch (10%)
                             if (isClearing && commonPlantain != null)
-                                AddMushroomDropToAction(producedCards, commonPlantain, 16.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, commonPlantain, 16.0f, HfSeason.SpringSummerFall);
                             if (isRiverBank && commonPlantain != null)
-                                AddMushroomDropToAction(producedCards, commonPlantain, 14.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, commonPlantain, 14.0f, HfSeason.SpringSummerFall);
                             if (isBirchForest && commonPlantain != null)
-                                AddMushroomDropToAction(producedCards, commonPlantain, 10.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, commonPlantain, 10.0f, HfSeason.SpringSummerFall);
 
                             // Chamomile: pine meadow (18%), clearings (14%), birch (10%)
                             if (isPineMeadow && chamomile != null)
-                                AddMushroomDropToAction(producedCards, chamomile, 18.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, chamomile, 18.0f, HfSeason.SpringSummerFall);
                             else if (isClearing && chamomile != null)
-                                AddMushroomDropToAction(producedCards, chamomile, 14.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, chamomile, 14.0f, HfSeason.SpringSummerFall);
                             if (isBirchForest && chamomile != null)
-                                AddMushroomDropToAction(producedCards, chamomile, 10.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, chamomile, 10.0f, HfSeason.SpringSummerFall);
 
                             // === PEANUTS ===
                             // Peanut pods: oak/alder (10%), clearings (8%), pine (6%) - Spring/Summer/Fall only
                             if ((isOakGrove || isAlderWoods) && peanutPod != null)
-                                AddMushroomDropToAction(producedCards, peanutPod, 10.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, peanutPod, 10.0f, HfSeason.SpringSummerFall);
                             else if (isClearing && peanutPod != null)
-                                AddMushroomDropToAction(producedCards, peanutPod, 8.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, peanutPod, 8.0f, HfSeason.SpringSummerFall);
                             else if (isPineForest && peanutPod != null)
-                                AddMushroomDropToAction(producedCards, peanutPod, 6.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, peanutPod, 6.0f, HfSeason.SpringSummerFall);
 
                             forageActionsModified++;
                         }
@@ -696,7 +739,7 @@ namespace Herbs_And_Fungi.Patcher
                             // Hemp seeds from clearing in Primeval Woods (8% chance) - Spring/Summer/Fall only
                             if (isPrimevalWoods && hempSeeds != null)
                             {
-                                AddMushroomDropToAction(producedCards, hempSeeds, 8.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, hempSeeds, 8.0f, HfSeason.SpringSummerFall);
                             }
 
                             clearActionsModified++;
@@ -708,13 +751,13 @@ namespace Herbs_And_Fungi.Patcher
                             // Truffles are underground fungi found when disturbing soil
                             if (truffle != null)
                             {
-                                AddMushroomDropToAction(producedCards, truffle, 1.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, truffle, 1.0f, HfSeason.SpringSummerFall);
                             }
 
                             // Peanut pods when digging in oak/alder/pine/clearing areas (5%) - peanuts grow underground
                             if ((isOakGrove || isAlderWoods || isPineForest || isClearing) && peanutPod != null)
                             {
-                                AddMushroomDropToAction(producedCards, peanutPod, 5.0f, false, false, true);
+                                AddMushroomDropToAction(producedCards, peanutPod, 5.0f, HfSeason.SpringSummerFall);
                             }
                         }
                     }
@@ -738,7 +781,7 @@ namespace Herbs_And_Fungi.Patcher
         /// <summary>
         /// Adds a mushroom/herb drop to a forage action's ProducedCards list.
         /// </summary>
-        static void AddMushroomDropToAction(IList producedCards, object mushroom, float dropChance, bool isYearRound = false, bool unused = false, bool isSeasonal = false)
+        static void AddMushroomDropToAction(IList producedCards, object mushroom, float dropChance, HfSeason allowedSeasons = HfSeason.All)
         {
             if (mushroom == null || producedCards == null) return;
 
@@ -793,7 +836,10 @@ namespace Herbs_And_Fungi.Patcher
                                 var chanceField = CachedField(dropChanceObj.GetType(), "BaseDropChance");
 
                                 if (activeField != null) activeField.SetValue(dropChanceObj, true);
-                                if (chanceField != null) chanceField.SetValue(dropChanceObj, dropChance);
+                                if (chanceField != null) chanceField.SetValue(dropChanceObj, dropChance * DensityScale);
+
+                                // Gate the drop to its allowed seasons (no-op for HfSeason.All).
+                                ApplySeasonSuppression(dropChanceObj, allowedSeasons);
 
                                 dropChanceField.SetValue(newDrop, dropChanceObj);
                             }
@@ -807,6 +853,74 @@ namespace Herbs_And_Fungi.Patcher
             catch (Exception ex)
             {
                 Logger?.LogError($"[Forage] Error adding mushroom drop: {ex}");
+            }
+        }
+
+        /// <summary>
+        /// Season-gates a drop: for every season the item is NOT allowed in, adds a StatsModifier keyed
+        /// on that season's SeasonCounter GameStat that subtracts a large amount from the drop chance
+        /// while that season is active (driving the effective chance to 0%). During an allowed season,
+        /// each disallowed-season counter is out of its active range, so its modifier returns 0 and the
+        /// base chance is unaffected. No-op for <see cref="HfSeason.All"/>. Applied to the mod's OWN
+        /// injected DropChance only — never a vanilla drop — so it is not a hot-path patch.
+        /// </summary>
+        private static void ApplySeasonSuppression(object dropChanceObj, HfSeason allowedSeasons)
+        {
+            if (allowedSeasons == HfSeason.All || dropChanceObj == null) return;
+
+            var disallowed = new List<object>(4);
+            if ((allowedSeasons & HfSeason.Spring) == 0 && _seasonStatSpring != null) disallowed.Add(_seasonStatSpring);
+            if ((allowedSeasons & HfSeason.Summer) == 0 && _seasonStatSummer != null) disallowed.Add(_seasonStatSummer);
+            if ((allowedSeasons & HfSeason.Autumn) == 0 && _seasonStatAutumn != null) disallowed.Add(_seasonStatAutumn);
+            if ((allowedSeasons & HfSeason.Winter) == 0 && _seasonStatWinter != null) disallowed.Add(_seasonStatWinter);
+            if (disallowed.Count == 0) return; // no resolvable disallowed-season stats -> leave year-round
+
+            var statsModifiersField = CachedField(dropChanceObj.GetType(), "StatsModifiers"); // StatInterpolatedValue[]
+            var elemType = statsModifiersField?.FieldType.GetElementType();
+            if (elemType == null) return;
+
+            var arr = Array.CreateInstance(elemType, disallowed.Count);
+            for (int i = 0; i < disallowed.Count; i++)
+            {
+                var sm = BuildSeasonSuppressor(elemType, disallowed[i]);
+                if (sm == null) return; // build failed -> leave drop un-gated rather than half-gated
+                arr.SetValue(sm, i);
+            }
+            statsModifiersField.SetValue(dropChanceObj, arr);
+        }
+
+        /// <summary>
+        /// Builds one boxed StatInterpolatedValue that returns -1000 while the given SeasonCounter stat
+        /// is in its active range ([1, 999999]) and 0 otherwise (WhenOutOfRange = Return0Value).
+        /// </summary>
+        private static object BuildSeasonSuppressor(Type statInterpType, object seasonStat)
+        {
+            try
+            {
+                var sm = Activator.CreateInstance(statInterpType);
+                CachedField(statInterpType, "InputStat")?.SetValue(sm, seasonStat);
+                CachedField(statInterpType, "UseStatPercentage")?.SetValue(sm, false);
+
+                var valueField = CachedField(statInterpType, "Value"); // InterpolatedValue
+                if (valueField == null) return null;
+
+                var ivType = valueField.FieldType;
+                var iv = Activator.CreateInstance(ivType);
+                CachedField(ivType, "Active")?.SetValue(iv, true);
+                CachedField(ivType, "InputValueRange")?.SetValue(iv, new Vector2(1f, 999999f));
+                CachedField(ivType, "OutputValueRange")?.SetValue(iv, new Vector2(-1000f, -1000f));
+
+                var woorField = CachedField(ivType, "WhenOutOfRange"); // InterpolatedValueOutOfRange
+                if (woorField != null)
+                    woorField.SetValue(iv, Enum.Parse(woorField.FieldType, "Return0Value"));
+
+                valueField.SetValue(sm, iv);
+                return sm;
+            }
+            catch (Exception ex)
+            {
+                Logger?.LogError($"[Forage] Failed to build season suppressor: {ex}");
+                return null;
             }
         }
 

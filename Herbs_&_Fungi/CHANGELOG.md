@@ -4,6 +4,196 @@ All notable changes to this mod. Dates are release dates.
 
 ---
 
+
+## [1.13.0] - 2026-09-08
+
+The last row of the mod's Audit Remediation Plan, and a mod-wide repair to the flavour data that
+reading it exposed. Neither has been confirmed at a running game: both carry rows in
+`.claude/playthrough-test-status.json` (T2.230, T2.231) awaiting human verification.
+
+### Added
+
+- **Truffle Butter.** Drag Fat, a Fat Chunk, a Butter Chunk or Milk Butter onto a fresh Truffle (or
+  the truffle onto the fat) and the fat is used up and the truffle becomes a block of Truffle Butter:
+  Strong Earthy, Strong Savoury, Medium Buttery. Eat it as it is, or add it to any stew. Keeps about
+  a week. Uses the vanilla butter sprite. (T2.230)
+- **Truffle Salt.** Drag Salt onto a whole Dried Truffle (or the truffle onto the salt) and grind
+  them together for a quarter hour; the salt is used up and the truffle becomes a finishing salt that
+  never spoils: Strong Earthy, Strong Savoury, Subtle Salty (the same Salty as plain salt). Add it to
+  any stew. Art is a placeholder (reuses the Shiitake Powder sprite). (T2.230)
+
+### Fixed
+
+- **Every flavour this mod declared was mostly inert, and the strongest ones were the deadest.**
+  `FlavourTags[].Intensity` is an engine enum: 0 = Medium, 1 = Strong, 2 = Subtle. This mod's 72
+  flavoured cards were authored on an ordinal 1 to 7 scale instead. The game reads the raw number
+  through a switch whose default arm returns zero, so the 91 entries carrying 3 to 7 (the truffles,
+  the dried and cooked mushrooms, the concentrated berries, everything the scale meant as "strong")
+  contributed no flavour at all and showed no flavour line on the card, while a 1 (meant as a trace)
+  read as Strong and a 2 as Subtle. Remapped in place: 1 and 2 to Subtle, 3 and 4 to Medium, 5 to 7
+  to Strong. Three of the four spice tags already used the enum and are unchanged; Peanut Oil's did
+  not and was remapped the same way. Net effect in a stew: this mod's ingredients now contribute
+  flavour where before most contributed nothing, so flavour scores on stews built from them will
+  change. Enforced by `Development_Tools/Tests/FlavourTags-IntensityEnum.Tests.ps1`, which is
+  self-demonstrating and sweeps every mod. (T2.231)
+
+### Notes
+
+- **The row that produced Truffle Butter was marked BLOCKED for two waves on a premise that did not
+  hold.** Its prompt said to clone the Hemp Butter heat-activate-then-solidify chain and wait for
+  that chain's in-game confirmation (T2.153, still unrun). Truffle butter is a compound butter: fat
+  plus truffle, no activation, no drying timer. The shape actually cloned is the mod's own "Mix with
+  Fat or Butter" drag action, which is the working entry step of that same chain. T2.153 remains
+  open on its own merits and no longer gates anything.
+- **Truffle Salt deliberately does not require a mortar on the board.** The engine field for that
+  (`RequiredTagsOnBoard` on a card action) is used by no vanilla card action and no mod in this
+  repo, so it cannot be checked offline, and a mis-shaped condition would hide the action forever
+  rather than merely skip the requirement. The grind is a hand action costing one time unit.
+- **Both cards' nutrition, trading values and flavour strengths are provisional and have not been
+  balance-tested.** The flavour remap's tercile thresholds are a judgment call recorded here so the
+  next reader does not re-derive them: they reproduce vanilla's own skew (Subtle most common, Strong
+  rare), and the one spice tag that was already enum-valued (`Spice_HempOil`: Nutty Medium, Earthy
+  Subtle) agrees with what the remap produces from its own card's ordinal values (Nutty 3, Earthy
+  2), which is the closest thing to a second opinion the data offers.
+
+
+## [1.12.0] - 2026-09-08
+
+The last two buildable rows of the mod's Audit Remediation Plan. Neither has been confirmed at a
+running game: both carry rows in `.claude/playthrough-test-status.json` (T2.225, T2.226) awaiting
+human verification.
+
+### Added
+
+- **Apothecary Shelf**, a filtered store for the mod's own materia medica. It takes herbs, fungi,
+  powders and medicines and refuses ordinary food and building materials, and it slows spoilage on
+  what it holds to 60% of the normal rate, against the Wooden Pantry's 75%. It is the narrower,
+  cheaper counterpart to that pantry: 3 planks, 2 twine and a hammer, unlocked once you have dried
+  yarrow, and it appears in Construction > Furniture. Reuses the vanilla shelf sprite. (T2.225)
+- **Herbal Incense Bundle**, the mod's first ambient effect and the room-scale counterpart to the
+  personal Herb Pipe. Bind 2 dried wild flowers, 1 dried chamomile, 1 dried yarrow and 1 twine, then
+  touch a flame to it. While it smoulders it eases Stress and raises Sanctuary for you anywhere on
+  that board, rather than only in your hands, and it burns down over about three hours and is gone.
+  Snuff it out to keep the remainder. Appears in Survival > Support. The lit card's art is a
+  placeholder. (T2.226)
+
+### Notes
+
+- **The plan's own corrected guidance for the shelf was wrong, and the fix is recorded here because
+  the plan row it corrected has now been pruned.** That row told the implementer to filter on
+  `tag_Herb` plus `tag_Preservable`. `CardFilter.SupportsCard` treats positive `TagFilters` as OR,
+  not AND, so that pair would have accepted every one of the 103 mod cards carrying
+  `tag_Preservable` and produced a container that filters nothing. The shipped filter is
+  `tag_Herb`, `tag_Fungus`, `tag_Powder`, `tag_Medicine`, which reaches 56 of this mod's cards.
+- **Both magnitudes are provisional and have not been balance-tested**: the shelf's 0.6 spoilage
+  multiplier, and the incense's -0.3 Stress rate, +20 Sanctuary and 12-unit burn time.
+- Truffle Butter and Truffle Salt remain BLOCKED, unchanged from 1.11.0. Their prerequisite is an
+  in-game confirmation of the Hemp Butter activation chain, tracked as T2.153, which is still
+  unrun.
+
+## [1.11.0] - 2026-09-08
+
+Six new features from the mod's Audit Remediation Plan, plus one silent-failure fix. None of the
+below has been confirmed at a running game yet: every item carries a row in
+`.claude/playthrough-test-status.json` (T2.188, T2.189, T2.208-T2.211) awaiting human verification.
+
+### Added
+
+- **Three more pressed oils: Yarrow, Chamomile and Ginseng.** The Oil Press went from 8 oils to 11.
+  Each presses from the FRESH herb plus a Clay Bowl, matching the four herbal oils already shipped,
+  and each carries `tag_Oil` so it joins the lamp-fuel pool. (T2.188)
+- **Linseed Oil**, pressed from 3 Flax Seeds plus a Clay Bowl. The Seed Bag perk has always granted
+  flax seeds that no recipe in this mod could use; this is their first use. Its description mentions
+  the traditional wood-treating use as flavour only: there is no wood-finishing mechanic. (T2.208)
+- **Herbalist's Advantage**, a Situational character-creation trait costing 30 Suns that starts you
+  with a Herbalism head start. This is the mod's first perk that biases a SKILL rather than granting
+  items; all 15 previous perks only handed you objects. (T2.189)
+- **Three culinary mushroom seasoning powders**: Black Trumpet, Shiitake and King Oyster. Grind the
+  dried mushroom with a mortar and pestle. Until now the mod ground only medicinal species. Each
+  powder carries Savoury and Earthy flavour. Art is placeholder. (T2.209)
+- **Three mushroom broths with distinct effects**, beside the existing plain Mushroom Broth: Reishi
+  (immune and stress), Lion's Mane (focus) and Chanterelle (morale), each brewed from its own dried
+  mushroom. All six magnitudes are provisional and have not been balance-tested. (T2.210)
+- **Berry Preserve**, the mod's first concentrated-sugar preservation path: four dried berries plus
+  honeycomb, slow-simmered into something that keeps far longer than the fruit it came from. (T2.211)
+
+### Fixed
+
+- **Peanut Oil's spice effect never did anything.** The card referenced a spice tag
+  (`herbs_fungi_spice_peanut_oil`) that had no backing file, so the reference resolved to nothing and
+  the oil silently contributed no flavour or stat effect when cooked with. It was the only one of the
+  mod's four spice-tag references that did not resolve. The tag now exists and carries Peanut Oil's
+  own flavour profile (Nutty, Earthy, Grassy) plus the same nutrition values its sibling oils use.
+
+## [1.10.18] — 2026-09-05
+
+### Fixed
+
+- **Destroying or harvesting any Pickle Vat (Ready or Sealed, all 4 flavors) returned nothing — the
+  vat and its Open Pickle Jar just vanished.** All 8 variant files (`PickleVatReady_{Frogs,Meat,
+  Mushrooms,Vegetables}.json`, `PickleVatSealed_{Frogs,Meat,Mushrooms,Vegetables}.json`) authored
+  `DroppedOnDestroy` as a flat array of drop entries, but the real field type is a nested collection
+  (the same shape `ProducedCards` uses elsewhere in this mod) with the payload one level deeper. The
+  mismatched shape deserialized without error, so `DroppedCards` stayed null on every collection and
+  nothing spawned — no log, no exception, just an empty destroy. Reshaped all 8 files to the correct
+  nested `CollectionName`/`CollectionWeight`/`DroppedCards[]` structure; destroying or emptying a
+  Pickle Vat now correctly returns the reusable fired vat plus an Open Pickle Jar, as the README's
+  Pickle Vat walkthrough has always described. First identified in the 2026-09-01 audit, fixed here.
+  Not yet verified in-game — recommend adding to `/playthrough-test-plan`.
+
+- **"Return Bowl" on an Open Pickle Jar produced no clay bowl, and destroying the jar dropped
+  nothing.** The same flat-vs-nested shape bug also affected `CardData/Item/OpenPickleJar.json`, on
+  *both* its `DroppedOnDestroy` and its "Return Bowl" `ProducedCards`. It was missed by the sweep
+  above because the jar is a CT0 item rather than one of the CT2 vat structure cards, so the
+  structure-scoped repair never touched it. With both arrays reshaped to the nested
+  `CollectionName`/`CollectionWeight`/`DroppedCards[]` structure, "Return Bowl" now returns the clay
+  bowl lid, making the README's "reclaim the clay bowl lid and reduce per-batch clay cost" behavior
+  real. Not yet verified in-game.
+
+### Changed
+
+- **Seasonal forage drops are now actually gated by season.** The forage-drop injector's per-item
+  season hints ("Summer only", "Spring/Summer/Fall only", "Late Summer/Fall") were previously dead
+  parameters — every herb, mushroom, and berry dropped year-round regardless of the comment. Each
+  seasonal injected drop now carries a `StatsModifiers` entry keyed on the vanilla
+  `SeasonCounter_<season>` GameStats that drives its chance to 0% outside its allowed seasons:
+  Blackcurrant and Redcurrant are Summer-only, Lingonberry is Summer/Autumn, and every other
+  seasonal herb/mushroom is Spring/Summer/Autumn (absent in Winter). Morels, King/Golden Oyster,
+  and dug-for Truffles remain year-round. The suppressor is added only to the mod's own injected
+  DropChance — never a vanilla drop — so it is not a hot-path patch. Not yet verified in-game:
+  confirm seasonal appearance/absence across a season boundary via `/playthrough-test-plan`.
+
+- **README's Pickle Vat walkthrough now describes the shipped mechanic.** Step 6 said harvesting a
+  Ready vat spawns "the pickled goods" as a separate item; there is no such item — the Ready vat
+  *is* the food (named for its contents, e.g. "Pickled Frogs") and holds 5 servings eaten straight
+  from the vat. Reworded to describe eating servings, with the jar and reusable fired vat returned
+  when the vat is emptied or destroyed. Documentation only, no gameplay change.
+
+## [1.10.17] — 2026-09-01
+
+### Fixed
+
+- **Hemp Butter was unreachable — Active Hemp Butter never solidified.** The 2026-09-01 fleet
+  feature audit flagged the advertised 3-dose Hemp Butter as dead content. Root cause: Active Hemp
+  Butter's "Wetness" stat started at 0 with a negative drain rate, and the engine only fires an
+  OnZero action on a positive-to-zero crossing — so the "solidify into Hemp Butter" transform could
+  never trigger, stranding the chain one step before the card that carries the three dose actions.
+  Wetness now starts full at a retuned 96 DTP (one in-game day) instead of the authored 480: spoilage
+  accrued while drying transfers 1:1 into the solid butter (whose spoilage window is 480), so the old
+  5-day dry time would have delivered an already-spoiled block even with the stat fixed. Melt fat
+  with Hemp Flower Powder, heat to activate, let it rest a day, and the dosed butter now actually
+  arrives. Not yet verified in-game.
+
+## [1.10.16] — 2026-08-25
+
+### Fixed
+
+- **Reduced forage-table bloat that a player traced to a performance loss comparable to the village mod.** `AddMushroomDropsToForaging`'s biome matcher had a real double-counting bug: `isClearing` (bare `Contains("Clearing")`) also fired for `ClearingOak`/`ClearingAlder`/`ClearingPine` locations, since those names structurally contain `"Clearing"` — so those three location types received both their specific-biome drop set AND the full generic-clearing drop set (Wild Flowers, Dandelion, Common Plantain, Chamomile, Puffball, Redcurrant, Yarrow, Peanut Pod, all at high chance) stacked on top. Fixed by excluding the three specific-named clearings from the generic bucket.
+
+### Added
+
+- **New `ForageDropDensityScale` config (`[Performance]`, default `1.0`).** Multiplies every H&F-injected forage/dig drop chance. Lower it instead of uninstalling the mod if forage variety still feels too dense after the fix above.
+
 ## [1.10.15] — 2026-08-24
 
 ### Removed

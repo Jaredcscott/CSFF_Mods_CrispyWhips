@@ -91,13 +91,13 @@
     },
     "Progress": {
         "Active": true,
-        "FloatValue": 0.0,
+        "FloatValue": 96.0,
         "CardStatName": {
             "ParentObjectID": "herbs_fungi_hemp_butter_active",
             "LocalizationKey": "Herbs_And_Fungi_HempButterActive_Progress_CardStatName",
             "DefaultText": "Wetness"
         },
-        "MaxValue": 480.0,
+        "MaxValue": 96.0,
         "RatePerDaytimePoint": -1.0,
         "HidingOptions": 0,
         "TextDisplay": 1,

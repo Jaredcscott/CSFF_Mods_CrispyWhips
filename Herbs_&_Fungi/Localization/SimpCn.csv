@@ -1027,9 +1027,9 @@ Herbs_And_Fungi_MorelMushroom_CardName,Morel Mushroom,羊肚菌
 Herbs_And_Fungi_MorelMushroom_CardDescription,A prized honeycomb-capped morel found in autumn forests. Delicious when cooked but must never be eaten raw.,一种在秋季森林中发现的珍贵蜂窝状羊肚菌。烹熟后美味可口，但绝不可生吃。
 Herbs_And_Fungi_MorelMushroom_CardHelpSection,"<b>Season:</b> Autumn
 
-<b>警告：</b>食用前必须烹饪——生羊肚菌有轻微毒性。
+<b>Warning:</b> Must be cooked before eating - raw morels are mildly toxic.
 
-<b>营养：</b>烹饪后蛋白质和矿物质含量极佳。","<b>季节：</b> 秋季
+<b>Nutrition:</b> Excellent protein and mineral content when cooked.","<b>季节：</b> 秋季
 
 <b>警告：</b> 食用前必须烹熟——生羊肚菌有轻微毒性。
 
@@ -1098,9 +1098,9 @@ Herbs_And_Fungi_HempButter_UsageDurability_CardStatName,Doses,剂量
 Herbs_And_Fungi_HempFlowerDried_CardDescription,Dried flowering tops with psychoactive properties. Can be ground into powder or burned on fires to create aromatic smoke with mood-enhancing effects.,干燥的花穗，含有精神活性成分。可研磨成粉或在火上燃烧，产生芳香烟雾，改善情绪。
 Herbs_And_Fungi_HempFlowerDried_CardHelpSection,"<b>Processing:</b> Grind with rock for premium quality (+50), or use axes/knives/quern/mortar for standard quality (+25).
 
-<b>燃烧：</b>在任何火上燃烧以产生改善情绪和减轻焦虑的烟雾。每朵花在室内空间增加5%烟雾。
+<b>Burning:</b> Burn on any fire to create smoke that improves mood and reduces anxiety. Each flower adds 5% smoke to indoor spaces.
 
-<b>警告：</b>过多烟雾（3朵以上）尽管有心理益处但会变得有害。","<b>加工：</b>用岩石精细研磨可提升品质50点，或用斧头/刀/磨盘/研钵标准研磨提升25点。
+<b>Warning:</b> Too much smoke (3+ flowers) becomes harmful despite mental benefits.","<b>加工：</b>用岩石精细研磨可提升品质50点，或用斧头/刀/磨盘/研钵标准研磨提升25点。
 
 <b>燃烧：</b>在任何火源上燃烧，产生改善情绪、减轻焦虑的烟雾。每朵花为室内增加5%烟雾。
 
@@ -1606,3 +1606,214 @@ Herbs_And_Fungi_TrailMix_SpoilageTime_OnFull_ActionDescription,The trail mix has
 Herbs_And_Fungi_Bp_TrailMix_CardName,Forager's Trail Mix,觅食者什锦干粮
 Herbs_And_Fungi_Bp_TrailMix_CardDescription,Toss 2 roasted peanuts with 2 dried billberries to make 2 portions of trail ration.,将2个烤花生与2个干蓝莓拌在一起，制成2份行军干粮。
 Herbs_And_Fungi_Bp_TrailMix_UnlockConditionsDesc,Roasted Peanuts Needed,需要烤花生
+Herbs_And_Fungi_Bp_OilPressHerbalYarrow_CardDescription,Press 1 fresh yarrow into an empty clay bowl to extract a healing herbal oil.,将1株新鲜蓍草压入空陶碗，提取愈合的草药油。
+Herbs_And_Fungi_Bp_OilPressHerbalYarrow_CardName,Press Yarrow Oil,压榨蓍草油
+Herbs_And_Fungi_Bp_OilPress_HerbalOil_Yarrow_UnlockConditionsDesc,Oil Press Needed,需要榨油机
+Herbs_And_Fungi_HerbalOilYarrow_Apply_ActionDescription,Apply the yarrow oil. Healing and restorative effects.,涂抹蓍草油。愈合舒缓的效果。
+Herbs_And_Fungi_HerbalOilYarrow_Apply_ActionName,Apply,涂抹
+Herbs_And_Fungi_HerbalOilYarrow_CardDescription,"A clay bowl of oil infused with yarrow essence. Apply it for healing, restorative effects - the same as smoking the pipe, without the smoke.",一碗注入蓍草精华的油。涂抹后获得愈合舒缓的效果，与吸烟斗相同，但没有烟雾。
+Herbs_And_Fungi_HerbalOilYarrow_CardHelpSection,"<b>Crafted:</b> By pressing 1 Fresh Yarrow + Clay Bowl at the Oil Press.
+
+<b>Uses:</b> Apply directly for healing, restorative effects. Returns an empty clay bowl.","<b>制作：</b>在油压机上压榨1份新鲜蓍草 + 陶碗。
+
+<b>用途：</b>直接涂抹获得愈合舒缓的效果。归还一个空陶碗。"
+Herbs_And_Fungi_HerbalOilYarrow_CardName,Yarrow Herbal Oil,蓍草药油
+Herbs_And_Fungi_Bp_OilPressHerbalChamomile_CardDescription,Press 1 fresh chamomile into an empty clay bowl to extract a calming herbal oil.,将1株新鲜洋甘菊压入空陶碗，提取舒缓镇静的草药油。
+Herbs_And_Fungi_Bp_OilPressHerbalChamomile_CardName,Press Chamomile Oil,压榨洋甘菊油
+Herbs_And_Fungi_Bp_OilPress_HerbalOil_Chamomile_UnlockConditionsDesc,Oil Press Needed,需要榨油机
+Herbs_And_Fungi_HerbalOilChamomile_Apply_ActionDescription,Apply the chamomile oil. Calming and relaxing effects.,涂抹洋甘菊油。舒缓镇静的效果。
+Herbs_And_Fungi_HerbalOilChamomile_Apply_ActionName,Apply,涂抹
+Herbs_And_Fungi_HerbalOilChamomile_CardDescription,"A clay bowl of oil infused with chamomile essence. Apply it for calming, relaxing effects - the same as smoking the pipe, without the smoke.",一碗注入洋甘菊精华的油。涂抹后获得舒缓镇静的效果，与吸烟斗相同，但没有烟雾。
+Herbs_And_Fungi_HerbalOilChamomile_CardHelpSection,"<b>Crafted:</b> By pressing 1 Fresh Chamomile + Clay Bowl at the Oil Press.
+
+<b>Uses:</b> Apply directly for calming, relaxing effects. Returns an empty clay bowl.","<b>制作：</b>在油压机上压榨1份新鲜洋甘菊 + 陶碗。
+
+<b>用途：</b>直接涂抹获得舒缓镇静的效果。归还一个空陶碗。"
+Herbs_And_Fungi_HerbalOilChamomile_CardName,Chamomile Herbal Oil,洋甘菊药油
+Herbs_And_Fungi_Bp_OilPressHerbalGinseng_CardDescription,Press 1 fresh ginseng into an empty clay bowl to extract an invigorating herbal oil.,将1株新鲜人参压入空陶碗，提取提神的草药油。
+Herbs_And_Fungi_Bp_OilPressHerbalGinseng_CardName,Press Ginseng Oil,压榨人参油
+Herbs_And_Fungi_Bp_OilPress_HerbalOil_Ginseng_UnlockConditionsDesc,Oil Press Needed,需要榨油机
+Herbs_And_Fungi_HerbalOilGinseng_Apply_ActionDescription,Apply the ginseng oil. Energizing and invigorating effects.,涂抹人参油。提神活力的效果。
+Herbs_And_Fungi_HerbalOilGinseng_Apply_ActionName,Apply,涂抹
+Herbs_And_Fungi_HerbalOilGinseng_CardDescription,"A clay bowl of oil infused with ginseng essence. Apply it for energizing, invigorating effects - the same as smoking the pipe, without the smoke.",一碗注入人参精华的油。涂抹后获得提神活力的效果，与吸烟斗相同，但没有烟雾。
+Herbs_And_Fungi_HerbalOilGinseng_CardHelpSection,"<b>Crafted:</b> By pressing 1 Fresh Ginseng + Clay Bowl at the Oil Press.
+
+<b>Uses:</b> Apply directly for energizing, invigorating effects. Returns an empty clay bowl.","<b>制作：</b>在油压机上压榨1份新鲜人参 + 陶碗。
+
+<b>用途：</b>直接涂抹获得提神活力的效果。归还一个空陶碗。"
+Herbs_And_Fungi_HerbalOilGinseng_CardName,Ginseng Herbal Oil,人参药油
+Herbs_And_Fungi_Perk_HerbalistHeadstart_PerkName,Herbalist's Advantage,草药师优势
+Herbs_And_Fungi_Perk_HerbalistHeadstart_PerkDescription,"Start as an experienced herbalist: your Herbalism skill begins already sharpened, ahead of where a fresh start would normally put it.",以资深草药师的身份开始，草药认知获得提升。
+Herbs_And_Fungi_LinseedOil_CardName,Linseed Oil,亚麻籽油
+Herbs_And_Fungi_LinseedOil_CardDescription,"Cold-pressed oil extracted from flax seeds, served in a clay bowl. Nutty and rich. Eat it, season food with it, or render it into lamp oil. Traditionally valued outside the kitchen too, for treating wood.",从亚麻籽冷榨的油，盛于陶碗中。坚果香浓郁。可直接食用、为食物调味，或熬炼成灯油。传统上用于涂抹木质工具。
+Herbs_And_Fungi_LinseedOil_CardHelpSection,"<b>Crafted:</b> By pressing 3 Flax Seeds + Clay Bowl on a placed Oil Press.
+
+<b>Uses:</b> Eat directly (returns empty clay bowl), drag onto food to season, or render over a fire into lamp oil.","<b>制作：</b>在放置的油压机上压榨亚麻籽。
+
+<b>用途：</b>可直接食用、拖到食物上调味、或在火上熬炼成灯油。"
+Herbs_And_Fungi_LinseedOil_Eat_ActionName,Eat,食用
+Herbs_And_Fungi_Bp_OilPressFlax_CardName,Press Flax Seeds,压榨亚麻籽
+Herbs_And_Fungi_Bp_OilPressFlax_CardDescription,Crush 3 flax seeds in the press and collect in a clay bowl to extract linseed oil.,在压榨机中压碎3粒亚麻籽并用陶碗盛装以提取亚麻籽油。
+Herbs_And_Fungi_Bp_OilPressFlax_UnlockConditionsDesc,Oil Press Needed,需要榨油机
+Herbs_And_Fungi_Spice_LinseedOil_SpiceName,Linseed Oil,亚麻籽油
+herbsfungiblacktrumpetdried_Grind,Grind,研磨
+herbsfungiblacktrumpetdried_Grind_Desc,Grind the dried black trumpet into powder using stones or grinding tools.,用石头或研磨工具将干黑喇叭菇研磨成粉末。
+herbsfungiblacktrumpetground_CardName,Black Trumpet Powder,黑喇叭菇粉
+herbsfungiblacktrumpetground_CardDescription,"Finely ground dried black trumpet mushrooms, prized as a smoky, earthy umami seasoning. Stir into stews and sauces, or eat directly for a concentrated burst of flavor.",研磨干黑喇叭菇制成的粉末，烟熏和鲜味浓郁。撒入炖菜或汤中调味，也可直接食用，浓缩风味十足。
+herbsfungiblacktrumpetground_Eat,Eat,食用
+herbsfungiblacktrumpetground_Eat_Desc,"Eat the concentrated black trumpet powder. Rich smoky, earthy umami flavor straight from the jar.",食用浓缩的黑喇叭菇粉。浓郁的烟熏与鲜味扑面而来。
+herbsfungishiitakedried_Grind,Grind,研磨
+herbsfungishiitakedried_Grind_Desc,Grind the dried shiitake into powder using stones or grinding tools.,用石头或研磨工具将干香菇研磨成粉末。
+herbsfungishiitakeground_CardName,Shiitake Powder,香菇粉
+herbsfungishiitakeground_CardDescription,"Finely ground dried shiitake mushrooms, a concentrated umami seasoning powder. Stir into stews and sauces, or eat directly for a rich savory boost.",研磨干香菇制成的粉末，鲜味浓郁。撒入炖菜或汤中调味，也可直接食用。
+herbsfungishiitakeground_Eat,Eat,食用
+herbsfungishiitakeground_Eat_Desc,Eat the concentrated shiitake powder. Rich savory umami flavor straight from the jar.,食用浓缩的香菇粉。浓郁的鲜味扑面而来。
+Herbs_And_Fungi_KingOysterDried_Grind,Grind,研磨
+Herbs_And_Fungi_KingOysterDried_Grind_Desc,Grind the dried king oyster into powder using stones or grinding tools.,用石头或研磨工具将干杏鲍菇研磨成粉末。
+Herbs_And_Fungi_KingOysterGround_CardName,King Oyster Powder,杏鲍菇粉
+Herbs_And_Fungi_KingOysterGround_CardDescription,"Finely ground dried king oyster mushrooms, a savory umami seasoning powder. Stir into stews and sauces, or eat directly for a meaty, earthy flavor.",研磨干杏鲍菇制成的粉末，咸鲜风味浓郁。撒入炖菜或汤中调味，也可直接食用。
+Herbs_And_Fungi_KingOysterGround_Eat,Eat,食用
+Herbs_And_Fungi_KingOysterGround_Eat_Desc,"Eat the concentrated king oyster powder. Savory, earthy umami flavor straight from the jar.",食用浓缩的杏鲍菇粉。咸鲜风味扑面而来。
+Herbs_And_Fungi_Spice_PeanutOil_SpiceName,Peanut Oil,花生油
+Herbs_And_Fungi_Bp_ReishiBroth_CardName,Reishi Broth,灵芝汤
+Herbs_And_Fungi_Bp_ReishiBroth_CardDescription,"Simmer dried reishi mushroom in a clay bowl to make a rich, earthy broth with powerful immune support and stress relief.",将干灵芝放入陶碗中慢燉，制成浓郁的汤品，提供强大的免疫支持和压力缓解。
+Herbs_And_Fungi_Bp_ReishiBroth_UnlockConditionsDesc,Unlocked after obtaining Dried Reishi,获得干灵芝后解锁
+herbsfungireishibroth_CardName,Reishi Broth,灵芝汤
+herbsfungireishibroth_CardDescription,A rich broth simmered from dried reishi mushroom in a clay bowl. Powerful immune support and stress relief in a warming bowl.,用干灵芝在陶碗中慢燉而成的浓郁汤品。温暖的一碗，提供强大的免疫支持和压力缓解。
+herbsfungireishibroth_CardHelpSection,"<b>Made by:</b> Blueprint: Reishi Broth
+
+<b>Uses:</b> Drink for nutrition, immune support, and stress relief.
+
+<b>Benefits:</b> High hydration, solid satiation, immune boost, stress relief. Earthy flavor profile.","<b>制作：</b> 蓝图：灵芝汤
+
+<b>用途:</b> 饮用可获得营养、免疫支持与压力缓解。
+
+<b>优点:</b> 高保水性，饱腹感强，免疫支持，缓解压力。风味浓郁。"
+herbsfungireishibroth_SpoilageTime_StatName,Spoilage,腐败
+herbsfungireishibroth_Spoiled,The reishi broth has spoiled.,灵芝汤已变质。
+herbsfungireishibroth_Drink,Drink,饮用
+herbsfungireishibroth_Drink_Desc,Drink the reishi broth. Earthy and warming.,饮用灵芝汤。风味浓郁温暖。
+Herbs_And_Fungi_Bp_LionsManeBroth_CardName,Lion's Mane Broth,狮鬃菇汤
+Herbs_And_Fungi_Bp_LionsManeBroth_CardDescription,"Simmer dried lion's mane mushroom in a clay bowl to make a rich, nutty broth known for boosting cognitive focus.",将干狮鬃菇放入陶碗中慢燉，制成坚果香浓郁的汤品，以增强专注力而闻名。
+Herbs_And_Fungi_Bp_LionsManeBroth_UnlockConditionsDesc,Unlocked after obtaining Dried Lion's Mane,获得干狮鬃菇后解锁
+herbsfungilionsmanebroth_CardName,Lion's Mane Broth,狮鬃菇汤
+herbsfungilionsmanebroth_CardDescription,A rich broth simmered from dried lion's mane mushroom in a clay bowl. Known for boosting cognitive function and focus.,用干狮鬃菇在陶碗中慢燉而成的坚果香浓郁汤品。以增强认知功能和专注力而闻名。
+herbsfungilionsmanebroth_CardHelpSection,"<b>Made by:</b> Blueprint: Lion's Mane Broth
+
+<b>Uses:</b> Drink for nutrition and cognitive focus.
+
+<b>Benefits:</b> High hydration, solid satiation, improved focus. Nutty flavor profile.","<b>制作：</b> 蓝图：狮鬃菇汤
+
+<b>用途:</b> 饮用可获得营养并增强专注力。
+
+<b>优点:</b> 高保水性，饱腹感强，增强专注力。坚果香浓郁。"
+herbsfungilionsmanebroth_SpoilageTime_StatName,Spoilage,腐败
+herbsfungilionsmanebroth_Spoiled,The lion's mane broth has spoiled.,狮鬃菇汤已变质。
+herbsfungilionsmanebroth_Drink,Drink,饮用
+herbsfungilionsmanebroth_Drink_Desc,Drink the lion's mane broth. Nutty and warming.,饮用狮鬃菇汤。坚果香浓郁温暖。
+Herbs_And_Fungi_Bp_ChanterelleBroth_CardName,Chanterelle Broth,鸡油菌汤
+Herbs_And_Fungi_Bp_ChanterelleBroth_CardDescription,"Simmer dried chanterelle mushroom in a clay bowl to make a rich, earthy broth known for lifting morale.",将干鸡油菌放入陶碗中慢燉，制成浓郁的汤品，以提升情绪而闻名。
+Herbs_And_Fungi_Bp_ChanterelleBroth_UnlockConditionsDesc,Unlocked after obtaining Dried Chanterelle,获得干鸡油菌后解锁
+herbsfungichanterellebroth_CardName,Chanterelle Broth,鸡油菌汤
+herbsfungichanterellebroth_CardDescription,A rich broth simmered from dried chanterelle mushroom in a clay bowl. Known for lifting morale.,用干鸡油菌在陶碗中慢燉而成的浓郁汤品。以提升情绪而闻名。
+herbsfungichanterellebroth_CardHelpSection,"<b>Made by:</b> Blueprint: Chanterelle Broth
+
+<b>Uses:</b> Drink for nutrition and a morale boost.
+
+<b>Benefits:</b> High hydration, solid satiation, improved morale. Earthy flavor profile.","<b>制作：</b> 蓝图：鸡油菌汤
+
+<b>用途:</b> 饮用可获得营养并提升情绪。
+
+<b>优点:</b> 高保水性，饱腹感强，提升情绪。风味浓郁。"
+herbsfungichanterellebroth_SpoilageTime_StatName,Spoilage,腐败
+herbsfungichanterellebroth_Spoiled,The chanterelle broth has spoiled.,鸡油菌汤已变质。
+herbsfungichanterellebroth_Drink,Drink,饮用
+herbsfungichanterellebroth_Drink_Desc,Drink the chanterelle broth. Earthy and warming.,饮用鸡油菌汤。风味浓郁温暖。
+Herbs_And_Fungi_BerryPreserve_CardName,Berry Preserve,蜂窝腌浆果
+Herbs_And_Fungi_BerryPreserve_CardDescription,"A rich preserve of dried berries, slow-simmered with honeycomb and kept for long-term storage. Sweet, and richly fruity.",用蜂窝慢燉制成的浓郁浆果，可长期保存，甜味、果香浓郁。
+Herbs_And_Fungi_BerryPreserve_CardHelpSection,"<b>Made from:</b> Dried Cloudberry, Dried Lingonberry, Dried Blackcurrant, Dried Redcurrant, Honeycomb - slow-simmered (Cooking tab).
+
+<b>Uses:</b> Eat for strong satiation. Keeps long-term.","<b>制作：</b> 晒干的云莓、晒干的越橘、晒干的黑醋栗和晒干的红醋栗、蜂窝，慢燉制成（烹饪标签）。
+
+<b>用途:</b> 食用饱腹。可长期保存。"
+Herbs_And_Fungi_BerryPreserve_SpoilageTime_CardStatName,Spoilage,新鲜度
+Herbs_And_Fungi_BerryPreserve_SpoilageTime_OnFull_ActionDescription,The berry preserve has gone stale and moldy.,蜂窝腌浆果已经变质发霉。
+Herbs_And_Fungi_BerryPreserve_DismantleActions_Eat_ActionName,Eat,吃
+Herbs_And_Fungi_BerryPreserve_DismantleActions_Eat_ActionDescription,Eat the rich berry preserve.,食用浓郁的蜂窝腌浆果。
+Herbs_And_Fungi_Bp_BerryPreserve_CardName,Berry Preserve,蜂窝腌浆果
+Herbs_And_Fungi_Bp_BerryPreserve_CardDescription,"Slow-simmer dried cloudberries, lingonberries, blackcurrants, redcurrants, and honeycomb to make a shelf-stable berry preserve.",将晒干的云莓、晒干的越橘、晒干的黑醋栗和晒干的红醋栗、蜂窝慢燉，制成可长期保存的蜂窝腌浆果。
+Herbs_And_Fungi_Bp_BerryPreserve_UnlockConditionsDesc,Dried Cloudberry and Honeycomb Needed,需要晒干的云莓和蜂窝
+Herbs_And_Fungi_ApothecaryShelf_CardName,Apothecary Shelf,草药储物架
+Herbs_And_Fungi_ApothecaryShelf_CardDescription,"A narrow slatted shelf built for drying stores. It takes only herbs, mushrooms, powders and medicines, and keeps them far better than a food pantry does.",一个简单的木架系统。用于高效保存草药、蘑菇和粉末。
+Herbs_And_Fungi_ApothecaryShelf_CardHelpSection,"<b>Accepts:</b> Herbs, fungi, powders and medicines only. Ordinary food and materials are refused.
+
+<b>Place it</b> to get the slower spoilage rate.",<b>用途：</b> 用于高效保存草药、蘑菇和粉末。放置后减缓食物腐败。
+Herbs_And_Fungi_ApothecaryShelf_DismantleActions_Place_ActionName,Place,放置
+Herbs_And_Fungi_ApothecaryShelf_DismantleActions_Place_ActionDescription,Stand the shelf up against a wall.,将储藏柜放置在你所在的环境中。
+Herbs_And_Fungi_ApothecaryShelf_DismantleActions_Dismantle_ActionName,Dismantle,拆除
+Herbs_And_Fungi_ApothecaryShelf_DismantleActions_Dismantle_ActionDescription,Take the shelf apart to recover the planks.,拆解储藏柜以回收木板。
+Herbs_And_Fungi_ApothecaryShelf_DismantleActions_Dismantle_FailMessage,Clear the shelf first.,请先清空储藏柜。
+Herbs_And_Fungi_ApothecaryShelf_Placed_CardHelpSection,"<b>Spoilage:</b> Slows to 60% of normal rate for everything on the shelf.
+
+<b>Accepts:</b> Herbs, fungi, powders and medicines only. Ordinary food and materials are refused.",<b>用途：</b> 减缓食物腐败。存放草药、蘑菇和粉末。
+Herbs_And_Fungi_ApothecaryShelfPlaced_DismantleActions_PickUp_ActionName,Pick Up,拾起
+Herbs_And_Fungi_ApothecaryShelfPlaced_DismantleActions_PickUp_ActionDescription,Take the shelf down so it can be carried.,拾起储藏柜以便携带。
+Herbs_And_Fungi_ApothecaryShelfPlaced_DismantleActions_PickUp_FailMessage,Clear the shelf before taking it down.,请先清空储藏柜再拾起。
+Herbs_And_Fungi_ApothecaryShelfPlaced_DismantleActions_Dismantle_ActionName,Dismantle,拆除
+Herbs_And_Fungi_ApothecaryShelfPlaced_DismantleActions_Dismantle_ActionDescription,Take the shelf apart to recover the planks.,拆解储藏柜以回收木板。
+Herbs_And_Fungi_ApothecaryShelfPlaced_DismantleActions_Dismantle_FailMessage,Clear the shelf first.,请先清空储藏柜。
+Herbs_And_Fungi_Bp_ApothecaryShelf_CardName,Apothecary Shelf,草药储物架
+Herbs_And_Fungi_Bp_ApothecaryShelf_CardDescription,"A narrow slatted shelf for herbs, mushrooms, powders and medicines. Requires 3 planks, 2 twine, and a hammer.",一个简单的木架系统。用于高效保存草药、蘑菇和粉末。需要3块木板、2根细线和一把锤子。
+Herbs_And_Fungi_Bp_ApothecaryShelf_UnlockConditionsDesc,Unlocked after obtaining Dried Yarrow,获得干蓍草后解锁
+Herbs_And_Fungi_IncenseBundle_CardName,Herbal Incense Bundle,草药熏香
+Herbs_And_Fungi_IncenseBundle_CardDescription,"Dried wild flowers, chamomile and yarrow bound tight with twine. Touch a flame to one end and it smoulders rather than burns, scenting the whole room until it is gone.",晾干的野花、洋甘菊和蓍草。用火点燃后散发出柔和的烟气。
+Herbs_And_Fungi_IncenseBundle_CardHelpSection,"<b>Lighting:</b> Drag a fire or a lit torch onto the bundle.
+
+<b>Burn time:</b> 12 units, about three hours, then it is used up.
+
+<b>While lit:</b> Eases stress and makes the room feel more sheltered. It works from anywhere on your board, not only in your hands. It is consumed, not reusable.",<b>用途：</b> 用火点燃后散发出柔和的烟气。具有镇静与缓解压力的效果。
+Herbs_And_Fungi_IncenseBundle_FuelCapacity_CardStatName,Incense,熏香
+Herbs_And_Fungi_IncenseBundle_Light_ActionName,Light the Incense,点燃熏香
+Herbs_And_Fungi_IncenseBundle_Light_ActionDescription,Touch a flame to the bound herbs until they catch and start to smoulder.,用火点燃草药熏香，让它们开始阴燃。
+Herbs_And_Fungi_IncenseBundle_Light_FailMessage,There is nothing left of this bundle to burn.,草药熏香已经燃尽。
+Herbs_And_Fungi_IncenseBundleLit_CardName,Smouldering Incense Bundle,阴燃的熏香
+Herbs_And_Fungi_IncenseBundleLit_CardDescription,"A slow curl of sweet smoke lifts off the bound herbs. The room softens around it, and the knot in your chest loosens a little.",阴燃的草药熏香散发出柔和的烟气。坐在其中，肩背间那股紧绷会慢慢松开。
+Herbs_And_Fungi_IncenseBundleLit_CardHelpSection,"<b>While it burns:</b> Stress falls faster and the room feels more sheltered. It works from anywhere on your board, not only in your hands.
+
+<b>Burn time:</b> About three hours from full, then the bundle is gone for good.
+
+<b>Snuff it out</b> to save what is left for later.",<b>用途：</b> 具有镇静与缓解压力的效果。
+Herbs_And_Fungi_IncenseBundleLit_FuelCapacity_CardStatName,Incense,熏香
+Herbs_And_Fungi_IncenseBundleLit_BurnsOut_ActionName,The Incense Burns Out,熏香燃尽
+Herbs_And_Fungi_IncenseBundleLit_BurnsOut_ActionDescription,The last of the bundle crumbles to ash and the scent thins out of the air.,草药熏香已经燃尽。
+Herbs_And_Fungi_IncenseBundleLit_Snuff_ActionName,Snuff Out,掐灭
+Herbs_And_Fungi_IncenseBundleLit_Snuff_ActionDescription,Pinch out the smouldering end and keep the rest of the bundle for another evening.,掐灭阴燃的草药熏香。
+Herbs_And_Fungi_Bp_IncenseBundle_CardName,Herbal Incense Bundle,草药熏香
+Herbs_And_Fungi_Bp_IncenseBundle_CardDescription,"Bind dried wild flowers, chamomile and yarrow into a bundle that smoulders when lit. Requires 2 dried wild flowers, 1 dried chamomile, 1 dried yarrow, and 1 twine.",晾干的野花、洋甘菊和蓍草。需要2份干野花、1份干洋甘菊、1份干蓍草和1根细线。
+Herbs_And_Fungi_Bp_IncenseBundle_UnlockConditionsDesc,Unlocked after obtaining Dried Wild Flowers,获得干野花后解锁
+Herbs_And_Fungi_TruffleButter_CardName,Truffle Butter,松露黄油
+Herbs_And_Fungi_TruffleButter_CardDescription,Fresh truffle worked through fat or butter. Rich and earthy; stir it into a stew or eat it as it is.,新鲜松露与脂肪或黄油混合而成。浓烈的泥土风味，可加入炖菜或直接食用。
+Herbs_And_Fungi_TruffleButter_CardHelpSection,"<b>Made from:</b> Drag Fat, a Fat Chunk, a Butter Chunk or Milk Butter onto a fresh Truffle. The fat is used up.
+
+<b>Uses:</b> Eat it, or add it to any stew. Keeps about a week.","<b>制作：</b> 将黄油或脂肪拖到新鲜松露上。
+
+<b>用途:</b> 食用，或加入炖菜。"
+Herbs_And_Fungi_TruffleButter_SpoilageTime_CardStatName,Spoilage,新鲜度
+Herbs_And_Fungi_TruffleButter_SpoilageTime_OnFull_ActionDescription,The truffle butter has gone rancid.,松露黄油已变质。
+Herbs_And_Fungi_TruffleButter_Eat_ActionName,Eat,吃
+Herbs_And_Fungi_TruffleButter_Eat_ActionDescription,"Eat the truffle butter as it is. Rich, earthy and very satisfying.",吃松露黄油。浓烈的泥土风味。
+Herbs_And_Fungi_TruffleButter_AddToStew_ActionName,Add to Stew,加入炖菜
+Herbs_And_Fungi_TruffleButter_AddToStew_ActionDescription,Drop into the boiling liquid to cook.,放入汤中烹饪。
+Herbs_And_Fungi_TruffleSalt_CardName,Truffle Salt,松露盐
+Herbs_And_Fungi_TruffleSalt_CardDescription,"Dried truffle ground into salt: a finishing salt that never spoils. A pinch in a stew adds a strong earthy, savoury note.",干松露与盐研磨而成的调味盐。可长期保存。加入炖菜，浓烈的泥土风味。
+Herbs_And_Fungi_TruffleSalt_CardHelpSection,"<b>Made from:</b> Drag Salt onto a whole Dried Truffle and grind them together. The salt is used up.
+
+<b>Uses:</b> Add to any stew. Does not spoil.","<b>制作：</b> 用盐研磨干松露而成。
+
+<b>用途:</b> 加入炖菜。可长期保存。"
+Herbs_And_Fungi_TruffleSalt_AddToStew_ActionName,Add to Stew,加入炖菜
+Herbs_And_Fungi_TruffleSalt_AddToStew_ActionDescription,Drop into the boiling liquid to cook.,放入汤中烹饪。
+Herbs_And_Fungi_Truffle_MakeButter_ActionName,Make Truffle Butter,制作松露黄油
+Herbs_And_Fungi_Truffle_MakeButter_ActionDescription,Work the fresh truffle through the fat or butter. The fat is used up and the truffle becomes Truffle Butter.,将新鲜松露与脂肪或黄油混合制成松露黄油。
+Herbs_And_Fungi_DriedTruffle_GrindWithSalt_ActionName,Grind with Salt,用盐研磨
+Herbs_And_Fungi_DriedTruffle_GrindWithSalt_ActionDescription,Crush the dried truffle into the salt. The salt is used up and the truffle becomes Truffle Salt.,用盐研磨干松露制成松露盐。

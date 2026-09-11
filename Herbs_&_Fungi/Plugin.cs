@@ -11,10 +11,12 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.Herbs_And_Fungi";
     public const string PluginName = "Herbs and Fungi";
-    public const string PluginVersion = "1.10.15";
+    public const string PluginVersion = "1.13.0";
 
     internal new static ManualLogSource Logger { get; private set; }
     internal static Plugin Instance { get; private set; }
+
+    internal static BepInEx.Configuration.ConfigEntry<float> ForageDropDensityScale { get; private set; }
 
     protected override void OnModAwake()
     {
@@ -22,6 +24,12 @@ internal class Plugin : ContentModPlugin
 
         // Set up logger for static access
         Logger = base.Logger;
+
+        ForageDropDensityScale = Config.Bind(
+            "Performance",
+            "ForageDropDensityScale",
+            1.0f,
+            "Multiplier applied to all HerbsAndFungi-injected forage/dig drop chances (0.25-1.0 recommended). Lower this instead of uninstalling the mod if forage variety feels too dense.");
     }
 
     protected override void RegisterPatches(Harmony harmony)

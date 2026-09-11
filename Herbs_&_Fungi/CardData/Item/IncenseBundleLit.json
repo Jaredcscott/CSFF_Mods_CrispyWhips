@@ -1,0 +1,231 @@
+{
+    "UniqueID": "herbs_fungi_incense_bundle_lit",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_incense_bundle_lit",
+        "LocalizationKey": "Herbs_And_Fungi_IncenseBundleLit_CardName",
+        "DefaultText": "Smouldering Incense Bundle"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_incense_bundle_lit",
+        "LocalizationKey": "Herbs_And_Fungi_IncenseBundleLit_CardDescription",
+        "DefaultText": "A slow curl of sweet smoke lifts off the bound herbs. The room softens around it, and the knot in your chest loosens a little."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_incense_bundle_lit",
+        "LocalizationKey": "Herbs_And_Fungi_IncenseBundleLit_CardHelpSection",
+        "DefaultText": "<b>While it burns:</b> Stress falls faster and the room feels more sheltered. It works from anywhere on your board, not only in your hands.\n\n<b>Burn time:</b> About three hours from full, then the bundle is gone for good.\n\n<b>Snuff it out</b> to save what is left for later."
+    },
+    "CardType": 0,
+    "ObjectWeight": 20.0,
+    "TradingValue": 30.0,
+    "DoesNotPile": true,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "IncenseBundleLit",
+    "CardImageWarpType": 3,
+    "CardTags": [],
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "FireIgnite"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": true,
+        "FloatValue": 12.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_incense_bundle_lit",
+            "LocalizationKey": "Herbs_And_Fungi_IncenseBundleLit_FuelCapacity_CardStatName",
+            "DefaultText": "Incense"
+        },
+        "MaxValue": 12.0,
+        "RatePerDaytimePoint": -1.0,
+        "HidingOptions": 0,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "HasActionOnZero": true,
+        "ShowPopupOnZero": true,
+        "HasActionOnFull": false,
+        "ShowPopupOnFull": false,
+        "CountsForTradingValue": false,
+        "OnZero": {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_incense_bundle_lit",
+                "LocalizationKey": "Herbs_And_Fungi_IncenseBundleLit_BurnsOut_ActionName",
+                "DefaultText": "The Incense Burns Out"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_incense_bundle_lit",
+                "LocalizationKey": "Herbs_And_Fungi_IncenseBundleLit_BurnsOut_ActionDescription",
+                "DefaultText": "The last of the bundle crumbles to ash and the scent thins out of the air."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionSoundsWarpData": [
+                "FireExtinguish"
+            ],
+            "ActionSoundsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_incense_bundle_lit",
+                "LocalizationKey": "Herbs_And_Fungi_IncenseBundleLit_Snuff_ActionName",
+                "DefaultText": "Snuff Out"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_incense_bundle_lit",
+                "LocalizationKey": "Herbs_And_Fungi_IncenseBundleLit_Snuff_ActionDescription",
+                "DefaultText": "Pinch out the smouldering end and keep the rest of the bundle for another evening."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [
+                "FireExtinguish"
+            ],
+            "ActionSoundsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_incense_bundle",
+                "TransformIntoWarpType": 3,
+                "TransferFuel": true,
+                "SpawnTransformAtSource": true
+            }
+        }
+    ],
+    "PassiveStatEffects": [],
+    "PassiveEffects": [
+        {
+            "EffectName": "Herbal Incense - Calming Smoke",
+            "OnlyWhenEquipped": false,
+            "EquippedOnBodyOnly": false,
+            "OnlyWhenNOTEquipped": false,
+            "OnlyWhenInHand": false,
+            "OnlyOnBaseActions": false,
+            "OnlyOnNOTBaseActions": false,
+            "OnlyWhenNOTInBG": false,
+            "Conditions": {
+                "NotInBackground": true
+            },
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "RateModifier": {
+                        "x": -0.3,
+                        "y": -0.3
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        },
+        {
+            "EffectName": "Herbal Incense - Sheltered Air",
+            "OnlyWhenEquipped": false,
+            "EquippedOnBodyOnly": false,
+            "OnlyWhenNOTEquipped": false,
+            "OnlyWhenInHand": false,
+            "OnlyOnBaseActions": false,
+            "OnlyOnNOTBaseActions": false,
+            "OnlyWhenNOTInBG": false,
+            "Conditions": {
+                "NotInBackground": true
+            },
+            "StatModifiers": [
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "1c878c3860c25904b826bc95765cbea6",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 20.0,
+                        "y": 20.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ]
+}

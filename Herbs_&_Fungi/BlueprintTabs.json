@@ -2,14 +2,19 @@
     "Tab_1_Survival_Subtab_2_Support_TabName": [
         "herbs_fungi_bp_herb_pipe",
         "herbs_fungi_bp_drying_tray",
-        "herbs_fungi_bp_flower_garland"
+        "herbs_fungi_bp_flower_garland",
+        "herbs_fungi_bp_incense_bundle"
     ],
     "Tab_1_Survival_Subtab_5_Cooking_TabName": [
         "herbs_fungi_bp_mushroom_broth",
         "herbs_fungi_bp_sleep_tea",
         "herbs_fungi_bp_anti_nausea_tea",
         "herbs_fungi_bp_stimulant_tea",
-        "herbs_fungi_bp_trail_mix"
+        "herbs_fungi_bp_trail_mix",
+        "herbs_fungi_bp_reishi_broth",
+        "herbs_fungi_bp_lions_mane_broth",
+        "herbs_fungi_bp_chanterelle_broth",
+        "herbs_fungi_bp_berry_preserve"
     ],
     "Tab_1_Survival_Subtab_3_Medical_TabName": [
         "herbs_fungi_bp_pain_relief_powder",
@@ -45,6 +50,7 @@
     "Tab_2_Construction_Subtab_4_Furniture_TabName": [
         "herbs_fungi_bp_wooden_pantry",
         "herbs_fungi_bp_drying_stack",
-        "herbs_fungi_bp_oil_press_kit"
+        "herbs_fungi_bp_oil_press_kit",
+        "herbs_fungi_bp_apothecary_shelf"
     ]
 }

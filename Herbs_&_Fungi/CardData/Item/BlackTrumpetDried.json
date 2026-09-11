@@ -379,6 +379,69 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_black_trumpet_dried",
+                "LocalizationKey": "herbsfungiblacktrumpetdried_Grind",
+                "DefaultText": "Grind"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_black_trumpet_dried",
+                "LocalizationKey": "herbsfungiblacktrumpetdried_Grind_Desc",
+                "DefaultText": "Grind the dried black trumpet into powder using stones or grinding tools."
+            },
+            "DaytimeCost": 1,
+            "StatModifications": [
+                {
+                    "StatWarpData": "85559650c938ef843af92c18f5b0c6c7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 1.0,
+                        "y": 1.0
+                    }
+                },
+                {
+                    "StatWarpData": "16af37a364285d14586629e3e0700e55",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -3.0,
+                        "y": -3.0
+                    },
+                    "ApplyEachTick": true
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransferSpoilage": true,
+                "TransformIntoWarpData": "herbs_fungi_black_trumpet_ground",
+                "TransformIntoWarpType": 3
+            },
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "9f657b781d6e789479bcf3e01f7b61d5"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [
+                    "tag_HammeringToolGeneral",
+                    "tag_GrindingTool"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksBothWays": true,
+            "WorksInverted": false,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_black_trumpet_dried",
                 "LocalizationKey": "",
                 "DefaultText": "Add to Stew"
             },
@@ -510,7 +573,7 @@
             },
             "FlavourWarpData": "79e30fba7cf532345b483833c449a3ae",
             "FlavourWarpType": 3,
-            "Intensity": 3
+            "Intensity": 0
         },
         {
             "Flavour": {
@@ -528,7 +591,7 @@
             },
             "FlavourWarpData": "d5d0c5e6112875a4cafc88a4b57711bf",
             "FlavourWarpType": 3,
-            "Intensity": 1
+            "Intensity": 2
         },
         {
             "Flavour": {
@@ -537,7 +600,7 @@
             },
             "FlavourWarpData": "9983ffd1ccbfd3340b3fdb8f05e655be",
             "FlavourWarpType": 3,
-            "Intensity": 1
+            "Intensity": 2
         }
     ],
     "SpoilageTime": {

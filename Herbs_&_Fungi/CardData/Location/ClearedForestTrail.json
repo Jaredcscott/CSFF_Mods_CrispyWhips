@@ -86,8 +86,6 @@
   "MaxLiquidCapacity": 0.0,
   "InventorySlots": [],
   "CookingRecipes": [],
-  "BlueprintStages": [],
-  "BlueprintResult": [],
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
   "CardImageWarpData": "Woods1",
   "CardImageWarpType": 3,

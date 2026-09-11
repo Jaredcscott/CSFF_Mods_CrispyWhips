@@ -373,7 +373,7 @@
             },
             "FlavourWarpData": "a20b2d50b9a50e44f90231e3b3f8bcaf",
             "FlavourWarpType": 3,
-            "Intensity": 3
+            "Intensity": 0
         },
         {
             "Flavour": {
@@ -382,7 +382,7 @@
             },
             "FlavourWarpData": "dbdbd2912287a7b47b9427555ecaf1ef",
             "FlavourWarpType": 3,
-            "Intensity": 1
+            "Intensity": 2
         }
     ]
 }

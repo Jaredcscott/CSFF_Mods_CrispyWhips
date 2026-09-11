@@ -33,10 +33,16 @@
     "SpecialDurability4": {"Active": false},
     "DroppedOnDestroy": [
         {
-            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
-            "Quantity": {"x": 1, "y": 1},
-            "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
-            "DroppedCardWarpType": 3
+            "CollectionName": "",
+            "CollectionWeight": 1,
+            "DroppedCards": [
+                {
+                    "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                    "Quantity": {"x": 1, "y": 1},
+                    "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+                    "DroppedCardWarpType": 3
+                }
+            ]
         }
     ],
     "CardInteractions": [],
@@ -64,10 +70,16 @@
             },
             "ProducedCards": [
                 {
-                    "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
-                    "Quantity": {"x": 1, "y": 1},
-                    "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
-                    "DroppedCardWarpType": 3
+                    "CollectionName": "",
+                    "CollectionWeight": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "Quantity": {"x": 1, "y": 1},
+                            "DroppedCardWarpData": "a968f3eaffc6b9743b82982b5af2ab8c",
+                            "DroppedCardWarpType": 3
+                        }
+                    ]
                 }
             ]
         }

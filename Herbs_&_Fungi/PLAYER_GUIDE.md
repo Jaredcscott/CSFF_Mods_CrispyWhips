@@ -136,6 +136,17 @@ A sealed cool-storage cabinet that slows spoilage to **75% of normal**. Built fr
 - Not animal-safe — foxes, badgers, and other wildlife can raid it.
 - Best for storing dried herbs, preserved foods, and anything with a moderate shelf life.
 
+### Apothecary Shelf
+
+A narrow slatted shelf that takes **only** herbs, fungi, powders and medicines, and slows their
+spoilage to **60% of normal**, better than the pantry, over a much narrower range. Built from the
+Furniture tab once you have dried yarrow: 3 Planks, 2 Twine and a hammer.
+
+- Ordinary food, tools and building materials are refused outright.
+- Cheaper than the Wooden Pantry and holds less, so it complements the pantry rather than replacing
+  it: put your materia medica here and your food there.
+- Dismantle when empty to recover 2 Planks.
+
 ---
 
 ## Hemp Farming
@@ -189,6 +200,23 @@ A reusable carved wooden pipe for inhaling herbal powders.
 **Using the pipe:** Drag a fire source (any lit flame) onto the loaded pipe to smoke it. Quality degrades with each use — a fresh pipe holds 3 uses.
 
 **Empty:** Use the "Empty Pipe" action to recover the unloaded pipe and discard leftover powder.
+
+---
+
+## Herbal Incense Bundle
+
+Where the pipe is a personal dose, incense fills the room. Bind **2 Dried Wild Flowers, 1 Dried
+Chamomile, 1 Dried Yarrow and 1 Twine** from the Support tab, unlocked once you have dried wild
+flowers.
+
+**Lighting it:** Drag a fire or any lit flame onto the bundle.
+
+**While it smoulders:** Stress falls faster and the room reads as more sheltered. The effect comes
+from the card sitting on your board, so it works whether the bundle is in your hands or set down
+nearby, but not from another location.
+
+**Burn time:** 12 units, about three hours, then the bundle is consumed for good. Use **Snuff Out**
+to pinch it out and keep whatever is left for another evening.
 
 ---
 

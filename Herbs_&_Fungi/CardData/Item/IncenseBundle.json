@@ -1,0 +1,149 @@
+{
+    "UniqueID": "herbs_fungi_incense_bundle",
+    "CardName": {
+        "ParentObjectID": "herbs_fungi_incense_bundle",
+        "LocalizationKey": "Herbs_And_Fungi_IncenseBundle_CardName",
+        "DefaultText": "Herbal Incense Bundle"
+    },
+    "CardDescription": {
+        "ParentObjectID": "herbs_fungi_incense_bundle",
+        "LocalizationKey": "Herbs_And_Fungi_IncenseBundle_CardDescription",
+        "DefaultText": "Dried wild flowers, chamomile and yarrow bound tight with twine. Touch a flame to one end and it smoulders rather than burns, scenting the whole room until it is gone."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "herbs_fungi_incense_bundle",
+        "LocalizationKey": "Herbs_And_Fungi_IncenseBundle_CardHelpSection",
+        "DefaultText": "<b>Lighting:</b> Drag a fire or a lit torch onto the bundle.\n\n<b>Burn time:</b> 12 units, about three hours, then it is used up.\n\n<b>While lit:</b> Eases stress and makes the room feel more sheltered. It works from anywhere on your board, not only in your hands. It is consumed, not reusable."
+    },
+    "CardType": 0,
+    "ObjectWeight": 20.0,
+    "TradingValue": 30.0,
+    "DoesNotPile": true,
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "WildFlowersDried",
+    "CardImageWarpType": 3,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Herb",
+        "tag_Flower",
+        "tag_Preservable"
+    ],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "Fiber"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": true,
+        "FloatValue": 12.0,
+        "CardStatName": {
+            "ParentObjectID": "herbs_fungi_incense_bundle",
+            "LocalizationKey": "Herbs_And_Fungi_IncenseBundle_FuelCapacity_CardStatName",
+            "DefaultText": "Incense"
+        },
+        "MaxValue": 12.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "HasActionOnZero": false,
+        "HasActionOnFull": false,
+        "CountsForTradingValue": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_incense_bundle",
+                "LocalizationKey": "Herbs_And_Fungi_IncenseBundle_Light_ActionName",
+                "DefaultText": "Light the Incense"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_incense_bundle",
+                "LocalizationKey": "Herbs_And_Fungi_IncenseBundle_Light_ActionDescription",
+                "DefaultText": "Touch a flame to the bound herbs until they catch and start to smoulder."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [
+                "FireIgnite"
+            ],
+            "ActionSoundsWarpType": 3,
+            "RequiredReceivingDurabilities": {
+                "RequiredFuelPercent": {
+                    "Active": true,
+                    "FloatValue": 0.001,
+                    "MaxValue": 1.0
+                },
+                "HideActionIfNotMet": true,
+                "FailMessage": {
+                    "ParentObjectID": "herbs_fungi_incense_bundle",
+                    "LocalizationKey": "Herbs_And_Fungi_IncenseBundle_Light_FailMessage",
+                    "DefaultText": "There is nothing left of this bundle to burn."
+                }
+            },
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [
+                    "tag_Fire",
+                    "tag_FireSource"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": false,
+            "WorksBothWays": true,
+            "StackCompatible": false,
+            "GivenCardChanges": {
+                "ModType": 0
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_incense_bundle_lit",
+                "TransformIntoWarpType": 3,
+                "TransferFuel": true,
+                "SpawnTransformAtSource": true
+            }
+        }
+    ],
+    "DismantleActions": [],
+    "PassiveStatEffects": [],
+    "PassiveEffects": []
+}

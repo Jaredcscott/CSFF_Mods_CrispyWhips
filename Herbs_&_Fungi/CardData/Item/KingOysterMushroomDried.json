@@ -150,6 +150,69 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_king_oyster_dried",
+                "LocalizationKey": "Herbs_And_Fungi_KingOysterDried_Grind",
+                "DefaultText": "Grind"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_king_oyster_dried",
+                "LocalizationKey": "Herbs_And_Fungi_KingOysterDried_Grind_Desc",
+                "DefaultText": "Grind the dried king oyster into powder using stones or grinding tools."
+            },
+            "DaytimeCost": 1,
+            "StatModifications": [
+                {
+                    "StatWarpData": "85559650c938ef843af92c18f5b0c6c7",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 1.0,
+                        "y": 1.0
+                    }
+                },
+                {
+                    "StatWarpData": "16af37a364285d14586629e3e0700e55",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -3.0,
+                        "y": -3.0
+                    },
+                    "ApplyEachTick": true
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransferSpoilage": true,
+                "TransformIntoWarpData": "herbs_fungi_king_oyster_ground",
+                "TransformIntoWarpType": 3
+            },
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "9f657b781d6e789479bcf3e01f7b61d5"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [
+                    "tag_HammeringToolGeneral",
+                    "tag_GrindingTool"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksBothWays": true,
+            "WorksInverted": false,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_king_oyster_dried",
                 "LocalizationKey": "",
                 "DefaultText": "Add to Stew"
             },

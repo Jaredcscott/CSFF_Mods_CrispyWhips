@@ -118,16 +118,22 @@
     },
     "DroppedOnDestroy": [
         {
-            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
-            "Quantity": {"x": 1, "y": 1},
-            "DroppedCardWarpData": "herbs_fungi_pickling_vat",
-            "DroppedCardWarpType": 3
-        },
-        {
-            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
-            "Quantity": {"x": 1, "y": 1},
-            "DroppedCardWarpData": "herbs_fungi_open_pickle_jar",
-            "DroppedCardWarpType": 3
+            "CollectionName": "",
+            "CollectionWeight": 1,
+            "DroppedCards": [
+                {
+                    "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                    "Quantity": {"x": 1, "y": 1},
+                    "DroppedCardWarpData": "herbs_fungi_pickling_vat",
+                    "DroppedCardWarpType": 3
+                },
+                {
+                    "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                    "Quantity": {"x": 1, "y": 1},
+                    "DroppedCardWarpData": "herbs_fungi_open_pickle_jar",
+                    "DroppedCardWarpType": 3
+                }
+            ]
         }
     ],
     "CardInteractions": [],

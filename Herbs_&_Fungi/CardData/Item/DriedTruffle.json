@@ -346,6 +346,56 @@
         {
             "ActionName": {
                 "ParentObjectID": "herbs_fungi_dried_truffle",
+                "LocalizationKey": "Herbs_And_Fungi_DriedTruffle_GrindWithSalt_ActionName",
+                "DefaultText": "Grind with Salt"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "herbs_fungi_dried_truffle",
+                "LocalizationKey": "Herbs_And_Fungi_DriedTruffle_GrindWithSalt_ActionDescription",
+                "DefaultText": "Crush the dried truffle into the salt. The salt is used up and the truffle becomes Truffle Salt."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionSounds": [],
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [
+                "Stone"
+            ],
+            "ActionSoundsWarpType": 3,
+            "RequiredGivenContainer": [],
+            "RequiredGivenContainerTag": [],
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "f91b5676fc26c0e48a4ee6fd9dfc2ffa"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "WorksInverted": false,
+            "WorksBothWays": true,
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "herbs_fungi_truffle_salt",
+                "TransformIntoWarpType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "herbs_fungi_dried_truffle",
                 "LocalizationKey": "herbsfungidriedtruffle_Cut",
                 "DefaultText": "Cut"
             },
@@ -1086,7 +1136,7 @@
             },
             "FlavourWarpData": "79e30fba7cf532345b483833c449a3ae",
             "FlavourWarpType": 3,
-            "Intensity": 4
+            "Intensity": 0
         },
         {
             "Flavour": {
@@ -1095,7 +1145,7 @@
             },
             "FlavourWarpData": "55ebfecd567382b44a9d2c176c5b5156",
             "FlavourWarpType": 3,
-            "Intensity": 4
+            "Intensity": 0
         },
         {
             "Flavour": {

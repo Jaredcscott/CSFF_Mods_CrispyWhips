@@ -29,8 +29,6 @@ internal static class ApothecaryQuestGatePatch
     private static MethodInfo _getFromIdMethod;
     private static object _ginsengFlag;
     private static object _gingerFlag;
-    private static bool _ginsengFlagSet;
-    private static bool _gingerFlagSet;
 
     public static void ApplyPatch(Harmony harmony)
     {
@@ -52,26 +50,17 @@ internal static class ApothecaryQuestGatePatch
     {
         try
         {
-            if (uid == DriedGingerItemUid)
-            {
-                if (_gingerFlagSet) return;
-                var gm = CardUtil.GetGameManagerInstance();
-                if (gm != null && ResolveTypes() && InitializeStatReferences(gm))
-                {
-                    SetStatValue(gm, QuestFlagGingerUid, 1.0f);
-                    _gingerFlagSet = true;
-                }
-            }
-            else if (uid == GroundGinsengItemUid)
-            {
-                if (_ginsengFlagSet) return;
-                var gm = CardUtil.GetGameManagerInstance();
-                if (gm != null && ResolveTypes() && InitializeStatReferences(gm))
-                {
-                    SetStatValue(gm, QuestFlagGinsengUid, 1.0f);
-                    _ginsengFlagSet = true;
-                }
-            }
+            string statUid;
+            if (uid == DriedGingerItemUid) statUid = QuestFlagGingerUid;
+            else if (uid == GroundGinsengItemUid) statUid = QuestFlagGinsengUid;
+            else return;
+
+            // No static "already set" latch: the dedup is done per-save inside SetStatValue by
+            // reading the live GameManager stat, so switching saves in one game session can't leak
+            // a prior save's "set" state onto a new one (fixed 2026-09-05).
+            var gm = CardUtil.GetGameManagerInstance();
+            if (gm != null && ResolveTypes() && InitializeStatReferences(gm))
+                SetStatValue(gm, statUid, 1.0f);
         }
         catch (Exception ex)
         {
@@ -131,6 +120,10 @@ internal static class ApothecaryQuestGatePatch
             if (!statsDict.Contains(statRef)) return;
             var inGameStat = statsDict[statRef];
             if (inGameStat == null) return;
+
+            // Idempotent per-save: the quest flag is a one-way latch. If this save already has it set,
+            // do nothing (this replaces the old cross-save static booleans).
+            if (StatAccess.GetCurrentValue(inGameStat) >= value) return;
 
             StatAccess.SetCurrentValue(inGameStat, value);
         }
