@@ -1,6 +1,6 @@
 # Water Driven Infrastructure
 
-**Version:** 1.10.19
+**Version:** 1.11.0
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.66)
 **Requires:** CSFFModFramework (AdvancedCopperTools optional — enhances, doesn't gate)
@@ -13,7 +13,7 @@ Water Driven Infrastructure adds large-scale, water-powered construction to Card
 
 Fully standalone: WDI ships its own copper AND iron fasteners (Cast Copper Rivet, Cast Iron Rivet, Alloy Solder, Cast Copper Sheet, Cast Iron Sheet) so every blueprint builds with just the framework installed. Both cast sheets earn their keep without any other mod — the Cast Iron Sheet shears into eight Iron Rivets in one cold-work craft, and the Cast Copper Sheet is what the Workshop's Hammer Copper Sheet action produces when AdvancedCopperTools is absent. If **AdvancedCopperTools** is also installed, its Copper/Iron Nails, Tin Solder, and Copper/Iron Sheet are accepted interchangeably in every fastener slot (same tier for sheets; any tier for nails/rivets, since they're a generic fastener), and the Workshop's Hammer Copper Sheet / Forge Copper Nails actions produce ACT's real items instead of WDI's.
 
-All 24 shipped blueprints are injected into the crafting journal automatically via `BlueprintTabs.json`.
+All 25 shipped blueprints are injected into the crafting journal automatically via `BlueprintTabs.json`.
 
 ---
 
@@ -39,7 +39,7 @@ Water Source (river / lake)
 
 | Tab | Blueprints |
 |-----|-----------|
-| **Advanced Tools** | Mill Race, Mill Race Outlet, Water Wheel, Water Mill, Ore Sluice (Empty) |
+| **Advanced Tools** | Mill Race, Mill Race Outlet, Water Wheel, Water Mill, Ore Sluice (Empty), Fish Funnel |
 | **Metal Crafts** | Cast Large Copper Gear, Cast Small Copper Gear, Cast Copper Saw Blade, Forge Iron Parts, Forge Iron Bearing, Forge Iron Axle, Forge Iron Wrench, Forge Copper Rivet, Forge Iron Rivet, Forge Alloy Solder, Forge Cast Copper Sheet, Forge Cast Iron Sheet, Cut Iron Rivets from Sheet |
 | **Furniture** | Ore Sluice, Water-Driven Grinding Mill, Water-Driven Sawmill, Water-Driven Forge, Water-Driven Workshop Kit |
 | **Farming Agriculture** | Fishpond |
@@ -104,7 +104,7 @@ Automated wood processing — drag logs in, collect planks.
 - 6-slot inventory; holds logs awaiting processing
 - **Pack Up** dismantle (1 hour): recovers all components as a portable kit
 
-A recruited Partner can be assigned an **Operate the Sawmill** duty — toggle it on and they'll walk to the sawmill and run Cut, supplying a log themselves. *(Shipped in 1.10.11, not yet confirmed in-game.)*
+A recruited Partner can be assigned an **Operate the Sawmill** duty — toggle it on and they'll walk to the sawmill and run Cut, supplying a log themselves. *(Shipped in 1.10.11, confirmed in-game 2026-09-07.)*
 
 ---
 
@@ -168,7 +168,9 @@ Uses flowing water to separate and concentrate mineral deposits.
 
 Placement must be adjacent to a Mill Race.
 
-A recruited Partner can be assigned an **Operate the Ore Sluice** duty — toggle it on and they'll walk to the sluice and press Sluice All. *(Shipped in 1.10.10, not yet confirmed in-game.)*
+Every wash now yields something: a soil pile whose mineral rolls all miss leaves a **Stone** behind as washed tailings, so Sluice All is never entirely empty (previously about 29% of mud piles and 34% of fine dirt produced nothing at all).
+
+A recruited Partner can be assigned an **Operate the Ore Sluice** duty — toggle it on and they'll walk to the sluice and press Sluice All. *(Shipped in 1.10.10, confirmed in-game 2026-09-07.)*
 
 ---
 
@@ -187,6 +189,28 @@ A dug and stocked pond for sustained fish production.
 | 5 | Supplement: 2 Pike + 2 Perch + 2 Minnow |
 
 Fish population grows over time and can be harvested periodically. The pond freezes in winter and cannot be packed up until it thaws in spring.
+
+---
+
+## Fish Funnel
+
+A woven timber wing-wall staked out across a river to steer passing fish into a trap.
+
+**Single-stage build** (unlock 16 ticks, 1.5 hours, requires Mill Race): 6 Planks + 2 Rope + 4 Twine.
+Must be built outdoors at a river; the blueprint is hidden anywhere else.
+
+The blueprint yields a **Fish Funnel Kit**. Place the kit at a river and it becomes the funnel;
+**Pack Up** returns the kit for relocation. Disassembling the kit instead recovers 4 Planks,
+1 Rope and 2 Twine.
+
+A placed funnel doubles how fast a **vanilla Funnel Trap** in the same location gains fish:
+it adds +10 Common Fish Population per daytime point on top of the trap's own 10, so a trap
+fills in roughly half the time. The funnel catches nothing by itself, so a Funnel Trap still
+has to be set in the same water. Funnels stack additively (two give +200%), which is
+deliberate: the alternative, `OnBoardEffectCap`, is keyed globally rather than per
+environment and would silently disable a second funnel built at a different river.
+
+*(Shipped in 1.11.0. The +100% rate is a first-pass placeholder and has not yet been confirmed or tuned in-game.)*
 
 ---
 
@@ -249,7 +273,7 @@ All perks appear in the **Situational** tab.
 2. Deploy CSFFModFramework to `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. (Optional) Deploy AdvancedCopperTools to `BepInEx/plugins/Advanced_Copper_Tools/`.
 4. Extract this mod to `BepInEx/plugins/Water_Driven_Infrastructure/`.
-5. Launch the game — check `BepInEx/LogOutput.log` for `WaterDrivenInfrastructure v1.10.19 loaded.`
+5. Launch the game — check `BepInEx/LogOutput.log` for `WaterDrivenInfrastructure v1.11.0 loaded.`
 
 ### Deployed layout
 
@@ -281,7 +305,7 @@ BepInEx/plugins/Water_Driven_Infrastructure/
 | **MillRaceNetwork** | Bidirectional mill race connectivity — both endpoints of a race must be complete before the connection activates (a single directional segment cannot power structures); also gates outlet/station placement, water draws, and station use to locations with direct water or a connected, unfrozen outlet, with a winter-freeze bypass when a lit Copper Brazier is nearby |
 | **ActionInterceptPatch** | Registers ActionRouter handlers for Grind All (mill), Sluice All (ore sluice), fishpond stocking/catch stats, Workshop crafts (Hammer Copper Sheet / Forge Copper Nails / Cast Metal Lump), Hammer All, and forge/workshop Blast; checks station inventory before consuming for inventory-backed buttons; sets SD4=200 (iron metal type) and quality on the iron-typed metal nuggets spawned when iron components finish smelting. (Sawmill Cut is pure JSON and is not intercepted here.) |
 | **FishpondPopulationPatch** | Fishpond population growth: gates breeding per species (needs ≥2 individuals) and swaps the pond between Filled ↔ Stocked card variants once total population crosses the stocking threshold (10) |
-| **MillDutyPatch** | Grafts five custom NPCDuties — "Operate the Grinding Mill", "Operate the Ore Sluice", "Operate the Sawmill", "Operate the Forge" and "Operate the Workshop" — onto the vanilla Partner NPCAgent template (JSON-shell + reflection-built `ActionSequence`), letting a recruited companion work each station once the player's Duty Assignment toggle is on. The mill and sluice drive a DismantleAction button; the sawmill drives the drag-based **Cut** CardInteraction, with the engine sourcing the log from that action's own `CompatibleCards`; the forge drives **Smelt Ore** and the workshop chains **Hammer All** then **Smelt Ore**. The forge/workshop duties only work a station the player has *already heated* — they never light or blast it. **None of these five is confirmed working in-game**: a play session on 2026-08-16 showed the duties losing duty selection outright to vanilla's much-higher-weighted native duties, which is addressed but unverified as of 1.10.13 |
+| **MillDutyPatch** | Grafts five custom NPCDuties — "Operate the Grinding Mill", "Operate the Ore Sluice", "Operate the Sawmill", "Operate the Forge" and "Operate the Workshop" — onto the vanilla Partner NPCAgent template (JSON-shell + reflection-built `ActionSequence`), letting a recruited companion work each station once the player's Duty Assignment toggle is on. The mill and sluice drive a DismantleAction button; the sawmill drives the drag-based **Cut** CardInteraction, with the engine sourcing the log from that action's own `CompatibleCards`; the forge drives **Smelt Ore** and the workshop chains **Hammer All** then **Smelt Ore**. The forge/workshop duties only work a station the player has *already heated* — they never light or blast it. **Three of these five are confirmed working in-game**: the Grinding Mill (2026-08-15), the Ore Sluice and the Sawmill (both 2026-09-07). A play session on 2026-08-16 had shown all five losing duty selection outright to vanilla's much-higher-weighted native duties; 1.10.13 raised their base weight to 850, and that fix is now validated by log evidence of three duties being selected and run in one save. The **Forge** and **Workshop** duties remain unconfirmed: in the 2026-09-06 session both attached at boot but neither ever became the current duty, with every path probe reporting no reachable route to the station, so that result does not yet distinguish a code bug from a station that was not built, heated and reachable in the test save |
 
 All patches filter on this mod's UniqueIDs and never modify vanilla cards, drops, or stats.
 
@@ -299,7 +323,7 @@ All patches filter on this mod's UniqueIDs and never modify vanilla cards, drops
 
 ## Troubleshooting
 
-**Blueprints not appearing?** Verify CSFFModFramework is installed and check `LogOutput.log` for `WaterDrivenInfrastructure v1.10.19 loaded.` AdvancedCopperTools is optional.
+**Blueprints not appearing?** Verify CSFFModFramework is installed and check `LogOutput.log` for `WaterDrivenInfrastructure v1.11.0 loaded.` AdvancedCopperTools is optional.
 
 **Forge won't smelt?** Temperature must reach 1100°. Feed charcoal and use the Blast action before attempting to smelt.
 
@@ -307,7 +331,7 @@ All patches filter on this mod's UniqueIDs and never modify vanilla cards, drops
 
 **Mill Race Outlet not producing water?** The outlet must be outdoors and a Mill Race must be built first. Outlets freeze in winter — wait until spring.
 
-**Workshop Hammer All does nothing?** Load tool blanks or copper components into the workshop's inventory slots first. Note that Metal Quality gains from each strike don't show as a visible number on the item itself (vanilla hides that stat's display on nuggets/blanks/bars) — the boost is still applied and carries through once the item is finished or transformed.
+**Workshop Hammer All does nothing?** Load tool blanks or copper components into the workshop's inventory slots first. Note that a hammered item's hidden "Metal Quality" stat won't visibly move — vanilla flags its display `AlwaysHide` on every candidate item — but the boost is real and, as of v1.10.19, also raises the player-visible "Quality" number directly, provided the item has taken at least one Strike.
 
 **Sawmill Cut action missing?** The sawmill must be placed (not held as a kit) and a log must be dragged onto it.
 
@@ -315,7 +339,34 @@ All patches filter on this mod's UniqueIDs and never modify vanilla cards, drops
 
 ## Version History
 
-### v1.10.15 (current)
+### v1.11.0 (current)
+- **Fish Funnel** (Advanced Tools tab) - a river-placed timber wing-wall that doubles how fast
+  a vanilla Funnel Trap in the same location gains fish. 6 Planks + 2 Rope + 4 Twine, built at a
+  river, placed from a kit and packed back up for relocation. The +100% rate is a placeholder
+  pending in-game tuning. *(Not yet confirmed in-game.)*
+- **Ore Sluice washed tailings** - a soil pile whose mineral rolls all miss now leaves a Stone
+  behind, so Sluice All never comes out empty. About 29% of mud piles and 34% of fine dirt
+  previously produced nothing at all. *(Not yet confirmed in-game.)*
+
+### v1.10.20
+- Fixed the Cast Metal Sheet standing in for a bronze-grade sheet in Advanced Copper Tools'
+  Bronze armor recipes. Its Metal Type stat was inactive, and the game skips the bronze-grade
+  range test entirely when that stat is off. It now carries a copper stamp. *(Not yet confirmed
+  in-game.)*
+
+### v1.10.19
+- Fixed Hammer All's Metal Quality boost never moving the player-visible "Quality" number on hammered metal items. Vanilla metal-bar items carry two independent quality stats — hidden `SpecialDurability2` ("Metal Quality") and visible `SpecialDurability3` ("Quality") — and the boost previously only ever raised the hidden one. Now boosts both. Quality gain still requires the item to have taken at least one Strike. *(Not yet confirmed in-game.)*
+
+### v1.10.18
+- Fixed vanilla iron items (Iron Nuggets, Unfinished/Finished Wrought Iron Bars) never registering as "in a smelting container" in the Forge or Workshop, so their Smelted progress only ever drained. Generalized the existing iron-tag injection to also inject the general vanilla `tag_SmeltingContainer` SO into both stations. *(Not yet confirmed in-game.)*
+
+### v1.10.17
+- Forge and Workshop self-smelting (iron parts/bearing/axle/wrench, copper gears/saw blades) now retains the melted item's own quality (floored at 50%) instead of always flattening to the 50% floor — matching how Blast already behaves. *(Not yet confirmed in-game.)*
+
+### v1.10.16
+- Fixed Copper Nuggets smelted from Copper Gears/Saw Blades coming out at 0% quality. Added a GiveCard hook that discovers any self-smelting item at runtime and floors its output nuggets' quality, matching the existing Blast/iron-smelting quality floor. *(Not yet confirmed in-game.)*
+
+### v1.10.15
 - Fixed Natural Windflow still going dead below 790° in windy environments (e.g. High Grove) — the v1.10.5 fix moved the dead zone rather than removing it. Lowered the floor to 1°, matching "Lose Temperature without fuel"'s own floor.
 - Fixed Cast Metal Lump's output (vanilla MetalBarUnfinished) never being accepted back into the Workshop's own inventory, dead-ending the Cast Metal Lump → Hammer All progression despite the Workshop's own help text claiming to accept it.
 - Clarified in the Workshop's help text that Hammer All's Metal Quality boost is real (traced end-to-end and confirmed correct) but never shows as a visible number — vanilla flags that stat `AlwaysHide` on every candidate item, so the game's own UI never renders it regardless of value.

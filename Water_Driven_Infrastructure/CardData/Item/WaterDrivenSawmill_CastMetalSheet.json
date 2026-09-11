@@ -62,7 +62,17 @@
     "Active": false
   },
   "SpecialDurability4": {
-    "Active": false
+    "Active": true,
+    "FloatValue": 100.0,
+    "MaxValue": 1000.0,
+    "RestrictToSpecificValues": true,
+    "ValidValues": [ 100.0 ],
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "CountsForTradingValue": false
   },
   "CardInteractions": [],
   "DismantleActions": [],

@@ -609,3 +609,18 @@ Water_Sawmill_Bp_IronRivetsFromSheet_CardDescription,"Shear a cast iron sheet in
 Water_Sawmill_Bp_IronRivetsFromSheet_UnlockConditionsDesc,Cast Iron Sheet Needed,需要铸造铁板
 Water_Sawmill_ForgePlaced_Duty_DutyName,Operate the Forge,操作锻炉
 Water_Sawmill_WorkshopPlaced_Duty_DutyName,Operate the Workshop,操作工坊
+Water_Sawmill_Bp_FishFunnel_CardName,Fish Funnel,引鱼堰
+Water_Sawmill_Bp_FishFunnel_CardDescription,"Build a fish funnel kit at a river (1.5 hours). A woven timber wing-wall that steers passing fish toward a funnel trap standing in the same water, so the trap's fish population builds up twice as fast. Must be built outdoors at a river.",在河边建造引鱼堰套件（1.5小时）。这是一道编织木翼墙，可将经过的鱼引向同一水域中的鱼篓陷阱，使陷阱中的鱼群增长速度提高一倍。必须在河边的户外建造。
+Water_Sawmill_Bp_FishFunnel_UnlockConditionsDesc,Mill Race Needed,需要引水渠
+Water_Sawmill_FishFunnelKit_CardName,Fish Funnel Kit,引鱼堰套件
+Water_Sawmill_FishFunnelKit_CardDescription,"A bundle of planks and woven twine, ready to be staked out in a river as a fish funnel.",一捆木板和编织细线，可在河中架设为引鱼堰。
+Water_Sawmill_FishFunnelKit_CardHelpSection,"<b>Use:</b> Place at a river. Once staked out, a fish funnel doubles how fast a Funnel Trap standing in the same water fills with fish. Two funnels stack. <b>Disassemble:</b> Recover most of the planks and twine.",<b>用途：</b> 放置在河边。架设完成后，引鱼堰可使同一水域中鱼篓陷阱的捕鱼速度提高一倍。两座引鱼堰的效果可叠加。<b>拆卸：</b> 回收大部分木板和细线。
+Water_Sawmill_FishFunnelKit_Place_ActionName,Place,放置
+Water_Sawmill_FishFunnelKit_Place_ActionDescription,Stake the fish funnel out in the river.,将引鱼堰架设在河中。
+Water_Sawmill_FishFunnelKit_Disassemble_ActionName,Disassemble,拆卸
+Water_Sawmill_FishFunnelKit_Disassemble_ActionDescription,Break down the kit and recover most of the planks and twine.,拆解套件并回收大部分木板和细线。
+Water_Sawmill_FishFunnelPlaced_CardName,Fish Funnel,引鱼堰
+Water_Sawmill_FishFunnelPlaced_CardDescription,A woven timber wing-wall staked out across the current. It steers passing fish toward any funnel trap set in the same water.,一道横跨水流架设的编织木翼墙，可将经过的鱼引向设在同一水域中的鱼篓陷阱。
+Water_Sawmill_FishFunnelPlaced_CardHelpSection,"<b>Effect:</b> A Funnel Trap in the same location gains fish twice as fast (+10 population per time point on top of its own 10). The funnel does nothing on its own, so set a Funnel Trap here as well. <b>Pack Up:</b> Recover the funnel as a portable kit.",<b>效果：</b> 同一地点的鱼篓陷阱聚鱼速度提高一倍（在其自身每时间点10点的基础上再加10点）。引鱼堰本身不会捕鱼，因此还需在此处设置鱼篓陷阱。<b>收起：</b> 将引鱼堰收回为便携套件。
+Water_Sawmill_FishFunnelPlaced_PackUp_ActionName,Pack Up,收起
+Water_Sawmill_FishFunnelPlaced_PackUp_ActionDescription,Pull the fish funnel out of the water and pack it up for relocation.,将引鱼堰从水中拔出并收起以便迁移。

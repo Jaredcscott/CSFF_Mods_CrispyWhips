@@ -2,6 +2,47 @@
 
 All notable changes to this mod are documented here.
 
+## [1.11.0] - 2026-09-07
+
+### Added
+- **Fish Funnel** (Advanced Tools tab) - a river-placed woven timber wing-wall that steers
+  passing fish toward a vanilla Funnel Trap set in the same water, doubling how fast the trap's
+  Common Fish Population builds up. Chain: `water_sawmill_bp_fish_funnel` (6 Planks + 2 Rope +
+  4 Twine, 1.5 hours, gated on a Mill Race and on building outdoors at a river) ->
+  `water_sawmill_fish_funnel_kit` -> `water_sawmill_fish_funnel_placed`. Implemented as a CT2
+  structure carrying a `RemotePassiveEffects` entry that adds +10 to the trap's
+  `SpecialDurability1` rate (vanilla base is 10, so 20/dtp), targeting vanilla
+  `FunnelTrapLocation` `16eb1777246a82e4b877a2973faf7876` by reference. **The +100% figure is a
+  first-pass placeholder, not a balanced value**, and the whole feature is unconfirmed in-game.
+  Two authoring notes worth keeping: a kit-placed CT10 improvement can never fire a remote
+  passive effect (`GameManager.AddRemotePassiveEffects` returns early unless `BlueprintComplete`,
+  which only the improvement-menu build flow ever sets), and plain `PassiveEffects` only ever
+  touches the card's own stats, so neither of those two shapes would have worked. Funnels stack
+  additively by design: `PassiveEffect.OnBoardEffectCap` is keyed on a global effect name rather
+  than per environment, so capping at 1 would silently disable a second funnel at another river.
+- **Ore Sluice washed tailings** - a soil pile whose mineral rolls all miss now leaves a vanilla
+  Stone behind, so Sluice All never yields literally nothing (previously about 29% of mud piles
+  and 34% of fine dirt did). Routed to real vanilla Stone rather than a minted tailings item:
+  EA 0.67i ships no Gravel, Sand or Pebble card at all, and Stone is the only aggregate in the
+  game with existing uses. Implemented as a floor in `ActionInterceptPatch.RollSluiceDrops`, not
+  as a per-wash byproduct, so it cannot inflate the stone economy on rolls that already paid out.
+
+## [1.10.20] - 2026-09-07
+
+### Fixed
+- **The Cast Metal Sheet now carries a copper metal-type stamp, so it can no longer stand in for a
+  bronze-grade sheet in Advanced Copper Tools' Bronze armor recipes.** `WaterDrivenSawmill_CastMetalSheet`
+  declared its Metal Type stat (`SpecialDurability4`) inactive. On its own that was harmless, but ACT's
+  `PatchSheetInterchangeability` registers the Cast Metal Sheet as an accepted alternate everywhere ACT's
+  own Copper Sheet is required - which, as of ACT 1.16.5, includes the four Bronze armor blueprints and
+  their `Special4 {110, 140}` bronze-grade gate. The game skips that range test entirely when the card's
+  Special4 stat is inactive (`if ((bool)card.SpecialDurability4 && ...)`), so a Cast Metal Sheet would
+  have satisfied a Bronze armor slot without being bronze at all - re-opening, through WDI, exactly the
+  tier-collapse ACT 1.16.5 had just closed. The sheet is now stamped Active at 100.0 (copper grade,
+  `ValidValues [100.0]`), which fails the 110-140 gate as intended while leaving every Copper-tier and
+  WDI-internal use of the sheet unchanged. Cosmetic only for players without ACT installed.
+  Not yet verified in-game.
+
 ## [1.10.19] — 2026-08-23
 
 ### Fixed

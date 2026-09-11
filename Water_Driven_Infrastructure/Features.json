@@ -1,5 +1,5 @@
 {
-  "_comment": "Edit 'status' to 'Tested' when verified in-game. Edit 'name' to rename a group. Add cards to 'cards' array to reassign them.",
+  "_comment": "Edit 'status' to 'Tested' when verified in-game. Edit 'name' to rename a group. Add cards to 'cards' array to reassign them. 'confidence'/'evidence' added by /feature-map (2026-09-01, v1.10.19) - see .audit/feature-map.md for full citations.",
   "groups": [
     {
       "name": "Mill Race",
@@ -11,7 +11,9 @@
         "water_sawmill_mill_race_south",
         "water_sawmill_mill_race_west",
         "water_sawmill_bp_mill_race"
-      ]
+      ],
+      "confidence": "MEDIUM",
+      "evidence": "T2.13 PASS 2026-07-21 for core build/connect; but T2.74 (indoor-scope injection fix, same InjectMillRaceImprovements subsystem) is PENDING since 2026-08-09, unverified."
     },
     {
       "name": "Mill Race Outlet",
@@ -21,7 +23,9 @@
         "water_sawmill_mill_race_outlet_placed",
         "water_sawmill_mill_race_outlet_frozen",
         "water_sawmill_bp_mill_race_outlet"
-      ]
+      ],
+      "confidence": "VERIFIED",
+      "evidence": "T2.13 PASS 2026-07-21; MillRaceOutlet_Placed.json unchanged since 2026-05-16 (059caac24), well before the pass."
     },
     {
       "name": "Water-Driven Sawmill",
@@ -30,7 +34,9 @@
         "water_sawmill_frame",
         "water_sawmill_placed",
         "water_sawmill_bp_water_driven_sawmill"
-      ]
+      ],
+      "confidence": "MEDIUM",
+      "evidence": "T2.14 PASS 2026-07-21 for Cut; but Cut is a drag CardInteraction gated by MillRaceGate (card-unbounded CardPredicate=_=>true), exposed to the OPEN framework ActionRouter CardOnCardAction index defect (T1.56, unfixed as of framework 2.25.x) - MEDIUM at best per that risk."
     },
     {
       "name": "Water-Driven Grinding Mill",
@@ -39,7 +45,9 @@
         "water_sawmill_grinding_mill_kit",
         "water_sawmill_grinding_mill_placed",
         "water_sawmill_bp_grinding_mill"
-      ]
+      ],
+      "confidence": "VERIFIED",
+      "evidence": "T2.14/T2.15 PASS 2026-07-21 for Grind All (a DismantleAction, not CardOnCardAction, so not exposed to T1.56); WaterDrivenGrindingMill_Placed.json only duty-marker-touched since (2026-08-14, non-behavior-changing for Grind All itself)."
     },
     {
       "name": "Water-Driven Forge",
@@ -48,7 +56,9 @@
         "water_sawmill_forge_kit",
         "water_sawmill_forge_placed",
         "water_sawmill_bp_water_driven_forge"
-      ]
+      ],
+      "confidence": "MEDIUM",
+      "evidence": "Core Blast/Smelt Ore VERIFIED-ish (T2.12, T2.14 PASS 2026-07-21; T2.44 Blast-quality fix PASS 2026-08-09 via shared ActionInterceptPatch code with Workshop) but Natural Windflow rescue (T2.115 PENDING), self-smelt quality/container-tag chain (T2.131 PENDING, memory project_wdi_copper_selfsmelt_quality_floor unverified), and Smelt Ore's own CI-drag path riding T1.56 keep the group at MEDIUM."
     },
     {
       "name": "Water-Driven Workshop",
@@ -57,7 +67,9 @@
         "water_sawmill_workshop_kit",
         "water_sawmill_workshop_placed",
         "water_sawmill_bp_water_driven_workshop_kit"
-      ]
+      ],
+      "confidence": "MEDIUM",
+      "evidence": "Same base evidence as Forge, plus Hammer All's dual-quality-stat fix (1.10.19, T2.132 PENDING) and the Cast Metal Lump -> Hammer All InventoryFilter fix (1.10.15, T2.116 PENDING) both explicitly unverified in-game per CHANGELOG."
     },
     {
       "name": "Copper Gear / Saw Blade",
@@ -69,7 +81,9 @@
         "water_sawmill_bp_cast_copper_gear_large",
         "water_sawmill_bp_cast_copper_gear_small",
         "water_sawmill_bp_cast_copper_saw_blade"
-      ]
+      ],
+      "confidence": "MEDIUM",
+      "evidence": "T2.15 PASS 2026-07-21 for base craft/smelt; the copper self-smelt 0%-quality fix (1.10.16) is covered only by PENDING T2.131 (selfsmelt_quality_chain)."
     },
     {
       "name": "Iron Parts",
@@ -83,7 +97,9 @@
         "water_sawmill_bp_iron_bearing",
         "water_sawmill_bp_iron_axle",
         "water_sawmill_bp_iron_wrench"
-      ]
+      ],
+      "confidence": "MEDIUM",
+      "evidence": "T2.15/T2.12 PASS 2026-07-21 for base craft/smelt; the quality-retain self-smelt fix (1.10.17) and the general tag_SmeltingContainer injection (1.10.18) are covered only by PENDING T2.131."
     },
     {
       "name": "Water Mill / Water Wheel",
@@ -93,7 +109,9 @@
         "water_sawmill_water_wheel",
         "water_sawmill_bp_water_mill",
         "water_sawmill_bp_water_wheel"
-      ]
+      ],
+      "confidence": "HIGH",
+      "evidence": "No dedicated playtest item; purely declarative blueprint + Dismantle-only items on the same proven Advanced Tools tab pattern as Mill Race (T2.13 PASS); blueprints-report.md clean."
     },
     {
       "name": "Ore Sluice",
@@ -104,7 +122,9 @@
         "water_sawmill_ore_sluice_placed",
         "water_sawmill_bp_ore_sluice_empty",
         "water_sawmill_bp_ore_sluice"
-      ]
+      ],
+      "confidence": "VERIFIED",
+      "evidence": "T2.16 PASS 2026-07-21 for Sluice All (a DismantleAction, not CardOnCardAction); OreSluice_Placed.json only duty-marker-touched since (2026-08-16, non-behavior-changing for Sluice All itself)."
     },
     {
       "name": "Fishpond",
@@ -115,7 +135,9 @@
         "water_sawmill_fishpond_stocked",
         "water_sawmill_fishpond_winter",
         "water_sawmill_bp_fishpond"
-      ]
+      ],
+      "confidence": "VERIFIED",
+      "evidence": "T2.16 + T2.33 PASS 2026-07-21 for Catch/Stock/Drain; FishpondPopulationPatch.cs unchanged since 2026-07-20. The background breeding/Filled<->Stocked threshold-swap timer has no explicit confirmed observation (MEDIUM nuance, see feature-map.md)."
     },
     {
       "name": "Fasteners & Cast Sheets",
@@ -132,7 +154,9 @@
         "water_sawmill_bp_cast_metal_sheet",
         "water_sawmill_bp_cast_iron_sheet",
         "water_sawmill_bp_iron_rivets_from_sheet"
-      ]
+      ],
+      "confidence": "MEDIUM",
+      "evidence": "T2.17 PASS 2026-07-21 (ACT alternates) covers 5 of 6 items; Cut Iron Rivets from Sheet (1.10.14) is explicitly 'Not verified in-game' per CHANGELOG, tracked PENDING as T2.113."
     },
     {
       "name": "Starter Perks",
@@ -144,14 +168,31 @@
         "water_sawmill_perk_ore_sluice_start",
         "water_sawmill_perk_fishpond_start",
         "water_sawmill_perk_outlet_start"
-      ]
+      ],
+      "confidence": "HIGH",
+      "evidence": "perks-report.md 10/10 clean (2026-07-27, re-verified under 2026-08-23 critical-analysis consolidation); standard AddedCardsWarpData pattern, no custom C#, no playtest item needed."
     },
     {
       "name": "Millwright",
       "status": "Implemented",
       "cards": [
         "water_sawmill_perk_millwright"
-      ]
+      ],
+      "confidence": "HIGH",
+      "evidence": "Same clean perks-report.md pass; standalone StartingStatModifiers (Woodworking head start) perk, no custom C#."
+    },
+    {
+      "name": "Partner Duty Assignment",
+      "status": "Implemented",
+      "cards": [
+        "wdiOperateForge_Duty",
+        "wdiOperateGrindingMill_Duty",
+        "wdiOperateOreSluice_Duty",
+        "wdiOperateSawmill_Duty",
+        "wdiOperateWorkshop_Duty"
+      ],
+      "confidence": "LOW",
+      "evidence": "4 of 5 duties PENDING/never observed (T2.87 Sluice, T2.88 Sawmill, T2.89 Forge, T2.90 Workshop). The 5th (Grinding Mill) shows PASS at T2.80 (2026-08-15), but CHANGELOG [1.10.13] (2026-08-16, one day later) raised every custom duty's BaseWeight 20->850 after finding the old value was a starvation bug, and explicitly states 'the Grinding Mill's earlier confirmed working in-game result was probably a low-competition window, not evidence that 20 was adequate' - the current 850-weight code has never itself been confirmed."
     }
   ]
 }

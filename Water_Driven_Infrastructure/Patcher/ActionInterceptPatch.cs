@@ -2261,6 +2261,15 @@ namespace WaterDrivenInfrastructure.Patcher
             if (_sluiceRng.NextDouble() < _flChance[i])     drops.Add(new SluiceRoll { Guid = FlintGUID });
             if (_sluiceRng.NextDouble() < _stChance[i])     drops.Add(new SluiceRoll { Guid = StoneGUID });
             if (_sluiceRng.NextDouble() < _clayChance[i])   drops.Add(new SluiceRoll { Guid = ClayGUID });
+
+            // Washed tailings (N4). A wash that separated nothing still leaves the coarse
+            // reject behind, so a soil pile never comes out of the sluice as literally nothing
+            // (~29% of mud piles and ~34% of fine dirt previously did). Routed to vanilla Stone
+            // rather than a minted tailings item: EA 0.67i ships no Gravel/Sand/Pebble card at
+            // all, and Stone is the only real aggregate here with existing uses (hand stone,
+            // whetstone, stone tools, construction). TUNABLE: currently a floor, not a per-wash
+            // byproduct, so it cannot inflate the stone economy on rolls that already paid out.
+            if (drops.Count == 0) drops.Add(new SluiceRoll { Guid = StoneGUID });
             return drops;
         }
 
