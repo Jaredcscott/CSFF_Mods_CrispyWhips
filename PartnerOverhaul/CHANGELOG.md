@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.0.4
+
+### Diagnostics -- no behavior change
+- `WoodReserveListPatch` now emits one `[WoodReserveListPatch]` LogInfo line on its first
+  evaluation each run stating the reserved fuel/wood UID count, even when it is zero (e.g.
+  `Reserved fuel/wood UIDs: 0 (list empty; the reserve filter is a no-op)`). This is a second
+  startup Info line beyond the mod's single `PartnerOverhaul vX loaded.` summary -- previously
+  `RefreshReservedSetIfNeeded` only logged when the reserved set was non-empty, so a default
+  (empty) config produced zero log output for this feature, indistinguishable from the config
+  never having loaded at all. Config-echo diagnostic of the same class as the framework's own
+  `LocalizationLoader: language=` line (see root CLAUDE.md's Debugging Discipline). Filter
+  behavior (`FilterReservedItems`) is unchanged; only added Info logging.
+
 ## 1.0.3
 
 ### Fixed

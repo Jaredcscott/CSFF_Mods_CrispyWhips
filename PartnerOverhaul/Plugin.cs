@@ -15,7 +15,7 @@ namespace PartnerOverhaul
     {
         private const string PluginGuid = "crispywhips.partner_overhaul";
         public const string PluginName = "PartnerOverhaul";
-        public const string PluginVersion = "1.0.3";
+        public const string PluginVersion = "1.0.4";
 
         internal new static BepInEx.Logging.ManualLogSource Logger;
         internal static Plugin Instance { get; private set; }

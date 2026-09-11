@@ -4,7 +4,7 @@ Fixes a cluster of vanilla EA "Partner" companion NPC bugs, and ships opt-in dia
 handful more that are real but not yet root-caused. Ships zero new cards — every change here
 patches or mutates *existing* vanilla content.
 
-**Version:** 1.0.3
+**Version:** 1.0.4
 **Author:** Jared
 **Requires:** CSFFModFramework (soft dependency — for boot ordering only; no framework content is
 loaded by this mod)
@@ -77,3 +77,13 @@ investigation — see the plan doc for the research behind each:
   is accurate — turning that off is a combat *design* change, not a bug fix, hence opt-in. Damage,
   stat changes, armor wear and the encounter log are untouched. **Not yet confirmed in-game** —
   verifying it needs a live encounter that lands the same wound type across several rounds.
+
+## Known interactions
+
+- **Invincibility** (in-house dev mod) prefixes the same `EncounterPopup.GenerateAndApplyPlayerWound`
+  and skips its body while toggled ON. In those rounds the wound-consolidation transpiler above does
+  not run - which is correct by construction, since a skipped body generates no wound candidates at
+  all (there is nothing to consolidate). With the toggle OFF, or without that mod, consolidation is
+  fully active. Assessed benign in the 2026-09-01 fleet audit; no action needed.
+- **AdvancedCopperTools** also prefixes the same method (armor-list repair, void prefix) - runs in
+  all cases, no interaction with the transpiler.

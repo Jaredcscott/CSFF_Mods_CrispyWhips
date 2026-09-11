@@ -14,6 +14,7 @@ namespace PartnerOverhaul.Patcher
         private static BepInEx.Logging.ManualLogSource Logger => Plugin.Logger;
         private static HashSet<string> _reservedUids = new HashSet<string>();
         private static string _lastConfigValue;
+        private static bool _loggedInitialCount;
 
         public static void ApplyPatch(Harmony harmony)
         {
@@ -43,10 +44,26 @@ namespace PartnerOverhaul.Patcher
         {
             var current = Plugin.ReservedFuelUIDs.Value ?? "";
             if (current == _lastConfigValue) return;
+            var isFirstEvaluationThisRun = !_loggedInitialCount;
             _lastConfigValue = current;
             _reservedUids = new HashSet<string>(current.Split(',').Select(s => s.Trim()).Where(s => s.Length > 0));
-            if (_reservedUids.Count > 0)
+
+            if (isFirstEvaluationThisRun)
+            {
+                // Config-echo diagnostic, same class as the framework's own
+                // "LocalizationLoader: language=" line -- state the count on the FIRST
+                // evaluation every run, even when it is zero, so an empty (default) list
+                // reads as "confirmed no-op by design" rather than silence that could mean
+                // the config never loaded at all.
+                _loggedInitialCount = true;
+                Logger.LogInfo(_reservedUids.Count > 0
+                    ? $"[WoodReserveListPatch] Reserved fuel/wood UIDs: {_reservedUids.Count} ({string.Join(", ", _reservedUids)})"
+                    : "[WoodReserveListPatch] Reserved fuel/wood UIDs: 0 (list empty; the reserve filter is a no-op)");
+            }
+            else if (_reservedUids.Count > 0)
+            {
                 Logger.LogInfo($"[WoodReserveListPatch] Reserved fuel/wood UIDs updated: {string.Join(", ", _reservedUids)}");
+            }
         }
     }
 }

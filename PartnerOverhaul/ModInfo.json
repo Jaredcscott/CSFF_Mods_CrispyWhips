@@ -1,6 +1,6 @@
 {
     "Name": "Partner Overhaul",
     "Author": "Jared",
-    "Version": "1.0.3",
+    "Version": "1.0.4",
     "Description": "Fixes a cluster of vanilla Partner (companion NPC) bugs: partners can now eat stew/broth, resume cleaning finished homes, stop over-watering capped garden plots, feed Pine Needles/Charcoal into a fireplace, and no longer have their action sounds heard across the map or their dialog interrupt an in-progress spirit-summon ritual. Also removes a stray 'Defecate' button from the Tree Top scenic event, and makes a Partner's Energy level ('Looks exhausted' / 'Looks tired' / 'Looks full of energy') visible on their card, which vanilla tracks but never shows the player. Ships opt-in diagnostics for a handful of still-unconfirmed bugs (fishing line, brain-tanning, clothes/temperature, cauldron ownership, pouch/acorn-flour stacking) plus a couple of small new QoL options (config-gated)."
 }
