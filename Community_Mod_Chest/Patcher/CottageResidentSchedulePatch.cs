@@ -58,9 +58,15 @@ namespace CommunityModChest.Patcher
     ///   The Inn/Academy legs use the same direct construction — no capture prerequisite either.
     ///
     /// Portrait sync (added alongside the guaranteed Inn/Academy schedule): each resident's card
-    /// art follows Village (default) / Inn / Academy the same way ProfessorSchedulePatch's and
-    /// ApothecarySchedulePatch's SyncPortrait do — derived from the NPC's ACTUAL CurrentEnvironment,
-    /// not the scheduled destination, so it never contradicts where they're really standing.
+    /// art follows Village (default) / Inn / Academy / their own Cottage interior the same way
+    /// ProfessorSchedulePatch's and ApothecarySchedulePatch's SyncPortrait do — derived from the
+    /// NPC's ACTUAL CurrentEnvironment, not the scheduled destination, so it never contradicts
+    /// where they're really standing. The Cottage ("at home") leg was added 2026-08-26,
+    /// and its two PNGs (CMC_Miller_Cottage / CMC_Weaver_Cottage) landed the same day in
+    /// 1.68.10, so the leg renders its own art. ResolvePortraitSprite still falls back to
+    /// the resident's Village photo if a Cottage sprite ever fails to resolve, which keeps
+    /// that regression cosmetic rather than blanking the card: a present-but-blank file
+    /// would render the resident white every night, strictly worse than art staying put.
     ///
     /// Never moves a resident out from under a player standing with them (SharesPlayerEnv guard,
     /// same as every other village NPC scheduler). Never creates cards — weekly Copper Chest
@@ -76,7 +82,7 @@ namespace CommunityModChest.Patcher
         private const string InnInteriorUid = "cmcInnInterior";
 
         private enum Dest { Village, Cottage, Inn, Academy, Work }
-        private enum Portrait { None = 0, Village = 1, Inn = 2, Academy = 3 }
+        private enum Portrait { None = 0, Village = 1, Inn = 2, Academy = 3, Cottage = 4 }
 
         private const float NightStartHour = 22f;
         private const float NightEndHour = 6f;
@@ -96,6 +102,7 @@ namespace CommunityModChest.Patcher
             public string VillageSpriteName;
             public string InnSpriteName;
             public string AcademySpriteName;
+            public string CottageSpriteName; // "at home" leg; art shipped 1.68.10, Village fallback kept
 
             // "At work" leg — owned by CottageResidentWorkDutyPatch's engine duty, not this file
             // (see class doc). AcademyTodayStatUid is the gate that duty reads; ProduceActionId is
@@ -119,6 +126,7 @@ namespace CommunityModChest.Patcher
                 Name = "Miller", AgentUid = "cmcMillerAgent", CottageInteriorUid = "cmcMillerCottageInterior",
                 AcademyDayOfWeek = 1,
                 VillageSpriteName = "CMC_Miller", InnSpriteName = "CMC_Miller_Inn", AcademySpriteName = "CMC_Miller_Academy",
+                CottageSpriteName = "CMC_Miller_Cottage",
                 AcademyTodayStatUid = "cmcStatMillerAcademyToday", ProduceActionId = "MillerProduceFlour",
             },
             new Resident
@@ -126,6 +134,7 @@ namespace CommunityModChest.Patcher
                 Name = "Weaver", AgentUid = "cmcWeaverAgent", CottageInteriorUid = "cmcWeaverCottageInterior",
                 AcademyDayOfWeek = 4,
                 VillageSpriteName = "CMC_Weaver", InnSpriteName = "CMC_Weaver_Inn", AcademySpriteName = "CMC_Weaver_Academy",
+                CottageSpriteName = "CMC_Weaver_Cottage",
                 AcademyTodayStatUid = "cmcStatWeaverAcademyToday", ProduceActionId = "WeaverProduceYarn",
             },
         };
@@ -624,10 +633,14 @@ namespace CommunityModChest.Patcher
 
         // Reads the resident's ACTUAL CurrentEnvironment.EnvCard — not the scheduled destination
         // — so the portrait never contradicts where they're really standing (same reasoning as
-        // ProfessorSchedulePatch/ApothecarySchedulePatch's own SyncPortrait). Cottage, wander
-        // nodes, the Village tile, and anywhere unresolved all fall back to the default Village
-        // photo — only Inn and Academy get their own art.
-        private static Portrait ActualPortrait(object npc)
+        // ProfessorSchedulePatch/ApothecarySchedulePatch's own SyncPortrait). Inn, Academy and
+        // the resident's OWN cottage interior each get their own art; wander nodes, the Village
+        // tile, and anywhere unresolved all fall back to the default Village photo.
+        //
+        // Cottage is matched per-resident against resident.CottageInteriorCard (Miller's interior
+        // must never stamp the Weaver's "at home" art and vice versa), which is why this takes the
+        // resident rather than reading only file-level statics like the Inn/Academy cards do.
+        private static Portrait ActualPortrait(object npc, Resident resident)
         {
             var env = Reflect.GetMember(npc, "CurrentEnvironment");
             if (env == null || Reflect.GetMember(env, "IsNull") is true) return Portrait.None;
@@ -636,6 +649,8 @@ namespace CommunityModChest.Patcher
 
             if (ReferenceEquals(envCard, _innInteriorCard)) return Portrait.Inn;
             if (ReferenceEquals(envCard, _academyInteriorCard)) return Portrait.Academy;
+            if (resident.CottageInteriorCard != null
+                && ReferenceEquals(envCard, resident.CottageInteriorCard)) return Portrait.Cottage;
             return Portrait.Village;
         }
 
@@ -643,7 +658,7 @@ namespace CommunityModChest.Patcher
         {
             if (_setCardImageMethod == null) return;
 
-            var portrait = ActualPortrait(npc);
+            var portrait = ActualPortrait(npc, resident);
             if (portrait == Portrait.None || portrait == resident.LastPortrait) return;
 
             var sprite = ResolvePortraitSprite(resident, portrait);
@@ -661,9 +676,16 @@ namespace CommunityModChest.Patcher
             {
                 Portrait.Inn => resident.InnSpriteName,
                 Portrait.Academy => resident.AcademySpriteName,
+                Portrait.Cottage => resident.CottageSpriteName,
                 _ => resident.VillageSpriteName,
             };
-            return GameContent.Find<Sprite>(name);
+            var sprite = GameContent.Find<Sprite>(name);
+            // Safety net, not a placeholder: both Cottage PNGs shipped in 1.68.10, so this
+            // only fires if one ever fails to resolve. Reusing the Village photo keeps such
+            // a regression cosmetic instead of blanking the card.
+            if (sprite == null && portrait == Portrait.Cottage)
+                sprite = GameContent.Find<Sprite>(resident.VillageSpriteName);
+            return sprite;
         }
 
         private static void ApplyCardImage(object cardData, Sprite sprite)

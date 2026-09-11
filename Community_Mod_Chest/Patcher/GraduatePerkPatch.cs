@@ -30,7 +30,6 @@ namespace CommunityModChest.Patcher
         private const string PlacedStatUid = "cmcStatGraduatePlaced";
         private const string AcademyInteriorEnvUid = "cmcAcademyInterior";
         private const string AcademyLecternUid = "cmcAcademyLectern";
-        private const string CarpentryBenchUid = "cmcCarpentryBench";
 
         private static readonly string[] GradPerkUids =
         {
@@ -48,9 +47,9 @@ namespace CommunityModChest.Patcher
         // of 0 while AcademyCourseService.HasCourse already reports the course as done —
         // every "Study ..." button then permanently shows "You have already completed this
         // course" at 0% progress (the same desync originally found in Village Founder,
-        // confirmed in-game 2026-07-23). Carpentry lives on its own Carpentry Bench card, not
-        // the Lectern — its SpecialDurability1 means something different on each card, so the
-        // backfill loop below MUST match a course's stat write to its own host card only.
+        // confirmed in-game 2026-07-23). All 7 courses now live on the single Lectern card
+        // (Carpentry uses the Progress slot — CardData's 8th durability stat, previously
+        // unused — instead of a second "Carpentry Bench" card).
         private static readonly (string HostCardUid, string StatName, float TotalHours)[] CourseStats =
         {
             (AcademyLecternUid, "SpecialDurability1", 72f), // Architecture
@@ -59,7 +58,7 @@ namespace CommunityModChest.Patcher
             (AcademyLecternUid, "SpoilageTime",       24f), // Fishing
             (AcademyLecternUid, "UsageDurability",    24f), // Armorer
             (AcademyLecternUid, "FuelCapacity",       24f), // Medicine
-            (CarpentryBenchUid, "SpecialDurability1", 24f), // Carpentry
+            (AcademyLecternUid, "Progress",           24f), // Carpentry
         };
 
         private static bool _initialized;
@@ -125,12 +124,11 @@ namespace CommunityModChest.Patcher
                 // player actually sees stays at 0% forever, since PlacedStatUid latches
                 // permanently below. Reconcile every matching instance found, not just the first.
                 var lecterns = FindAllLiveCards(gm, AcademyLecternUid);
-                var carpentryBenches = FindAllLiveCards(gm, CarpentryBenchUid);
-                if (lecterns.Count == 0 && carpentryBenches.Count == 0) return; // board not seeded yet — retry next tick
+                if (lecterns.Count == 0) return; // board not seeded yet — retry next tick
 
                 bool wroteAny = false;
                 int reconciled = 0;
-                foreach (var hostCard in lecterns.Concat(carpentryBenches))
+                foreach (var hostCard in lecterns)
                 {
                     string hostUid = CardUtil.GetCardUniqueId(hostCard);
                     foreach (var (courseHostUid, statName, totalHours) in CourseStats)

@@ -312,11 +312,11 @@ CharacterTraits_Perk_VillagePath_PerkDescription,"You know of an old path across
 CharacterTraits_Perk_VillageInn_PerkName,Village Inn
 CharacterTraits_Perk_VillageInn_PerkDescription,"The innkeeper across the river already counts you among friends. You start with a head start on his friendship, and he skips the formal introductions: the village's construction projects, trade, and Academy study are open to you from your first day."
 CharacterTraits_Perk_VillageFounder_PerkName,Village Founder
-CharacterTraits_Perk_VillageFounder_PerkDescription,"You've been here before — long before today. The Miller's Cottage, the Weaver's Cottage, the Village Hall, and the Apothecary's Cabin are already standing, their residents already moved in, and the Inn Keeper, Professor, Miller, Weaver, and Apothecary all treat you like an old friend. All four of their first errands are already settled."
+CharacterTraits_Perk_VillageFounder_PerkDescription,"You've been here before — long before today. The Miller's Cottage, the Weaver's Cottage, the Village Hall, and the Apothecary's Cabin are already standing, their residents already moved in, and the Inn Keeper, Professor, Miller, Weaver, and Apothecary all treat you like an old friend. All four of their first errands are already settled. Because all of that is already true when you arrive, every tracker that follows village progress — the Inn Keeper's and Professor's news about each building, the notice board, and any other building-complete marker — already reads as finished from day one too. That's this trait doing its job, not a bug."
 CharacterTraits_Perk_QuietVillage_PerkName,Quiet Village
 CharacterTraits_Perk_QuietVillage_PerkDescription,"The village keeps to itself. The Miller, Weaver, Apothecary, and Professor stay at home, the Academy, or the Inn instead of travelling or foraging, and the Town Watch has stood down entirely -- none of the four guards take up their posts. Reduces simulation overhead, at the cost of the Watch's crime-and-pursuit content and the villagers' wandering and forage behavior. Recommended on lower-end systems."
 CharacterTraits_Perk_Graduate_PerkName,Graduate
-CharacterTraits_Perk_Graduate_PerkDescription,"You already hold a full Academy education. Architecture, Metallurgy, Herbalism, Fishing, Armorer, Medicine, and Carpentry are all complete — you carry every discipline's graduate perk and their blueprint rewards from the start, without ever setting foot in the Lecture Hall or the Carpentry Bench."
+CharacterTraits_Perk_Graduate_PerkDescription,"You already hold a full Academy education. Architecture, Metallurgy, Herbalism, Fishing, Armorer, Medicine, and Carpentry are all complete — you carry every discipline's graduate perk and their blueprint rewards from the start, without ever setting foot in the Lecture Hall."
 Combat_And_Armor_StoneMace_OnZero,Stone Mace Broken!
 Combat_And_Armor_WoodenShield_OnZero,Shield Destroyed!
 Combat_And_Armor_QuiltedVest_OnZero,Vest Destroyed!
@@ -376,7 +376,7 @@ Comfort_TricolorWallHanging_Weathered,The wall hanging has dried out and crumble
 Comfort_TricolorWallHanging_Bp_CardName,Tricolor Wall Hanging
 Comfort_TricolorWallHanging_Bp_CardDescription,Weave dried reeds into a decorative panel and dye sections with three different natural pigments.
 IncenseBurner_CardName,Incense Burner
-IncenseBurner_CardDescription,"A small clay vessel shaped to hold smoldering dried grass. Fill with rye straw and light from a fire to release a calming, grassy fragrance."
+IncenseBurner_CardDescription,"A small clay vessel shaped to hold smoldering plant matter. Fill it with rye straw for a calming, grassy fragrance, pack it with dry juniper needles for a sharp smoke that keeps biting insects off, or use dried heather flowers for a honeyed smoke that draws out the day's tension. Light it from a fire whichever you choose."
 IncenseBurner_FuelCapacity_CardStatName,Straw
 IncenseBurner_Refuel_ActionName,Fill with Straw
 IncenseBurner_Refuel_ActionDescription,Pack dried rye straw into the burner vessel.
@@ -393,6 +393,48 @@ IncenseBurnerLit_FuelOut_ActionName,Incense Burns Out
 IncenseBurnerLit_FuelOut_ActionDescription,The straw has finished burning.
 IncenseBurnerLit_Extinguish_ActionName,Extinguish
 IncenseBurnerLit_Extinguish_ActionDescription,Snuff out the smoldering straw.
+IncenseBurner_PackJuniper_ActionName,Pack with Juniper
+IncenseBurner_PackJuniper_ActionDescription,Pack dry juniper needles into the empty vessel instead of straw.
+IncenseBurner_NotEmptyForJuniper,The burner still holds straw. Burn it down or tip it out first.
+IncenseBurner_TipOutStraw_ActionName,Tip Out the Straw
+IncenseBurner_TipOutStraw_ActionDescription,Empty the unburnt straw out of the vessel so it can take juniper needles instead.
+IncenseBurnerJuniper_CardName,Juniper Incense Burner
+IncenseBurnerJuniper_CardDescription,"The same clay vessel, packed with dry juniper needles instead of straw. Light it from a fire to raise a sharp, resinous smoke that biting insects will not settle in."
+IncenseBurnerJuniper_FuelCapacity_CardStatName,Juniper
+IncenseBurnerJuniper_Refuel_ActionName,Add More Juniper
+IncenseBurnerJuniper_Refuel_ActionDescription,Pack more dry juniper needles into the burner vessel.
+IncenseBurnerJuniper_Light_ActionName,Light Juniper Incense
+IncenseBurnerJuniper_Light_ActionDescription,Touch a flame to the needles to start them smoldering.
+IncenseBurnerJuniper_NeedsFuel,The burner needs juniper needles first.
+IncenseBurnerJuniper_TipOut_ActionName,Tip Out the Needles
+IncenseBurnerJuniper_TipOut_ActionDescription,Empty the unburnt needles out of the vessel so it can take straw again.
+IncenseBurnerJuniperLit_CardName,Lit Juniper Incense Burner
+IncenseBurnerJuniperLit_CardDescription,"Smoldering juniper throws off a sharp, resinous smoke. Biting insects keep their distance while it burns."
+IncenseBurnerJuniperLit_FuelCapacity_CardStatName,Juniper
+IncenseBurnerJuniperLit_FuelOut_ActionName,Juniper Incense Burns Out
+IncenseBurnerJuniperLit_FuelOut_ActionDescription,The juniper needles have finished burning.
+IncenseBurnerJuniperLit_Extinguish_ActionName,Extinguish
+IncenseBurnerJuniperLit_Extinguish_ActionDescription,Snuff out the smoldering juniper needles.
+IncenseBurner_PackHeather_ActionName,Pack with Heather
+IncenseBurner_PackHeather_ActionDescription,Pack dried heather flowers into the empty vessel instead of straw.
+IncenseBurner_NotEmptyForHeather,The burner still holds straw. Burn it down or tip it out first.
+IncenseBurnerHeather_CardName,Heather Incense Burner
+IncenseBurnerHeather_CardDescription,"The same clay vessel, packed with dried heather flowers instead of straw. Light it from a fire to raise a soft, honeyed smoke that draws the tension out of a long day."
+IncenseBurnerHeather_FuelCapacity_CardStatName,Heather
+IncenseBurnerHeather_Refuel_ActionName,Add More Heather
+IncenseBurnerHeather_Refuel_ActionDescription,Pack more dried heather flowers into the burner vessel.
+IncenseBurnerHeather_Light_ActionName,Light Heather Incense
+IncenseBurnerHeather_Light_ActionDescription,Touch a flame to the dried flowers to start them smoldering.
+IncenseBurnerHeather_NeedsFuel,The burner needs dried heather flowers first.
+IncenseBurnerHeather_TipOut_ActionName,Tip Out the Flowers
+IncenseBurnerHeather_TipOut_ActionDescription,Empty the unburnt heather out of the vessel so it can take straw again.
+IncenseBurnerHeatherLit_CardName,Lit Heather Incense Burner
+IncenseBurnerHeatherLit_CardDescription,"Smoldering heather gives off a soft, honeyed smoke. Sitting in it, the knot between your shoulders slowly lets go."
+IncenseBurnerHeatherLit_FuelCapacity_CardStatName,Heather
+IncenseBurnerHeatherLit_FuelOut_ActionName,Heather Incense Burns Out
+IncenseBurnerHeatherLit_FuelOut_ActionDescription,The heather flowers have finished burning.
+IncenseBurnerHeatherLit_Extinguish_ActionName,Extinguish
+IncenseBurnerHeatherLit_Extinguish_ActionDescription,Snuff out the smoldering heather flowers.
 Comfort_StrawMat_Placed_CardName,Straw Mat
 Comfort_StrawMat_Placed_CardDescription,"A woven mat of rye straw laid flat on the ground. Simple underfoot comfort, far better than bare earth."
 Comfort_StrawMat_Placed_Weathered,The straw mat has rotted away.
@@ -453,7 +495,7 @@ CharacterTraits_Perk_Bleeder_PerkName,Bleeder
 CharacterTraits_Perk_Bleeder_PerkDescription,"Your blood does not clot well. Wounds bleed for significantly longer than they should, making even minor injuries into dangerous situations."
 CharacterTraits_Perk_WeakCourage_PerkName,Weak Courage
 CharacterTraits_Perk_WeakCourage_PerkDescription,"You have a bit more nerve than most. A modest, permanent boost to your Courage makes scary actions somewhat easier without erasing your fear entirely."
-CharacterTraits_Perk_WeakCowardice_PerkName,Weak Cowardice
+CharacterTraits_Perk_WeakCowardice_PerkName,Cowardice
 CharacterTraits_Perk_WeakCowardice_PerkDescription,"Your nerve falters more easily than most. A modest, permanent reduction to your Courage makes scary actions a little harder to push through — but you still have enough grit to act when it truly matters."
 CharacterTraits_Perk_SpirituallyTroubled_PerkName,Spiritually Troubled
 CharacterTraits_Perk_SpirituallyTroubled_PerkDescription,"The spirits do not look kindly upon you. Stress weighs heavier and lingers longer, and the unease of an unfriendly spirit world keeps your nerves on edge."
@@ -484,7 +526,7 @@ CharacterTraits_Perk_Drunkard_PerkDescription,You cannot resist a drink. Alcohol
 CMC_Imp_RiverBridge_CardName,River Bridge
 CMC_Imp_RiverBridge_CardDescription,A sturdy wooden bridge spanning the river at the clearing. Build this at the River Clearing to open the eastern path toward the village.
 CMC_Imp_StoneTileFloor_CardName,Stone Tile Floor
-CMC_Imp_StoneTileFloor_CardDescription,"Polished stone tiles set into a bed of clay, covering the ground in a smooth, even floor. Increases comfort and insulation. Can be laid in cabins and mud huts."
+CMC_Imp_StoneTileFloor_CardDescription,"Polished stone tiles set into a bed of clay, covering the ground in a smooth, even floor. Increases comfort and insulation. Can be laid in cabins, mud huts, and the village building interiors."
 CMC_MarketStallKit_CardName,Market Stall Kit
 CMC_MarketStallKit_CardDesc,"A portable market stall. Can only be assembled in the village: merchants need foot traffic to buy your wares. Once placed, drop trade goods into the stall inventory and collect earnings as copper or salt over time."
 CMC_MarketStallKit_Help,Market Stall Kit
@@ -628,7 +670,7 @@ CMC_AcademyLectern_DA_Herbalism_Desc,"A two-hour session among the herb gardens.
 CMC_AcademyLectern_DA_ArchitectureFinal,Final Exam: Architecture
 CMC_AcademyLectern_DA_ArchitectureFinal_Desc,"The final two-hour examination. Pass it to earn the Architecture degree: unlocks the Water-Driven Sawmill and Grinding Mill blueprints, and, together with a Metallurgy degree, the Water-Driven Forge and Workshop."
 CMC_AcademyLectern_DA_MetallurgyFinal,Final Exam: Metallurgy
-CMC_AcademyLectern_DA_MetallurgyFinal_Desc,"The final two-hour examination. Pass it to earn the Metallurgy degree: unlocks the Copper Sheet recipe, and, together with an Architecture degree, the Water-Driven Forge and Workshop."
+CMC_AcademyLectern_DA_MetallurgyFinal_Desc,"The final two-hour examination. Pass it to earn the Metallurgy degree: the Copper Sheet recipe is handed to you outright, no research required, and, together with an Architecture degree, it unlocks the Water-Driven Forge and Workshop."
 CMC_AcademyLectern_DA_HerbalismFinal,Final Exam: Herbalism
 CMC_AcademyLectern_DA_HerbalismFinal_Desc,The final two-hour examination. Pass it to earn the Herbalism degree: from then on you gather twice as much whenever you forage.
 CMC_AcademyLectern_Prog_Architecture,Architecture
@@ -644,7 +686,7 @@ CharacterTraits_Perk_HigherEducation_PerkDescription,"Retired trait. The village
 CharacterTraits_Perk_GradArchitecture_PerkName,Architecture Graduate
 CharacterTraits_Perk_GradArchitecture_PerkDescription,"You completed the Academy's architecture course. The Water-Driven Sawmill and Grinding Mill blueprints are yours, and together with a Metallurgy degree, the Water-Driven Forge and Workshop."
 CharacterTraits_Perk_GradMetallurgy_PerkName,Metallurgy Graduate
-CharacterTraits_Perk_GradMetallurgy_PerkDescription,"You completed the Academy's metallurgy course. The Copper Sheet recipe is yours, and together with an Architecture degree, the Water-Driven Forge and Workshop."
+CharacterTraits_Perk_GradMetallurgy_PerkDescription,"You completed the Academy's metallurgy course. The Copper Sheet recipe is yours outright, with no research needed, and together with an Architecture degree, the Water-Driven Forge and Workshop."
 CharacterTraits_Perk_GradHerbalism_PerkName,Herbalism Graduate
 CharacterTraits_Perk_GradHerbalism_PerkDescription,You completed the Academy's herbalism course. You spot twice as much whenever you forage.
 CharacterTraits_Perk_GradFishing_PerkName,Fishing Graduate
@@ -1096,7 +1138,7 @@ CMC_ApothecaryCabinExit_DA_Exit_Fade,Leaving the cabin...
 CMC_ApothecaryCabin_DA_Enter,Enter the Cabin
 CMC_ApothecaryCabin_DA_Enter_Fade,Entering the cabin...
 CMC_ApothecaryHealingMixture_BP_Name,Rare Herb Mixture
-CMC_ApothecaryHealingMixture_BP_Desc,"Bundle together the rarest herbs the forest and its herb-gardens have to offer: dried ginseng, dried reishi, and dried hemp flower, bound with a handful of dried nettle. The Apothecary knows exactly what to do with it."
+CMC_ApothecaryHealingMixture_BP_Desc,"Bundle together the rarest herbs the forest and its herb-gardens have to offer, bound with a handful of dried nettle. The Apothecary knows exactly what to do with it."
 CMC_ApothecaryHealingMixture_BP_UnlockDesc,Graduate the Academy's Herbalism course
 CMC_ApothecaryHealingMixture_CardName,Rare Herb Mixture
 CMC_ApothecaryHealingMixture_CardDesc,"A mortar-bundle of the rarest herbs the forest and its herb-gardens have to offer, bound together for the Apothecary. It isn't much use to anyone else; carry it to her cabin and give it to her."
@@ -1783,6 +1825,15 @@ CMC_GuardCorrin_AgentName,Guard Old Corrin
 CMC_GuardCorrin_AgentDescription,"Town Square Watch, day shift. Walks the square alongside Thorne, a beat the village trusts him to hold quietly."
 CMC_GuardVane_AgentName,Guard Iris Vane
 CMC_GuardVane_AgentDescription,"Night Watch. Sleeps through the day and walks the village after dark, which is when she does her best noticing."
+CMC_GuardTell_Wound1,Barely marked.
+CMC_GuardTell_Wound2,"Cut and bleeding, but still sure on their feet."
+CMC_GuardTell_Wound3,Bleeding badly — the wounds are starting to tell.
+CMC_GuardTell_Wound4,Barely standing; the next solid blow could be the last.
+CMC_GuardTell_Nerve1,Nerve steady.
+CMC_GuardTell_Nerve2,"Rattled, but holding the line."
+CMC_GuardTell_Nerve3,"Shaken, and giving ground."
+CMC_GuardTell_Nerve4,A breath away from breaking and running.
+CMC_GuardTell_Beaten,"Beaten, and in no shape to take up the chase for a while."
 CMC_GuardPerk_Sterling_PerkName,Watch Captain
 CMC_GuardPerk_Sterling_PerkDescription,"Squad lead of the village Watch. Formal, unhurried, and slow to escalate."
 CMC_GuardPerk_Thorne_PerkName,Town Square Watch
@@ -2000,7 +2051,7 @@ CMC_SterlingArr_Desc,"""I have given you every chance I have to give,"" the capt
 CMC_SterlingArr_Fight,Let him take you
 CMC_SterlingEscapeCount_StatName,Chances Given
 CMC_SterlingEscapeCount_StatDescription,Hidden counter: how many times you have backed down from a fight with Captain Sterling.
-CharacterTraits_Perk_RainCisternKit_PerkName,Rain Cistern Kit
+CharacterTraits_Perk_RainCisternKit_PerkName,Extra Rain Cistern Kit
 CharacterTraits_Perk_RainCisternKit_PerkDescription,Start with a rain cistern kit. Use Place to set up your cistern wherever you want it — it can only be placed once.
 CMC_InnKeeperTalk_GuardsConfession_Line,"So it's done. All four of the Watch, down, and word of it reached my door before you did. I've heard how it went -- some of them got back up. Not all of them did. Blood on the village floor doesn't wash out just because the fighting's over, and I'll not pour you a drink and pretend otherwise. Before we go on as we always have, I want you to sit with it a moment -- what you did out there, and whether you can carry it."
 CMC_InnKeeperTalk_GuardsConfession_Answer_Contrite,I know what I did. I'll carry it.
@@ -2027,12 +2078,7 @@ CMC_GuardKilledFlagVane_StatName,Guard Iris Vane Killed Flag
 CMC_GuardKilledFlagVane_StatDescription,Hidden marker: whether Guard Iris Vane's current absence is from a kill rather than a rout.
 CMC_GuardKillsPending_StatName,Guards Killed (Unanswered For)
 CMC_GuardKillsPending_StatDescription,Hidden count of guards killed since the player last served a full jail sentence; sets a heavier sentence (7 days per guard killed; capped at 8) and resets once served.
-CMC_CarpentryBench_CardName,Carpentry Bench
-CMC_CarpentryBench_CardDescription,"A second study station, set up for the Academy's newest course. Drag Salt, metal Nuggets, or Duros Coins onto the bench to fund your Tuition Account (holds up to 1000); each two-hour study session draws 100 from that balance, including the final exam. Study Carpentry to advance the coursework; when only one session remains, sit the final exam to earn your degree."
 CMC_CarpentryBench_Prog_Carpentry,Carpentry
-CMC_CarpentryBench_Prog_Tuition,Tuition Account
-CMC_CarpentryBench_CI_Deposit,Deposit Currency
-CMC_CarpentryBench_CI_Deposit_Desc,"Adds the value of the dragged Salt, Nugget, or Duros Coin to the Tuition Account (max 1000)."
 CMC_CarpentryBench_DA_Carpentry,Study Carpentry
 CMC_CarpentryBench_DA_Carpentry_Desc,"A two-hour session planing boards and fitting joints. The full course takes 24 hours of study; each session draws 100 from your Tuition Account. When one session remains, the final exam becomes available."
 CMC_CarpentryBench_StudyBlocked,The coursework is complete; sit the final exam.
@@ -2281,3 +2327,52 @@ CMC_MillerAcademyToday_StatName,Miller Academy Day
 CMC_MillerAcademyToday_StatDescription,"Hidden tracker for whether today is the Miller's weekly Academy visit — 1 all day, 0 otherwise. Keeps his workplace duty from fighting his Academy commute."
 CMC_WeaverAcademyToday_StatName,Weaver Academy Day
 CMC_WeaverAcademyToday_StatDescription,"Hidden tracker for whether today is the Weaver's weekly Academy visit — 1 all day, 0 otherwise. Keeps her workplace duty from fighting her Academy commute."
+CMC_SilverwortBlossom_CardName,Silverwort Blossom
+CMC_SilverwortBlossom_CardDescription,"A pale, silver-petaled flower found only in the deepest, undisturbed corners of the Foraging Forest. Apothecaries prize it for its potency."
+CMC_HollowSage_CardName,Hollow Sage
+CMC_HollowSage_CardDescription,"A hardy, silver-leafed sage that grows near old hollows and root-shadowed ground. Its bitter scent lingers on the hands long after picking."
+CMC_ClayShoalFlood_CardName,Flooded Ford
+CMC_ClayShoalFlood_CardDescription,"The spring thaw has swollen the river over the shoal, drowning the ford between Clay Shoal and Sodden Hollow under fast brown water. Camp at the bank and wait for the floodwaters to fall, or lay a Plank Causeway across it and cross dry. Once the ford is open it stays open for the rest of the spring — but the next thaw scours it out again."
+CMC_ClayShoalFlood_CI_Ford_Causeway_ActionName,Lay the Plank Causeway
+CMC_ClayShoalFlood_CI_Ford_Causeway_ActionDescription,Drop the lashed plank sections across the flooded ford and pin them into the clay. Opens the road between Clay Shoal and Sodden Hollow at once. The causeway is used up doing it.
+CMC_ClayShoalFlood_CI_Ford_Wait_ActionName,Wait for the Floodwaters to Fall
+CMC_ClayShoalFlood_CI_Ford_Wait_ActionDescription,"Sit out the worst of the meltwater on the bank and watch the level drop. Slow — a full day of waiting in all — but it needs no planks, and it opens the road between Clay Shoal and Sodden Hollow all the same."
+CMC_CausewayKit_CardName,Plank Causeway
+CMC_CausewayKit_CardDescription,"Heavy plank sections lashed into a roll, cut and drilled to span the ford at Clay Shoal. Drag it onto a Flooded Ford to lay it across and open the road at once. It can only be built at Clay Shoal, but it keeps indefinitely — build one in summer and have it ready for the next thaw."
+CMC_CausewayKit_Help,Plank Causeway
+CMC_PlankCauseway_BP_Name,Plank Causeway
+CMC_PlankCauseway_BP_Desc,"Cut and lash plank sections over a stone footing, sized to the ford at Clay Shoal. Can only be built at Clay Shoal. Drag the finished causeway onto a Flooded Ford to bridge the spring thaw and open the road to Sodden Hollow."
+CMC_PlankCauseway_BP_UnlockDesc,Be at the Clay Shoal
+CMC_VillageHomeSign_BP_Name,Village Home Sign
+CMC_VillageHomeSign_BP_Desc,"Hang a planked nameboard between two posts to mark a home as yours. It starts as a plain rustic board; once it is up, it can be carved with a decorative face and planed smooth again at any time."
+CMC_VillageHomeSignRustic_CardName,Village Home Sign
+CMC_VillageHomeSignRustic_CardDescription,"A plain planked nameboard slung between two posts. The wood is sound but the face is bare and unworked — honest, and a little anonymous. It can be carved with a decorative face whenever there is an afternoon to spare."
+CMC_VillageHomeSignRustic_CardHelpSection,Village Home Sign
+CMC_VillageHomeSignRustic_DA_Carve_ActionName,Carve the Face
+CMC_VillageHomeSignRustic_DA_Carve_ActionDescription,Cut a decorative face into the bare board — a bordered panel and a little relief work along the crossbar.
+CMC_VillageHomeSignRustic_DA_Dismantle,Take Down Sign
+CMC_VillageHomeSignCarved_CardName,Village Home Sign
+CMC_VillageHomeSignCarved_CardDescription,"The same planked nameboard, its face cut with a bordered panel and a run of relief work along the crossbar. It reads as a home someone is proud of rather than a plot someone happens to hold. The carving can be planed off again if the plain board is preferred."
+CMC_VillageHomeSignCarved_CardHelpSection,Village Home Sign
+CMC_VillageHomeSignCarved_DA_Plane_ActionName,Plane the Face Smooth
+CMC_VillageHomeSignCarved_DA_Plane_ActionDescription,"Work the relief and the border back off the board, leaving the plain rustic face."
+CMC_VillageHomeSignCarved_DA_Dismantle,Take Down Sign
+CMC_TownWoodPile_CardName,Town Wood Pile
+CMC_TownWoodPile_CardDesc,"The village's communal fuel stack, kept beside the square. Drag twigs, long sticks, wood or firewood onto it to add to the Wood Stockpile. The hearths in the Inn, the Academy, the Village Hall, the Miller's and Weaver's cottages and the Apothecary's cabin all tend themselves from this pile - when it runs dry they stop being tended and burn down, though any of them can still be fed and lit by hand like any other fireplace. The village also keeps a running Player's Pay balance for what you've fed in, built at the same rate as the Wood Stockpile; withdraw it any time as copper nuggets (50 pay each) or salt (30 pay each) with Collect as Copper/Collect as Salt - a reward for the fuel you contributed that never draws against what the hearths need."
+CMC_TownWoodPile_CardHelpSection,Town Wood Pile
+CMC_TownWoodPile_SD1_Name,Wood Stockpile
+CMC_TownWoodPile_SD2_Name,Player's Pay
+CMC_TownWoodPile_CI_Stock,Stock the Wood Pile
+CMC_TownWoodPile_CI_Stock_Desc,"Add the dragged fuel to the village's communal stockpile. Each piece is worth exactly what it would have given a fire: a log of wood about 35, pine or alder about 21, twigs 7, a long stick 4. Part-burnt fuel is worth what is left of it. The same value also builds your Player's Pay balance, withdrawable any time as copper or salt."
+CMC_TownWoodPileFuel_StatName,Town Wood Pile
+CMC_TownWoodPileFuel_StatDescription,"Hidden fuel pool for the village's communal wood pile, measured in the same units the vanilla Fireplace burns (1 per tick, 96 for a full hearth). Rises when fuel is stacked on the Town Wood Pile in the village, falls whenever one of the six village hearths is automatically topped off or re-lit. Starts at 96 - one full hearth's worth - so a run that has never seen the pile still gets a grace period before the village fires start going out. This is the canonical store: the pile's own Wood Stockpile bar is a display mirror of it, because the hearths that draw on it sit in interiors where the pile card is not on the board."
+CMC_TownWoodPile_CI_Stock_Full,The wood pile is already stacked as high as it will go.
+CMC_TownWoodPile_DA_CollectCopper,Collect as Copper
+CMC_TownWoodPile_DA_CollectCopper_Desc,"Withdraw your Player's Pay balance as copper nuggets, 50 pay each. Draws only on Player's Pay, never on the Wood Stockpile the hearths run on."
+CMC_TownWoodPile_DA_CollectSalt,Collect as Salt
+CMC_TownWoodPile_DA_CollectSalt_Desc,"Withdraw your Player's Pay balance as salt, 30 pay each. Draws only on Player's Pay, never on the Wood Stockpile the hearths run on."
+CMC_CarpentryBench_CardName,Carpentry Bench (retired)
+CMC_CarpentryBench_CardDescription,"This bench was retired when the Carpentry course moved onto the Lecture Hall lectern, which now holds a single Tuition Account for every course. Anything still banked here can be carried over: Transfer to Lecture Hall moves this bench's Tuition Account balance (as much as the lectern's account can hold) and any Carpentry study hours onto the lectern, then clears the bench away. If the lectern's account is full, the remainder stays here until you transfer again."
+CMC_CarpentryBench_Prog_Tuition,Tuition Account
+CMC_CarpentryBench_DA_Transfer,Transfer to Lecture Hall
+CMC_CarpentryBench_DA_Transfer_Desc,"Moves this bench's Tuition Account balance and Carpentry study hours onto the Lecture Hall lectern and removes the bench. If the lectern's account (1000 max) cannot take the whole balance, the rest stays on the bench for a later transfer."

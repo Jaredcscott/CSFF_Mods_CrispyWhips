@@ -1,5 +1,5 @@
 {
-  "UniqueID": "traitsperkraincisternkit",
+  "UniqueID": "traits_perk_extra_rain_cistern_kit",
   "StartUnlocked": true,
   "ActionObjectives": [],
   "CombatObjectives": [],
@@ -22,12 +22,12 @@
   "StarsCost": 0,
   "ResetLockInEditor": false,
   "PerkName": {
-    "ParentObjectID": "traitsperkraincisternkit",
+    "ParentObjectID": "traits_perk_extra_rain_cistern_kit",
     "LocalizationKey": "CharacterTraits_Perk_RainCisternKit_PerkName",
-    "DefaultText": "Rain Cistern Kit"
+    "DefaultText": "Extra Rain Cistern Kit"
   },
   "PerkDescription": {
-    "ParentObjectID": "traitsperkraincisternkit",
+    "ParentObjectID": "traits_perk_extra_rain_cistern_kit",
     "LocalizationKey": "CharacterTraits_Perk_RainCisternKit_PerkDescription",
     "DefaultText": "Start with a rain cistern kit. Use Place to set up your cistern wherever you want it — it can only be placed once."
   },

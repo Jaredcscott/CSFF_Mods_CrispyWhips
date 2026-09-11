@@ -203,6 +203,77 @@ namespace CommunityModChest.Patcher
         /// </summary>
         private static float _lastSterlingEscapeCount = -1f;
 
+        // ── Combat status tell (Village_Master_Plan.md §3.13 F1) ──────────────────
+        //
+        // WHY THIS LIVES IN C# AND NOT IN JSON (the F1 prompt's STEP 2a was checked first and
+        // does not apply). A guard's remaining Blood/Morale are Encounter METERS, not GameStats:
+        // mid-fight they live on InGameEncounter, and between engagements on
+        // InGameNPC.SavedEncounter (an EncounterSaveData, written by every guard Encounter's
+        // EnemyEscaped/PlayerEscaped/PlayerDemoralized effect blocks — each has
+        // "SaveEncounterToNPC": true, which is what makes four sequential duels read as one
+        // running battle). Nothing declarative can read them:
+        //   * `RequiredStatValues` gates on PLAYER GameStats, and no vanilla primitive copies an
+        //     encounter meter into one — EncounterResultEffect.StatChanges writes only fixed
+        //     modifiers, so the cat/Village-Hall-Boards tiered-text idiom has no value to gate on.
+        //   * EnemyValue.LoadedFromNPCStat is READ-ONLY at fight start (.decomp/EnemyValue.cs
+        //     ApplyModifiers) — the engine never writes a meter back to an NPCStat, so the
+        //     declarative NPCStat/NPCStatStatus band display can't reflect combat damage either
+        //     (and adding an NPCStat to AgentStats would not reach guards already spawned in an
+        //     existing save — InGameNPC snapshots its stat set at Init).
+        //   * Encounter has no enemy-condition text field at all (.decomp/Encounter.cs) — the only
+        //     mid-popup text surface is the combat log, driven by EnemyAction entries, and adding
+        //     Blood/Morale-weighted flavour actions would consume the guard's action for that round
+        //     (a balance change, not a display one).
+        // So the plan's own fallback applies: a small reflection read on the EXISTING chassis. No
+        // new patch class and no new poll — it rides the 5s "GuardOutcome" TickEvents interval this
+        // class already owns, inside the loop that already walks all four guards.
+        //
+        // WHAT THE PLAYER SEES: the guard's own AgentDescription with a two-clause condition line
+        // appended, in the NPC inspection popup (NPCInspectionPopup : BlueprintConstructionPopup :
+        // InspectionPopup renders CurrentCard.CardDescription(), which InGameNPC.ReallyUpdateDescription
+        // rebuilds from NPCModel.AgentDescription — .decomp/InGameNPC.cs:1388-1405). "Mid-fight" here
+        // means between engagements of the running battle: the Encounter popup is modal, so the only
+        // moment a player can read a guard's card is after fleeing or routing her and before
+        // re-engaging — which is exactly the near-kill-vs-near-rout decision this exists to inform.
+
+        /// <summary>Blank line between a guard's own AgentDescription and the appended tell.</summary>
+        private const string TellSeparator = "\n\n";
+
+        /// <summary>
+        /// Band edges as a fraction of the meter's STARTING value, not its <c>MaxValue</c>. Morale
+        /// is deliberately authored with a MaxValue far above its start on every guard (Corrin
+        /// 60/285, Sterling 100/350) so in-fight morale boosts have headroom — dividing by MaxValue
+        /// would read a completely untouched Corrin as 21% and permanently "shaken".
+        /// </summary>
+        private const float TellBandCritical = 0.25f;
+        private const float TellBandHeavy = 0.55f;
+        private const float TellBandLight = 0.85f;
+
+        /// <summary>
+        /// Each guard's ORIGINAL, current-language AgentDescription, resolved and cached the first
+        /// time that guard is seen and BEFORE the field is ever rewritten. Capturing the resolved
+        /// string (rather than the raw JSON DefaultText) is what keeps Chinese players on Chinese
+        /// base text once <see cref="WriteAgentDescription"/> has switched the field to IGNOREKEY.
+        /// </summary>
+        private static readonly Dictionary<string, string> _tellBaseDescription = new(StringComparer.OrdinalIgnoreCase);
+
+        /// <summary>Last tell actually written per guard, so an unchanged tier costs one dictionary
+        /// probe instead of a description rebuild every 5 seconds.</summary>
+        private static readonly Dictionary<string, string> _tellApplied = new(StringComparer.OrdinalIgnoreCase);
+
+        private static readonly Dictionary<string, object> _tellAgentSo = new(StringComparer.OrdinalIgnoreCase);
+        private static readonly Dictionary<string, object> _tellEncounterSo = new(StringComparer.OrdinalIgnoreCase);
+
+        private static FieldInfo _agentDescriptionField;
+        private static FieldInfo _lsKeyField;
+        private static FieldInfo _lsDefaultTextField;
+        private static FieldInfo _lsCachedTextField;
+        private static MethodInfo _updateDescriptionMethod;
+        private static MethodInfo _matchesEncounterMethod;
+        private static FieldInfo _localizationTextsField;
+        private static bool _resolvedLocalizationTextsField;
+        private static bool _loggedTellUnavailable;
+
         // ── Extension point for the arrest-and-sentence chunk (§10.8.7.2) ─────────
 
         /// <summary>
@@ -415,6 +486,12 @@ namespace CommunityModChest.Patcher
                         Plugin.Logger.LogInfo(
                             $"[GuardOutcomePatch] {guard.Label} is down (day {today}) — killed; back on duty from the Village Jail in {KilledSeasonDays} days.");
                     }
+
+                    // Display-only, and deliberately placed here rather than at the end of the
+                    // loop body: every branch below can `continue`, and the tell has to be
+                    // refreshed on EVERY tick for EVERY guard (including one who is currently
+                    // serving out a cooldown) or it goes stale on the card the player is looking at.
+                    UpdateCombatTell(gm, guard.AgentUid, guard.DownDayStatUid);
 
                     float armed = HiddenStat.Get(guard.DownDayStatUid);
                     if (armed < 0f) { allDown = false; continue; } // stat not readable yet
@@ -671,6 +748,259 @@ namespace CommunityModChest.Patcher
                 return;
             }
             HiddenStat.Set(GuardKillsPendingStatUid, current + 1f);
+        }
+
+        // ── Combat status tell ────────────────────────────────────────────────────
+
+        /// <summary>
+        /// Rewrites one guard's <c>AgentDescription</c> to her base text plus a coarse condition
+        /// line, and asks the engine to rebuild her card description. Fails soft and silent in
+        /// every branch: this is a read-out, and a guard whose meters cannot be read must still
+        /// patrol, chase and be fought exactly as before.
+        ///
+        /// <para>Writes only when the composed tell actually changes, so the steady state costs one
+        /// <c>AllNPCs</c> walk (the same walk this poll already does twice per guard) plus a handful
+        /// of cached-<c>MemberInfo</c> reads. Mutating <c>NPCAgent.AgentDescription</c> — CMC's own
+        /// SO, one per guard, never shared — and calling <c>InGameNPC.UpdateDescription(true)</c> is
+        /// the engine's OWN description path, so nothing has to fight <c>LateUpdate</c>'s rebuild
+        /// for ownership of <c>ModelCard.CardDescription</c>.</para>
+        /// </summary>
+        private static void UpdateCombatTell(object gm, string agentUid, string downDayStatUid)
+        {
+            try
+            {
+                var npc = FindLiveNpc(gm, agentUid);
+                // Nothing spawned and nothing ever written: leave the SO completely alone. This
+                // also keeps CaptureBaseDescription from resolving a guard's description before a
+                // run is actually up, which is what guarantees it captures CURRENT-LANGUAGE text.
+                if (npc == null && !_tellApplied.ContainsKey(agentUid)) return;
+
+                var agent = ResolveById(agentUid, _tellAgentSo);
+                if (agent == null) return;
+
+                string baseText = CaptureBaseDescription(agentUid, agent);
+                if (baseText == null) return;
+
+                string tell = npc == null ? string.Empty : ComposeTell(agentUid, downDayStatUid, npc);
+
+                if (_tellApplied.TryGetValue(agentUid, out var applied) && applied == tell) return;
+
+                string full = tell.Length == 0 ? baseText : baseText + TellSeparator + tell;
+                if (!WriteAgentDescription(agent, full)) return;
+                _tellApplied[agentUid] = tell;
+
+                if (npc == null) return;
+                _updateDescriptionMethod ??= npc.GetType().GetMethod("UpdateDescription",
+                    BindingFlags.Instance | BindingFlags.Public, null, new[] { typeof(bool) }, null);
+                _updateDescriptionMethod?.Invoke(npc, new object[] { true });
+            }
+            catch (Exception ex)
+            {
+                if (_loggedTellUnavailable) return;
+                _loggedTellUnavailable = true;
+                Plugin.Logger.LogWarning(
+                    "[GuardOutcomePatch] the guard combat status tell failed and is being skipped from here on " +
+                    "(display only — no other guard behaviour is affected): " +
+                    (ex.InnerException?.ToString() ?? ex.ToString()));
+            }
+        }
+
+        /// <summary>
+        /// The condition line for one guard, or "" when there is nothing to say (never fought, or
+        /// her saved meters are unreadable). A guard currently serving a cooldown gets a single
+        /// "beaten" line instead of the two-clause read: her saved Morale is at/near zero by
+        /// definition, so the normal nerve clause would be technically true but read as a live
+        /// tactical hint about a fight that is already over.
+        /// </summary>
+        private static string ComposeTell(string agentUid, string downDayStatUid, object npc)
+        {
+            if (HiddenStat.Get(downDayStatUid) >= 0.5f)
+                return Localized("CMC_GuardTell_Beaten",
+                    "Beaten, and in no shape to take up the chase for a while.");
+
+            // Null between the moment an Encounter loads it (EncounterPopup.cs:456-459 consumes and
+            // clears it) and the moment that fight's result block saves a fresh one — i.e. exactly
+            // while the modal combat popup is open and no card is inspectable anyway.
+            var saved = Reflect.GetMember(npc, "SavedEncounter");
+            if (saved == null) return string.Empty;
+
+            var encounter = MatchSavedEncounter(agentUid, saved);
+            if (encounter == null) return string.Empty;
+
+            float bloodStart = StartingValue(encounter, "Blood");
+            float moraleStart = StartingValue(encounter, "Morale");
+            if (bloodStart <= 0f || moraleStart <= 0f) return string.Empty;
+
+            float blood = Reflect.GetFloat(saved, "CurrentEnemyBlood", -1f);
+            float morale = Reflect.GetFloat(saved, "CurrentEnemyMorale", -1f);
+            if (blood < 0f || morale < 0f) return string.Empty;
+
+            return WoundClause(blood / bloodStart) + " " + NerveClause(morale / moraleStart);
+        }
+
+        /// <summary>Blood tier — how close this guard is to being KILLED (Blood's
+        /// <c>OnZeroEncounterResult</c> is EnemyDefeated on every guard Encounter).</summary>
+        private static string WoundClause(float fraction)
+        {
+            if (fraction <= TellBandCritical)
+                return Localized("CMC_GuardTell_Wound4", "Barely standing; the next solid blow could be the last.");
+            if (fraction <= TellBandHeavy)
+                return Localized("CMC_GuardTell_Wound3", "Bleeding badly — the wounds are starting to tell.");
+            if (fraction <= TellBandLight)
+                return Localized("CMC_GuardTell_Wound2", "Cut and bleeding, but still sure on their feet.");
+            return Localized("CMC_GuardTell_Wound1", "Barely marked.");
+        }
+
+        /// <summary>Morale tier — how close this guard is to being ROUTED (Morale's
+        /// <c>OnZeroEncounterResult</c> is EnemyEscaped on every guard Encounter).</summary>
+        private static string NerveClause(float fraction)
+        {
+            if (fraction <= TellBandCritical)
+                return Localized("CMC_GuardTell_Nerve4", "A breath away from breaking and running.");
+            if (fraction <= TellBandHeavy)
+                return Localized("CMC_GuardTell_Nerve3", "Shaken, and giving ground.");
+            if (fraction <= TellBandLight)
+                return Localized("CMC_GuardTell_Nerve2", "Rattled, but holding the line.");
+            return Localized("CMC_GuardTell_Nerve1", "Nerve steady.");
+        }
+
+        /// <summary>
+        /// The Encounter asset a guard's <c>SavedEncounter</c> actually belongs to, using vanilla's
+        /// own <c>EncounterSaveData.MatchesEncounter</c> rather than re-implementing its
+        /// <c>UniqueIDScriptable.LoadID</c> comparison. Candidates come from
+        /// <see cref="KillEncounterToGuard"/> so there is no second per-guard Encounter table to
+        /// keep in sync — it matters for Sterling, who owns three (lenient chase, converge, arrest)
+        /// with different Blood/Morale starting values.
+        /// </summary>
+        private static object MatchSavedEncounter(string agentUid, object saved)
+        {
+            foreach (var kv in KillEncounterToGuard)
+            {
+                if (!string.Equals(Guards[kv.Value].AgentUid, agentUid, StringComparison.OrdinalIgnoreCase)) continue;
+                var encounter = ResolveById(kv.Key, _tellEncounterSo);
+                if (encounter == null) continue;
+
+                _matchesEncounterMethod ??= saved.GetType().GetMethod("MatchesEncounter",
+                    BindingFlags.Instance | BindingFlags.Public);
+                if (_matchesEncounterMethod == null) return null;
+
+                if (_matchesEncounterMethod.Invoke(saved, new[] { encounter }) is true) return encounter;
+            }
+            return null;
+        }
+
+        /// <summary><c>Encounter.&lt;meter&gt;.StartingValue.x</c>. <c>StartingValue</c> is a
+        /// <c>[SerializeField] private Vector2</c> inside the <c>EnemyValue</c> struct, so this
+        /// needs <c>Reflect</c>'s NonPublic flags; every guard meter authors x == y, so x is the
+        /// whole story.</summary>
+        private static float StartingValue(object encounter, string meterName)
+        {
+            var meter = Reflect.GetMember(encounter, meterName);
+            if (meter == null) return 0f;
+            return Reflect.GetMember(meter, "StartingValue") is Vector2 v ? v.x : 0f;
+        }
+
+        /// <summary>Resolves and caches a UniqueIDScriptable by UID, re-resolving if a cached SO was
+        /// destroyed by a data reload between saves.</summary>
+        private static object ResolveById(string uid, Dictionary<string, object> cache)
+        {
+            if (cache.TryGetValue(uid, out var cached) && Reflect.IsAlive(cached)) return cached;
+            if (_getFromIdMethod == null) ResolveDownedStat(); // shares the lazy GetFromID lookup
+            if (_getFromIdMethod == null) return null;
+
+            var so = _getFromIdMethod.Invoke(null, new object[] { uid });
+            if (Reflect.IsAlive(so)) cache[uid] = so;
+            return so;
+        }
+
+        /// <summary>See <see cref="_tellBaseDescription"/> — must run before the first
+        /// <see cref="WriteAgentDescription"/> for that guard, which the single call path
+        /// guarantees.</summary>
+        private static string CaptureBaseDescription(string agentUid, object agent)
+        {
+            if (_tellBaseDescription.TryGetValue(agentUid, out var cached)) return cached;
+
+            var boxed = Reflect.GetMember(agent, "AgentDescription");
+            if (boxed == null) return null;
+
+            // LocalizedString.ToString() is the game's own resolver: CSV row for LocalizationKey in
+            // the current language, DefaultText otherwise. Called on our box, so the struct's
+            // memoisation lands on the copy and never on the SO's field.
+            string text = boxed.ToString() ?? string.Empty;
+            _tellBaseDescription[agentUid] = text;
+            return text;
+        }
+
+        /// <summary>
+        /// Sets the agent's description to <paramref name="text"/> verbatim. Forces
+        /// <c>LocalizationKey</c> to vanilla's own <c>IGNOREKEY</c> sentinel (the same one
+        /// <c>InGameNPC.ReallyUpdateDescription</c> stamps onto <c>ModelCard.CardDescription</c>) so
+        /// the composed string is used as-is, and clears the struct's <c>[NonSerialized]</c>
+        /// <c>LocalizedText</c> memo — without that, the first resolution would stick and every
+        /// later tier change would be silently ignored.
+        /// </summary>
+        private static bool WriteAgentDescription(object agent, string text)
+        {
+            _agentDescriptionField ??= agent.GetType().GetField("AgentDescription",
+                BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            if (_agentDescriptionField == null) return WarnTellFieldsMissing("NPCAgent.AgentDescription");
+
+            object boxed = _agentDescriptionField.GetValue(agent);
+            if (boxed == null) return false;
+
+            var t = boxed.GetType();
+            _lsKeyField ??= t.GetField("LocalizationKey", BindingFlags.Instance | BindingFlags.Public);
+            _lsDefaultTextField ??= t.GetField("DefaultText", BindingFlags.Instance | BindingFlags.Public);
+            _lsCachedTextField ??= t.GetField("LocalizedText", BindingFlags.Instance | BindingFlags.NonPublic);
+            if (_lsKeyField == null || _lsDefaultTextField == null)
+                return WarnTellFieldsMissing("LocalizedString.LocalizationKey/DefaultText");
+
+            _lsKeyField.SetValue(boxed, "IGNOREKEY");
+            _lsDefaultTextField.SetValue(boxed, text);
+            _lsCachedTextField?.SetValue(boxed, null);
+            _agentDescriptionField.SetValue(agent, boxed);
+            return true;
+        }
+
+        /// <summary>One-shot breadcrumb for the only two "the game's field layout moved under us"
+        /// exits in <see cref="WriteAgentDescription"/> — without it a version drift would leave the
+        /// tell silently absent forever with zero log output. Always returns false so it can be
+        /// returned directly from those exits.</summary>
+        private static bool WarnTellFieldsMissing(string what)
+        {
+            if (!_loggedTellUnavailable)
+            {
+                _loggedTellUnavailable = true;
+                Plugin.Logger.LogWarning(
+                    $"[GuardOutcomePatch] {what} not found — the guard combat status tell is disabled " +
+                    "(display only; no other guard behaviour is affected).");
+            }
+            return false;
+        }
+
+        /// <summary>Current-language text for a CMC localization key, falling back to the shipped
+        /// English. Same <c>LocalizationManager.CurrentTexts</c> lookup
+        /// <c>OutfitWardrobeSectionsPatch.OutfitLabel</c> already uses.</summary>
+        private static string Localized(string key, string fallback)
+        {
+            try
+            {
+                if (!_resolvedLocalizationTextsField)
+                {
+                    _resolvedLocalizationTextsField = true;
+                    var locType = CardUtil.FindGameType("LocalizationManager");
+                    _localizationTextsField = locType?.GetField("CurrentTexts",
+                        BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+                }
+                if (_localizationTextsField?.GetValue(null) is Dictionary<string, string> texts
+                    && texts.TryGetValue(key, out var text) && !string.IsNullOrEmpty(text))
+                    return text;
+            }
+            catch (Exception ex)
+            {
+                Plugin.Logger.LogDebug($"[GuardOutcomePatch] localization lookup failed for '{key}': {ex.Message}");
+            }
+            return fallback;
         }
 
         // ── NPCStat access on a live guard ────────────────────────────────────────

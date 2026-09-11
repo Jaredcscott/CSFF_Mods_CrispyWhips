@@ -54,7 +54,8 @@
       { "Card": "herbs_fungi_puffball",   "Chance": 6.0,  "Quantity": [1, 1] },
       { "Card": "herbs_fungi_lingonberry","Chance": 6.0,  "Quantity": [1, 1] },
       { "Card": "herbs_fungi_cloudberry", "Chance": 5.0,  "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_death_cap",  "Chance": 2.0,  "Quantity": [1, 1] }
+      { "Card": "herbs_fungi_death_cap",  "Chance": 2.0,  "Quantity": [1, 1] },
+      { "Card": "cmcSilverwortBlossom",   "Chance": 5.0,  "Quantity": [1, 1] }
     ]
   },
   {
@@ -115,7 +116,8 @@
       { "Card": "herbs_fungi_lions_mane",      "Chance": 4.0,  "Quantity": [1, 1] },
       { "Card": "herbs_fungi_black_trumpet",   "Chance": 5.0,  "Quantity": [1, 1] },
       { "Card": "herbs_fungi_blackcurrant",    "Chance": 6.0,  "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_death_cap",       "Chance": 2.0,  "Quantity": [1, 1] }
+      { "Card": "herbs_fungi_death_cap",       "Chance": 2.0,  "Quantity": [1, 1] },
+      { "Card": "cmcHollowSage",               "Chance": 5.0,  "Quantity": [1, 1] }
     ]
   },
   {
@@ -219,7 +221,10 @@
       { "Card": "herbs_fungi_hemp_seeds", "Chance": 5.0, "Quantity": [1, 1] },
       { "Card": "herbs_fungi_cloudberry", "Chance": 4.0, "Quantity": [1, 1] },
       { "Card": "herbs_fungi_death_cap", "Chance": 3.0, "Quantity": [1, 1] },
-      { "Card": "herbs_fungi_truffle", "Chance": 3.0, "Quantity": [1, 1] }
+      { "Card": "herbs_fungi_truffle", "Chance": 3.0, "Quantity": [1, 1] },
+
+      { "Card": "cmcSilverwortBlossom", "Chance": 6.0, "Quantity": [1, 1] },
+      { "Card": "cmcHollowSage", "Chance": 6.0, "Quantity": [1, 1] }
     ]
   }
 ]

@@ -27,7 +27,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.CommunityModChest";
     public const string PluginName = "Community Mod Chest";
-    public const string PluginVersion = "1.68.1";
+    public const string PluginVersion = "1.68.23";
 
     internal new static ManualLogSource Logger { get; private set; }
     internal static ConfigEntry<bool> EnableAshPartnerSpike { get; private set; }
@@ -112,8 +112,12 @@ internal class Plugin : ContentModPlugin
         TryApply("StrayImprovementsPatch", () => StrayImprovementsPatch.Initialize(harmony));
         TryApply("VillageCrimePatch", () => VillageCrimePatch.Initialize());
         TryApply("InnPatch", () => InnPatch.Initialize(harmony));
-        // Keeps the Inn/Academy/Village Hall's own built-in fireplace fueled and lit — warmth
-        // itself now comes from vanilla's own Fireplace PassiveEffects, not a forced stat patch.
+        // The village's communal fuel stack. MUST initialize before VillageFireplacePatch, which
+        // debits its pool on every hearth top-off (Village_Master_Plan.md §10.11 Chunk G).
+        TryApply("TownWoodPilePatch", () => TownWoodPilePatch.Initialize());
+        // Keeps the six village interiors' built-in fireplaces fueled and lit, paid for out of the
+        // Town Wood Pile above — warmth itself comes from vanilla's own Fireplace PassiveEffects,
+        // not a forced stat patch.
         TryApply("VillageFireplacePatch", () => VillageFireplacePatch.Initialize());
         TryApply("InnKeeperSpawnPatch", () => InnKeeperSpawnPatch.Initialize(harmony));
         TryApply("InnKeeperDialogSchedulePatch", () => InnKeeperDialogSchedulePatch.Initialize());
@@ -149,6 +153,13 @@ internal class Plugin : ContentModPlugin
         // this bypasses pathfinding and mirrors an allied companion's env directly onto the
         // player's own Enter/Exit transitions for those two doors.
         TryApply("PartnerIndoorFollowPatch", () => PartnerIndoorFollowPatch.Initialize(harmony));
+        // Vanilla hostile wildlife (Bear/Boar/Forest Beast/Moontouched/Wolf family) can
+        // "approach the player" via NPCAction.MoveToPlayerEnvironment with zero indoor check —
+        // stops them from physically walking into the village building interiors (reported
+        // 2026-08-28: a Bear standing in the Inn/Academy/Jail). EncounterGuards/
+        // CMC_InteriorsNoWildlife.json already suppresses the resulting combat popup; this
+        // blocks the physical relocation itself.
+        TryApply("WildlifeIndoorGuardPatch", () => WildlifeIndoorGuardPatch.Initialize(harmony));
         // Shadow the Cat — independent companion chain, spawn-gated on Herbalism graduation
         // (AcademyCourseService.GradHerbalism) rather than a hidden GameStat. See
         // Documentation/Plans/Community_Mod_Chest/Village_Master_Plan.md §3.6/§10.7.

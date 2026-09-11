@@ -49,6 +49,18 @@
           "DontSpend": false,
           "RequiredCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
           "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredQuantity": 1,
+          "DontSpend": true,
+          "EffectOnIngredient": {
+            "ModType": 1,
+            "UsageChange": { "x": -1.0, "y": -1.0 }
+          },
+          "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredTabGroupWarpData": "GpTag_Needle",
+          "RequiredTabGroupWarpType": 3
         }
       ],
       "StepActionTags": [],

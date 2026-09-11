@@ -17,7 +17,6 @@ namespace CommunityModChest.Patcher
     /// taken out of normal research and handed out only by Academy courses, for
     /// every character:
     ///   - Architecture course            → WDI Water-Driven Sawmill + Grinding Mill
-    ///   - Metallurgy course              → ACT Copper Sheet
     ///   - Architecture + Metallurgy      → WDI Water-Driven Forge + Workshop Kit
     ///   - Fishing course                 → CMC Iron Fishing Rod
     ///   - Armorer course                 → ACT Copper + Iron Breastplate/Helmet/Greaves/Gauntlets
@@ -25,6 +24,20 @@ namespace CommunityModChest.Patcher
     /// The Armorer course itself is pruned from the lectern entirely if ACT isn't
     /// installed (see AcademyPatch.PruneUnavailableCourses) — this table's "owning
     /// mod not installed" skip below is a secondary safety net.
+    ///
+    /// GRANTS vs. LOCKS (CourseGrants table, added 1.68.17). A course payoff that is
+    /// another mod's BASE MATERIAL is granted, never locked: it stays normally
+    /// researchable, and passing the course simply hands it over early via
+    /// MakeBlueprintAvailable. Only end-tier rewards (WDI water-driven buildings, ACT
+    /// armor sets) use the hide-until-earned lock above.
+    ///   - Metallurgy course              → ACT Copper Sheet (GRANT, never hidden)
+    /// Why: gating ACT's Copper Sheet was a lock from 2026-07-05 (opt-in behind the
+    /// Higher Education trait) and unconditional for every character from 2026-07-20
+    /// (Village overhaul PR-1). Copper Sheet is ACT's tier-1 material - 21 downstream
+    /// ACT blueprints consume it - so hiding it read to players as CMC breaking ACT,
+    /// with no in-game signal saying where the recipe went (Nexus report, 2026-09-04).
+    /// Both BlueprintModelStates and UnlockableCards are rebuilt per run
+    /// (GameManager.cs:232/335/2753/2788), so an affected save recovers on next load.
     ///
     /// Locking uses the game's own quest-lock mechanism: at every run start
     /// (GameManager.OnGMInitialized, which fires at the end of FinishInitializing when
@@ -71,12 +84,6 @@ namespace CommunityModChest.Patcher
                 Label         = "Architecture",
                 RequiredPerks = new[] { GradArchitecture },
                 Blueprints    = new[] { "water_sawmill_bp_water_driven_sawmill", "water_sawmill_bp_grinding_mill" }
-            },
-            new CourseUnlock
-            {
-                Label         = "Metallurgy",
-                RequiredPerks = new[] { GradMetallurgy },
-                Blueprints    = new[] { "advanced_copper_tools_bp_metal_sheet" }
             },
             new CourseUnlock
             {
@@ -141,6 +148,23 @@ namespace CommunityModChest.Patcher
                 Label         = "Medicine",
                 RequiredPerks = new[] { GradMedicine },
                 Blueprints    = new[] { "cmcbpherbpoultice", "cmcbptincture" }
+            }
+        };
+
+        // GRANT-ONLY table. Same shape as the tables above, but GrantTable never hides anything:
+        // these blueprints stay in normal research for every character, and passing the course
+        // simply hands the recipe over early (MakeBlueprintAvailable, skipping the research timer).
+        // Use this for any payoff that is another mod's foundational material - see the GRANTS vs.
+        // LOCKS note in the class summary. A course whose ONLY payoff sits here still reads as a
+        // real reward in-game (instant recipe, no research cost) without removing content a player
+        // installed a different mod to get.
+        private static readonly CourseUnlock[] CourseGrants =
+        {
+            new CourseUnlock
+            {
+                Label         = "Metallurgy",
+                RequiredPerks = new[] { GradMetallurgy },
+                Blueprints    = new[] { "advanced_copper_tools_bp_metal_sheet" }
             }
         };
 
@@ -268,6 +292,7 @@ namespace CommunityModChest.Patcher
         private static void ApplyCourseGating(string reason)
         {
             GateTable(CourseUnlocks, $"Academy course gating at {reason}");
+            GrantTable(CourseGrants, $"Academy course grants at {reason}");
         }
 
         // Unconditional pass: runs on every run regardless of the Higher Education trait — the
@@ -413,6 +438,44 @@ namespace CommunityModChest.Patcher
 
             if (locked > 0 || unlocked > 0)
                 Plugin.Logger.LogInfo($"[AcademyCourseService] {logContext}: {locked} blueprint(s) locked, {unlocked} unlocked.");
+        }
+
+        // Grant-only loop: hands the course's blueprints over once the degree is held, and does
+        // NOTHING otherwise. Unlike GateTable this never writes Hidden and never disables an
+        // unlock condition, so the blueprint remains researchable by its own normal conditions for
+        // players who skip the course. Idempotent: an already-Available blueprint is skipped.
+        private static void GrantTable(CourseUnlock[] table, string logContext)
+        {
+            var gm = CardUtil.GetGameManagerInstance();
+            if (gm == null) return;
+
+            var states = CardUtil.GetMemberValue(gm, "BlueprintModelStates") as IDictionary;
+            if (states == null)
+            {
+                Plugin.Logger.LogWarning("[AcademyCourseService] BlueprintModelStates not readable - course grants skipped.");
+                return;
+            }
+
+            int granted = 0;
+            foreach (var course in table)
+            {
+                if (!AllPerksHeld(gm, course.RequiredPerks)) continue; // degree not earned - leave it in research
+
+                foreach (var bpUid in course.Blueprints)
+                {
+                    var bp = FindCardData(bpUid);
+                    if (bp == null) continue;           // owning mod not installed
+                    if (!states.Contains(bp)) continue; // not registered as a blueprint this run
+                    if (Convert.ToInt32(states[bp]) == StateAvailable) continue; // already researched or granted
+
+                    MakeAvailable(bp);
+                    granted++;
+                    Plugin.Logger.LogDebug($"[AcademyCourseService] {course.Label} degree held - granted {bpUid}.");
+                }
+            }
+
+            if (granted > 0)
+                Plugin.Logger.LogInfo($"[AcademyCourseService] {logContext}: {granted} blueprint(s) granted.");
         }
 
         // ── Course/perk queries ───────────────────────────────────────────────

@@ -143,6 +143,24 @@
     "HasActionOnZero": false,
     "HasActionOnFull": false
   },
+  "Progress": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 24.0,
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 1,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "OverrideIcon": { "m_FileID": 0, "m_PathID": 0 },
+    "OverrideIconWarpData": "VillageAcademyArchitecture",
+    "OverrideIconWarpType": 3,
+    "CardStatName": {
+      "LocalizationKey": "CMC_CarpentryBench_Prog_Carpentry",
+      "DefaultText": "Carpentry"
+    },
+    "HasActionOnZero": false,
+    "HasActionOnFull": false
+  },
   "CardInteractions": [
     {
       "ActionName": {
@@ -342,7 +360,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_AcademyLectern_DA_MetallurgyFinal_Desc",
-        "DefaultText": "The final two-hour examination. Pass it to earn the Metallurgy degree: unlocks the Copper Sheet recipe, and, together with an Architecture degree, the Water-Driven Forge and Workshop."
+        "DefaultText": "The final two-hour examination. Pass it to earn the Metallurgy degree: the Copper Sheet recipe is handed to you outright, no research required, and, together with an Architecture degree, it unlocks the Water-Driven Forge and Workshop."
       },
       "DaytimeCost": 8,
       "UseMiniTicks": 0,
@@ -811,6 +829,112 @@
       "ReceivingCardChanges": {
         "ModType": 1,
         "FuelChange": { "x": 2.0, "y": 2.0 }
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_CarpentryBench_DA_Carpentry",
+        "DefaultText": "Study Carpentry"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_CarpentryBench_DA_Carpentry_Desc",
+        "DefaultText": "A two-hour session planing boards and fitting joints. The full course takes 24 hours of study; each session draws 100 from your Tuition Account. When one session remains, the final exam becomes available."
+      },
+      "DaytimeCost": 8,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredProgressPercent": {
+          "Active": true,
+          "FloatValue": 0.0,
+          "MaxValue": 0.875,
+          "ScaleRequirementPerPortionOfLiquid": { "Active": false, "FloatValue": 0.0 }
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "LocalizationKey": "CMC_CarpentryBench_StudyBlocked",
+          "DefaultText": "The coursework is complete; sit the final exam."
+        }
+      },
+      "StatModifications": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -5.0, "y": -5.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -4.0, "y": -4.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        }
+      ],
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "ChargesChange": { "x": 2.0, "y": 2.0 }
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "CMC_CarpentryBench_DA_CarpentryFinal",
+        "DefaultText": "Final Exam: Carpentry"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "CMC_CarpentryBench_DA_CarpentryFinal_Desc",
+        "DefaultText": "The final two-hour examination. Pass it to earn the Carpentry degree: unlocks the Outfit Wardrobe and Wicker Chair blueprints."
+      },
+      "DaytimeCost": 8,
+      "UseMiniTicks": 0,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "AddedInRunPerksWarpData": ["cmcperkgradcarpentry"],
+      "AddedInRunPerksWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredProgressPercent": {
+          "Active": true,
+          "FloatValue": 0.90,
+          "MaxValue": 0.99,
+          "ScaleRequirementPerPortionOfLiquid": { "Active": false, "FloatValue": 0.0 }
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "LocalizationKey": "CMC_CarpentryBench_FinalNotReady",
+          "DefaultText": "You are not ready for the final examination."
+        }
+      },
+      "StatModifications": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -5.0, "y": -5.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -4.0, "y": -4.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": true
+        }
+      ],
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "ChargesChange": { "x": 2.0, "y": 2.0 }
       }
     }
   ],

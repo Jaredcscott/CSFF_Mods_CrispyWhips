@@ -1,0 +1,138 @@
+{
+  "UniqueID": "cmcTownWoodPile",
+  "CardType": 2,
+  "CardName": {
+    "DefaultText": "Town Wood Pile",
+    "LocalizationKey": "CMC_TownWoodPile_CardName"
+  },
+  "CardDescription": {
+    "DefaultText": "The village's communal fuel stack, kept beside the square. Drag twigs, long sticks, wood or firewood onto it to add to the Wood Stockpile. The hearths in the Inn, the Academy, the Village Hall, the Miller's and Weaver's cottages and the Apothecary's cabin all tend themselves from this pile - when it runs dry they stop being tended and burn down, though any of them can still be fed and lit by hand like any other fireplace. The village also keeps a running Player's Pay balance for what you've fed in, built at the same rate as the Wood Stockpile; withdraw it any time as copper nuggets (50 pay each) or salt (30 pay each) with Collect as Copper/Collect as Salt - a reward for the fuel you contributed that never draws against what the hearths need.",
+    "LocalizationKey": "CMC_TownWoodPile_CardDesc"
+  },
+  "CardImage": "Firewood",
+  "CardImageWarpData": "Firewood",
+  "CardImageWarpType": 3,
+  "CardHelpSection": {
+    "DefaultText": "Town Wood Pile",
+    "LocalizationKey": "CMC_TownWoodPile_CardHelpSection"
+  },
+  "CardTagsWarpData": ["tag_Structure"],
+  "CardTagsWarpType": 3,
+  "ObjectWeight": 0,
+  "DoesNotPile": true,
+  "UniqueOnBoard": true,
+  "SpecialDurability1": {
+    "Active": true,
+    "CardStatName": {
+      "DefaultText": "Wood Stockpile",
+      "LocalizationKey": "CMC_TownWoodPile_SD1_Name"
+    },
+    "MaxValue": 672,
+    "FloatValue": 96,
+    "ShowAsBar": true,
+    "RatePerDaytimePoint": 0
+  },
+  "SpecialDurability2": {
+    "Active": true,
+    "CardStatName": {
+      "DefaultText": "Player's Pay",
+      "LocalizationKey": "CMC_TownWoodPile_SD2_Name"
+    },
+    "MaxValue": 480,
+    "FloatValue": 0,
+    "ShowAsBar": true,
+    "RatePerDaytimePoint": 0
+  },
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "DefaultText": "Stock the Wood Pile",
+        "LocalizationKey": "CMC_TownWoodPile_CI_Stock"
+      },
+      "ActionDescription": {
+        "DefaultText": "Add the dragged fuel to the village's communal stockpile. Each piece is worth exactly what it would have given a fire: a log of wood about 35, pine or alder about 21, twigs 7, a long stick 4. Part-burnt fuel is worth what is left of it. The same value also builds your Player's Pay balance, withdrawable any time as copper or salt.",
+        "LocalizationKey": "CMC_TownWoodPile_CI_Stock_Desc"
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "StackCompatible": true,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.0,
+          "MaxValue": 99.0,
+          "ScaleRequirementPerPortionOfLiquid": { "Active": false, "FloatValue": 0.0 }
+        },
+        "HideActionIfNotMet": true,
+        "FailMessage": {
+          "DefaultText": "The wood pile is already stacked as high as it will go.",
+          "LocalizationKey": "CMC_TownWoodPile_CI_Stock_Full"
+        }
+      },
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTags": [],
+        "TriggerCardsWarpData": [
+          "758be01db25eb4649a288d64b7600b9b",
+          "692afc638c39e32428629da58f56136a",
+          "3b98f1dd27ae5634db3f3aa04cad7ebb",
+          "42ea6fec87c332849bf5863b6e1fc8df",
+          "3db4c94184af274409f0d3eb16870f64",
+          "fa8834c3111a71f47bdd23d66b33cf61"
+        ],
+        "TriggerCardsWarpType": 3,
+        "TriggerTagsWarpData": [],
+        "TriggerTagsWarpType": 3
+      },
+      "GivenCardChanges": {
+        "ModType": 3
+      },
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "ProducedCards": []
+    }
+  ],
+  "CardInteractionsWarpType": 3,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "DefaultText": "Collect as Copper",
+        "LocalizationKey": "CMC_TownWoodPile_DA_CollectCopper"
+      },
+      "ActionDescription": {
+        "DefaultText": "Withdraw your Player's Pay balance as copper nuggets, 50 pay each. Draws only on Player's Pay, never on the Wood Stockpile the hearths run on.",
+        "LocalizationKey": "CMC_TownWoodPile_DA_CollectCopper_Desc"
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    },
+    {
+      "ActionName": {
+        "DefaultText": "Collect as Salt",
+        "LocalizationKey": "CMC_TownWoodPile_DA_CollectSalt"
+      },
+      "ActionDescription": {
+        "DefaultText": "Withdraw your Player's Pay balance as salt, 30 pay each. Draws only on Player's Pay, never on the Wood Stockpile the hearths run on.",
+        "LocalizationKey": "CMC_TownWoodPile_DA_CollectSalt_Desc"
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "AlwaysShow": true
+    }
+  ],
+  "DismantleActionsWarpType": 3
+}

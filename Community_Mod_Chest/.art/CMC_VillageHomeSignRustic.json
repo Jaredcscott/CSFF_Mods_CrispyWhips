@@ -1,0 +1,13 @@
+{
+  "target": "CMC_VillageHomeSignRustic.png",
+  "sourceCard": "CMC_VillageHomeSignRustic.json",
+  "subject": "a plain rustic wooden nameboard sign, a single unpainted plank slung on rope between two upright posts, bare unworked face with no carving or lettering, weathered pale timber",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": { "imageCount": 1, "aspectRatio": "2:3", "resolution": "2K", "autoEnhancePrompt": false },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a plain rustic wooden nameboard sign, a single unpainted plank slung on rope between two upright posts, bare unworked face with no carving or lettering, weathered pale timber, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame. Avoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame.",
+  "historyId": "NGp9ruZEJN8rwPZHZGLF",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-08/create-image/XbhdRvvhTk0K7JCPQP3H/image_1787756105107_9d7f77c9_1787756106076_65275982.png",
+  "credits": 27,
+  "generated": "2026-08-26"
+}

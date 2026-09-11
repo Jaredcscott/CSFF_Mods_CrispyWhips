@@ -1,0 +1,90 @@
+{
+    "UniqueID": "bpcmcplankcauseway",
+    "CardType": 7,
+    "CardName": {
+        "ParentObjectID": "bpcmcplankcauseway",
+        "LocalizationKey": "CMC_PlankCauseway_BP_Name",
+        "DefaultText": "Plank Causeway"
+    },
+    "CardDescription": {
+        "ParentObjectID": "bpcmcplankcauseway",
+        "LocalizationKey": "CMC_PlankCauseway_BP_Desc",
+        "DefaultText": "Cut and lash plank sections over a stone footing, sized to the ford at Clay Shoal. Can only be built at Clay Shoal. Drag the finished causeway onto a Flooded Ford to bridge the spring thaw and open the road to Sodden Hollow."
+    },
+    "CardImageWarpData": "Plank",
+    "CardImageWarpType": 3,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "bpcmcplankcauseway",
+        "LocalizationKey": "CMC_PlankCauseway_BP_UnlockDesc",
+        "DefaultText": "Be at the Clay Shoal"
+    },
+    "StartUnlocked": false,
+    "BlueprintUnlockTicksCost": 16,
+    "BuildingDaytimeCost": 10,
+    "DeconstructDaytimeCost": 4,
+    "NeedsRoomInLocationToSpawn": false,
+    "BlueprintCardConditions": [
+        {
+            "TriggerCard": { "m_FileID": 0, "m_PathID": 0 },
+            "OnlyInHand": false,
+            "NotInHand": false,
+            "ExcludeInventories": false,
+            "Inverted": false,
+            "OnlyEquipped": false,
+            "TriggerCardWarpData": "cmcLocClayFlats",
+            "TriggerCardWarpType": 3
+        }
+    ],
+    "BuildingCardConditions": [
+        {
+            "TriggerCard": { "m_FileID": 0, "m_PathID": 0 },
+            "OnlyInHand": false,
+            "NotInHand": false,
+            "ExcludeInventories": false,
+            "Inverted": false,
+            "OnlyEquipped": false,
+            "TriggerCardWarpData": "cmcLocClayFlats",
+            "TriggerCardWarpType": 3
+        }
+    ],
+    "CardsOnBoard": [
+        {
+            "ObjectiveName": "AtClayShoal",
+            "CompletionWeight": 1,
+            "Card": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": 1,
+            "ConstantlyChecking": false,
+            "OnlyInEnvironment": { "m_FileID": 0, "m_PathID": 0 },
+            "OnlyIfEquipped": false,
+            "OnlyInContainer": { "Target": { "m_FileID": 0, "m_PathID": 0 } },
+            "CardWarpData": "cmcLocClayFlats",
+            "CardWarpType": 3
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                { "RequiredCard": { "m_FileID": 0, "m_PathID": 0 }, "RequiredQuantity": 8, "DontSpend": false, "RequiredCardWarpData": "57460207bbf77fa4fb6720aed5d84851", "RequiredCardWarpType": 3 },
+                { "RequiredCard": { "m_FileID": 0, "m_PathID": 0 }, "RequiredQuantity": 4, "DontSpend": false, "RequiredCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa", "RequiredCardWarpType": 3 },
+                { "RequiredCard": { "m_FileID": 0, "m_PathID": 0 }, "RequiredQuantity": 10, "DontSpend": false, "RequiredCardWarpData": "a7384e5147b23a642809451cc4ef24fb", "RequiredCardWarpType": 3 }
+            ],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BlueprintResult": [
+        {
+            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+            "Quantity": { "x": 1, "y": 1 },
+            "DroppedCardWarpData": "cmccausewaykit",
+            "DroppedCardWarpType": 3
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "ResearchedNotification": 0
+}

@@ -98,8 +98,8 @@
                     "EffectOnIngredient": {
                         "ModType": 1,
                         "UsageChange": {
-                            "x": -5.0,
-                            "y": -5.0
+                            "x": -2.0,
+                            "y": -2.0
                         }
                     },
                     "RequiredTabGroup": {

@@ -6,7 +6,7 @@
     "AddedCardsWarpType": 3,
     "AddedStartingHours": 0,
     "CardsOnBoardObjectives": [],
-    "CharacterPerkPerkGroup": "f913e8e1e69615943b6dfaa6dba9cda1",
+    "CharacterPerkPerkGroup": "335cd7a47a90df5419abc30a4105db1a",
     "CheckingNotificationDetails": 0,
     "CompleteOnLose": false,
     "CompleteOnWin": false,
@@ -78,7 +78,7 @@
     "PerkIconWarpData": "Stress",
     "PerkIconWarpType": 3,
     "PerkName": {
-        "DefaultText": "Weak Cowardice",
+        "DefaultText": "Cowardice",
         "LocalizationKey": "CharacterTraits_Perk_WeakCowardice_PerkName",
         "ParentObjectID": "traits_perk_weak_cowardice"
     },

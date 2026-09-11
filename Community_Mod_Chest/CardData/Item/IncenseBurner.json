@@ -8,7 +8,7 @@
     "CardDescription": {
         "ParentObjectID": "comfortincenseburner",
         "LocalizationKey": "IncenseBurner_CardDescription",
-        "DefaultText": "A small clay vessel shaped to hold smoldering dried grass. Fill with rye straw and light from a fire to release a calming, grassy fragrance."
+        "DefaultText": "A small clay vessel shaped to hold smoldering plant matter. Fill it with rye straw for a calming, grassy fragrance, pack it with dry juniper needles for a sharp smoke that keeps biting insects off, or use dried heather flowers for a honeyed smoke that draws out the day's tension. Light it from a fire whichever you choose."
     },
     "CardType": 0,
     "ObjectWeight": 150.0,
@@ -105,6 +105,118 @@
         {
             "ActionName": {
                 "ParentObjectID": "comfortincenseburner",
+                "LocalizationKey": "IncenseBurner_PackJuniper_ActionName",
+                "DefaultText": "Pack with Juniper"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "comfortincenseburner",
+                "LocalizationKey": "IncenseBurner_PackJuniper_ActionDescription",
+                "DefaultText": "Pack dry juniper needles into the empty vessel instead of straw."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [
+                "Herb"
+            ],
+            "ActionSoundsWarpType": 3,
+            "RequiredReceivingDurabilities": {
+                "RequiredFuelPercent": {
+                    "Active": true,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "comfortincenseburner",
+                    "LocalizationKey": "IncenseBurner_NotEmptyForJuniper",
+                    "DefaultText": "The burner still holds straw. Burn it down or tip it out first."
+                }
+            },
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "684f89c7e4f85764fb037b5da5bc21dc"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "StackCompatible": false,
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "comfortincenseburnerjuniper",
+                "TransformIntoWarpType": 3,
+                "TransferFuel": false,
+                "SpawnTransformAtSource": true
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "comfortincenseburner",
+                "LocalizationKey": "IncenseBurner_PackHeather_ActionName",
+                "DefaultText": "Pack with Heather"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "comfortincenseburner",
+                "LocalizationKey": "IncenseBurner_PackHeather_ActionDescription",
+                "DefaultText": "Pack dried heather flowers into the empty vessel instead of straw."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [
+                "Herb"
+            ],
+            "ActionSoundsWarpType": 3,
+            "RequiredReceivingDurabilities": {
+                "RequiredFuelPercent": {
+                    "Active": true,
+                    "FloatValue": 0.0,
+                    "MaxValue": 0.0
+                },
+                "HideActionIfNotMet": false,
+                "FailMessage": {
+                    "ParentObjectID": "comfortincenseburner",
+                    "LocalizationKey": "IncenseBurner_NotEmptyForHeather",
+                    "DefaultText": "The burner still holds straw. Burn it down or tip it out first."
+                }
+            },
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "bb2b60e54f65da4449a62faa8c84654a"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "StackCompatible": false,
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "comfortincenseburnerheather",
+                "TransformIntoWarpType": 3,
+                "TransferFuel": false,
+                "SpawnTransformAtSource": true
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "comfortincenseburner",
                 "LocalizationKey": "IncenseBurner_Light_ActionName",
                 "DefaultText": "Light Incense"
             },
@@ -124,8 +236,8 @@
             "RequiredReceivingDurabilities": {
                 "RequiredFuelPercent": {
                     "Active": true,
-                    "FloatValue": 0.1,
-                    "MaxValue": 100.0
+                    "FloatValue": 0.001,
+                    "MaxValue": 1.0
                 },
                 "HideActionIfNotMet": true,
                 "FailMessage": {
@@ -160,5 +272,41 @@
             }
         }
     ],
-    "DismantleActions": []
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "comfortincenseburner",
+                "LocalizationKey": "IncenseBurner_TipOutStraw_ActionName",
+                "DefaultText": "Tip Out the Straw"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "comfortincenseburner",
+                "LocalizationKey": "IncenseBurner_TipOutStraw_ActionDescription",
+                "DefaultText": "Empty the unburnt straw out of the vessel so it can take juniper needles instead."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [
+                "Herb"
+            ],
+            "ActionSoundsWarpType": 3,
+            "RequiredReceivingDurabilities": {
+                "RequiredFuelPercent": {
+                    "Active": true,
+                    "FloatValue": 0.001,
+                    "MaxValue": 1.0
+                },
+                "HideActionIfNotMet": true
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "FuelChange": {
+                    "x": -48.0,
+                    "y": -48.0
+                }
+            }
+        }
+    ]
 }

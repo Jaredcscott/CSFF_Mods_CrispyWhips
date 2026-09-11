@@ -1,0 +1,14 @@
+{
+  "target": "CMC_Weaver_Cottage.png",
+  "sourceCard": "CottageResidentSchedulePatch.cs (CottageSpriteName field, Weaver entry)",
+  "subject": "the Weaver off-duty at home inside her own cottage in the evening: no loom or work tools, homespun house clothes, seated by the hearth with a mug",
+  "note": "Deliberately deviates from the /create-image white-background item template — this is a character portrait leg matching the sibling Village/Inn/Academy portrait convention (illustrated scene, not a flat white background). Judgment call made explicit per operator instructions; see CMC_Weaver.png/CMC_Weaver_Inn.png/CMC_Weaver_Academy.png for the sibling style this matches.",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": { "imageCount": 1, "aspectRatio": "2:3", "resolution": "2K", "autoEnhancePrompt": false },
+  "prompt": "Hand-painted ink-and-watercolor character portrait illustration, in the style of a cozy hand-illustrated survival-crafting game: a warm, weathered older woman in her fifties with a grey-streaked headscarf and a gentle relaxed smile, the village Weaver now off-duty at home inside her own modest wooden cottage in the evening. She wears simple homespun house clothes, a plain wrap dress with a soft blanket shawl draped over her shoulders, no loom, no work tools in hand, no patterned work sash, and sits comfortably near a small stone hearth with a low fire, hands resting in her lap or holding a steaming mug. The cottage room is plain and lived-in: rough wooden walls, a simple wooden chair, a folded basket of yarn set aside and unused, a small shelf with a candle, warm firelight glow from the lower left, soft visible black ink linework outlines, loose confident linework, soft watercolor and gouache shading, warm muted natural palette, slight three-quarter angle bust portrait, waist-up framing, gentle warm directional light, painted illustrated background, not a plain white background, no text, no watermark, no signature, no border, no frame. Avoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple people, cropped face, blurry, low contrast, loom, spinning wheel, weaving tools, active work, tavern, beer mug, classroom, text, watermark, signature, logo, border, frame.",
+  "historyId": "KygDSoJT0C2THo2fCP2P",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-08/create-image/XbhdRvvhTk0K7JCPQP3H/image_1787756149662_0f9c9ee5_1787756150761_cc8049c5.png",
+  "credits": 27,
+  "generated": "2026-08-26"
+}

@@ -188,7 +188,7 @@ namespace CommunityModChest.Patcher
             Reflect.SetMember(duty, "DutyName", localizedName);
 
             Reflect.SetMember(duty, "MaxPerformPerDay", 0);
-            SetEnumField(duty, "DutyExecutionOptions", "Early");
+            SetEnumField(duty, "DutyExecutionOptions", "EarlyBeforeDurabilities");
             SetEnumField(duty, "GiveUpOptions", "GiveUpInstantly");
 
             var condition = EmptyCondition();

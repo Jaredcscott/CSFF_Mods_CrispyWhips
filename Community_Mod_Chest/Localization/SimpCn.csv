@@ -11,7 +11,7 @@ apparel_foot_wraps_CardDescription,"Strips of woven reed and plant fiber, bound 
 
 <b>必须装备后才能生效</b>"
 apparel_hand_wraps_CardName,Hand Wraps,裹手布
-apparel_hand_wraps_CardDescription,"Reed and plant fiber wound around the hands, bound with twine. Offer minimal protection against cuts and cold.
+apparel_hand_wraps_CardDescription,"Strips of cloth wound around the hands, bound with twine. Offer minimal protection against cuts and cold.
 
 <b>MUST BE EQUIPPED TO WORK</b>","缠绕在双手上的布条，能提供些许防割伤和防寒的保护。
 
@@ -372,11 +372,11 @@ CharacterTraits_Perk_VillagePath_PerkDescription,"You know of an old path across
 CharacterTraits_Perk_VillageInn_PerkName,Village Inn,旅店旧友
 CharacterTraits_Perk_VillageInn_PerkDescription,"The innkeeper across the river already counts you among friends. You start with a head start on his friendship, and he skips the formal introductions: the village's construction projects, trade, and Academy study are open to you from your first day.",河对岸的旅店老板早已将你视为朋友。开局即拥有领先的友谊值，他也省去了寒暄客套：从第一天起，村庄的建设项目、交易与学院课程便已向你敞开。
 CharacterTraits_Perk_VillageFounder_PerkName,Village Founder,村庄奠基人
-CharacterTraits_Perk_VillageFounder_PerkDescription,"You've been here before — long before today. The Miller's Cottage, the Weaver's Cottage, the Village Hall, and the Apothecary's Cabin are already standing, their residents already moved in, and the Inn Keeper, Professor, Miller, Weaver, and Apothecary all treat you like an old friend. All four of their first errands are already settled.",你早已来过此地——远在今日之前。磨坊主的小屋、织工的小屋、村公所与药剂师的小屋都已建成，住户也已入住，旅店老板、教授、磨坊主、织工与药剂师都将你视为故交。他们四人的第一件差事都已经办妥。
+CharacterTraits_Perk_VillageFounder_PerkDescription,"You've been here before — long before today. The Miller's Cottage, the Weaver's Cottage, the Village Hall, and the Apothecary's Cabin are already standing, their residents already moved in, and the Inn Keeper, Professor, Miller, Weaver, and Apothecary all treat you like an old friend. All four of their first errands are already settled. Because all of that is already true when you arrive, every tracker that follows village progress — the Inn Keeper's and Professor's news about each building, the notice board, and any other building-complete marker — already reads as finished from day one too. That's this trait doing its job, not a bug.",你早已来过此地——远在今日之前。磨坊主的小屋、织工的小屋、村公所与药剂师的小屋都已建成，住户也已入住，旅店老板、教授、磨坊主、织工与药剂师都将你视为故交。他们四人的第一件差事都已经办妥。由于这一切从你抵达的那一刻起便已成真，所有追踪村庄进度的记录——包括旅店老板与教授关于各栋建筑的消息、告示板，以及其他任何建筑完工标记——也会从第一天起就显示为已完成。这并非故障，而是此特质应有的效果。
 CharacterTraits_Perk_QuietVillage_PerkName,Quiet Village,寂静村庄
 CharacterTraits_Perk_QuietVillage_PerkDescription,"The village keeps to itself. The Miller, Weaver, Apothecary, and Professor stay at home, the Academy, or the Inn instead of travelling or foraging, and the Town Watch has stood down entirely -- none of the four guards take up their posts. Reduces simulation overhead, at the cost of the Watch's crime-and-pursuit content and the villagers' wandering and forage behavior. Recommended on lower-end systems.",村庄变得安静起来。磨坊主、织工、药剂师和教授都留在家中、学院或旅店，不再外出旅行或采集，镇守卫队也已全面撤岗——四名守卫都不再驻守岗位。这能降低模拟运算负担，但代价是失去守卫队的犯罪与追捕内容，以及村民的游荡与采集行为。推荐配置较低的电脑使用。
 CharacterTraits_Perk_Graduate_PerkName,Graduate,毕业生
-CharacterTraits_Perk_Graduate_PerkDescription,"You already hold a full Academy education. Architecture, Metallurgy, Herbalism, Fishing, Armorer, Medicine, and Carpentry are all complete — you carry every discipline's graduate perk and their blueprint rewards from the start, without ever setting foot in the Lecture Hall or the Carpentry Bench.",你已完成学院的全部学业。建筑学、冶金学、药草学、钓鱼、制甲、医学与木工课程悉数修毕——从一开始你就拥有每门学科的毕业生特质及其蓝图奖励，无需踏入讲堂或木工台半步。
+CharacterTraits_Perk_Graduate_PerkDescription,"You already hold a full Academy education. Architecture, Metallurgy, Herbalism, Fishing, Armorer, Medicine, and Carpentry are all complete — you carry every discipline's graduate perk and their blueprint rewards from the start, without ever setting foot in the Lecture Hall.",你已完成学院的全部学业。建筑学、冶金学、药草学、钓鱼、制甲、医学与木工课程悉数修毕——从一开始你就拥有每门学科的毕业生特质及其蓝图奖励，无需踏入讲堂或木工台半步。
 Combat_And_Armor_StoneMace_OnZero,Stone Mace Broken!,石锤已损坏！
 Combat_And_Armor_WoodenShield_OnZero,Shield Destroyed!,盾牌已损毁！
 Combat_And_Armor_QuiltedVest_OnZero,Vest Destroyed!,背心已损毁！
@@ -436,7 +436,7 @@ Comfort_TricolorWallHanging_Weathered,The wall hanging has dried out and crumble
 Comfort_TricolorWallHanging_Bp_CardName,Tricolor Wall Hanging,三色壁挂
 Comfort_TricolorWallHanging_Bp_CardDescription,Weave dried reeds into a decorative panel and dye sections with three different natural pigments.,用干芦苇编织成装饰挂毯，并分区染上三种不同的天然颜料。
 IncenseBurner_CardName,Incense Burner,香炉
-IncenseBurner_CardDescription,"A small clay vessel shaped to hold smoldering dried grass. Fill with rye straw and light from a fire to release a calming, grassy fragrance.",一只塑形用来盛放阴燃干草的小陶器。填入黑麦秸秆并用火点燃，即可释放出令人平静的草香。
+IncenseBurner_CardDescription,"A small clay vessel shaped to hold smoldering plant matter. Fill it with rye straw for a calming, grassy fragrance, pack it with dry juniper needles for a sharp smoke that keeps biting insects off, or use dried heather flowers for a honeyed smoke that draws out the day's tension. Light it from a fire whichever you choose.",一只塑形用来盛放阴燃植物的小陶器。填入黑麦秸秆可以释放令人平静的草香，填入干杜松针可以升起辛冲的烟气驱走叮人的虫子，或者填入干燥的帚石南花，升起蜜一般柔和的烟气，抽走一天的紧绷。无论选哪种，都需要用火点燃。
 IncenseBurner_FuelCapacity_CardStatName,Straw,稻草
 IncenseBurner_Refuel_ActionName,Fill with Straw,填入干草
 IncenseBurner_Refuel_ActionDescription,Pack dried rye straw into the burner vessel.,把风干黑麦秸秆装入香炉容器。
@@ -453,6 +453,48 @@ IncenseBurnerLit_FuelOut_ActionName,Incense Burns Out,熏香燃尽
 IncenseBurnerLit_FuelOut_ActionDescription,The straw has finished burning.,秸秆已经燃尽。
 IncenseBurnerLit_Extinguish_ActionName,Extinguish,熄灭
 IncenseBurnerLit_Extinguish_ActionDescription,Snuff out the smoldering straw.,掐灭阴燃的秸秆。
+IncenseBurner_PackJuniper_ActionName,Pack with Juniper,填入杜松针
+IncenseBurner_PackJuniper_ActionDescription,Pack dry juniper needles into the empty vessel instead of straw.,在空香炉里填入干杜松针，而不是秸秆。
+IncenseBurner_NotEmptyForJuniper,The burner still holds straw. Burn it down or tip it out first.,香炉里还装着秸秆，先把它烧完或倒出来。
+IncenseBurner_TipOutStraw_ActionName,Tip Out the Straw,倒出秸秆
+IncenseBurner_TipOutStraw_ActionDescription,Empty the unburnt straw out of the vessel so it can take juniper needles instead.,把没烧完的秸秆倒出来，让香炉可以改装杜松针。
+IncenseBurnerJuniper_CardName,Juniper Incense Burner,杜松香炉
+IncenseBurnerJuniper_CardDescription,"The same clay vessel, packed with dry juniper needles instead of straw. Light it from a fire to raise a sharp, resinous smoke that biting insects will not settle in.",同一只陶制香炉，只不过里面填的是干杜松针而非秸秆。用火点燃后会升起辛冲的松脂烟气，叮人的虫子不愿靠近。
+IncenseBurnerJuniper_FuelCapacity_CardStatName,Juniper,杜松针
+IncenseBurnerJuniper_Refuel_ActionName,Add More Juniper,再加杜松针
+IncenseBurnerJuniper_Refuel_ActionDescription,Pack more dry juniper needles into the burner vessel.,往香炉里再填一些干杜松针。
+IncenseBurnerJuniper_Light_ActionName,Light Juniper Incense,点燃杜松香
+IncenseBurnerJuniper_Light_ActionDescription,Touch a flame to the needles to start them smoldering.,用火点燃杜松针，让它们开始阴燃。
+IncenseBurnerJuniper_NeedsFuel,The burner needs juniper needles first.,这个香炉需要先添加杜松针。
+IncenseBurnerJuniper_TipOut_ActionName,Tip Out the Needles,倒出杜松针
+IncenseBurnerJuniper_TipOut_ActionDescription,Empty the unburnt needles out of the vessel so it can take straw again.,把没烧完的杜松针倒出来，让香炉可以重新装秸秆。
+IncenseBurnerJuniperLit_CardName,Lit Juniper Incense Burner,燃烧的杜松香炉
+IncenseBurnerJuniperLit_CardDescription,"Smoldering juniper throws off a sharp, resinous smoke. Biting insects keep their distance while it burns.",阴燃的杜松针散发出辛冲的松脂烟气。只要它还在燃，叮人的虫子就不会靠近。
+IncenseBurnerJuniperLit_FuelCapacity_CardStatName,Juniper,杜松针
+IncenseBurnerJuniperLit_FuelOut_ActionName,Juniper Incense Burns Out,杜松香燃尽
+IncenseBurnerJuniperLit_FuelOut_ActionDescription,The juniper needles have finished burning.,杜松针已经燃尽。
+IncenseBurnerJuniperLit_Extinguish_ActionName,Extinguish,熄灭
+IncenseBurnerJuniperLit_Extinguish_ActionDescription,Snuff out the smoldering juniper needles.,掐灭阴燃的杜松针。
+IncenseBurner_PackHeather_ActionName,Pack with Heather,填入帚石南花
+IncenseBurner_PackHeather_ActionDescription,Pack dried heather flowers into the empty vessel instead of straw.,在空香炉里填入干燥的帚石南花，而不是秸秆。
+IncenseBurner_NotEmptyForHeather,The burner still holds straw. Burn it down or tip it out first.,香炉里还装着秸秆，先把它烧完或倒出来。
+IncenseBurnerHeather_CardName,Heather Incense Burner,帚石南香炉
+IncenseBurnerHeather_CardDescription,"The same clay vessel, packed with dried heather flowers instead of straw. Light it from a fire to raise a soft, honeyed smoke that draws the tension out of a long day.",同一只陶制香炉，只不过里面填的是干燥的帚石南花而非秸秆。用火点燃后会升起柔和的蜜香烟气，把一整天的紧绷慢慢抽走。
+IncenseBurnerHeather_FuelCapacity_CardStatName,Heather,帚石南花
+IncenseBurnerHeather_Refuel_ActionName,Add More Heather,再加帚石南花
+IncenseBurnerHeather_Refuel_ActionDescription,Pack more dried heather flowers into the burner vessel.,往香炉里再填一些干燥的帚石南花。
+IncenseBurnerHeather_Light_ActionName,Light Heather Incense,点燃帚石南香
+IncenseBurnerHeather_Light_ActionDescription,Touch a flame to the dried flowers to start them smoldering.,用火点燃干花，让它们开始阴燃。
+IncenseBurnerHeather_NeedsFuel,The burner needs dried heather flowers first.,这个香炉需要先添加干燥的帚石南花。
+IncenseBurnerHeather_TipOut_ActionName,Tip Out the Flowers,倒出干花
+IncenseBurnerHeather_TipOut_ActionDescription,Empty the unburnt heather out of the vessel so it can take straw again.,把没烧完的帚石南花倒出来，让香炉可以重新装秸秆。
+IncenseBurnerHeatherLit_CardName,Lit Heather Incense Burner,燃烧的帚石南香炉
+IncenseBurnerHeatherLit_CardDescription,"Smoldering heather gives off a soft, honeyed smoke. Sitting in it, the knot between your shoulders slowly lets go.",阴燃的帚石南花散发出柔和的蜜香烟气。坐在其中，肩背间那股紧绷会慢慢松开。
+IncenseBurnerHeatherLit_FuelCapacity_CardStatName,Heather,帚石南花
+IncenseBurnerHeatherLit_FuelOut_ActionName,Heather Incense Burns Out,帚石南香燃尽
+IncenseBurnerHeatherLit_FuelOut_ActionDescription,The heather flowers have finished burning.,帚石南花已经燃尽。
+IncenseBurnerHeatherLit_Extinguish_ActionName,Extinguish,熄灭
+IncenseBurnerHeatherLit_Extinguish_ActionDescription,Snuff out the smoldering heather flowers.,提灭阴燃的帚石南花。
 Comfort_StrawMat_Placed_CardName,Straw Mat,草席
 Comfort_StrawMat_Placed_CardDescription,"A woven mat of rye straw laid flat on the ground. Simple underfoot comfort, far better than bare earth.",一张用黑麦秸秆编织、平铺在地上的草席，简单却舒适，远胜过赤脚踩在裸露的泥地上。
 Comfort_StrawMat_Placed_Weathered,The straw mat has rotted away.,草席已经腐朽消失。
@@ -513,7 +555,7 @@ CharacterTraits_Perk_Bleeder_PerkName,Bleeder,凝血不良
 CharacterTraits_Perk_Bleeder_PerkDescription,"Your blood does not clot well. Wounds bleed for significantly longer than they should, making even minor injuries into dangerous situations.",你的血液难以凝结。伤口出血的时间明显长于常理，哪怕是轻伤也可能演变为危险的局面。
 CharacterTraits_Perk_WeakCourage_PerkName,Weak Courage,微弱勇气
 CharacterTraits_Perk_WeakCourage_PerkDescription,"You have a bit more nerve than most. A modest, permanent boost to your Courage makes scary actions somewhat easier without erasing your fear entirely.",你比大多数人更有一点胆量。你的勇气获得小幅永久提升，让可怕的行动略微容易一些，但恐惧感并未完全消失。
-CharacterTraits_Perk_WeakCowardice_PerkName,Weak Cowardice,轻度怯懦
+CharacterTraits_Perk_WeakCowardice_PerkName,Cowardice,怯懦
 CharacterTraits_Perk_WeakCowardice_PerkDescription,"Your nerve falters more easily than most. A modest, permanent reduction to your Courage makes scary actions a little harder to push through — but you still have enough grit to act when it truly matters.",你比大多数人更容易胆怯。你的勇气受到小幅永久削弱，让可怕的行动稍难坚持——但在真正关键的时刻，你仍有足够的勇气去行动。
 CharacterTraits_Perk_SpirituallyTroubled_PerkName,Spiritually Troubled,灵性不安
 CharacterTraits_Perk_SpirituallyTroubled_PerkDescription,"The spirits do not look kindly upon you. Stress weighs heavier and lingers longer, and the unease of an unfriendly spirit world keeps your nerves on edge.",灵体并不善待你。压力压得更重、消退得更慢，来自不友善灵界的不安也让你的神经时刻紧绷。
@@ -544,7 +586,7 @@ CharacterTraits_Perk_Drunkard_PerkDescription,You cannot resist a drink. Alcohol
 CMC_Imp_RiverBridge_CardName,River Bridge,河桥
 CMC_Imp_RiverBridge_CardDescription,A sturdy wooden bridge spanning the river at the clearing. Build this at the River Clearing to open the eastern path toward the village.,一座横跨林隙河流的坚固木桥。在河边林隙建造此桥可开通通往村庄的东侧道路。
 CMC_Imp_StoneTileFloor_CardName,Stone Tile Floor,石砖地面
-CMC_Imp_StoneTileFloor_CardDescription,"Polished stone tiles set into a bed of clay, covering the ground in a smooth, even floor. Increases comfort and insulation. Can be laid in cabins and mud huts.",用抛光石砖嵌入粘土基层，铺成平整均匀的地面。能提升舒适度和保温效果，可铺设在小屋和泥屋中。
+CMC_Imp_StoneTileFloor_CardDescription,"Polished stone tiles set into a bed of clay, covering the ground in a smooth, even floor. Increases comfort and insulation. Can be laid in cabins, mud huts, and the village building interiors.",用抛光石砖嵌入粘土基层，铺成平整均匀的地面。能提升舒适度和保温效果，可铺设在小屋、泥屋以及村庄建筑室内。
 CMC_MarketStallKit_CardName,Market Stall Kit,集市摊位套件
 CMC_MarketStallKit_CardDesc,"A portable market stall. Can only be assembled in the village: merchants need foot traffic to buy your wares. Once placed, drop trade goods into the stall inventory and collect earnings as copper or salt over time.",一个可携带的集市摊位。只能在村庄内组装：商人需要人流才会购买你的货物。放置之后，把交易货物投入摊位库存，随着时间推移，就能以铜或盐的形式收取收益。
 CMC_MarketStallKit_Help,Market Stall Kit,集市摊位套件
@@ -688,7 +730,7 @@ CMC_AcademyLectern_DA_Herbalism_Desc,"A two-hour session among the herb gardens.
 CMC_AcademyLectern_DA_ArchitectureFinal,Final Exam: Architecture,期末考试：建筑学
 CMC_AcademyLectern_DA_ArchitectureFinal_Desc,"The final two-hour examination. Pass it to earn the Architecture degree: unlocks the Water-Driven Sawmill and Grinding Mill blueprints, and, together with a Metallurgy degree, the Water-Driven Forge and Workshop.",最后一场两小时的考试。通过后即可获得建筑学学位：解锁水力锯木厂和水力磨坊的蓝图，若再搭配冶金学学位，还可解锁水力锻炉和水力工坊。
 CMC_AcademyLectern_DA_MetallurgyFinal,Final Exam: Metallurgy,期末考试：冶金学
-CMC_AcademyLectern_DA_MetallurgyFinal_Desc,"The final two-hour examination. Pass it to earn the Metallurgy degree: unlocks the Copper Sheet recipe, and, together with an Architecture degree, the Water-Driven Forge and Workshop.",最后一场两小时的考试。通过后即可获得冶金学学位：解锁铜板配方，若再搭配建筑学学位，还可解锁水力锻炉和水力工坊。
+CMC_AcademyLectern_DA_MetallurgyFinal_Desc,"The final two-hour examination. Pass it to earn the Metallurgy degree: the Copper Sheet recipe is handed to you outright, no research required, and, together with an Architecture degree, it unlocks the Water-Driven Forge and Workshop.",最后一场两小时的考试。通过后即可获得冶金学学位：铜板配方将直接授予你，无需研究；若再搭配建筑学学位，还可解锁水力锻炉和水力工坊。
 CMC_AcademyLectern_DA_HerbalismFinal,Final Exam: Herbalism,期末考试：药草学
 CMC_AcademyLectern_DA_HerbalismFinal_Desc,The final two-hour examination. Pass it to earn the Herbalism degree: from then on you gather twice as much whenever you forage.,最后一场两小时的考试。通过后即可获得药草学学位：从此以后，每次采集所得的数量都会翻倍。
 CMC_AcademyLectern_Prog_Architecture,Architecture,建筑学
@@ -704,7 +746,7 @@ CharacterTraits_Perk_HigherEducation_PerkDescription,"Retired trait. The village
 CharacterTraits_Perk_GradArchitecture_PerkName,Architecture Graduate,建筑学毕业生
 CharacterTraits_Perk_GradArchitecture_PerkDescription,"You completed the Academy's architecture course. The Water-Driven Sawmill and Grinding Mill blueprints are yours, and together with a Metallurgy degree, the Water-Driven Forge and Workshop.",你完成了学院的建筑学课程。水力锯木厂与水力磨坊的蓝图已归你所有，若再修完冶金学学位，还可获得水力锻造炉与水力工坊。
 CharacterTraits_Perk_GradMetallurgy_PerkName,Metallurgy Graduate,冶金学毕业生
-CharacterTraits_Perk_GradMetallurgy_PerkDescription,"You completed the Academy's metallurgy course. The Copper Sheet recipe is yours, and together with an Architecture degree, the Water-Driven Forge and Workshop.",你完成了学院的冶金学课程。铜板的配方已归你所有，若再修完建筑学学位，还可获得水力锻造炉与水力工坊。
+CharacterTraits_Perk_GradMetallurgy_PerkDescription,"You completed the Academy's metallurgy course. The Copper Sheet recipe is yours outright, with no research needed, and together with an Architecture degree, the Water-Driven Forge and Workshop.",你完成了学院的冶金学课程。铜板配方已直接归你所有，无需研究；若再修完建筑学学位，还可获得水力锻造炉与水力工坊。
 CharacterTraits_Perk_GradHerbalism_PerkName,Herbalism Graduate,药草学毕业生
 CharacterTraits_Perk_GradHerbalism_PerkDescription,You completed the Academy's herbalism course. You spot twice as much whenever you forage.,你完成了学院的药草学课程。每次采集时，你的发现量都是常人的两倍。
 CharacterTraits_Perk_GradFishing_PerkName,Fishing Graduate,钓鱼毕业生
@@ -1188,7 +1230,7 @@ CMC_ApothecaryCabinExit_DA_Exit_Fade,Leaving the cabin...,正在离开小屋…�
 CMC_ApothecaryCabin_DA_Enter,Enter the Cabin,进入小屋
 CMC_ApothecaryCabin_DA_Enter_Fade,Entering the cabin...,正在进入小屋……
 CMC_ApothecaryHealingMixture_BP_Name,Rare Herb Mixture,稀有草药混合物
-CMC_ApothecaryHealingMixture_BP_Desc,"Bundle together the rarest herbs the forest and its herb-gardens have to offer: dried ginseng, dried reishi, and dried hemp flower, bound with a handful of dried nettle. The Apothecary knows exactly what to do with it.",把森林与药草园所能提供的最稀有的草药捆扎在一起：风干人参、风干灵芝，还有风干大麻花，用一把风干荨麻捆好。药剂师知道该拿它做什么。
+CMC_ApothecaryHealingMixture_BP_Desc,"Bundle together the rarest herbs the forest and its herb-gardens have to offer, bound with a handful of dried nettle. The Apothecary knows exactly what to do with it.",把森林与药草园所能提供的最稀有的草药捆扎在一起，用一把风干荨麻捆好。药剂师知道该拿它做什么。
 CMC_ApothecaryHealingMixture_BP_UnlockDesc,Graduate the Academy's Herbalism course,从学院的药草学课程毕业
 CMC_ApothecaryHealingMixture_CardName,Rare Herb Mixture,稀有草药混合物
 CMC_ApothecaryHealingMixture_CardDesc,"A mortar-bundle of the rarest herbs the forest and its herb-gardens have to offer, bound together for the Apothecary. It isn't much use to anyone else; carry it to her cabin and give it to her.",一捆用研钵捣制、由森林与药草园所能提供的最稀有草药扎成的束，是专为药剂师准备的。对别人来说没什么用处；把它带到她的小屋交给她吧。
@@ -1875,6 +1917,15 @@ CMC_GuardCorrin_AgentName,Guard Old Corrin,守卫老科林
 CMC_GuardCorrin_AgentDescription,"Town Square Watch, day shift. Walks the square alongside Thorne, a beat the village trusts him to hold quietly.",广场巡逻（白班）。与索恩一同巡视广场，村子信得过他能安安静静地守住这里。
 CMC_GuardVane_AgentName,Guard Iris Vane,守卫艾莉丝·韦恩
 CMC_GuardVane_AgentDescription,"Night Watch. Sleeps through the day and walks the village after dark, which is when she does her best noticing.",夜间巡逻。白天睡觉，天黑之后才在村里巡视——那正是她最能察觉异常的时候。
+CMC_GuardTell_Wound1,Barely marked.,几乎毫发无伤。
+CMC_GuardTell_Wound2,"Cut and bleeding, but still sure on their feet.",有几道伤口在流血，但步伐依旧稳健。
+CMC_GuardTell_Wound3,Bleeding badly — the wounds are starting to tell.,流血不止——伤势开始显现。
+CMC_GuardTell_Wound4,Barely standing; the next solid blow could be the last.,已经勉强站立；下一记重击可能就是最后一击。
+CMC_GuardTell_Nerve1,Nerve steady.,斗志稳固。
+CMC_GuardTell_Nerve2,"Rattled, but holding the line.",有些动摇，但仍守住阵脚。
+CMC_GuardTell_Nerve3,"Shaken, and giving ground.",心神已乱，正在节节后退。
+CMC_GuardTell_Nerve4,A breath away from breaking and running.,距离崩溃逃跑只差一口气。
+CMC_GuardTell_Beaten,"Beaten, and in no shape to take up the chase for a while.",已被打败，短期内无力再追捕任何人。
 CMC_GuardPerk_Sterling_PerkName,Watch Captain,队长
 CMC_GuardPerk_Sterling_PerkDescription,"Squad lead of the village Watch. Formal, unhurried, and slow to escalate.",村庄巡逻队的队长。态度正式、从容不迫，很少轻易升级冲突。
 CMC_GuardPerk_Thorne_PerkName,Town Square Watch,广场巡逻
@@ -2092,7 +2143,7 @@ CMC_SterlingArr_Desc,"""I have given you every chance I have to give,"" the capt
 CMC_SterlingArr_Fight,Let him take you,束手就擒
 CMC_SterlingEscapeCount_StatName,Chances Given,已给出的机会
 CMC_SterlingEscapeCount_StatDescription,Hidden counter: how many times you have backed down from a fight with Captain Sterling.,隐藏计数器：你有多少次在与斯特林队长的冲突面前选择了退让。
-CharacterTraits_Perk_RainCisternKit_PerkName,Rain Cistern Kit,雨水窖套件
+CharacterTraits_Perk_RainCisternKit_PerkName,Extra Rain Cistern Kit,额外雨水窖套件
 CharacterTraits_Perk_RainCisternKit_PerkDescription,Start with a rain cistern kit. Use Place to set up your cistern wherever you want it — it can only be placed once.,开局获得一套雨水窖套件。使用“放置”在任意地点安置你的雨水窖——只能放置一次。
 CMC_InnKeeperTalk_GuardsConfession_Line,"So it's done. All four of the Watch, down, and word of it reached my door before you did. I've heard how it went -- some of them got back up. Not all of them did. Blood on the village floor doesn't wash out just because the fighting's over, and I'll not pour you a drink and pretend otherwise. Before we go on as we always have, I want you to sit with it a moment -- what you did out there, and whether you can carry it.",这么说，事情办完了。巡逻队四个人全都倒下了，消息比你还先一步传到我这儿。我听说了经过——有些人又爬了起来，可不是每个人都能。血洒在村子的地上，不会因为打斗结束就自己冲干净，我也不会假装没这回事，倒上酒当什么都没发生。在我们照旧往下聊之前，我想让你先静下来想一想——你在外头做的事，还有你扛不扛得住。
 CMC_InnKeeperTalk_GuardsConfession_Answer_Contrite,I know what I did. I'll carry it.,我知道自己做了什么。我会扛下来的。
@@ -2119,12 +2170,7 @@ CMC_GuardKilledFlagVane_StatName,Guard Iris Vane Killed Flag,守卫艾莉丝·�
 CMC_GuardKilledFlagVane_StatDescription,Hidden marker: whether Guard Iris Vane's current absence is from a kill rather than a rout.,隐藏标记：守卫艾莉丝·韦恩当前的缺席是否是因为被杀而非被击退。
 CMC_GuardKillsPending_StatName,Guards Killed (Unanswered For),未偿还的杀死守卫数
 CMC_GuardKillsPending_StatDescription,Hidden count of guards killed since the player last served a full jail sentence; sets a heavier sentence (7 days per guard killed; capped at 8) and resets once served.,隐藏计数：自玩家上次服满刑期以来杀死的守卫人数。用于设定更重的刑期（每杀死一名守卫加7天，上限8天），服刑完毕后重置。
-CMC_CarpentryBench_CardName,Carpentry Bench,木工台
-CMC_CarpentryBench_CardDescription,"A second study station, set up for the Academy's newest course. Drag Salt, metal Nuggets, or Duros Coins onto the bench to fund your Tuition Account (holds up to 1000); each two-hour study session draws 100 from that balance, including the final exam. Study Carpentry to advance the coursework; when only one session remains, sit the final exam to earn your degree.",第二个学习台，为学院最新的课程而设立。将盐、金属块或杜洛斯硬币拖到工作台上以存入学费账户（上限1000）；每次两小时的学习课程都会从余额中扣除100，期末考试也不例外。学习木工课程以推进学业；当只剩最后一节课时，参加期末考试以获得学位。
 CMC_CarpentryBench_Prog_Carpentry,Carpentry,木工
-CMC_CarpentryBench_Prog_Tuition,Tuition Account,学费账户
-CMC_CarpentryBench_CI_Deposit,Deposit Currency,存入货币
-CMC_CarpentryBench_CI_Deposit_Desc,"Adds the value of the dragged Salt, Nugget, or Duros Coin to the Tuition Account (max 1000).",将拖入的盐、金属块或杜洛斯硬币的价值存入学费账户（上限1000）。
 CMC_CarpentryBench_DA_Carpentry,Study Carpentry,学习木工
 CMC_CarpentryBench_DA_Carpentry_Desc,"A two-hour session planing boards and fitting joints. The full course takes 24 hours of study; each session draws 100 from your Tuition Account. When one session remains, the final exam becomes available.",两小时的刨木板、装接榫的课程。整个课程需要24小时的学习；每节课都会从学费账户中扣除100。当只剩一节课时，期末考试即可开始。
 CMC_CarpentryBench_StudyBlocked,The coursework is complete; sit the final exam.,课程已完成，请参加期末考试。
@@ -2381,3 +2427,52 @@ CMC_MillerAcademyToday_StatName,Miller Academy Day,磨坊主学院日
 CMC_MillerAcademyToday_StatDescription,"Hidden tracker for whether today is the Miller's weekly Academy visit — 1 all day, 0 otherwise. Keeps his workplace duty from fighting his Academy commute.",隐藏追踪器：记录今天是否为磨坊主每周学院探访日——探访日全天为1，其余时间为0。用于防止他的工作日程与学院行程冲突。
 CMC_WeaverAcademyToday_StatName,Weaver Academy Day,织工学院日
 CMC_WeaverAcademyToday_StatDescription,"Hidden tracker for whether today is the Weaver's weekly Academy visit — 1 all day, 0 otherwise. Keeps her workplace duty from fighting her Academy commute.",隐藏追踪器：记录今天是否为织工每周学院探访日——探访日全天为1，其余时间为0。用于防止她的工作日程与学院行程冲突。
+CMC_SilverwortBlossom_CardName,Silverwort Blossom,银草花
+CMC_SilverwortBlossom_CardDescription,"A pale, silver-petaled flower found only in the deepest, undisturbed corners of the Foraging Forest. Apothecaries prize it for its potency.",一种苍白、银色花瓣的花朵，只生长在覓食森林最深处未受打扰的角落。药剂师们珍视它的药效。
+CMC_HollowSage_CardName,Hollow Sage,幽谷鼠尾草
+CMC_HollowSage_CardDescription,"A hardy, silver-leafed sage that grows near old hollows and root-shadowed ground. Its bitter scent lingers on the hands long after picking.",一种耐寒的银叶鼠尾草，生长在古老树洞附近和树根阴蔽的地面上。采摘后，它的苦涩气味会在手上残留很久。
+CMC_ClayShoalFlood_CardName,Flooded Ford,被淹的渡口
+CMC_ClayShoalFlood_CardDescription,"The spring thaw has swollen the river over the shoal, drowning the ford between Clay Shoal and Sodden Hollow under fast brown water. Camp at the bank and wait for the floodwaters to fall, or lay a Plank Causeway across it and cross dry. Once the ford is open it stays open for the rest of the spring — but the next thaw scours it out again.",春季融雪使河水漫过沙洲，将粘土沙洲与泥泞洼地之间的渡口淹没在湍急的浑水之下。你可以在岸边扎营等待洪水退去，或者铺设一座木板堤道从上面干爽地通过。渡口一旦打通，整个春季都将保持畅通——但下一次融雪会再次把它冲毁。
+CMC_ClayShoalFlood_CI_Ford_Causeway_ActionName,Lay the Plank Causeway,铺设木板堤道
+CMC_ClayShoalFlood_CI_Ford_Causeway_ActionDescription,Drop the lashed plank sections across the flooded ford and pin them into the clay. Opens the road between Clay Shoal and Sodden Hollow at once. The causeway is used up doing it.,把捆扎好的木板节段架在被淹的渡口上，并钉入粘土中固定。可立即打通粘土沙洲与泥泞洼地之间的道路。堤道会在此过程中被消耗掉。
+CMC_ClayShoalFlood_CI_Ford_Wait_ActionName,Wait for the Floodwaters to Fall,等待洪水退去
+CMC_ClayShoalFlood_CI_Ford_Wait_ActionDescription,"Sit out the worst of the meltwater on the bank and watch the level drop. Slow — a full day of waiting in all — but it needs no planks, and it opens the road between Clay Shoal and Sodden Hollow all the same.",在岸边熔过融雪最猛的时段，看着水位下降。速度很慢——总共需要等待一整天——但无需任何木板，同样能打通粘土沙洲与泥泞洼地之间的道路。
+CMC_CausewayKit_CardName,Plank Causeway,木板堤道
+CMC_CausewayKit_CardDescription,"Heavy plank sections lashed into a roll, cut and drilled to span the ford at Clay Shoal. Drag it onto a Flooded Ford to lay it across and open the road at once. It can only be built at Clay Shoal, but it keeps indefinitely — build one in summer and have it ready for the next thaw.",捆扎成卷的厚重木板节段，已按粘土沙洲渡口的宽度切割钻孔。将其拖到被淹的渡口上即可铺设并立即打通道路。只能在粘土沙洲建造，但可以无限期保存——夏天造好一座，等下一次融雪时备用。
+CMC_CausewayKit_Help,Plank Causeway,木板堤道
+CMC_PlankCauseway_BP_Name,Plank Causeway,木板堤道
+CMC_PlankCauseway_BP_Desc,"Cut and lash plank sections over a stone footing, sized to the ford at Clay Shoal. Can only be built at Clay Shoal. Drag the finished causeway onto a Flooded Ford to bridge the spring thaw and open the road to Sodden Hollow.",在石砌基座上切割并捆扎木板节段，尺寸按粘土沙洲的渡口定制。只能在粘土沙洲建造。将建成的堤道拖到被淹的渡口上，即可跨越春季洪水，打通通往泥泞洼地的道路。
+CMC_PlankCauseway_BP_UnlockDesc,Be at the Clay Shoal,身处粘土沙洲
+CMC_VillageHomeSign_BP_Name,Village Home Sign,村居门牌
+CMC_VillageHomeSign_BP_Desc,"Hang a planked nameboard between two posts to mark a home as yours. It starts as a plain rustic board; once it is up, it can be carved with a decorative face and planed smooth again at any time.",在两根立柱之间挂上一块板制名牌，标明这处住所归你所有。初建时只是一块素朴的光板；立起后，随时可以在牌面上雕刻花饰，也可以重新创平。
+CMC_VillageHomeSignRustic_CardName,Village Home Sign,村居门牌
+CMC_VillageHomeSignRustic_CardDescription,"A plain planked nameboard slung between two posts. The wood is sound but the face is bare and unworked — honest, and a little anonymous. It can be carved with a decorative face whenever there is an afternoon to spare.",一块素朴的板制名牌，横挂在两根立柱之间。木料结实，牌面却光秃未经修饰——质朴，也略显无名。只要抽得出一个下午，就能在上面雕刻花饰。
+CMC_VillageHomeSignRustic_CardHelpSection,Village Home Sign,村居门牌
+CMC_VillageHomeSignRustic_DA_Carve_ActionName,Carve the Face,雕刻牌面
+CMC_VillageHomeSignRustic_DA_Carve_ActionDescription,Cut a decorative face into the bare board — a bordered panel and a little relief work along the crossbar.,在光板上刻出花饰牌面——一圈边框，再在横梁上做些浮雕。
+CMC_VillageHomeSignRustic_DA_Dismantle,Take Down Sign,拆下门牌
+CMC_VillageHomeSignCarved_CardName,Village Home Sign,村居门牌
+CMC_VillageHomeSignCarved_CardDescription,"The same planked nameboard, its face cut with a bordered panel and a run of relief work along the crossbar. It reads as a home someone is proud of rather than a plot someone happens to hold. The carving can be planed off again if the plain board is preferred.",同一块板制名牌，牌面已刻出边框，横梁上也排着一道浮雕。它看上去像一处主人引以为傲的家，而不只是一块碍事占着的地。若更喜欢素板，雕花也可以再创掉。
+CMC_VillageHomeSignCarved_CardHelpSection,Village Home Sign,村居门牌
+CMC_VillageHomeSignCarved_DA_Plane_ActionName,Plane the Face Smooth,创平牌面
+CMC_VillageHomeSignCarved_DA_Plane_ActionDescription,"Work the relief and the border back off the board, leaving the plain rustic face.",把浮雕与边框从板上创去，只留下素朴的牌面。
+CMC_VillageHomeSignCarved_DA_Dismantle,Take Down Sign,拆下门牌
+CMC_TownWoodPile_CardName,Town Wood Pile,镇上柴堆
+CMC_TownWoodPile_CardDesc,"The village's communal fuel stack, kept beside the square. Drag twigs, long sticks, wood or firewood onto it to add to the Wood Stockpile. The hearths in the Inn, the Academy, the Village Hall, the Miller's and Weaver's cottages and the Apothecary's cabin all tend themselves from this pile - when it runs dry they stop being tended and burn down, though any of them can still be fed and lit by hand like any other fireplace. The village also keeps a running Player's Pay balance for what you've fed in, built at the same rate as the Wood Stockpile; withdraw it any time as copper nuggets (50 pay each) or salt (30 pay each) with Collect as Copper/Collect as Salt - a reward for the fuel you contributed that never draws against what the hearths need.",村里的公共燃料堆，就放在广场旁边。把细枝、长木棍、木头或柴火拖到上面，即可增加木柴储量。旅馆、学堂、村政厅、磨坊主与织工的小屋以及药剂师木屋里的炉火，都会自行从这堆柴中取用——柴堆见底时，它们便不再自行续燃而逐渐烧尽，不过你仍可像对待任何壁炉那样亲手添柴点火。村子还会为你投入的柴薪记一笔“工钱”，累积速度与木柴储量相同；随时可用“以铜块形式收取”/“以盐形式收取”取走，铜块每次50工钱、盐每次30工钱——这是给你所投柴薪的酬劳，绝不会动用炉火所需的柴堆。
+CMC_TownWoodPile_CardHelpSection,Town Wood Pile,镇上柴堆
+CMC_TownWoodPile_SD1_Name,Wood Stockpile,木柴储量
+CMC_TownWoodPile_SD2_Name,Player's Pay,工钱
+CMC_TownWoodPile_CI_Stock,Stock the Wood Pile,向柴堆添柴
+CMC_TownWoodPile_CI_Stock_Desc,"Add the dragged fuel to the village's communal stockpile. Each piece is worth exactly what it would have given a fire: a log of wood about 35, pine or alder about 21, twigs 7, a long stick 4. Part-burnt fuel is worth what is left of it. The same value also builds your Player's Pay balance, withdrawable any time as copper or salt.",把拖入的燃料加入村里的公共柴堆。每份燃料的价值与它能供炉火燃烧的量完全相同：一根木头约35，松木或桓木约21，细枝7，长木棍4。烧过一部分的燃料按剩余部分计价。同样的数值也会累积进你的“工钱”，可随时兑换为铜块或盐。
+CMC_TownWoodPileFuel_StatName,Town Wood Pile,镇上柴堆
+CMC_TownWoodPileFuel_StatDescription,"Hidden fuel pool for the village's communal wood pile, measured in the same units the vanilla Fireplace burns (1 per tick, 96 for a full hearth). Rises when fuel is stacked on the Town Wood Pile in the village, falls whenever one of the six village hearths is automatically topped off or re-lit. Starts at 96 - one full hearth's worth - so a run that has never seen the pile still gets a grace period before the village fires start going out. This is the canonical store: the pile's own Wood Stockpile bar is a display mirror of it, because the hearths that draw on it sit in interiors where the pile card is not on the board.",村中公共柴堆的隐藏燃料池，单位与原版壁炉燃烧的单位相同（每刻1点，96点为一炉满量）。向镇上柴堆添柴时上升；六处村中炉火中任意一处被自动续燃或重新点燃时下降。初始为96——即一炉满量——因此从未见过柴堆的存档也有缓冲期，村中炉火不会立刻熄灭。这是权威存储：柴堆自身的木柴储量条只是它的显示镜像，因为取用它的炉火位于室内环境，而柴堆卡牌并不在那些场景的板面上。
+CMC_TownWoodPile_CI_Stock_Full,The wood pile is already stacked as high as it will go.,柴堆已经堆到不能再高了。
+CMC_TownWoodPile_DA_CollectCopper,Collect as Copper,以铜块形式收取
+CMC_TownWoodPile_DA_CollectCopper_Desc,"Withdraw your Player's Pay balance as copper nuggets, 50 pay each. Draws only on Player's Pay, never on the Wood Stockpile the hearths run on.",以铜块形式提取你的工钱余额，每个铜块消5０工钱。仅动用工钱，从不动用炉火赖以维持的木柴储量。
+CMC_TownWoodPile_DA_CollectSalt,Collect as Salt,以盐形式收取
+CMC_TownWoodPile_DA_CollectSalt_Desc,"Withdraw your Player's Pay balance as salt, 30 pay each. Draws only on Player's Pay, never on the Wood Stockpile the hearths run on.",以盐的形式提取你的工钱余额，每份盐消3０工钱。仅动用工钱，从不动用炉火赖以维持的木柴储量。
+CMC_CarpentryBench_CardName,Carpentry Bench (retired),木工台（已停用）
+CMC_CarpentryBench_CardDescription,"This bench was retired when the Carpentry course moved onto the Lecture Hall lectern, which now holds a single Tuition Account for every course. Anything still banked here can be carried over: Transfer to Lecture Hall moves this bench's Tuition Account balance (as much as the lectern's account can hold) and any Carpentry study hours onto the lectern, then clears the bench away. If the lectern's account is full, the remainder stays here until you transfer again.",木工课程并入讲堂讲台后，此工作台已停用；现在所有课程共用讲台上的一个学费账户。这里仍存有的东西可以转移：「转入讲堂」会把此工作台的学费账户余额（以讲台账户能容纳的数额为限）和已完成的木工学时转到讲台上，然后清走此工作台。若讲台账户已满，剩余部分会留在这里，之后可再次转移。
+CMC_CarpentryBench_Prog_Tuition,Tuition Account,学费账户
+CMC_CarpentryBench_DA_Transfer,Transfer to Lecture Hall,转入讲堂
+CMC_CarpentryBench_DA_Transfer_Desc,"Moves this bench's Tuition Account balance and Carpentry study hours onto the Lecture Hall lectern and removes the bench. If the lectern's account (1000 max) cannot take the whole balance, the rest stays on the bench for a later transfer.",将此工作台的学费账户余额和木工学时转到讲堂讲台上，并移除此工作台。若讲台账户（上限1000）无法容纳全部余额，剩余部分会留在工作台上，可稍后再次转移。

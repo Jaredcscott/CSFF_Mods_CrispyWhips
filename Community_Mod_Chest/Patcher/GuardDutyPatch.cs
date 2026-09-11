@@ -701,7 +701,7 @@ namespace CommunityModChest.Patcher
             Reflect.SetMember(duty, "CanOnlyPerformAtHome", false);
             Reflect.SetMember(duty, "CannotPerformWhileHidden", true);
             Reflect.SetMember(duty, "CanPerformWhileInDialog", false);
-            SetEnumField(duty, "DutyExecutionOptions", "Early");
+            SetEnumField(duty, "DutyExecutionOptions", "EarlyBeforeDurabilities");
             SetEnumField(duty, "GiveUpOptions", "GiveUpInstantly");
 
             // Null-array hygiene — the engine indexes these without guards.
@@ -812,7 +812,7 @@ namespace CommunityModChest.Patcher
             Reflect.SetMember(duty, "CanOnlyPerformAtHome", false);
             Reflect.SetMember(duty, "CannotPerformWhileHidden", true);
             Reflect.SetMember(duty, "CanPerformWhileInDialog", false);
-            SetEnumField(duty, "DutyExecutionOptions", "Early");
+            SetEnumField(duty, "DutyExecutionOptions", "EarlyBeforeDurabilities");
             SetEnumField(duty, "GiveUpOptions", "GiveUpInstantly");
 
             Reflect.SetMember(duty, "DutyTags", Array.CreateInstance(_npcDutyTagType, 0));
@@ -883,7 +883,7 @@ namespace CommunityModChest.Patcher
             Reflect.SetMember(duty, "CanOnlyPerformAtHome", false);
             Reflect.SetMember(duty, "CannotPerformWhileHidden", true);
             Reflect.SetMember(duty, "CanPerformWhileInDialog", false);
-            SetEnumField(duty, "DutyExecutionOptions", "Early");
+            SetEnumField(duty, "DutyExecutionOptions", "EarlyBeforeDurabilities");
             SetEnumField(duty, "GiveUpOptions", "GiveUpInstantly");
 
             Reflect.SetMember(duty, "DutyTags", Array.CreateInstance(_npcDutyTagType, 0));
@@ -1007,7 +1007,7 @@ namespace CommunityModChest.Patcher
             Reflect.SetMember(duty, "CanOnlyPerformAtHome", false);
             Reflect.SetMember(duty, "CannotPerformWhileHidden", true);
             Reflect.SetMember(duty, "CanPerformWhileInDialog", false);
-            SetEnumField(duty, "DutyExecutionOptions", "Early");
+            SetEnumField(duty, "DutyExecutionOptions", "EarlyBeforeDurabilities");
             SetEnumField(duty, "GiveUpOptions", "GiveUpInstantly");
 
             Reflect.SetMember(duty, "DutyTags", Array.CreateInstance(_npcDutyTagType, 0));

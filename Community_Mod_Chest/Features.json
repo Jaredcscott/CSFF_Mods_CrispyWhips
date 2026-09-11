@@ -7,7 +7,9 @@
       "cards": [
         "apparelbpfootwraps",
         "apparelfootwraps"
-      ]
+      ],
+      "confidence": "HIGH",
+      "evidence": "T1.6 apparel+comfort family spot-check PASS 2026-07-23; clean acquisition coverage (mod-report.md 2026-09-01)"
     },
     {
       "name": "Hand Wraps",
@@ -15,7 +17,9 @@
       "cards": [
         "apparelbphandwraps",
         "apparelhandwraps"
-      ]
+      ],
+      "confidence": "HIGH",
+      "evidence": "T1.6 family spot-check PASS 2026-07-23"
     },
     {
       "name": "Straw Hat",
@@ -23,7 +27,9 @@
       "cards": [
         "apparelbpstrawhat",
         "apparelstrawhat"
-      ]
+      ],
+      "confidence": "HIGH",
+      "evidence": "T1.6 family spot-check PASS 2026-07-23"
     },
     {
       "name": "Cloth Scarf",
@@ -31,7 +37,9 @@
       "cards": [
         "apparelbpclothscarf",
         "apparelclothscarf"
-      ]
+      ],
+      "confidence": "LOW",
+      "evidence": "needle-cost normalized 2026-08-26 (f5117eeb4); T2.138 needle-cost re-verification PENDING (updated 2026-08-27), no re-test since"
     },
     {
       "name": "Chaperon",
@@ -39,7 +47,9 @@
       "cards": [
         "apparelbpchaperon",
         "apparelchaperon"
-      ]
+      ],
+      "confidence": "LOW",
+      "evidence": "needle-cost normalized 2026-08-26 (f5117eeb4); T2.138 PENDING"
     },
     {
       "name": "Cloth Coat",
@@ -47,7 +57,9 @@
       "cards": [
         "apparelbpclothcoat",
         "apparelclothcoat"
-      ]
+      ],
+      "confidence": "LOW",
+      "evidence": "needle-cost normalized 2026-08-26 (f5117eeb4); T2.138 PENDING; also part of T2.108 dye-variant PENDING family"
     },
     {
       "name": "Leather Apron",
@@ -55,7 +67,9 @@
       "cards": [
         "apparelbpleatherapron",
         "apparelleatherapron"
-      ]
+      ],
+      "confidence": "HIGH",
+      "evidence": "T1.6 family spot-check PASS 2026-07-23"
     },
     {
       "name": "Leather Sandals",
@@ -63,7 +77,9 @@
       "cards": [
         "apparelbpleathersandals",
         "apparelleathersandals"
-      ]
+      ],
+      "confidence": "HIGH",
+      "evidence": "T1.6 family spot-check PASS 2026-07-23"
     },
     {
       "name": "Cloth Mask",
@@ -71,7 +87,9 @@
       "cards": [
         "apparelbpclothmask",
         "apparelclothmask"
-      ]
+      ],
+      "confidence": "LOW",
+      "evidence": "needle-gated 2026-08-26 (fb719693c); T2.138 PENDING"
     },
     {
       "name": "Long Johns",
@@ -79,34 +97,42 @@
       "cards": [
         "apparelbplongjohns",
         "apparellongjohns"
-      ]
+      ],
+      "confidence": "LOW",
+      "evidence": "needle-gated 2026-08-26 (fb719693c); T2.138 PENDING"
     },
     {
       "name": "Quilted Cap",
       "status": "Implemented",
-      "notes": "Combat armor — requires ArmorCardsPatch C# for wound roll injection.",
+      "notes": "Combat armor - requires ArmorCardsPatch C# for wound roll injection.",
       "cards": [
         "combatandarmorbpquiltedcap",
         "combatandarmorquiltedcap"
-      ]
+      ],
+      "confidence": "LOW",
+      "evidence": "needle-cost normalized 2026-08-26 (f5117eeb4); T2.138 PENDING"
     },
     {
       "name": "Quilted Vest",
       "status": "Implemented",
-      "notes": "Combat armor — requires ArmorCardsPatch C# for wound roll injection.",
+      "notes": "Combat armor - requires ArmorCardsPatch C# for wound roll injection.",
       "cards": [
         "combatandarmorbpquiltedvest",
         "combatandarmorquiltedvest"
-      ]
+      ],
+      "confidence": "LOW",
+      "evidence": "needle-cost normalized 2026-08-26 (f5117eeb4); T2.138 PENDING"
     },
     {
       "name": "Bone Lamellar Armor",
       "status": "Implemented",
-      "notes": "Combat armor — requires ArmorCardsPatch C# for wound roll injection.",
+      "notes": "Combat armor - requires ArmorCardsPatch C# for wound roll injection.",
       "cards": [
         "combatandarmorbpbonelamellar",
         "combatandarmorbonelamellar"
-      ]
+      ],
+      "confidence": "LOW",
+      "evidence": "needle-cost normalized to 3.0 2026-08-26 (f5117eeb4); T2.138 PENDING"
     },
     {
       "name": "Stone Mace",
@@ -114,16 +140,20 @@
       "cards": [
         "combatandarmorbpstonemace",
         "combatandarmorstonemace"
-      ]
+      ],
+      "confidence": "HIGH",
+      "evidence": "T1.6 family spot-check PASS 2026-07-23; no reported churn"
     },
     {
       "name": "Wooden Shield",
       "status": "Implemented",
-      "notes": "Combat armor — requires ArmorCardsPatch C# for wound roll injection.",
+      "notes": "Combat armor - requires ArmorCardsPatch C# for wound roll injection.",
       "cards": [
         "combatandarmorbpwoodenshield",
         "combatandarmorwoodenshield"
-      ]
+      ],
+      "confidence": "HIGH",
+      "evidence": "T1.6 family spot-check PASS 2026-07-23"
     },
     {
       "name": "Pigment",
@@ -131,7 +161,9 @@
       "cards": [
         "potterysculpturebppigment",
         "potterysculpturepigment"
-      ]
+      ],
+      "confidence": "MEDIUM",
+      "evidence": "T1.6 family spot-check PASS 2026-07-23, but now feeds T2.108 PENDING dye-variant mechanic (1.60.0) not covered by that older pass"
     },
     {
       "name": "Painted Clay Bowl",
@@ -139,7 +171,9 @@
       "cards": [
         "potterysculpturebppaintedbowl",
         "potterysculpturepaintedbowl"
-      ]
+      ],
+      "confidence": "HIGH",
+      "evidence": "declarative pottery family, clean acquisition coverage, no reported issues"
     },
     {
       "name": "Painted Clay Vase",
@@ -147,7 +181,9 @@
       "cards": [
         "potterysculpturebppaintedvase",
         "potterysculpturepaintedvase"
-      ]
+      ],
+      "confidence": "HIGH",
+      "evidence": "declarative pottery family, clean acquisition coverage"
     },
     {
       "name": "Painted Clay Plate",
@@ -155,7 +191,9 @@
       "cards": [
         "potterysculpturebppaintedplate",
         "potterysculpturepaintedplate"
-      ]
+      ],
+      "confidence": "HIGH",
+      "evidence": "declarative pottery family, clean acquisition coverage"
     },
     {
       "name": "Painted Clay Cup",
@@ -163,31 +201,39 @@
       "cards": [
         "potterysculpturebppaintedcup",
         "potterysculpturepaintedcup"
-      ]
+      ],
+      "confidence": "HIGH",
+      "evidence": "declarative pottery family, clean acquisition coverage"
     },
     {
-      "name": "Figurine — Dragon",
+      "name": "Figurine - Dragon",
       "status": "Implemented",
       "cards": [
         "potterysculpturebpfigurinedragon",
         "potterysculpturefigurinedragon"
-      ]
+      ],
+      "confidence": "HIGH",
+      "evidence": "declarative pottery family, clean acquisition coverage"
     },
     {
-      "name": "Figurine — Bear",
+      "name": "Figurine - Bear",
       "status": "Implemented",
       "cards": [
         "potterysculpturebpfigurinebear",
         "potterysculpturefigurinebear"
-      ]
+      ],
+      "confidence": "HIGH",
+      "evidence": "declarative pottery family, clean acquisition coverage"
     },
     {
-      "name": "Figurine — Castle",
+      "name": "Figurine - Castle",
       "status": "Implemented",
       "cards": [
         "potterysculpturebpfigurinecastle",
         "potterysculpturefigurinecastle"
-      ]
+      ],
+      "confidence": "HIGH",
+      "evidence": "declarative pottery family, clean acquisition coverage"
     },
     {
       "name": "Clay Beads",
@@ -195,7 +241,9 @@
       "cards": [
         "potterysculpturebpclaybeads",
         "potterysculptureclaybeads"
-      ]
+      ],
+      "confidence": "HIGH",
+      "evidence": "declarative pottery family, clean acquisition coverage"
     },
     {
       "name": "Stone Tiles",
@@ -203,15 +251,19 @@
       "cards": [
         "potterysculpturebpstonetiles",
         "potterysculpturestonetiles"
-      ]
+      ],
+      "confidence": "HIGH",
+      "evidence": "declarative pottery family; feeds VERIFIED Stone Tile Floor improvement"
     },
     {
       "name": "Stone Tile Floor",
-      "status": "Implemented",
-      "notes": "CT10 improvement injected into Cabin + Mud Hut interior CT8s (7 envs) via InjectImprovementInto.json; consumes 12 Stone Tiles + 4 Clay; Comfort +12, TemperaturePerceived +1.",
+      "status": "Tested",
+      "notes": "CT10 improvement injected into Cabin + Mud Hut interior CT8s (7 envs, +Attic added CMC 1.60.1) via InjectImprovementInto.json; consumes 12 Stone Tiles + 4 Clay; Comfort +12, TemperaturePerceived +1. Confirmed PASS in-game via r31 playthrough (2026-08-27, recorded 2026-08-29, item T2.68) after an earlier FAIL report; no further repro detail captured.",
       "cards": [
         "cmcimpstonetilefloor"
-      ]
+      ],
+      "confidence": "VERIFIED",
+      "evidence": "T2.68 PASS via r31 playthrough (session 2026-08-27, recorded 2026-08-29), superseding an earlier 2026-08-15 FAIL; InjectImprovementInto.json unchanged since"
     },
     {
       "name": "Herb Paste",
@@ -220,7 +272,9 @@
       "cards": [
         "potterysculpturebpherbpaste",
         "potterysculptureherbpaste"
-      ]
+      ],
+      "confidence": "MEDIUM",
+      "evidence": "quest-reward unlock (Apothecary herb quest) rides the same BlueprintsFullUnlockWarpData pattern as Garden Trellis/Straw Mat (T1.6 PASS 2026-07-22) but this specific recipe was never itself spot-checked"
     },
     {
       "name": "Heather Wreath",
@@ -228,7 +282,9 @@
       "cards": [
         "comfortbpheatherwreath",
         "comfortheatherwreath"
-      ]
+      ],
+      "confidence": "HIGH",
+      "evidence": "T1.6 family spot-check PASS 2026-07-23"
     },
     {
       "name": "Wind Chimes",
@@ -236,7 +292,9 @@
       "cards": [
         "comfortbpwindchimes",
         "comfortwindchimes"
-      ]
+      ],
+      "confidence": "HIGH",
+      "evidence": "T1.6 family spot-check PASS 2026-07-23"
     },
     {
       "name": "Bedroll",
@@ -247,7 +305,9 @@
         "comfortbpbedrollplace",
         "comfortbedroll",
         "comfortbedrollplaced"
-      ]
+      ],
+      "confidence": "LOW",
+      "evidence": "needle-cost normalized to 2.0 2026-08-26 (f5117eeb4); T2.138 PENDING"
     },
     {
       "name": "Comfortable Bed",
@@ -260,44 +320,56 @@
         "comfortcopperbedframe",
         "comfortbpcomfortablebed",
         "comfortablebedplaced"
-      ]
+      ],
+      "confidence": "LOW",
+      "evidence": "Down Mattress component needle-cost normalized 2026-08-26 (f5117eeb4); T2.138 PENDING covers Down Mattress specifically"
     },
     {
       "name": "Straw Mat",
       "status": "Tested",
-      "notes": "Quest reward: hidden from the crafting journal (no tab entry, empty UnlockConditionsDesc) until the Weaver's flax-errand quest completes, then unlocked via BlueprintsFullUnlockWarpData on CMC_WeaverTalk_QuestThanks. _Playtest 2026-07-21 (T1.6, post-v1.22.2 fix deploy): still visible in the crafting journal from a fresh run — the Hidden-state fix did not hold in-game despite JSON matching the documented Hidden recipe (StartUnlocked:false, empty CardsOnBoard, UnlockConditionsDesc IGNOREKEY/''). Needs LogInfo diagnostics on GameManager.BlueprintModelStates at load, not another blind JSON edit — see memory:reference_blueprint_hidden_until_quest (still 🟡 unverified, now with a confirmed failing repro)._ _CONFIRMED FIXED 2026-07-22 (T1.6 Spike-1 re-test, playthrough-results-2026-07-22_1836.json): fresh-run journal check passed — blueprint correctly Hidden pre-quest. The 07-21 \"still visible\" report is now understood as a stale observation (game process not restarted after the 1.23.0 deploy) rather than a real regression; CMC 1.23.0's fixed BlueprintVisibilityDiagnostic + prior JSON corrections hold up in-game._",
+      "notes": "Quest reward: hidden from the crafting journal (no tab entry, empty UnlockConditionsDesc) until the Weaver's flax-errand quest completes, then unlocked via BlueprintsFullUnlockWarpData on CMC_WeaverTalk_QuestThanks. _Playtest 2026-07-21 (T1.6, post-v1.22.2 fix deploy): still visible in the crafting journal from a fresh run - the Hidden-state fix did not hold in-game despite JSON matching the documented Hidden recipe (StartUnlocked:false, empty CardsOnBoard, UnlockConditionsDesc IGNOREKEY/''). Needs LogInfo diagnostics on GameManager.BlueprintModelStates at load, not another blind JSON edit - see memory:reference_blueprint_hidden_until_quest (still 🟡 unverified, now with a confirmed failing repro)._ _CONFIRMED FIXED 2026-07-22 (T1.6 Spike-1 re-test, playthrough-results-2026-07-22_1836.json): fresh-run journal check passed - blueprint correctly Hidden pre-quest. The 07-21 \"still visible\" report is now understood as a stale observation (game process not restarted after the 1.23.0 deploy) rather than a real regression; CMC 1.23.0's fixed BlueprintVisibilityDiagnostic + prior JSON corrections hold up in-game._",
       "cards": [
         "comfortbpstrawmat",
         "comfortstrawmatplaced"
-      ]
+      ],
+      "confidence": "VERIFIED",
+      "evidence": "T1.6 Spike-1 CONFIRMED FIXED 2026-07-22 (playthrough-results-2026-07-22_1836.json); the 07-21 'still visible' report retracted as stale-process observation"
     },
     {
       "name": "Woven Wall Hanging",
       "status": "Tested",
-      "notes": "Quest reward: hidden from the crafting journal (no tab entry, empty UnlockConditionsDesc) until the Weaver's flax-errand quest completes, then unlocked via BlueprintsFullUnlockWarpData on CMC_WeaverTalk_QuestThanks. _Playtest 2026-07-21 (T1.6): still visible pre-quest — same open issue as Straw Mat, see that entry._ _CONFIRMED FIXED 2026-07-22 (T1.6 Spike-1 re-test, playthrough-results-2026-07-22_1836.json): fresh-run journal check passed — blueprint correctly Hidden pre-quest. The 07-21 \"still visible\" report is now understood as a stale observation (game process not restarted after the 1.23.0 deploy) rather than a real regression; CMC 1.23.0's fixed BlueprintVisibilityDiagnostic + prior JSON corrections hold up in-game._",
+      "notes": "Quest reward: hidden from the crafting journal (no tab entry, empty UnlockConditionsDesc) until the Weaver's flax-errand quest completes, then unlocked via BlueprintsFullUnlockWarpData on CMC_WeaverTalk_QuestThanks. _Playtest 2026-07-21 (T1.6): still visible pre-quest - same open issue as Straw Mat, see that entry._ _CONFIRMED FIXED 2026-07-22 (T1.6 Spike-1 re-test, playthrough-results-2026-07-22_1836.json): fresh-run journal check passed - blueprint correctly Hidden pre-quest. The 07-21 \"still visible\" report is now understood as a stale observation (game process not restarted after the 1.23.0 deploy) rather than a real regression; CMC 1.23.0's fixed BlueprintVisibilityDiagnostic + prior JSON corrections hold up in-game._",
       "cards": [
         "comfortbpwovenwallhanging",
         "comfortwovenwallhanging"
-      ]
+      ],
+      "confidence": "VERIFIED",
+      "evidence": "T1.6 Spike-1 CONFIRMED FIXED 2026-07-22, same evidence as Straw Mat"
     },
     {
       "name": "Tricolor Wall Hanging",
       "status": "Tested",
-      "notes": "Quest reward as of the NPC enrichment pass: the blueprint is no longer in the normal research tab; it is unlocked via BlueprintsFullUnlockWarpData on the Weaver's flax-errand quest completion (CMC_WeaverTalk_QuestThanks). _Playtest 2026-07-21 (T1.6): still visible pre-quest — same open issue as Straw Mat, see that entry._ _CONFIRMED FIXED 2026-07-22 (T1.6 Spike-1 re-test, playthrough-results-2026-07-22_1836.json): fresh-run journal check passed — blueprint correctly Hidden pre-quest. The 07-21 \"still visible\" report is now understood as a stale observation (game process not restarted after the 1.23.0 deploy) rather than a real regression; CMC 1.23.0's fixed BlueprintVisibilityDiagnostic + prior JSON corrections hold up in-game._",
+      "notes": "Quest reward as of the NPC enrichment pass: the blueprint is no longer in the normal research tab; it is unlocked via BlueprintsFullUnlockWarpData on the Weaver's flax-errand quest completion (CMC_WeaverTalk_QuestThanks). _Playtest 2026-07-21 (T1.6): still visible pre-quest - same open issue as Straw Mat, see that entry._ _CONFIRMED FIXED 2026-07-22 (T1.6 Spike-1 re-test, playthrough-results-2026-07-22_1836.json): fresh-run journal check passed - blueprint correctly Hidden pre-quest. The 07-21 \"still visible\" report is now understood as a stale observation (game process not restarted after the 1.23.0 deploy) rather than a real regression; CMC 1.23.0's fixed BlueprintVisibilityDiagnostic + prior JSON corrections hold up in-game._",
       "cards": [
         "comfortbptricolorwallhanging",
         "comforttricolorwallhanging"
-      ]
+      ],
+      "confidence": "VERIFIED",
+      "evidence": "T1.6 Spike-1 CONFIRMED FIXED 2026-07-22, same evidence as Straw Mat"
     },
     {
       "name": "Incense Burner",
       "status": "Implemented",
-      "notes": "2-variant light item (unlit/lit). Fuel: RyeStraw. IsSourceOfLight.",
+      "notes": "One crafted clay vessel, two scents. Straw path: unlit/lit, fuel RyeStraw, Comfort +6. Juniper path: pack the empty vessel with JuniperNeedlesDry instead to get the unlit/lit juniper pair, which grants InsectProtection rather than Comfort; 'Tip Out the Needles' returns it to the empty base vessel. Both lit forms are IsSourceOfLight and burn down at -0.5 fuel/DTP back to the base vessel. Juniper pair reuses the base IncenseBurner/IncenseBurnerLit sprites (same pot, different herb) - dedicated art not yet commissioned.",
       "cards": [
         "comfortbpincenseburner",
         "comfortincenseburner",
-        "comfortincenseburnerlit"
-      ]
+        "comfortincenseburnerlit",
+        "comfortincenseburnerjuniper",
+        "comfortincenseburnerjuniperlit"
+      ],
+      "confidence": "LOW",
+      "evidence": "fuel-percent gate bug fixed 2026-08-26 (fb719693c) as part of the same F5 change that added the juniper variant; T2.139 juniper+occupied-guard PENDING, base straw path not independently re-tested since the fix"
     },
     {
       "name": "Ceramic Lamp",
@@ -307,16 +379,20 @@
         "ceramiclampbp",
         "ceramiclamp",
         "ceramiclamplit"
-      ]
+      ],
+      "confidence": "HIGH",
+      "evidence": "T1.6 family spot-check PASS 2026-07-23; standard 2-variant light pattern"
     },
     {
       "name": "Garden Trellis",
       "status": "Tested",
-      "notes": "Quest reward: hidden from the crafting journal (no tab entry, empty UnlockConditionsDesc) until the Miller's grain-errand quest completes, then unlocked via BlueprintsFullUnlockWarpData on CMC_MillerTalk_QuestThanks. CT2 placed. _Playtest 2026-07-21 (T1.6): still visible pre-quest — same open issue as Straw Mat, see that entry._ _CONFIRMED FIXED 2026-07-22 (T1.6 Spike-1 re-test, playthrough-results-2026-07-22_1836.json): fresh-run journal check passed — blueprint correctly Hidden pre-quest. The 07-21 \"still visible\" report is now understood as a stale observation (game process not restarted after the 1.23.0 deploy) rather than a real regression; CMC 1.23.0's fixed BlueprintVisibilityDiagnostic + prior JSON corrections hold up in-game._",
+      "notes": "Quest reward: hidden from the crafting journal (no tab entry, empty UnlockConditionsDesc) until the Miller's grain-errand quest completes, then unlocked via BlueprintsFullUnlockWarpData on CMC_MillerTalk_QuestThanks. CT2 placed. _Playtest 2026-07-21 (T1.6): still visible pre-quest - same open issue as Straw Mat, see that entry._ _CONFIRMED FIXED 2026-07-22 (T1.6 Spike-1 re-test, playthrough-results-2026-07-22_1836.json): fresh-run journal check passed - blueprint correctly Hidden pre-quest. The 07-21 \"still visible\" report is now understood as a stale observation (game process not restarted after the 1.23.0 deploy) rather than a real regression; CMC 1.23.0's fixed BlueprintVisibilityDiagnostic + prior JSON corrections hold up in-game._",
       "cards": [
         "BpCMCGardenTrellis",
         "cmcgardentrellisplaced"
-      ]
+      ],
+      "confidence": "VERIFIED",
+      "evidence": "T1.6 Spike-1 CONFIRMED FIXED 2026-07-22, same Hidden-blueprint mechanism as Straw Mat"
     },
     {
       "name": "Iron Fishing Rod",
@@ -325,7 +401,9 @@
       "cards": [
         "BpCMCIronFishingRod",
         "CMCIronFishingRod"
-      ]
+      ],
+      "confidence": "VERIFIED",
+      "evidence": "T2.54 PASS 2026-08-15; Features.json flipped Implemented->Tested same session"
     },
     {
       "name": "Iron Fishing Rod Fittings",
@@ -334,7 +412,9 @@
       "cards": [
         "BpCMCIronFishingRodFittings",
         "CMCIronFishingRodFittings"
-      ]
+      ],
+      "confidence": "VERIFIED",
+      "evidence": "T2.54/T1.39 PASS 2026-08-15"
     },
     {
       "name": "Fishing Net",
@@ -343,7 +423,9 @@
       "cards": [
         "cmcbpfishingnet",
         "cmcfishingnet"
-      ]
+      ],
+      "confidence": "VERIFIED",
+      "evidence": "T2.67 PASS 2026-08-15; Features.json flipped Implemented->Tested same session"
     },
     {
       "name": "Wild Garlic",
@@ -351,38 +433,46 @@
       "notes": "Forage-only (no blueprint). Uses vanilla WildGarlicFresh item injected into Village Farm (15%) and Foraging Forest (8%) via DropInjections.json.",
       "cards": [
         "WildGarlicFresh"
-      ]
+      ],
+      "confidence": "HIGH",
+      "evidence": "forage-only DropInjections.json entry, declarative, clean acquisition coverage"
     },
     {
       "name": "Old Growth Bark",
       "status": "Implemented",
-      "notes": "Forage-only (no blueprint). Injected into Foraging Forest (10%). Description mentions fuel use but no such mechanic exists — description mismatch.",
+      "notes": "Forage-only (no blueprint). Injected into Foraging Forest (10%). Description mentions fuel use but no such mechanic exists - description mismatch.",
       "cards": [
         "cmcoldgrowthbark"
-      ]
+      ],
+      "confidence": "HIGH",
+      "evidence": "forage-only DropInjections.json entry; description/fuel-use mismatch already flagged in Features.json notes, cosmetic only"
     },
     {
       "name": "River Bridge",
       "status": "Implemented",
-      "notes": "CT10 env improvement. Injected into River Clearing CT8 by RiverBridgeImprovementPatch. Requires ACT copper nails (40) — hard dep despite SoftDependency declaration. Completion triggers village path reveal.",
+      "notes": "CT10 env improvement. Injected into River Clearing CT8 by RiverBridgeImprovementPatch. Requires ACT copper nails (40) - hard dep despite SoftDependency declaration. Completion triggers village path reveal.",
       "cards": [
         "cmcimpriverbridge"
-      ]
+      ],
+      "confidence": "MEDIUM",
+      "evidence": "T2.9 construction PASS 2026-07-21 (with ACT installed); T1.38 hand-build-tool fix PASS 2026-08-14; T1.42/T1.45 non-Pathfinder visibility fixes PASS 2026-08-14; but T2.66 confirms ACT is a genuine HARD functional dependency despite SoftDependency declaration (documentation-vs-behavior gap, not a bug)"
     },
     {
       "name": "Village Well",
       "status": "Implemented",
-      "notes": "Reworked in 1.30.0 from a CT10 env improvement on the village tile (buried in the tile's improvements panel once built) to a standard construction blueprint (BpCMCVillageWell, same Construction subtab as the cottages/Hall) producing a CT2 structure on the village board. UID cmcimpwell kept from the improvement era so C# detection (VillageRenownPatch, VillageChroniclePatch, InnKeeperDialogSchedulePatch Ash arming, WellRemark/Housewarming dialog gates) is unchanged and an already-built well on an old save is expected to reload as the new structure card (runtime confirmation pending). Blueprint: research 192 ticks, discovery latched on Well Plans + cmcLocVillage on board (ConstantlyChecking false) + village phase >= 1 StatValues gate; location-locked to the Village via both BlueprintCardConditions and BuildingCardConditions; same five materials as the old improvement; BuildingDaytimeCost 12. Structure: UniqueOnBoard, CannotBeTrashed, Draw Water CI fills any tag_WaterContainer with 100,000 water (game caps to whatever room remains, so this tops off anything up to a Rain Cistern in one drag). 1.30.1 closed the plans lifecycle: the blueprint stage consumes cmcWellPlans x1 (DontSpend false, also blocks a duplicate second well), and the plans card carries a Discard DA (ReceivingCardChanges ModType 3) gated via RequiredCardsOnBoard on cmcimpwell — honored by DismantleCardAction.CanAppear -> CardsAndTagsAreCorrect, so it only appears while standing at a board with the finished well, making it soft-lock-proof; CannotBeTrashed retained as pre-build protection for the one-time dialog grant. 1.32.0 added a second one-time DA on the sketch, 'Re-face the Well', which used a runtime CardModel swap (WellArtPatch.cs, CardUtil.TransformCardInPlace) to retarget cmcimpwell to a second, otherwise-identical CT2 card (cmcimpwellcustom) carrying different art — meant to replace the vanilla legacy 'Well' sprite (visually a tropical-island holdover) with custom forest-themed art after the fact. 1.33.2 pointed cmcimpwellcustom at real art (CMC_WellPlans, the Inn Keeper's sketch) instead of a blank placeholder, but the swap still wasn't rendering the new sprite live in-session (visual cache didn't refresh from the CardModel swap). 1.33.4 removed the two-stage indirection entirely: cmcimpwell's own CardImageWarpData now points directly at CMC_WellPlans, so the well shows the correct art immediately on construction with no swap involved; cmcimpwellcustom, WellArtPatch.cs, and the 'Re-face the Well' DA were deleted as dead weight. Only the 'Discard the Old Sketch' DA remains on cmcWellPlans.",
+      "notes": "Reworked in 1.30.0 from a CT10 env improvement on the village tile (buried in the tile's improvements panel once built) to a standard construction blueprint (BpCMCVillageWell, same Construction subtab as the cottages/Hall) producing a CT2 structure on the village board. UID cmcimpwell kept from the improvement era so C# detection (VillageRenownPatch, VillageChroniclePatch, InnKeeperDialogSchedulePatch Ash arming, WellRemark/Housewarming dialog gates) is unchanged and an already-built well on an old save is expected to reload as the new structure card (runtime confirmation pending). Blueprint: research 192 ticks, discovery latched on Well Plans + cmcLocVillage on board (ConstantlyChecking false) + village phase >= 1 StatValues gate; location-locked to the Village via both BlueprintCardConditions and BuildingCardConditions; same five materials as the old improvement; BuildingDaytimeCost 12. Structure: UniqueOnBoard, CannotBeTrashed, Draw Water CI fills any tag_WaterContainer with 100,000 water (game caps to whatever room remains, so this tops off anything up to a Rain Cistern in one drag). 1.30.1 closed the plans lifecycle: the blueprint stage consumes cmcWellPlans x1 (DontSpend false, also blocks a duplicate second well), and the plans card carries a Discard DA (ReceivingCardChanges ModType 3) gated via RequiredCardsOnBoard on cmcimpwell - honored by DismantleCardAction.CanAppear -> CardsAndTagsAreCorrect, so it only appears while standing at a board with the finished well, making it soft-lock-proof; CannotBeTrashed retained as pre-build protection for the one-time dialog grant. 1.32.0 added a second one-time DA on the sketch, 'Re-face the Well', which used a runtime CardModel swap (WellArtPatch.cs, CardUtil.TransformCardInPlace) to retarget cmcimpwell to a second, otherwise-identical CT2 card (cmcimpwellcustom) carrying different art - meant to replace the vanilla legacy 'Well' sprite (visually a tropical-island holdover) with custom forest-themed art after the fact. 1.33.2 pointed cmcimpwellcustom at real art (CMC_WellPlans, the Inn Keeper's sketch) instead of a blank placeholder, but the swap still wasn't rendering the new sprite live in-session (visual cache didn't refresh from the CardModel swap). 1.33.4 removed the two-stage indirection entirely: cmcimpwell's own CardImageWarpData now points directly at CMC_WellPlans, so the well shows the correct art immediately on construction with no swap involved; cmcimpwellcustom, WellArtPatch.cs, and the 'Re-face the Well' DA were deleted as dead weight. Only the 'Discard the Old Sketch' DA remains on cmcWellPlans.",
       "cards": [
         "cmcimpwell",
         "BpCMCVillageWell",
         "cmcWellPlans"
-      ]
+      ],
+      "confidence": "HIGH",
+      "evidence": "T3.8 buildable PASS 2026-07-21; T2.48 art-choice re-face DA PASS 2026-07-30; 1.33.4 removed the two-stage art indirection entirely (simpler than what was tested, strictly safer)"
     },
     {
       "name": "Village Area",
       "status": "Implemented",
-      "notes": "9 WorldMap nodes in a compact district east of the vanilla River Clearing. Village Path is the gateway hub (West across the bridge to River Clearing, gated behind the River Bridge improvement OR the Pathfinder perk). East spine: Village Path -> Highland Pines (20,0) -> Pine Trail (20,10) -> Village (20,20) -> Village Farm (30,20). South wetlands: Village Path -> Clay Shoal (10,-10) -> Sodden Hollow (10,-20); Clay Shoal -> Moss-Grown Clearing (20,-10) -> Foraging Forest (20,-20) -> back to Sodden Hollow, and Moss-Grown Clearing -> Highland Pines closes the loop. Foraging Forest is a vanilla Deer Grove clone; EnvironmentUID/LocationUID unchanged since 2026-07-16 so LostCatPatch/ProfessorSchedulePatch/DropInjections all still resolve. DropInjections.json adds drops to Farm and Forest by LocationUID. Highland Pines, Moss-Grown Clearing, Clay Shoal, and Sodden Hollow were renamed 2026-08-13 (from High Grove / Mossy Clearing / Clay Flats / Marsh Hollow) to stop colliding with vanilla location names of the same or near-same text; UIDs unchanged. (Note: this block predates the later north-spine addition — cmcEnvHuntersCrossing/cmcEnvDeerMeadow/cmcEnvBadgerWarren aren't listed in the cards array below; those were also renamed 2026-08-13, Deer Meadow -> Stillwater Meadow and Badger Warren -> Sett Warren, see README.md/MapNodes.json.)",
+      "notes": "9 WorldMap nodes in a compact district east of the vanilla River Clearing. Village Path is the gateway hub (West across the bridge to River Clearing, gated behind the River Bridge improvement OR the Pathfinder perk). East spine: Village Path -> Highland Pines (20,0) -> Pine Trail (20,10) -> Village (20,20) -> Village Farm (30,20). South wetlands: Village Path -> Clay Shoal (10,-10) -> Sodden Hollow (10,-20); Clay Shoal -> Moss-Grown Clearing (20,-10) -> Foraging Forest (20,-20) -> back to Sodden Hollow, and Moss-Grown Clearing -> Highland Pines closes the loop. Foraging Forest is a vanilla Deer Grove clone; EnvironmentUID/LocationUID unchanged since 2026-07-16 so LostCatPatch/ProfessorSchedulePatch/DropInjections all still resolve. DropInjections.json adds drops to Farm and Forest by LocationUID. Highland Pines, Moss-Grown Clearing, Clay Shoal, and Sodden Hollow were renamed 2026-08-13 (from High Grove / Mossy Clearing / Clay Flats / Marsh Hollow) to stop colliding with vanilla location names of the same or near-same text; UIDs unchanged. (Note: this block predates the later north-spine addition - cmcEnvHuntersCrossing/cmcEnvDeerMeadow/cmcEnvBadgerWarren aren't listed in the cards array below; those were also renamed 2026-08-13, Deer Meadow -> Stillwater Meadow and Badger Warren -> Sett Warren, see README.md/MapNodes.json.)",
       "cards": [
         "cmcEnvVillagePath",
         "cmcLocVillagePath",
@@ -402,51 +492,62 @@
         "cmcLocClayFlats",
         "cmcEnvMarshHollow",
         "cmcLocMarshHollow"
-      ]
+      ],
+      "confidence": "MEDIUM",
+      "evidence": "core travel/node PASS evidence is broad (T1.27 wildlife suppression, T1.44 flood-levee, T2.128 dup-terrain PENDING) but T2.77 FAIL (2026-08-15, portal-hub-env-overlap retro still open per summary.md Warning #5) marks the pre-bridge portal-arrival path as a confirmed unresolved edge case"
     },
     {
       "name": "Clay Mound",
       "status": "Implemented",
-      "notes": "Clay Shoal seeds the VANILLA Clay Barrow (afbe6bee3cb0fa04f9ae3ec45cd888ca) via WorldMap/MapNodes.json ExtraDropUIDs — its built-in 'Dig Up Clay' interaction yields vanilla Clay. The former custom cmcClayMound CT2 card was retired 2026-07-17 in favor of the vanilla resource (card def, placeholder art, and localization rows removed).",
-      "cards": []
+      "notes": "Clay Shoal seeds the VANILLA Clay Barrow (afbe6bee3cb0fa04f9ae3ec45cd888ca) via WorldMap/MapNodes.json ExtraDropUIDs - its built-in 'Dig Up Clay' interaction yields vanilla Clay. The former custom cmcClayMound CT2 card was retired 2026-07-17 in favor of the vanilla resource (card def, placeholder art, and localization rows removed).",
+      "cards": [],
+      "confidence": "HIGH",
+      "evidence": "retired in favor of vanilla Clay Barrow via WorldMap ExtraDropUIDs; simple declarative seeding, no custom C#"
     },
     {
-      "name": "Village Farm — Seasonal Crop Fields",
+      "name": "Village Farm - Seasonal Crop Fields",
       "status": "Implemented",
       "notes": "One harvestable crop field appears at the Village Farm per season via framework ConditionalDrops/SeasonRange in WorldMap/MapNodes.json (MaxOnBoard:1, ForceStay). Spring=Flax, Summer=Turnroot, Autumn=Rye, Winter=none. Each field is a single-UID CT2 card with a Yield stat (5760, -288 per Harvest = ~20 harvests) that hides its Harvest action when spent (RequiredSpecial3Percent + HideActionIfNotMet); no regrow, no destroy action, so it cannot become an infinite-food source. Out-of-season fields are removed by ConditionalDropService on arrival/day-rollover. Replaced the old bespoke VillageFarmSeasonalCropPatch (removed). Requires framework GameQuery.CurrentSeason fix (Season.SeasonID resolution).",
       "cards": [
         "cmcvillagefieldflax",
         "cmcvillagefieldturnroot",
         "cmcvillagefieldrye"
-      ]
+      ],
+      "confidence": "MEDIUM",
+      "evidence": "T1.12/T3.2 season-swap PASS 2026-07-21, but T2.82 (Partner-NPC harvest duty, 1.50.2) is marked PASS in the header while its own note reads 'Explicitly UNVERIFIED with a recruited Partner' - treated as unresolved, see Notes & Anomalies"
     },
     {
-      "name": "Village timeline — phase gate + Village Clock (PR-1)",
+      "name": "Village timeline - phase gate + Village Clock (PR-1)",
       "status": "Implemented",
-      "notes": "Hidden GameStats cmcStatVillagePhase (0 undiscovered / 1 introduced), cmcStatVillageEpochDay (CurrentDay+1 stamped once at phase 1), cmcStatVillageWeek (derived weekly counter), cmcStatInnOnboardStep (anti-collapse beat sequencer). Phase 0: Inn Keeper's only StartingPoint is the 4-line intro chain (CMC_InnKeeperTalk_Intro -> _Money -> _Projects -> _Close; the close answer's ActionToPerform sets phase=1); all 35 other Inn StartingPoints + all 9 Professor greeting StartingPoints carry a phase>=1 RequiredStatValues gate; Professor gets a redirect StartingPoint (CMC_ProfessorGreeting_Redirect, listed first in the scene); both agents' TradingConditions require phase>=1; ProfessorSchedulePatch.RunScheduler early-outs at phase<1 (no wander/forage/specialty/specimen re-arm); Academy Study actions blocked with an 'introductions first' tooltip. Cottage/Hall blueprints re-gated from CardsOnBoard cmcLocVillage to StatValues phase>=1 with rewritten UnlockConditionsDesc. Village Clock (VillageClock.cs, ticked inside the existing InnKeeperDialogSchedulePatch 5s poll — no new polls): Week-2 line gates week>=2 + step 0, Week-3 backstory week>=3 + step 1 (each answer advances the step), errand offer week>=2, seasonal story pool week>=4 (C#), Ash arming week>=6 + Well + phase>=1 (C#) — no absolute-day gate survives. Save back-compat: phase backfilled to 1 on progress evidence (WellPlansGiven>=1 OR any QuestRenown>=1) or the Village Inn trait (explicit IsPerkEquipped check); InnFriendship deliberately NOT evidence — the phase-0 Chat DA builds it, so it would let one Chat skip the intro. Onboard step backfilled to 2 when Well Plans already given. A phase>=1 recap answer on the Start line replays the intro summary (CMC_InnKeeperTalk_IntroRecap).",
+      "notes": "Hidden GameStats cmcStatVillagePhase (0 undiscovered / 1 introduced), cmcStatVillageEpochDay (CurrentDay+1 stamped once at phase 1), cmcStatVillageWeek (derived weekly counter), cmcStatInnOnboardStep (anti-collapse beat sequencer). Phase 0: Inn Keeper's only StartingPoint is the 4-line intro chain (CMC_InnKeeperTalk_Intro -> _Money -> _Projects -> _Close; the close answer's ActionToPerform sets phase=1); all 35 other Inn StartingPoints + all 9 Professor greeting StartingPoints carry a phase>=1 RequiredStatValues gate; Professor gets a redirect StartingPoint (CMC_ProfessorGreeting_Redirect, listed first in the scene); both agents' TradingConditions require phase>=1; ProfessorSchedulePatch.RunScheduler early-outs at phase<1 (no wander/forage/specialty/specimen re-arm); Academy Study actions blocked with an 'introductions first' tooltip. Cottage/Hall blueprints re-gated from CardsOnBoard cmcLocVillage to StatValues phase>=1 with rewritten UnlockConditionsDesc. Village Clock (VillageClock.cs, ticked inside the existing InnKeeperDialogSchedulePatch 5s poll - no new polls): Week-2 line gates week>=2 + step 0, Week-3 backstory week>=3 + step 1 (each answer advances the step), errand offer week>=2, seasonal story pool week>=4 (C#), Ash arming week>=6 + Well + phase>=1 (C#) - no absolute-day gate survives. Save back-compat: phase backfilled to 1 on progress evidence (WellPlansGiven>=1 OR any QuestRenown>=1) or the Village Inn trait (explicit IsPerkEquipped check); InnFriendship deliberately NOT evidence - the phase-0 Chat DA builds it, so it would let one Chat skip the intro. Onboard step backfilled to 2 when Well Plans already given. A phase>=1 recap answer on the Start line replays the intro summary (CMC_InnKeeperTalk_IntroRecap).",
       "cards": [
         "cmcStatVillagePhase",
         "cmcStatVillageEpochDay",
         "cmcStatVillageWeek",
         "cmcStatInnOnboardStep"
-      ]
+      ],
+      "confidence": "VERIFIED",
+      "evidence": "T1.13/T1.14/T1.19/T2.31 all PASS 2026-07-21/22, core VillageClock.cs mechanism; no later PENDING/FAIL against this specific gate"
     },
     {
       "name": "Village Inn (permanent fixture, enterable)",
       "status": "Implemented",
-      "notes": "The cmcInn entrance always spawns in the Village via framework ConditionalDrops/AlwaysTrue (MaxOnBoard:1, ForceStay) — PR-1 dropped the old HasPerk gate. The Village Inn trait (cmcperkvillageinn, StarsCost 1) is repurposed as a head start: StartingStatModifiers grants +5 cmcStatInnFriendship at run start, and VillageClock checks the trait explicitly (IsPerkEquipped) and backfills cmcStatVillagePhase=1 (introductions waived). Entrance is a vanilla-cabin-style CT2: 'Enter the Inn' DA produces the cmcInnInterior CT4 InstancedEnvironment card (FadeToBlack travel). Interior seeds an Inn Door (TravelToPreviousEnv exit) and the Inn Counter (CMC_MarketStall image). Counter DAs: Purchase Meal (2 DTP; Satiation/Hydration/Fullness/Calories), Stay the Night (32 DTP; Energy +60, Stamina +40) — both currency-gated by InnPatch (consumes Salt or Duros Coin, AfterWrapped); Work Odd Jobs (16 DTP; Energy -20, Stamina -15) pays 1-2 vanilla 50%-quality copper nuggets (Pk_5_1_8_SmithingGear_CopperNugget 7741ded7..., SD2=50/SD4=100) via pure JSON ProducedCards — no currency gate.",
+      "notes": "The cmcInn entrance always spawns in the Village via framework ConditionalDrops/AlwaysTrue (MaxOnBoard:1, ForceStay) - PR-1 dropped the old HasPerk gate. The Village Inn trait (cmcperkvillageinn, StarsCost 1) is repurposed as a head start: StartingStatModifiers grants +5 cmcStatInnFriendship at run start, and VillageClock checks the trait explicitly (IsPerkEquipped) and backfills cmcStatVillagePhase=1 (introductions waived). Entrance is a vanilla-cabin-style CT2: 'Enter the Inn' DA produces the cmcInnInterior CT4 InstancedEnvironment card (FadeToBlack travel). Interior seeds an Inn Door (TravelToPreviousEnv exit) and the Inn Counter (CMC_MarketStall image). Counter DAs: Purchase Meal (2 DTP; Satiation/Hydration/Fullness/Calories), Stay the Night (32 DTP; Energy +60, Stamina +40) - both currency-gated by InnPatch (consumes Salt or Duros Coin, AfterWrapped); Work Odd Jobs (16 DTP; Energy -20, Stamina -15) pays 1-2 vanilla 50%-quality copper nuggets (Pk_5_1_8_SmithingGear_CopperNugget 7741ded7..., SD2=50/SD4=100) via pure JSON ProducedCards - no currency gate.",
       "cards": [
         "cmcperkvillageinn",
         "cmcInn",
         "cmcInnInterior",
         "cmcInnExit",
-        "cmcInnCounter"
-      ]
+        "cmcInnCounter",
+        "cmcInnInteriorLocation"
+      ],
+      "confidence": "VERIFIED",
+      "evidence": "T1.2/T1.8/T1.9/T3.5/T3.6/T3.7/T3.9 PASS 2026-07-21; T2.62 Inn-side deposit CI PASS/changelog-confirmed 2026-08-14 (LogOutput.log capture, 3 successful deposits)"
     },
     {
       "name": "Village Academy (permanent fixture, course-gated blueprints)",
       "status": "Implemented",
-      "notes": "The cmcAcademy entrance always spawns in the Village via framework ConditionalDrops/AlwaysTrue (MaxOnBoard:1, ForceStay) — PR-1 dropped the old HasPerk gate and RETIRED the Higher Education trait from character creation (CharacterPerkPerkGroup 'None'; asset kept so old saves stay valid). Study actions additionally require cmcStatVillagePhase >= 1 (AcademyPatch.BlockReason via VillageClock.PhaseAtLeast). Entrance 'Enter the Academy' DA produces the cmcAcademyInterior CT4 InstancedEnvironment; interior seeds Academy Door (TravelToPreviousEnv) + Lecture Hall. Six courses run as 2-hour study sessions (8 DTP, Energy -5/Stamina -4): course progress lives on the lectern's 8 generic DurabilityStat slots — SpecialDurability1/2/3 (Architecture 72h, Metallurgy 60h, Herbalism 30h) plus SpoilageTime/UsageDurability/FuelCapacity (Fishing/Armorer/Medicine, 24h each; CardData exposes 8 such slots total, not just the 4 Special ones). Each 'Study ...' DA adds +2h via ReceivingCardChanges ModType 1 and hides natively (RequiredReceivingDurabilities, HideActionIfNotMet) once one session remains; a 'Final Exam: ...' DA (also 2h, +2h) becomes visible for the last session and grants the hidden in-run Graduate perk via AddedInRunPerksWarpData (CharacterPerkPerkGroup 'None' keeps them out of character creation; requires framework 2.11.0+) — session split: 35+1 / 29+1 / 14+1 / 11+1 / 11+1 / 11+1. AcademyPatch gates tuition as a one-time enrollment fee (100, drawn from the Tuition Account balance) — deposits credit 2 Copper Coins (SD4=100 -> 50 each), 1 raw Copper Nugget (SD4=100 x2 unrefined multiplier -> 200, covers two enrollments), or 7 Salt (15 each, rounded up from the Copper Coin equivalent: 100/15=6.67->7) per CurrencyValue.cs — required and consumed on each course's FIRST session only; blocks re-study after graduating; CollectActionModifiers tooltip. AcademyCourseService (OnGMInitialized + post-course): for every run (trait check removed in PR-1), sets BlueprintModelStates=Hidden and UnlockableCards.Disabled=true for the gated blueprints unless earned, then unlocks earned ones via GameManager.MakeBlueprintAvailable — Architecture → WDI Sawmill+Grinding Mill; Metallurgy → ACT Copper Sheet; both → WDI Forge+Workshop Kit; Fishing → CMC Iron Fishing Rod; Armorer → ACT Copper Breastplate/Helmet/Greaves/Gauntlets; already-Available blueprints are never re-locked; missing mods are skipped. The Armorer course itself is pruned from the lectern's DismantleActions (AcademyPatch.PruneUnavailableCourses, via BepInEx Chainloader.PluginInfos GUID check) if Advanced Copper Tools isn't installed — Fishing and Medicine have no cross-mod dependency and are always offered. HerbalismForagePatch: GameManager.SelectCardCollection postfix duplicates Item-type CurrentDrop entries on 'Forage' actions when the Herbalism degree is held (execution path only, previews untouched). IronRodFishingPatch: an ActionRouter Before-hook mutates the shared Iron Rod catch-table weights in place (Nothing/Minnow suppressed, Crayfish/Perch/Eel boosted and pop-gate lowered) once cmcperkgradfishing is held. Pk_GradMedicine carries two PassiveStatModifiers (RateModifier -0.3/-0.2) copied from Perk_Trollblood's bleed-clot/ache-fade stats. Art: VillageAcademy/VillageAcademyInterior/VillageAcademyLectern/VillageAcademyFishing/VillageAcademyArmorer/VillageAcademyMedicine PNGs are white placeholders pending real art (prompts drafted in .audit/image-prompts-academy-courses.md).",
+      "notes": "The cmcAcademy entrance always spawns in the Village via framework ConditionalDrops/AlwaysTrue (MaxOnBoard:1, ForceStay) - PR-1 dropped the old HasPerk gate and RETIRED the Higher Education trait from character creation (CharacterPerkPerkGroup 'None'; asset kept so old saves stay valid). Study actions additionally require cmcStatVillagePhase >= 1 (AcademyPatch.BlockReason via VillageClock.PhaseAtLeast). Entrance 'Enter the Academy' DA produces the cmcAcademyInterior CT4 InstancedEnvironment; interior seeds Academy Door (TravelToPreviousEnv) + Lecture Hall. Six courses run as 2-hour study sessions (8 DTP, Energy -5/Stamina -4): course progress lives on the lectern's 8 generic DurabilityStat slots - SpecialDurability1/2/3 (Architecture 72h, Metallurgy 60h, Herbalism 30h) plus SpoilageTime/UsageDurability/FuelCapacity (Fishing/Armorer/Medicine, 24h each; CardData exposes 8 such slots total, not just the 4 Special ones). Each 'Study ...' DA adds +2h via ReceivingCardChanges ModType 1 and hides natively (RequiredReceivingDurabilities, HideActionIfNotMet) once one session remains; a 'Final Exam: ...' DA (also 2h, +2h) becomes visible for the last session and grants the hidden in-run Graduate perk via AddedInRunPerksWarpData (CharacterPerkPerkGroup 'None' keeps them out of character creation; requires framework 2.11.0+) - session split: 35+1 / 29+1 / 14+1 / 11+1 / 11+1 / 11+1. AcademyPatch gates tuition as a one-time enrollment fee (100, drawn from the Tuition Account balance) - deposits credit 2 Copper Coins (SD4=100 -> 50 each), 1 raw Copper Nugget (SD4=100 x2 unrefined multiplier -> 200, covers two enrollments), or 7 Salt (15 each, rounded up from the Copper Coin equivalent: 100/15=6.67->7) per CurrencyValue.cs - required and consumed on each course's FIRST session only; blocks re-study after graduating; CollectActionModifiers tooltip. AcademyCourseService (OnGMInitialized + post-course): for every run (trait check removed in PR-1), sets BlueprintModelStates=Hidden and UnlockableCards.Disabled=true for the gated blueprints unless earned, then unlocks earned ones via GameManager.MakeBlueprintAvailable - Architecture → WDI Sawmill+Grinding Mill; Metallurgy → ACT Copper Sheet; both → WDI Forge+Workshop Kit; Fishing → CMC Iron Fishing Rod; Armorer → ACT Copper Breastplate/Helmet/Greaves/Gauntlets; already-Available blueprints are never re-locked; missing mods are skipped. The Armorer course itself is pruned from the lectern's DismantleActions (AcademyPatch.PruneUnavailableCourses, via BepInEx Chainloader.PluginInfos GUID check) if Advanced Copper Tools isn't installed - Fishing and Medicine have no cross-mod dependency and are always offered. HerbalismForagePatch: GameManager.SelectCardCollection postfix duplicates Item-type CurrentDrop entries on 'Forage' actions when the Herbalism degree is held (execution path only, previews untouched). IronRodFishingPatch: an ActionRouter Before-hook mutates the shared Iron Rod catch-table weights in place (Nothing/Minnow suppressed, Crayfish/Perch/Eel boosted and pop-gate lowered) once cmcperkgradfishing is held. Pk_GradMedicine carries two PassiveStatModifiers (RateModifier -0.3/-0.2) copied from Perk_Trollblood's bleed-clot/ache-fade stats. Art: VillageAcademy/VillageAcademyInterior/VillageAcademyLectern/VillageAcademyFishing/VillageAcademyArmorer/VillageAcademyMedicine PNGs are white placeholders pending real art (prompts drafted in .audit/image-prompts-academy-courses.md).",
       "cards": [
         "cmcperkhighereducation",
         "cmcperkgradarchitecture",
@@ -458,11 +559,15 @@
         "cmcAcademy",
         "cmcAcademyInterior",
         "cmcAcademyExit",
-        "cmcAcademyLectern"
-      ]
+        "cmcAcademyLectern",
+        "cmcAcademyInteriorLocation",
+        "cmcperkgraduate"
+      ],
+      "confidence": "MEDIUM",
+      "evidence": "core enroll/study/graduate loop VERIFIED (T1.10, T2.36, T2.37, T2.43, T2.60, T2.61 all PASS through 2026-08-14), but T2.62's identical Academy-side tuition-deposit CI is still ARMED at LogInfo (never downgraded like the Inn side was) and the Medicine course payoff (T2.107) and Carpentry course (see separate group) are unverified additions layered on top"
     },
     {
-      "name": "Traits — Time-Based Perks",
+      "name": "Traits - Time-Based Perks",
       "status": "Implemented",
       "notes": "4 perks with DTP-tick effects via TraitsTickHandler. Lunacy (moon scaling), Agoraphobia (outdoors stress), Nyctophobia (night fear), Drunkard (sobriety craving).",
       "cards": [
@@ -470,35 +575,43 @@
         "traitsperkagoraphobia",
         "traitsperknyctophobia",
         "traitsperkdrunkard"
-      ]
+      ],
+      "confidence": "HIGH",
+      "evidence": "pure-JSON DTP-tick perks via proven TraitsTickHandler, no direct test but no reported issues"
     },
     {
-      "name": "Traits — Consumption Perks",
+      "name": "Traits - Consumption Perks",
       "status": "Implemented",
       "notes": "2 perks with ActionRouter handlers via TraitsActionHandler. LactoseIntolerant (dairy delta → nausea+pain), Drunkard (alcohol doubling+stress). LactoseIntolerant dormant without dairy mod.",
       "cards": [
         "traitsperklactoseintolerant",
         "traitsperkdrunkard"
-      ]
+      ],
+      "confidence": "MEDIUM",
+      "evidence": "LactoseIntolerant explicitly dormant without a dairy mod (untestable in isolation); Drunkard overlaps the 1.68.15/1.68.16 stat-cap rework (T1.73 PENDING)"
     },
     {
-      "name": "Traits — Angler Perk",
+      "name": "Traits - Angler Perk",
       "status": "Implemented",
       "notes": "Grants CMC_IronFishingRod at run start. PerkItemInitPatch ensures rod spawns at full durability.",
       "cards": [
         "traitsperkangler"
-      ]
+      ],
+      "confidence": "HIGH",
+      "evidence": "shares PerkItemInitPatch full-durability fix with Iron Fishing Rod (VERIFIED via T2.54)"
     },
     {
-      "name": "Traits — Village Pathfinder Perk",
+      "name": "Traits - Village Pathfinder Perk",
       "status": "Implemented",
       "notes": "Reveals Village Path from run start by pre-building the River Bridge in save data.",
       "cards": [
         "traitsperkvillagepath"
-      ]
+      ],
+      "confidence": "VERIFIED",
+      "evidence": "T1.1 PASS 2026-07-21; T1.42 re-confirms the same prebuild path 2026-08-14"
     },
     {
-      "name": "Traits — Passive / Stat Perks",
+      "name": "Traits - Passive / Stat Perks",
       "status": "Implemented",
       "notes": "34 pure-JSON perks. All StartUnlocked, injected into Situational group by framework. No C# required.",
       "cards": [
@@ -534,7 +647,9 @@
         "traits_perk_weakened_growth",
         "traits_perk_weak_stomach",
         "traits_perk_wide_hands"
-      ]
+      ],
+      "confidence": "LOW",
+      "evidence": "5 of 34 members (Bleeder, DeadlyDisease, Fugitive, LostTourist, Insomniac) were rewritten in the mod's LATEST commit (625c0c413, 2026-08-31, same day as this map): T1.72 flags Bleeder's new Blood-Pressure floor as HIGHEST-STAKES/potential unrecoverable-death-spiral and explicitly PENDING with zero in-game confirmation; T1.65/T1.69/T1.73 also PENDING for the same rework. The other 29 members are unaffected and would independently grade HIGH"
     },
     {
       "name": "Village Jail",
@@ -544,7 +659,489 @@
         "cmcenvjailcell",
         "cmcjailcelllocation",
         "cmcjailcelldoor"
-      ]
+      ],
+      "confidence": "LOW",
+      "evidence": "the combat/pursuit half is VERIFIED (T4.8-T4.15 PASS via r25 2026-08-15), but the jail-serving mechanics themselves are mostly PENDING (T4.17-T4.20, T4.22-T4.29), and T4.21 is an explicit RELEASE BLOCKER never run in-game: 'Math verified on paper only... this in-game proof has never been run' for a worst-case scenario with GameOver risk (Weight/Hydration floors during an 8-day sentence)"
+    },
+    {
+      "name": "Combat Items - Club & Fire-Hardened Spear",
+      "status": "Implemented",
+      "confidence": "HIGH",
+      "evidence": "standard Tab_3 CloseCombat blueprint pattern, sibling family (Stone Mace/Wooden Shield) HIGH, clean acquisition coverage",
+      "cards": [
+        "combatandarmorbpclub",
+        "combatandarmorclub",
+        "combatandarmorbpfirehardenedspear",
+        "combatandarmorfirehardenedspear"
+      ],
+      "notes": "Two simple 1-stage weapon blueprints registered in Tab_3_Hunting_Subtab_3_CloseCombat_TabName alongside Stone Mace/Wooden Shield. No armor wound-roll injection (weapons, not armor) so ArmorCardsPatch does not apply."
+    },
+    {
+      "name": "Toys & Games",
+      "status": "Implemented",
+      "confidence": "LOW",
+      "evidence": "T2.108 PENDING (CMC 1.60.0 flavor batch, unverified, some placeholder art)",
+      "cards": [
+        "bpcmcbonedice",
+        "cmcbonedice",
+        "bpcmcspinningtop",
+        "cmcspinningtop",
+        "bpcmcwheeledhorse",
+        "cmcwheeledhorse"
+      ],
+      "notes": "Bone Dice, Spinning Top, Wheeled Horse - Entertainment-tab craftables from the 1.60.0 flavor batch. T2.108 asks to confirm real art on each (some ships placeholder) and no blank cards."
+    },
+    {
+      "name": "Dyed Apparel Variants",
+      "status": "Implemented",
+      "confidence": "LOW",
+      "evidence": "T2.108 PENDING; 1.60.0 new mechanic, first Pigment-dye-onto-existing-item CI in the mod",
+      "cards": [
+        "apparelchaperondyed",
+        "apparelclothcoatdyed",
+        "apparelclothscarfdyed"
+      ],
+      "notes": "Dye a Cloth Coat/Chaperon/Cloth Scarf with Pigment via a CardInteraction (TriggerCardsWarpData against the Pigment GUID) to get a charcoal/soot/ash-grey cosmetic variant. Each dyed variant is its own CT0 card with a 'Rip up' DA; no PassiveEffects resolved beyond the base item's (digest shows empty stat/rate fields, i.e. cosmetic-only relative to the base garment)."
+    },
+    {
+      "name": "Scented Candle",
+      "status": "Implemented",
+      "confidence": "LOW",
+      "evidence": "T2.108 PENDING; RequiredFuelPercent bug in the same F5 change fixed 2026-08-26 (fb719693c), not independently re-tested since",
+      "cards": [
+        "comfortbpscentedcandle",
+        "comfortscentedcandle",
+        "comfortscentedcandlelit"
+      ],
+      "notes": "Beeswax-coated candle, CI-lit via tag_Fire/tag_FireSource. Shares the F5 fuel-percent-is-0-1-not-0-100 fix with the Incense Burner juniper variant (fb719693c) - the exact-equality empty-gate change applies here too."
+    },
+    {
+      "name": "Glazed Clay Plate",
+      "status": "Implemented",
+      "confidence": "HIGH",
+      "evidence": "declarative pottery family, clean acquisition coverage, no reported issues",
+      "cards": [
+        "potterysculpturebpglazedplate",
+        "potterysculptureglazedplate"
+      ],
+      "notes": "Same simple pottery-utensil pattern as Painted Clay Bowl/Vase/Plate/Cup, registered in Tab_5_MetalAndClay_Subtab_1_Utensils."
+    },
+    {
+      "name": "Clay Ocarina",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "T2.109 PENDING (as the Shadow-cat taming instrument, closing the 'no vanilla flute' gap); structurally simple declarative craftable on its own",
+      "cards": [
+        "bpcmcclayocarina",
+        "cmcclayocarina"
+      ],
+      "notes": "Registered in Tab_5_MetalAndClay_Subtab_1_Utensils. Its own craft/blueprint path is a simple declarative pattern (HIGH by itself), but its player-facing purpose - counting as a valid instrument for taming Shadow the Cat - is the part T2.109 leaves unverified, so the group grade reflects that dependency."
+    },
+    {
+      "name": "Cat Bed & Cat Care",
+      "status": "Implemented",
+      "confidence": "LOW",
+      "evidence": "T2.109 PENDING (Care-tier flavor text, Give a Treat mechanic across 3 cats); needle-gated from launch and needle-cost-normalized 2026-08-26 (f5117eeb4)",
+      "cards": [
+        "cmcbpcatbed",
+        "cmccatbed"
+      ],
+      "notes": "Place a Cat Bed; 'Give a Treat' (uses an Iron Fishing Rod catch) raises Care for Ash, Shadow, or the tamed Stray. Care-tier flavor lines should appear in each tamed cat's description as Care rises/falls. Cross-references the Clay Ocarina and Shadow the Cat groups."
+    },
+    {
+      "name": "Hunting Stand",
+      "status": "Implemented",
+      "confidence": "HIGH",
+      "evidence": "same Hidden-blueprint-until-Miller-quest mechanism as Garden Trellis, whose family was CONFIRMED FIXED via T1.6 Spike-1 (2026-07-22); CHANGELOG explicitly pairs the two as sibling Miller grain-errand rewards",
+      "cards": [
+        "hunterscachebphuntingstand",
+        "hunterscachehuntingstandkit",
+        "hunterscachehuntingstand"
+      ],
+      "notes": "NOT registered in BlueprintTabs.json - by design, same Hidden-until-quest pattern as Garden Trellis (unlocked via the Miller's grain-errand thanks dialog, BlueprintsFullUnlockWarpData). Kit item (3 Planks + 4 Long Sticks + 2 Rope) has a 'Set Up' DA producing the placed CT2 stand; the stand carries 'Take Down' (returns kit) and 'Dismantle' (returns raw materials) DAs. Declarative EncounterGuards/HuntingStandGuard.json gives a 45% chance to suppress wildlife encounters while stationed there (no C#)."
+    },
+    {
+      "name": "Homestead / Founders Kit Perks",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "T1.40 PASS 2026-08-14 for the reworked single-kit-card pattern (no encumbrance truncation); T1.25 PASS 2026-08-09 for the original perk grant; but the CMC-HSP-compat retro (summary.md Warning #7) is still Pending Verification for the 1.52.0 split into the standalone HomesteadPerks mod",
+      "cards": [
+        "traits_perk_homestead",
+        "cmchomesteadkit",
+        "cmchomesteadcabinkit",
+        "cmchomesteadraincisternkit",
+        "traits_perk_extra_rain_cistern_kit"
+      ],
+      "notes": "Founders Kit (character-creation perk, SunsCost 100) now grants ONE 'Homestead Kit' card (avoids the old inline-inventory 4000-Encumbrance-cap blowout); Place unpacks it into a cabin kit, two rain cistern kits, and a full material stockpile. The extra-cistern perk is "Extra Rain Cistern Kit" (traits_perk_extra_rain_cistern_kit): renamed and re-UIDed in 1.68.20 because it collided with HomesteadPerks' own "Rain Cistern Kit" by BOTH display name and, via MainMenu's substring match on equipped perks, by UID. CMC 1.52.0 moved the mod's other 7 starter-kit perks out to the standalone HomesteadPerks mod (hsp* UIDs) - that split is structurally done but not yet confirmed in-game (CMC-HSP-compat retro)."
+    },
+    {
+      "name": "Starting Traits - Potter's Apprentice & Caravan Peddler",
+      "status": "Implemented",
+      "confidence": "VERIFIED",
+      "evidence": "T1.57 PASS via r31 playthrough (session 2026-08-27, recorded 2026-08-29); files (Perk_PottersApprentice.json/Perk_CaravanPeddler.json, added CMC 1.60.0) unchanged since",
+      "cards": [
+        "traits_perk_potters_apprentice",
+        "traits_perk_caravan_peddler"
+      ],
+      "notes": "Two Founders-Kit-style starting-trait bundles (pottery-starter goods / trading-starter goods). Both confirmed selectable at character creation and granting their bundled goods without an over-weight bundle."
+    },
+    {
+      "name": "Starting Traits - Weak Courage & Weak Cowardice",
+      "status": "Implemented",
+      "confidence": "VERIFIED",
+      "evidence": "T1.62 PASS via r31 playthrough (2026-08-27, recorded 2026-08-29); added CMC 1.67.7, unchanged since per playtest note",
+      "cards": [
+        "traits_perk_weak_courage",
+        "traits_perk_weak_cowardice"
+      ],
+      "notes": "Two new psychological-tab starting traits, added 1.67.7 alongside the broader trait-rebalance work."
+    },
+    {
+      "name": "Village Hall & Civic Reputation",
+      "status": "Implemented",
+      "confidence": "VERIFIED",
+      "evidence": "T2.11 renown PASS 2026-07-23 (Bp_CMC_VillageHall.json/CMC_VillageHall.json unchanged since that date - git log confirms 2026-07-23 as the last touch); T1.48 PASS 2026-08-14 confirms the later Reputation-on-Mental-tab injection (StatTabInjectionPatch, replacing the always-broken GameSourceModify/Mental.json) also works",
+      "cards": [
+        "BpCMCVillageHall",
+        "cmcVillageHall",
+        "cmcVillageHallExit",
+        "cmcVillageHallInterior",
+        "cmcVillageHallInteriorLocation"
+      ],
+      "notes": "7-stage civic capstone blueprint (192-tick research, 12 DTP/stage - flagged K33 for total 84 DTP but each stage is within the per-stage cap). VillageReputationPatch/VillageChroniclePatch drive the Reputation meter (true-neutral start, rises only once every tracked building project AND every villager errand is complete) and expose it as a Mental-tab attribute via StatTabInjectionPatch (a boot-postfix, since StatListTab is scene-scoped and the original GameSourceModify/Mental.json never worked - see CLAUDE.md GameSourceModify note)."
+    },
+    {
+      "name": "Village Boards & Achievement Board",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "T2.41 CONFIRMED PASS 2026-07-30 for the 7 resident/town boards; T2.50 CONFIRMED PASS 2026-07-29 for prose layout; T2.42 PASS 2026-07-30 for the quest-chain reveal sweep feeding the boards - but the Achievement Board specifically (AchievementBoardSeedPatch/AchievementTrackerPatch/AchievementKillEffectsPatch, 916 combined LOC) has no playtest coverage found in the digest",
+      "cards": [
+        "cmcBoardTown",
+        "cmcBoardTownConstruction",
+        "cmcBoardInnKeeper",
+        "cmcBoardMiller",
+        "cmcBoardWeaver",
+        "cmcBoardApothecary",
+        "cmcBoardProfessor",
+        "cmcBoardAchievements"
+      ],
+      "notes": "7 named notice boards (Village Standing, Village Projects, one per named NPC) open directly to their notices (no redundant read action) and track active errands/hints/teasers/relationship standing/errand history, driven by VillageHallBoardsPatch + VillageChroniclePatch + QuestChainSchedulePatch. The Achievement Board is intentionally unadvertised in ModInfo/README (confirmed correct per code-quality.md feature-honesty pass, not a gap) and has its own tracker/kill-effects patches with zero playtest evidence found."
+    },
+    {
+      "name": "Village Cottages - Miller & Weaver",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "T2.10 construction PASS 2026-07-23, T3.11 move-in PASS 2026-07-21; but the interior 'Enter the Cottage' DA was added 4 days AFTER the T2.10 pass (commit fa3dffd6f, 2026-07-27) and was never independently re-tested; T4.30 (cottage exit re-verify) PASS 2026-08-09 conflicts with fleet memory note 'Miller fixed 1.44.4, NOT re-verified' - treated as PASS per the more specific dated playtest record, discrepancy noted",
+      "cards": [
+        "BpCMCCottageMiller",
+        "BpCMCCottageWeaver",
+        "cmcCottageMiller",
+        "cmcCottageWeaver",
+        "cmcMillerCottageExit",
+        "cmcWeaverCottageExit",
+        "cmcMillerCottageInterior",
+        "cmcWeaverCottageInterior",
+        "cmcMillerCottageInteriorLocation",
+        "cmcWeaverCottageInteriorLocation"
+      ],
+      "notes": "7-stage civic blueprints (same K33 pattern as Village Hall/Apothecary Cabin). CottageResidentSpawnPatch handles move-in +7 days after construction; interiors are enterable via a DA added post-launch. CottageResidentWorkDutyPatch (1.67.0, new) gives Miller/Weaver a real engine NPCDuty for their remaining daytime hours (T2.120 PENDING); CottageResidentSchedulePatch adds at-home cottage portraits (T2.142 PENDING, 1.68.10)."
+    },
+    {
+      "name": "Miller & Weaver - Schedule, Trade & Errands",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "T3.11 move-in PASS 2026-07-21; T2.72 errand-thanks-dialog fix PASS (was FULLY BROKEN before 1.45.5, now fixed via StartingPoint reorder); T2.78 copper-nugget metal-gate fix PASS 2026-08-14; but T2.120 (real work duty, 1.67.0) and T2.142 (at-home portraits, 1.68.10) are both PENDING, newer than the last confirmed schedule pass",
+      "cards": [
+        "bpcmcmillergrindwheat",
+        "bpcmcmillergrindrye",
+        "bpcmcmillergrindacorn",
+        "bpcmcmillerplanks",
+        "bpcmcweaverprocesshemp",
+        "bpcmcweaverprocessflax",
+        "bpcmcweaverprocessnettle",
+        "bpcmcweaverlargecloth",
+        "bpcmcweaverrope"
+      ],
+      "notes": "9 station-contained OPERATION blueprints (Grind Wheat/Rye/Acorn->Flour, Mill Logs->Planks, Process Hemp/Flax/Nettle->Fiber, Weave Large Cloth, Weave Rope) associated via ContainedBlueprintCardsWarpData on the Miller's/Weaver's Cottage cards - correctly NOT in BlueprintTabs.json per the operation-blueprint rule. All nine gained a Special4=100 Copper-only metal-type gate in 1.46.2 (T2.78 PASS) after Tin/Iron were found to silently satisfy the copper fee slot. NpcTileWalker.cs drives visible tile-by-tile commute (T2.49 PASS, user-rated 5/5 'feel'). ProfessorSchedulePatch-style scheduling covers the daily cottage/grindstone-or-loom/Inn/weekly-Academy loop."
+    },
+    {
+      "name": "Apothecary's Cabin & NPC",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "T3.14-T3.19 (Phases 1-6) all CONFIRMED PASS 2026-07-21; T1.20 unconditional-gate PASS 2026-07-21; T2.144 (core Cabin-finishing/Rare Herb Mixture no longer hard-requiring H&F, 1.68.3) is PENDING and never verified since",
+      "cards": [
+        "BpCMCApothecaryCabin",
+        "cmcApothecaryCabin",
+        "cmcApothecaryCabinExit",
+        "cmcApothecaryCabinInterior",
+        "cmcApothecaryCabinInteriorLocation",
+        "bpcmcapothecaryhealingmixture",
+        "cmcApothecaryHealingMixture",
+        "cmcApothecaryHealingPotion",
+        "cmcHollowSage",
+        "cmcSilverwortBlossom"
+      ],
+      "notes": "Unconditional Herbalism-graduation gate (BpCMCApothecaryCabin invisible pre-graduation, appears after - works without the retired Higher Education trait, T1.20). 4-state commute timetable (interior/walk-to-Village/Village/walk-back) with portraits from actual env not scheduled destination (T3.16). Trade stock present on first open, x1.5 sell/x0.5 buy (T3.17). Healing-potion quest is a deliberate H&F hard-dependency (T3.19, owner-accepted); 1.68.3 separately added CMC-native Hollow Sage/Silverwort Blossom so the CORE cabin-finishing recipe no longer needs H&F at all - that specific no-H&F path is T2.144, still PENDING."
+    },
+    {
+      "name": "Professor NPC & Commissions",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "T2.36/T2.37/T2.40/T3.10/T1.11 all CONFIRMED PASS through 2026-07-30; T2.53 popup-glitch PASS 2026-08-15 ('no worries this is working'); but underlying schedule/foraging/commission code (ProfessorSchedulePatch.cs, 1235 LOC) last touched 2026-08-22 (T2.123 bundle, PENDING) postdates several of those passes",
+      "cards": [
+        "bpcmcprofspecimen",
+        "bpcmcproffieldsamples",
+        "bpcmcprofappliedherbalism",
+        "cmcApothecaryCabin"
+      ],
+      "notes": "Wanders the 4 CMC nodes by day, Inn nightly, satchel-fills-to-10 foraging loop, relocates to Academy at cap (T2.36 PASS). Three Commission blueprints (Specimen/Field Samples/Applied Herbalism) are unlocked directly by C# (not tab-registered, not station-contained - a third distinct blueprint-unlock pattern in this mod) when the Professor requests them; T1.15 confirms the StartUnlocked:false fix on Bp_CMC_ProfSpecimen holds. T2.123 (1.66.0) bundles 3 small fixes to the Commissions-flicker/gift-timing/move-before-drop-race code, not yet spot-checked individually."
+    },
+    {
+      "name": "Inn Keeper NPC & Onboarding Storyline",
+      "status": "Implemented",
+      "confidence": "VERIFIED",
+      "evidence": "T1.9/T3.5/T3.6/T3.9/T1.19/T1.24/T1.35 all PASS through 2026-08-14 across 3 separate EA-version-break-and-fix cycles (EA 0.66 CreateNPC break, then env-key orphan fixes 1.46.2/1.46.4)",
+      "cards": [
+        "cmcperkinnregular"
+      ],
+      "notes": "Friendship/gift/errand/perk arc (T3.6), 4-line onboarding intro chain gating cmcStatVillagePhase (see Village timeline group), lost-cat/Ash storyline (T3.9), dialog schedule progression (T3.5). Repeatedly broken and fixed across EA game updates (T1.24, T1.35) - the most battle-tested NPC in the mod, but that history is itself evidence the underlying spawn/env-key mechanism is fragile to future game updates."
+    },
+    {
+      "name": "Ash the Cat & Lost-Cat Storyline",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "T3.9 PASS 2026-07-21 (lost-cat arc); T2.55 PASS 2026-08-15 (companion care/cistern auto-drink); T2.69 PASS 2026-08-15 (boar-hunt trail, upgraded from log-hygiene-only to a real OnZero-vs-reflection-SpoilageTime fix in 1.45.4)",
+      "cards": [
+        "cmcStrayCat",
+        "cmcInnCat",
+        "cmcAshBoarTrail",
+        "cmcAshTrackingBoar"
+      ],
+      "notes": "Ash progresses Stray->Inn Cat via the lost-cat storyline; AshCatTickPatch handles Care/auto-drink/wander-off; AshBoarHuntPatch spawns a trackable boar trail as a side story beat. LostCatPatch ties into the fixed Village-node EnvironmentUID/LocationUID set (unchanged since 2026-07-16, per Village Area group notes) - a future WorldMap node rename would silently break this without any error."
+    },
+    {
+      "name": "Shadow the Cat (tameable companion)",
+      "status": "Implemented",
+      "confidence": "VERIFIED",
+      "evidence": "T2.39 CONFIRMED PASS 2026-07-30 playthrough (spawn/tame through Stage 6)",
+      "cards": [
+        "cmcShadowCat",
+        "cmcShadowCatTamed"
+      ],
+      "notes": "Separate tameable companion from Ash; ShadowCatPatch.cs drives the tame-stage progression. The Clay Ocarina group's T2.109 (PENDING) is specifically about closing a 'no vanilla flute' gap in this same taming path - Shadow's spawn/tame mechanic itself is VERIFIED, but the Ocarina-as-instrument addition on top of it is not."
+    },
+    {
+      "name": "Ash Partner Spike (dormant, config-gated)",
+      "status": "Implemented",
+      "confidence": "LOW",
+      "evidence": "T1.26 PASS 2026-08-08/09 explicitly describes it as 'dormant' - EnableAshPartnerSpike defaults false, no live player exposure",
+      "cards": [],
+      "notes": "AshPartnerSpawnPatch.cs/AshPartnerDutyPatch.cs mirror the vanilla Partner-NPC system for Ash, but ship config-gated OFF by default and are intentionally unadvertised (confirmed correct per code-quality.md feature-honesty pass). Structurally present, functionally inert for the vast majority of players."
+    },
+    {
+      "name": "Village Guards / Town Watch",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "the combat-outcome/pursuit core is VERIFIED (T4.2/T4.8-T4.15 PASS via r15/r25 through 2026-08-15), but GuardOutcomePatch.cs/GuardDutyPatch.cs/GuardSpawnPatch.cs were all further modified 2026-08-28 (commit 756e1e5bd) - AFTER every one of those passes - and the newer dialog/leniency/despawn layers built on top (T4.31-T4.39, T4.35, T4.36/T4.37) are PENDING or open-retro",
+      "cards": [
+        "Agent_GuardSterling",
+        "Agent_GuardThorne",
+        "Agent_GuardCorrin",
+        "Agent_GuardVane",
+        "Perk_GuardSterling",
+        "Perk_GuardThorne",
+        "Perk_GuardCorrin",
+        "Perk_GuardVane",
+        "cmcEncounterGuardSterling",
+        "cmcEncounterGuardThorne",
+        "cmcEncounterGuardCorrin",
+        "cmcEncounterGuardVane",
+        "cmcEncounterSterlingArrest",
+        "cmcEncounterSterlingConverge"
+      ],
+      "notes": "4 guards (Sterling/Thorne/Corrin/Vane), each an NPCAgent+NPCCharacterPerk+Encounter triple. Patrol/attack/pursuit/queueing/wound-carryover VERIFIED (T4.8-T4.15, playthrough r25). Role-split (Thorne/Corrin fight locally then summon Sterling; Vane never fights, always summons; Sterling alone teleports to jail) is T4.27-T4.29, all PENDING. Sterling leniency (3 free 'think better of it' refusals before he stops asking, T4.35) and the Wanted/Suspicion dialog reactions (T4.31-T4.33) are also PENDING. Guard-kill despawn-latency and 7-day jail-respawn are both open retrospectives (guard-kill-despawn, Pending Verification per summary.md Warning #6). GuardWitnessPatch (incident/witness tracking) has no playtest coverage found."
+    },
+    {
+      "name": "Copper Chest System (5 NPCs)",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "core weekly-accrual/sell/theft mechanics VERIFIED for the Miller (T4.4-T4.7 PASS, playthrough r15/r25) then extended to all 5 residents (T2.70/T2.71 PASS 2026-08-15); but CopperChestPatch.cs grew 163 lines on 2026-08-27 (commit 464054d73) to add hand-removal theft detection, and that specific new surface (T4.40) is PENDING with zero re-verification",
+      "cards": [
+        "cmcCopperChestMiller",
+        "cmcCopperChestWeaver",
+        "cmcCopperChestApothecary",
+        "cmcCopperChestInnKeeper",
+        "cmcCopperChestProfessor",
+        "cmcBurglarsKit",
+        "cmcbpburglarskit"
+      ],
+      "notes": "Each of the 5 named NPCs keeps a personal Copper Chest, topped up weekly with salt + their own trade stock up to a per-NPC ceiling; players can sell into it (paid from actual contents) or steal from it (instant catch if the owner is home, a roll otherwise - T4.6/T4.7 PASS). 1.60.0 added restitution (drag Salt/Metal Nugget onto the Miller's chest to pay down Village Crime) and per-sale Trust gains (T4.38 PENDING). Burglar's Kit shaves detection odds on a 'Search for valuables' roll. Each NPC's theft-heat counter is independently tracked (T2.71 PASS confirms robbing one doesn't raise risk at another)."
+    },
+    {
+      "name": "Village Crime, Banishment & Jail Serving",
+      "status": "Implemented",
+      "confidence": "LOW",
+      "evidence": "the travel-lock gate itself is VERIFIED (T4.1 PASS 2026-08-15, framework >=2.20.2); but everything downstream of an actual arrest - warden rotation (T4.18), sentence decay (T4.19), walkout-at-zero (T4.20), and above all the T4.21 RELEASE BLOCKER (GameOver-floor safety net, 'math verified on paper only... never run in-game') and the hidden-tunnel-escape sequence (T4.22-T4.26, first-ever repeated CardUtil.TransformCardInPlace use in the codebase) - are ALL still PENDING",
+      "cards": [
+        "cmcEnvJailCell",
+        "cmcJailCellLocation",
+        "cmcJailCellDoor",
+        "cmcJailCellBed",
+        "cmcJailCellTunnel",
+        "cmcJailRationTray",
+        "cmcJailRationFood",
+        "cmcJailWaterJug"
+      ],
+      "notes": "Cross-references the existing 'Village Jail' group (which covers cmcjail/cmcenvjailcell/cmcjailcelllocation/cmcjailcelldoor as physical cards) and the Village Guards group (which produces the arrest). Sentence length formula (>=3 days any arrest, +7/kill capped at 8, or ~1 day per 8 crime points if bloodless) and the daily ration/safety-net design are on paper only. VillageCrimePatch.cs (322 LOC) implements the crime accrual/decay math itself."
+    },
+    {
+      "name": "Town Wood Pile",
+      "status": "Implemented",
+      "confidence": "BROKEN",
+      "evidence": "T2.135 [BLOCKED] 2026-08-29 - unresolved playtest BLOCKED status per grading rubric; T2.136/T2.137 also PENDING",
+      "cards": [
+        "cmcTownWoodPile"
+      ],
+      "notes": "A communal fuel stockpile (96 starting / 672 cap, GameStat CMC_TownWoodPileFuel.json - value spot-checked correct against README by mod-report.md) stocked by dragging raw wood; 'Collect as Copper'/'Collect as Salt' convert stockpile to currency above a 96-point reserve floor; the 6 village hearths auto-draw from it. T2.135's fueling-amount test is explicitly BLOCKED (reason not captured in the digest note, truncated) - per the grading rubric this is an automatic BROKEN regardless of how complete the surrounding mechanism looks structurally."
+    },
+    {
+      "name": "Village Hearths & Indoor Warmth",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "T2.121 PASS 2026-08-29 confirms the CURRENT vanilla-Fireplace-based rework (1.65.5) replacing a prior hack that had once cooked a player to death; but the hearth-fuel-not-refilling retro (cmc-village-hearth-fuel-not-refilling) is still 'Pending Verification' per summary.md - two shipped fixes (1.68.12, 1.68.13) with zero player retest or log capture (T2.149 PENDING, explicitly flagged the ONLY 🔴-in-INDEX retro in the fleet, though summary.md argues it should read 🟡)",
+      "cards": [
+        "cmcVillageHallInterior",
+        "cmcAcademyInterior"
+      ],
+      "notes": "VillageFireplacePatch.cs (generalized from InnFireplacePatch) drops a real vanilla Fireplace into the Academy and Village Hall on first visit (Inn already had one) instead of the deleted IndoorHeatCapPatch force-set-every-tick hack. All six hearths spawn from vanilla Fireplace.json with FuelCapacity 0 by default, which is the root cause the two pending fixes target: whichever room a player enters first would otherwise drain the Town Wood Pile's entire 96-point reserve on first light."
+    },
+    {
+      "name": "Market Stall",
+      "status": "Implemented",
+      "confidence": "HIGH",
+      "evidence": "T3.7 PASS 2026-07-21 (MarketStallPatch.cs); T3.15 PASS 2026-07-21 (Apothecary-gift unlock path); T2.110 awning-toggle addition (1.60.0) is PENDING but is a light cosmetic layer on a verified base",
+      "cards": [
+        "bpcmcmarketstall",
+        "cmcmarketstallkit",
+        "cmcmarketstall",
+        "cmcmarketstalldressed"
+      ],
+      "notes": "Generic bpcmcmarketstall blueprint unlocked via the Apothecary's stall-gift ask line (T3.15 - no bespoke stall card, old dead payoff removed). MarketStallPatch.cs handles sell mechanics. 1.60.0 added a cosmetic Awning toggle (plain<->dressed) that must preserve inventory/sales progress across the swap (T2.110 PENDING)."
+    },
+    {
+      "name": "Quiet Village Perk",
+      "status": "Implemented",
+      "confidence": "LOW",
+      "evidence": "T1.60 PASS-recorded 2026-08-29 but the note itself describes the test as a full day-night-cycle observation protocol without an explicit pass/fail confirmation sentence in the captured text - treated as reported-pass but with thinner confirmation detail than most other VERIFIED items in this map",
+      "cards": [
+        "cmcperkquietvillage"
+      ],
+      "notes": "Free (0 Suns) character-creation performance/accessibility trait. QuietVillagePerkPatch.cs + GuardSpawnPatch/CottageResidentSchedulePatch/ApothecarySchedulePatch/ProfessorSchedulePatch all check it: none of the 4 Town Watch guards take up posts, and Miller/Weaver/Apothecary/Professor stay home/Academy/Inn instead of commuting or foraging."
+    },
+    {
+      "name": "Seasonal Road Blockages",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Winter Snow Drift core mechanic VERIFIED (T3.23 PASS 2026-08-15); by-hand dig alt-path (T3.35), Autumn Deadfall (T3.34), and Spring Clay Shoal flood/causeway (T3.37) are all PENDING and each needs a specific season to test; direct code inspection this pass confirms all 4 gates' clearing-action LocalizationKeys correctly StartsWith their SealableGates ClearActionKeyPrefix (the exact CLAUDE.md-documented failure class from this mod's own history does not currently reproduce)",
+      "cards": [
+        "cmcSnowDriftEast",
+        "cmcSnowDriftNorth",
+        "cmcSnowDriftSouth",
+        "cmcDeadfallSouth",
+        "cmcClayShoalFlood",
+        "bpcmcplankcauseway",
+        "cmccausewaykit"
+      ],
+      "notes": "4 seasonal SealableGates on the Village's 3 roads: Winter Snow Drift x3 (shovel CI, 3-hit clear, 20-DTP by-hand DA alternative added 1.66.0), Autumn Deadfall on Pine Trail<->Highland Pines (axe CI), Spring flood at Clay Shoal<->Sodden Hollow (either wait 3x8h for water to fall, or research+build a Plank Causeway - 16-tick research, 10 DTP, only stageable while physically at Clay Shoal). All ResealCondition TimerRegrowth 60 days."
+    },
+    {
+      "name": "Village Academy - Carpentry Course & Outfit Wardrobe",
+      "status": "Implemented",
+      "confidence": "LOW",
+      "evidence": "T2.95/T2.96/T2.97 all PENDING; T2.96 explicitly flags this as HIGH RISK - 'the first equip-via-container mechanism in the fleet (direct-typed InGameCardBase/CharacterScreen slot manipulation, no vanilla Equip DA)' and notes it was already rewritten+merged once (1.59.0 -> 1.65.0) before ever being play-tested",
+      "cards": [
+        "cmcperkgradcarpentry",
+        "cmcbpoutfitwardrobe",
+        "cmcOutfitWardrobe",
+        "cmcbpwickerchair",
+        "cmcWickerChair"
+      ],
+      "notes": "7th Academy course (unconditional, any character); grants Pk_GradCarpentry and unlocks the Outfit Wardrobe (merged from the original separate Clothes Rack/Coat Rack/Wardrobe concept) and Wicker Chair blueprints. The Wardrobe replaces Clothes-Rack-era per-piece swapping with 3 fixed 18-slot outfit sections (54 slots total) toggled via OutfitWardrobeEquipService.cs/OutfitWardrobeSectionsPatch.cs - direct CharacterScreen slot manipulation is new engineering territory for this codebase, never before attempted, and never yet observed working in-game."
+    },
+    {
+      "name": "Herb Poultice & Tincture (Medicine Course Payoff)",
+      "status": "Implemented",
+      "confidence": "LOW",
+      "evidence": "T2.107 PENDING; CMC 1.60.0 new, gives the previously-payoff-less Medicine course a craftable reward",
+      "cards": [
+        "cmcbpherbpoultice",
+        "cmcHerbPoultice",
+        "cmcbptincture",
+        "cmcHerbTincture"
+      ],
+      "notes": "Unlocked by the Medicine graduate perk (same gating pattern as the other 5 Academy courses - AcademyCourseService.cs). Poultice expected to treat active bleed/pain; Tincture nausea/pain/rash/stress."
+    },
+    {
+      "name": "Climbing Rope & Greenfalls Path",
+      "status": "Implemented",
+      "confidence": "LOW",
+      "evidence": "T2.98 PENDING; new content, unverified end-to-end (craft, build CT10 improvement, and confirm the Weaver's rope-quest epilogue dialog fires and latches)",
+      "cards": [
+        "cmcbpclimbingrope",
+        "cmcClimbingRope",
+        "cmcimpclimbingrope"
+      ],
+      "notes": "Reward for completing all of the Weaver's regular errands. A crafted Climbing Rope item feeds a CT10 EnvironmentImprovement (Imp_ClimbingRope.json) anchored on the cliff face north of Sett Warren, opening the previously-impassable Greenfalls path both ways. Registered in Tab_4_Tailoring_Subtab_1_Improvised alongside the other Improvised-tier blueprints."
+    },
+    {
+      "name": "Village Home Sign",
+      "status": "Implemented",
+      "confidence": "LOW",
+      "evidence": "T2.141 PENDING - the mechanic (Comfort +4/+8) was already confirmed working through 1.68.7-1.68.9, but the art swap (carved vs rustic board) was a blank white placeholder in BOTH states through that whole window; 1.68.10 shipped real art, unverified since",
+      "cards": [
+        "bpcmcvillagehomesign",
+        "cmcvillagehomesignrustic",
+        "cmcvillagehomesigncarved"
+      ],
+      "notes": "Construction/Furniture blueprint (Plank x2 + Long Stick x2 + Rope x1); 'Carve the Face' (4h) then 'Plane the Face Smooth' (2h) DAs swap the card between rustic and carved art states, each with its own Comfort bonus."
+    },
+    {
+      "name": "Wildlife Indoor & Village Encounter Suppression",
+      "status": "Implemented",
+      "confidence": "VERIFIED",
+      "evidence": "T1.27 PASS 2026-08-09 (village-wide wildlife suppression, framework 2.18.1 EncounterGuards GuardEnvironmentUids); T2.76 PASS 2026-08-15 (7-interior no-wildlife sweep); T2.151 PENDING for the newer indoor-relocation-block layer (1.68.14, WildlifeIndoorGuardPatch.cs, closes the 'creature arrives at whatever board the player is on' gap that EncounterGuards alone didn't cover)",
+      "cards": [],
+      "notes": "Cross-cutting: EncounterGuards/CMC_VillageNoWildlife.json (village-wide) + CMC_InteriorsNoWildlife.json (7 interiors) block the COMBAT; WildlifeIndoorGuardPatch.cs (new, 111 LOC) is a newer C# layer blocking the creature's ARRIVAL at an interior board in the first place (reported via a screenshot of a Bear at the Inn Counter) - the arrival-block half is the part still PENDING (T2.151)."
+    },
+    {
+      "name": "Village Tree Respawn",
+      "status": "Implemented",
+      "confidence": "VERIFIED",
+      "evidence": "T3.24 PASS, recorded via playthrough session 2026-08-08 (r15, copied 2026-08-09)",
+      "cards": [],
+      "notes": "TreeRespawnPatch.cs does daily env-scoped tree regrowth across the mod's 12 WorldMap clone locations (later generalized alongside the stray-improvements fix, T2.122, 1.66.0). Cross-references memory:reference_vanilla_tree_respawn_and_striplegacy_collateral for the StripLegacy interaction this had to route around."
+    },
+    {
+      "name": "Partner-NPC Integration",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "T2.130 (indoor follow) PASS via r31 2026-08-27/29; T2.82 (field harvest duty) marked PASS in its header but its own note text reads 'Explicitly UNVERIFIED with a recruited Partner' - contradictory, see Notes & Anomalies",
+      "cards": [
+        "cmcvillagefieldflax",
+        "cmcvillagefieldturnroot",
+        "cmcvillagefieldrye"
+      ],
+      "notes": "Cross-mod integration with vanilla's Partner-NPC companion system (not a CMC-original mechanic). PartnerIndoorFollowPatch.cs fixes a Partner not following the player indoors. The 3 seasonal Village Farm crop fields are JSON-tagged with the matching vanilla PartnerDuty_Harvest* duties so a recruited Partner can be assigned to harvest them, mirroring the vanilla flax field's own wiring."
+    },
+    {
+      "name": "Village Founder Perk",
+      "status": "Implemented",
+      "confidence": "VERIFIED",
+      "evidence": "T1.21 CONFIRMED PASS 2026-07-30 playthrough - the acid test held: buildings landed on the player's HOME board, not the default River Clearing",
+      "cards": [
+        "cmcperkvillagefounder"
+      ],
+      "notes": "3-Star character-creation perk (StartUnlocked, StarsCost 3). VillageFounderPerkPatch.cs pre-builds village structures directly onto the player's actual starting board using the spawn-targets-current-board pattern (memory:reference_spawn_targets_current_board) rather than firing at an arbitrary time, which is exactly the failure mode this perk had to be built around."
     }
   ]
 }

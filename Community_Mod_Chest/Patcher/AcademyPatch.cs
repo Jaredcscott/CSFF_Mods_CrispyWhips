@@ -17,8 +17,16 @@ namespace CommunityModChest.Patcher
     ///     <see cref="CurrencyValue"/>. A deposit is rejected outright (item untouched)
     ///     if the account has no headroom left at all.
     ///   - Courses run as 2-hour study sessions (DaytimeCost 8). Progress lives on
-    ///     the lectern's SpecialDurability1/2/3/SpoilageTime/UsageDurability/FuelCapacity
-    ///     (hours studied per course) — persisted with the (non-instanced) env's board.
+    ///     the lectern's SpecialDurability1/2/3/SpoilageTime/UsageDurability/FuelCapacity/
+    ///     Progress (hours studied per course, one course per stat slot — all 8 of
+    ///     CardData's durability slots are used) — persisted with the (non-instanced)
+    ///     env's board. Carpentry (the 7th course) lives on the Progress slot; it
+    ///     originally shipped on a separate "Carpentry Bench" card because the first 6
+    ///     courses already claimed every SpecialDurability/Spoilage/Usage/Fuel slot —
+    ///     folded back onto the lectern once the previously-unused Progress slot (JSON
+    ///     field "Progress", runtime "CurrentProgress", incremented via
+    ///     ReceivingCardChanges.ChargesChange, gated via RequiredProgressPercent) was
+    ///     found to be free, so there is only ever one physical course-study card.
     ///     Each session adds +2h via the DA's ReceivingCardChanges (pure JSON).
     ///   - "Study ..." DAs hide natively (RequiredReceivingDurabilities) once only
     ///     one session remains; a "Final Exam: ..." DA becomes visible for that last
@@ -47,8 +55,7 @@ namespace CommunityModChest.Patcher
     internal static class AcademyPatch
     {
         private const string LecternUid = "cmcAcademyLectern";
-        private const string CarpentryBenchUid = "cmcCarpentryBench";
-        private static readonly string[] HostCardUids = { LecternUid, CarpentryBenchUid };
+        private static readonly string[] HostCardUids = { LecternUid };
         private const string AcademyInteriorEnvUid = "cmcAcademyInterior";
         private const string BalanceStat = "SpecialDurability4";
         private const float TuitionPrice = 100f;
@@ -79,7 +86,7 @@ namespace CommunityModChest.Patcher
             new CourseInfo { NameFragment = "Fishing",      GradPerk = AcademyCourseService.GradFishing,      StatName = "SpoilageTime",       TotalHours = 24f },
             new CourseInfo { NameFragment = "Armorer",      GradPerk = AcademyCourseService.GradArmorer,      StatName = "UsageDurability",    TotalHours = 24f },
             new CourseInfo { NameFragment = "Medicine",     GradPerk = AcademyCourseService.GradMedicine,     StatName = "FuelCapacity",       TotalHours = 24f },
-            new CourseInfo { NameFragment = "Carpentry",    GradPerk = AcademyCourseService.GradCarpentry,    StatName = "SpecialDurability1", TotalHours = 24f, HostCardUid = CarpentryBenchUid }
+            new CourseInfo { NameFragment = "Carpentry",    GradPerk = AcademyCourseService.GradCarpentry,    StatName = "Progress",           TotalHours = 24f }
         };
 
         // Armorer's reward (ACT copper armor) only makes sense if ACT is installed —
@@ -151,6 +158,22 @@ namespace CommunityModChest.Patcher
                 Before        = DepositApply,
             });
 
+            // Retired Carpentry Bench (1.68.23). 1.68.2 folded the Carpentry course onto the
+            // lectern and DELETED CMC_CarpentryBench.json, which made GameManager.LoadCard drop
+            // every saved bench on load (a UID that no longer resolves returns false there) along
+            // with whatever tuition and study hours were banked on it - the opposite of what that
+            // changelog promised. The card is back as a stub whose only action, "Transfer to
+            // Lecture Hall", is a ModType 3 (Destroy) DismantleAction; this Cancel-timing gate
+            // moves the balance and hours onto the lectern FIRST and only lets the native Destroy
+            // run once nothing of value is left on the bench (return true = cancel = bench kept).
+            ActionRouter.Register(new ActionHandler
+            {
+                Name          = "AcademyRetiredBenchTransfer",
+                CardPredicate = ctx => ctx.CardUid == RetiredBenchUid && IsBenchTransferAction(ctx),
+                Timing        = ActionTiming.Cancel,
+                Before        = RetiredBenchTransfer,
+            });
+
             // Self-healing progress display — see class doc. Only does work while the
             // player is standing in the Academy interior (the lectern's live instance is
             // only findable in AllCards then — AllCards is current-env-scoped, same
@@ -215,10 +238,9 @@ namespace CommunityModChest.Patcher
                     string hostUid = CardUtil.GetCardUniqueId(lectern);
                     foreach (var course in Courses)
                     {
-                        // A course's progress stat only means what it means on its OWN host
-                        // card — e.g. SpecialDurability1 is "Architecture" on the Lectern but
-                        // "Carpentry" on the Carpentry Bench. Applying every course to every
-                        // host card would cross-contaminate same-named stat fields.
+                        // Defensive: every course's HostCardUid is the Lectern (the only entry
+                        // in HostCardUids), but keep the guard in case a future course ever
+                        // ships on a second physical card again.
                         if (course.HostCardUid != hostUid) continue;
 
                         bool hasCourse = AcademyCourseService.HasCourse(course.GradPerk);
@@ -290,7 +312,8 @@ namespace CommunityModChest.Patcher
                         Plugin.Logger.LogDebug($"[AcademyPatch] DumpLecternInstanceIdentity: AllCards match #{matchCount} instanceID={iid} "
                             + $"spoilage={CardUtil.GetDurability(card, "SpoilageTime"):0} special1={CardUtil.GetDurability(card, "SpecialDurability1"):0} "
                             + $"special2={CardUtil.GetDurability(card, "SpecialDurability2"):0} special3={CardUtil.GetDurability(card, "SpecialDurability3"):0} "
-                            + $"usage={CardUtil.GetDurability(card, "UsageDurability"):0} fuel={CardUtil.GetDurability(card, "FuelCapacity"):0}");
+                            + $"usage={CardUtil.GetDurability(card, "UsageDurability"):0} fuel={CardUtil.GetDurability(card, "FuelCapacity"):0} "
+                            + $"progress={CardUtil.GetDurability(card, "Progress"):0}");
                     }
                     if (matchCount > 1)
                         Plugin.Logger.LogWarning($"[AcademyPatch] DumpLecternInstanceIdentity: DUPLICATE lectern instances in AllCards! count={matchCount}");
@@ -564,6 +587,102 @@ namespace CommunityModChest.Patcher
             CardVisualsRefresh.RefreshOpenInventoryPopup();
             Plugin.Logger.LogInfo($"[AcademyPatch] Deposited {value:0} into the Tuition account (balance now {newBalance:0}/{AccountMax:0}).");
             return true;
+        }
+
+        // ── Retired Carpentry Bench transfer (1.68.23) ──────────────────────────
+
+        private const string RetiredBenchUid   = "cmcCarpentryBench";
+        private const string BenchTransferKey  = "CMC_CarpentryBench_DA_Transfer";
+        // The old bench banked Carpentry hours on SpecialDurability1 (max 24); on the lectern the
+        // same course lives on the Progress slot (Courses[] entry "Carpentry", StatName "Progress").
+        private const string BenchHoursStat    = "SpecialDurability1";
+
+        private static bool IsBenchTransferAction(ActionContext ctx) =>
+            ctx.ActionKey == BenchTransferKey
+            || (ctx.ActionName != null && ctx.ActionName.Contains("Transfer"));
+
+        /// <summary>
+        /// Cancel-timing gate on the retired bench's only action. Moves the bench's Tuition
+        /// Account balance (as much as the lectern's 1000-cap account has room for) and its
+        /// Carpentry hours (max onto every live lectern, mirroring ReconcileCourseProgress)
+        /// onto the Lecture Hall lectern. Returns FALSE (let the action's own ModType 3 Destroy
+        /// remove the bench) only when nothing of value is left on it; returns TRUE (cancel,
+        /// bench kept) when the lectern was full, no lectern is on this board, or anything
+        /// threw - the bench must never be destroyed with unmoved balance still on it.
+        /// </summary>
+        private static bool RetiredBenchTransfer(ActionContext ctx)
+        {
+            try
+            {
+                var gm = CardUtil.GetGameManagerInstance();
+                var lecterns = gm == null ? new List<object>() : FindAllLiveLecternCards(gm);
+                if (lecterns.Count == 0)
+                {
+                    Plugin.Logger.LogWarning("[AcademyPatch] Retired bench transfer: no Lecture Hall lectern on this board (gm " +
+                                             (gm == null ? "null" : "found") + ") - nothing moved, bench kept.");
+                    return true;
+                }
+
+                float benchBalance = CardUtil.GetDurability(ctx.Card, BalanceStat);
+                if (float.IsNaN(benchBalance)) benchBalance = 0f;
+                float benchHours = CardUtil.GetDurability(ctx.Card, BenchHoursStat);
+                if (float.IsNaN(benchHours)) benchHours = 0f;
+
+                // Balance: one account, so it goes onto the first live lectern (normally the only one).
+                object target = lecterns[0];
+                float lecternBalance = CardUtil.GetDurability(target, BalanceStat);
+                if (float.IsNaN(lecternBalance)) lecternBalance = 0f;
+                float moved = Math.Min(benchBalance, Math.Max(AccountMax - lecternBalance, 0f));
+                if (moved > 0f)
+                {
+                    CardUtil.SetDurability(target, BalanceStat, lecternBalance + moved);
+                    CardUtil.SetDurability(ctx.Card, BalanceStat, benchBalance - moved);
+                    CardVisualsRefresh.RefreshDurabilityVisuals(target);
+                }
+                float remaining = benchBalance - moved;
+
+                // Hours: take the higher of the two, capped at the course length, on every lectern.
+                float carpentryMax = 24f;
+                string lecternHoursStat = "Progress";
+                foreach (var course in Courses)
+                {
+                    if (course.NameFragment == "Carpentry") { carpentryMax = course.TotalHours; lecternHoursStat = course.StatName; break; }
+                }
+                float hoursMoved = 0f;
+                if (benchHours > 0f)
+                {
+                    foreach (var lectern in lecterns)
+                    {
+                        float current = CardUtil.GetDurability(lectern, lecternHoursStat);
+                        if (float.IsNaN(current)) current = 0f;
+                        float merged = Math.Min(Math.Max(current, benchHours), carpentryMax);
+                        if (merged > current)
+                        {
+                            CardUtil.SetDurability(lectern, lecternHoursStat, merged);
+                            CardVisualsRefresh.RefreshDurabilityVisuals(lectern);
+                            hoursMoved = merged - current;
+                        }
+                    }
+                }
+
+                if (remaining > 0.5f)
+                {
+                    CardVisualsRefresh.RefreshDurabilityVisuals(ctx.Card);
+                    CardVisualsRefresh.RefreshOpenInventoryPopup();
+                    Plugin.Logger.LogInfo($"[AcademyPatch] Retired bench transfer: moved {moved:0} tuition and {hoursMoved:0}h of Carpentry to the Lecture Hall; " +
+                                          $"{remaining:0} stays on the bench because the lectern's account is full ({AccountMax:0}) - transfer again once it has room.");
+                    return true;
+                }
+
+                CardVisualsRefresh.RefreshOpenInventoryPopup();
+                Plugin.Logger.LogInfo($"[AcademyPatch] Retired bench transfer: moved {moved:0} tuition and {hoursMoved:0}h of Carpentry to the Lecture Hall; the bench is removed.");
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Plugin.Logger.LogWarning($"[AcademyPatch] Retired bench transfer failed - bench kept: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                return true;
+            }
         }
     }
 }

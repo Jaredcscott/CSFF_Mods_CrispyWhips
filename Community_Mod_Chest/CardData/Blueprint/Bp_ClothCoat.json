@@ -63,7 +63,7 @@
                     "DontSpend": true,
                     "EffectOnIngredient": {
                         "ModType": 1,
-                        "UsageChange": { "x": -16.0, "y": -16.0 }
+                        "UsageChange": { "x": -1.0, "y": -1.0 }
                     }
                 }
             ]

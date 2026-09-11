@@ -29,8 +29,18 @@ namespace CommunityModChest.Patcher
     ///      the player's stall and at any NPC's chest. Afford-gated on <see cref="CurrentWealth"/>
     ///      via ActionTiming.Cancel (InnPatch.BalanceGate's shape), paid out of the chest's own
     ///      currency via ActionTiming.AfterWrapped.
-    ///   3. THEFT — a "Search for valuables" DismantleAction that empties the chest to the player
-    ///      and rolls for detection. Detected -> cmcStatVillageCrime +10 (VillageCrimePatch.AddCrime).
+    ///   3. THEFT — two paths into the SAME detection roll, because the chest's InventorySlots are
+    ///      a REAL container and vanilla lets a player open any container and drag cards straight
+    ///      out of its inventory popup, exactly like any ordinary player-built chest (memory:
+    ///      workshop-storage-action-fallback confirms this is normal InventorySlots behavior, not a
+    ///      popup bug) — that path bypasses a DismantleAction/CardInteraction entirely. (a) "Search
+    ///      for valuables" — a DismantleAction that empties the WHOLE chest in one action and rolls
+    ///      once. (b) Manual drag-out via the chest's own inventory popup — <see cref="RunPilferageTick"/>
+    ///      polls each visited chest every 2s, diffs live contents against the last-known snapshot,
+    ///      and rolls ONCE PER CARD that vanished outside of (a) or the Sell CI (both refresh the
+    ///      snapshot themselves right after they run, so a paid sale or a Search is never
+    ///      double-counted as pilferage). Detected -> cmcStatVillageCrime +10
+    ///      (VillageCrimePatch.AddCrime), same consequence either way.
     ///
     /// <para><b>ACCRUAL OWNERSHIP</b> — each resident's weekly drop is driven by the patcher that
     /// already owns that NPC's poll, so no new spawn mechanism is introduced anywhere:
@@ -403,6 +413,8 @@ namespace CommunityModChest.Patcher
                 After = ctx => RestitutionAfter(ctx),
             });
 
+            TickEvents.Interval(2f, RunPilferageTick, "CopperChestPilferage");
+
             Plugin.Logger.LogDebug($"[CopperChestPatch] initialized for {Chests.Length} chest(s).");
         }
 
@@ -551,6 +563,10 @@ namespace CommunityModChest.Patcher
                 }
 
                 CardVisualsRefresh.RefreshOpenInventoryPopup();
+                // A paid, consensual sale — never pilferage. Refresh the baseline now so
+                // RunPilferageTick's next poll doesn't read these currency cards leaving as an
+                // unmonitored drag-out (see SyncKnownContents's doc comment).
+                SyncKnownContents(cfg, ctx.Card);
                 Plugin.Logger.LogInfo($"[CopperChestPatch] Sold an item to the {cfg.Name} for {price:0}; handed over {paid} currency card(s) worth {paidValue:0}. Chest wealth now {CurrentWealth(ctx.Card):0}.");
 
                 // N19 — the one commerce verb the Trust layer previously ignored. Only on a
@@ -735,6 +751,11 @@ namespace CommunityModChest.Patcher
 
                 CardVisualsRefresh.RefreshOpenInventoryPopup();
 
+                // The whole chest is now empty — bring the pilferage snapshot in line with that
+                // BEFORE the next poll runs, or RunPilferageTick would read this DA's own removals
+                // as an unmonitored drag-out and roll a SECOND, redundant detection on top of this one.
+                SyncKnownContents(cfg, chest);
+
                 if (taken == 0)
                 {
                     // An empty chest is not a crime — nothing was actually stolen, so no roll.
@@ -742,25 +763,135 @@ namespace CommunityModChest.Patcher
                     return;
                 }
 
-                bool caught = RollDetection(cfg, out string reason);
-                if (caught)
-                {
-                    SetHeat(cfg, 0f); // the heat has been spent — a caught burglar starts the ladder over
-                    VillageCrimePatch.AddCrime(DetectedCrimePoints);
-                    Plugin.Logger.LogInfo($"[CopperChestPatch] The {cfg.Name}'s chest was robbed of {taken} card(s) and the theft was DETECTED ({reason}).");
-                }
-                else
-                {
-                    SetHeat(cfg, CurrentHeatCount(cfg) + 1f);
-                    // Undetected theft leaves no record at all (§10.8.3.6) — Debug only, so a
-                    // player reading LogOutput.log can't use it as an oracle.
-                    Plugin.Logger.LogDebug($"[CopperChestPatch] The {cfg.Name}'s chest was robbed of {taken} card(s), undetected ({reason}).");
-                }
+                RollAndRecordTheft(cfg, $"robbed of {taken} card(s)");
             }
             catch (Exception ex)
             {
                 Plugin.Logger.LogWarning($"[CopperChestPatch] SearchAfter failed for the {cfg.Name}: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
+        }
+
+        /// <summary>
+        /// One detection roll and its consequence, shared by the Search DA (one call per whole-chest
+        /// sweep) and <see cref="RunPilferageTick"/> (one call per card caught vanishing outside of
+        /// that DA or the Sell CI). <paramref name="sourceLabel"/> is folded into the log line only —
+        /// the roll itself (<see cref="RollDetection"/>), the crime cost, and the heat bookkeeping are
+        /// identical either way, so a caught burglar can't lower their risk just by switching methods.
+        /// </summary>
+        private static void RollAndRecordTheft(ChestConfig cfg, string sourceLabel)
+        {
+            bool caught = RollDetection(cfg, out string reason);
+            if (caught)
+            {
+                SetHeat(cfg, 0f); // the heat has been spent — a caught burglar starts the ladder over
+                VillageCrimePatch.AddCrime(DetectedCrimePoints);
+                Plugin.Logger.LogInfo($"[CopperChestPatch] The {cfg.Name}'s chest was {sourceLabel} and the theft was DETECTED ({reason}).");
+            }
+            else
+            {
+                SetHeat(cfg, CurrentHeatCount(cfg) + 1f);
+                // Undetected theft leaves no record at all (§10.8.3.6) — Debug only, so a
+                // player reading LogOutput.log can't use it as an oracle.
+                Plugin.Logger.LogDebug($"[CopperChestPatch] The {cfg.Name}'s chest was {sourceLabel}, undetected ({reason}).");
+            }
+        }
+
+        // ── Pilferage detection — closes the direct-drag-out loophole ────────────
+
+        /// <summary>
+        /// Per-chest snapshot of the card INSTANCES last observed inside it (default reference
+        /// equality — two Salt cards are different entries even with the same UniqueID), keyed by
+        /// <see cref="ChestConfig.ChestUid"/>. Populated and diffed only while the player is actually
+        /// standing in that chest's own interior, for the same reason <see cref="TryAccrue"/> is
+        /// gated the same way: <c>Inventory.Cards</c> can only see a chest that's currently in-scene
+        /// (memory: reference_allcards_env_scoped).
+        /// </summary>
+        private static readonly Dictionary<string, HashSet<object>> _knownContents = new(StringComparer.OrdinalIgnoreCase);
+
+        /// <summary>
+        /// Every 2s, for whichever Copper Chest(s) the player currently has in scope: diff the
+        /// chest's live contents against the last poll's snapshot and roll one detection check per
+        /// card that disappeared.
+        ///
+        /// <para><b>Why this exists</b>: the chest is a normal CT2 card with real <c>InventorySlots</c>
+        /// (§10.8.3.1's "one physical container" design), and vanilla lets a player open ANY such
+        /// container and drag cards straight out of its inventory popup — the exact same "normal
+        /// storage" behavior <c>workshop-storage-action-fallback</c> documents for any station with
+        /// populated slots. That path never goes through the "Search for valuables" DismantleAction,
+        /// so before this method existed a player could empty an NPC's entire chest by hand with zero
+        /// detection roll, zero crime, and therefore zero Reputation consequence — the theft mechanic
+        /// (§10.8.3.6) was fully opt-in. Blocking the popup outright isn't viable: `CardData.HasInventory`
+        /// has no separate "locked" flag (`.decomp/CardData.cs`), and the same physical
+        /// <c>InventorySlots</c> back the live-summed wealth the Sell CI depends on (§10.8.3.4), so the
+        /// slots can't simply be removed. Polling and diffing is the same idiom already proven by
+        /// <see cref="VillageReputationPatch"/>'s own <c>TickEvents.Interval</c> tick, not a new
+        /// pattern for this codebase.</para>
+        ///
+        /// <para>The Search DA and the Sell CI both call <see cref="SyncKnownContents"/> themselves
+        /// the instant they finish mutating a chest, so their own (already-accounted-for) removals
+        /// never show up as a diff here — only a removal this file didn't itself perform can appear
+        /// as "missing."</para>
+        /// </summary>
+        private static void RunPilferageTick()
+        {
+            foreach (var cfg in Chests)
+            {
+                try { CheckForPilferage(cfg); }
+                catch (Exception ex)
+                {
+                    Plugin.Logger.LogDebug($"[CopperChestPatch] Pilferage check failed for {cfg.Name}: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                }
+            }
+        }
+
+        private static void CheckForPilferage(ChestConfig cfg)
+        {
+            if (!string.Equals(GameQuery.CurrentEnvironmentUniqueId, cfg.InteriorEnvUid, StringComparison.OrdinalIgnoreCase))
+            {
+                // Player isn't in this chest's room right now, so nothing can be dragged from it —
+                // and the chest itself isn't live/scannable anyway (reference_allcards_env_scoped).
+                // Drop any stale snapshot so the NEXT visit starts fresh rather than diffing against
+                // a poll from an arbitrarily long time ago.
+                _knownContents.Remove(cfg.ChestUid);
+                return;
+            }
+
+            var chest = CardFinder.Find(cfg.ChestUid);
+            if (chest == null)
+            {
+                _knownContents.Remove(cfg.ChestUid);
+                return;
+            }
+
+            var current = new HashSet<object>(Inventory.Cards(chest));
+
+            if (!_knownContents.TryGetValue(cfg.ChestUid, out var known))
+            {
+                // First observation since entering this room — nothing to diff against yet, so this
+                // poll only establishes the baseline (never accuses on the very first look).
+                _knownContents[cfg.ChestUid] = current;
+                return;
+            }
+
+            int missing = 0;
+            foreach (var card in known)
+                if (!current.Contains(card)) missing++;
+
+            _knownContents[cfg.ChestUid] = current;
+            if (missing == 0) return;
+
+            string label = missing == 1 ? "pilfered from directly" : $"pilfered from directly ({missing} cards)";
+            for (int i = 0; i < missing; i++) RollAndRecordTheft(cfg, label);
+        }
+
+        /// <summary>Refreshes the pilferage baseline to the chest's CURRENT contents. Called by the
+        /// Search DA and the Sell CI right after each mutates the chest, so <see cref="RunPilferageTick"/>'s
+        /// next poll compares against a baseline that already reflects their own accounted-for
+        /// removal rather than flagging it a second time.</summary>
+        private static void SyncKnownContents(ChestConfig cfg, object chest)
+        {
+            if (chest == null) return;
+            _knownContents[cfg.ChestUid] = new HashSet<object>(Inventory.Cards(chest));
         }
 
         private static bool RollDetection(ChestConfig cfg, out string reason)
@@ -992,9 +1123,13 @@ namespace CommunityModChest.Patcher
         private static bool _slotStaticsResolved;
         private static PropertyInfo _graphicsInstanceProperty;
         private static Type _graphicsManagerType;
-        private static MethodInfo _getSlotForCardMethod;   // GraphicsManager.GetSlotForCard(CardData, CardData, SlotInfo, bool)
+        private static MethodInfo _getSlotForCardMethod;   // GraphicsManager.GetSlotForCard(CardData, CardData, SlotInfo, bool, InGameNPCOrPlayer) — arity matched dynamically, see BuildGetSlotForCardArgs
         private static MethodInfo _assignCardMethod;       // DynamicLayoutSlot.AssignCard(InGameCardBase, bool)
         private static bool _transferFallbackLogged;
+        // Exception TYPE + message (or a short non-exception reason) from the most recent
+        // TryTransferInstance failure — folded into the once-per-session fallback notice so the
+        // NEXT game-update arity drift is legible in LogOutput.log without enabling Debug logging.
+        private static string _lastTransferFailureReason;
 
         /// <summary>
         /// Moves one card out of a chest and into the player's hands.
@@ -1014,6 +1149,15 @@ namespace CommunityModChest.Patcher
         /// GiveCard returns void in this game version and stat overrides cannot be applied to the
         /// spawn (SpawnService's own documented gap). That only ever affects currency the PLAYER
         /// stashed in a chest — accrual deposits Salt, which is flat-valued.</para>
+        ///
+        /// <para>2026-09-08: GraphicsManager.GetSlotForCard gained a trailing InGameNPCOrPlayer
+        /// _User parameter (EA 0.67i) that the old hardcoded 4-argument Invoke didn't know about,
+        /// throwing TargetParameterCountException on every call and taking this fallback on every
+        /// payout (Fleet Master Plan §1.1, T4.40/T4.38; r33 Player.log lines 2245-2285). Not yet
+        /// re-verified in-game — see the CHANGELOG entry for this version.
+        /// <see cref="BuildGetSlotForCardArgs"/> now matches parameters by declared TYPE off
+        /// <c>GetParameters()</c> instead of a hardcoded arity, so the next such drift degrades to
+        /// this same fallback instead of throwing again.</para>
         /// </summary>
         private static bool GiveToPlayer(object chest, object card)
         {
@@ -1035,7 +1179,7 @@ namespace CommunityModChest.Patcher
             if (!_transferFallbackLogged)
             {
                 _transferFallbackLogged = true;
-                Plugin.Logger.LogInfo("[CopperChestPatch] Direct card transfer unavailable — falling back to eject-and-respawn for chest payouts (see class doc).");
+                Plugin.Logger.LogInfo($"[CopperChestPatch] Direct card transfer unavailable ({_lastTransferFailureReason ?? "reason not captured"}) — falling back to eject-and-respawn for chest payouts (see class doc).");
             }
             return true;
         }
@@ -1051,20 +1195,47 @@ namespace CommunityModChest.Patcher
         {
             try
             {
-                if (!ResolveSlotStatics()) return false;
+                if (!ResolveSlotStatics())
+                {
+                    _lastTransferFailureReason = "GetSlotForCard/AssignCard not resolved on GraphicsManager";
+                    return false;
+                }
 
                 var graphics = _graphicsInstanceProperty?.GetValue(null)
                     ?? UnityEngine.Object.FindObjectOfType(_graphicsManagerType);
-                if (graphics == null) return false;
+                if (graphics == null)
+                {
+                    _lastTransferFailureReason = "GraphicsManager instance not found";
+                    return false;
+                }
 
                 var cardData = CardUtil.GetCardData(card);
-                if (cardData == null) return false;
+                if (cardData == null)
+                {
+                    _lastTransferFailureReason = "card has no resolvable CardData";
+                    return false;
+                }
                 var liquidModel = Reflect.GetMember(card, "ContainedLiquidModel");
                 var chestSlotInfo = Reflect.GetMember(chest, "CurrentSlotInfo");
-                if (chestSlotInfo == null) return false;
+                if (chestSlotInfo == null)
+                {
+                    _lastTransferFailureReason = "chest has no CurrentSlotInfo";
+                    return false;
+                }
 
-                var slot = _getSlotForCardMethod.Invoke(graphics, new[] { cardData, liquidModel, chestSlotInfo, (object)false });
-                if (slot == null) return false;
+                var args = BuildGetSlotForCardArgs(cardData, liquidModel, chestSlotInfo, out string buildFailure);
+                if (args == null)
+                {
+                    _lastTransferFailureReason = buildFailure ?? "could not build GetSlotForCard arguments";
+                    return false;
+                }
+
+                var slot = _getSlotForCardMethod.Invoke(graphics, args);
+                if (slot == null)
+                {
+                    _lastTransferFailureReason = "GetSlotForCard returned no compatible slot";
+                    return false;
+                }
 
                 _assignCardMethod.Invoke(slot, new[] { card, (object)true });
 
@@ -1075,13 +1246,82 @@ namespace CommunityModChest.Patcher
                 // under an object-typed comparison (CLAUDE.md §Harmony Patching Pitfalls).
                 var container = Reflect.GetMember(card, "CurrentContainer");
                 bool stillContained = container is UnityEngine.Object containerObj && containerObj != null;
-                return !stillContained;
+                if (stillContained)
+                {
+                    _lastTransferFailureReason = "AssignCard did not move the card (slot refused it)";
+                    return false;
+                }
+                return true;
             }
             catch (Exception ex)
             {
+                var cause = ex.InnerException ?? ex;
+                _lastTransferFailureReason = $"{cause.GetType().Name}: {cause.Message}";
                 Plugin.Logger.LogDebug($"[CopperChestPatch] TryTransferInstance failed for '{CardUtil.GetCardUniqueId(card) ?? "?"}': {ex.InnerException?.ToString() ?? ex.ToString()}");
                 return false;
             }
+        }
+
+        /// <summary>
+        /// Builds GetSlotForCard's argument array by matching each resolved parameter's declared
+        /// TYPE (via <see cref="_getSlotForCardMethod"/>'s own <c>GetParameters()</c>), not a
+        /// hardcoded arity — the exact fix for the 2026-09-08 drift (EA 0.67i added a trailing
+        /// <c>InGameNPCOrPlayer _User</c> that a fixed 4-argument array didn't know about, throwing
+        /// <c>TargetParameterCountException</c> on every call). CardData appears TWICE on the live
+        /// signature (the card itself and its optional liquid form) so those two positions are
+        /// filled in DECLARATION ORDER, not by name — reflection has no parameter names to match on
+        /// on a release build.
+        /// </summary>
+        /// <returns>The argument array, or null if an unrecognized value-type parameter appeared
+        /// (see <paramref name="failureReason"/>) and there is nothing safe to pass for it.</returns>
+        private static object[] BuildGetSlotForCardArgs(object cardData, object liquidModel, object chestSlotInfo, out string failureReason)
+        {
+            failureReason = null;
+            var pars = _getSlotForCardMethod.GetParameters();
+            var args = new object[pars.Length];
+            bool cardDataSlotFilled = false;
+
+            for (int i = 0; i < pars.Length; i++)
+            {
+                var t = pars[i].ParameterType;
+                if (t == typeof(CardData))
+                {
+                    args[i] = cardDataSlotFilled ? liquidModel : cardData;
+                    cardDataSlotFilled = true;
+                }
+                else if (t == typeof(SlotInfo))
+                {
+                    args[i] = chestSlotInfo;
+                }
+                else if (t == typeof(bool))
+                {
+                    args[i] = false; // _OwnedByNPC — the player is receiving this card, never an NPC
+                }
+                else if (t == typeof(InGameNPCOrPlayer))
+                {
+                    // The live game dereferences this with NO null guard (CardToSlotType's
+                    // "if (_User.Player)" — .decomp/GraphicsManager.cs) and it's a STRUCT, so
+                    // reflection.Invoke can't bind a bare C# null to it either way. GiveToPlayer
+                    // only ever moves a card INTO the player's own hands, so PlayerAgent is always
+                    // the right identity here — the same literal VillageHallBoardsPatch.cs already
+                    // uses for its own InGameNPCOrPlayer-typed calls in this mod.
+                    args[i] = InGameNPCOrPlayer.PlayerAgent;
+                }
+                else if (t.IsValueType && Nullable.GetUnderlyingType(t) == null)
+                {
+                    // An unknown non-nullable value-type parameter has no safe default — a guessed
+                    // value could silently mask a real behavior change, so bail to the fallback
+                    // instead (root CLAUDE.md §Silent Catch Blocks: a default-returning path needs
+                    // a breadcrumb, not a guess).
+                    failureReason = $"unrecognized value-type parameter '{t.Name}' at position {i}";
+                    return null;
+                }
+                else
+                {
+                    args[i] = null; // reference-type (or Nullable<T>) extra parameter — null is safe
+                }
+            }
+            return args;
         }
 
         private static bool ResolveSlotStatics()
@@ -1102,6 +1342,18 @@ namespace CommunityModChest.Patcher
                 }
                 _graphicsInstanceProperty = _graphicsManagerType.GetProperty("Instance", BindingFlags.Public | BindingFlags.Static);
                 _getSlotForCardMethod = AccessTools.Method(_graphicsManagerType, "GetSlotForCard");
+
+                // A coroutine-shaped GetSlotForCard (IEnumerator return) could never be run by a
+                // bare Invoke — Invoke only constructs the compiler-generated state machine and
+                // never runs the method body (root CLAUDE.md §Runtime Card Removal, the
+                // TryRemoveCard/DestroyCard lesson: exactly this shape silently removed nothing
+                // while still returning true). It returns DynamicLayoutSlot today; this guards the
+                // NEXT drift rather than the current one.
+                if (_getSlotForCardMethod != null && typeof(IEnumerator).IsAssignableFrom(_getSlotForCardMethod.ReturnType))
+                {
+                    Plugin.Logger.LogDebug($"[CopperChestPatch] GetSlotForCard now returns {_getSlotForCardMethod.ReturnType.Name} (a coroutine) — bare-Invoke would not run its body; chest payouts will use the eject-and-respawn fallback.");
+                    _getSlotForCardMethod = null;
+                }
 
                 var slotType = AccessTools.TypeByName("DynamicLayoutSlot");
                 _assignCardMethod = slotType == null ? null : AccessTools.Method(slotType, "AssignCard");

@@ -52,8 +52,8 @@
                 "y": 0.0
             },
             "MaxValueModifier": {
-                "x": 0.0,
-                "y": 0.0
+                "x": -300.0,
+                "y": -300.0
             },
             "CannotModifyBeyond": {
                 "Active": false,

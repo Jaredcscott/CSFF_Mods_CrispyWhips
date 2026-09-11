@@ -113,9 +113,7 @@
         {
             "CannotRevertToThisStage": false,
             "RequiredElements": [
-                { "RequiredCard": { "m_FileID": 0, "m_PathID": 0 }, "RequiredQuantity": 2, "DontSpend": false, "RequiredCardWarpData": "herbs_fungi_hemp_flower_dried", "RequiredCardWarpType": 3 },
-                { "RequiredCard": { "m_FileID": 0, "m_PathID": 0 }, "RequiredQuantity": 2, "DontSpend": false, "RequiredCardWarpData": "herbs_fungi_dried_ginseng", "RequiredCardWarpType": 3 },
-                { "RequiredCard": { "m_FileID": 0, "m_PathID": 0 }, "RequiredQuantity": 2, "DontSpend": false, "RequiredCardWarpData": "herbs_fungi_dried_reishi", "RequiredCardWarpType": 3 },
+                { "RequiredCard": { "m_FileID": 0, "m_PathID": 0 }, "RequiredQuantity": 6, "DontSpend": false, "RequiredTabGroupWarpData": "GpTag_SpiritHerb", "RequiredTabGroupWarpType": 3 },
                 { "RequiredCard": { "m_FileID": 0, "m_PathID": 0 }, "RequiredQuantity": 3, "DontSpend": false, "RequiredCardWarpData": "c0f1eabb07ab5064bbebd151ae6b9a94", "RequiredCardWarpType": 3 },
                 { "RequiredCard": { "m_FileID": 0, "m_PathID": 0 }, "RequiredQuantity": 1, "DontSpend": false, "RequiredCardWarpData": "cmcShadowCatTamed", "RequiredCardWarpType": 3 }
             ],

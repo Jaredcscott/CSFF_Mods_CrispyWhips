@@ -5,6 +5,336 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.68.23] - 2026-09-09
+
+### Fixed
+
+- **A save that still held the old Carpentry Bench lost it, and everything banked on it, on
+  load.** 1.68.2 folded the Carpentry course onto the Lecture Hall lectern and deleted the bench's
+  card definition, while its notes promised that an existing bench would "keep that card in the
+  world". It could not: the game drops any saved card whose definition no longer exists
+  (`GameManager.LoadCard` returns false for a UID that does not resolve), so the bench vanished on
+  the next load together with any Tuition Account balance (up to 1000) and Carpentry study hours
+  deposited on it. The public 1.68.1 release still seeds that bench in the Academy, so every player
+  updating from it was exposed. The card is back as a **retired bench** (`cmcCarpentryBench`,
+  `CardData/Location/CMC_CarpentryBench.json`): it keeps its two stat bars so the saved values
+  show, offers no deposit or study actions, and has one button, **Transfer to Lecture Hall**, which
+  moves the balance (as much as the lectern's own 1000-cap account has room for) and the study
+  hours (the higher of the two, capped at the 24-hour course) onto the lectern and then removes the
+  bench. If the lectern's account is full, the remainder stays on the bench for a later transfer,
+  and the bench is never removed while value is still on it. New games never see the card: the
+  Academy interior no longer seeds it. Handler: `AcademyPatch.RetiredBenchTransfer`
+  (`ActionRouter`, Cancel timing). Five new localization rows, English and Chinese.
+- **NOT YET VERIFIED IN-GAME** - needs a save that predates 1.68.2 with a bench on the Academy
+  board (tracked in `.claude/playthrough-test-status.json`).
+
+### Changed
+
+- `CardData/Location/CMC_JailCellBed.json`: the 18 `ParentObjectID` values that still carried the
+  vanilla BedRoll's GUID (`aa2efd9ef5bb3e64293e901308a9641a`, a copy-paste residue from the card
+  this one was cloned from) are now empty strings. No behaviour change: nothing in the game or the
+  framework reads that field (the decompile has only its declaration in `LocalizedString`), so this
+  only stops the structures audit from re-flagging it.
+
+### Docs
+
+- README: the Village Academy bullet still described the Carpentry course as running "at its own
+  Carpentry Bench standing beside the lectern" with a separate account - a card that had not
+  existed since 1.68.2. It now describes the lectern-hosted course and the retired bench above.
+- CHANGELOG [1.68.2]: an inline, dated correction on the false "keep that card in the world"
+  sentence; the original text is left in place.
+
+---
+
+## [1.68.22] - 2026-09-08
+
+### Fixed
+
+- **Copper Chest payouts (Search for valuables, Sell) always fell back to eject-and-respawn
+  instead of handing over the chest's own card instance.** A game update added a trailing
+  `InGameNPCOrPlayer _User` parameter to `GraphicsManager.GetSlotForCard` (now 5 parameters, was
+  4); `CopperChestPatch.TryTransferInstance` still invoked it with a hardcoded 4-element argument
+  array, so every call threw `TargetParameterCountException` (r33 `Player.log` lines 2245-2285, 8
+  occurrences across 4 card GUIDs) and the catch logged only at Debug, so `LogOutput.log` showed
+  nothing. Every payout therefore ejected the chest's card and spawned a fresh replacement instead
+  - a stashed copper Nugget or Coin reverting to its default metal type in the process. Fixed by
+  matching `GetSlotForCard`'s arguments to its resolved parameters by declared TYPE
+  (`BuildGetSlotForCardArgs`) instead of a hardcoded arity, so the next such drift degrades to the
+  same eject-and-respawn fallback instead of throwing again. The once-per-session fallback notice
+  now names the exception TYPE and message that caused the downgrade, so it's legible in
+  `LogOutput.log` without enabling Debug logging.
+- **NOT YET VERIFIED IN-GAME.** The regression guard here is the runtime log itself (zero
+  `TargetParameterCountException` from `CopperChestPatch`, no "falling back to eject-and-respawn"
+  line) - not a source-text assertion, which would pass on a build that still throws the same
+  exception at a different call site (root CLAUDE.md: a check that asserts on source text rather
+  than behaviour is not a gate). Fleet Master Plan §1.1 tracks the still-open questions (T4.40,
+  T4.38) that depend on this fix landing clean in-game.
+
+### Docs
+
+- **README under-claimed a confirmed feature (docs-honesty, under-claiming direction).** The
+  Village Farm bullet never mentioned that the Flax, Rye, and Turnroot fields accept the vanilla
+  Partner harvest duty; the playthrough tracker confirmed this in-game on 2026-08-15 (T2.82). Added
+  one sentence to that bullet. No code change.
+
+---
+
+## [1.68.21] - 2026-09-07
+
+### Fixed
+
+- **The Stone Tile Floor could not be laid in any of the buildings the mod itself adds.** It was
+  only ever offered inside vanilla cabins and mud huts, so a player who built out the whole village
+  could floor a starter hut but not the Academy, the Inn, the Village Hall, either cottage, the
+  Apothecary's Cabin or the Jail Cell. All seven now offer it, on the same Stone Tiles x12 + Clay x4
+  recipe and with the same Comfort +12 and Insulation bonus. Existing floors are unaffected, and the
+  improvement itself is unchanged.
+- The improvement's own description, and the README entry for it, both still said "cabins and mud
+  huts" and now name the village interiors too.
+
+---
+
+## [1.68.20] - 2026-09-07
+
+### Changed
+
+- **The standalone cistern perk is now called "Extra Rain Cistern Kit", and its internal ID changed.** It previously rendered as exactly "Rain Cistern Kit" - the same string HomesteadPerks uses for its own cistern perk - so with both mods installed, character creation offered two entries a player could not tell apart, and taking both granted two cistern bundles and double-counted the difficulty rating. CMC 1.52.0 set out to remove this class of duplicate and removed seven of eight; this was the one it missed, while its notes recorded the job as done. The perk itself is unchanged: 10 Suns, -50 difficulty, and the same Rain Cistern Kit item.
+- The internal ID moved from `traitsperkraincisternkit` to `traits_perk_extra_rain_cistern_kit` for a second, less visible reason. Character creation decides which perk a saved character has equipped using a **substring** test rather than an exact match, and HomesteadPerks derived its IDs by prefixing CMC's with `hsp`. So `hsptraitsperkraincisternkit` *contained* CMC's old ID, and a character who picked HomesteadPerks' cistern perk could see CMC's shown in its place, with no dependable tiebreak between the two. An underscored ID breaks that containment. **A saved character that had the old Rain Cistern Kit equipped will no longer show it, and can re-pick it under the new name.** Runs already in progress are unaffected, since perks apply when a run starts.
+
+### Fixed
+
+- **The Market Stall showed its English name to Chinese players.** The placed stall's card name
+  was the one label on it that was never wired to the translation table, so it fell back to the
+  built-in English text while its description, its buttons and its own awning-dressed twin all
+  translated correctly. The translation had already been written and was sitting unused in both
+  localization files. English is unchanged.
+
+---
+
+## [1.68.19] - 2026-09-07
+
+### Fixed
+
+- **Village hearths often skipped their automatic tending entirely, so a fire could sit cold in a room you had just walked into.** Auto-tending gets triggered when you enter one of the six village interiors, but it only ever made a single attempt, up to a second after the room changed. That single attempt frequently landed while the game was still assembling the room's board, found no fireplace there yet, and treated that as "nothing to do" - marking the visit handled and never looking again. The other trigger (spending time in the room) could not cover for it, because a player who steps in and straight back out spends no time at all, which is precisely the case the entry check exists for. Entering a hearth room now keeps re-checking until it actually finds the hearth, so walking in is enough to get the fire tended.
+- **A fireplace that was not even in the room could silently switch off a building's auto-tending for good.** The check that backs auto-tending off when a second fireplace is present (so it never touches a fireplace you placed yourself) was counting fireplaces without checking which environment they were in, and the game's card list also holds items you are carrying and a few that belong to no room. A stray match therefore disabled the building's own hearth permanently, with no message. It now only counts fireplaces actually in the room, matching how the game itself does this everywhere else. The same fix is applied to the Town Wood Pile's own lookup.
+- **When the Town Wood Pile could not afford to tend a hearth, nothing anywhere said so.** Every decision this system makes was written at a log level the game hides by default, so a fire going cold was indistinguishable from the feature being broken. Stocking the pile, spending from it, and each reason a hearth was left cold are now reported normally, once per change rather than every tick.
+
+### Note
+
+This release fixes how the hearth/wood-pile system *runs*; it does not change the *balance*. Each hearth still burns a full day's fuel per day, including while you are elsewhere, and a top-up is still all-or-nothing, so keeping all six lit continuously still demands a great deal of wood. Rebalancing that is tracked separately.
+
+---
+
+## [1.68.18] - 2026-09-06
+
+### Fixed
+
+- **Fishing with the Iron Fishing Rod destroyed the rod itself on the very first cast, with nothing dropped in its place.** The Iron Rod's enhanced Fish action is built by cloning the vanilla fishing action and retargeting it, and one internal field controlling what the fishing tool turns into after each catch was left pointing at nothing instead of at the Iron Rod - so the game quietly deleted the rod every time it was used. Fishing with an Iron Rod now correctly leaves the rod in your hands afterward, matching its own description ("aids stamina recovery while carried") and the Academy Fishing course reward it is meant to be. No save migration needed - existing saves just need a fresh Iron Rod crafted or re-granted if the previous one was already lost to this bug.
+
+---
+
+## [1.68.17] - 2026-09-05
+
+### Added
+
+- **A third scent for the Incense Burner: dried heather flowers.** Pack the empty burner with **dried heather** instead of rye straw or juniper needles and light it as usual. Where straw gives comfort and juniper drives off biting insects, heather raises a soft, honeyed smoke that **steadily bleeds off Stress** while it burns - the calming scent the burner's own description has always promised. Still one pot and no second blueprint: the same "Tip Out" action empties it back to a clean vessel so you can switch scents freely, and a full load burns the same day straw and juniper do. Heather flowers are gathered wild and dried, so this is an early-game comfort you can reach without the Apothecary.
+
+### Fixed
+
+- **Installing Community Mod Chest made Advanced Copper Tools' Metal Sheet (Copper Sheet) blueprint vanish from the Metal Crafts tab and become impossible to research.** The Academy's Metallurgy course claimed that recipe as its reward and enforced it with the game's own quest-lock, hiding the blueprint for every character until the degree was passed. That started as an opt-in effect of the old "Higher Education" trait, but the Village overhaul retired the trait and left the lock applying to everyone, so ACT players who updated CMC simply lost the recipe with no in-game explanation of where it had gone. Copper Sheet is ACT's foundational metal material - 21 further ACT blueprints (Copper Cauldron, Ore Chest, Wheelbarrow Bucket, Copper Chest, Small Copper Stove, Brazier, Tea Kettle, Watering Can, Metal Lantern, Large Copper Saw, both armor sets and more) are built from it - so locking it stalled most of that mod behind a village course costing 60 hours of study and 3,000 in tuition. **Copper Sheet is now researchable exactly as Advanced Copper Tools intends it, whether or not you ever visit the Academy.** Passing Metallurgy still pays off: it now hands you the recipe outright, skipping the research entirely, instead of being the only way to get it. No save migration is needed - blueprint lock state is rebuilt from scratch each time a run loads, so an affected save gets the recipe back on its next load.
+
+### Changed
+
+- **The Academy's Metallurgy course descriptions now say what the course actually does.** The Final Exam action and the Metallurgy Graduate perk both described the Copper Sheet recipe as something the course "unlocks"; they now say it is handed over outright with no research needed. English and Chinese text both updated. Architecture, Armorer, Fishing, Herbalism, Medicine and Carpentry are unchanged and still gate their rewards as before, since those payoffs are end-tier recipes rather than another mod's base material.
+
+---
+
+## [1.68.16] — 2026-08-30
+
+### Fixed
+
+- **The Bleeder trait's passive Blood Pressure drain had no floor.** Its −0.5/tick rate modifier ran unopposed for as long as the trait was active — the game itself treats Blood Pressure hitting 0 as an instant death ("went into shock"), and Blood Pressure has no built-in rate clamp of its own to stop a modifier like this. In the worst case, choosing this trait could quietly become an unrecoverable death spiral with nothing the player did wrong. Its passive drain now bottoms out at 15 (out of 75) instead of being able to reach 0 on its own — Blood Pressure can still be driven the rest of the way down by actual wounds, it just can no longer be killed by this trait alone sitting idle.
+
+### Changed
+
+- **Fugitive, Lost Tourist, and Drunkard's passive Stress buildup, and Insomniac's passive Sleep Clock drift, no longer climb without limit.** Same underlying issue as 1.68.15's Deadly Disease fix: each of these traits' passive rate modifier had nothing to stop it from eventually pinning the stat at its true maximum and holding it there for the rest of the game. Fugitive/Lost Tourist/Drunkard's Stress now caps its climb around 150 instead of 240; Insomniac's Sleep Clock caps around 699 instead of 999. All four traits still worsen gradually exactly as their descriptions say, just no longer to an unbounded extreme.
+
+### Changed
+
+- **The Deadly Disease trait's Nausea and Rash no longer drift all the way to their true maximum with no ceiling.** Its passive stat modifiers included a bare rate change (Nausea and Rash both +0.4/tick) with nothing to stop it — left unequipped from treatment, either stat would eventually climb to its absolute in-game max and stay pegged there for as long as the perk was active. Rash's native range is especially wide (0–384), so this was the more visible offender: a long enough save would walk it all the way up. Both entries now also carry a capped ceiling (Nausea's growth stops around 15 instead of 24; Rash's stops around 250 instead of 384) — the trait still worsens gradually over time exactly as its description says, it just no longer has an unbounded rate that eventually pins the stat at its hard max.
+
+---
+
+## [1.68.14] — 2026-08-28
+
+### Fixed
+
+- **Wild bears, boars, wolves, and other hostile wildlife could physically walk into the Village Inn, Academy, and Jail and just stand there.** Reported via a screenshot of a Bear sitting at the Inn Counter and in the Academy. These creatures' vanilla "approach the player" behavior relocates them straight to whatever board the player is currently standing on with no indoor/outdoor check at all — something that never came up before this mod added real, enterable building interiors. `EncounterGuards/CMC_InteriorsNoWildlife.json` already stopped the resulting combat encounter from firing, but did nothing to stop the animal from physically arriving — that's the gap this closes: Bear, Boar, Forest Beast, Moontouched, Wolf, Primeval Wolf, and Wolf Pack can no longer be relocated into any of the seven village building interiors.
+
+---
+
+## [1.68.13] — 2026-08-28
+
+### Fixed
+
+- **The Academy hearth (and potentially any of the other five village fireplaces) could still fail to refill even after 1.68.12's entry-poll fix.** Root cause: the built-in hearths spawn directly from the vanilla Fireplace card, whose starting fuel is 0 — a real fireplace only ever gets fuel from being explicitly lit, so a freshly-created building hearth was already "cold" from the moment its room first loaded, for all six interiors at once. The shared Town Wood Pile only starts with enough banked fuel to fully re-light *one* hearth from cold, so whichever room the player happened to enter first drained the entire starting reserve reviving itself, leaving every other hearth — Academy included — permanently unable to afford its own first light. Lighting a hearth for the very first time no longer draws on the Town Wood Pile at all; it's treated as part of the building coming online, not village upkeep. Ongoing top-offs and re-lights of a hearth that actually burned down through real play still cost pool fuel exactly as before.
+
+---
+
+## [1.68.12] — 2026-08-27
+
+### Fixed
+
+- **The Academy hearth (and any of the other five village fireplaces) could go cold forever and never be caught.** The auto-maintenance that tops off and re-lights the Inn, Academy, Village Hall, Miller's and Weaver's cottage, and Apothecary's Cabin hearths only ran on a time-costing action tick — a player who stepped into a room, looked around, and left without doing anything that spends DayTimePoints passed through without ever triggering a check. A save-file inspection confirmed five of the six built-in hearths had sat dead from the moment they were created. Auto-maintenance now also runs the instant the game detects you've actually walked into one of those six rooms, so a hearth that spawned cold or burned out between visits gets caught and revived immediately instead of needing a lucky time-costing action to notice it.
+- **Collecting copper or salt from the Town Wood Pile no longer drains the fuel the village hearths need.** The pile's "Collect as Copper"/"Collect as Salt" actions previously drained the SAME shared stockpile that keeps the Inn, Academy, Village Hall, Miller's and Weaver's cottages, and the Apothecary's cabin heated — so cashing out currency was always fuel taken straight out of the hearths' reserve. The pile now tracks two independent counters: the Wood Stockpile the hearths burn, and a new Player's Pay bar that fills at the same rate as fuel is stocked. "Collect as Copper"/"Collect as Salt" still work exactly as before — one click cashes out everything you can afford, 50 pay per copper nugget or 30 pay per salt — but they now draw on Player's Pay only, never on the hearth Fuel pool. Existing saves keep their current Wood Stockpile; Player's Pay starts fresh from zero.
+- **Taking items out of a resident's Copper Chest by hand had no effect on Village Crime or Reputation.** Each Copper Chest is a real container with its own inventory, so it could always be opened and dragged from directly, exactly like any ordinary storage chest — completely bypassing the "Search for valuables" action that's the only thing that ever rolled for detection. Every resident's chest (Miller, Weaver, Apothecary, Inn Keeper, Professor) is now watched while you're in the room with it: any card that disappears from it without going through Search or a paid Sell now rolls its own detection check, with the same consequences as getting caught searching — Village Crime rises and Reputation drops accordingly if you're caught.
+
+---
+
+## [1.68.11] — 2026-08-26
+
+Finishes the needle-cost correction started in 1.68.9. That release fixed the two blueprints it had just added; the same miscalculation was sitting in **nine older stitching recipes**, which are now brought in line and given a deliberate, documented cost tier.
+
+### Changed
+
+- **Nine stitched recipes no longer destroy your needle in a single craft.** The Cloth Scarf, Quilted Cap, Chaperon, Cat Bed, Quilted Vest, Cloth Coat, Bedroll, Down Mattress and Bone Lamellar armour were charging between 3 and 16 uses of the needle. A **Bone Needle only ever holds 3 uses and a Metal Needle only 1**, so every one of those numbers destroyed *either* needle on a single item — the difference between a 3-cost recipe and a 16-cost one was invisible in play, because both simply meant "your needle is gone." The costs below are now real numbers a needle can actually pay.
+- **Sewing cost is now set in three deliberate tiers**, rather than the ad-hoc numbers that were there before:
+  - **Cloth garments cost 1 use** — Cloth Scarf, Quilted Cap, Chaperon, Cat Bed, Quilted Vest and Cloth Coat. One Bone Needle now sews **three** of them before it wears out. This is also what the Cloth Mask and Long Johns were set to in 1.68.9, so every plain cloth garment in the mod now costs the same.
+  - **Bulky bedding costs 2 uses** — Bedroll and Down Mattress. These are the largest stitching jobs the mod has (the mattress alone takes 100 feathers and 20 twine). One Bone Needle makes **two** of them; the third use is left on the needle and absorbed when the second one finishes it off.
+  - **Bone Lamellar armour costs 3 uses — a whole Bone Needle, on purpose.** This is the one item here where "it consumes an entire needle" is a real design statement rather than an accident: it is the mod's highest-tier stitched item, it laces bone plates through leather rather than sewing cloth, and it has the longest research time of the nine. It is capped at exactly 3 so that a Bone Needle can genuinely pay it, instead of being charged a debt it could never cover.
+- **The Metal Needle behaves the same in all nine recipes, by design.** Because it starts with a single use, any cost at all consumes it on one craft and turns it into a **Metal Knife Blank** you can forge back into a needle. Its advantage over bone is that it is *recoverable*, never that it lasts longer — so the tiers above are purely a question of how many items one **Bone** Needle can make.
+
+### Notes
+
+- This is a cost **reduction** across all nine recipes and adds no new requirement, so it is safe mid-save: anything you have already researched still builds, and now costs less needle than it did. No recipe's materials, build time or research time changed.
+- No description text advertised a needle count, so no in-game wording needed correcting and no translations changed.
+- For calibration: across the base game's 417 tool-wear costs (every blueprint ingredient the recipe wears rather than consumes), **no tool is ever charged more than 5 uses**, and a single use accounts for 309 of them — about three quarters. The old 8, 10, 15 and 16 values sat far outside anything the base game does.
+- One thing deliberately *not* claimed here: the base game's own sewing recipes store their needle requirement under an obfuscated internal name shared by many unrelated tool groups, so which specific vanilla recipes charge a *needle* (as opposed to some other tool) cannot be read off the game data with confidence. The tiers above are calibrated against the base game's overall tool-wear range and against each needle's real capacity — not against a claim about what any particular vanilla garment charges.
+
+---
+
+## [1.68.10] — 2026-08-26
+
+Closes out two art debts that had been shipping on placeholder/fallback images while the code and JSON wiring waited for finished PNGs — no code or JSON changes, art only.
+
+### Added
+
+- **The Village Home Sign now shows two real, visually distinct faces.** "Carve the Face" and "Plane the Face Smooth" swap between a bare, unworked plank and the same board carved with a bordered panel and relief scrollwork — both had been rendering a blank white placeholder since 2026-08-25 while the transform logic itself was already live.
+- **The Miller and Weaver now look visibly different at home than they do at work.** Their nightly "at home" leg (added 2026-08-26 alongside the guaranteed Inn/Academy schedule) had no art of its own yet and silently fell back to each resident's default Village portrait. Both now have a dedicated off-duty cottage portrait — no apron, no loom, seated by their own hearth — so the portrait genuinely follows where they are actually standing (Village / Inn / Academy / their own Cottage) instead of three real destinations and one reused fallback.
+
+### Notes
+
+- Pure asset drop: `CMC_VillageHomeSignRustic.png`, `CMC_VillageHomeSignCarved.png`, `CMC_Miller_Cottage.png`, and `CMC_Weaver_Cottage.png` land in `Resource/Picture/`; the `CardImageWarpData` and `CottageSpriteName` wiring that consumes them already existed and needed no changes.
+- The two portraits are illustrated cottage-interior scenes matching the existing Village/Inn/Academy portrait convention for these residents, not the flat white-background convention used for item art.
+
+---
+
+## [1.68.9] — 2026-08-26
+
+Ships the bone-tier sewing gate and a second incense scent, and corrects three number bugs found in review — two of them in the 1.68.7 sewing change itself, one of them years-old in every lamp and candle the mod ships.
+
+### Added
+
+- **A second scent for the Incense Burner, burned in the same pot you already crafted.** Pack the empty burner with **dry juniper needles** instead of rye straw and light it as usual: instead of the straw version's calm, it raises a sharp resinous smoke that **keeps biting insects off you** while it burns. No second blueprint and no second vessel — one burner, two herbs. Juniper burns for the same full day a load of straw does.
+- **Both burners can now be emptied without burning them down.** "Tip Out the Straw" and "Tip Out the Needles" return an unlit burner to a clean, empty pot, so switching scents no longer means waiting out a whole load you did not want.
+
+### Changed
+
+- **Cloth Mask and Long Johns now need a needle to sew, like the mod's other stitched garments.** Both blueprints described sewing and asked for no needle at all; they now require one the same way the Quilted Vest, Cloth Coat, Chaperon and Scarf already do. Either the base game's **Bone Needle** or its **Metal Needle** works. This changes two blueprints you may already have researched — if you are mid-save, you will need a needle on hand that you did not need before.
+- **Sewing now costs one use of the needle, not a whole needle.** The two new gates were first shipped at 3 and 8 usage, on the mistaken belief that a Metal Needle carries a budget of 10,000. It does not: a **Bone Needle starts with 3 uses and a Metal Needle with 1**, so both of those costs destroyed *either* needle on a single garment, and actually made the expensive metal one worse than bone. Each of the two garments now costs **one use**. A Bone Needle sews three things and is then gone for good; a Metal Needle sews one and turns into a **Metal Knife Blank**, which you can forge back into a needle — so the metal is never actually lost. That recoverability, not a bigger budget, is what the metal tier is really worth.
+
+### Fixed
+
+- **Lamps, candles and incense burners could not be lit when they were nearly out of fuel.** Their "is there anything to light" check was written as if fuel were measured 0–100 when the game measures it 0–1, so every one of them silently demanded a **tenth of a full tank** before it would take a flame — leaving a stub of wax or straw that could not be burned and could not be removed. The Ceramic Lamp, Scented Candle and both Incense Burners now light with any fuel at all.
+- **Packing juniper into a burner that still held straw destroyed the straw.** The same 0–100 mix-up made the "only when empty" check accept a burner holding up to 4.8 straw, which was then thrown away without a word. It now means genuinely empty, and the burner tells you to burn the straw down or tip it out first.
+
+### Notes
+
+- The juniper burner reuses the existing burner artwork — same clay pot, different herb — rather than shipping a placeholder. Dedicated art has not been commissioned.
+- The base game already provides the **Bone Needle** and the **Bone Hook** (an early fishing hook), both with their own blueprints. This release deliberately does *not* add mod copies of either; the Weaver already trades the real Bone Needle, and the two blueprints above now use it.
+
+---
+
+## [1.68.8] — 2026-08-26
+
+Closes the 2026-08-25 chiweichiwei player-feedback batch. 1.68.4 shipped the approved half (trait tab moves, numeric trait fixes, cottage hearths); this release ships the remainder — the communal wood pile that the village fires now run on, and the Village Founder wording fix — and records the two reports that were investigated and closed with no code change.
+
+### Added
+
+- **A Town Wood Pile now stands in the Village, and the village's fires run on it.** Until now the hearths in the Inn, the Academy, the Village Hall, the Miller's and Weaver's cottages and the Apothecary's cabin quietly refuelled themselves out of nothing, forever. They now draw from a single shared stack beside the square. Drag **twigs, long sticks, wood or firewood** onto the pile to fill its **Wood Stockpile** bar. **Each piece is worth exactly what it would have given a real fire** — a log of wood about 35, pine or alder about 21, twigs 7, a long stick 4 — measured in the same units a fireplace actually burns, so 96 in the bar is exactly one full hearth, and part-burnt fuel is worth whatever is left of it. Fuel drops in a stack at a time, not one card per drag. The village pays for surplus: **Collect as Copper** takes 50 stockpile for one copper nugget and **Collect as Salt** takes 30 for one salt, the same rates the Market Stall uses. Each collection hands over a single item, and **a full hearth's worth is always held back and cannot be cashed out**, so selling surplus can never be the thing that puts the fires out.
+- **The pile starts with one hearth's worth of fuel (96) already in it.** An existing save that has never seen the pile therefore gets a grace period rather than six fires going out at once the moment you update.
+- **Only wood is accepted.** Peat and charcoal burn perfectly well in a fireplace and are deliberately not accepted here — this is a wood pile, and "it takes wood" is an easier rule to hold in your head than an arbitrary list of everything flammable.
+
+### Changed
+
+- **The six village hearths can now go cold, and that is deliberate.** When the stockpile cannot cover a full top-up, the mod skips it entirely instead of trickling in a partial one: the fire burns down on its own normal schedule and, once out, stops being tended until someone restocks the pile — at which point auto-maintenance resumes on its own. Nothing stops you feeding and lighting any of these hearths by hand in the meantime; they are ordinary fireplaces, and only the *automatic* tending runs off the pile. This is the fix for the long-running "village fireplaces still bugged" report; the fires were never broken so much as unexplained, and they now have a visible, restockable reason to be lit. All six interiors are gated together, not just the Inn and the Academy the original report named. If the pile's hidden fuel tally is ever unreadable the hearths keep topping up as before, so a data problem can never leave the whole village cold.
+- **The stockpile holds 672 — enough to re-light all six hearths from cold at once, with room to spare.** An earlier draft of this feature capped it at 480, which was quietly less than the 576 that relighting all six costs: a player who let every fire go out could never have recovered them, even from a completely full pile.
+- **Village Founder now explains why every village-progress tracker reads as finished from day one.** The trait starts you with all four buildings up, the residents moved in and their first errands settled, so the Inn Keeper's and Professor's building news, the notice board, and every other building-complete marker are all legitimately complete before you take a step. Its description now says so outright — this was reported as "3 buildings always shows complete", which is the trait working as designed rather than a bug. Wording only; the trait's effects, cost and tab are unchanged. Fully translated (English + Chinese).
+
+### Investigated — no change needed
+
+- **"Sunshine Allergy does nothing."** No trait by that name exists in the mod. The real trait is **Sensitive Skin**, and it correctly targets the base game's Sun Allergy stat, exactly as its description says.
+- **"The Inn Keeper promises a free fire pit."** No line anywhere in the Inn Keeper's dialogue or the mod's text offers free or pre-fuelled fire access. Nothing was promised, so nothing is missing.
+
+### Notes
+
+- The trait tab moves and the Drunkard/Fugitive/Lost Tourist/Deadly Disease ongoing-effect fixes from this same feedback batch already shipped, and are documented, in **1.68.4** — they are not repeated here. Three further traits from that batch (**Agoraphobia**, **Nyctophobia**, **Lunacy**) remain deliberately unwired: each describes a conditional effect (outdoors only, night without light, escalating with the moon) that a flat ongoing modifier would misrepresent, and each needs real runtime logic that is not in this release. They are tracked, not forgotten.
+
+## [1.68.7] — 2026-08-25
+
+### Added
+
+- **New "Village Home Sign" decoration, with a carve-it-later face you can change your mind about.** A small buildable nameboard (Plank ×2, Long Stick ×2, Rope ×1), researched in the Construction › Furniture tab from the start of a run — no village phase, no quest, no NPC gate. It goes up as a plain rustic board worth Comfort +4. **Carve the Face** (4 hours) cuts a bordered panel and a run of relief work into it: the card's picture *and* its description change on the spot, on the same card in the same place, and the Comfort bonus rises to +8. **Plane the Face Smooth** (2 hours) takes the carving back off and returns the plain board. Both directions are free, repeatable as many times as you like, and never consume or duplicate the sign — this is the same in-place swap the Market Stall's **Set Up Awning** / **Take Down Awning** pair already uses. **Take Down Sign** recovers the build materials as usual.
+- **Known limitation — the two sign faces currently ship blank placeholder art.** The mechanic is complete and playable, but until the real illustrations are drawn the sign renders as a plain white card in both states, so the two faces look identical in-game even though the description and the Comfort bonus do change correctly. This was a deliberate choice to avoid holding the feature back on art; the finished pictures will drop in without any further change on your side.
+
+### Fixed
+
+- **README no longer advertises the Village Well's "Re-face the Well" option, which has not existed since 1.33.4.** That one-time re-skin action and its second well card were removed as dead weight back in 1.33.4 (the well now simply shows the correct forest-cut art from the moment it is built), but the README kept describing a choice between "Discard the Old Sketch" and "Re-face the Well". Only **Discard the Old Sketch** is real. No gameplay change — this corrects the documentation to match what actually ships.
+
+## [1.68.6] — 2026-08-25
+
+### Added
+
+- **Spring-thaw flood at the Clay Shoal ford — the third seasonal route gate.** Winter already drifts snow across the three Village roads and autumn drops a pine across the Pine Trail ↔ Highland Pines leg; spring now swells the river over the shoal and closes the **Clay Shoal ↔ Sodden Hollow** leg with a **Flooded Ford**. Two ways through, and both notify the gate: **wait it out** on the bank (a `Wait for the Floodwaters to Fall` self-action, 3 waits × 8 hours = a full day) or lay the new **Plank Causeway** across it (drag-on interaction, opens the road in one action and consumes the causeway). Simply outlasting the season also reopens it — the gate is season-triggered, so once spring ends the road is clear regardless. Once the ford is open it stays open for the rest of the spring; the marker expires on the shipped 60-day regrowth timer, so the next spring floods it again. Sodden Hollow is never cut off while the ford is shut — the Moss-Grown Clearing → Foraging Forest loop still reaches it.
+- **Plank Causeway** (`bpcmcplankcauseway` → `cmccausewaykit`) — a new construction blueprint under Construction › House Building, research 16 ticks, one 10-DTP stage costing 8 Planks + 4 Rope + 10 Stone. Location-locked to Clay Shoal in **both** `BlueprintCardConditions` and `BuildingCardConditions`, so it can neither be staged nor continued anywhere else. The finished causeway keeps indefinitely — build one out of season and have it ready for the next thaw.
+
+  Both clearing actions are keyed under the gate's `ClearActionKeyPrefix` (`CMC_ClayShoalFlood_CI_Ford`), the invariant whose violation softlocked the Snow Drift road in 1.67.2; `Development_Tools/Tests/MapNodes-Schema.Tests.ps1` enforces it.
+
+## [1.68.5] — 2026-08-25
+
+### Added
+
+- **Village Guards now show how the fight is actually going.** Inspecting a guard you have traded blows with adds a two-clause condition line under her description — one clause for how badly she is cut up ("Bleeding badly — the wounds are starting to tell", "Barely standing; the next solid blow could be the last"), one for how close her nerve is to going ("Rattled, but holding the line", "A breath away from breaking and running"). A guard fight is a running battle rather than a single duel: every guard Encounter saves her remaining Blood and Morale onto her when you break off, so the next engagement resumes from where the last one stopped. Until now there was no way to see that state — you could not tell whether one more exchange would kill her (Blood at zero) or merely rout her (Morale at zero), which are very different outcomes, since killing a guard maxes Village Crime and carries a much heavier jail sentence. A guard currently serving out a defeat cooldown shows a single "beaten" line instead. Display only: nothing about combat, pursuit, crime or the jail changed, and a guard you have never fought reads exactly as before. Fully translated (English + Chinese).
+
+## [1.68.4] — 2026-08-25
+
+Character-creation trait pass, resolving the approved half of the 2026-08-25 chiweichiwei player-feedback batch. The numeric values below are a first tuning pass, not final balance — they are expected to move again once played.
+
+### Changed
+
+- **11 traits moved to the character-creation tab they actually belong in.** Several CMC traits had been sitting in a tab that didn't match what they do, which made them hard to find next to the vanilla traits they resemble. Black Thumb, Natural Trader, and Past Life Memories moved to **Knowledge** (they are backgrounds/aptitudes); Fugitive, Weak Courage, and Weak Cowardice moved to **Psychological** (fear and nerve); Seasonal Allergies and Weak Stomach moved to **Physiological** (innate bodily reactions) — CMC's first use of that tab; Graduate, Quiet Village, and Village Founder moved to **Situational** (they change the state of the world you start in, not your body or mind). No trait's effects, cost, or availability changed as part of this move.
+- **Bleeder no longer inflicts bleeding out of nowhere — it now makes blood loss harder to come back from.** Previously the trait pushed the BloodLoss stat directly, which is why it read as "I am bleeding and nothing stops it." It now applies a drag on **BloodPressure recovery** instead: blood still returns on its own, at roughly half the normal rate. With no wound, nothing happens at all; with a wound, the recovery afterward is the slow part — which is what the trait's description always claimed.
+- **Aged now actually does something.** It had been pointed at a stat the game does not drive (`StaminaRecovery`), so the trait's stamina penalty never applied. It now reduces base **Stamina** by 8 (of a 32 maximum), alongside its existing ongoing Pain.
+- **Nausea penalties lowered on Deadly Disease, Leper, and Weak Stomach; Rash raised on Leper and Seasonal Allergies.** Nausea's maximum is only 24, so the old values (15–20) sat at or near permanently maxed-out nausea; they are now 2–3. Rash's maximum is 384 and it decays quickly on its own, so the old values (30) were gone within minutes of a new game; Leper now sits at 193 and Seasonal Allergies at 96, which is where those traits become noticeable rather than cosmetic.
+- **Three traits that advertised an ongoing effect but shipped an empty one now have a real one.** Fugitive and Lost Tourist apply a mild ongoing **Stress** pressure, Deadly Disease applies ongoing **Nausea** and **Rash** plus a fixed ongoing **Pain** penalty, and Drunkard — whose description already promised restlessness — applies the same mild Stress pressure. Each ongoing rate is deliberately set at or below the stat's own natural recovery, matching how the base game's Anxious trait is built, so none of them can spiral to a maxed-out stat the way the traits fixed in 1.67.7 did.
+- **The three resident cottages now keep their fires going like the rest of the village.** The Miller's Cottage, the Weaver's Cottage, and the Apothecary's Cabin each get the same self-maintaining Fireplace the Inn, the Academy, and the Village Hall already had, so stepping inside an NPC's home in winter is no longer colder than standing outside it. This reuses the existing fireplace-tending mechanism — no blanket indoor temperature bonus was added, and a fireplace you place yourself in one of those rooms is left alone.
+
+### Fixed
+
+- **A stale English reference line on the Hand Wraps description in the Chinese localization file** (the Chinese text itself was already correct and is unchanged).
+
+## [1.68.3] — 2026-08-25
+
+### Changed
+
+- **Apothecary's Cabin and Rare Herb Mixture are no longer hard-dependent on Herbs & Fungi.** Player report: uninstalling H&F fixed a performance complaint (see Herbs and Fungi 1.10.16) but broke the Apothecary questline, since the Cabin's finishing stage and the Rare Herb Mixture recipe both required H&F's Dried Hemp Flower/Dried Ginseng/Dried Reishi with no substitute. Both now accept any mix of six rare herbs via the vanilla `GpTag_SpiritHerb` blueprint tab group (`RequiredTabGroupWarpData`) — membership in a tab group is a list on the group itself (`CardTabGroup.IncludedCards`), not a tag on the card, so a new `GameSourceModify/GpTag_SpiritHerb.json` patch appends H&F's three dried herbs plus two new CMC-native herbs — **Silverwort Blossom** and **Hollow Sage** (forageable in the Foraging Forest and nearby groves: Hunter's Crossing, High Grove, Mossy Clearing) — to that group's existing member list, which harmlessly skips the three H&F entries (logged, not fatal) if H&F isn't installed. `GpTag_SpiritHerb` already ships with 9 vanilla members (Fairyweed/Spirit Mushrooms/Fly Agaric, fresh/dried/powder) that also count, one of which (Spirit Mushrooms) is already forageable in the Foraging Forest today — so both recipes were already loosely completable on pure vanilla, and are now robustly so with the two new CMC herbs added. `README.md` updated to match; the Rare Herb Mixture's description no longer names specific H&F herbs.
+
+## [1.68.2] — 2026-08-25
+
+### Fixed
+
+- **The Academy's Carpentry course folded back onto the Lecture Hall — no more separate "Carpentry Bench" table with its own, out-of-sync Tuition Account.** Player report: the Carpentry Bench's Tuition Account balance never matched the Lecture Hall's, because they were genuinely two different accounts on two different physical cards — depositing currency on one never funded the other. The Carpentry Bench existed only because the Lectern's other six courses had already claimed every visible progress-stat slot on the card; Carpentry now uses `CardData`'s previously-unused 8th durability slot (`Progress`) instead, so it lives as a 7th "Study"/"Final Exam" action pair directly on the Lectern. There is only one Academy study card, one Tuition Account, and one balance to fund from now on. Existing saves with progress already banked on a Carpentry Bench instance keep that card in the world (harmless, no longer referenced by any action); new Carpentry study/deposits happen on the Lectern going forward. **[Correction, 1.68.23: the last sentence was wrong. Deleting the bench's CardData meant `GameManager.LoadCard` silently dropped every saved bench on the next load (a saved UID that no longer resolves returns false there), taking any balance and study hours banked on it with it. 1.68.23 restores the card as a retired stub with a Transfer to Lecture Hall action - see that entry.]**
+
 ## [1.68.1] — 2026-08-24
 
 ### Changed

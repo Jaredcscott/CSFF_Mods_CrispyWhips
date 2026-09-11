@@ -5,11 +5,11 @@
   "AlwaysUpdate": false,
   "CardName": {
     "LocalizationKey": "CMC_CarpentryBench_CardName",
-    "DefaultText": "Carpentry Bench"
+    "DefaultText": "Carpentry Bench (retired)"
   },
   "CardDescription": {
     "LocalizationKey": "CMC_CarpentryBench_CardDescription",
-    "DefaultText": "A second study station, set up for the Academy's newest course. Drag Salt, metal Nuggets, or Duros Coins onto the bench to fund your Tuition Account (holds up to 1000); each two-hour study session draws 100 from that balance, including the final exam. Study Carpentry to advance the coursework; when only one session remains, sit the final exam to earn your degree."
+    "DefaultText": "This bench was retired when the Carpentry course moved onto the Lecture Hall lectern, which now holds a single Tuition Account for every course. Anything still banked here can be carried over: Transfer to Lecture Hall moves this bench's Tuition Account balance (as much as the lectern's account can hold) and any Carpentry study hours onto the lectern, then clears the bench away. If the lectern's account is full, the remainder stays here until you transfer again."
   },
   "CardImageWarpData": "VillageAcademyLectern",
   "CardImageWarpType": 3,
@@ -53,144 +53,23 @@
     "HasActionOnZero": false,
     "HasActionOnFull": false
   },
-  "CardInteractions": [
+  "DismantleActions": [
     {
       "ActionName": {
-        "LocalizationKey": "CMC_CarpentryBench_CI_Deposit",
-        "DefaultText": "Deposit Currency"
+        "LocalizationKey": "CMC_CarpentryBench_DA_Transfer",
+        "DefaultText": "Transfer to Lecture Hall"
       },
       "ActionDescription": {
-        "LocalizationKey": "CMC_CarpentryBench_CI_Deposit_Desc",
-        "DefaultText": "Adds the value of the dragged Salt, Nugget, or Duros Coin to the Tuition Account (max 1000)."
+        "LocalizationKey": "CMC_CarpentryBench_DA_Transfer_Desc",
+        "DefaultText": "Moves this bench's Tuition Account balance and Carpentry study hours onto the Lecture Hall lectern and removes the bench. If the lectern's account (1000 max) cannot take the whole balance, the rest stays on the bench for a later transfer."
       },
       "DaytimeCost": 0,
       "UseMiniTicks": 1,
       "ActionTagsWarpData": [],
       "ActionTagsWarpType": 3,
-      "CompatibleCards": {
-        "TriggerCards": [],
-        "TriggerTags": [],
-        "TriggerCardsWarpData": [
-          "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
-          "4b0f4937a5ecb90499428c8c10288afc",
-          "e5f5d2a633f3437780d6198c3d1e9fdd"
-        ],
-        "TriggerCardsWarpType": 3
-      },
-      "GivenCardChanges": {
+      "ProducedCards": [],
+      "ReceivingCardChanges": {
         "ModType": 3
-      },
-      "ReceivingCardChanges": {
-        "ModType": 1
-      },
-      "ProducedCards": []
-    }
-  ],
-  "DismantleActions": [
-    {
-      "ActionName": {
-        "LocalizationKey": "CMC_CarpentryBench_DA_Carpentry",
-        "DefaultText": "Study Carpentry"
-      },
-      "ActionDescription": {
-        "LocalizationKey": "CMC_CarpentryBench_DA_Carpentry_Desc",
-        "DefaultText": "A two-hour session planing boards and fitting joints. The full course takes 24 hours of study; each session draws 100 from your Tuition Account. When one session remains, the final exam becomes available."
-      },
-      "DaytimeCost": 8,
-      "UseMiniTicks": 0,
-      "ActionTagsWarpData": [],
-      "ActionTagsWarpType": 3,
-      "RequiredReceivingDurabilities": {
-        "RequiredSpecial1Percent": {
-          "Active": true,
-          "FloatValue": 0.0,
-          "MaxValue": 0.875,
-          "ScaleRequirementPerPortionOfLiquid": { "Active": false, "FloatValue": 0.0 }
-        },
-        "HideActionIfNotMet": true,
-        "FailMessage": {
-          "LocalizationKey": "CMC_CarpentryBench_StudyBlocked",
-          "DefaultText": "The coursework is complete; sit the final exam."
-        }
-      },
-      "StatModifications": [
-        {
-          "Stat": { "m_FileID": 0, "m_PathID": 0 },
-          "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e",
-          "StatWarpType": 3,
-          "ValueModifier": { "x": -5.0, "y": -5.0 },
-          "RateModifier": { "x": 0.0, "y": 0.0 },
-          "ApplyEachTick": false,
-          "InstantModifier": true
-        },
-        {
-          "Stat": { "m_FileID": 0, "m_PathID": 0 },
-          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
-          "StatWarpType": 3,
-          "ValueModifier": { "x": -4.0, "y": -4.0 },
-          "RateModifier": { "x": 0.0, "y": 0.0 },
-          "ApplyEachTick": false,
-          "InstantModifier": true
-        }
-      ],
-      "ProducedCards": [],
-      "ReceivingCardChanges": {
-        "ModType": 1,
-        "Special1Change": { "x": 2.0, "y": 2.0 }
-      }
-    },
-    {
-      "ActionName": {
-        "LocalizationKey": "CMC_CarpentryBench_DA_CarpentryFinal",
-        "DefaultText": "Final Exam: Carpentry"
-      },
-      "ActionDescription": {
-        "LocalizationKey": "CMC_CarpentryBench_DA_CarpentryFinal_Desc",
-        "DefaultText": "The final two-hour examination. Pass it to earn the Carpentry degree: unlocks the Outfit Wardrobe and Wicker Chair blueprints."
-      },
-      "DaytimeCost": 8,
-      "UseMiniTicks": 0,
-      "ActionTagsWarpData": [],
-      "ActionTagsWarpType": 3,
-      "AddedInRunPerksWarpData": ["cmcperkgradcarpentry"],
-      "AddedInRunPerksWarpType": 3,
-      "RequiredReceivingDurabilities": {
-        "RequiredSpecial1Percent": {
-          "Active": true,
-          "FloatValue": 0.90,
-          "MaxValue": 0.99,
-          "ScaleRequirementPerPortionOfLiquid": { "Active": false, "FloatValue": 0.0 }
-        },
-        "HideActionIfNotMet": true,
-        "FailMessage": {
-          "LocalizationKey": "CMC_CarpentryBench_FinalNotReady",
-          "DefaultText": "You are not ready for the final examination."
-        }
-      },
-      "StatModifications": [
-        {
-          "Stat": { "m_FileID": 0, "m_PathID": 0 },
-          "StatWarpData": "9e03b1c645e4c1c40b382ceac8387d4e",
-          "StatWarpType": 3,
-          "ValueModifier": { "x": -5.0, "y": -5.0 },
-          "RateModifier": { "x": 0.0, "y": 0.0 },
-          "ApplyEachTick": false,
-          "InstantModifier": true
-        },
-        {
-          "Stat": { "m_FileID": 0, "m_PathID": 0 },
-          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
-          "StatWarpType": 3,
-          "ValueModifier": { "x": -4.0, "y": -4.0 },
-          "RateModifier": { "x": 0.0, "y": 0.0 },
-          "ApplyEachTick": false,
-          "InstantModifier": true
-        }
-      ],
-      "ProducedCards": [],
-      "ReceivingCardChanges": {
-        "ModType": 1,
-        "Special1Change": { "x": 2.0, "y": 2.0 }
       }
     }
   ],

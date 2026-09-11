@@ -1,0 +1,50 @@
+{
+    "UniqueID": "cmcHollowSage",
+    "CardName": {
+        "ParentObjectID": "cmcHollowSage",
+        "LocalizationKey": "CMC_HollowSage_CardName",
+        "DefaultText": "Hollow Sage"
+    },
+    "CardDescription": {
+        "ParentObjectID": "cmcHollowSage",
+        "LocalizationKey": "CMC_HollowSage_CardDescription",
+        "DefaultText": "A hardy, silver-leafed sage that grows near old hollows and root-shadowed ground. Its bitter scent lingers on the hands long after picking."
+    },
+    "CardType": 0,
+    "ObjectWeight": 15.0,
+    "TradingValue": 35.0,
+    "MaxStack": 10,
+    "CardImageWarpData": "HealersMoss",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "PassiveEffects": []
+}

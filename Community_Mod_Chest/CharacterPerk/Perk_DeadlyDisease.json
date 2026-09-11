@@ -44,16 +44,16 @@
                 "y": 0.0
             },
             "RateModifier": {
-                "x": 0.0,
-                "y": 0.0
+                "x": 0.4,
+                "y": 0.4
             },
             "MinValueModifier": {
                 "x": 0.0,
                 "y": 0.0
             },
             "MaxValueModifier": {
-                "x": 0.0,
-                "y": 0.0
+                "x": -9.0,
+                "y": -9.0
             },
             "CannotModifyBeyond": {
                 "Active": false,
@@ -73,8 +73,8 @@
             "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
             "StatWarpType": 3,
             "ValueModifier": {
-                "x": 0.0,
-                "y": 0.0
+                "x": 25.0,
+                "y": 25.0
             },
             "RateModifier": {
                 "x": 0.0,
@@ -110,16 +110,16 @@
                 "y": 0.0
             },
             "RateModifier": {
-                "x": 0.0,
-                "y": 0.0
+                "x": 0.4,
+                "y": 0.4
             },
             "MinValueModifier": {
                 "x": 0.0,
                 "y": 0.0
             },
             "MaxValueModifier": {
-                "x": 0.0,
-                "y": 0.0
+                "x": -134.0,
+                "y": -134.0
             },
             "CannotModifyBeyond": {
                 "Active": false,

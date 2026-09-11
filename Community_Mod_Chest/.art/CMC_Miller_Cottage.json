@@ -1,0 +1,14 @@
+{
+  "target": "CMC_Miller_Cottage.png",
+  "sourceCard": "CottageResidentSchedulePatch.cs (CottageSpriteName field, Miller entry)",
+  "subject": "the Miller off-duty at home inside his own cottage in the evening: no apron, homespun house clothes, seated by the hearth with a mug",
+  "note": "Deliberately deviates from the /create-image white-background item template — this is a character portrait leg matching the sibling Village/Inn/Academy portrait convention (illustrated scene, not a flat white background). Judgment call made explicit per operator instructions; see CMC_Miller.png/CMC_Miller_Inn.png/CMC_Miller_Academy.png for the sibling style this matches.",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": { "imageCount": 1, "aspectRatio": "2:3", "resolution": "2K", "autoEnhancePrompt": false },
+  "prompt": "Hand-painted ink-and-watercolor character portrait illustration, in the style of a cozy hand-illustrated survival-crafting game: a weathered, friendly older man in his late fifties with short combed-back grey hair, laugh lines, and a warm relaxed smile, the village Miller now off-duty at home inside his own modest wooden cottage in the evening. He wears simple homespun house clothes, an untucked linen shirt, no work apron, no flour dust, and sits comfortably near a small stone hearth with a low fire, holding a steaming mug. The cottage room is plain and lived-in: rough wooden walls, a simple wooden chair, a folded blanket, a small shelf with a candle, warm firelight glow from the lower left, soft visible black ink linework outlines, loose confident linework, soft watercolor and gouache shading, warm muted natural palette, slight three-quarter angle bust portrait, waist-up framing, gentle warm directional light, painted illustrated background, not a plain white background, no text, no watermark, no signature, no border, no frame. Avoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple people, cropped face, blurry, low contrast, work apron, flour dust, grain sacks, mill machinery, tavern, beer mug, classroom, text, watermark, signature, logo, border, frame.",
+  "historyId": "nl2RD4CL8Z1ftiIHsJ4x",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-08/create-image/XbhdRvvhTk0K7JCPQP3H/image_1787756147786_34a1a773_1787756148541_1a7fa86e.png",
+  "credits": 27,
+  "generated": "2026-08-26"
+}

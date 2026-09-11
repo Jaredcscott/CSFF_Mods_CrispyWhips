@@ -58,7 +58,8 @@
         "BpCMCCottageWeaver",
         "BpCMCVillageHall",
         "BpCMCApothecaryCabin",
-        "BpCMCVillageWell"
+        "BpCMCVillageWell",
+        "bpcmcplankcauseway"
     ],
     "Tab_2_Construction_Subtab_4_Furniture_TabName": [
         "comfortbpbedrollplace",
@@ -67,7 +68,8 @@
         "comfortbpcomfortablebed",
         "cmcbpwickerchair",
         "cmcbpoutfitwardrobe",
-        "comfortbpscentedcandle"
+        "comfortbpscentedcandle",
+        "bpcmcvillagehomesign"
     ],
     "Tab_1_Survival_Subtab_4_Entertainment_TabName": [
         "comfortbpheatherwreath",

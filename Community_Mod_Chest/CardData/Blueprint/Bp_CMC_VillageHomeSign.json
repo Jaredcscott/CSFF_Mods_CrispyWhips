@@ -1,0 +1,71 @@
+{
+    "UniqueID": "bpcmcvillagehomesign",
+    "CardType": 7,
+    "CardName": {
+        "ParentObjectID": "bpcmcvillagehomesign",
+        "LocalizationKey": "CMC_VillageHomeSign_BP_Name",
+        "DefaultText": "Village Home Sign"
+    },
+    "CardDescription": {
+        "ParentObjectID": "bpcmcvillagehomesign",
+        "LocalizationKey": "CMC_VillageHomeSign_BP_Desc",
+        "DefaultText": "Hang a planked nameboard between two posts to mark a home as yours. It starts as a plain rustic board; once it is up, it can be carved with a decorative face and planed smooth again at any time."
+    },
+    "CardImageWarpData": "CMC_VillageHomeSignRustic",
+    "CardImageWarpType": 3,
+    "UnlockConditionsDesc": {
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": ""
+    },
+    "StartUnlocked": false,
+    "BlueprintUnlockTicksCost": 8,
+    "BuildingDaytimeCost": 4,
+    "DeconstructDaytimeCost": 2,
+    "CardsOnBoard": [],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "NeedsRoomInLocationToSpawn": true,
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 2,
+                    "DontSpend": false
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredCardWarpData": "3db4c94184af274409f0d3eb16870f64",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 2,
+                    "DontSpend": false
+                },
+                {
+                    "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
+                    "RequiredCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 1,
+                    "DontSpend": false
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3
+        }
+    ],
+    "BlueprintResult": [
+        {
+            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+            "DroppedCardWarpData": "cmcvillagehomesignrustic",
+            "DroppedCardWarpType": 3,
+            "Quantity": { "x": 1, "y": 1 }
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
+    "BlueprintActionTagsWarpType": 3,
+    "ResearchedNotification": 0
+}

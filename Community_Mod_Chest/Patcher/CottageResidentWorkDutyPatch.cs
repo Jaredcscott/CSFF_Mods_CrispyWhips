@@ -244,7 +244,7 @@ namespace CommunityModChest.Patcher
             // Engine-native equivalent of the hand-rolled system's SharesPlayerEnv guard — never
             // yank a resident out of a live conversation.
             Reflect.SetMember(duty, "CanPerformWhileInDialog", false);
-            SetEnumField(duty, "DutyExecutionOptions", "Early");
+            SetEnumField(duty, "DutyExecutionOptions", "EarlyBeforeDurabilities");
             SetEnumField(duty, "GiveUpOptions", "GiveUpInstantly");
 
             // Null-array hygiene — the engine indexes these without guards.

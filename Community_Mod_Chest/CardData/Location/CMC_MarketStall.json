@@ -2,7 +2,8 @@
   "UniqueID": "cmcmarketstall",
   "CardType": 2,
   "CardName": {
-    "DefaultText": "Market Stall"
+    "DefaultText": "Market Stall",
+    "LocalizationKey": "CMC_MarketStall_CardName"
   },
   "CardDescription": {
     "DefaultText": "A small trading post set up in the village. Drop trade goods into the stall; merchants will purchase one item per day, building up your Sales Revenue bar. Collect earnings as copper nuggets (50 revenue each) or salt (30 revenue each). Thieves occasionally target unattended stalls.",

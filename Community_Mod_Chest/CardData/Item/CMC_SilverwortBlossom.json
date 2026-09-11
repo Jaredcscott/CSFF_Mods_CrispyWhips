@@ -1,0 +1,50 @@
+{
+    "UniqueID": "cmcSilverwortBlossom",
+    "CardName": {
+        "ParentObjectID": "cmcSilverwortBlossom",
+        "LocalizationKey": "CMC_SilverwortBlossom_CardName",
+        "DefaultText": "Silverwort Blossom"
+    },
+    "CardDescription": {
+        "ParentObjectID": "cmcSilverwortBlossom",
+        "LocalizationKey": "CMC_SilverwortBlossom_CardDescription",
+        "DefaultText": "A pale, silver-petaled flower found only in the deepest, undisturbed corners of the Foraging Forest. Apothecaries prize it for its potency."
+    },
+    "CardType": 0,
+    "ObjectWeight": 15.0,
+    "TradingValue": 35.0,
+    "MaxStack": 10,
+    "CardImageWarpData": "HealersMoss",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": false
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "PassiveEffects": []
+}

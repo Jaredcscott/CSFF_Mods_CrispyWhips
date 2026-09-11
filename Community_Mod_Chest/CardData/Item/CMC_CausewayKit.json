@@ -1,0 +1,23 @@
+{
+  "UniqueID": "cmccausewaykit",
+  "TradingValue": 60,
+  "CardType": 0,
+  "CardName": {
+    "DefaultText": "Plank Causeway",
+    "LocalizationKey": "CMC_CausewayKit_CardName"
+  },
+  "CardDescription": {
+    "DefaultText": "Heavy plank sections lashed into a roll, cut and drilled to span the ford at Clay Shoal. Drag it onto a Flooded Ford to lay it across and open the road at once. It can only be built at Clay Shoal, but it keeps indefinitely — build one in summer and have it ready for the next thaw.",
+    "LocalizationKey": "CMC_CausewayKit_CardDescription"
+  },
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "Plank",
+  "CardImageWarpType": 3,
+  "CardHelpSection": {
+    "DefaultText": "Plank Causeway",
+    "LocalizationKey": "CMC_CausewayKit_Help"
+  },
+  "CardTagsWarpData": ["tag_Structure", "tag_Craftable"],
+  "CardTagsWarpType": 3,
+  "ObjectWeight": 12
+}

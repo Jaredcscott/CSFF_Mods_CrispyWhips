@@ -219,6 +219,17 @@ namespace CommunityModChest.Patcher
                     // Action tags: borrow the original's array.
                     ironCI.ActionTags = fishCI.ActionTags;
 
+                    // GivenCardChanges: vanilla's Fish CI self-transforms the dragged tool
+                    // (ModType Transform, TransformInto -> FishingRod) to reset it after each catch.
+                    // The clone above nulled TransformInto (SO ref) while ModType (a plain enum)
+                    // survived — left as-is, GameManager.ApplyCardStateChange's Transform case
+                    // destroys the given card unconditionally, then finds TransformInto null and
+                    // never spawns a replacement, deleting the player's Iron Rod on first use.
+                    // Copy the struct and retarget the self-transform at the Iron Rod itself.
+                    var givenChanges = fishCI.GivenCardChanges;
+                    givenChanges.TransformInto = ironRodCard;
+                    ironCI.GivenCardChanges = givenChanges;
+
                     // Drop table: built from scratch — no Copy() needed.
                     ironCI.ProducedCards = BuildDropTable(
                         minnowCard, crayfishCard, perchCard, eelCard,

@@ -6,7 +6,7 @@
     "AddedCardsWarpType": 3,
     "AddedStartingHours": 0,
     "CardsOnBoardObjectives": [],
-    "CharacterPerkPerkGroup": "f913e8e1e69615943b6dfaa6dba9cda1",
+    "CharacterPerkPerkGroup": "5d894fd43dd840949ae17ae1bda18bbc",
     "CheckingNotificationDetails": 0,
     "CompleteOnLose": false,
     "CompleteOnWin": false,
@@ -40,8 +40,8 @@
             "StatWarpData": "547f09c7ea6d11d4bbf6714255b0dfd5",
             "StatWarpType": 3,
             "ValueModifier": {
-                "x": 20.0,
-                "y": 20.0
+                "x": 3.0,
+                "y": 3.0
             },
             "RateModifier": {
                 "x": 0.0,

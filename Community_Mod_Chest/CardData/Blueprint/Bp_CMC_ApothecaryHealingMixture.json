@@ -9,7 +9,7 @@
     "CardDescription": {
         "ParentObjectID": "bpcmcapothecaryhealingmixture",
         "LocalizationKey": "CMC_ApothecaryHealingMixture_BP_Desc",
-        "DefaultText": "Bundle together the rarest herbs the forest and its herb-gardens have to offer: dried ginseng, dried reishi, and dried hemp flower, bound with a handful of dried nettle. The Apothecary knows exactly what to do with it."
+        "DefaultText": "Bundle together the rarest herbs the forest and its herb-gardens have to offer, bound with a handful of dried nettle. The Apothecary knows exactly what to do with it."
     },
     "CardImageWarpData": "CMC_Alchemist_Potions",
     "CardImageWarpType": 3,
@@ -40,21 +40,9 @@
         {
             "RequiredElements": [
                 {
-                    "RequiredCardWarpData": "herbs_fungi_hemp_flower_dried",
-                    "RequiredCardWarpType": 3,
-                    "RequiredQuantity": 2,
-                    "DontSpend": false
-                },
-                {
-                    "RequiredCardWarpData": "herbs_fungi_dried_ginseng",
-                    "RequiredCardWarpType": 3,
-                    "RequiredQuantity": 2,
-                    "DontSpend": false
-                },
-                {
-                    "RequiredCardWarpData": "herbs_fungi_dried_reishi",
-                    "RequiredCardWarpType": 3,
-                    "RequiredQuantity": 2,
+                    "RequiredTabGroupWarpData": "GpTag_SpiritHerb",
+                    "RequiredTabGroupWarpType": 3,
+                    "RequiredQuantity": 6,
                     "DontSpend": false
                 },
                 {

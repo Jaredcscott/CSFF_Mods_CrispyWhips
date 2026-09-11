@@ -1,0 +1,30 @@
+{
+    "UniqueID": "cmcStatTownWoodPileFuel",
+    "GameName": {
+        "LocalizationKey": "CMC_TownWoodPileFuel_StatName",
+        "DefaultText": "Town Wood Pile"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_TownWoodPileFuel_StatDescription",
+        "DefaultText": "Hidden fuel pool for the village's communal wood pile, measured in the same units the vanilla Fireplace burns (1 per tick, 96 for a full hearth). Rises when fuel is stacked on the Town Wood Pile in the village, falls whenever one of the six village hearths is automatically topped off or re-lit. Starts at 96 - one full hearth's worth - so a run that has never seen the pile still gets a grace period before the village fires start going out. This is the canonical store: the pile's own Wood Stockpile bar is a display mirror of it, because the hearths that draw on it sit in interiors where the pile card is not on the board."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 96.0,
+    "MinMaxValue": {"x": 0.0, "y": 672.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

@@ -1,0 +1,196 @@
+{
+    "UniqueID": "comfortincenseburnerjuniper",
+    "CardName": {
+        "ParentObjectID": "comfortincenseburnerjuniper",
+        "LocalizationKey": "IncenseBurnerJuniper_CardName",
+        "DefaultText": "Juniper Incense Burner"
+    },
+    "CardDescription": {
+        "ParentObjectID": "comfortincenseburnerjuniper",
+        "LocalizationKey": "IncenseBurnerJuniper_CardDescription",
+        "DefaultText": "The same clay vessel, packed with dry juniper needles instead of straw. Light it from a fire to raise a sharp, resinous smoke that biting insects will not settle in."
+    },
+    "CardType": 0,
+    "ObjectWeight": 150.0,
+    "TradingValue": 9.0,
+    "DoesNotPile": true,
+    "CardImageWarpData": "IncenseBurner",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": [],
+    "CardTagsWarpType": 3,
+    "WhenCreatedSoundsWarpData": [
+        "Stone"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "SpoilageTime": {
+        "Active": false
+    },
+    "UsageDurability": {
+        "Active": false
+    },
+    "FuelCapacity": {
+        "Active": true,
+        "FloatValue": 24.0,
+        "CardStatName": {
+            "ParentObjectID": "comfortincenseburnerjuniper",
+            "LocalizationKey": "IncenseBurnerJuniper_FuelCapacity_CardStatName",
+            "DefaultText": "Juniper"
+        },
+        "MaxValue": 48.0,
+        "RatePerDaytimePoint": 0.0,
+        "HidingOptions": 1,
+        "TextDisplay": 0,
+        "NumberPrecision": 0,
+        "HasActionOnZero": false,
+        "HasActionOnFull": false,
+        "CountsForTradingValue": false,
+        "OverrideIconWarpData": "Flame",
+        "OverrideIconWarpType": 3
+    },
+    "Progress": {
+        "Active": false
+    },
+    "SpecialDurability1": {
+        "Active": false
+    },
+    "SpecialDurability2": {
+        "Active": false
+    },
+    "SpecialDurability3": {
+        "Active": false
+    },
+    "SpecialDurability4": {
+        "Active": false
+    },
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "comfortincenseburnerjuniper",
+                "LocalizationKey": "IncenseBurnerJuniper_Refuel_ActionName",
+                "DefaultText": "Add More Juniper"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "comfortincenseburnerjuniper",
+                "LocalizationKey": "IncenseBurnerJuniper_Refuel_ActionDescription",
+                "DefaultText": "Pack more dry juniper needles into the burner vessel."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [
+                "Herb"
+            ],
+            "ActionSoundsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "684f89c7e4f85764fb037b5da5bc21dc"
+                ],
+                "TriggerCardsWarpType": 3
+            },
+            "StackCompatible": true,
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "FuelChange": {
+                    "x": 24.0,
+                    "y": 24.0
+                }
+            },
+            "GivenCardChanges": {
+                "ModType": 3
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "comfortincenseburnerjuniper",
+                "LocalizationKey": "IncenseBurnerJuniper_Light_ActionName",
+                "DefaultText": "Light Juniper Incense"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "comfortincenseburnerjuniper",
+                "LocalizationKey": "IncenseBurnerJuniper_Light_ActionDescription",
+                "DefaultText": "Touch a flame to the needles to start them smoldering."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [
+                "FireIgnite"
+            ],
+            "ActionSoundsWarpType": 3,
+            "RequiredReceivingDurabilities": {
+                "RequiredFuelPercent": {
+                    "Active": true,
+                    "FloatValue": 0.001,
+                    "MaxValue": 1.0
+                },
+                "HideActionIfNotMet": true,
+                "FailMessage": {
+                    "ParentObjectID": "comfortincenseburnerjuniper",
+                    "LocalizationKey": "IncenseBurnerJuniper_NeedsFuel",
+                    "DefaultText": "The burner needs juniper needles first."
+                }
+            },
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerTagsWarpData": [
+                    "tag_Fire",
+                    "tag_FireSource"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "StackCompatible": false,
+            "GivenCardChanges": {
+                "ModType": 0
+            },
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "comfortincenseburnerjuniperlit",
+                "TransformIntoWarpType": 3,
+                "TransferFuel": true,
+                "SpawnTransformAtSource": true
+            }
+        }
+    ],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "comfortincenseburnerjuniper",
+                "LocalizationKey": "IncenseBurnerJuniper_TipOut_ActionName",
+                "DefaultText": "Tip Out the Needles"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "comfortincenseburnerjuniper",
+                "LocalizationKey": "IncenseBurnerJuniper_TipOut_ActionDescription",
+                "DefaultText": "Empty the unburnt needles out of the vessel so it can take straw again."
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "ActionSoundsWarpData": [
+                "Herb"
+            ],
+            "ActionSoundsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                },
+                "TransformIntoWarpData": "comfortincenseburner",
+                "TransformIntoWarpType": 3,
+                "TransferFuel": false,
+                "SpawnTransformAtSource": true
+            }
+        }
+    ]
+}

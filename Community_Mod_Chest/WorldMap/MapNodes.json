@@ -131,6 +131,12 @@
         "Condition": { "Type": "AlwaysTrue" }
       },
       {
+        "UID": "cmcTownWoodPile",
+        "MaxOnBoard": 1,
+        "ForceStay": true,
+        "Condition": { "Type": "AlwaysTrue" }
+      },
+      {
         "UID": "178d1025e13b79141882dbb5ed3e9494",
         "MaxOnBoard": 1,
         "ForceStay": true,
@@ -257,6 +263,20 @@
         "PathCost": 10.0,
         "TravelDirection": "East",
         "HideConnection": false
+      }
+    ],
+    "SealableGates": [
+      {
+        "ConnectionUID": "cmcEnvMarshHollow",
+        "Granularity": "Edge",
+        "SealTrigger": { "Type": "Season", "UID": "Spring" },
+        "ChallengeCardUID": "cmcClayShoalFlood",
+        "ClearActionKeyPrefix": "CMC_ClayShoalFlood_CI_Ford",
+        "MultiHit": true,
+        "MarkerUID": "cmc_clayshoal_flood_cleared",
+        "MarkerEnvUID": "cmcEnvClayFlats",
+        "SeedOnEnvUIDs": ["cmcEnvClayFlats", "cmcEnvMarshHollow"],
+        "ResealCondition": { "Type": "TimerRegrowth", "Days": 60 }
       }
     ]
   },

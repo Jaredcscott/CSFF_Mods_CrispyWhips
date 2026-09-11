@@ -1,0 +1,13 @@
+{
+  "target": "CMC_VillageHomeSignCarved.png",
+  "sourceCard": "CMC_VillageHomeSignCarved.json",
+  "subject": "a carved wooden nameboard sign, a single plank slung on rope between two upright posts, its face cut with a recessed bordered panel and a run of shallow relief scrollwork along the crossbar, warm honey-toned timber",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": { "imageCount": 1, "aspectRatio": "2:3", "resolution": "2K", "autoEnhancePrompt": false },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a carved wooden nameboard sign, a single plank slung on rope between two upright posts, its face cut with a recessed bordered panel and a run of shallow relief scrollwork along the crossbar, warm honey-toned timber, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame. Avoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame.",
+  "historyId": "x6srpu2IanfUBaiJFvgY",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-08/create-image/XbhdRvvhTk0K7JCPQP3H/image_1787756109333_dac9c25b_1787756109758_2bfccc0a.png",
+  "credits": 27,
+  "generated": "2026-08-26"
+}

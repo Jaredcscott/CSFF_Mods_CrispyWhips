@@ -70,7 +70,7 @@
           "DontSpend": true,
           "EffectOnIngredient": {
             "ModType": 1,
-            "UsageChange": { "x": -15.0, "y": -15.0 }
+            "UsageChange": { "x": -3.0, "y": -3.0 }
           },
           "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
           "RequiredTabGroupWarpData": "GpTag_Needle",

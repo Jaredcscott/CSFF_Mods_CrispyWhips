@@ -1,0 +1,138 @@
+{
+    "UniqueID": "cmcvillagehomesigncarved",
+    "CardType": 2,
+    "CardName": {
+        "ParentObjectID": "cmcvillagehomesigncarved",
+        "LocalizationKey": "CMC_VillageHomeSignCarved_CardName",
+        "DefaultText": "Village Home Sign"
+    },
+    "CardDescription": {
+        "ParentObjectID": "cmcvillagehomesigncarved",
+        "LocalizationKey": "CMC_VillageHomeSignCarved_CardDescription",
+        "DefaultText": "The same planked nameboard, its face cut with a bordered panel and a run of relief work along the crossbar. It reads as a home someone is proud of rather than a plot someone happens to hold. The carving can be planed off again if the plain board is preferred."
+    },
+    "CardHelpSection": {
+        "ParentObjectID": "cmcvillagehomesigncarved",
+        "LocalizationKey": "CMC_VillageHomeSignCarved_CardHelpSection",
+        "DefaultText": "Village Home Sign"
+    },
+    "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+    "CardImageWarpData": "CMC_VillageHomeSignCarved",
+    "CardImageWarpType": 3,
+    "CardTagsWarpData": ["tag_Structure"],
+    "CardTagsWarpType": 3,
+    "ObjectWeight": 200.0,
+    "TradingValue": 0.0,
+    "DoesNotPile": true,
+    "UniqueOnBoard": false,
+    "CannotBeTrashed": false,
+    "NeedsRoomInLocationToSpawn": false,
+    "WhenCreatedSoundsWarpData": ["Wood"],
+    "WhenCreatedSoundsWarpType": 3,
+    "UsageDurability": { "Active": false },
+    "FuelCapacity": { "Active": false },
+    "Progress": { "Active": false },
+    "SpecialDurability1": { "Active": false },
+    "SpecialDurability2": { "Active": false },
+    "SpecialDurability3": { "Active": false },
+    "SpecialDurability4": { "Active": false },
+    "CardInteractions": [],
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "cmcvillagehomesigncarved",
+                "LocalizationKey": "CMC_VillageHomeSignCarved_DA_Plane_ActionName",
+                "DefaultText": "Plane the Face Smooth"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "cmcvillagehomesigncarved",
+                "LocalizationKey": "CMC_VillageHomeSignCarved_DA_Plane_ActionDescription",
+                "DefaultText": "Work the relief and the border back off the board, leaving the plain rustic face."
+            },
+            "DaytimeCost": 2,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": [],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [],
+            "ProducedCards": [],
+            "ReceivingCardChanges": {
+                "ModType": 2,
+                "TransformInto": { "m_FileID": 0, "m_PathID": 0 },
+                "TransformIntoWarpData": "cmcvillagehomesignrustic",
+                "TransformIntoWarpType": 3,
+                "TransferInventory": true,
+                "TransferSpecial1": true,
+                "SpawnTransformAtSource": true
+            }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "cmcvillagehomesigncarved",
+                "LocalizationKey": "CMC_VillageHomeSignCarved_DA_Dismantle",
+                "DefaultText": "Take Down Sign"
+            },
+            "DaytimeCost": 2,
+            "UseMiniTicks": 0,
+            "ActionTagsWarpData": ["HandAction"],
+            "ActionTagsWarpType": 3,
+            "StatModifications": [],
+            "ProducedCards": [
+                {
+                    "CollectionName": "Recovered Materials",
+                    "DropSavedBpIngredients": true,
+                    "DroppedIfNoBpIngredient": [
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "57460207bbf77fa4fb6720aed5d84851",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 2, "y": 2 }
+                        },
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "3db4c94184af274409f0d3eb16870f64",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 2, "y": 2 }
+                        },
+                        {
+                            "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+                            "DroppedCardWarpData": "a7a58aa687df66e47a42fc13e0fdbeaa",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": { "x": 1, "y": 1 }
+                        }
+                    ],
+                    "DroppedCards": []
+                }
+            ],
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
+    "PassiveStatEffects": [],
+    "PassiveEffects": [
+        {
+            "EffectName": "Comfort (+8)",
+            "OnlyWhenEquipped": false,
+            "EquippedOnBodyOnly": false,
+            "Conditions": {
+                "NotInBackground": true
+            },
+            "StatModifiers": [
+                {
+                    "Stat": { "m_FileID": 0, "m_PathID": 0 },
+                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 8.0, "y": 8.0 },
+                    "RateModifier": { "x": 0.0, "y": 0.0 },
+                    "MinValueModifier": { "x": 0.0, "y": 0.0 },
+                    "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+                    "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ]
+        }
+    ]
+}

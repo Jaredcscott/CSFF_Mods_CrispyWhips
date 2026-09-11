@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "cmcimpstonetilefloor",
     "LocalizationKey": "CMC_Imp_StoneTileFloor_CardDescription",
-    "DefaultText": "Polished stone tiles set into a bed of clay, covering the ground in a smooth, even floor. Increases comfort and insulation. Can be laid in cabins and mud huts."
+    "DefaultText": "Polished stone tiles set into a bed of clay, covering the ground in a smooth, even floor. Increases comfort and insulation. Can be laid in cabins, mud huts, and the village building interiors."
   },
   "CardType": 10,
   "CardsOnBoard": [
