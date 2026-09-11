@@ -16,6 +16,13 @@ namespace Quick_Transfer.Patcher
         private static MethodInfo cardPileCountMethod;
         private static Type cardPileCountMethodOwner;
 
+        // SoundManager.PerformCardAppearanceSound(AudioClip[]) - patched to collapse a batch's
+        // per-card sounds into one. Null when the type/method couldn't be resolved, in which case
+        // the feature is simply off and transfers still work.
+        private static MethodInfo cardAppearanceSoundMethod;
+        private static object suppressedSoundOwner;
+        private static object suppressedSoundClips;
+
         // Re-entrancy guard
         private static bool isTransferring = false;
 
@@ -24,6 +31,10 @@ namespace Quick_Transfer.Patcher
         private static string savedUniqueId = null;
         private static bool savedCtrlRightClick = false;
         private static int savedTransferCount = 1;
+        // True when the click we intercepted is one vanilla will itself act on, i.e. the first card
+        // moves without our help. False for a trigger button vanilla ignores, where the batch owes
+        // the player the full count rather than count-1.
+        private static bool savedVanillaMoves = false;
 
         public static void ApplyPatch(Harmony harmony)
         {
@@ -50,10 +61,82 @@ namespace Quick_Transfer.Patcher
                 {
                     Logger.LogError("CardGraphics.OnPointerClick not found — QuickTransfer inactive.");
                 }
+
+                ApplyBatchSoundPatch(harmony);
             }
             catch (Exception ex)
             {
                 Logger.LogError($"Failed to apply QuickTransfer patches: {ex.InnerException?.ToString() ?? ex.ToString()}");
+            }
+        }
+
+        // Vanilla plays one card-appearance sound per moved card: SwapCard -> GraphicsManager
+        // .MoveCardToSlot, whose last statement is SoundManager.PerformCardAppearanceSound, and
+        // RandomSoundPlay pools a fresh AudioSource per call with no throttling. A batch re-invokes
+        // that click once per frame, so N cards fire N overlapping sounds. Muting them for the
+        // duration of the batch and replaying one at the end restores the vanilla "one move, one
+        // sound" feel.
+        static void ApplyBatchSoundPatch(Harmony harmony)
+        {
+            try
+            {
+                var soundManagerType = Reflect.TryGetType("SoundManager");
+                if (soundManagerType == null)
+                {
+                    Logger.LogWarning("SoundManager type not found - batch sound consolidation disabled.");
+                    return;
+                }
+
+                cardAppearanceSoundMethod = AccessTools.Method(soundManagerType, "PerformCardAppearanceSound");
+                if (cardAppearanceSoundMethod == null)
+                {
+                    Logger.LogWarning("SoundManager.PerformCardAppearanceSound not found - batch sound consolidation disabled.");
+                    return;
+                }
+
+                var prefixMethod = AccessTools.Method(typeof(QuickTransferPatch), nameof(PerformCardAppearanceSound_Prefix));
+                harmony.Patch(cardAppearanceSoundMethod, prefix: new HarmonyMethod(prefixMethod));
+            }
+            catch (Exception ex)
+            {
+                cardAppearanceSoundMethod = null;
+                Logger.LogError($"Failed to apply batch sound patch: {ex.InnerException?.ToString() ?? ex.ToString()}");
+            }
+        }
+
+        // Runs on EVERY card-appearance sound in the game, so it stays a passthrough on a single
+        // static bool read. The only path that returns false is one this mod is itself driving:
+        // isTransferring is set exclusively around our own synthesized OnPointerClick invoke.
+        static bool PerformCardAppearanceSound_Prefix(object __instance, object[] __args)
+        {
+            if (!isTransferring) return true;
+            if (!Plugin.ConsolidateBatchSound.Value) return true;
+
+            // Keep the instance and clips so the batch can replay exactly the sound it swallowed -
+            // a card with no WhenCreatedSounds stays silent, same as vanilla.
+            suppressedSoundOwner = __instance;
+            suppressedSoundClips = __args != null && __args.Length > 0 ? __args[0] : null;
+            return false;
+        }
+
+        // Called once per batch, from the coroutine's finally. isTransferring is false by then, so
+        // this call passes straight through the prefix above.
+        static void PlayBatchCompletionSound()
+        {
+            var owner = suppressedSoundOwner;
+            var clips = suppressedSoundClips;
+            suppressedSoundOwner = null;
+            suppressedSoundClips = null;
+
+            if (owner == null || clips == null || cardAppearanceSoundMethod == null) return;
+
+            try
+            {
+                cardAppearanceSoundMethod.Invoke(owner, new[] { clips });
+            }
+            catch (Exception ex)
+            {
+                Logger.LogDebug($"[QT] Batch completion sound failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
         }
 
@@ -64,6 +147,7 @@ namespace Quick_Transfer.Patcher
             savedUniqueId = null;
             savedCtrlRightClick = false;
             savedTransferCount = 1;
+            savedVanillaMoves = false;
 
             if (isTransferring) return;
 
@@ -74,7 +158,7 @@ namespace Quick_Transfer.Patcher
                 var buttonProp = AccessTools.Property(_Pointer.GetType(), "button");
                 var button = buttonProp?.GetValue(_Pointer, null);
                 int buttonInt = button != null ? (int)button : -1;
-                if (buttonInt != 1) return;
+                if (buttonInt != (int)Plugin.TransferMouseButton.Value) return;
 
                 var card = GetCardFromGraphics(__instance);
                 if (card == null) return;
@@ -89,7 +173,10 @@ namespace Quick_Transfer.Patcher
                 if (slot == null) return;
 
                 savedSourceSlot = slot;
-                savedTransferCount = Plugin.GetEffectiveTransferAmount();
+                savedTransferCount = ResolveTransferCount(Plugin.GetEffectiveTransferAmount(), slot);
+                // Vanilla's InGameCardBase.OnPointerClick only reaches SwapCard on a right-click, so
+                // any other trigger button moves nothing before our coroutine starts.
+                savedVanillaMoves = buttonInt == (int)TransferButton.Right;
                 savedCtrlRightClick = true;
             }
             catch (Exception ex)
@@ -105,7 +192,8 @@ namespace Quick_Transfer.Patcher
 
             try
             {
-                int additionalCount = savedTransferCount - 1;
+                var vanillaMoved = savedVanillaMoves;
+                int additionalCount = vanillaMoved ? savedTransferCount - 1 : savedTransferCount;
                 if (additionalCount <= 0) return;
 
                 var sourceSlot = savedSourceSlot;
@@ -114,11 +202,10 @@ namespace Quick_Transfer.Patcher
 
                 if (sourceSlot == null || string.IsNullOrEmpty(uniqueId)) return;
 
-                string label = totalCount >= 9999 ? "All" : totalCount.ToString();
-                Plugin.ShowNotification($"Quick Transfer: {label}");
+                Plugin.ShowNotification(Plugin.AmountText(totalCount));
 
-                Logger.LogDebug($"[QT] Postfix: starting coroutine for uid={uniqueId}, total={totalCount}, additional={additionalCount}");
-                Plugin.Instance.StartCoroutine(TransferCardsCoroutine(sourceSlot, uniqueId, additionalCount));
+                Logger.LogDebug($"[QT] Postfix: starting coroutine for uid={uniqueId}, total={totalCount}, additional={additionalCount}, vanillaMoved={vanillaMoved}");
+                Plugin.Instance.StartCoroutine(TransferCardsCoroutine(sourceSlot, uniqueId, additionalCount, vanillaMoved));
             }
             catch (Exception ex)
             {
@@ -129,90 +216,129 @@ namespace Quick_Transfer.Patcher
                 savedSourceSlot = null;
                 savedUniqueId = null;
                 savedCtrlRightClick = false;
+                savedVanillaMoves = false;
             }
         }
 
         // Transfers cards from the source slot one per frame.
         // Re-scans for any matching card each iteration to handle both stacked items
         // (single CardGraphics object representing N cards) and individual card objects.
-        static IEnumerator TransferCardsCoroutine(object sourceSlot, string uniqueId, int count)
+        static IEnumerator TransferCardsCoroutine(object sourceSlot, string uniqueId, int count, bool vanillaMoved)
         {
+            // The click that started this batch already moved a card when vanilla acted on it.
+            int baseline = vanillaMoved ? 1 : 0;
             int transferred = 0;
             int consecutiveFailures = 0;
             const int MaxConsecutiveFailures = 3;
 
-            object candidate = FindFirstCandidate(sourceSlot, uniqueId);
-            Logger.LogDebug($"[QT] Coroutine start: count={count}, initial candidate={(candidate == null ? "NULL" : "found")}");
-
-            while (transferred < count)
+            // Every exit below owes the player the one batch sound that stands in for the per-card
+            // sounds the prefix muted - including the ones Unity triggers by disposing the
+            // coroutine, which no `yield break` would reach.
+            try
             {
-                yield return null;
+                object candidate = FindFirstCandidate(sourceSlot, uniqueId);
+                Logger.LogDebug($"[QT] Coroutine start: count={count}, initial candidate={(candidate == null ? "NULL" : "found")}");
 
-                // Re-validate cached candidate; re-scan only when it leaves the source slot.
-                if (candidate == null || !IsValidCandidate(candidate, sourceSlot, uniqueId))
-                    candidate = FindFirstCandidate(sourceSlot, uniqueId);
-
-                if (candidate == null)
+                while (transferred < count)
                 {
-                    consecutiveFailures++;
-                    if (consecutiveFailures >= MaxConsecutiveFailures)
+                    yield return null;
+
+                    // Re-validate cached candidate; re-scan only when it leaves the slot it was found
+                    // in (the clicked slot, or a sibling slot when Drain Matching Stacks is on).
+                    if (candidate == null || !IsValidCandidate(candidate, sourceSlot, uniqueId, Plugin.DrainMatchingStacks.Value))
+                        candidate = FindFirstCandidate(sourceSlot, uniqueId);
+
+                    if (candidate == null)
                     {
-                        Logger.LogDebug($"[QT] Done: transferred {1 + transferred} cards total (no more matching cards after {transferred} coroutine moves)");
+                        consecutiveFailures++;
+                        if (consecutiveFailures >= MaxConsecutiveFailures)
+                        {
+                            Logger.LogDebug($"[QT] Done: transferred {baseline + transferred} cards total (no more matching cards after {transferred} coroutine moves)");
+                            yield break;
+                        }
+                        continue;
+                    }
+
+                    consecutiveFailures = 0;
+
+                    // Snapshot the slot's pile count so a refused move (destination full/incompatible -
+                    // vanilla leaves the card in place, e.g. GraphicsManager.MoveCardToSlot on an
+                    // over-weight target) can be told apart from an actual transfer. Invoke() not
+                    // throwing does NOT mean the card moved.
+                    // Measured on the slot the candidate actually sits in: under Drain Matching
+                    // Stacks that is a sibling of the clicked slot, whose own pile is what shrinks.
+                    // With draining off it is the clicked slot itself, exactly as before.
+                    object candidateSlot = GetCurrentSlot(GetCardFromGraphics(candidate)) ?? sourceSlot;
+                    int pileCountBefore = GetPileCount(candidateSlot);
+
+                    var newPointer = new PointerEventData(EventSystem.current);
+                    // Always right: this is the button vanilla's OnPointerClick routes to SwapCard,
+                    // whatever button the player configured to TRIGGER the batch.
+                    newPointer.button = PointerEventData.InputButton.Right;
+
+                    isTransferring = true;
+                    try
+                    {
+                        onPointerClickMethod.Invoke(candidate, new object[] { newPointer });
+                    }
+                    catch (Exception ex)
+                    {
+                        Logger.LogError($"Transfer failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                        Logger.LogDebug($"[QT] Done (exception): transferred {baseline + transferred} cards total");
                         yield break;
                     }
-                    continue;
+                    finally
+                    {
+                        isTransferring = false;
+                    }
+
+                    int pileCountAfter = GetPileCount(candidateSlot);
+
+                    // A negative count means the pile-count API couldn't be resolved via reflection;
+                    // fall back to the prior "assume success" behavior rather than stalling forever.
+                    bool countUnknown = pileCountBefore < 0 || pileCountAfter < 0;
+                    bool progressMade = countUnknown || pileCountAfter < pileCountBefore;
+
+                    if (progressMade)
+                    {
+                        transferred++;
+                        continue;
+                    }
+
+                    consecutiveFailures++;
+                    Logger.LogDebug($"[QT] No progress (pile count unchanged at {pileCountAfter}) - destination likely refused the transfer");
+                    if (consecutiveFailures >= MaxConsecutiveFailures)
+                    {
+                        Logger.LogDebug($"[QT] Done (no progress): transferred {baseline + transferred} cards total, stopping after {MaxConsecutiveFailures} refused transfers");
+                        yield break;
+                    }
                 }
 
-                consecutiveFailures = 0;
-
-                // Snapshot the slot's pile count so a refused move (destination full/incompatible —
-                // vanilla leaves the card in place, e.g. GraphicsManager.MoveCardToSlot on an
-                // over-weight target) can be told apart from an actual transfer. Invoke() not
-                // throwing does NOT mean the card moved.
-                int pileCountBefore = GetPileCount(sourceSlot);
-
-                var newPointer = new PointerEventData(EventSystem.current);
-                newPointer.button = PointerEventData.InputButton.Right;
-
-                isTransferring = true;
-                try
-                {
-                    onPointerClickMethod.Invoke(candidate, new object[] { newPointer });
-                }
-                catch (Exception ex)
-                {
-                    Logger.LogError($"Transfer failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
-                    Logger.LogDebug($"[QT] Done (exception): transferred {1 + transferred} cards total");
-                    yield break;
-                }
-                finally
-                {
-                    isTransferring = false;
-                }
-
-                int pileCountAfter = GetPileCount(sourceSlot);
-
-                // A negative count means the pile-count API couldn't be resolved via reflection;
-                // fall back to the prior "assume success" behavior rather than stalling forever.
-                bool countUnknown = pileCountBefore < 0 || pileCountAfter < 0;
-                bool progressMade = countUnknown || pileCountAfter < pileCountBefore;
-
-                if (progressMade)
-                {
-                    transferred++;
-                    continue;
-                }
-
-                consecutiveFailures++;
-                Logger.LogDebug($"[QT] No progress (pile count unchanged at {pileCountAfter}) — destination likely refused the transfer");
-                if (consecutiveFailures >= MaxConsecutiveFailures)
-                {
-                    Logger.LogDebug($"[QT] Done (no progress): transferred {1 + transferred} cards total, stopping after {MaxConsecutiveFailures} refused transfers");
-                    yield break;
-                }
+                Logger.LogDebug($"[QT] Done: transferred {baseline + transferred} cards total (reached requested count)");
             }
+            finally
+            {
+                PlayBatchCompletionSound();
+            }
+        }
 
-            Logger.LogDebug($"[QT] Done: transferred {1 + transferred} cards total (reached requested count)");
+        // The Half preset leaves Plugin.GetEffectiveTransferAmount as a sentinel because the overlay
+        // has no slot; here, in the click prefix, the clicked slot is in hand. This runs BEFORE
+        // vanilla moves the first card, so a stack of 8 reads 8 and yields 4, with vanilla's own
+        // move being the first of those 4 (7 -> 4, 1 -> 1).
+        static int ResolveTransferCount(int requested, object slot)
+        {
+            if (requested != Plugin.HalfSentinel) return requested;
+
+            int pile = GetPileCount(slot);
+            if (pile <= 0)
+            {
+                // Pile count unresolvable: store a concrete preset rather than let the sentinel
+                // reach the count accounting downstream.
+                Logger.LogDebug($"[QT] Half preset: pile count unavailable ({pile}); using the Ctrl preset ({Plugin.CtrlPresetAmount.Value}) instead");
+                return Plugin.CtrlPresetAmount.Value;
+            }
+            return Mathf.CeilToInt(pile / 2f);
         }
 
         // Reads DynamicLayoutSlot.CardPileCount(bool) via cached reflection. Returns -1 if the
@@ -240,25 +366,34 @@ namespace Quick_Transfer.Patcher
             }
         }
 
+        // The clicked slot is always drained first. Only once it holds no candidate, and only with
+        // Drain Matching Stacks on, does the scan widen to that slot's siblings in the same container.
         static object FindFirstCandidate(object sourceSlot, string uniqueId)
         {
             var allGraphics = UnityEngine.Object.FindObjectsOfType(cardGraphicsType);
             if (allGraphics == null) return null;
             foreach (var g in allGraphics)
             {
-                if (IsValidCandidate(g, sourceSlot, uniqueId))
+                if (IsValidCandidate(g, sourceSlot, uniqueId, allowSiblingSlots: false))
+                    return g;
+            }
+            if (!Plugin.DrainMatchingStacks.Value) return null;
+            foreach (var g in allGraphics)
+            {
+                if (IsValidCandidate(g, sourceSlot, uniqueId, allowSiblingSlots: true))
                     return g;
             }
             return null;
         }
 
-        static bool IsValidCandidate(object graphics, object sourceSlot, string uniqueId)
+        static bool IsValidCandidate(object graphics, object sourceSlot, string uniqueId, bool allowSiblingSlots)
         {
             if (graphics == null) return false;
             var card = GetCardFromGraphics(graphics);
             if (card == null) return false;
             var cardSlot = GetCurrentSlot(card);
-            if (cardSlot == null || !ReferenceEquals(cardSlot, sourceSlot)) return false;
+            if (cardSlot == null) return false;
+            if (!ReferenceEquals(cardSlot, sourceSlot) && !(allowSiblingSlots && IsSiblingSlot(cardSlot, sourceSlot))) return false;
             var cardModel = GetMemberValue(card, "CardModel");
             if (cardModel == null) return false;
             var cardType = GetMemberValue(cardModel, "CardType");
@@ -267,6 +402,27 @@ namespace Quick_Transfer.Patcher
             if (cannotTransfer is bool ct && ct) return false;
             var cardId = GetMemberValue(cardModel, "UniqueID")?.ToString();
             return cardId == uniqueId;
+        }
+
+        // "Same container" means both DynamicLayoutSlots were built by the same DynamicViewLayoutGroup
+        // and share a SlotType. ParentLayoutGroup is the public field the layout-group constructor
+        // assigns (.decomp/DynamicLayoutSlot.cs, `DynamicLayoutSlot(SlotSettings, DynamicElementRef,
+        // DynamicViewLayoutGroup)`) and the standalone-CardSlot constructor leaves null - so one open
+        // inventory's slots share it, the board's item area shares another, and the two never
+        // match. A null on either side means the container cannot be resolved; then the strict
+        // same-slot rule stands rather than widening the match blindly.
+        static bool IsSiblingSlot(object cardSlot, object sourceSlot)
+        {
+            if (cardSlot == null || sourceSlot == null) return false;
+            if (cardSlot.GetType() != sourceSlot.GetType()) return false;
+
+            var cardGroup   = GetMemberValue(cardSlot, "ParentLayoutGroup");
+            var sourceGroup = GetMemberValue(sourceSlot, "ParentLayoutGroup");
+            if (cardGroup == null || sourceGroup == null || !ReferenceEquals(cardGroup, sourceGroup)) return false;
+
+            var cardSlotType   = GetMemberValue(cardSlot, "SlotType");
+            var sourceSlotType = GetMemberValue(sourceSlot, "SlotType");
+            return cardSlotType != null && sourceSlotType != null && cardSlotType.Equals(sourceSlotType);
         }
 
         static object GetCardFromGraphics(object cardGraphicsInstance)

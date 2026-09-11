@@ -1,6 +1,6 @@
 {
 	"Name": "QuickTransfer",
 	"Author": "Jared",
-	"Version": "1.7.7",
-	"Description": "Bulk card transfers with modifier presets: Shift+Right-Click (5), Ctrl+Right-Click (10), Ctrl+Shift+Right-Click (all). Full Stack Mode option transfers the entire stack on any modifier+right-click. Adjust preset amounts with modifier+Plus/Minus."
+	"Version": "1.8.0",
+	"Description": "Bulk card transfers with modifier presets: Shift+Right-Click (5), Ctrl+Right-Click (10), Ctrl+Shift+Right-Click (all, or half with Ctrl+Shift Preset Mode = Half). Full Stack Mode option transfers the entire stack on any modifier+right-click. Adjust preset amounts with modifier+Plus/Minus, or reset them with modifier+Backspace. The trigger button can be moved to middle-click, a batch plays one card sound instead of one per card, Drain Matching Stacks can continue a transfer into the same item's other slots in that container, and the on-screen overlay is localized (English and Chinese)."
 }

@@ -1,0 +1,7 @@
+QuickTransfer_Overlay_Amount,Quick Transfer: {0}
+QuickTransfer_Overlay_All,All
+QuickTransfer_Overlay_Half,Half
+QuickTransfer_Overlay_ComboCtrl,(Ctrl)
+QuickTransfer_Overlay_ComboShift,(Shift)
+QuickTransfer_Overlay_ComboCtrlShift,(Ctrl+Shift)
+QuickTransfer_Overlay_PresetsReset,Presets reset: {0} / {1} / {2}

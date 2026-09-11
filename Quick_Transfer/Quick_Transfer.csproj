@@ -20,9 +20,11 @@
       <OutputPath>C:\Program Files (x86)\Steam\steamapps\common\Card Survival Fantasy Forest\BepInEx\plugins\Quick_Transfer\</OutputPath>
     </PropertyGroup>
 
-    <!-- No CardData needed - this is a pure C# mod -->
+    <!-- No CardData needed - this is a pure C# mod. Localization/ holds only the overlay's own
+         strings (SimpEn.csv / SimpCn.csv), loaded by CSFFModFramework for the active language. -->
     <ItemGroup>
         <Content Include="ModInfo.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('ModInfo.json')" />
+        <Content Include="Localization\**\*.csv" CopyToOutputDirectory="PreserveNewest" Condition="Exists('Localization')" />
         <Content Include="LICENSE" CopyToOutputDirectory="PreserveNewest" Condition="Exists('LICENSE')" />
         <Content Include="ASSET_CREDITS.md" CopyToOutputDirectory="PreserveNewest" Condition="Exists('ASSET_CREDITS.md')" />
     </ItemGroup>

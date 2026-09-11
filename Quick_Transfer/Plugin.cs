@@ -3,13 +3,38 @@ using BepInEx.Logging;
 
 namespace Quick_Transfer;
 
+/// <summary>
+/// Mouse button that triggers a quick transfer. Values match
+/// <c>UnityEngine.EventSystems.PointerEventData.InputButton</c>.
+/// </summary>
+/// <remarks>
+/// Left is deliberately absent. Vanilla's <c>InGameCardBase.OnPointerClick</c> routes a left-click to
+/// <c>GraphicsM.InspectCard</c>, never to <c>SwapCard</c>, and the inspected card then fails
+/// <c>SwapCard</c>'s own <c>GraphicsM.InspectedCard != this</c> guard - so a left-button trigger would
+/// open the inspection popup and then transfer nothing at all.
+/// </remarks>
+public enum TransferButton
+{
+    Right = 1,
+    Middle = 2
+}
+
+/// <summary>What the Ctrl+Shift preset combo transfers.</summary>
+public enum CtrlShiftPresetMode
+{
+    /// <summary>The entire clicked stack.</summary>
+    All,
+    /// <summary>Half the clicked stack, rounded up (8 -> 4, 7 -> 4, 1 -> 1). Fills the gap between the Ctrl preset and All.</summary>
+    Half
+}
+
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
 [BepInDependency("crispywhips.CSFFModFramework", BepInDependency.DependencyFlags.SoftDependency)]
 public class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.quick_transfer";
     public const string PluginName = "Quick_Transfer";
-    public const string PluginVersion = "1.7.7";
+    public const string PluginVersion = "1.8.0";
 
     internal new static ManualLogSource Logger;
     private static Harmony _harmony;
@@ -29,6 +54,26 @@ public class Plugin : BaseUnityPlugin
 
     // Configuration — full stack mode
     public static ConfigEntry<bool> FullStackMode { get; private set; }
+
+    // Configuration - trigger button, preset reset, batch sound
+    public static ConfigEntry<TransferButton> TransferMouseButton { get; private set; }
+    public static ConfigEntry<KeyCode> ResetPresetsKey { get; private set; }
+    public static ConfigEntry<bool> ConsolidateBatchSound { get; private set; }
+
+    // Configuration - Ctrl+Shift half preset, sibling-slot draining
+    public static ConfigEntry<CtrlShiftPresetMode> CtrlShiftMode { get; private set; }
+    public static ConfigEntry<bool> DrainMatchingStacks { get; private set; }
+
+    /// <summary>Value <see cref="GetEffectiveTransferAmount"/> returns for "the entire stack".</summary>
+    public const int AllSentinel = 9999;
+
+    /// <summary>
+    /// Value <see cref="GetEffectiveTransferAmount"/> returns for the Ctrl+Shift combo in Half mode.
+    /// Deliberately not a count: the overlay in <see cref="Update"/> has no slot in hand, so only the
+    /// click prefix, which holds the clicked slot, can turn it into ceil(pile / 2). Never store it
+    /// as a transfer count.
+    /// </summary>
+    public const int HalfSentinel = int.MinValue;
 
     // Runtime state
     public static int CurrentTransferAmount { get; set; } = 5;
@@ -99,11 +144,41 @@ public class Plugin : BaseUnityPlugin
                 "Cards transferred per Ctrl+Right-Click (requires Enable Modifier Presets). Adjust in-game: hold Ctrl + Plus/Minus.",
                 new AcceptableValueRange<int>(1, 9999)));
 
+        CtrlShiftMode = Config.Bind(
+            "Modifier Presets",
+            "Ctrl+Shift Preset Mode",
+            CtrlShiftPresetMode.All,
+            "What Ctrl+Shift+click transfers (requires Enable Modifier Presets). All moves the entire stack. Half moves half of the clicked stack, rounded up (8 -> 4, 7 -> 4, 1 -> 1), filling the gap between the Ctrl preset and All. The overlay reads 'Half' while the combo is held, since the number depends on which stack you click.");
+
         FullStackMode = Config.Bind(
             "Transfer Settings",
             "Full Stack Mode",
             false,
             "When enabled, modifier+right-click always transfers the entire stack. Count adjustment keys and preset amounts are ignored.");
+
+        TransferMouseButton = Config.Bind(
+            "Transfer Settings",
+            "Transfer Mouse Button",
+            TransferButton.Right,
+            "Mouse button that triggers a bulk transfer while a modifier is held. Right matches the game's own quick-move click. Middle leaves right-click untouched, so a modifier+right-click still moves exactly one card the vanilla way. Left is not offered: the game binds it to card inspection, not transfer.");
+
+        ConsolidateBatchSound = Config.Bind(
+            "Transfer Settings",
+            "Consolidate Batch Sound",
+            true,
+            "When enabled, the per-card move sound is muted for the cards this mod moves and one sound plays when the batch finishes, instead of one sound per card on consecutive frames.");
+
+        DrainMatchingStacks = Config.Bind(
+            "Transfer Settings",
+            "Drain Matching Stacks",
+            false,
+            "When enabled, a bulk transfer that empties the clicked slot keeps going with the same item from the other slots of the same container (the same open inventory, or the same board area), up to the requested count. When disabled, only the clicked slot is drained.");
+
+        ResetPresetsKey = Config.Bind(
+            "Keybindings",
+            "Reset Presets Key",
+            KeyCode.Backspace,
+            "Hold the modifier and press this key to reset Shift/Ctrl/custom transfer amounts to their defaults (5 / 10 / 5). Set to None to disable.");
 
         CurrentTransferAmount = TransferAmount.Value;
 
@@ -135,6 +210,12 @@ public class Plugin : BaseUnityPlugin
         bool increaseHeld = Input.GetKey(IncreaseKey.Value);
         bool decreaseHeld = Input.GetKey(DecreaseKey.Value);
 
+        if (modHeld && ResetPresetsKey.Value != KeyCode.None && Input.GetKeyDown(ResetPresetsKey.Value))
+        {
+            ResetPresetsToDefaults();
+            return;
+        }
+
         if (!FullStackMode.Value && modHeld && (increaseHeld || decreaseHeld))
         {
             bool shouldTrigger = false;
@@ -161,35 +242,37 @@ public class Plugin : BaseUnityPlugin
 
                 if (EnableModifierPresets.Value)
                 {
-                    bool ctrl = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
-                    bool shift = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+                    bool ctrl = CtrlHeld();
+                    bool shift = ShiftHeld();
 
                     if (ctrl && shift)
                     {
-                        ShowNotification("Quick Transfer: All (Ctrl+Shift)");
+                        // Ctrl+Shift is All or Half by config, never a number the keys can nudge -
+                        // just restate what it will do.
+                        ShowNotification(AmountText(GetEffectiveTransferAmount()) + ActiveComboSuffix());
                     }
                     else if (ctrl)
                     {
                         CtrlPresetAmount.Value = Mathf.Clamp(CtrlPresetAmount.Value + delta, 1, 9999);
-                        ShowNotification($"Quick Transfer: {CtrlPresetAmount.Value} (Ctrl)");
+                        ShowNotification(AmountText(CtrlPresetAmount.Value) + ActiveComboSuffix());
                     }
                     else if (shift)
                     {
                         ShiftPresetAmount.Value = Mathf.Clamp(ShiftPresetAmount.Value + delta, 1, 9999);
-                        ShowNotification($"Quick Transfer: {ShiftPresetAmount.Value} (Shift)");
+                        ShowNotification(AmountText(ShiftPresetAmount.Value) + ActiveComboSuffix());
                     }
                     else
                     {
                         CurrentTransferAmount = Mathf.Clamp(CurrentTransferAmount + delta, 1, 9999);
                         TransferAmount.Value = CurrentTransferAmount;
-                        ShowNotification($"Quick Transfer: {CurrentTransferAmount}");
+                        ShowNotification(AmountText(CurrentTransferAmount));
                     }
                 }
                 else
                 {
                     CurrentTransferAmount = Mathf.Clamp(CurrentTransferAmount + delta, 1, 9999);
                     TransferAmount.Value = CurrentTransferAmount;
-                    ShowNotification($"Quick Transfer: {CurrentTransferAmount}");
+                    ShowNotification(AmountText(CurrentTransferAmount));
                 }
             }
         }
@@ -198,7 +281,7 @@ public class Plugin : BaseUnityPlugin
         if (modHeld)
         {
             int eff = GetEffectiveTransferAmount();
-            string hint = eff >= 9999 ? "Quick Transfer: All" : $"Quick Transfer: {eff}";
+            string hint = AmountText(eff) + ActiveComboSuffix();
             // Only refresh if text changed or timer nearly expired (avoids overwriting a 2s notification with 0.15s)
             if (hint != _notificationText || _notificationEndTime - Time.time < 0.1f)
             {
@@ -206,6 +289,56 @@ public class Plugin : BaseUnityPlugin
                 _notificationEndTime = Time.time + 0.15f;
             }
         }
+    }
+
+    private static bool CtrlHeld()  => Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
+    private static bool ShiftHeld() => Input.GetKey(KeyCode.LeftShift)   || Input.GetKey(KeyCode.RightShift);
+
+    /// <summary>
+    /// Returns the " (Ctrl)" / " (Shift)" / " (Ctrl+Shift)" suffix naming the combo that
+    /// <see cref="GetEffectiveTransferAmount"/> is currently reading, or "" when no preset combo
+    /// decides the count. Mirrors that method's branch structure exactly - if one grows a case the
+    /// other must too, or the overlay starts labelling a number it didn't produce.
+    /// </summary>
+    private static string ActiveComboSuffix()
+    {
+        if (FullStackMode.Value || !EnableModifierPresets.Value) return "";
+
+        bool ctrl  = CtrlHeld();
+        bool shift = ShiftHeld();
+
+        // The loader trims CSV values, so the separating space is ours, not the translation's.
+        if (ctrl && shift) return " " + OverlayText.Get(OverlayText.ComboCtrlShiftKey, OverlayText.ComboCtrlShiftDefault);
+        if (ctrl)  return " " + OverlayText.Get(OverlayText.ComboCtrlKey, OverlayText.ComboCtrlDefault);
+        if (shift) return " " + OverlayText.Get(OverlayText.ComboShiftKey, OverlayText.ComboShiftDefault);
+
+        return "";
+    }
+
+    /// <summary>"All" / "Half" / the number itself, localized, for an effective amount or a resolved count.</summary>
+    public static string AmountLabel(int amount)
+    {
+        if (amount == HalfSentinel) return OverlayText.Get(OverlayText.HalfKey, OverlayText.HalfDefault);
+        if (amount >= AllSentinel)  return OverlayText.Get(OverlayText.AllKey, OverlayText.AllDefault);
+        return amount.ToString();
+    }
+
+    /// <summary>The overlay's "Quick Transfer: X" line for an amount, localized.</summary>
+    public static string AmountText(int amount)
+        => OverlayText.Format(OverlayText.AmountKey, OverlayText.AmountDefault, AmountLabel(amount));
+
+    /// <summary>Restores both presets and the custom amount to the values their config entries were bound with.</summary>
+    private static void ResetPresetsToDefaults()
+    {
+        // Read the defaults off the entries rather than repeating literals - these can't drift from
+        // the Config.Bind calls above.
+        ShiftPresetAmount.Value = (int)ShiftPresetAmount.DefaultValue;
+        CtrlPresetAmount.Value  = (int)CtrlPresetAmount.DefaultValue;
+        TransferAmount.Value    = (int)TransferAmount.DefaultValue;
+        CurrentTransferAmount   = TransferAmount.Value;
+
+        ShowNotification(OverlayText.Format(OverlayText.PresetsResetKey, OverlayText.PresetsResetDefault,
+            ShiftPresetAmount.Value, CtrlPresetAmount.Value, CurrentTransferAmount));
     }
 
     /// <summary>Returns true if the configured modifier key is held. Used for backward-compat amount adjustment.</summary>
@@ -229,9 +362,7 @@ public class Plugin : BaseUnityPlugin
     {
         if (EnableModifierPresets.Value)
         {
-            bool ctrl  = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
-            bool shift = Input.GetKey(KeyCode.LeftShift)   || Input.GetKey(KeyCode.RightShift);
-            if (ctrl || shift) return true;
+            if (CtrlHeld() || ShiftHeld()) return true;
         }
         return IsConfiguredModifierHeld();
     }
@@ -239,15 +370,16 @@ public class Plugin : BaseUnityPlugin
     /// <summary>Returns the effective transfer count based on the currently held modifier combo.</summary>
     public static int GetEffectiveTransferAmount()
     {
-        if (FullStackMode.Value) return 9999;
+        if (FullStackMode.Value) return AllSentinel;
 
         if (!EnableModifierPresets.Value)
             return CurrentTransferAmount;
 
-        bool ctrl  = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
-        bool shift = Input.GetKey(KeyCode.LeftShift)   || Input.GetKey(KeyCode.RightShift);
+        bool ctrl  = CtrlHeld();
+        bool shift = ShiftHeld();
 
-        if (ctrl && shift) return 9999; // entire stack
+        // Entire stack, or the Half sentinel the click prefix resolves against the clicked slot.
+        if (ctrl && shift) return CtrlShiftMode.Value == CtrlShiftPresetMode.Half ? HalfSentinel : AllSentinel;
         if (ctrl)  return CtrlPresetAmount.Value;
         if (shift) return ShiftPresetAmount.Value;
 
