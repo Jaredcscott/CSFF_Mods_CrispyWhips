@@ -2,6 +2,187 @@
 
 All notable changes to this mod are documented here.
 
+## [1.16.6] - 2026-09-08
+
+### Docs
+- **README under-claimed a confirmed feature (docs-honesty, under-claiming direction).** The v1.15.9
+  entry still read "Not yet verified in-game" for Copper Stove / Copper Brazier / Metal Lantern
+  Firekeeping-duty compatibility, but the playthrough tracker confirmed it in-game on 2026-08-15
+  (T2.85). Updated the v1.15.9 entry and added a player-facing sentence to the Small Copper Stove,
+  Copper Brazier and Metal Lantern sections stating a recruited Partner tends their fuel under the
+  vanilla Fire keeping duty. Also noted the Ownership panel on the Brazier and Lantern (who may claim
+  and refuel them) is still unconfirmed (T2.212, pending). No code change.
+
+## [1.16.5] - 2026-09-06
+
+### Fixed
+- **Bronze/White-Bronze armor is now actually craftable as designed, and the Copper tier is no
+  longer strictly obsolete at the same unlock point.** `MetalSheet.json`'s Metal Type stat
+  (`SpecialDurability4`, plus the unused `SpecialDurability2/3`) was authored with field names that
+  don't exist on the game's `DurabilityStat` type (`DurabilityName`/`MaxDurability`/`StartDurability`/
+  `Restricted`/`IsHidden` instead of the real `Active`/`FloatValue`/`MaxValue`/`RestrictToSpecificValues`/
+  `ValidValues`/`HidingOptions`), so it silently deserialized inactive: every Bronze armor blueprint's
+  bronze-grade metal-type gate was a no-op, and a plain Copper Sheet satisfied it just as well.
+  Rewrote the field names so Metal Type is genuinely active (`ValidValues` 100/110/120/130/140), and
+  added a new **Bronze Sheet** blueprint (`act_bp_bronze_sheet`, Metal & Clay -> Metal Crafts) that
+  hammers a heated Ghost Bronze/Tin Bronze/White Bronze bar into the same sheet card, now correctly
+  tagged bronze-grade (110-140) - the only way to produce a sheet that satisfies the Bronze armor
+  recipes. A plain Copper Sheet (Metal Type 100, from the base Metal Sheet blueprint) no longer
+  qualifies. Not yet verified in-game.
+- **Cross-mod safety**: WaterDrivenInfrastructure's Cast Metal Sheet is now tagged Metal Type 100
+  (copper-grade), so ACT's sheet-interchangeability patch can no longer hand WDI players a sheet that
+  bypasses the Bronze gate above. WDI needs its own version bump to ship this - tracked separately.
+- **All four Bronze armor blueprints' research-unlock gate now actually requires a bronze-grade
+  sheet.** `Bp_BronzeHelmet.json`, `Bp_BronzeBreastplate.json`, `Bp_BronzeGauntlets.json`, and
+  `Bp_BronzeGreaves.json` gated "researchable" on holding ANY Metal Sheet (no metal-type filter),
+  while their own `UnlockConditionsDesc` said "Bronze Sheet Needed" and the crafting-time gate
+  correctly required Metal Type 110-140. A plain Copper Sheet could prematurely unlock research on
+  all four. Added the same `Special4Range: {110, 140}` filter the new Bronze Sheet blueprint already
+  uses, so the unlock text now matches what actually gates it.
+- **Bronze Armor (torso) now requires medium leather, matching its own recipe everywhere else.**
+  `Bp_BronzeBreastplate.json` required `GpTag_LeatherSmall` while README and the item's own dismantle
+  recovery (`SkinLeatherMedium`) both said medium - a copy-paste leftover from the Helmet recipe that
+  let a player upgrade small leather to medium for a Tin Solder and some build time. Now requires
+  `GpTag_LeatherMedium`, matching Copper Armor's equivalent recipe.
+- **Removed the non-functional armor quality-scaling scaffolding instead of leaving it disclosed as
+  broken.** All 13 armor items' `ArmorValueDurabilitiesMultiplier` block read from `SpecialDurability2`
+  (Metal Quality), which every ACT armor item declares inactive - the multiplier could never move off
+  its 1.0x floor, and the in-game `EffectName` text ("Armor (+X) interpolated by quality from 1 to
+  1.5") kept advertising scaling that never happened. Cleared the multiplier array, disabled the
+  matching `EffectScalesWithDurabilities` block, and reworded `EffectName` to the flat value it
+  actually applies (e.g. "Armor (+30)"). Also removed `GameLoadPatch.cs`'s
+  `RepairArmorMultipliers`/`FixArmorMultiplier` - a 1.16.4 fix that only ever restored this same
+  no-op entry, and would otherwise have kept re-adding the multiplier block this pass just removed.
+- **Armor-repair reflection misses are no longer silent.** `Patcher/GameLoadPatch.cs`'s
+  `FindEquippedArmorCards` returned an empty list on ANY reflection miss with no breadcrumb, so a dead
+  `CharacterWindow` / `EquipmentSlotsLine` / `Slots` chain was indistinguishable from a legitimate
+  "no armor equipped": `RepairArmorCards` reported both as `changed 0`, and a field rename after a game
+  update would have disabled the equipped-armor half of the save/reload repair with zero log output.
+  The file already had the right machinery for this (a per-cause `HashSet` plus `WarnArmorRepairOnce`,
+  carrying a comment describing this exact hazard) wired into 2 of its 3 reflection exits; the third had
+  none. Added `CharacterWindow-null`, `EquipmentSlotsLine-null` and `EquipmentSlots-null` so the
+  warn-once covers every early return rather than only the catch. No behaviour change when reflection
+  succeeds; a failure is now an error line naming the cause. Checked while in there: ACT is clear of the
+  EA 0.67x `GraphicsManager.GetSlotForCard` arity break that is throwing in a sibling mod, because it
+  never calls that method and its only reflected method call, `UpdatePassiveEffects`, matches the live
+  zero-arg card-level overload.
+
+### Changed - documentation / honesty corrections
+- **`ModInfo.json`'s Description no longer claims armor tracks the metal it was built from.** All 13
+  ACT armor items (Copper/Bronze/Iron) declare their Metal Type stat inactive and carry no
+  metal-variant names - only the Oil Flask and Cauldron actually track metal. Corrected to say so.
+- **`ModInfo.json` and README no longer call the bathtub's Wash with Soap "a bigger cleansing and
+  mood boost."** It's smaller than the free Warm Bath on the same card (Filth -100 / Morale +30-40,
+  and consumes a Soap, versus the free bath's Filth -200 / Morale +60-80 plus three more stats) - its
+  real advantage is that it doesn't require the fire to be stoked. Reworded everywhere this claim
+  appeared.
+- **README's Metal Sheet section (Base Materials) no longer contradicts its Bronze Armor Set
+  section.** Both now describe the real, current path: copper-grade sheets from the base Metal Sheet
+  blueprint, bronze-grade sheets from the new Bronze Sheet blueprint above. Also corrected a
+  README claim that armor value rises with durability/quality - it doesn't; see the Fixed section of
+  [1.16.4] above for the corrected record on that.
+- **Disclosed undocumented art reuse.** Bronze Helmet/Bracers/Greaves/Armor (and their blueprints)
+  reuse the Copper set's sprites, and the Ore Chest reuses the Copper Chest sprite - both now noted
+  in the README next to the Iron tier's distinct art, matching how reuse is disclosed elsewhere in
+  this doc (e.g. the Cave Prospector perk icon reusing tin vein art). No new art shipped this pass.
+- **Removed the "Metal Pan" row from README's Character Perks table.** That perk (backed by
+  `Perk_MetalPanTester.json`) was deleted in [1.16.4] as unreachable dev content, but the README row
+  describing its starting kit was never removed, so the README kept advertising a 5-Suns perk that
+  had not existed for a release already. 7 perks now ship and 7 are documented.
+- **The bathtub's Wash with Soap "bigger cleansing and mood boost" claim is now actually reworded
+  everywhere it appears, not just in ModInfo.json.** The prior line item above was incomplete: the
+  same phrase was still live in README's Copper Bathtub Actions list and in the card's own in-game
+  `ActionDescription` (JSON + both localization CSVs). All three now read "a quick clean and mood
+  boost that doesn't need the fire lit."
+- **README's `GameLoadPatch` description no longer says "copper armor" only.** The armor-repair net
+  it describes has covered all 13 Copper/Bronze/Iron items since [1.16.4]; the README wording was
+  never updated to match.
+- **Smelting Recovery table now lists all smeltable items.** Added the 8 rows that were missing
+  despite having real `SmeltingRecipes.json` entries: Iron Sheet, Iron Helmet, Iron Bracers, Iron
+  Greaves, Iron Armor (Male/Female), Copper Watering Can, and Copper-Rim Chamberpot.
+- **README no longer advertises the armor-multiplier repair that this same release deleted.**
+  `README.md`'s Harmony-hook list still described `GameLoadPatch` as a postfix that "repairs a missing
+  `ArmorValueDurabilitiesMultiplier` entry on every ACT armor piece" - but the fix above removed
+  `RepairArmorMultipliers`/`FixArmorMultiplier` outright, so that clause described code that no longer
+  exists. Two same-release fixes left unreconciled: one corrected the tier scope (copper -> all three
+  tiers), the other deleted the mechanism being scoped. The bullet now describes what the postfix
+  actually does, and additionally documents `PatchSheetInterchangeability` (ACT Copper/Iron Sheet slots
+  also accept WDI's matching Cast Sheet, tier-locked, no-op without WDI), which shipped undocumented.
+  The player-facing behavior it backs - armor keeps mitigating across a save/reload, via
+  `RepairArmorCards` + `RefreshArmorPassiveEffects` - is unchanged and still real.
+- **Copper Cauldron no longer claims "six cooking slots".** `CopperCauldron.json` ships an empty
+  `InventorySlots`/`InventorySlotsWarpData` and is governed by `MaxWeightCapacity: 3000`, which is the
+  standard vanilla weight-limited container shape (vanilla `Basket`, `Chest`, `Shelf` and `CookingPot`
+  all ship it). Capacity was never broken, but the item count is not capped at six: it depends on
+  ingredient weight. README's Overview bullet and Features list now say so. The Tea Blending Station's
+  "six herb slots" is untouched and remains accurate - that one IS a real 6-entry `InventorySlots` array.
+- **Tea Station's per-card transform log demoted to Debug.** `Patcher/TeaStationPatch.cs` logged
+  `[TeaStation] Transformed -> {uid}` at Info once per converted card, so a single "Grind All" sprayed
+  the log, against CLAUDE.md's per-item-loop logging norm. The line's own comment set the release
+  condition ("Info until the 1.15.8 pour-quantity fix is play-verified"), and that gate is satisfied:
+  the playthrough tracker records T2.83 = pass and no retrospective names the line as a confirmation
+  signal. Now `LogDebug`, stale comment removed.
+- **`IronNailSmeltPatch` renamed to `TinOreSmeltPatch`.** The class handled only `act_tin_ore`
+  smelting and nothing about iron nails, so a contributor searching for iron-nail logic by filename
+  landed in the wrong file. Renamed the file and the class (`git mv`, so history follows) and updated
+  the `Plugin.cs` registration and the README hook list; the README entry now also mentions the
+  Metal Quality (SpecialDurability2) carry-over it was already doing. No behavior change. The dead
+  `IronOreUid` constant this class used to carry was already gone.
+- **Ore Chest README no longer implies a food filter it does not have.** The description said the
+  crate was for bulk raws "rather than food", but its `InventoryFilter` only excludes the four
+  animal-size tags, so food fits fine. Reworded to state the real mechanic: food fits but gains
+  nothing, because the Ore Chest has no spoilage protection (that is the Copper Chest's job).
+- **Armor-repair reflection now leaves a breadcrumb on every early return.**
+  `FindEquippedArmorCards` returned an empty list on a `CharacterWindow` / `EquipmentSlotsLine` /
+  `Slots` reflection miss with no log, so `RepairArmorCards` reported "changed 0" - indistinguishable
+  from a genuine "no armor equipped", meaning a field rename after a game update would silently
+  disable the equipped-armor half of the repair. Added three per-cause `WarnArmorRepairOnce`
+  breadcrumbs so the warn-once covers every early return, not just the catch. Logging only, no
+  behavior change.
+
+### Known state
+- `EffectScalesWithDurabilities` blocks remain on all 13 armor items with `Active: false`. This is
+  deliberate and matches vanilla: all 2709 vanilla `PassiveEffects` entries sampled carry the key, so
+  the disabled-in-place form IS the vanilla shape and deleting it would deviate from it. The defect
+  that mattered (an `EffectName` advertising "interpolated by quality from 1 to 1.5" that could never
+  happen) was fixed above by rewording to the flat value.
+
+## [1.16.4] — 2026-09-01
+
+### Fixed
+- **Bronze and Iron armor now get the same save/reload combat repair as Copper.** The armor repair
+  net (re-adds modded armor to `GameManager.ArmorCards` after a save load and at encounter start,
+  refreshes passive effects) only listed the 4 Copper UIDs - the Bronze (4 items) and Iron (5 items,
+  incl. both breastplate fits) tiers shipped later were never added, so their armor dropped out of
+  the game's combat armor list, and stopped mitigating at all, after a save/reload. All 13 armor
+  items are covered now. Internal repair methods renamed tier-neutral. Not yet verified in-game.
+  **Correction, 2026-09-06 (see [1.16.5]):** this entry originally also credited the same patch with
+  restoring an emptied `ArmorValueDurabilitiesMultiplier` as an armor-quality-scaling fix. That part
+  was a no-op - the multiplier reads a Metal Quality stat that every ACT armor item declares
+  inactive, so it always interpolates to the same 1.0x floor whether the array is present or empty.
+  Removed that claim; see [1.16.5] for the corrected record.
+
+### Removed
+- **`Perk_MetalPanTester` deleted (dead dev content).** The hidden "Metal Pan" character-creation
+  perk had `HiddenUntilUnlocked` with empty unlock conditions - impossible to unlock or ever see
+  in-game. Leftover dev-testing perk (same pattern as the previously removed Cave Prospector);
+  flagged by the 2026-09-01 fleet feature audit. Its localization rows were removed with it. No
+  player-visible change.
+
+## [1.16.3] — 2026-08-25
+
+### Performance
+- **Combat-encounter copper-armor repair no longer rescans the whole board on every hit.**
+  `EncounterArmorRepair_Prefix` (fires on `EncounterPopup.GenerateAndApplyPlayerWound`, i.e. every
+  wound during every fight) walked the full live-card list with reflection on each call. Switched to
+  the framework's `CardFinder.AllCards()`, which caches that same scan and only re-walks it when the
+  board's card count actually changes — repeat wounds within a fight (and fights on an unchanged
+  board) now hit the cache instead of re-scanning. No behavior change, same cards found.
+- **Tin-ore smelt metal-type/quality tagging no longer re-walks the class hierarchy by reflection on
+  every smelt.** `IronNailSmeltPatch` had its own hand-rolled `AllCards` field lookup (run twice per
+  smelt); replaced with the same cached `CardFinder.AllCards()` the sibling `IronVeinQualityPatch`
+  already used.
+
 ## [1.16.2] — 2026-08-24
 
 ### Removed

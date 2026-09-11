@@ -1,26 +1,26 @@
 {
-  "UniqueID": "act_bp_bronze_greaves",
+  "UniqueID": "act_bp_bronze_sheet",
   "CardName": {
-    "ParentObjectID": "act_bp_bronze_greaves",
-    "LocalizationKey": "Advanced_Copper_Tools_Bp_BronzeGreaves_CardName",
-    "DefaultText": "Bronze Greaves"
+    "ParentObjectID": "act_bp_bronze_sheet",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_BronzeSheet_CardName",
+    "DefaultText": "Bronze Sheet"
   },
   "CardDescription": {
-    "ParentObjectID": "act_bp_bronze_greaves",
-    "LocalizationKey": "Advanced_Copper_Tools_Bp_BronzeGreaves_CardDescription",
-    "DefaultText": "Craft bronze greaves for leg protection between copper and iron tiers. Requires a bronze-grade metal sheet."
+    "ParentObjectID": "act_bp_bronze_sheet",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_BronzeSheet_CardDescription",
+    "DefaultText": "Hammer a heated bronze-grade metal bar flat into a sheet, ready for bronze armor."
   },
   "CardType": 7,
   "UnlockConditionsDesc": {
-    "ParentObjectID": "act_bp_bronze_greaves",
-    "LocalizationKey": "Advanced_Copper_Tools_Bp_BronzeGreaves_UnlockConditionsDesc",
-    "DefaultText": "Bronze Sheet Needed"
+    "ParentObjectID": "act_bp_bronze_sheet",
+    "LocalizationKey": "Advanced_Copper_Tools_Bp_BronzeSheet_UnlockConditionsDesc",
+    "DefaultText": "Heated Bronze-Grade Metal Bar Needed"
   },
   "BuildingStatConditions": [],
   "StartUnlocked": false,
   "CardsOnBoard": [
     {
-      "ObjectiveName": "HasMetalSheet",
+      "ObjectiveName": "HasBronzeMetalBar",
       "CompletionWeight": 1,
       "Card": { "m_FileID": 0, "m_PathID": 0 },
       "Quantity": 1,
@@ -39,7 +39,7 @@
         "Special4Range": { "x": 110.0, "y": 140.0 },
         "LiquidQuantityRange": { "x": 0.0, "y": 0.0 }
       },
-      "CardWarpData": "advanced_copper_tools_metal_sheet",
+      "CardWarpData": "14f7ddfe60496b54881d5a25de8abb20",
       "CardWarpType": 3
     }
   ],
@@ -51,52 +51,25 @@
       "RequiredElements": [
         {
           "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
-          "RequiredQuantity": 2,
+          "RequiredQuantity": 1,
+          "Fuel": { "Active": true, "FloatValue": 150.0, "MaxValue": 300.0 },
           "DontSpend": false,
-          "RequiredCardWarpData": "advanced_copper_tools_metal_sheet",
+          "LiquidBecomesResult": false,
+          "AffectResultDurabilities": { "MaskValue": 448 },
+          "EffectOnIngredient": { "ModType": 1, "TransferLiquid": true, "ModifyLiquid": true },
+          "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
+          "RequiredCardWarpData": "14f7ddfe60496b54881d5a25de8abb20",
           "RequiredCardWarpType": 3,
           "Special4": { "Active": true, "FloatValue": 110.0, "MaxValue": 140.0 }
         },
         {
           "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
-          "RequiredQuantity": 4,
-          "DontSpend": false,
-          "RequiredCardWarpData": "advanced_copper_tools_copper_nails",
-          "RequiredCardWarpType": 3
-        },
-        {
-          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
-          "RequiredQuantity": 1,
-          "DontSpend": false,
-          "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
-          "RequiredTabGroupWarpData": "GpTag_LeatherSmall",
-          "RequiredTabGroupWarpType": 3
-        },
-        {
-          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
-          "RequiredQuantity": 2,
-          "DontSpend": false,
-          "RequiredCardWarpData": "e2d62c5b98d164745b276da572605efe",
-          "RequiredCardWarpType": 3
-        },
-        {
-          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
           "RequiredQuantity": 1,
           "DontSpend": true,
-          "EffectOnIngredient": {
-            "ModType": 1,
-            "UsageChange": { "x": -8.0, "y": -8.0 }
-          },
+          "EffectOnIngredient": { "ModType": 1, "UsageChange": { "x": -8.0, "y": -8.0 } },
           "RequiredTabGroup": { "m_FileID": 0, "m_PathID": 0 },
           "RequiredTabGroupWarpData": "GpTag_HammeringToolGeneral",
           "RequiredTabGroupWarpType": 3
-        },
-        {
-          "RequiredCard": { "m_FileID": 0, "m_PathID": 0 },
-          "RequiredQuantity": 1,
-          "DontSpend": false,
-          "RequiredCardWarpData": "act_tin_solder",
-          "RequiredCardWarpType": 3
         }
       ],
       "StepActionTags": [],
@@ -104,13 +77,23 @@
       "StepActionTagsWarpType": 3
     }
   ],
-  "BuildingDaytimeCost": 4,
-  "DeconstructDaytimeCost": 2,
+  "BuildingDaytimeCost": 2,
+  "DeconstructDaytimeCost": 0,
   "BlueprintResult": [
     {
       "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
       "Quantity": { "x": 1, "y": 1 },
-      "DroppedCardWarpData": "act_bronze_greaves",
+      "TransferRules": {
+        "TransferSpoilage": false,
+        "TransferUsage": false,
+        "TransferFuel": false,
+        "TransferCharges": false,
+        "TransferSpecial1": false,
+        "TransferSpecial2": true,
+        "TransferSpecial3": true,
+        "TransferSpecial4": true
+      },
+      "DroppedCardWarpData": "advanced_copper_tools_metal_sheet",
       "DroppedCardWarpType": 3
     }
   ],
@@ -120,8 +103,8 @@
   "BlueprintActionTagsWarpData": [ "HandAction", "CraftAction" ],
   "BlueprintActionTagsWarpType": 3,
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
-  "CardImageWarpData": "CopperGreaves",
+  "CardImageWarpData": "MetalSheet_Copper",
   "CardImageWarpType": 3,
-  "BlueprintUnlockTicksCost": 28.0,
+  "BlueprintUnlockTicksCost": 16.0,
   "ResearchedNotification": 0
 }

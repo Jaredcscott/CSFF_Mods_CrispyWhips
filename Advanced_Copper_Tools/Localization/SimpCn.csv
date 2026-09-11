@@ -343,8 +343,6 @@ Advanced_Copper_Tools_Perk_Wheelbarrow_PerkName,Wheelbarrow,手推车
 Advanced_Copper_Tools_Perk_WheelbarrowKit_PerkDescription,"Start with all the components needed to assemble a wheelbarrow: bucket, handles, and wheel assembly.",初始携带组装手推车所需的所有部件：桶、把手和车轮总成。
 Advanced_Copper_Tools_Perk_WheelbarrowKit_PerkName,Wheelbarrow Kit,手推车套件
 eTag_WearablePan_InGameName,Pan,平底锅
-Advanced_Copper_Tools_Perk_MetalPanTester_PerkDescription,"Start with metal pan crafting materials, finished pans, and the related blueprints. Includes a forge hammer, leather bellows, 5 metal nuggets, wood, rope, and small leather (raw — tan before using in blueprints), plus a shaped pan head and two wearable metal pans.",初始携带金属平底锅的制作材料、成品锅以及相关蓝图。包括锻造锤、皮革风箱、5块金属锤、木材、绳子和小块生皮革（未鞍制——用于蓝图前需先鞍制），以及一个平底锅锅胚和两个可穿戴金属平底锅。
-Advanced_Copper_Tools_Perk_MetalPanTester_PerkName,Metal Pan,金属平底锅
 Advanced_Copper_Tools_CopperBathtub_WaterLevel_CardStatName,Water Level,水位
 Advanced_Copper_Tools_CopperBathtub_Full_RefillRiver_ActionName,Refill from River,从河流补水
 Advanced_Copper_Tools_CopperBathtub_Full_RefillRiver_ActionDescription,Haul more water from the river to refill the bathtub.,从河流取更多水以补充浴缸。
@@ -831,5 +829,9 @@ Advanced_Copper_Tools_Bp_BronzeBreastplate_CardName,Bronze Armor,青铜铠甲
 Advanced_Copper_Tools_Bp_BronzeBreastplate_CardDescription,Craft a suit of bronze torso armor between copper and iron tiers. Requires bronze-grade metal sheets.,打造一套青铜躯干铠甲，提供介于铜和铁之间的防护。需要青铜级金属板。
 Advanced_Copper_Tools_Bp_BronzeBreastplate_UnlockConditionsDesc,Bronze Sheet Needed,需要青铜板
 Advanced_Copper_Tools_CopperBathtub_Warm_WashWithSoap_ActionName,Wash with Soap,用肥皂清洗
-Advanced_Copper_Tools_CopperBathtub_Warm_WashWithSoap_ActionDescription,Scrub down with soap for an extra-deep clean and a bigger mood boost.,用肥皂彻底清洗，获得更深层的洁净感和更大的心情提升。
+Advanced_Copper_Tools_CopperBathtub_Warm_WashWithSoap_ActionDescription,Scrub down with soap for a quick clean and mood boost that doesn't need the fire lit.,用肥皂快速清洗，获得清洁感和心情提升，无需让炉火保持燃烧。
 Advanced_Copper_Tools_CopperBathtub_Warm_WashWithSoap_FailMessage,Need water in the bathtub first.,浴缸里需要先有水。
+Advanced_Copper_Tools_Bp_BronzeSheet_CardName,Bronze Sheet,青铜片
+Advanced_Copper_Tools_Bp_BronzeSheet_CardDescription,"Hammer a heated bronze-grade metal bar flat into a sheet, ready for bronze armor.",将加热的青铜级金属锭锤打成薄片，可用于打造青铜铠甲。
+Advanced_Copper_Tools_Bp_BronzeSheet_UnlockConditionsDesc,Heated Bronze-Grade Metal Bar Needed,需要加热的青铜级金属锭
+Advanced_Copper_Tools_MetalSheet_SpecialDurability4.CardStatName,Metal Type,金属类型

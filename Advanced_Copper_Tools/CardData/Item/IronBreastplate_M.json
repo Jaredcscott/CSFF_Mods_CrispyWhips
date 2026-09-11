@@ -44,18 +44,7 @@
     "RLegArmorModifiers": [],
     "RLegHitProbabilityModifier": 0.0
   },
-  "ArmorValueDurabilitiesMultiplier": [
-    {
-      "InputDurability": 64,
-      "Value": {
-        "Active": true,
-        "InputValueRange": { "x": 0.0, "y": 100.0 },
-        "OutputValueRange": { "x": 1.0, "y": 1.5 },
-        "WhenOutOfRange": 0,
-        "OutOfRangeCustomValue": 0.0
-      }
-    }
-  ],
+  "ArmorValueDurabilitiesMultiplier": [],
   "AlwaysUpdate": true,
   "WhenCreatedSoundsWarpData": [ "Metal" ],
   "WhenCreatedSoundsWarpType": 3,
@@ -141,7 +130,7 @@
   "PassiveStatEffects": [],
   "PassiveEffects": [
     {
-      "EffectName": "Armor (+45) interpolated by quality from 1 to 1.5",
+      "EffectName": "Armor (+45)",
       "OnlyWhenEquipped": true,
       "EquippedOnBodyOnly": true,
       "Conditions": {},
@@ -162,7 +151,7 @@
         }
       ],
       "EffectScalesWithDurabilities": {
-        "Active": true,
+        "Active": false,
         "Inputs": [ { "Durability": 64, "Range": { "x": 0.0, "y": 100.0 } } ],
         "EffectScalingOutput": { "x": 1.0, "y": 1.5 }
       }

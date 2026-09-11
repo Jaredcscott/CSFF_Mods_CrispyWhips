@@ -1,9 +1,11 @@
-﻿{
-  "_comment": "Edit 'status' to 'Tested' when verified in-game. Generated 2026-06-20 from v1.10.0.",
+{
+  "_comment": "Edit 'status' to 'Tested' when verified in-game. Generated 2026-06-20 from v1.10.0; confidence fields added 2026-09-01 by feature-map regen for v1.16.3.",
   "groups": [
     {
       "name": "Metal Sheet",
       "status": "Implemented",
+      "confidence": "VERIFIED",
+      "evidence": "playtest T1.7 (2026-07-21) act_starter_smelting_chain; unchanged since",
       "cards": [
         "advanced_copper_tools_metal_sheet",
         "advanced_copper_tools_bp_metal_sheet"
@@ -12,6 +14,8 @@
     {
       "name": "Copper Nails",
       "status": "Implemented",
+      "confidence": "VERIFIED",
+      "evidence": "playtest T1.7 (2026-07-21) act_starter_smelting_chain; unchanged since",
       "cards": [
         "advanced_copper_tools_copper_nails",
         "advanced_copper_tools_bp_copper_nails"
@@ -20,6 +24,8 @@
     {
       "name": "Stove Top Mold / Cast Stove Top",
       "status": "Implemented",
+      "confidence": "VERIFIED",
+      "evidence": "playtest T2.8 (2026-07-21) batch spot-check; unchanged since",
       "cards": [
         "advanced_copper_tools_stove_top_mold",
         "advanced_copper_tools_cast_stove_top",
@@ -29,6 +35,8 @@
     {
       "name": "Wearable Metal Pan",
       "status": "Implemented",
+      "confidence": "VERIFIED",
+      "evidence": "playtest T2.8 (2026-07-21) batch spot-check; unchanged since. Perk_MetalPanTester (dead dev perk, never unlockable) removed in 1.16.4",
       "cards": [
         "advanced_copper_tools_wearable_metal_pan",
         "advanced_copper_tools_shape_metal_pan",
@@ -39,15 +47,20 @@
     {
       "name": "Oil",
       "status": "Implemented",
+      "confidence": "LOW",
+      "evidence": "Rendered Fish Oil art bug fixed 1.16.1 (2026-08-16); re-verification PENDING per playtest T2.114 (2026-08-17)",
       "cards": [
         "advanced_copper_tools_oil",
         "advanced_copper_tools_bp_oil",
-        "advanced_copper_tools_bp_render_hemp_oil"
+        "advanced_copper_tools_bp_render_hemp_oil",
+        "advanced_copper_tools_bp_render_fish_oil"
       ]
     },
     {
       "name": "Copper Oil Flask",
       "status": "Implemented",
+      "confidence": "VERIFIED",
+      "evidence": "playtest T2.8 (2026-07-21) batch spot-check; unchanged since",
       "cards": [
         "advanced_copper_tools_copper_oil_flask",
         "advanced_copper_tools_bp_copper_oil_flask"
@@ -56,6 +69,8 @@
     {
       "name": "Metal Lantern",
       "status": "Implemented",
+      "confidence": "VERIFIED",
+      "evidence": "playtest T2.8 (2026-07-21) base + T2.85 (2026-08-15) Firekeeping duty compat",
       "cards": [
         "advanced_copper_tools_metal_lantern",
         "advanced_copper_tools_metal_lantern_lit",
@@ -69,6 +84,8 @@
     {
       "name": "Copper Brazier",
       "status": "Implemented",
+      "confidence": "VERIFIED",
+      "evidence": "playtest T2.8 (2026-07-21) base + T2.85 (2026-08-15) Firekeeping duty compat. NOTE: blueprint double-registered in 2 BlueprintTabs.json subtabs (see feature-map Notes)",
       "cards": [
         "advanced_copper_tools_copper_brazier_kit",
         "advanced_copper_tools_copper_brazier_placed",
@@ -79,6 +96,8 @@
     {
       "name": "Large Copper Saw",
       "status": "Implemented",
+      "confidence": "VERIFIED",
+      "evidence": "playtest T2.8 (2026-07-21) batch spot-check; SawEffectPatch.cs unchanged since 2026-06-22",
       "cards": [
         "advanced_copper_tools_large_saw",
         "advanced_copper_tools_bp_large_saw"
@@ -87,6 +106,8 @@
     {
       "name": "Wheelbarrow",
       "status": "Implemented",
+      "confidence": "VERIFIED",
+      "evidence": "playtest T2.8 (2026-07-21) batch spot-check; unchanged since",
       "cards": [
         "advanced_copper_tools_wheelbarrow",
         "advanced_copper_tools_bucket",
@@ -106,6 +127,8 @@
     {
       "name": "Copper Tea Kettle",
       "status": "Implemented",
+      "confidence": "VERIFIED",
+      "evidence": "playtest T2.8 (2026-07-21) batch spot-check; VanillaFireKettlePatch.cs last touched 2026-07-23 (guard hardening only)",
       "cards": [
         "advanced_copper_tools_copper_tea_kettle",
         "advanced_copper_tools_bp_copper_tea_kettle"
@@ -114,6 +137,8 @@
     {
       "name": "Copper Cauldron",
       "status": "Implemented",
+      "confidence": "VERIFIED",
+      "evidence": "playtest T2.8 (2026-07-21) batch spot-check; shares VanillaFireKettlePatch.cs, unchanged since 2026-07-23",
       "cards": [
         "advanced_copper_tools_copper_cauldron",
         "advanced_copper_tools_bp_copper_cauldron"
@@ -122,6 +147,8 @@
     {
       "name": "Copper Stove",
       "status": "Implemented",
+      "confidence": "VERIFIED",
+      "evidence": "playtest T2.8 (2026-07-21) base + T2.85 (2026-08-15) Firekeeping duty compat",
       "cards": [
         "advanced_copper_tools_copper_stove",
         "advanced_copper_tools_copper_stove_placed",
@@ -132,16 +159,23 @@
     {
       "name": "Tea Blending Station",
       "status": "Implemented",
+      "confidence": "VERIFIED",
+      "evidence": "playtest T2.83 (2026-08-15) Grind All pour-quantity fix + T2.7 (2026-07-21) general. Includes the 3 brewed teas (CookingRecipe outputs, no independent blueprint)",
       "cards": [
         "advanced_copper_tools_tea_station_kit",
         "advanced_copper_tools_tea_blending_station",
         "advanced_copper_tools_tea_blending_station_lit",
-        "advanced_copper_tools_bp_tea_blending_station"
+        "advanced_copper_tools_bp_tea_blending_station",
+        "advanced_copper_tools_calming_tea",
+        "advanced_copper_tools_warming_tea",
+        "advanced_copper_tools_focus_tea"
       ]
     },
     {
       "name": "Copper Bathtub",
       "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "base VERIFIED via T2.7 (2026-07-21); Wash with Soap CI added 1.16.0 (2026-08-16) still PENDING per T2.94",
       "cards": [
         "advanced_copper_tools_copper_bathtub_empty",
         "advanced_copper_tools_copper_bathtub_full",
@@ -155,6 +189,8 @@
     {
       "name": "Copper Pantry",
       "status": "Implemented",
+      "confidence": "VERIFIED",
+      "evidence": "playtest T2.8 (2026-07-21) batch spot-check; unchanged since",
       "cards": [
         "advanced_copper_tools_copper_pantry",
         "advanced_copper_tools_copper_pantry_placed",
@@ -164,6 +200,8 @@
     {
       "name": "Copper Armor Set",
       "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "VERIFIED via T2.6 (2026-07-21), but GameLoadPatch.cs perf-refactored 2026-08-25 (1.16.3, self-reported no-behavior-change, not independently re-tested). Combat-repair covers only these 4 Copper UIDs, not Iron/Bronze",
       "cards": [
         "advanced_copper_tools_copper_helmet",
         "advanced_copper_tools_copper_gauntlets",
@@ -178,6 +216,8 @@
     {
       "name": "Cave System",
       "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "multiple PASS (T1.33, T1.63, T2.5, T2.51) but T2.52's own note documents an unresolved reseal-on-reload regression on SealableGates (candidate fix fwk 2.21.3 never re-confirmed)",
       "cards": [
         "actCopperCaveLoc",
         "actTinCaveLoc",
@@ -188,15 +228,103 @@
         "act_iron_vein",
         "act_salt_vein",
         "act_rock_vein",
+        "act_copper_vein",
         "act_tin_ore",
         "act_tin_solder",
         "act_iron_nail",
         "act_collapsed_wall_salt",
         "act_collapsed_wall_quarry",
         "act_collapsed_wall_salt_quarry",
+        "act_collapsed_wall_copper",
+        "act_collapsed_wall_iron",
+        "act_collapsed_wall_tin",
         "advanced_copper_tools_bp_tin_solder",
         "advanced_copper_tools_bp_iron_nails"
       ]
+    },
+    {
+      "name": "Iron Armor Set",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "Breastplate M/F gendered split VERIFIED via T2.32 (2026-07-21); Helmet/Gauntlets/Greaves share the mechanic but have no dedicated test citation",
+      "cards": [
+        "act_bp_iron_sheet",
+        "act_iron_sheet",
+        "act_bp_iron_helmet",
+        "act_iron_helmet",
+        "act_bp_iron_gauntlets",
+        "act_iron_gauntlets",
+        "act_bp_iron_greaves",
+        "act_iron_greaves",
+        "act_bp_iron_breastplate_m",
+        "act_iron_breastplate_m",
+        "act_bp_iron_breastplate_f",
+        "act_iron_breastplate_f"
+      ]
+    },
+    {
+      "name": "Bronze Armor Set",
+      "status": "Implemented",
+      "confidence": "LOW",
+      "evidence": "brand new in 1.16.0 (2026-08-16); playtest T2.91 explicitly marks it unverified",
+      "cards": [
+        "act_bp_bronze_helmet",
+        "act_bronze_helmet",
+        "act_bp_bronze_gauntlets",
+        "act_bronze_gauntlets",
+        "act_bp_bronze_greaves",
+        "act_bronze_greaves",
+        "act_bp_bronze_breastplate",
+        "act_bronze_breastplate"
+      ]
+    },
+    {
+      "name": "Ore Chest",
+      "status": "Implemented",
+      "confidence": "LOW",
+      "evidence": "brand new in 1.16.0 (2026-08-16); playtest T2.92 unverified. Structural inspection confirms weight-based inventory is correctly non-zero",
+      "cards": [
+        "advanced_copper_tools_ore_chest",
+        "advanced_copper_tools_ore_chest_placed",
+        "advanced_copper_tools_bp_ore_chest"
+      ]
+    },
+    {
+      "name": "Salt-Cured Meat",
+      "status": "Implemented",
+      "confidence": "LOW",
+      "evidence": "brand new in 1.16.0 (2026-08-16), playtest T2.93 unverified; sprite fixed 1.16.1, re-check T2.114 also pending",
+      "cards": [
+        "advanced_copper_tools_salt_cured_meat",
+        "advanced_copper_tools_bp_salt_cured_meat"
+      ]
+    },
+    {
+      "name": "Copper Watering Can",
+      "status": "Implemented",
+      "confidence": "HIGH",
+      "evidence": "no dedicated playtest citation; declarative on proven vanilla water-container CI/DA shapes, 0 preflight issues",
+      "cards": [
+        "advanced_copper_tools_copper_watering_can",
+        "advanced_copper_tools_bp_copper_watering_can"
+      ]
+    },
+    {
+      "name": "Copper-Rim Chamberpot",
+      "status": "Implemented",
+      "confidence": "HIGH",
+      "evidence": "no dedicated playtest citation; declarative, 0 preflight issues",
+      "cards": [
+        "advanced_copper_tools_copper_rim_chamberpot",
+        "advanced_copper_tools_bp_copper_rim_chamberpot"
+      ]
+    },
+    {
+      "name": "Cross-Mod Fastener & Sheet Compatibility (WDI)",
+      "status": "Implemented",
+      "confidence": "MEDIUM",
+      "evidence": "custom C# via Api.BlueprintAlternates since 2026-06-21/2026-07-17, zero direct playtest evidence in ACT digest",
+      "cards": []
     }
   ]
 }

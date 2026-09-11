@@ -174,8 +174,7 @@ namespace Advanced_Copper_Tools.Patcher
                 RestorePlacementIfNeeded(card, placement);
 
                 LogPileState("Transform AFTER", card);
-                // Info until the 1.15.8 pour-quantity fix is play-verified; then demote to Debug.
-                Logger?.LogInfo($"[TeaStation] Transformed → {targetUniqueId} " +
+                Logger?.LogDebug($"[TeaStation] Transformed → {targetUniqueId} " +
                     $"(pour qty {CardUtil.ToFloat(CardUtil.GetMemberValue(card, "CurrentLiquidQuantity"))})");
                 return true;
             }

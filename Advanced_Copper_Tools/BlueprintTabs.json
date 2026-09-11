@@ -15,7 +15,8 @@
         "advanced_copper_tools_bp_cast_wheel_hub",
         "advanced_copper_tools_bp_iron_nails",
         "advanced_copper_tools_bp_tin_solder",
-        "act_bp_iron_sheet"
+        "act_bp_iron_sheet",
+        "act_bp_bronze_sheet"
     ],
     "Tab_2_Construction_Subtab_2_MetalTools_TabName": [
         "advanced_copper_tools_bp_wearable_metal_pan",

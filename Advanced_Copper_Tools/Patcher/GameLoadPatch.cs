@@ -56,7 +56,6 @@ namespace Advanced_Copper_Tools.Patcher
                 if (allData == null) { Logger.LogError("[ACT] Could not access DataBase.AllData"); return; }
 
                 VanillaFireKettlePatch.InjectKettleSlots(allData);
-                RepairCopperArmorMultipliers(allData);
                 PatchNailInterchangeability(allData);
                 PatchSheetInterchangeability(allData);
             }
@@ -136,11 +135,23 @@ namespace Advanced_Copper_Tools.Patcher
                 allData, IronSheetUid, WdiCastIronSheetUid, "ACT Iron Sheet / WDI Cast Iron Sheet");
         }
 
+        // Every ACT armor item, all three tiers. The save/reload + encounter repair below is not
+        // copper-specific: any modded armor drops out of GameManager.ArmorCards the same way, so
+        // Bronze and Iron (added after the original copper-only net) are covered too (audit 2026-09-01).
         private static readonly string[] ArmorUids = {
             "advanced_copper_tools_copper_helmet",
             "advanced_copper_tools_copper_breastplate",
             "advanced_copper_tools_copper_gauntlets",
             "advanced_copper_tools_copper_greaves",
+            "act_bronze_helmet",
+            "act_bronze_breastplate",
+            "act_bronze_gauntlets",
+            "act_bronze_greaves",
+            "act_iron_helmet",
+            "act_iron_breastplate_f",
+            "act_iron_breastplate_m",
+            "act_iron_gauntlets",
+            "act_iron_greaves",
         };
 
         private static readonly System.Collections.Generic.HashSet<string> ArmorUidSet =
@@ -150,61 +161,17 @@ namespace Advanced_Copper_Tools.Patcher
         private static bool _subscribedToGmInitialized;
         private static Action _gmInitializedHandler;
 
-        // All four copper armor items share the same multiplier parameters.
-        private const string ArmorMultiplierEntryJson =
-            "{\"InputDurability\":64,\"Value\":{\"Active\":true," +
-            "\"InputValueRange\":{\"x\":0.0,\"y\":100.0}," +
-            "\"OutputValueRange\":{\"x\":1.0,\"y\":1.5}," +
-            "\"WhenOutOfRange\":0,\"OutOfRangeCustomValue\":0.0}}";
+        // Per-cause warn-once for the RepairArmorCards reflection chain. Reflect.GetMember
+        // returns null (no log) on a member-not-found — a game-update rename would otherwise
+        // fail the whole armor-repair feature with zero log output. Keyed per cause, not a
+        // single shared bool, so the first rename to trip doesn't silence a later, different one.
+        private static readonly System.Collections.Generic.HashSet<string> _warnedArmorRepairCauses =
+            new System.Collections.Generic.HashSet<string>(StringComparer.Ordinal);
 
-        private static void RepairCopperArmorMultipliers(IEnumerable allData)
+        private static void WarnArmorRepairOnce(string cause, string message)
         {
-            const BindingFlags Flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
-            var armorSet = new System.Collections.Generic.HashSet<string>(ArmorUids);
-            foreach (var item in allData)
-            {
-                if (item == null) continue;
-                var uid = AccessTools.Field(item.GetType(), "UniqueID")?.GetValue(item) as string;
-                if (uid == null || !armorSet.Contains(uid)) continue;
-
-                var multField = item.GetType().GetField("ArmorValueDurabilitiesMultiplier", Flags);
-                var multArray = multField?.GetValue(item) as Array;
-                int multCount = multArray?.Length ?? -1;
-
-                if (multCount == 0 && multField != null)
-                    FixArmorMultiplier(item, uid, multField);
-            }
-        }
-
-        private static void FixArmorMultiplier(object card, string uid, FieldInfo multField)
-        {
-            try
-            {
-                var elementType = multField.FieldType.GetElementType();
-                if (elementType == null)
-                {
-                    Logger.LogError($"[ACT-Fix] {uid}: could not get ArmorValueDurabilitiesMultiplier element type");
-                    return;
-                }
-
-                // JsonUtility.FromJson works for single objects (not arrays).
-                // We create one entry and wrap it in a 1-element array.
-                var entry = UnityEngine.JsonUtility.FromJson(ArmorMultiplierEntryJson, elementType);
-                if (entry == null)
-                {
-                    Logger.LogError($"[ACT-Fix] {uid}: JsonUtility.FromJson returned null for multiplier entry (type={elementType.Name})");
-                    return;
-                }
-
-                var newArray = Array.CreateInstance(elementType, 1);
-                newArray.SetValue(entry, 0);
-                multField.SetValue(card, newArray);
-                Logger.LogDebug($"[ACT-Fix] {uid}: ArmorValueDurabilitiesMultiplier restored (1 entry, type={elementType.Name})");
-            }
-            catch (Exception ex)
-            {
-                Logger.LogError($"[ACT-Fix] {uid}: FixArmorMultiplier failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
-            }
+            if (!_warnedArmorRepairCauses.Add(cause)) return;
+            Logger?.LogError($"[ACT-Fix] {message}");
         }
 
         private static void PatchEncounterArmorRepair(Harmony harmony)
@@ -215,7 +182,7 @@ namespace Advanced_Copper_Tools.Patcher
                 var method = AccessTools.Method(encounterPopupType, "GenerateAndApplyPlayerWound");
                 if (method == null)
                 {
-                    Logger.LogError("[ACT] EncounterPopup.GenerateAndApplyPlayerWound not found; copper armor combat repair not applied.");
+                    Logger.LogError("[ACT] EncounterPopup.GenerateAndApplyPlayerWound not found; armor combat repair not applied.");
                     return;
                 }
 
@@ -223,7 +190,7 @@ namespace Advanced_Copper_Tools.Patcher
             }
             catch (Exception ex)
             {
-                Logger.LogError($"[ACT] Failed to patch copper armor combat repair: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                Logger.LogError($"[ACT] Failed to patch armor combat repair: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
         }
 
@@ -234,12 +201,12 @@ namespace Advanced_Copper_Tools.Patcher
                 var gameManager = Reflect.GetMember(__instance, "GM") ?? CardUtil.GetGameManagerInstance();
                 var graphicsManager = Reflect.GetMember(__instance, "GraphicsManager");
                 var characterWindow = Reflect.GetMember(graphicsManager, "CharacterWindow");
-                RepairCopperArmorCards(gameManager, characterWindow, "encounter");
+                RepairArmorCards(gameManager, characterWindow, "encounter");
             }
             catch (Exception ex)
             {
                 if (_loggedEncounterArmorRepairError) return;
-                Logger.LogError($"[ACT] Copper armor combat repair failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                Logger.LogError($"[ACT] Armor combat repair failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
                 _loggedEncounterArmorRepairError = true;
             }
         }
@@ -254,7 +221,7 @@ namespace Advanced_Copper_Tools.Patcher
                 var field = gmType?.GetField("OnGMInitialized", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
                 if (field == null || field.FieldType != typeof(Action))
                 {
-                    Logger.LogError("[ACT] GameManager.OnGMInitialized not found; save-load copper armor repair unavailable.");
+                    Logger.LogError("[ACT] GameManager.OnGMInitialized not found; save-load armor repair unavailable.");
                     return;
                 }
 
@@ -265,7 +232,7 @@ namespace Advanced_Copper_Tools.Patcher
             }
             catch (Exception ex)
             {
-                Logger.LogError($"[ACT] Failed to subscribe copper armor save-load repair: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                Logger.LogError($"[ACT] Failed to subscribe armor save-load repair: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
         }
 
@@ -286,7 +253,7 @@ namespace Advanced_Copper_Tools.Patcher
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"[ACT] Failed to remove copper armor save-load repair subscription: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                Logger?.LogError($"[ACT] Failed to remove armor save-load repair subscription: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
             finally
             {
@@ -300,25 +267,33 @@ namespace Advanced_Copper_Tools.Patcher
             var host = Plugin.Instance;
             if (host != null)
             {
-                host.StartCoroutine(DeferredRepairCopperArmorCards());
+                host.StartCoroutine(DeferredRepairArmorCards());
                 return;
             }
 
-            RepairCopperArmorCards(CardUtil.GetGameManagerInstance(), null, "save-load");
+            RepairArmorCards(CardUtil.GetGameManagerInstance(), null, "save-load");
         }
 
-        private static IEnumerator DeferredRepairCopperArmorCards()
+        private static IEnumerator DeferredRepairArmorCards()
         {
             yield return null;
-            RepairCopperArmorCards(CardUtil.GetGameManagerInstance(), null, "save-load");
+            RepairArmorCards(CardUtil.GetGameManagerInstance(), null, "save-load");
         }
 
-        private static int RepairCopperArmorCards(object gameManager, object characterWindow, string phase)
+        private static int RepairArmorCards(object gameManager, object characterWindow, string phase)
         {
-            if (gameManager == null) return 0;
+            if (gameManager == null)
+            {
+                WarnArmorRepairOnce("GM-null", "RepairArmorCards: gameManager was null; armor combat/save-load repair unavailable.");
+                return 0;
+            }
 
             var armorCards = Reflect.GetMember(gameManager, "ArmorCards") as System.Collections.IList;
-            if (armorCards == null) return 0;
+            if (armorCards == null)
+            {
+                WarnArmorRepairOnce("ArmorCards-null", "RepairArmorCards: GameManager.ArmorCards not found (reflection miss) — modded armor combat/save-load repair disabled. Possible field rename after a game update.");
+                return 0;
+            }
 
             if (characterWindow == null)
             {
@@ -326,29 +301,29 @@ namespace Advanced_Copper_Tools.Patcher
                 characterWindow = Reflect.GetMember(gameGraphics, "CharacterWindow");
             }
 
-            var copperCards = new System.Collections.Generic.List<object>();
-            int added = AddCopperArmorFromList(Reflect.GetMember(gameManager, "AllCards") as IEnumerable, armorCards, copperCards);
+            var modArmorCards = new System.Collections.Generic.List<object>();
+            int added = AddArmorFromList(CardFinder.AllCards(), armorCards, modArmorCards);
 
-            foreach (var equippedCard in FindEquippedCopperArmorCards(characterWindow))
+            foreach (var equippedCard in FindEquippedArmorCards(characterWindow))
             {
                 if (equippedCard == null) continue;
-                if (!copperCards.Contains(equippedCard)) copperCards.Add(equippedCard);
+                if (!modArmorCards.Contains(equippedCard)) modArmorCards.Add(equippedCard);
                 if (armorCards.Contains(equippedCard)) continue;
 
                 armorCards.Add(equippedCard);
                 added++;
             }
 
-            if (copperCards.Count > 0 && string.Equals(phase, "save-load", StringComparison.OrdinalIgnoreCase))
-                RefreshCopperArmorPassiveEffects(copperCards);
+            if (modArmorCards.Count > 0 && string.Equals(phase, "save-load", StringComparison.OrdinalIgnoreCase))
+                RefreshArmorPassiveEffects(modArmorCards);
 
             if (added > 0)
-                Logger?.LogDebug($"[ACT-Fix] Copper armor combat list repaired ({added} card(s), {phase}).");
+                Logger?.LogDebug($"[ACT-Fix] Armor combat list repaired ({added} card(s), {phase}).");
 
             return added;
         }
 
-        private static int AddCopperArmorFromList(IEnumerable cards, System.Collections.IList armorCards, System.Collections.Generic.List<object> copperCards)
+        private static int AddArmorFromList(IEnumerable cards, System.Collections.IList armorCards, System.Collections.Generic.List<object> modArmorCards)
         {
             if (cards == null) return 0;
 
@@ -359,7 +334,7 @@ namespace Advanced_Copper_Tools.Patcher
                 var uid = GetCardUid(card);
                 if (!ArmorUidSet.Contains(uid)) continue;
 
-                if (!copperCards.Contains(card)) copperCards.Add(card);
+                if (!modArmorCards.Contains(card)) modArmorCards.Add(card);
                 if (armorCards.Contains(card)) continue;
 
                 armorCards.Add(card);
@@ -369,12 +344,12 @@ namespace Advanced_Copper_Tools.Patcher
             return added;
         }
 
-        private static void RefreshCopperArmorPassiveEffects(System.Collections.Generic.List<object> copperCards)
+        private static void RefreshArmorPassiveEffects(System.Collections.Generic.List<object> modArmorCards)
         {
             var host = Plugin.Instance;
             if (host == null) return;
 
-            foreach (var card in copperCards)
+            foreach (var card in modArmorCards)
             {
                 try
                 {
@@ -386,12 +361,36 @@ namespace Advanced_Copper_Tools.Patcher
             }
         }
 
-        private static System.Collections.Generic.List<object> FindEquippedCopperArmorCards(object characterWindow)
+        private static System.Collections.Generic.List<object> FindEquippedArmorCards(object characterWindow)
         {
             var equippedCards = new System.Collections.Generic.List<object>();
+
+            // Every early return here is a per-cause warn-once. Without these the whole
+            // equipped-armor half of the repair returns an empty list on a reflection miss,
+            // which RepairArmorCards then reports as "changed 0" - indistinguishable from a
+            // genuine "no armor equipped". A game-update rename would silently disable it.
+            if (characterWindow == null)
+            {
+                WarnArmorRepairOnce("CharacterWindow-null",
+                    "FindEquippedArmorCards: CharacterWindow was null; equipped-armor repair skipped this pass.");
+                return equippedCards;
+            }
+
             var equipmentLine = Reflect.GetMember(characterWindow, "EquipmentSlotsLine");
+            if (equipmentLine == null)
+            {
+                WarnArmorRepairOnce("EquipmentSlotsLine-null",
+                    "FindEquippedArmorCards: CharacterWindow.EquipmentSlotsLine not found (reflection miss) - equipped-armor repair disabled. Possible field rename after a game update.");
+                return equippedCards;
+            }
+
             var slots = Reflect.GetMember(equipmentLine, "Slots") as System.Collections.IEnumerable;
-            if (slots == null) return equippedCards;
+            if (slots == null)
+            {
+                WarnArmorRepairOnce("EquipmentSlots-null",
+                    "FindEquippedArmorCards: EquipmentSlotsLine.Slots not found or not enumerable (reflection miss) - equipped-armor repair disabled. Possible field rename after a game update.");
+                return equippedCards;
+            }
 
             foreach (var slotObject in slots)
             {

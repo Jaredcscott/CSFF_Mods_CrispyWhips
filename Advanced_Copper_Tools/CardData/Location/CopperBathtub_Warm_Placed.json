@@ -424,7 +424,7 @@
       "ActionDescription": {
         "ParentObjectID": "advanced_copper_tools_copper_bathtub_warm_placed",
         "LocalizationKey": "Advanced_Copper_Tools_CopperBathtub_Warm_WashWithSoap_ActionDescription",
-        "DefaultText": "Scrub down with soap for an extra-deep clean and a bigger mood boost."
+        "DefaultText": "Scrub down with soap for a quick clean and mood boost that doesn't need the fire lit."
       },
       "DaytimeCost": 0,
       "UseMiniTicks": 1,

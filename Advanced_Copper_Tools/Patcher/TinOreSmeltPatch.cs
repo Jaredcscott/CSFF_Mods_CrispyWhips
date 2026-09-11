@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
 using HarmonyLib;
 using BepInEx.Logging;
 using CSFFModFramework.Api;
@@ -19,11 +17,9 @@ namespace Advanced_Copper_Tools.Patcher
     /// came from. SpecialDurability1 on MetalNugget is "Strikes" (smithing progress), NOT quality —
     /// must never be written here.
     /// </summary>
-    public static class IronNailSmeltPatch
+    public static class TinOreSmeltPatch
     {
         private static ManualLogSource Logger => Plugin.Logger;
-
-        private const BindingFlags Flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
 
         private const string MetalNuggetUID  = "4b0f4937a5ecb90499428c8c10288afc";
         private const string TinOreUid  = "act_tin_ore";
@@ -87,7 +83,7 @@ namespace Advanced_Copper_Tools.Patcher
             try
             {
                 var preIds = snapshot.PreExistingNuggetIds;
-                foreach (var card in EnumerateAllCards())
+                foreach (var card in CardFinder.AllCards())
                 {
                     if (CardUtil.GetCardUniqueId(card) != MetalNuggetUID) continue;
                     if (card is UnityEngine.Object uo && preIds != null && preIds.Contains(uo.GetInstanceID())) continue;
@@ -115,7 +111,7 @@ namespace Advanced_Copper_Tools.Patcher
             var ids = new HashSet<int>();
             try
             {
-                foreach (var card in EnumerateAllCards())
+                foreach (var card in CardFinder.AllCards())
                 {
                     if (CardUtil.GetCardUniqueId(card) == MetalNuggetUID && card is UnityEngine.Object uo)
                         ids.Add(uo.GetInstanceID());
@@ -126,26 +122,6 @@ namespace Advanced_Copper_Tools.Patcher
                 Logger?.LogError($"[ACT] NuggetSmelt SnapshotNuggetIds: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
             return ids;
-        }
-
-        private static IEnumerable EnumerateAllCards()
-        {
-            var gm = CardUtil.GetGameManagerInstance();
-            if (gm == null) yield break;
-
-            FieldInfo allCardsField = null;
-            for (var t = gm.GetType(); t != null && t != typeof(object); t = t.BaseType)
-            {
-                allCardsField = t.GetField("AllCards", Flags)
-                             ?? t.GetField("<AllCards>k__BackingField", Flags);
-                if (allCardsField != null) break;
-            }
-
-            var cards = allCardsField?.GetValue(gm) as IEnumerable;
-            if (cards == null) yield break;
-
-            foreach (var c in cards)
-                if (c != null) yield return c;
         }
     }
 }

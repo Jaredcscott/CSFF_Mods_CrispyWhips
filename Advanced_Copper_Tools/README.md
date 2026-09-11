@@ -1,7 +1,7 @@
 # Advanced Copper Tools
 
 **Quality of Life & Advanced Metalworking**
-**Version:** 1.16.2
+**Version:** 1.16.6
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.65)
 
@@ -23,7 +23,7 @@ Major systems:
 - **Metal Lantern** — 4-variant portable light (item × placed × lit × unlit) running on rendered oil
 - **Oil chain** — Render animal fat (or hemp seed oil with H&F installed) into clean lamp oil; carry it in a Copper Oil Flask (now tracks copper-through-white-bronze metal type)
 - **Copper Tea Kettle** — Liquid container that boils water on any fire source
-- **Copper Cauldron** — Fire-placeable batch vessel with six cooking slots and a 6240 ml basin (now tracks copper-through-white-bronze metal type)
+- **Copper Cauldron** — Fire-placeable batch vessel with a 3000-weight cooking basket and a 6240 ml basin (now tracks copper-through-white-bronze metal type)
 - **Tea Blending Station** — 3-variant kit / placed / lit workstation with six herb-and-grinding slots, a built-in 8-bowl water reservoir, passive drying, a "Grind All" action, a heated reservoir while lit, and three brewable herbal teas (Calming from willow bark, Warming from wild garlic, Focus from spirit mushrooms)
 - **Copper Chest** (formerly "Copper Pantry") — Sealed, animal-safe storage that slows spoilage to 20% of normal
 - **Iron-Grade Armor** — Iron Sheet forged from iron nuggets feeds a tougher iron helmet/bracers/greaves/armor tier with higher Armor Values and durability than copper
@@ -40,7 +40,7 @@ Blueprints register into vanilla crafting tabs via `BlueprintTabs.json`:
 |-----|-----------|
 | **Survival → Support** | Rendered Oil, Rendered Fish Oil, Render Hemp Seed Oil |
 | **Survival → Fire** | Copper Brazier |
-| **Metal & Clay → Metal Crafts** | Metal Sheet, Copper Nail, Forged Pan Blank, Wheel Rim, Wheel Hub (forged), Cast Wheel Hub, Cast Stove Top, Iron Sheet |
+| **Metal & Clay → Metal Crafts** | Metal Sheet, Copper Nail, Forged Pan Blank, Wheel Rim, Wheel Hub (forged), Cast Wheel Hub, Cast Stove Top, Iron Sheet, Bronze Sheet |
 | **Construction → Metal Tools** | Wearable Metal Pan, Large Saw, Lantern Oilwell, Copper Tea Kettle, Copper Oil Flask, Copper Cauldron, Copper Helmet, Copper Bracers, Copper Greaves, Copper Armor, Copper Watering Can, Iron Helmet, Iron Bracers, Iron Greaves, Iron Armor (Male), Iron Armor (Female) |
 | **Construction → Advanced Tools** | Metal Lantern, Wheelbarrow Bucket, Wheelbarrow Handles, Wheel Assembly, Wheelbarrow |
 | **Construction → Furniture** | Small Copper Stove, Copper Bathtub, Tea Blending Station, Copper Chest, Copper Brazier, Copper-Rim Chamberpot |
@@ -54,9 +54,10 @@ Time fields throughout this README use the standard CSFF unit: **1 tick = 15 min
 | Item | Recipe | Build Time | Unlock |
 |------|--------|-----------:|-------:|
 | **Metal Sheet** | 1 heated metal bar (copper-grade only) + hammer (no spend) | 2 ticks | 16 ticks |
+| **Bronze Sheet** | 1 heated bronze-grade metal bar (Ghost Bronze, Tin Bronze, or White Bronze) + hammer (no spend) | 2 ticks | 16 ticks |
 | **Copper Nail** | 1 heated copper nugget + hammer (no spend) | 2 ticks | 16 ticks |
 
-Multi-metal supported for pans — copper, ghost bronze, tin, tin bronze, and white bronze variants of the Wearable Metal Pan chain forge from whichever metal-grade nugget you use. Metal Sheets are copper-specific: the Metal Sheet blueprint's Heated Metal Bar requirement is gated to copper-grade bars only, even though the item's own data carries name/art variants for the other four metals.
+Multi-metal supported for pans and sheets alike. The Wearable Metal Pan chain forges copper, ghost bronze, tin, tin bronze, and white bronze variants from whichever metal-grade nugget you use. Metal Sheets work the same way but through two separate blueprints: the base **Metal Sheet** blueprint only accepts a copper-grade bar (Metal Type 100) and produces a plain Copper Sheet, while the **Bronze Sheet** blueprint (added alongside the Bronze Armor Set below) accepts a bronze-grade bar (Ghost Bronze/Tin Bronze/White Bronze, Metal Type 110-140) and produces the same underlying sheet card, correctly tagged with its bronze-grade Metal Type. Both come out of the same item, just via different recipes - the Bronze Armor Set's gate checks that Metal Type stat directly.
 
 ---
 
@@ -78,6 +79,7 @@ A portable fireplace with two cooking slots — burns longer than a campfire, ge
 - Acts as a heat source for any liquid container (kettle, wearable pan, clay bowl)
 - Pick up / place anywhere; dismantle to recover sheets and stove top
 - Doubles as a component for the Copper Bathtub blueprint
+- A recruited Partner NPC can be assigned to tend its fuel under the vanilla Fire keeping duty (confirmed in-game 2026-08-15)
 
 ---
 
@@ -125,13 +127,15 @@ Wearable copper armor pieces protect specific body zones when equipped. Each pie
 | **Copper Greaves** | Legs +15 each | 2 heated metal lumps + 4 copper nails + 1 small leather + 2 sinew + hammer (no spend) + 1 Tin Solder | 4 ticks | 24 ticks |
 | **Copper Armor** | Torso +30 | 4 metal sheets + 4 copper nails + 1 medium leather + 4 sinew + hammer (no spend) + 1 Tin Solder | 6 ticks | 32 ticks |
 
-Helmet and Armor are research-gated by having a Metal Sheet; Bracers and Greaves are gated by a Heated Metal Lump. All four appear under **Construction → Metal Tools**. At full durability, the copper set's durability multiplier raises these values enough to fill the Armor stat when replacing the leather cuirass, helmet, greaves, and bracers while keeping the usual gloves, shoes, tunic, and trousers equipped.
+Helmet and Armor are research-gated by having a Metal Sheet; Bracers and Greaves are gated by a Heated Metal Lump. All four appear under **Construction → Metal Tools**. Armor value is flat regardless of condition: the values in the table above are what you'll see in combat at any durability.
 
 ---
 
 ## Bronze Armor Set
 
-A mid-tier armor set slotting between Copper and Iron, using the same forged-armor pattern. Each piece requires a **bronze-grade** Metal Sheet — a sheet cast from Ghost Bronze, Tin Bronze, or White Bronze nuggets (any metal in the SD4 100–140 band above plain copper), not a new item.
+A mid-tier armor set slotting between Copper and Iron, using the same forged-armor pattern. Each piece requires bronze-grade Metal Sheets, produced via the separate **Bronze Sheet** blueprint (Metal & Clay → Metal Crafts, see Base Materials above): hammer a heated Ghost Bronze, Tin Bronze, or White Bronze metal bar (Metal Type 110-140) instead of a copper-grade one. A plain Copper Sheet (Metal Type 100, from the base Metal Sheet blueprint) does not satisfy this gate.
+
+Art note: Bronze Helmet/Bracers/Greaves/Armor and their blueprints currently reuse the Copper set's sprites (`CopperHelmet`/`CopperArmor`/`CopperBracers`/`CopperGreaves`) - visually identical to Copper armor on the board until distinct Bronze art ships.
 
 | Piece | Protection | Recipe | Build | Unlock |
 |-------|------------|--------|------:|-------:|
@@ -179,7 +183,7 @@ A 3-state placed structure for cleansing and morale.
 - **Full (Cold)** — Take a cold bath for cleansing and a modest morale boost. Add firewood and light to heat the water.
 - **Warm** — 24 max Heat (drains at −0.25/dtp ≈ ~1 day per fill). Take a warm bath for deep cleansing, major morale, spiritual boost, and body warmth.
 
-**Actions**: Fill / Add Firewood / Light / Take Cold Bath / Take Warm Bath / Take Hot Bath (≥50% heat) / Wash with Soap (drag in vanilla Soap for a bigger cleansing and mood boost) / Empty / Pick Up / Dismantle.
+**Actions**: Fill / Add Firewood / Light / Take Cold Bath / Take Warm Bath / Take Hot Bath (≥50% heat) / Wash with Soap (drag in vanilla Soap for a quick clean and mood boost that doesn't need the fire lit) / Empty / Pick Up / Dismantle.
 
 ---
 
@@ -199,6 +203,8 @@ A portable light source with the standard CSFF four-variant pattern: item ↔ pl
 **Fuel**: Pour `Oil` directly onto the unlit lantern, or drag a Copper Oil Flask onto it for one charge per drag. Holds 3 charges; each charge burns ~6 hours, total ~18 hours per full tank. Light by dragging a fire source onto the unlit lantern (gated by ≥10% fuel).
 
 When fuel runs out, lit variants auto-extinguish back to their unlit counterpart in place.
+
+A recruited Partner NPC can be assigned to tend a placed lantern's fuel under the vanilla Fire keeping duty (confirmed in-game 2026-08-15); the Ownership panel restricting who may refuel it is not yet confirmed working.
 
 ---
 
@@ -238,7 +244,7 @@ A large portable cooking vessel for batch cooking and brewing. Place the cauldro
 
 **Features**
 
-- Six ingredient slots for batch cooking multiple `tag_Cookable` or `tag_Boilable` items
+- Weight-limited ingredient basket (3000 capacity) for batch cooking `tag_Cookable` or `tag_Boilable` items; how many fit depends on their weight, not on a fixed slot count
 - 6240 ml open basin; boil/brew recipes require liquid in the cauldron
 - Accepted by vanilla-style fire inventories through cooking-container tags
 - Cools down when removed from heat, matching vanilla cooking containers
@@ -278,6 +284,7 @@ A copper fire-bowl on a stick tripod (build 4 ticks, unlock 16 ticks; 3 metal sh
 - **Light:** Lit variant provides warm-toned light; drains oil at 1.5 per daytime point (≈ 64 DTP per fill)
 - **Pack Up:** Extinguish first (or pack up the unlit version) — remaining oil transfers back to the kit
 - **Smelting:** Can be melted in the furnace for 22 copper nuggets
+- **Partner duty:** a recruited Partner NPC can be assigned to tend its fuel under the vanilla Fire keeping duty (confirmed in-game 2026-08-15); the Ownership panel restricting who may refuel it is not yet confirmed working
 
 Blueprinted under **Construction → Furniture** and **Survival → Fire**.
 
@@ -295,11 +302,12 @@ A sealed copper chest with thick insulated walls (build 10 ticks, unlock 64 tick
 
 ## Ore Chest
 
-A high-capacity, animal-safe sealed metal crate built for hauling the cave network's bulk raws — Greenstone, Bog Iron, Tin Ore, Salt, and Stone — rather than food (build 10 ticks, unlock 64 ticks; 6 metal sheets + 4 planks + 8 copper nails + hammer + 1 Tin Solder).
+A high-capacity, animal-safe sealed metal crate built for hauling the cave network's bulk raws — Greenstone, Bog Iron, Tin Ore, Salt, and Stone (build 10 ticks, unlock 64 ticks; 6 metal sheets + 4 planks + 8 copper nails + hammer + 1 Tin Solder). Food fits too, but gains nothing here: the Ore Chest has no spoilage protection, so keep perishables in the Copper Chest.
 
 - 6000 weight capacity (item) / 15000 weight capacity (placed) — no spoilage protection, just space
 - **Animal-safe**: wildlife cannot raid this crate
 - Appears under **Construction → Furniture**
+- Art note: reuses the Copper Chest sprite (`Copper_Chest`) - a distinct Ore Chest look is not yet shipped.
 
 ---
 
@@ -317,21 +325,21 @@ All crafted metal items can be melted back down for nuggets in the furnace (the 
 |------|-----------------:|
 | Copper Nail | 1 |
 | Shaped Metal Pan Head | 4 |
-| Wearable Metal Pan | 5 |
-| Metal Sheet / Wheel Hub / Wheel Rim / Stove Top Mold / Cast Stove Top / Lantern Oilwell | 6 |
+| Wearable Metal Pan / Iron Sheet | 5 |
+| Metal Sheet / Wheel Hub / Wheel Rim / Stove Top Mold / Cast Stove Top / Lantern Oilwell / Copper-Rim Chamberpot | 6 |
+| Copper Watering Can | 10 |
+| Copper Bracers | 11 |
 | Wheel Assembly | 12 |
 | Bronze Bracers | 13 |
+| Copper Helmet / Copper Greaves / Iron Bracers | 15 |
 | Large Saw | 16 |
-| Metal Lantern | 18 |
-| Copper Tea Kettle | 18 |
-| Copper Bracers | 11 |
-| Copper Helmet | 15 |
-| Copper Greaves | 15 |
 | Bronze Helmet / Bronze Greaves | 17 |
-| Copper Armor | 23 |
+| Metal Lantern / Copper Tea Kettle | 18 |
+| Iron Helmet / Iron Greaves | 20 |
 | Copper Brazier | 22 |
+| Copper Armor | 23 |
 | Bronze Armor | 26 |
-| Small Copper Stove / Copper Chest | 30 |
+| Small Copper Stove / Copper Chest / Iron Armor (Male) / Iron Armor (Female) | 30 |
 | Copper Cauldron | 34 |
 | Tea Station Kit / Wheelbarrow Bucket | 48 |
 | Copper Bathtub | 78 |
@@ -369,7 +377,6 @@ Each vein supports a **Mine** action (pickaxe, 3 ticks / ~45 min) and a **Chip A
 
 | Perk | Cost | Description |
 |------|------|-------------|
-| **Metal Pan** | 5 Suns | Start with a forge hammer, leather bellows, 5 metal nuggets, wood, rope, and small leather, plus a shaped pan head and two wearable metal pans (one equipped). Also unlocks the Pan Blank, Wearable Metal Pan, Metal Sheet, Cast Stove Top, and Small Copper Stove blueprints. |
 | **Wheelbarrow** | 3 Moons | Start with a fully assembled wheelbarrow. |
 | **Wheelbarrow Kit** | 2 Moons | Start with bucket, handles, and wheel assembly. |
 | **Copper Bathtub** | 1 Moon | Start with a copper bathtub. |
@@ -388,8 +395,8 @@ Several Harmony/ActionRouter hooks handle gameplay logic that JSON alone can't e
 
 - **`SawEffectPatch`** — `GameManager.ActionRoutine` / `CardOnCardActionRoutine` prefix; adds −25 Progress when the Large Saw is dragged onto one of the four large-tree GUIDs.
 - **`TeaStationPatch`** — `GameManager.ActionRoutine`, `CardOnCardActionRoutine`, and `PerformStackActionRoutine` hooks; resolves "Grind All" for both station variants and applies the targeted `Draw Boiled Water` fix after JSON fills the bowl, so spawned water is actually hot and one reservoir charge is consumed.
-- **`GameLoadPatch`** — `LoadMainGameData` postfix that repairs a missing `ArmorValueDurabilitiesMultiplier` entry on each copper armor piece and makes iron nails an accepted alternate for copper nails in every blueprint/improvement slot. It also prefixes `EncounterPopup.GenerateAndApplyPlayerWound` and subscribes to `GameManager.OnGMInitialized` to keep equipped and inventory copper armor registered in the game's combat armor list, including after a save is loaded.
-- **`IronNailSmeltPatch`** — ActionRouter hook on Tin Ore smelting; tags the resulting Metal Nugget with the correct metal-type stat (SpecialDurability4) so downstream blueprint metal-type gates recognize it as tin-grade.
+- **`GameLoadPatch`** — `LoadMainGameData` postfix that makes iron nails an accepted alternate for copper nails in every blueprint/improvement slot (and Tin Solder interchangeable with WDI's Alloy Solder), and lets ACT's Copper/Iron Sheet slots also accept WaterDrivenInfrastructure's matching Cast Sheet - tier-locked, so iron-tier armor still needs iron-tier material, and a no-op when WDI is not installed. It also prefixes `EncounterPopup.GenerateAndApplyPlayerWound` and subscribes to `GameManager.OnGMInitialized` to keep equipped and inventory ACT armor registered in the game's combat armor list, including after a save is loaded.
+- **`TinOreSmeltPatch`** — ActionRouter hook on Tin Ore smelting; tags the resulting Metal Nugget with the correct metal-type stat (SpecialDurability4) so downstream blueprint metal-type gates recognize it as tin-grade, and carries the ore's own Quality across to the nugget's Metal Quality (SpecialDurability2).
 - **`IronVeinQualityPatch`** — ActionRouter hook on the Iron Vein; sets a Quality stat on vein-mined Dried Bog Iron (which skips the vanilla fresh-to-dried aging step) so it's immediately usable at a reasonable quality.
 - **`HeatHeldLiquidPatch`** — disabled by default; enable `Compatibility.EnableLegacyStationLiquidHeater` only for beta/testing layouts where a lit Tea Station stores real liquid on the station card. Current Tea Stations use Water Temp / Water Charges stats instead.
 
@@ -410,7 +417,7 @@ These hooks are mod-scoped and filter on this mod's UniqueIDs. The exception is 
 1. Install BepInEx if not already installed.
 2. Install CSFFModFramework in `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. Drop this mod folder at `BepInEx/plugins/Advanced_Copper_Tools/`.
-4. Launch the game — content loads automatically; check `BepInEx/LogOutput.log` for `Advanced_Copper_Tools v1.16.2 loaded.`
+4. Launch the game — content loads automatically; check `BepInEx/LogOutput.log` for `Advanced_Copper_Tools v1.16.6 loaded.`
 
 ### Deployed file structure
 
@@ -450,7 +457,7 @@ Other in-house mods build directly on top of ACT's content:
 
 ## Troubleshooting
 
-**Blueprints not appearing?** Verify CSFFModFramework is loaded — check `LogOutput.log` for `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.16.2 loaded.`
+**Blueprints not appearing?** Verify CSFFModFramework is loaded — check `LogOutput.log` for `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.16.6 loaded.`
 
 **Pan / kettle won't boil?** It must be on a *lit* fire source with fuel remaining. Vanilla water types boil via their own `LiquidFuelValue` OnFull transform; if the liquid isn't a heatable type, nothing happens.
 
@@ -464,7 +471,12 @@ Other in-house mods build directly on top of ACT's content:
 
 ## Version History
 
-### v1.16.2 (current)
+### v1.16.5 (current)
+- **Bronze/White-Bronze armor is now actually craftable as designed**: fixed a bad field-name bug that left the Bronze recipes' metal-type gate permanently inactive, added a new Bronze Sheet blueprint as the only way to produce a sheet that satisfies it, and closed a matching gap in the four Bronze blueprints' research-unlock gate (previously satisfied by any Metal Sheet). See CHANGELOG.md for full detail.
+- Corrected several player-facing honesty issues: armor no longer claimed to track its build metal, the bathtub's Wash with Soap claim is now reworded everywhere it appears (not just ModInfo.json), the Metal Sheet and Bronze Armor Set sections no longer contradict each other, a false [1.16.4] armor-scaling fix claim was corrected, undisclosed Bronze/Ore Chest art reuse is now noted, and the README no longer advertises the "Metal Pan" perk removed in [1.16.4].
+- Removed the non-functional armor quality-scaling scaffolding (dead `ArmorValueDurabilitiesMultiplier`/`EffectScalesWithDurabilities` blocks and the C# code that kept restoring them) instead of leaving it disclosed as broken; fixed Bronze Armor's leather-grade mismatch; filled in 8 missing Smelting Recovery rows.
+
+### v1.16.2
 - **Removed the Cave Prospector perk.** The Collapsed Rock Face gates it described have applied to every character by default since v1.15.6 — the perk itself controlled nothing and, unlike Forest Scout in HerbsAndFungi, was never given a compensating stat bonus, so its 1-Star cost bought no mechanical effect. The cave network (portal + dig-through access) is unchanged.
 
 ### v1.16.1
@@ -474,7 +486,7 @@ Other in-house mods build directly on top of ACT's content:
 - Added Ore Chest (high-capacity bulk-raws storage), Salt-Cured Meat (slow-spoiling ration), Bronze/White-Bronze armor tier (Helmet/Bracers/Greaves/Armor), and a Wash with Soap bathtub interaction. See CHANGELOG.md for full detail.
 
 ### v1.15.9
-- Internal: Copper Stove, Copper Brazier, and Metal Lantern (lit and unlit variants of each) are now marked compatible with the vanilla Firekeeping duty, so a recruited Partner NPC can potentially be assigned to tend their fuel. Not yet verified in-game — no player-facing behavior claim until confirmed.
+- Internal: Copper Stove, Copper Brazier, and Metal Lantern (lit and unlit variants of each) are now marked compatible with the vanilla Firekeeping duty, so a recruited Partner NPC can potentially be assigned to tend their fuel. Update 2026-09-08: confirmed in-game - a recruited Partner does tend all three stations' fuel under the vanilla Fire keeping duty. The Ownership panel on the Copper Brazier and Metal Lantern, which restricts who may refuel them, is still unconfirmed; the Copper Stove has no ownership panel (it's communal).
 
 ### v1.15.8
 - **Powder ground at the Tea Station no longer vanishes when poured into bottles, cloth bags, or wooden barrels** (Nexus bug report, 2026-08-10). The Grind All in-place transform was resetting the pour quantity powders carry to 0, so the game's built-in pour-into-container action destroyed the powder card and added no liquid. Note: powder ground before this update still carries the zero quantity in your save — grind fresh material after updating.

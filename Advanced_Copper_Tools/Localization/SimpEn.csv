@@ -343,8 +343,6 @@ Advanced_Copper_Tools_Perk_Wheelbarrow_PerkName,Wheelbarrow,手推车
 Advanced_Copper_Tools_Perk_WheelbarrowKit_PerkDescription,"Start with all the components needed to assemble a wheelbarrow: bucket, handles, and wheel assembly.",初始携带组装手推车所需的所有部件：桶、把手和车轮总成。
 Advanced_Copper_Tools_Perk_WheelbarrowKit_PerkName,Wheelbarrow Kit,手推车套件
 eTag_WearablePan_InGameName,Pan,平底锅
-Advanced_Copper_Tools_Perk_MetalPanTester_PerkDescription,"Start with metal pan crafting materials, finished pans, and the related blueprints. Includes a forge hammer, leather bellows, 5 metal nuggets, wood, rope, and small leather (raw — tan before using in blueprints), plus a shaped pan head and two wearable metal pans.",初始携带金属平底锅的制作材料、成品锅以及相关蓝图。包括锻造锤、皮革风笱、5块金属锄、木材、绳子和小块皮革（原皮，用于蓝图前需制革），以及一个平底锅锅头和两个可穿戴金属平底锅。
-Advanced_Copper_Tools_Perk_MetalPanTester_PerkName,Metal Pan,金属平底锅
 Advanced_Copper_Tools_CopperBathtub_WaterLevel_CardStatName,Water Level,水位
 Advanced_Copper_Tools_CopperBathtub_Full_RefillRiver_ActionName,Refill from River,从河流补水
 Advanced_Copper_Tools_CopperBathtub_Full_RefillRiver_ActionDescription,Haul more water from the river to refill the bathtub.,从河流取更多水以补充浴缸。
@@ -823,5 +821,9 @@ Advanced_Copper_Tools_Bp_BronzeBreastplate_CardName,Bronze Armor
 Advanced_Copper_Tools_Bp_BronzeBreastplate_CardDescription,Craft a suit of bronze torso armor between copper and iron tiers. Requires bronze-grade metal sheets.
 Advanced_Copper_Tools_Bp_BronzeBreastplate_UnlockConditionsDesc,Bronze Sheet Needed
 Advanced_Copper_Tools_CopperBathtub_Warm_WashWithSoap_ActionName,Wash with Soap
-Advanced_Copper_Tools_CopperBathtub_Warm_WashWithSoap_ActionDescription,Scrub down with soap for an extra-deep clean and a bigger mood boost.
+Advanced_Copper_Tools_CopperBathtub_Warm_WashWithSoap_ActionDescription,Scrub down with soap for a quick clean and mood boost that doesn't need the fire lit.
 Advanced_Copper_Tools_CopperBathtub_Warm_WashWithSoap_FailMessage,Need water in the bathtub first.
+Advanced_Copper_Tools_Bp_BronzeSheet_CardName,Bronze Sheet,青铜片
+Advanced_Copper_Tools_Bp_BronzeSheet_CardDescription,"Hammer a heated bronze-grade metal bar flat into a sheet, ready for bronze armor.",将加热的青铜级金属锭锤打成薄片，可用于打造青铜铠甲。
+Advanced_Copper_Tools_Bp_BronzeSheet_UnlockConditionsDesc,Heated Bronze-Grade Metal Bar Needed,需要加热的青铜级金属锭
+Advanced_Copper_Tools_MetalSheet_SpecialDurability4.CardStatName,Metal Type,金属类型

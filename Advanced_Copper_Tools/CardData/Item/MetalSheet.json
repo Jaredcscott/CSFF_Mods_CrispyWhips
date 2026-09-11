@@ -21,22 +21,28 @@
   ],
   "CardTagsWarpType": 3,
   "SpecialDurability2": {
-    "DurabilityName": 2,
-    "MaxDurability": 100,
-    "StartDurability": 100,
-    "IsHidden": true
+    "Active": false
   },
   "SpecialDurability3": {
-    "DurabilityName": 3,
-    "MaxDurability": 100,
-    "StartDurability": 100
+    "Active": false
   },
   "SpecialDurability4": {
-    "DurabilityName": 4,
-    "MaxDurability": 140,
-    "StartDurability": 100,
-    "Restricted": true,
-    "IsHidden": true
+    "Active": true,
+    "FloatValue": 100.0,
+    "CardStatName": {
+      "ParentObjectID": "advanced_copper_tools_metal_sheet",
+      "LocalizationKey": "Advanced_Copper_Tools_MetalSheet_SpecialDurability4.CardStatName",
+      "DefaultText": "Metal Type"
+    },
+    "MaxValue": 1000.0,
+    "RestrictToSpecificValues": true,
+    "ValidValues": [ 100.0, 110.0, 120.0, 130.0, 140.0 ],
+    "RatePerDaytimePoint": 0.0,
+    "HidingOptions": 2,
+    "TextDisplay": 0,
+    "NumberPrecision": 0,
+    "HasActionOnZero": false,
+    "CountsForTradingValue": true
   },
   "AlternateNames": [
     {
