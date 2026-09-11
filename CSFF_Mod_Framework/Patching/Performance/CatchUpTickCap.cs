@@ -17,16 +17,23 @@ namespace CSFFModFramework.Patching.Performance;
 // This prefix clamps EnvironmentsData[NextEnvironment].LastUpdatedTick forward
 // before the coroutine body reads it, bounding the loop to the most recent N
 // ticks. Simulation older than the cap window is skipped entirely rather than
-// replayed. That is behaviorally safe for almost everything:
-//   * spoilage/fuel/evaporation rates saturate well within the default 14-day
-//     window (food is fully rotted / fires are long dead either way);
-//   * card-attached counters (tree/plant growth) do not crawl tick-by-tick in
-//     catch-up mode — vanilla jumps them straight to the live global counter
-//     value on the first catch-up tick (ApplyRates' Updated-counter branch),
-//     so they fast-forward correctly no matter how large the skipped gap is.
-// The fidelity loss is rate-driven decay/production beyond the window on boards
-// left un-visited longer than the cap. Set the cap to 0 to restore vanilla's
-// unbounded replay.
+// replayed. Decay/production ONLY ever happens during a replay window — an
+// unvisited board's rate-driven stats (spoilage, fuel, evaporation) do not move
+// at all between visits, so "the cap" is the entirety of the decay a stale board
+// will ever receive, not a floor under decay that also happens some other way.
+// Within the default 1344-tick (14-day) window, every ordinary perishable and
+// structure/cave timer fully saturates: raw food ≤3.1d, cooked food ≤7d, dried
+// meat 8.8d, bread/pies/cave timers 10.4–11.2d. Long-shelf-life preserved goods
+// (hard cheese 60d, hardtack/grains/wine 120d) advance only partially within the
+// window BY DESIGN — no finite cap could saturate them without discarding weeks
+// of intended gameplay pacing, and there is nothing between 1344 and the next
+// tier (5760) for a larger cap to usefully reach anyway. Card-attached counters
+// (tree/plant growth) do not crawl tick-by-tick in catch-up mode — vanilla jumps
+// them straight to the live global counter value on the first catch-up tick
+// (ApplyRates' Updated-counter branch), so they fast-forward correctly no matter
+// how large the skipped gap is. Set the cap to 0 to restore vanilla's unbounded
+// replay (CatchUpBudgetClamp/CatchUpTickBatching below stay independently
+// toggleable either way — see the hand-off note in the prefix).
 //
 // LastUpdatedTick is written only by the EnvironmentSaveDataByReference
 // constructor (stamped when the player leaves an environment) and read only by
@@ -36,33 +43,75 @@ namespace CSFFModFramework.Patching.Performance;
 internal static class CatchUpTickCap
 {
     private static int _maxTicks;
+    private static int _chainCapTicks;
+    private static float _chainWindowSeconds;
+
+    // Session-local only (never touches save data); -1 = no clamp has fired yet
+    // this session.
+    private static float _lastCapHitRealtime = -1f;
 
     public static void Configure(ConfigFile config, Harmony harmony)
     {
         var capCfg = config.Bind(
             "Performance", "CatchUpTickCap", 1344,
             "Maximum number of elapsed game ticks (15 in-game minutes each, 96/day) "
-            + "ChangeEnvironment may re-simulate when entering an environment. "
-            + "Default 1344 = 14 in-game days. Prevents the multi-second-to-minute "
-            + "'Not Responding' freeze when traveling to a location not visited in a "
-            + "long time on old saves. Elapsed time beyond the cap is skipped, not "
-            + "simulated (plant/tree growth still fast-forwards via vanilla's counter "
-            + "jump; only rate-driven decay beyond the window is lost). "
-            + "0 = vanilla unbounded catch-up.");
+            + "ChangeEnvironment may re-simulate when entering an environment. Default "
+            + "1344 = 14 in-game days, the smallest cap that fully saturates every "
+            + "ordinary perishable and structure/cave timer (raw food ≤3.1d, cooked "
+            + "food ≤7d, dried meat 8.8d, bread/pies/cave timers 10.4-11.2d). Decay "
+            + "ONLY ever happens during a replay window — an unvisited board does not "
+            + "decay at all between visits — so this cap is the entire decay a stale "
+            + "board will ever receive, not a floor under some other always-on decay. "
+            + "Long-shelf-life preserved goods (hard cheese 60d, hardtack/grains/wine "
+            + "120d) advance only partially within the window by design; lowering the "
+            + "cap below 1344 widens that under-decayed class further (672 also stops "
+            + "fully rotting dried meat/bread/cave timers; 384 also stops fully "
+            + "rotting cooked food; 192 leaves raw meat/fish/fruit permanently ~80% "
+            + "fresh on any long absence — not recommended). Plant/tree growth "
+            + "counters always fast-forward to their live value regardless of this "
+            + "setting; only rate-driven decay/production beyond the cap is skipped. "
+            + "0 = vanilla unbounded catch-up (CatchUpBudgetMs and CatchUpBatchTicks "
+            + "below still apply independently even when this is 0).");
         _maxTicks = capCfg.Value;
-        if (_maxTicks <= 0)
-        {
-            Util.Log.Debug("CatchUpTickCap: disabled via config (vanilla unbounded catch-up).");
-            return;
-        }
 
+        var chainCapCfg = config.Bind(
+            "Performance", "CatchUpChainCapTicks", 672,
+            "When traveling through several long-unvisited environments in quick "
+            + "succession (a 'chain' of capped hops), every hop after the first pays "
+            + "the full CatchUpTickCap replay again. If the PREVIOUS hop in this chain "
+            + "also clamped within CatchUpChainWindowSeconds, this hop uses this "
+            + "smaller cap instead — 672 = 7 in-game days, which still fully rots raw "
+            + "food but stops short of dried meat/bread/cave timers on that one hop. "
+            + "The skipped decay on a discounted pass-through board is permanent (it "
+            + "will not be replayed later), but is always player-favorable (things are "
+            + "fresher than they should be, never destroyed). 0 disables the discount "
+            + "(every hop always pays the full CatchUpTickCap).");
+        _chainCapTicks = chainCapCfg.Value;
+
+        var chainWindowCfg = config.Bind(
+            "Performance", "CatchUpChainWindowSeconds", 180f,
+            "How long after a capped hop the CatchUpChainCapTicks discount stays "
+            + "armed for the next hop. Resets every time a hop clamps; a hop more than "
+            + "this many real seconds after the last clamp always pays the full cap.");
+        _chainWindowSeconds = chainWindowCfg.Value;
+
+        if (_maxTicks <= 0)
+            Util.Log.Debug("CatchUpTickCap: cap disabled via config (vanilla unbounded catch-up); "
+                          + "CatchUpBudgetMs/CatchUpBatchTicks remain independently active if configured.");
+
+        // The prefix is installed even when the cap itself is disabled (_maxTicks
+        // <= 0) — it also hands off to CatchUpBudgetClamp and CatchUpTickBatching,
+        // which have their own independent on/off configs and must stay reachable
+        // regardless of whether this particular cap is armed.
         var prefix = new HarmonyMethod(AccessTools.Method(typeof(CatchUpTickCap), nameof(ChangeEnvironment_Prefix)));
         bool ok = SafePatcher.TryPatch(harmony, typeof(GameManager), "ChangeEnvironment", prefix: prefix);
         if (ok)
-            Util.Log.Debug($"CatchUpTickCap: enabled (max {_maxTicks} catch-up ticks per travel).");
+            Util.Log.Debug($"CatchUpTickCap: enabled (max {_maxTicks} catch-up ticks per travel, "
+                          + $"chain discount {_chainCapTicks} within {_chainWindowSeconds}s).");
         else
             Util.Log.Warn("CatchUpTickCap: failed to patch GameManager.ChangeEnvironment; "
-                          + "travels to long-unvisited environments will freeze as before.");
+                          + "travels to long-unvisited environments will freeze as before, and the "
+                          + "budget-clamp/batching extensions will not run either.");
     }
 
     // Runs when ChangeEnvironment() is invoked, before the coroutine body.
@@ -71,7 +120,7 @@ internal static class CatchUpTickCap
     // save data — the leave-block only rewrites the CURRENT env's entry.
     private static void ChangeEnvironment_Prefix(GameManager __instance)
     {
-        if (_maxTicks <= 0 || __instance == null) return;
+        if (__instance == null) return;
         try
         {
             // Mirror vanilla's own gate: the CurrentEnvironment.IsNull path
@@ -83,12 +132,33 @@ internal static class CatchUpTickCap
             if (!__instance.EnvironmentsData.TryGetValue(next.DictionnaryKey, out var envData) || envData == null) return;
 
             int now = __instance.CurrentTickInfo.z;
-            int gap = now - envData.LastUpdatedTick;
-            if (gap <= _maxTicks) return;
 
-            envData.LastUpdatedTick = now - _maxTicks;
-            Util.Log.Info($"CatchUpTickCap: '{next}' was {gap} ticks (~{gap / 96} in-game days) behind; "
-                          + $"simulating the most recent {_maxTicks}, fast-forwarding past {gap - _maxTicks}.");
+            if (_maxTicks > 0)
+            {
+                int gap = now - envData.LastUpdatedTick;
+                if (gap > _maxTicks)
+                {
+                    int effectiveCap = _maxTicks;
+                    if (_chainCapTicks > 0 && _lastCapHitRealtime >= 0f
+                        && Time.realtimeSinceStartup - _lastCapHitRealtime <= _chainWindowSeconds)
+                    {
+                        effectiveCap = Math.Min(_maxTicks, _chainCapTicks);
+                    }
+                    _lastCapHitRealtime = Time.realtimeSinceStartup;
+
+                    envData.LastUpdatedTick = now - effectiveCap;
+                    Util.Log.Info($"CatchUpTickCap: '{next}' was {gap} ticks (~{gap / 96} in-game days) behind; "
+                                  + $"simulating the most recent {effectiveCap}, fast-forwarding past {gap - effectiveCap}.");
+                }
+            }
+
+            // Hand off to the composable catch-up extensions. Both run
+            // regardless of whether the hard cap above is enabled or fired
+            // this hop — CatchUpBudgetClamp and CatchUpTickBatching each have
+            // their own independent 0-disables config and must stay reachable
+            // even with CatchUpTickCap itself set to 0 (vanilla unbounded).
+            CatchUpBudgetClamp.ArmForHop(envData);
+            CatchUpTickBatching.ArmForHop(envData, now);
         }
         catch (Exception ex)
         {

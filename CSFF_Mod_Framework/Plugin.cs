@@ -5,7 +5,7 @@ public class Plugin : BaseUnityPlugin
 {
     public const string PluginGuid = "crispywhips.CSFFModFramework";
     public const string PluginName = "CSFF Mod Framework";
-    public const string PluginVersion = "2.25.11";
+    public const string PluginVersion = "2.25.30";
 
     public static Plugin Instance { get; private set; }
     internal new static ManualLogSource Logger { get; private set; }
@@ -100,7 +100,30 @@ public class Plugin : BaseUnityPlugin
         // entering a long-unvisited environment. Unbounded in vanilla — a year-old
         // location on a late-game save replays ~38k ticks in one synchronous frame
         // (70+ s "Not Responding" freeze). Default cap 1344 ticks = 14 in-game days.
+        // Also hands off to the two composable extensions below every travel,
+        // regardless of whether the cap itself fires this hop.
         Patching.Performance.CatchUpTickCap.Configure(Config, Harmony);
+
+        // Performance: adaptive wall-clock companion to CatchUpTickCap — bounds a
+        // single catch-up replay by elapsed real time (with a tick floor so short
+        // perishables always fully rot), instead of always paying the same fixed
+        // tick-count worst case. Self-tunes to machine speed and save weight.
+        Patching.Performance.CatchUpBudgetClamp.Configure(Config, Harmony);
+
+        // Performance (diagnostic, log-only): verify pass for a proposed catch-up
+        // equipment-scan short-circuit — logs any case where the short-circuit
+        // would actually be unsafe. Does NOT short-circuit anything yet; see
+        // CatchUpEquipmentScanSkip.cs and Documentation/Plans/CSFFModFramework/
+        // CatchUp_Performance_Plan.md Phase 2 for the ship gate.
+        Patching.Performance.CatchUpEquipmentScanSkip.Configure(Config, Harmony);
+
+        // Performance: K-chunked catch-up tick batching, composed with
+        // CatchUpTickCap above — the biggest lever in the catch-up performance
+        // plan. Groups elapsed catch-up ticks into chunks of K (default 16) and
+        // scales/repeats the per-tick work accordingly, cutting a capped
+        // 1344-tick replay from ~4.4-6.2s toward an estimated ~0.8-1.1s. See
+        // CatchUpTickBatching.cs for the full exactness analysis.
+        Patching.Performance.CatchUpTickBatching.Configure(Config, Harmony);
 
         // Core patches
         Patching.GameLoadPatch.ApplyPatch(Harmony);
@@ -116,6 +139,11 @@ public class Plugin : BaseUnityPlugin
         // Finalizer that swallows third-party NREs in ExplorationPopup.Setup
         // (WikiMod 2.6.5.1's SetupPostfix crashes on framework clone CT8 locations).
         Patching.BugFixes.ExplorationPopupFix.ApplyPatch(Harmony);
+        // Prefix on ExplorationPopup.Setup that rebuilds a CT8's cached InGameCardBase.DismantleActions
+        // array from its CardModel list when a gate strip/restore (or a later DA injection) left the
+        // two diverged - the silent "travel button renders, clicks, does nothing" state
+        // (retro river-bridge-east-click-noop). Logs one Info line per repair as the runtime signal.
+        Patching.BugFixes.TravelDaCacheResync.ApplyPatch(Harmony);
         // CardSizeReduce 3.3.0 compat: patches AccessTools.Field to find auto-property
         // backing fields when CSR is installed; falls back to internal scaling shim
         // when CSR config is present but the DLL is missing. Self-no-ops without CSR.
@@ -142,6 +170,13 @@ public class Plugin : BaseUnityPlugin
         // unguarded call site, not just ChangeEnvironment. Confirmed in the wild via a
         // permanent action-lock while placing a Rain Cistern Kit (2026-08-14).
         Patching.BugFixes.AddInstancedEnvCrashGuard.ApplyPatch(Harmony);
+
+        // WorldMap clone envs could show doubled forage terrain (two Ponds, two Pine Trees,
+        // two Small Pine Trees) after a player's FIRST mid-session visit to an expansion tile —
+        // PreCreateCloneEnvSaveData's own trim only self-heals at the NEXT boot. This postfix on
+        // GameManager.CheckForMissingDefaultCardsInEnv re-runs the same trim immediately after
+        // every arrival, so a mid-session duplicate is corrected in the same visit it appeared.
+        Injection.WorldMapInjector.ApplyLiveTrimPatch(Harmony);
 
         // No-op — portal travel now uses game-default ChangeEnvironment behavior:
         // slot items travel with the player; floor/placed items stay at source.
@@ -188,6 +223,12 @@ public class Plugin : BaseUnityPlugin
         // fails to resolve, and why — used to investigate mod blueprints appearing under
         // their own crafting-journal tab but never showing up in Search.
         Patching.Diagnostics.BlueprintSearchDiagnostic.Configure(Config, Harmony);
+
+        // Opt-in diagnostic: watches live vanilla Bear/Wolf/WolfPack/PrimevalWolf agents
+        // and logs how long each stays in the same environment — used to confirm and
+        // localize player reports of wildlife getting permanently stuck on mod-injected
+        // WorldMap trail nodes. See WildlifeStuckDiagnostics' doc comment.
+        Patching.Diagnostics.WildlifeStuckDiagnostics.Configure(Config);
 
         Util.Log.Info($"{PluginName} v{PluginVersion} loaded. ({Harmony.GetPatchedMethods().Count()} methods patched)");
     }

@@ -546,22 +546,42 @@ internal static class SpriteTextureCache
     private static void TryWriteBundle()
     {
         if (_bundlePath == null) return;
-        if (_bundleWriteQueue.Count == 0) return;
+        if (_bundleWriteQueue.Count == 0) { ReleaseBundleBuffer(); return; }
 
         // If bundle on disk already matches what we'd write, skip the rewrite.
         bool bundleUpToDate = !_anyEntryChanged
             && _bundleIndex != null
             && _bundleIndex.Count == _bundleWriteQueue.Count;
-        if (bundleUpToDate) return;
+        if (bundleUpToDate) { ReleaseBundleBuffer(); return; }
 
         // Snapshot under lock — entries reference _bundleBuffer for bundle-hit slices,
         // which stays alive for the lifetime of the load.
         var entries = _bundleWriteQueue.ToArray();
-        var bundleBuffer = _bundleBuffer; // captured for the closure
+        var bundleBuffer = _bundleBuffer; // captured for the closure — WriteBundleFile's own
+                                           // parameter keeps this array alive independent of the
+                                           // static field, so releasing _bundleBuffer below does
+                                           // not affect the in-flight write.
 
         // Per-file .sc caches are on disk as fallback; track the task so Plugin.OnDestroy
         // can wait for it before the process exits and the write is abandoned.
         _bundleWriteTask = Task.Run(() => WriteBundleFile(_bundlePath, entries, bundleBuffer));
+        ReleaseBundleBuffer();
+    }
+
+    // Catch-up performance plan Phase 6 (shipped 2.25.15; that phase has since been pruned from
+    // Documentation/Plans/CSFFModFramework/CatchUp_Performance_Plan.md - see CHANGELOG [2.25.15]):
+    // _bundleBuffer
+    // (measured 706MB on a live install) has no consumer after this point in a load —
+    // SpriteLoader.LoadAll (TryLoad's sole caller) has already completed by the time
+    // LoadOrchestrator reaches the AwaitPendingWrites phase that leads here, and any bundle-hit
+    // slice a queued write needs was already captured into that write's own bundleBuffer
+    // parameter above, independent of this static field. Holding it any longer wastes ~700MB of
+    // managed heap for the rest of the session for zero benefit; the per-file .sc fallback covers
+    // any hypothetical future TryLoad call gracefully (it just costs a cache-miss-style re-read).
+    private static void ReleaseBundleBuffer()
+    {
+        _bundleBuffer = null;
+        _bundleIndex = null;
     }
 
     private static void WriteBundleFile(string bundlePath, BundleEntry[] entries, byte[] bundleBuffer)

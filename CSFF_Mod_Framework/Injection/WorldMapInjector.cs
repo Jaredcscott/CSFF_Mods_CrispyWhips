@@ -113,54 +113,6 @@ internal static class WorldMapInjector
     private static TickEvents.IntervalHandle _envWatchHandle;
     private static string _lastWatchedEnv;
 
-    /// <summary>
-    /// True if <paramref name="envUid"/> is a MapNodes.json clone-environment node (a CT4/CT8 pair
-    /// cloned from a vanilla template). Clone nodes reach their destination by world-map travel and
-    /// carry their own injected travel DAs plus a map exit back to the vanilla world, so the
-    /// portal-hub "Return to Portal" exit card (<c>csffmfw_hub_exit</c>) must NOT be injected into
-    /// them — it would clutter the board (e.g. ACT's mining caves) and duplicate the map exit.
-    /// Consumed by <see cref="Portal.PortalService.InjectExitCardsIntoModHubs"/>. Available from
-    /// load time (<see cref="PrepareAll"/>) onward; clone nodes always register a CT8 location UID.
-    /// </summary>
-    internal static bool IsCloneEnvNode(string envUid)
-        => !string.IsNullOrEmpty(envUid) && _cloneEnvSpawnList.ContainsKey(envUid);
-
-    /// <summary>
-    /// True if the clone-env node <paramref name="envUid"/> already has its own authored way out
-    /// of the mod's clone network — either a <c>VanillaExits</c> compass exit, or at least one
-    /// plain <c>Connections</c> entry that leads directly to an environment OUTSIDE the mod's own
-    /// clone network (a real vanilla env, or a different mod's node). Distinguishes "clone-env
-    /// portal destination with its own exit" (e.g. ACT's <c>actTinCaveEnv</c>, bidirectional
-    /// <c>VanillaExits</c> straight to vanilla; H&amp;F's <c>hfEnvForagingPath</c>, a plain
-    /// <c>Connections</c> entry to a bare vanilla env UID) from "clone-env portal destination with
-    /// NO way out except through sibling clone nodes" (CMC's <c>cmcEnvVillage</c>: its only
-    /// <c>Connections</c> entry targets <c>cmcEnvPineTrail</c>, itself a clone node, and the sole
-    /// route back toward vanilla — via <c>cmcEnvVillagePath</c> — is behind a <c>ConnectionGate</c>
-    /// requiring the river bridge built or a trait perk the player may not have). Both categories
-    /// are clone-env nodes per <see cref="IsCloneEnvNode"/>; this is the finer distinction
-    /// <see cref="Portal.PortalService.InjectExitCardsIntoModHubs"/> needs to seed the
-    /// portal-return safety-net card only where the player would otherwise be stranded.
-    /// </summary>
-    internal static bool CloneNodeHasOwnExit(string envUid)
-    {
-        var prep = _prepared.Find(p => p.Def?.EnvironmentUID == envUid);
-        if (prep?.Def == null) return false;
-
-        if (prep.Def.VanillaExits is { Count: > 0 })
-            return true;
-
-        if (prep.Def.Connections != null)
-        {
-            foreach (var conn in prep.Def.Connections)
-            {
-                if (!string.IsNullOrEmpty(conn.EnvironmentUID) && !IsCloneEnvNode(conn.EnvironmentUID))
-                    return true;
-            }
-        }
-
-        return false;
-    }
-
     // ---------------------------------------------------------- stage 1 ---
 
     /// <summary>
@@ -1039,10 +991,10 @@ internal static class WorldMapInjector
         try { InjectIntoWorldMap(); }
         catch (Exception ex) { Log.Error($"WorldMapInjector: deferred injection failed: {Log.ExceptionText(ex)}"); }
 
-        // Inject hub-exit cards into any MapMod.json worlds whose EnvironmentUID is a clone env.
-        // Must run BEFORE PreCreateCloneEnvSaveData so the exit card is included in the seeded
-        // EnvironmentsData DefaultEnvCardDrops.
-        PortalService.InjectExitCardsIntoModHubs();
+        // csffmfw_hub_exit is deliberately NOT seeded into any world's DefaultEnvCardDrops here.
+        // It is spawned on demand, gated on actual portal use, by PortalService.EnsureHubExitOnArrival
+        // (see the mid-game env watch below) — see CHANGELOG "exit card appeared without ever using
+        // a portal" fix.
 
         // Register shared Portal Hub travel handlers — one per mod world registered via MapMod.json
         // SacredSiteUID/EnvironmentUID. Requires clone CT4 envs to exist in the registry first.
@@ -1174,6 +1126,14 @@ internal static class WorldMapInjector
                 }
                 catch (ReflectionTypeLoadException rtle)
                 {
+                    // Partial type load: recover from the types that DID load rather than
+                    // swallowing (framework CLAUDE.md, ReflectionCache rule). The miss case is
+                    // already covered by the _gmType null Warn below, so this breadcrumb exists to
+                    // separate "clean scan, no GameManager" from "the assembly only partly loaded",
+                    // which are the same message otherwise and want different fixes.
+                    var loaded = rtle.Types?.Count(t => t != null) ?? 0;
+                    Log.Debug($"WorldMapInjector: Assembly-CSharp partial type load while resolving GameManager "
+                            + $"({loaded} of {rtle.Types?.Length ?? 0} types usable): {rtle.GetType().Name}");
                     foreach (var t in rtle.Types ?? Array.Empty<Type>())
                     {
                         if (t == null) continue;
@@ -1482,12 +1442,13 @@ internal static class WorldMapInjector
             // are gated on StripAllInheritedDrops+ExtraDropUIDs, i.e. ACT-cave-style nodes only), this
             // runs for EVERY clone node and never touches anything except the specific over-count
             // cards, so it is safe on nodes that also carry player-built improvements or dropped items.
-            int trimmedCards = 0, trimmedNodes = 0;
+            int trimmedCards = 0, trimmedNodes = 0, examinedBoards = 0;
             foreach (var prep in cloneNodes)
             {
                 try
                 {
-                    int n = TrimExcessDefaultDrops(prep, getEnvSaveData, gmInstance, envSaveDataType);
+                    int n = TrimExcessDefaultDrops(prep, getEnvSaveData, gmInstance, envSaveDataType, out bool hadSavedBoard);
+                    if (hadSavedBoard) examinedBoards++;
                     if (n > 0) { trimmedCards += n; trimmedNodes++; }
                 }
                 catch (Exception ex)
@@ -1495,8 +1456,17 @@ internal static class WorldMapInjector
                     Log.Warn($"WorldMapInjector: TrimExcessDefaultDrops — '{prep.Def.EnvironmentUID}' failed: {ex.GetType().Name}: {ex.Message}");
                 }
             }
-            if (trimmedCards > 0)
-                Log.Info($"WorldMapInjector: trimmed {trimmedCards} duplicate default-drop card(s) across {trimmedNodes} clone env(s) (over declared DefaultEnvCardDrops quantity)");
+            // Report unconditionally, not just when something was trimmed. This is the ONLY pass that
+            // can heal an already-contaminated save (the live trim reaches only the env the player is
+            // standing in), and until now it was completely silent when it removed nothing - so
+            // "the heal examined 9 saved boards and they were clean" and "the heal never saw this
+            // save at all" produced identical logs, which is the same ambiguity that let five
+            // attempts on this bug be graded against a signal that could not distinguish them.
+            // examinedBoards counts clone envs that actually had a non-empty SAVED board this boot;
+            // it is 0 on a fresh game and on any boot where EnvironmentsData has not been populated
+            // yet, which is exactly the failure mode worth being able to see.
+            Log.Info($"WorldMapInjector: existing-save heal pass: {cloneNodes.Count} clone node(s), " +
+                     $"{examinedBoards} with a saved board, trimmed {trimmedCards} duplicate default-drop card(s) across {trimmedNodes} env(s)");
         }
         catch (Exception ex)
         {
@@ -1533,22 +1503,27 @@ internal static class WorldMapInjector
     /// (improvements, player-dropped items, other terrain) is left untouched.</para>
     /// </summary>
     /// <returns>Number of excess cards removed.</returns>
-    private static int TrimExcessDefaultDrops(PreparedNode prep, MethodInfo getEnvSaveData, object gmInstance, Type envSaveDataType)
+    private static Dictionary<string, int> BuildExpectedMax(CardData envCardData)
     {
-        if (prep.EnvCard is not CardData envCardData) return 0;
-        var drops = envCardData.DefaultEnvCardDrops;
-        if (drops == null || drops.Length == 0) return 0;
-
-        // Expected max live copies per UID (skip the CT8/Explorable entry — never trimmed).
         var expectedMax = new Dictionary<string, int>(StringComparer.Ordinal);
+        var drops = envCardData?.DefaultEnvCardDrops;
+        if (drops == null) return expectedMax;
         foreach (var drop in drops)
         {
             if (drop.DroppedCard == null || drop.DroppedCard.CardType == CardTypes.Explorable) continue;
             var uid = drop.DroppedCard.UniqueID;
             if (string.IsNullOrEmpty(uid)) continue;
-            int max = Math.Max(drop.ScaledQuantity(envCardData).y, 1);
+            int max = Math.Max(drop.ScaledQuantity(envCardData, InGameNPCOrPlayer.Null).y, 1);
             expectedMax[uid] = expectedMax.TryGetValue(uid, out var existingMax) ? existingMax + max : max;
         }
+        return expectedMax;
+    }
+
+    private static int TrimExcessDefaultDrops(PreparedNode prep, MethodInfo getEnvSaveData, object gmInstance, Type envSaveDataType, out bool hadSavedBoard)
+    {
+        hadSavedBoard = false;
+        if (prep.EnvCard is not CardData envCardData) return 0;
+        var expectedMax = BuildExpectedMax(envCardData);
         if (expectedMax.Count == 0) return 0;
 
         var envId = CreateEnvId(prep.EnvCard);
@@ -1565,6 +1540,14 @@ internal static class WorldMapInjector
         var regularCardsProp = envSaveDataType?.GetProperty("GetRegularCards", BindingFlags.Instance | BindingFlags.Public);
         if (regularCardsProp?.GetValue(entry) is not System.Collections.IList regularCards || regularCards.Count == 0)
             return 0;
+
+        // Past this point we are holding a real, non-empty SAVED board for one of our clone envs.
+        // This is the ONLY pass in the codebase that can heal a save contaminated before the fix
+        // shipped: the live trim reaches only the env the player is currently standing in.
+        // GetRegularCards is declared `=> AllRegularCards` (decompile-confirmed,
+        // EnvironmentSaveDataByReference.cs:45), i.e. the backing List itself rather than a
+        // projection, so the RemoveAt calls below mutate the entry the game will serialize.
+        hadSavedBoard = true;
 
         FieldInfo cardIdField = null;
         var seenCounts = new Dictionary<string, int>(StringComparer.Ordinal);
@@ -1589,8 +1572,309 @@ internal static class WorldMapInjector
         for (int k = indicesToRemove.Count - 1; k >= 0; k--)
             regularCards.RemoveAt(indicesToRemove[k]);
 
-        Log.Debug($"WorldMapInjector: '{prep.Def.EnvironmentUID}' — trimmed {indicesToRemove.Count} duplicate default-drop card(s)");
+        // Post-removal recount, read back off the SAME list object just mutated. Until now this
+        // trim reported success purely from "RemoveAt was called N times" - the identical shape of
+        // unverified claim that let the live trim report removals for three releases while
+        // CardUtil.TryRemoveCard was silently inert (fixed 2.25.22). Recounting proves the saved
+        // entry actually shrank, and STILL-OVER names the specific card that survived the removal.
+        var after = new Dictionary<string, int>(StringComparer.Ordinal);
+        for (int i = 0; i < regularCards.Count; i++)
+        {
+            var card = regularCards[i];
+            if (card == null) continue;
+            var rawId = cardIdField?.GetValue(card) as string;
+            if (string.IsNullOrEmpty(rawId)) continue;
+            var uid = UniqueIDScriptable.LoadID(rawId);
+            if (uid == null || !expectedMax.ContainsKey(uid)) continue;
+            after[uid] = after.TryGetValue(uid, out var ac) ? ac + 1 : 1;
+        }
+        var stillOver = new List<string>();
+        foreach (var kv in expectedMax)
+        {
+            int n = after.TryGetValue(kv.Key, out var a) ? a : 0;
+            if (n > kv.Value) stillOver.Add($"{kv.Key} {n}/{kv.Value}");
+        }
+
+        Log.Info($"WorldMapInjector: existing-save heal: '{prep.Def.EnvironmentUID}' removed " +
+                 $"{indicesToRemove.Count} duplicate default-drop card(s) from the saved board" +
+                 (stillOver.Count > 0
+                     ? $"; STILL-OVER after removal: [{string.Join(", ", stillOver)}]"
+                     : "; verified all declared drops now at or under max"));
         return indicesToRemove.Count;
+    }
+
+    // -------------------------------------------- live duplicate-drop trim ---
+    //
+    // TrimExcessDefaultDrops above is only invoked from PreCreateCloneEnvSaveData, which runs
+    // once per boot (OnGMInitialized). Its own doc comment identifies the root cause as vanilla's
+    // GameManager.CheckForMissingDefaultCardsInEnv over-adding a UniqueOnBoard DefaultEnvCardDrops
+    // card (Pond/Pine Tree/Small Pine Tree) on a clone env's first-ever visit — which, for most
+    // players, happens mid-session rather than at the exact moment of a fresh boot. The doubled
+    // trees are real on the board from that point on and the boot-time trim can't reach them until
+    // the NEXT launch (player report 2026-08-25: "when you travel from a tile for the first time a
+    // second set of trees spawns"). This postfix closes that gap by re-running the same trim
+    // immediately after CheckForMissingDefaultCardsInEnv finishes, scoped to whatever clone env the
+    // player is now standing in — so the duplicate is corrected within the same visit it appeared.
+    //
+    // FOLLOW-UP FIX (player report 2026-08-27, still doubling after 2.25.19): the first cut of this
+    // postfix called TrimExcessDefaultDrops — the SAME function PreCreateCloneEnvSaveData uses — but
+    // that function reads/writes the env's SAVED EnvironmentSaveDataByReference entry via
+    // GetEnvSaveData. That is correct for PreCreateCloneEnvSaveData's boot-time caller (the player
+    // isn't standing in the env yet, so the saved entry IS what LoadCardSet will restore on first
+    // visit), but wrong here: CheckForMissingDefaultCardsInEnv's over-add runs through GameManager.
+    // AddCard, which mutates the LIVE board (GameManager.AllCards) directly — decompile-confirmed,
+    // GameManager.cs ~8303-8320. The CURRENT env's EnvironmentSaveDataByReference entry is a stale
+    // snapshot that only gets resynced FROM the live board when ChangeEnvironment saves it on LEAVE
+    // (see the RC-12/RC-13 notes above). So the original live-trim postfix was editing a copy that
+    // doesn't contain the new duplicate and gets overwritten (duplicate and all) the moment the
+    // player leaves anyway — the visible extra tree on screen was never touched. Fixed by trimming
+    // GameQuery.CardsInPlayerEnv() directly (the same live collection AddCard populates) instead —
+    // see TrimExcessDefaultDropsLive below.
+
+    /// <summary>
+    /// Patches <c>GameManager.CheckForMissingDefaultCardsInEnv</c> (fires on every environment
+    /// arrival) to run <see cref="TrimExcessDefaultDropsLive"/> against the arrival env immediately
+    /// after the vanilla coroutine finishes. No-ops (near-zero cost) for every non-clone env and
+    /// for the whole session when no mod has any clone nodes.
+    /// </summary>
+    public static void ApplyLiveTrimPatch(Harmony harmony)
+    {
+        try
+        {
+            var original = AccessTools.Method(typeof(GameManager), "CheckForMissingDefaultCardsInEnv");
+            if (original == null)
+            {
+                Log.Warn("WorldMapInjector: GameManager.CheckForMissingDefaultCardsInEnv not found — live duplicate-drop trim unavailable (boot-time trim in PreCreateCloneEnvSaveData still applies).");
+                return;
+            }
+
+            harmony.Patch(original,
+                postfix: new HarmonyMethod(typeof(WorldMapInjector), nameof(CheckForMissingDefaultCardsInEnv_Postfix)));
+            Log.Debug("WorldMapInjector: patched GameManager.CheckForMissingDefaultCardsInEnv for live clone-env duplicate-drop trim.");
+        }
+        catch (Exception ex)
+        {
+            Log.Warn($"WorldMapInjector: ApplyLiveTrimPatch failed: {Log.ExceptionText(ex)}");
+        }
+    }
+
+    private static void CheckForMissingDefaultCardsInEnv_Postfix(ref IEnumerator __result)
+    {
+        // No mod registered any clone node this session — nothing to protect, skip the wrap.
+        if (_prepared.Count == 0) return;
+        __result = WrapAndTrimAfterMissingCardsCheck(__result);
+    }
+
+    // Yields through the original coroutine frame-by-frame (same idiom as
+    // BlueprintContainerSaveLoadFix.FreshPlacementWrapper), then runs the live trim.
+    private static IEnumerator WrapAndTrimAfterMissingCardsCheck(IEnumerator original)
+    {
+        while (true)
+        {
+            bool hasNext;
+            try { hasNext = original.MoveNext(); }
+            catch (Exception ex)
+            {
+                Log.Debug($"WorldMapInjector: CheckForMissingDefaultCardsInEnv wrapper — original coroutine threw: {ex.GetType().Name} {ex.Message}");
+                yield break;
+            }
+            if (!hasNext) break;
+            yield return original.Current;
+        }
+
+        try { TrimCurrentCloneEnvLive(); }
+        catch (Exception ex) { Log.Warn($"WorldMapInjector: live duplicate-drop trim failed: {Log.ExceptionText(ex)}"); }
+    }
+
+    private static void TrimCurrentCloneEnvLive()
+    {
+        var curEnvUid = Api.GameQuery.CurrentEnvironmentUniqueId;
+        if (string.IsNullOrEmpty(curEnvUid)) return;
+
+        PreparedNode match = null;
+        foreach (var prep in _prepared)
+        {
+            if (prep.LocationCard != null &&
+                string.Equals(prep.Def.EnvironmentUID, curEnvUid, StringComparison.OrdinalIgnoreCase))
+            { match = prep; break; }
+        }
+        if (match == null) return;   // not currently standing in one of our clone envs
+
+        int trimmed = TrimExcessDefaultDropsLive(match, out var census);
+        // Info-level (not Debug — BepInEx suppresses Debug by default) breadcrumb on EVERY
+        // arrival at one of our clone envs, not just when trimmed > 0, so a live session can
+        // directly confirm this postfix fires and scopes correctly — see Open Unknowns #1 in
+        // Documentation/Retrospectives/worldmap-clone-duplicate-terrain.md. Scoped to clone-env
+        // arrivals only (not every env transition) to avoid spamming the log on vanilla travel.
+        //
+        // DISCRIMINATING CENSUS (2.25.27): "trimmed=0" on its own is ambiguous - it reads
+        // identically whether (a) no duplicate exists, (b) a duplicate exists but BuildExpectedMax's
+        // UID keys never matched the live cards' UIDs, or (c) they matched but TryRemoveCard failed.
+        // Five consecutive fix attempts on this bug were each evaluated against that ambiguous
+        // signal, and attempt 5 found the removal primitive had been inert the whole time. The
+        // census makes the three cases distinguishable from one log line: see BuildLiveTrimCensus.
+        Log.Info($"WorldMapInjector: live trim arrival check — env='{match.Def.EnvironmentUID}' trimmed={trimmed} {census}");
+    }
+
+    /// <summary>
+    /// Live-board counterpart to <see cref="TrimExcessDefaultDrops"/> — trims excess
+    /// <c>DefaultEnvCardDrops</c> copies straight off <see cref="Api.GameQuery.CardsInPlayerEnv"/>
+    /// (the same live <c>GameManager.AllCards</c>-backed collection <c>GameManager.AddCard</c>
+    /// populates), instead of the saved <c>EnvironmentSaveDataByReference</c> entry — see the class
+    /// comment above the live-trim section for why the saved entry is the wrong target while the
+    /// player is currently standing in the env.
+    /// </summary>
+    /// <returns>Number of excess live cards removed.</returns>
+    private static int TrimExcessDefaultDropsLive(PreparedNode prep, out string census)
+    {
+        census = "census=unavailable";
+        if (prep.EnvCard is not CardData envCardData) return 0;
+        var expectedMax = BuildExpectedMax(envCardData);
+        if (expectedMax.Count == 0) { census = "census=no-declared-drops"; return 0; }
+
+        var seenCounts = new Dictionary<string, int>(StringComparer.Ordinal);
+        // Every UID on the board, not just the ones that matched a declared drop. A duplicate the
+        // trim is blind to (because its UID is not an expectedMax key) is invisible in seenCounts
+        // by construction, so it can only be caught by counting the board independently.
+        var boardCounts = new Dictionary<string, int>(StringComparer.Ordinal);
+        var toRemove = new List<object>();
+        int boardSize = 0;
+
+        foreach (var card in Api.GameQuery.CardsInPlayerEnv())
+        {
+            boardSize++;
+            var uid = CardUtil.GetCardUniqueId(card);
+            if (uid == null) continue;
+            boardCounts[uid] = boardCounts.TryGetValue(uid, out var bc) ? bc + 1 : 1;
+
+            if (!expectedMax.TryGetValue(uid, out var max)) continue;
+            int seen = seenCounts.TryGetValue(uid, out var c) ? c : 0;
+            seenCounts[uid] = seen + 1;
+            if (seen >= max) toRemove.Add(card);
+        }
+
+        int removed = 0;
+        foreach (var card in toRemove)
+            if (CardUtil.TryRemoveCard(card)) removed++;
+
+        census = BuildLiveTrimCensus(envCardData, expectedMax, seenCounts, boardCounts,
+                                     boardSize, toRemove.Count, removed);
+
+        if (removed > 0)
+            Log.Debug($"WorldMapInjector: '{prep.Def.EnvironmentUID}' — live-trimmed {removed} duplicate default-drop card(s) off the board.");
+        return removed;
+    }
+
+    private const string EnvLocalSuffix = "__envlocal";
+
+    /// <summary>
+    /// Formats the one-line diagnostic appended to every clone-env arrival breadcrumb. Each field
+    /// exists to separate a specific pair of failure modes that a bare <c>trimmed=N</c> cannot:
+    /// <list type="bullet">
+    /// <item><c>vanillaGate</c> - whether <c>GameManager.GetExplorableCard(CurrentEnvironment)</c>
+    /// currently resolves this env's own CT8. That lookup is the SOLE condition under which
+    /// vanilla's re-add loop runs at all (<c>GameManager.cs:10444</c>: the coroutine returns early
+    /// unless it is null), and it resolves through <c>EnvID.MatchesEnv</c> -> <c>EnvDictKey</c>,
+    /// which compares <c>CardData.UniqueIDIndex</c> (an int) cached in a <c>[NonSerialized]</c>
+    /// struct field. <c>EXPLORABLE-NULL</c> means the engine cannot see this clone env's location
+    /// card and the duplicate set is armed to be re-added; <c>explorable-ok</c> means the over-add
+    /// path is not the source and the duplicate came from somewhere else entirely.</item>
+    /// <item><c>drops</c> - observed/declared count per declared drop. <c>!OVER</c> marks a live
+    /// over-count the trim SHOULD have caught.</item>
+    /// <item><c>UID-MISMATCH</c> - a board card whose UID differs from a declared drop's UID only
+    /// by the <c>__envlocal</c> suffix. This is the one shape that produces a visible duplicate
+    /// with <c>trimmed=0</c> and no over-count, because the two copies are counted under two
+    /// different keys and neither exceeds its own max. Ruled out by code reading twice (see the
+    /// retrospective's Ruled Out section) - this asserts it at runtime instead.</item>
+    /// <item><c>REMOVE-FAILED</c> - cards matched for removal that <c>TryRemoveCard</c> did not
+    /// actually remove. This is the exact signature of the 2.25.22 bug (a coroutine removal method
+    /// bare-<c>Invoke</c>d and never driven) and would catch any regression of it immediately.</item>
+    /// </list>
+    /// </summary>
+    private static string BuildLiveTrimCensus(
+        CardData envCardData,
+        Dictionary<string, int> expectedMax,
+        Dictionary<string, int> seenCounts,
+        Dictionary<string, int> boardCounts,
+        int boardSize, int matchedForRemoval, int removed)
+    {
+        var names = new Dictionary<string, string>(StringComparer.Ordinal);
+        var drops = envCardData.DefaultEnvCardDrops;
+        if (drops != null)
+            foreach (var drop in drops)
+            {
+                var dc = drop.DroppedCard;
+                if (dc == null || string.IsNullOrEmpty(dc.UniqueID)) continue;
+                if (!names.ContainsKey(dc.UniqueID)) names[dc.UniqueID] = dc.name;
+            }
+
+        var parts = new List<string>();
+        foreach (var kv in expectedMax)
+        {
+            int obs = seenCounts.TryGetValue(kv.Key, out var o) ? o : 0;
+            parts.Add($"{Label(kv.Key, names)} {obs}/{kv.Value}{(obs > kv.Value ? "!OVER" : "")}");
+        }
+
+        var mismatches = new List<string>();
+        foreach (var kv in boardCounts)
+        {
+            if (expectedMax.ContainsKey(kv.Key)) continue;
+            foreach (var dropUid in expectedMax.Keys)
+            {
+                if (!string.Equals(StripEnvLocal(kv.Key), StripEnvLocal(dropUid), StringComparison.Ordinal))
+                    continue;
+                mismatches.Add($"{Label(kv.Key, names)}x{kv.Value} vs declared {Label(dropUid, names)}");
+                break;
+            }
+        }
+
+        var s = $"envIdx={envCardData.UniqueIDIndex} vanillaGate={DescribeVanillaExplorableGate()} "
+              + $"board={boardSize} drops=[{string.Join(", ", parts)}]";
+        if (mismatches.Count > 0) s += $" UID-MISMATCH=[{string.Join(", ", mismatches)}]";
+        if (matchedForRemoval != removed) s += $" REMOVE-FAILED={matchedForRemoval - removed}/{matchedForRemoval}";
+        return s;
+    }
+
+    private static string Label(string uid, Dictionary<string, string> names)
+    {
+        if (string.IsNullOrEmpty(uid)) return "?";
+        if (names.TryGetValue(uid, out var n) && !string.IsNullOrEmpty(n)) return n;
+        bool envLocal = uid.EndsWith(EnvLocalSuffix, StringComparison.Ordinal);
+        var baseUid = StripEnvLocal(uid);
+        if (baseUid.Length > 12) baseUid = baseUid.Substring(0, 12);
+        return envLocal ? baseUid + "+EL" : baseUid;
+    }
+
+    private static string StripEnvLocal(string uid) =>
+        uid != null && uid.EndsWith(EnvLocalSuffix, StringComparison.Ordinal)
+            ? uid.Substring(0, uid.Length - EnvLocalSuffix.Length)
+            : uid;
+
+    /// <summary>
+    /// Probes vanilla's own re-add gate. See <see cref="BuildLiveTrimCensus"/> for why this single
+    /// boolean is the highest-value field in the census: it says whether the over-add path was even
+    /// eligible to run, which separates "our trim missed a duplicate" from "the duplicate did not
+    /// come from CheckForMissingDefaultCardsInEnv at all" - the two branches the retrospective's
+    /// next-attempt plan cannot currently tell apart.
+    /// </summary>
+    private static string DescribeVanillaExplorableGate()
+    {
+        try
+        {
+            var gm = MBSingleton<GameManager>.Instance;
+            if (gm == null) return "gm-null";
+            return gm.GetExplorableCard(gm.CurrentEnvironment) == null
+                ? "EXPLORABLE-NULL(re-add-armed)"
+                : "explorable-ok";
+        }
+        // Preflight D17 flags this catch as "silent" on every audit. It is a false positive and
+        // should stay one: D17 looks for a log call INSIDE the block, and this block's RETURN VALUE
+        // is the breadcrumb. The string lands verbatim in the census line the caller logs, so a
+        // failure here reads as "vanillaGate=probe-failed:NullReferenceException" in LogOutput.log.
+        // Adding a Log call would double-report the same fact. Do not "fix" it, and do not loosen
+        // D17 to accept this shape either: a detector that tolerates a return-only breadcrumb stops
+        // catching the real default-returning swallow it exists for. Adjudicated 2026-09-07.
+        catch (Exception ex) { return "probe-failed:" + ex.GetType().Name; }
     }
 
     /// <summary>
@@ -2874,6 +3158,15 @@ internal static class WorldMapInjector
             freshDC = Activator.CreateInstance(_cdType);
             _cdField_DroppedCard.SetValue(freshDC, destEnvCard);
             InitNullArrayFields(freshDC);
+            // A CardDrop built from scratch has Quantity (0,0), and CardsDropCollection.GetTravelDestination
+            // skips any entry whose ScaledQuantity is zero (.decomp/CardsDropCollection.cs ~165-183): the
+            // compass button would render and resolve to EnvID.Empty on click. This is the fresh instance,
+            // never the shared template, so it cannot reach another DA (2.25.30).
+            var qtyField = FindField(_cdType, "Quantity");
+            if (qtyField != null && qtyField.FieldType == typeof(UnityEngine.Vector2Int))
+                qtyField.SetValue(freshDC, new UnityEngine.Vector2Int(1, 1));
+            else
+                Log.Warn($"WorldMapInjector: BuildTravelProducedCards fallback could not set Quantity on {_cdType.Name} for '{destEnvCard?.UniqueID}' - the travel button may resolve to no destination");
         }
 
         // Rebuild DroppedCards with just the one entry.

@@ -1,6 +1,6 @@
 {
     "Name": "CSFF Mod Framework",
     "Author": "Jared",
-    "Version": "2.25.11",
+    "Version": "2.25.30",
     "Description": "Standalone framework for CSFF mods. Provides mod discovery, data loading, map cache indexing, WarpData resolution, sprite loading, blueprint/perk injection, localization, STA activation, NPC agent diagnostics, WorldMap node injection, Portal Hub System (cross-mod world switching via portable Portal Hub), a declarative Animal System (tame/companion, traps/bait, spoor tracks, encounters — all authorable from a species JSON manifest with no mod-side C#), and standalone GameModifierPackage/flavour-synergy injection."
 }

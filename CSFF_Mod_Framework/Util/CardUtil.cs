@@ -1133,6 +1133,22 @@ public static class CardUtil
     /// DestroyCardFromInventory, whichever exists on this game version), with flexible
     /// 0–2 bool parameter signatures. Returns true if a method was found and invoked.
     ///
+    /// <para><strong>DestroyCard is a Unity coroutine</strong> (EA 0.66i:
+    /// <c>IEnumerator DestroyCard(bool _NoDelay)</c> on <c>InGameCardBase</c>; it is
+    /// currently the ONLY removal method that exists — <c>RemoveFromGame</c> and
+    /// <c>DestroyCardFromInventory</c> are absent from this game version). Calling it via a
+    /// bare reflection <c>MethodInfo.Invoke</c> only constructs the compiler-generated state
+    /// machine and returns it immediately — none of its body (unslotting, passive-effect/
+    /// stat-modifier cancellation, <c>OnLogicDestroyed</c>) runs until something drives it
+    /// with <c>MoveNext()</c>. Every vanilla call site wraps it in
+    /// <c>StartCoroutine</c>/<c>StartCoroutineEx</c> (decompile-confirmed,
+    /// <c>GameManager.cs</c> ~8445, ~9866) — a naked <c>Invoke</c> silently discarded the
+    /// returned enumerator, so the card was never actually removed even though the call
+    /// reported success (no exception thrown). Fixed by starting any <c>IEnumerator</c>
+    /// result as a real coroutine on the GameManager singleton (itself a
+    /// <c>MonoBehaviour</c> via <c>MBSingleton&lt;GameManager&gt;</c>), matching vanilla's
+    /// own usage. See Documentation/Retrospectives/worldmap-clone-duplicate-terrain.md.</para>
+    ///
     /// <para>CAUTION: for cards inside another card's inventory these paths trigger
     /// OnDestroy callbacks that can relocate cards to adjacent containers (CLAUDE.md
     /// §Runtime Card Removal). For in-inventory cards prefer
@@ -1168,9 +1184,22 @@ public static class CardUtil
             }
 
             var pms = m.GetParameters();
-            if (pms.Length == 0) m.Invoke(card, null);
-            else if (pms.Length == 1) m.Invoke(card, new object[] { true });
-            else m.Invoke(card, new object[] { true, true });
+            object result;
+            if (pms.Length == 0) result = m.Invoke(card, null);
+            else if (pms.Length == 1) result = m.Invoke(card, new object[] { true });
+            else result = m.Invoke(card, new object[] { true, true });
+
+            // Reflection-invoking a coroutine method only builds the state machine — it must
+            // be driven via StartCoroutine or its body (the actual removal) never runs.
+            if (result is IEnumerator coroutine)
+            {
+                if (GetGameManagerInstance() is not MonoBehaviour gm)
+                {
+                    Log.Warn($"CardUtil.TryRemoveCard: {m.Name} returned IEnumerator but GameManager instance is unavailable to drive it — card NOT removed");
+                    return false;
+                }
+                gm.StartCoroutine(coroutine);
+            }
             return true;
         }
         catch (Exception ex)

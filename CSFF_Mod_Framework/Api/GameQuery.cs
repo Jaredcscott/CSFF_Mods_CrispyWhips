@@ -228,6 +228,36 @@ public static class GameQuery
     }
 
     /// <summary>
+    /// The current environment's full <c>EnvID.StringDictionnaryKey</c> (game's own spelling —
+    /// double 'n'). Identical to <see cref="CurrentEnvironmentUniqueId"/> for a non-instanced
+    /// environment, but additionally encodes the <c>ParentEnvs</c> chain
+    /// (<c>mainUid_parentUid[=travelIndex]</c>) for an instanced one (Cabin/Cellar/Coop/Enclosure,
+    /// mines, attics, ...). Reconstructing via <c>new EnvID(string)</c> restores that chain — the
+    /// bare-UID form <see cref="CurrentEnvironmentUniqueId"/> loses it, which nulls the env when
+    /// rebuilt via <c>new EnvID(CardData)</c> for an instanced destination (ctor guard). Use this
+    /// (not the bare UID) whenever recording a travel-return target. See root CLAUDE.md
+    /// § "GameManager.NextEnvironment travel invariant" and memory
+    /// reference_gamemanager_nextenvironment_travel_invariant.
+    /// </summary>
+    public static string CurrentEnvironmentStringDictionaryKey
+    {
+        get
+        {
+            if (!TryResolve()) return null;
+            var gm = GetGM();
+            if (gm == null) return null;
+            try
+            {
+                var env = GetCurrentEnv(gm);
+                if (env == null) return null;
+                return CardUtil.GetMemberValue(env, "StringDictionnaryKey") as string;
+            }
+            catch (Exception ex) { Log.Debug($"[GameQuery] CurrentEnvironmentStringDictionaryKey read threw: {Log.ExceptionText(ex)}"); }
+            return null;
+        }
+    }
+
+    /// <summary>
     /// Reads GameManager.CurrentEnvironment (the <c>EnvID</c> struct). It is a field in EA 0.64f;
     /// the property form is tried as a forward-compat fallback. Returns the boxed struct or null.
     /// </summary>

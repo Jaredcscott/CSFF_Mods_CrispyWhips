@@ -207,7 +207,22 @@ internal static class ConnectionGateService
     /// worldmap-unavailable warning for periodic calls made outside gameplay).</summary>
     internal static void EvaluateAll(bool quiet = false)
     {
-        if (!_initialized || _gates.Count == 0) return;
+        if (!_initialized) return;
+
+        // Never evaluate without a live GameManager (2.25.30). TickEvents.Interval is driven by
+        // Plugin.Update and keeps firing in the MAIN MENU, where MBSingleton<GameManager>.Instance
+        // is C#-null (a destroyed instance fails Unity's (bool) check, FindObjectOfType finds none).
+        // Every PerkEquipped / ImprovementBuilt / StatThreshold condition read FALSE there, so every
+        // HideTravelDA gate flipped LOCKED between runs: its travel DA was stripped off process-wide
+        // CardData and its WorldMapData node hidden, then restored at the next run start AFTER
+        // LoadCards had already snapshotted the stripped list into the board's InGameCardBase
+        // arrays (a short array = a compass button that clicks into nothing, see
+        // TravelDaCacheResync). River Clearing's injected East DA was the only DA in the fleet that
+        // cycle ever touched - retro river-bridge-east-click-noop.
+        if (CardUtil.GetGameManagerInstance() == null) return;
+
+        DrainPendingResyncs();
+        if (_gates.Count == 0) return;
 
         var worldMapSo = WorldMapInjector.GetWorldMapSo();
         if (worldMapSo == null)
@@ -678,42 +693,91 @@ internal static class ConnectionGateService
     // _daListCache, which caches the CardModel's List<DismantleCardAction> field instead).
     private static readonly Dictionary<Type, FieldInfo> _inGameDaFieldCache = new();
 
+    // CT8 UIDs whose cached-array resync was requested while an environment transition was in
+    // flight. Drained by EvaluateAll's next pass (2.25.30) - never dropped, because a dropped
+    // resync is a short InGameCardBase array and a dead travel button until the player leaves
+    // and re-enters that location.
+    private static readonly HashSet<string> _pendingResync = new(StringComparer.Ordinal);
+
     /// <summary>
     /// Rebuilds the cached <c>InGameCardBase.DismantleActions</c> array from the live
     /// <c>CardModel.DismantleActions</c> List for a CT8 currently on the player's board, if
-    /// present. The engine caches this array at <c>SetupCardSource</c> time; strip/restore
-    /// above only mutate the underlying List, so a stale cached array silently breaks travel
-    /// button clicks (<c>ExplorationPopup.OnActionButtonClicked</c> hits "Length &lt;= _Index"
-    /// and no-ops) until the player leaves and re-enters. Originally an ad-hoc per-mod
-    /// workaround (ACT/H&amp;F each reimplemented this); fixed once here so every gate/edge
-    /// mutation is safe by construction. No-op (and cheap — one board scan) when the card
-    /// isn't on the player's current board.
+    /// present. The engine caches this array at <c>SetModel</c> time; strip/restore above only
+    /// mutate the underlying List, so a stale cached array silently breaks travel button clicks
+    /// (<c>ExplorationPopup.OnActionButtonClicked</c> hits "Length &lt;= _Index" and no-ops)
+    /// until the player leaves and re-enters. Originally an ad-hoc per-mod workaround (ACT and
+    /// H&amp;F each reimplemented this); fixed once here so every gate/edge mutation is safe by
+    /// construction. No-op (one board scan) when the card isn't on the player's current board.
+    /// During a transition the request is deferred to <see cref="_pendingResync"/> rather than
+    /// dropped; <c>Patching.BugFixes.TravelDaCacheResync</c> is the last line of defence at
+    /// popup-open for anything that still slips through.
     /// </summary>
     internal static void ResyncInGameDaCacheIfPresent(string locUid)
     {
         if (string.IsNullOrEmpty(locUid)) return;
         try
         {
-            if (GameQuery.IsTransitioning) return;
+            if (GameQuery.IsTransitioning)
+            {
+                _pendingResync.Add(locUid);
+                return;
+            }
             foreach (var card in GameQuery.CardsInPlayerEnv())
             {
                 if (!locUid.Equals(CardUtil.GetCardUniqueId(card), StringComparison.Ordinal)) continue;
-                var t = card.GetType();
-                if (!_inGameDaFieldCache.TryGetValue(t, out var daField))
-                    _inGameDaFieldCache[t] = daField = FindField(t, "DismantleActions");
-                if (daField == null) return;
-                if (CardUtil.GetCardData(card) is not CardData model) return;
-                if (GetDaList(model) is not IList daList) return;
-                var elemType = daField.FieldType.GetElementType();
-                if (elemType == null) return;   // not an array field on this game version
-                var arr = Array.CreateInstance(elemType, daList.Count);
-                for (int i = 0; i < daList.Count; i++) arr.SetValue(daList[i], i);
-                daField.SetValue(card, arr);
-                Log.Debug($"ConnectionGateService: resynced in-game DA cache for '{locUid}' ({daList.Count} DAs)");
-                return;
+                // Every matching instance, never first-match (UniqueOnBoard duplicate-instance rule).
+                if (ResyncCardDaCache(card, out _, out int count))
+                    Log.Debug($"ConnectionGateService: resynced in-game DA cache for '{locUid}' ({count} DAs)");
             }
         }
         catch (Exception ex) { Log.Warn($"ConnectionGateService: ResyncInGameDaCacheIfPresent('{locUid}') failed: {ex.Message}"); }
+    }
+
+    /// <summary>Retries every resync deferred during a transition. Called from
+    /// <see cref="EvaluateAll"/> once a live GameManager is confirmed.</summary>
+    private static void DrainPendingResyncs()
+    {
+        if (_pendingResync.Count == 0 || GameQuery.IsTransitioning) return;
+        var uids = _pendingResync.ToArray();
+        _pendingResync.Clear();
+        foreach (var uid in uids) ResyncInGameDaCacheIfPresent(uid);
+    }
+
+    /// <summary>
+    /// Rebuilds ONE in-game card's cached <c>DismantleActions</c> array from its CardModel List
+    /// when the two differ in length or element identity. Returns true when a rebuild happened;
+    /// <paramref name="before"/>/<paramref name="after"/> carry the array length and the list
+    /// count for logging. Shared by <see cref="ResyncInGameDaCacheIfPresent"/> and
+    /// <c>Patching.BugFixes.TravelDaCacheResync</c>.
+    /// </summary>
+    internal static bool ResyncCardDaCache(object card, out int before, out int after)
+    {
+        before = -1; after = -1;
+        if (card == null) return false;
+        var t = card.GetType();
+        if (!_inGameDaFieldCache.TryGetValue(t, out var daField))
+            _inGameDaFieldCache[t] = daField = FindField(t, "DismantleActions");
+        if (daField == null) return false;
+        if (CardUtil.GetCardData(card) is not CardData model) return false;
+        if (GetDaList(model) is not IList daList) return false;
+        var elemType = daField.FieldType.GetElementType();
+        if (elemType == null) return false;   // not an array field on this game version
+
+        var current = daField.GetValue(card) as Array;
+        before = current?.Length ?? -1;
+        after = daList.Count;
+        if (current != null && current.Length == daList.Count)
+        {
+            bool same = true;
+            for (int i = 0; i < daList.Count; i++)
+                if (!ReferenceEquals(current.GetValue(i), daList[i])) { same = false; break; }
+            if (same) return false;
+        }
+
+        var arr = Array.CreateInstance(elemType, daList.Count);
+        for (int i = 0; i < daList.Count; i++) arr.SetValue(daList[i], i);
+        daField.SetValue(card, arr);
+        return true;
     }
 
     private static CardData LookupCt8(string locUid)

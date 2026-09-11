@@ -35,7 +35,10 @@ public sealed class ActionContext
     /// <summary>The receiving in-game card (drag target / button owner).</summary>
     public object Card { get; internal set; }
 
-    /// <summary>The dragged card for CardInteractions (ActionRoutine route); null otherwise.</summary>
+    /// <summary>
+    /// The dragged card for card-on-card actions (CardOnCardActionRoutine route, or the
+    /// ActionRoutine route when the game passes one); null otherwise.
+    /// </summary>
     public object GivenCard { get; internal set; }
 
     /// <summary>UniqueID of the receiving card.</summary>
@@ -103,6 +106,22 @@ public sealed class ActionHandler
 /// <c>PerformStackActionRoutine</c> / <c>PerformActionAsEnumerator</c>; mods register
 /// <see cref="ActionHandler"/>s instead of patching those methods themselves.
 ///
+/// <para>Card-on-card actions (every drag CardInteraction, stack drag, NPC-driven
+/// CardOnCardAction and cooking result) reach the game as
+/// <c>CardOnCardActionRoutine(_Action, _GivenCard, _ReceivingCard, ...)</c>, which applies the
+/// GIVEN card's own changes and then tail-calls
+/// <c>ActionRoutine(..., _ModifiersAlreadyCollected: true, _GivenCard)</c> and waits for it.
+/// Since 2.25.29 the card-on-card prefix owns that dispatch (both cards resolved by parameter
+/// NAME) and the tail-call leg is skipped, so a drag dispatches exactly once, with Before /
+/// Cancel running BEFORE the dragged card is consumed. Until 2.25.28 the card-on-card leg
+/// resolved its cards positionally on a receiver-first assumption: receiver-keyed handlers
+/// silently never matched there and fired on the tail-call leg instead (after the dragged
+/// card's changes had already been applied, so a Cancel gate refused a Sell / Deposit / Stock /
+/// Cut only after the dragged card was destroyed), while card-unbounded handlers fired twice
+/// per drag. A bare index swap was built and reverted on 2026-08-16 because with correct cards
+/// on both legs every receiver-keyed handler fired twice. Memory:
+/// reference_actionrouter_cardoncardaction_dual_dispatch; tracker T1.56 / T1.81.</para>
+///
 /// <para>Built in: two-tier action identity, per-handler frame dedup, and the SINGLE
 /// IEnumerator wrap point — multiple iterator postfixes on the same coroutine cannot
 /// compose (only the first wrapper observes the original), so all AfterWrapped handlers
@@ -167,13 +186,23 @@ public static class ActionRouter
     private const BindingFlags Flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
 
     // Per-route arg-index maps resolved from the live method signatures at patch time
-    // (signatures shift between game versions — e.g. ActionRoutine's _GivenCard sits at
-    // index 6 in EA 0.64f; never hardcode positions).
-    private static int _arGivenIdx = -1;     // ActionRoutine: last InGameCardBase param after the receiver
-    private static int _cocReceiverIdx = -1; // CardOnCardActionRoutine: first InGameCardBase param
-    private static int _cocGivenIdx = -1;    // CardOnCardActionRoutine: second InGameCardBase param
+    // (signatures shift between game versions - e.g. ActionRoutine's _GivenCard sits at
+    // index 6 in EA 0.64f; never hardcode positions). Where the game names a parameter we
+    // resolve by NAME first: positional "first InGameCardBase" resolution is exactly what
+    // inverted the card-on-card leg (its signature is GIVEN card first, receiver second).
+    private static int _arGivenIdx = -1;     // ActionRoutine: _GivenCard (trailing optional param)
+    private static int _arModsIdx = -1;      // ActionRoutine: _ModifiersAlreadyCollected - true ONLY on the tail-call from CardOnCardActionRoutine
+    private static int _cocReceiverIdx = -1; // CardOnCardActionRoutine: _ReceivingCard (the SECOND InGameCardBase param)
+    private static int _cocGivenIdx = -1;    // CardOnCardActionRoutine: _GivenCard (the FIRST InGameCardBase param)
     private static int _paeActionIdx = -1;   // PerformActionAsEnumerator: CardAction param
     private static int _paeCardIdx = -1;     // PerformActionAsEnumerator: InGameCardBase param
+
+    // True when the card-on-card prefix is installed AND dispatching: the ActionRoutine leg then
+    // skips the tail-call (see IsCardOnCardTailCall) so each drag dispatches exactly once. False
+    // (the routine is left unpatched) whenever a parameter name failed to resolve, which
+    // degrades to one dispatch per drag on the ActionRoutine leg - never to a double dispatch
+    // and never to the pre-2.25.29 inverted read.
+    private static bool _cocOwnsDispatch;
 
     private static void EnsurePatched()
     {
@@ -187,12 +216,17 @@ public static class ActionRouter
             return;
         }
 
-        // ActionRoutine — CardInteractions (drag) + single-card DismantleActions.
+        // ActionRoutine - single-card DismantleActions, plus the tail-call leg of every
+        // card-on-card action (which carries _GivenCard and _ModifiersAlreadyCollected = true).
+        bool actionRoutinePatched = false;
         var actionRoutine = AccessTools.Method(gmType, "ActionRoutine");
         if (actionRoutine != null)
         {
-            _arGivenIdx = FindParamIndex(actionRoutine, "InGameCardBase", skip: 1);
-            TryPatch(actionRoutine, nameof(ActionRoutine_Prefix), nameof(Shared_Postfix));
+            _arGivenIdx = ResolveParamIndex(actionRoutine, "_GivenCard", "InGameCardBase", skip: 1);
+            _arModsIdx = FindParamIndexByName(actionRoutine, "_ModifiersAlreadyCollected");
+            if (_arGivenIdx < 0)
+                Log.Warn("[ActionRouter] GameManager.ActionRoutine has no _GivenCard parameter on this game version - handlers see GivenCard = null on that route.");
+            actionRoutinePatched = TryPatch(actionRoutine, nameof(ActionRoutine_Prefix), nameof(Shared_Postfix));
         }
         else Log.Warn("[ActionRouter] GameManager.ActionRoutine not found.");
 
@@ -202,13 +236,29 @@ public static class ActionRouter
             TryPatch(stackRoutine, nameof(StackAction_Prefix), nameof(Shared_Postfix));
         else Log.Warn("[ActionRouter] GameManager.PerformStackActionRoutine not found.");
 
-        // CardOnCardActionRoutine — card-on-card interactions (not present in all versions).
+        // CardOnCardActionRoutine - card-on-card interactions (drags, stack drags, NPC-driven
+        // CardOnCardActions, cooking results). Its signature is (_Action, _GivenCard,
+        // _ReceivingCard, ...) - GIVEN card first - and it ends by tail-calling ActionRoutine
+        // with _ModifiersAlreadyCollected: true and waiting for it (the only call site in the
+        // game that passes true; .decomp/GameManager.cs, re-verified 2026-09-08 on EA 0.67i).
+        // The prefix here owns dispatch for those actions ONLY when both card parameters and
+        // the tail-call marker resolve by name; otherwise the routine is left unpatched and the
+        // ActionRoutine leg (which also receives _GivenCard) dispatches once with correct cards,
+        // at the cost of Before/Cancel running after the dragged card's own changes.
         var cardOnCard = AccessTools.Method(gmType, "CardOnCardActionRoutine");
         if (cardOnCard != null)
         {
-            _cocReceiverIdx = FindParamIndex(cardOnCard, "InGameCardBase", skip: 0);
-            _cocGivenIdx = FindParamIndex(cardOnCard, "InGameCardBase", skip: 1);
-            TryPatch(cardOnCard, nameof(CardOnCard_Prefix), nameof(Shared_Postfix));
+            _cocGivenIdx = FindParamIndexByName(cardOnCard, "_GivenCard");
+            _cocReceiverIdx = FindParamIndexByName(cardOnCard, "_ReceivingCard");
+            bool cardsResolved = _cocGivenIdx >= 0 && _cocReceiverIdx >= 0 && _cocGivenIdx != _cocReceiverIdx;
+            if (cardsResolved && _arModsIdx >= 0 && actionRoutinePatched)
+                _cocOwnsDispatch = TryPatch(cardOnCard, nameof(CardOnCard_Prefix), nameof(Shared_Postfix));
+
+            if (_cocOwnsDispatch)
+                Log.Debug($"[ActionRouter] card-on-card dispatch owned by CardOnCardActionRoutine (given={_cocGivenIdx}, receiver={_cocReceiverIdx}, tail-call marker={_arModsIdx}); its ActionRoutine tail-call is skipped.");
+            else
+                Log.Warn($"[ActionRouter] CardOnCardActionRoutine left unpatched (given={_cocGivenIdx}, receiver={_cocReceiverIdx}, marker={_arModsIdx}, actionRoutinePatched={actionRoutinePatched}): "
+                       + "drags dispatch once on the ActionRoutine leg, so Before/Cancel handlers run after the dragged card's own changes.");
         }
         else Log.Debug("[ActionRouter] GameManager.CardOnCardActionRoutine not found (OK on this game version).");
 
@@ -225,7 +275,8 @@ public static class ActionRouter
         WarnOnExternalPostfixes();
     }
 
-    private static void TryPatch(MethodInfo method, string prefixName, string postfixName)
+    /// <summary>Applies one route's prefix + postfix pair; returns false when Harmony rejected it.</summary>
+    private static bool TryPatch(MethodInfo method, string prefixName, string postfixName)
     {
         try
         {
@@ -236,10 +287,12 @@ public static class ActionRouter
                     BindingFlags.Static | BindingFlags.NonPublic)));
             _patchedMethods.Add(method);
             Log.Debug($"[ActionRouter] patched {method.Name}");
+            return true;
         }
         catch (Exception ex)
         {
             Log.Warn($"[ActionRouter] failed to patch {method.Name}: {Log.ExceptionText(ex)}");
+            return false;
         }
     }
 
@@ -261,6 +314,38 @@ public static class ActionRouter
         }
         return -1;
     }
+
+    /// <summary>Index of the parameter carrying exactly this name (ordinal), or -1.</summary>
+    private static int FindParamIndexByName(MethodInfo method, string name)
+    {
+        var ps = method.GetParameters();
+        for (int i = 0; i < ps.Length; i++)
+        {
+            if (string.Equals(ps[i].Name, name, StringComparison.Ordinal)) return i;
+        }
+        return -1;
+    }
+
+    /// <summary>By-name resolution first; the positional (skip+1)-th match on the type name only as the fallback.</summary>
+    private static int ResolveParamIndex(MethodInfo method, string name, string typeName, int skip)
+    {
+        int byName = FindParamIndexByName(method, name);
+        return byName >= 0 ? byName : FindParamIndex(method, typeName, skip);
+    }
+
+    /// <summary>
+    /// True when an ActionRoutine argument array is the tail-call from CardOnCardActionRoutine:
+    /// that is the only call in the game passing _ModifiersAlreadyCollected = true (the
+    /// card-on-card routine collected them itself), and the card-on-card prefix has already
+    /// dispatched this action with both cards. Pure; exercised offline by
+    /// Development_Tools/Tests/Framework-ActionRouterDispatch.Tests.ps1.
+    /// </summary>
+    private static bool IsCardOnCardTailCall(object[] args, int modifiersCollectedIdx)
+        => modifiersCollectedIdx >= 0
+           && args != null
+           && args.Length > modifiersCollectedIdx
+           && args[modifiersCollectedIdx] is bool collected
+           && collected;
 
     /// <summary>
     /// Part 4 guardrail: ActionRouter's single wrap point only fixes the iterator
@@ -293,6 +378,11 @@ public static class ActionRouter
     private static bool ActionRoutine_Prefix(object[] __args, ref IEnumerator __result, ref object __state)
     {
         if (_snapshot.Length == 0 || __args == null || __args.Length < 2) return true;
+        // The card-on-card prefix already dispatched this action (with both cards, before the
+        // dragged card was consumed); dispatching again here is the double fire that sank the
+        // 2026-08-16 bare index swap. The per-frame dedup in DispatchPrefix cannot catch it
+        // because the card-on-card routine yields between the two legs.
+        if (_cocOwnsDispatch && IsCardOnCardTailCall(__args, _arModsIdx)) return true;
         var given = _arGivenIdx >= 0 && __args.Length > _arGivenIdx ? __args[_arGivenIdx] : null;
         return DispatchPrefix("ActionRoutine", __args[0], __args[1], given, ref __result, ref __state);
     }
@@ -306,6 +396,9 @@ public static class ActionRouter
         return DispatchPrefix("PerformStackActionRoutine", __args[0], list[0], null, ref __result, ref __state);
     }
 
+    // CardOnCardActionRoutine(CardOnCardAction, InGameCardBase _GivenCard, InGameCardBase _ReceivingCard,
+    // InGameNPCOrPlayer, bools...) - GIVEN card first; both indices are resolved by parameter name.
+    // Installed only when _cocOwnsDispatch (see EnsurePatched); its ActionRoutine tail-call is skipped.
     private static bool CardOnCard_Prefix(object[] __args, ref IEnumerator __result, ref object __state)
     {
         if (_snapshot.Length == 0 || __args == null || __args.Length < 2) return true;

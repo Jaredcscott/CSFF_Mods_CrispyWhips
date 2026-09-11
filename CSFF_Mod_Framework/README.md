@@ -4,20 +4,27 @@ Standalone modding framework for Card Survival: Fantasy Forest. Provides mod dis
 
 ## Status
 
-- **Version:** 2.25.11
-- **Game Version**: EA 0.66i (4-item Partner/NPC patch note — Garden/Field inspect fix, NPC
-  weight-loss/appetite rebalance, weight→appetite coupling, less frequent NPC temperature
-  complaints; vanilla JSON delta 0 vs 0.66h. Framework `lib/Assembly-CSharp.dll` refreshed and
-  rebuilt clean against the live EA 0.66i game assembly; decompile + VanillaIds registry
-  regenerated same day; full patch-note review found zero required mod JSON/C# changes)
-- The other 9 in-house mods have not yet been individually re-verified against EA 0.66i — most
-  ship their own separate compile-time `lib/Assembly-CSharp.dll` or NStrip'd variant (not shared
-  with the framework's). 7 of 9 mods (`AdvancedCopperTools`, `HerbsAndFungi`, `Mod_Update_Manager`,
-  `QuickTransfer`, `SkillSpeedBoost`, `WaterDrivenInfrastructure`, plus `Sirus23_Mod_Collection`/
-  `Community_Mod_Chest` referencing `HerbsAndFungi`'s copy) carry an NStrip'd
-  `lib/Assembly-CSharp-nstrip.dll` that remains stale pending regeneration with the user's external
-  NStrip tool — only `CSFFModFramework` and `RepeatAction` use a plain (non-NStrip) DLL that can be
-  fixed by a simple copy.
+- **Version:** 2.25.30
+- **Game Version**: EA 0.67i (vanilla JSON delta 0 vs 0.67h: not one game data file changed.
+  Game code did change, so `lib/Assembly-CSharp.dll` was refreshed from the live binary and every
+  in-house project rebuilt from clean against it: 16/16 Release builds, 0 errors, 0 warnings.
+  Forced `-t:Rebuild`, because an incremental `dotnet build` can skip the compile step and report
+  success without re-binding against the new reference, which leaves the signature check unrun.
+  Decompile + VanillaIds registry regenerated the same day; no card added, removed or renamed)
+- **Reference-staleness risk for 0.67i: measured, not assumed.** A rebuild only signature-checks
+  the four projects binding the plain `Assembly-CSharp.dll` (`CSFFModFramework`, `Invincibility`,
+  `PartnerOverhaul`, `RepeatAction`); the other nine bind `lib/Assembly-CSharp-nstrip.dll`, still
+  dated 2026-04-26/06-27 pending regeneration with the owner's external NStrip tool. Those nine
+  were checked from the other end instead: each built mod DLL was read for the game members it
+  actually asks the runtime to resolve (`AssemblyRef` + `MemberRef` metadata, which is precisely
+  what raises `MissingMethodException` when it fails). Result: 547 typed game references across 6
+  mods (`CSFFModFramework` 382, `Community_Mod_Chest` 81, `RepeatAction` 42, `PartnerOverhaul` 36,
+  `WaterDrivenInfrastructure` 4, `Invincibility` 2), all resolving against the live 0.67i assembly.
+  The remaining 8 mods emit **no typed game reference at all**, reaching the game only through this
+  framework and string-based Harmony/`AccessTools` reflection, so a stale NStrip reference cannot
+  break them at runtime: there is no member reference in the shipped binary to fail. The NSTRIP GAP
+  constrains the API surface visible while AUTHORING those mods; it is not a live runtime hazard for
+  this game version. Re-runnable via `Development_Tools/RefCheck/`.
 
 ## What Changed in 2.0.0 (2026-04-26)
 
@@ -366,9 +373,12 @@ config (default `true`).
 
 Full author-facing cookbook (schema overview, escape hatches, worked examples, debugging invariants):
 `Documentation/CSFF_Patterns.md` § Adding a Roaming Animal. Complete field reference:
-`Documentation/Design/Animals_Schema.md`. Shipped examples: `Sirus23_Mod_Collection/Animals/Owl.json`
-(full generation), `Animals/Fox.json` (Ref-path), `Animals/TestHare.json` (minimal generated
-herbivore, no PNG/C#/other files needed).
+`Documentation/Design/Animals_Schema.md`. Shipped example: `Sirus23_Mod_Collection/Animals/Owl.json`
+(full generation, Ref-path `NPCAgent`) — the only live manifest in the fleet. The former `Fox.json`
+(Ref-path) and `TestHare.json` (minimal fully-generated) examples no longer exist in source; the
+latter's body is preserved as the worked minimal manifest in the cookbook. **A manifest in
+`Animals/` is live player-facing content the moment it ships** — `TestHare.json` was stripped in
+Sirus23 v1.20.6 after an "undocumented, test-only" species turned up in a real game.
 
 ---
 
@@ -400,7 +410,7 @@ across mods — multiple iterator postfixes on one coroutine never compose).
 
 | API | Purpose | Status |
 |---|---|---|
-| `Api.ActionRouter` | ONE framework patch set on `ActionRoutine` / `CardOnCardActionRoutine` / `PerformStackActionRoutine` / `PerformActionAsEnumerator`; mods register `ActionHandler { CardUid/CardPredicate, ActionKeyPrefix/ActionNamePrefix, Timing = Cancel/Before/AfterWrapped, Before, After }`. Built-in two-tier action identity, per-handler frame dedup, the single IEnumerator wrap point, the canonical cancel stub (game-state restore), and an external-postfix conflict warning. Patches lazily on first `Register` — zero overhead with no consumers | Proven in CMC 1.2.0 QualitySplit; WDI/ACT station intercepts migrate next |
+| `Api.ActionRouter` | ONE framework patch set on `ActionRoutine` / `CardOnCardActionRoutine` / `PerformStackActionRoutine` / `PerformActionAsEnumerator`; card-on-card actions dispatch once from `CardOnCardActionRoutine` (both cards resolved by parameter name, `Before`/`Cancel` before the dragged card is consumed) and their `ActionRoutine` tail-call is skipped (2.25.29, T1.56); mods register `ActionHandler { CardUid/CardPredicate, ActionKeyPrefix/ActionNamePrefix, Timing = Cancel/Before/AfterWrapped, Before, After }`. Built-in two-tier action identity, per-handler frame dedup, the single IEnumerator wrap point, the canonical cancel stub (game-state restore), and an external-postfix conflict warning. Patches lazily on first `Register` — zero overhead with no consumers | Proven in CMC 1.2.0 QualitySplit; WDI/ACT station intercepts migrate next |
 | `Api.SpawnService` | `Spawn(uidOrCardData, statOverrides)` — GiveCard spawn + immediate stat init; `OnNextSpawn(uid, statOverrides, count, ttlFrames)` — queued overrides for game-side spawns (ProducedCards, OnFull, perk kits) serviced by ONE GiveCard postfix; `CardSpawned` event | Proven in CMC 1.2.0 (main-shard + remainder-shard quality) |
 | `Api.TickEvents` | `DtpTick` / `DayRollover` events + `Interval(seconds, callback)` real-time timers, driven by one framework Update loop with per-subscriber exception isolation | Proven in Sirus 1.1.0 WolfTick |
 | `Api.EncounterGuards` | `Register(name, ctx => suppress)` wildlife-encounter suppression through the framework's single `StartEncounter` prefix (NPC encounters never suppressed); declarative `EncounterGuards/*.json` option (guard cards in player env + optional encounter filter + chance) | Proven in Sirus 1.1.0 (`EncounterGuards/WolfGuard.json`) |
@@ -467,6 +477,17 @@ attach it with a root manifest:
 > content that depends on these.
 
 ## Version History
+
+### v2.25.16-2.25.18 — Catch-up tick performance (Phases 1-3)
+- Addressed the multi-second-to-minute `ChangeEnvironment` freeze on long-unvisited environments
+  beyond what the existing `CatchUpTickCap` alone fixed: a chain discount + wall-clock budget clamp
+  for stale-hop bursts (Phase 1), a log-only verify pass for a proposed equipment-scan
+  short-circuit (Phase 2, not yet the real short-circuit), and K-chunked tick batching (Phase 3,
+  `CatchUpBatchTicks`, default 16) — the biggest lever, targeting a capped 1344-tick replay
+  measured at 4.4-6.2s down to an estimated ~0.8-1.1s. All new knobs are `[Performance]`-configured,
+  default-on-but-instantly-revertible, and soft-fail to today's behavior on any patch failure. See
+  `Documentation/Plans/CSFFModFramework/CatchUp_Performance_Plan.md` and `CHANGELOG.md` for full
+  detail; not yet verified in-game.
 
 ### v2.22.2
 - **Fixed `SpawnLocation > 0` ("outdoor only") spawn triggers firing inside caves and building

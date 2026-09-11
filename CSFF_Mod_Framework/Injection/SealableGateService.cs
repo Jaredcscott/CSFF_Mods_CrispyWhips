@@ -555,6 +555,13 @@ internal static class SealableGateService
     {
         try
         {
+            // Process-lifetime 1 s interval: it keeps firing in the main menu, where GameManager.Instance
+            // is C#-null and every trigger/condition read returns its false default. Evaluating there
+            // records phantom trigger flips and drives ConnectionGateService.EvaluateAll with no run to
+            // evaluate against (2.25.30, retro river-bridge-east-click-noop; see framework CLAUDE.md
+            // "Process-lifetime ticks vs per-run state").
+            if (CardUtil.GetGameManagerInstance() == null) return;
+
             bool anyMarkerActive = false;
             bool anyTriggerJustDeactivated = false;
             foreach (var state in _gates)

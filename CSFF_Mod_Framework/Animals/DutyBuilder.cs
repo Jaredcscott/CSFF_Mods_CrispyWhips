@@ -265,7 +265,7 @@ internal static class DutyBuilder
         duty.CanOnlyPerformAtHome = false;
         duty.CannotPerformWhileHidden = false;
         duty.MaxPerformPerDay = 0;
-        duty.DutyExecutionOptions = DutyExecutionOptions.Early;
+        duty.DutyExecutionOptions = TickSteps.EarlyBeforeDurabilities;
         duty.GiveUpOptions = DutyGiveUpOptions.GiveUpInstantly;
         duty.ActionSequence = Array.Empty<NPCDutyAction>();
 

@@ -301,13 +301,9 @@ internal static class AnimalValidator
         if (m.FeedDutyWeight <= 0)
             errors.Add($"Field 'Traps.Bait.DutyWeight': expected > 0 (a zero-weight duty is never selected), got {m.FeedDutyWeight}");
 
-        // Duty selection is WINNER-TAKE-ALL, not weighted-random: InGameNPC sorts by weight
-        // descending and picks uniformly only among duties tied at the very top. A feed duty
-        // weighted below any concurrently-selectable movement duty is therefore never selected
-        // at all, and the trap can never fire — with no error and no log.
-        int heaviestRival = Math.Max(
-            m.PlayerAttractionEnabled || m.FleeFromPlayer ? m.PlayerAttractionBaseWeight : 0,
-            m.WanderEnvs.Count > 0 ? m.WanderWeight : 0);
+        // A feed duty weighted below any concurrently-selectable movement duty is never selected
+        // at all, and the trap can never fire. See HeaviestMovementDutyWeight for the mechanism.
+        int heaviestRival = HeaviestMovementDutyWeight(m);
         if (heaviestRival > m.FeedDutyWeight)
             errors.Add($"Field 'Traps.Bait.DutyWeight': {m.FeedDutyWeight} is below this species' heaviest movement duty ({heaviestRival}). "
                      + "Duty selection is highest-weight-wins (ties broken uniformly), NOT weighted-random, so the feed duty would never be "
@@ -365,8 +361,31 @@ internal static class AnimalValidator
                 errors.Add($"Field 'Encounter.Aggression.BaseWeight': expected > 0 (a zero-weight duty is never selected), got {m.AggressionBaseWeight}");
             if (m.AggressionMaxPerDay < 0)
                 errors.Add($"Field 'Encounter.Aggression.MaxPerDay': expected >= 0 (0 = unlimited), got {m.AggressionMaxPerDay}");
+
+            // Same winner-take-all trap the feed duty hit in M4: an attack duty weighted below a
+            // concurrently-selectable movement duty is never selected, so the species can never
+            // attack. Silent both ways - the duty IS generated and IS eligible, it just always
+            // loses the sort. Guarded here because the attack window normally sits inside the
+            // activity window that gates the movement duties, so they compete every tick.
+            int heaviestRival = HeaviestMovementDutyWeight(m);
+            if (m.AggressionBaseWeight > 0 && heaviestRival > m.AggressionBaseWeight)
+                errors.Add($"Field 'Encounter.Aggression.BaseWeight': {m.AggressionBaseWeight} is below this species' heaviest movement duty ({heaviestRival}). "
+                         + "Duty selection is highest-weight-wins (ties broken uniformly), NOT weighted-random, so the attack duty would never be "
+                         + "selected and the species could never attack. Set it >= the movement weight, or set 'Encounter.Aggression.Enabled': false");
         }
     }
+
+    /// <summary>The heaviest weight among this species' concurrently-selectable MOVEMENT duties.
+    /// Duty selection is WINNER-TAKE-ALL, not weighted-random: InGameNPC.SelectDuty sorts the
+    /// eligible duties by weight descending and expands the random-pick group only while the next
+    /// weight is EQUAL to the top one (.decomp/InGameNPC.cs lines 2316-2320), so a duty weighted
+    /// below this number is never selected at all - with no error and no log. A tie IS enough.
+    /// MoveDutyAction.CanBePerformed returns true unconditionally for MovementTypes.Teleport
+    /// (.decomp/MoveDutyAction.cs lines 252-253), so a teleporting movement duty never yields its
+    /// slot by becoming undoable either.</summary>
+    private static int HeaviestMovementDutyWeight(AnimalManifest m) => Math.Max(
+        m.PlayerAttractionEnabled || m.FleeFromPlayer ? m.PlayerAttractionBaseWeight : 0,
+        m.WanderEnvs.Count > 0 ? m.WanderWeight : 0);
 
     /// <summary>M6 Interactions. An Interaction with no resolvable OnSuccess.GiveCard is
     /// pointless (nothing for the player to actually earn), and a bare skill UID that
