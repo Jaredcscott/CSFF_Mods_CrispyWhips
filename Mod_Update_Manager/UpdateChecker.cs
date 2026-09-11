@@ -44,6 +44,9 @@ namespace mod_update_manager
         {
             OnStatusUpdate?.Invoke("Scanning installed mods...");
             _installedMods = ModScanner.ScanInstalledMods();
+            // The plugin set just changed under us, so the cached [BepInDependency] cross-reference
+            // (N6, Conflicts tab) is stale; it recomputes lazily the next time that tab is drawn.
+            DependencyValidator.Invalidate();
             if (_preferences != null)
                 foreach (var m in _installedMods) _preferences.ApplyToMod(m);
             OnStatusUpdate?.Invoke($"Found {_installedMods.Count} installed mods");
@@ -72,9 +75,6 @@ namespace mod_update_manager
 
         private IEnumerator CheckAllModsCoroutine()
         {
-            _isChecking = true;
-            _checksCompleted = 0;
-
             var modsToCheck = _installedMods.Where(m => GetNexusModId(m) != null && !m.IsIgnored).ToList();
 
             var invalidVersionMods = modsToCheck.Where(m =>
@@ -85,8 +85,86 @@ namespace mod_update_manager
                 mod.CheckError = "Mod version could not be determined";
                 modsToCheck.Remove(mod);
             }
+
+            yield return RunChecksCoroutine(modsToCheck, "mods with Nexus IDs");
+
+            foreach (var mod in _installedMods.Where(m => GetNexusModId(m) == null))
+            {
+                // Don't list Mod_Update_Manager itself in the "Unable to Check" tab
+                if (KnownModRegistry.IsSelfMod(mod.Name) || KnownModRegistry.IsSelfMod(mod.FolderName))
+                    continue;
+                mod.LatestVersion = "No Nexus ID";
+                mod.CheckFailed = true;
+                mod.CheckError = "No Nexus Mod ID configured";
+            }
+
+            var updatesAvailable = _installedMods.Count(m => m.NeedsUpdate);
+            OnStatusUpdate?.Invoke($"Check complete! {updatesAvailable} updates available.");
+            OnAllChecksComplete?.Invoke(_installedMods);
+        }
+
+        /// <summary>
+        /// True when at least one already-checked mod's most recent result was an HTTP 429
+        /// from Nexus (<see cref="InstalledModInfo.RateLimited"/>). Drives the "Re-check
+        /// rate-limited" button's visibility (N5).
+        /// </summary>
+        public bool HasRateLimitedMods => _installedMods.Any(m => m.RateLimited);
+
+        /// <summary>
+        /// Re-runs the update check for ONLY the mods whose last check hit Nexus's 429 rate
+        /// limit - never the full list. Reuses the same staggered check path (and its 0.5s
+        /// delay between requests) as a normal full check. Distinct from - and does not
+        /// implement - the separate 429 auto-backoff idea, which stays unbuilt by design.
+        /// </summary>
+        public void RecheckRateLimitedMods(MonoBehaviour runner)
+        {
+            if (_isChecking)
+            {
+                Plugin.Logger.LogDebug("Update check already in progress");
+                return;
+            }
+
+            if (!_apiClient.HasApiKey)
+            {
+                OnStatusUpdate?.Invoke("No API key configured - cannot check for updates");
+                return;
+            }
+
+            var modsToRecheck = _installedMods.Where(m => m.RateLimited && GetNexusModId(m) != null).ToList();
+            if (modsToRecheck.Count == 0)
+            {
+                OnStatusUpdate?.Invoke("No rate-limited mods to re-check.");
+                return;
+            }
+
+            runner.StartCoroutine(RecheckRateLimitedModsCoroutine(modsToRecheck));
+        }
+
+        private IEnumerator RecheckRateLimitedModsCoroutine(List<InstalledModInfo> modsToRecheck)
+        {
+            yield return RunChecksCoroutine(modsToRecheck, "rate-limited mod(s)");
+
+            var stillRateLimited = modsToRecheck.Count(m => m.RateLimited);
+            Plugin.Logger.LogInfo($"Re-checked {modsToRecheck.Count} rate-limited mod(s); {stillRateLimited} still rate limited.");
+            OnStatusUpdate?.Invoke(stillRateLimited > 0
+                ? $"Re-check complete: {stillRateLimited} mod(s) still rate limited."
+                : "Re-check complete: all previously rate-limited mods checked successfully.");
+            OnAllChecksComplete?.Invoke(_installedMods);
+        }
+
+        /// <summary>
+        /// Shared staggered-check loop used by both a full <see cref="CheckAllModsCoroutine"/>
+        /// pass and a filtered <see cref="RecheckRateLimitedModsCoroutine"/> pass. Drives
+        /// <see cref="_isChecking"/>/<see cref="_checksCompleted"/>/<see cref="_totalChecks"/>
+        /// for the shared <see cref="Progress"/> property, so only one such loop may run at a
+        /// time (both callers early-out on <see cref="_isChecking"/>).
+        /// </summary>
+        private IEnumerator RunChecksCoroutine(List<InstalledModInfo> modsToCheck, string statusContext)
+        {
+            _isChecking = true;
+            _checksCompleted = 0;
             _totalChecks = modsToCheck.Count;
-            OnStatusUpdate?.Invoke($"Checking {_totalChecks} mods with Nexus IDs...");
+            OnStatusUpdate?.Invoke($"Checking {_totalChecks} {statusContext}...");
 
             // Stagger requests by 0.5s to avoid 429 rate-limit bursts on large mod lists.
             foreach (var mod in modsToCheck)
@@ -94,13 +172,14 @@ namespace mod_update_manager
                 var nexusId = GetNexusModId(mod);
                 mod.NexusUrl = KnownModRegistry.GetNexusUrl(nexusId);
 
-                _apiClient.GetModInfo(nexusId, (response, error) =>
+                _apiClient.GetModInfo(nexusId, (response, error, isRateLimited) =>
                 {
                     if (response != null)
                     {
                         mod.LatestVersion = response.Version;
                         mod.Summary = response.Summary;
                         mod.EndorsementCount = response.EndorsementCount;
+                        mod.RateLimited = false;
 
                         var equivalent = KnownModRegistry.GetVersionEquivalent(nexusId, mod.Version);
                         bool isEquivalent = equivalent != null &&
@@ -120,6 +199,7 @@ namespace mod_update_manager
                     {
                         mod.CheckFailed = true;
                         mod.CheckError = error;
+                        mod.RateLimited = isRateLimited;
                         Plugin.Logger.LogDebug($"Failed to check {mod.Name}: {error}");
                     }
 
@@ -137,26 +217,12 @@ namespace mod_update_manager
                 yield return new WaitForSecondsRealtime(0.2f);
             }
 
-            foreach (var mod in _installedMods.Where(m => GetNexusModId(m) == null))
-            {
-                // Don't list Mod_Update_Manager itself in the "Unable to Check" tab
-                if (KnownModRegistry.IsSelfMod(mod.Name) || KnownModRegistry.IsSelfMod(mod.FolderName))
-                    continue;
-                mod.LatestVersion = "No Nexus ID";
-                mod.CheckFailed = true;
-                mod.CheckError = "No Nexus Mod ID configured";
-            }
-
             _isChecking = false;
 
             // Single coalesced disk write at the end of the pass — replaces the
             // per-response SaveDiskCache that used to hitch the main thread
             // dozens of times during a fresh startup update check.
             _apiClient.FlushDiskCache();
-
-            var updatesAvailable = _installedMods.Count(m => m.NeedsUpdate);
-            OnStatusUpdate?.Invoke($"Check complete! {updatesAvailable} updates available.");
-            OnAllChecksComplete?.Invoke(_installedMods);
         }
 
         /// <summary>

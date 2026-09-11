@@ -5,6 +5,163 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [2.1.37] - 2026-09-10
+
+*(Rollup entry, added 2026-09-11: 2.1.33, 2.1.34, 2.1.36 and 2.1.37 were embedded-suite refreshes
+and version-string steps with no changes of their own, so every change below first shipped in
+2.1.35 (2026-09-09). The bundled versions under "Changed" are the suite as it stands in 2.1.37,
+read back from the embedded ZIPs rather than inferred.)*
+
+### Added
+
+- **Dependency validator in the Conflicts tab** (N6,
+  `Documentation/Plans/Mod_Update_Manager/Audit_Remediation_Plan.md`). A new "Dependencies"
+  sub-section flags any `[BepInDependency]` declared by an installed plugin whose target GUID is
+  not among the installed `[BepInPlugin]` GUIDs. Hard dependencies are listed first and labelled
+  distinctly from soft ones, because the consequences differ: BepInEx refuses to load a plugin
+  whose hard dependency is missing, while a missing soft dependency only means the dependent
+  loads without that integration. A declared minimum version is shown when the declaration
+  carries one. The section renders nothing when every declared dependency resolves, and the whole
+  sub-section is gated behind the existing `ShowConflictWarnings` setting like the rest of that
+  tab.
+
+  The declarations are read directly out of each DLL's **CLI metadata tables**
+  (`PluginMetadataReader.cs`): a hand-written PE -> CLI header -> `#~` table walk that resolves
+  `CustomAttribute` rows and decodes their `#Blob` fixed arguments. Nothing is loaded, executed,
+  or locked - `Assembly.LoadFrom` on arbitrary third-party plugin DLLs would run their module
+  initializers, pin the files for the process lifetime, and is exactly the stability regression a
+  utility mod must not introduce; `System.Reflection.Metadata` is not available on net48 under
+  the game's Mono runtime and shipping it was out of scope. Only the metadata region is buffered,
+  never the whole file: the reference plugins tree holds 55.3 MB of DLL bytes but just 2.4 MB of
+  metadata, most of the difference being this mod's own embedded suite ZIPs. Every failure mode
+  is soft and per-DLL - a native, packed, or unreadable DLL logs at Debug and is skipped, and the
+  scan can never throw into the tab.
+
+  Two details that are easy to get wrong and are handled explicitly: a `[BepInDependency("guid")]`
+  argument is **not** an IL string literal, so it lives in the `#Blob` heap as a UTF-8 SerString
+  and not in the UTF-16-LE `#US` heap (byte-verified against `Herbs_And_Fungi.dll`: one UTF-8
+  occurrence, zero UTF-16-LE); and `BepInDependency` has two constructors, so hard/soft is decided
+  from the ctor's parameter KINDS rather than argument position - the `(string, string)` overload
+  is a minimum-version form that BepInEx treats as a hard dependency, not a flags value.
+
+  Measured against the live BepInEx tree with the built assembly: 37 DLLs read (25 plugins,
+  12 core), 0 unreadable, 21 installed plugin GUIDs, 19 dependency declarations across 13 plugins,
+  in ~180 ms for a cold scan; the result is cached and invalidated on mod rescan, never recomputed
+  per frame. That scan found one genuinely unsatisfied declaration on the reference install:
+  WikiMod declares a soft dependency on `ModCore`, but the installed Pikachu ModCore registers as
+  `Pikachu.CSFF.ModCore`, so WikiMod's declaration never resolves and BepInEx does not order the
+  two. In-game confirmation of the rendered sub-section is routed to `/playthrough-test-plan`.
+
+- **"Re-check Rate-Limited" button** (N5, `Documentation/Plans/Mod_Update_Manager/Audit_Remediation_Plan.md`).
+  A mod whose most recent Nexus check hit HTTP 429 is now marked with a new
+  `InstalledModInfo.RateLimited` flag - set only on that specific outcome (never derived from
+  the "Rate limited - try again later" display string), and cleared the moment that mod's next
+  check succeeds. The My Mods tab now shows a banner with a count and a "Re-check Rate-Limited"
+  button whenever any row carries the flag; clicking it re-runs the same staggered 0.5s-apart
+  check used by "Check for Updates", but scoped to only the rate-limited subset - every other
+  mod's last result is left untouched. `UpdateChecker`'s per-mod network loop was factored out
+  into a shared `RunChecksCoroutine` so the full check and this filtered re-check can't drift
+  apart. This is distinct from the separate Medium-Term "429 auto-backoff" idea, which is not
+  built here and stays in `Documentation/Ideas/Mod_Update_Manager/IDEAS.md`. Forcing a real 429
+  requires hammering the Nexus API and was not attempted; verification is that the button is
+  correctly gated on the flag and re-runs only the flagged rows - routed to
+  `/playthrough-test-plan` for an in-game pass.
+
+- **Search filter persists across window close/reopen** (N4,
+  `Documentation/Plans/Mod_Update_Manager/Audit_Remediation_Plan.md`). The My Mods tab's search
+  filter is now saved to the existing mod-preferences file as a reserved `_searchFilter` key
+  alongside the per-mod ignore/favorite/notes entries, and restored when the window is
+  re-initialized - previously it was a session-only field, reset to empty every time the window
+  was closed (F3) and reopened. Saved on every edit and on Clear, mirroring how favorites/notes
+  already persist.
+
+- **Suite-install completeness verification** (N2, `Documentation/Plans/Mod_Update_Manager/Audit_Remediation_Plan.md`).
+  `ModSuiteExtractor.Extract` now walks the ZIP entry list a second time after extracting and
+  confirms every non-directory entry actually exists on disk, instead of reporting success on
+  the strength of the copy loop finishing with no exception thrown. A missing file logs each
+  path at `LogWarning`, logs a summary at `LogError`, and returns `false` with an
+  `[Install Incomplete]` status message and count. The Install & Update tab's per-mod badge now
+  shows `[Install Incomplete]` (reusing the existing error label style) instead of silently
+  reverting to `[Up to Date]` on the next version-status refresh - `SuiteVersionReader.RefreshAll`
+  recomputes that badge from `ModInfo.json` alone, so completeness is now tracked as a separate
+  `SuiteModEntry.LastInstallIncomplete` flag that refresh does not touch. The positive path (a
+  clean install still shows the success badge) is unchanged.
+
+- **Stale-framework banner** (N7, `Documentation/Plans/Mod_Update_Manager/Audit_Remediation_Plan.md`).
+  The My Mods tab now renders a distinct banner at the top (alongside the existing rate-limited
+  banner) when the installed CSFF Mod Framework (Nexus ID 30) is behind the newest version
+  already known from the normal per-mod update check - no new network call. It names the
+  installed and available versions and points the player at the "All"/"Updates Available"
+  filters to update it. Uses `VersionComparer.NeedsUpdate` (never a string compare) and renders
+  nothing when the framework is not installed, has not been checked yet, the last check failed,
+  or it is already current. Localized key `Mod_Update_Manager_FrameworkStale` added to both
+  `SimpEn.csv`/`SimpCn.csv` for parity, though (like the rest of this mod's OnGUI strings) the
+  banner text itself is not yet routed through the game's localization dictionary.
+
+### Changed
+
+- **Refreshed the embedded mod suite bundle** to the fleet releases current as of 2026-09-10
+  (bundled versions read back from the embedded ZIPs, not inferred): CSFF Mod Framework
+  2.25.23 -> 2.25.30, Community Mod Chest 1.68.16 -> 1.68.23, Herbs & Fungi 1.10.16 -> 1.13.0,
+  Advanced Copper Tools 1.16.3 -> 1.16.6, Water-Driven Infrastructure 1.10.19 -> 1.11.0,
+  Quick Transfer 1.7.7 -> 1.8.0, Repeat Action 2.0.2 -> 2.1.5, and Skill Speed Boost
+  1.9.7 -> 1.10.2. Homestead Perks is unchanged at 1.2.3. The changes a player is most likely
+  to notice: a refused drag-and-drop no longer destroys the dragged card and pays nothing
+  (framework 2.25.29), travel buttons that rendered and clicked but did nothing now work
+  (2.25.30), installing Community Mod Chest no longer makes Advanced Copper Tools' Copper Sheet
+  blueprint impossible to research and stall 21 downstream recipes (CMC 1.68.17), the Iron
+  Fishing Rod no longer breaks on its first cast (CMC 1.68.18), and Herbs & Fungi ingredients
+  now actually contribute flavour in stews, where 91 entries meant as "strong" had been inert
+  (H&F 1.13.0). Quick Transfer, Repeat Action and Skill Speed Boost each gained a batch of
+  opt-in settings. Each mod's own CHANGELOG.md carries the full list, including which entries
+  its authors marked as not yet confirmed in-game.
+
+### Fixed
+
+- **Suite install no longer orphans a locked file silently** (`ModSuiteExtractor.cs`, finding G2
+  of the 2026-09-07 `/code-quality` pass). The pre-extract wipe loop caught a failed
+  `File.Delete` at `LogDebug`, which BepInEx suppresses by default, then continued and still
+  reported the mod installed successfully - so a stale JSON left behind by a locked file could
+  keep a live UniqueID in the plugin folder and produce the duplicate-UniqueID class of bug
+  (blueprint research resets, crafted items rejected) with nothing in the log. The catch now
+  logs at `LogWarning`, matching `SuiteVersionReader`'s handling of the same failure class in
+  this mod. Cardinality is bounded by the file count of the one folder being wiped.
+  Recorded here rather than in `.audit/` because this mod gitignores that folder.
+
+### Documentation
+
+- **Player-facing text corrections** (no code change), closing the three open audit Warnings
+  plus the N3 row of `Documentation/Plans/Mod_Update_Manager/Audit_Remediation_Plan.md`:
+  the `ModInfo.json` Description now names the Install & Update suite installer, which is the
+  flagship feature and was absent from the player-facing blurb; `README.md`'s compatibility
+  label moves off the stale EA 0.65 to EA 0.67i; `FEATURES_IMPLEMENTED.md` calls the bundle
+  9 mods rather than 8 (`SuiteModRegistry.All` and `Pack-Suite.ps1` both list 9); and
+  `README.md`'s feature list now enumerates the shipped four-tab layout
+  (Install & Update / My Mods / Conflicts / Settings) instead of the pre-2.1.5 flat tab set.
+
+## [2.1.32] — 2026-08-31
+
+*(Rollup entry, added retroactively 2026-09-01: versions 2.1.25-2.1.31 (2026-08-24 to 2026-08-30)
+shipped as suite-refresh and version-string steps with no changelog entries, under placeholder
+commit messages. This entry covers the full jump from 2.1.24; the 2026-09-01 fleet feature audit
+flagged the gap.)*
+
+### Changed
+
+- **Refreshed the embedded mod suite bundle** to the fleet releases current as of 2026-08-31
+  (bundled versions read back from the embedded ZIPs, not inferred): Community Mod Chest
+  1.68.1 -> 1.68.16 (NPC movement/scheduler fixes, notably partners no longer stranded when the
+  player is indoors), CSFF Mod Framework 2.25.7 -> 2.25.23 (notably the `TryRemoveCard`
+  coroutine-drive fix in 2.25.22 - reflection-resolved card removal previously succeeded silently
+  without removing anything, affecting WorldMap live-trim, CMC tree respawn, and Sirus23 sheep-pen/
+  wolf upkeep - plus WorldMap clone-environment drop trimming and travel catch-up batching),
+  Advanced Copper Tools 1.16.1 -> 1.16.3 (encounter-path performance pass), and Herbs & Fungi
+  1.10.14 -> 1.10.16 (forage-table double-counting fix + `ForageDropDensityScale` config). The
+  other five bundled mods are unchanged from 2.1.24: Quick Transfer 1.7.7, Repeat Action 2.0.2,
+  Skill Speed Boost 1.9.7, Water-Driven Infrastructure 1.10.19, Homestead Perks 1.2.3.
+
+---
+
 ## [2.1.24] — 2026-08-24
 
 ### Changed

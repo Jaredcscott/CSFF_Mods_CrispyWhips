@@ -256,13 +256,17 @@ namespace mod_update_manager
         }
 
         /// <summary>
-        /// Fetches mod information from Nexus Mods (with caching)
+        /// Fetches mod information from Nexus Mods (with caching). The callback's third
+        /// parameter is true only when this specific attempt failed with HTTP 429 - callers
+        /// that need to track rate-limited mods (see N5, "Re-check rate-limited") MUST key
+        /// off this flag, never off the error string, which is display text and not a
+        /// stable identifier.
         /// </summary>
-        public void GetModInfo(string modId, Action<NexusModResponse, string> callback)
+        public void GetModInfo(string modId, Action<NexusModResponse, string, bool> callback)
         {
             if (!HasApiKey)
             {
-                callback(null, "No API key configured");
+                callback(null, "No API key configured", false);
                 return;
             }
 
@@ -272,7 +276,7 @@ namespace mod_update_manager
                 var cached = _responseCache[modId];
                 if (IsCacheValid(cached.timestamp))
                 {
-                    callback(cached.response, null);
+                    callback(cached.response, null, false);
                     return;
                 }
                 else
@@ -284,7 +288,7 @@ namespace mod_update_manager
             _coroutineRunner.StartCoroutine(GetModInfoCoroutine(modId, callback));
         }
 
-        private IEnumerator GetModInfoCoroutine(string modId, Action<NexusModResponse, string> callback)
+        private IEnumerator GetModInfoCoroutine(string modId, Action<NexusModResponse, string, bool> callback)
         {
             var url = $"{BASE_URL}/games/{GAME_DOMAIN}/mods/{modId}.json";
 
@@ -306,16 +310,17 @@ namespace mod_update_manager
                             _responseCache[modId] = (response, System.DateTime.UtcNow);
                             _diskCacheDirty = true;
                         }
-                        callback(response, null);
+                        callback(response, null, false);
                     }
                     catch (Exception ex)
                     {
-                        callback(null, $"Failed to parse response: {ex}");
+                        callback(null, $"Failed to parse response: {ex}", false);
                     }
                 }
                 else
                 {
                     var errorMsg = $"API request failed: {request.error}";
+                    bool isRateLimited = false;
                     if (request.responseCode == 401)
                     {
                         errorMsg = "Invalid API key";
@@ -327,9 +332,10 @@ namespace mod_update_manager
                     else if (request.responseCode == 429)
                     {
                         errorMsg = "Rate limited - try again later";
+                        isRateLimited = true;
                         Plugin.Logger.LogWarning("Nexus rate limit hit — some mods will not be checked this session.");
                     }
-                    callback(null, errorMsg);
+                    callback(null, errorMsg, isRateLimited);
                 }
             }
         }

@@ -19,6 +19,13 @@ namespace mod_update_manager
         public string EmbeddedVersion { get; set; } = "—";
         public string InstalledVersion { get; set; } = "—";
         public SuiteInstallStatus Status { get; set; } = SuiteInstallStatus.Unknown;
+
+        // Set by ModSuiteExtractor.Extract's post-extract verification pass. Deliberately separate
+        // from Status: SuiteVersionReader.RefreshAll() recomputes Status from ModInfo.json version
+        // comparison alone on every call (including the one ApplySuiteUpdates makes right after an
+        // extract), which would silently clobber an incomplete-install verdict back to UpToDate the
+        // moment ModInfo.json itself landed but a sibling file did not.
+        public bool LastInstallIncomplete { get; set; }
     }
 
     public enum SuiteInstallStatus { Unknown, NotInstalled, UpToDate, OutOfDate }

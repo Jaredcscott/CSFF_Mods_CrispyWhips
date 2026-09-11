@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using BepInEx;
@@ -18,6 +19,7 @@ namespace mod_update_manager
         {
             try
             {
+                entry.LastInstallIncomplete = false;
                 var targetDir = Path.GetFullPath(Path.Combine(PluginsPath, entry.FolderName));
 
                 // Safety: ensure target is inside plugins/
@@ -38,7 +40,7 @@ namespace mod_update_manager
                                          StringComparison.OrdinalIgnoreCase) >= 0)
                             continue;
                         try { File.Delete(file); }
-                        catch (Exception ex) { Plugin.Logger.LogDebug($"Suite wipe: could not delete {file} (locked?); may orphan: {ex.Message}"); }
+                        catch (Exception ex) { Plugin.Logger.LogWarning($"Suite wipe: could not delete {file} (locked?); may orphan: {ex.Message}"); }
                     }
                 }
                 else
@@ -79,8 +81,38 @@ namespace mod_update_manager
                             MiniZip.ExtractToFile(stream, zipEntry, destPath);
                         }
                     }
+
+                    // Post-extract verification: confirm every non-directory entry actually landed
+                    // on disk. Mirrors the deploy-verify "deployed count == source count" discipline -
+                    // a partial write can leave a destination file zero-length or absent with nothing
+                    // thrown (a locked destination the OS still accepted the open call for, a full
+                    // disk mid-copy), and this is the only pass that would ever notice.
+                    var missingPaths = new List<string>();
+                    foreach (var zipEntry in zipEntries)
+                    {
+                        if (zipEntry.Name.EndsWith("/") || zipEntry.Name.EndsWith("\\"))
+                            continue; // directory entry, nothing to verify
+
+                        var verifyPath = Path.GetFullPath(Path.Combine(targetDir, zipEntry.Name));
+                        if (!verifyPath.StartsWith(targetDir, StringComparison.OrdinalIgnoreCase))
+                            continue; // unsafe entry, already skipped during extraction - not "missing"
+
+                        if (!File.Exists(verifyPath))
+                            missingPaths.Add(zipEntry.Name);
+                    }
+
+                    if (missingPaths.Count > 0)
+                    {
+                        entry.LastInstallIncomplete = true;
+                        foreach (var missing in missingPaths)
+                            Plugin.Logger.LogWarning($"Suite verify: {entry.FolderName} missing expected file after extract: {missing}");
+                        Plugin.Logger.LogError($"Suite verify: {entry.FolderName} install incomplete, {missingPaths.Count} file(s) missing.");
+                        status?.Invoke($"[Install Incomplete] {entry.DisplayName}: {missingPaths.Count} file(s) missing after extract.");
+                        return false;
+                    }
                 }
 
+                entry.LastInstallIncomplete = false;
                 status?.Invoke($"{entry.DisplayName} installed successfully.");
                 Plugin.Logger.LogInfo($"Suite: installed {entry.FolderName} v{entry.EmbeddedVersion}");
                 return true;

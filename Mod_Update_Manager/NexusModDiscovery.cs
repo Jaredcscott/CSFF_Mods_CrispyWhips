@@ -208,7 +208,7 @@ namespace mod_update_manager
                     bool discoveryComplete = false;
                     bool found = false;
 
-                    _apiClient.GetModInfo(modId.ToString(), (response, error) =>
+                    _apiClient.GetModInfo(modId.ToString(), (response, error, isRateLimited) =>
                     {
                         if (response != null && !string.IsNullOrEmpty(response.Name))
                         {

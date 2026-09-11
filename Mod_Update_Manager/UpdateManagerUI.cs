@@ -90,6 +90,7 @@ namespace mod_update_manager
             _conflictDetector = conflictDetector;
             _updateScheduler = updateScheduler;
             _preferences = preferences;
+            _searchFilter = _preferences?.GetSearchFilter() ?? "";
 
             _windowRect = new Rect(
                 (Screen.width - _config.WindowWidth.Value) / 2,
@@ -263,9 +264,17 @@ namespace mod_update_manager
             {
                 GUILayout.BeginHorizontal();
                 GUILayout.Label("Filter:", GUILayout.Width(50));
-                _searchFilter = GUILayout.TextField(_searchFilter);
+                var newSearchFilter = GUILayout.TextField(_searchFilter);
+                if (newSearchFilter != _searchFilter)
+                {
+                    _searchFilter = newSearchFilter;
+                    _preferences?.SetSearchFilter(_searchFilter);
+                }
                 if (GUILayout.Button("Clear", GUILayout.Width(50)))
+                {
                     _searchFilter = "";
+                    _preferences?.SetSearchFilter(_searchFilter);
+                }
                 GUILayout.EndHorizontal();
             }
 
@@ -295,6 +304,9 @@ namespace mod_update_manager
             GUILayout.EndHorizontal();
             GUILayout.Space(6);
 
+            DrawRecheckRateLimitedBanner();
+            DrawFrameworkStaleBanner();
+
             switch (_myModsFilterMode)
             {
                 case 0: DrawAllMods(); break;
@@ -302,6 +314,57 @@ namespace mod_update_manager
                 case 2: DrawUpToDate(); break;
                 case 3: DrawUnableToCheck(); break;
             }
+        }
+
+        // Manual re-check for HTTP-429'd mods only (N5,
+        // Documentation/Design/Mod_Update_Manager_Audit_Remediation_As_Built.md). Shown only while
+        // at least one mod's last check hit Nexus's rate limit; re-runs the staggered check
+        // for that subset alone, never the whole list. Distinct from - and not - the separate
+        // 429 auto-backoff idea, which stays unbuilt.
+        private void DrawRecheckRateLimitedBanner()
+        {
+            if (!_updateChecker.HasRateLimitedMods) return;
+
+            var rateLimitedCount = _updateChecker.InstalledMods.Count(m => m.RateLimited);
+
+            GUILayout.BeginHorizontal("box");
+            GUILayout.Label($"  {rateLimitedCount} mod(s) were rate limited by Nexus and were not checked.", _errorStyle);
+            GUILayout.FlexibleSpace();
+            GUI.enabled = !_updateChecker.IsChecking && _config.HasApiKey;
+            if (GUILayout.Button("Re-check Rate-Limited", GUILayout.Width(160)))
+                _updateChecker.RecheckRateLimitedMods(this);
+            GUI.enabled = true;
+            GUILayout.EndHorizontal();
+            GUILayout.Space(6);
+        }
+
+        // English-column template for Mod_Update_Manager_FrameworkStale (Localization/SimpEn.csv /
+        // SimpCn.csv) - {0}=framework display name, {1}=installed version, {2}=latest known version.
+        private const string FrameworkStaleBannerFormat =
+            "Framework update available: \"{0}\" installed v{1}, latest v{2} available. Switch to the " +
+            "All or Updates Available filter above to update it - an outdated framework can break content mods.";
+
+        // Stale-framework detector banner (N7,
+        // Documentation/Design/Mod_Update_Manager_Audit_Remediation_As_Built.md): warns when the
+        // installed CSFF Modding Framework (Nexus ID 30, see KnownModRegistry) is behind the
+        // newest version already known from the normal per-mod update check - no new network
+        // call, this just reads the same InstalledModInfo row every other tab reads. Renders
+        // nothing when the framework isn't installed, hasn't been checked yet (or the check
+        // failed), or is already current; VersionComparer (never a string compare) decides
+        // "behind".
+        private void DrawFrameworkStaleBanner()
+        {
+            var framework = _updateChecker.InstalledMods.FirstOrDefault(m => GetNexusIdForMod(m) == "30");
+            if (framework == null) return;
+            if (framework.CheckFailed || string.IsNullOrEmpty(framework.LatestVersion)) return;
+            if (!VersionComparer.NeedsUpdate(framework.Version, framework.LatestVersion)) return;
+
+            var text = string.Format(FrameworkStaleBannerFormat, framework.Name, framework.Version, framework.LatestVersion);
+
+            GUILayout.BeginHorizontal("box");
+            GUILayout.Label("  " + text, framework.IsMajorVersionUpdate ? _majorUpdateStyle : _updateAvailableStyle);
+            GUILayout.EndHorizontal();
+            GUILayout.Space(6);
         }
 
         private void DrawAllMods()
@@ -420,6 +483,13 @@ namespace mod_update_manager
                 return;
             }
 
+            DrawModConflicts();
+            GUILayout.Space(12);
+            DrawDependencyIssues();
+        }
+
+        private void DrawModConflicts()
+        {
             var conflicts = _conflictDetector.DetectConflicts(_updateChecker.InstalledMods);
 
             if (conflicts.Count == 0)
@@ -444,6 +514,63 @@ namespace mod_update_manager
                 GUILayout.EndHorizontal();
                 GUILayout.Label($"  {conflict.Description}", _errorStyle);
                 GUILayout.Label($"  Resolution: {_conflictDetector.GetConflictResolution(conflict)}", _errorStyle);
+                GUILayout.Space(5);
+            }
+        }
+
+        // English-column templates for the Dependencies sub-section (N6,
+        // Documentation/Design/Mod_Update_Manager_Audit_Remediation_As_Built.md). Keys in
+        // Localization/SimpEn.csv + SimpCn.csv:
+        //   Mod_Update_Manager_DependencyHeader           {0}=unsatisfied count
+        //   Mod_Update_Manager_MissingDependencyBadge
+        //   Mod_Update_Manager_MissingOptionalDependencyBadge
+        //   Mod_Update_Manager_MissingHardDependency      {0}=missing GUID, {1}=version clause
+        //   Mod_Update_Manager_MissingSoftDependency      {0}=missing GUID, {1}=version clause
+        //   Mod_Update_Manager_DependencyMinVersion       {0}=minimum version
+        private const string DependencyHeaderFormat = "Dependencies ({0} unsatisfied)";
+        private const string MissingDependencyBadge = "[Missing dependency]";
+        private const string MissingOptionalDependencyBadge = "[Missing optional dependency]";
+        private const string MissingHardDependencyFormat =
+            "Requires \"{0}\"{1}, which is not installed. BepInEx will refuse to load this plugin until it is.";
+        private const string MissingSoftDependencyFormat =
+            "Optionally uses \"{0}\"{1}, which is not installed. This plugin still loads, but some of its features may be inactive.";
+        private const string DependencyMinVersionFormat = " v{0} or newer";
+
+        /// <summary>
+        /// Dependency / SoftDependency graph validator (N6). Flags any [BepInDependency] declared by
+        /// an installed plugin whose target GUID is not among the installed [BepInPlugin] GUIDs.
+        /// Declarations are read straight out of each DLL's metadata tables - nothing is loaded or
+        /// executed (see PluginMetadataReader) - and DependencyValidator caches the result, because
+        /// this method runs on every OnGUI pass.
+        ///
+        /// Renders NOTHING when every declared dependency resolves. The scan's outcome is logged
+        /// once per scan instead, so a clean run is still confirmable from LogOutput.log.
+        /// </summary>
+        private void DrawDependencyIssues()
+        {
+            var issues = DependencyValidator.GetIssues();
+            if (issues == null || issues.Count == 0) return;
+
+            GUILayout.Label(string.Format(DependencyHeaderFormat, issues.Count), _headerStyle);
+            GUILayout.Space(5);
+
+            foreach (var issue in issues)
+            {
+                GUILayout.BeginHorizontal("box");
+                GUILayout.Label(issue.IsHard ? MissingDependencyBadge : MissingOptionalDependencyBadge,
+                    issue.IsHard ? _majorUpdateStyle : _updateAvailableStyle);
+                GUILayout.Label(issue.DependentName, _modNameStyle);
+                GUILayout.FlexibleSpace();
+                GUILayout.EndHorizontal();
+
+                var versionClause = string.IsNullOrEmpty(issue.MinimumVersion)
+                    ? ""
+                    : string.Format(DependencyMinVersionFormat, issue.MinimumVersion);
+                var text = string.Format(
+                    issue.IsHard ? MissingHardDependencyFormat : MissingSoftDependencyFormat,
+                    issue.MissingGuid, versionClause);
+
+                GUILayout.Label("  " + text, _errorStyle);
                 GUILayout.Space(5);
             }
         }
@@ -672,22 +799,36 @@ namespace mod_update_manager
                 GUILayout.Label($"Installed: {entry.InstalledVersion}", _summaryStyle, GUILayout.Width(130));
                 GUILayout.Label($"Suite: {entry.EmbeddedVersion}", _summaryStyle, GUILayout.Width(100));
 
-                // Status badge
-                GUIStyle badgeStyle = entry.Status switch
+                // Status badge - a failed post-extract verification (ModSuiteExtractor.Extract)
+                // overrides the version-based Status badge below: SuiteVersionReader.RefreshAll()
+                // recomputes Status from ModInfo.json alone right after every apply, so a row whose
+                // ModInfo.json landed but a sibling file did not would otherwise flip straight back
+                // to "[Up to Date]" with the incomplete install never surfaced anywhere durable.
+                GUIStyle badgeStyle;
+                string badgeText;
+                if (entry.LastInstallIncomplete)
                 {
-                    SuiteInstallStatus.UpToDate => _upToDateStyle,
-                    SuiteInstallStatus.OutOfDate => _updateAvailableStyle,
-                    SuiteInstallStatus.NotInstalled => _errorStyle,
-                    _ => GUI.skin.label
-                };
-                string badgeText = entry.Status switch
+                    badgeStyle = _errorStyle;
+                    badgeText = "[Install Incomplete]";
+                }
+                else
                 {
-                    SuiteInstallStatus.UpToDate => "[Up to Date]",
-                    SuiteInstallStatus.OutOfDate => "[Update Available]",
-                    SuiteInstallStatus.NotInstalled => "[Not Installed]",
-                    _ => "[Unknown]"
-                };
-                GUILayout.Label(badgeText, badgeStyle, GUILayout.Width(130));
+                    badgeStyle = entry.Status switch
+                    {
+                        SuiteInstallStatus.UpToDate => _upToDateStyle,
+                        SuiteInstallStatus.OutOfDate => _updateAvailableStyle,
+                        SuiteInstallStatus.NotInstalled => _errorStyle,
+                        _ => GUI.skin.label
+                    };
+                    badgeText = entry.Status switch
+                    {
+                        SuiteInstallStatus.UpToDate => "[Up to Date]",
+                        SuiteInstallStatus.OutOfDate => "[Update Available]",
+                        SuiteInstallStatus.NotInstalled => "[Not Installed]",
+                        _ => "[Unknown]"
+                    };
+                }
+                GUILayout.Label(badgeText, badgeStyle, GUILayout.Width(150));
 
                 // Details toggle
                 if (GUILayout.Button("?", GUILayout.Width(24)))

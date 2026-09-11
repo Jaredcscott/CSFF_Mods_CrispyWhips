@@ -20,6 +20,7 @@ namespace mod_update_manager
     {
         private readonly string _filePath;
         private Dictionary<string, ModPreferenceEntry> _prefs;
+        private string _globalSearchFilter = "";
 
         public ModPreferences(string filePath)
         {
@@ -31,6 +32,18 @@ namespace mod_update_manager
         public bool IsIgnored(string folderName) => TryGet(folderName)?.Ignored ?? false;
         public bool IsFavorited(string folderName) => TryGet(folderName)?.Favorited ?? false;
         public string GetNotes(string folderName) => TryGet(folderName)?.Notes ?? "";
+
+        /// <summary>
+        /// The My Mods search filter, persisted globally (not per-mod) so it survives closing
+        /// and reopening the window (F3).
+        /// </summary>
+        public string GetSearchFilter() => _globalSearchFilter ?? "";
+
+        public void SetSearchFilter(string filter)
+        {
+            _globalSearchFilter = filter ?? "";
+            Save();
+        }
 
         public void SetIgnored(string folderName, bool ignored)
         {
@@ -113,6 +126,7 @@ namespace mod_update_manager
             {
                 if (!File.Exists(_filePath)) return;
                 var json = File.ReadAllText(_filePath);
+                _globalSearchFilter = ReadString(json, "_searchFilter") ?? "";
                 var objectPattern = new Regex("\"([^\"]+)\"\\s*:\\s*\\{([^{}]*)\\}", RegexOptions.Singleline);
                 foreach (Match m in objectPattern.Matches(json))
                 {
@@ -142,6 +156,13 @@ namespace mod_update_manager
 
                 var sb = new StringBuilder("{");
                 bool first = true;
+
+                if (!string.IsNullOrEmpty(_globalSearchFilter))
+                {
+                    sb.Append($"\n  \"_searchFilter\": \"{Esc(_globalSearchFilter)}\"");
+                    first = false;
+                }
+
                 foreach (var kvp in _prefs)
                 {
                     if (!kvp.Value.Ignored && !kvp.Value.Favorited && string.IsNullOrEmpty(kvp.Value.Notes))
