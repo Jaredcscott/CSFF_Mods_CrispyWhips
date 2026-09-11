@@ -1,0 +1,163 @@
+{
+  "mod": "HomesteadPerks",
+  "version": "1.2.3",
+  "generated": "2026-09-01",
+  "groups": [
+    {
+      "name": "Homestead",
+      "status": "Implemented",
+      "cards": ["hsphomesteadkit"],
+      "perk": "hsptraitsperkhomestead",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": "Patcher/HomesteadKitPatch.cs (HomesteadKitPatch.Initialize/SpawnHomesteadContents)",
+      "confidence": "VERIFIED",
+      "evidence": "Playtest T1.53 PASS 2026-08-15 (hsp_kit_perks_place_to_build); retro CMC-HSP-compat Playthrough confirmation 2026-08-15 (T1.53 re-exercises HomesteadKitPatch.cs); no CardData/Patcher/Plugin change after 2026-08-14 (1.2.2)"
+    },
+    {
+      "name": "Cabin Kit",
+      "status": "Implemented",
+      "cards": ["hspcabinkit"],
+      "perk": "hsptraitsperkcabinkit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Playtest T1.53 PASS 2026-08-15 (hsp_kit_perks_place_to_build); files unchanged since 2026-08-14 (1.0.0)"
+    },
+    {
+      "name": "Mud Hut Kit",
+      "status": "Implemented",
+      "cards": ["hspmudhutkit"],
+      "perk": "hsptraitsperkmudhutkit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Playtest T1.53 PASS 2026-08-15 (hsp_kit_perks_place_to_build); files unchanged since 2026-08-14 (1.0.0)"
+    },
+    {
+      "name": "Rain Cistern Kit",
+      "status": "Implemented",
+      "cards": ["hspraincisternkit"],
+      "perk": "hsptraitsperkraincisternkit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Playtest T1.53 PASS 2026-08-15 (hsp_kit_perks_place_to_build); files unchanged since 2026-08-14 (1.0.0)"
+    },
+    {
+      "name": "Log Bed Kit",
+      "status": "Implemented",
+      "cards": ["hsplogbedkit"],
+      "perk": "hsptraitsperklogbedkit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Playtest T1.53 PASS 2026-08-15 (hsp_kit_perks_place_to_build); files unchanged since 2026-08-14 (1.0.0)"
+    },
+    {
+      "name": "Furnace Kit",
+      "status": "Implemented",
+      "cards": ["hspfurnacekit"],
+      "perk": "hsptraitsperkfurnacekit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Playtest T1.53 PASS 2026-08-15 (hsp_kit_perks_place_to_build); files unchanged since 2026-08-14 (1.0.0)"
+    },
+    {
+      "name": "Forge Kit",
+      "status": "Implemented",
+      "cards": ["hspforgekit"],
+      "perk": "hsptraitsperkforgekit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Playtest T1.53 PASS 2026-08-15 (hsp_kit_perks_place_to_build); files unchanged since 2026-08-14 (1.0.0)"
+    },
+    {
+      "name": "Oven Kit",
+      "status": "Implemented",
+      "cards": ["hspovenkit"],
+      "perk": "hsptraitsperkovenkit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Playtest T1.53 PASS 2026-08-15 (hsp_kit_perks_place_to_build); files unchanged since 2026-08-14 (1.0.0)"
+    },
+    {
+      "name": "Tanning Pit Kit",
+      "status": "Implemented",
+      "cards": ["hsptanningpitkit"],
+      "perk": "hsptraitsperktanningpitkit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Playtest T1.53 PASS 2026-08-15 (hsp_kit_perks_place_to_build); files unchanged since 2026-08-14 (1.0.0)"
+    },
+    {
+      "name": "Well Kit",
+      "status": "Implemented",
+      "cards": ["hspwellkit"],
+      "perk": "hsptraitsperkwellkit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Playtest T1.54 PASS 2026-08-15 (hsp_new_kits_path_well_cellar_pittrap); files unchanged since 2026-08-14 (1.2.0)"
+    },
+    {
+      "name": "Cellar Kit",
+      "status": "Implemented",
+      "cards": ["hspcellarkit"],
+      "perk": "hsptraitsperkcellarkit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Playtest T1.54 PASS 2026-08-15 (hsp_new_kits_path_well_cellar_pittrap); files unchanged since 2026-08-14 (1.2.0)"
+    },
+    {
+      "name": "Pit Trap Kit",
+      "status": "Implemented",
+      "cards": ["hsppittrapkit"],
+      "perk": "hsptraitsperkpittrapkit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": true,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Playtest T1.54 PASS 2026-08-15 (hsp_new_kits_path_well_cellar_pittrap); files unchanged since 2026-08-14 (1.2.0)"
+    },
+    {
+      "name": "Path Kit",
+      "status": "Implemented",
+      "cards": ["hsppathkit"],
+      "perk": "hsptraitsperkpathkit",
+      "hasBlueprint": false,
+      "registeredInBlueprintTabs": "N/A",
+      "placeable": false,
+      "csharpHandler": null,
+      "confidence": "VERIFIED",
+      "evidence": "Playtest T1.54 PASS 2026-08-15 (hsp_new_kits_path_well_cellar_pittrap); grant count (6) and cardinal-only directions confirmed current as of 1.2.2 (2026-08-14), predating the pass; digest note text '3 charges' is a stale annotation, not evidence of an older build being tested"
+    }
+  ]
+}
