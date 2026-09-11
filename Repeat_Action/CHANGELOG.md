@@ -1,5 +1,68 @@
 # Repeat Action — Changelog
 
+## [2.1.5] - 2026-09-08
+
+Built against EA 0.67i.
+
+### Added
+
+- **`Extra Stat Thresholds` setting (empty by default).** Stop floors for ANY stat, vanilla or modded, alongside the three fixed Stamina / Satiation / Hydration floors. Syntax: comma-separated `guid:percent` pairs, where `guid` is the stat's UniqueID and `percent` (1-100) is the share of the stat's current maximum below which the run stops, e.g. `888d2d2a99e3f044291c6748a0fa8d78:30, 4a27fb5da9326b545a5ef73f2b80316e:25` stops when Body Temperature falls under 30% or Morale under 25%. The stop notification names the stat ("Body Temperature below 30%") using the stat's own in-game name, so a modded vital reads correctly. Entries are checked in the order written, after the three fixed floors, and the first one crossed stops the run. A malformed entry (no colon, non-numeric or out-of-range percent) is skipped with a log breadcrumb and never affects the other entries or the fixed floors; a UniqueID that resolves to no stat leaves the same "this stop cannot fire" breadcrumb the fixed floors already do. Both breadcrumbs surface at Info level when `Verbose Run Diagnostics` is on. Empty means no change in behavior.
+
+## [2.1.4] - 2026-09-08
+
+Built against EA 0.67i.
+
+### Added
+
+- **In-run progress bar (`Show Progress Bar`, on by default).** A fill bar now sits just under the "{completed}/{count}" notification for the whole run, filling as iterations complete and reaching full at completion; it stays up as long as the final "Complete" / "Stopped" notification, then vanishes. Unlike the notification, which fades two seconds after each iteration, the bar is visible throughout, so a long iteration still shows a run is in progress. Unlimited runs have no fixed total (the only denominator is the safety backstop, which is not what you are counting toward), so they show a moving sweep instead of a fill; the notification still carries the raw count. The bar is drawn only while a run is active, so it is unobtrusive by default; set `Show Progress Bar = false` to turn it off. It is independent of `Show Notifications`.
+
+## [2.1.3] - 2026-09-08
+
+Built against EA 0.67i.
+
+### Added
+
+- **`Show Count Indicator` setting (off by default).** When on, a small persistent "Repeat: x5" (or "Repeat: Unlimited") label sits in the top-right corner whenever a card popup is open, so you can read the configured count without starting a run. It updates live as you Shift+scroll or press Shift+Plus/Minus and disappears when no popup is open. It uses the game's own open-popup signal (the inspection popup the game currently has up), so it also shows over NPC, blueprint and container popups. Off means no visual change at all.
+
+## [2.1.2] - 2026-09-07
+
+Built against EA 0.67i.
+
+### Added
+
+- **`Verbose Run Diagnostics` setting (off by default).** When on, every stop/abort decision a run makes is written to `BepInEx/LogOutput.log` at Info level while the run is active: which safety gate tripped and with what values (e.g. "Stamina is 12/100 (12%), under its 20% floor"), which card could not be found on the board, what the game's own availability check said, and one line per dispatched iteration. It answers "why did my run stop after one iteration?" without enabling BepInEx debug logging. Off keeps the log exactly as before (the start and stop summary lines only), and the setting never logs outside a run, so a clean boot still shows exactly one Repeat Action line.
+
+## [2.1.1] - 2026-09-07
+
+Built against EA 0.67i.
+
+### Added
+
+- **`Per-Card Group Repeat` setting (off by default).** Group actions (Eat All, group harvests, ...) have always replayed as one whole-group sweep per iteration, so a count of 5 meant five sweeps. With this setting on, each iteration processes exactly ONE card of the captured group, in the order they were captured, so the count is a hard per-card cap; the run stops with "no more targets" once the group is exhausted, and the opening notification reads "group, per card" so you can tell which mode is active. Off keeps the original whole-group behavior unchanged - a player who never touches the setting sees no difference.
+
+## [2.1.0] - 2026-09-05
+
+Built against EA 0.67h.
+
+### Added
+
+- **Unlimited mode.** Lower the repeat count below 1 and it becomes "Unlimited" - the run continues until a safety stop, a requirement failure, or you cancel. A new `Maximum Unlimited Iterations` setting (default 500) is a backstop against an action that never fails, not the expected way a run ends; hitting it is reported as its own stop reason.
+- **Mouse-wheel count adjustment.** Scroll while holding either Shift to raise or lower the repeat count, alongside the existing `Shift+Plus` / `Shift+Minus`.
+- **`Stop On Inventory Full` safety stop (off by default).** Halts the run once every container you are carrying is full. It is off by default because many actions drop their output on the ground rather than into your inventory, and it is ignored entirely when you carry no container - so it can only end a run that genuinely has nowhere to put its output.
+- **`Extra Blocked Actions` setting.** A comma-separated list of action names the mod will never capture, merged with the built-in "continue". Lets you exclude an action you never want to batch without a code change.
+
+### Changed
+
+- **Stop reasons name the real condition.** A run halted by `Stop On Low Stats` previously always reported "event triggered", even when the actual cause was a status blocker such as starvation or exhaustion. It now reports the game's own message for the blocker that stopped it, falling back to a neutral "blocked by your condition" only when the game supplies no text.
+- **The repeat notification says which kind of action it is replaying** - action, stack, drag-drop, or group.
+- **`Stop On Low Stats` description corrected.** Its tooltip (and the matching README line) claimed it also covered event popups. It never did: the toggle gates status blockers only, and popups are handled separately by the completion wait. Behavior is unchanged; only the description was wrong.
+- **README no longer pins a game version** in its header - it drifted stale twice. The build a release was compiled against is recorded here in the changelog instead.
+
+### Fixed
+
+- **Liquid transfers now re-check `CannotBeTransferred` on every replayed iteration.** The vanilla flag is enforced on the drag path only, so a programmatic replay never consulted it (CLAUDE.md §Programmatic Card Movement). Defence in depth: the reachable paths were already covered by the drag-hover gate and the mod's UID re-resolution, so this is not a fix for an observed bug.
+- **Diagnostics.** A per-stat stop whose vanilla stat GUID fails to resolve now leaves a debug breadcrumb instead of silently never firing, and a dispatch funnel that can no longer be found on `GameManager` is reported as an error at startup rather than surfacing later as a failed repeat.
+
 ## [2.0.2] — 2026-08-16
 
 ### Changed

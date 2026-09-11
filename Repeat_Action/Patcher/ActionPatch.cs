@@ -28,6 +28,20 @@ namespace Repeat_Action.Patcher
     {
         private static ManualLogSource Logger => Plugin.Logger;
 
+        /// <summary>
+        /// Verbose Run Diagnostics: a stop/abort/resolution breadcrumb. Info while a run is active
+        /// AND the config is on, so a player can read why a run stopped without enabling BepInEx
+        /// Debug output (CLAUDE.md §BepInEx Logging: LogDebug is invisible by default); Debug
+        /// otherwise. Gated on isRepeating, so it never touches the one-Info-line startup budget.
+        /// </summary>
+        private static void RunLog(string message)
+        {
+            if (isRepeating && Plugin.VerboseRunDiagnostics != null && Plugin.VerboseRunDiagnostics.Value)
+                Logger.LogInfo($"[Repeat] {message}");
+            else
+                Logger.LogDebug($"[Repeat] {message}");
+        }
+
         private enum FunnelKind { Action, StackAction, CardOnCard, GroupAction }
 
         private sealed class Captured
@@ -48,13 +62,90 @@ namespace Repeat_Action.Patcher
         }
 
         // Actions never captured: auto-advancing story/event popups is unrecoverable.
-        private static readonly string[] BlockedActionKeywords = { "continue" };
+        private static readonly string[] BuiltInBlockedKeywords = { "continue" };
+
+        // Built-ins + the player's "Extra Blocked Actions" config, re-parsed only when that
+        // config string changes (BepInEx lets the player edit it mid-session).
+        private static string[] blockedKeywordsCache = BuiltInBlockedKeywords;
+        private static string blockedKeywordsSource;
+
+        private static string[] BlockedActionKeywords
+        {
+            get
+            {
+                string raw = Plugin.ExtraBlockedActions != null ? Plugin.ExtraBlockedActions.Value : null;
+                if (string.Equals(raw, blockedKeywordsSource, StringComparison.Ordinal)) return blockedKeywordsCache;
+                blockedKeywordsSource = raw;
+                if (string.IsNullOrEmpty(raw) || raw.Trim().Length == 0)
+                {
+                    blockedKeywordsCache = BuiltInBlockedKeywords;
+                }
+                else
+                {
+                    var merged = new List<string>(BuiltInBlockedKeywords);
+                    foreach (var part in raw.Split(','))
+                    {
+                        string k = part.Trim();
+                        if (k.Length > 0 && !merged.Contains(k)) merged.Add(k);
+                    }
+                    blockedKeywordsCache = merged.ToArray();
+                }
+                Logger.LogDebug($"[Repeat] Blocklist: {string.Join(", ", blockedKeywordsCache)}");
+                return blockedKeywordsCache;
+            }
+        }
+
+        // Extra Stat Thresholds: "guid:percent, guid:percent" - stop floors on any GameStat, checked
+        // after the three fixed vanilla ones. Re-parsed only when the config string changes (BepInEx
+        // lets the player edit it mid-session). A malformed entry is skipped with a breadcrumb so one
+        // typo cannot silently disable the others.
+        private struct ExtraThreshold { public string Guid; public int Percent; }
+        private static readonly List<ExtraThreshold> noExtraThresholds = new List<ExtraThreshold>();
+        private static List<ExtraThreshold> extraThresholdsCache = noExtraThresholds;
+        private static string extraThresholdsSource;
+
+        private static List<ExtraThreshold> ExtraStatThresholds
+        {
+            get
+            {
+                string raw = Plugin.ExtraStatThresholds != null ? Plugin.ExtraStatThresholds.Value : null;
+                if (string.Equals(raw, extraThresholdsSource, StringComparison.Ordinal)) return extraThresholdsCache;
+                extraThresholdsSource = raw;
+                var parsed = new List<ExtraThreshold>();
+                if (!string.IsNullOrEmpty(raw) && raw.Trim().Length > 0)
+                {
+                    foreach (var part in raw.Split(','))
+                    {
+                        string entry = part.Trim();
+                        if (entry.Length == 0) continue;
+                        int sep = entry.LastIndexOf(':');
+                        string guid = sep > 0 ? entry.Substring(0, sep).Trim() : "";
+                        string pctText = sep > 0 ? entry.Substring(sep + 1).Trim() : "";
+                        if (guid.Length == 0 || !int.TryParse(pctText, out int pct) || pct < 1 || pct > 100)
+                        {
+                            RunLog($"Extra Stat Thresholds: skipping malformed entry '{entry}' (expected guid:percent, percent 1-100)");
+                            continue;
+                        }
+                        parsed.Add(new ExtraThreshold { Guid = guid, Percent = pct });
+                    }
+                }
+                extraThresholdsCache = parsed;
+                RunLog($"Extra Stat Thresholds: {parsed.Count} active entr{(parsed.Count == 1 ? "y" : "ies")}");
+                return extraThresholdsCache;
+            }
+        }
 
         private static Captured last;
         private static string lastRejectedName;          // for the "'X' is not supported" toast
         private static bool isRepeating;
         private static bool cancelRequested;
         private static int groupCaptureFrame = -1;       // PerformGroupInventoryAction loops PerformAction internally
+
+        // Per-Card Group Repeat: the live cards already dispatched during the CURRENT run, so each
+        // iteration lands on the next still-unprocessed member of the captured group. Reset per run.
+        private static readonly List<InGameCardBase> perCardDispatched = new List<InGameCardBase>();
+
+        private static bool PerCardGroupMode => Plugin.PerCardGroupRepeat != null && Plugin.PerCardGroupRepeat.Value;
 
         public static bool HasLastAction => last != null;
         public static string LastActionName => last?.ActionName ?? lastRejectedName ?? "Unknown";
@@ -70,25 +161,25 @@ namespace Repeat_Action.Patcher
             try
             {
                 var gm = typeof(GameManager);
-                harmony.Patch(
+                Patch(harmony,
                     AccessTools.Method(gm, nameof(GameManager.PerformAction)),
-                    prefix: new HarmonyMethod(typeof(ActionPatch), nameof(PerformAction_Prefix)));
-                harmony.Patch(
+                    nameof(GameManager.PerformAction), nameof(PerformAction_Prefix));
+                Patch(harmony,
                     AccessTools.Method(gm, nameof(GameManager.PerformStackAction),
                         new[] { typeof(CardAction), typeof(DynamicLayoutSlot), typeof(bool), typeof(InGameNPCOrPlayer) }),
-                    prefix: new HarmonyMethod(typeof(ActionPatch), nameof(PerformStackActionLayout_Prefix)));
-                harmony.Patch(
+                    "PerformStackAction(DynamicLayoutSlot)", nameof(PerformStackActionLayout_Prefix));
+                Patch(harmony,
                     AccessTools.Method(gm, nameof(GameManager.PerformStackAction),
                         new[] { typeof(CardAction), typeof(InventorySlot), typeof(bool), typeof(InGameNPCOrPlayer) }),
-                    prefix: new HarmonyMethod(typeof(ActionPatch), nameof(PerformStackActionInventory_Prefix)));
+                    "PerformStackAction(InventorySlot)", nameof(PerformStackActionInventory_Prefix));
                 // NOTE: patch the STACK variant — every drag (including the single-card
                 // PerformCardOnCardAction wrapper) funnels through PerformCardOnCardActionStack.
-                harmony.Patch(
+                Patch(harmony,
                     AccessTools.Method(gm, nameof(GameManager.PerformCardOnCardActionStack)),
-                    prefix: new HarmonyMethod(typeof(ActionPatch), nameof(PerformCardOnCardActionStack_Prefix)));
-                harmony.Patch(
+                    nameof(GameManager.PerformCardOnCardActionStack), nameof(PerformCardOnCardActionStack_Prefix));
+                Patch(harmony,
                     AccessTools.Method(gm, nameof(GameManager.PerformGroupInventoryAction)),
-                    prefix: new HarmonyMethod(typeof(ActionPatch), nameof(PerformGroupInventoryAction_Prefix)));
+                    nameof(GameManager.PerformGroupInventoryAction), nameof(PerformGroupInventoryAction_Prefix));
 
                 Logger.LogDebug("ActionPatch v2 applied — native-dispatch capture on 5 GameManager funnels");
             }
@@ -96,6 +187,31 @@ namespace Repeat_Action.Patcher
             {
                 Logger.LogError($"Failed to apply patches: {ex}");
             }
+        }
+
+        /// <summary>
+        /// Patch one dispatch funnel, recording its resolved signature.
+        ///
+        /// This mod calls the game's dispatch funnels directly with compile-time typed
+        /// arguments, so a parameter-list change in a game update breaks replay at runtime
+        /// (EA 0.66bb added an InGameNPC param to CollectActionModifiers and every dispatch
+        /// threw MissingMethodException). An unresolvable funnel is therefore an ERROR the
+        /// player's log always shows; the healthy-case signature dump stays at Debug so the
+        /// mod keeps to its one-Info-line-at-startup budget.
+        /// </summary>
+        private static void Patch(Harmony harmony, System.Reflection.MethodInfo target, string label, string prefixName)
+        {
+            if (target == null)
+            {
+                Logger.LogError($"Dispatch funnel '{label}' not found on GameManager - the game's signature likely changed in a game update. Repeat will not capture this action kind.");
+                return;
+            }
+            var ps = target.GetParameters();
+            var sig = new string[ps.Length];
+            for (int i = 0; i < ps.Length; i++) sig[i] = $"{ps[i].ParameterType.Name} {ps[i].Name}";
+            Logger.LogDebug($"[Funnel] {label}({string.Join(", ", sig)})");
+
+            harmony.Patch(target, prefix: new HarmonyMethod(typeof(ActionPatch), prefixName));
         }
 
         // =====================================================================
@@ -265,16 +381,26 @@ namespace Repeat_Action.Patcher
 
             isRepeating = true;
             cancelRequested = false;
+            perCardDispatched.Clear();
             int completed = 0;
             string display = string.IsNullOrEmpty(cap.ActionName) ? "action" : cap.ActionName;
+            string kind = KindLabel(cap.Kind);
+            if (cap.Kind == FunnelKind.GroupAction && PerCardGroupMode) kind = "group, per card";
             string stopReason = null;
+
+            // count <= 0 is the "unlimited" sentinel: run until a stop condition fires, with
+            // MaxUnboundedIterations as a hard backstop against a never-failing action.
+            bool unlimited = count <= Plugin.UnlimitedCount;
+            int limit = unlimited ? Mathf.Max(1, Plugin.MaxUnboundedIterations.Value) : count;
+            string target = unlimited ? "unlimited" : $"x{count}";
 
             try
             {
-                Plugin.ShowNotification($"Repeating: {display} x{count}");
-                Logger.LogInfo($"[Repeat] Starting: '{display}' x{count} ({cap.Kind})");
+                Plugin.ReportRunProgress(0, count, unlimited);
+                Plugin.ShowNotification($"Repeating {kind}: {display} {target}");
+                Logger.LogInfo($"[Repeat] Starting: '{display}' {target} ({cap.Kind})");
 
-                for (int i = 0; i < count; i++)
+                for (int i = 0; i < limit; i++)
                 {
                     if (cancelRequested) { stopReason = "cancelled"; break; }
 
@@ -287,22 +413,39 @@ namespace Repeat_Action.Patcher
                         waited += Time.unscaledDeltaTime;
                     }
                     if (cancelRequested) { stopReason = "cancelled"; break; }
-                    if (!IsGameIdle()) { stopReason = "timed out waiting for the game to settle"; break; }
+                    if (!IsGameIdle())
+                    {
+                        stopReason = "timed out waiting for the game to settle";
+                        RunLog($"iteration {completed + 1}: gave up after {waited:0.0}s waiting for idle (state={GameManager.CurrentState}, performingAction={GameManager.PerformingAction})");
+                        break;
+                    }
                     yield return null;
 
                     if (Plugin.StopOnLowStats.Value && GameManager.Instance.AnyActionBlockers)
                     {
-                        stopReason = "event triggered";
+                        // Surface the game's own reason for the block (starving, exhausted, ...)
+                        // rather than guessing at one.
+                        stopReason = ActionBlockerMessage() ?? "blocked by your condition";
+                        RunLog($"iteration {completed + 1}: a status blocker is active (Stop On Low Stats) - '{stopReason}'");
                         break;
                     }
                     string statStop = CheckStatThresholds();
                     if (statStop != null) { stopReason = statStop; break; }
 
+                    if (Plugin.StopOnInventoryFull.Value && CarriedInventoryFull())
+                    {
+                        stopReason = "inventory full";
+                        RunLog($"iteration {completed + 1}: every carried container is full (Stop On Inventory Full)");
+                        break;
+                    }
+
                     if (!TryDispatch(cap, completed, out Coroutine running, out string failReason))
                     {
                         stopReason = failReason;
+                        RunLog($"iteration {completed + 1}: dispatch refused - {failReason}");
                         break;
                     }
+                    RunLog($"iteration {completed + 1}: dispatched '{display}' ({kind})");
 
                     // Wait for the dispatched action to fully complete. Poll game state instead
                     // of yielding on the Coroutine handle: if the run ends mid-action (quit to
@@ -324,15 +467,23 @@ namespace Repeat_Action.Patcher
                         yield return null;
                         if (GameManager.Instance == null) gameEnded = true;
                     }
-                    if (gameEnded) { stopReason = "game ended"; break; }
+                    if (gameEnded)
+                    {
+                        stopReason = "game ended";
+                        RunLog($"iteration {completed + 1}: GameManager went away mid-action (quit to menu or load?)");
+                        break;
+                    }
                     if (cancelRequested) { stopReason = "cancelled"; break; }
 
                     completed++;
-                    if (count > 1) Plugin.ShowNotification($"{display}: {completed}/{count}");
+                    Plugin.ReportRunProgress(completed, count, unlimited);
+                    if (unlimited) Plugin.ShowNotification($"{display}: {completed}");
+                    else if (count > 1) Plugin.ShowNotification($"{display}: {completed}/{count}");
 
                     if (cap.Kind == FunnelKind.CardOnCard && Plugin.StopOnToolBreak.Value && GivenCardTransformed(cap))
                     {
                         stopReason = "tool changed";
+                        RunLog($"iteration {completed}: drag-drop tool '{cap.GivenUid}' is now '{UidOf(cap.GivenCard)}' (Stop On Tool Break)");
                         break;
                     }
                 }
@@ -340,17 +491,59 @@ namespace Repeat_Action.Patcher
             finally
             {
                 isRepeating = false;
+                Plugin.EndRunProgress();
             }
 
+            string progress = unlimited ? completed.ToString() : $"{completed}/{count}";
             if (stopReason == null)
             {
-                Plugin.ShowNotification($"Complete: {completed}/{count}");
-                Logger.LogInfo($"[Repeat] Complete: {completed}/{count}");
+                // In unlimited mode, running out of iterations is the cap, not a clean finish.
+                if (unlimited)
+                {
+                    Plugin.ShowNotification($"Stopped - reached the {limit}-iteration limit ({progress})");
+                    Logger.LogInfo($"[Repeat] Stopped after {progress}: hit MaxUnboundedIterations ({limit})");
+                }
+                else
+                {
+                    Plugin.ShowNotification($"Complete: {progress}");
+                    Logger.LogInfo($"[Repeat] Complete: {progress}");
+                }
             }
             else
             {
-                Plugin.ShowNotification($"Stopped - {stopReason} ({completed}/{count})");
-                Logger.LogInfo($"[Repeat] Stopped after {completed}/{count}: {stopReason}");
+                Plugin.ShowNotification($"Stopped - {stopReason} ({progress})");
+                Logger.LogInfo($"[Repeat] Stopped after {progress}: {stopReason}");
+            }
+        }
+
+        // OnGUI polls this several times a frame; a failing lookup must not flood the log.
+        private static bool popupCheckWarned;
+
+        /// <summary>
+        /// True while an inspection popup (card, NPC, blueprint or inventory) is open. The game's own
+        /// signal: GraphicsManager.CurrentInspectionPopup is assigned on every popup-open path and
+        /// nulled by CloseAllPopups / ClearInspectedCard (.decomp/GraphicsManager.cs); the
+        /// activeInHierarchy check covers the frames between Hide() and the field being cleared.
+        /// Used by the persistent count indicator (Plugin.OnGUI).
+        /// </summary>
+        public static bool IsCardPopupOpen()
+        {
+            try
+            {
+                if (GameManager.Instance == null) return false;
+                var g = MBSingleton<GraphicsManager>.Instance;
+                if (g == null || !g) return false;
+                var popup = g.CurrentInspectionPopup;
+                return popup != null && popup && popup.gameObject.activeInHierarchy;
+            }
+            catch (Exception ex)
+            {
+                if (!popupCheckWarned)
+                {
+                    popupCheckWarned = true;
+                    Logger.LogDebug($"[HUD] IsCardPopupOpen check failed (count indicator stays hidden): {ex}");
+                }
+                return false;
             }
         }
 
@@ -418,7 +611,7 @@ namespace Repeat_Action.Patcher
                         // Popup-owned runtime action (e.g. blueprint Build) — not in DismantleActions
                         // but still dispatchable against the live card.
                         action = cap.Action;
-                        Logger.LogDebug($"[Repeat] Using captured action object directly for '{cap.ActionName}'");
+                        RunLog($"using the captured action object directly for '{cap.ActionName}' (not in the live card's DismantleActions)");
                     }
                 }
                 else
@@ -426,11 +619,14 @@ namespace Repeat_Action.Patcher
                     // Receiving card left the board (travel, consumed target): find the same action
                     // on any live card — e.g. the direction action on the NEW location card.
                     if (FindActionAnywhere(cap, out card, out action))
-                        Logger.LogDebug($"[Repeat] Target changed — found '{cap.ActionName}' on '{CardName(card)}'");
+                        RunLog($"target changed - found '{cap.ActionName}' on '{CardName(card)}'");
                 }
 
                 if (card == null || action == null)
                 {
+                    RunLog(card == null
+                        ? $"no live card '{cap.ReceivingUid}' on this board and no other card offers '{cap.ActionName}'"
+                        : $"live card '{CardName(card)}' no longer offers '{cap.ActionName}'");
                     failReason = completed > 0 ? $"no more '{cap.ActionName}' targets" : "target card not found";
                     return false;
                 }
@@ -449,6 +645,7 @@ namespace Repeat_Action.Patcher
             var card = ResolveCard(cap.ReceivingCard, cap.ReceivingUid);
             if (card == null)
             {
+                RunLog($"no live card '{cap.ReceivingUid}' left on this board for the stack action");
                 failReason = completed > 0 ? "stack used up" : "target card not found";
                 return false;
             }
@@ -473,17 +670,28 @@ namespace Repeat_Action.Patcher
             var receiving = ResolveCard(cap.ReceivingCard, cap.ReceivingUid);
             if (receiving == null)
             {
+                RunLog($"no live receiving card '{cap.ReceivingUid}' on this board for the drag-drop");
                 failReason = completed > 0 ? "no more targets" : "target card not found";
                 return false;
             }
             var given = ResolveCard(cap.GivenCard, cap.GivenUid, receiving);
             if (given == null)
             {
+                RunLog($"no live given card '{cap.GivenUid}' left to drag onto '{CardName(receiving)}'");
                 failReason = completed > 0 ? "source used up" : "source card not found";
                 return false;
             }
             var action = cap.Action as CardOnCardAction;
             if (action == null) { failReason = "action no longer available"; return false; }
+
+            // A programmatic move does not go through the vanilla drag path, so its
+            // CannotBeTransferred gate never runs for us (CLAUDE.md §Programmatic Card
+            // Movement). Re-check it here, mirroring InGameCardBase.CanTransferLiquids.
+            if (cap.IsLiquidTransfer && (LiquidTransferBlocked(given) || LiquidTransferBlocked(receiving)))
+            {
+                failReason = "liquid can no longer be transferred";
+                return false;
+            }
 
             if (!ActionAvailable(action, receiving, given, ref failReason)) return false;
 
@@ -498,19 +706,34 @@ namespace Repeat_Action.Patcher
             return true;
         }
 
+        /// <summary>
+        /// Whole-group mode (default): rebuild the whole captured group from live cards and sweep it
+        /// in one PerformGroupInventoryAction, exactly as the player's click did. Per-Card Group
+        /// Repeat: walk the captured group in order and dispatch only the FIRST member not yet
+        /// processed this run (same funnel, one-element lists), so one iteration = one card and the
+        /// run ends with "no more targets" once the group is exhausted.
+        /// </summary>
         private static bool DispatchGroup(Captured cap, int completed, ref Coroutine running, ref string failReason)
         {
+            bool perCard = PerCardGroupMode;
             var cards = new List<InGameCardBase>();
             var actions = new List<DismantleCardAction>();
             for (int i = 0; i < cap.GroupCards.Count; i++)
             {
-                var c = ResolveCard(cap.GroupCards[i], i < cap.GroupUids.Count ? cap.GroupUids[i] : null, null, cards);
+                // Per-card: exclude everything already dispatched this run; a captured member that
+                // was consumed falls back (via ResolveCard) to another live card of the same UID.
+                var c = ResolveCard(cap.GroupCards[i], i < cap.GroupUids.Count ? cap.GroupUids[i] : null, null,
+                    perCard ? perCardDispatched : cards);
                 if (c == null || cards.Contains(c)) continue;
                 cards.Add(c);
                 actions.Add(cap.GroupActions[i]);
+                if (perCard) break;
             }
             if (cards.Count == 0)
             {
+                RunLog(perCard
+                    ? $"all {cap.GroupCards.Count} captured group member(s) already processed or gone ({perCardDispatched.Count} dispatched this run)"
+                    : $"none of the {cap.GroupCards.Count} captured group member(s) is live on this board");
                 failReason = completed > 0 ? "no more targets" : "target cards not found";
                 return false;
             }
@@ -519,6 +742,7 @@ namespace Repeat_Action.Patcher
 
             running = GameManager.PerformGroupInventoryAction(cards, actions, _FastMode: false, InGameNPCOrPlayer.PlayerAgent);
             if (running == null) { failReason = "the game rejected the action"; return false; }
+            if (perCard) perCardDispatched.Add(cards[0]);
             return true;
         }
 
@@ -537,13 +761,14 @@ namespace Repeat_Action.Patcher
                 {
                     string msg = action.ActionBlockedMessage;
                     failReason = string.IsNullOrEmpty(msg) ? "requirements no longer met" : msg;
+                    RunLog($"the game's availability check refused '{action.ActionName.DefaultText}' on '{CardName(card)}': {failReason}");
                     return false;
                 }
                 return true;
             }
             catch (Exception ex)
             {
-                Logger.LogDebug($"[Repeat] Availability check threw ({ex.GetType().Name}) — dispatching anyway");
+                RunLog($"availability check threw ({ex.GetType().Name}) - dispatching anyway");
                 return true;
             }
         }
@@ -667,29 +892,151 @@ namespace Repeat_Action.Patcher
         private const string HydrationGuid = "95ca7c21ffad5e647acc3d9cb5bfcde6";
         private const string StaminaGuid = "1cfd30cf13b69b949a0ac521f55a59a2";
 
+        /// <summary>
+        /// First stat floor crossed, or null. The three fixed vanilla floors are checked first, then
+        /// every Extra Stat Thresholds entry in the order written; the generic list is additive and
+        /// goes through the same CheckThreshold as the fixed three.
+        /// </summary>
         private static string CheckStatThresholds()
         {
-            return CheckThreshold("Satiation", SatiationGuid, Plugin.SatiationStopThreshold.Value)
+            string stop = CheckThreshold("Satiation", SatiationGuid, Plugin.SatiationStopThreshold.Value)
                 ?? CheckThreshold("Hydration", HydrationGuid, Plugin.HydrationStopThreshold.Value)
                 ?? CheckThreshold("Stamina", StaminaGuid, Plugin.StaminaStopThreshold.Value);
+            if (stop != null) return stop;
+
+            var extra = ExtraStatThresholds;
+            for (int i = 0; i < extra.Count; i++)
+            {
+                stop = CheckThreshold(null, extra[i].Guid, extra[i].Percent);
+                if (stop != null) return stop;
+            }
+            return null;
         }
 
+        /// <param name="label">Fixed player-facing name, or null to use the resolved stat's own GameName.</param>
         private static string CheckThreshold(string label, string guid, int threshold)
         {
             if (threshold <= 0) return null;
+            string who = label ?? guid;
             try
             {
                 var model = UniqueIDScriptable.GetFromID<GameStat>(guid);
                 var gm = GameManager.Instance;
-                if (model == null || gm == null || gm.StatsDict == null) return null;
+                if (model == null)
+                {
+                    // An opted-in safety stop that can never fire is worse than none - say so.
+                    RunLog($"CheckThreshold('{who}'): stat GUID {guid} resolved to null; this stop cannot fire.");
+                    return null;
+                }
+                if (gm == null || gm.StatsDict == null) return null;
                 if (!gm.StatsDict.TryGetValue(model, out var stat) || stat == null) return null;
                 float max = stat.CurrentMinMaxValue.y;
                 if (max <= 0f) return null;
-                if (stat.SimpleCurrentValue / max * 100f < threshold)
-                    return $"{label} below {threshold}%";
+                float pct = stat.SimpleCurrentValue / max * 100f;
+                if (pct < threshold)
+                {
+                    string name = label ?? StatDisplayName(model);
+                    RunLog($"{name} is {stat.SimpleCurrentValue:0.#}/{max:0.#} ({pct:0.#}%), under its {threshold}% floor");
+                    return $"{name} below {threshold}%";
+                }
             }
-            catch (Exception ex) { Logger.LogDebug($"[Repeat] CheckThreshold('{label}') lookup failed: {ex}"); }
+            catch (Exception ex) { Logger.LogDebug($"[Repeat] CheckThreshold('{who}') lookup failed: {ex}"); }
             return null;
+        }
+
+        /// <summary>Player-facing name for a generic-threshold stat: its localized GameName, else its asset name.</summary>
+        private static string StatDisplayName(GameStat model)
+        {
+            try
+            {
+                string n = model.GameName != null ? model.GameName.ToString() : null;
+                if (!string.IsNullOrEmpty(n)) return n;
+                n = model.GameName != null ? model.GameName.DefaultText : null;
+                if (!string.IsNullOrEmpty(n)) return n;
+            }
+            catch (Exception ex) { Logger.LogDebug($"[Repeat] StatDisplayName failed for '{model.name}': {ex}"); }
+            return model.name;
+        }
+
+        // GameManager.CurrentActionBlockers is private; AnyActionBlockers only says "some
+        // blocker is active". Cache the field once and read the game's own message off it.
+        private static System.Reflection.FieldInfo blockersField;
+        private static bool blockersFieldResolved;
+
+        /// <summary>The active status blocker's own message ("You are too exhausted…"), or null.</summary>
+        private static string ActionBlockerMessage()
+        {
+            try
+            {
+                if (!blockersFieldResolved)
+                {
+                    blockersFieldResolved = true;
+                    blockersField = AccessTools.Field(typeof(GameManager), "CurrentActionBlockers");
+                    if (blockersField == null)
+                        Logger.LogDebug("[Repeat] GameManager.CurrentActionBlockers not found - falling back to a generic stop reason.");
+                }
+                var gm = GameManager.Instance;
+                if (blockersField == null || gm == null) return null;
+                var list = blockersField.GetValue(gm) as List<StatusActionBlocker>;
+                if (list == null) return null;
+                for (int i = 0; i < list.Count; i++)
+                    if (list[i] != null && !string.IsNullOrEmpty(list[i].BlockedMessage))
+                        return list[i].BlockedMessage;
+            }
+            catch (Exception ex) { Logger.LogDebug($"[Repeat] ActionBlockerMessage read failed: {ex}"); }
+            return null;
+        }
+
+        /// <summary>
+        /// True when every container the player is carrying is full. Fails safe: a player
+        /// carrying no container at all (or an unreadable equipment line) never trips this,
+        /// so the stop can only end a repeat that genuinely has nowhere to put its output.
+        /// </summary>
+        private static bool CarriedInventoryFull()
+        {
+            try
+            {
+                var g = MBSingleton<GraphicsManager>.Instance;
+                if (g == null || !g) return false;
+                // Top-level equipment only - the bags/pouches themselves, not their contents.
+                var equipped = g.GetEquippedCards(_CountInInventories: false);
+                if (equipped == null) return false;
+                bool sawContainer = false;
+                for (int i = 0; i < equipped.Count; i++)
+                {
+                    var c = equipped[i];
+                    if (!IsLive(c)) continue;
+                    if (c.CardModel.CannotPutItemsIn || c.MaxWeightCapacity <= 0f) continue;
+                    sawContainer = true;
+                    if (!c.InventoryFull) return false;
+                }
+                return sawContainer;
+            }
+            catch (Exception ex)
+            {
+                Logger.LogDebug($"[Repeat] CarriedInventoryFull check failed: {ex}");
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Mirrors the CannotBeTransferred half of InGameCardBase.CanTransferLiquids: the
+        /// effective liquid is the card's own LiquidVersion if it has one, else whatever it
+        /// currently contains.
+        /// </summary>
+        private static bool LiquidTransferBlocked(InGameCardBase c)
+        {
+            if (c == null || !c) return false;
+            try
+            {
+                CardData liquid = c.LiquidVersion ? c.LiquidVersion : c.ContainedLiquidModel;
+                return liquid && liquid.CannotBeTransferred;
+            }
+            catch (Exception ex)
+            {
+                Logger.LogDebug($"[Repeat] LiquidTransferBlocked read failed on '{CardName(c)}': {ex}");
+                return false;
+            }
         }
 
         private static bool GivenCardTransformed(Captured cap)
@@ -703,6 +1050,18 @@ namespace Repeat_Action.Patcher
         // =====================================================================
         // NAME HELPERS
         // =====================================================================
+
+        /// <summary>Player-facing name for the funnel a repeat is replaying through.</summary>
+        private static string KindLabel(FunnelKind kind)
+        {
+            switch (kind)
+            {
+                case FunnelKind.StackAction: return "stack";
+                case FunnelKind.CardOnCard: return "drag-drop";
+                case FunnelKind.GroupAction: return "group";
+                default: return "action";
+            }
+        }
 
         private static string CardName(InGameCardBase c)
         {
