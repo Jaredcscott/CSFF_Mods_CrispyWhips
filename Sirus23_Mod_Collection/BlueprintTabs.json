@@ -14,14 +14,18 @@
         "sh_bp_wool_socks",
         "sh_bp_felt_mittens",
         "sh_bp_felt_vest",
-        "sh_bp_felt_bedroll"
+        "sh_bp_felt_bedroll",
+        "sh_bp_feather_pillow"
     ],
     "Tab_6_Farming_Subtab_2_AnimalHusbandry_TabName": [
         "sh_bp_sheep_feeder",
         "sh_bp_sheep_pen"
     ],
     "Tab_1_Survival_Subtab_5_Cooking_TabName": [
-        "sh_bp_butter_churn"
+        "sh_bp_butter_churn",
+        "sh_bp_bone_treat",
+        "sh_bp_owl_treat",
+        "sh_bp_berry_mix"
     ],
     "Tab_1_Survival_Subtab_3_Medical_TabName": [
         "sh_bp_lanolin_salve"

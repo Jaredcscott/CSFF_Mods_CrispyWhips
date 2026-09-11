@@ -224,6 +224,75 @@
                 }
             ],
             "StatModifications": []
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_fox_companion",
+                "LocalizationKey": "fc_fox_companion_CardInteractions[4].ActionName",
+                "DefaultText": "Give Berry Mix"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_fox_companion",
+                "LocalizationKey": "fc_fox_companion_CardInteractions[4].ActionDescription",
+                "DefaultText": "Tip the mixed berries into your palm. The fox eats them out of your hand and stays close afterwards."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "sh_berry_mix"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "SpoilageChange": {
+                    "x": 160.0,
+                    "y": 160.0
+                },
+                "ChargesChange": {
+                    "x": 300.0,
+                    "y": 300.0
+                }
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 8.0,
+                        "y": 8.0
+                    },
+                    "InstantModifier": true
+                },
+                {
+                    "StatWarpData": "3dc9b7924c4bec142af1c255f6df235d",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -10.0,
+                        "y": -10.0
+                    },
+                    "InstantModifier": true
+                }
+            ]
         }
     ],
     "DismantleActions": [

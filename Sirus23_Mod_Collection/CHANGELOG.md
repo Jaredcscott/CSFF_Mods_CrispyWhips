@@ -5,6 +5,157 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.21.2] - 2026-09-09
+
+### Changed
+
+- **A Wolf Companion now reduces the pen-or-perish predation roll instead of cancelling it.** With
+  a wolf on the board, each unpenned sheep or ram rolls at 1% predation per night (6% without a
+  wolf); the 4% wandering-off roll is unchanged, and penned sheep stay exempt. Until now the wolf's
+  presence skipped the roll entirely, so for anyone playing with the wolf (one of this mod's own
+  headline features) the Sheep Pen had no consequence to prevent: playthrough r33 logged five
+  nights of "stood guard" with zero losses and the tester recorded "Sheep do not die" (tracker
+  T2.101). The nightly log line still says the wolf stood guard and now states the odds it rolled
+  at, and a loss under guard is logged as such. Both percentages remain balance placeholders, not
+  final-tuned values. NOT yet confirmed in-game: the SheepRemains drop on a predator kill is still
+  untested and needs a night without a wolf.
+
+## [1.21.1] - 2026-09-09
+
+### Changed
+
+- **Wild fox tame now accepts fresh berries.** The "Attempt to Tame" drag on a wild fox (the
+  GameSourceModify patch on vanilla `Agent_Fox1` / `Agent_Fox2`) only accepted DRIED Springberries,
+  Bilberries and Juniper Berries. Fresh berries, which a player is far more likely to be holding when
+  a fox turns up, were silently refused: a drag the trigger rejects greys the card out with no action
+  name, no tooltip and no message. All three fresh berries now work as bait, and the action text says
+  "fresh or dried". This is the prime suspect behind the r33 report "vanilla foxes do not respond to
+  berry gifts" (tracker T2.99) and is NOT yet verified in-game; T2.99 stays `fail` until a tester
+  drags berries onto a wild fox with this version deployed. The second candidate cause (whether the
+  patch lands on the fox agent at all) is answered by the `GameSourceModify: [Sirus23 Mod
+  Collection] patched Agent_Fox1` line, which needs one launch with `VerboseLogging = true` in the
+  framework cfg; that flag is armed but the game had not been run since it was set. The Fox
+  Companion's own "Give Treat" bond action is unchanged and still wants dried berries.
+
+## [1.21.0] - 2026-09-07
+
+### Added
+
+- **Salvage the Sheep Remains.** A sheep lost to a predator overnight leaves a `Sheep Remains` card
+  that, until now, could only rot away. Dragging any cutting tool onto it now offers **Salvage
+  Remains** (3 DTP), returning 2x Wool, 1x Fresh Hide, 2x Raw Meat and 1x Bones. A lost sheep is now
+  a partial recovery instead of a dead-end card.
+- **Dairy preservation branch.** Every dairy product in the chain used to spoil on the same short
+  clock with no way to extend it. Two preservation steps now exist: drag **Salt** onto Butter for
+  **Salted Butter** (3x the shelf life of fresh butter), and drag any fire source onto Sheep Cheese
+  to **Smoke the Cheese** for **Smoked Cheese** (4x the shelf life of fresh cheese, and the mod's
+  highest-value dairy product).
+- **Cheese cloth gains a second use.** The cheese cloth only ever participated in the Curdle step.
+  Dragging it onto Curdled Milk now offers **Strain Curds** (3 DTP), a fire-free way to press cheese
+  by hand. It costs more time than "Press Cheese" and the whey runs off and is lost, so the fire
+  route stays the better one when you have a fire.
+- **Cooked-dish payoff for the cultured dairy line.** Yogurt, Sour Cream, Ricotta and Buttermilk were
+  all eat-raw terminals with no second use. Each now has a drag-onto-vanilla-food dish, matching the
+  pattern the 1.17.0 Butter/Cream/Sheep Cheese dishes already use: Yogurt onto Dried Springberries
+  for **Berry Yogurt**, Sour Cream onto Boiled Turnroot for **Soured Turnroot**, Ricotta onto a Rye
+  Roundbread for a **Ricotta Rye Round**, and Buttermilk onto Wheat Hardtack for **Buttermilk
+  Hardtack**. Every one of the mod's 11 dairy products now has a use past the eat button.
+- **Feather Pillow** (blueprint under Tailoring > Cloth: 1 Woven Cloth + 12 Feathers + 4 Twine).
+  Processing an owl carcass yields 6 Feathers and nothing in the mod consumed them, so they piled up
+  with no sink. The pillow is a bedding item granting +10 Comfort while carried.
+- **Craftable companion treats.** Three cheap crafted foods, one per companion, each giving twice the
+  bond a raw treat does (+300 vs. +150) plus a small Morale gain and Loneliness relief for the player:
+  **Bone Treat** (1 Bones + 1 Dried Meat) for the wolf, **Owl Treat** (1 Raw Meat + 1 Salt) for the
+  owl, and **Berry Mix** (1 Dried Springberries + 1 Dried Bilberries) for the fox. All three
+  blueprints sit under Survival > Cooking. The companions' existing raw-food "Give Treat" actions are
+  unchanged; these are an additional, deliberate bonding act rather than a replacement.
+
+### Notes
+
+- **All nutrition, shelf-life, bond and Comfort values in this release are initial balance guesses,
+  not tuned numbers.** In particular the treats' +300 bond and the preservation multipliers are
+  placeholders chosen to be clearly better than the raw alternative, and no more than that.
+- The ten new cards ship with **placeholder white card art**. The JSON already points at the final
+  filenames, so real art drops in over the same names with no JSON change.
+- None of this release has been verified in a running game; the acceptance checks are filed in
+  `.claude/playthrough-test-status.json` (T2.201 through T2.206).
+
+## [1.20.7] - 2026-09-07
+
+### Fixed
+
+- **The wild owl's night attack could never fire.** `Animals/Owl.json` set `Encounter.Aggression.BaseWeight`
+  to 600 while `Movement.PlayerAttraction.BaseWeight` is 1e9, and duty selection is winner-take-all
+  rather than weighted-random: `InGameNPC.SelectDuty` sorts eligible duties by weight descending and
+  expands its random-pick group only while the next weight is EQUAL to the top one. The attack window
+  (22-04) sits entirely inside the owl's activity window (20-06), the seek-player duty carries no
+  per-day cap, and `MoveDutyAction.CanBePerformed` is unconditionally true for Teleport, so the seek
+  duty won every single tick the attack duty was eligible. The attack duty existed, was attached, and
+  never once ran. Present since the M5 conversion (framework 2.25.0).
+- The weight is now equal to `PlayerAttraction.BaseWeight` (1e9), the same fix the M4 pass applied to
+  `Traps.Bait.DutyWeight` for the same reason: seek, bait-raid and attack all tie at the top and the
+  owl picks uniformly among them, with `Aggression.MaxPerDay: 1` capping it at one attack per night.
+  Those three weights must now be retuned together, and framework 2.25.28's validator enforces it.
+- **Player-visible:** a wild owl at night can now actually attack, up to once per night, where before
+  it could only be fought by pressing Approach. Not yet playtested (tracker T2.176).
+
+## [1.20.6] — 2026-09-06
+
+### Removed
+
+- **`Animals/TestHare.json`** — the undocumented "Test Hare" test species added in v1.20.0 no longer
+  ships. It was authored purely as an internal proof that the Animal Modding System can produce a
+  working wild animal from one manifest with no mod C# and no new art, and was deliberately left out
+  of `ModInfo.json`/`README.md` — but nothing gated it, so the framework loaded it into real games
+  and players could find a card literally named "Test Hare" wandering the Oak groves. Its
+  `Approach` button was worse: the manifest declared no `Encounter` section, so the framework's
+  last-resort fallback wired it to the vanilla `Combat_EncounterDuck`, meaning approaching the hare
+  opened a duck fight with the duck's own portrait and body template. The game already has a real
+  vanilla hare, so this is a straight removal rather than a promotion to documented content. Nothing
+  else in the mod referenced `sirus_test_hare` — no localization rows, no C#, no card or perk — so
+  no other behavior changes. Existing saves are unaffected beyond the hare ceasing to spawn.
+  (Closes audit finding **M4**.)
+
+## [1.20.5] — 2026-09-02
+
+### Fixed
+
+- **Sheep Milk now keeps spoiling while you are away** (`AlwaysUpdate: true` on the CT9 liquid).
+  Game patch EA 0.67e fixed the same bug for every live vanilla spoilable liquid ("Rye Flour and
+  other bulky powders not properly updating their spoilage when stored in bulk in a container
+  while the player is away") - Sheep Milk was the only mod liquid still missing the flag, so milk
+  stored in a container effectively stopped spoiling whenever its location was off-screen.
+
+## [1.20.4] — 2026-09-01
+
+### Fixed
+
+- **Restored the Fox Companion's ambient-encounter suppression** (`EncounterGuards/FoxGuard.json`:
+  35% chance to suppress a wildlife/ambient encounter while a tamed Fox Companion is on the board,
+  advertised since 1.15.0). The 1.20.3 fox rework deleted this file along with the duplicated
+  wild-fox species scaffolding, but the guard was keyed on `fc_fox_companion` - the tame companion
+  card, which the rework kept - so the deletion silently regressed a live companion feature rather
+  than removing dead wild-fox data. Builds 1.20.3 (2026-08-25) through this fix shipped without the
+  suppression. Restored verbatim; the README's Fox Companion section now also documents the
+  suppression (it never did, unlike the Wolf/Owl sections).
+
+## [1.20.3] — 2026-08-25
+
+### Fixed
+
+- **Wild Fox tame path no longer duplicates a wild fox.** The 1.15.0 "Wild Fox tame path" shipped an
+  entirely separate hand-authored species (`Animals/Fox.json`, `NPCAgent/Agent_WildFox.json`,
+  `Encounter/Encounter_WildFox.json`, 4 `NPCStat/Stat_WildFox_*.json` shells, `EncounterGuards/
+  FoxGuard.json`, `Patcher/WildFoxLifecyclePatch.cs`) that roamed alongside the game's own real wild
+  foxes instead of extending them — two foxes doing the same job. Removed all of that and replaced it
+  with a `GameSourceModify/` patch (`VanillaFox_Agent1.json`, `VanillaFox_Agent2.json`) that appends
+  the "Attempt to Tame" drag-and-drop action directly onto the real vanilla `Agent_Fox1`/`Agent_Fox2`
+  NPCAgents (the ones already spawned from vanilla's `BurrowFox1`/`BurrowFox2`). Same bait items
+  (Springberries/Bilberries/Juniper Berries), same `fc_fox_companion` result. `Patcher/
+  CompanionHuntPatch.cs`'s `FoxTameInit` handler now matches the tame action against those two real
+  agent UIDs and retires the tamed instance via the vanilla `AgentExists` NPCStat instead of a
+  custom one. **Not yet verified in-game** — same unverified status the original 1.15.0 feature had.
+
 ## [1.20.2] — 2026-08-23
 
 ### Fixed

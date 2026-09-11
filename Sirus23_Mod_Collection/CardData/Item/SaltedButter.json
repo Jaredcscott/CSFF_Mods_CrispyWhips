@@ -1,0 +1,94 @@
+{
+    "UniqueID": "sh_salted_butter",
+    "CardName": {
+        "ParentObjectID": "sh_salted_butter",
+        "LocalizationKey": "sh_salted_butter_CardName",
+        "DefaultText": "Salted Butter"
+    },
+    "CardDescription": {
+        "ParentObjectID": "sh_salted_butter",
+        "LocalizationKey": "sh_salted_butter_CardDescription",
+        "DefaultText": "Sheep butter worked through with salt. It keeps far longer than the fresh kind."
+    },
+    "CardType": 0,
+    "ObjectWeight": 155.0,
+    "TradingValue": 70,
+    "CardImageWarpData": "sh_salted_butter",
+    "CardImageWarpType": 3,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Dairy",
+        "tag_Fat",
+        "tag_Food",
+        "tag_Preservable"
+    ],
+    "CardTagsWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 1152.0,
+        "MaxValue": 1152.0,
+        "RatePerDaytimePoint": 1.0,
+        "CardStatName": {
+            "ParentObjectID": "sh_salted_butter",
+            "LocalizationKey": "sh_salted_butter_SpoilageTime_CardStatName",
+            "DefaultText": "Spoilage"
+        }
+    },
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_salted_butter",
+                "LocalizationKey": "sh_salted_butter_DismantleActions[0].ActionName",
+                "DefaultText": "Eat"
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 30.0,
+                        "y": 30.0
+                    }
+                },
+                {
+                    "StatWarpData": "95ca7c21ffad5e647acc3d9cb5bfcde6",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    }
+                },
+                {
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 10.0,
+                        "y": 10.0
+                    }
+                },
+                {
+                    "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 35.0,
+                        "y": 35.0
+                    }
+                }
+            ]
+        }
+    ],
+    "EdibleStats": {
+        "Nutrients": 30,
+        "Hydration": 0
+    }
+}

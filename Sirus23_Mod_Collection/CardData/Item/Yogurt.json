@@ -972,7 +972,51 @@
     "SpecialDurability4": {
         "Active": false
     },
-    "CardInteractions": [],
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_yogurt",
+                "LocalizationKey": "sh_yogurt_CardInteractions[0].ActionName",
+                "DefaultText": "Stir in Berries"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "sh_yogurt",
+                "LocalizationKey": "sh_yogurt_CardInteractions[0].ActionDescription",
+                "DefaultText": "Fold dried berries through the yogurt."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "0f14d75156adbeb42b1e7616414c236b"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": true,
+            "WorksBothWays": false,
+            "GivenCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "sh_berry_yogurt",
+                "TransformIntoWarpType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
     "DismantleActions": [
         {
             "ActionName": {

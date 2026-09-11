@@ -1001,6 +1001,69 @@
                 ],
                 "TriggerCardsWarpType": 3
             }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_sheep_cheese",
+                "LocalizationKey": "sh_sheep_cheese_CardInteractions[1].ActionName",
+                "DefaultText": "Smoke the Cheese"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "sh_sheep_cheese",
+                "LocalizationKey": "sh_sheep_cheese_CardInteractions[1].ActionDescription",
+                "DefaultText": "Hang the wheel in the smoke until the rind darkens and hardens."
+            },
+            "DaytimeCost": 4,
+            "UseMiniTicks": 0,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [
+                    "tag_FireSource"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "GivenCardChanges": {
+                "ModType": 0
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "SmokeCheese",
+                    "CollectionWeight": 1,
+                    "MinCollectionCount": 1,
+                    "MaxCollectionCount": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "sh_smoked_cheese",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "DismantleActions": [

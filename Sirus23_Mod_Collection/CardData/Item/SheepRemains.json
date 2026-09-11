@@ -83,7 +83,111 @@
     "SpecialDurability4": {
         "Active": false
     },
-    "CardInteractions": [],
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_sheep_remains",
+                "LocalizationKey": "sh_sheep_remains_CardInteractions[0].ActionName",
+                "DefaultText": "Salvage Remains"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "sh_sheep_remains",
+                "LocalizationKey": "sh_sheep_remains_CardInteractions[0].ActionDescription",
+                "DefaultText": "Cut free what the predator left - matted wool, the hide, and what meat and bone is still sound."
+            },
+            "DaytimeCost": 3,
+            "UseMiniTicks": 0,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [
+                    "tag_Cutter"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "GivenCardChanges": {
+                "ModType": 1,
+                "UsageChange": {
+                    "x": -1.0,
+                    "y": -1.0
+                }
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "SheepRemainsSalvage",
+                    "CollectionWeight": 1,
+                    "MinCollectionCount": 1,
+                    "MaxCollectionCount": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "sh_wool",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 2,
+                                "y": 2
+                            }
+                        },
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "4afdb5fa70412c4468f5b2b0590732d3",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        },
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "fe07d4d800bcc8646a0ff2513c78d5df",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 2,
+                                "y": 2
+                            }
+                        },
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "674b640f46671f1418af4559b259b442",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
     "DismantleActions": [],
     "PassiveStatEffects": [],
     "PassiveEffects": [],

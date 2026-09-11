@@ -1,5 +1,5 @@
 {
-  "_comment": "Edit status to Tested when verified in-game. Edit name to rename a group. Add cards to cards array to reassign them. Re-run /feature-map Sirus23_Mod_Collection to refresh feature-map.md.",
+  "_comment": "Edit status to Tested when verified in-game. Edit name to rename a group. Add cards to cards array to reassign them. Re-run /feature-map Sirus23_Mod_Collection to refresh feature-map.md. 'confidence' is a separate axis from 'status' (see .audit/feature-map.md Confidence Legend) - it is not a manual annotation and is refreshed by /feature-map each run; do not hand-edit it.",
   "groups": [
     {
       "name": "Wolf Companion",
@@ -9,7 +9,9 @@
         "fc_wolf_companion",
         "fc_perk_wolf_friend",
         "fc_perk_pack_bond"
-      ]
+      ],
+      "confidence": "MEDIUM",
+      "evidence": "Base regression VERIFIED (T2.27/T2.28, 2026-07-21); Send on Hunt (T2.100), starvation/morale card-removal (T2.150), and perk StartUnlocked gate (T1.51) all unretested since later changes."
     },
     {
       "name": "Fox Companion",
@@ -17,16 +19,52 @@
       "cards": [
         "fc_fox_companion",
         "fc_perk_fox_friend"
-      ]
+      ],
+      "confidence": "MEDIUM",
+      "evidence": "T2.27 PASS (2026-07-21) predates shared upkeep code edits (2026-08-02/08-25); T2.150 TryRemoveCard risk applies to morale-departure removal."
+    },
+    {
+      "name": "Wild Fox Taming",
+      "status": "Implemented",
+      "_note": "NEW group (2026-09-01 regen). GameSourceModify onto real vanilla Agent_Fox1/Agent_Fox2 (1.20.3 rework, 2026-08-25), replacing a deleted duplicate-species approach. Distinct from the static kit-granted 'Fox Companion' above.",
+      "cards": [
+        "GameSourceModify/VanillaFox_Agent1.json",
+        "GameSourceModify/VanillaFox_Agent2.json"
+      ],
+      "confidence": "LOW",
+      "evidence": "CHANGELOG [1.20.3] states outright 'Not yet verified in-game'; mod-report W3 (2026-09-01) reconfirms built-not-verified; T2.99 (pre-rework) also unresolved."
     },
     {
       "name": "Owl Companion",
       "status": "Implemented",
-      "_note": "Wild-owl mechanics (tracks/traps/encounters/tame) are now manifest-driven via Animals/Owl.json (CSFFModFramework Animal System M3-M6, framework 2.25.0) -- built+deployed, not yet in-game verified. Full per-interaction trigger->outcome table: Documentation/Design/Owl_Feature_Map.md.",
+      "_note": "Wild-owl mechanics (tracks/traps/encounters/tame) are now manifest-driven via Animals/Owl.json (CSFFModFramework Animal System M3-M6, framework 2.25.0) -- built+deployed, not yet in-game verified. Full per-interaction trigger->outcome table: Documentation/Design/Owl_Feature_Map.md. Wild-owl lifecycle mechanics are now tracked separately below (\"Wild Owl Lifecycle\", \"Owl Environment Suppression\") — this group covers only the static kit-granted companion.",
       "cards": [
         "fc_owl_companion",
         "fc_perk_owl_friend"
-      ]
+      ],
+      "confidence": "MEDIUM",
+      "evidence": "Same reasoning as Fox Companion: T2.27 PASS predates shared-upkeep edits; T2.150 TryRemoveCard risk on morale-departure removal."
+    },
+    {
+      "name": "Wild Owl Lifecycle",
+      "status": "Implemented",
+      "_note": "NEW group (2026-09-01 regen). Animals/Owl.json M2-M6 manifest: tracks, snare traps, generated encounter, manifest-driven tame + companion init.",
+      "cards": [
+        "wildowl_agent",
+        "wildowl_tracks",
+        "wildowl_tied",
+        "wildowl_carcass"
+      ],
+      "confidence": "LOW",
+      "evidence": "T2.111 (2026-08-17) explicitly unverified; Animals/Owl.json itself carries 6+ inline 'TUNABLE, NOT PLAYTESTED' comments on its own tuning values."
+    },
+    {
+      "name": "Owl Environment Suppression",
+      "status": "Implemented",
+      "_note": "NEW group (2026-09-01 regen). Cross-cuts Owl Companion (tamed follow-along) and Wild Owl Lifecycle (untamed seek-player duty) via CompanionStayPatch + WildOwlDutyGuardPatch / IndoorOrCaveEnv.",
+      "cards": [],
+      "confidence": "LOW",
+      "evidence": "T2.75 (2026-08-29) recorded PASS for the tamed half, but CompanionStayPatch.cs's own un-demoted LogInfo diagnostics + mod-report W4 (2026-09-01) flag it still-open; T2.133 (2026-08-24, untamed half) is separately PENDING. Most recent/specific evidence wins over the stale PASS."
     },
     {
       "name": "Sheep Lifecycle",
@@ -40,7 +78,9 @@
         "sh_lamb",
         "sh_tgr_wild_sheep_spawn",
         "sh_tgr_wild_male_sheep_spawn"
-      ]
+      ],
+      "confidence": "VERIFIED",
+      "evidence": "T2.26 PASS (2026-07-21, wild ram breeding M3); GameLoadPatch.cs (implementing breeding) last touched 2026-07-04, before the pass — no material change since."
     },
     {
       "name": "Shears",
@@ -49,7 +89,9 @@
         "sh_shears",
         "sh_bp_shears",
         "sh_perk_start_shears"
-      ]
+      ],
+      "confidence": "VERIFIED",
+      "evidence": "T1.18 PASS (2026-08-09) confirms both the re-lock threshold fix and the RequiredReceivingDurabilities gate move, superseding the earlier T1.3 pass."
     },
     {
       "name": "Wool Spinning & Weaving",
@@ -60,7 +102,9 @@
         "sh_bp_woven_cloth",
         "sh_bp_wool_blanket",
         "sh_bp_wool_tunic"
-      ]
+      ],
+      "confidence": "MEDIUM",
+      "evidence": "T2.24 PASS (2026-07-21) predates the 1.20.0 (2026-08-17) conversion from vanilla-CI to this pure-blueprint chain — the new mechanism itself has no independent retest."
     },
     {
       "name": "Butter Churn",
@@ -69,17 +113,34 @@
         "sh_butter_churn_portable",
         "sh_butter_churn",
         "sh_bp_butter_churn"
-      ]
+      ],
+      "confidence": "VERIFIED",
+      "evidence": "T2.23 PASS (2026-07-21); Bp_ButterChurn.json last touched 2026-06-17, well before the pass — no changes since."
     },
     {
       "name": "Sheep Feeder",
       "status": "Implemented",
-      "_note": "Placed feeder has no functional CIs or auto-feeding mechanics. Only Pick Up DA. Currently cosmetic/structural.",
+      "_note": "1.18.0 added the functional 'Tend Flock' herd-shearing DA (SheepFeederPatch.cs) — the prior 'no functional CIs or auto-feeding mechanics, cosmetic/structural only' note is now STALE and corrected here; status left as manually-set 'Implemented'.",
       "cards": [
         "sh_sheep_feeder_portable",
         "sh_sheep_feeder",
         "sh_bp_sheep_feeder"
-      ]
+      ],
+      "confidence": "MEDIUM",
+      "evidence": "Base storage/placement is a proven declarative pattern, but Tend Flock (the headline mechanic) is explicitly PENDING per T2.112 (2026-08-17)."
+    },
+    {
+      "name": "Sheep Pen",
+      "status": "Implemented",
+      "_note": "NEW group (2026-09-01 regen). N6 feature pack (2026-08-16): buildable pen, SheepPenPatch.cs predation/escape night roll.",
+      "cards": [
+        "sh_sheep_pen_portable",
+        "sh_sheep_pen",
+        "sh_bp_sheep_pen",
+        "sh_sheep_remains"
+      ],
+      "confidence": "LOW",
+      "evidence": "T2.101 (2026-08-16) explicitly unverified; predation/escape removal depends on the TryRemoveCard primitive flagged dead-until-2.25.22 by T2.150 (2026-08-31), no retest recorded."
     },
     {
       "name": "Yarn",
@@ -88,7 +149,9 @@
       "cards": [
         "sh_yarn",
         "sh_bp_yarn"
-      ]
+      ],
+      "confidence": "MEDIUM",
+      "evidence": "Same reasoning as Wool Spinning & Weaving — T2.24 pass predates the 1.20.0 blueprint-chain conversion."
     },
     {
       "name": "Woven Cloth",
@@ -96,7 +159,9 @@
       "cards": [
         "sh_woven_cloth",
         "sh_bp_woven_cloth"
-      ]
+      ],
+      "confidence": "MEDIUM",
+      "evidence": "Same reasoning as Wool Spinning & Weaving."
     },
     {
       "name": "Cheese Cloth",
@@ -104,7 +169,9 @@
       "cards": [
         "sh_cheese_cloth",
         "sh_bp_cheese_cloth"
-      ]
+      ],
+      "confidence": "VERIFIED",
+      "evidence": "T2.24 PASS (2026-07-21); downstream of Woven Cloth's card (not its acquisition mechanism), so unaffected by the Spinning Wheel removal. Blueprints-report 'dead-end' finding reclassified false positive 2026-08-11."
     },
     {
       "name": "Wool Blanket",
@@ -112,7 +179,9 @@
       "cards": [
         "sh_wool_blanket",
         "sh_bp_wool_blanket"
-      ]
+      ],
+      "confidence": "MEDIUM",
+      "evidence": "Same reasoning as Wool Spinning & Weaving."
     },
     {
       "name": "Wool Tunic",
@@ -120,7 +189,9 @@
       "cards": [
         "sh_wool_tunic",
         "sh_bp_wool_tunic"
-      ]
+      ],
+      "confidence": "MEDIUM",
+      "evidence": "Same reasoning as Wool Spinning & Weaving."
     },
     {
       "name": "Felt Working",
@@ -134,7 +205,24 @@
         "sh_bp_felt_boots",
         "sh_wool_socks",
         "sh_bp_wool_socks"
-      ]
+      ],
+      "confidence": "VERIFIED",
+      "evidence": "T2.24 PASS (2026-07-21); gated on sh_wool directly, unaffected by the later Spinning Wheel removal."
+    },
+    {
+      "name": "Felt Wearables",
+      "status": "Implemented",
+      "_note": "NEW group (2026-09-01 regen). Felt Bedroll/Mittens/Vest shipped 1.20.0 (2026-08-17), after Felt Working's 2026-07-21 test date — kept as a separate sibling group rather than folded into the already-Tested Felt Working, since that pass never covered these 3 cards.",
+      "cards": [
+        "sh_felt_bedroll",
+        "sh_bp_felt_bedroll",
+        "sh_felt_mittens",
+        "sh_bp_felt_mittens",
+        "sh_felt_vest",
+        "sh_bp_felt_vest"
+      ],
+      "confidence": "LOW",
+      "evidence": "T2.102 (2026-08-16) explicitly unverified: ingredients/output/equip effects not yet confirmed in-game."
     },
     {
       "name": "Milk & Dairy",
@@ -146,7 +234,9 @@
         "sh_butter",
         "sh_buttermilk",
         "sh_clarified_butter"
-      ]
+      ],
+      "confidence": "VERIFIED",
+      "evidence": "T2.23 PASS (2026-07-21, sirus_dairy_chain)."
     },
     {
       "name": "Cheese Making",
@@ -158,7 +248,9 @@
         "sh_aged_sheep_cheese",
         "sh_whey",
         "sh_ricotta"
-      ]
+      ],
+      "confidence": "MEDIUM",
+      "evidence": "T2.23 blanket PASS covers this group, but the preserved manual note flags Curdled Milk's own acquisition step as still unconfirmed — weighted over the blanket pass."
     },
     {
       "name": "Cultured Dairy",
@@ -166,7 +258,21 @@
       "cards": [
         "sh_sour_cream",
         "sh_yogurt"
-      ]
+      ],
+      "confidence": "VERIFIED",
+      "evidence": "T2.23 PASS (2026-07-21); no caveat attached to this sub-group."
+    },
+    {
+      "name": "Prepared Dairy Dishes",
+      "status": "Implemented",
+      "_note": "NEW group (2026-09-01 regen). 1.17.0 CI-transform layer (drag Butter/Sheep Cheese/Cream onto vanilla dishes) — adjacent to, not covered by, the passing dairy-chain items.",
+      "cards": [
+        "sh_buttered_roots",
+        "sh_cheese_stuffed_flatbread",
+        "sh_creamy_mash"
+      ],
+      "confidence": "LOW",
+      "evidence": "T2.125 (2026-08-22) explicitly unverified, distinct from the already-passing sirus_dairy_chain item."
     },
     {
       "name": "Wool (Raw)",
@@ -174,7 +280,9 @@
       "cards": [
         "sh_wool",
         "sh_lanolin"
-      ]
+      ],
+      "confidence": "VERIFIED",
+      "evidence": "T1.18 PASS (2026-08-09) directly confirms Wool drop rate and Lanolin drop-chance via the Shear CI."
     },
     {
       "name": "Lanolin Salve",
@@ -183,7 +291,9 @@
       "cards": [
         "sh_lanolin_salve",
         "sh_bp_lanolin_salve"
-      ]
+      ],
+      "confidence": "HIGH",
+      "evidence": "No direct playtest coverage; standard blueprint+DA shape on a proven path, 0 CRITICAL in 2026-09-01 mod-report/critical-analysis."
     },
     {
       "name": "Shepherd Perks",
@@ -196,7 +306,9 @@
         "sh_perk_shepherds_start",
         "sh_perk_crafting_kit",
         "fc_perk_pack_bond"
-      ]
+      ],
+      "confidence": "MEDIUM",
+      "evidence": "Pack Bond itself VERIFIED (T2.25, runtime-granted, unaffected by the perk regression below). The 5 character-creation kit perks are MEDIUM: T1.51 (2026-08-29) records none of the 8 StartUnlocked-gated perks re-verified since the 1.20.0 regression fix."
     },
     {
       "name": "Wild Sheep Spawns",
@@ -204,7 +316,9 @@
       "cards": [
         "sh_tgr_wild_sheep_spawn",
         "sh_tgr_wild_male_sheep_spawn"
-      ]
+      ],
+      "confidence": "LOW",
+      "evidence": "summary.md Sub-Audit Index: gap-plan.md P3 (wild-sheep spawn smoke test) remains pending in-game, never closed by later evidence."
     }
   ]
 }

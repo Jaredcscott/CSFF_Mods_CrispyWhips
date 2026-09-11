@@ -28,8 +28,9 @@ namespace Sirus23ModCollection.Patcher;
 /// exactly the same "duty infeasible this tick" fallback the engine already uses when e.g. a
 /// MoveToSpecificEnvironment duty's target list is empty.
 ///
-/// Reflection-only (this mod's Assembly-CSharp reference is the nstrip build — see
-/// WildFoxLifecyclePatch's class doc comment for why direct typed access is avoided here).
+/// Reflection-only (this mod's Assembly-CSharp reference is the nstrip build, which renames
+/// fields — CLAUDE.md §Harmony Patching Pitfalls: nstrip renames cause MissingFieldException on
+/// direct typed access).
 /// </summary>
 internal static class WildOwlDutyGuardPatch
 {

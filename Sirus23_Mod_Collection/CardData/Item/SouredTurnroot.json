@@ -1,0 +1,92 @@
+{
+    "UniqueID": "sh_soured_turnroot",
+    "CardName": {
+        "ParentObjectID": "sh_soured_turnroot",
+        "LocalizationKey": "sh_soured_turnroot_CardName",
+        "DefaultText": "Soured Turnroot"
+    },
+    "CardDescription": {
+        "ParentObjectID": "sh_soured_turnroot",
+        "LocalizationKey": "sh_soured_turnroot_CardDescription",
+        "DefaultText": "Boiled turnroot under a spoonful of sour cream. Plain food made worth eating."
+    },
+    "CardType": 0,
+    "ObjectWeight": 260.0,
+    "TradingValue": 60,
+    "CardImageWarpData": "sh_soured_turnroot",
+    "CardImageWarpType": 3,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Food",
+        "tag_Plateable"
+    ],
+    "CardTagsWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 168.0,
+        "MaxValue": 168.0,
+        "RatePerDaytimePoint": 1.0,
+        "CardStatName": {
+            "ParentObjectID": "sh_soured_turnroot",
+            "LocalizationKey": "sh_soured_turnroot_SpoilageTime_CardStatName",
+            "DefaultText": "Spoilage"
+        }
+    },
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_soured_turnroot",
+                "LocalizationKey": "sh_soured_turnroot_DismantleActions[0].ActionName",
+                "DefaultText": "Eat"
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 34.0,
+                        "y": 34.0
+                    }
+                },
+                {
+                    "StatWarpData": "95ca7c21ffad5e647acc3d9cb5bfcde6",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 14.0,
+                        "y": 14.0
+                    }
+                },
+                {
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 20.0,
+                        "y": 20.0
+                    }
+                },
+                {
+                    "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 36.0,
+                        "y": 36.0
+                    }
+                }
+            ]
+        }
+    ],
+    "EdibleStats": {
+        "Nutrients": 34,
+        "Hydration": 14
+    }
+}

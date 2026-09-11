@@ -1,0 +1,92 @@
+{
+    "UniqueID": "sh_berry_yogurt",
+    "CardName": {
+        "ParentObjectID": "sh_berry_yogurt",
+        "LocalizationKey": "sh_berry_yogurt_CardName",
+        "DefaultText": "Berry Yogurt"
+    },
+    "CardDescription": {
+        "ParentObjectID": "sh_berry_yogurt",
+        "LocalizationKey": "sh_berry_yogurt_CardDescription",
+        "DefaultText": "Thick sheep yogurt stirred through with dried berries."
+    },
+    "CardType": 0,
+    "ObjectWeight": 320.0,
+    "TradingValue": 55,
+    "CardImageWarpData": "sh_berry_yogurt",
+    "CardImageWarpType": 3,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Food",
+        "tag_Plateable"
+    ],
+    "CardTagsWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 288.0,
+        "MaxValue": 288.0,
+        "RatePerDaytimePoint": 1.0,
+        "CardStatName": {
+            "ParentObjectID": "sh_berry_yogurt",
+            "LocalizationKey": "sh_berry_yogurt_SpoilageTime_CardStatName",
+            "DefaultText": "Spoilage"
+        }
+    },
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_berry_yogurt",
+                "LocalizationKey": "sh_berry_yogurt_DismantleActions[0].ActionName",
+                "DefaultText": "Eat"
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 38.0,
+                        "y": 38.0
+                    }
+                },
+                {
+                    "StatWarpData": "95ca7c21ffad5e647acc3d9cb5bfcde6",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 22.0,
+                        "y": 22.0
+                    }
+                },
+                {
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 16.0,
+                        "y": 16.0
+                    }
+                },
+                {
+                    "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 32.0,
+                        "y": 32.0
+                    }
+                }
+            ]
+        }
+    ],
+    "EdibleStats": {
+        "Nutrients": 38,
+        "Hydration": 22
+    }
+}

@@ -973,7 +973,51 @@
     "SpecialDurability4": {
         "Active": false
     },
-    "CardInteractions": [],
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_sour_cream",
+                "LocalizationKey": "sh_sour_cream_CardInteractions[0].ActionName",
+                "DefaultText": "Dress the Turnroot"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "sh_sour_cream",
+                "LocalizationKey": "sh_sour_cream_CardInteractions[0].ActionDescription",
+                "DefaultText": "Spoon sour cream over boiled turnroot."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "cb9de483288327d4b92f0ef10d3ef559"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": true,
+            "WorksBothWays": false,
+            "GivenCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "sh_soured_turnroot",
+                "TransformIntoWarpType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
     "DismantleActions": [
         {
             "ActionName": {

@@ -24,11 +24,15 @@ namespace Sirus23ModCollection.Patcher
     /// is standing there again on a night the roll fires.
     ///
     /// SAFETY: a penned sheep (CurrentContainer == the Sheep Pen) is EXEMPT - checked before
-    /// any roll. A Wolf companion present in the player's current environment suppresses the
-    /// roll entirely for every unpenned sheep that night (mirrors the wolf's existing
-    /// EncounterGuards/WolfGuard.json wildlife-suppression scoping: presence-in-current-env,
-    /// not a "Guard Camp" action toggle - the wolf has no persistent "guarding" state to gate
-    /// on, see CardInteractions on WolfCompanion.json).
+    /// any roll. A Wolf companion present in the player's current environment REDUCES the
+    /// predation roll for every unpenned sheep that night (6% to 1%); the escape roll is
+    /// unchanged, since a guard deters predators but does not herd. Until 1.21.2 the wolf
+    /// suppressed the roll entirely, which left the pen with no consequence to create for
+    /// every wolf owner (T2.101, r33: five nights of "stood guard", zero losses); decided
+    /// 2026-09-09. Wolf presence mirrors the wolf's existing EncounterGuards/WolfGuard.json
+    /// wildlife-suppression scoping: presence-in-current-env, not a "Guard Camp" action
+    /// toggle - the wolf has no persistent "guarding" state to gate on, see CardInteractions
+    /// on WolfCompanion.json.
     ///
     /// BALANCE PLACEHOLDER: EscapeChance/PredationChance are conservative starting guesses
     /// for a mechanic that can permanently destroy the player's tamed livestock - NOT
@@ -48,9 +52,11 @@ namespace Sirus23ModCollection.Patcher
         };
 
         // BALANCE PLACEHOLDER (see class doc comment) - not final-tuned. Combined per-sheep
-        // nightly loss risk when unpenned and no wolf is present: 4% escape + 6% predation = 10%.
+        // nightly loss risk when unpenned: 4% escape + 6% predation = 10% with no wolf,
+        // 4% escape + 1% predation = 5% with a wolf companion on the board. Penned: 0%.
         private const float EscapeChance = 0.04f;
         private const float PredationChance = 0.06f;
+        private const float GuardedPredationChance = 0.01f;
 
         private static ManualLogSource Logger => Plugin.Logger;
 
@@ -104,33 +110,34 @@ namespace Sirus23ModCollection.Patcher
 
             if (atRisk.Count == 0) return;
 
+            float predationChance = wolfPresent ? GuardedPredationChance : PredationChance;
             if (wolfPresent)
-            {
-                Logger?.LogInfo($"[SheepPen] {atRisk.Count} unpenned sheep/ram(s) survived the night - the wolf companion stood guard.");
-                return;
-            }
+                Logger?.LogInfo($"[SheepPen] the wolf companion stood guard - {atRisk.Count} unpenned sheep/ram(s) roll at {Percent(GuardedPredationChance)} predation ({Percent(PredationChance)} unguarded) and {Percent(EscapeChance)} escape tonight.");
 
             foreach (var sheep in atRisk)
-                RollForSheep(sheep);
+                RollForSheep(sheep, predationChance, wolfPresent);
         }
 
-        private static void RollForSheep(object sheep)
+        private static void RollForSheep(object sheep, float predationChance, bool guarded)
         {
             string uid = CardUtil.GetCardUniqueId(sheep) ?? "sheep";
             float roll = UnityEngine.Random.value;
+            string where = guarded ? "left unpenned, wolf on guard" : "left unpenned";
 
-            if (roll < PredationChance)
+            if (roll < predationChance)
             {
-                Logger?.LogInfo($"[SheepPen] {uid} was taken by a predator overnight (left unpenned).");
+                Logger?.LogInfo($"[SheepPen] {uid} was taken by a predator overnight ({where}).");
                 SpawnService.Spawn(RemainsUid);
                 CardUtil.TryRemoveCard(sheep);
             }
-            else if (roll < PredationChance + EscapeChance)
+            else if (roll < predationChance + EscapeChance)
             {
-                Logger?.LogInfo($"[SheepPen] {uid} wandered off overnight (left unpenned).");
+                Logger?.LogInfo($"[SheepPen] {uid} wandered off overnight ({where}).");
                 CardUtil.TryRemoveCard(sheep);
             }
         }
+
+        private static string Percent(float chance) => $"{(int)Math.Round(chance * 100f)}%";
 
         private static bool IsPenned(object card)
         {

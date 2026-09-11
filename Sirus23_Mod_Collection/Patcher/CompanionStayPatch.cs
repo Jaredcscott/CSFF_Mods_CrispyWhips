@@ -118,6 +118,17 @@ internal static class CompanionStayPatch
                 return false;
             }
 
+            // DO NOT demote these three lines to LogDebug. They read as leftover bring-up
+            // instrumentation now that T2.75 (owl biome-gated follow) is recorded PASS, and the
+            // 2026-09-05 audit did recommend demoting them on exactly that reasoning - but the
+            // CLAUDE.md demotion guard applies here and that adjudication was wrong. The open
+            // retro `Documentation/Retrospectives/river-bridge-east-click-noop.md` names this
+            // postfix under "Investigation Tooling" as a free travel tracer: it prints
+            // GameManager.NextEnvironment.EnvCard at Info on EVERY transition, so any player's
+            // LogOutput.log carries a complete env-to-env movement trace with nothing enabled,
+            // and that is how the retro established its westbound-works/eastbound-never asymmetry.
+            // At Debug it would need VerboseLogging, which player logs do not have set.
+            // Re-check that retro's status before revisiting. Re-adjudicated 2026-09-07.
             bool match = IndoorOrCaveEnv.Matches(envCard);
             Plugin.Logger?.LogInfo(match
                 ? $"[CompanionStay] Owl left behind — destination '{CardUtil.GetCardUniqueId(envCard)}' is a known cave/structure."

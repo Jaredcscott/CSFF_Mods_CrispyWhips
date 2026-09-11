@@ -22,6 +22,7 @@
     "CardBackground": {"m_FileID": 0, "m_PathID": 0},
     "ShowImageAboveTitle": false,
     "CardType": 9,
+    "AlwaysUpdate": true,
     "CardTagsWarpData": [
         "tag_Dairy",
         "tag_SheepMilk",

@@ -1,0 +1,38 @@
+{
+    "UniqueID": "sh_bone_treat",
+    "CardName": {
+        "ParentObjectID": "sh_bone_treat",
+        "LocalizationKey": "sh_bone_treat_CardName",
+        "DefaultText": "Bone Treat"
+    },
+    "CardDescription": {
+        "ParentObjectID": "sh_bone_treat",
+        "LocalizationKey": "sh_bone_treat_CardDescription",
+        "DefaultText": "A marrow bone rubbed with dried meat. Kept aside for the wolf, not for the pot."
+    },
+    "CardType": 0,
+    "ObjectWeight": 200.0,
+    "TradingValue": 30,
+    "CardImageWarpData": "sh_bone_treat",
+    "CardImageWarpType": 3,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Preservable"
+    ],
+    "CardTagsWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 960.0,
+        "MaxValue": 960.0,
+        "RatePerDaytimePoint": 1.0,
+        "CardStatName": {
+            "ParentObjectID": "sh_bone_treat",
+            "LocalizationKey": "sh_bone_treat_SpoilageTime_CardStatName",
+            "DefaultText": "Spoilage"
+        }
+    },
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "IsWeapon": false,
+    "IsArmor": false
+}

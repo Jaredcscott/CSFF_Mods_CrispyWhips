@@ -279,7 +279,6 @@ sh_felt_bedroll_CardName,Felt Bedroll,毛毡睡垫
 sh_felt_bedroll_CardDescription,"A dense felt bedroll, warmer and easier to carry than a simple wool blanket. Improves sleep quality in cold weather.",一张厚实的毛毡睡垫，比普通羊毛毯更保暖、更便于携带。能在寒冷天气中提升睡眠质量。
 sh_bp_felt_bedroll_CardName,Felt Bedroll Blueprint,毛毡睡垫图纸
 sh_bp_felt_bedroll_CardDescription,"Felt a thick layer of wool into a warm, portable bedroll.",将厚厚一层羊毛毡制成温暖便携的睡垫。
-FC_Fox_AgentName,Fox,狐狸
 sh_sheep_pen_CardName,Sheep Pen,羊圈
 sh_sheep_pen_CardDescription,A fenced enclosure for your tame sheep and rams. Sheep and rams left outside a pen overnight risk wandering off or falling to predators - a penned flock is safe.,一个围栏，用于圈养你驯化的绵羊和公羊。夜间未被圈养的绵羊和公羊有走失或被捕食者猎杀的风险——圈养的羊群是安全的。
 sh_sheep_pen_DismantleActions[0].ActionName,Pick Up,拿起
@@ -323,3 +322,72 @@ WildOwl_Tied_DA0_ActionName,Release Snared Owl,放走被套住的猫头鹰
 WildOwl_Tied_DA0_ActionDescription,"Cut the bindings and let it go. It climbs into the air without a sound, and will not come near this place again for some days.",割断绳索放它离去。它无声地腾空而起，接下来几天都不会再靠近这里。
 WildOwl_Tied_DA1_ActionName,Kill Snared Owl,杀死被套住的猫头鹰
 WildOwl_Tied_DA1_ActionDescription,"A quick, ugly business. Leaves a carcass worth processing.",干脆而难看的活计，留下一具值得处理的尸体。
+sh_salted_butter_CardName,Salted Butter,加盐黄油
+sh_salted_butter_CardDescription,Sheep butter worked through with salt. It keeps far longer than the fresh kind.,揉入食盐的羊奶黄油，比新鲜黄油保存得久得多。
+sh_salted_butter_DismantleActions[0].ActionName,Eat,吃
+sh_salted_butter_SpoilageTime_CardStatName,Spoilage,腐坏
+sh_smoked_cheese_CardName,Smoked Cheese,烟熏奶酪
+sh_smoked_cheese_CardDescription,A wheel of sheep cheese hung in the smoke until the rind darkened. Keeps for a season.,悬挂在烟中熏至外皮发黑的羊奶酪，可以存放一整季。
+sh_smoked_cheese_DismantleActions[0].ActionName,Eat,吃
+sh_smoked_cheese_SpoilageTime_CardStatName,Spoilage,腐坏
+sh_berry_yogurt_CardName,Berry Yogurt,浆果酸奶
+sh_berry_yogurt_CardDescription,Thick sheep yogurt stirred through with dried berries.,浓稠的羊奶酸奶拌入果干。
+sh_berry_yogurt_DismantleActions[0].ActionName,Eat,吃
+sh_berry_yogurt_SpoilageTime_CardStatName,Spoilage,腐坏
+sh_soured_turnroot_CardName,Soured Turnroot,酸奶翻根
+sh_soured_turnroot_CardDescription,Boiled turnroot under a spoonful of sour cream. Plain food made worth eating.,煮好的翻根淋上一勺酸奶油，素寴的食物也变得可口。
+sh_soured_turnroot_DismantleActions[0].ActionName,Eat,吃
+sh_soured_turnroot_SpoilageTime_CardStatName,Spoilage,腐坏
+sh_ricotta_rye_round_CardName,Ricotta Rye Round,里科塔黑麦面包
+sh_ricotta_rye_round_CardDescription,A rye round split and heaped with soft ricotta.,切开的黑麦圆面包，堆满柔软的里科塔奶酪。
+sh_ricotta_rye_round_DismantleActions[0].ActionName,Eat,吃
+sh_ricotta_rye_round_SpoilageTime_CardStatName,Spoilage,腐坏
+sh_buttermilk_hardtack_CardName,Buttermilk Hardtack,酥乳泡饰
+sh_buttermilk_hardtack_CardDescription,"Hardtack soaked soft in buttermilk. Still plain, but no longer a jaw-breaker.",用酥乳泡软的硬饰，依旧素寴，但不再崩牙。
+sh_buttermilk_hardtack_DismantleActions[0].ActionName,Eat,吃
+sh_buttermilk_hardtack_SpoilageTime_CardStatName,Spoilage,腐坏
+sh_feather_pillow_CardName,Feather Pillow,羽绒枕
+sh_feather_pillow_CardDescription,A cloth sack packed with owl down. Sleeping with it under your head takes the edge off a hard night.,填满猫头鹰细羽的布袋。柕着它入睡，难熬的夜晚也好过些。
+sh_bp_feather_pillow_CardName,Feather Pillow Blueprint,羽绒枕蓝图
+sh_bp_feather_pillow_CardDescription,Stuff a woven cloth with owl down and stitch it shut.,将猫头鹰细羽填入织布并缝合。
+sh_bp_feather_pillow_UnlockConditionsDesc,Requires: Feathers,需要：羽毛
+sh_bone_treat_CardName,Bone Treat,骨头零食
+sh_bone_treat_CardDescription,"A marrow bone rubbed with dried meat. Kept aside for the wolf, not for the pot.",抹上肉干碎屑的骸骸，专为狼留的，不下锅。
+sh_bone_treat_SpoilageTime_CardStatName,Spoilage,腐坏
+sh_owl_treat_CardName,Owl Treat,猫头鹰零食
+sh_owl_treat_CardDescription,Salted strips of meat cut small enough for a bird to swallow whole.,盐渍的肉条，切得足够小，能让鸟儿一口吞下。
+sh_owl_treat_SpoilageTime_CardStatName,Spoilage,腐坏
+sh_berry_mix_CardName,Berry Mix,混合果干
+sh_berry_mix_CardDescription,Two kinds of dried berry rolled together. The fox can smell it through a closed pack.,两种果干拌在一起。即使包裹紧实，狐狸也能闻到。
+sh_berry_mix_SpoilageTime_CardStatName,Spoilage,腐坏
+sh_bp_bone_treat_CardName,Bone Treat Blueprint,骨头零食蓝图
+sh_bp_bone_treat_CardDescription,Work dried meat into a marrow bone to make a treat a wolf will remember you for.,将肉干揉入骸骸，做成让狼心存感激的零食。
+sh_bp_bone_treat_UnlockConditionsDesc,Requires: Bones,需要：骨头
+sh_bp_owl_treat_CardName,Owl Treat Blueprint,猫头鹰零食蓝图
+sh_bp_owl_treat_CardDescription,Cut meat into strips and salt them down for the owl.,将肉切成细条并用盐腌制，留给猫头鹰。
+sh_bp_owl_treat_UnlockConditionsDesc,Requires: Salt,需要：盐
+sh_bp_berry_mix_CardName,Berry Mix Blueprint,混合果干蓝图
+sh_bp_berry_mix_CardDescription,Roll two kinds of dried berry together into a fox's favourite.,将两种果干拌匀，做成狐狸最爱。
+sh_bp_berry_mix_UnlockConditionsDesc,Requires: Dried Springberries,需要：干春莓
+sh_sheep_remains_CardInteractions[0].ActionName,Salvage Remains,回收残骸
+sh_sheep_remains_CardInteractions[0].ActionDescription,"Cut free what the predator left - matted wool, the hide, and what meat and bone is still sound.",割下野兽留下的东西：结块的羊毛、兽皮，以及尚可用的肉与骨。
+sh_butter_CardInteractions[2].ActionName,Salt the Butter,腌制黄油
+sh_butter_CardInteractions[2].ActionDescription,Work salt through the butter so it will keep past the warm months.,将食盐揉入黄油，让它能挢过暖季。
+sh_sheep_cheese_CardInteractions[1].ActionName,Smoke the Cheese,烟熏奶酪
+sh_sheep_cheese_CardInteractions[1].ActionDescription,Hang the wheel in the smoke until the rind darkens and hardens.,将奶酪悬于烟中，直到外皮变黑变硬。
+sh_curdled_milk_CardInteractions[1].ActionName,Strain Curds,滤压凝乳
+sh_curdled_milk_CardInteractions[1].ActionDescription,"Gather the curds in the cheese cloth and squeeze them dry by hand. No fire needed, but the whey runs off and is lost.",用奶酪布包起凝乳，用手挤干。无需生火，但乳清会流失。
+sh_yogurt_CardInteractions[0].ActionName,Stir in Berries,拌入果干
+sh_yogurt_CardInteractions[0].ActionDescription,Fold dried berries through the yogurt.,将果干拌入酸奶。
+sh_sour_cream_CardInteractions[0].ActionName,Dress the Turnroot,淋在翻根上
+sh_sour_cream_CardInteractions[0].ActionDescription,Spoon sour cream over boiled turnroot.,将酸奶油淋在煮好的翻根上。
+sh_ricotta_CardInteractions[0].ActionName,Heap onto Rye Round,堆在黑麦面包上
+sh_ricotta_CardInteractions[0].ActionDescription,Split a rye round and pile the ricotta on.,切开黑麦圆面包，堆上里科塔奶酪。
+sh_buttermilk_CardInteractions[0].ActionName,Soak the Hardtack,泡软硬饰
+sh_buttermilk_CardInteractions[0].ActionDescription,Leave the hardtack in buttermilk until it gives under a thumb.,将硬饰泡在酥乳里，直到按下去发软。
+fc_wolf_companion_CardInteractions[5].ActionName,Give Bone Treat,给予骨头零食
+fc_wolf_companion_CardInteractions[5].ActionDescription,"Hand over the marrow bone you saved back. The wolf takes it carefully, then will not put it down.",递上你特意留下的骸骸。狼小心地叼住，一直不肯松口。
+fc_owl_companion_CardInteractions[4].ActionName,Give Owl Treat,给予猫头鹰零食
+fc_owl_companion_CardInteractions[4].ActionDescription,Offer the salted strips one at a time. The owl takes each from your fingers without a sound.,一条一条地递上盐渍肉条。猫头鹰无声地从你指间叼走。
+fc_fox_companion_CardInteractions[4].ActionName,Give Berry Mix,给予混合果干
+fc_fox_companion_CardInteractions[4].ActionDescription,Tip the mixed berries into your palm. The fox eats them out of your hand and stays close afterwards.,将混合果干倒在掌心。狐狸从你手中吃完，之后一直待在身边。

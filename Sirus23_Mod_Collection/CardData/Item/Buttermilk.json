@@ -972,7 +972,51 @@
     "SpecialDurability4": {
         "Active": false
     },
-    "CardInteractions": [],
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_buttermilk",
+                "LocalizationKey": "sh_buttermilk_CardInteractions[0].ActionName",
+                "DefaultText": "Soak the Hardtack"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "sh_buttermilk",
+                "LocalizationKey": "sh_buttermilk_CardInteractions[0].ActionDescription",
+                "DefaultText": "Leave the hardtack in buttermilk until it gives under a thumb."
+            },
+            "DaytimeCost": 2,
+            "UseMiniTicks": 0,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "48e2ff996d0816340968ab268829993b"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": true,
+            "WorksBothWays": false,
+            "GivenCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "sh_buttermilk_hardtack",
+                "TransformIntoWarpType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
     "DismantleActions": [
         {
             "ActionName": {

@@ -972,7 +972,51 @@
     "SpecialDurability4": {
         "Active": false
     },
-    "CardInteractions": [],
+    "CardInteractions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_ricotta",
+                "LocalizationKey": "sh_ricotta_CardInteractions[0].ActionName",
+                "DefaultText": "Heap onto Rye Round"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "sh_ricotta",
+                "LocalizationKey": "sh_ricotta_CardInteractions[0].ActionDescription",
+                "DefaultText": "Split a rye round and pile the ricotta on."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "9c8f6b8ca00422e4f8ae422c3d0b600e"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": true,
+            "WorksBothWays": false,
+            "GivenCardChanges": {
+                "ModType": 2,
+                "TransformIntoWarpData": "sh_ricotta_rye_round",
+                "TransformIntoWarpType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            }
+        }
+    ],
     "DismantleActions": [
         {
             "ActionName": {

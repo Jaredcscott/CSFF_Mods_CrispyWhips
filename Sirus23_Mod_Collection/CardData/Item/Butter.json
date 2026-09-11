@@ -1536,6 +1536,69 @@
                 ],
                 "TriggerCardsWarpType": 3
             }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_butter",
+                "LocalizationKey": "sh_butter_CardInteractions[2].ActionName",
+                "DefaultText": "Salt the Butter"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "sh_butter",
+                "LocalizationKey": "sh_butter_CardInteractions[2].ActionDescription",
+                "DefaultText": "Work salt through the butter so it will keep past the warm months."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "f91b5676fc26c0e48a4ee6fd9dfc2ffa"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "SaltButter",
+                    "CollectionWeight": 1,
+                    "MinCollectionCount": 1,
+                    "MaxCollectionCount": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "sh_salted_butter",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "DismantleActions": [

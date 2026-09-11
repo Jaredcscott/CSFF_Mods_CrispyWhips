@@ -72,7 +72,8 @@
   },
   "//Encounter": "M5 — GENERATED, not Ref'd. Encounter_WildOwl.json (the former Ref target) is deleted in this commit: this milestone specifically proves the generator path end-to-end, so the owl now exercises EncounterBuilder instead of re-proving the Ref escape hatch. AnimalAssetFactory.BuildAgent resolves this ONCE per load and threads the SAME Encounter instance to the Approach button (a Ref-path agent's own hand-authored Interactions[] Approach entry is overwritten with it — Agent_WildOwl.json's Interactions array is now empty), the Aggression attack duty below, AND Interactions[].OnFail.AttackChance (TameInteractionBuilder) — one encounter, three consumers.",
   "//Encounter2": "Values mirror the deleted Encounter_WildOwl.json 1:1 (Blood 40, Awareness [20,60], one attack action + one escape action, EnemyBodyTemplate 'Combat_ BTDuck') so the generated encounter behaves identically to the proven hand-authored one. Damage is generator-computed as [Blood*0.12, Blood*0.35] = [4.8, 14] (the schema has no per-species Damage field in v1) -- close to the old file's hand-tuned [5, 15]. TUNABLE: Cover/Stealth left at generator defaults (the old file never set them either).",
-  "//Aggression": "NEW in M5 — the owl previously had no scheduled attack at all (only the Approach-triggered encounter and the tame-fail-attack branch). Aggression compiles into a GENERATED NPCDuty via DutyBuilder's existing StartEncounterDutyAction idiom, never a cloned vanilla attack duty (those fire a hardwired encounter). TUNABLE, NOT PLAYTESTED: BaseWeight 600 vs the astronomical Movement.PlayerAttraction.BaseWeight (1e9) above -- the attack duty will almost never win selection against the nightly seek-player duty at these weights; retune together if the owl should actually attack with any real frequency once verified in-game. Hours mirror the owl's own night ActivityWindow.",
+  "//Aggression": "NEW in M5. The owl previously had no scheduled attack at all (only the Approach-triggered encounter and the tame-fail-attack branch). Aggression compiles into a GENERATED NPCDuty via DutyBuilder's existing StartEncounterDutyAction idiom, never a cloned vanilla attack duty (those fire a hardwired encounter). Hours mirror the owl's own night ActivityWindow.",
+  "//Aggression2": "CORRECTED 2026-09-07: BaseWeight was 600 against Movement.PlayerAttraction.BaseWeight 1e9, which made the attack duty NEVER selectable rather than merely unlikely, so M5's own exit criterion was unreachable. Duty selection is winner-take-all: InGameNPC.SelectDuty sorts eligible duties by weight descending and expands the random-pick group only while the next weight is EQUAL to the top (.decomp/InGameNPC.cs lines 2316-2320). The attack window 22-04 sits entirely inside the 20-06 activity window, the seek duty carries no per-day cap, and MoveDutyAction.CanBePerformed returns true unconditionally for Teleport (.decomp/MoveDutyAction.cs lines 252-253), so the seek duty won every tick the attack duty was eligible. Identical to the defect the //Traps4 note fixed for Bait.DutyWeight. Now set EQUAL to PlayerAttraction.BaseWeight (1e9): seek, bait-raid and attack all tie at the top and the owl picks uniformly among them, with MaxPerDay 1 capping it at one attack per night. The framework validator now rejects an aggression weight below the heaviest movement duty, so these three weights must be retuned together. STILL NOT PLAYTESTED (tracker T2.176).",
   "Encounter": {
     "BodyTemplate": "Combat_ BTDuck",
     "Blood": 40,
@@ -84,7 +85,7 @@
     "Aggression": {
       "Enabled": true,
       "Hours": { "Start": 22, "End": 4 },
-      "BaseWeight": 600,
+      "BaseWeight": 1000000000,
       "RequirePlayerInEnv": true,
       "MaxPerDay": 1
     }

@@ -1,0 +1,38 @@
+{
+    "UniqueID": "sh_berry_mix",
+    "CardName": {
+        "ParentObjectID": "sh_berry_mix",
+        "LocalizationKey": "sh_berry_mix_CardName",
+        "DefaultText": "Berry Mix"
+    },
+    "CardDescription": {
+        "ParentObjectID": "sh_berry_mix",
+        "LocalizationKey": "sh_berry_mix_CardDescription",
+        "DefaultText": "Two kinds of dried berry rolled together. The fox can smell it through a closed pack."
+    },
+    "CardType": 0,
+    "ObjectWeight": 120.0,
+    "TradingValue": 40,
+    "CardImageWarpData": "sh_berry_mix",
+    "CardImageWarpType": 3,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Preservable"
+    ],
+    "CardTagsWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 960.0,
+        "MaxValue": 960.0,
+        "RatePerDaytimePoint": 1.0,
+        "CardStatName": {
+            "ParentObjectID": "sh_berry_mix",
+            "LocalizationKey": "sh_berry_mix_SpoilageTime_CardStatName",
+            "DefaultText": "Spoilage"
+        }
+    },
+    "CardInteractions": [],
+    "DismantleActions": [],
+    "IsWeapon": false,
+    "IsArmor": false
+}

@@ -12,7 +12,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.Sirus23ModCollection";
     public const string PluginName = "Sirus23 Mod Collection";
-    public const string PluginVersion = "1.20.2";
+    public const string PluginVersion = "1.21.2";
 
     internal new static ManualLogSource Logger { get; private set; }
 
@@ -36,10 +36,10 @@ internal class Plugin : ContentModPlugin
         // Owl tame/companion is now fully manifest-driven (Animals/Owl.json Interactions/
         // Companion, framework TameInteractionBuilder + CompanionService, M6) — no more
         // WildOwlLifecyclePatch; CompanionHuntPatch no longer registers an OwlTameInit handler.
-        // Fox NPC-cache reset + tame-retirement helpers for CompanionHuntPatch's FoxTameInit —
-        // Fox hasn't migrated onto the framework companion service yet (see
-        // WildFoxLifecyclePatch doc).
-        TryApply("WildFoxLifecycle", WildFoxLifecyclePatch.Register);
+        // Fox taming is a GameSourceModify patch onto the real vanilla Agent_Fox1/Agent_Fox2
+        // NPCAgents (GameSourceModify/VanillaFox_Agent1.json, VanillaFox_Agent2.json) — no
+        // separate wild-fox species/patcher; CompanionHuntPatch's FoxTameInit handler matches
+        // the vanilla agents directly.
         // Wildlife encounter suppression ships as EncounterGuards/WolfGuard.json —
         // evaluated by the framework's single StartEncounter prefix.
         // Sheep butter/reproduction patching runs once game data is ready.

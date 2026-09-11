@@ -1,0 +1,92 @@
+{
+    "UniqueID": "sh_buttermilk_hardtack",
+    "CardName": {
+        "ParentObjectID": "sh_buttermilk_hardtack",
+        "LocalizationKey": "sh_buttermilk_hardtack_CardName",
+        "DefaultText": "Buttermilk Hardtack"
+    },
+    "CardDescription": {
+        "ParentObjectID": "sh_buttermilk_hardtack",
+        "LocalizationKey": "sh_buttermilk_hardtack_CardDescription",
+        "DefaultText": "Hardtack soaked soft in buttermilk. Still plain, but no longer a jaw-breaker."
+    },
+    "CardType": 0,
+    "ObjectWeight": 340.0,
+    "TradingValue": 45,
+    "CardImageWarpData": "sh_buttermilk_hardtack",
+    "CardImageWarpType": 3,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Food",
+        "tag_Plateable"
+    ],
+    "CardTagsWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 480.0,
+        "MaxValue": 480.0,
+        "RatePerDaytimePoint": 1.0,
+        "CardStatName": {
+            "ParentObjectID": "sh_buttermilk_hardtack",
+            "LocalizationKey": "sh_buttermilk_hardtack_SpoilageTime_CardStatName",
+            "DefaultText": "Spoilage"
+        }
+    },
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_buttermilk_hardtack",
+                "LocalizationKey": "sh_buttermilk_hardtack_DismantleActions[0].ActionName",
+                "DefaultText": "Eat"
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 42.0,
+                        "y": 42.0
+                    }
+                },
+                {
+                    "StatWarpData": "95ca7c21ffad5e647acc3d9cb5bfcde6",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 20.0,
+                        "y": 20.0
+                    }
+                },
+                {
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 24.0,
+                        "y": 24.0
+                    }
+                },
+                {
+                    "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 45.0,
+                        "y": 45.0
+                    }
+                }
+            ]
+        }
+    ],
+    "EdibleStats": {
+        "Nutrients": 42,
+        "Hydration": 20
+    }
+}

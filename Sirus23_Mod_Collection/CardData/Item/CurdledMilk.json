@@ -1555,6 +1555,73 @@
                 },
                 "UseOtherCardForLiquidQuantity": false
             }
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_curdled_milk",
+                "LocalizationKey": "sh_curdled_milk_CardInteractions[1].ActionName",
+                "DefaultText": "Strain Curds"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "sh_curdled_milk",
+                "LocalizationKey": "sh_curdled_milk_CardInteractions[1].ActionDescription",
+                "DefaultText": "Gather the curds in the cheese cloth and squeeze them dry by hand. No fire needed, but the whey runs off and is lost."
+            },
+            "DaytimeCost": 3,
+            "UseMiniTicks": 0,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [
+                    "tag_CheeseCloth"
+                ],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "GivenCardChanges": {
+                "ModType": 1,
+                "UsageChange": {
+                    "x": -1.0,
+                    "y": -1.0
+                }
+            },
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "ProducedCards": [
+                {
+                    "CollectionName": "StrainCurds",
+                    "CollectionWeight": 1,
+                    "MinCollectionCount": 1,
+                    "MaxCollectionCount": 1,
+                    "DroppedCards": [
+                        {
+                            "DroppedCard": {
+                                "m_FileID": 0,
+                                "m_PathID": 0
+                            },
+                            "DroppedCardWarpData": "sh_sheep_cheese",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {
+                                "x": 1,
+                                "y": 1
+                            }
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "DismantleActions": [],

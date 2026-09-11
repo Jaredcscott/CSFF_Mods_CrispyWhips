@@ -1,0 +1,132 @@
+{
+    "UniqueID": "sh_bp_owl_treat",
+    "CardName": {
+        "ParentObjectID": "sh_bp_owl_treat",
+        "LocalizationKey": "sh_bp_owl_treat_CardName",
+        "DefaultText": "Owl Treat Blueprint"
+    },
+    "CardDescription": {
+        "ParentObjectID": "sh_bp_owl_treat",
+        "LocalizationKey": "sh_bp_owl_treat_CardDescription",
+        "DefaultText": "Cut meat into strips and salt them down for the owl."
+    },
+    "CardImage": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "CardImageWarpData": "sh_owl_treat",
+    "CardImageWarpType": 3,
+    "CardType": 7,
+    "UnlockConditionsDesc": {
+        "ParentObjectID": "sh_bp_owl_treat",
+        "LocalizationKey": "sh_bp_owl_treat_UnlockConditionsDesc",
+        "DefaultText": "Requires: Salt"
+    },
+    "StartUnlocked": false,
+    "BuildingStatConditions": [],
+    "CardsOnBoard": [
+        {
+            "Card": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "CardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
+            "CardWarpType": 3,
+            "Amount": 1,
+            "ConstantlyChecking": false
+        }
+    ],
+    "TagsOnBoard": [],
+    "StatValues": [],
+    "BlueprintStages": [
+        {
+            "CannotRevertToThisStage": false,
+            "RequiredElements": [
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredCardWarpData": "fe07d4d800bcc8646a0ff2513c78d5df",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "Fuel": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroupWarpData": "",
+                    "RequiredTabGroupWarpType": 3
+                },
+                {
+                    "RequiredCard": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredCardWarpData": "f91b5676fc26c0e48a4ee6fd9dfc2ffa",
+                    "RequiredCardWarpType": 3,
+                    "RequiredQuantity": 1,
+                    "DontSpend": false,
+                    "Fuel": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "RequiredTabGroup": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "RequiredTabGroupWarpData": "",
+                    "RequiredTabGroupWarpType": 3
+                }
+            ],
+            "StepActionTags": [],
+            "StepActionTagsWarpData": [],
+            "StepActionTagsWarpType": 3,
+            "BuildingDaytimeCost": 1
+        }
+    ],
+    "BuildingDaytimeCost": 1,
+    "DeconstructDaytimeCost": 0,
+    "BlueprintUnlockTicksCost": 4,
+    "BlueprintResult": [
+        {
+            "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "DroppedCardWarpData": "sh_owl_treat",
+            "DroppedCardWarpType": 3,
+            "Quantity": {
+                "x": 2,
+                "y": 2
+            },
+            "FinishUnlocking": false,
+            "DropChance": {
+                "Active": false,
+                "BaseDropChance": 0.0,
+                "DurabilitiesModifiers": [],
+                "StatsModifiers": [],
+                "CardsModifiers": [],
+                "NPCStatsModifiers": []
+            },
+            "DropsDurabilityMultipliers": [],
+            "DropsStatMultipliers": []
+        }
+    ],
+    "BlueprintStatModifications": [],
+    "WhenCreatedSoundsWarpData": [
+        "SmallObject_A"
+    ],
+    "WhenCreatedSoundsWarpType": 3,
+    "BlueprintActionTagsWarpData": [
+        "HandAction",
+        "CraftAction"
+    ],
+    "BlueprintActionTagsWarpType": 3
+}

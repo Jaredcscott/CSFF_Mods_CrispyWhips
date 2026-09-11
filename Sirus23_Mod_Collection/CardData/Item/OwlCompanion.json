@@ -217,6 +217,75 @@
                 }
             ],
             "StatModifications": []
+        },
+        {
+            "ActionName": {
+                "ParentObjectID": "fc_owl_companion",
+                "LocalizationKey": "fc_owl_companion_CardInteractions[4].ActionName",
+                "DefaultText": "Give Owl Treat"
+            },
+            "ActionDescription": {
+                "ParentObjectID": "fc_owl_companion",
+                "LocalizationKey": "fc_owl_companion_CardInteractions[4].ActionDescription",
+                "DefaultText": "Offer the salted strips one at a time. The owl takes each from your fingers without a sound."
+            },
+            "DaytimeCost": 1,
+            "UseMiniTicks": 0,
+            "ActionTags": [],
+            "ActionTagsWarpData": [
+                "HandAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "CompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": [],
+                "TriggerCardsWarpData": [
+                    "sh_owl_treat"
+                ],
+                "TriggerCardsWarpType": 3,
+                "TriggerTagsWarpData": [],
+                "TriggerTagsWarpType": 3
+            },
+            "NOTCompatibleCards": {
+                "TriggerCards": [],
+                "TriggerTags": []
+            },
+            "WorksInverted": false,
+            "WorksBothWays": false,
+            "GivenCardChanges": {
+                "ModType": 3
+            },
+            "ReceivingCardChanges": {
+                "ModType": 1,
+                "SpoilageChange": {
+                    "x": 160.0,
+                    "y": 160.0
+                },
+                "ChargesChange": {
+                    "x": 300.0,
+                    "y": 300.0
+                }
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 8.0,
+                        "y": 8.0
+                    },
+                    "InstantModifier": true
+                },
+                {
+                    "StatWarpData": "3dc9b7924c4bec142af1c255f6df235d",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": -10.0,
+                        "y": -10.0
+                    },
+                    "InstantModifier": true
+                }
+            ]
         }
     ],
     "DismantleActions": [

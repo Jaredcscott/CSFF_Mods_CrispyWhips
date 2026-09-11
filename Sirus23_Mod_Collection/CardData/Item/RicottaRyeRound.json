@@ -1,0 +1,92 @@
+{
+    "UniqueID": "sh_ricotta_rye_round",
+    "CardName": {
+        "ParentObjectID": "sh_ricotta_rye_round",
+        "LocalizationKey": "sh_ricotta_rye_round_CardName",
+        "DefaultText": "Ricotta Rye Round"
+    },
+    "CardDescription": {
+        "ParentObjectID": "sh_ricotta_rye_round",
+        "LocalizationKey": "sh_ricotta_rye_round_CardDescription",
+        "DefaultText": "A rye round split and heaped with soft ricotta."
+    },
+    "CardType": 0,
+    "ObjectWeight": 300.0,
+    "TradingValue": 90,
+    "CardImageWarpData": "sh_ricotta_rye_round",
+    "CardImageWarpType": 3,
+    "CardTags": [],
+    "CardTagsWarpData": [
+        "tag_Food",
+        "tag_Plateable"
+    ],
+    "CardTagsWarpType": 3,
+    "SpoilageTime": {
+        "Active": true,
+        "FloatValue": 240.0,
+        "MaxValue": 240.0,
+        "RatePerDaytimePoint": 1.0,
+        "CardStatName": {
+            "ParentObjectID": "sh_ricotta_rye_round",
+            "LocalizationKey": "sh_ricotta_rye_round_SpoilageTime_CardStatName",
+            "DefaultText": "Spoilage"
+        }
+    },
+    "DismantleActions": [
+        {
+            "ActionName": {
+                "ParentObjectID": "sh_ricotta_rye_round",
+                "LocalizationKey": "sh_ricotta_rye_round_DismantleActions[0].ActionName",
+                "DefaultText": "Eat"
+            },
+            "DaytimeCost": 0,
+            "UseMiniTicks": 1,
+            "ActionTagsWarpData": [
+                "VegetarianAction",
+                "EatingAction"
+            ],
+            "ActionTagsWarpType": 3,
+            "ReceivingCardChanges": {
+                "ModType": 3
+            },
+            "StatModifications": [
+                {
+                    "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 48.0,
+                        "y": 48.0
+                    }
+                },
+                {
+                    "StatWarpData": "95ca7c21ffad5e647acc3d9cb5bfcde6",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 6.0,
+                        "y": 6.0
+                    }
+                },
+                {
+                    "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 22.0,
+                        "y": 22.0
+                    }
+                },
+                {
+                    "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 52.0,
+                        "y": 52.0
+                    }
+                }
+            ]
+        }
+    ],
+    "EdibleStats": {
+        "Nutrients": 48,
+        "Hydration": 6
+    }
+}
