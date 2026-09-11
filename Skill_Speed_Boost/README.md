@@ -1,8 +1,8 @@
 # Skill Speed Boost
 
-**Version:** 1.9.7
+**Version:** 1.10.2
 **Author:** Jared (crispywhips)
-**For:** Card Survival: Fantasy Forest (EA 0.65)
+**For:** Card Survival: Fantasy Forest (EA 0.67h)
 
 ---
 
@@ -16,9 +16,14 @@ Skill Speed Boost provides comprehensive control over skill progression mechanic
 2. **Per-Skill XP Multipliers** — Set different learning rates for each skill (0-10x)
 3. **Morning Study Bonus** — Optional XP multiplier during configurable morning hours (off by default)
 4. **Area Familiarity** — XP bonus that grows the more you forage/work at a given location, capped per location and configurable
-5. **Difficulty Profiles** — Named presets (Balanced, Casual, Hardcore, Grinder, etc.) that set ExpMultiplier and Staleness together with one config key
+5. **Difficulty Profiles** - Named presets (Balanced, Casual, Hardcore, Grinder, Immersive, etc.) that set the whole stack with one config key: ExpMultiplier, Staleness, and all seven feature toggles
 6. **Skill Synergies** — Combo XP bonus for chaining related skills in sequence: +10% per consecutive related action, capped at +50% (5-action combo), resets after 5 minutes of inactivity (off by default)
-7. **Level Scaling** — Optional XP bonus that grows as a skill approaches its maximum level, compensating for the increasing XP cost at higher levels (off by default)
+7. **Level Scaling** - Optional XP bonus that grows as a skill approaches its maximum level, compensating for the increasing XP cost at higher levels, with a choice of Linear, EaseIn or EaseOut ramp (off by default)
+8. **Daily First-Use Bonus** - Optional multiplier on each skill's first use of the in-game day, rewarding a broad day over a single grind (off by default)
+9. **Well-Rested Bonus** - Optional multiplier while Energy, Satiation and Hydration are all above a threshold (off by default)
+10. **Low-Condition XP Penalty** - Optional sub-1.0 multiplier while Energy, Satiation or Hydration is below a threshold: the inverse of the well-rested bonus, and the only setting in the mod that makes XP move slower (off by default)
+11. **Composed-Multiplier Cap** - Optional ceiling on the combined total after every bonus has stacked, so overlapping bonuses cannot silently reach a figure no single slider suggests (uncapped by default)
+12. **Effective-Settings Log** - Optional one-line-per-skill dump at load showing the settings that actually resolved, for when a setting does not seem to be taking effect (off by default)
 
 ### Before vs After (Vanilla)
 
@@ -41,11 +46,11 @@ Skill Speed Boost provides comprehensive control over skill progression mechanic
 ### Requirements
 - [BepInEx 5.4.23.4+](https://github.com/BepInEx/BepInEx/releases)
 - **CSFFModFramework** (recommended) — since v1.9.2, `GameLoadPatch`, `AreaFamiliarityPatch`, and `MorningBonusPatch` (the staleness config, area familiarity, and morning bonus features) call the framework's `Api.Reflect`/`Api.StatAccess`/`Api.CardUtil` utilities directly. The mod declares `CSFFModFramework` as a `SoftDependency` for load order; without it installed, those features throw instead of applying.
-- Card Survival: Fantasy Forest (EA 0.65)
+- Card Survival: Fantasy Forest (EA 0.67h)
 
 ### Steps
 1. Install CSFFModFramework in `BepInEx/plugins/CSFF_Mod_Framework/`
-2. Download the latest release (v1.9.2+)
+2. Download the latest release (v1.10.1+)
 3. Copy the `Skill_Speed_Boost` folder into `BepInEx/plugins/`
 4. Launch the game
 
@@ -89,6 +94,32 @@ Archery_Multiplier = 2          ; 2x for other skills
 Tracking_Multiplier = 0         ; Disabled
 ```
 
+**Immersive (no raw multiplier)**
+```ini
+ActiveProfile = Immersive       ; 1x XP, staleness on, and only the
+                                ; diegetic bonuses: area familiarity,
+                                ; morning window, daily first use,
+                                ; well-rested - plus the low-condition
+                                ; penalty, so a neglected body learns
+                                ; slower. Sets all of them for you.
+```
+
+**Stacking several bonuses safely**
+```ini
+SkillExpMultiplier = 3
+MorningBonusEnabled = true
+EnableSkillSynergies = true
+MaxComposedMultiplier = 6       ; never award more than 6x, however
+                                ; many bonuses line up at once
+LogMultiplierCapHits = true     ; log each time the cap actually bites
+```
+
+**Working out why a setting is not taking effect**
+```ini
+LogEffectiveSettings = true     ; one line per skill in LogOutput.log
+                                ; after load, showing what resolved
+```
+
 For detailed configuration, see **FEATURES.md**.
 
 ## Core Mechanics
@@ -108,20 +139,22 @@ Control learning speed with global or per-skill multipliers:
 
 ## Affected Skills
 
-Rather than a hardcoded list, the mod scans every vanilla `GameStat` at load time and treats any stat that uses the same staleness flag as Fishing (`UsesNovelty`) as a skill, auto-registering per-skill XP/staleness config for it under its real in-game name. This covers over 30 EA 0.65 vanilla skills, including:
+Rather than a hardcoded list, the mod scans every vanilla `GameStat` at load time and treats any stat that uses the same staleness flag as Fishing (`UsesNovelty`) as a skill, auto-registering per-skill XP/staleness config for it under its real in-game name. Nine stats set that flag without being skills and are excluded by name - Stress, Morale, Profile, Altered Mindstate, Mental Structure, Focus, Gratification, Loneliness and Thought Depth - so no XP or staleness setting in this mod touches your mental stats. That leaves 32 vanilla skills, including:
 
 **Crafting:** Smithing, Tailoring, Weaving, Cooking, Woodworking, Leatherworking, Pottery, Metalworking, Knapping, Crafting  
 **Gathering:** Herbalism, Fishing, Spear Fishing  
-**Combat:** Archery, Axe Fighting, Knife Fighting, Club Fighting, Spear Fighting, Rock Throwing, Sling, Handguns  
+**Combat:** Archery, Axe Fighting, Knife Fighting, ClubFighting, Spear Fighting, Rock Throwing, Sling, Handguns  
 **Hunting:** Tracking, Trapping, Butchering  
 **Other:** Stealth, Climbing, Swimming, Socials, Insight, Percussion, Wind Instruments, Perception
+
+Config keys use these names EXACTLY as spelled above, spaces included: `Knife Fighting_Multiplier` has a space, `ClubFighting_Multiplier` does not. A key whose stem does not match a real skill name is simply never read - set `LogEffectiveSettings = true` to see what actually resolved.
 
 Any skill added by another mod is picked up the same way automatically — no update to this mod is needed. See **FEATURES.md** for full per-skill configuration details.
 
 ## Technical Details
 
 - **Load-time:** `GameLoad.LoadMainGameData` postfix configures staleness on all skill stats
-- **Runtime:** `GameManager.ChangeStatValue` coroutine postfix applies XP multipliers (global, per-skill, morning bonus, area familiarity, synergies, level scaling) on every skill XP gain
+- **Runtime:** `GameManager.ChangeStatValue` coroutine postfix applies XP multipliers (global, per-skill, morning bonus, area familiarity, synergies, level scaling, daily first use, well-rested and the low-condition penalty) on every skill XP gain. It is the single composition point: the composed total is applied in whichever direction it points, so a penalty reduces the gain rather than being discarded
 - **Area tracking:** `GameManager.ActionRoutine` coroutine postfix tracks current location for familiarity scoring
 - **Staleness:** Sets `NoveltyCooldownDuration = 12` (12 ticks × 15 min = 3 hours)
 - **Safe:** No permanent changes to save files; fully reversible
@@ -131,12 +164,56 @@ Any skill added by another mod is picked up the same way automatically — no up
 - **Existing saves:** Safe to add/remove anytime
 - **Other mods:** Compatible with all CSFF mods
 - **Dependencies:** `CSFFModFramework` (soft — see Requirements above). No dependency on any content mod, and no other mod depends on Skill Speed Boost.
-- **Performance:** Minimal overhead — load-time scan of ~30 skill stats + lightweight coroutine postfix on XP gains
+- **Performance:** Minimal overhead — load-time scan of ~30 skill stats, plus one coroutine postfix that runs on every stat change and does its work only on skill XP gains (it early-outs immediately when no bonus feature is enabled)
 - **Save format:** No save file modifications
 
 ## Version History
 
-### v1.9.7 (current)
+### v1.10.2 (current)
+- **New: an optional low-condition XP penalty.** `LowConditionPenaltyEnabled` (default off) with
+  `LowConditionThreshold` (default 60) and `LowConditionMultiplier` (default 0.5) multiply skill XP
+  by a sub-1.0 factor while Energy, Satiation OR Hydration is below the threshold percentage of its
+  maximum. It is the exact inverse of the well-rested bonus at the same threshold, and the first
+  setting in the mod that makes XP move slower. Both numbers are starting points, not balance
+  verdicts - tune them to taste.
+- **Changed: `Hardcore`, `Legacy` and `Immersive` now turn the penalty ON.** Those three presets
+  previously had nothing to switch on, only bonuses to switch off. An existing config is NOT
+  affected on upgrade: since 1.10.1 a preset is written once and your `AppliedProfile` already
+  records it, so nothing is re-applied until you choose a preset again (or clear that key).
+- **Changed: the composed multiplier is now applied in both directions.** The postfix used to stop
+  as soon as the composed total was not above 1, which was correct while every term could only
+  raise it. A sub-1.0 total is now written too, and only a total of exactly 1 is treated as no
+  change. Nothing about the existing bonuses moves: none of them can produce a factor below 1.
+
+### v1.10.1
+- **Fixed: a difficulty preset no longer reverts your individual settings at every launch.** A preset
+  writes eight keys and used to be re-applied on every start, silently undoing an individual toggle
+  you changed afterwards - the exact edit both this file and FEATURES.md recommend. It is now written
+  once per profile change. New `AppliedProfile` bookkeeping key records which preset was written;
+  clear it to re-apply.
+- **Fixed: the well-rested bonus explains itself when it cannot read your stats.** Six failure paths
+  that previously returned in silence now each log one warning naming the lookup that failed, so
+  "the bonus does nothing" is diagnosable from the log instead of a play session. Being below the
+  threshold stays silent - that is the normal answer.
+- **Changed: the `ActiveProfile` config text now matches the code.** It omitted two of the eight keys
+  a preset writes, mis-described Immersive, and claimed Hardcore/Legacy leave "all bonuses off" when
+  per-skill multipliers survive every preset. The valid-name list is now generated from the presets.
+- **Docs:** removed a documented config key that does not exist (`Blade_Multiplier`) and a synergy
+  example using two non-existent skills, corrected `ClubFighting`'s spelling, listed all thirteen
+  features rather than nine, regenerated the configuration sample from the real config keys, and
+  updated the game-version references to EA 0.67h.
+
+### v1.10.0
+- **Area familiarity floor:** new `AreaFamiliarityMinBonus` sets the bonus a location starts at before you have worked it at all. Default 0 reproduces the previous behaviour exactly; the ramp to `AreaFamiliarityMaxBonus` is unchanged, and Min is clamped to Max so it can never run backwards.
+- **Effective-settings log:** new `LogEffectiveSettings` (default off) writes one line per skill after load showing the XP multiplier that actually resolved and where it came from, plus staleness state and decay rate, and two header lines covering every global toggle.
+- **Difficulty profiles now set the whole stack.** Presets previously moved only ExpMultiplier and Staleness, silently leaving every feature added after v1.7 at whatever it already was. Each preset now writes all six feature toggles explicitly, including the ones it turns off. Adds an **Immersive** preset: 1x XP with staleness, no raw multiplier, and only the diegetic bonuses (familiarity, morning, daily first use, well-rested).
+- **Composed-multiplier cap:** new `MaxComposedMultiplier` (default 0 = uncapped) clamps the combined total after every bonus has stacked. `LogMultiplierCapHits` logs when it bites.
+- **Daily first-use bonus:** new `DailyFirstUseBonusEnabled` / `DailyFirstUseMultiplier` (default off, 1.5x) multiply each skill's first XP gain of the in-game day.
+- **Well-rested bonus:** new `WellRestedBonusEnabled` / `WellRestedMultiplier` / `WellRestedThreshold` (default off, 1.25x above 60%) apply while Energy, Satiation and Hydration are all at or above the threshold percentage of their maximum.
+- **Level-scaling curve:** new `LevelScalingCurve` (Linear default, EaseIn, EaseOut) reshapes the level-scaling ramp. EaseIn rewards pushing a skill toward its ceiling; EaseOut front-loads help onto low-level skills.
+- Every new feature defaults to off or to a no-op value, so an existing config behaves exactly as it did on 1.9.7 until you change something.
+
+### v1.9.7
 - Removed the temporary `[MorningBonus][DIAG]` diagnostic logging added in v1.9.6 — the capture window closed without a reproduction against this mod's code path. No behavior change.
 - Silent-catch reflection breadcrumbs in `MorningBonusPatch` and `AreaFamiliarityPatch` upgraded from `LogDebug` (invisible by default) to `LogWarning`, so a future field-rename that breaks bonus/familiarity tracking now shows up in `LogOutput.log`.
 
@@ -223,6 +300,13 @@ Any skill added by another mod is picked up the same way automatically — no up
 
 **Issue:** "Per-skill settings not working"
 - **Fix:** Ensure `EnablePerSkillMultipliers = true`. Check config spelling matches skill names exactly.
+- **Or:** set `LogEffectiveSettings = true` and reload. The log then shows, per skill, the multiplier that actually resolved and whether it came from your per-skill override or the global setting.
+
+**Issue:** "I picked a difficulty profile but a feature I had turned on is now off"
+- **Explanation:** A profile writes every toggle it covers, including the ones it turns off, so the preset you chose is the preset you get. Set an individual key *after* choosing the profile if you want to differ from it: since 1.10.1 that edit sticks, because a preset is written ONCE per profile change rather than re-asserted on every launch. (On 1.10.0 exactly it was re-applied at every start, which silently undid such edits.)
+
+**Issue:** "XP is going up far faster than my settings suggest"
+- **Fix:** Bonuses multiply. Set `MaxComposedMultiplier` to a ceiling you are comfortable with, and `LogMultiplierCapHits = true` to see when it bites.
 
 For more help, see **FEATURES.md** or check BepInEx LogOutput.log.
 

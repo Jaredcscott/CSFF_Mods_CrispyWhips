@@ -22,7 +22,7 @@ internal static class SkillSynergies
 
     // skill name → synergy groups it belongs to (skills can belong to multiple).
     // Keys are the real GameStat GameName values (verified against
-    // Documentation/GameData/CSFF-JsonData_EA_0-65h .../GameStat/*.json), NOT invented
+    // Documentation/GameData/CSFF-JsonData_Current .../GameStat/*.json), NOT invented
     // names. 32 stats have UsesNovelty:true; Perception (whose file lacks the "Skill_"
     // prefix) is intentionally absent here — it has no natural synergy group and simply
     // won't participate in combos, though it still gets staleness/XP-multiplier config

@@ -9,8 +9,10 @@ using HarmonyLib;
 namespace Skill_Speed_Boost.Patcher;
 
 /// <summary>
-/// Single ChangeStatValue postfix that applies all runtime XP bonuses (global/per-skill
-/// SkillExpMultiplier + morning bonus + area familiarity). Multiple iterator postfixes on
+/// Single ChangeStatValue postfix that applies every runtime XP modifier: the global and
+/// per-skill SkillExpMultiplier, the morning bonus, area familiarity, synergies, level
+/// scaling, the daily first-use bonus, the well-rested bonus, and the one term that can push
+/// the total BELOW 1 - the low-condition penalty. Multiple iterator postfixes on
 /// the same coroutine cannot compose — only the first wrapper consumes the original
 /// enumerator and observes the delta — so every dynamic skill bonus must be combined here.
 /// </summary>
@@ -36,7 +38,18 @@ internal static class MorningBonusPatch
     // would spam LogOutput.log; the latch lets the breadcrumb survive at LogWarning (visible
     // by default) without spamming, so a future field-rename that kills the feature is seen.
     private static bool _setCurrentValueFailureLogged;
+    private static bool _setCurrentValueFieldMissingLogged;
     private static bool _morningWindowFailureLogged;
+    private static bool _capHitLogged;
+
+    // Daily first-use ledger: which skills have already taken their once-a-day bonus, and the
+    // in-game day that set belongs to. In memory only, by design - this is a small pacing
+    // nudge, not save state, and re-arming it on reload costs the player nothing. If
+    // GameQuery.CurrentDay is unreadable it returns a constant 0, in which case the set never
+    // rolls over and the bonus degrades to once per skill per SESSION rather than firing on
+    // every single gain.
+    private static readonly HashSet<string> _firstUseSkills = new(StringComparer.OrdinalIgnoreCase);
+    private static int _firstUseDay = int.MinValue;
 
     private static int _statArgIndex = 0;
     private static int _modificationArgIndex = 2;
@@ -78,8 +91,14 @@ internal static class MorningBonusPatch
         bool expMultOn = Plugin.SkillExpMultiplier > 1 || Plugin.EnablePerSkillMultipliers;
         bool synergiesOn = Plugin.SkillSynergiesEnabled;
         bool levelScalingOn = Plugin.LevelScalingEnabled;
+        bool firstUseOn = Plugin.DailyFirstUseBonusEnabled;
+        bool wellRestedOn = Plugin.WellRestedBonusEnabled;
+        bool lowConditionOn = Plugin.LowConditionPenaltyEnabled;
 
-        if (stat == null || (!morningOn && !familiarityOn && !expMultOn && !synergiesOn && !levelScalingOn))
+        // Every bonus this postfix can apply must be represented here. A bonus missing from
+        // this list is silently dead whenever it is the ONLY one enabled, with no log to say so.
+        if (stat == null || (!morningOn && !familiarityOn && !expMultOn && !synergiesOn
+            && !levelScalingOn && !firstUseOn && !wellRestedOn && !lowConditionOn))
         {
             yield return enumerator;
             yield break;
@@ -156,19 +175,111 @@ internal static class MorningBonusPatch
             // Fraction of max level already achieved (0.0 = just started, 1.0 = fully maxed).
             // Use `after` so the scaling reflects the level *after* this XP tick.
             float levelFraction = Math.Min(after / maxVal, 1f);
-            float levelBonus = Plugin.LevelScalingMaxBonus * levelFraction;
+            float levelBonus = Plugin.LevelScalingMaxBonus * ShapeLevelFraction(levelFraction);
             if (levelBonus > 0f)
                 multiplier *= (1f + levelBonus);
         }
 
-        if (multiplier <= 1f) yield break;
-
-        float bonus = delta * (multiplier - 1f);
-        float capped = Math.Min(after + bonus, maxVal);
-        if (capped > after)
+        // First gain for this skill today. Claimed only after the gain has already been
+        // confirmed as real skill XP, and after the per-skill "disabled" early-out above, so a
+        // skill set to 0x never burns its daily claim.
+        if (firstUseOn)
         {
-            SetCurrentValue(stat, capped, modification);
+            string firstUseKey = !string.IsNullOrWhiteSpace(resolvedSkillName) ? resolvedSkillName : uid;
+            if (!string.IsNullOrEmpty(firstUseKey) && ClaimFirstUseOfDay(firstUseKey))
+                multiplier *= Plugin.DailyFirstUseMultiplier;
         }
+
+        if (wellRestedOn && PlayerConditionService.IsWellRested(Plugin.WellRestedThreshold))
+            multiplier *= Plugin.WellRestedMultiplier;
+
+        // The one PENALTY in the stack: a sub-1.0 factor while any condition stat is low. It is
+        // the reason the write below has to be direction-aware - every other term here can only
+        // ever push the multiplier up.
+        if (lowConditionOn && PlayerConditionService.IsAnyConditionBelow(Plugin.LowConditionThreshold))
+            multiplier *= Plugin.LowConditionMultiplier;
+
+        // Ceiling on the composed total. Every bonus above is multiplicative, so a player who
+        // turns several on at once can reach a figure none of the individual sliders suggests
+        // (10x global by 1.5 morning by 1.3 familiarity by 1.5 synergy by 1.5 level scaling is
+        // already over 65x). Default 0 keeps the old uncapped behaviour untouched.
+        float cap = Plugin.MaxComposedMultiplier;
+        if (cap > 0f && multiplier > cap)
+        {
+            if (Plugin.LogMultiplierCapHits)
+            {
+                Logger?.LogInfo(
+                    $"[MultiplierCap] {resolvedSkillName ?? uid ?? "(unresolved skill)"}: " +
+                    $"{multiplier:F2}x exceeded the cap and was clamped to {cap:F2}x.");
+            }
+            else if (!_capHitLogged)
+            {
+                _capHitLogged = true;
+                Logger?.LogDebug(
+                    $"[MultiplierCap] first clamp this session ({multiplier:F2}x -> {cap:F2}x). " +
+                    "Set LogMultiplierCapHits=true to log every hit.");
+            }
+            multiplier = cap;
+        }
+
+        // A composed multiplier BELOW 1 is a penalty (low-condition suppression), so this cannot
+        // early-out on "not a bonus" the way it did while every term could only push the total up -
+        // that early-out would have discarded the whole penalty silently. Only a multiplier of
+        // exactly 1 (within float noise) is a no-op.
+        if (Math.Abs(multiplier - 1f) <= 0.0001f) yield break;
+
+        // Signed: negative whenever the penalty outweighs the bonuses. after + adjustment is
+        // before + delta * multiplier either way, so one expression serves both directions.
+        float adjustment = delta * (multiplier - 1f);
+        float target = Math.Min(after + adjustment, maxVal);
+
+        // A penalty scales down THIS gain; it never claws back XP the player already had. The
+        // configured multiplier range (0-1) cannot breach this, so it is a floor, not arithmetic.
+        if (target < before) target = before;
+
+        if (Math.Abs(target - after) > 0.0001f)
+        {
+            SetCurrentValue(stat, target, modification);
+        }
+    }
+
+    // ── Bonus shaping helpers ─────────────────────────────────────────────────
+
+    /// <summary>
+    /// Reshapes the 0-1 "how close to max level" fraction that level scaling multiplies by.
+    /// Linear is the shipped behaviour. EaseIn (f squared) stays small until a skill is well
+    /// along and then climbs, so it pays for pushing a skill toward its ceiling. EaseOut
+    /// (the mirror) climbs immediately and flattens, so it helps low-level skills most.
+    /// An unrecognised value falls through to Linear rather than disabling the feature.
+    /// </summary>
+    private static float ShapeLevelFraction(float fraction)
+    {
+        switch (Plugin.LevelScalingCurve)
+        {
+            case "EaseIn":
+                return fraction * fraction;
+            case "EaseOut":
+                float inverse = 1f - fraction;
+                return 1f - inverse * inverse;
+            default:
+                return fraction;
+        }
+    }
+
+    /// <summary>
+    /// Returns true exactly once per skill per in-game day. Rolls the ledger over whenever the
+    /// game's day counter changes, in either direction, so loading an earlier save re-arms the
+    /// bonus rather than stranding it.
+    /// </summary>
+    private static bool ClaimFirstUseOfDay(string skillKey)
+    {
+        int day = GameQuery.CurrentDay;
+        if (day != _firstUseDay)
+        {
+            _firstUseDay = day;
+            _firstUseSkills.Clear();
+        }
+        return _firstUseSkills.Add(skillKey);
     }
 
     // ── Reflection helpers ────────────────────────────────────────────────────
@@ -271,7 +382,22 @@ internal static class MorningBonusPatch
             if (Math.Abs(adjustment) <= 0.0001f) return;
 
             var targetField = GetValueFieldForModification(modification) ?? _currentBaseValueField;
-            if (targetField == null) return;
+            if (targetField == null)
+            {
+                // The last silent early-return on the write path (audit M1). Reaching it means
+                // EnsureModificationRoutingFields resolved NOTHING, not even CurrentBaseValue,
+                // which is the field-rename scenario the catch below breadcrumbs for the throwing
+                // case. Latched for the same reason: this sits on every XP write.
+                if (!_setCurrentValueFieldMissingLogged)
+                {
+                    _setCurrentValueFieldMissingLogged = true;
+                    Logger?.LogWarning(
+                        "[MorningBonus] No writable stat value field resolved (not even CurrentBaseValue) " +
+                        "- every XP bonus is being dropped silently. The InGameStat field names this mod " +
+                        "reflects have probably changed in a game update.");
+                }
+                return;
+            }
             float current = Convert.ToSingle(targetField.GetValue(stat));
             targetField.SetValue(stat, current + adjustment);
         }
@@ -304,9 +430,16 @@ internal static class MorningBonusPatch
             if (!string.IsNullOrEmpty(uid) && GameLoadPatch.SkillUniqueIds.Contains(uid))
                 return true;
 
-            // Fallback: UsesNovelty flag (true only on skill stats) — lives on the
-            // GameStat/StatModel definition, not the runtime InGameStat instance.
+            // Fallback: UsesNovelty, which lives on the GameStat/StatModel definition rather than
+            // the runtime InGameStat instance. It is NOT a skill test on its own: 10 of the 41
+            // vanilla stats that set it are not skills, and GameLoadPatch deliberately keeps 9 of
+            // them (Morale, Stress, Focus, Loneliness, ...) OUT of SkillUniqueIds - so for exactly
+            // those stats the primary lookup above misses and this fallback is what decides. Left
+            // bare it answered yes, and every multiplier in this postfix then applied to a mental
+            // stat: with area familiarity on by default, a Morale gain was scaled by the location
+            // bonus and also counted as a visit toward it.
             var statModel = StatAccess.GetStatModel(stat);
+            if (GameLoadPatch.IsIgnoredStatName(statModel)) return false;
             return Reflect.GetBool(statModel, "UsesNovelty", false);
         }
         catch (Exception ex)

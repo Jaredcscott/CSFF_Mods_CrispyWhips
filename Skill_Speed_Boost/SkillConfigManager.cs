@@ -101,6 +101,24 @@ public static class SkillConfigManager
         RegisterSkillEntries(config, skillName);
     }
 
+    /// <summary>
+    /// Raw per-skill multiplier as written in the config file, WITHOUT the fallback to the
+    /// global value that <see cref="GetSkillMultiplier"/> applies. Returns false when the skill
+    /// has no entry at all. Used by the effective-settings log to say whether a resolved
+    /// multiplier came from a per-skill override or from the global setting.
+    /// </summary>
+    public static bool TryGetRawSkillMultiplier(string skillKey, out int rawValue)
+    {
+        var normalized = NormalizeSkillKey(skillKey);
+        if (_skillMultipliers.TryGetValue(normalized, out var entry))
+        {
+            rawValue = entry.Value;
+            return true;
+        }
+        rawValue = 1;
+        return false;
+    }
+
     /// <summary>Returns true if this skill should use staleness decay (AND-ed with global flag).</summary>
     public static bool GetSkillUseStaleness(string skillKey)
     {

@@ -65,19 +65,28 @@ internal static class AreaFamiliarityService
     }
 
     /// <summary>
-    /// Returns the XP multiplier for the given location, ≥1.0. Linearly scales from 1.0 at 0 visits
-    /// up to (1 + AreaFamiliarityMaxBonus) at AreaFamiliarityVisitsForMaxBonus visits, then plateaus.
+    /// Returns the XP multiplier for the given location, ≥1.0. Scales from
+    /// (1 + AreaFamiliarityMinBonus) at 0 visits up to (1 + AreaFamiliarityMaxBonus) at
+    /// AreaFamiliarityVisitsForMaxBonus visits, then plateaus.
+    ///
+    /// AreaFamiliarityMinBonus defaults to 0, which collapses the formula back to the
+    /// original 1 + Max*ratio, so the default configuration is bit-for-bit the old behaviour.
+    /// Min is clamped to Max first: a config where Min exceeds Max would otherwise make the
+    /// ramp run backwards (a fresh location worth more than a well-known one).
     /// </summary>
     public static float GetMultiplier(string locationUid)
     {
         if (!Plugin.AreaFamiliarityEnabled) return 1f;
-        var visits = GetVisits(locationUid);
-        if (visits <= 0) return 1f;
 
         float maxBonus = Plugin.AreaFamiliarityMaxBonus;
+        float minBonus = Math.Min(Plugin.AreaFamiliarityMinBonus, maxBonus);
+
+        var visits = GetVisits(locationUid);
+        if (visits <= 0) return 1f + minBonus;
+
         int visitsForMax = Math.Max(1, Plugin.AreaFamiliarityVisitsForMaxBonus);
         float ratio = Math.Min(1f, (float)visits / visitsForMax);
-        return 1f + maxBonus * ratio;
+        return 1f + minBonus + (maxBonus - minBonus) * ratio;
     }
 
     public static void Save(bool forceWrite = false)
