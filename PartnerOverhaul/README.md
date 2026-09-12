@@ -4,7 +4,7 @@ Fixes a cluster of vanilla EA "Partner" companion NPC bugs, and ships opt-in dia
 handful more that are real but not yet root-caused. Ships zero new cards — every change here
 patches or mutates *existing* vanilla content.
 
-**Version:** 1.0.4
+**Version:** 1.0.5
 **Author:** Jared
 **Requires:** CSFFModFramework (soft dependency — for boot ordering only; no framework content is
 loaded by this mod)

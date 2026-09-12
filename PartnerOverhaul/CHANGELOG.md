@@ -1,5 +1,30 @@
 # Changelog
 
+## 1.0.5
+
+### Changed - log verbosity (pre-distribution pass)
+- **Both `[Diagnostics]` config options now default to OFF** (`Enable Diagnostics`,
+  `Enable Pouch Transfer Diagnostics`). They shipped ON in 1.0.4 to gather evidence for four
+  still-unconfirmed Partner bugs, but measured against a real 2-boot `LogOutput.log` they were
+  the single largest source of mod log output in the whole suite: 47 Info lines, of which the
+  `FindCardToEquip` equip trace alone accounted for 33. The diagnostics themselves are unchanged
+  and every one of their Info sites already honours the gate, so reproducing any of those four
+  bugs is still one config flip away. **If you are reporting one of those bugs, turn the matching
+  option back on and re-capture the log.**
+- Note for existing installs: BepInEx keeps the value already written in
+  `BepInEx/config/crispywhips.partner_overhaul.cfg`, so this new default only applies to fresh
+  installs. Existing users who want the quieter log must set both options to `false` themselves.
+- `[GameLoadPatch]` per-target duty attachment is now one aggregate Info line
+  (`attached N duty ref(s) to vanilla actions`) instead of 11 individual lines. The per-target
+  list is still available at Debug level.
+- `[WoodReserveListPatch]`'s startup config echo now logs at Info only when the reserved list is
+  NON-empty; the empty case (the shipped default, so the case every player hits) drops to Debug.
+  This partially reverses 1.0.4's decision to always echo the count: that rationale
+  (distinguishing "confirmed no-op by design" from "config never loaded") is preserved and is
+  still observable by enabling Debug logging.
+- `[WoundStacking]`'s per-suppressed-wound line drops to Debug; it fired once per suppressed
+  wound during combat.
+
 ## 1.0.4
 
 ### Diagnostics -- no behavior change

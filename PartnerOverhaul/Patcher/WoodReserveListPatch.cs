@@ -52,13 +52,16 @@ namespace PartnerOverhaul.Patcher
             {
                 // Config-echo diagnostic, same class as the framework's own
                 // "LocalizationLoader: language=" line -- state the count on the FIRST
-                // evaluation every run, even when it is zero, so an empty (default) list
-                // reads as "confirmed no-op by design" rather than silence that could mean
-                // the config never loaded at all.
+                // evaluation every run, so a configured list reads as "confirmed loaded".
+                // The EMPTY case is the shipped default, so it is Debug rather than Info:
+                // it would otherwise cost every player a log line to say nothing happened.
+                // The "confirmed no-op by design vs. config never loaded" distinction it was
+                // written for is still available by enabling Debug logging.
                 _loggedInitialCount = true;
-                Logger.LogInfo(_reservedUids.Count > 0
-                    ? $"[WoodReserveListPatch] Reserved fuel/wood UIDs: {_reservedUids.Count} ({string.Join(", ", _reservedUids)})"
-                    : "[WoodReserveListPatch] Reserved fuel/wood UIDs: 0 (list empty; the reserve filter is a no-op)");
+                if (_reservedUids.Count > 0)
+                    Logger.LogInfo($"[WoodReserveListPatch] Reserved fuel/wood UIDs: {_reservedUids.Count} ({string.Join(", ", _reservedUids)})");
+                else
+                    Logger.LogDebug("[WoodReserveListPatch] Reserved fuel/wood UIDs: 0 (list empty; the reserve filter is a no-op)");
             }
             else if (_reservedUids.Count > 0)
             {

@@ -15,20 +15,20 @@ namespace PartnerOverhaul
     {
         private const string PluginGuid = "crispywhips.partner_overhaul";
         public const string PluginName = "PartnerOverhaul";
-        public const string PluginVersion = "1.0.4";
+        public const string PluginVersion = "1.0.5";
 
         internal new static BepInEx.Logging.ManualLogSource Logger;
         internal static Plugin Instance { get; private set; }
         private static Harmony _harmony;
 
         // Phase 2 — diagnostics for the still-unconfirmed bugs (fishing line, brain-tanning,
-        // clothes/temperature, cauldron ownership). Default ON for this first release so real
-        // fixes can be built from a returned LogOutput.log instead of guessing.
+        // clothes/temperature, cauldron ownership). Default OFF as of 1.0.5: shipping these ON
+        // put ~46 Info lines per boot into every player's log (the FindCardToEquip equip trace
+        // alone fired 16x/boot). Ask a reporter to flip this on and re-capture instead.
         public static ConfigEntry<bool> EnableDiagnostics { get; private set; }
 
         // Diagnostics for the still-unconfirmed Pouch/acorn-flour stacking math bug — separate
-        // subsystem/toggle from EnableDiagnostics above. Default ON for the same reason: safe,
-        // gathers evidence for a future fix.
+        // subsystem/toggle from EnableDiagnostics above. Default OFF for the same reason.
         public static ConfigEntry<bool> EnablePouchDiagnostics { get; private set; }
 
         // Phase 4 — small opt-in QoL additions, default OFF (these are new features / design
@@ -47,14 +47,14 @@ namespace PartnerOverhaul
             EnableDiagnostics = Config.Bind(
                 "Diagnostics",
                 "Enable Diagnostics",
-                true,
-                "Log extra LogInfo detail for a handful of still-unconfirmed Partner bugs (fishing line, brain-tanning, clothes/temperature, cauldron ownership). Safe to leave on — used to gather evidence for future fixes.");
+                false,
+                "Log extra LogInfo detail for a handful of still-unconfirmed Partner bugs (fishing line, brain-tanning, clothes/temperature, cauldron ownership). Default OFF: the FindCardToEquip trace fires on every equip re-evaluation and dominated the log. TURN THIS ON before capturing a LogOutput.log for any of those four bug reports.");
 
             EnablePouchDiagnostics = Config.Bind(
                 "Diagnostics",
                 "Enable Pouch Transfer Diagnostics",
-                true,
-                "Log extra LogInfo detail for the reported Pouch/acorn-flour stacking math bug (generic liquid-transfer clamp). Safe to leave on — used to gather evidence for a future fix.");
+                false,
+                "Log extra LogInfo detail for the reported Pouch/acorn-flour stacking math bug (generic liquid-transfer clamp). Default OFF. TURN THIS ON before capturing a LogOutput.log for that bug report.");
 
             ReduceNPCMoveCosts = Config.Bind(
                 "QoL (opt-in feature, not a bug fix)",

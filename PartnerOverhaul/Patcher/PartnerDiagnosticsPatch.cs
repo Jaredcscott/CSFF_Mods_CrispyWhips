@@ -5,7 +5,8 @@ namespace PartnerOverhaul.Patcher
     /// (fishing-line AI freeze, brain-tanning stuck-on-first-hide, clothes/carry-weight/temperature,
     /// cauldron ownership reset). No behavior changes — this exists to gather a real
     /// LogOutput.log so a future fix can be built from evidence instead of a guess, per root
-    /// CLAUDE.md's Debugging Discipline. Gated by Plugin.EnableDiagnostics (default ON).
+    /// CLAUDE.md's Debugging Discipline. Gated by Plugin.EnableDiagnostics (default OFF since
+    /// 1.0.5 — every Info site below honours that gate; ask a reporter to enable it).
     /// </summary>
     public static class PartnerDiagnosticsPatch
     {

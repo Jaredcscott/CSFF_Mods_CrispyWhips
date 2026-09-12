@@ -47,14 +47,23 @@ namespace PartnerOverhaul.Patcher
             Logger.LogDebug("GameLoadPatch applied.");
         }
 
+        // Counts duty refs appended across the whole load pass so the per-target detail can stay
+        // at Debug and still be summarised in one Info line. Reset per pass: LoadMainGameData
+        // runs again on every return to the main menu.
+        private static int _dutyRefsAdded;
+
         private static void LoadMainGameData_Postfix()
         {
+            _dutyRefsAdded = 0;
             try { FixStewBrothEating(); } catch (Exception ex) { Logger.LogError($"[GameLoadPatch] FixStewBrothEating failed: {ex}"); }
             try { FixCleaningGap(); } catch (Exception ex) { Logger.LogError($"[GameLoadPatch] FixCleaningGap failed: {ex}"); }
             try { FixGardenOverwatering(); } catch (Exception ex) { Logger.LogError($"[GameLoadPatch] FixGardenOverwatering failed: {ex}"); }
             try { FixFireplaceFuelGap(); } catch (Exception ex) { Logger.LogError($"[GameLoadPatch] FixFireplaceFuelGap failed: {ex}"); }
             try { FixStrayDefecateButton(); } catch (Exception ex) { Logger.LogError($"[GameLoadPatch] FixStrayDefecateButton failed: {ex}"); }
             try { FixPartnerEnergyVisibility(); } catch (Exception ex) { Logger.LogError($"[GameLoadPatch] FixPartnerEnergyVisibility failed: {ex}"); }
+
+            if (_dutyRefsAdded > 0)
+                Logger.LogInfo($"[GameLoadPatch] attached {_dutyRefsAdded} duty ref(s) to vanilla actions (enable Debug logging for the per-target list).");
         }
 
         // ── Fix 1: stew/broth "Drink" is invisible to the Eat duty engine ──────────────────
@@ -203,7 +212,10 @@ namespace PartnerOverhaul.Patcher
             Array.Copy(existing, newArr, existing.Length);
             newArr[existing.Length] = MakeDutyRef(duty);
             action.CompatibleNPCDuties = newArr;
-            Logger.LogInfo($"[GameLoadPatch] {context}: added {dutyLabel} to CompatibleNPCDuties.");
+            _dutyRefsAdded++;
+            // Per-target detail is Debug (12 targets = 12 Info lines every boot); the caller
+            // emits one aggregate Info line instead. Per CLAUDE.md § Mod Logging Norms.
+            Logger.LogDebug($"[GameLoadPatch] {context}: added {dutyLabel} to CompatibleNPCDuties.");
         }
 
         private static NPCDutyOrDutyTagRef MakeDutyRef(NPCDuty duty)

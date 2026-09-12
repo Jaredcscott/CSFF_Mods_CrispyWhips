@@ -127,7 +127,8 @@ namespace PartnerOverhaul.Patcher
                 if (Plugin.ConsolidateWounds != null && Plugin.ConsolidateWounds.Value
                     && _Card != null && IsWoundAlreadyPresent(_List, _Card))
                 {
-                    Logger.LogInfo($"[WoundStacking] Suppressed duplicate wound '{_Card.UniqueID}' "
+                    // Per-event, fires on every suppressed wound: Debug, not Info.
+                    Logger.LogDebug($"[WoundStacking] Suppressed duplicate wound '{_Card.UniqueID}' "
                         + "— an instance of this wound is already equipped.");
                     return;
                 }
