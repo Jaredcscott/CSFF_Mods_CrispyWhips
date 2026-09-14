@@ -8,7 +8,7 @@
         "LocalizationKey": "CMC_ProfAppliedHerbalism_CardDescription",
         "DefaultText": "Now that you've graduated Herbalism, the Professor wants to see it put to use — four properly dried nettle leaves, processed by your own hand, for a follow-up lecture."
     },
-    "CardImageWarpData": "NettleLeavesDried",
+    "CardImageWarpData": "Nettle_Leaves",
     "CardImageWarpType": 3,
     "CardType": 7,
     "StartUnlocked": false,

@@ -1,6 +1,7 @@
 {
   "UniqueID": "cmcTownWoodPile",
   "CardType": 2,
+  "AlwaysUpdate": false,
   "CardName": {
     "DefaultText": "Town Wood Pile",
     "LocalizationKey": "CMC_TownWoodPile_CardName"

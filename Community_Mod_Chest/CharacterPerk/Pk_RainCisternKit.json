@@ -1,5 +1,8 @@
 {
   "UniqueID": "traits_perk_extra_rain_cistern_kit",
+  "NoSafetyMode": false,
+  "EquippedCardsWarpData": [],
+  "EquippedCardsWarpType": 3,
   "StartUnlocked": true,
   "ActionObjectives": [],
   "CombatObjectives": [],

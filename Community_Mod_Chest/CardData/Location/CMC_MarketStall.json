@@ -13,7 +13,8 @@
   "CardImageWarpData": "CMC_MarketStall",
   "CardImageWarpType": 3,
   "CardHelpSection": {
-    "DefaultText": "Market Stall"
+    "DefaultText": "Market Stall",
+    "LocalizationKey": "CMC_MarketStall_CardHelpSection"
   },
   "CardTagsWarpData": ["tag_Structure"],
   "CardTagsWarpType": 3,

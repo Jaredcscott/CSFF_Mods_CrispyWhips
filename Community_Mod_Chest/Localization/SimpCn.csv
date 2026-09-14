@@ -150,7 +150,7 @@ Pottery_Sculpture_Bp_FigurineDragon_CardDescription,Sculpt a small dragon from c
 Pottery_Sculpture_Bp_FigurineDragon_UnlockConditionsDesc,Bring the Professor metal nuggets for his dragon cast,为教授的巨龙铸像带来金属块
 Pottery_Sculpture_Bp_FigurineBear_CardName,Bear Figurine,熊形陶像
 Pottery_Sculpture_Bp_FigurineBear_CardDescription,Sculpt a small bear from clay using a knife.,用小刀把陶土雕成一只小熊。
-Pottery_Sculpture_Bp_FigurineBear_UnlockConditionsDesc,Clay Needed,需要粘土
+Pottery_Sculpture_Bp_FigurineBear_UnlockConditionsDesc,Earn the Miller's trust,赢得磨坊主的信任
 Pottery_Sculpture_ClayBeads_CardName,Clay Beads,陶珠
 Pottery_Sculpture_ClayBeads_CardDescription,A string of small handcrafted clay beads strung on twine. Worn as a necklace or traded as decorative goods.,一串用麻绳穿起的手工陶珠，可作项链佩戴，也可作装饰品交易。
 Pottery_Sculpture_ClayBeads_UsageDurability,Durability,耐久度
@@ -417,7 +417,7 @@ Pottery_Sculpture_StoneTiles_CardName,Stone Tiles,石砖
 Pottery_Sculpture_StoneTiles_CardDescription,"Flat stone pieces chipped and shaped smooth, a mark of skilled craftsmanship. Can be laid as a tiled floor in cabins and mud huts, or sold as a modest trade good.",经过精心凿磨、打磨光滑的扁平石块，是精湛工艺的体现。可铺设在小屋和泥屋中作为地板，也可作为普通商品出售。
 Pottery_Sculpture_Bp_StoneTiles_CardName,Stone Tiles,石砖
 Pottery_Sculpture_Bp_StoneTiles_CardDescription,"Chip a stone flat and square. Produces several polished tiles that can be laid as flooring in cabins and mud huts, or sold in trade.",把石头凿成扁平方正的形状，可制成多块抛光石砖，用作小屋和泥屋的地板，也可用于交易。
-Pottery_Sculpture_Bp_StoneTiles_UnlockConditionsDesc,Stone Needed,需要石头
+Pottery_Sculpture_Bp_StoneTiles_UnlockConditionsDesc,Help the Miller with good lumber,用优质木材帮助磨坊主
 Pottery_Sculpture_HerbPaste_CardName,Herb Paste,草药糊
 Pottery_Sculpture_HerbPaste_CardDescription,"A thick paste ground from wild garlic and old growth bark in a stone mortar. Has a sharp, bitter flavor but eases the body and lifts the spirits.",用石臼将野蒜和古树皮研磨成的浓稠糊状物，味道辛辣苦涩，却能舒缓身体、提振精神。
 Pottery_Sculpture_HerbPaste_Spoiled,The herb paste has gone rancid.,草药膏已经变质腐坏。
@@ -2221,6 +2221,8 @@ CMC_BoardTown_DA_crime_warrant_Desc,Whispers around the square say a warrant mig
 CMC_CopperChestMiller_CI_Restitution,Make It Right,弥补过错
 CMC_CopperChestMiller_CI_Restitution_Desc,"Drag Salt or a Metal Nugget onto the chest as restitution. It will not undo what was taken, but it goes some way toward clearing your name with the Watch.",将盐或铜块拖到箱子上作为赔偿。这无法挽回被拿走的东西，但多少能帮你在治安队那里挽回一点名声。
 CMC_InnInteriorLocation_CardDescription,"The common room hums with warmth from the hearth, worn floorboards, and the smell of the evening meal. Easy to lose track of time here.",大堂里回荡着炉火的暖意、磨旧的地板和晚餐的香气，让人不知不觉忘了时间。
+CMC_JailCellLocation_CardDescription,"Cold stone on three sides and iron bars on the fourth. A thin bed, a ration tray, and a great deal of time to think about what put you here.",三面是冰冷的石墙，第四面是铁栏杆。一张薄床、一个口粮托盘，还有大把时间让你反省自己因何落到这般田地。
+CMC_VillageHallInteriorLocation_CardDescription,"The hall's back room, where the village pins up what it wants read. Notices crowd the boards, some official, some barely legible.",议事厅的后屋，村子把想让人看的东西都钉在这里。告示挤满了布告板，有的正式，有的几乎难以辨认。
 CMC_MarketStall_DA_SetUpAwning_ActionName,Set Up Awning,支起遮篷
 CMC_MarketStall_DA_SetUpAwning_ActionDescription,Add a striped awning and bunting to dress up the stall for market days.,加装一顶条纹遮篷和彩旗，为集市日装点摊位。
 CMC_MillerCottageInteriorLocation_CardDescription,"Flour dust hangs in the warm air of the Miller's cottage, and the hearth crackles steadily. It's hard not to slow down and stay a while.",磨坊主小屋里弥漫着温暖的面粉尘，炉火噼啪作响，让人不由得放慢脚步，多留一会儿。
@@ -2327,6 +2329,7 @@ CMC_DeadfallSouth_CI_Chop_ActionDescription,Chop through the fallen trunk blocki
 CMC_MarketStallDressed_CardName,Market Stall,集市摊位
 CMC_MarketStallDressed_CardDesc,"A small trading post set up in the village, dressed with a striped awning and hanging bunting for market days. Drop trade goods into the stall; merchants will purchase one item per day, building up your Sales Revenue bar. Collect earnings as copper nuggets (50 revenue each) or salt (30 revenue each). Thieves occasionally target unattended stalls.",一处架设在村庄内的小型交易点，为集市日装点了条纹遮篷和悬挂的彩旗。将交易货物投入摊位；商人每天会购买一件商品，累积你的销售收益条。以铜块（每份50收益）或盐（每份30收益）的形式收取收益。无人看管的摊位偶尔会遭窃贼光顾。
 CMC_MarketStallDressed_CardHelpSection,Market Stall,集市摊位
+CMC_MarketStall_CardHelpSection,Market Stall,集市摊位
 CMC_MarketStallDressed_SD1_Name,Sales Revenue,销售收益
 CMC_MarketStallDressed_DA_CollectCopper,Collect as Copper,收取铜块
 CMC_MarketStallDressed_DA_CollectSalt,Collect as Salt,收取盐

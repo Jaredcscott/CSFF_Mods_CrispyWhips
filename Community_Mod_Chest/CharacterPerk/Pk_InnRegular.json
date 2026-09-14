@@ -1,5 +1,10 @@
 {
     "UniqueID": "cmcperkinnregular",
+    "NoSafetyMode": false,
+    "AddedCardsWarpData": [],
+    "AddedCardsWarpType": 3,
+    "EquippedCardsWarpData": [],
+    "EquippedCardsWarpType": 3,
     "StartUnlocked": true,
     "ActionObjectives": [],
     "CombatObjectives": [],

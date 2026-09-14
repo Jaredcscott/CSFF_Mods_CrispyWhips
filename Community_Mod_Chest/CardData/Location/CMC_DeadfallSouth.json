@@ -16,7 +16,7 @@
   "CardHelpSection": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
   "CardBackground": { "m_FileID": 0, "m_PathID": 0 },
-  "CardImageWarpData": "TreeLog",
+  "CardImageWarpData": "Log",
   "CardImageWarpType": 3,
   "ShowImageAboveTitle": false,
   "CardType": 2,

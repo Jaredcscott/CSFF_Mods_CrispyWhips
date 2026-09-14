@@ -1,6 +1,10 @@
 {
   "UniqueID": "cmcJailCellLocation",
   "CardType": 8,
+  "CardDescription": {
+    "LocalizationKey": "CMC_JailCellLocation_CardDescription",
+    "DefaultText": "Cold stone on three sides and iron bars on the fourth. A thin bed, a ration tray, and a great deal of time to think about what put you here."
+  },
   "InstancedEnvironment": false,
   "UniqueOnBoard": true,
   "AlwaysUpdate": false,

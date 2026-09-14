@@ -772,7 +772,7 @@
         "cmchomesteadraincisternkit",
         "traits_perk_extra_rain_cistern_kit"
       ],
-      "notes": "Founders Kit (character-creation perk, SunsCost 100) now grants ONE 'Homestead Kit' card (avoids the old inline-inventory 4000-Encumbrance-cap blowout); Place unpacks it into a cabin kit, two rain cistern kits, and a full material stockpile. The extra-cistern perk is "Extra Rain Cistern Kit" (traits_perk_extra_rain_cistern_kit): renamed and re-UIDed in 1.68.20 because it collided with HomesteadPerks' own "Rain Cistern Kit" by BOTH display name and, via MainMenu's substring match on equipped perks, by UID. CMC 1.52.0 moved the mod's other 7 starter-kit perks out to the standalone HomesteadPerks mod (hsp* UIDs) - that split is structurally done but not yet confirmed in-game (CMC-HSP-compat retro)."
+      "notes": "Founders Kit (character-creation perk, SunsCost 100) now grants ONE 'Homestead Kit' card (avoids the old inline-inventory 4000-Encumbrance-cap blowout); Place unpacks it into a cabin kit, two rain cistern kits, and a full material stockpile. The extra-cistern perk is \"Extra Rain Cistern Kit\" (traits_perk_extra_rain_cistern_kit): renamed and re-UIDed in 1.68.20 because it collided with HomesteadPerks' own \"Rain Cistern Kit\" by BOTH display name and, via MainMenu's substring match on equipped perks, by UID. CMC 1.52.0 moved the mod's other 7 starter-kit perks out to the standalone HomesteadPerks mod (hsp* UIDs) - that split is structurally done but not yet confirmed in-game (CMC-HSP-compat retro)."
     },
     {
       "name": "Starting Traits - Potter's Apprentice & Caravan Peddler",

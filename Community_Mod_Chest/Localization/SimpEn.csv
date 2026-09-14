@@ -134,7 +134,7 @@ Pottery_Sculpture_Bp_FigurineDragon_CardDescription,Sculpt a small dragon from c
 Pottery_Sculpture_Bp_FigurineDragon_UnlockConditionsDesc,Bring the Professor metal nuggets for his dragon cast
 Pottery_Sculpture_Bp_FigurineBear_CardName,Bear Figurine
 Pottery_Sculpture_Bp_FigurineBear_CardDescription,Sculpt a small bear from clay using a knife.
-Pottery_Sculpture_Bp_FigurineBear_UnlockConditionsDesc,Clay Needed
+Pottery_Sculpture_Bp_FigurineBear_UnlockConditionsDesc,Earn the Miller's trust
 Pottery_Sculpture_ClayBeads_CardName,Clay Beads
 Pottery_Sculpture_ClayBeads_CardDescription,A string of small handcrafted clay beads strung on twine. Worn as a necklace or traded as decorative goods.
 Pottery_Sculpture_ClayBeads_UsageDurability,Durability
@@ -357,7 +357,7 @@ Pottery_Sculpture_StoneTiles_CardName,Stone Tiles
 Pottery_Sculpture_StoneTiles_CardDescription,"Flat stone pieces chipped and shaped smooth, a mark of skilled craftsmanship. Can be laid as a tiled floor in cabins and mud huts, or sold as a modest trade good."
 Pottery_Sculpture_Bp_StoneTiles_CardName,Stone Tiles
 Pottery_Sculpture_Bp_StoneTiles_CardDescription,"Chip a stone flat and square. Produces several polished tiles that can be laid as flooring in cabins and mud huts, or sold in trade."
-Pottery_Sculpture_Bp_StoneTiles_UnlockConditionsDesc,Stone Needed
+Pottery_Sculpture_Bp_StoneTiles_UnlockConditionsDesc,Help the Miller with good lumber
 Pottery_Sculpture_HerbPaste_CardName,Herb Paste
 Pottery_Sculpture_HerbPaste_CardDescription,"A thick paste ground from wild garlic and old growth bark in a stone mortar. Has a sharp, bitter flavor but eases the body and lifts the spirits."
 Pottery_Sculpture_HerbPaste_Spoiled,The herb paste has gone rancid.
@@ -2129,6 +2129,8 @@ CMC_BoardTown_DA_crime_warrant_Desc,Whispers around the square say a warrant mig
 CMC_CopperChestMiller_CI_Restitution,Make It Right
 CMC_CopperChestMiller_CI_Restitution_Desc,"Drag Salt or a Metal Nugget onto the chest as restitution. It will not undo what was taken, but it goes some way toward clearing your name with the Watch."
 CMC_InnInteriorLocation_CardDescription,"The common room hums with warmth from the hearth, worn floorboards, and the smell of the evening meal. Easy to lose track of time here."
+CMC_JailCellLocation_CardDescription,"Cold stone on three sides and iron bars on the fourth. A thin bed, a ration tray, and a great deal of time to think about what put you here."
+CMC_VillageHallInteriorLocation_CardDescription,"The hall's back room, where the village pins up what it wants read. Notices crowd the boards, some official, some barely legible."
 CMC_MarketStall_DA_SetUpAwning_ActionName,Set Up Awning
 CMC_MarketStall_DA_SetUpAwning_ActionDescription,Add a striped awning and bunting to dress up the stall for market days.
 CMC_MillerCottageInteriorLocation_CardDescription,"Flour dust hangs in the warm air of the Miller's cottage, and the hearth crackles steadily. It's hard not to slow down and stay a while."
@@ -2229,6 +2231,7 @@ CMC_DeadfallSouth_CI_Chop_ActionDescription,Chop through the fallen trunk blocki
 CMC_MarketStallDressed_CardName,Market Stall
 CMC_MarketStallDressed_CardDesc,"A small trading post set up in the village, dressed with a striped awning and hanging bunting for market days. Drop trade goods into the stall; merchants will purchase one item per day, building up your Sales Revenue bar. Collect earnings as copper nuggets (50 revenue each) or salt (30 revenue each). Thieves occasionally target unattended stalls."
 CMC_MarketStallDressed_CardHelpSection,Market Stall
+CMC_MarketStall_CardHelpSection,Market Stall
 CMC_MarketStallDressed_SD1_Name,Sales Revenue
 CMC_MarketStallDressed_DA_CollectCopper,Collect as Copper
 CMC_MarketStallDressed_DA_CollectSalt,Collect as Salt

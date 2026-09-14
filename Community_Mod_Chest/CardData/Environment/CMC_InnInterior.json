@@ -39,6 +39,11 @@
       "DroppedCardWarpData": "cmcCopperChestInnKeeper",
       "DroppedCardWarpType": 3,
       "Quantity": { "x": 1, "y": 1 }
+    },
+    {
+      "DroppedCardWarpData": "cmcBoardAchievements",
+      "DroppedCardWarpType": 3,
+      "Quantity": { "x": 1, "y": 1 }
     }
   ],
   "PassiveEffects": [

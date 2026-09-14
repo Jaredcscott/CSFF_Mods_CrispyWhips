@@ -355,3 +355,155 @@ runtime-evidence gate, and the freshest local save cannot corroborate the T1.59 
   trim); T1.56 via T1.81 (framework card-on-card dispatch); T2.101 and T2.232 (Sheep Pen, without
   and with a wolf); plus the section 3 rows T2.89, T2.90, T2.212, T2.149, T2.137, T1.51, T2.113.
   All present in `.claude/playthrough-test-status.json`.
+
+### 2026-09-12 - Release_Hardening_Plan (Phases 1-3 of 4)
+
+- **Verdict:** 8 Phase 1 rows, 2 Phase 2 rows, 2 Phase 3 rows, 5 Phase 4 rows. **Phases 1-3 are
+  complete and pruned out of the plan doc; Phase 4 remains and is BLOCKED on a human reproduction.**
+  Phase 1: 4 rows BUILT in CMC 1.68.24 (H2, H3, H4, H6), 3 rows REFUTED and deliberately not built
+  (H1/W3, H5/W18, H7/W8+M1), 1 row closed by owner decision (H8/M2). Phase 2: both rows landed, the
+  audit re-scored 8/10 -> 9/10. Phase 3: both rows closed as "precondition never met, diagnostic
+  retained", which this plan's own Done gate allows; BOTH diagnostics stay in the tree. Phase 4: 0
+  of 5 rows buildable today, so the plan doc stays in `Documentation/Plans/`.
+- **Disposition:** KEEP (pruned). Not DELETE and not ARCHIVE: A2-A5 are genuine unbuilt code work,
+  so `Documentation/Plans/` still answers "what needs building?" truthfully for this file. Phases
+  1-3 were deleted from the doc per `Documentation/Plans/README.md`'s no-finished-work-history rule;
+  A1 was collapsed to a one-line pointer at its tracker row, per the same README's section rule.
+- **Pruned:** the whole of Phases 1, 2 and 3 plus their ground rules, and the Phase 4 A1
+  reproduction procedure (now `T2.236`). Nothing was erased: every refutation's evidence is written
+  into `Community_Mod_Chest/.audit/summary.md` against its own finding row and into the CMC 1.68.24
+  CHANGELOG entry, and both Phase 3 preconditions are written into their tracker rows in full.
+- **Verification debt filed:** `T2.236` (Achievement Board reproduction on a dev build, carrying the
+  whole static clearance so nobody re-checks it) and `T2.237` (companion-follow observation window,
+  carrying the correction to BOTH mistaken readings of the live log). Tracker went 151 -> 153 rows,
+  `git diff --numstat` +18/-0.
+- **Evidence:** Phase 1 (built). `CMC_AshBoarTrail.json` `git mv`'d `CardData/Item/` ->
+  `CardData/Location/`; it is `CardType: 2`, and `CSFFModFramework/Loading/JsonDataLoader.cs`
+  `DirToTypeName` was read in full to confirm it keys on the top-level `CardData` folder only, so
+  the subfolder is organisational and the unchanged UniqueID `cmcAshBoarTrail` means saves are
+  unaffected. `CMC_TownWoodPile.json` given an explicit `"AlwaysUpdate": false`: its 4 siblings were
+  identified by reading the `cmcEnvVillage` node's `ConditionalDrops` list in
+  `WorldMap/MapNodes.json` (`cmcInn`, `cmcAcademy`, `cmcJail` and one GUID entry, all `ForceStay:
+  true`), and the 3 named ones were confirmed to carry `AlwaysUpdate=False` already;
+  `CSFFModFramework/Injection/ConditionalDropService.cs` `RegisterNode` was read to confirm it
+  already forced that value, so the change is provably zero-runtime. Two `CardDescription` blocks
+  added with one `SimpEn.csv` and one `SimpCn.csv` row each in the same commit;
+  `Check-LocalizationParity.ps1` CLEAN at **2280/2280** across the fleet. 20 `Pk_*.json` files given
+  their missing keys, after reading `CSFFModFramework/Data/WarpResolver.cs:233` to confirm the
+  warpType-3 path skips an already-populated array, and after confirming the only 2 perks with
+  populated warp arrays were not missing those keys. Every JSON write ran through a guarded script
+  that asserted each anchor matched exactly once, re-parsed the result, compared the parsed object
+  against the pre-image field by field, and asserted the line-ending delta; 3 files whose byte
+  format could not be reproduced were refused by that guard and rewritten by targeted textual
+  insert instead. Build 0 warnings 0 errors; commit `8d5656afa`, 60 files, +141/-43, staged numstat
+  compared against the commit's own and matching exactly.
+- **Evidence, Phase 1 (refuted, and each would have shipped a regression or pure churn).** W3: read
+  `.decomp/CharacterPerk.cs` and found `public int StarsCost` at line 11, plus `IsPurchasable`
+  returning `StarsCost > 0` when `SunsCost` and `MoonsCost` are both 0, which is exactly
+  `Perk_Claws` (0/0/1). The row asked for the key to be DELETED; that would have made the trait
+  unpurchasable. Only the key's alphabetical position was actually wrong. W18: traced the single
+  consumer `CSFFModFramework/Api/GameQuery.cs:306-336` to `EnvID.MainEnvCard`, read
+  `.decomp/EnvID.cs` to confirm that field, then proved it is the CT4 by finding `CMC_Inn.json`'s
+  travel DismantleAction dropping `cmcInnInterior` (CT4), and confirmed all 7 CT4 partners already
+  carry `tag_EnvIndoors` while `EncounterGuards/CMC_InteriorsNoWildlife.json` keys on those same 7
+  CT4 UIDs by name rather than by tag. A sweep of all 14 mods found **0** cards of any CardType
+  carrying an environment tag on a CT8. The vanilla JSON export was checked first and discarded as
+  evidence: it serialises no resolved tags at all (0 hits across 2841 files), the same misleading-
+  precedent trap CLAUDE.md records for `InventorySlots`. W8/M1: swept all **79** `Bp_*.json` for
+  the classes that actually have a runtime consequence and found **0** over the `BuildingDaytimeCost`
+  cap, **0** `*WarpData` missing its `*WarpType` sibling, **0** `(0,0)` result quantities, and all
+  **38** files lacking a `CardImage` key carrying a resolvable `CardImageWarpData` instead.
+- **Evidence, Phase 2 (re-score).** The red-retrospective term went to zero. Verified by PARSING the
+  status column of `Documentation/Retrospectives/INDEX.md` rather than grepping the glyph: 0 red, 13
+  yellow, 9 graduated. A raw grep returns 1 red, and that single match is a prose mention inside
+  `cmc-village-hearth-fuel-not-refilling`'s own row describing a status corrected on 2026-09-05,
+  which is exactly the false-positive shape CLAUDE.md's measurement rule warns about. This was
+  already predicted in summary.md's own Retrospective Status section on 2026-09-09.
+  Score = 10 - 0 (red retro) - 0 (CMC-owned DESIGN GAP) - 1 (5 open WARNINGs, flat threshold) =
+  **9/10**. The open-row count was then verified by classifying all 26 W/M rows and asserting the
+  classified count equalled the input count, so a silently-unparsed row could not inflate the
+  result: 21 closed, 5 open (`W10`, `W12`, `W13`, `W14`, `W15`), 0 open minors. Each of the 5
+  survivors carries a written reason it stays open, which is R2's stated alternative acceptance;
+  4 of the 5 are human-verification debt and the fifth is structural.
+- **Evidence, Phase 3 (both preconditions unmet, both diagnostics retained).** D2: the retro
+  `cmc-guard-combat-no-damage` reads yellow Pending Verification in INDEX.md and needs `T4.35`,
+  which is a human reading a guard fight's `Approach <EncounterName>` line. Untouched. D1: this row
+  named a `Player-prev.log` line as candidate confirming evidence. Read the LIVE
+  `BepInEx/LogOutput.log` (the repo-root copy is a stale 539,086-byte partial against the live
+  565,839 bytes, per CLAUDE.md's deploy-verify rule) and found BOTH obvious readings wrong. The
+  "(caught up)" line at 3245 fires while the player env is `2b19b942a09fdd148a43798e942a74eb`, a
+  VANILLA env, so it proves nothing about CMC nodes. The later "NOT in the player's env" line at
+  3565 looks like proof the bug is live, but the session ended 358 lines later with ZERO further env
+  changes, and the diagnostic logs only on a stuck<->caught-up transition (15s poll, dedup key
+  "same"/"diff", confirmed by reading `CompanionFollowDiagnostics.Run`), so no second sample was
+  ever taken. The genuinely new result is in that dump's move-probe:
+  `MoveDestination=MoveToPlayer mapPath.IsValid=True StepCount=2 End=cmcEnvVillagePath`, i.e. A*
+  into a CMC node RESOLVES and the `MapDict` root cause this diagnostic was written for IS fixed.
+  What blocks `PartnerDuty_Follow` now is "Conditions are not valid", and that duty has exactly ONE
+  non-default condition, `InBackground`, confirmed from the vanilla NPCDuty export;
+  `.decomp/GeneralCondition.cs:237` force-fails any duty carrying `InBackground`/`NotInBackground`
+  while `GameManager.IsTravelling`, which is a plausible benign explanation for a sample taken at
+  the moment of arrival. All of this is written into `T2.237` so the next reader does not repeat
+  either mistake.
+- **Evidence, Phase 4 (not built, and why no fix was attempted).** The whole static surface was
+  cleared and came back clean: 22 DAs forming 11 locked/earned pairs, each with `AlwaysShow: true`,
+  a unique `ActionName.DefaultText` and a unique `LocalizationKey` (so the
+  `InspectionPopup._AlreadyDisplayedActions` same-name dedupe is ruled out); 44 CSV rows present in
+  BOTH `SimpEn.csv` and `SimpCn.csv` with 22 distinct English `_Name` values and 0 duplicates; all
+  **79** `cmcStatAch*` UniqueIDs referenced by the card and by the three patches resolving to
+  shipped `GameStat/` files with 0 typos and 0 orphans; and the hide mechanism correct by default,
+  traced through `.decomp/DismantleActionButton.cs` (hides when `StatsAreCorrect` is false AND
+  `MissingStats` is empty) and `.decomp/CardAction.cs:1051` `StatsAreCorrect` (leaves `MissingStats`
+  empty when neither `HideAllWhenNotMet` nor `NotifyWhenNotMet` is set, which is this card's case).
+  `VillageHallBoardsPatch` was found ALREADY enabled in `Plugin.cs` and already owning
+  `cmcBoardAchievements` including the summary line and 6 progress counters. Since no static defect
+  exists, shipping a fix would be fixing an unconfirmed hypothesis, which CLAUDE.md Debugging
+  Discipline rule 2 forbids, so the reproduction was filed as `T2.236` with the clearance attached
+  and nothing was changed. Re-confirmed the board is still unadvertised (0 "achievement" mentions in
+  `ModInfo.json` and `README.md`), so the bench remains docs-honest.
+- **Incidental fix, outside the plan.** `Community_Mod_Chest/Features.json` did not parse: two
+  unescaped `"` pairs inside one string value on line 775. Bisected to commit `12ed4991f` (CMC
+  1.68.20, 2026-09-09); it is dev-only metadata, absent from the csproj, from `bin/Release` and from
+  the deployed folder, so no player was ever affected. Repaired by escaping exactly 4 characters on
+  that one line, asserted to change only line 775 and to leave the file parsing.
+
+### 2026-09-13 - Release_Hardening_Plan (Phase 4, plan complete)
+
+- **Verdict:** Phase 4's 5 rows, 0 left buildable, so the plan is Done. A1 (human reproduction) SUPERSEDED rather
+  than performed: the diagnosis it was waiting for was reached from shipped code and data, so `T2.236` was
+  re-purposed from a reproduction request into the acceptance check. A2 BUILT as the retro
+  `cmc-achievement-board-presentation`. A3 BUILT (layout fix, three patches re-enabled, Inn spawn restored). A4
+  BUILT (`ModInfo.json`, `README.md` and `CHANGELOG.md` claim the board). A5 BUILT (tracker rows below).
+- **Disposition:** ARCHIVE to `Documentation/Design/CMC_Release_Hardening_As_Built.md` (the plan text unchanged,
+  below an as-built header) and remove it from `Documentation/Plans/Community_Mod_Chest/`, per
+  `Documentation/Plans/README.md` step 4. Version: folded into the unpublished 1.68.24 instead of the plan's
+  1.69.0, because `.claude/mod-publish-status.json` records CMC's last publish at `480bb9e50`, which carries
+  1.68.23, and MUM's last publish carries 2.1.37, not the 2.1.39 that embeds 1.68.24.
+- **Pruned:** the whole plan doc (Phase 4, its not-in-this-plan list and its Done gate), archived rather than
+  dropped.
+- **Verification debt filed:** `T2.236` (fresh-save board shows the summary and all eleven lines, with the
+  objective `truncated=False` log line), `T2.168` (the 11 detectors; re-pointed from an r33 SKIP that ran on the
+  benched build, status back to pending), and new `T2.238` (fresh-save presence, old-save backfill and the popup
+  restore check, re-arming `T2.170` and `T2.169`, which stay confirmed as history). `T2.237`'s source was
+  repointed at the archived doc.
+- **Evidence:** Root cause. `VillageHallBoardsPatch.UpdateActionsVisibility` hides `DismantleOptionsParent` for
+  every board, so entries exist only as prose in `InspectionPopup.DescriptionText`; `ApplyDescriptionSizing` sets
+  that text to `TextOverflowModes.Truncate` with a 60% auto-size floor, and `.decomp/InspectionPopup.cs` has no
+  `ScrollRect` on it (its only one is `InventoryScrollView`). Both came in with `5a77611a6` (2026-07-29), before
+  the board. Simulating every board's fresh-save output from its JSON and the game's own range test gave the
+  achievement board 19 paragraphs / 1047 characters against 4-8 paragraphs for the other seven (largest Weaver,
+  7 / 698), with the summary printed last. Of the candidates, only a tail cut removes several entries AND the
+  summary. The plan's A1 "hide mechanism" row had traced `DismantleActionButton.Setup`, which never runs for a
+  board.
+- **Evidence, counter-claim checked.** `T2.170` was recorded PASS in r33 (2026-09-06) as "board present, 11 locked
+  lines, 0 of 11 counter" on a build where the board could not spawn in a fresh run. All 85 JSON files under the
+  game's save folder were scanned: the board is in 2, both `Game_0`, last written 2026-08-28; the control card
+  `cmcBoardInnKeeper` is in 11.
+- **Evidence, build and gates.** Fresh-save output is now 3 paragraphs / 493 characters. The source patch asserted
+  every anchor exactly once and ran all validations before writing; the Inn drop list equals the pre-bench list at
+  `8d31b665d^`, and no other key in that file changed. Before the build only the three patched source files were
+  dirty in `Community_Mod_Chest/`. Release build 0 warnings / 0 errors; the DLL carries `AppendAchievementSections`,
+  `ProgressSuffix`, `GetVisibleBoardActions` and `LogBoardFit` (UTF-8) and the `text layout: lines=` literal
+  (UTF-16-LE), and 0 occurrences of `AppendAchievementStatusLines`. `Framework-PerRunHandlerRegistration.Tests.ps1`
+  5/5. All 72 vanilla GUIDs hard-coded in the tracker and kill-effect patches resolve on EA 0.67i; none of the
+  board's source, data or helper files changed between the bench and this fix.

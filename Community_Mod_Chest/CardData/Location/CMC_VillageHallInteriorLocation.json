@@ -1,6 +1,10 @@
 {
   "UniqueID": "cmcVillageHallInteriorLocation",
   "CardType": 8,
+  "CardDescription": {
+    "LocalizationKey": "CMC_VillageHallInteriorLocation_CardDescription",
+    "DefaultText": "The hall's back room, where the village pins up what it wants read. Notices crowd the boards, some official, some barely legible."
+  },
   "InstancedEnvironment": false,
   "UniqueOnBoard": true,
   "AlwaysUpdate": false,

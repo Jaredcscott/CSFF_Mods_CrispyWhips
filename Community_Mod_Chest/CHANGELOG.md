@@ -5,6 +5,93 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.68.24] - 2026-09-12
+
+### Fixed
+
+- **Four cards rendered blank, two of them standing in the road.** `CMC_ClayShoalFlood` and
+  `CMC_DeadfallSouth` (the spring ford flood and the autumn Pine Trail deadfall) pointed their
+  `CardImageWarpData` at `MudPile` and `TreeLog`, and the two Professor errand blueprints pointed
+  theirs at `NettleLeavesDried` and `BillberriesFresh`. All four are vanilla CARD names, not
+  sprite names: each appears zero times as a sprite value anywhere in the game's data and none has
+  a mod PNG, so each card drew with no art at all and no error was logged. Now `Mud_Pile`, `Log`,
+  `Nettle_Leaves` and `Billberries_Item`, all confirmed present in vanilla's own sprite set.
+- **Two recipes told you to gather the wrong thing.** The Bear Figurine's unlock hint read "Clay
+  Needed" and the Stone Tiles' read "Stone Needed", but neither recipe is gated on a material at
+  all: the Bear Figurine needs the Miller's trust and the Stone Tiles need three of the Miller's
+  errands done. No amount of clay or stone would ever have revealed either one. Both hints now
+  read what the recipe actually wants, in English and Chinese.
+- **Jail gruel ignored every food-related perk and never appeared in "Eat All".** Its Eat action
+  was the only consume action in the mod with no action tag, and the game skips modifier matching
+  entirely on an untagged action. Now tagged `EatingAction`, matching the jail water jug's
+  `DrinkingAction`.
+- **The Market Stall's help text was stuck in English for Chinese players.** Its `CardHelpSection`
+  was the only one of 23 in the mod with no localization key, while its own awning variant already
+  had one. Key added, with the Chinese row.
+
+### Changed
+
+- README: the framework requirements note said "six Academy graduate perks"; there are seven, and
+  the same file already said seven higher up. Stale since the Carpentry course shipped.
+
+### Added
+
+- **The Town Achievement Board is back in the Village Inn.** It was benched in 1.67.3 after a playtest
+  found several of its eleven entries, and the "Achievements earned: N of 11" summary, missing. The
+  achievements were never the problem; the layout was. The Village boards print their entries as text in the
+  card's description box, which cuts off whatever does not fit, and this board printed nineteen paragraphs
+  where the other boards print four to eight on a new save, so its bottom half was cut off. It now shows the
+  summary, then one line per achievement reading unclaimed or earned, with a running count on the six
+  multi-part ones (for example "Master Hunter ... unclaimed (3/12)"). The longer flavour sentence for each
+  achievement is no longer printed on the board. New saves find the board in the Inn, and an older save gets it
+  the next time you step inside. All eleven are tracked again: Finding a Friend, Full Kit, Right to Bear Arms,
+  Master Hunter, Forest Explorer, Happy New Year, Master Angler, Spelunker, Master Shaman, Spiritual
+  Overcrowding and Stinky Jar. **None of this has been played in-game yet**: the eleven detectors have never
+  been seen firing, and whether the new layout fits is the first thing the next playtest checks. For bug
+  reports, `LogOutput.log` now records whether each Village board's text fit its box
+  (`[VillageHallBoardsPatch] Board '<id>' text layout: ... truncated=False`).
+- **The Jail Cell and the Village Hall Boards room now carry a room description.** They were the
+  only two of the seven enterable interiors without one, so both showed an empty description where
+  the other five read normally. One English and one Chinese row each.
+
+### Changed
+
+- **Data hygiene only, no gameplay change.** The Town Wood Pile now states `AlwaysUpdate: false`
+  explicitly, matching the Inn, Academy and Jail cards that share the village node's
+  `ConditionalDrops` list with it. The framework's own `ForceStay` correction already forced that
+  value at load (`ConditionalDropService.RegisterNode`), so runtime behaviour is byte-identical.
+  The Ash Boar Trail card moved from `CardData/Item/` to `CardData/Location/`, where a
+  `CardType: 2` structure belongs; its UniqueID is unchanged and the loader keys on the top-level
+  `CardData` folder, so saves and load order are unaffected. Twenty compact `Pk_*` perk files
+  gained the explicit empty-array and `false` keys every other perk already carried, and
+  `Perk_Claws`'s `StarsCost` moved into that file's alphabetical order.
+
+### Notes
+
+- Three standing audit findings were re-derived against the game code and **closed as not
+  defects** rather than "fixed". The evidence is recorded against each row in `.audit/summary.md`:
+  - W3 asked for `Perk_Claws`'s `StarsCost` to be deleted as off-schema. It is a real
+    `CharacterPerk` field (`.decomp/CharacterPerk.cs:11`) and load-bearing: `IsPurchasable`
+    returns `StarsCost > 0` when Suns and Moons are both 0, which is exactly this perk. Deleting
+    it would have made the Claws trait unpurchasable. Only its key ordering was off.
+  - W18 asked for `tag_EnvIndoors` on the seven CT8 interior location cards. The one consumer,
+    `GameQuery.IsInIndoorOrCaveEnvironment`, reads `EnvID.MainEnvCard`, which is the CT4
+    environment card (the Inn's travel action drops `cmcInnInterior`, the CT4), and all seven CT4
+    partners already carry the tag. The indoor wildlife guard keys on those same CT4 UIDs by name,
+    not by tag. No code reads a CT8 card's tags for indoor-ness, and no card in any of the 14 mods
+    in this workspace carries an environment tag on a CT8.
+  - W8 and M1 asked for blueprint "schema completeness" across roughly 51 files. All 79 blueprints
+    are clean on every defect class that has a runtime consequence: zero `BuildingDaytimeCost`
+    over the 12-unit cap, zero `*WarpData` without its `*WarpType` sibling, zero `(0,0)` result
+    quantities. The 38 files missing a `CardImage` key all carry a resolvable `CardImageWarpData`;
+    `CardImage` is the engine-resolved sprite field, so writing placeholders into it would add
+    noise, not completeness.
+- M2 (the Apothecary Healing Potion sharing the `CMC_Alchemist_Potions` sprite with the Healing
+  Mixture and the Herb Tincture) is closed as deliberate: the apothecary line reads as one visual
+  family.
+
+---
+
 ## [1.68.23] - 2026-09-09
 
 ### Fixed

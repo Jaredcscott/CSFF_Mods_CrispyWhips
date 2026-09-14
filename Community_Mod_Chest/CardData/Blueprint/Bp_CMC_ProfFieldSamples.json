@@ -8,7 +8,7 @@
         "LocalizationKey": "CMC_ProfFieldSamples_CardDescription",
         "DefaultText": "The Professor wants a proper set of field samples for the Academy's collection — five fresh billberries, undamaged, will do nicely."
     },
-    "CardImageWarpData": "BillberriesFresh",
+    "CardImageWarpData": "Billberries_Item",
     "CardImageWarpType": 3,
     "CardType": 7,
     "StartUnlocked": false,

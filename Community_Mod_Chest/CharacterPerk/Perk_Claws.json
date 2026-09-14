@@ -126,6 +126,7 @@
         "y": 0
     },
     "ResetLockInEditor": false,
+    "StarsCost": 1,
     "StartUnlocked": true,
     "StartingStatModifiers": [
         {
@@ -199,6 +200,5 @@
     "SunsCost": 0,
     "TagsOnBoardObjectives": [],
     "TimeObjectives": [],
-    "UniqueID": "traits_perk_claws",
-    "StarsCost": 1
+    "UniqueID": "traits_perk_claws"
 }

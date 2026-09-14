@@ -15,9 +15,9 @@ namespace CommunityModChest.Patcher
         // no trust stat, so that board shows quest progress only. The Town boards show Village
         // Renown + the village standing phase instead of a single NPC's values. The Town
         // Achievement Board (cmcBoardAchievements, Village_Master_Plan.md §10.9.2.2) is a fourth
-        // shape — an earned-count summary plus per-multi-part-achievement progress lines, read
-        // from the achievement GameStats rather than an NPC/Town status — handled by
-        // AppendAchievementStatusLines instead of the BoardStatuses table below.
+        // shape - an earned-count summary plus ONE compact line per achievement, read
+        // from the achievement GameStats rather than an NPC/Town status - handled by
+        // AppendAchievementSections instead of the BoardStatuses table below.
         private sealed class BoardStatus
         {
             public string NpcName;            // sentence subject, e.g. "the Inn Keeper"
@@ -86,19 +86,23 @@ namespace CommunityModChest.Patcher
             "cmcStatAchStinkyJar",
         };
 
-        // Derived count stats for the five multi-part achievements (§10.9.2.3) — read directly,
-        // never recomputed here (AchievementTrackerPatch owns the writes). All five now have a
-        // live detector (AchievementTrackerPatch Wave 1-3 + AchievementKillEffectsPatch) as of
-        // the pack's final prompt — code-complete, pending the human §10.9.5 acid-test playthrough.
-        private static readonly (string CountStatUid, string Label, int Max)[] AchievementProgress =
+        // Derived count stat for each of the six multi-part achievements, keyed by the earned latch
+        // that gates that achievement's two board entries (the stat on their RequiredStatValues).
+        // Read directly, never recomputed here: AchievementTrackerPatch owns the writes. The total
+        // is read live from the count stat's own maximum (HiddenStat.GetMax), not copied here.
+        private static readonly Dictionary<string, string> AchievementCountStatUids = new(StringComparer.Ordinal)
         {
-            ("cmcStatAchFullKitCount", "Full Kit", 6),
-            ("cmcStatAchHunterCount", "Master Hunter", 12),
-            ("cmcStatAchAnglerCount", "Master Angler", 6),
-            ("cmcStatAchShamanCount", "Master Shaman", 19),
-            ("cmcStatAchExplorerCount", "Forest Explorer", 10),
-            ("cmcStatAchSpelunkerCount", "Spelunker", 8),
+            ["cmcStatAchFullKit"] = "cmcStatAchFullKitCount",
+            ["cmcStatAchHunter"] = "cmcStatAchHunterCount",
+            ["cmcStatAchAngler"] = "cmcStatAchAnglerCount",
+            ["cmcStatAchShaman"] = "cmcStatAchShamanCount",
+            ["cmcStatAchExplorer"] = "cmcStatAchExplorerCount",
+            ["cmcStatAchSpelunker"] = "cmcStatAchSpelunkerCount",
         };
+
+        // Last "lines|truncated" result LogBoardFit printed per board, so the line appears once per
+        // change rather than on each of the five postfixes that fire while one board is open.
+        private static readonly Dictionary<string, string> LastFitSignature = new(StringComparer.Ordinal);
 
         public static void Initialize(Harmony harmony)
         {
@@ -145,6 +149,7 @@ namespace CommunityModChest.Patcher
             }
 
             __instance.DescriptionText.text = BuildBoardDescription(titleCard);
+            LogBoardFit(__instance.DescriptionText, titleCard.CardModel.UniqueID);
         }
 
         private static bool IsVillageBoard(InGameCardBase card)
@@ -159,8 +164,16 @@ namespace CommunityModChest.Patcher
             string baseDescription = card.CardModel.GetCardDescription(card) ?? string.Empty;
 
             var sections = new List<string>();
-            sections.AddRange(GetVisibleBoardLines(card));
-            AppendStatusLines(sections, card.CardModel.UniqueID);
+            if (string.Equals(card.CardModel.UniqueID, AchievementsBoardUid, StringComparison.Ordinal))
+            {
+                // One compact block instead of a paragraph per entry: see AppendAchievementSections.
+                AppendAchievementSections(sections, card);
+            }
+            else
+            {
+                sections.AddRange(GetVisibleBoardLines(card));
+                AppendStatusLines(sections, card.CardModel.UniqueID);
+            }
 
             if (sections.Count == 0)
             {
@@ -179,12 +192,6 @@ namespace CommunityModChest.Patcher
 
         private static void AppendStatusLines(List<string> sections, string boardUid)
         {
-            if (string.Equals(boardUid, AchievementsBoardUid, StringComparison.Ordinal))
-            {
-                AppendAchievementStatusLines(sections);
-                return;
-            }
-
             if (!BoardStatuses.TryGetValue(boardUid, out var status))
             {
                 return;
@@ -245,10 +252,19 @@ namespace CommunityModChest.Patcher
             }
         }
 
-        /// <summary>Town Achievement Board prose: an earned-count summary line plus one progress
-        /// line per multi-part achievement (§10.9.2.2). Reads only — AchievementTrackerPatch and
-        /// its Wave 2 successors own every write.</summary>
-        private static void AppendAchievementStatusLines(List<string> sections)
+        /// <summary>Town Achievement Board prose. Every other board prints one paragraph per visible
+        /// notice, and at 4-8 paragraphs that fits the popup's DescriptionText. This board has eleven
+        /// always-visible entries plus a summary and six progress counters, which came to 19
+        /// paragraphs in the same fixed-height text that <see cref="ApplyDescriptionSizing"/> puts in
+        /// <c>TextOverflowModes.Truncate</c>, so the tail (the later entries AND the summary) was cut
+        /// off with no error: the defect CMC 1.67.3 benched the board for
+        /// (Documentation/Retrospectives/cmc-achievement-board-presentation.md). It now renders as two
+        /// sections: the earned-count summary, then one line per achievement holding that entry's own
+        /// localized ActionName (which already reads unclaimed or earned) plus, for a multi-part
+        /// achievement not yet earned, its progress. The per-entry ActionDescription sentences are
+        /// deliberately not printed on this board. Reads only; AchievementTrackerPatch and
+        /// AchievementKillEffectsPatch own every write.</summary>
+        private static void AppendAchievementSections(List<string> sections, InGameCardBase card)
         {
             try
             {
@@ -263,7 +279,7 @@ namespace CommunityModChest.Patcher
                 foreach (var statUid in AchievementEarnedStatUids)
                 {
                     float value = VillageClock.ReadStat(gm, statUid);
-                    if (value < 0f) continue; // unreadable this tick — don't miscount as "not earned"
+                    if (value < 0f) continue; // unreadable this tick - don't miscount as "not earned"
                     anyReadable = true;
                     if (value >= 0.5f) earned++;
                 }
@@ -272,17 +288,54 @@ namespace CommunityModChest.Patcher
                     sections.Add($"Achievements earned: {earned} of {AchievementEarnedStatUids.Length}");
                 }
 
-                foreach (var (countStatUid, label, max) in AchievementProgress)
+                var lines = new List<string>();
+                foreach (var action in GetVisibleBoardActions(card))
                 {
-                    float count = VillageClock.ReadStat(gm, countStatUid);
-                    if (count < 0f) continue; // stat unreadable — omit rather than show a bogus 0
-                    sections.Add($"{label}: {(int)Math.Round(count)} of {max}");
+                    string name = (action.ActionName != null ? action.ActionName.ToString() : string.Empty).Trim();
+                    if (string.IsNullOrEmpty(name)) continue;
+                    lines.Add(name + ProgressSuffix(gm, action));
+                }
+                if (lines.Count > 0)
+                {
+                    sections.Add(string.Join("\n", lines));
                 }
             }
             catch (Exception ex)
             {
-                Plugin.Logger.LogDebug($"[VillageHallBoardsPatch] Failed to build achievement status lines: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                Plugin.Logger.LogDebug($"[VillageHallBoardsPatch] Failed to build achievement board sections: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
+        }
+
+        /// <summary>" (n/total)" for a multi-part achievement that is not yet earned, otherwise empty.
+        /// Which achievement an entry belongs to comes from the entry's own RequiredStatValues gate,
+        /// so the board JSON stays the single source of that mapping.</summary>
+        private static string ProgressSuffix(object gm, DismantleCardAction action)
+        {
+            var gates = action.RequiredStatValues;
+            if (gates == null || gates.Length == 0 || gates[0].Stat == null)
+            {
+                return string.Empty;
+            }
+
+            string earnedStatUid = gates[0].Stat.UniqueID;
+            if (string.IsNullOrEmpty(earnedStatUid) || !AchievementCountStatUids.TryGetValue(earnedStatUid, out var countStatUid))
+            {
+                return string.Empty;
+            }
+
+            if (VillageClock.ReadStat(gm, earnedStatUid) >= 0.5f)
+            {
+                return string.Empty; // earned: the entry's own name already says so
+            }
+
+            float count = VillageClock.ReadStat(gm, countStatUid);
+            float total = HiddenStat.GetMax(countStatUid);
+            if (count < 0f || total <= 0f)
+            {
+                return string.Empty; // unreadable this tick: omit rather than show a bogus 0
+            }
+
+            return $" ({(int)Math.Round(count)}/{(int)Math.Round(total)})";
         }
 
         private static string FriendshipTier(string npc, float value, float max)
@@ -350,6 +403,21 @@ namespace CommunityModChest.Patcher
         private static List<string> GetVisibleBoardLines(InGameCardBase card)
         {
             var visible = new List<string>();
+            foreach (var action in GetVisibleBoardActions(card))
+            {
+                string line = (action.ActionDescription != null ? action.ActionDescription.ToString() : string.Empty).Trim();
+                if (!string.IsNullOrEmpty(line))
+                {
+                    visible.Add(line);
+                }
+            }
+
+            return visible;
+        }
+
+        private static List<DismantleCardAction> GetVisibleBoardActions(InGameCardBase card)
+        {
+            var visible = new List<DismantleCardAction>();
             var actions = card.DismantleActions;
             if (actions == null || actions.Length == 0)
             {
@@ -371,11 +439,7 @@ namespace CommunityModChest.Patcher
                 }
 
                 alreadyDisplayed.Add(actionName);
-                string line = (action.ActionDescription != null ? action.ActionDescription.ToString() : string.Empty).Trim();
-                if (!string.IsNullOrEmpty(line))
-                {
-                    visible.Add(line);
-                }
+                visible.Add(action);
             }
 
             return visible;
@@ -402,6 +466,41 @@ namespace CommunityModChest.Patcher
             {
                 Plugin.Logger.LogDebug($"[VillageHallBoardsPatch] Failed to evaluate board action visibility on '{card?.CardModel?.UniqueID}': {ex.InnerException?.ToString() ?? ex.ToString()}");
                 return false;
+            }
+        }
+
+        /// <summary>Confirmation signal for the cmc-achievement-board-presentation retro: once a board's
+        /// text is set, force TMP to lay it out and report whether <c>Truncate</c> cut anything. A board
+        /// whose notices outgrow the fixed-height DescriptionText loses its TAIL silently, and this is the
+        /// only place that is observable without someone counting lines on screen. Info when it fits,
+        /// Warning when it does not, once per distinct result per board.</summary>
+        private static void LogBoardFit(TextMeshProUGUI text, string boardUid)
+        {
+            try
+            {
+                text.ForceMeshUpdate(true, false);
+                bool truncated = text.isTextTruncated;
+                int lines = text.textInfo != null ? text.textInfo.lineCount : -1;
+                string signature = $"{lines}|{truncated}";
+                if (LastFitSignature.TryGetValue(boardUid, out var previous) && previous == signature)
+                {
+                    return;
+                }
+
+                LastFitSignature[boardUid] = signature;
+                string message = $"[VillageHallBoardsPatch] Board '{boardUid}' text layout: lines={lines} truncated={truncated} fontSize={text.fontSize:0.#} (autoSizing={text.enableAutoSizing} min={text.fontSizeMin:0.#} max={text.fontSizeMax:0.#})";
+                if (truncated)
+                {
+                    Plugin.Logger.LogWarning(message + " - notices past the last visible line are cut off.");
+                }
+                else
+                {
+                    Plugin.Logger.LogInfo(message);
+                }
+            }
+            catch (Exception ex)
+            {
+                Plugin.Logger.LogDebug($"[VillageHallBoardsPatch] Could not measure board text layout for '{boardUid}': {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
         }
 

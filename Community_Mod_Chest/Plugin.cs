@@ -27,7 +27,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.CommunityModChest";
     public const string PluginName = "Community Mod Chest";
-    public const string PluginVersion = "1.68.23";
+    public const string PluginVersion = "1.68.24";
 
     internal new static ManualLogSource Logger { get; private set; }
     internal static ConfigEntry<bool> EnableAshPartnerSpike { get; private set; }
@@ -247,16 +247,16 @@ internal class Plugin : ContentModPlugin
         // Board's gated DA entries.
         TryApply("VillageChroniclePatch", () => VillageChroniclePatch.Initialize());
         TryApply("VillageHallBoardsPatch", () => VillageHallBoardsPatch.Initialize(harmony));
-        // Town Achievement Board — BENCHED 1.67.3 (2026-08-22). A fresh-save playtest found the
-        // board's in-game presentation broken (missing progress lines / achievement entries), so
-        // the whole subsystem is parked pending further work rather than shipped half-working.
-        // cmcBoardAchievements is no longer in CMC_InnInterior.json's DefaultEnvCardDrops, so
-        // re-enabling the seed patch alone will NOT bring the board back — restore that drop
-        // entry too. All three patches, the board CardData, and every cmcStatAch* GameStat stay
-        // in the repo untouched; only the wiring below is disabled. See CHANGELOG.md [1.67.3].
-        // TryApply("AchievementBoardSeedPatch", () => AchievementBoardSeedPatch.Initialize());
-        // TryApply("AchievementTrackerPatch", () => AchievementTrackerPatch.Initialize());
-        // TryApply("AchievementKillEffectsPatch", () => AchievementKillEffectsPatch.Initialize());
+        // Town Achievement Board (Inn). Benched in 1.67.3 because its entries and the "N of 11
+        // earned" summary were being cut off; restored in 1.68.24 once
+        // VillageHallBoardsPatch.AppendAchievementSections rendered it as one compact block that
+        // fits the popup (Documentation/Retrospectives/cmc-achievement-board-presentation.md).
+        // Seed = old-save backfill into the Inn (fresh saves get the board from
+        // CMC_InnInterior.json's DefaultEnvCardDrops); Tracker = the 5-second poll behind nine of
+        // the achievements; KillEffects = the two kill-driven ones. Each is once-guarded.
+        TryApply("AchievementBoardSeedPatch", () => AchievementBoardSeedPatch.Initialize());
+        TryApply("AchievementTrackerPatch", () => AchievementTrackerPatch.Initialize());
+        TryApply("AchievementKillEffectsPatch", () => AchievementKillEffectsPatch.Initialize());
         // Founders Kit trait (formerly "Homestead") — the kit unpacks into a cabin kit, two
         // cistern kits, and the full material stockpile on Place, instead of carrying it all
         // from character creation.
