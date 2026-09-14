@@ -188,6 +188,7 @@ namespace WaterDrivenInfrastructure.Patcher
 
         private static void GraftDutyAndAttach()
         {
+            _graftedThisPass = 0;
             if (!ResolveTypes()) return;
 
             var partnerAgent = _getFromIdMethod.Invoke(null, new object[] { PartnerAgentGuid });
@@ -246,7 +247,15 @@ namespace WaterDrivenInfrastructure.Patcher
             if (!_workshopGrafted)
                 _workshopGrafted = GraftOneDuty(partnerAgent, WorkshopDutyUid, WorkshopUid, "wdiOperateWorkshop", "Water-Driven Workshop",
                     AffectShape.DismantleAction, AffectShape.CardOnCardAction);
+
+            if (_graftedThisPass > 0)
+                Plugin.Logger?.LogInfo($"[MillDutyPatch] attached {_graftedThisPass} Partner duty/duties (enable Debug logging for the per-duty list).");
         }
+
+        // Counts grafts in the current pass so the per-duty detail can stay at Debug. The
+        // _xxxGrafted latches mean each duty grafts at most once per process, so this is reset
+        // per pass rather than accumulated.
+        private static int _graftedThisPass;
 
         /// <param name="affectSteps">
         /// One AffectItemsDutyAction per entry, appended after the Move step in the order given.
@@ -315,7 +324,10 @@ namespace WaterDrivenInfrastructure.Patcher
                 return false;
             }
 
-            Plugin.Logger?.LogInfo($"[MillDutyPatch] {logLabel} duty attached to Agent_Partner (JSON-shell path).");
+            // Per-duty detail is Debug (5 duties = 5 Info lines every boot); the caller emits one
+            // aggregate Info line. Every failure path above stays at Warning.
+            Plugin.Logger?.LogDebug($"[MillDutyPatch] {logLabel} duty attached to Agent_Partner (JSON-shell path).");
+            _graftedThisPass++;
             return true;
         }
 

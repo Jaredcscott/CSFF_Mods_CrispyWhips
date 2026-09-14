@@ -2,6 +2,16 @@
 
 All notable changes to this mod are documented here.
 
+## [1.11.1] - 2026-09-11
+
+### Changed - log verbosity (pre-distribution pass)
+- `[MillDutyPatch]`'s per-duty attachment line dropped from Info to Debug and replaced with one
+  aggregate (`attached N Partner duty/duties`). It previously emitted five Info lines at load,
+  one per grafted duty (Grinding Mill, Ore Sluice, Sawmill, Water-Driven Forge, Water-Driven
+  Workshop). Every failure path in that method already logged at Warning and is unchanged, so a
+  duty that fails to attach is still reported just as loudly.
+- No behavior change: the duties themselves attach exactly as before.
+
 ## [1.11.0] - 2026-09-07
 
 ### Added
