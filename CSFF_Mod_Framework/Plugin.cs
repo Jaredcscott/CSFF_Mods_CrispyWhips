@@ -5,7 +5,7 @@ public class Plugin : BaseUnityPlugin
 {
     public const string PluginGuid = "crispywhips.CSFFModFramework";
     public const string PluginName = "CSFF Mod Framework";
-    public const string PluginVersion = "2.25.30";
+    public const string PluginVersion = "2.25.32";
 
     public static Plugin Instance { get; private set; }
     internal new static ManualLogSource Logger { get; private set; }
@@ -131,6 +131,13 @@ public class Plugin : BaseUnityPlugin
         Patching.LocalizationPatch.ApplyPatch(Harmony);
         Patching.BlueprintFlagFix.ApplyPatch(Harmony);
         Patching.BugFixes.WikiModQuickFindFix.ApplyPatch(Harmony);
+        // Finalizer on Harmony's own PatchClassProcessor.Patch: when a WikiMod patch class cannot bind
+        // to this game version, skip that ONE class instead of letting the throw abort WikiMod's whole
+        // PatchAll (Harmony's type loop has no try/catch, so one stale class silently kills every class
+        // after it plus the rest of WikiMod's Awake - 23 of 52 classes on WikiMod 3.5.1 / EA 0.67i,
+        // including its card hover tooltip). MUST stay synchronous here: BepInEx loads us 3rd and
+        // WikiMod last, and WikiMod's Awake runs before our next frame, so a deferred install is too late.
+        Patching.BugFixes.WikiModPatchAllRescue.Configure(Config, Harmony);
 
         // Bug-fix / compat patches
         // Finalizer that swallows third-party NREs in BlueprintModelsScreen.Show/Toggle

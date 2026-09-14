@@ -241,3 +241,54 @@ These live in `Documentation/Ideas/CSFFModFramework/IDEAS.md` with fuller specs.
   trim); T1.56 via T1.81 (framework card-on-card dispatch); T2.101 and T2.232 (Sheep Pen, without
   and with a wolf); plus the section 3 rows T2.89, T2.90, T2.212, T2.149, T2.137, T1.51, T2.113.
   All present in `.claude/playthrough-test-status.json`.
+
+### 2026-09-11 - Audit_Remediation_Plan (2026-09-09 generation) retired; three premises refuted
+- **Scope:** CSFFModFramework only. An ad-hoc pass answering "is this plan fully implemented?", not a
+  `/cleanup-plans` sweep: no other mod's plans were read or touched, and this entry is recorded in no
+  other ROADMAP.
+- **Verdict:** 4 rows in, 0 code rows left. F1 (CRITICAL, `river-bridge-east-click-noop`) had already
+  shipped in framework 2.25.30 (`c6973b394`); its in-game closure `T2.186` still reads `pending`. N3
+  (`NPCCharacterPerk` consumer + cookbook doc) CLOSED, but not as written: its "the injector is
+  shipped but has no consumer" claim was stale, because Community_Mod_Chest has shipped 4 wired
+  bundles since 1.48.0; the genuinely missing half was the cookbook entry, now written. N1
+  (`ConstructionCardGroup`) and N2 (`FlavourTag` / `CookingRecipeGroup` / `BookmarkGroup`) were NOT
+  built, because the premise all three rows shared was refuted: 4 of those 5 types need no injector at
+  all and `FlavourTag` needed nothing whatsoever. 1 new tracker row filed (`T2.235`); 2 IDEAS.md rows
+  found already shipped.
+- **Disposition:** DELETE from `Documentation/Plans/`. Analysis preserved as a second closure section
+  appended to `Documentation/Design/CSFFModFramework_Audit_Remediation_As_Built.md`, which already held
+  the 2026-09-07 generation of the same plan. N1 and N2 moved to
+  `Documentation/Ideas/CSFFModFramework/IDEAS.md` Medium-Term carrying their corrected reason (blocked
+  on a consumer mod, not on engine work, and explicitly "do not write an injector"); the matching rows
+  in the gitignored `CSFFModFramework/.audit/ideas.md` were rewritten in place so `/audit-to-plan`
+  cannot re-promote the refuted prescription. Because that `.audit/` tree is gitignored, THIS entry and
+  the as-built doc are the durable record.
+- **Pruned:** N3's "no consumer" claim; N2's `FlavourTag` half (closed outright, never dormant); the
+  "thin injector mirroring `PerkInjector`" prescription on all three feature rows; and two IDEAS.md
+  Near-Term rows that had already shipped (Animal subsystem cookbook docs, `GameModifierPackage`
+  standalone activation), which leaves that section empty.
+- **Evidence:** Consuming side read in `.decomp/`, which is what both prior passes skipped:
+  `GameManager.InitializeStatsAndActions` self-populates `AllCookingRecipeGroups` (:2735),
+  `AllNPCPerks` (:2743), `GameGraphics.AllBookmarkGroups` (:2747) and `ConstructionGroups` +
+  `ConstructionGroupsDict` (:2813-2830) by exact-type match over `dataBase.AllData`, and
+  `ExplorationPopup.cs:816` reads that dict rather than building its own. Registration side:
+  `CSFFModFramework/Loading/JsonDataLoader.cs:262` calls `GameRegistry.TryAddToAllData` for every
+  loaded UID object. Ordering: `LoadMainGameData` is called at `.decomp/GameLoad.cs:405` (pre-menu,
+  where the framework's postfix runs) and `InitializeStatsAndActions` at `.decomp/GameManager.cs:2389`
+  from `Awake` (per run boot). A `Grep` over `CSFFModFramework/**/*.cs` for all five type names
+  returned ONLY `DirToTypeName` registration entries (`JsonDataLoader.cs` lines 38, 45, 52, 53, 54)
+  plus `FlavourMatrixInjector`'s own `FlavourTag` references: zero injector files, which is the same
+  zero both prior passes got and misread. `FlavourMatrixInjector.cs:12-14` states individual
+  FlavourTags self-activate. Consumer check: `Community_Mod_Chest/NPCCharacterPerk/` holds 4 files and
+  `NPCAgent/Agent_GuardCorrin.json:17` references `cmcGuardPerkCorrin`. Doc gap confirmed by
+  `grep -n NPCCharacterPerk Documentation/CSFF_Patterns.md` returning 0 before the entry was appended
+  (+91 lines after, em-dash count unchanged at 357). Tracker read by parsing all three buckets (379
+  dict rows): 0 rows mentioned `NPCCharacterPerk` or personality bundles, `T2.186` read `pending`, max
+  allocated id was T2.234 so `T2.235` was taken; the insert was text-spliced and measured +9/-0 with
+  `droppedItems`/`confirmedItems` byte-identical and every pre-existing `items` row unchanged. F1
+  artifacts confirmed present on disk (`Patching/BugFixes/TravelDaCacheResync.cs`,
+  `Development_Tools/Tests/Framework-ConnectionGateEvaluation.Tests.ps1`) and `c6973b394` resolves.
+  Deploy coverage for all five content folders is present in `Deploy-Mods.ps1` and `Pack-Suite.ps1`;
+  `deploy.sh` matched none of them, which is a NON-finding because it copies `bin/Release` wholesale
+  via `find "$release_dir" -type f` and carries no per-folder list. Nothing in Correction 1 was
+  observed in a running game; `T2.235` is the first observation that will bear on it.

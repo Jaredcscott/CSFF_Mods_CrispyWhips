@@ -419,8 +419,11 @@ internal static class CardCloneService
         if (dropCollection is Array finalArr)
             _envDropsField.SetValue(envClone, finalArr);
 
+        // Per-clone-node detail: Debug, not Info (CLAUDE.md § Mod Logging Norms — per-item loops).
+        // WorldMapInjector's "prepared N node(s)" line is the Info-level aggregate; every FAILURE
+        // path in this method still logs at Warn, so a real problem is not silenced by this.
         if (appended > 0)
-            Log.Info($"CardCloneService.AppendExtraDrops: appended {appended} extra drop(s) to '{envClone.name}' ([{string.Join(", ", extraDropUids)}])");
+            Log.Debug($"CardCloneService.AppendExtraDrops: appended {appended} extra drop(s) to '{envClone.name}' ([{string.Join(", ", extraDropUids)}])");
     }
 
     /// <summary>
@@ -519,7 +522,8 @@ internal static class CardCloneService
         if (toKeep.Count == 0)
             Log.Warn($"CardCloneService.StripNonLocationDrops: '{envClone.name}' — keepLocationUid '{keepLocationUid}' matched ZERO entries out of {originalCount} — DefaultEnvCardDrops will be empty (AppendExtraDrops will silently fail)");
         else
-            Log.Info($"CardCloneService.StripNonLocationDrops: '{envClone.name}' — kept {toKeep.Count}, stripped {stripped} of {originalCount} inherited drops (kept CT8 '{keepLocationUid}')");
+            // Per-clone-node detail: Debug. The ZERO-match case above stays at Warn.
+            Log.Debug($"CardCloneService.StripNonLocationDrops: '{envClone.name}' — kept {toKeep.Count}, stripped {stripped} of {originalCount} inherited drops (kept CT8 '{keepLocationUid}')");
     }
 
     private static int GetCollectionCount(object collection)
@@ -591,8 +595,9 @@ internal static class CardCloneService
             }
         }
 
+        // Per-clone-node detail: Debug. Field-level failures above stay at Warn.
         if (totalRemoved > 0)
-            Log.Info($"CardCloneService: stripped {totalRemoved} re-spawn action(s) on '{cloneCard.name}' producing StripLegacyBoardUIDs ([{string.Join(", ", stripUids)}]) — prevents inherited cards (e.g. Exit/Flint Vein) reappearing every entry");
+            Log.Debug($"CardCloneService: stripped {totalRemoved} re-spawn action(s) on '{cloneCard.name}' producing StripLegacyBoardUIDs ([{string.Join(", ", stripUids)}]) — prevents inherited cards (e.g. Exit/Flint Vein) reappearing every entry");
     }
 
     private static int StripActionsInField(CardData card, string fieldName, HashSet<string> uidSet)

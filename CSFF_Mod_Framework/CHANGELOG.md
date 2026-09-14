@@ -4,6 +4,35 @@ All notable changes to CSFFModFramework are documented here.
 
 ---
 
+## [2.25.32] - 2026-09-11
+
+### Changed - log verbosity (pre-distribution pass)
+- **Three `CardCloneService` per-clone-node lines dropped from Info to Debug**: the
+  `AppendExtraDrops: appended N extra drop(s)`, `StripNonLocationDrops: kept N, stripped N`, and
+  `stripped N re-spawn action(s)` traces. Each fired once per clone node, so on a load with the
+  full mod suite they were 24 of the framework's 68 player-visible Info lines while saying
+  nothing a player can act on. `WorldMapInjector`'s existing `prepared N node(s)` line remains
+  the Info-level aggregate, and **every failure path in all three methods still logs at Warn**,
+  so a real problem (a zero-match strip, an unresolvable extra drop, a failed field walk) is
+  unaffected by this change.
+- Net effect measured against a real 2-boot `LogOutput.log`: framework Info output with
+  `VerboseLogging=false` drops from 68 lines to 44, and no repeating per-item line remains. The
+  only multi-line entry left is `WarpResolver: [mod] unresolved: ...`, which is deliberately kept
+  at Info because it reports genuinely unresolved references.
+- No behavior change. `VerboseLogging=true` still shows every one of these traces, so the
+  confirmation path for any open retrospective that relies on them is intact.
+
+## [2.25.31] - 2026-09-11
+
+### Fixed
+
+- **One stale WikiMod patch class was silently killing 23 of WikiMod's 52 patch classes, which is why WikiMod stopped showing card stats on EA 0.67i.** Player report: "wiki mod no longer shows the stats of card". Not a framework bug and not a data bug: `GraphicsManager.AddSlot` changed in 0.67 from `(SlotsTypes, CardData, CardData, int)` to `(SlotsTypes, CardData, CardData, InGameNPCOrPlayer, int)` and became private (`.decomp/GraphicsManager.cs:3302`), while the installed `WikiMod.dll` (3.5.1, targeting the 0.66 line, dated three hours BEFORE the 0.67i `Assembly-CSharp.dll`) still declares `[HarmonyPatch]` against the old 4-arg signature in `WikiMod.GraphicsManagerMod.AddSlotPrefix`. Harmony cannot resolve the target and throws `ArgumentException: Undefined target method` (`Player.log`, every boot).
+- **The damage is never one feature, because `Harmony.PatchAll` has no try/catch.** It runs `AccessTools.GetTypesFromAssembly(assembly).Do(type => CreateClassProcessor(type).Patch())`, so the first class that cannot bind aborts the entire enumeration and propagates out of `WikiMod.Plugin.Awake`. Measured on the deployed binary with Mono.Cecil: `GraphicsManagerMod` is type 274 of 582 in metadata order, so **23 of WikiMod's 52 Harmony patch classes never applied** - `InGameCardBaseMod` (the detailed card hover tooltip, i.e. the reported symptom), `TooltipMod`, `HoverTooltipPatches`, `TooltipTextExVisibilityGate`, `InspectionPopupMod`, `NPCInspectionPopupMod`, `InGameStatMod`, `StatDetailsPopupMod`, `StatInfluenceInfoMod`, `StatStatusGraphicsMod`, `WeightBarMod`, `OptionsMenuMod`, `SaveMenuMod`, `QuestJournalElementMod` and nine more - plus every statement after `PatchAll()` in that `Awake` (`EmojiSpriteRuntimeLoader.Initialize` and seven explicit `TryPatchMethod` calls covering ExplorationPopup, TemperatureIndicator, GroupInventoryActionButton and EncounterPopup). WikiMod logs nothing, so the mod simply half-disappears.
+- **New `Patching/BugFixes/WikiModPatchAllRescue.cs`:** a finalizer on Harmony's own `PatchClassProcessor.Patch` that, when the failing patch class belongs to the WikiMod assembly, logs one actionable Warn (naming the class, the bind error, how many later WikiMod patch classes the abort would have cost, and the installed WikiMod version) and swallows the exception so `PatchAll` continues to the next type. One class is lost instead of all of its successors. Scope is deliberately narrow: a bind failure in ANY other assembly, ours included, is rethrown untouched, because swallowing those would hide real breakage in code we control. Config `Compatibility/RescueStaleWikiModPatchAll` (default true) turns the rescue off and leaves only the Warn. The guard installs nothing when no `WikiMod.dll` is on disk.
+- **Ordering is load-bearing and had to be measured:** BepInEx loads the framework 3rd and WikiMod last (positions 3 and 21 of 21 on this install), and WikiMod's `Awake` runs before the framework's next frame, so this is registered synchronously from `Plugin.Awake` and NOT from the deferred coroutine `WikiModQuickFindFix` uses (which exists because that fix needs WikiMod's own types to be loaded first; this one only needs 0Harmony, which always is).
+- **What the rescue does NOT do:** it never re-enables `GraphicsManagerMod` itself, so WikiMod's card-stacking/slot-relocation behaviour is unchanged in both directions. Two measurements bound the risk of restoring the other 23: RefCheck over the live `WikiMod.dll` finds exactly **3 unresolved game members out of 2159** (`AddSlot`, `FindPileForCard`, `MoveCardToSlot`), whose only call sites are `DynamicLayoutSlotStackingMod.TryRelocate`, `ClingyCat.OnCardLoaded` and `EquipTabContent.HandleSlotAction` - none of them in a rescued class - and all 23 rescued classes resolve their declared patch targets against EA 0.67i. The rescue is a stopgap, not a fix: **the real fix is updating WikiMod**, which the Warn says, and which the author's own compatibility manifest supports (`wikimod-config.uuppi.com/config.json` maps mod 3.5.3 to required game 0.0.67.0).
+- Gate: `Development_Tools/Tests/Framework-WikiModPatchAllRescue.Tests.ps1`. It checks that Plugin.cs installs the guard, that the finalizer rethrows for non-WikiMod containers, and that both names the guard resolves by STRING (`PatchClassProcessor.containerType` and `.Patch`) exist on the 0Harmony build the framework binds - the last of these being invisible to RefCheck by its own README's admission, since string reflection emits no MemberRef. Both source-shape checks ship a break-and-watch-red control that strips the real line from a throwaway copy of the real file and runs it through the same function the green assertion uses. What no test can see is the game launch itself, filed as `T2.234` (which carries a negative check: with `RescueStaleWikiModPatchAll` off and a full relaunch, the tooltips must disappear again, or their return had another cause). `Mod-Regression.Tests.ps1` gains two `IgnoredTargets` entries, since its scanner reads `AccessTools.Field/Method(typeof(X), ...)` as a game-API dependency and `PatchClassProcessor` is a HarmonyLib type.
+
 ## [2.25.30] - 2026-09-09
 
 ### Fixed
@@ -463,6 +492,9 @@ Deferred design decision — see the M4 section of
   mis-cited `MainMenu` method name, an incomplete `StartingStatModifiers` gate description, and a
   README section self-contradicting the new cookbook content. See
   `Documentation/Plans/CSFFModFramework/Audit_Remediation_Plan.md`'s Promotion Log for the full list.
+  (That plan was retired 2026-09-11; its closure record is now
+  `Documentation/Design/CSFFModFramework_Audit_Remediation_As_Built.md`, and the full original text
+  stays reachable via `git log --follow` on the old path.)
 
 ---
 

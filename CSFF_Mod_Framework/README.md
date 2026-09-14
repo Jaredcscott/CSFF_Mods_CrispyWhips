@@ -4,7 +4,7 @@ Standalone modding framework for Card Survival: Fantasy Forest. Provides mod dis
 
 ## Status
 
-- **Version:** 2.25.30
+- **Version:** 2.25.32
 - **Game Version**: EA 0.67i (vanilla JSON delta 0 vs 0.67h: not one game data file changed.
   Game code did change, so `lib/Assembly-CSharp.dll` was refreshed from the live binary and every
   in-house project rebuilt from clean against it: 16/16 Release builds, 0 errors, 0 warnings.
