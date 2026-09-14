@@ -5,6 +5,45 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [2.1.40] - 2026-09-13
+
+### Changed
+
+- **Refreshed the embedded mod suite bundle so Community Mod Chest 1.68.24 includes the Town
+  Achievement Board.** 2.1.39's copy of CMC 1.68.24 was packed before the board's return landed
+  under that same version number (the known gap noted under 2.1.39). The board is back in the
+  Village Inn with all eleven achievements, each marked unclaimed or earned and with a running
+  count on the multi-part ones, and has not yet been played in-game. The Jail Cell and the Village
+  Hall Boards room also gain the room descriptions they were missing. Bundled versions, read back
+  from the embedded ZIPs: CSFF Mod Framework 2.25.32, Herbs & Fungi 1.13.0, Advanced Copper Tools
+  1.16.6, Water-Driven Infrastructure 1.11.1, Community Mod Chest 1.68.24, Homestead Perks 1.2.3,
+  Repeat Action 2.1.5, Quick Transfer 1.8.0 and Skill Speed Boost 1.10.2. No change to this mod's
+  own code.
+
+## [2.1.39] - 2026-09-12
+
+*(Rollup entry, added 2026-09-13: 2.1.38 (2026-09-11) and 2.1.39 (2026-09-12) were embedded-suite
+refreshes and version-string steps with no changes to this mod's own code. The bundled versions
+below were read back from the 2.1.39 embedded ZIPs rather than inferred.)*
+
+### Changed
+
+- **Refreshed the embedded mod suite bundle.** Against 2.1.37: CSFF Mod Framework
+  2.25.30 -> 2.25.32, Water-Driven Infrastructure 1.11.0 -> 1.11.1, and Community Mod Chest
+  1.68.23 -> 1.68.24. The other six are unchanged: Herbs & Fungi 1.13.0, Advanced Copper Tools
+  1.16.6, Homestead Perks 1.2.3, Repeat Action 2.1.5, Quick Transfer 1.8.0 and Skill Speed Boost
+  1.10.2. The changes a player is most likely to notice: with WikiMod 3.5.1 installed on EA 0.67i,
+  one outdated WikiMod patch no longer takes 23 of its other patches down with it, so its card
+  stat tooltips should return (framework 2.25.31, not yet confirmed in-game); the suite writes far
+  fewer lines to `LogOutput.log` at load (framework 2.25.32, Water-Driven Infrastructure 1.11.1);
+  four Community Mod Chest cards that drew with no art, including the spring ford flood and the
+  autumn deadfall blocking the road, now show their images; and two CMC recipe unlock hints that
+  named a material the recipe never needed now name what it actually wants (CMC 1.68.24). Each
+  mod's own CHANGELOG.md carries the full list.
+- **Known gap in 2.1.39's copy of Community Mod Chest 1.68.24:** it was packed before the Town
+  Achievement Board's return landed under that same version number, so the CMC inside 2.1.39 does
+  not include the board. 2.1.40 carries it.
+
 ## [2.1.37] - 2026-09-10
 
 *(Rollup entry, added 2026-09-11: 2.1.33, 2.1.34, 2.1.36 and 2.1.37 were embedded-suite refreshes
