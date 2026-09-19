@@ -1,6 +1,6 @@
 # Homestead Perks
 
-**Version:** 1.2.3
+**Version:** 1.2.4
 **Author:** Jared
 **Requires:** CSFFModFramework (soft dependency)
 **Language:** English, Simplified Chinese

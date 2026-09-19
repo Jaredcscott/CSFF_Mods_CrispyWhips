@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.2.4 (2026-09-18)
+- Perks now carry the "[HSP]" tag that CSFF Mod Framework 2.26.0 shows after a mod perk's name.
+  `ModInfo.json` gains `"ShortName": "HSP"`. Without it the framework falls back to the initials of
+  the mod's name, so all 13 Homestead perks would have read "[HP]". Display only: perk names, saves
+  and effects are unchanged, and the tag can be hidden with the framework's `ShowModOriginTag`
+  setting.
+
 ## 1.2.3 (2026-08-16)
 - `ModInfo.json` Description corrected: the Path Kit blurb still said "3 kits" after the 1.2.2
   fix bumped the actual grant to 6 — description now matches what the perk ships.

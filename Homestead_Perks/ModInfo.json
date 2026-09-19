@@ -1,6 +1,7 @@
 {
     "Name": "Homestead Perks",
+    "ShortName": "HSP",
     "Author": "Jared",
-    "Version": "1.2.3",
+    "Version": "1.2.4",
     "Description": "Thirteen character-creation perks that grant a one-time-placeable structure kit: Homestead (100 Suns — a Homestead Kit that unpacks into a Cabin Kit, two Rain Cistern Kits, and a stockpile of building materials all at once), Cabin Kit (60 Suns, also grants a broom blueprint), Mud Hut Kit (40 Suns, also grants a broom blueprint), Well Kit (35 Suns), Cellar Kit (40 Suns), Log Bed Kit (15 Suns), Furnace Kit (20 Suns), Forge Kit (25 Suns), Oven Kit (15 Suns), Rain Cistern Kit (10 Suns), Tanning Pit Kit (15 Suns), Pit Trap Kit (20 Suns), and Path Kit (20 Suns — 6 kits, each instantly finishing a road in a chosen direction from wherever you're standing). Each structure kit item can be carried anywhere and placed exactly once with a single 'Place' action. Standalone extraction of Community Mod Chest's Homestead/Better-Perk-Buildings perks, plus new Path Kit, Well Kit, Cellar Kit, and Pit Trap Kit perks — no other CMC content required."
 }
