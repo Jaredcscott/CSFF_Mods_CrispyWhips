@@ -5,6 +5,85 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [2.1.46] - 2026-09-18
+
+### Changed
+
+- **Refreshed the embedded mod suite.** Herbs and Fungi 1.13.3 is re-embedded with finished art for
+  five cards that had been showing a placeholder, and Homestead Perks 1.2.4 now tags its perks
+  "[HSP]" under CSFF Mod Framework 2.26.0's perk origin tag instead of falling back to "[HP]". The
+  other seven suite mods are embedded at the same versions as 2.1.45. No change to Mod Update
+  Manager's own behaviour.
+
+---
+
+## [2.1.45] - 2026-09-18
+
+### Changed
+
+- **Refreshed the embedded mod suite.** Advanced Copper Tools 1.16.7 and Water Driven
+  Infrastructure 1.11.2 are re-embedded. Both releases only shrink their standalone downloads and
+  correct their README version history; neither changes gameplay. The other seven suite mods are
+  embedded at the same versions as 2.1.44. No change to Mod Update Manager's own behaviour.
+
+---
+
+## [2.1.44] - 2026-09-18
+
+### Changed
+
+- **Refreshed the embedded mod suite.** Community Mod Chest 1.68.30 is re-embedded with revised art
+  for the Miller and Weaver at-home portraits and both Village Home Sign faces. Five of its images,
+  and oversized art in Advanced Copper Tools and Water Driven Infrastructure, were also brought down
+  to the 512-wide size every other card uses. Herbs and Fungi 1.13.2 picks up the Drying Kit perk's
+  missing `EquippedCardsWarpType` key. The suite ZIPs were already packaged at reduced resolution,
+  so this does not change Mod Update Manager's own download size. No change to its behaviour.
+
+---
+
+## [2.1.43] - 2026-09-17
+
+### Changed
+
+- **Refreshed the embedded mod suite.** Community Mod Chest 1.68.30 is re-embedded without the
+  temporary trait diagnostics tracer, which only ran when a debug setting was switched on, so
+  players see no difference. The other eight suite mods are embedded at the same versions as
+  2.1.42. No change to Mod Update Manager's own behaviour.
+
+---
+
+## [2.1.42] - 2026-09-17
+
+### Changed
+
+- **Refreshed the embedded mod suite.** The Install & Update tab now installs CSFF Mod Framework
+  2.26.0 (mod perks show which mod they come from, e.g. " [CMC]", at character creation and on
+  the character sheet; NPC and animal schedules keyed to the hour of day now run at their intended
+  clock times), Community Mod Chest 1.68.30 (Agoraphobia, Lunacy, Sensitive Skin, Insomniac,
+  Drunkard, Lactose Intolerant and Seasonal Allergies now do what their descriptions say; Sinker
+  and Swimmer affect swimming; the Aid perks hold their bonus), Herbs & Fungi 1.13.2 and Skill
+  Speed Boost 1.10.4. No change to Mod Update Manager's own behaviour.
+
+---
+
+## [2.1.41] - 2026-09-15
+
+### Fixed
+
+- **`PluginMetadataReader`'s CustomAttribute-row parser could silently miss a real `[BepInPlugin]`/
+  `[BepInDependency]` declaration with zero diagnostic trail.** A malformed metadata row hit a bare
+  `catch { continue; }` (no log call), which read exactly like "this DLL doesn't declare that
+  attribute" - indistinguishable from a genuine absence. Found by `/audit-mod`'s D17 check
+  (silent-catch-on-a-reflection-path) against the Conflicts tab's Dependencies sub-section, added
+  since the last code-quality pass. Now counts skipped rows and logs one aggregated
+  `LogDebug` breadcrumb per scan (`"skipped N malformed CustomAttribute row(s) in '<dll>'"`) instead
+  of staying silent - no behavior change, Debug-level only, invisible under BepInEx's default log
+  filter. Audit re-run clean: 0 CRITICAL, 1 WARNING remaining (a cosmetic display-name fallback with
+  no data-loss risk); both recurring-bug-class gates (`EmbeddedZipCurrency.Tests.ps1`,
+  `Deploy-Mods.Tests.ps1`) re-verified green against the current 9-mod bundle.
+
+---
+
 ## [2.1.40] - 2026-09-13
 
 ### Changed

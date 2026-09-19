@@ -434,6 +434,7 @@ namespace mod_update_manager
                 int caRows = RowCount(TBL_CUSTOMATTRIBUTE);
                 if (caRows == 0) return result;
 
+                int skippedRows = 0;
                 for (int i = 0; i < caRows; i++)
                 {
                     string attrName;
@@ -447,6 +448,7 @@ namespace mod_update_manager
                     }
                     catch
                     {
+                        skippedRows++;
                         continue;   // one bad row must not abort the whole assembly
                     }
 
@@ -464,8 +466,17 @@ namespace mod_update_manager
                     }
                     catch
                     {
+                        skippedRows++;
                         continue;
                     }
+                }
+
+                // Breadcrumb, not per-row noise: a skipped row on a Plugin/Dependency attribute is
+                // otherwise indistinguishable from "this DLL declares neither" (D17 - a silent
+                // catch on a reflection-adjacent parse path must not read as a clean negative).
+                if (skippedRows > 0)
+                {
+                    try { Plugin.Logger?.LogDebug($"PluginMetadataReader: skipped {skippedRows} malformed CustomAttribute row(s) in '{_path}'"); } catch { }
                 }
 
                 return result;
