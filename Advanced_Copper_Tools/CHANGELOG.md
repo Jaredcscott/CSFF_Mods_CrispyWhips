@@ -2,6 +2,17 @@
 
 All notable changes to this mod are documented here.
 
+## [1.16.7] - 2026-09-18
+
+### Changed
+- **Download is about a third of its previous size: 37.2 MB to 11.8 MB.** Two separate causes, both
+  in packaging rather than in the mod. The build script wrote a second, byte-identical copy of every
+  card image into `Resource/Texture2D/` alongside `Resource/Picture/`, which nothing ever read, so
+  every release archive carried the whole art set twice. Separately, the three Copper Bathtub images
+  had shipped at 2400x1792 instead of the 512-wide size every other card in this mod uses. Both are
+  fixed. No gameplay, content or balance change, and the bathtub art is unchanged apart from its
+  resolution.
+
 ## [1.16.6] - 2026-09-08
 
 ### Docs

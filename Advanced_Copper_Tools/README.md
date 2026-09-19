@@ -1,7 +1,7 @@
 # Advanced Copper Tools
 
 **Quality of Life & Advanced Metalworking**
-**Version:** 1.16.6
+**Version:** 1.16.7
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.65)
 
@@ -417,7 +417,7 @@ These hooks are mod-scoped and filter on this mod's UniqueIDs. The exception is 
 1. Install BepInEx if not already installed.
 2. Install CSFFModFramework in `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. Drop this mod folder at `BepInEx/plugins/Advanced_Copper_Tools/`.
-4. Launch the game — content loads automatically; check `BepInEx/LogOutput.log` for `Advanced_Copper_Tools v1.16.6 loaded.`
+4. Launch the game — content loads automatically; check `BepInEx/LogOutput.log` for `Advanced_Copper_Tools v1.16.7 loaded.`
 
 ### Deployed file structure
 
@@ -457,7 +457,7 @@ Other in-house mods build directly on top of ACT's content:
 
 ## Troubleshooting
 
-**Blueprints not appearing?** Verify CSFFModFramework is loaded — check `LogOutput.log` for `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.16.6 loaded.`
+**Blueprints not appearing?** Verify CSFFModFramework is loaded — check `LogOutput.log` for `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.16.7 loaded.`
 
 **Pan / kettle won't boil?** It must be on a *lit* fire source with fuel remaining. Vanilla water types boil via their own `LiquidFuelValue` OnFull transform; if the liquid isn't a heatable type, nothing happens.
 
@@ -471,7 +471,12 @@ Other in-house mods build directly on top of ACT's content:
 
 ## Version History
 
-### v1.16.5 (current)
+### v1.16.7 (current)
+- **Download cut from 37.2 MB to 11.8 MB.** Every card image had been packaged twice, and the three
+  Copper Bathtub images shipped at 2400x1792 instead of the 512-wide size the rest of the mod uses.
+  No gameplay, content or balance change.
+
+### v1.16.5
 - **Bronze/White-Bronze armor is now actually craftable as designed**: fixed a bad field-name bug that left the Bronze recipes' metal-type gate permanently inactive, added a new Bronze Sheet blueprint as the only way to produce a sheet that satisfies it, and closed a matching gap in the four Bronze blueprints' research-unlock gate (previously satisfied by any Metal Sheet). See CHANGELOG.md for full detail.
 - Corrected several player-facing honesty issues: armor no longer claimed to track its build metal, the bathtub's Wash with Soap claim is now reworded everywhere it appears (not just ModInfo.json), the Metal Sheet and Bronze Armor Set sections no longer contradict each other, a false [1.16.4] armor-scaling fix claim was corrected, undisclosed Bronze/Ore Chest art reuse is now noted, and the README no longer advertises the "Metal Pan" perk removed in [1.16.4].
 - Removed the non-functional armor quality-scaling scaffolding (dead `ArmorValueDurabilitiesMultiplier`/`EffectScalesWithDurabilities` blocks and the C# code that kept restoring them) instead of leaving it disclosed as broken; fixed Bronze Armor's leather-grade mismatch; filled in 8 missing Smelting Recovery rows.
