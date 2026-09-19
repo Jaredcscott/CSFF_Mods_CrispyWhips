@@ -35,14 +35,129 @@ public static class GameQuery
 
     // ── Time ─────────────────────────────────────────────────────────────────
 
-    /// <summary>Current in-game hour as a float (0.0 = dawn, 23.99 = late night).</summary>
+    /// <summary>
+    /// Current in-game CLOCK hour as a float in [0, 24): 6.0 is 06:00, 19.25 is 19:15, 22.0 is
+    /// 22:00. This is the hour the on-screen clock shows and the hour every vanilla time-of-day
+    /// consumer compares against (<c>InGameTimeCondition</c> hour windows such as an NPCDuty's
+    /// <c>ValidTimesOfDay</c>, GameStat <c>TimeOfDayMods</c>, <c>Season</c>, <c>WeatherSet</c>), so
+    /// a window written here as "22 to 6" means the same night it means in vanilla data.
+    /// Returns 0 before game init.
+    ///
+    /// <para>The value is the game's own <c>GameManager.HourOfTheDayValue(DayTimePoints, 0)</c>
+    /// wrapped into [0, 24), i.e. <c>DaySettings.DayStartingHour</c> plus the hours elapsed since
+    /// the day started. It steps once per DayTimePoint (a quarter hour at the shipped 96 points per
+    /// day). Mini ticks are passed as 0 on purpose, exactly as vanilla's own TimeOfDayMods
+    /// evaluation does: <c>HourOfTheDayValue</c> SUBTRACTS mini-tick time while mini ticks count UP
+    /// within a point, so passing the live count makes the hour run backwards inside each point
+    /// (6.00, 5.95, 5.90 ...). A real-time poller with a window edge on that boundary would flip
+    /// in, out and in again, and one watching for the whole hour to change could see it change
+    /// three times.</para>
+    ///
+    /// <para><b>Corrected 2026-09-17 (plan D6).</b> This used to return
+    /// <c>(96 - DayTimePoints % 96) / 4</c>, the hours since the day STARTED, under a doc comment
+    /// calling 0.0 "dawn". The day starts at <c>DayStartingHour</c> (04:00 in the shipped data), not
+    /// at midnight, so every clock-hour window compared against it ran that many hours late.
+    /// Measured on real saves: <c>DaytimeToHour</c> "22:00" is stored beside
+    /// <c>CurrentDayTimePoints</c> 24 (old value 18.0), "06:00" beside 88 (old 2.0) and "02:45"
+    /// beside 5 (old 22.75).</para>
+    /// </summary>
     public static float HourOfDay
     {
         get
         {
             int dtp = DayTimePoints;
-            return dtp < 0 ? 0f : (96f - (dtp % 96f)) / 4f;
+            if (dtp < 0) return 0f;
+
+            if (!_vanillaClockUnavailable)
+            {
+                try
+                {
+                    if (TryVanillaClockHour(dtp, out float hour)) return hour;
+                    return 0f; // no live GameManager this frame: same default as before game init
+                }
+                catch (Exception ex)
+                {
+                    // Reached when a game update renamed or removed a member TryVanillaClockHour
+                    // binds at compile time (the JIT failure surfaces at the call above). Latched:
+                    // the reflective fallback computes the same number, so nothing is lost by not
+                    // retrying, and a per-tick caller is not left throwing every frame.
+                    _vanillaClockUnavailable = true;
+                    Log.Warn("[GameQuery] GameManager.HourOfTheDayValue is not callable on this game version; "
+                           + $"HourOfDay now derives the clock hour from DaySettings by reflection. {Log.ExceptionText(ex)}");
+                }
+            }
+            return FallbackClockHour(dtp);
         }
+    }
+
+    private static bool _vanillaClockUnavailable;
+    private static bool _dayStartWarned;
+    private static FieldInfo _dayStartingHourField;
+    private static FieldInfo _dailyPointsField;
+
+    // DayTimeSettings.DayStartingHour and DailyPoints as shipped in EA 0.67i (scene export recorded
+    // in Documentation/Research/Animal_System_Vanilla.md section 6.1). Used ONLY when the live
+    // DaySettings cannot be read, and never silently: see FallbackClockHour.
+    private const int AssumedDayStartingHour = 4;
+    private const int AssumedDailyPoints = 96;
+
+    // Kept in its own non-inlined method so the compile-time GameManager members are bound when
+    // THIS method is JIT-compiled, which happens at the guarded call in HourOfDay.
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    private static bool TryVanillaClockHour(int dtp, out float hour)
+    {
+        hour = 0f;
+        var gm = MBSingleton<GameManager>.Instance;
+        // DaySettings is a struct; an uninitialised one has DailyPoints 0, and PointToHours
+        // (24 / DailyPoints) would turn the whole expression into NaN.
+        if (!gm || gm.DaySettings.DailyPoints <= 0) return false;
+        hour = Mathf.Repeat(GameManager.HourOfTheDayValue(dtp, 0), 24f);
+        return true;
+    }
+
+    /// <summary>
+    /// The same clock hour computed by reflection, for a game version where the compile-time call
+    /// is gone. Never returns the old dawn-relative number: if <c>DayStartingHour</c> cannot be
+    /// read it warns once and assumes the shipped value.
+    /// </summary>
+    private static float FallbackClockHour(int dtp)
+    {
+        int dailyPoints = AssumedDailyPoints;
+        int startHour = AssumedDayStartingHour;
+        bool startRead = false;
+        try
+        {
+            var gm = GetGM();
+            var daySettings = gm == null ? null : _daySettingsField?.GetValue(gm);
+            if (daySettings != null)
+            {
+                var type = daySettings.GetType();
+                _dailyPointsField ??= type.GetField("DailyPoints", Flags);
+                _dayStartingHourField ??= type.GetField("DayStartingHour", Flags);
+                if (_dailyPointsField != null)
+                {
+                    int points = Convert.ToInt32(_dailyPointsField.GetValue(daySettings));
+                    if (points > 0) dailyPoints = points;
+                }
+                if (_dayStartingHourField != null)
+                {
+                    startHour = Convert.ToInt32(_dayStartingHourField.GetValue(daySettings));
+                    startRead = true;
+                }
+            }
+        }
+        catch (Exception ex) { Log.Debug($"[GameQuery] DaySettings read threw: {Log.ExceptionText(ex)}"); }
+
+        if (!startRead && !_dayStartWarned)
+        {
+            _dayStartWarned = true;
+            Log.Warn("[GameQuery] DaySettings.DayStartingHour could not be read; HourOfDay assumes the day starts at "
+                   + $"{AssumedDayStartingHour}:00 (the shipped value). Clock-hour windows in mods are wrong by the difference "
+                   + "if this game version starts its day at another hour.");
+        }
+
+        float elapsedHours = (dailyPoints - dtp) * (24f / dailyPoints);
+        return Mathf.Repeat(startHour + elapsedHours, 24f);
     }
 
     /// <summary>

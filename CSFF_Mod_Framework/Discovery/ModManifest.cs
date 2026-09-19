@@ -32,6 +32,9 @@ internal class ModManifest
     // CS0649: fields are populated by JsonUtility.FromJsonOverwrite via reflection
 #pragma warning disable 0649
     public string Name;
+    // Optional short display tag ("CMC"). Absent in every third-party manifest: JsonUtility leaves
+    // a missing key at its default (null) and DisplayTag then derives one from Name.
+    public string ShortName;
     public string Author;
     public string Version;
     public string Description;
@@ -46,6 +49,16 @@ internal class ModManifest
 
     /// <summary>True when the manifest declares the ModLoader/ModCore <c>ModLoaderVerison</c> field.</summary>
     public bool IsModLoaderNative => !string.IsNullOrWhiteSpace(ModLoaderVerison);
+
+    [NonSerialized] private string _displayTag;
+
+    /// <summary>
+    /// The short tag this mod is shown by in the UI (the perk origin marker): the manifest's
+    /// <see cref="ShortName"/> when it declares one, else a tag derived from <see cref="Name"/>
+    /// by <see cref="ModTag.Derive"/>. Empty when neither yields anything. Computed on first read,
+    /// which is after ModDiscovery has applied its folder-name fallback to <see cref="Name"/>.
+    /// </summary>
+    public string DisplayTag => _displayTag ??= ModTag.Resolve(ShortName, Name);
 
     /// <summary>
     /// True when the mod ships at least one declarative manifest that only the CSFF

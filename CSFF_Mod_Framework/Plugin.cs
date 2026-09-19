@@ -5,7 +5,7 @@ public class Plugin : BaseUnityPlugin
 {
     public const string PluginGuid = "crispywhips.CSFFModFramework";
     public const string PluginName = "CSFF Mod Framework";
-    public const string PluginVersion = "2.25.32";
+    public const string PluginVersion = "2.26.0";
 
     public static Plugin Instance { get; private set; }
     internal new static ManualLogSource Logger { get; private set; }
@@ -74,6 +74,18 @@ public class Plugin : BaseUnityPlugin
             + "never found. Leave false unless you have verified on a disposable save that blueprint "
             + "research survives a save/reload cycle with the quest mod installed.");
         Injection.QuestInjector.Enabled = questInjectionEnabled.Value;
+
+        // Config: perk origin marker (on by default; owner decision 2026-09-14). Display only:
+        // appends " [TAG]" to the rendered name of framework-loaded perks, never to PerkName.
+        var perkOriginTag = Config.Bind("Perks", "ShowModOriginTag", true,
+            "Mark every perk (trait) added by a mod with a short mod tag after its name, for example "
+            + "\"Swimmer [CMC]\", in the character creation perk lists, the selected-perk panel and the "
+            + "character sheet, so perks from different mods can be told apart. Vanilla perks are never "
+            + "marked. The tag comes from the mod's ModInfo.json \"ShortName\", or the initials of its "
+            + "name when it has none. Display only: perk names, saves and stat reports are unchanged. "
+            + "Set false to hide the tags. A change needs a full quit to desktop and relaunch, because "
+            + "this file is read once at startup.");
+        Patching.PerkOriginTagPatch.Enabled = perkOriginTag.Value;
 
         Triggers.TriggerService.Init();
 
@@ -205,6 +217,11 @@ public class Plugin : BaseUnityPlugin
         // GIF animation support — patches CardGraphics.Setup / RefreshCookingStatus.
         // Self-skips registration when no mod ships CardData/Gif/*.json.
         Patching.GifAnimationPatch.ApplyPatch(Harmony);
+
+        // Perk origin marker: display-only postfixes on MenuPerkButton.Setup, MenuPerkPreview.Setup
+        // and MainMenu.SelectPerk that append the owning mod's short tag to a framework-loaded
+        // perk's rendered name. Patches nothing when [Perks] ShowModOriginTag is false.
+        Patching.PerkOriginTagPatch.ApplyPatch(Harmony);
 
         // Animals: GameManager.Awake prefix that appends queued mod agents to
         // WorldSettings.NPCAgents right before the game consumes it. No-ops per run

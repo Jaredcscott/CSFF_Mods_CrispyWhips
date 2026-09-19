@@ -83,6 +83,11 @@ internal static class LoadOrchestrator
             JsonDataLoader.LoadAll(mods);
             LogTiming(sw, "JsonDataLoader", warnMs: 3000);
 
+            // 4a. Perk origin marker: mod Name -> display tag, from the SAME manifests whose Name
+            //     LoadAll just stored as the value of UniqueIdToModName. No-op (and never throws)
+            //     when [Perks] ShowModOriginTag is off.
+            Patching.PerkOriginTagPatch.SetModTags(mods);
+
             // 4b. Supersede duplicate instances created by Pikachu ModLoader/ModCore for
             //     UIDs we own (they load every ModInfo.json mod inside a ClearDict prefix,
             //     so their duplicates win GetFromID — which resets blueprint research on

@@ -133,12 +133,44 @@ internal static class ModDiscovery
         // framework-owned content (CardData/Hub/, CharacterPerk/, Localization/) from the
         // framework directory. The framework dir is intentionally skipped by the main loop
         // above (it has no ModInfo.json for the user-mod contract), but its JSON must load.
-        var fwManifest = new ModManifest { Name = "CSFFModFramework", DirectoryPath = frameworkDir };
+        var fwManifest = new ModManifest
+        {
+            Name = "CSFFModFramework",
+            ShortName = ReadFrameworkShortName(frameworkDir),
+            DirectoryPath = frameworkDir
+        };
         ProbeFeatures(fwManifest);
         deduped.Insert(0, fwManifest);
 
         Log.Debug($"Discovered {deduped.Count - 1} mod(s) + framework (total slots: {deduped.Count})");
         return deduped;
+    }
+
+    // Tag for framework-owned perks (the Arcane Wayfinder) when the framework's ModInfo.json is
+    // missing, unreadable, or declares no ShortName.
+    private const string FrameworkDefaultShortName = "FW";
+
+    /// <summary>
+    /// The framework's own folder is skipped by the discovery loop and represented by a synthetic
+    /// manifest whose internal Name other services key on, so its <c>ModInfo.json</c> is never
+    /// parsed as a mod. Read its <c>ShortName</c> here, or that key would be dead data.
+    /// </summary>
+    private static string ReadFrameworkShortName(string frameworkDir)
+    {
+        try
+        {
+            var path = Path.Combine(frameworkDir, "ModInfo.json");
+            if (File.Exists(path))
+            {
+                var declared = ModManifest.FromJson(File.ReadAllText(path), frameworkDir).ShortName;
+                if (!string.IsNullOrWhiteSpace(declared)) return declared;
+            }
+        }
+        catch (Exception ex)
+        {
+            Log.Debug($"[ModDiscovery] framework ModInfo.json ShortName unreadable, using '{FrameworkDefaultShortName}': {ex.GetType().Name} {ex.Message}");
+        }
+        return FrameworkDefaultShortName;
     }
 
     private static bool _pikachuProbed;

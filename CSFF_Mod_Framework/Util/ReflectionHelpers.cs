@@ -245,7 +245,8 @@ internal static class ReflectionHelpers
             {
                 replacement = Array.CreateInstance(fieldType.GetElementType() ?? typeof(object), 0);
             }
-            else if (!fieldType.IsAbstract && !fieldType.IsInterface)
+            else if (!fieldType.IsAbstract && !fieldType.IsInterface
+                     && Reflection.ReflectionCache.HasParameterlessCtor(fieldType))
             {
                 try
                 {

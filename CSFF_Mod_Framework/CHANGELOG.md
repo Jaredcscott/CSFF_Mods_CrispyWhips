@@ -4,6 +4,32 @@ All notable changes to CSFFModFramework are documented here.
 
 ---
 
+## [2.26.0] - 2026-09-17
+
+### Added
+
+- **Perk origin tag.** New config `[Perks] ShowModOriginTag`, default `true`: every perk added by
+  a mod shows a short tag after its name at character creation and on the character sheet (for
+  example "Swimmer [CMC]"), so perks from different mods can be told apart. Vanilla perks are
+  never tagged. Display only: the perk's real name, saves and stat reports are unchanged. The tag
+  comes from a mod's own `ModInfo.json` (a new optional `"ShortName"` key), or from the initials
+  of the mod's name if it has none; every in-house mod's `ModInfo.json` now sets one. Set the
+  config to `false` to hide the tags; needs a full quit to desktop and relaunch to take effect.
+
+### Fixed
+
+- **Every mod time window built on `GameQuery.HourOfDay` was running four hours late.** It
+  returned hours since the in-game day started, and the in-game day starts at 04:00, not at
+  midnight. It now returns the on-screen clock hour, the same one vanilla's own time checks
+  use. Consequence for Community Mod Chest: the Professor, the Miller and Weaver, and the
+  Apothecary now keep their posted schedules at the times they were meant to, the Shadow Cat and
+  Lost Cat prowl at their intended hours, and the framework's own animal activity windows shift
+  the same four hours. Nothing about any schedule changed on paper, only when it now actually
+  happens.
+- **A stat accessor handed a stat's definition instead of its live value used to fail silently.**
+  `StatAccess`'s value accessors now log one warning per accessor, naming the mistake, instead of
+  quietly returning nothing.
+
 ## [2.25.32] - 2026-09-11
 
 ### Changed - log verbosity (pre-distribution pass)

@@ -202,6 +202,14 @@ internal static class WikiModPatchAllRescue
             }
             catch (ReflectionTypeLoadException rtle)
             {
+                // Partial type load: recover from the types that DID load rather than swallowing
+                // (framework CLAUDE.md, ReflectionCache rule). This is an informational count only
+                // (feeds the "N later patch class(es)" warning text), so a breadcrumb - not a
+                // fallback value - is the whole fix; the outer catch below still logs+returns -1
+                // for anything that throws afterward.
+                var loaded = rtle.Types?.Count(t => t != null) ?? 0;
+                Util.Log.Debug($"WikiModPatchAllRescue: CountFollowingPatchClasses - Assembly partial type load "
+                              + $"({loaded} of {rtle.Types?.Length ?? 0} types usable): {rtle.GetType().Name}");
                 types = Array.FindAll(rtle.Types, t => t != null);
             }
 

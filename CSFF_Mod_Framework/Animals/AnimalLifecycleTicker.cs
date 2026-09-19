@@ -294,6 +294,11 @@ internal static class AnimalLifecycleTicker
         stat.SetStatValueFromEditor(max > 0f ? max : 100f);
     }
 
+    // ActiveStart/ActiveEnd are CLOCK hours: the same two numbers are handed to the engine as
+    // InGameTimeCondition hour windows (AnimalAssetFactory.MakeHourWindow, DutyBuilder), which
+    // compare against GameManager.HourOfTheDayValue. GameQuery.HourOfDay returns that clock hour
+    // since the 2026-09-17 D6 fix; before it this window ran DayStartingHour (4) hours behind the
+    // species' own duties, so the roost relocation fired at 10:00 for an owl whose duties end at 6.
     private static bool InActiveWindow(SpeciesLifecycle s)
     {
         int hour = (int)GameQuery.HourOfDay;

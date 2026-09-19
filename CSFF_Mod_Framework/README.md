@@ -4,7 +4,7 @@ Standalone modding framework for Card Survival: Fantasy Forest. Provides mod dis
 
 ## Status
 
-- **Version:** 2.25.32
+- **Version:** 2.26.0
 - **Game Version**: EA 0.67i (vanilla JSON delta 0 vs 0.67h: not one game data file changed.
   Game code did change, so `lib/Assembly-CSharp.dll` was refreshed from the live binary and every
   in-house project rebuilt from clean against it: 16/16 Release builds, 0 errors, 0 warnings.
@@ -72,6 +72,7 @@ Deployed layout under `BepInEx/plugins/CSFF_Mod_Framework/`:
 | Wildlife | `WildlifeRaidDailyChance` | `0.35` | Daily probability when enabled |
 | Wildlife | `BearRaidChance` | `0.5` | Probability (0–1) that a bear encounter also triggers a raid on nearby open containers; sealed containers are always safe |
 | Wildlife | `WildlifeRaidStressPenalty` | `2` | Stress added on a successful raid |
+| Perks | `ShowModOriginTag` | `true` | Marks every perk added by a mod with a short mod tag after its name (`Swimmer [CMC]`) in the character creation perk lists, the selected-perk panel and the character sheet. Vanilla perks are never marked. Display only: perk names, saves and stat reports are unchanged. Set `false` to hide the tags; needs a full quit to desktop and relaunch (BepInEx reads the `.cfg` once at startup) |
 
 ConfigurationManager is recommended for an in-game UI.
 
@@ -79,15 +80,15 @@ ConfigurationManager is recommended for an in-game UI.
 
 | Mod | Plugins Folder | Version | Description |
 |---|---|---|---|
-| Advanced Copper Tools | `Advanced_Copper_Tools` | 1.16.2 | Copper metalworking, wheelbarrow, bathtub, stove, lantern, oil chain, tea kettle, tea blending station, copper chest |
-| Community Mod Chest | `Community_Mod_Chest` | 1.68.1 | Community-suggested content: apparel, weapons and armor, character-creation traits, pottery, decorations, fishing gear, and a village area east of the River Clearing |
-| Herbs and Fungi | `Herbs_And_Fungi` | 1.10.15 | Herbalism, mushroom foraging, hemp farming, oil press, pickle fermentation, drying racks, medicinal teas, perks |
-| Sirus23 Mod Collection | `Sirus23_Mod_Collection` | 1.20.2 | Three animal companions (wolf, fox, owl), full sheep husbandry chain, and a felt-working pathway |
-| Water Driven Infrastructure | `Water_Driven_Infrastructure` | 1.10.19 | Water wheels, sawmills, grinding mills, ore sluices (river/lake adjacent) |
-| Quick Transfer | `Quick_Transfer` | 1.7.7 | Shift/Ctrl/Ctrl+Shift+Right-Click multi-card transfer with live preset indicator |
-| Repeat Action | `Repeat_Action` | 2.0.2 | Repeat last action with configurable keybinds and safety limits |
-| Skill Speed Boost | `Skill_Speed_Boost` | 1.9.7 | Per-skill XP multipliers, difficulty profiles, staleness decay, synergies, level scaling |
-| Mod Update Manager | `Mod_Update_Manager` | 2.1.24 | Nexus Mods update checker with in-game UI (F3), plus a one-click installer/updater for this whole mod family |
+| Advanced Copper Tools | `Advanced_Copper_Tools` | 1.16.6 | Copper metalworking, wheelbarrow, bathtub, stove, lantern, oil chain, tea kettle, tea blending station, copper chest |
+| Community Mod Chest | `Community_Mod_Chest` | 1.68.30 | Community-suggested content: apparel, weapons and armor, character-creation traits, pottery, decorations, fishing gear, and a village area east of the River Clearing |
+| Herbs and Fungi | `Herbs_And_Fungi` | 1.13.2 | Herbalism, mushroom foraging, hemp farming, oil press, pickle fermentation, drying racks, medicinal teas, perks |
+| Sirus23 Mod Collection | `Sirus23_Mod_Collection` | 1.21.3 | Three animal companions (wolf, fox, owl), full sheep husbandry chain, and a felt-working pathway |
+| Water Driven Infrastructure | `Water_Driven_Infrastructure` | 1.11.1 | Water wheels, sawmills, grinding mills, ore sluices (river/lake adjacent) |
+| Quick Transfer | `Quick_Transfer` | 1.8.0 | Shift/Ctrl/Ctrl+Shift+Right-Click multi-card transfer with live preset indicator |
+| Repeat Action | `Repeat_Action` | 2.1.5 | Repeat last action with configurable keybinds and safety limits |
+| Skill Speed Boost | `Skill_Speed_Boost` | 1.10.4 | Per-skill XP multipliers, difficulty profiles, staleness decay, synergies, level scaling |
+| Mod Update Manager | `Mod_Update_Manager` | 2.1.43 | Nexus Mods update checker with in-game UI (F3), plus a one-click installer/updater for this whole mod family |
 
 Every in-house mod declares `[BepInDependency("crispywhips.CSFFModFramework", BepInDependency.DependencyFlags.SoftDependency)]` for load ordering. None are truly framework-independent any more: Quick Transfer, Repeat Action, and Skill Speed Boost were originally pure-BepInEx QoL mods, but all three now call into the framework's Tier 1 utility API (`Api.Reflect`, `Api.CardUtil`, `Api.StatAccess`) for at least part of their core logic (QT's card-click reflection lookup; RA's card-identification helpers; SSB's staleness/area-familiarity/morning-bonus patches) — they will still load without the framework present, but that code path throws if it's missing. Mod Update Manager has no runtime dependency on the framework or any other mod; it only recognizes them by name/folder for Nexus tracking and its bundled-suite installer (see its own README).
 
@@ -122,6 +123,7 @@ Mod_Update_Manager — standalone, zero dependencies (bundles copies of the mods
 - **WarpData resolution** — UniqueID/GUID references, runtime tag creation, nested array expansion, both array and `List<T>` field types
 - **Sprite / Audio / Localization** — loads from each mod's `Resource/` and `Localization/` folders
 - **Perk injection** — adds perks to the target `PerkGroup` and removes them from groups the engine auto-placed them into (e.g., Sex/Romance). `"CharacterPerkPerkGroup": "None"` (since 2.11.0) keeps a perk out of every group instead — for perks granted only at runtime via `AddedInRunPerksWarpData` (e.g. CMC Academy course "Graduate" perks)
+- **Perk origin tag** (built 2026-09-17, not yet confirmed in-game): appends a short mod tag to the DISPLAYED name of every framework-loaded perk (`Swimmer [CMC]`) so perks from different mods can be told apart. Covers the character creation Available and Equipped lists (one pooled `MenuPerkButton` set serves both), the selected-perk panel header, and the perk previews on the character select card and the in-game character sheet, including their tooltip title. Display only: it never writes `CharacterPerk.PerkName`, so the localization CSV stays authoritative and stat breakdowns and the perk unlock popup show the bare name. Vanilla perks have no entry in the framework's UniqueID-to-mod map and are left alone. The tag is the optional **`"ShortName"`** key of the mod's `ModInfo.json` (for example `"ShortName": "CMC"`; whitespace and `[ ] < >` are stripped, at most 8 characters). A mod without the key gets one derived from its `Name`: the upper-cased initial of each word plus any digits in it, skipping connectives, at most 5 characters (`Sirus23 Mod Collection` gives `S23MC`, `Herbs and Fungi` gives `HF`), or the first 3 characters of a one-word name (`Invincibility` gives `INV`). Toggle: `[Perks] ShowModOriginTag` above
 - **Blueprint tab injection** — reads each mod's `BlueprintTabs.json` and injects entries by `LocalizationKey`
 - **Smelting recipe injection** — reads each mod's `SmeltingRecipes.json` and injects `CookingRecipes` into vanilla forges/furnaces with duplicate detection
 - **Drop injection** — reads each mod's `DropInjections.json` and appends `CardDrop` entries to matching `DismantleAction.ProducedCards` on location cards, matched by exact UID, `CardName.LocalizationKey` substring, or `CardTag` name; idempotent and cross-mod-soft-dependency safe (missing referenced cards are skipped quietly)
@@ -169,7 +171,7 @@ Mods only need C# for **mod-specific logic**: custom action interception, forage
 
 ## Key File Locations
 
-- Vanilla game data dump: `Documentation/GameData/CSFF-JsonData_Current/` (stable alias; repointed by `Development_Tools/Set-GameDataVersion.ps1` after each game update — currently EA 0.66h)
+- Vanilla game data dump: `Documentation/GameData/CSFF-JsonData_Current/` (stable alias; repointed by `Development_Tools/Set-GameDataVersion.ps1` after each game update — currently EA 0.67i, per `Documentation/GameData/CURRENT_VERSION.txt`)
 - GUID lookups: `Documentation/GameData/CSFF-JsonData_Current/UniqueIDScriptableGUID/`
 - LitJSON source: `Stubs/LitJson/LitJsonStub.cs` → `LitJSON.dll` (v0.19.0.0)
 
@@ -423,7 +425,7 @@ Further reflection/state-access consolidation under `CSFFModFramework.Api`, repl
 | API | Purpose |
 |---|---|
 | `Api.CardFinder` | Cached whole-scene `InGameCardBase` lookup (`AllCards()`, `Find`/`FindAll` by UID or predicate), invalidated automatically when `GameManager.AllCards.Count` changes; `Invalidate()` for in-place CardModel swaps that don't change the count |
-| `Api.StatAccess` | `GetCurrentValue`/`SetCurrentValue`/`ModifyCurrentValue`/`GetMaxValue`/`GetUniqueId` on a live `GameStat` instance, with property-then-field fallback across observed runtime shapes |
+| `Api.StatAccess` | `GetCurrentValue`/`SetCurrentValue`/`ModifyCurrentValue`/`GetMaxValue`/`GetStatModel`/`GetUniqueId` on a LIVE stat, with property-then-field fallback across observed runtime shapes. Pass the live `InGameStat` (`GameManager.StatsDict[definition]`), never the `GameStat` definition that `GetFromID` returns: a definition has no current value, so the value accessors return `NaN`/`false`/`null` and, since the 2026-09-17 guard, log one warning per accessor naming the stat and the fix (they used to fail silently). `GetUniqueId` works on either |
 | `Api.RecipeInjector` | Generalized `CookingRecipe` injection onto a station's `CookingRecipes` array from a `RecipeSpec` (compatible cards/tags, duration, cooker/ingredient mod types) — replaces ACT's `VanillaFireKettlePatch` and H&F's tendon-drying recipe injection |
 | `Api.ContainerSort` | Reorders a container's `InventorySlots` in place by a chosen durability axis (Usage/Quality/Spoilage/Special1–4), ascending or descending, without changing item counts. *(No fleet mod currently calls this — available for a future container-sort UI.)* |
 | `Api.BlueprintAlternates` | `AddAlternateIngredient(allData, primaryUid, alternateUid)` walks CT7/CT10 `BlueprintStages[].RequiredElements[]` and attaches a `CardTabGroup` alternate so a slot accepts either card — replaces ACT's `PatchNailInterchangeability`; also used by WDI to accept ACT's fasteners as optional alternates without a hard dependency |

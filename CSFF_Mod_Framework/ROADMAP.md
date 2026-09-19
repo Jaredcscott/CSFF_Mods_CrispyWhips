@@ -1,106 +1,137 @@
 # Roadmap: CSFF Mod Framework
-Version at time of writing: 2.25.30
-Date: 2026-09-10
-Audit score: 9/10 (PASS - 0 preflight CRITICAL, 0 design gaps, 1 fix-shipped retrospective pending in-game verification, 2 warnings)
+Version at time of writing: 2.26.0
+Date: 2026-09-17 (refreshed by `/consolidate-audit` after source commit `8881c18cb`)
+Audit score: 9/10 - PASS
+
+> **This is the framework, not a content mod.** The content-mod roadmap template (Tier 2 migration,
+> theme expansion, art) mostly does not apply: the framework DEFINES Tier 2, and its own content is a
+> single minimal Portal Hub set that exists only to exercise the engine. So "expansion" here means new
+> ENGINE surfaces that downstream mods consume, and "polish" means removing the last dead API and
+> boilerplate. Player-facing content, recipes and balance belong in downstream mods, not here
+> (`Documentation/Ideas/CSFFModFramework/IDEAS.md` guardrails).
 
 ## Current State
 
-**Theme**: The shared engine every in-house CSFF mod depends on. Mod discovery, JSON data loading, WarpData resolution, sprite/GIF loading, localization, blueprint/perk/drop/improvement injection, SelfTriggeredAction activation, WorldMap node injection + a cross-mod Portal Hub, NPC agent diagnostics, a declarative Animal System, and a suite of performance patches. Content mods only write C# for mod-specific logic.
+**Theme**: The standalone engine every CSFF suite mod depends on - mod discovery, data loading, WarpData
+resolution, sprite loading, blueprint/perk injection, localization, STA activation, NPC-agent
+diagnostics, WorldMap node + travel-DA injection, the Portal Hub cross-world system, the declarative
+Animal System (tame/companion, traps, tracks, encounters from a JSON manifest with no mod-side C#), and
+standalone GameModifierPackage / flavour-synergy injection.
 
-**Content** (the framework's own minimal payload): 1 item / 1 blueprint / 2 structures / 1 perk / 2 custom images. The real product is 144 `.cs` files of engine code.
+**Content**: 1 item / 1 blueprint / 2 structures / 1 perk / 2 custom images (the Portal Hub reference set
+only - Wayfinder perk -> Portal Kit item -> placed Portal Hub CT2 -> Hub Exit CT8). ~147 `.cs` engine
+files.
 
-**Stability**: 9/10 - clean Release build (0 errors / 0 warnings), versions synced at 2.25.30 across `ModInfo.json` / `Plugin.cs` / `README.md`, localization parity clean (13 EN / 13 CN), Bin/Release sync clean, code-quality 10/10. The one deduction is a single runtime defect whose fix shipped in 2.25.30 and awaits in-game verification (below).
+**Stability**: 9/10 - PASS. 0 preflight CRITICAL, 0 design gaps, 0 broken promises. Clean Release build
+at 2.26.0 (0 errors / 0 warnings), localization parity clean (13 EN / 13 CN), bin/Release sync clean.
+Carrying 1 runtime-verification caveat (C1 river-bridge, fix shipped 2.25.30) and 2 tracked warnings (W1
+retro/open-plan bucket, W2 unused `Api.ContainerSort` - owner-decided LEAVE on 2026-09-17). W3
+(code-quality F1) was RESOLVED 2026-09-17 in commit `8881c18cb`.
 
-**Open work**:
-- 🟡 `river-bridge-east-click-noop` (fix shipped 2.25.30, verification pending) - eastbound River Clearing -> Village Path travel button renders, is clickable, and performed no travel. Framework travel-DA injection onto a vanilla CT8 (the reverse direction; the forward injection onto a clone CT8 works). Root cause pinned and fixed: `ConnectionGateService.EvaluateAll` ran on a main-menu tick where `GameManager.Instance` is C#-null, flipping the gate LOCKED and stripping one DA; fix = live-`GameManager` guard on `EvaluateAll`/`SealableGateService.OnPoll` + a self-healing travel-DA cache resync (`TravelDaCacheResync`), commit `c6973b394`, gated by `Framework-ConnectionGateEvaluation.Tests.ps1`. Closes on `T2.186`.
-- 🟡 Pending verification (human/runtime-gated, not re-verified this pass): `worldmap-clone-duplicate-terrain`, `gate-red-baseline-rediscovery`, `wikimod-old-save-load-crash`.
-- 🟡 Open plan: `questinjector-blueprint-reset-risk` (the `QuestInjector` path is shipped but hard-gated OFF pending root-cause diagnosis of its blueprint-research reset).
+**Open work** (all 🟡 pending-verification / open-plan; none 🔴 open, none a current static defect):
+- `river-bridge-east-click-noop` (T2.186) - fix shipped 2.25.30, present/unmodified at 2.26.0; awaits one in-game click check.
+- `wikimod-old-save-load-crash` - fix shipped 2.25.25/2.25.26; a 2026-09-06 live log already showed it working; needs formal retro graduation.
+- `worldmap-clone-duplicate-terrain` - data-duplication premise measured FALSE 2026-09-11; remaining check is presentation-layer, build-free.
+- `cmc-village-conditional-drop-fixtures-missing` - CMC-scoped symptom; framework ships the 2.25.4 diagnostics that will pinpoint it.
+- `questinjector-blueprint-reset-risk` (+ `RETRO_CLOSURE_PLAN_2026-07-23`) - shipped, hard-gated OFF since 2.17.0, owes root-cause diagnostics before any re-enable.
+- `gate-red-baseline-rediscovery` - fix is to the TEST, queued as fleet mission `csff-gate-debt-preexisting` (not framework code).
 
-**Framework compliance**: N/A in the usual sense - this mod IS the Tier-2 service layer (`ActionRouter`, `SpawnService`, `TickEvents`, `ContentModPlugin`, `EncounterGuards`). It carries no `ModLoaderVerison`, no `DropCollectionGuardPatch`, no unfiltered hot-path prefixes; its load-time normalizers filter strictly by mod prefix. Code-quality found 0 reliability risks across 146 scanned files.
+**Framework compliance**: This mod IS the framework - it DEFINES Tier 2 (`Api.ActionRouter`,
+`Api.SpawnService`, `Api.TickEvents`, `Api.ContentModPlugin`, `Api.EncounterGuards`, `Api.GameQuery`,
+`Api.StatAccess`). No deprecated pattern present: no `DropCollectionGuardPatch`, no unfiltered hot-path
+prefix, no manual perk/blueprint injection, no `ModLoaderVerison` in its own manifest. Process-lifetime
+tick guards (`GameManager`-null early-outs) and per-run handler-registration discipline are in place.
 
 ---
 
 ## Phase 0: Stabilize
 
-> Fix / close before any new engine capability lands. All three are runtime- or human-gated, so "fix" here means capture evidence, not write code blind.
+> Audit score is 9/10 (>= 8), but 🟡 retrospectives remain open, so this phase stays - it is light and
+> mostly runtime-verification, not code.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Close `river-bridge-east-click-noop` (fix shipped 2.25.30): relaunch (quit-to-desktop, not a save reload), build the bridge, hold Pathfinder, attempt eastbound travel, then grep `LogOutput.log` for `[TravelDaCacheResync]` FIRST per the retro's Open Unknown #1 outcome map. Capture closure evidence, do not re-discover | Retro close (READ first) | P0 | Medium |
-| Re-verify the three 🟡 pending retros on the next play session (`worldmap-clone-duplicate-terrain` needs a fresh-boot FIRST visit to a clone tile; `wikimod-old-save-load-crash` needs a real old-save load) | Retro verify | P0 | Medium |
-| Decide and act on `questinjector-blueprint-reset-risk`: run the single-variable graduation test on a disposable save, or keep the gate OFF and record that decision | Retro / design | P1 | Complex |
+| **C1 `river-bridge-east-click-noop`** in-game close on `T2.186`: quit-to-desktop relaunch, load save, reach River Clearing (bridge built, Pathfinder held), click East, grep `LogOutput.log` for `[TravelDaCacheResync]` FIRST | Retro close (runtime) | P0 | Quick (human play) |
+| ~~**W3 / F1** - add `ReflectionCache.HasParameterlessCtor(fieldType)` probe before the `Activator.CreateInstance` at `Util/ReflectionHelpers.cs:252`~~ - **DONE 2026-09-17, commit `8881c18cb`** (+2/-1, explicit-path; all three call sites now identical; Release rebuild 0 warnings / 0 errors) | Code consistency fix | ✅ Resolved | - |
+| `wikimod-old-save-load-crash` - formal retro graduation (evidence already in hand, 2026-09-06 log) | Retro close (evidence-in-hand) | P1 | Quick |
+| `worldmap-clone-duplicate-terrain` - run the two build-free discriminators (reload-in-place = visual vs data; pull WikiMod.dll = its dead `AddSlot` prefix); do NOT ship another board-data fix | Retro close (runtime) | P1 | Quick (human play) |
 
 ---
 
 ## Phase 1: Foundation
 
-> Table-stakes health. Most of this is already GREEN and should stay that way; the work is keeping it green each game version, not first-time setup.
+> Table-stakes hygiene; all currently GREEN, listed so a regression is caught on the next pass.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Keep `ModInfo.json` / `Plugin.cs` / `README.md` versions synced (use `Update-ModVersion.ps1`) | Version hygiene | P1 | Quick |
-| On each game update, refresh `lib/Assembly-CSharp.dll` and force a clean rebuild; regenerate the 9 NStrip binders with the owner's external tool, then re-run `Development_Tools/RefCheck/` | Game-version hygiene | P1 | Medium |
-| Keep localization parity (13/13) as keys are added; any new `SimpEn.csv` row gets a matching `SimpCn.csv` row in the same commit | Localization | P1 | Quick |
+| Versions synced across `ModInfo.json` / `Plugin.cs` / `README.md` (all 2.26.0) | Version hygiene | P1 | Quick (done) |
+| Chinese localization parity (13 EN / 13 CN clean) | Localization | P1 | Quick (done) |
+| bin/Release sync clean; refresh `lib/Assembly-CSharp.dll` on every game update and rebuild all mods | Game-version hygiene | P1 | Medium (per update) |
+| Regenerate the 9 `Assembly-CSharp-nstrip.dll` binders with the external NStrip tool (authoring-surface only, not a runtime hazard on 0.67i per `RefCheck/`) | Game-version hygiene | P1 | Medium (owner tool) |
 
 ---
 
-## Phase 2: Core Expansion (engine capability)
+## Phase 2: Core Engine Surfaces
 
-> The highest-value engine surfaces that are loaded-but-dormant or shipped-but-undocumented. Near-Term items from `Documentation/Ideas/CSFFModFramework/IDEAS.md` - no design decision blocking.
+> New ENGINE seams downstream mods would consume. Each is blocked on a consumer, a design decision, or a
+> root-cause, NOT on missing engine plumbing (see `.audit/ideas.md` for the 2026-09-11 premise
+> corrections - several "dormant type needs an injector" ideas were refuted; the game self-enumerates
+> those types from `DataBase.AllData`).
 
-### Author-facing cookbook docs for the shipped-but-undocumented injectors
-**What**: a `Documentation/CSFF_Patterns.md` cookbook entry for the Animal System (`Animals/*.json` schema v1 - `AnimalService`/`AnimalLoader`/`AnimalValidator`/`DutyBuilder`/`LifecycleTemplateBuilder`/`AnimalLifecycleTicker`/`SpawnRegistrar`) and for `NPCCharacterPerk` (2.20.0).
-**Why**: the code is fully shipped and demonstrated (Sirus23's `TestHare.json`, one manifest, zero mod C#), but with no cookbook entry it is unreachable by any author but the one who wrote it. Highest value-per-effort in the backlog.
+### Generalize `WildlifeRaidService` to `Api.Raid` / `Raids.json`
+**What**: keep the shipped engine but expose trigger / target-tag / effect through a registration seam or a declarative `Raids.json`, replacing the single hardcoded bear-spoils-food rule.
+**Why**: the only raid rule today is baked in; a seam lets Sirus23 and future hostile-encounter mods add raids without C#.
+**Requires**: none (engine already exists).
+**Complexity**: Medium.
+
+### Author-time gate-misconfig static check
+**What**: fold a `LockConditions` / `GateConditions` mutual-exclusion + `HideTravelDA:true` + `RestoreDAOnUnlock:false` permanent-red-X detector into the `F21-F27` WorldMap validators (`/audit-environments` + preflight).
+**Why**: this is the exact author-time shape behind C1's class of defect; catching it in the linter prevents the next one.
 **Requires**: none.
 **Complexity**: Medium.
 
-### Activate the loaded-but-dormant `DirToTypeName` types
-**What**: thin injectors (mirroring `PerkInjector`/`BlueprintInjector`) for `FlavourTag` (trivial, SpiceTag parity), `CookingRecipeGroup`, `ConstructionCardGroup` (12 vanilla instances), and `GameModifierPackage` standalone activation via `Modifiers.json`.
-**Why**: each loads and registers since 2.1.0 but nothing injects/applies it, so the capability is invisible to downstream mods. Unblocks CookingExpanded/DairyWorkshop/Brewery, DecorationAndComfort, and HardcoreMode/ChallengeRun idea mods.
-**Requires**: per type, first confirm load-time (`AllData`) vs UI-time (`*Screen.Show` postfix) enumeration.
-**Complexity**: Medium.
-
-### Ship a first consumer for `NPCCharacterPerk`
-**What**: one `NPCAgent` + per-variant personality-perk bundles (mirrors vanilla Partner presets); land CMC Village Guards (built 1.48.0, unplayed) as the acceptance proof.
-**Why**: the injector has no consumer yet, so it is unexercised. A shipped consumer both proves the path and becomes the cookbook example.
-**Requires**: the Village Guards content (exists) + a play session.
-**Complexity**: Medium.
+### Fold the ctor-probe into `InitializeSerializableDefaults` itself (from W3/F1)
+**What**: rather than re-implementing `HasParameterlessCtor` at each of the three call sites, move the guard INSIDE the helper so no future caller can omit it.
+**Why**: W3/F1 is exactly a caller that omitted the guard; centralizing removes the whole class.
+**Requires**: none - W3/F1 shipped 2026-09-17 (`8881c18cb`), so this is now a pure centralization refactor over three identical call sites rather than a fix that supersedes a pending one.
+**Complexity**: Quick.
 
 ---
 
 ## Phase 3: Integration & Depth
 
-> Durable engine hardening and generalization. Design decisions required.
+> Cross-mod surfaces and the shipped-but-unexercised paths.
 
-### Build the save-compat test harness
-**What**: scripted fixtures for the add-content -> save -> remove-mod -> load matrix (re-authoring the deleted `fwHarnessTestCharacter` is step 0).
-**Why**: closes four unverified injection paths at once - `QuestInjector` (gated OFF), `SealableGates.ResealCondition` (one unplaytested consumer), `CharacterRosterInjector` (no consumer ever), `NPCCharacterPerk` (no consumer yet). The durable alternative to testing these on a player's live save.
-**Requires**: Phase 2 `NPCCharacterPerk` consumer is a useful first fixture subject.
-**Complexity**: Complex.
+### `QuestInjector` re-enable path
+**What**: diagnose the blueprint-research-reset root cause that got `QuestInjector` hard-gated OFF (2.17.0), then a save-compat harness (add-content -> save -> remove-mod -> load) before any re-enable.
+**Why**: unblocks quest-chain consumer mods (TradersAndNPCs, MagicAndSpirits); currently a documented dead path.
+**Requires**: re-author the deleted `_FwVerificationHarness/` fixture; owner play session.
+**Complexity**: Complex (spans sessions, needs runtime evidence).
 
-### Generalize `WildlifeRaidService` -> `Api.Raid` / `Raids.json`
-**What**: keep the engine (day-rollover roll, container scan, sealed-container exemption, dedup gate) in the framework; expose rule values (trigger encounter, target tag, effect) via a registration seam.
-**Why**: fully shipped but hardcoded to one rule (bear encounter spoils food in `tag_NotSafeFromAnimals` containers). First/only consumer is Sirus23.
-**Requires**: a second consumer to validate the seam shape.
-**Complexity**: Medium.
+### `NPCCharacterPerk` / `ConstructionCardGroup` / `CookingRecipeGroup` consumers
+**What**: these types self-activate from `AllData` (no injector needed - premise corrected 2026-09-11); the missing half is a consumer mod that ships the content.
+**Why**: turns already-working engine surfaces into player-visible content.
+**Requires**: a downstream mod (DecorationAndComfort / CookingExpanded ideas). `NPCCharacterPerk` already has one (CMC Village Guards); its acceptance is `T2.235`.
+**Complexity**: Medium (in the consumer, not here).
 
-### Author-time static check for gate misconfiguration
-**What**: fold the runtime-only `HideTravelDA:true` + `RestoreDAOnUnlock:false` permanent-red-X warning into the `F21-F27` WorldMap validators (`/audit-environments` + preflight), detectable in `MapNodes.json` at author time; add a `LockConditions`/`GateConditions` mutual-exclusion check.
-**Why**: today the condition only fires at runtime, on a player's map, after the mod ships.
-**Requires**: none.
+### General `PatchAll`-isolation seam
+**What**: promote the WikiMod-specific `WikiModPatchAllRescue` into an `Api`-level "isolate a foreign plugin's PatchAll failure" seam if a second third-party plugin ever shows the same abort-cascade.
+**Why**: reuse the 2.25.31 hardening generically.
+**Requires**: a second real occurrence (do not build speculatively).
 **Complexity**: Medium.
 
 ---
 
 ## Phase 4: Polish
 
-> Non-blocking cleanup.
+> Remove the last dead weight and boilerplate.
 
 | Item | What | Complexity |
 |------|------|------------|
-| `Api.ContainerSort` disposition (summary W2) | Either wire the sort engine into a container-sort UI (a "Sort" action on chests/shelves), or relocate its spec to `Documentation/Ideas/` and delete the source. Honestly disclosed as unused future API; reaches no player either way | Medium |
-| Portal kit field completeness (summary M1, stale-sourced) | Backfill the 11 boilerplate fields on `csffmfw_portal_kit.json` for consistency; no runtime impact (unique-on-board, cannot be trashed) | Quick |
-| `NoSafetyMode` on the Wayfinder perk (summary M2, stale-sourced) | Add the field for completeness; non-functional (defaults false) | Quick |
+| W2 - `Api.ContainerSort` | **Owner-decided 2026-09-17: LEAVE AS-IS** as documented-unused API. This is settled, not an open question - do NOT re-raise it as a finding needing resolution, and do NOT delete `Api/ContainerSort.cs` on the reasoning that it is unreferenced. Listed here as a standing disclosure so the next audit recognises it rather than rediscovering it. | None (settled) |
+| M1 - `csffmfwportalkit` boilerplate | Optionally fill the 11 omitted standard fields (no runtime impact; loader defaults them) | Quick |
+| M2 - `csffmfw_perk_wayfinder` | Optionally declare `NoSafetyMode` explicitly (defaults false, non-functional today) | Quick |
+| Refresh stale sub-reports | Re-run the four 2026-06-27 category audits + `karpathy-plan` at the next `/full-mod-audit-chain` (critical-analysis and code-quality are already current) | Quick |
 
 ---
 
@@ -108,14 +139,22 @@ Audit score: 9/10 (PASS - 0 preflight CRITICAL, 0 design gaps, 1 fix-shipped ret
 
 > Where the framework should be at v3.0.
 
-The framework's job is to make a new CSFF mod authorable almost entirely in declarative JSON. The remaining distance to that vision is not more engines - most of them already ship - but the two things that keep shipped engines from being used: documentation (the cookbook gap) and save-safety proof (the harness gap). v3.0 is the point at which every loaded `DirToTypeName` type has both an activation surface and a cookbook entry, every injection path has passed the save-compat matrix, and `Api.ModState` gives mods a sanctioned save-persistent store so nothing has to risk the `QuestInjector` blueprint-reset class of bug again.
+The framework's endpoint is a fully declarative modding surface: every subsystem a content mod needs
+(drops, improvements, blueprints, perks, worldmap, portals, animals, modifiers, flavour, quests, raids)
+authorable from JSON with zero mod-side C#, and every shipped engine path exercised by at least one
+consumer or explicitly retired. The two structural debts to retire before v3.0 are (a) the shipped-but-
+unexercised injection paths (`QuestInjector`, `CharacterRosterInjector`, `SealableGates.ResealCondition`)
+- either proven via a save-compat harness or removed. The second former debt, the last unused public API
+(`Api.ContainerSort`), is CLOSED as of 2026-09-17: the owner decided it stays as documented-unused API,
+so it is a standing disclosure rather than something to retire before v3.0.
 
 **Potential major additions** (not yet justified - revisit after Phase 3):
-- `Api.ModState` save-persistent keyed store - retires the need for risky save-stream injection for NPC trust / companion morale / world-hardship toggles.
-- `ProcessAllService` (declarative Grind/Hammer/Blast All) - one shape shared across ACT + WDI, now unblocked by ActionRouter + SpawnService.
-- `LocalTickCounter` end-to-end usability - the last `DirToTypeName` entry no pass has exercised; could retire every mod's hand-rolled periodic-effect poll.
+- `Api.Raid` / `Raids.json` declarative hostile-encounter engine - fits the existing `WildlifeRaidService` and the animal/encounter theme.
+- A scripted save-compat test harness as a first-class dev tool - closes every "never exercised in-game" path at once and is the precondition for re-enabling `QuestInjector`.
+- `LocalTickCounter` activation investigation - the one genuinely uninvestigated `DirToTypeName` type (all others self-activate).
 
-These live in `Documentation/Ideas/CSFFModFramework/IDEAS.md` with fuller specs.
+These live in `Documentation/Ideas/CSFFModFramework/IDEAS.md`; the injector-refuted rows already carry
+their corrected "blocked on a consumer, do not write an injector" reasoning.
 
 ---
 
@@ -123,23 +162,23 @@ These live in `Documentation/Ideas/CSFFModFramework/IDEAS.md` with fuller specs.
 
 | Trigger | Action |
 |---------|--------|
-| After any new engine capability | Run `/audit-mod CSFFModFramework` + `/code-quality CSFFModFramework` and update this roadmap |
-| Game version update | Refresh every mod's `lib/Assembly-CSharp.dll`, force clean rebuilds, regenerate NStrip binders, re-run `Development_Tools/RefCheck/`, `/decompile-assembly`, `/extract-latest-carddata` |
-| After closing the travel retro | Run `/critical-analysis CSFFModFramework` to confirm, and `/resolve-retro csff river-bridge-east-click-noop` (runtime-evidence gate) |
-| After a framework change that content mods load against | Deploy the framework FIRST, then content mods, then repackage the suite, then MUM last |
+| After any engine-surface phase | Run `/audit-mod CSFFModFramework` and `/code-quality CSFFModFramework`, update this roadmap |
+| Game version update | Refresh `lib/Assembly-CSharp.dll` on EVERY mod, regenerate the nstrip binders, `/decompile-assembly`, re-run `Development_Tools/RefCheck/`, re-run `/update-mod-version` |
+| After fixing a defect on a runtime-gated path | Do NOT certify from source - collect the in-game log evidence per the retro's gate (CLAUDE.md "the log says it worked but in-game it did not") |
+| After a framework change that content mods link | Rebuild every content mod clean (`-t:Rebuild`) to signature-check against the new reference |
 
 ---
 
 ## Skill Cheatsheet for This Mod
 
 ```
-/audit-mod CSFFModFramework          - full health check, updates .audit/
-/code-quality CSFFModFramework       - C# reliability/maintainability scan
-/critical-analysis CSFFModFramework  - adversarial review
-/build-mod CSFFModFramework          - build Release DLL
-/deploy-mods CSFFMFW                 - build + deploy to game (framework folder)
-/diagnose-log                        - parse a BepInEx/Player log against known patterns
-/decompile-assembly                  - regenerate .decomp/ after a game update
+/audit-mod CSFFModFramework         - full health check, updates .audit/
+/code-quality CSFFModFramework      - C# reliability/hazard scan
+/critical-analysis CSFFModFramework - adversarial review
+/build-mod CSFFModFramework         - build Release DLL
+/deploy-mods CSFFMFW                - build + deploy framework to game (deploy FIRST in any batch)
+/consolidate-audit CSFFModFramework - merge .audit/ reports + refresh this roadmap
+/decompile-assembly                 - regenerate .decomp/ after a game update
 ```
 
 ---
@@ -292,3 +331,11 @@ These live in `Documentation/Ideas/CSFFModFramework/IDEAS.md` with fuller specs.
   `deploy.sh` matched none of them, which is a NON-finding because it copies `bin/Release` wholesale
   via `find "$release_dir" -type f` and carries no per-folder list. Nothing in Correction 1 was
   observed in a running game; `T2.235` is the first observation that will bear on it.
+
+### 2026-09-17 - Trait_Effect_Repair_Plan (closeout)
+- **Scope:** Fleet. The same entry is in `Community_Mod_Chest/ROADMAP.md`, `HerbsAndFungi/ROADMAP.md`, `Sirus23_Mod_Collection/ROADMAP.md` and `CSFFModFramework/ROADMAP.md`, the four mods the plan names.
+- **Verdict:** every phase built: P1 (CMC 1.68.25), P1b (1.68.26, `1f71be4a7`), P1c (1.68.27, `b5d93a885`), P7 (CMC 1.68.28 and HerbsAndFungi 1.13.1, `e4fad82ab`), P2-P6 (CMC 1.68.30, Sirus23 1.21.3, CSFFModFramework 2.26.0, `7b1c68f64`), and the pack's last open prompt, Prompt 1 (delete the temporary `Community_Mod_Chest/Patcher/TraitDiagnostics.cs` tracer), in `8d25ed810` with no version bump. Prompt 1 was gated on playthrough row T2.239, which is still pending; the owner lifted that gate on 2026-09-17 ("We need to be able to proceed with code work without being blocked on a full playthrough"). The plan doc's own row inventory was compared against the pack rather than trusting its 0-open count, and three plan items with no recorded outcome were settled this pass, none needing code: section 3.6's pre-release check (no `TriggerRange` on the four infection stats Deadly Disease rate-modifies), section 3.2's Swimmer 5 Sun re-check (kept), and section 3.1's "drop madness from Lunacy's text" (already done in 1.68.30). 0 plan rows unbuilt.
+- **Disposition:** ARCHIVE to `Documentation/Design/Trait_Effect_Repair_As_Built.md`: the plan with an archive banner, dated notes for Prompt 1 and the three checks above, and the drained pack appended as an appendix with Prompt 1 removed. Pack `Documentation/Plans/Fleet/Trait_Effect_Repair_Plan_Implementation_Prompts.md` deleted. The plan holds the only record of the ground truth behind the rework (R1-R20, D1-D9) and of every deviation from its starting values, so it is kept, not deleted. Not published: the public releases are still CMC 1.68.24, HerbsAndFungi 1.13.0, Sirus23 1.21.2 and CSFFModFramework 2.25.32 (`.claude/mod-publish-status.json` commits read back through each `ModInfo.json`), and the export is the owner's call. R14/R16's reading of the player's "+1.2 Speed" as the +1.2 Aid rate is still unconfirmed with the player; it is recorded in the archive's section 1.
+- **Pruned:** Prompt 1 from the pack before the pack was folded into the archive and deleted; nothing else. The plan left `Documentation/Plans/Fleet/` whole.
+- **Evidence:** Prompt 1: `dotnet build -c Release` 0 warnings 0 errors; the built `bin/Release/Community_Mod_Chest.dll` holds `TraitDiagnostics` (UTF-8) 0 times and `[TRAITDIAG]` (UTF-16-LE) 0 times, against controls `RiverSwimPatch` 1 and `[RiverSwimPatch]` 9; `grep -rn TraitDiagnostics --include=*.cs Community_Mod_Chest` 0 lines (control `RiverSwimPatch` 15); no file under `Documentation/Retrospectives/` cites `TRAITDIAG` or `EnableTraitDiagnostics`. Plan rows against code: `Community_Mod_Chest/GameStat/` holds all nine `CMC_Trait*.json` (eight trait stats plus `CMC_TraitSkinShelter.json`); `TraitsTickHandler.cs`, `TraitsActionHandler.cs` and `TraitDiagnostics.cs` absent from `Patcher/`; gates (a)-(e) plus the extended river swim test present as `TraitStat-CompositeBands`, `Perk-HeldTestNotAllPerks`, `PerkAidRate-HoldsTier`, `PerkStatClamp-Reachability`, `StatBase-NoVanillaSource` and `CMC-RiverSwim` `.Tests.ps1`; `CSFFModFramework/Patching/PerkOriginTagPatch.cs` and `Discovery/ModTag.cs` present, `[Perks] ShowModOriginTag` bound at `CSFFModFramework/Plugin.cs` and documented in its README config table; 12 `ModInfo.json` files carry `ShortName`; 21 Sirus23 JSON files reference `SaturationDairy` (by name or its UID `f4b08d0250e6099419e010a83578b9db`); `ModInfo.json` versions CMC 1.68.30, HerbsAndFungi 1.13.2, Sirus23 1.21.3, CSFFModFramework 2.26.0. Section 3.6 check: a JSON walk of 29,435 files (the vanilla EA 0.67i UniqueID and ScriptableObject exports plus every mod folder, 0 unparseable) found 0 `TriggerRange` objects whose `StatWarpData` is Infection_Gastrointestinal `1a8d37787d69c9b4aa05d332921f3763`, Infection_UpperRespiratory `3407bfc804966194e9e369a7cce6d07d`, Infection_Systemic `dc3cae53109fd5945b5279ec6291caae` or Infection_LowerRespiratory `fa47d156a14dac842bcdcbdbf8504e35` (by UID or name), with the same walk finding the control, vanilla `Tgr_Anxiety` on Stress at 240; `.decomp/` (949 `.cs`) names no infection stat (controls `HourOfTheDayValue` 4 files, `StatValueTrigger` 13), and no mod `.cs` references the four UIDs. Section 3.2: vanilla `CharacterPerk` SunsCost is only ever 0, 15 or 30 (71/38/20 of 129), and Swimmer's 5 matches the six other five-Sun CMC perks (CMC's SunsCost counts: 0 x20, 1 x21, 5 x7, 15 x5, and 10, 20, 25, 30, 100 once each), which include Abundant Growth's +1.2 Aid rate and Wide Hands' +15 skill offset; Swimmer now delivers what its price was set for. Section 3.1: `madness`, `insan` and `mania` absent from `Pk_Lunacy.json`, `CMC_TraitLunacy.json` and its CSV rows. Tracker: T2.239 and T1.84-T1.114 all present in `.claude/playthrough-test-status.json`, all `pending`, so lifecycle gate 2 holds; the 33 plan and pack path citations in it and the one in `Playthrough_Test/Playthrough_Checklist.html` were repointed at the archive in the same commit.
+- **Verification debt:** T2.239 (Nyctophobia and the tracer's log lines), T1.84-T1.88 (P1b), T1.89-T1.97 (P1c), T1.98-T1.101 (P7 medicine), T1.102-T1.109 (P2 condition traits), T1.110-T1.111 (P3 swim and Aid), T1.112 (P4 Sirus23 dairy), T1.113-T1.114 (P5 origin tag and clock hour), all `pending`. T2.239 part (5), T1.114 part (4) and the optional evidence in T1.102-T1.108 read `[TRAITDIAG]` lines that CMC 1.68.30 on the dev install still prints until the next CMC deploy and no later build prints; each of those rows carries a dated 2026-09-17 note saying so.
