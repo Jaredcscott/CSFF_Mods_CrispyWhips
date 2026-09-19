@@ -239,6 +239,20 @@ Set Knife Fighting_Multiplier = 3  (fast melee)
 
 ---
 
+### 15. XP Gain Log
+**What:** One log line per skill XP gain, showing what the game awarded and what the mod made of it.
+
+**Settings:**
+- `LogSkillXpGains` (default: `false`) - Enable the per-gain line
+
+**How It Works:**
+- Each line names the skill and shows the gain the game applied, the combined XP multiplier, the gain after it, and the skill's trained (base) value before and after
+- A gain handled at exactly 1x and a gain on a skill set to `0` both still write a line, so with any XP feature enabled, a gain with no line is one the mod did not handle
+- Gains are measured on the trained value, so XP earned while a status holds a skill at 0 (Stealth under "Animals noticed your Actions") shows up here and gets its bonuses
+- A gain as small as +0.5 cannot be read off the skill bar, which is what this is for. It logs on every gain, so turn it off again afterwards
+
+---
+
 ## Configuration File Example
 
 Every key below, with its shipped default. Sections match the `.cfg` exactly.
@@ -306,6 +320,7 @@ LowConditionMultiplier = 0.5
 
 [Diagnostics]
 LogEffectiveSettings = false
+LogSkillXpGains = false
 ```
 
 ---

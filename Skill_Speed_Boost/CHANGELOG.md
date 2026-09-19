@@ -5,6 +5,53 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.10.4] - 2026-09-14
+
+### Fixed
+
+- **Your XP settings now apply while a status is holding a skill down.** Some statuses lower a
+  skill for as long as they last. The clearest case is Stealth: noisy work such as chopping wood
+  or shovelling snow brings up "Animals noticed your Actions", which takes 75 off Stealth. Below 75
+  trained Stealth that shows your Stealth as 0, and while it did, XP you earned (from a hunt, say)
+  still reached the skill but the mod could not see it, so none of your XP settings applied to it.
+  The mod now reads the skill you have actually trained, underneath any temporary effect, so the
+  global and per-skill multipliers and every bonus apply as configured.
+- **A per-skill multiplier of `0` now also stops XP earned under such a status.** Before, a skill
+  set to `0` could still level while a status was holding it down.
+- **Level scaling now uses your trained level** rather than the lowered value a status shows.
+- No save-compatibility impact.
+
+### Added
+
+- **`LogSkillXpGains`** (Diagnostics, default off). Writes one line to `LogOutput.log` for every
+  skill XP gain the mod handles: the gain the game applied, the combined XP multiplier, the gain
+  after it, and the skill's trained value before and after. A gain as small as +0.5 cannot be read
+  off the skill bar; this shows it. It logs on every gain, so turn it off again when you are done.
+
+---
+
+## [1.10.3] - 2026-09-14
+
+### Fixed
+
+- **A campfire going out no longer raises your Stealth.** A lit campfire lowers Stealth by 150
+  while you are at camp. When it went out, the mod read those 150 points coming back as Stealth
+  XP and added its XP bonus on top, so Stealth ended up higher than you had trained it, and each
+  campfire that burned out pushed it further. Quitting and reloading put it back. It happened only
+  with at least 1 point in Stealth and some setting that multiplies XP, and area familiarity is one
+  of those and is on by default. The same applied to any temporary effect on a skill ending: a
+  card's passive effect, a status, a time-of-day effect, or an action's temporary modifier. The mod
+  now multiplies only real XP gains and leaves those effects to the game.
+- **Reported on GitHub after EA 0.66a.** 1.9.6 added logging to investigate it and 1.9.7 removed
+  that logging without finding the cause. The cause was in this mod, not in the base game.
+- **A skill with a per-skill multiplier of `0` no longer keeps part of an expired effect.** That
+  setting undoes XP gains, and it was undoing the returning 150 Stealth too, leaving the campfire
+  penalty partly in place after the fire was out.
+- No save-compatibility impact. The extra points were never written into your saved skill value,
+  which is why a reload always cleared them.
+
+---
+
 ## [1.10.2] - 2026-09-07
 
 One new opt-in feature, off by default: the low-condition XP penalty, the last Near-Term item the

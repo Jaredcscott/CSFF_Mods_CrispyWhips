@@ -1,6 +1,6 @@
 # Skill Speed Boost
 
-**Version:** 1.10.2
+**Version:** 1.10.4
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.67h)
 
@@ -118,6 +118,8 @@ LogMultiplierCapHits = true     ; log each time the cap actually bites
 ```ini
 LogEffectiveSettings = true     ; one line per skill in LogOutput.log
                                 ; after load, showing what resolved
+LogSkillXpGains = true          ; one line per XP gain, before and
+                                ; after the bonuses
 ```
 
 For detailed configuration, see **FEATURES.md**.
@@ -154,7 +156,7 @@ Any skill added by another mod is picked up the same way automatically — no up
 ## Technical Details
 
 - **Load-time:** `GameLoad.LoadMainGameData` postfix configures staleness on all skill stats
-- **Runtime:** `GameManager.ChangeStatValue` coroutine postfix applies XP multipliers (global, per-skill, morning bonus, area familiarity, synergies, level scaling, daily first use, well-rested and the low-condition penalty) on every skill XP gain. It is the single composition point: the composed total is applied in whichever direction it points, so a penalty reduces the gain rather than being discarded
+- **Runtime:** `GameManager.ChangeStatValue` coroutine postfix applies XP multipliers (global, per-skill, morning bonus, area familiarity, synergies, level scaling, daily first use, well-rested and the low-condition penalty) on every skill XP gain. It is the single composition point: the composed total is applied in whichever direction it points, so a penalty reduces the gain rather than being discarded. Gains are measured on the skill's trained (base) value, so an effect that temporarily lowers a skill does not hide XP earned while it lasts
 - **Area tracking:** `GameManager.ActionRoutine` coroutine postfix tracks current location for familiarity scoring
 - **Staleness:** Sets `NoveltyCooldownDuration = 12` (12 ticks × 15 min = 3 hours)
 - **Safe:** No permanent changes to save files; fully reversible
@@ -169,7 +171,22 @@ Any skill added by another mod is picked up the same way automatically — no up
 
 ## Version History
 
-### v1.10.2 (current)
+### v1.10.4 (current)
+- **Fixed: XP settings now apply while a status holds a skill down.** "Animals noticed your
+  Actions" (noisy work such as chopping wood or shovelling snow) takes 75 off Stealth, which shows low
+  Stealth as 0. XP earned meanwhile still reached the skill, but the mod read the lowered value, saw
+  no gain and applied none of your XP settings. It now reads the trained value underneath, so every
+  multiplier applies, a per-skill `0` stops that XP too, and level scaling uses your real level.
+- **New: `LogSkillXpGains`** (default off) logs each skill XP gain before and after the bonuses.
+
+### v1.10.3
+- **Fixed: a campfire going out no longer raises your Stealth.** A lit campfire lowers Stealth by
+  150 at camp. When it went out, the mod counted those points coming back as XP and added its bonus
+  on top, so Stealth crept above what you had trained until you reloaded. The same was true of any
+  temporary effect on a skill ending. Only real XP gains are multiplied now. Reported on GitHub
+  after EA 0.66a; the 1.9.6 diagnostics never found it because the cause was in this mod.
+
+### v1.10.2
 - **New: an optional low-condition XP penalty.** `LowConditionPenaltyEnabled` (default off) with
   `LowConditionThreshold` (default 60) and `LowConditionMultiplier` (default 0.5) multiply skill XP
   by a sub-1.0 factor while Energy, Satiation OR Hydration is below the threshold percentage of its
@@ -304,6 +321,9 @@ Any skill added by another mod is picked up the same way automatically — no up
 
 **Issue:** "I picked a difficulty profile but a feature I had turned on is now off"
 - **Explanation:** A profile writes every toggle it covers, including the ones it turns off, so the preset you chose is the preset you get. Set an individual key *after* choosing the profile if you want to differ from it: since 1.10.1 that edit sticks, because a preset is written ONCE per profile change rather than re-asserted on every launch. (On 1.10.0 exactly it was re-applied at every start, which silently undid such edits.)
+
+**Issue:** "I can't tell whether a bonus is applying to a skill"
+- **Fix:** Set `LogSkillXpGains = true` and relaunch the game. Every skill XP gain then writes one line to LogOutput.log with the gain the game applied, the combined multiplier and the gain after it. Turn it off again afterwards: it logs on every gain.
 
 **Issue:** "XP is going up far faster than my settings suggest"
 - **Fix:** Bonuses multiply. Set `MaxComposedMultiplier` to a ceiling you are comfortable with, and `LogMultiplierCapHits = true` to see when it bites.

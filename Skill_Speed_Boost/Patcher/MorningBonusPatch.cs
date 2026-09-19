@@ -21,24 +21,20 @@ internal static class MorningBonusPatch
     private static ManualLogSource Logger => Plugin.Logger;
     private static readonly BindingFlags Flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static;
 
-    // Modification-type routing fields — StatAccess.SetCurrentValue has no equivalent for
-    // this: InGameStat (EA 0.65g) exposes CurrentValue only as a bool-parameter METHOD, never
-    // as a writable field/property, so every write must land on one of these four raw fields
-    // (chosen by the ChangeStatValue `modification` argument) or fall back to CurrentBaseValue.
-    // This dispatch is specific to hooking ChangeStatValue and has no framework equivalent.
+    // CurrentBaseValue is the one field every XP measurement and write uses. Only a Permanent change
+    // reaches them (IsPermanentModification), and vanilla applies a Permanent change to the base alone,
+    // clamped against CurrentMinMaxValue (GameManager.ChangeStatValue). The displayed value
+    // (SimpleCurrentValue) adds every modifier and clamps the SUM, so while a penalty holds a skill at
+    // its minimum it does not move when XP lands: "Animals noticed your Actions" puts -75 on Stealth,
+    // and until 1.10.4 a hunt's Stealth XP under it read as no gain at all. Resolved once, from the
+    // first stat seen; every InGameStat shares the type.
     private static FieldInfo _currentBaseValueField;
-    private static FieldInfo _globalModifiedValueField;
-    private static FieldInfo _atBaseModifiedValueField;
-    private static FieldInfo _currentCompositeValueField;
-    private static FieldInfo _temporaryModifiedValueField;
-    private static bool _modRoutingReflected;
+    private static bool _baseFieldReflected;
 
-    // D17: each reflection catch below warns on its first failure only, then stays quiet —
-    // these fire on every XP-write / every skill-stat change, so unconditional logging
-    // would spam LogOutput.log; the latch lets the breadcrumb survive at LogWarning (visible
-    // by default) without spamming, so a future field-rename that kills the feature is seen.
-    private static bool _setCurrentValueFailureLogged;
-    private static bool _setCurrentValueFieldMissingLogged;
+    // D17: every failure on the XP path warns the FIRST time each cause occurs, then stays quiet. These
+    // run on every skill-stat change, so unconditional logging would flood LogOutput.log; keying per
+    // cause means a second, different failure still gets its own line instead of hiding behind the first.
+    private static readonly HashSet<string> _warnedCauses = new(StringComparer.Ordinal);
     private static bool _morningWindowFailureLogged;
     private static bool _capHitLogged;
 
@@ -104,15 +100,34 @@ internal static class MorningBonusPatch
             yield break;
         }
 
-        EnsureModificationRoutingFields(stat.GetType());
+        // Only a Permanent change is XP. Every other StatModification adds or removes a MODIFIER (a
+        // card's passive effect, a stat status, a time-of-day mod, an action's temporary modifier),
+        // and the game applies each one again, inverted, when it ends. A lit campfire takes 150
+        // Stealth through AtBaseModifier; putting it out hands the 150 back, the value read below
+        // rose, and the bonus on that "gain" was written into AtBaseModifiedValue, where it stayed
+        // until InGameStat.Init zeroed the modifier fields on the next load.
+        if (!IsPermanentModification(modification))
+        {
+            yield return enumerator;
+            yield break;
+        }
 
-        float before = SafeGetCurrentValue(stat);
+        // Measure on the base (see _currentBaseValueField). A base that cannot be read has nothing to
+        // measure against and nothing to write to, so the change passes through unscaled, and
+        // TryGetBaseValue has already said why, once per cause.
+        if (!TryGetBaseValue(stat, out float beforeBase))
+        {
+            yield return enumerator;
+            yield break;
+        }
+
         yield return enumerator;                 // let original coroutine run
-        float after = SafeGetCurrentValue(stat);
 
-        float delta = after - before;
+        if (!TryGetBaseValue(stat, out float afterBase)) yield break;
 
-        if (delta <= 0f) yield break;            // not an XP gain — skip
+        float delta = afterBase - beforeBase;
+
+        if (delta <= 0f) yield break;            // not an XP gain, or already at the maximum
         if (!IsSkillStat(stat)) yield break;     // not a tracked skill
 
         // Resolve skill identity once — shared by expMult, synergies, and debug logging.
@@ -133,10 +148,12 @@ internal static class MorningBonusPatch
 
             if (expMult == 0)
             {
-                // Per-skill set to 0 → "disable skill leveling". Revert the gain that the
-                // original coroutine just applied. Other bonuses (morning, familiarity)
+                // Per-skill set to 0 -> "disable skill leveling". Put the base back where it was before
+                // the original coroutine applied the gain. Other bonuses (morning, familiarity)
                 // intentionally don't apply when XP is disabled for this skill.
-                SetCurrentValue(stat, before, modification);
+                bool reverted = TrySetBaseValue(stat, beforeBase);
+                if (Plugin.LogSkillXpGains)
+                    LogXpGain(resolvedSkillName ?? uid, delta, 0f, beforeBase, afterBase, beforeBase, !reverted);
                 yield break;
             }
             if (expMult > 1) multiplier *= expMult;
@@ -172,9 +189,9 @@ internal static class MorningBonusPatch
 
         if (levelScalingOn && maxVal > 0f)
         {
-            // Fraction of max level already achieved (0.0 = just started, 1.0 = fully maxed).
-            // Use `after` so the scaling reflects the level *after* this XP tick.
-            float levelFraction = Math.Min(after / maxVal, 1f);
+            // Fraction of max level already achieved (0.0 = just started, 1.0 = fully maxed), read from
+            // the trained base after this XP tick, not from a displayed value a penalty may be holding down.
+            float levelFraction = Math.Min(afterBase / maxVal, 1f);
             float levelBonus = Plugin.LevelScalingMaxBonus * ShapeLevelFraction(levelFraction);
             if (levelBonus > 0f)
                 multiplier *= (1f + levelBonus);
@@ -222,25 +239,22 @@ internal static class MorningBonusPatch
             multiplier = cap;
         }
 
-        // A composed multiplier BELOW 1 is a penalty (low-condition suppression), so this cannot
-        // early-out on "not a bonus" the way it did while every term could only push the total up -
-        // that early-out would have discarded the whole penalty silently. Only a multiplier of
-        // exactly 1 (within float noise) is a no-op.
-        if (Math.Abs(multiplier - 1f) <= 0.0001f) yield break;
-
-        // Signed: negative whenever the penalty outweighs the bonuses. after + adjustment is
-        // before + delta * multiplier either way, so one expression serves both directions.
-        float adjustment = delta * (multiplier - 1f);
-        float target = Math.Min(after + adjustment, maxVal);
-
-        // A penalty scales down THIS gain; it never claws back XP the player already had. The
-        // configured multiplier range (0-1) cannot breach this, so it is a floor, not arithmetic.
-        if (target < before) target = before;
-
-        if (Math.Abs(target - after) > 0.0001f)
+        // A composed multiplier BELOW 1 is a penalty (low-condition suppression), so this cannot skip
+        // on "not a bonus" the way it did while every term could only push the total up - that would
+        // have discarded the whole penalty silently. Only a multiplier of exactly 1 (within float noise)
+        // is a no-op, and it still reaches the diagnostic below, so a gain handled at 1x and a gain
+        // never handled read differently in the log.
+        float target = afterBase;
+        bool writeFailed = false;
+        if (Math.Abs(multiplier - 1f) > 0.0001f)
         {
-            SetCurrentValue(stat, target, modification);
+            target = ComposeBaseTarget(beforeBase, afterBase, multiplier, maxVal);
+            if (Math.Abs(target - afterBase) > 0.0001f)
+                writeFailed = !TrySetBaseValue(stat, target);
         }
+
+        if (Plugin.LogSkillXpGains)
+            LogXpGain(resolvedSkillName ?? uid, delta, multiplier, beforeBase, afterBase, target, writeFailed);
     }
 
     // ── Bonus shaping helpers ─────────────────────────────────────────────────
@@ -324,35 +338,6 @@ internal static class MorningBonusPatch
     }
 
     /// <summary>
-    /// Resolves the four modification-type target fields plus the CurrentBaseValue fallback,
-    /// once per stat type. These have no framework equivalent (StatAccess.SetCurrentValue
-    /// only knows about CurrentValue/CurrentBaseValue — not the Global/AtBase/Composite/
-    /// Temporary split needed to route a ChangeStatValue write correctly).
-    /// </summary>
-    private static void EnsureModificationRoutingFields(Type statType)
-    {
-        if (_modRoutingReflected) return;
-        _modRoutingReflected = true;
-
-        _currentBaseValueField = statType.GetField("CurrentBaseValue", Flags);
-        _globalModifiedValueField = statType.GetField("GlobalModifiedValue", Flags);
-        _atBaseModifiedValueField = statType.GetField("AtBaseModifiedValue", Flags);
-        _currentCompositeValueField = statType.GetField("CurrentCompositeValue", Flags);
-        _temporaryModifiedValueField = statType.GetField("TemporaryModifiedValue", Flags);
-    }
-
-    /// <summary>
-    /// StatAccess.GetCurrentValue returns NaN on failure; the reflection scaffolding this
-    /// file replaced returned 0f. Translate at the call site so downstream arithmetic
-    /// (delta computation, adjustment math) keeps its original safe-fallback semantics.
-    /// </summary>
-    private static float SafeGetCurrentValue(object stat)
-    {
-        var v = StatAccess.GetCurrentValue(stat);
-        return float.IsNaN(v) ? 0f : v;
-    }
-
-    /// <summary>
     /// StatAccess.GetMaxValue returns NaN on failure; the local code it replaced returned
     /// float.MaxValue (i.e. "uncapped"). Translate at the call site to preserve that.
     /// </summary>
@@ -362,63 +347,140 @@ internal static class MorningBonusPatch
         return float.IsNaN(v) ? float.MaxValue : v;
     }
 
-    private static void SetCurrentValue(object stat, float value, object modification)
+    /// <summary>
+    /// The base value a gain of (afterBase - beforeBase) ends at once the composed multiplier is
+    /// applied: never above the stat's maximum, and never below where the base started, because a
+    /// penalty scales down THIS gain and never claws back XP the player already had. The configured
+    /// multiplier range cannot breach that floor, so it is a guarantee rather than arithmetic.
+    /// Pure, with no game types, so SkillSpeedBoost-BonusComposition.Tests.ps1 compiles and runs it:
+    /// keep the body C# 5, which is what PowerShell 5.1's Add-Type compiles.
+    /// </summary>
+    internal static float ComposeBaseTarget(float beforeBase, float afterBase, float multiplier, float maxValue)
     {
+        // Signed: below afterBase whenever the penalty outweighs the bonuses. afterBase plus this term
+        // is beforeBase + gain * multiplier either way, so one expression serves both directions.
+        float target = Math.Min(afterBase + (afterBase - beforeBase) * (multiplier - 1f), maxValue);
+        if (target < beforeBase) target = beforeBase;
+        return target;
+    }
+
+    private static bool TryResolveBaseField(object stat)
+    {
+        if (!_baseFieldReflected)
+        {
+            _baseFieldReflected = true;
+            _currentBaseValueField = stat.GetType().GetField("CurrentBaseValue", Flags);
+        }
+        if (_currentBaseValueField != null) return true;
+
+        WarnOnce("CurrentBaseValue-missing",
+            $"{stat.GetType().Name}.CurrentBaseValue did not resolve - skill XP now passes through unscaled, so every XP " +
+            "setting in this mod is off. The game's stat field names have probably changed in an update.");
+        return false;
+    }
+
+    /// <summary>
+    /// Reads CurrentBaseValue. False, with one warning per cause, when it cannot be read; the caller
+    /// then leaves the change exactly as the game applied it.
+    /// </summary>
+    private static bool TryGetBaseValue(object stat, out float value)
+    {
+        value = 0f;
+        if (!TryResolveBaseField(stat)) return false;
         try
         {
-            // Simple case: a genuinely writable CurrentValue field/property. Kept for
-            // forward compatibility, but InGameStat in EA 0.65g does NOT have one —
-            // CurrentValue is a bool-parameter METHOD there — so this always falls through
-            // to the modification-type routing below in the current game version.
-            // NOTE: deliberately NOT StatAccess.SetCurrentValue here — that helper also
-            // falls back to writing CurrentBaseValue directly (an absolute set), which
-            // would silently ignore GlobalModifiedValue/CurrentCompositeValue/
-            // TemporaryModifiedValue and desync CurrentValue() from `value`. The adjustment
-            // math below is what actually keeps those terms consistent.
-            if (Reflect.SetMember(stat, "CurrentValue", value))
-                return;
-
-            float adjustment = value - SafeGetCurrentValue(stat);
-            if (Math.Abs(adjustment) <= 0.0001f) return;
-
-            var targetField = GetValueFieldForModification(modification) ?? _currentBaseValueField;
-            if (targetField == null)
+            object raw = _currentBaseValueField.GetValue(stat);
+            if (raw == null)
             {
-                // The last silent early-return on the write path (audit M1). Reaching it means
-                // EnsureModificationRoutingFields resolved NOTHING, not even CurrentBaseValue,
-                // which is the field-rename scenario the catch below breadcrumbs for the throwing
-                // case. Latched for the same reason: this sits on every XP write.
-                if (!_setCurrentValueFieldMissingLogged)
-                {
-                    _setCurrentValueFieldMissingLogged = true;
-                    Logger?.LogWarning(
-                        "[MorningBonus] No writable stat value field resolved (not even CurrentBaseValue) " +
-                        "- every XP bonus is being dropped silently. The InGameStat field names this mod " +
-                        "reflects have probably changed in a game update.");
-                }
-                return;
+                WarnOnce("CurrentBaseValue-null", "CurrentBaseValue read back as null - skill XP now passes through unscaled.");
+                return false;
             }
-            float current = Convert.ToSingle(targetField.GetValue(stat));
-            targetField.SetValue(stat, current + adjustment);
+            value = Convert.ToSingle(raw);
+            return true;
         }
         catch (Exception ex)
         {
-            if (!_setCurrentValueFailureLogged)
-            {
-                _setCurrentValueFailureLogged = true;
-                Logger?.LogWarning($"[MorningBonus] SetCurrentValue reflection failed (bonuses will silently stop applying): {ex.Message}");
-            }
+            WarnOnce("CurrentBaseValue-read", $"Reading CurrentBaseValue failed - skill XP now passes through unscaled: {ex.Message}");
+            return false;
         }
     }
 
-    private static FieldInfo GetValueFieldForModification(object modification)
+    /// <summary>
+    /// Writes CurrentBaseValue. False, with one warning per cause, when the write fails; the gain the
+    /// game applied then stands unscaled.
+    /// </summary>
+    private static bool TrySetBaseValue(object stat, float value)
     {
-        var name = modification?.ToString() ?? string.Empty;
-        if (name == "GlobalModifier") return _globalModifiedValueField;
-        if (name == "AtBaseModifier") return _atBaseModifiedValueField;
-        if (name == "CompositeModifier") return _currentCompositeValueField;
-        if (name == "TemporaryModifier") return _temporaryModifiedValueField;
-        return _currentBaseValueField;
+        if (!TryResolveBaseField(stat)) return false;
+        try
+        {
+            _currentBaseValueField.SetValue(stat, value);
+            return true;
+        }
+        catch (Exception ex)
+        {
+            WarnOnce("CurrentBaseValue-write", $"Writing CurrentBaseValue failed - XP bonuses are being dropped and the game's own gain kept: {ex.Message}");
+            return false;
+        }
+    }
+
+    private static void WarnOnce(string cause, string message)
+    {
+        if (_warnedCauses.Add(cause))
+            Logger?.LogWarning($"[MorningBonus] {message}");
+    }
+
+    /// <summary>
+    /// LogSkillXpGains: one line per gain that reached composition, the 1x no-op and the per-skill 0
+    /// revert included, so a gain handled at 1x and a gain never handled read differently.
+    /// </summary>
+    private static void LogXpGain(string skill, float vanillaDelta, float multiplier, float beforeBase, float afterBase, float target, bool writeFailed)
+    {
+        float finalBase = writeFailed ? afterBase : target;
+        float finalDelta = finalBase - beforeBase;
+        Logger?.LogInfo(
+            $"[XpGain] {skill ?? "(unresolved skill)"}: game +{vanillaDelta:F2} x{multiplier:F2} = {finalDelta:+0.00;-0.00;0.00}, " +
+            $"base {beforeBase:F2} -> {finalBase:F2}" +
+            (writeFailed ? " (WRITE FAILED: the game's own gain was kept)" : ""));
+    }
+
+    // Resolved from the first ChangeStatValue argument seen: the int value of
+    // StatModification.Permanent, or null when that argument is not an enum with that member.
+    private static Type _modificationEnumType;
+    private static int? _permanentModificationValue;
+    private static bool _modificationUnreadableLogged;
+
+    /// <summary>
+    /// True when a ChangeStatValue call is StatModification.Permanent, the only kind of change that
+    /// is XP. Compared through the enum's own "Permanent" member rather than a hardcoded 0, and
+    /// cached, because this runs on every stat change in the game. If the argument cannot be read
+    /// as that enum, every change is treated as XP (the pre-1.10.3 behaviour) instead of switching
+    /// every bonus off, and one warning says so.
+    /// </summary>
+    private static bool IsPermanentModification(object modification)
+    {
+        var type = modification?.GetType();
+        if (type != null && type != _modificationEnumType)
+        {
+            _modificationEnumType = type;
+            _permanentModificationValue = type.IsEnum && Enum.IsDefined(type, "Permanent")
+                ? Convert.ToInt32(Enum.Parse(type, "Permanent"))
+                : (int?)null;
+        }
+
+        if (type == null || _permanentModificationValue == null)
+        {
+            if (!_modificationUnreadableLogged)
+            {
+                _modificationUnreadableLogged = true;
+                Logger?.LogWarning(
+                    $"[MorningBonus] ChangeStatValue's modification argument is not readable as StatModification ({type?.FullName ?? "null"}) " +
+                    "- a campfire or status effect ending can be scaled as skill XP again. The game's ChangeStatValue signature has probably changed.");
+            }
+            return true;
+        }
+
+        return Convert.ToInt32(modification) == _permanentModificationValue.Value;
     }
 
     private static bool IsSkillStat(object stat)

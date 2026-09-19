@@ -347,3 +347,34 @@ These live in `Documentation/Ideas/SkillSpeedBoost/IDEAS.md` (which needs a `/co
   a running game. That is the whole content of T1.78/T1.79, filed as `pending` in
   `.claude/playthrough-test-status.json` BEFORE this record was written, and it is why the CHANGELOG
   says the 60/0.5 defaults are tunable starting points rather than balanced values.
+
+### 2026-09-14 - XP_Base_Measurement_And_Release_Plan
+- **Verdict:** 1 code phase of 4, BUILT as v1.10.4 (`7911dddce`); 0 code rows remain. Of the 3-prompt pack,
+  Prompts 1 (base-value measurement and its gates) and 2 (ship) are done in `7911dddce`, and Prompt 3 is
+  this record. Phases 2-4 are not code: Phase 2 is human verification, carried by tracker rows, and
+  Phases 3-4 (audit, MUM repackage, export, public push, Nexus upload, the GitHub issue #2 reply, owner
+  gates G1-G4) are release work, handed to the queued fleet mission `csff-ssb-1104-release-2026-09-14`.
+- **Disposition:** ARCHIVE to `Documentation/Design/SkillSpeedBoost_XP_Base_Measurement_As_Built.md` (plan verbatim, pack as an appendix) and DELETE both
+  from `Documentation/Plans/SkillSpeedBoost/`, per `Documentation/Plans/README.md` step 4, matching this
+  mod's 2026-09-07 archive.
+- **Pruned:** the whole plan doc (124 lines) and the whole 3-prompt pack, archived rather than
+  dropped; the `Documentation/Plans/SkillSpeedBoost/` scope folder is gone again. The one live
+  forward-pointer, the `Skill_Speed_Boost` pin comment in
+  `Development_Tools/Tests/EmbeddedZipCurrency.Tests.ps1`, was repointed in the same commit. The
+  plan-authoring fleet mission record still names the old path and was left alone as a dated record.
+- **Evidence:** re-derived on disk, not taken from the plan. `7911dddce` carries `ComposeBaseTarget` in
+  `MorningBonusPatch.cs`, `ModInfo.json` at 1.10.4, tracker row T1.83 `pending`, and T1.82's note with
+  the cave check. `SkillSpeedBoost-BonusComposition.Tests.ps1` was watched failing before the code: on
+  a `fe731eed7` fixture 38 pass / 8 fail, exactly the 8 new tests (invariant 7, the five
+  `ComposeBaseTarget` cases, the `LogSkillXpGains` default); on the tree 46 / 0; planted breaks on
+  fixture copies went red on named tests (displayed reads restored 44 / 2, floor deleted 45 / 1).
+  Release build 0 warnings, and the deployed DLL's sha256 equals the built one. Full workspace suite
+  on a fingerprinted tree: Tests Passed: 1175, Failed: 0, Skipped: 4; that run's tree moved only in the GameDataExtractor Debug outputs that Extract-GameData.Tests.ps1 rebuilds, so the six gates behind 7911dddce were re-run one by one on a fingerprint-stable tree, all green. **Built differently from the plan:** Design step 5's fallback to a
+  displayed-value measurement had nothing to write to, so a missing or unreadable `CurrentBaseValue`
+  now passes the change through unscaled with one warning per cause. **Plan premises corrected**
+  against EA 0.67i data: +4 malus on 409 entries (not 407) across Chop Wood, Shovel Snow, Cut Tree and
+  Dig Peat, on forest locations and trees rather than only clearings; Stealth XP +0.5 on 32 encounter
+  entries (not 16); 7 of the 13 `Caves_*` cards carry +150 Stealth, not all of them. **What no check
+  here can see:** whether a hunt under a pinned penalty actually gets its bonus in a running game.
+  That is T1.83, filed `pending` before this record was written, alongside T1.82 (1.10.3, now with the
+  cave check) and T1.76-T1.80 (1.10.2), all still pending.

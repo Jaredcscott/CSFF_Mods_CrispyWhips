@@ -12,7 +12,7 @@ internal class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.skill_speed_boost";
     public const string PluginName = "Skill Speed Boost";
-    public const string PluginVersion = "1.10.2";
+    public const string PluginVersion = "1.10.4";
 
     internal static Plugin Instance { get; private set; }
     internal new static ManualLogSource Logger;
@@ -45,6 +45,7 @@ internal class Plugin : BaseUnityPlugin
     internal static float LowConditionThreshold => _lowConditionThreshold?.Value ?? 60f;
     internal static float LowConditionMultiplier => _lowConditionMultiplier?.Value ?? 0.5f;
     internal static bool LogEffectiveSettings => _logEffectiveSettings?.Value ?? false;
+    internal static bool LogSkillXpGains => _logSkillXpGains?.Value ?? false;
 
     private static ConfigEntry<bool> _enableSkillStaleness;
     private static ConfigEntry<int> _skillExpMultiplier;
@@ -75,6 +76,7 @@ internal class Plugin : BaseUnityPlugin
     private static ConfigEntry<float> _lowConditionThreshold;
     private static ConfigEntry<float> _lowConditionMultiplier;
     private static ConfigEntry<bool> _logEffectiveSettings;
+    private static ConfigEntry<bool> _logSkillXpGains;
     private static Harmony _harmony;
 
     internal static void SetGlobalExpMultiplier(int value)
@@ -427,6 +429,13 @@ internal class Plugin : BaseUnityPlugin
             "LogEffectiveSettings",
             false,
             "When true, writes one line per skill to LogOutput.log after game data loads, showing the settings that actually resolved for that skill (XP multiplier and where it came from, staleness on/off, decay rate) plus a summary of the global toggles. Turn this on first when a setting does not seem to be taking effect. Default: false."
+        );
+
+        _logSkillXpGains = Config.Bind(
+            "Diagnostics",
+            "LogSkillXpGains",
+            false,
+            "When true, writes one line to LogOutput.log for every skill XP gain this mod handles: the skill, the gain the game applied, the combined XP multiplier, the gain after it, and the skill's trained (base) value before and after. Use it to check that a setting is doing what you expect, since a small gain cannot be read off the skill bar. It logs on every XP gain, so leave it off in normal play. Default: false."
         );
 
         // Initialize area familiarity persistence (loads counters from disk)
