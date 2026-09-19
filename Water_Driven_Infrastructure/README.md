@@ -1,6 +1,6 @@
 # Water Driven Infrastructure
 
-**Version:** 1.11.1
+**Version:** 1.11.2
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.66)
 **Requires:** CSFFModFramework (AdvancedCopperTools optional — enhances, doesn't gate)
@@ -238,7 +238,7 @@ Copper gears, the copper saw blade, iron parts, iron bearings, and the iron wren
 
 **Iron components** (Parts, Bearing, Axle, Wrench) smelt back into iron-typed metal nuggets (6 per item) in the WDI Forge or Workshop once heated to 1100°+ — the same threshold as copper, not 1300°. The forge is tagged `tag_SmeltingContainerIron` for this purpose; a standard vanilla furnace will not melt iron components.
 
-**\* Fasteners (Copper/Iron Rivets, Alloy Solder) — interchangeable with AdvancedCopperTools:** every blueprint slot that calls for a Rivet or Alloy Solder also accepts ACT's Copper/Iron Nail or Tin Solder if AdvancedCopperTools is installed — craft whichever you already have, in whichever tier you have. Rivets are a generic fastener commodity, so copper and iron rivets/nails are all interchangeable with each other regardless of tier or mod. Cast Copper/Iron Sheet stay tier-locked with ACT's Copper/Iron Sheet (same-tier only — an iron-tier build still needs iron-tier sheet). **The Cast Iron Sheet does not depend on ACT to be worth making:** the Cut Iron Rivets from Sheet blueprint shears one sheet into 8 Iron Rivets with any hammering tool, no forge heat required. Since a sheet comes from one iron bar (6 nuggets), plate-cutting yields 8 fasteners where nugget-by-nugget forging yields 6 — the extra bar-and-heat work buys a better fastener rate, in a single craft action instead of six. WDI's own fastener blueprints are always researchable, independent of whether ACT is present, and forge from a plain copper- or iron-grade Metal Nugget/Bar (no tin ore or ACT-exclusive materials required).
+**\* Fasteners (Copper/Iron Rivets, Alloy Solder) — interchangeable with AdvancedCopperTools:** every blueprint slot that calls for a Rivet or Alloy Solder also accepts ACT's Copper/Iron Nail or Tin Solder if AdvancedCopperTools is installed — craft whichever you already have, in whichever tier you have. Rivets are a generic fastener commodity, so copper and iron rivets/nails are all interchangeable with each other regardless of tier or mod. Cast Copper/Iron Sheet stay tier-locked with ACT's Copper/Iron Sheet (same-tier only — an iron-tier build still needs iron-tier sheet). **The Cast Iron Sheet does not depend on ACT to be worth making:** the Cut Iron Rivets from Sheet blueprint shears one sheet into 8 Iron Rivets with any hammering tool, no forge heat required. Since a sheet comes from one iron bar (6 nuggets), plate-cutting yields 8 fasteners where nugget-by-nugget forging yields 6 — the extra bar-and-heat work buys a better fastener rate, in a single craft action instead of six. WDI's own fastener blueprints are always researchable, independent of whether ACT is present, and forge from a plain copper- or iron-grade Metal Nugget/Bar (no tin ore or ACT-exclusive materials required). *(A 2026-09-06 playtest reported the Cut Iron Rivets from Sheet craft failing; re-checked 2026-09-15 against current source - JSON schema, WarpData/WarpType pairing, UID cross-references, and blueprint-tab registration are all correct and match every sibling fastener blueprint, and no wiring defect was found. Cause unconfirmed - retest with a specific symptom (blueprint not appearing, sheet not accepted, or wrong output) needed to close T2.113.)*
 
 ---
 
@@ -273,7 +273,7 @@ All perks appear in the **Situational** tab.
 2. Deploy CSFFModFramework to `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. (Optional) Deploy AdvancedCopperTools to `BepInEx/plugins/Advanced_Copper_Tools/`.
 4. Extract this mod to `BepInEx/plugins/Water_Driven_Infrastructure/`.
-5. Launch the game — check `BepInEx/LogOutput.log` for `WaterDrivenInfrastructure v1.11.1 loaded.`
+5. Launch the game — check `BepInEx/LogOutput.log` for `WaterDrivenInfrastructure v1.11.2 loaded.`
 
 ### Deployed layout
 
@@ -323,7 +323,7 @@ All patches filter on this mod's UniqueIDs and never modify vanilla cards, drops
 
 ## Troubleshooting
 
-**Blueprints not appearing?** Verify CSFFModFramework is installed and check `LogOutput.log` for `WaterDrivenInfrastructure v1.11.1 loaded.` AdvancedCopperTools is optional.
+**Blueprints not appearing?** Verify CSFFModFramework is installed and check `LogOutput.log` for `WaterDrivenInfrastructure v1.11.2 loaded.` AdvancedCopperTools is optional.
 
 **Forge won't smelt?** Temperature must reach 1100°. Feed charcoal and use the Blast action before attempting to smelt.
 
@@ -339,7 +339,15 @@ All patches filter on this mod's UniqueIDs and never modify vanilla cards, drops
 
 ## Version History
 
-### v1.11.0 (current)
+### v1.11.2 (current)
+- Smaller download (now 12.0 MB): every card image had been packaged twice, and the Filled
+  Fishpond image shipped at 848x1264 instead of the mod's 512-wide size. No gameplay change.
+
+### v1.11.1
+- Quieter startup log: the Partner station duties now print one summary line instead of five.
+  No gameplay change.
+
+### v1.11.0
 - **Fish Funnel** (Advanced Tools tab) - a river-placed timber wing-wall that doubles how fast
   a vanilla Funnel Trap in the same location gains fish. 6 Planks + 2 Rope + 4 Twine, built at a
   river, placed from a kit and packed back up for relocation. The +100% rate is a placeholder

@@ -2,6 +2,21 @@
 
 All notable changes to this mod are documented here.
 
+## [1.11.2] - 2026-09-18
+
+### Changed
+- **Smaller download (now 12.0 MB).** Two packaging causes, neither in the mod itself. The build
+  script wrote a second, byte-identical copy of every card image into `Resource/Texture2D/`
+  alongside `Resource/Picture/`, which nothing ever read, so every release archive carried the
+  whole art set twice. Separately, the Filled Fishpond image had shipped at 848x1264 instead of the
+  512-wide size every other card in this mod uses. Both are fixed. No gameplay or content change.
+
+### Docs
+- README version history now lists v1.11.1 (the quieter-startup-log release), which the published
+  copy was missing while it still labelled v1.11.0 as current.
+- README notes the 2026-09-06 playtest report of the Cut Iron Rivets from Sheet craft failing, and
+  the 2026-09-15 source re-check that found no wiring defect. Cause still unconfirmed (T2.113).
+
 ## [1.11.1] - 2026-09-11
 
 ### Changed - log verbosity (pre-distribution pass)
