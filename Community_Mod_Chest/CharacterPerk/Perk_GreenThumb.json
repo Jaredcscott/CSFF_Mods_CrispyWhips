@@ -48,8 +48,8 @@
                 "y": 0.0
             },
             "RateModifier": {
-                "x": 0.5,
-                "y": 0.5
+                "x": 1.2,
+                "y": 1.2
             },
             "MinValueModifier": {
                 "x": 0.0,
@@ -104,7 +104,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "Plants thrive under your care. Start with Turnroot seeds, Meadowgrass seeds, and a Flint Hoe. Your attentiveness gives you a constant foraging advantage.",
+        "DefaultText": "Plants thrive under your care. Start with Turnroot seeds, Meadowgrass seeds and a Flint Hoe, and keep a steady Foraging Aid as strong as one spirit blessing. A Wild Growth blessing also lasts longer for you.",
         "LocalizationKey": "CharacterTraits_Perk_GreenThumb_PerkDescription",
         "ParentObjectID": "traits_perk_green_thumb"
     },

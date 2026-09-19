@@ -569,26 +569,26 @@
     {
       "name": "Traits - Time-Based Perks",
       "status": "Implemented",
-      "notes": "4 perks with DTP-tick effects via TraitsTickHandler. Lunacy (moon scaling), Agoraphobia (outdoors stress), Nyctophobia (night fear), Drunkard (sobriety craving).",
+      "notes": "4 perks are now data-driven hidden condition stats instead of the old TraitsTickHandler C# effects: each reads a vanilla stat (Light, Sheltered, MoonPhase) plus an offset only the perk supplies, implemented in Community_Mod_Chest/GameStat/CMC_TraitNyctophobia.json, CMC_TraitAgoraphobia.json, CMC_TraitLunacy.json and CMC_TraitDrunkard.json (the last shared with the Consumption Perks group below). Nyctophobia (night fear) shipped in CMC 1.68.25; Agoraphobia (outdoors stress), Lunacy (moon-phase stress plus Moon Urge) and Drunkard (sobriety craving) shipped in CMC 1.68.30. TraitsTickHandler.cs was deleted in 1.68.25: it resolved stat definitions instead of live stats, so every one of its effects was a no-op regardless of who held the trait, and its held-perk test read true for every character.",
       "cards": [
         "traitsperklunacy",
         "traitsperkagoraphobia",
         "traitsperknyctophobia",
         "traitsperkdrunkard"
       ],
-      "confidence": "HIGH",
-      "evidence": "pure-JSON DTP-tick perks via proven TraitsTickHandler, no direct test but no reported issues"
+      "confidence": "LOW",
+      "evidence": "built, not yet confirmed in-game. Rows T2.239 (Nyctophobia, gates the rest of the repair plan), T1.102 (Agoraphobia), T1.103 (Lunacy) and T1.106 (Drunkard craving) are all PENDING; T1.109 covers an existing save loading the fix with no migration step"
     },
     {
       "name": "Traits - Consumption Perks",
       "status": "Implemented",
-      "notes": "2 perks with ActionRouter handlers via TraitsActionHandler. LactoseIntolerant (dairy delta → nausea+pain), Drunkard (alcohol doubling+stress). LactoseIntolerant dormant without dairy mod.",
+      "notes": "Lactose Intolerant is now a data-driven hidden condition stat (Community_Mod_Chest/GameStat/CMC_TraitLactoseIntolerant.json) that reads vanilla SaturationDairy plus a perk-only offset, so it reacts to any food that adds Dairy Saturation the vanilla way, with no dairy tag list and no dependency on a dairy mod; it needs Sirus23_Mod_Collection 1.21.3 only to exercise the Sirus23-cheese case specifically. Drunkard's craving is the same mechanism as the Time-Based Perks group above (CMC_TraitDrunkard.json), reading vanilla AlcoholEffect. TraitsActionHandler.cs, deleted in 1.68.25 alongside TraitsTickHandler.cs, was the same no-op for the same reason: it resolved stat definitions instead of live stats and its held-perk test read true for every character.",
       "cards": [
         "traitsperklactoseintolerant",
         "traitsperkdrunkard"
       ],
-      "confidence": "MEDIUM",
-      "evidence": "LactoseIntolerant explicitly dormant without a dairy mod (untestable in isolation); Drunkard overlaps the 1.68.15/1.68.16 stat-cap rework (T1.73 PENDING)"
+      "confidence": "LOW",
+      "evidence": "built, not yet confirmed in-game. Row T1.107 (Lactose Intolerant, needs Sirus23 1.21.3) PENDING; Drunkard's craving is row T1.106 above. T1.73 (the pre-repair Drunkard Stress-cap PASS) is left untouched and does not cover the craving model"
     },
     {
       "name": "Traits - Angler Perk",
@@ -649,7 +649,7 @@
         "traits_perk_wide_hands"
       ],
       "confidence": "LOW",
-      "evidence": "5 of 34 members (Bleeder, DeadlyDisease, Fugitive, LostTourist, Insomniac) were rewritten in the mod's LATEST commit (625c0c413, 2026-08-31, same day as this map): T1.72 flags Bleeder's new Blood-Pressure floor as HIGHEST-STAKES/potential unrecoverable-death-spiral and explicitly PENDING with zero in-game confirmation; T1.65/T1.69/T1.73 also PENDING for the same rework. The other 29 members are unaffected and would independently grade HIGH"
+      "evidence": "CMC 1.68.26 (2026-09-15, Documentation/Design/Trait_Effect_Repair_As_Built.md phase P1b) reworked Aged, Bleeder, Fugitive, Insomniac, Lost Tourist and Deadly Disease (plus Drunkard's Stress cap), all pending in-game confirmation as T1.84-T1.88. The earlier PASS verdicts T1.65/T1.69/T1.72/T1.73 confirmed the 1.68.15/1.68.16 numbers, which the plan's R10-R13 and D7 showed were defects (Bleeder could not bleed to death; the Stress, Nausea and Rash caps removed each stat's worst tier). Swimmer, Sinker and the Aid perks are also known-broken (plan R2-R4). Enforced for the cap and offset shapes by Development_Tools/Tests/PerkStatClamp-Reachability.Tests.ps1"
     },
     {
       "name": "Village Jail",

@@ -1,0 +1,94 @@
+{
+    "UniqueID": "cmcStatTraitSkinShelter",
+    "GameName": {
+        "ParentObjectID": "cmcStatTraitSkinShelter",
+        "LocalizationKey": "CMC_TraitSkinShelter_StatName",
+        "DefaultText": "Sensitive Skin: Shelter"
+    },
+    "Description": {
+        "ParentObjectID": "cmcStatTraitSkinShelter",
+        "LocalizationKey": "CMC_TraitSkinShelter_StatDescription",
+        "DefaultText": "Tracks whether you have shelter over you. While you do, harsh sunlight cannot reach your skin."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 20.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [
+        {
+            "Stat": {"m_FileID": 0, "m_PathID": 0},
+            "StatWarpData": "e2031c58efb4cb84fa95a3a813513dae",
+            "StatWarpType": 3,
+            "Scale": {"Active": false, "FloatValue": 0.0}
+        }
+    ],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "DefaultStatusName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusDescription": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusIcon": {"m_FileID": 0, "m_PathID": 0},
+    "Statuses": [
+        {
+            "GameName": {
+                "ParentObjectID": "cmcStatTraitSkinShelter",
+                "LocalizationKey": "CMC_TraitSkinShelter_Status_Sheltered_Name",
+                "DefaultText": "Out of the Sun"
+            },
+            "Description": {
+                "ParentObjectID": "cmcStatTraitSkinShelter",
+                "LocalizationKey": "CMC_TraitSkinShelter_Status_Sheltered_Description",
+                "DefaultText": "You have shelter over you, so the sun cannot reach your skin."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Shield",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 11, "y": 11},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "cmcStatTraitSensitiveSkin",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -500.0, "y": -500.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 0,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        }
+    ],
+    "UsesNovelty": false
+}

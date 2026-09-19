@@ -44,8 +44,8 @@
                 "y": 0.0
             },
             "RateModifier": {
-                "x": 0.5,
-                "y": 0.5
+                "x": 1.2,
+                "y": 1.2
             },
             "MinValueModifier": {
                 "x": 0.0,
@@ -77,8 +77,8 @@
                 "y": 0.0
             },
             "RateModifier": {
-                "x": 0.5,
-                "y": 0.5
+                "x": 1.2,
+                "y": 1.2
             },
             "MinValueModifier": {
                 "x": 0.0,
@@ -100,7 +100,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "A life spent in caves and cramped tunnels has made you sure-footed and constantly alert. Start with a head start in Climbing and enhanced climbing and alertness aids.",
+        "DefaultText": "A life spent in caves and cramped tunnels has made you sure-footed and alert. Start with a head start in Climbing, and keep a steady Climbing Aid and Alertness Aid, each as strong as one spirit blessing.",
         "LocalizationKey": "CharacterTraits_Perk_Troglodyte_PerkDescription",
         "ParentObjectID": "traits_perk_troglodyte"
     },

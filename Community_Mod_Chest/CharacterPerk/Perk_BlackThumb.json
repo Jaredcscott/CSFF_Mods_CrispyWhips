@@ -100,7 +100,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "Plants wither under your care. Your foraging aids fade faster than they build, making gathering food from the land less reliable.",
+        "DefaultText": "Plants wither under your care. This trait weakens Foraging Aid from other sources, so a single spirit blessing barely holds, and makes a Wild Growth blessing fade sooner. On its own it does nothing.",
         "LocalizationKey": "CharacterTraits_Perk_BlackThumb_PerkDescription",
         "ParentObjectID": "traitsperkblackthumb"
     },

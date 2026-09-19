@@ -10,8 +10,8 @@ namespace CommunityModChest.Patcher
     /// it would for the player, but no NPC action ever clears it back out — left alone it piles
     /// up in the NPC's inventory forever.
     ///
-    /// Subscribes to TickEvents.DtpTick (fires every 15 in-game minutes) — same cadence as
-    /// TraitsTickHandler, no new poll registered (CLAUDE.md: no new polls).
+    /// Subscribes to TickEvents.DtpTick (fires every 15 in-game minutes) — no new poll registered
+    /// (CLAUDE.md: no new polls).
     /// </summary>
     internal static class NpcRottenRemainsCleanupPatch
     {

@@ -11,7 +11,7 @@
     "CompleteOnLose": false,
     "CompleteOnWin": false,
     "DebugCompletion": false,
-    "DifficultyRating": 350,
+    "DifficultyRating": 200,
     "DisplayPriority": 2546.0,
     "EditorOnly": false,
     "EquippedCards": [],
@@ -40,8 +40,8 @@
             "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
             "StatWarpType": 3,
             "ValueModifier": {
-                "x": 20.0,
-                "y": 20.0
+                "x": -500.0,
+                "y": -500.0
             },
             "RateModifier": {
                 "x": 0.0,
@@ -70,11 +70,11 @@
                 "m_FileID": 0,
                 "m_PathID": 0
             },
-            "StatWarpData": "9ff897d4c2d410544a8d7ccd323bdb86",
+            "StatWarpData": "dd5c599cbbb18ea4c96fc64374147a3c",
             "StatWarpType": 3,
             "ValueModifier": {
-                "x": 193.0,
-                "y": 193.0
+                "x": -1.0,
+                "y": -1.0
             },
             "RateModifier": {
                 "x": 0.0,
@@ -103,11 +103,44 @@
                 "m_FileID": 0,
                 "m_PathID": 0
             },
-            "StatWarpData": "547f09c7ea6d11d4bbf6714255b0dfd5",
+            "StatWarpData": "a2b9a00cae306bf40b1dedafd87dc9ee",
             "StatWarpType": 3,
             "ValueModifier": {
-                "x": 2.0,
-                "y": 2.0
+                "x": -50.0,
+                "y": -50.0
+            },
+            "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false
+        },
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatWarpData": "59e9ebfecfacb154b8436e93f094b316",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": -100.0,
+                "y": -100.0
             },
             "RateModifier": {
                 "x": 0.0,
@@ -133,7 +166,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "Your body is ravaged by a wasting affliction. Pain is a constant companion, skin conditions flare persistently, and nausea saps your will to act.",
+        "DefaultText": "A wasting affliction has killed the feeling in your flesh and eaten at your face. Injury no longer hurts you at all. Your skin keeps out less of the filth it meets, your features are ruined, and people trade and speak with you only when they must.",
         "LocalizationKey": "CharacterTraits_Perk_Leper_PerkDescription",
         "ParentObjectID": "traits_perk_leper"
     },

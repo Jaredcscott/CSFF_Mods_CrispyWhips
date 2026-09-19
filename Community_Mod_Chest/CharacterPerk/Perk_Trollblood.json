@@ -40,12 +40,12 @@
             "StatWarpData": "7f4598bd0e82e7b499da3848e452c39f",
             "StatWarpType": 3,
             "ValueModifier": {
-                "x": 0.0,
-                "y": 0.0
+                "x": -3.0,
+                "y": -3.0
             },
             "RateModifier": {
-                "x": -0.5,
-                "y": -0.5
+                "x": 0.0,
+                "y": 0.0
             },
             "MinValueModifier": {
                 "x": 0.0,
@@ -73,12 +73,12 @@
             "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
             "StatWarpType": 3,
             "ValueModifier": {
-                "x": 0.0,
-                "y": 0.0
+                "x": -200.0,
+                "y": -200.0
             },
             "RateModifier": {
-                "x": -0.3,
-                "y": -0.3
+                "x": 0.0,
+                "y": 0.0
             },
             "MinValueModifier": {
                 "x": 0.0,
@@ -100,7 +100,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "Your blood clots with unusual speed and you shake off pain quickly. Wounds stop bleeding noticeably faster and aches fade sooner than they would for others.",
+        "DefaultText": "Thick, stubborn blood runs in your veins. Wounds bleed less than they would for anyone else, and pain sits far lighter on you, though neither one fades any faster.",
         "LocalizationKey": "CharacterTraits_Perk_Trollblood_PerkDescription",
         "ParentObjectID": "traits_perk_trollblood"
     },

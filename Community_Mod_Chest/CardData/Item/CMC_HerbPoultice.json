@@ -9,7 +9,7 @@
   },
   "CardDescription": {
     "ParentObjectID": "cmcHerbPoultice",
-    "DefaultText": "Mashed healer's moss and wild garlic, bound tight and pressed against a wound. Simple forage, prepared the way the Academy's medicine course teaches: it closes a bleed fast.",
+    "DefaultText": "Mashed healer's moss and wild garlic, bound tight and pressed against a wound. Simple forage, prepared the way the Academy's medicine course teaches: it slows a bleed for as long as the dressing holds.",
     "LocalizationKey": "CMC_HerbPoultice_CardDesc"
   },
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
@@ -17,7 +17,7 @@
   "CardImageWarpType": 3,
   "CardHelpSection": {
     "ParentObjectID": "cmcHerbPoultice",
-    "DefaultText": "Herb Poultice",
+    "DefaultText": "Bind it over a wound to slow the bleeding for about half a day, and to take the edge off the pain for the first few hours. Both fade as the dressing dries out; a second poultice laid over the first holds twice as hard.",
     "LocalizationKey": "CMC_HerbPoultice_Help"
   },
   "CardTagsWarpData": ["tag_Consumable", "tag_Medicine", "tag_Preservable"],
@@ -39,7 +39,7 @@
       "ActionDescription": {
         "ParentObjectID": "cmcHerbPoultice",
         "LocalizationKey": "CMC_HerbPoultice_DA_Apply_Desc",
-        "DefaultText": "Press the poultice against the wound and bind it. The bleeding slows almost at once, and the ache with it."
+        "DefaultText": "Press the poultice against the wound and bind it. The bleeding slows almost at once, and the ache with it, until the dressing dries out."
       },
       "DaytimeCost": 0,
       "UseMiniTicks": 1,
@@ -47,8 +47,8 @@
       "ActionTagsWarpType": 3,
       "ReceivingCardChanges": { "ModType": 3 },
       "StatModifications": [
-        { "StatWarpData": "7f4598bd0e82e7b499da3848e452c39f", "StatWarpType": 3, "ValueModifier": { "x": -50.0, "y": -50.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "InstantModifier": true },
-        { "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b", "StatWarpType": 3, "ValueModifier": { "x": -15.0, "y": -15.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "InstantModifier": true }
+        { "StatWarpData": "cmcStatClottingEffect", "StatWarpType": 3, "ValueModifier": { "x": 48.0, "y": 48.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "InstantModifier": true },
+        { "StatWarpData": "cmcStatHerbalAnalgesic", "StatWarpType": 3, "ValueModifier": { "x": 24.0, "y": 24.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "InstantModifier": true }
       ]
     }
   ]

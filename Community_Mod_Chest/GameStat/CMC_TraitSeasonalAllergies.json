@@ -1,0 +1,108 @@
+{
+    "UniqueID": "cmcStatTraitSeasonalAllergies",
+    "GameName": {
+        "ParentObjectID": "cmcStatTraitSeasonalAllergies",
+        "LocalizationKey": "CMC_TraitSeasonalAllergies_StatName",
+        "DefaultText": "Seasonal Allergies"
+    },
+    "Description": {
+        "ParentObjectID": "cmcStatTraitSeasonalAllergies",
+        "LocalizationKey": "CMC_TraitSeasonalAllergies_StatDescription",
+        "DefaultText": "Your reaction to spring air. It flares for the whole of spring and is gone for the rest of the year."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 13000.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [
+        {
+            "Stat": {"m_FileID": 0, "m_PathID": 0},
+            "StatWarpData": "6f3f0faaf50a7974e915ae0915f7e241",
+            "StatWarpType": 3,
+            "Scale": {"Active": false, "FloatValue": 0.0}
+        }
+    ],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 0,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": true,
+    "DefaultStatusName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusDescription": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusIcon": {"m_FileID": 0, "m_PathID": 0},
+    "Statuses": [
+        {
+            "GameName": {
+                "ParentObjectID": "cmcStatTraitSeasonalAllergies",
+                "LocalizationKey": "CMC_TraitSeasonalAllergies_Status_Spring_Name",
+                "DefaultText": "Spring Allergies"
+            },
+            "Description": {
+                "ParentObjectID": "cmcStatTraitSeasonalAllergies",
+                "LocalizationKey": "CMC_TraitSeasonalAllergies_Status_Spring_Description",
+                "DefaultText": "Spring is in the air and your body hates it. You are less comfortable and upper respiratory infections take hold more easily."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Appleweed_Item",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 10001, "y": 12880},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "3407bfc804966194e9e369a7cce6d07d",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": 2.25, "y": 2.25},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "be10ed6d196f5d043b7a819f9f1fd1ff",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -10.0, "y": -10.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 2,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 1,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        }
+    ],
+    "UsesNovelty": false
+}

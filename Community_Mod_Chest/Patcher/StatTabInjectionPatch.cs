@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using CSFFModFramework.Util;
@@ -8,23 +9,27 @@ using UnityEngine;
 namespace CommunityModChest.Patcher
 {
     /// <summary>
-    /// Adds cmcStatVillageReputation to the vanilla "Mental" StatListTab so Village Reputation
-    /// shows on the detailed stats screen.
+    /// Appends mod GameStats onto vanilla detailed-stat StatListTabs so they show on the
+    /// detailed stats screen: cmcStatVillageReputation onto "Mental", cmcSkillMeleeFighting
+    /// onto "Skills".
     ///
     /// Previously attempted via GameSourceModify/Mental.json, which can never work: StatListTab
     /// assets are gameplay-scene objects that are not yet loaded during LoadMainGameData (menu
     /// time), so the GSM phase logged "no object found for 'Mental'" on every start. The append
     /// has to happen at game boot instead — InitializeStatsAndActions postfix, when the tab
-    /// asset is guaranteed loaded. Idempotent, so re-boots and asset reloads are both safe.
+    /// assets are guaranteed loaded. Idempotent, so re-boots and asset reloads are both safe.
     /// </summary>
     internal static class StatTabInjectionPatch
     {
-        private const string TabName = "Mental";
-        private const string StatUid = "cmcStatVillageReputation";
+        private static readonly (string TabName, string StatUid)[] Injections =
+        {
+            ("Mental", "cmcStatVillageReputation"),
+            ("Skills", "cmcSkillMeleeFighting"),
+        };
 
         private static bool _initialized;
-        private static bool _warnedTabMissing;
-        private static bool _warnedStatMissing;
+        private static readonly HashSet<string> _warnedTabMissing = new HashSet<string>();
+        private static readonly HashSet<string> _warnedStatMissing = new HashSet<string>();
 
         public static void Initialize(Harmony harmony)
         {
@@ -35,7 +40,7 @@ namespace CommunityModChest.Patcher
             var initStatsMethod = gmType != null ? AccessTools.Method(gmType, "InitializeStatsAndActions") : null;
             if (initStatsMethod == null)
             {
-                Plugin.Logger.LogWarning("[StatTabInjectionPatch] GameManager.InitializeStatsAndActions not found — Village Reputation will not appear in the Mental stats tab.");
+                Plugin.Logger.LogWarning("[StatTabInjectionPatch] GameManager.InitializeStatsAndActions not found — no stat tab injections will run.");
                 return;
             }
 
@@ -50,46 +55,22 @@ namespace CommunityModChest.Patcher
                 var tabType = CardUtil.FindGameType("StatListTab");
                 if (tabType == null) return;
 
-                // Re-found every boot on purpose: the tab is a scene-scoped asset that can be
+                // Re-found every boot on purpose: StatListTab assets are scene-scoped and can be
                 // unloaded and reloaded between runs, and a cached destroyed UnityEngine.Object
-                // held as 'object' does not compare as null. 9 assets — the scan is trivial.
-                Object mentalTab = null;
+                // held as 'object' does not compare as null. One scan feeds every pair below —
+                // 9 assets, so the scan is trivial either way.
+                var tabsByName = new Dictionary<string, Object>();
                 foreach (var obj in Resources.FindObjectsOfTypeAll(tabType))
                 {
-                    if (obj != null && obj.name == TabName) { mentalTab = obj; break; }
-                }
-                if (mentalTab == null)
-                {
-                    if (!_warnedTabMissing)
+                    if (obj != null && !tabsByName.ContainsKey(obj.name))
                     {
-                        _warnedTabMissing = true;
-                        Plugin.Logger.LogWarning($"[StatTabInjectionPatch] StatListTab '{TabName}' not loaded at game boot — Village Reputation stays untabbed.");
+                        tabsByName[obj.name] = obj;
                     }
-                    return;
                 }
 
-                var stat = ResolveStat();
-                if (stat == null)
+                foreach (var injection in Injections)
                 {
-                    if (!_warnedStatMissing)
-                    {
-                        _warnedStatMissing = true;
-                        Plugin.Logger.LogWarning($"[StatTabInjectionPatch] GameStat '{StatUid}' not found — Village Reputation stays untabbed.");
-                    }
-                    return;
-                }
-
-                var containedField = CardUtil.GetCachedField(tabType, "ContainedStats");
-                if (containedField?.GetValue(mentalTab) is not IList list)
-                {
-                    Plugin.Logger.LogDebug($"[StatTabInjectionPatch] '{TabName}' tab has no ContainedStats list — skipped.");
-                    return;
-                }
-
-                if (!list.Contains(stat))
-                {
-                    list.Add(stat);
-                    Plugin.Logger.LogDebug("[StatTabInjectionPatch] Village Reputation added to the Mental stats tab.");
+                    InjectStat(tabType, tabsByName, injection.TabName, injection.StatUid);
                 }
             }
             catch (System.Exception ex)
@@ -98,13 +79,48 @@ namespace CommunityModChest.Patcher
             }
         }
 
-        private static object ResolveStat()
+        private static void InjectStat(System.Type tabType, Dictionary<string, Object> tabsByName, string tabName, string statUid)
+        {
+            if (!tabsByName.TryGetValue(tabName, out var tab) || tab == null)
+            {
+                if (_warnedTabMissing.Add(tabName))
+                {
+                    Plugin.Logger.LogWarning($"[StatTabInjectionPatch] StatListTab '{tabName}' not loaded at game boot — {statUid} stays untabbed.");
+                }
+                return;
+            }
+
+            var stat = ResolveStat(statUid);
+            if (stat == null)
+            {
+                if (_warnedStatMissing.Add(statUid))
+                {
+                    Plugin.Logger.LogWarning($"[StatTabInjectionPatch] GameStat '{statUid}' not found — stays untabbed.");
+                }
+                return;
+            }
+
+            var containedField = CardUtil.GetCachedField(tabType, "ContainedStats");
+            if (containedField?.GetValue(tab) is not IList list)
+            {
+                Plugin.Logger.LogDebug($"[StatTabInjectionPatch] '{tabName}' tab has no ContainedStats list — skipped.");
+                return;
+            }
+
+            if (!list.Contains(stat))
+            {
+                list.Add(stat);
+                Plugin.Logger.LogDebug($"[StatTabInjectionPatch] {statUid} added to the {tabName} stats tab.");
+            }
+        }
+
+        private static object ResolveStat(string statUid)
         {
             var uidType = CardUtil.FindGameType("UniqueIDScriptable");
             var getFromId = uidType?.GetMethods(BindingFlags.Public | BindingFlags.Static)
                 .FirstOrDefault(m => m.Name == "GetFromID" && !m.IsGenericMethodDefinition
                     && m.GetParameters().Length == 1 && m.GetParameters()[0].ParameterType == typeof(string));
-            return getFromId?.Invoke(null, new object[] { StatUid });
+            return getFromId?.Invoke(null, new object[] { statUid });
         }
     }
 }

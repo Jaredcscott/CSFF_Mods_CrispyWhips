@@ -33,17 +33,16 @@
     },
     "PassiveStatModifiers": [
         {
-            "Stat": {
-                "m_FileID": 0,
-                "m_PathID": 0
+            "ApplyEachTick": false,
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
             },
-            "StatWarpData": "547f09c7ea6d11d4bbf6714255b0dfd5",
-            "StatWarpType": 3,
-            "ValueModifier": {
-                "x": 3.0,
-                "y": 3.0
-            },
-            "RateModifier": {
+            "IgnoreNovelty": false,
+            "InstantModifier": false,
+            "IsInverse": false,
+            "MaxValueModifier": {
                 "x": 0.0,
                 "y": 0.0
             },
@@ -51,56 +50,24 @@
                 "x": 0.0,
                 "y": 0.0
             },
-            "MaxValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "CannotModifyBeyond": {
-                "Active": false,
-                "FloatValue": 0.0,
-                "MaxValue": 0.0
-            },
-            "ApplyEachTick": false,
-            "InstantModifier": false,
-            "IgnoreNovelty": false,
-            "IsInverse": false
-        },
-        {
-            "Stat": {
-                "m_FileID": 0,
-                "m_PathID": 0
-            },
-            "StatWarpData": "9ff897d4c2d410544a8d7ccd323bdb86",
-            "StatWarpType": 3,
-            "ValueModifier": {
-                "x": 96.0,
-                "y": 96.0
-            },
             "RateModifier": {
                 "x": 0.0,
                 "y": 0.0
             },
-            "MinValueModifier": {
-                "x": 0.0,
-                "y": 0.0
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
             },
-            "MaxValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "CannotModifyBeyond": {
-                "Active": false,
-                "FloatValue": 0.0,
-                "MaxValue": 0.0
-            },
-            "ApplyEachTick": false,
-            "InstantModifier": false,
-            "IgnoreNovelty": false,
-            "IsInverse": false
+            "StatWarpData": "cmcStatTraitSeasonalAllergies",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": 10000.0,
+                "y": 10000.0
+            }
         }
     ],
     "PerkDescription": {
-        "DefaultText": "Spring is agony. Nausea and Rash build much faster throughout the year, and each spring triggers a severe allergic flare.",
+        "DefaultText": "Spring air does not agree with you. All through spring you are less comfortable and upper respiratory infections take hold more easily, though a healthy immune system still fights them off. The rest of the year you are fine.",
         "LocalizationKey": "CharacterTraits_Perk_SeasonalAllergies_PerkDescription",
         "ParentObjectID": "traits_perk_seasonal_allergies"
     },

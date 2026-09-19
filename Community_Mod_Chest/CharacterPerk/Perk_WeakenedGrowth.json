@@ -67,7 +67,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "The land yields little for you. Your foraging aid builds up at half its normal rate, making wild food sources far less reliable.",
+        "DefaultText": "The land yields little for you. This trait weakens Foraging Aid from other sources, so a single spirit blessing barely holds. On its own it does nothing.",
         "LocalizationKey": "CharacterTraits_Perk_WeakenedGrowth_PerkDescription",
         "ParentObjectID": "traits_perk_weakened_growth"
     },

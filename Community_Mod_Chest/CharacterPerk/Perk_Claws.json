@@ -44,8 +44,8 @@
                 "y": 0.0
             },
             "RateModifier": {
-                "x": 0.5,
-                "y": 0.5
+                "x": 1.2,
+                "y": 1.2
             },
             "MinValueModifier": {
                 "x": 0.0,
@@ -77,8 +77,8 @@
                 "y": 0.0
             },
             "RateModifier": {
-                "x": 0.5,
-                "y": 0.5
+                "x": 1.2,
+                "y": 1.2
             },
             "MinValueModifier": {
                 "x": 0.0,
@@ -100,7 +100,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "Your fingernails grow hard and talon-like, giving you an edge in close quarters. Start with a head start in Knife Fighting and Melee Fighting, and your natural weapons give constant bonuses to ambush and chase actions.",
+        "DefaultText": "Your fingernails grow hard and talon-like, giving you an edge in close quarters. Start with a head start in Knife Fighting and Melee Fighting, and keep a steady Ambush Aid and Chasing Aid, each as strong as one spirit blessing.",
         "LocalizationKey": "CharacterTraits_Perk_Claws_PerkDescription",
         "ParentObjectID": "traits_perk_claws"
     },

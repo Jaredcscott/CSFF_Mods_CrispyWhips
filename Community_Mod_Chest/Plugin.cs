@@ -27,7 +27,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.CommunityModChest";
     public const string PluginName = "Community Mod Chest";
-    public const string PluginVersion = "1.68.24";
+    public const string PluginVersion = "1.68.30";
 
     internal new static ManualLogSource Logger { get; private set; }
     internal static ConfigEntry<bool> EnableAshPartnerSpike { get; private set; }
@@ -80,6 +80,12 @@ internal class Plugin : ContentModPlugin
         // old saves could otherwise never satisfy that gate while standing at River Clearing and the
         // bridge slot would never appear. Perk holders additionally get it auto-built.
         TryApply("RiverBridgeUnlockPatch", RiverBridgeUnlockPatch.Initialize);
+        // RiverSwimPatch (1.68.29): "Swim across the river" on both banks of the River Clearing
+        // crossing - a travel DA with NO compass direction, which the bridge/Pathfinder
+        // ConnectionGate (HideTravelDA strips by direction) can never touch. A player who reached
+        // the village side without the bridge (Portal Hub, Sett Warren climbing rope, an arrest)
+        // is never stranded there. Nexus report 2026-09-15 (TheFifthLorax).
+        TryApply("RiverSwimPatch", RiverSwimPatch.Initialize);
         // Pre-creates GameManager.EnvironmentsData entries for the 7 non-instanced interior CT4
         // envs at run start — without this, first entry fails ChangeEnvironment's
         // EnvironmentsData.ContainsKey gate and leaks the outdoor Village CT8 onto the interior
@@ -90,8 +96,10 @@ internal class Plugin : ContentModPlugin
         // MapNodes.json) removes the vanilla "Create X Tree if missing" actions along with the
         // Nettle/Clover/Meadowgrass patches it's meant to strip from the finished Village.
         TryApply("TreeRespawnPatch", () => TreeRespawnPatch.Initialize());
-        TryApply("TraitsTickHandler", () => TraitsTickHandler.Initialize());
-        TryApply("TraitsActionHandler", () => TraitsActionHandler.Initialize());
+        // Trait effects are vanilla-shaped data (a perk-offset GameStat per conditional trait, e.g.
+        // GameStat/CMC_TraitNyctophobia.json). TraitsTickHandler and TraitsActionHandler were deleted in
+        // 1.68.25: every stat they touched was a GameStat definition, so each read was NaN and each write
+        // a silent no-op (Documentation/Design/Trait_Effect_Repair_As_Built.md, D1 and D2).
         // Clears Rotten Remains that accumulate in NPC inventories as their carried food spoils.
         TryApply("NpcRottenRemainsCleanupPatch", () => NpcRottenRemainsCleanupPatch.Initialize());
         TryApply("PerkItemInitPatch", PerkItemInitPatch.Register);

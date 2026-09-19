@@ -37,11 +37,44 @@
                 "m_FileID": 0,
                 "m_PathID": 0
             },
-            "StatWarpData": "c5789c18de91a6d4e9884ea4df2b6d30",
+            "StatWarpData": "cmcStatTraitSensitiveSkin",
             "StatWarpType": 3,
             "ValueModifier": {
-                "x": 30.0,
-                "y": 30.0
+                "x": 1000.0,
+                "y": 1000.0
+            },
+            "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false
+        },
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatWarpData": "cmcStatTraitSkinShelter",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": 10.0,
+                "y": 10.0
             },
             "RateModifier": {
                 "x": 0.0,
@@ -67,7 +100,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "Your skin burns easily. Sun Allergy builds faster whenever you are exposed to sunlight.",
+        "DefaultText": "Your skin burns in strong direct sunlight. Time spent unsheltered in full daylight adds up over several days into a painful sunburn, and it fades once you keep out of the harsh sun.",
         "LocalizationKey": "CharacterTraits_Perk_SensitiveSkin_PerkDescription",
         "ParentObjectID": "traits_perk_sensitive_skin"
     },

@@ -14,7 +14,7 @@
   "CardImageWarpData": "CMC_Alchemist_Potions",
   "CardImageWarpType": 3,
   "CardHelpSection": {
-    "DefaultText": "Powerful Healing Potion",
+    "DefaultText": "Drink it to settle the stomach, purge food poisoning, restore stamina and hold pain at arm's length for most of a day. The relief fades as the dose wears off.",
     "LocalizationKey": "CMC_ApothecaryHealingPotion_Help"
   },
   "CardTagsWarpData": ["tag_Consumable", "tag_Drinkable", "tag_Medicine", "tag_Preservable"],
@@ -34,7 +34,7 @@
       },
       "ActionDescription": {
         "LocalizationKey": "CMC_ApothecaryHealingPotion_Drink_Desc",
-        "DefaultText": "Drink the potion. It burns going down, then the pain just... stops."
+        "DefaultText": "Drink the potion. It burns going down, and then the worst of the pain pulls back for the rest of the day."
       },
       "DaytimeCost": 0,
       "UseMiniTicks": 1,
@@ -42,7 +42,7 @@
       "ActionTagsWarpType": 3,
       "ReceivingCardChanges": { "ModType": 3 },
       "StatModifications": [
-        { "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b", "StatWarpType": 3, "ValueModifier": { "x": -40.0, "y": -40.0 }, "InstantModifier": true },
+        { "StatWarpData": "cmcStatHerbalAnalgesic", "StatWarpType": 3, "ValueModifier": { "x": 72.0, "y": 72.0 }, "InstantModifier": true },
         { "StatWarpData": "547f09c7ea6d11d4bbf6714255b0dfd5", "StatWarpType": 3, "ValueModifier": { "x": -30.0, "y": -30.0 }, "InstantModifier": true },
         { "StatWarpData": "8080df0dc107caa47b9591fde9347e09", "StatWarpType": 3, "ValueModifier": { "x": -100.0, "y": -100.0 }, "InstantModifier": true },
         { "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2", "StatWarpType": 3, "ValueModifier": { "x": 30.0, "y": 30.0 }, "InstantModifier": true },

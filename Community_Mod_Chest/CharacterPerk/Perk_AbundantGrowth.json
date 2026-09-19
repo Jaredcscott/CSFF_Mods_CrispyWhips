@@ -49,8 +49,8 @@
                 "y": 0.0
             },
             "RateModifier": {
-                "x": 1.0,
-                "y": 1.0
+                "x": 1.2,
+                "y": 1.2
             },
             "MinValueModifier": {
                 "x": 0.0,
@@ -72,7 +72,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "The forest is unusually generous this run. Start with extra seeds and fresh heather flowers, and foraging aids build up twice as fast throughout the run.",
+        "DefaultText": "The land seems to respond to your presence. Start with turnroot, meadowgrass and flax seeds and fresh heather flowers, and keep a steady Foraging Aid as strong as one spirit blessing.",
         "LocalizationKey": "CharacterTraits_Perk_AbundantGrowth_PerkDescription",
         "ParentObjectID": "traitsperkabundantgrowth"
     },

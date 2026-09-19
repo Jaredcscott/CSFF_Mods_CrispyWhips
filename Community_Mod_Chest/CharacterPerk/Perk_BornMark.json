@@ -44,8 +44,8 @@
                 "y": 0.0
             },
             "RateModifier": {
-                "x": 0.5,
-                "y": 0.5
+                "x": 1.2,
+                "y": 1.2
             },
             "MinValueModifier": {
                 "x": 0.0,
@@ -67,7 +67,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "You were born with a distinctive mark that the spirits take notice of. Fortune smiles on you slightly more often than on others.",
+        "DefaultText": "You were born with a distinctive mark that the spirits take notice of. It keeps your Luck raised. Nothing in the world reads Luck yet, so the mark changes nothing you can see today.",
         "LocalizationKey": "CharacterTraits_Perk_BornMark_PerkDescription",
         "ParentObjectID": "traits_perk_born_mark"
     },
@@ -96,7 +96,7 @@
     "StartUnlocked": true,
     "StartingStatModifiers": [],
     "StatsObjectives": [],
-    "SunsCost": 30,
+    "SunsCost": 5,
     "TagsOnBoardObjectives": [],
     "TimeObjectives": [],
     "UniqueID": "traits_perk_born_mark"

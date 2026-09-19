@@ -91,15 +91,15 @@ Combat_And_Armor_Bp_BoneLamellar_CardName,Bone Lamellar Armor
 Combat_And_Armor_Bp_BoneLamellar_CardDescription,Assemble overlapping bone plates into torso armor.
 Combat_And_Armor_Bp_BoneLamellar_UnlockConditionsDesc,Bring the Professor bones or antler for his reconstruction
 CharacterTraits_Perk_Angler_PerkName,Angler
-CharacterTraits_Perk_Angler_PerkDescription,"You've spent years by the water. Start with a fishing rod, line, and bait. Your patience gives you a constant fishing advantage."
+CharacterTraits_Perk_Angler_PerkDescription,"You've spent years by the water. Start with an iron fishing rod, line and bait, and keep a steady Fishing Aid as strong as one spirit blessing."
 CharacterTraits_Perk_GreenThumb_PerkName,Green Thumb
-CharacterTraits_Perk_GreenThumb_PerkDescription,"Plants thrive under your care. Start with Turnroot seeds, Meadowgrass seeds, and a Flint Hoe. Your attentiveness gives you a constant foraging advantage."
+CharacterTraits_Perk_GreenThumb_PerkDescription,"Plants thrive under your care. Start with Turnroot seeds, Meadowgrass seeds and a Flint Hoe, and keep a steady Foraging Aid as strong as one spirit blessing. A Wild Growth blessing also lasts longer for you."
 CharacterTraits_Perk_StrongKidneys_PerkName,Strong Kidneys
 CharacterTraits_Perk_StrongKidneys_PerkDescription,"Your body retains water efficiently. You become thirsty significantly more slowly than normal, requiring less frequent drinks to stay hydrated."
 CharacterTraits_Perk_NaturalTrader_PerkName,Natural Trader
 CharacterTraits_Perk_NaturalTrader_PerkDescription,"You have a knack for dealing with people. Start with a significantly advanced Social skill, making trader interactions and NPC negotiations more favourable from the outset."
 CharacterTraits_Perk_Swimmer_PerkName,Swimmer
-CharacterTraits_Perk_Swimmer_PerkDescription,You are at home in the water. Start with a head start in the Swimming skill and a constant swimming aid that reduces the stamina cost of crossing water.
+CharacterTraits_Perk_Swimmer_PerkDescription,"You are at home in the water. Start with a head start in Swimming that opens the cheaper river crossing from day one, and keep a steady Swimming Aid as strong as one spirit blessing."
 CharacterTraits_Perk_Trapper_PerkName,Trapper
 CharacterTraits_Perk_Trapper_PerkDescription,"You know how to set a trap and read the land. Start with a Snare Trap, Log Trap, Flint Knife, and Rustic Spear, plus a head start in the Trapping skill."
 Pottery_Sculpture_Pigment_CardName,Pigment
@@ -197,13 +197,23 @@ CeramicLamp_Bp_CardName,Ceramic Lamp
 CeramicLamp_Bp_CardDescription,Shape clay into a shallow oil lamp with a wick channel.
 CeramicLamp_Bp_UnlockConditionsDesc,Clay Needed
 CharacterTraits_Perk_Insomniac_PerkName,Insomniac
-CharacterTraits_Perk_Insomniac_PerkDescription,You struggle to get a full night's rest. Your sleep clock drains faster making it harder to stay rested.
+CharacterTraits_Perk_Insomniac_PerkDescription,"Sleepiness creeps up on you more slowly than on others, so you stay awake longer. You pay more for it: every tier of sleep deprivation costs you extra stress and focus."
+CMC_TraitInsomniac_StatName,Insomnia
+CMC_TraitInsomniac_StatDescription,How hard lost sleep hits you. It does nothing while you are rested and bites harder with every tier of sleep deprivation.
+CMC_TraitInsomniac_Status_Minor_Name,Frayed by Lost Sleep
+CMC_TraitInsomniac_Status_Minor_Description,You are short on sleep and you feel it more than most: extra stress and a wandering mind.
+CMC_TraitInsomniac_Status_Moderate_Name,Worn by Lost Sleep
+CMC_TraitInsomniac_Status_Moderate_Description,Sleep deprivation is wearing you down faster than it would anyone else.
+CMC_TraitInsomniac_Status_Major_Name,Ragged from Lost Sleep
+CMC_TraitInsomniac_Status_Major_Description,Major sleep deprivation. Your stress and your focus suffer far more than they would for others.
+CMC_TraitInsomniac_Status_Serious_Name,Wrecked by Lost Sleep
+CMC_TraitInsomniac_Status_Serious_Description,Serious sleep deprivation. Your mind is coming apart at the seams. Sleep.
 CharacterTraits_Perk_Sinker_PerkName,Sinker
-CharacterTraits_Perk_Sinker_PerkDescription,You are dense in the water. Your stamina drains faster making physical exertion more costly.
+CharacterTraits_Perk_Sinker_PerkDescription,"You are dense in the water. Swimming costs you extra Stamina, Gratification and Focus, and any Swimming Aid you receive is weaker."
 CharacterTraits_Perk_WeakStomach_PerkName,Weak Stomach
 CharacterTraits_Perk_WeakStomach_PerkDescription,Your stomach is easily upset. Nausea takes longer to recover from lingering well after the cause is gone.
 CharacterTraits_Perk_BlackThumb_PerkName,Black Thumb
-CharacterTraits_Perk_BlackThumb_PerkDescription,"Plants wither under your care. Your foraging aids fade faster than they build, making gathering food from the land less reliable."
+CharacterTraits_Perk_BlackThumb_PerkDescription,"Plants wither under your care. This trait weakens Foraging Aid from other sources, so a single spirit blessing barely holds, and makes a Wild Growth blessing fade sooner. On its own it does nothing."
 CharacterTraits_Perk_BadKidneys_PerkName,Bad Kidneys
 CharacterTraits_Perk_BadKidneys_PerkDescription,"Your body sheds water quickly. You become thirsty noticeably faster than normal, requiring more frequent drinks to stay hydrated."
 Comfort_Bedroll_Placed_CardName,Bedroll
@@ -472,25 +482,25 @@ CharacterTraits_Perk_Prospector_PerkDescription,"You have a trained eye for ston
 CharacterTraits_Perk_MineralRich_PerkName,Mineral Rich
 CharacterTraits_Perk_MineralRich_PerkDescription,"You come from a land blessed with abundant stone. Start with a collection of flint, greenstone, and a whetstone ready to work with."
 CharacterTraits_Perk_PeacefulFarmer_PerkName,Peaceful Farmer
-CharacterTraits_Perk_PeacefulFarmer_PerkDescription,"You spent your years tending crops and cooking simple meals. Start with a head start in Cooking, an enhanced foraging bonus, seeds to plant, a flint hoe, and a bowl to carry your harvest."
+CharacterTraits_Perk_PeacefulFarmer_PerkDescription,"You spent your years tending crops and cooking simple meals. Start with a head start in Cooking, turnroot, meadowgrass and flax seeds, a flint hoe and a clay bowl, and keep a steady Foraging Aid as strong as one spirit blessing."
 CharacterTraits_Perk_AbundantGrowth_PerkName,Abundant Growth
-CharacterTraits_Perk_AbundantGrowth_PerkDescription,"The land seems to respond to your presence. Your foraging aid builds at double its normal rate, and you start with a selection of seeds and forageable plants."
+CharacterTraits_Perk_AbundantGrowth_PerkDescription,"The land seems to respond to your presence. Start with turnroot, meadowgrass and flax seeds and fresh heather flowers, and keep a steady Foraging Aid as strong as one spirit blessing."
 CharacterTraits_Perk_Trollblood_PerkName,Trollblood
-CharacterTraits_Perk_Trollblood_PerkDescription,Your blood clots with unusual speed and you shake off pain quickly. Wounds stop bleeding noticeably faster and aches fade sooner than they would for others.
+CharacterTraits_Perk_Trollblood_PerkDescription,"Thick, stubborn blood runs in your veins. Wounds bleed less than they would for anyone else, and pain sits far lighter on you, though neither one fades any faster."
 CharacterTraits_Perk_SpirituallyHarmonious_PerkName,Spiritually Harmonious
 CharacterTraits_Perk_SpirituallyHarmonious_PerkDescription,"You are at peace with the world around you. Your insight into the spirit realm is exceptional and stress washes over you without finding purchase, fading faster than it would for others."
 CharacterTraits_Perk_WideHands_PerkName,Wide Hands
-CharacterTraits_Perk_WideHands_PerkDescription,"Your large, dexterous hands are made for working. Start with a head start in Crafting and Knapping, with a consistent crafting quality bonus on everything you make."
+CharacterTraits_Perk_WideHands_PerkDescription,"Your large, dexterous hands are made for working. You start ahead in Crafting and Knapping, and always count as a little more skilled at both, so the things you make come out a little better."
 CharacterTraits_Perk_Claws_PerkName,Claws
-CharacterTraits_Perk_Claws_PerkDescription,"Your fingernails grow hard and talon-like, giving you an edge in close quarters. Start with a head start in Knife Fighting and Melee Fighting, and your natural weapons give constant bonuses to ambush and chase actions."
+CharacterTraits_Perk_Claws_PerkDescription,"Your fingernails grow hard and talon-like, giving you an edge in close quarters. Start with a head start in Knife Fighting and Melee Fighting, and keep a steady Ambush Aid and Chasing Aid, each as strong as one spirit blessing."
 CharacterTraits_Perk_Troglodyte_PerkName,Troglodyte
-CharacterTraits_Perk_Troglodyte_PerkDescription,A life spent in caves and cramped tunnels has made you sure-footed and constantly alert. Start with a head start in Climbing and enhanced climbing and alertness aids.
+CharacterTraits_Perk_Troglodyte_PerkDescription,"A life spent in caves and cramped tunnels has made you sure-footed and alert. Start with a head start in Climbing, and keep a steady Climbing Aid and Alertness Aid, each as strong as one spirit blessing."
 CharacterTraits_Perk_ExiledArtist_PerkName,Exiled Artist
 CharacterTraits_Perk_ExiledArtist_PerkDescription,"Forced from your homeland, you carry your craft with you. Start with a head start in Pottery, two lumps of clay for sculpting, charcoal for pigment, and a basket to carry your work."
 CharacterTraits_Perk_BornMark_PerkName,Born Mark
-CharacterTraits_Perk_BornMark_PerkDescription,You were born with a distinctive mark that the spirits take notice of. Fortune smiles on you slightly more often than on others.
+CharacterTraits_Perk_BornMark_PerkDescription,"You were born with a distinctive mark that the spirits take notice of. It keeps your Luck raised. Nothing in the world reads Luck yet, so the mark changes nothing you can see today."
 CharacterTraits_Perk_Aged_PerkName,Aged
-CharacterTraits_Perk_Aged_PerkDescription,The years have taken their toll. Your body recovers stamina more slowly and aches linger longer than they should.
+CharacterTraits_Perk_Aged_PerkDescription,"The years have taken their toll. Your body starts weaker than it otherwise would, and however hard you train it never regains the fitness of youth. It burns through its reserves more slowly, and a dull ache never quite leaves you."
 CharacterTraits_Perk_Bleeder_PerkName,Bleeder
 CharacterTraits_Perk_Bleeder_PerkDescription,"Your blood does not clot well. Wounds bleed for significantly longer than they should, making even minor injuries into dangerous situations."
 CharacterTraits_Perk_WeakCourage_PerkName,Weak Courage
@@ -500,29 +510,71 @@ CharacterTraits_Perk_WeakCowardice_PerkDescription,"Your nerve falters more easi
 CharacterTraits_Perk_SpirituallyTroubled_PerkName,Spiritually Troubled
 CharacterTraits_Perk_SpirituallyTroubled_PerkDescription,"The spirits do not look kindly upon you. Stress weighs heavier and lingers longer, and the unease of an unfriendly spirit world keeps your nerves on edge."
 CharacterTraits_Perk_WeakenedGrowth_PerkName,Weakened Growth
-CharacterTraits_Perk_WeakenedGrowth_PerkDescription,"The land yields little for you. Your foraging aid builds up at half its normal rate, making wild food sources far less reliable."
+CharacterTraits_Perk_WeakenedGrowth_PerkDescription,"The land yields little for you. This trait weakens Foraging Aid from other sources, so a single spirit blessing barely holds. On its own it does nothing."
 CharacterTraits_Perk_Leper_PerkName,Leper
-CharacterTraits_Perk_Leper_PerkDescription,"Your body is ravaged by a wasting affliction. Pain is a constant companion, skin conditions flare persistently, and nausea saps your will to act."
+CharacterTraits_Perk_Leper_PerkDescription,"A wasting affliction has killed the feeling in your flesh and eaten at your face. Injury no longer hurts you at all. Your skin keeps out less of the filth it meets, your features are ruined, and people trade and speak with you only when they must."
 CharacterTraits_Perk_Fugitive_PerkName,Fugitive
-CharacterTraits_Perk_Fugitive_PerkDescription,"You fled your old life in a hurry with little more than the clothes on your back. You begin haunted by fear and stress from the ordeal, and the anxiety of being hunted never quite leaves you."
+CharacterTraits_Perk_Fugitive_PerkDescription,"You fled your old life in a hurry with little more than the clothes on your back. You begin haunted by fear and stress from the ordeal, and the dread of being hunted means you can never fully relax."
 CharacterTraits_Perk_LostTourist_PerkName,Lost Tourist
 CharacterTraits_Perk_LostTourist_PerkDescription,"You stumbled into this wilderness entirely by accident. You miss civilization and familiar faces. Start with some social skills, but loneliness and stress build faster in the wild."
 CharacterTraits_Perk_SeasonalAllergies_PerkName,Seasonal Allergies
-CharacterTraits_Perk_SeasonalAllergies_PerkDescription,"Spring is agony. Nausea and Rash build much faster throughout the year, and each spring triggers a severe allergic flare."
+CharacterTraits_Perk_SeasonalAllergies_PerkDescription,"Spring air does not agree with you. All through spring you are less comfortable and upper respiratory infections take hold more easily, though a healthy immune system still fights them off. The rest of the year you are fine."
+CMC_TraitSeasonalAllergies_StatName,Seasonal Allergies
+CMC_TraitSeasonalAllergies_StatDescription,Your reaction to spring air. It flares for the whole of spring and is gone for the rest of the year.
+CMC_TraitSeasonalAllergies_Status_Spring_Name,Spring Allergies
+CMC_TraitSeasonalAllergies_Status_Spring_Description,Spring is in the air and your body hates it. You are less comfortable and upper respiratory infections take hold more easily.
 CharacterTraits_Perk_DeadlyDisease_PerkName,Deadly Disease
-CharacterTraits_Perk_DeadlyDisease_PerkDescription,"A debilitating disease ravages your body. You begin severely impaired with elevated Nausea, Pain, Rash, and Stress, and these conditions worsen slowly over time without treatment."
+CharacterTraits_Perk_DeadlyDisease_PerkDescription,"A disease has taken hold and it is winning. You begin sick and sore, the pain never leaves, and your defences are compromised, so infections of the gut, the chest and the blood creep upward day after day. Keep your immune system up with good morale, food, sleep and medicine and they recede; neglect it and the disease runs its course."
 CharacterTraits_Perk_Lunacy_PerkName,Lunacy
-CharacterTraits_Perk_Lunacy_PerkDescription,"Your sanity ebbs and flows with the moon. Stress and madness grow as the moon waxes. At the full moon, an overwhelming urge grips you."
+CharacterTraits_Perk_Lunacy_PerkDescription,"The moon has a hold on you. Your stress builds faster as the moon waxes and fastest at the full moon, when an urge to be out under the moonlit sky grows in you until you answer it. The pull lets go as the moon wanes."
+CMC_TraitLunacy_StatName,Lunacy
+CMC_TraitLunacy_StatDescription,"The pull the moon has on you. It tightens as the moon waxes, peaks at the full moon and lets go as the moon wanes."
+CMC_TraitLunacy_Status_WaxingCrescent_Name,Moon-Drawn Unease
+CMC_TraitLunacy_Status_WaxingCrescent_Description,The crescent moon is growing. It sets your nerves slightly on edge.
+CMC_TraitLunacy_Status_WaxingGibbous_Name,Moon-Drawn Tension
+CMC_TraitLunacy_Status_WaxingGibbous_Description,The moon is nearly full. Its pull winds you tighter and your stress builds faster.
+CMC_TraitLunacy_Status_FullMoon_Name,Full Moon Frenzy
+CMC_TraitLunacy_Status_FullMoon_Description,"The moon is full. Your stress climbs and an urge to be out under the moonlit sky grows in you. Left unanswered, the urge feeds your stress."
 CharacterTraits_Perk_Agoraphobia_PerkName,Agoraphobia
-CharacterTraits_Perk_Agoraphobia_PerkDescription,Open spaces fill you with dread. Stress and Fear build steadily while you are exposed to the open environment.
+CharacterTraits_Perk_Agoraphobia_PerkDescription,"Open ground fills you with dread. While you are unsheltered your fear runs higher, so any fright shakes you sooner, and your stress slowly builds. Both ease once you are sheltered."
+CMC_TraitAgoraphobia_StatName,Agoraphobia
+CMC_TraitAgoraphobia_StatDescription,Your dread of open ground. It grips you whenever you have no shelter around you and lets go once you are under cover.
+CMC_TraitAgoraphobia_Status_Unsheltered_Name,Exposed in the Open
+CMC_TraitAgoraphobia_Status_Unsheltered_Description,You have no shelter around you. Your fear sits closer to the surface and your stress slowly builds.
 CharacterTraits_Perk_Nyctophobia_PerkName,Nyctophobia
-CharacterTraits_Perk_Nyctophobia_PerkDescription,The dark terrifies you. Fear and Stress build at night when no light source is present.
+CharacterTraits_Perk_Nyctophobia_PerkDescription,The dark terrifies you. In total darkness you become frightened and your stress rises. In dim light you stay uneasy.
+CMC_TraitNyctophobia_StatName,Nyctophobia
+CMC_TraitNyctophobia_StatDescription,Your fear of the dark. It flares in darkness and fades when there is light.
+CMC_TraitNyctophobia_Status_VeryDark_Name,Terrified of the Dark
+CMC_TraitNyctophobia_Status_VeryDark_Description,Total darkness. Your fear has you frightened and your stress is rising.
+CMC_TraitNyctophobia_Status_Dark_Name,Uneasy in the Dark
+CMC_TraitNyctophobia_Status_Dark_Description,The light is dim. Your fear of the dark keeps you on edge.
 CharacterTraits_Perk_SensitiveSkin_PerkName,Sensitive Skin
-CharacterTraits_Perk_SensitiveSkin_PerkDescription,Your skin burns easily. Sun Allergy builds faster whenever you are exposed to sunlight.
+CharacterTraits_Perk_SensitiveSkin_PerkDescription,"Your skin burns in strong direct sunlight. Time spent unsheltered in full daylight adds up over several days into a painful sunburn, and it fades once you keep out of the harsh sun."
+CMC_TraitSensitiveSkin_StatName,Sensitive Skin
+CMC_TraitSensitiveSkin_StatDescription,How hard the sun is hitting your skin. It matters only in harsh direct sunlight with no shelter over you.
+CMC_TraitSensitiveSkin_Status_HarshSun_Name,Harsh Sunlight
+CMC_TraitSensitiveSkin_Status_HarshSun_Description,You are out in strong direct sun and it is scorching your skin. Get under shelter or wait for the light to soften.
+CMC_TraitSkinShelter_StatName,Sensitive Skin: Shelter
+CMC_TraitSkinShelter_StatDescription,"Tracks whether you have shelter over you. While you do, harsh sunlight cannot reach your skin."
+CMC_TraitSkinShelter_Status_Sheltered_Name,Out of the Sun
+CMC_TraitSkinShelter_Status_Sheltered_Description,"You have shelter over you, so the sun cannot reach your skin."
 CharacterTraits_Perk_LactoseIntolerant_PerkName,Lactose Intolerant
-CharacterTraits_Perk_LactoseIntolerant_PerkDescription,Your body cannot process dairy. Consuming dairy products causes severe Nausea and Pain.
+CharacterTraits_Perk_LactoseIntolerant_PerkDescription,"Your body cannot process dairy. Eating or drinking it brings nausea and gut pain that fade as the dairy digests. The more dairy you have had, the worse the symptoms and the longer they last."
+CMC_TraitLactoseIntolerant_StatName,Lactose Intolerance
+CMC_TraitLactoseIntolerant_StatDescription,How your body is coping with the dairy inside it. Symptoms start when you eat or drink dairy and fade as it digests.
+CMC_TraitLactoseIntolerant_Status_Mild_Name,Dairy Cramps
+CMC_TraitLactoseIntolerant_Status_Mild_Description,The dairy you had is not sitting well. You feel nauseous and your gut aches until it digests.
+CMC_TraitLactoseIntolerant_Status_Severe_Name,Severe Dairy Cramps
+CMC_TraitLactoseIntolerant_Status_Severe_Description,You have had far too much dairy. The nausea and cramps are worse and will ease only as it digests.
 CharacterTraits_Perk_Drunkard_PerkName,Drunkard
-CharacterTraits_Perk_Drunkard_PerkDescription,You cannot resist a drink. Alcohol hits twice as hard and brings Stress with it. Sobriety breeds restlessness.
+CharacterTraits_Perk_Drunkard_PerkDescription,"You cannot go long without a drink. While you are sober your stress slowly builds. Being tipsy or drunk relieves it more than it would for others, and alcohol stays in your body about twice as long."
+CMC_TraitDrunkard_StatName,Alcohol Craving
+CMC_TraitDrunkard_StatDescription,Your need for a drink. It gnaws at you while you are sober and lets go while you are tipsy or drunk.
+CMC_TraitDrunkard_Status_Sober_Name,Craving a Drink
+CMC_TraitDrunkard_Status_Sober_Description,You are sober and it wears on you. Your stress slowly builds until you are tipsy again.
+CMC_TraitDrunkard_Status_Drinking_Name,Craving Sated
+CMC_TraitDrunkard_Status_Drinking_Description,You are tipsy or drunk and the craving is quiet. Alcohol relieves your stress more than it would for anyone else.
 CMC_Imp_RiverBridge_CardName,River Bridge
 CMC_Imp_RiverBridge_CardDescription,A sturdy wooden bridge spanning the river at the clearing. Build this at the River Clearing to open the eastern path toward the village.
 CMC_Imp_StoneTileFloor_CardName,Stone Tile Floor
@@ -694,7 +746,7 @@ CharacterTraits_Perk_GradFishing_PerkDescription,"You completed the Academy's fi
 CharacterTraits_Perk_GradArmorer_PerkName,Armorer Graduate
 CharacterTraits_Perk_GradArmorer_PerkDescription,"You completed the Academy's armorer course. The copper and iron armor recipes (Breastplate, Helmet, Greaves, Gauntlets) are yours."
 CharacterTraits_Perk_GradMedicine_PerkName,Medicine Graduate
-CharacterTraits_Perk_GradMedicine_PerkDescription,You completed the Academy's medicine course. You know how to properly dress a wound and manage pain: wounds clot and aches fade noticeably faster.
+CharacterTraits_Perk_GradMedicine_PerkDescription,"You completed the Academy's medicine course. You know how to dress a wound and manage pain, so your wounds bleed a little less and aches sit a little lighter."
 CMC_AcademyLectern_DA_Fishing,Study Fishing
 CMC_AcademyLectern_DA_Fishing_Desc,"A two-hour session mending nets and reading water. The full course takes 24 hours of study; each session draws 100 from your Tuition Account. When one session remains, the final exam becomes available."
 CMC_AcademyLectern_DA_FishingFinal,Final Exam: Fishing
@@ -1145,9 +1197,9 @@ CMC_ApothecaryHealingMixture_CardDesc,"A mortar-bundle of the rarest herbs the f
 CMC_ApothecaryHealingMixture_Help,Rare Herb Mixture
 CMC_ApothecaryHealingPotion_CardName,Powerful Healing Potion
 CMC_ApothecaryHealingPotion_CardDesc,"A dark, bitter brew the Apothecary spent two full days over: ginseng, reishi, and hemp reduced down to something much stronger than any salve. Drink it in dire need."
-CMC_ApothecaryHealingPotion_Help,Powerful Healing Potion
+CMC_ApothecaryHealingPotion_Help,"Drink it to settle the stomach, purge food poisoning, restore stamina and hold pain at arm's length for most of a day. The relief fades as the dose wears off."
 CMC_ApothecaryHealingPotion_Drink,Drink
-CMC_ApothecaryHealingPotion_Drink_Desc,"Drink the potion. It burns going down, then the pain just... stops."
+CMC_ApothecaryHealingPotion_Drink_Desc,"Drink the potion. It burns going down, and then the worst of the pain pulls back for the rest of the day."
 CMC_Apothecary_GiveHealingMixture_ActionName,Give Herb Mixture
 CMC_Apothecary_GiveHealingMixture_ActionDescription,Hand over the rare herb mixture. She sets everything else aside; this is going to take her a couple of days to get right.
 CMC_ApothecaryPotionCraftDay_StatName,The Apothecary's Brewing
@@ -2181,15 +2233,15 @@ CMC_ClayOcarina_Broken,The clay ocarina has cracked and crumbled.
 CMC_ClayOcarina_DA_PlayTune,Play a Tune
 CMC_ClayOcarina_DA_PlayTune_Desc,"A few low, breathy notes. Nothing fancy, but it settles the nerves."
 CMC_HerbPoultice_CardName,Herb Poultice
-CMC_HerbPoultice_CardDesc,"Mashed healer's moss and wild garlic, bound tight and pressed against a wound. Simple forage, prepared the way the Academy's medicine course teaches: it closes a bleed fast."
-CMC_HerbPoultice_Help,Herb Poultice
+CMC_HerbPoultice_CardDesc,"Mashed healer's moss and wild garlic, bound tight and pressed against a wound. Simple forage, prepared the way the Academy's medicine course teaches: it slows a bleed for as long as the dressing holds."
+CMC_HerbPoultice_Help,"Bind it over a wound to slow the bleeding for about half a day, and to take the edge off the pain for the first few hours. Both fade as the dressing dries out; a second poultice laid over the first holds twice as hard."
 CMC_HerbPoultice_DA_Apply,Apply Poultice
-CMC_HerbPoultice_DA_Apply_Desc,"Press the poultice against the wound and bind it. The bleeding slows almost at once, and the ache with it."
+CMC_HerbPoultice_DA_Apply_Desc,"Press the poultice against the wound and bind it. The bleeding slows almost at once, and the ache with it, until the dressing dries out."
 CMC_HerbTincture_CardName,Herb Tincture
-CMC_HerbTincture_CardDesc,A bitter dose steeped down from dried willow bark and forest herbs. The Academy's medicine course teaches this one by heart: it settles a sick stomach and quiets a fevered body.
-CMC_HerbTincture_Help,Herb Tincture
+CMC_HerbTincture_CardDesc,"A bitter dose steeped down from dried willow bark and frostleaf. The Academy's medicine course teaches this one by heart: it settles a sick stomach, calms a rash, and numbs what hurts for a few hours."
+CMC_HerbTincture_Help,"Drink it to settle nausea and calm a rash at once, and to dull pain for about five hours while the frostleaf dose wears off."
 CMC_HerbTincture_DA_Drink,Drink
-CMC_HerbTincture_DA_Drink_Desc,"Drink the tincture. It tastes of bark and bitterness, but the sickness eases within moments."
+CMC_HerbTincture_DA_Drink_Desc,"Drink the tincture. It tastes of bark and bitterness, but the sickness eases within moments and the aches go quiet for a while."
 CMC_SpinningTop_CardName,Spinning Top
 CMC_SpinningTop_CardDescription,"A small wooden top whittled to a point and wound with cord. Give it a sharp twist and watch it spin — simple, but it never quite gets old."
 CMC_WheeledHorse_CardName,Wheeled Horse
@@ -2379,3 +2431,19 @@ CMC_CarpentryBench_CardDescription,"This bench was retired when the Carpentry co
 CMC_CarpentryBench_Prog_Tuition,Tuition Account
 CMC_CarpentryBench_DA_Transfer,Transfer to Lecture Hall
 CMC_CarpentryBench_DA_Transfer_Desc,"Moves this bench's Tuition Account balance and Carpentry study hours onto the Lecture Hall lectern and removes the bench. If the lectern's account (1000 max) cannot take the whole balance, the rest stays on the bench for a later transfer."
+CMC_ClottingEffect_StatName,Herbal Dressing
+CMC_ClottingEffect_StatDescription,"A poultice bound over a wound. It slows the bleeding while it holds, and dries out over the following hours."
+CMC_ClottingEffect_Status_Dressed_Name,Dressed Wound
+CMC_ClottingEffect_Status_Dressed_Description,A fresh poultice is bound over the wound. Bleeding is slowed while it holds.
+CMC_ClottingEffect_Status_Packed_Name,Packed Wound
+CMC_ClottingEffect_Status_Packed_Description,The wound is packed with a second poultice. Bleeding is slowed twice over while it holds.
+CMC_HerbalAnalgesic_StatName,Apothecary Analgesic
+CMC_HerbalAnalgesic_StatDescription,A dose of the Academy's pain remedies still working in you. It dulls what hurts and wears off over the following hours.
+CMC_HerbalAnalgesic_Status_Mild_Name,Mild Apothecary Relief
+CMC_HerbalAnalgesic_Status_Mild_Description,The remedy takes the edge off what hurts.
+CMC_HerbalAnalgesic_Status_Strong_Name,Strong Apothecary Relief
+CMC_HerbalAnalgesic_Status_Strong_Description,A full dose. Pain is held at arm's length until it wears down.
+CMC_RiverSwim_ActionName,Swim across the river
+CMC_RiverSwim_ActionDescription,"Wade in and swim for the far bank. No bridge needed, but the cold current drains most of your stamina, leaves you soaked and weary, and burns a good meal's worth of calories. Strong swimmers (Swimming 50+) cross with far less effort, and every crossing trains the skill."
+CMC_RiverSwim_ConfirmText,"Swim across? You need most of your stamina, and you will reach the far bank soaked and exhausted."
+CMC_RiverSwim_FadeMessage,You plunge into the cold current and strike out for the far bank...

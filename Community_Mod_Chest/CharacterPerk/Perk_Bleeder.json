@@ -48,8 +48,8 @@
                 "y": -0.5
             },
             "MinValueModifier": {
-                "x": 15.0,
-                "y": 15.0
+                "x": 0.0,
+                "y": 0.0
             },
             "MaxValueModifier": {
                 "x": 0.0,

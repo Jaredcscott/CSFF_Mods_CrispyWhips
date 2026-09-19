@@ -9,7 +9,7 @@
   },
   "CardDescription": {
     "ParentObjectID": "cmcHerbTincture",
-    "DefaultText": "A bitter dose steeped down from dried willow bark and forest herbs. The Academy's medicine course teaches this one by heart: it settles a sick stomach and quiets a fevered body.",
+    "DefaultText": "A bitter dose steeped down from dried willow bark and frostleaf. The Academy's medicine course teaches this one by heart: it settles a sick stomach, calms a rash, and numbs what hurts for a few hours.",
     "LocalizationKey": "CMC_HerbTincture_CardDesc"
   },
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
@@ -17,7 +17,7 @@
   "CardImageWarpType": 3,
   "CardHelpSection": {
     "ParentObjectID": "cmcHerbTincture",
-    "DefaultText": "Herb Tincture",
+    "DefaultText": "Drink it to settle nausea and calm a rash at once, and to dull pain for about five hours while the frostleaf dose wears off.",
     "LocalizationKey": "CMC_HerbTincture_Help"
   },
   "CardTagsWarpData": ["tag_Consumable", "tag_Drinkable", "tag_Medicine", "tag_Preservable"],
@@ -39,7 +39,7 @@
       "ActionDescription": {
         "ParentObjectID": "cmcHerbTincture",
         "LocalizationKey": "CMC_HerbTincture_DA_Drink_Desc",
-        "DefaultText": "Drink the tincture. It tastes of bark and bitterness, but the sickness eases within moments."
+        "DefaultText": "Drink the tincture. It tastes of bark and bitterness, but the sickness eases within moments and the aches go quiet for a while."
       },
       "DaytimeCost": 0,
       "UseMiniTicks": 1,
@@ -48,7 +48,7 @@
       "ReceivingCardChanges": { "ModType": 3 },
       "StatModifications": [
         { "StatWarpData": "547f09c7ea6d11d4bbf6714255b0dfd5", "StatWarpType": 3, "ValueModifier": { "x": -20.0, "y": -20.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "InstantModifier": true },
-        { "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b", "StatWarpType": 3, "ValueModifier": { "x": -20.0, "y": -20.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "InstantModifier": true },
+        { "StatWarpData": "72155de9abb6ecc4bafd3557e7b84536", "StatWarpType": 3, "ValueModifier": { "x": 20.0, "y": 20.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "InstantModifier": true },
         { "StatWarpData": "9ff897d4c2d410544a8d7ccd323bdb86", "StatWarpType": 3, "ValueModifier": { "x": -20.0, "y": -20.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "InstantModifier": true },
         { "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78", "StatWarpType": 3, "ValueModifier": { "x": -20.0, "y": -20.0 }, "RateModifier": { "x": 0.0, "y": 0.0 }, "InstantModifier": true }
       ]

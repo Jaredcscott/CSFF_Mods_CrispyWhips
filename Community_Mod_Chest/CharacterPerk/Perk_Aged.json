@@ -37,15 +37,48 @@
                 "m_FileID": 0,
                 "m_PathID": 0
             },
-            "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+            "StatWarpData": "693223c6c9bab2445948b379d90f5159",
             "StatWarpType": 3,
             "ValueModifier": {
-                "x": -8.0,
-                "y": -8.0
+                "x": -640.0,
+                "y": -640.0
             },
             "RateModifier": {
                 "x": 0.0,
                 "y": 0.0
+            },
+            "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false
+        },
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatWarpData": "16af37a364285d14586629e3e0700e55",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "RateModifier": {
+                "x": 8.0,
+                "y": 8.0
             },
             "MinValueModifier": {
                 "x": 0.0,
@@ -100,7 +133,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "The years have taken their toll. Your body recovers stamina more slowly and aches linger longer than they should.",
+        "DefaultText": "The years have taken their toll. Your body starts weaker than it otherwise would, and however hard you train it never regains the fitness of youth. It burns through its reserves more slowly, and a dull ache never quite leaves you.",
         "LocalizationKey": "CharacterTraits_Perk_Aged_PerkDescription",
         "ParentObjectID": "traits_perk_aged"
     },

@@ -37,15 +37,48 @@
                 "m_FileID": 0,
                 "m_PathID": 0
             },
-            "StatWarpData": "662fb9a05df783f4ca42c3baf81a6fe6",
+            "StatWarpData": "d4b67ed3a92b283488db1554bb23270a",
             "StatWarpType": 3,
             "ValueModifier": {
+                "x": 15.0,
+                "y": 15.0
+            },
+            "RateModifier": {
                 "x": 0.0,
                 "y": 0.0
             },
+            "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false
+        },
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatWarpData": "9b4f4de406e0eed4cbc05f767a359dbf",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": 15.0,
+                "y": 15.0
+            },
             "RateModifier": {
-                "x": 0.5,
-                "y": 0.5
+                "x": 0.0,
+                "y": 0.0
             },
             "MinValueModifier": {
                 "x": 0.0,
@@ -67,7 +100,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "Your large, dexterous hands are made for working. Start with a head start in Crafting and Knapping, with a consistent crafting quality bonus on everything you make.",
+        "DefaultText": "Your large, dexterous hands are made for working. You start ahead in Crafting and Knapping, and always count as a little more skilled at both, so the things you make come out a little better.",
         "LocalizationKey": "CharacterTraits_Perk_WideHands_PerkDescription",
         "ParentObjectID": "traits_perk_wide_hands"
     },

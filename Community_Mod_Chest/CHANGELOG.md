@@ -5,6 +5,236 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.68.30] - 2026-09-17
+
+### Changed
+
+- **Download cut from about 160 MB to 53 MB.** Nothing in the mod grew; the jump players saw from
+  1.68.10 onward was packaging. The build script wrote a second, byte-identical copy of every card
+  image into `Resource/Texture2D/` alongside `Resource/Picture/`, which nothing ever read, so every
+  release archive carried the whole art set twice. On top of that, five images (the Miller and
+  Weaver at-home portraits, both Village Home Sign faces, and the Fishing Net) had shipped at
+  1696x2528 instead of the 512-wide size every other card uses. Both are fixed, which also lowers
+  the texture memory those five images take up in-game. Thanks to chiweichiwei for reporting it.
+- **Revised art for the Miller and Weaver at-home portraits and both Village Home Sign faces.**
+
+### Fixed
+
+- **Agoraphobia, Lunacy, Sensitive Skin, Insomniac, Drunkard, Lactose Intolerant and Seasonal
+  Allergies still had no real effect, or the wrong one.** Their old C# handler read stat
+  definitions instead of live stats, so every read came back empty and every change to Fear,
+  Stress or the rest was silently dropped - and it also checked whether every trait in the game
+  was held, not just the one your character has, so simply fixing the read would have given
+  everyone all of these traits. That handler was already removed in [1.68.25], when Nyctophobia
+  got the same repair. All seven traits are now hidden stats that follow the game's own numbers,
+  the same way Nyctophobia does:
+  - **Agoraphobia:** unsheltered and out in the open, Fear rises and Stress climbs faster. Go
+    somewhere the game counts as sheltered (a cave, a cabin, a mud hut, a mine) and it stops.
+  - **Lunacy:** Stress climbs a little as the moon waxes, more as it nears full, and most at the
+    full moon, which also strengthens the game's own Moon Urge pull. The description no longer
+    promises "madness" - nothing in the game reads that yet.
+  - **Sensitive Skin:** Sunburn now builds in full midday sun while you're not sheltered (about
+    three summer days of constant exposure to burn, never in winter), and the game's own cures
+    still work. The old Sun Allergy bonus, which never did anything,
+    is gone.
+  - **Insomniac:** each stage of ordinary sleep deprivation now also adds Stress and cuts Focus,
+    on top of the slower-to-arrive sleepiness [1.68.26] already gave the trait.
+  - **Drunkard:** sober, Stress creeps up; tipsy or drunk, it falls faster than normal on top of
+    the game's own recovery, and alcohol clears at half the usual speed. The old, unconditional
+    Stress creep some players noticed even after drinking is gone.
+  - **Lactose Intolerant:** any dairy food, vanilla or modded, now brings on cramps (Nausea and
+    Pain) that fade as it clears your system, stopping short of outright vomiting.
+  - **Seasonal Allergies:** the allergy flare is back, spring only, and only while the trait is
+    held; it no longer leaves a permanent rash the way it used to. The trait is available again
+    at character creation.
+
+  None of the seven needs anything done to an existing save: a character who already has one of
+  these traits picks up the fix automatically on load. English and Chinese. Suggested by
+  chiweichiwei.
+- **Sinker and Swimmer's swimming bonuses could never hold, and Sinker's penalty did nothing.**
+  Sinker now costs extra Stamina, Gratification and Focus on every swim, including the river
+  crossing, and weakens a Swimming Aid blessing; its old, do-nothing Swimming penalty is gone.
+  Swimmer's Swimming Aid bonus finally holds on its own instead of decaying away, and it keeps
+  its Swimming head start, which unlocks the cheaper river crossing from [1.68.29]. Suggested by
+  chiweichiwei.
+- **Green Thumb, Peaceful Farmer, Abundant Growth, Claws, Troglodyte and Angler's constant aid
+  bonuses decayed to nothing.** Each granted less aid per tick than the aid stat loses on its own
+  (Angler's was a one-time boost that faded in about 30 ticks, under 8 in-game hours), so none of them ever held
+  even their first tier. All six now hold their first tier on their own indefinitely, the
+  strength of one spirit blessing. Weakened Growth and Black Thumb are unchanged; their
+  descriptions now say plainly that they only weaken aid coming from another source. Suggested by
+  chiweichiwei.
+
+Text changes are in English and Chinese.
+
+### Notes
+
+- Developer diagnostics (`[Debug] EnableTraitDiagnostics`, still off by default) now also log the
+  seven traits above, alongside Nyctophobia.
+
+---
+
+## [1.68.29] - 2026-09-16
+
+### Added
+
+- **Swim across the river.** River Clearing and Village Path each gain a "Swim across the river"
+  action that crosses to the other bank with no bridge and no Village Pathfinder trait, so the
+  village side can never strand you: every way in (the Portal Hub, the Sett Warren climbing rope,
+  an arrest) now has a way back out, and the way in no longer needs the bridge either. The River
+  Bridge stays the dry, cheap crossing. Swimming needs most of your Stamina (20 of 32) and costs
+  20 Stamina, some Energy and a meal's worth of calories, soaks you (Wetness 100), takes half an
+  hour and asks for confirmation first. Every crossing trains the Swimming skill, and at Swimming
+  50 (the head start the Swimmer trait grants) the crossing gets cheaper (12 Stamina, less Energy
+  and fewer calories), which is the first time that trait's "reduces the stamina cost of crossing
+  water" actually does something. The action is a plain travel action with no compass direction,
+  so the bridge gate that hides the East button cannot touch it. From TheFifthLorax's 2026-09-15
+  report of being sent to the village side without the bridge and stuck there. The same report
+  described the Village Path West button re-entering Village Path instead of River Clearing; that
+  could not be reproduced from source and is on the playthrough checklist with the swim.
+
+## [1.68.28] - 2026-09-16
+
+### Fixed
+
+- **CMC and HerbsAndFungi medicine pain relief.** Every CMC and HerbsAndFungi pain medicine used to
+  lower Pain's base directly, and Pain has no base source in this game (base rate 0, nothing else
+  raises it), so the reduction clamped to nothing every time with no error - the same silent no-op
+  as the BloodLoss entries on the yarrow items and Herb Poultice. Apothecary Healing Potion and Herb
+  Poultice now raise the base of a new hidden Apothecary Analgesic stat (Pain -25 for a Mild dose,
+  -50 for a Strong dose, decaying over the following hours); Herb Tincture raises the vanilla
+  Frostleaf effect stat instead, since its recipe now contains frostleaf. Herb Poultice also raises
+  a new hidden Herbal Dressing stat that carries the BloodLoss relief while the dressing holds, with
+  a second poultice packing the wound for double effect. Item help text was corrected where it
+  promised effects (fever, faster healing, infection resistance) that never existed. Investigation
+  prompted by chiweichiwei's 2026-09-15 report.
+
+## [1.68.27] - 2026-09-16
+
+### Fixed
+
+- **Aged's Fitness cap.** 1.68.26 lowered Fitness's maximum by 640, which only capped a trained
+  body; the correct reading is one tier lower from the start. It is now a Fitness ValueModifier
+  -640 instead of a cap, so a default-physique Aged character reads Low Fitness rather than
+  Normal, and the 2560 ceiling on hard training still holds. Suggested by chiweichiwei.
+- **Trollblood and Medicine Graduate did nothing.** Both lowered Blood Loss and Pain through a
+  rate, and neither stat has a base value to rate against, so both perks were silent no-ops.
+  Trollblood is now a one-time Blood Loss -3 (the vanilla tourniquet value) and Pain -200.
+  Medicine Graduate, a lighter version, is now Blood Loss -1 and Pain -50. Reported by
+  chiweichiwei.
+- **Leper was harsher than its description and gentler than intended.** Rash +193 pinned the
+  Rash status permanently (rising Stress toward the base game's anxiety trigger), while Pain +20
+  and Nausea +2 sat below their first status and did nothing. Leper is redesigned around numbness
+  and disfigurement: Pain -500 (no wound ever hurts), Skin Integrity -1, Facial Harmony -50 and
+  Socials -100. Its difficulty rating drops from 350 to 200 because the pain half is now a pure
+  benefit. Suggested by chiweichiwei.
+- **Deadly Disease's caps hid its own symptoms without stopping the disease.** 1.68.26 removed
+  the caps but kept dead Nausea and Rash rates. It now lowers Immune System by 100 and raises the
+  gut, upper-respiratory and systemic infection rates by 1.25 and the lower-respiratory rate by
+  0.25, so the disease only progresses while immunity stays down and recedes when it is kept up.
+  The starting bout and permanent Pain +25 are unchanged. Suggested by chiweichiwei.
+- **Born Mark's Luck bonus could never hold.** +0.5 could not outpace Luck's own tier decay, so
+  the mark never held even tier 1. It is now +1.2, matching the game's other Aid-shaped stats.
+  Luck itself has no reader yet in this game version, so the trait still has no visible effect;
+  its cost drops from 30 Suns to 5 to match. Suggested by chiweichiwei.
+- **Wide Hands' quality bonus did nothing.** Its QualityCraftingBonus rate targeted a per-craft
+  scratch stat that every craft resets before anything reads it. It now raises Crafting and
+  Knapping by 15 each, which the decompiled interpolation code confirms feeds directly into craft
+  quality. Reported by chiweichiwei.
+- **Seasonal Allergies' permanent rash.** Its always-on Rash +96 and Nausea +3, in place since
+  1.67.7, are removed, and the perk is pulled from the starting trait list until its intended
+  spring-only flare ships. A character who already holds it keeps it harmlessly. Suggested by
+  chiweichiwei.
+- **Melee Fighting was missing from the Skills tab.** The skill has worked since it shipped
+  (Club, Stone Mace, the Charred Tip Strike weapon move all raise it), but it never appeared in
+  the detailed Skills stat list. `StatTabInjectionPatch` now injects into a list of tabs instead
+  of one hard-coded stat, and Melee Fighting is added alongside the existing Village Reputation
+  injection.
+
+Text changes are in English and Chinese.
+
+### Known issues
+
+- Lunacy, Agoraphobia, Drunkard's drink and craving effects, Lactose Intolerant, the Seasonal
+  Allergies spring flare and Black Thumb's late-summer withering still do nothing, as they never
+  have. Their repair follows once 1.68.25's Nyctophobia is confirmed in-game
+  (`Documentation/Plans/Fleet/Trait_Effect_Repair_Plan.md`).
+
+---
+
+## [1.68.26] - 2026-09-15
+
+### Fixed
+
+- **Bleeder made you unable to bleed to death.** Its minimum Blood Pressure of 15 applied to
+  every source of blood loss, not just the trait, and the game only kills at 0. The floor is gone.
+  The slower recovery stays: Blood Pressure still comes back on its own, at half the normal rate,
+  and the trait never drained it by itself. Reported by chiweichiwei.
+- **Aged kept you permanently Tired.** Lowering Stamina by 8 held a fully rested character at 24
+  of 32, inside the Tired band, so every aged character had a bigger appetite, ran warm and trained
+  their Fitness up all day. Aged now keeps Fitness below Very High however hard you train, burns
+  body fat more slowly (the base game's Slow Metabolism rate, without its lower body temperature)
+  and keeps its lasting Pain. Suggested by chiweichiwei.
+- **Fugitive, Lost Tourist and Drunkard made you immune to extreme stress.** Each lowered the
+  Stress maximum to 150, which removed Extremely Stressed and the base game's anxiety attack at
+  full Stress. The cap is gone from all three. Fugitive also loses its slower stress recovery and
+  instead never lets Stress fall below 26, so a fugitive can never fully relax (Relaxed ends at 25).
+  Suggested by chiweichiwei.
+- **Deadly Disease blocked severe nausea and rash.** It capped Nausea below the Nauseous band,
+  which also stopped vomiting, and Rash below Severe Rash. Both caps are gone. The description no
+  longer claims the symptoms worsen over time: Nausea and Rash fade, just more slowly than normal,
+  and the Pain stays.
+- **Insomniac made your sleep last longer instead of disturbing it.** It slowed a hidden sleep
+  timer, so for about three hours after waking the game still counted you as asleep (colder, and
+  open to nightmares). It now makes sleepiness build more slowly, so you stay awake longer. Harsher
+  sleep-deprivation penalties follow in a later update. Suggested by chiweichiwei.
+
+Text changes are in English and Chinese.
+
+### Known issues
+
+- Lunacy, Agoraphobia, Drunkard's drink and craving effects, Lactose Intolerant, the Seasonal
+  Allergies spring flare and Black Thumb's late-summer withering still do nothing, as they never
+  have. Their repair follows once 1.68.25's Nyctophobia is confirmed in-game
+  (`Documentation/Plans/Fleet/Trait_Effect_Repair_Plan.md`).
+
+---
+
+## [1.68.25] - 2026-09-14
+
+### Fixed
+
+- **Nyctophobia had no effect at all.** Its fear of the dark ran in C# that never reached a real
+  stat: every read came back empty and every Fear or Stress change was dropped, with nothing in
+  the log. It is now a hidden trait stat that follows the game's own Light stat, so it behaves like
+  a vanilla condition. In total darkness you get **Terrified of the Dark** (Fear pushed up to
+  Frightened, Stress rising); in dim light, **Uneasy in the Dark** (a smaller Fear bump, Stress
+  stops falling); with enough light, neither. Both appear in the status bar and are named in the
+  Fear and Stress breakdowns. A character that already has the trait picks it up on load. English
+  and Chinese.
+
+### Removed
+
+- `TraitsTickHandler.cs` and `TraitsActionHandler.cs`. Neither ever applied an effect, for the
+  reason above. Both also tested for a trait against every trait in the game instead of the ones
+  your character holds, so repairing them in place would have given every character Lunacy,
+  Agoraphobia, Nyctophobia, Drunkard's cravings and Lactose Intolerant. Removing them changes
+  nothing in play.
+
+### Added
+
+- `[Debug] EnableTraitDiagnostics` (off by default): temporary logging used to confirm the
+  Nyctophobia fix in-game. It will be removed once that check passes.
+
+### Known issues
+
+- Lunacy, Agoraphobia, Drunkard's drink and craving effects, Lactose Intolerant, the Seasonal
+  Allergies spring flare and Black Thumb's late-summer withering still do nothing, as they never
+  have. Their repair follows once this build's Nyctophobia is confirmed in-game
+  (`Documentation/Plans/Fleet/Trait_Effect_Repair_Plan.md`).
+
+---
+
 ## [1.68.24] - 2026-09-12
 
 ### Fixed

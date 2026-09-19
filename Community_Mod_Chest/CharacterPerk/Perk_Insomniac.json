@@ -37,23 +37,56 @@
                 "m_FileID": 0,
                 "m_PathID": 0
             },
-            "StatWarpData": "ca25b2c02ece6674bae6aaba4a6b8c10",
+            "StatWarpData": "07f59e0f9e41a214c85ffa3078273264",
             "StatWarpType": 3,
             "ValueModifier": {
                 "x": 0.0,
                 "y": 0.0
             },
             "RateModifier": {
-                "x": 0.3,
-                "y": 0.3
+                "x": 0.25,
+                "y": 0.25
             },
             "MinValueModifier": {
                 "x": 0.0,
                 "y": 0.0
             },
             "MaxValueModifier": {
-                "x": -300.0,
-                "y": -300.0
+                "x": 0.0,
+                "y": 0.0
+            },
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false
+        },
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatWarpData": "cmcStatTraitInsomniac",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": 10.0,
+                "y": 10.0
+            },
+            "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
             },
             "CannotModifyBeyond": {
                 "Active": false,
@@ -67,7 +100,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "You struggle to get a full night's rest. Your sleep clock drains faster, making it harder to stay rested.",
+        "DefaultText": "Sleepiness creeps up on you more slowly than on others, so you stay awake longer. You pay more for it: every tier of sleep deprivation costs you extra stress and focus.",
         "LocalizationKey": "CharacterTraits_Perk_Insomniac_PerkDescription",
         "ParentObjectID": "traits_perk_insomniac"
     },
