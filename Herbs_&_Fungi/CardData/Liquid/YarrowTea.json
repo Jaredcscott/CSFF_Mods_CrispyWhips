@@ -8,14 +8,14 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_yarrow_tea",
         "LocalizationKey": "herbsfungiyarrowtea_CardDescription",
-        "DefaultText": "A healing tea brewed from ground yarrow. Traditional remedy for reducing bleeding and combating infection."
+        "DefaultText": "A healing tea brewed from ground yarrow. Traditional remedy for slowing bleeding and easing the pain of a wound."
     },
     "CanBeRenamed": false,
     "AlternateNames": [],
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_yarrow_tea",
         "LocalizationKey": "herbsfungiyarrowtea_CardHelpSection",
-        "DefaultText": "<b>Preparation:</b> Mix ground yarrow with hot water in a bowl.\n\n<b>Benefits:</b> Reduces bleeding, fights infection, boosts immunity."
+        "DefaultText": "<b>Preparation:</b> Mix ground yarrow with hot water in a bowl.\n\n<b>Benefits:</b> Slows bleeding and dulls pain for about six hours, and quenches thirst. Both fade as the yarrow wears off."
     },
     "CardImage": {"m_FileID": 0, "m_PathID": 0},
     "CardImageWarpData": "Thirst_Old",
@@ -135,8 +135,14 @@
                 },
                 {
                     "Stat": {"m_FileID": 0, "m_PathID": 0},
-                    "ValueModifier": {"x": -18.0, "y": -18.0},
-                    "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
+                    "ValueModifier": {"x": 24.0, "y": 24.0},
+                    "StatWarpData": "herbs_fungi_stat_herbal_analgesic",
+                    "StatWarpType": 3
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "ValueModifier": {"x": 24.0, "y": 24.0},
+                    "StatWarpData": "herbs_fungi_stat_clotting_effect",
                     "StatWarpType": 3
                 },
                 {

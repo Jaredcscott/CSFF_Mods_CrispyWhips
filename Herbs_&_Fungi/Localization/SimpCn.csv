@@ -343,8 +343,12 @@ herbsfungireishitea_FuelCapacity_CardStatName,Liquid Temperature,液体温度
 herbsfungireishitea_SpecialDurability2_CardStatName,Quality,质量
 herbsfungireishitea_DismantleActions_Drink_ActionName,Drink,喝
 herbsfungiyarrowtea_CardName,Yarrow Tea,蓍草茶
-herbsfungiyarrowtea_CardDescription,A healing tea brewed from ground yarrow. Traditional remedy for reducing bleeding and combating infection.,由蓍草粉泡制的愈合茶。减少出血和对抗感染的传统疗法。
-herbsfungiyarrowtea_CardHelpSection,<b>Preparation:</b> Mix ground yarrow with hot water in a bowl.,<b>准备:</b> 将磨碎的蕉草与热水混合于碗中。
+herbsfungiyarrowtea_CardDescription,A healing tea brewed from ground yarrow. Traditional remedy for slowing bleeding and easing the pain of a wound.,由蓍草粉泡制的愈合茶。减缓出血、舒缓伤痛的传统疗法。
+herbsfungiyarrowtea_CardHelpSection,"<b>Preparation:</b> Mix ground yarrow with hot water in a bowl.
+
+<b>Benefits:</b> Slows bleeding and dulls pain for about six hours, and quenches thirst. Both fade as the yarrow wears off.","<b>准备:</b> 将磨碎的蓍草与热水混合于碗中。
+
+<b>优点:</b> 可减缓出血、减轻疼痛约六个小时，并解渴。两种效果都会随蓍草药力消退而减弱。"
 herbsfungiyarrowtea_SpoilageTime_CardStatName,Bacteria,细菌
 herbsfungiyarrowtea_SpoilageTime_OnFull_ActionDescription,Yarrow Tea Spoiled!,蓍草茶变质了！
 herbsfungiyarrowtea_FuelCapacity_CardStatName,Liquid Temperature,液体温度
@@ -531,7 +535,7 @@ herbsfungidriedtrufflecutfatcoated_SpecialDurability4_StatName,Fat,脂肪
 herbsfungidriedtrufflecutfatcoated_Eat,Eat,吃
 herbsfungidriedtrufflecutfatcoated_Eat_Desc,"Nibble the fat-coated dried truffle slices raw. Rich and oily, but not as good as cooked.",生吃脂肪裹覆的干松露片。丰腴油润，但不如烹熟的好。
 herbsfungiherbalsalve_CardName,Herbal Salve,草药膏
-herbsfungiherbalsalve_CardDescription,A topical healing salve made from medicinal herbs and fat. Apply directly to wounds for faster healing.,用药用草本和脂肪制成的局部治疗膏。直接涂抹于伤口以加快愈合。
+herbsfungiherbalsalve_CardDescription,A topical salve made from medicinal herbs and fat. Apply it directly to a wound to dull the pain for several hours.,用药用草本和脂肪制成的外用药膏。直接涂抹于伤口，可减轻疼痛数小时。
 herbsfungiherbalsalve_Apply,Apply Salve,涂抹膏药
 herbsfungiherbalsalve_Apply_Desc,Apply the healing salve to your wounds.,在你的伤口上涂抹治疗膏。
 herbsfungiherbaltincture_CardName,Herbal Tincture,草药酊剂
@@ -543,7 +547,7 @@ herbsfungisleeptea_CardDescription,A soothing herbal tea blend designed to impro
 herbsfungisleeptea_Drink,Drink,喝
 herbsfungisleeptea_Drink_Desc,Drink the soothing tea before rest to sleep better.,在休息前喝舒缓的茶以更好地睡眠。
 herbsfungipainreliefpowder_CardName,Pain Relief Powder,止痛粉
-herbsfungipainreliefpowder_CardDescription,A finely ground herbal powder that reduces pain when ingested. More efficient than raw herbs.,一种细碎的草药粉，摄入时可减轻疼痛。比生草药更有效。
+herbsfungipainreliefpowder_CardDescription,"A finely ground herbal powder that dulls pain when ingested. The relief lasts longer than raw herbs, and fades as the dose wears off.",一种细碎的草药粉，摄入后可减轻疼痛。药效比生草药持续更久，并随药力消退而减弱。
 herbsfungipainreliefpowder_Take,Take Powder,服用粉末
 herbsfungipainreliefpowder_Take_Desc,Ingest the pain-relieving powder.,摄入止痛粉。
 herbsfungiantinauseatea_CardName,Anti-Nausea Tea,止吐茶
@@ -1419,7 +1423,7 @@ Herbs_And_Fungi_Bp_PlantainPoultice_CardName,Plantain Poultice,车前草湿敷�
 Herbs_And_Fungi_Bp_PlantainPoultice_CardDescription,Mash dried common plantain in a clay bowl to make a simple wound poultice. Apply directly to ease pain and inflammation.,在陶碗中捣碎干车前草，制成简单的伤口湿敷剂。直接涂抹以缓解疼痛和炎症。
 Herbs_And_Fungi_Bp_PlantainPoultice_UnlockConditionsDesc,Unlocked after obtaining Dried Common Plantain,获得干宽叶车前草后解锁
 herbsfungiplantainpoultice_CardName,Plantain Poultice,车前草湿敷剂
-herbsfungiplantainpoultice_CardDescription,A simple poultice made from mashed common plantain. Apply it to ease pain and inflammation.,由捣碎车前草制成的简单湿敷剂。涂抹可缓解疼痛和炎症。
+herbsfungiplantainpoultice_CardDescription,A simple poultice made from mashed common plantain. Apply it to dull pain for a few hours.,由捣碎车前草制成的简单湿敷剂。涂抹后可减轻疼痛数小时。
 herbsfungiplantainpoultice_SpoilageTime_StatName,Spoilage,腐败
 herbsfungiplantainpoultice_SpoilageTime_Spoiled,The plantain poultice has spoiled.,车前草湿敷剂已变质。
 herbsfungiplantainpoultice_Apply,Apply Poultice,涂抹湿敷剂
@@ -1450,11 +1454,11 @@ herbsfungichamomiletea_Spoiled,The chamomile tea has spoiled.,洋甘菊茶已变
 herbsfungichamomiletea_Drink,Drink,喝
 herbsfungichamomiletea_Drink_Desc,Drink the calming chamomile tea. Reduces stress and soothes the spirit.,饮用舒缓的洋甘菊茶。减轻压力，抚慰精神。
 herbsfungihealersmosstincture_CardName,Healer's Moss Tincture,疗伤地衣酊剂
-herbsfungihealersmosstincture_CardDescription,A concentrated extract of healer's moss pressed in a clay bowl. Potent antiseptic properties help fight infection.,将疗伤地衣在粘土碗中压榨提取的浓缩物。强效防腐特性有助于对抗感染。
+herbsfungihealersmosstincture_CardDescription,A concentrated extract of healer's moss pressed in a clay bowl. The longest-lasting pain relief the herbalist can brew.,将疗伤地衣在粘土碗中压榨提取的浓缩物。草药师所能熔制的、药效最持久的止痛剂。
 herbsfungihealersmosstincture_SpoilageTime_StatName,Spoilage,腐败
 herbsfungihealersmosstincture_Spoiled,The healer's moss tincture has spoiled.,疗伤地衣酊剂已变质。
 herbsfungihealersmosstincture_Drink,Drink,饮用
-herbsfungihealersmosstincture_Drink_Desc,"Drink the tincture. Bitter and mossy, but it fights infection.",饮用酊剂。苦涩且带苔藓味，但能对抗感染。
+herbsfungihealersmosstincture_Drink_Desc,"Drink the tincture. Bitter and mossy, but the pain dulls and stays down for hours.",喝下酊剂。苦涩而带苔藓味，但疼痛会减轻，并持续数小时。
 Herbs_And_Fungi_Bp_HealersMossTincture_CardName,Healer's Moss Tincture,疗伤地衣酊剂
 Herbs_And_Fungi_Bp_HealersMossTincture_CardDescription,Press 3 healer's moss into a clay bowl at the oil press to extract a powerful antiseptic tincture. Fights infection effectively.,在榨油机中将3块疗伤地衣压入粘土碗中，提取强效防腐酊剂。有效对抗感染。
 Herbs_And_Fungi_Bp_HealersMossTincture_UnlockConditionsDesc,Unlocked after obtaining Healer's Moss and an Oil Press,获得疗伤地衣及压油机后解锁
@@ -1502,13 +1506,13 @@ Herbs_And_Fungi_Bp_MushroomBroth_CardDescription,"Simmer dried shiitake and king
 Herbs_And_Fungi_Bp_MushroomBroth_UnlockConditionsDesc,Unlocked after obtaining Dried Shiitake and Dried King Oyster,获得干香菇和干杏鲍菇后解锁
 herbsfungihealersmosstincture_CardHelpSection,"<b>Made by:</b> Blueprint: Healer's Moss Tincture
 
-<b>Uses:</b> Drink to reduce infection.
+<b>Uses:</b> Drink to dull pain.
 
-<b>Benefits:</b> Strong infection reduction. Bitter taste.","<b>制作：</b> 蓝图：疗伤地衣酪剂
+<b>Benefits:</b> About half a day of relief, the longest of any herbal remedy here. Bitter taste.","<b>制作：</b> 蓝图：疗伤地衣酊剂
 
-<b>用途:</b> 饮用可减轻感染。
+<b>用途:</b> 饮用可减轻疼痛。
 
-<b>优点:</b> 显著减轻感染。味苦。"
+<b>优点:</b> 药效约持续半天，是此处草药中最持久的。味苦。"
 HF_MistyFalls_CardName,Misty Falls,迷雾瀑布
 HF_Env_MistyFalls_CardName,Misty Falls,迷雾瀑布
 Herbs_And_Fungi_OvergrownForestTrail_CardName,Overgrown Forest Trail,杂草丛生的森林小径
@@ -1817,3 +1821,15 @@ Herbs_And_Fungi_Truffle_MakeButter_ActionName,Make Truffle Butter,制作松露�
 Herbs_And_Fungi_Truffle_MakeButter_ActionDescription,Work the fresh truffle through the fat or butter. The fat is used up and the truffle becomes Truffle Butter.,将新鲜松露与脂肪或黄油混合制成松露黄油。
 Herbs_And_Fungi_DriedTruffle_GrindWithSalt_ActionName,Grind with Salt,用盐研磨
 Herbs_And_Fungi_DriedTruffle_GrindWithSalt_ActionDescription,Crush the dried truffle into the salt. The salt is used up and the truffle becomes Truffle Salt.,用盐研磨干松露制成松露盐。
+Herbs_And_Fungi_ClottingEffect_StatName,Yarrow Clotting,蓍草凝血
+Herbs_And_Fungi_ClottingEffect_StatDescription,Yarrow working in your blood. It slows bleeding while it lasts and fades over the following hours.,蓍草正在你的血液中起作用。药力存续期间可减缓出血，并在接下来的几个小时里消退。
+Herbs_And_Fungi_ClottingEffect_Status_Staunched_Name,Wound Staunched,伤口已止血
+Herbs_And_Fungi_ClottingEffect_Status_Staunched_Description,Yarrow is holding the bleeding back.,蓍草正压制着出血。
+Herbs_And_Fungi_ClottingEffect_Status_Packed_Name,Wound Packed with Yarrow,伤口填满蓍草
+Herbs_And_Fungi_ClottingEffect_Status_Packed_Description,A second dose of yarrow. Bleeding is held back twice over until it fades.,第二剂蓍草。在药力消退之前，出血被双倍压制。
+Herbs_And_Fungi_HerbalAnalgesic_StatName,Herbal Analgesic,草药止痛
+Herbs_And_Fungi_HerbalAnalgesic_StatDescription,Pain-easing herbs still working in you. They dull what hurts and wear off over the following hours.,体内仍在起作用的止痛草药。它们能减轻疼痛，并在接下来的几个小时里逐渐失效。
+Herbs_And_Fungi_HerbalAnalgesic_Status_Mild_Name,Mild Herbal Relief,轻度草药缓解
+Herbs_And_Fungi_HerbalAnalgesic_Status_Mild_Description,The herbs take the edge off what hurts.,草药减轻了疼痛的锋芙。
+Herbs_And_Fungi_HerbalAnalgesic_Status_Strong_Name,Strong Herbal Relief,强效草药缓解
+Herbs_And_Fungi_HerbalAnalgesic_Status_Strong_Description,Doses taken close together. Pain is held at arm's length until they wear down.,短时间内连服多剂。在药力消退之前，疼痛被挡在一臂之外。

@@ -564,8 +564,8 @@
                         "m_PathID": 0
                     },
                     "ValueModifier": {
-                        "x": -12.0,
-                        "y": -12.0
+                        "x": 24.0,
+                        "y": 24.0
                     },
                     "RateModifier": {
                         "x": 0.0,
@@ -579,7 +579,7 @@
                         "x": 0.0,
                         "y": 0.0
                     },
-                    "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
+                    "StatWarpData": "herbs_fungi_stat_herbal_analgesic",
                     "StatWarpType": 3
                 },
                 {
@@ -588,8 +588,8 @@
                         "m_PathID": 0
                     },
                     "ValueModifier": {
-                        "x": -3.0,
-                        "y": -3.0
+                        "x": 24.0,
+                        "y": 24.0
                     },
                     "RateModifier": {
                         "x": 0.0,
@@ -603,7 +603,7 @@
                         "x": 0.0,
                         "y": 0.0
                     },
-                    "StatWarpData": "7f4598bd0e82e7b499da3848e452c39f",
+                    "StatWarpData": "herbs_fungi_stat_clotting_effect",
                     "StatWarpType": 3
                 },
                 {

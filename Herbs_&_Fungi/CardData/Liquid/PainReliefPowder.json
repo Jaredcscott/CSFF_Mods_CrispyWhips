@@ -9,7 +9,7 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_pain_relief_powder",
         "LocalizationKey": "herbsfungipainreliefpowder_CardDescription",
-        "DefaultText": "A finely ground herbal powder that reduces pain when ingested. More efficient than raw herbs."
+        "DefaultText": "A finely ground herbal powder that dulls pain when ingested. The relief lasts longer than raw herbs, and fades as the dose wears off."
     },
     "CardType": 0,
     "CardTagsWarpData": [
@@ -90,8 +90,8 @@
                         "m_PathID": 0
                     },
                     "ValueModifier": {
-                        "x": -20.0,
-                        "y": -20.0
+                        "x": 32.0,
+                        "y": 32.0
                     },
                     "RateModifier": {
                         "x": 0.0,
@@ -105,7 +105,7 @@
                         "x": 0.0,
                         "y": 0.0
                     },
-                    "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
+                    "StatWarpData": "herbs_fungi_stat_herbal_analgesic",
                     "StatWarpType": 3
                 }
             ],

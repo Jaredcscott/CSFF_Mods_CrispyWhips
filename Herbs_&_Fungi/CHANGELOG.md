@@ -5,6 +5,76 @@ All notable changes to this mod. Dates are release dates.
 ---
 
 
+## [1.13.5] - 2026-09-19
+
+### Fixed
+
+- **An emptied Pickle Vat gives back the fired vat and the Open Pickle Jar.** Eating the last of a
+  Ready Pickle Vat's five servings, or leaving it until the pickles spoil, removed the vat and
+  returned nothing, so the fired vat you built was lost every time. The return was set up in 1.10.18
+  but the game only hands back a destroyed card's leftovers when the removing action asks it to, and
+  these two never did. Both now do, for all four flavours. The README no longer says a vat can be
+  broken up mid-ferment: no action in the game does that.
+
+## [1.13.4] - 2026-09-18
+
+### Changed
+
+- **Truffle Butter, Hemp Stalks and the Apothecary Shelf have their own pictures.** They were
+  borrowing the game's Butter, Nettle Stems and Shelf pictures. Truffle Butter is now a pat of
+  butter flecked with dark truffle, Hemp Stalks a tied bundle of long fibrous stalks, and the
+  Apothecary Shelf (the item, the placed shelf and its blueprint) a narrow slatted shelf holding
+  herb bundles, mushrooms and clay jars.
+
+## [1.13.3] - 2026-09-18
+
+### Changed
+
+- **Finished art for five cards.** Black Trumpet Powder, King Oyster Powder, Shiitake Powder and
+  the Smouldering Incense Bundle were showing a plain white placeholder, and Truffle Salt borrowed
+  Shiitake Powder's. Each now has its own illustration. Art only, no gameplay change.
+
+## [1.13.2] - 2026-09-16
+
+### Changed
+
+- **Download cut from 54.4 MB to 27.4 MB.** The build script wrote a second, byte-identical copy of
+  every card image into `Resource/Texture2D/` alongside `Resource/Picture/`, which nothing ever
+  read, so every release archive carried the whole art set twice. Fixed in packaging; no gameplay
+  or content change.
+
+### Fixed
+
+- **Press Plate could not be built.** The Press Plate blueprint asked for a tool from a tab group
+  named GpTag_SharpAxe, which does not exist in the game, so the requirement slot showed the raw
+  "GpTag_SharpAxe" text and no tool could ever fill it. It now asks for the game's own sharp
+  shaping-tool group (Flint Axe, Metal Axe or Metal Handsaw), matching the "sharp axe" the
+  description already promised. From TheFifthLorax's 2026-09-15 report.
+
+## [1.13.1] - 2026-09-16
+
+### Fixed
+
+- **Medicine pain and bleeding relief.** Reishi, Dried Reishi, Plantain Poultice, Herbal Salve, Pain
+  Relief Powder, Healer's Moss Tincture, Yarrow Tea, Yarrow, Dried Yarrow and Ground Yarrow all used
+  to lower Pain's base directly, and the three yarrow forms plus Yarrow Tea also lowered BloodLoss's
+  base directly; neither stat has a base source in this game (base rate 0, nothing else raises
+  either), so every one of those reductions clamped to nothing with no error. Each pain item now
+  raises the base of a new hidden Herbal Analgesic stat, and the yarrow items and Yarrow Tea a new
+  hidden Yarrow Clotting stat, both carrying their relief through a decaying status the way vanilla
+  medicines work. Ground Yarrow's "Mix into Hot Water" step no longer doses the player directly; the
+  tea it brews doses instead. Item help text was corrected where it claimed effects (fever, faster
+  healing, infection resistance) that never existed. Investigation prompted by chiweichiwei's
+  2026-09-15 report.
+
+### Fixed (packaging)
+
+- **GameStat folder was never deployed.** `Herbs_And_Fungi.csproj` had no `<Content Include>` for
+  `GameStat/*.json`, so the mod's two quest-state stats never reached `bin/Release` on any build,
+  and the two new medicine stats above would have shipped the same way. The csproj now includes the
+  folder on every deploy path.
+
+
 ## [1.13.0] - 2026-09-08
 
 The last row of the mod's Audit Remediation Plan, and a mod-wide repair to the flavour data that

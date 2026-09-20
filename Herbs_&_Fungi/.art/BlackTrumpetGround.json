@@ -1,0 +1,25 @@
+{
+  "target": "BlackTrumpetGround.png",
+  "sourceCard": "CardData/Item/BlackTrumpetGround.json",
+  "subject": "a small loose conical heap of fine charcoal-black mushroom powder ground from dried black trumpet mushrooms, a few dark crumbs scattered at its base",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a small loose conical heap of fine charcoal-black mushroom powder ground from dried black trumpet mushrooms, a few dark crumbs scattered at its base, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame. Avoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame.",
+  "historyId": "PTZsrMLCDM8cWAAFUeiL",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760725555_6fa258ce_1789760725975_c811fa12.png",
+  "credits": 90,
+  "generated": "2026-09-18",
+  "note": "Owner picked option B of a 3-up batch (not picked: A=BlackTrumpetGround__v1.png, C=BlackTrumpetGround__v3.png). Shipped form: resized to 512x768 and the white paper keyed to transparent by scratchpad cutout.py (border-connected pixels with min channel >= 200, alpha ramped over 200-255), matching the existing shipped art convention. Replaced: white placeholder.",
+  "candidates": [
+    {"n": "A", "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760724293_57058360_1789760724626_08ccbc93.png"},
+    {"n": "B", "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760725555_6fa258ce_1789760725975_c811fa12.png"},
+    {"n": "C", "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760723188_7cb07c09_1789760723371_fb3d6fe4.png"}
+  ],
+  "picked": "B"
+}

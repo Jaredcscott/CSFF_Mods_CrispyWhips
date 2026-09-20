@@ -341,8 +341,10 @@ herbsfungireishitea_FuelCapacity_CardStatName,Liquid Temperature
 herbsfungireishitea_SpecialDurability2_CardStatName,Quality
 herbsfungireishitea_DismantleActions_Drink_ActionName,Drink
 herbsfungiyarrowtea_CardName,Yarrow Tea
-herbsfungiyarrowtea_CardDescription,A healing tea brewed from ground yarrow. Traditional remedy for reducing bleeding and combating infection.
-herbsfungiyarrowtea_CardHelpSection,<b>Preparation:</b> Mix ground yarrow with hot water in a bowl.
+herbsfungiyarrowtea_CardDescription,A healing tea brewed from ground yarrow. Traditional remedy for slowing bleeding and easing the pain of a wound.
+herbsfungiyarrowtea_CardHelpSection,"<b>Preparation:</b> Mix ground yarrow with hot water in a bowl.
+
+<b>Benefits:</b> Slows bleeding and dulls pain for about six hours, and quenches thirst. Both fade as the yarrow wears off."
 herbsfungiyarrowtea_SpoilageTime_CardStatName,Bacteria
 herbsfungiyarrowtea_SpoilageTime_OnFull_ActionDescription,Yarrow Tea Spoiled!
 herbsfungiyarrowtea_FuelCapacity_CardStatName,Liquid Temperature
@@ -521,7 +523,7 @@ herbsfungidriedtrufflecutfatcoated_SpecialDurability4_StatName,Fat
 herbsfungidriedtrufflecutfatcoated_Eat,Eat
 herbsfungidriedtrufflecutfatcoated_Eat_Desc,"Nibble the fat-coated dried truffle slices raw. Rich and oily, but not as good as cooked."
 herbsfungiherbalsalve_CardName,Herbal Salve
-herbsfungiherbalsalve_CardDescription,A topical healing salve made from medicinal herbs and fat. Apply directly to wounds for faster healing.
+herbsfungiherbalsalve_CardDescription,A topical salve made from medicinal herbs and fat. Apply it directly to a wound to dull the pain for several hours.
 herbsfungiherbalsalve_Apply,Apply Salve
 herbsfungiherbalsalve_Apply_Desc,Apply the healing salve to your wounds.
 herbsfungiherbaltincture_CardName,Herbal Tincture
@@ -533,7 +535,7 @@ herbsfungisleeptea_CardDescription,A soothing herbal tea blend designed to impro
 herbsfungisleeptea_Drink,Drink
 herbsfungisleeptea_Drink_Desc,Drink the soothing tea before rest to sleep better.
 herbsfungipainreliefpowder_CardName,Pain Relief Powder
-herbsfungipainreliefpowder_CardDescription,A finely ground herbal powder that reduces pain when ingested. More efficient than raw herbs.
+herbsfungipainreliefpowder_CardDescription,"A finely ground herbal powder that dulls pain when ingested. The relief lasts longer than raw herbs, and fades as the dose wears off."
 herbsfungipainreliefpowder_Take,Take Powder
 herbsfungipainreliefpowder_Take_Desc,Ingest the pain-relieving powder.
 herbsfungiantinauseatea_CardName,Anti-Nausea Tea
@@ -1340,7 +1342,7 @@ Herbs_And_Fungi_Bp_PlantainPoultice_CardName,Plantain Poultice
 Herbs_And_Fungi_Bp_PlantainPoultice_CardDescription,Mash dried common plantain in a clay bowl to make a simple wound poultice. Apply directly to ease pain and inflammation.
 Herbs_And_Fungi_Bp_PlantainPoultice_UnlockConditionsDesc,Unlocked after obtaining Dried Common Plantain
 herbsfungiplantainpoultice_CardName,Plantain Poultice
-herbsfungiplantainpoultice_CardDescription,A simple poultice made from mashed common plantain. Apply it to ease pain and inflammation.
+herbsfungiplantainpoultice_CardDescription,A simple poultice made from mashed common plantain. Apply it to dull pain for a few hours.
 herbsfungiplantainpoultice_SpoilageTime_StatName,Spoilage
 herbsfungiplantainpoultice_SpoilageTime_Spoiled,The plantain poultice has spoiled.
 herbsfungiplantainpoultice_Apply,Apply Poultice
@@ -1399,16 +1401,16 @@ Herbs_And_Fungi_Bp_MushroomBroth_CardName,Mushroom Broth
 Herbs_And_Fungi_Bp_MushroomBroth_CardDescription,"Simmer dried shiitake and king oyster mushrooms in a clay bowl to make a rich, earthy mushroom broth. Warming and deeply nourishing."
 Herbs_And_Fungi_Bp_MushroomBroth_UnlockConditionsDesc,Unlocked after obtaining Dried Shiitake and Dried King Oyster
 herbsfungihealersmosstincture_CardName,Healer's Moss Tincture
-herbsfungihealersmosstincture_CardDescription,A concentrated extract of healer's moss pressed in a clay bowl. Potent antiseptic properties help fight infection.
+herbsfungihealersmosstincture_CardDescription,A concentrated extract of healer's moss pressed in a clay bowl. The longest-lasting pain relief the herbalist can brew.
 herbsfungihealersmosstincture_CardHelpSection,"<b>Made by:</b> Blueprint: Healer's Moss Tincture
 
-<b>Uses:</b> Drink to reduce infection.
+<b>Uses:</b> Drink to dull pain.
 
-<b>Benefits:</b> Strong infection reduction. Bitter taste."
+<b>Benefits:</b> About half a day of relief, the longest of any herbal remedy here. Bitter taste."
 herbsfungihealersmosstincture_SpoilageTime_StatName,Spoilage
 herbsfungihealersmosstincture_Spoiled,The healer's moss tincture has spoiled.
 herbsfungihealersmosstincture_Drink,Drink
-herbsfungihealersmosstincture_Drink_Desc,"Drink the tincture. Bitter and mossy, but it fights infection."
+herbsfungihealersmosstincture_Drink_Desc,"Drink the tincture. Bitter and mossy, but the pain dulls and stays down for hours."
 Herbs_And_Fungi_Bp_HealersMossTincture_CardName,Healer's Moss Tincture
 Herbs_And_Fungi_Bp_HealersMossTincture_CardDescription,Press 3 healer's moss into a clay bowl at the oil press to extract a powerful antiseptic tincture. Fights infection effectively.
 Herbs_And_Fungi_Bp_HealersMossTincture_UnlockConditionsDesc,Unlocked after obtaining Healer's Moss and an Oil Press
@@ -1686,3 +1688,15 @@ Herbs_And_Fungi_Truffle_MakeButter_ActionName,Make Truffle Butter
 Herbs_And_Fungi_Truffle_MakeButter_ActionDescription,Work the fresh truffle through the fat or butter. The fat is used up and the truffle becomes Truffle Butter.
 Herbs_And_Fungi_DriedTruffle_GrindWithSalt_ActionName,Grind with Salt
 Herbs_And_Fungi_DriedTruffle_GrindWithSalt_ActionDescription,Crush the dried truffle into the salt. The salt is used up and the truffle becomes Truffle Salt.
+Herbs_And_Fungi_ClottingEffect_StatName,Yarrow Clotting
+Herbs_And_Fungi_ClottingEffect_StatDescription,Yarrow working in your blood. It slows bleeding while it lasts and fades over the following hours.
+Herbs_And_Fungi_ClottingEffect_Status_Staunched_Name,Wound Staunched
+Herbs_And_Fungi_ClottingEffect_Status_Staunched_Description,Yarrow is holding the bleeding back.
+Herbs_And_Fungi_ClottingEffect_Status_Packed_Name,Wound Packed with Yarrow
+Herbs_And_Fungi_ClottingEffect_Status_Packed_Description,A second dose of yarrow. Bleeding is held back twice over until it fades.
+Herbs_And_Fungi_HerbalAnalgesic_StatName,Herbal Analgesic
+Herbs_And_Fungi_HerbalAnalgesic_StatDescription,Pain-easing herbs still working in you. They dull what hurts and wear off over the following hours.
+Herbs_And_Fungi_HerbalAnalgesic_Status_Mild_Name,Mild Herbal Relief
+Herbs_And_Fungi_HerbalAnalgesic_Status_Mild_Description,The herbs take the edge off what hurts.
+Herbs_And_Fungi_HerbalAnalgesic_Status_Strong_Name,Strong Herbal Relief
+Herbs_And_Fungi_HerbalAnalgesic_Status_Strong_Description,Doses taken close together. Pain is held at arm's length until they wear down.

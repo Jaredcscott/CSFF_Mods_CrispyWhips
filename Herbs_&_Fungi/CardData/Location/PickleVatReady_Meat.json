@@ -65,7 +65,8 @@
                 "DefaultText": "Pickled Meat Spoiled!"
             },
             "ReceivingCardChanges": {
-                "ModType": 3
+                "ModType": 3,
+                "DropOnDestroyList": true
             }
         }
     },
@@ -91,7 +92,8 @@
                 "DefaultText": "Vat emptied."
             },
             "ReceivingCardChanges": {
-                "ModType": 3
+                "ModType": 3,
+                "DropOnDestroyList": true
             }
         }
     },

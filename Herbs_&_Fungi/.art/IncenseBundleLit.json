@@ -1,0 +1,25 @@
+{
+  "target": "IncenseBundleLit.png",
+  "sourceCard": "CardData/Item/IncenseBundleLit.json",
+  "subject": "a small bundle of dried wildflowers and herbs tightly bound with twine, its top end smouldering with glowing orange embers and a thin curl of pale smoke rising from it",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a small bundle of dried wildflowers and herbs tightly bound with twine, its top end smouldering with glowing orange embers and a thin curl of pale smoke rising from it, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame. Avoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame.",
+  "historyId": "B4YjnuZbM0cEGba1pEzu",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760792408_7d4e8f5a_1789760792882_b4d1cca6.png",
+  "credits": 90,
+  "generated": "2026-09-18",
+  "note": "Owner picked option C of a 3-up batch (not picked: A=IncenseBundleLit__v1.png, B=IncenseBundleLit__v2.png). Shipped form: resized to 512x768 and the white paper keyed to transparent by scratchpad cutout.py (border-connected pixels with min channel >= 200, alpha ramped over 200-255), matching the existing shipped art convention. Replaced: white placeholder.",
+  "candidates": [
+    {"n": "A", "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760795524_c273b1f6_1789760795833_dca2fcc5.png"},
+    {"n": "B", "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760792264_c7ce61f6_1789760792803_0de33fea.png"},
+    {"n": "C", "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760792408_7d4e8f5a_1789760792882_b4d1cca6.png"}
+  ],
+  "picked": "C"
+}

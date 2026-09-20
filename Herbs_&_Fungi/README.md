@@ -1,6 +1,6 @@
 # Herbs and Fungi - Player Guide
 
-**Version:** 1.13.0
+**Version:** 1.13.5
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.65)
 
@@ -173,7 +173,7 @@ A four-variant clay fermentation chain (see CLAUDE.md "4-variant fermentation ch
 3. Add fermentable ingredients (Ginger and the vanilla Turnroot/Fireroot are tagged `tag_Fermentable` by this mod; specific pickle blueprints accept others).
 4. **Cap with Clay Bowl** → **Closed Pickle Vat**, then seal it (drag water) → **Sealed Pickle Vat** (placed structure).
 5. Wait — the seal counts down over 7 in-game days. Choosing a content blueprint (Frogs, Meat, Mushrooms, or Vegetables) is required up front before closing the vat; there is no generic/untyped seal option.
-6. When the timer expires, the vat becomes a **Ready Pickle Vat** named for its contents (e.g. **Pickled Frogs**) holding **5 servings**. Eat servings straight from the vat with the **Eat** action. Emptying the last serving (or destroying the vat at any point, including mid-ferment) returns an **Open Pickle Jar** (use "Return Bowl" to reclaim the clay bowl lid) plus the empty fired vat for reuse.
+6. When the timer expires, the vat becomes a **Ready Pickle Vat** named for its contents (e.g. **Pickled Frogs**) holding **5 servings**. Eat servings straight from the vat with the **Eat** action. Emptying the last serving, or leaving the pickles until they spoil, returns an **Open Pickle Jar** (use "Return Bowl" to reclaim the clay bowl lid) plus the empty fired vat for reuse.
 
 The pickle blueprints (Frogs, Meat, Mushrooms, Vegetables) gate on the vat containing pickle brine — water alone won't satisfy them.
 

@@ -551,8 +551,8 @@
                         "m_PathID": 0
                     },
                     "ValueModifier": {
-                        "x": -15.0,
-                        "y": -15.0
+                        "x": 16.0,
+                        "y": 16.0
                     },
                     "RateModifier": {
                         "x": 0.0,
@@ -566,7 +566,7 @@
                         "x": 0.0,
                         "y": 0.0
                     },
-                    "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
+                    "StatWarpData": "herbs_fungi_stat_herbal_analgesic",
                     "StatWarpType": 3
                 },
                 {

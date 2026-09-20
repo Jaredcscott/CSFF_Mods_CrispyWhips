@@ -9,7 +9,7 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_herbal_salve",
         "LocalizationKey": "herbsfungiherbalsalve_CardDescription",
-        "DefaultText": "A topical healing salve made from medicinal herbs and fat. Apply directly to wounds for faster healing."
+        "DefaultText": "A topical salve made from medicinal herbs and fat. Apply it directly to a wound to dull the pain for several hours."
     },
     "CardType": 0,
     "CardTagsWarpData": [
@@ -89,8 +89,8 @@
                         "m_PathID": 0
                     },
                     "ValueModifier": {
-                        "x": -15.0,
-                        "y": -15.0
+                        "x": 24.0,
+                        "y": 24.0
                     },
                     "RateModifier": {
                         "x": 0.0,
@@ -104,7 +104,7 @@
                         "x": 0.0,
                         "y": 0.0
                     },
-                    "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
+                    "StatWarpData": "herbs_fungi_stat_herbal_analgesic",
                     "StatWarpType": 3
                 }
             ]

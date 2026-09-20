@@ -7,11 +7,11 @@
     },
     "CardDescription": {
         "LocalizationKey": "herbsfungihealersmosstincture_CardDescription",
-        "DefaultText": "A concentrated extract of healer's moss pressed in a clay bowl. Potent antiseptic properties help fight infection."
+        "DefaultText": "A concentrated extract of healer's moss pressed in a clay bowl. The longest-lasting pain relief the herbalist can brew."
     },
     "CardHelpSection": {
         "LocalizationKey": "herbsfungihealersmosstincture_CardHelpSection",
-        "DefaultText": "<b>Made by:</b> Blueprint: Healer's Moss Tincture\n\n<b>Uses:</b> Drink to reduce infection.\n\n<b>Benefits:</b> Strong infection reduction. Bitter taste."
+        "DefaultText": "<b>Made by:</b> Blueprint: Healer's Moss Tincture\n\n<b>Uses:</b> Drink to dull pain.\n\n<b>Benefits:</b> About half a day of relief, the longest of any herbal remedy here. Bitter taste."
     },
     "CardType": 0,
     "CardTagsWarpData": [
@@ -61,7 +61,7 @@
             },
             "ActionDescription": {
                 "LocalizationKey": "herbsfungihealersmosstincture_Drink_Desc",
-                "DefaultText": "Drink the tincture. Bitter and mossy, but it fights infection."
+                "DefaultText": "Drink the tincture. Bitter and mossy, but the pain dulls and stays down for hours."
             },
             "DaytimeCost": 0,
             "UseMiniTicks": 1,
@@ -72,9 +72,9 @@
             "StatModifications": [
                 {
                     "Stat": { "m_FileID": 0, "m_PathID": 0 },
-                    "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
+                    "StatWarpData": "herbs_fungi_stat_herbal_analgesic",
                     "StatWarpType": 3,
-                    "ValueModifier": { "x": -25.0, "y": -25.0 }
+                    "ValueModifier": { "x": 48.0, "y": 48.0 }
                 },
                 {
                     "Stat": { "m_FileID": 0, "m_PathID": 0 },

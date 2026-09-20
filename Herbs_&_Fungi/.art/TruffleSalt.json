@@ -1,0 +1,25 @@
+{
+  "target": "TruffleSalt.png",
+  "sourceCard": "CardData/Item/TruffleSalt.json",
+  "subject": "a small loose conical heap of coarse grey-white salt crystals flecked throughout with dark brown-black specks of ground dried truffle",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a small loose conical heap of coarse grey-white salt crystals flecked throughout with dark brown-black specks of ground dried truffle, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame. Avoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame.",
+  "historyId": "ZhVsJINUO5Hwsr2syfJa",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760788623_8bbaeac1_1789760789245_75cc0eb2.png",
+  "credits": 90,
+  "generated": "2026-09-18",
+  "note": "Owner picked option B of a 3-up batch (not picked: A=TruffleSalt__v1.png, C=TruffleSalt__v3.png). Shipped form: resized to 512x768 and the white paper keyed to transparent by scratchpad cutout.py (border-connected pixels with min channel >= 200, alpha ramped over 200-255), matching the existing shipped art convention. Replaced: shares ShiitakeGround placeholder; repoint on apply.",
+  "candidates": [
+    {"n": "A", "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760787910_e50764d3_1789760788462_5b4aa470.png"},
+    {"n": "B", "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760788623_8bbaeac1_1789760789245_75cc0eb2.png"},
+    {"n": "C", "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760788451_95b10e3d_1789760789044_4bb09b0a.png"}
+  ],
+  "picked": "B"
+}

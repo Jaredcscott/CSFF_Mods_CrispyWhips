@@ -9,7 +9,7 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_plantain_poultice",
         "LocalizationKey": "herbsfungiplantainpoultice_CardDescription",
-        "DefaultText": "A simple poultice made from mashed common plantain. Apply it to ease pain and inflammation."
+        "DefaultText": "A simple poultice made from mashed common plantain. Apply it to dull pain for a few hours."
     },
     "CardType": 0,
     "CardTagsWarpData": [
@@ -77,11 +77,11 @@
             "StatModifications": [
                 {
                     "Stat": {"m_FileID": 0, "m_PathID": 0},
-                    "ValueModifier": {"x": -10.0, "y": -10.0},
+                    "ValueModifier": {"x": 12.0, "y": 12.0},
                     "RateModifier": {"x": 0.0, "y": 0.0},
                     "MinValueModifier": {"x": 0.0, "y": 0.0},
                     "MaxValueModifier": {"x": 0.0, "y": 0.0},
-                    "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
+                    "StatWarpData": "herbs_fungi_stat_herbal_analgesic",
                     "StatWarpType": 3
                 }
             ],

@@ -1,0 +1,38 @@
+{
+  "target": "TruffleButter.png",
+  "sourceCard": "CardData/Item/TruffleButter.json",
+  "subject": "a small rounded pat of pale yellow butter flecked all through with tiny dark brown-black truffle specks, in a small shallow plain unglazed reddish-orange terracotta clay dish",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a small rounded pat of pale yellow butter flecked all through with tiny dark brown-black truffle specks, in a small shallow plain unglazed reddish-orange terracotta clay dish, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, whole truffle, mushrooms, knife, bread, wood, wooden dish.",
+  "historyId": "x8By5jL4C2Yusbyrgipx",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783954576_2be2af01_1789783955499_cab0a25a.png",
+  "credits": 90,
+  "generated": "2026-09-18",
+  "note": "Revamp of a card that borrowed a vanilla sprite showing a different object. Claude picked B from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed). Repointed CardImageWarpData from 'Butter' on CardData/Item/TruffleButter.json.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783954793_d8f3e2c4_1789783955010_67b8acdf.png",
+      "verdict": "large pat, specks present but sparse"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783954576_2be2af01_1789783955499_cab0a25a.png",
+      "verdict": "PICK: pale yellow pat flecked all through with dark truffle specks, in a shallow clay dish"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783956160_79975b10_1789783956364_4ade1ebe.png",
+      "verdict": "small pat lost in a large dish"
+    }
+  ],
+  "picked": "B",
+  "predicted": "B"
+}
