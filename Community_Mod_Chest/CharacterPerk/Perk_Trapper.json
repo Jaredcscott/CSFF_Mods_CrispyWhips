@@ -5,19 +5,19 @@
     "AddedCardsWarpData": [
         "ece4346feb9fd2c46b6703a117d0bd3b",
         "7ee6dbdbddc8e7e4e9eb065f6a22df39",
-        "367203307c951b44f817c5182fce330b",
-        "760b289cf72d5d94cb79c39e8fee29e6"
+        "ea864f4a5124cfc4a9fd7ab7b19dfc30",
+        "61c2281634d336f4384916f0dab134e7"
     ],
     "AddedCardsWarpType": 3,
     "AddedStartingHours": 0,
     "CardsOnBoardObjectives": [],
-    "CharacterPerkPerkGroup": "aacb8df12eedb7b48a9801360ae638c7",
+    "CharacterPerkPerkGroup": "72120cda8e1cef540b1b25118dd7edaa",
     "CheckingNotificationDetails": 0,
     "CompleteOnLose": false,
     "CompleteOnWin": false,
     "DebugCompletion": false,
     "DifficultyRating": -200,
-    "DisplayPriority": 2350.0,
+    "DisplayPriority": 42.5,
     "EditorOnly": false,
     "EquippedCards": [],
     "EquippedCardsWarpData": [],
@@ -38,7 +38,7 @@
     },
     "PassiveStatModifiers": [],
     "PerkDescription": {
-        "DefaultText": "You know how to set a trap and read the land. Start with a Snare Trap, Log Trap, Flint Knife, and Rustic Spear, plus a head start in the Trapping skill.",
+        "DefaultText": "You know how to set a trap and live off what it catches. Start with a Snare Trap, a Log Trap, a Cage and a Hideout.",
         "LocalizationKey": "CharacterTraits_Perk_Trapper_PerkDescription",
         "ParentObjectID": "traits_perk_trapper"
     },
@@ -65,43 +65,9 @@
     },
     "ResetLockInEditor": false,
     "StartUnlocked": true,
-    "StartingStatModifiers": [
-        {
-            "Stat": {
-                "m_FileID": 0,
-                "m_PathID": 0
-            },
-            "StatWarpData": "e096b2d9e7b707a4dab55dbe4e2216ba",
-            "StatWarpType": 3,
-            "ValueModifier": {
-                "x": 75.0,
-                "y": 75.0
-            },
-            "RateModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "MinValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "MaxValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "CannotModifyBeyond": {
-                "Active": false,
-                "FloatValue": 0.0,
-                "MaxValue": 0.0
-            },
-            "ApplyEachTick": false,
-            "InstantModifier": false,
-            "IgnoreNovelty": false,
-            "IsInverse": false
-        }
-    ],
+    "StartingStatModifiers": [],
     "StatsObjectives": [],
-    "SunsCost": 20,
+    "SunsCost": 15,
     "TagsOnBoardObjectives": [],
     "TimeObjectives": [],
     "UniqueID": "traits_perk_trapper"

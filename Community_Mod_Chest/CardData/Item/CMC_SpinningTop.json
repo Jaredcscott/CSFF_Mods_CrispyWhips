@@ -9,7 +9,7 @@
         "LocalizationKey": "CMC_SpinningTop_CardDescription",
         "DefaultText": "A small wooden top whittled to a point and wound with cord. Give it a sharp twist and watch it spin — simple, but it never quite gets old."
     },
-    "CardImageWarpData": "LongStick",
+    "CardImageWarpData": "CMC_SpinningTop",
     "CardImageWarpType": 3,
     "CardTagsWarpData": [],
     "CardTagsWarpType": 3,

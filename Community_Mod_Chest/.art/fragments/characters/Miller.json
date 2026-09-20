@@ -1,0 +1,15 @@
+{
+  "id": "Miller",
+  "type": "character",
+  "image": ".art/fragments/characters/Miller.png",
+  "status": "approved",
+  "approved": "2026-09-18: the owner picked CMC_Miller_Inn candidate 2 (ys4SycFJiM58V1ZUA690), which was built on this fragment.",
+  "anchor": "CMC_Miller",
+  "source": "Generated 2026-09-18 by /create-image-refs Mode B from the anchor CMC_Miller.png (nano-banana-2 image2image 2K, historyId KY1iTJyjI5CGTx4Gdofv, 30 credits), asking for the same man alone on white, head to knees, so a scene fragment supplies the room. Saved at 1030x1536 by prepare_reference.py fetch. On-model check against the anchor: face, jaw, eyes, brows, hair, clean-shaven, skin, age, build, henley, apron, iron-buckle belt and pouch all match.",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789780653578_65fb2c6c_1789780653817_4fc90f73.png",
+  "identity": "a sturdy, broad-shouldered village miller in his late fifties: a broad, slightly rounded face with a strong square jaw and full cheeks, a ruddy tanned complexion, deep smile lines around the mouth and crow's feet at the eyes, light grey-blue eyes under thick grey eyebrows, a straight broad nose, clean-shaven, short thick silver-grey hair combed back and a little to one side and trimmed short at the sides, a warm kind closed-mouth smile, muscular forearms and big working hands",
+  "outfit": "a slate-blue linen henley shirt with a short buttoned placket at the neck and the sleeves rolled to the forearms, under a long oatmeal canvas work apron smudged with brown stains and flour dust, belted at the waist with a leather belt, an iron buckle and a small tied leather pouch, brown work trousers",
+  "style": "clean confident black ink outlines with fine hatching in the shadows, smooth painted colour in a warm natural storybook palette, soft shading, the look of a hand-inked illustrated storybook panel",
+  "avoid": "a different face, a younger or thinner man, a beard, stubble, dark hair, bald head, glasses",
+  "notes": "Identity, outfit and style were written by looking at CMC_Miller.png, the image the NPC agent (NPCAgent/Agent_Miller.json), the village board card (CardData/Location/CMC_BoardMiller.json) and VillageSpriteName all use. CMC_Miller_Inn, _Academy and _Cottage drifted from it (face shape, shirt colour, render style) before 2026-09-18 and must never be used as references."
+}

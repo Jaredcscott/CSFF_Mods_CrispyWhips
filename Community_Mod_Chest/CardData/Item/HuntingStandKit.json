@@ -16,7 +16,7 @@
   "MaxStack": 1,
   "DoesNotPile": true,
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
-  "CardImageWarpData": "Plank",
+  "CardImageWarpData": "CMC_HuntingStandKit",
   "CardImageWarpType": 3,
   "CardTagsWarpData": [
     "tag_Wood",

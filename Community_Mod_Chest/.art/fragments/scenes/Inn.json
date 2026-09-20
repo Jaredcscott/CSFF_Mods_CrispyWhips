@@ -1,0 +1,9 @@
+{
+  "id": "Inn",
+  "type": "scene",
+  "image": "Resource/Picture/VillageInnInterior.png",
+  "status": "approved",
+  "source": "Shipped location art (CardImageWarpData of the village inn interior cards), already an empty room, used as it is.",
+  "description": "the village inn's common room: warm timber walls and a beamed ceiling, bundles of dried lavender and herbs hanging from the rafters beside a hanging iron lantern, a large stone fireplace on the right with an iron cauldron over a crackling fire, a back counter with stacked ale barrels and shelves of jugs and bottles, a small leaded window, long plank tables and benches with lanterns, pewter mugs and a loaf of bread, a round wooden stool, wide worn floorboards, amber firelight",
+  "notes": "The plate is framed by an open doorway; a composition may bring the camera inside the room and drop the door frame. Shared by every character's Inn portrait (Miller, Weaver, Alchemist, Professor) so the room stays the same room."
+}

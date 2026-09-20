@@ -1,0 +1,38 @@
+{
+  "target": "CMC_SilverwortBlossom.png",
+  "sourceCard": "CardData/Item/CMC_SilverwortBlossom.json",
+  "subject": "a single cut stem of a pale silver-white flower with five delicate pointed petals that shimmer faintly silver-blue at the edges, a few small narrow leaves along the stem",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a single cut stem of a pale silver-white flower with five delicate pointed petals that shimmer faintly silver-blue at the edges, a few small narrow leaves along the stem, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, moss, bouquet, vase, several stems, pink petals, red petals, yellow petals.",
+  "historyId": "w2NLLESuLPvrAOLTjBQ8",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783573502_41c0df64_1789783573583_f4f1b846.png",
+  "credits": 90,
+  "generated": "2026-09-18",
+  "note": "Revamp of a card that borrowed a vanilla sprite showing a different object. Claude picked B from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed); then the pale body the border key cut into was restored from the raw sample by a hole fill limited to the body (box:60,100,300,330; fill_holes.py), so real gaps such as between the legs stay transparent. Repointed CardImageWarpData from 'HealersMoss' on CardData/Item/CMC_SilverwortBlossom.json.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783572926_2af984bd_1789783573402_8c781198.png",
+      "verdict": "six petals, lily-like"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783573502_41c0df64_1789783573583_f4f1b846.png",
+      "verdict": "PICK: the only sample with five pointed petals, silver-blue at the edges; keyer cut one pale petal, repaired by a fill limited to the flower head"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783573617_ea8d0b8e_1789783573805_93b7e132.png",
+      "verdict": "six petals, smaller head"
+    }
+  ],
+  "picked": "B",
+  "predicted": "B"
+}

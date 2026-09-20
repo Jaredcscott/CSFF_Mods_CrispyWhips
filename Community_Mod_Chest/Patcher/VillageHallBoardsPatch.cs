@@ -164,7 +164,8 @@ namespace CommunityModChest.Patcher
             string baseDescription = card.CardModel.GetCardDescription(card) ?? string.Empty;
 
             var sections = new List<string>();
-            if (string.Equals(card.CardModel.UniqueID, AchievementsBoardUid, StringComparison.Ordinal))
+            bool isAchievementBoard = string.Equals(card.CardModel.UniqueID, AchievementsBoardUid, StringComparison.Ordinal);
+            if (isAchievementBoard)
             {
                 // One compact block instead of a paragraph per entry: see AppendAchievementSections.
                 AppendAchievementSections(sections, card);
@@ -180,10 +181,17 @@ namespace CommunityModChest.Patcher
                 return baseDescription;
             }
 
-            var builder = new StringBuilder(baseDescription.Trim());
+            // The achievement board leaves its flavour description out. Measured live 2026-09-19
+            // (walkthrough T2.236): description (2 lines) + summary + eleven entries needs 16 lines,
+            // and the box holds 15 at its auto-size floor (lines=15 truncated=True fontSize=24), so
+            // Stinky Jar, the last entry, was cut off. Summary plus list is 13.
+            var builder = new StringBuilder(isAchievementBoard ? string.Empty : baseDescription.Trim());
             foreach (var section in sections)
             {
-                builder.Append("\n\n");
+                if (builder.Length > 0 || !isAchievementBoard)
+                {
+                    builder.Append("\n\n");
+                }
                 builder.Append(section);
             }
 
@@ -481,6 +489,15 @@ namespace CommunityModChest.Patcher
                 text.ForceMeshUpdate(true, false);
                 bool truncated = text.isTextTruncated;
                 int lines = text.textInfo != null ? text.textInfo.lineCount : -1;
+                if (lines == 0 && !string.IsNullOrEmpty(text.text))
+                {
+                    // Not laid out yet: the first postfix can run before the box has a height, and TMP
+                    // then reports 0 lines with truncated=True for any text. Seen live 2026-09-19 as a
+                    // 'lines=0 truncated=True' Warning ahead of the real 'lines=15' reading.
+                    Plugin.Logger.LogDebug($"[VillageHallBoardsPatch] Board '{boardUid}' text not laid out yet; layout not measured.");
+                    return;
+                }
+
                 string signature = $"{lines}|{truncated}";
                 if (LastFitSignature.TryGetValue(boardUid, out var previous) && previous == signature)
                 {

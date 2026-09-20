@@ -12,7 +12,7 @@
     "CompleteOnWin": false,
     "DebugCompletion": false,
     "DifficultyRating": 200,
-    "DisplayPriority": 2547.0,
+    "DisplayPriority": 57.0,
     "EditorOnly": false,
     "EquippedCards": [],
     "EquippedCardsWarpData": [],
@@ -64,10 +64,43 @@
             "InstantModifier": false,
             "IgnoreNovelty": false,
             "IsInverse": false
+        },
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatWarpData": "3d37dbda5252dc14cb772b4c5e739916",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": 25.0,
+                "y": 25.0
+            },
+            "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false
         }
     ],
     "PerkDescription": {
-        "DefaultText": "You fled your old life in a hurry with little more than the clothes on your back. You begin haunted by fear and stress from the ordeal, and the dread of being hunted means you can never fully relax.",
+        "DefaultText": "You fled your old life in a hurry with little more than the clothes on your back. You arrive tense and frightened, and the dread of being hunted means you never fully relax. Yet it took nerve to run, and you have more courage than most.",
         "LocalizationKey": "CharacterTraits_Perk_Fugitive_PerkDescription",
         "ParentObjectID": "traits_perk_fugitive"
     },
@@ -103,8 +136,8 @@
             "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
             "StatWarpType": 3,
             "ValueModifier": {
-                "x": 50.0,
-                "y": 50.0
+                "x": 144.0,
+                "y": 144.0
             },
             "RateModifier": {
                 "x": 0.0,
@@ -136,8 +169,8 @@
             "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
             "StatWarpType": 3,
             "ValueModifier": {
-                "x": 30.0,
-                "y": 30.0
+                "x": 60.0,
+                "y": 60.0
             },
             "RateModifier": {
                 "x": 0.0,

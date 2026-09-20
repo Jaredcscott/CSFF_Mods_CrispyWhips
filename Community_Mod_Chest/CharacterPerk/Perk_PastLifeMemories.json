@@ -12,7 +12,7 @@
     "CompleteOnWin": false,
     "DebugCompletion": false,
     "DifficultyRating": -350,
-    "DisplayPriority": 2255.0,
+    "DisplayPriority": 40.5,
     "EditorOnly": false,
     "EquippedCards": [],
     "EquippedCardsWarpData": [],
@@ -33,7 +33,7 @@
     },
     "PassiveStatModifiers": [],
     "PerkDescription": {
-        "DefaultText": "Fragments of a previous life linger at the edges of your mind. You begin with scattered knowledge across crafting, cooking, herbalism, woodworking, and stonework, as if you've done it all before.",
+        "DefaultText": "Fragments of a previous life linger at the edges of your mind. You begin with scattered knowledge of crafting, herbalism, woodworking and stonework, as if you have done it all before.",
         "LocalizationKey": "CharacterTraits_Perk_PastLifeMemories_PerkDescription",
         "ParentObjectID": "traits_perk_past_life_memories"
     },
@@ -67,39 +67,6 @@
                 "m_PathID": 0
             },
             "StatWarpData": "d4b67ed3a92b283488db1554bb23270a",
-            "StatWarpType": 3,
-            "ValueModifier": {
-                "x": 40.0,
-                "y": 40.0
-            },
-            "RateModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "MinValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "MaxValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "CannotModifyBeyond": {
-                "Active": false,
-                "FloatValue": 0.0,
-                "MaxValue": 0.0
-            },
-            "ApplyEachTick": false,
-            "InstantModifier": false,
-            "IgnoreNovelty": false,
-            "IsInverse": false
-        },
-        {
-            "Stat": {
-                "m_FileID": 0,
-                "m_PathID": 0
-            },
-            "StatWarpData": "93c4433b9c1640343b87576d355e53b4",
             "StatWarpType": 3,
             "ValueModifier": {
                 "x": 40.0,

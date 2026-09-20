@@ -12,7 +12,7 @@
     "CompleteOnWin": false,
     "DebugCompletion": false,
     "DifficultyRating": -100,
-    "DisplayPriority": 2361.0,
+    "DisplayPriority": 37.5,
     "EditorOnly": false,
     "EquippedCards": [],
     "EquippedCardsWarpData": [],
@@ -32,39 +32,6 @@
         "m_PathID": 0
     },
     "PassiveStatModifiers": [
-        {
-            "Stat": {
-                "m_FileID": 0,
-                "m_PathID": 0
-            },
-            "StatWarpData": "33f8297bdbbdf7a47b9944f633fdcad8",
-            "StatWarpType": 3,
-            "ValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "RateModifier": {
-                "x": 1.2,
-                "y": 1.2
-            },
-            "MinValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "MaxValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "CannotModifyBeyond": {
-                "Active": false,
-                "FloatValue": 0.0,
-                "MaxValue": 0.0
-            },
-            "ApplyEachTick": false,
-            "InstantModifier": false,
-            "IgnoreNovelty": false,
-            "IsInverse": false
-        },
         {
             "Stat": {
                 "m_FileID": 0,
@@ -97,10 +64,43 @@
             "InstantModifier": false,
             "IgnoreNovelty": false,
             "IsInverse": false
+        },
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatWarpData": "55d7914524f132149a957cd48e01b63d",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "RateModifier": {
+                "x": 1.2,
+                "y": 1.2
+            },
+            "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false
         }
     ],
     "PerkDescription": {
-        "DefaultText": "A life spent in caves and cramped tunnels has made you sure-footed and alert. Start with a head start in Climbing, and keep a steady Climbing Aid and Alertness Aid, each as strong as one spirit blessing.",
+        "DefaultText": "A life spent in caves and cramped tunnels has made you alert and handy with flint. Keep a steady Alertness Aid and Flint Knack, each as strong as one spirit blessing.",
         "LocalizationKey": "CharacterTraits_Perk_Troglodyte_PerkDescription",
         "ParentObjectID": "traits_perk_troglodyte"
     },
@@ -127,41 +127,7 @@
     },
     "ResetLockInEditor": false,
     "StartUnlocked": true,
-    "StartingStatModifiers": [
-        {
-            "Stat": {
-                "m_FileID": 0,
-                "m_PathID": 0
-            },
-            "StatWarpData": "4e1c1fcb63b240843b8255abab28181a",
-            "StatWarpType": 3,
-            "ValueModifier": {
-                "x": 75.0,
-                "y": 75.0
-            },
-            "RateModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "MinValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "MaxValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "CannotModifyBeyond": {
-                "Active": false,
-                "FloatValue": 0.0,
-                "MaxValue": 0.0
-            },
-            "ApplyEachTick": false,
-            "InstantModifier": false,
-            "IgnoreNovelty": false,
-            "IsInverse": false
-        }
-    ],
+    "StartingStatModifiers": [],
     "StatsObjectives": [],
     "SunsCost": 15,
     "TagsOnBoardObjectives": [],

@@ -1,0 +1,38 @@
+{
+  "target": "CMC_Club.png",
+  "sourceCard": "CardData/Item/Club.json",
+  "subject": "one stout hardwood club carved from a single piece of dark brown wood, a thick heavy knobbed head tapering to a narrow worn handle, bark stripped, a few knots in the grain",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of one stout hardwood club carved from a single piece of dark brown wood, a thick heavy knobbed head tapering to a narrow worn handle, bark stripped, a few knots in the grain, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, long thin stick, spikes, nails, metal, rope wrapping, spear.",
+  "historyId": "ghQLBXJsWKuDCzgh5kx3",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783724626_a00b01d2_1789783724798_9d0eb258.png",
+  "credits": 90,
+  "generated": "2026-09-18",
+  "note": "Revamp of a card that borrowed a vanilla sprite showing a different object. Claude picked A from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed). Repointed CardImageWarpData from 'LongStick' on CardData/Item/Club.json, CardData/Blueprint/Bp_Club.json.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783724626_a00b01d2_1789783724798_9d0eb258.png",
+      "verdict": "PICK: dark brown hardwood, thick knobbed head tapering to a worn handle, knots in the grain"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783726031_058a6ee3_1789783726381_58212fe8.png",
+      "verdict": "lighter, slimmer; reads closer to a stick"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783725583_df45e1ce_1789783725696_f511fc41.png",
+      "verdict": "stout and knotted; reddish rather than dark brown"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A"
+}

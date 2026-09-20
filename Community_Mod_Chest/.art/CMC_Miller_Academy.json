@@ -1,0 +1,56 @@
+{
+  "target": "CMC_Miller_Academy.png",
+  "sourceCard": "Patcher/CottageResidentSchedulePatch.cs (AcademySpriteName, Miller entry)",
+  "status": "shipped in CMC 1.68.31 (2026-09-18); Resource/Picture holds the finished pick, 512x768 RGBA, full-bleed",
+  "picked": "A2",
+  "composition": {
+    "character": "Miller",
+    "scene": "Academy",
+    "finish": "full-bleed",
+    "see": ".art/compositions.json"
+  },
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "references": [
+    {
+      "role": "character",
+      "fragment": "Miller",
+      "image": ".art/fragments/characters/Miller.png",
+      "id": "9xgFsaRVPTPN7txSu8GE"
+    },
+    {
+      "role": "scene",
+      "fragment": "Academy",
+      "image": "Resource/Picture/VillageAcademyInterior.png",
+      "id": "udpnaAUPTU2tKqaI0IIH"
+    }
+  ],
+  "historyId": "CdX7JRdp1UGirGcTH2YN",
+  "credits": 90,
+  "generated": "2026-09-18",
+  "candidates": [
+    {
+      "n": "A1",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789781368921_82f41702_1789781369519_55485997.png",
+      "verdict": "on-model; Academy arch, jars, lantern, tool rack, ingots and hammer; concentrating face but looks at the viewer, not the book"
+    },
+    {
+      "n": "A2",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789781368249_17527c36_1789781368677_1afff4b2.png",
+      "verdict": "on-model, closest face to the anchor; forge, jars, saws, ingots, hammer; smiles at the viewer rather than reading",
+      "recommended": true
+    },
+    {
+      "n": "A3",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789781365578_f4bdd369_1789781366315_566191d9.png",
+      "verdict": "on-model; arch, lectern with blueprint, vise bench, ingots; appears to stand rather than sit"
+    }
+  ],
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789781368249_17527c36_1789781368677_1afff4b2.png"
+}

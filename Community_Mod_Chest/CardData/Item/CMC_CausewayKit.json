@@ -11,7 +11,7 @@
     "LocalizationKey": "CMC_CausewayKit_CardDescription"
   },
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
-  "CardImageWarpData": "Plank",
+  "CardImageWarpData": "CMC_CausewayKit",
   "CardImageWarpType": 3,
   "CardHelpSection": {
     "DefaultText": "Plank Causeway",

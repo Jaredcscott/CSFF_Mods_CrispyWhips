@@ -12,7 +12,7 @@
     "CompleteOnWin": false,
     "DebugCompletion": false,
     "DifficultyRating": 150,
-    "DisplayPriority": 2500.0,
+    "DisplayPriority": 54.5,
     "EditorOnly": false,
     "EquippedCards": [],
     "EquippedCardsWarpData": [],
@@ -70,15 +70,114 @@
                 "m_FileID": 0,
                 "m_PathID": 0
             },
-            "StatWarpData": "cmcStatTraitInsomniac",
+            "StatWarpData": "92aae542f8489f643bd9498cc8e077bc",
             "StatWarpType": 3,
             "ValueModifier": {
-                "x": 10.0,
-                "y": 10.0
-            },
-            "RateModifier": {
                 "x": 0.0,
                 "y": 0.0
+            },
+            "RateModifier": {
+                "x": 0.25,
+                "y": 0.25
+            },
+            "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false
+        },
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatWarpData": "15cc9a2e63deafa4185a6344a22c442e",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "RateModifier": {
+                "x": 0.25,
+                "y": 0.25
+            },
+            "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false
+        },
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatWarpData": "a21c27d9d22cb4b4285157bfe6b3535b",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "RateModifier": {
+                "x": 0.25,
+                "y": 0.25
+            },
+            "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false
+        },
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatWarpData": "e5f80e034c362b04eb782384fbdccc78",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "RateModifier": {
+                "x": 0.25,
+                "y": 0.25
             },
             "MinValueModifier": {
                 "x": 0.0,
@@ -100,7 +199,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "Sleepiness creeps up on you more slowly than on others, so you stay awake longer. You pay more for it: every tier of sleep deprivation costs you extra stress and focus.",
+        "DefaultText": "You rarely feel sleepy, so you stay awake longer than others. Your body pays for it sooner: every stage of sleep deprivation arrives about a fifth earlier than it would for anyone else.",
         "LocalizationKey": "CharacterTraits_Perk_Insomniac_PerkDescription",
         "ParentObjectID": "traits_perk_insomniac"
     },

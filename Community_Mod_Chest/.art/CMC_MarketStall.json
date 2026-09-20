@@ -1,0 +1,46 @@
+{
+  "target": "CMC_MarketStall.png",
+  "sourceCard": "CardData/Location/CMC_MarketStall.json",
+  "subject": "a small wooden market stall; change: strip all of its market-day dressing: no striped awning, no bunting, no goods, no pelts and nothing hanging; the bare wooden posts, crossbeams and a plain empty wooden counter only",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows a small wooden market stall: draw this same animal or object, keeping its materials, colours, proportions, markings and construction details identical, changed only as follows: strip all of its market-day dressing: no striped awning, no bunting, no goods, no pelts and nothing hanging; the bare wooden posts, crossbeams and a plain empty wooden counter only.\nHand-painted watercolor-and-ink game item illustration of a small wooden market stall, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, striped awning, canvas roof, bunting, flags, pelts, meat, baskets of goods, jars.",
+  "historyId": "rFL93XGwwtwXd0VRFRWh",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789784302940_9ac7966d_1789784303413_543069d7.png",
+  "credits": 90,
+  "generated": "2026-09-18",
+  "references": [
+    {
+      "id": "Ac8Mz1NvulWDWTnItrxQ",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/CMC_MarketStall_1789783966935_700a8608.png",
+      "label": "CMC_MarketStall (subject)",
+      "source": "Community_Mod_Chest/Resource/Picture/CMC_MarketStall.png"
+    }
+  ],
+  "note": "Revamp of a card that already had its own art. Claude picked C from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed); then white paper ENCLOSED by the subject (which the border-connected key cannot reach) was keyed out with the keyer's own 200-250 ramp (key_enclosed.py). CMC_MarketStall.png and CMC_MarketStallDressed.png had been byte-identical since 8d31b665d copied plain-stall bytes over the dressed art; the current art (awning and goods) stays on the Dressed card and the plain stall now has its own bare frame, generated from that art as a reference.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789784303292_7f894a7f_1789784304090_7bd07f3d.png",
+      "verdict": "bare frame and counter; roof beam set high and thin"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789784302274_8f376b2b_1789784302374_f59784ce.png",
+      "verdict": "diagonal braces at the top read as an unfinished roof"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789784302940_9ac7966d_1789784303413_543069d7.png",
+      "verdict": "PICK: the current stall's construction stripped bare: counter with a drawer, four posts, roof beam, no awning and no goods; paper between the posts keyed out"
+    }
+  ],
+  "picked": "C",
+  "predicted": "C"
+}

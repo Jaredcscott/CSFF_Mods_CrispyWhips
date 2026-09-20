@@ -1,0 +1,367 @@
+{
+    "ActionModifiers": [],
+    "ActionObjectives": [],
+    "AddedCards": [],
+    "AddedCardsWarpData": [],
+    "AddedCardsWarpType": 3,
+    "AddedStartingHours": 0,
+    "CardsOnBoardObjectives": [],
+    "CharacterPerkPerkGroup": "5d894fd43dd840949ae17ae1bda18bbc",
+    "CheckingNotificationDetails": 0,
+    "CompleteOnLose": false,
+    "CompleteOnWin": false,
+    "DebugCompletion": false,
+    "DifficultyRating": 300,
+    "DisplayPriority": 51.5,
+    "EditorOnly": false,
+    "EquippedCards": [],
+    "EquippedCardsWarpData": [],
+    "EquippedCardsWarpType": 3,
+    "HiddenUntilUnlocked": false,
+    "MoonsCost": 0,
+    "NestedObjectives": [],
+    "NoSafetyMode": false,
+    "NotifyWhenNotChecked": false,
+    "OverrideEnvironment": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "OverrideEquipment": false,
+    "OverrideWeather": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "PassiveStatModifiers": [
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatWarpData": "3cca07dc92f73e44ea9e6ec72b77427b",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": -1500.0,
+                "y": -1500.0
+            },
+            "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false
+        },
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatWarpData": "1a8d37787d69c9b4aa05d332921f3763",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": -1000.0,
+                "y": -1000.0
+            },
+            "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false
+        },
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatWarpData": "79290cafb08e48f4d871704c20e69b1c",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": 15.0,
+                "y": 15.0
+            },
+            "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false
+        },
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatWarpData": "ad5665dcf2e21ed49a5817b1b7005b2e",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "RateModifier": {
+                "x": -1.0,
+                "y": -1.0
+            },
+            "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false
+        },
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatWarpData": "93c8d624eb40ea94e8e1e5a4b2ea2ad9",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": -50.0,
+                "y": -50.0
+            },
+            "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false
+        },
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatWarpData": "31b0e29bb41fc4e44bdfc299b21446b9",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "RateModifier": {
+                "x": -6.0,
+                "y": -6.0
+            },
+            "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false
+        },
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatWarpData": "cmcStatTraitNightcrawlerSun",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": 200.0,
+                "y": 200.0
+            },
+            "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false
+        },
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatWarpData": "cmcStatTraitNightcrawlerShade",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": 10.0,
+                "y": 10.0
+            },
+            "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false
+        },
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatWarpData": "cmcStatTraitSkinShelter",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": 10.0,
+                "y": 10.0
+            },
+            "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false
+        }
+    ],
+    "PerkDescription": {
+        "ParentObjectID": "cmcperknightcrawler",
+        "LocalizationKey": "CharacterTraits_Perk_Nightcrawler_PerkDescription",
+        "DefaultText": "You suffer from a rare disease, sun harms you, while darkness nourishes you. You can only leave your dwelling at night or when you wear heavy clothing. People fear you, treating you as a freak, even a legendary creature of darkness. You realize the Inquisition will soon find you, so you fled here. In this jungle far from humanity, you can finally be yourself."
+    },
+    "PerkIcon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+    },
+    "PerkIconWarpData": "Darkness",
+    "PerkIconWarpType": 3,
+    "PerkName": {
+        "ParentObjectID": "cmcperknightcrawler",
+        "LocalizationKey": "CharacterTraits_Perk_Nightcrawler_PerkName",
+        "DefaultText": "Nightcrawler"
+    },
+    "PerkUnlockConditions": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+    },
+    "PlayedCharacter": [],
+    "RequiredDifficultyScore": {
+        "x": 0,
+        "y": 0
+    },
+    "ResetLockInEditor": false,
+    "StartUnlocked": true,
+    "StartingStatModifiers": [],
+    "StatsObjectives": [],
+    "SunsCost": 1,
+    "TagsOnBoardObjectives": [],
+    "TimeObjectives": [],
+    "UniqueID": "cmcperknightcrawler"
+}

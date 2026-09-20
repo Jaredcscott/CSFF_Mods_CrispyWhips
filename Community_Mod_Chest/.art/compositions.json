@@ -1,0 +1,36 @@
+{
+  "_comment": "ImageName -> what the picture is built from, for /create-image-refs. character/scene/props name fragments in .art/fragments/<type>s/<id>.json. action is the one thing only this picture shows; outfit (optional) overrides the character's default clothing; framing and finish apply to the whole picture. An entry with anchor: true defines a character and is never recomposed.",
+  "CMC_Miller": {
+    "anchor": true,
+    "character": "Miller",
+    "use": "village board card, NPC agent and VillageSpriteName in Patcher/CottageResidentSchedulePatch.cs"
+  },
+  "CMC_Miller_Inn": {
+    "character": "Miller",
+    "scene": "Inn",
+    "props": [],
+    "action": "relaxing after a day at the mill, standing at a plank table in the common room holding a foaming tankard of ale, a platter of roast meat and carrots on the table beside him, the stone fireplace glowing behind him",
+    "framing": "waist-up three-quarter portrait, 2:3",
+    "finish": "full-bleed",
+    "use": "InnSpriteName in Patcher/CottageResidentSchedulePatch.cs"
+  },
+  "CMC_Miller_Academy": {
+    "character": "Miller",
+    "scene": "Academy",
+    "props": [],
+    "action": "studying at the Academy, seated on a wooden chair at one of the workbenches, reading a thick leather-bound book held open in both hands with a look of concentration, metal ingots and a hammer on the bench beside him",
+    "framing": "waist-up three-quarter portrait, 2:3",
+    "finish": "full-bleed",
+    "use": "AcademySpriteName in Patcher/CottageResidentSchedulePatch.cs"
+  },
+  "CMC_Miller_Cottage": {
+    "character": "Miller",
+    "scene": "MillerCottage",
+    "props": [],
+    "action": "off duty at home in the evening, seated in a wooden chair beside the hearth, holding a steaming clay mug in both hands with a relaxed smile, a folded plaid blanket over the chair arm",
+    "outfit": "off-duty house clothes, no apron and no flour dust: a soft faded slate-blue linen shirt, untucked with the sleeves rolled, and brown work trousers",
+    "framing": "waist-up three-quarter portrait, 2:3",
+    "finish": "full-bleed",
+    "use": "CottageSpriteName in Patcher/CottageResidentSchedulePatch.cs"
+  }
+}

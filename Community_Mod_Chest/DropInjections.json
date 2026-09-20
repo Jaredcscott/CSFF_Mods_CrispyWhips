@@ -4,7 +4,7 @@
     "Action": "Forage",
     "ActionMode": "contains",
     "Drops": [
-      { "Card": "WildGarlicFresh",                "Chance": 15.0, "Quantity": [1, 1] },
+      { "Card": "ecff0e5482448a54e9e54c4f788286ef", "Chance": 15.0, "Quantity": [1, 1] },
       { "Card": "herbs_fungi_ginseng",          "Chance": 8.0,  "Quantity": [1, 1] },
       { "Card": "herbs_fungi_yarrow",           "Chance": 8.0,  "Quantity": [1, 1] },
       { "Card": "herbs_fungi_chamomile",        "Chance": 8.0,  "Quantity": [1, 1] },
@@ -170,7 +170,7 @@
     "ActionMode": "contains",
     "Drops": [
       { "Card": "cmcoldgrowthbark", "Chance": 10.0, "Quantity": [1, 1] },
-      { "Card": "WildGarlicFresh", "Chance": 8.0, "Quantity": [1, 1] },
+      { "Card": "ecff0e5482448a54e9e54c4f788286ef", "Chance": 8.0, "Quantity": [1, 1] },
 
       { "Card": "fa8834c3111a71f47bdd23d66b33cf61", "Chance": 12.0, "Quantity": [1, 1] },
       { "Card": "a934d56f01b147649bbe8e0e93a86048", "Chance": 8.0, "Quantity": [1, 1] },

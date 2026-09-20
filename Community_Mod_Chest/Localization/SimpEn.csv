@@ -91,17 +91,17 @@ Combat_And_Armor_Bp_BoneLamellar_CardName,Bone Lamellar Armor
 Combat_And_Armor_Bp_BoneLamellar_CardDescription,Assemble overlapping bone plates into torso armor.
 Combat_And_Armor_Bp_BoneLamellar_UnlockConditionsDesc,Bring the Professor bones or antler for his reconstruction
 CharacterTraits_Perk_Angler_PerkName,Angler
-CharacterTraits_Perk_Angler_PerkDescription,"You've spent years by the water. Start with an iron fishing rod, line and bait, and keep a steady Fishing Aid as strong as one spirit blessing."
+CharacterTraits_Perk_Angler_PerkDescription,"You've spent years by the water. Start with an iron fishing rod, fishing line and bait."
 CharacterTraits_Perk_GreenThumb_PerkName,Green Thumb
-CharacterTraits_Perk_GreenThumb_PerkDescription,"Plants thrive under your care. Start with Turnroot seeds, Meadowgrass seeds and a Flint Hoe, and keep a steady Foraging Aid as strong as one spirit blessing. A Wild Growth blessing also lasts longer for you."
+CharacterTraits_Perk_GreenThumb_PerkDescription,"Plants thrive under your care. Start with Turnroot seeds, Meadowgrass seeds and a Flint Hoe, and keep a steady Fertility Boon for the crops you plant, as strong as one spirit blessing. A Wild Growth blessing also lasts longer for you."
 CharacterTraits_Perk_StrongKidneys_PerkName,Strong Kidneys
-CharacterTraits_Perk_StrongKidneys_PerkDescription,"Your body retains water efficiently. You become thirsty significantly more slowly than normal, requiring less frequent drinks to stay hydrated."
+CharacterTraits_Perk_StrongKidneys_PerkDescription,"Your kidneys clear poisons quickly. Witchstone poisoning and fireroot toxicity leave your body about twice as fast as normal, and wolfsbane poisoning a little faster."
 CharacterTraits_Perk_NaturalTrader_PerkName,Natural Trader
 CharacterTraits_Perk_NaturalTrader_PerkDescription,"You have a knack for dealing with people. Start with a significantly advanced Social skill, making trader interactions and NPC negotiations more favourable from the outset."
 CharacterTraits_Perk_Swimmer_PerkName,Swimmer
 CharacterTraits_Perk_Swimmer_PerkDescription,"You are at home in the water. Start with a head start in Swimming that opens the cheaper river crossing from day one, and keep a steady Swimming Aid as strong as one spirit blessing."
 CharacterTraits_Perk_Trapper_PerkName,Trapper
-CharacterTraits_Perk_Trapper_PerkDescription,"You know how to set a trap and read the land. Start with a Snare Trap, Log Trap, Flint Knife, and Rustic Spear, plus a head start in the Trapping skill."
+CharacterTraits_Perk_Trapper_PerkDescription,"You know how to set a trap and live off what it catches. Start with a Snare Trap, a Log Trap, a Cage and a Hideout."
 Pottery_Sculpture_Pigment_CardName,Pigment
 Pottery_Sculpture_Pigment_CardDescription,A fine colored powder made by grinding charcoal. Used to paint and decorate pottery.
 Pottery_Sculpture_PaintedBowl_CardName,Painted Clay Bowl
@@ -197,25 +197,17 @@ CeramicLamp_Bp_CardName,Ceramic Lamp
 CeramicLamp_Bp_CardDescription,Shape clay into a shallow oil lamp with a wick channel.
 CeramicLamp_Bp_UnlockConditionsDesc,Clay Needed
 CharacterTraits_Perk_Insomniac_PerkName,Insomniac
-CharacterTraits_Perk_Insomniac_PerkDescription,"Sleepiness creeps up on you more slowly than on others, so you stay awake longer. You pay more for it: every tier of sleep deprivation costs you extra stress and focus."
+CharacterTraits_Perk_Insomniac_PerkDescription,"You rarely feel sleepy, so you stay awake longer than others. Your body pays for it sooner: every stage of sleep deprivation arrives about a fifth earlier than it would for anyone else."
 CMC_TraitInsomniac_StatName,Insomnia
-CMC_TraitInsomniac_StatDescription,How hard lost sleep hits you. It does nothing while you are rested and bites harder with every tier of sleep deprivation.
-CMC_TraitInsomniac_Status_Minor_Name,Frayed by Lost Sleep
-CMC_TraitInsomniac_Status_Minor_Description,You are short on sleep and you feel it more than most: extra stress and a wandering mind.
-CMC_TraitInsomniac_Status_Moderate_Name,Worn by Lost Sleep
-CMC_TraitInsomniac_Status_Moderate_Description,Sleep deprivation is wearing you down faster than it would anyone else.
-CMC_TraitInsomniac_Status_Major_Name,Ragged from Lost Sleep
-CMC_TraitInsomniac_Status_Major_Description,Major sleep deprivation. Your stress and your focus suffer far more than they would for others.
-CMC_TraitInsomniac_Status_Serious_Name,Wrecked by Lost Sleep
-CMC_TraitInsomniac_Status_Serious_Description,Serious sleep deprivation. Your mind is coming apart at the seams. Sleep.
+CMC_TraitInsomniac_StatDescription,Retired. Insomniac now speeds up the game's own sleep deprivation instead of adding a separate status.
 CharacterTraits_Perk_Sinker_PerkName,Sinker
 CharacterTraits_Perk_Sinker_PerkDescription,"You are dense in the water. Swimming costs you extra Stamina, Gratification and Focus, and any Swimming Aid you receive is weaker."
 CharacterTraits_Perk_WeakStomach_PerkName,Weak Stomach
 CharacterTraits_Perk_WeakStomach_PerkDescription,Your stomach is easily upset. Nausea takes longer to recover from lingering well after the cause is gone.
 CharacterTraits_Perk_BlackThumb_PerkName,Black Thumb
-CharacterTraits_Perk_BlackThumb_PerkDescription,"Plants wither under your care. This trait weakens Foraging Aid from other sources, so a single spirit blessing barely holds, and makes a Wild Growth blessing fade sooner. On its own it does nothing."
+CharacterTraits_Perk_BlackThumb_PerkDescription,"Plants wither under your care. This trait weakens a Fertility Boon from other sources, so a single spirit blessing barely holds on the crops you plant, and makes a Wild Growth blessing fade sooner. On its own it does nothing."
 CharacterTraits_Perk_BadKidneys_PerkName,Bad Kidneys
-CharacterTraits_Perk_BadKidneys_PerkDescription,"Your body sheds water quickly. You become thirsty noticeably faster than normal, requiring more frequent drinks to stay hydrated."
+CharacterTraits_Perk_BadKidneys_PerkDescription,"Your kidneys struggle to clear poisons. Wolfsbane poisoning, witchstone poisoning and fireroot toxicity all stay in your body about twice as long as normal."
 Comfort_Bedroll_Placed_CardName,Bedroll
 Comfort_Bedroll_Placed_CardDescription,"A sleeping mat laid out on the ground. Provides insulation while resting on it. Needs occasional maintenance or it will fall apart.
 
@@ -476,13 +468,13 @@ CMC_FishingNet_Bp_CardName,Fishing Net
 CMC_FishingNet_Bp_CardDescription,Knot twine into a wide casting net stretched across long sticks.
 CMC_FishingNet_Bp_UnlockConditionsDesc,Twine Needed
 CharacterTraits_Perk_PastLifeMemories_PerkName,Past Life Memories
-CharacterTraits_Perk_PastLifeMemories_PerkDescription,"You retain skills from another life. Deep knowledge in crafting, cooking, herbalism, woodworking, and knapping comes to you with surprising ease."
+CharacterTraits_Perk_PastLifeMemories_PerkDescription,"Fragments of a previous life linger at the edges of your mind. You begin with scattered knowledge of crafting, herbalism, woodworking and stonework, as if you have done it all before."
 CharacterTraits_Perk_Prospector_PerkName,Prospector
-CharacterTraits_Perk_Prospector_PerkDescription,"You have a trained eye for stone and ore. Start with a head start in Knapping and Metalworking, plus a selection of useful stones to get you started."
+CharacterTraits_Perk_Prospector_PerkDescription,"Retired trait, merged into Mineral Rich. It no longer appears at character creation; characters who already have it keep what it gave them."
 CharacterTraits_Perk_MineralRich_PerkName,Mineral Rich
-CharacterTraits_Perk_MineralRich_PerkDescription,"You come from a land blessed with abundant stone. Start with a collection of flint, greenstone, and a whetstone ready to work with."
+CharacterTraits_Perk_MineralRich_PerkDescription,"You love stones, all kinds of stones, and you have heard there is a red stone out here that you have never seen. Start with six greenstones, three flints, a sharpened stone, a stone and a heavy stone."
 CharacterTraits_Perk_PeacefulFarmer_PerkName,Peaceful Farmer
-CharacterTraits_Perk_PeacefulFarmer_PerkDescription,"You spent your years tending crops and cooking simple meals. Start with a head start in Cooking, turnroot, meadowgrass and flax seeds, a flint hoe and a clay bowl, and keep a steady Foraging Aid as strong as one spirit blessing."
+CharacterTraits_Perk_PeacefulFarmer_PerkDescription,"Retired trait. It no longer appears at character creation: its seeds and tools are vanilla Farming Gear's job, its skill is vanilla Farmer's, and Green Thumb now carries the crop blessing. Characters who already have it keep its seeds, tools and steady Foraging Aid."
 CharacterTraits_Perk_AbundantGrowth_PerkName,Abundant Growth
 CharacterTraits_Perk_AbundantGrowth_PerkDescription,"The land seems to respond to your presence. Start with turnroot, meadowgrass and flax seeds and fresh heather flowers, and keep a steady Foraging Aid as strong as one spirit blessing."
 CharacterTraits_Perk_Trollblood_PerkName,Trollblood
@@ -494,9 +486,9 @@ CharacterTraits_Perk_WideHands_PerkDescription,"Your large, dexterous hands are 
 CharacterTraits_Perk_Claws_PerkName,Claws
 CharacterTraits_Perk_Claws_PerkDescription,"Your fingernails grow hard and talon-like, giving you an edge in close quarters. Start with a head start in Knife Fighting and Melee Fighting, and keep a steady Ambush Aid and Chasing Aid, each as strong as one spirit blessing."
 CharacterTraits_Perk_Troglodyte_PerkName,Troglodyte
-CharacterTraits_Perk_Troglodyte_PerkDescription,"A life spent in caves and cramped tunnels has made you sure-footed and alert. Start with a head start in Climbing, and keep a steady Climbing Aid and Alertness Aid, each as strong as one spirit blessing."
+CharacterTraits_Perk_Troglodyte_PerkDescription,"A life spent in caves and cramped tunnels has made you alert and handy with flint. Keep a steady Alertness Aid and Flint Knack, each as strong as one spirit blessing."
 CharacterTraits_Perk_ExiledArtist_PerkName,Exiled Artist
-CharacterTraits_Perk_ExiledArtist_PerkDescription,"Forced from your homeland, you carry your craft with you. Start with a head start in Pottery, two lumps of clay for sculpting, charcoal for pigment, and a basket to carry your work."
+CharacterTraits_Perk_ExiledArtist_PerkDescription,"Forced from your homeland, you carry your craft in your hands. Start with a head start in Pottery."
 CharacterTraits_Perk_BornMark_PerkName,Born Mark
 CharacterTraits_Perk_BornMark_PerkDescription,"You were born with a distinctive mark that the spirits take notice of. It keeps your Luck raised. Nothing in the world reads Luck yet, so the mark changes nothing you can see today."
 CharacterTraits_Perk_Aged_PerkName,Aged
@@ -512,11 +504,11 @@ CharacterTraits_Perk_SpirituallyTroubled_PerkDescription,"The spirits do not loo
 CharacterTraits_Perk_WeakenedGrowth_PerkName,Weakened Growth
 CharacterTraits_Perk_WeakenedGrowth_PerkDescription,"The land yields little for you. This trait weakens Foraging Aid from other sources, so a single spirit blessing barely holds. On its own it does nothing."
 CharacterTraits_Perk_Leper_PerkName,Leper
-CharacterTraits_Perk_Leper_PerkDescription,"A wasting affliction has killed the feeling in your flesh and eaten at your face. Injury no longer hurts you at all. Your skin keeps out less of the filth it meets, your features are ruined, and people trade and speak with you only when they must."
+CharacterTraits_Perk_Leper_PerkDescription,"A wasting affliction has killed the feeling in your flesh and eaten at your face. Injury no longer hurts you at all. Your skin keeps out less of the filth it meets, your ruined features put traders off, and you have little feeling left for other people."
 CharacterTraits_Perk_Fugitive_PerkName,Fugitive
-CharacterTraits_Perk_Fugitive_PerkDescription,"You fled your old life in a hurry with little more than the clothes on your back. You begin haunted by fear and stress from the ordeal, and the dread of being hunted means you can never fully relax."
+CharacterTraits_Perk_Fugitive_PerkDescription,"You fled your old life in a hurry with little more than the clothes on your back. You arrive tense and frightened, and the dread of being hunted means you never fully relax. Yet it took nerve to run, and you have more courage than most."
 CharacterTraits_Perk_LostTourist_PerkName,Lost Tourist
-CharacterTraits_Perk_LostTourist_PerkDescription,"You stumbled into this wilderness entirely by accident. You miss civilization and familiar faces. Start with some social skills, but loneliness and stress build faster in the wild."
+CharacterTraits_Perk_LostTourist_PerkDescription,"You stumbled into this wilderness entirely by accident. You miss civilization and the people you left behind, so you feel for others more than most, but loneliness and stress build faster in the wild."
 CharacterTraits_Perk_SeasonalAllergies_PerkName,Seasonal Allergies
 CharacterTraits_Perk_SeasonalAllergies_PerkDescription,"Spring air does not agree with you. All through spring you are less comfortable and upper respiratory infections take hold more easily, though a healthy immune system still fights them off. The rest of the year you are fine."
 CMC_TraitSeasonalAllergies_StatName,Seasonal Allergies
@@ -526,29 +518,41 @@ CMC_TraitSeasonalAllergies_Status_Spring_Description,Spring is in the air and yo
 CharacterTraits_Perk_DeadlyDisease_PerkName,Deadly Disease
 CharacterTraits_Perk_DeadlyDisease_PerkDescription,"A disease has taken hold and it is winning. You begin sick and sore, the pain never leaves, and your defences are compromised, so infections of the gut, the chest and the blood creep upward day after day. Keep your immune system up with good morale, food, sleep and medicine and they recede; neglect it and the disease runs its course."
 CharacterTraits_Perk_Lunacy_PerkName,Lunacy
-CharacterTraits_Perk_Lunacy_PerkDescription,"The moon has a hold on you. Your stress builds faster as the moon waxes and fastest at the full moon, when an urge to be out under the moonlit sky grows in you until you answer it. The pull lets go as the moon wanes."
-CMC_TraitLunacy_StatName,Lunacy
-CMC_TraitLunacy_StatDescription,"The pull the moon has on you. It tightens as the moon waxes, peaks at the full moon and lets go as the moon wanes."
-CMC_TraitLunacy_Status_WaxingCrescent_Name,Moon-Drawn Unease
-CMC_TraitLunacy_Status_WaxingCrescent_Description,The crescent moon is growing. It sets your nerves slightly on edge.
-CMC_TraitLunacy_Status_WaxingGibbous_Name,Moon-Drawn Tension
-CMC_TraitLunacy_Status_WaxingGibbous_Description,The moon is nearly full. Its pull winds you tighter and your stress builds faster.
-CMC_TraitLunacy_Status_FullMoon_Name,Full Moon Frenzy
-CMC_TraitLunacy_Status_FullMoon_Description,"The moon is full. Your stress climbs and an urge to be out under the moonlit sky grows in you. Left unanswered, the urge feeds your stress."
+CharacterTraits_Perk_Lunacy_PerkDescription,"You are bound to the moon. As she waxes you grow elated, and under the full moon you are manic. As she wanes your mood sinks, and while she is gone you grieve for her."
+CMC_TraitLunacy_StatName,Moon-Bound
+CMC_TraitLunacy_StatDescription,"How the moon pulls at your mind, phase by phase."
+CMC_TraitLunacy_Status_WaxingCrescent_Name,Waxing Crescent
+CMC_TraitLunacy_Status_WaxingCrescent_Description,She's finally appeared.
+CMC_TraitLunacy_Status_WaxingGibbous_Name,Waxing Gibbous
+CMC_TraitLunacy_Status_WaxingGibbous_Description,She's coming soon!
+CMC_TraitLunacy_Status_FullMoon_Name,Full Moon
+CMC_TraitLunacy_Status_FullMoon_Description,I see her! She sees me too!
+CMC_TraitLunacy_Status_NewMoon_Name,New Moon
+CMC_TraitLunacy_Status_NewMoon_Description,She's completely gone from me!
+CMC_TraitLunacy_Status_WaningGibbous_Name,Waning Gibbous
+CMC_TraitLunacy_Status_WaningGibbous_Description,No! Don't leave me!
+CMC_TraitLunacy_Status_WaningCrescent_Name,Waning Crescent
+CMC_TraitLunacy_Status_WaningCrescent_Description,I miss her so much!
 CharacterTraits_Perk_Agoraphobia_PerkName,Agoraphobia
-CharacterTraits_Perk_Agoraphobia_PerkDescription,"Open ground fills you with dread. While you are unsheltered your fear runs higher, so any fright shakes you sooner, and your stress slowly builds. Both ease once you are sheltered."
+CharacterTraits_Perk_Agoraphobia_PerkDescription,"Open ground fills you with dread. Out in the open you are frightened and your stress builds. Under a roof you feel safe: your fear and stress ease, and cabin fever creeps up on you slowly, as it does for a homebody."
 CMC_TraitAgoraphobia_StatName,Agoraphobia
-CMC_TraitAgoraphobia_StatDescription,Your dread of open ground. It grips you whenever you have no shelter around you and lets go once you are under cover.
-CMC_TraitAgoraphobia_Status_Unsheltered_Name,Exposed in the Open
-CMC_TraitAgoraphobia_Status_Unsheltered_Description,You have no shelter around you. Your fear sits closer to the surface and your stress slowly builds.
+CMC_TraitAgoraphobia_StatDescription,Your dread of open ground. It grips you whenever you have no shelter and lets go under a roof.
+CMC_TraitAgoraphobia_Status_Unsheltered_Name,Exposed to the Wilderness
+CMC_TraitAgoraphobia_Status_Unsheltered_Description,Nothing stands between you and the open sky. You are frightened and your stress builds until you find shelter.
+CMC_TraitAgoraphobia_Status_Sheltered_Name,Feeling Safe
+CMC_TraitAgoraphobia_Status_Sheltered_Description,Walls around you and a roof overhead. Your fear eases and your stress drains away.
 CharacterTraits_Perk_Nyctophobia_PerkName,Nyctophobia
-CharacterTraits_Perk_Nyctophobia_PerkDescription,The dark terrifies you. In total darkness you become frightened and your stress rises. In dim light you stay uneasy.
+CharacterTraits_Perk_Nyctophobia_PerkDescription,"The dark terrifies you. In pitch darkness you are terrified and your stress soars, and in dim light you are badly shaken. A light in your hand steadies you a little, and bright daylight makes you bold."
 CMC_TraitNyctophobia_StatName,Nyctophobia
-CMC_TraitNyctophobia_StatDescription,Your fear of the dark. It flares in darkness and fades when there is light.
-CMC_TraitNyctophobia_Status_VeryDark_Name,Terrified of the Dark
-CMC_TraitNyctophobia_Status_VeryDark_Description,Total darkness. Your fear has you frightened and your stress is rising.
-CMC_TraitNyctophobia_Status_Dark_Name,Uneasy in the Dark
-CMC_TraitNyctophobia_Status_Dark_Description,The light is dim. Your fear of the dark keeps you on edge.
+CMC_TraitNyctophobia_StatDescription,"Your fear of the dark. The less light around you, the worse it gets, and bright light makes you bold."
+CMC_TraitNyctophobia_Status_VeryDark_Name,Pitch Black
+CMC_TraitNyctophobia_Status_VeryDark_Description,I can't see anything! I hear something approaching!
+CMC_TraitNyctophobia_Status_Dark_Name,Darkness
+CMC_TraitNyctophobia_Status_Dark_Description,Something is moving in the darkness! I definitely see it!
+CMC_TraitNyctophobia_Status_Light_Name,Light
+CMC_TraitNyctophobia_Status_Light_Description,I have light in my hand!
+CMC_TraitNyctophobia_Status_BrightLight_Name,Bright Light
+CMC_TraitNyctophobia_Status_BrightLight_Description,The sun will protect me!
 CharacterTraits_Perk_SensitiveSkin_PerkName,Sensitive Skin
 CharacterTraits_Perk_SensitiveSkin_PerkDescription,"Your skin burns in strong direct sunlight. Time spent unsheltered in full daylight adds up over several days into a painful sunburn, and it fades once you keep out of the harsh sun."
 CMC_TraitSensitiveSkin_StatName,Sensitive Skin
@@ -568,13 +572,17 @@ CMC_TraitLactoseIntolerant_Status_Mild_Description,The dairy you had is not sitt
 CMC_TraitLactoseIntolerant_Status_Severe_Name,Severe Dairy Cramps
 CMC_TraitLactoseIntolerant_Status_Severe_Description,You have had far too much dairy. The nausea and cramps are worse and will ease only as it digests.
 CharacterTraits_Perk_Drunkard_PerkName,Drunkard
-CharacterTraits_Perk_Drunkard_PerkDescription,"You cannot go long without a drink. While you are sober your stress slowly builds. Being tipsy or drunk relieves it more than it would for others, and alcohol stays in your body about twice as long."
+CharacterTraits_Perk_Drunkard_PerkDescription,"You cannot go long without a drink. Sober, your stress keeps climbing, nothing satisfies you and a dull ache sets in. Tipsy, you finally feel like yourself. Drunk, the drink lifts your mood without the thirst, nausea or muddled mind, and even horribly drunk you hold it together. Alcohol also stays in you about twice as long."
 CMC_TraitDrunkard_StatName,Alcohol Craving
-CMC_TraitDrunkard_StatDescription,Your need for a drink. It gnaws at you while you are sober and lets go while you are tipsy or drunk.
-CMC_TraitDrunkard_Status_Sober_Name,Craving a Drink
-CMC_TraitDrunkard_Status_Sober_Description,You are sober and it wears on you. Your stress slowly builds until you are tipsy again.
-CMC_TraitDrunkard_Status_Drinking_Name,Craving Sated
-CMC_TraitDrunkard_Status_Drinking_Description,You are tipsy or drunk and the craving is quiet. Alcohol relieves your stress more than it would for anyone else.
+CMC_TraitDrunkard_StatDescription,"Your need for a drink, and how well you hold it once you have one."
+CMC_TraitDrunkard_Status_Sober_Name,Alcohol Addiction
+CMC_TraitDrunkard_Status_Sober_Description,"You need a drink. Until you have one your stress climbs, nothing satisfies you and everything aches."
+CMC_TraitDrunkard_Status_Tipsy_Name,"Finally, a Drink"
+CMC_TraitDrunkard_Status_Tipsy_Description,"The craving lets go and you feel like yourself again. The drink costs you nothing, but it does nothing more for you either."
+CMC_TraitDrunkard_Status_Drunk_Name,Satisfied
+CMC_TraitDrunkard_Status_Drunk_Description,"The drink warms you through and lifts your mood, and it does not leave you thirsty, sick or muddled."
+CMC_TraitDrunkard_Status_HorriblyDrunk_Name,I Won't Get Drunk!
+CMC_TraitDrunkard_Status_HorriblyDrunk_Description,"Plenty to drink and you are holding it together: no thirst, no sickness, no confusion."
 CMC_Imp_RiverBridge_CardName,River Bridge
 CMC_Imp_RiverBridge_CardDescription,A sturdy wooden bridge spanning the river at the clearing. Build this at the River Clearing to open the eastern path toward the village.
 CMC_Imp_StoneTileFloor_CardName,Stone Tile Floor
@@ -736,15 +744,15 @@ CMC_AcademyLectern_FinalNotReady,You are not ready for the final examination.
 CharacterTraits_Perk_HigherEducation_PerkName,Higher Education
 CharacterTraits_Perk_HigherEducation_PerkDescription,"Retired trait. The village Academy now stands for every character, and its courses gate their blueprint rewards for everyone; this trait no longer appears at character creation and has no effect. It is kept only so older saves that selected it remain valid."
 CharacterTraits_Perk_GradArchitecture_PerkName,Architecture Graduate
-CharacterTraits_Perk_GradArchitecture_PerkDescription,"You completed the Academy's architecture course. The Water-Driven Sawmill and Grinding Mill blueprints are yours, and together with a Metallurgy degree, the Water-Driven Forge and Workshop."
+CharacterTraits_Perk_GradArchitecture_PerkDescription,"You completed the Academy's architecture course. The Water-Driven Sawmill and Grinding Mill blueprints are yours, and together with a Metallurgy degree, the Water-Driven Forge and Workshop. You also keep a steady Beaver Blessing as strong as one spirit blessing."
 CharacterTraits_Perk_GradMetallurgy_PerkName,Metallurgy Graduate
-CharacterTraits_Perk_GradMetallurgy_PerkDescription,"You completed the Academy's metallurgy course. The Copper Sheet recipe is yours outright, with no research needed, and together with an Architecture degree, the Water-Driven Forge and Workshop."
+CharacterTraits_Perk_GradMetallurgy_PerkDescription,"You completed the Academy's metallurgy course. The Copper Sheet recipe is yours outright, with no research needed, and together with an Architecture degree, the Water-Driven Forge and Workshop. Your Smithing counts 25 higher, so your metalwork comes out better."
 CharacterTraits_Perk_GradHerbalism_PerkName,Herbalism Graduate
-CharacterTraits_Perk_GradHerbalism_PerkDescription,You completed the Academy's herbalism course. You spot twice as much whenever you forage.
+CharacterTraits_Perk_GradHerbalism_PerkDescription,"You completed the Academy's herbalism course. Every forage gives you twice as much. The extra finds are added as you gather them, so they do not show up in any drop-chance list."
 CharacterTraits_Perk_GradFishing_PerkName,Fishing Graduate
-CharacterTraits_Perk_GradFishing_PerkDescription,"You completed the Academy's fishing course. The Iron Fishing Rod recipe is yours, and you've learned to read the water for a better catch."
+CharacterTraits_Perk_GradFishing_PerkDescription,"You completed the Academy's fishing course. The Iron Fishing Rod recipe is yours, and you've learned to read the water: you keep a steady Fishing Aid as strong as one spirit blessing."
 CharacterTraits_Perk_GradArmorer_PerkName,Armorer Graduate
-CharacterTraits_Perk_GradArmorer_PerkDescription,"You completed the Academy's armorer course. The copper and iron armor recipes (Breastplate, Helmet, Greaves, Gauntlets) are yours."
+CharacterTraits_Perk_GradArmorer_PerkDescription,"You completed the Academy's armorer course. The copper and iron armor recipes (Breastplate, Helmet, Greaves, Gauntlets) are yours, and your Smithing counts 25 higher, so your metalwork comes out better."
 CharacterTraits_Perk_GradMedicine_PerkName,Medicine Graduate
 CharacterTraits_Perk_GradMedicine_PerkDescription,"You completed the Academy's medicine course. You know how to dress a wound and manage pain, so your wounds bleed a little less and aches sit a little lighter."
 CMC_AcademyLectern_DA_Fishing,Study Fishing
@@ -2138,7 +2146,7 @@ CMC_CarpentryBench_DA_CarpentryFinal,Final Exam: Carpentry
 CMC_CarpentryBench_DA_CarpentryFinal_Desc,The final two-hour examination. Pass it to earn the Carpentry degree: unlocks the Outfit Wardrobe and Wicker Chair blueprints.
 CMC_CarpentryBench_FinalNotReady,You are not ready for the final examination.
 CharacterTraits_Perk_GradCarpentry_PerkName,Carpentry Graduate
-CharacterTraits_Perk_GradCarpentry_PerkDescription,You completed the Academy's carpentry course. The Outfit Wardrobe and Wicker Chair blueprints are yours.
+CharacterTraits_Perk_GradCarpentry_PerkDescription,"You completed the Academy's carpentry course. The Outfit Wardrobe and Wicker Chair blueprints are yours, and you keep a steady Beaver Blessing as strong as one spirit blessing."
 CMC_Bp_WickerChair_CardName,Wicker Chair
 CMC_Bp_WickerChair_CardDescription,"A lashed-frame chair, woven tight enough to actually sit in."
 CMC_Bp_WickerChair_UnlockConditionsDesc,Graduate the Academy's Carpentry course
@@ -2292,7 +2300,7 @@ CMC_MarketStallDressed_DA_TakeDownAwning_ActionName,Take Down Awning
 CMC_MarketStallDressed_DA_TakeDownAwning_ActionDescription,"Remove the awning and bunting, returning the stall to its plain frame."
 CharacterTraits_Perk_CaravanPeddler_PerkDescription,"You've spent years on the road, more comfortable haggling than homesteading. Start with a Market Stall Kit already assembled and bundled for travel, plus a pair of bear figurines ready to sell. Set the stall up once you reach the village to start trading."
 CharacterTraits_Perk_CaravanPeddler_PerkName,Caravan Peddler
-CharacterTraits_Perk_PottersApprentice_PerkDescription,"You trained under a potter before striking out on your own. Start with clay for sculpting, a flint knife for shaping, and a couple of lumps of ready-ground pigment for decorating your work."
+CharacterTraits_Perk_PottersApprentice_PerkDescription,"You trained under a potter before striking out on your own. Start with five lumps of clay, two lumps of ready-ground pigment for decorating your work, charcoal for drawing and a basket to carry it all."
 CharacterTraits_Perk_PottersApprentice_PerkName,Potter's Apprentice
 CMC_ApothecaryTrustMirror_StatName,Apothecary's Trust (player copy)
 CMC_ApothecaryTrustMirror_StatDescription,"Hidden player-side copy of the Apothecary's NPCStat trust value (cmcStatApothecaryTrust), refreshed every 5s by QuestChainSchedulePatch. Blueprint StatValues gates can only read player GameStats, never NPCStats, so this mirror exists purely to let a trust-threshold blueprint reveal (e.g. a Bear Figurine) gate on it."
@@ -2447,3 +2455,33 @@ CMC_RiverSwim_ActionName,Swim across the river
 CMC_RiverSwim_ActionDescription,"Wade in and swim for the far bank. No bridge needed, but the cold current drains most of your stamina, leaves you soaked and weary, and burns a good meal's worth of calories. Strong swimmers (Swimming 50+) cross with far less effort, and every crossing trains the skill."
 CMC_RiverSwim_ConfirmText,"Swim across? You need most of your stamina, and you will reach the far bank soaked and exhausted."
 CMC_RiverSwim_FadeMessage,You plunge into the cold current and strike out for the far bank...
+CharacterTraits_Perk_Nightcrawler_PerkName,Nightcrawler
+CharacterTraits_Perk_Nightcrawler_PerkDescription,"You suffer from a rare disease, sun harms you, while darkness nourishes you. You can only leave your dwelling at night or when you wear heavy clothing. People fear you, treating you as a freak, even a legendary creature of darkness. You realize the Inquisition will soon find you, so you fled here. In this jungle far from humanity, you can finally be yourself."
+CMC_TraitNightcrawlerSun_StatName,Sunlight Exposure
+CMC_TraitNightcrawlerSun_StatDescription,How harshly direct sunlight is falling on you. Darkness is where you belong; strong unsheltered daylight burns.
+CMC_TraitNightcrawlerSun_Status_NourishedByDarkness_Name,Nourished by Darkness
+CMC_TraitNightcrawlerSun_Status_NourishedByDarkness_Description,"Darkness nourishes you. Here, in the dark, you are stronger than anyone."
+CMC_TraitNightcrawlerSun_Status_TolerableLight_Name,Tolerable Light
+CMC_TraitNightcrawlerSun_Status_TolerableLight_Description,You can walk in the sunlight!
+CMC_TraitNightcrawlerSun_Status_HarshSunlight_Name,Harsh Sunlight
+CMC_TraitNightcrawlerSun_Status_HarshSunlight_Description,"The sunlight is very strong, you'd better hide."
+CMC_TraitNightcrawlerSun_Status_SearingSunlight_Name,Searing Sunlight
+CMC_TraitNightcrawlerSun_Status_SearingSunlight_Description,"The sunlight is too intense, you might die."
+CMC_TraitNightcrawlerSun_Status_BlazingSunlight_Name,Blazing Sunlight
+CMC_TraitNightcrawlerSun_Status_BlazingSunlight_Description,"The sun is too beautiful, it'll all be over soon!"
+CMC_TraitNightcrawlerShade_StatName,Sun Protection
+CMC_TraitNightcrawlerShade_StatDescription,"How well shaded you are from the sun. Being indoors, wearing clothing, or a Bee Suit all count."
+CMC_TraitNightcrawlerShade_Status_Unshaded_Name,Unshaded
+CMC_TraitNightcrawlerShade_Status_Unshaded_Description,"Completely unshaded, the sunlight will kill you!"
+CMC_TraitNightcrawlerShade_Status_InsufficientShade_Name,Insufficient Shade
+CMC_TraitNightcrawlerShade_Status_InsufficientShade_Description,"Insufficient shade, try not to go outside!"
+CMC_TraitNightcrawlerShade_Status_GoodShade_Name,Good Shade
+CMC_TraitNightcrawlerShade_Status_GoodShade_Description,"Good shade, you can stay outside a little longer."
+CMC_TraitNightcrawlerShade_Status_FullShade_Name,Full Shade
+CMC_TraitNightcrawlerShade_Status_FullShade_Description,"The best shade, the sunlight can no longer harm you."
+CMC_TraitNightcrawlerBurn_StatName,Sun-Scorched
+CMC_TraitNightcrawlerBurn_StatDescription,How badly the sun has burned you today. It fades in darkness or shelter.
+CMC_TraitNightcrawlerBurn_Status_CatchingFire_Name,Catching Fire
+CMC_TraitNightcrawlerBurn_Status_CatchingFire_Description,You shouldn't be in the sun! You're on fire!
+CMC_TraitNightcrawlerBurnCounter_StatName,Burn Flare Cooldown
+CMC_TraitNightcrawlerBurnCounter_StatDescription,An internal timer that keeps the burn from flaring up again right away.

@@ -5,6 +5,144 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.68.36] - 2026-09-19
+
+A new trait built from chiweichiwei's Nightcrawler design, and Sensitive Skin retired to make
+room for it. See `Documentation/Design/Nightcrawler_Trait_As_Built.md` for the full design,
+including the corrections the numbers needed.
+
+### Added
+
+- **Nightcrawler**, a new character-creation trait (Physiological tab). Darkness nourishes you
+  and sunlight harms you: in the dark your immune system strengthens, fear eases, Morale rises
+  and your alertness, tracking, chasing, escaping and ambushing all sharpen; in direct sun your
+  immune system weakens, fear rises, Morale falls, and prolonged exposure catches you on fire.
+  Parasites and gut infection barely trouble you (raw food is safer), but you are more withdrawn
+  and less trusted by others. Excludes Nyctophobia and vice versa (new pairing, Darkness).
+- **Sun-Scorched** and its warning statuses track how badly the sun has burned you today; it
+  fades in darkness or shelter, and catching fire adds the same Burn wound the base game's fire
+  spirit event does.
+
+### Changed
+
+- **Sensitive Skin** is retired from character creation, the same way 1.68.35 retired Peaceful
+  Farmer and Prospector. Existing saves that took it keep its effects; new characters cannot pick
+  it. Nightcrawler replaces it as the sun-sensitivity trait going forward.
+
+## [1.68.35] - 2026-09-19
+
+A trait rework built from a player's detailed design notes (chiweichiwei, Nexus). Where the
+design would have broken against the game's own rules it was adjusted, and each such case is
+explained below. Ships alongside CSFFModFramework 2.26.2, which carries the autosave fix noted
+at the end.
+
+### Fixed
+
+- **Trait conditions no longer sit among the weather indicators as red alerts.**
+  Nyctophobia, Agoraphobia, Lunacy and Drunkard now show as ordinary stats, with no alarm
+  border, and you can hide them like any other stat.
+- **Insomniac no longer breaks sleep deprivation.** The perk used to add its own status on top.
+  It now simply makes all four of the game's sleep-deprivation stages build faster. All four are
+  sped up together on purpose: the game only moves you to the next stage when the previous
+  stage's counter hits an exact value, so speeding up only some of them would stall you at the
+  first one. The old Insomniac stat is kept, inert, so existing saves load cleanly.
+- **Lunacy follows the moon you see.** It now reads the moon's shape, with one effect per phase
+  (New Moon and the crescents lower Morale, the waxing gibbous and full moon raise Mania, the
+  waning gibbous lowers Morale most).
+
+### Changed
+
+- **Opposite traits exclude each other**, the way the base game pairs Brave with Fainthearted:
+  Strong/Bad Kidneys, Green/Black Thumb, Abundant/Weakened Growth, Swimmer/Sinker,
+  Trollblood/Bleeder, Spiritually Harmonious/Troubled, Weak Courage/Cowardice/Brave/Fainthearted,
+  Agoraphobia/Claustrophobic/Homebody, and Fugitive/Lost Tourist.
+- **Traits are sorted and filed in the right tabs.** Village Inn, Village Pathfinder, Weakened
+  Growth, Trapper and Angler move to Situational, Lost Tourist to Psychological, Graduate and
+  Claws to Knowledge, Drunkard to Physiological, and each tab lists the mod's traits in a fixed
+  order.
+- **Nyctophobia** has four levels of darkness and light: Pitch Black (Fear +100, Stress climbing
+  fast), Darkness (Fear +80), Light (a little Courage) and Bright Light (Courage +26, Stress
+  easing).
+- **Drunkard** starts you in pain and craving: Stress rises, Gratification falls, Pain +75. Each
+  level past sober (Alcohol Addiction) raises thirst and steadies your mind: Finally a Drink,
+  Satisfied and I Won't Get Drunk!, the last two also settling Nausea.
+- **Agoraphobia** also carries the base game's Homebody effect. Outdoors you are Exposed to the
+  Wilderness (Fear +40, Stress rising); in shelter you are Feeling Safe.
+- **Fugitive** starts with Stress 144 and Fear 60 and keeps a steady Courage +25.
+- **Bad Kidneys / Strong Kidneys** now change how fast Wolfsbane, Witchstone and Fireroot
+  poisoning build up (faster / slower).
+- **Trapper** (15 Suns) starts with a Snare Trap, Log Trap, Cage and Hideout instead of a
+  Trapping skill boost. **Angler** (15 Suns) keeps its rod; its Fishing Aid moved to the Fishing
+  graduate perk. **Troglodyte** gives Flint Knack instead of Climbing. **Exiled Artist** no longer
+  starts with cards. **Potter's Apprentice** starts with five Clay, two ground pigments, Charcoal
+  and a Basket. **Mineral Rich** takes over from Prospector and starts with six Greenstone, three
+  Flint, a Sharpened Stone, a Small Stone and a Heavy Stone.
+- **Lost Tourist** (+25) and **Leper** (-50) change Empathy instead of Socials. **Green / Black
+  Thumb** work through Fertility Boon. The **Metallurgy** and **Armorer** graduate perks add
+  Smithing +25; **Architecture** and **Carpentry** grant Beaver Blessing.
+- **Herbalism graduate:** the description now explains that its doubled forage chance is
+  applied when you forage, so drop-chance lists (including WikiMod's) show the base figure.
+
+### Removed
+
+- **Peaceful Farmer** and **Prospector** are no longer offered at character creation. Saves that
+  took either keep it.
+
+### Also in this release
+
+- **The "I can't do two things at once..." freeze after a day passes** (Dory22's report) came
+  from CSFFModFramework removing cards without taking them off the game's card list. The next
+  autosave then crashed partway and locked every action until restart. This is fixed in
+  CSFFModFramework 2.26.2, which also cleans up any such leftover entries before each save.
+
+## [1.68.34] - 2026-09-19
+
+### Fixed
+
+- **The Town Achievement Board shows all eleven achievements.** 1.68.24's compact layout still did
+  not fit: the board's opening description, the earned count and the eleven lines came to one line
+  more than its text box holds, so the last entry, Stinky Jar, was cut off (the game's own layout
+  check logged it as truncated on a fresh save). The board now opens straight on the earned count
+  and the list, with room to spare.
+- **No false "cut off" warning when a village board opens.** That layout check could measure a
+  board's text before the popup had laid it out, and logged a `lines=0 truncated=True` Warning for
+  a board that was not truncated. It now skips a text that has not been laid out yet.
+
+## [1.68.33] - 2026-09-19
+
+### Fixed
+
+- **Wild Garlic can be foraged again.** Since August the Village Farm (15%) and Foraging Forest
+  (8%) garlic drops named the card by a label the game does not look up, so neither forage ever
+  gave garlic, and Herb Paste had no local source of one of its two ingredients. Both drops now
+  name the real card.
+- **Sensitive Skin really burns now.** 1.68.30 made harsh, unsheltered sunlight add Sunburn, but
+  the game caps Sunburn so it can only fall on its own, which silently cancelled the trait. The mod
+  now lifts that cap to the game's own strongest sun rate, so the trait's Sunburn builds as 1.68.30
+  described. Nothing else in the base game raises Sunburn today, so this changes no other character.
+
+## [1.68.32] - 2026-09-18
+
+### Changed
+
+- **Fifteen cards that showed a picture of a different object now have their own art.** The
+  Wheeled Horse, Hunting Stand, Hunting Stand Kit and Plank Causeway were all showing a plank; the
+  Spinning Top and the Club a long stick; the Bone Dice a pile of bones; the Clay Ocarina a flute;
+  the Burglar's Kit an iron chisel; the Water Jug a waterskin; the Cloth Mask a cloth coif; the
+  Ration Tray a clay plate; and Hollow Sage, Silverwort Blossom and the Herb Poultice all shared the
+  Healer's Moss picture. Their blueprints show the new art too.
+- **The plain Market Stall has its own picture.** It was showing the same awning and goods as the
+  dressed stall; it is now a bare wooden stall frame, and the dressed stall keeps that art.
+
+## [1.68.31] - 2026-09-18
+
+### Changed
+
+- **The Miller now looks like the same man everywhere he goes.** His Inn, Academy and Cottage
+  portraits were redrawn to match his village portrait: same face, silver hair, blue shirt and
+  flour-dusted apron, in the same ink style. Each one is now set in the room you actually visit: the
+  Inn common room, the Academy workshop and his own cottage, matching those locations' cards.
+
 ## [1.68.30] - 2026-09-17
 
 ### Changed

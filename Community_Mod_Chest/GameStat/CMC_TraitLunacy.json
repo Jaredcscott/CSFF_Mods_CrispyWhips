@@ -3,16 +3,16 @@
     "GameName": {
         "ParentObjectID": "cmcStatTraitLunacy",
         "LocalizationKey": "CMC_TraitLunacy_StatName",
-        "DefaultText": "Lunacy"
+        "DefaultText": "Moon-Bound"
     },
     "Description": {
         "ParentObjectID": "cmcStatTraitLunacy",
         "LocalizationKey": "CMC_TraitLunacy_StatDescription",
-        "DefaultText": "The pull the moon has on you. It tightens as the moon waxes, peaks at the full moon and lets go as the moon wanes."
+        "DefaultText": "How the moon pulls at your mind, phase by phase."
     },
     "IsRuntimeOnly": false,
     "BaseValue": 0.0,
-    "MinMaxValue": {"x": 0.0, "y": 11000.0},
+    "MinMaxValue": {"x": 0.0, "y": 16.0},
     "BaseRatePerTick": 0.0,
     "MinMaxRate": {"x": 0.0, "y": 0.0},
     "Transfers": [],
@@ -20,7 +20,7 @@
     "CompositeStats": [
         {
             "Stat": {"m_FileID": 0, "m_PathID": 0},
-            "StatWarpData": "ce3992a2cae94bf4795433f21284ce2c",
+            "StatWarpData": "b9eb12da7bd636844808414c9748f879",
             "StatWarpType": 3,
             "Scale": {"Active": false, "FloatValue": 0.0}
         }
@@ -33,7 +33,7 @@
     "InvertedDirection": false,
     "VisibleValueRange": {"x": 0.0, "y": 0.0},
     "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
-    "StatusesHaveNoBar": true,
+    "StatusesHaveNoBar": false,
     "DefaultStatusName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
     "DefaultStatusDescription": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
     "DefaultStatusIcon": {"m_FileID": 0, "m_PathID": 0},
@@ -41,13 +41,13 @@
         {
             "GameName": {
                 "ParentObjectID": "cmcStatTraitLunacy",
-                "LocalizationKey": "CMC_TraitLunacy_Status_WaxingCrescent_Name",
-                "DefaultText": "Moon-Drawn Unease"
+                "LocalizationKey": "CMC_TraitLunacy_Status_NewMoon_Name",
+                "DefaultText": "New Moon"
             },
             "Description": {
                 "ParentObjectID": "cmcStatTraitLunacy",
-                "LocalizationKey": "CMC_TraitLunacy_Status_WaxingCrescent_Description",
-                "DefaultText": "The crescent moon is growing. It sets your nerves slightly on edge."
+                "LocalizationKey": "CMC_TraitLunacy_Status_NewMoon_Description",
+                "DefaultText": "She's completely gone from me!"
             },
             "StatusLog": {
                 "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
@@ -55,17 +55,17 @@
                 "TicksToRegister": 0
             },
             "Icon": {"m_FileID": 0, "m_PathID": 0},
-            "IconWarpData": "Moon",
+            "IconWarpData": "Moon_New",
             "IconWarpType": 3,
-            "ValueRange": {"x": 10096, "y": 10287},
+            "ValueRange": {"x": 11, "y": 11},
             "UsePercentageForRange": false,
             "EffectsOnStats": [
                 {
                     "Stat": {"m_FileID": 0, "m_PathID": 0},
-                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
                     "StatWarpType": 3,
                     "ValueModifier": {"x": 0.0, "y": 0.0},
-                    "RateModifier": {"x": 0.1, "y": 0.1},
+                    "RateModifier": {"x": -0.5, "y": -0.5},
                     "MinValueModifier": {"x": 0.0, "y": 0.0},
                     "MaxValueModifier": {"x": 0.0, "y": 0.0},
                     "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
@@ -77,9 +77,60 @@
             ],
             "EffectsOnNPCStats": [],
             "EffectsOnActions": [],
-            "NotifyPlayer": 2,
+            "NotifyPlayer": 0,
             "RepeatTextNotification": 0,
-            "AlertLevel": 1,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        },
+        {
+            "GameName": {
+                "ParentObjectID": "cmcStatTraitLunacy",
+                "LocalizationKey": "CMC_TraitLunacy_Status_WaxingCrescent_Name",
+                "DefaultText": "Waxing Crescent"
+            },
+            "Description": {
+                "ParentObjectID": "cmcStatTraitLunacy",
+                "LocalizationKey": "CMC_TraitLunacy_Status_WaxingCrescent_Description",
+                "DefaultText": "She's finally appeared."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Moon_WaxingCrescent",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 12, "y": 12},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": -0.25, "y": -0.25},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 0,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
             "AlertSounds": [],
             "RepeatAlertSounds": 0,
             "AmbientSounds": [],
@@ -93,12 +144,12 @@
             "GameName": {
                 "ParentObjectID": "cmcStatTraitLunacy",
                 "LocalizationKey": "CMC_TraitLunacy_Status_WaxingGibbous_Name",
-                "DefaultText": "Moon-Drawn Tension"
+                "DefaultText": "Waxing Gibbous"
             },
             "Description": {
                 "ParentObjectID": "cmcStatTraitLunacy",
                 "LocalizationKey": "CMC_TraitLunacy_Status_WaxingGibbous_Description",
-                "DefaultText": "The moon is nearly full. Its pull winds you tighter and your stress builds faster."
+                "DefaultText": "She's coming soon!"
             },
             "StatusLog": {
                 "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
@@ -106,17 +157,17 @@
                 "TicksToRegister": 0
             },
             "Icon": {"m_FileID": 0, "m_PathID": 0},
-            "IconWarpData": "Moon",
+            "IconWarpData": "Moon_WaxingGibbous",
             "IconWarpType": 3,
-            "ValueRange": {"x": 10288, "y": 10479},
+            "ValueRange": {"x": 13, "y": 13},
             "UsePercentageForRange": false,
             "EffectsOnStats": [
                 {
                     "Stat": {"m_FileID": 0, "m_PathID": 0},
-                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpData": "f751dec5f8794f341b1e073037211a6a",
                     "StatWarpType": 3,
-                    "ValueModifier": {"x": 0.0, "y": 0.0},
-                    "RateModifier": {"x": 0.25, "y": 0.25},
+                    "ValueModifier": {"x": 500.0, "y": 500.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
                     "MinValueModifier": {"x": 0.0, "y": 0.0},
                     "MaxValueModifier": {"x": 0.0, "y": 0.0},
                     "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
@@ -128,9 +179,9 @@
             ],
             "EffectsOnNPCStats": [],
             "EffectsOnActions": [],
-            "NotifyPlayer": 2,
+            "NotifyPlayer": 0,
             "RepeatTextNotification": 0,
-            "AlertLevel": 1,
+            "AlertLevel": 0,
             "AlertSounds": [],
             "RepeatAlertSounds": 0,
             "AmbientSounds": [],
@@ -144,12 +195,12 @@
             "GameName": {
                 "ParentObjectID": "cmcStatTraitLunacy",
                 "LocalizationKey": "CMC_TraitLunacy_Status_FullMoon_Name",
-                "DefaultText": "Full Moon Frenzy"
+                "DefaultText": "Full Moon"
             },
             "Description": {
                 "ParentObjectID": "cmcStatTraitLunacy",
                 "LocalizationKey": "CMC_TraitLunacy_Status_FullMoon_Description",
-                "DefaultText": "The moon is full. Your stress climbs and an urge to be out under the moonlit sky grows in you. Left unanswered, the urge feeds your stress."
+                "DefaultText": "I see her! She sees me too!"
             },
             "StatusLog": {
                 "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
@@ -159,29 +210,15 @@
             "Icon": {"m_FileID": 0, "m_PathID": 0},
             "IconWarpData": "Moon",
             "IconWarpType": 3,
-            "ValueRange": {"x": 10480, "y": 10575},
+            "ValueRange": {"x": 14, "y": 14},
             "UsePercentageForRange": false,
             "EffectsOnStats": [
                 {
                     "Stat": {"m_FileID": 0, "m_PathID": 0},
-                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpData": "f751dec5f8794f341b1e073037211a6a",
                     "StatWarpType": 3,
-                    "ValueModifier": {"x": 0.0, "y": 0.0},
-                    "RateModifier": {"x": 0.5, "y": 0.5},
-                    "MinValueModifier": {"x": 0.0, "y": 0.0},
-                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
-                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
-                    "ApplyEachTick": false,
-                    "InstantModifier": false,
-                    "IgnoreNovelty": false,
-                    "IsInverse": false
-                },
-                {
-                    "Stat": {"m_FileID": 0, "m_PathID": 0},
-                    "StatWarpData": "14299b1bc4e675548a9aa45fde88ac86",
-                    "StatWarpType": 3,
-                    "ValueModifier": {"x": 0.0, "y": 0.0},
-                    "RateModifier": {"x": 1.5, "y": 1.5},
+                    "ValueModifier": {"x": 1000.0, "y": 1000.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
                     "MinValueModifier": {"x": 0.0, "y": 0.0},
                     "MaxValueModifier": {"x": 0.0, "y": 0.0},
                     "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
@@ -193,9 +230,111 @@
             ],
             "EffectsOnNPCStats": [],
             "EffectsOnActions": [],
-            "NotifyPlayer": 2,
+            "NotifyPlayer": 0,
             "RepeatTextNotification": 0,
-            "AlertLevel": 2,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        },
+        {
+            "GameName": {
+                "ParentObjectID": "cmcStatTraitLunacy",
+                "LocalizationKey": "CMC_TraitLunacy_Status_WaningGibbous_Name",
+                "DefaultText": "Waning Gibbous"
+            },
+            "Description": {
+                "ParentObjectID": "cmcStatTraitLunacy",
+                "LocalizationKey": "CMC_TraitLunacy_Status_WaningGibbous_Description",
+                "DefaultText": "No! Don't leave me!"
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Moon_WaningGibbous",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 15, "y": 15},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": -1.0, "y": -1.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 0,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        },
+        {
+            "GameName": {
+                "ParentObjectID": "cmcStatTraitLunacy",
+                "LocalizationKey": "CMC_TraitLunacy_Status_WaningCrescent_Name",
+                "DefaultText": "Waning Crescent"
+            },
+            "Description": {
+                "ParentObjectID": "cmcStatTraitLunacy",
+                "LocalizationKey": "CMC_TraitLunacy_Status_WaningCrescent_Description",
+                "DefaultText": "I miss her so much!"
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Moon_WaningCrescent",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 16, "y": 16},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "4a27fb5da9326b545a5ef73f2b80316e",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": -0.75, "y": -0.75},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 0,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
             "AlertSounds": [],
             "RepeatAlertSounds": 0,
             "AmbientSounds": [],

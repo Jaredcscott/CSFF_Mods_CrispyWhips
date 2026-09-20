@@ -1,0 +1,38 @@
+{
+  "target": "CMC_BurglarsKit.png",
+  "sourceCard": "CardData/Item/CMC_BurglarsKit.json",
+  "subject": "a crude lock pick bent and filed from a small dull grey scrap of metal, lashed with wound rope to one end of a short iron pry bar so the rope forms a grip, lying diagonally",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a crude lock pick bent and filed from a small dull grey scrap of metal, lashed with wound rope to one end of a short iron pry bar so the rope forms a grip, lying diagonally, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, leather tool roll, chisel, lock, key ring, several tools, bag.",
+  "historyId": "X3YCtu7UwZQ2sySxQFsn",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783324948_77651bb3_1789783325321_6c94796c.png",
+  "credits": 90,
+  "generated": "2026-09-18",
+  "note": "Revamp of a card that borrowed a vanilla sprite showing a different object. Claude picked C from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed). Repointed CardImageWarpData from 'Chisel_Iron' on CardData/Item/CMC_BurglarsKit.json, CardData/Blueprint/Bp_CMC_BurglarsKit.json.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783325764_b857569d_1789783326375_1ab6036e.png",
+      "verdict": "pick and pry claw lashed together; the two tools blur into one"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783326064_a0917454_1789783326471_702a8e52.png",
+      "verdict": "long pick lashed to a bar; pry bar reads as a handle"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783324948_77651bb3_1789783325321_6c94796c.png",
+      "verdict": "PICK: hooked iron pry bar with a slim bent pick lashed to one end, the rope wrap forming the grip"
+    }
+  ],
+  "picked": "C",
+  "predicted": "C"
+}

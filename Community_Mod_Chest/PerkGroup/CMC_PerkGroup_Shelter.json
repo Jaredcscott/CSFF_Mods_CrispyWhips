@@ -1,0 +1,11 @@
+{
+    "UniqueID": "cmcPerkGroupShelter",
+    "GroupName": {
+        "ParentObjectID": "cmcPerkGroupShelter",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "Open Spaces"
+    },
+    "PerksList": [],
+    "PerksListWarpData": ["traitsperkagoraphobia", "4bd989664061f274390d6a5743b36242", "1edeaa716a086044595df78ef6463dfd"],
+    "PerksListWarpType": 3
+}

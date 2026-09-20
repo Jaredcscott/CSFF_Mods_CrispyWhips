@@ -95,6 +95,7 @@
         <Content Include="BlueprintTabs.json" CopyToOutputDirectory="PreserveNewest" Condition="Exists('BlueprintTabs.json')" />
         <Content Include="CardData\**\*.json" CopyToOutputDirectory="PreserveNewest" Link="CardData\%(RecursiveDir)%(Filename)%(Extension)" />
         <Content Include="CharacterPerk\*.json" CopyToOutputDirectory="PreserveNewest" Link="CharacterPerk\%(Filename)%(Extension)" />
+        <Content Include="PerkGroup\*.json" CopyToOutputDirectory="PreserveNewest" Link="PerkGroup\%(Filename)%(Extension)" Condition="Exists('PerkGroup')" />
         <Content Include="NPCAgent\*.json" CopyToOutputDirectory="PreserveNewest" Link="NPCAgent\%(Filename)%(Extension)" Condition="Exists('NPCAgent')" />
         <Content Include="NPCStat\*.json" CopyToOutputDirectory="PreserveNewest" Link="NPCStat\%(Filename)%(Extension)" Condition="Exists('NPCStat')" />
         <Content Include="NPCCharacterPerk\*.json" CopyToOutputDirectory="PreserveNewest" Link="NPCCharacterPerk\%(Filename)%(Extension)" Condition="Exists('NPCCharacterPerk')" />

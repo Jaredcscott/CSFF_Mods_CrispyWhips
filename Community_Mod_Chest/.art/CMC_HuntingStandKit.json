@@ -1,0 +1,38 @@
+{
+  "target": "CMC_HuntingStandKit.png",
+  "sourceCard": "CardData/Item/HuntingStandKit.json",
+  "subject": "a bundle of rough wooden planks and two long straight poles lying horizontally, tied together with coils of rope, a spare coil of rope lashed on top",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a bundle of rough wooden planks and two long straight poles lying horizontally, tied together with coils of rope, a spare coil of rope lashed on top, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, tree, assembled platform, ladder, cart, saw, axe.",
+  "historyId": "fv6g97Xix2BO3l7tbLOL",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783717680_2706c10c_1789783718317_4f014a56.png",
+  "credits": 90,
+  "generated": "2026-09-18",
+  "note": "Revamp of a card that borrowed a vanilla sprite showing a different object. Claude picked C from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed). Repointed CardImageWarpData from 'Plank' on CardData/Item/HuntingStandKit.json, CardData/Blueprint/Bp_HuntingStand.json.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783716603_2ec53537_1789783717149_aa1621a7.png",
+      "verdict": "planks and rope coil; poles hard to tell from planks"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783717023_a4d25175_1789783717261_b22d5355.png",
+      "verdict": "bundle tied with a bow; no spare rope coil"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783717680_2706c10c_1789783718317_4f014a56.png",
+      "verdict": "PICK: rough planks with two long poles clearly protruding, tied with rope, a spare coil lashed on top"
+    }
+  ],
+  "picked": "C",
+  "predicted": "C"
+}

@@ -1,0 +1,11 @@
+{
+    "UniqueID": "cmcPerkGroupThumb",
+    "GroupName": {
+        "ParentObjectID": "cmcPerkGroupThumb",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "Crops"
+    },
+    "PerksList": [],
+    "PerksListWarpData": ["traits_perk_green_thumb", "traitsperkblackthumb"],
+    "PerksListWarpType": 3
+}

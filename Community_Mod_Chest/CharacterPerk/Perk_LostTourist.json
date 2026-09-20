@@ -6,13 +6,13 @@
     "AddedCardsWarpType": 3,
     "AddedStartingHours": 0,
     "CardsOnBoardObjectives": [],
-    "CharacterPerkPerkGroup": "72120cda8e1cef540b1b25118dd7edaa",
+    "CharacterPerkPerkGroup": "335cd7a47a90df5419abc30a4105db1a",
     "CheckingNotificationDetails": 0,
     "CompleteOnLose": false,
     "CompleteOnWin": false,
     "DebugCompletion": false,
     "DifficultyRating": 100,
-    "DisplayPriority": 2548.0,
+    "DisplayPriority": 56.5,
     "EditorOnly": false,
     "EquippedCards": [],
     "EquippedCardsWarpData": [],
@@ -97,10 +97,43 @@
             "InstantModifier": false,
             "IgnoreNovelty": false,
             "IsInverse": false
+        },
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatWarpData": "93c8d624eb40ea94e8e1e5a4b2ea2ad9",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": 25.0,
+                "y": 25.0
+            },
+            "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false
         }
     ],
     "PerkDescription": {
-        "DefaultText": "You stumbled into this wilderness entirely by accident. You miss civilization and familiar faces. Start with some social skills, but loneliness and stress build faster in the wild.",
+        "DefaultText": "You stumbled into this wilderness entirely by accident. You miss civilization and the people you left behind, so you feel for others more than most, but loneliness and stress build faster in the wild.",
         "LocalizationKey": "CharacterTraits_Perk_LostTourist_PerkDescription",
         "ParentObjectID": "traitsperklosttourist"
     },
@@ -134,39 +167,6 @@
                 "m_PathID": 0
             },
             "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
-            "StatWarpType": 3,
-            "ValueModifier": {
-                "x": 30.0,
-                "y": 30.0
-            },
-            "RateModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "MinValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "MaxValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "CannotModifyBeyond": {
-                "Active": false,
-                "FloatValue": 0.0,
-                "MaxValue": 0.0
-            },
-            "ApplyEachTick": false,
-            "InstantModifier": false,
-            "IgnoreNovelty": false,
-            "IsInverse": false
-        },
-        {
-            "Stat": {
-                "m_FileID": 0,
-                "m_PathID": 0
-            },
-            "StatWarpData": "59e9ebfecfacb154b8436e93f094b316",
             "StatWarpType": 3,
             "ValueModifier": {
                 "x": 30.0,

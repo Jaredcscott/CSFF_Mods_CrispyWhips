@@ -9,7 +9,7 @@
         "LocalizationKey": "CMC_ClayOcarina_CardDescription",
         "DefaultText": "A palm-sized ocarina shaped from fired clay, its finger holes worn smooth by handling. Simple, but it holds a tune well enough to catch a wary animal's ear."
     },
-    "CardImageWarpData": "Flute",
+    "CardImageWarpData": "CMC_ClayOcarina",
     "CardImageWarpType": 3,
     "CardTagsWarpData": [],
     "CardTagsWarpType": 3,

@@ -1,0 +1,11 @@
+{
+    "UniqueID": "cmcPerkGroupKidneys",
+    "GroupName": {
+        "ParentObjectID": "cmcPerkGroupKidneys",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "Kidneys"
+    },
+    "PerksList": [],
+    "PerksListWarpData": ["traits_perk_bad_kidneys", "traits_perk_strong_kidneys"],
+    "PerksListWarpType": 3
+}

@@ -1,0 +1,11 @@
+{
+    "UniqueID": "cmcPerkGroupSpirit",
+    "GroupName": {
+        "ParentObjectID": "cmcPerkGroupSpirit",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "Spirits"
+    },
+    "PerksList": [],
+    "PerksListWarpData": ["traits_perk_spiritually_harmonious", "traits_perk_spiritually_troubled"],
+    "PerksListWarpType": 3
+}

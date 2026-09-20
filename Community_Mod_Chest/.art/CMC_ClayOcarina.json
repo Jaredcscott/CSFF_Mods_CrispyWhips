@@ -1,0 +1,38 @@
+{
+  "target": "CMC_ClayOcarina.png",
+  "sourceCard": "CardData/Item/CMC_ClayOcarina.json",
+  "subject": "one palm-sized ocarina of fired reddish-brown clay shaped like a rounded egg, a short mouthpiece jutting from one end, several small round finger holes on top, worn smooth",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of one palm-sized ocarina of fired reddish-brown clay shaped like a rounded egg, a short mouthpiece jutting from one end, several small round finger holes on top, worn smooth, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, flute, recorder, long pipe, animal shape, string, glaze.",
+  "historyId": "99eWyzAFsoxCcoWcYYvn",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783322179_a28080f8_1789783322403_bcf1a6f6.png",
+  "credits": 90,
+  "generated": "2026-09-18",
+  "note": "Revamp of a card that borrowed a vanilla sprite showing a different object. Claude picked B from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed). Repointed CardImageWarpData from 'Flute' on CardData/Item/CMC_ClayOcarina.json, CardData/Blueprint/Bp_CMC_ClayOcarina.json.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783324343_ab6158d6_1789783325166_43a51c86.png",
+      "verdict": "flatter egg, holes crowded"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783322179_a28080f8_1789783322403_bcf1a6f6.png",
+      "verdict": "PICK: rounded egg of reddish-brown clay, short mouthpiece, finger holes on top, worn smooth"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783322678_f6027c0d_1789783323646_1dcbd835.png",
+      "verdict": "mottled surface, reads rough rather than worn smooth"
+    }
+  ],
+  "picked": "B",
+  "predicted": "B"
+}

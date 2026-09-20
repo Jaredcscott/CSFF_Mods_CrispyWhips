@@ -8,11 +8,11 @@
     "Description": {
         "ParentObjectID": "cmcStatTraitNyctophobia",
         "LocalizationKey": "CMC_TraitNyctophobia_StatDescription",
-        "DefaultText": "Your fear of the dark. It flares in darkness and fades when there is light."
+        "DefaultText": "Your fear of the dark. The less light around you, the worse it gets, and bright light makes you bold."
     },
     "IsRuntimeOnly": false,
     "BaseValue": 0.0,
-    "MinMaxValue": {"x": 0.0, "y": 1100.0},
+    "MinMaxValue": {"x": 0.0, "y": 210.0},
     "BaseRatePerTick": 0.0,
     "MinMaxRate": {"x": 0.0, "y": 0.0},
     "Transfers": [],
@@ -33,7 +33,7 @@
     "InvertedDirection": false,
     "VisibleValueRange": {"x": 0.0, "y": 0.0},
     "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
-    "StatusesHaveNoBar": true,
+    "StatusesHaveNoBar": false,
     "DefaultStatusName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
     "DefaultStatusDescription": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
     "DefaultStatusIcon": {"m_FileID": 0, "m_PathID": 0},
@@ -42,12 +42,12 @@
             "GameName": {
                 "ParentObjectID": "cmcStatTraitNyctophobia",
                 "LocalizationKey": "CMC_TraitNyctophobia_Status_VeryDark_Name",
-                "DefaultText": "Terrified of the Dark"
+                "DefaultText": "Pitch Black"
             },
             "Description": {
                 "ParentObjectID": "cmcStatTraitNyctophobia",
                 "LocalizationKey": "CMC_TraitNyctophobia_Status_VeryDark_Description",
-                "DefaultText": "Total darkness. Your fear has you frightened and your stress is rising."
+                "DefaultText": "I can't see anything! I hear something approaching!"
             },
             "StatusLog": {
                 "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
@@ -55,16 +55,16 @@
                 "TicksToRegister": 0
             },
             "Icon": {"m_FileID": 0, "m_PathID": 0},
-            "IconWarpData": "Skull&Bones",
+            "IconWarpData": "Darkness",
             "IconWarpType": 3,
-            "ValueRange": {"x": 1000, "y": 1000},
+            "ValueRange": {"x": 110, "y": 110},
             "UsePercentageForRange": false,
             "EffectsOnStats": [
                 {
                     "Stat": {"m_FileID": 0, "m_PathID": 0},
                     "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
                     "StatWarpType": 3,
-                    "ValueModifier": {"x": 45.0, "y": 45.0},
+                    "ValueModifier": {"x": 100.0, "y": 100.0},
                     "RateModifier": {"x": 0.0, "y": 0.0},
                     "MinValueModifier": {"x": 0.0, "y": 0.0},
                     "MaxValueModifier": {"x": 0.0, "y": 0.0},
@@ -79,7 +79,7 @@
                     "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
                     "StatWarpType": 3,
                     "ValueModifier": {"x": 0.0, "y": 0.0},
-                    "RateModifier": {"x": 0.5, "y": 0.5},
+                    "RateModifier": {"x": 4.0, "y": 4.0},
                     "MinValueModifier": {"x": 0.0, "y": 0.0},
                     "MaxValueModifier": {"x": 0.0, "y": 0.0},
                     "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
@@ -91,9 +91,9 @@
             ],
             "EffectsOnNPCStats": [],
             "EffectsOnActions": [],
-            "NotifyPlayer": 3,
+            "NotifyPlayer": 0,
             "RepeatTextNotification": 0,
-            "AlertLevel": 2,
+            "AlertLevel": 0,
             "AlertSounds": [],
             "RepeatAlertSounds": 0,
             "AmbientSounds": [],
@@ -107,12 +107,12 @@
             "GameName": {
                 "ParentObjectID": "cmcStatTraitNyctophobia",
                 "LocalizationKey": "CMC_TraitNyctophobia_Status_Dark_Name",
-                "DefaultText": "Uneasy in the Dark"
+                "DefaultText": "Darkness"
             },
             "Description": {
                 "ParentObjectID": "cmcStatTraitNyctophobia",
                 "LocalizationKey": "CMC_TraitNyctophobia_Status_Dark_Description",
-                "DefaultText": "The light is dim. Your fear of the dark keeps you on edge."
+                "DefaultText": "Something is moving in the darkness! I definitely see it!"
             },
             "StatusLog": {
                 "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
@@ -120,16 +120,16 @@
                 "TicksToRegister": 0
             },
             "Icon": {"m_FileID": 0, "m_PathID": 0},
-            "IconWarpData": "Stress",
+            "IconWarpData": "Darkness",
             "IconWarpType": 3,
-            "ValueRange": {"x": 1001, "y": 1010},
+            "ValueRange": {"x": 111, "y": 120},
             "UsePercentageForRange": false,
             "EffectsOnStats": [
                 {
                     "Stat": {"m_FileID": 0, "m_PathID": 0},
                     "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
                     "StatWarpType": 3,
-                    "ValueModifier": {"x": 20.0, "y": 20.0},
+                    "ValueModifier": {"x": 80.0, "y": 80.0},
                     "RateModifier": {"x": 0.0, "y": 0.0},
                     "MinValueModifier": {"x": 0.0, "y": 0.0},
                     "MaxValueModifier": {"x": 0.0, "y": 0.0},
@@ -144,7 +144,7 @@
                     "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
                     "StatWarpType": 3,
                     "ValueModifier": {"x": 0.0, "y": 0.0},
-                    "RateModifier": {"x": 0.25, "y": 0.25},
+                    "RateModifier": {"x": 2.0, "y": 2.0},
                     "MinValueModifier": {"x": 0.0, "y": 0.0},
                     "MaxValueModifier": {"x": 0.0, "y": 0.0},
                     "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
@@ -156,9 +156,125 @@
             ],
             "EffectsOnNPCStats": [],
             "EffectsOnActions": [],
-            "NotifyPlayer": 3,
+            "NotifyPlayer": 0,
             "RepeatTextNotification": 0,
-            "AlertLevel": 1,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        },
+        {
+            "GameName": {
+                "ParentObjectID": "cmcStatTraitNyctophobia",
+                "LocalizationKey": "CMC_TraitNyctophobia_Status_Light_Name",
+                "DefaultText": "Light"
+            },
+            "Description": {
+                "ParentObjectID": "cmcStatTraitNyctophobia",
+                "LocalizationKey": "CMC_TraitNyctophobia_Status_Light_Description",
+                "DefaultText": "I have light in my hand!"
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Spirit_Fire",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 121, "y": 160},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "3d37dbda5252dc14cb772b4c5e739916",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 1.0, "y": 1.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 0,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        },
+        {
+            "GameName": {
+                "ParentObjectID": "cmcStatTraitNyctophobia",
+                "LocalizationKey": "CMC_TraitNyctophobia_Status_BrightLight_Name",
+                "DefaultText": "Bright Light"
+            },
+            "Description": {
+                "ParentObjectID": "cmcStatTraitNyctophobia",
+                "LocalizationKey": "CMC_TraitNyctophobia_Status_BrightLight_Description",
+                "DefaultText": "The sun will protect me!"
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Sun",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 161, "y": 210},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "3d37dbda5252dc14cb772b4c5e739916",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 26.0, "y": 26.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": -1.0, "y": -1.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 0,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
             "AlertSounds": [],
             "RepeatAlertSounds": 0,
             "AmbientSounds": [],

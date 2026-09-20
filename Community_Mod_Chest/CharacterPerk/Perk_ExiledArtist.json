@@ -2,12 +2,7 @@
     "ActionModifiers": [],
     "ActionObjectives": [],
     "AddedCards": [],
-    "AddedCardsWarpData": [
-        "68c14d265ea6c874ba79444d2e1ef7b3",
-        "68c14d265ea6c874ba79444d2e1ef7b3",
-        "51c751469bd15ce46804e399479d1764",
-        "694cdedcfd63f354099aea87a53aa496"
-    ],
+    "AddedCardsWarpData": [],
     "AddedCardsWarpType": 3,
     "AddedStartingHours": 0,
     "CardsOnBoardObjectives": [],
@@ -17,7 +12,7 @@
     "CompleteOnWin": false,
     "DebugCompletion": false,
     "DifficultyRating": -200,
-    "DisplayPriority": 2362.0,
+    "DisplayPriority": 40.0,
     "EditorOnly": false,
     "EquippedCards": [],
     "EquippedCardsWarpData": [],
@@ -38,7 +33,7 @@
     },
     "PassiveStatModifiers": [],
     "PerkDescription": {
-        "DefaultText": "Forced from your homeland, you carry your craft with you. Start with a head start in Pottery, two lumps of clay for sculpting, charcoal for pigment, and a basket to carry your work.",
+        "DefaultText": "Forced from your homeland, you carry your craft in your hands. Start with a head start in Pottery.",
         "LocalizationKey": "CharacterTraits_Perk_ExiledArtist_PerkDescription",
         "ParentObjectID": "traits_perk_exiled_artist"
     },

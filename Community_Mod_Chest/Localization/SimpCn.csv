@@ -107,17 +107,17 @@ Combat_And_Armor_Bp_BoneLamellar_CardName,Bone Lamellar Armor,骨甲
 Combat_And_Armor_Bp_BoneLamellar_CardDescription,Assemble overlapping bone plates into torso armor.,将层叠的骨板组装成躯干护甲。
 Combat_And_Armor_Bp_BoneLamellar_UnlockConditionsDesc,Bring the Professor bones or antler for his reconstruction,为教授的复原工作带来骨头或鹿角
 CharacterTraits_Perk_Angler_PerkName,Angler,垂钓者
-CharacterTraits_Perk_Angler_PerkDescription,"You've spent years by the water. Start with an iron fishing rod, line and bait, and keep a steady Fishing Aid as strong as one spirit blessing.",你在水边度过了许多年岁月。开局携带铁制钓竿、钓鱼线与鱼饵，并始终保有相当于一次精魄赐福的捕鱼援助。
+CharacterTraits_Perk_Angler_PerkDescription,"You've spent years by the water. Start with an iron fishing rod, fishing line and bait.",你在水边度过了许多年。开局携带一根铁钓竿、钓鱼线和鱼饵。
 CharacterTraits_Perk_GreenThumb_PerkName,Green Thumb,绿手指
-CharacterTraits_Perk_GreenThumb_PerkDescription,"Plants thrive under your care. Start with Turnroot seeds, Meadowgrass seeds and a Flint Hoe, and keep a steady Foraging Aid as strong as one spirit blessing. A Wild Growth blessing also lasts longer for you.",在你的照料下，植物长势喜人。开局携带翻根种子、牧草种子与燧石锄，并始终保有相当于一次精魄赐福的觅食援助。野性成长的赐福在你身上也会持续更久。
+CharacterTraits_Perk_GreenThumb_PerkDescription,"Plants thrive under your care. Start with Turnroot seeds, Meadowgrass seeds and a Flint Hoe, and keep a steady Fertility Boon for the crops you plant, as strong as one spirit blessing. A Wild Growth blessing also lasts longer for you.",植物在你的照料下茁壮成长。开局携带芜菁根种子、草甸草种子和一把燧石锄，并为你亲手种下的作物持续获得相当于一次精灵赐福的丰饶福祉。野性成长赐福在你身上也会持续更久。
 CharacterTraits_Perk_StrongKidneys_PerkName,Strong Kidneys,强肾
-CharacterTraits_Perk_StrongKidneys_PerkDescription,"Your body retains water efficiently. You become thirsty significantly more slowly than normal, requiring less frequent drinks to stay hydrated.",你的身体能高效地保留水分。口渴的速度比常人慢得多，无需频繁饮水即可保持水分充足。
+CharacterTraits_Perk_StrongKidneys_PerkDescription,"Your kidneys clear poisons quickly. Witchstone poisoning and fireroot toxicity leave your body about twice as fast as normal, and wolfsbane poisoning a little faster.",你的肾脏能迅速排出毒素。巫石中毒和火根中毒消退的速度约为常人的两倍，乌头中毒也会稍快一些。
 CharacterTraits_Perk_NaturalTrader_PerkName,Natural Trader,天生商人
 CharacterTraits_Perk_NaturalTrader_PerkDescription,"You have a knack for dealing with people. Start with a significantly advanced Social skill, making trader interactions and NPC negotiations more favourable from the outset.",你天生擅长与人打交道。开局即拥有大幅领先的社交技能，从一开始就能在交易与谈判中占得先机。
 CharacterTraits_Perk_Swimmer_PerkName,Swimmer,游泳好手
 CharacterTraits_Perk_Swimmer_PerkDescription,"You are at home in the water. Start with a head start in Swimming that opens the cheaper river crossing from day one, and keep a steady Swimming Aid as strong as one spirit blessing.",你在水中如鱼得水。开局即拥有领先的游泳技能，从第一天起就能以更省力的方式游过河去，并始终保有相当于一次精魄赐福的游泳援助。
 CharacterTraits_Perk_Trapper_PerkName,Trapper,设陷者
-CharacterTraits_Perk_Trapper_PerkDescription,"You know how to set a trap and read the land. Start with a Snare Trap, Log Trap, Flint Knife, and Rustic Spear, plus a head start in the Trapping skill.",你懂得布设陷阱、辨读地形。开局携带套索陷阱、原木陷阱、燧石小刀与简陋长矛，并拥有领先的陷阱技能。
+CharacterTraits_Perk_Trapper_PerkDescription,"You know how to set a trap and live off what it catches. Start with a Snare Trap, a Log Trap, a Cage and a Hideout.",你懂得如何布置陷阱，并靠猎获为生。开局拥有一个套索陷阱、一个原木陷阱、一个诱捕笼和一个藏匿点。
 Pottery_Sculpture_Pigment_CardName,Pigment,颜料
 Pottery_Sculpture_Pigment_CardDescription,A fine colored powder made by grinding charcoal. Used to paint and decorate pottery.,将木炭研磨成的细腻彩色粉末，用于绘制和装饰陶器。
 Pottery_Sculpture_PaintedBowl_CardName,Painted Clay Bowl,彩绘陶碗
@@ -215,25 +215,17 @@ CeramicLamp_Bp_CardName,Ceramic Lamp,陶灯
 CeramicLamp_Bp_CardDescription,Shape clay into a shallow oil lamp with a wick channel.,用陶土塑出一盏带灯芯槽的浅口油灯。
 CeramicLamp_Bp_UnlockConditionsDesc,Clay Needed,需要粘土
 CharacterTraits_Perk_Insomniac_PerkName,Insomniac,失眠者
-CharacterTraits_Perk_Insomniac_PerkDescription,"Sleepiness creeps up on you more slowly than on others, so you stay awake longer. You pay more for it: every tier of sleep deprivation costs you extra stress and focus.",困意比常人来得更慢，所以你能醒得更久。但你要为此付出更多：睡眠剥夺每加重一级，都会让你额外承受压力并失去专注。
+CharacterTraits_Perk_Insomniac_PerkDescription,"You rarely feel sleepy, so you stay awake longer than others. Your body pays for it sooner: every stage of sleep deprivation arrives about a fifth earlier than it would for anyone else.",你很少感到困倦，因此能比别人醒得更久。但身体会更早为此付出代价：缺乏睡眠的每个阶段都会比常人提前约五分之一到来。
 CMC_TraitInsomniac_StatName,Insomnia,失眠
-CMC_TraitInsomniac_StatDescription,How hard lost sleep hits you. It does nothing while you are rested and bites harder with every tier of sleep deprivation.,缺觉对你的打击有多重。休息充足时它毫无作用，睡眠剥夺每加重一级，它就咬得更狠。
-CMC_TraitInsomniac_Status_Minor_Name,Frayed by Lost Sleep,缺觉烦躁
-CMC_TraitInsomniac_Status_Minor_Description,You are short on sleep and you feel it more than most: extra stress and a wandering mind.,你睡眠不足，而且比大多数人更受影响：额外的压力，思绪也难以集中。
-CMC_TraitInsomniac_Status_Moderate_Name,Worn by Lost Sleep,缺觉疲惫
-CMC_TraitInsomniac_Status_Moderate_Description,Sleep deprivation is wearing you down faster than it would anyone else.,睡眠剥夺对你的消耗比对任何人都快。
-CMC_TraitInsomniac_Status_Major_Name,Ragged from Lost Sleep,缺觉憔悴
-CMC_TraitInsomniac_Status_Major_Description,Major sleep deprivation. Your stress and your focus suffer far more than they would for others.,严重的睡眠剥夺。你的压力和专注所受的打击远比别人更重。
-CMC_TraitInsomniac_Status_Serious_Name,Wrecked by Lost Sleep,缺觉崩溃
-CMC_TraitInsomniac_Status_Serious_Description,Serious sleep deprivation. Your mind is coming apart at the seams. Sleep.,极度的睡眠剥夺。你的心神正在崩溃。去睡觉吧。
+CMC_TraitInsomniac_StatDescription,Retired. Insomniac now speeds up the game's own sleep deprivation instead of adding a separate status.,已退役。失眠症现在会加快游戏本身的缺乏睡眠进程，而不再添加单独的状态。
 CharacterTraits_Perk_Sinker_PerkName,Sinker,旱鸭子
 CharacterTraits_Perk_Sinker_PerkDescription,"You are dense in the water. Swimming costs you extra Stamina, Gratification and Focus, and any Swimming Aid you receive is weaker.",你在水中格外沉重。游泳会额外消耗耐力、满足感与专注度，你获得的任何游泳援助也会打折扣。
 CharacterTraits_Perk_WeakStomach_PerkName,Weak Stomach,肠胃虚弱
 CharacterTraits_Perk_WeakStomach_PerkDescription,Your stomach is easily upset. Nausea takes longer to recover from lingering well after the cause is gone.,你的肠胃十分敏感。恶心感消退得更慢，即便病因已经消失也会久久不散。
 CharacterTraits_Perk_BlackThumb_PerkName,Black Thumb,黑手指
-CharacterTraits_Perk_BlackThumb_PerkDescription,"Plants wither under your care. This trait weakens Foraging Aid from other sources, so a single spirit blessing barely holds, and makes a Wild Growth blessing fade sooner. On its own it does nothing.",在你的照料下，植物容易枯萎。此特质会削弱来自其他来源的觅食援助，单独一次精魄赐福几乎无法维持，还会让野性成长的赐福更快消退。它本身不会产生任何效果。
+CharacterTraits_Perk_BlackThumb_PerkDescription,"Plants wither under your care. This trait weakens a Fertility Boon from other sources, so a single spirit blessing barely holds on the crops you plant, and makes a Wild Growth blessing fade sooner. On its own it does nothing.",植物在你手中只会枯萎。此特质会削弱来自其他来源的丰饶福祉，单次精灵赐福几乎无法维持你亲手种下的作物，野性成长赐福也会更快消退。它本身没有任何效果。
 CharacterTraits_Perk_BadKidneys_PerkName,Bad Kidneys,弱肾
-CharacterTraits_Perk_BadKidneys_PerkDescription,"Your body sheds water quickly. You become thirsty noticeably faster than normal, requiring more frequent drinks to stay hydrated.",你的身体流失水分很快。口渴的速度明显比常人快，需要更频繁地饮水才能保持水分充足。
+CharacterTraits_Perk_BadKidneys_PerkDescription,"Your kidneys struggle to clear poisons. Wolfsbane poisoning, witchstone poisoning and fireroot toxicity all stay in your body about twice as long as normal.",你的肾脏难以排出毒素。乌头中毒、巫石中毒和火根中毒在你体内停留的时间约为常人的两倍。
 Comfort_Bedroll_Placed_CardName,Bedroll,睡垫
 Comfort_Bedroll_Placed_CardDescription,"A sleeping mat laid out on the ground. Provides insulation while resting on it. Needs occasional maintenance or it will fall apart.
 
@@ -536,13 +528,13 @@ CMC_FishingNet_Bp_CardName,Fishing Net,渔网
 CMC_FishingNet_Bp_CardDescription,Knot twine into a wide casting net stretched across long sticks.,用麻绳编结出一张宽大的渔网，撑在长木棍上。
 CMC_FishingNet_Bp_UnlockConditionsDesc,Twine Needed,需要细绳
 CharacterTraits_Perk_PastLifeMemories_PerkName,Past Life Memories,前世记忆
-CharacterTraits_Perk_PastLifeMemories_PerkDescription,"You retain skills from another life. Deep knowledge in crafting, cooking, herbalism, woodworking, and knapping comes to you with surprising ease.",你保留着来自另一段人生的技艺。制作、烹饪、药草学、木工与打制的精深知识，对你而言竟出奇地容易上手。
+CharacterTraits_Perk_PastLifeMemories_PerkDescription,"Fragments of a previous life linger at the edges of your mind. You begin with scattered knowledge of crafting, herbalism, woodworking and stonework, as if you have done it all before.",前世的记忆碎片在你的脑海边缘挥之不去。你开局便对制作、草药学、木工和石器略知一二，仿佛这些你都做过。
 CharacterTraits_Perk_Prospector_PerkName,Prospector,探矿者
-CharacterTraits_Perk_Prospector_PerkDescription,"You have a trained eye for stone and ore. Start with a head start in Knapping and Metalworking, plus a selection of useful stones to get you started.",你练就了一双识别矿石的慧眼。开局即拥有领先的打制与金工技能，并附带一些趁手的石料助你起步。
+CharacterTraits_Perk_Prospector_PerkDescription,"Retired trait, merged into Mineral Rich. It no longer appears at character creation; characters who already have it keep what it gave them.",已退役的特质，已并入矿产丰富。它不再出现在角色创建中；已拥有它的角色保留它所给予的一切。
 CharacterTraits_Perk_MineralRich_PerkName,Mineral Rich,矿产丰饶
-CharacterTraits_Perk_MineralRich_PerkDescription,"You come from a land blessed with abundant stone. Start with a collection of flint, greenstone, and a whetstone ready to work with.",你来自矿藏丰饶之地。开局携带一批燧石、绿石与一块可供使用的磨刀石。
+CharacterTraits_Perk_MineralRich_PerkDescription,"You love stones, all kinds of stones, and you have heard there is a red stone out here that you have never seen. Start with six greenstones, three flints, a sharpened stone, a stone and a heavy stone.",你热爱石头，各种各样的石头。听说这里有一种你从未见过的红色石头。开局携带六块绿石、三块燧石、一把石刀、一块石头和一块大石块。
 CharacterTraits_Perk_PeacefulFarmer_PerkName,Peaceful Farmer,安宁农夫
-CharacterTraits_Perk_PeacefulFarmer_PerkDescription,"You spent your years tending crops and cooking simple meals. Start with a head start in Cooking, turnroot, meadowgrass and flax seeds, a flint hoe and a clay bowl, and keep a steady Foraging Aid as strong as one spirit blessing.",你多年来一直耕种作物、烹制简单的餐食。开局即拥有领先的烹饪技能，携带翻根、牧草与亚麻种子、燧石锄和一只陶碗，并始终保有相当于一次精魄赐福的觅食援助。
+CharacterTraits_Perk_PeacefulFarmer_PerkDescription,"Retired trait. It no longer appears at character creation: its seeds and tools are vanilla Farming Gear's job, its skill is vanilla Farmer's, and Green Thumb now carries the crop blessing. Characters who already have it keep its seeds, tools and steady Foraging Aid.",已退役的特质。它不再出现在角色创建中：种子和工具由原版的务农装备提供，技能由原版的农夫提供，作物赐福现在由绿拇指提供。已拥有它的角色保留其种子、工具和持续的觅食援助。
 CharacterTraits_Perk_AbundantGrowth_PerkName,Abundant Growth,茂盛生长
 CharacterTraits_Perk_AbundantGrowth_PerkDescription,"The land seems to respond to your presence. Start with turnroot, meadowgrass and flax seeds and fresh heather flowers, and keep a steady Foraging Aid as strong as one spirit blessing.",大地似乎对你的存在有所回应。开局携带翻根、牧草与亚麻种子以及新鲜的帚石南花，并始终保有相当于一次精魄赐福的觅食援助。
 CharacterTraits_Perk_Trollblood_PerkName,Trollblood,巨魔之血
@@ -554,9 +546,9 @@ CharacterTraits_Perk_WideHands_PerkDescription,"Your large, dexterous hands are 
 CharacterTraits_Perk_Claws_PerkName,Claws,利爪
 CharacterTraits_Perk_Claws_PerkDescription,"Your fingernails grow hard and talon-like, giving you an edge in close quarters. Start with a head start in Knife Fighting and Melee Fighting, and keep a steady Ambush Aid and Chasing Aid, each as strong as one spirit blessing.",你的指甲坚硬如爪，在近身搏斗中占尽优势。开局即拥有领先的刀术与近战格斗技能，并始终保有伏击援助与追逐援助，各相当于一次精魄赐福。
 CharacterTraits_Perk_Troglodyte_PerkName,Troglodyte,穴居者
-CharacterTraits_Perk_Troglodyte_PerkDescription,"A life spent in caves and cramped tunnels has made you sure-footed and alert. Start with a head start in Climbing, and keep a steady Climbing Aid and Alertness Aid, each as strong as one spirit blessing.",长年在洞穴与狭窄隧道中生活，让你脚步稳健、时刻警觉。开局即拥有领先的攀爬技能，并始终保有攀爬援助与警觉援助，各相当于一次精魄赐福。
+CharacterTraits_Perk_Troglodyte_PerkDescription,"A life spent in caves and cramped tunnels has made you alert and handy with flint. Keep a steady Alertness Aid and Flint Knack, each as strong as one spirit blessing.",常年生活在洞穴和狭窄的隧道中，让你警觉敏锐，也擅长处理燧石。持续获得相当于一次精灵赐福的警觉援助和燧石加工。
 CharacterTraits_Perk_ExiledArtist_PerkName,Exiled Artist,放逐艺术家
-CharacterTraits_Perk_ExiledArtist_PerkDescription,"Forced from your homeland, you carry your craft with you. Start with a head start in Pottery, two lumps of clay for sculpting, charcoal for pigment, and a basket to carry your work.",被迫离开故土的你，随身带着自己的手艺。开局即拥有领先的陶艺技能，附带两块可供塑形的粘土、用作颜料的木炭，以及一只盛放作品的篮子。
+CharacterTraits_Perk_ExiledArtist_PerkDescription,"Forced from your homeland, you carry your craft in your hands. Start with a head start in Pottery.",你被迫离开故土，手艺却始终留在你的手中。开局陶艺技能领先。
 CharacterTraits_Perk_BornMark_PerkName,Born Mark,天生印记
 CharacterTraits_Perk_BornMark_PerkDescription,"You were born with a distinctive mark that the spirits take notice of. It keeps your Luck raised. Nothing in the world reads Luck yet, so the mark changes nothing you can see today.",你生来便带有一道显眼的印记，连灵体都对此有所留意。它让你的幸运值始终偏高。但目前世上还没有任何东西会读取幸运值，因此这道印记不会带来任何你能察觉的改变。
 CharacterTraits_Perk_Aged_PerkName,Aged,年迈
@@ -572,11 +564,11 @@ CharacterTraits_Perk_SpirituallyTroubled_PerkDescription,"The spirits do not loo
 CharacterTraits_Perk_WeakenedGrowth_PerkName,Weakened Growth,生长迟滞
 CharacterTraits_Perk_WeakenedGrowth_PerkDescription,"The land yields little for you. This trait weakens Foraging Aid from other sources, so a single spirit blessing barely holds. On its own it does nothing.",大地对你格外吝啬。此特质会削弱来自其他来源的觅食援助，单独一次精魄赐福几乎无法维持。它本身不会产生任何效果。
 CharacterTraits_Perk_Leper_PerkName,Leper,麻风病患者
-CharacterTraits_Perk_Leper_PerkDescription,"A wasting affliction has killed the feeling in your flesh and eaten at your face. Injury no longer hurts you at all. Your skin keeps out less of the filth it meets, your features are ruined, and people trade and speak with you only when they must.",消耗性的疾病夺走了你血肉的知觉，也侵蚀了你的面容。受伤再也不会让你感到疼痛。你的皮肤更难挡住沾染的污秽，容貌已然毁损，人们也只在不得不时才愿意与你交谈或交易。
+CharacterTraits_Perk_Leper_PerkDescription,"A wasting affliction has killed the feeling in your flesh and eaten at your face. Injury no longer hurts you at all. Your skin keeps out less of the filth it meets, your ruined features put traders off, and you have little feeling left for other people.",一种消耗性的疾病夺走了你肌肤的知觉，也侵蚀了你的面容。受伤再也不会让你感到疼痛。你的皮肤更难阻挡污秽，残破的容貌让商人敬而远之，你对他人也几乎不再有感情。
 CharacterTraits_Perk_Fugitive_PerkName,Fugitive,逃亡者
-CharacterTraits_Perk_Fugitive_PerkDescription,"You fled your old life in a hurry with little more than the clothes on your back. You begin haunted by fear and stress from the ordeal, and the dread of being hunted means you can never fully relax.",你仓皇逃离了过去的生活，几乎只带着身上的衣物。开局便被那段磨难留下的恐惧与压力所困扰，而被追捕的阴影让你永远无法真正放松下来。
+CharacterTraits_Perk_Fugitive_PerkDescription,"You fled your old life in a hurry with little more than the clothes on your back. You arrive tense and frightened, and the dread of being hunted means you never fully relax. Yet it took nerve to run, and you have more courage than most.",你匆忙逃离了过去的生活，身上几乎只剩一身衣服。你抵达时紧张又惊恐，被追捕的恐惧让你永远无法彻底放松。但逃亡需要胆量，你的勇气胜过常人。
 CharacterTraits_Perk_LostTourist_PerkName,Lost Tourist,迷路游客
-CharacterTraits_Perk_LostTourist_PerkDescription,"You stumbled into this wilderness entirely by accident. You miss civilization and familiar faces. Start with some social skills, but loneliness and stress build faster in the wild.",你完全是误打误撞才闯入这片荒野。你怀念文明与熟悉的面孔。开局附带一些社交技能，但在荒野中孤独感与压力也积累得更快。
+CharacterTraits_Perk_LostTourist_PerkDescription,"You stumbled into this wilderness entirely by accident. You miss civilization and the people you left behind, so you feel for others more than most, but loneliness and stress build faster in the wild.",你完全是误打误撞闯进了这片荒野。你怀念文明，也思念留在身后的人们，因此比常人更能体会他人的感受，但在野外，孤独和压力也会累积得更快。
 CharacterTraits_Perk_SeasonalAllergies_PerkName,Seasonal Allergies,季节性过敏
 CharacterTraits_Perk_SeasonalAllergies_PerkDescription,"Spring air does not agree with you. All through spring you are less comfortable and upper respiratory infections take hold more easily, though a healthy immune system still fights them off. The rest of the year you are fine.",春天的空气与你不合。整个春季，你的舒适度都会下降，也更容易患上上呼吸道感染，不过健康的免疫系统仍能将其抵御。一年中的其余时间你安然无恙。
 CMC_TraitSeasonalAllergies_StatName,Seasonal Allergies,季节性过敏
@@ -586,29 +578,41 @@ CMC_TraitSeasonalAllergies_Status_Spring_Description,Spring is in the air and yo
 CharacterTraits_Perk_DeadlyDisease_PerkName,Deadly Disease,致命恶疾
 CharacterTraits_Perk_DeadlyDisease_PerkDescription,"A disease has taken hold and it is winning. You begin sick and sore, the pain never leaves, and your defences are compromised, so infections of the gut, the chest and the blood creep upward day after day. Keep your immune system up with good morale, food, sleep and medicine and they recede; neglect it and the disease runs its course.",一种恶疾已经扎根，并且正在占据上风。你开局便病痛缠身，疼痛始终挥之不去，免疫力也遭到削弱，肠胃、呼吸道与血液的感染因此日渐加重。用良好的心情、饮食、睡眠与药物撑住免疫系统，感染便会消退；放任不管，疾病就会一路走到尽头。
 CharacterTraits_Perk_Lunacy_PerkName,Lunacy,月疯症
-CharacterTraits_Perk_Lunacy_PerkDescription,"The moon has a hold on you. Your stress builds faster as the moon waxes and fastest at the full moon, when an urge to be out under the moonlit sky grows in you until you answer it. The pull lets go as the moon wanes.",月亮牵制着你。月相渐圆时你的压力累积得更快，满月时最快，那时一股想到月光下去的冲动会在你心中滋长，直到你回应它。月相渐亏时，这股牵引便会松开。
-CMC_TraitLunacy_StatName,Lunacy,月狂
-CMC_TraitLunacy_StatDescription,"The pull the moon has on you. It tightens as the moon waxes, peaks at the full moon and lets go as the moon wanes.",月亮对你的牵引。它随月相渐圆而收紧，在满月时达到顶峰，并随月相渐亏而松开。
-CMC_TraitLunacy_Status_WaxingCrescent_Name,Moon-Drawn Unease,月引不安
-CMC_TraitLunacy_Status_WaxingCrescent_Description,The crescent moon is growing. It sets your nerves slightly on edge.,峨眉月正在变圆。它让你的神经微微紧绷。
-CMC_TraitLunacy_Status_WaxingGibbous_Name,Moon-Drawn Tension,月引紧绷
-CMC_TraitLunacy_Status_WaxingGibbous_Description,The moon is nearly full. Its pull winds you tighter and your stress builds faster.,月亮将近圆满。它的牵引让你愈发紧绷，压力累积得更快。
-CMC_TraitLunacy_Status_FullMoon_Name,Full Moon Frenzy,满月狂躁
-CMC_TraitLunacy_Status_FullMoon_Description,"The moon is full. Your stress climbs and an urge to be out under the moonlit sky grows in you. Left unanswered, the urge feeds your stress.",月亮已圆。你的压力不断攀升，想要到月光下去的冲动在你心中滋长。若不理会，这股冲动会加重你的压力。
+CharacterTraits_Perk_Lunacy_PerkDescription,"You are bound to the moon. As she waxes you grow elated, and under the full moon you are manic. As she wanes your mood sinks, and while she is gone you grieve for her.",你被月亮牵引着。月亮渐盈时你会越发亢奋，满月之下你会陷入狂躁。月亮渐亏时你的情绪低落，而她消失时你会为她哀伤。
+CMC_TraitLunacy_StatName,Moon-Bound,月之牵绊
+CMC_TraitLunacy_StatDescription,"How the moon pulls at your mind, phase by phase.",月相如何一步步牵动你的心神。
+CMC_TraitLunacy_Status_WaxingCrescent_Name,Waxing Crescent,峨眉月
+CMC_TraitLunacy_Status_WaxingCrescent_Description,She's finally appeared.,她终于出现了。
+CMC_TraitLunacy_Status_WaxingGibbous_Name,Waxing Gibbous,盈凸月
+CMC_TraitLunacy_Status_WaxingGibbous_Description,She's coming soon!,她快来了！
+CMC_TraitLunacy_Status_FullMoon_Name,Full Moon,满月
+CMC_TraitLunacy_Status_FullMoon_Description,I see her! She sees me too!,我看见她了！她也看见我了！
+CMC_TraitLunacy_Status_NewMoon_Name,New Moon,新月
+CMC_TraitLunacy_Status_NewMoon_Description,She's completely gone from me!,她完全从我身边消失了！
+CMC_TraitLunacy_Status_WaningGibbous_Name,Waning Gibbous,亏凸月
+CMC_TraitLunacy_Status_WaningGibbous_Description,No! Don't leave me!,不！别离开我！
+CMC_TraitLunacy_Status_WaningCrescent_Name,Waning Crescent,残月
+CMC_TraitLunacy_Status_WaningCrescent_Description,I miss her so much!,我好想她！
 CharacterTraits_Perk_Agoraphobia_PerkName,Agoraphobia,广场恐惧症
-CharacterTraits_Perk_Agoraphobia_PerkDescription,"Open ground fills you with dread. While you are unsheltered your fear runs higher, so any fright shakes you sooner, and your stress slowly builds. Both ease once you are sheltered.",开阔之地令你惶恐不安。没有遮蔽时，你的恐惧会更高，任何惊吓都更容易让你动摇，压力也会慢慢累积。一旦身处遮蔽之下，两者都会缓解。
+CharacterTraits_Perk_Agoraphobia_PerkDescription,"Open ground fills you with dread. Out in the open you are frightened and your stress builds. Under a roof you feel safe: your fear and stress ease, and cabin fever creeps up on you slowly, as it does for a homebody.",开阔之地令你惶恐不安。身处旷野时你会受到惊吓，压力不断累积。在屋檐下你会感到安全：恐惧和压力都会减轻，幽闭恐惧症也会像御宅族一样缓慢地累积。
 CMC_TraitAgoraphobia_StatName,Agoraphobia,广场恐惧症
-CMC_TraitAgoraphobia_StatDescription,Your dread of open ground. It grips you whenever you have no shelter around you and lets go once you are under cover.,你对开阔之地的恐惧。只要身边没有遮蔽，它就会攫住你；一旦有了遮蔽便会松开。
-CMC_TraitAgoraphobia_Status_Unsheltered_Name,Exposed in the Open,暴露在旷野
-CMC_TraitAgoraphobia_Status_Unsheltered_Description,You have no shelter around you. Your fear sits closer to the surface and your stress slowly builds.,你身边没有任何遮蔽。你的恐惧更容易浮上心头，压力也在慢慢累积。
+CMC_TraitAgoraphobia_StatDescription,Your dread of open ground. It grips you whenever you have no shelter and lets go under a roof.,你对开阔之地的恐惧。只要没有遮蔽，它就会攫住你；到了屋檐下便会松开。
+CMC_TraitAgoraphobia_Status_Unsheltered_Name,Exposed to the Wilderness,暴露在荒野
+CMC_TraitAgoraphobia_Status_Unsheltered_Description,Nothing stands between you and the open sky. You are frightened and your stress builds until you find shelter.,你与开阔的天空之间毫无遮挡。你感到惊恐，压力不断累积，直到找到遮蔽之处。
+CMC_TraitAgoraphobia_Status_Sheltered_Name,Feeling Safe,感到安全
+CMC_TraitAgoraphobia_Status_Sheltered_Description,Walls around you and a roof overhead. Your fear eases and your stress drains away.,四周有墙，头顶有屋檐。你的恐惧渐渐平息，压力也慢慢消散。
 CharacterTraits_Perk_Nyctophobia_PerkName,Nyctophobia,黑暗恐惧症
-CharacterTraits_Perk_Nyctophobia_PerkDescription,The dark terrifies you. In total darkness you become frightened and your stress rises. In dim light you stay uneasy.,黑暗令你感到恐惧。在完全的黑暗中你会惊恐不安，压力不断攀升；光线昏暗时你也难以安心。
+CharacterTraits_Perk_Nyctophobia_PerkDescription,"The dark terrifies you. In pitch darkness you are terrified and your stress soars, and in dim light you are badly shaken. A light in your hand steadies you a little, and bright daylight makes you bold.",黑暗令你恐惧。在一片漆黑中你会惊恐万分，压力急剧攀升；光线昏暗时你也会惊魂不定。手中的光亮能让你稍稍镇定，明亮的阳光则会让你勇气倍增。
 CMC_TraitNyctophobia_StatName,Nyctophobia,黑暗恐惧症
-CMC_TraitNyctophobia_StatDescription,Your fear of the dark. It flares in darkness and fades when there is light.,你对黑暗的恐惧。身处黑暗时发作，有光时便会消退。
-CMC_TraitNyctophobia_Status_VeryDark_Name,Terrified of the Dark,惧怕黑暗
-CMC_TraitNyctophobia_Status_VeryDark_Description,Total darkness. Your fear has you frightened and your stress is rising.,四周一片漆黑。恐惧让你惊恐不安，压力不断攀升。
-CMC_TraitNyctophobia_Status_Dark_Name,Uneasy in the Dark,黑暗中不安
-CMC_TraitNyctophobia_Status_Dark_Description,The light is dim. Your fear of the dark keeps you on edge.,光线昏暗。对黑暗的恐惧让你始终提心吊胆。
+CMC_TraitNyctophobia_StatDescription,"Your fear of the dark. The less light around you, the worse it gets, and bright light makes you bold.",你对黑暗的恐惧。周围的光线越少，情况就越糟；明亮的光线则会让你勇气倍增。
+CMC_TraitNyctophobia_Status_VeryDark_Name,Pitch Black,伸手不见五指
+CMC_TraitNyctophobia_Status_VeryDark_Description,I can't see anything! I hear something approaching!,我什么都看不见！我听到有东西在靠近！
+CMC_TraitNyctophobia_Status_Dark_Name,Darkness,黑暗
+CMC_TraitNyctophobia_Status_Dark_Description,Something is moving in the darkness! I definitely see it!,黑暗中有东西在动！我肯定看见了！
+CMC_TraitNyctophobia_Status_Light_Name,Light,光亮
+CMC_TraitNyctophobia_Status_Light_Description,I have light in my hand!,我手里有光！
+CMC_TraitNyctophobia_Status_BrightLight_Name,Bright Light,明亮的光
+CMC_TraitNyctophobia_Status_BrightLight_Description,The sun will protect me!,太阳会保护我！
 CharacterTraits_Perk_SensitiveSkin_PerkName,Sensitive Skin,敏感肌肤
 CharacterTraits_Perk_SensitiveSkin_PerkDescription,"Your skin burns in strong direct sunlight. Time spent unsheltered in full daylight adds up over several days into a painful sunburn, and it fades once you keep out of the harsh sun.",你的皮肤在强烈的直射阳光下会被灼伤。在没有遮蔽的全日照下待的时间会在几天内累积成痛苦的晒伤，只要避开烈日，晒伤便会消退。
 CMC_TraitSensitiveSkin_StatName,Sensitive Skin,敏感肌肤
@@ -628,13 +632,17 @@ CMC_TraitLactoseIntolerant_Status_Mild_Description,The dairy you had is not sitt
 CMC_TraitLactoseIntolerant_Status_Severe_Name,Severe Dairy Cramps,严重乳制品不适
 CMC_TraitLactoseIntolerant_Status_Severe_Description,You have had far too much dairy. The nausea and cramps are worse and will ease only as it digests.,你摄入了太多乳制品。恶心和腹痛更加严重，只有随着消化才会慢慢缓解。
 CharacterTraits_Perk_Drunkard_PerkName,Drunkard,酒鬼
-CharacterTraits_Perk_Drunkard_PerkDescription,"You cannot go long without a drink. While you are sober your stress slowly builds. Being tipsy or drunk relieves it more than it would for others, and alcohol stays in your body about twice as long.",你离不开酒。清醒时，你的压力会缓慢累积；微醺或醉酒时，压力的缓解比常人更多，而且酒精在你体内停留的时间约为常人的两倍。
+CharacterTraits_Perk_Drunkard_PerkDescription,"You cannot go long without a drink. Sober, your stress keeps climbing, nothing satisfies you and a dull ache sets in. Tipsy, you finally feel like yourself. Drunk, the drink lifts your mood without the thirst, nausea or muddled mind, and even horribly drunk you hold it together. Alcohol also stays in you about twice as long.",你离不开酒。清醒时，你的压力不断攀升，什么都无法让你满足，还会隐隐作痛。微醺时，你终于找回了自己。喝醉时，酒能提振你的情绪，却不会让你口渴、恶心或头脑混乱；即使大醉，你也能撑得住。酒精在你体内停留的时间也约为常人的两倍。
 CMC_TraitDrunkard_StatName,Alcohol Craving,酒瘾
-CMC_TraitDrunkard_StatDescription,Your need for a drink. It gnaws at you while you are sober and lets go while you are tipsy or drunk.,你对酒的渴求。清醒时它不断折磨你，微醺或醉酒时才会平息。
-CMC_TraitDrunkard_Status_Sober_Name,Craving a Drink,酒瘾发作
-CMC_TraitDrunkard_Status_Sober_Description,You are sober and it wears on you. Your stress slowly builds until you are tipsy again.,你现在很清醒，这让你备受煎熬。在再次微醺之前，你的压力会缓慢累积。
-CMC_TraitDrunkard_Status_Drinking_Name,Craving Sated,酒瘾平息
-CMC_TraitDrunkard_Status_Drinking_Description,You are tipsy or drunk and the craving is quiet. Alcohol relieves your stress more than it would for anyone else.,你已微醺或醉酒，酒瘾暂时平息。酒精为你缓解的压力比常人更多。
+CMC_TraitDrunkard_StatDescription,"Your need for a drink, and how well you hold it once you have one.",你对酒的渴望，以及喝到酒之后你能多好地驾驭它。
+CMC_TraitDrunkard_Status_Sober_Name,Alcohol Addiction,酒精成瘾
+CMC_TraitDrunkard_Status_Sober_Description,"You need a drink. Until you have one your stress climbs, nothing satisfies you and everything aches.",你需要喝一杯。在喝到之前，你的压力不断攀升，什么都无法让你满足，浑身隐隐作痛。
+CMC_TraitDrunkard_Status_Tipsy_Name,"Finally, a Drink",终于喝到了
+CMC_TraitDrunkard_Status_Tipsy_Description,"The craving lets go and you feel like yourself again. The drink costs you nothing, but it does nothing more for you either.",渴望终于松开了你，你又找回了自己。这杯酒没有让你付出代价，但也没有给你更多好处。
+CMC_TraitDrunkard_Status_Drunk_Name,Satisfied,心满意足
+CMC_TraitDrunkard_Status_Drunk_Description,"The drink warms you through and lifts your mood, and it does not leave you thirsty, sick or muddled.",酒暖遍全身，让你心情舒畅，也不会让你口渴、恶心或头脑混乱。
+CMC_TraitDrunkard_Status_HorriblyDrunk_Name,I Won't Get Drunk!,我才不会醉！
+CMC_TraitDrunkard_Status_HorriblyDrunk_Description,"Plenty to drink and you are holding it together: no thirst, no sickness, no confusion.",喝了很多，你依然撑得住：不口渴，不恶心，也不糊涂。
 CMC_Imp_RiverBridge_CardName,River Bridge,河桥
 CMC_Imp_RiverBridge_CardDescription,A sturdy wooden bridge spanning the river at the clearing. Build this at the River Clearing to open the eastern path toward the village.,一座横跨林隙河流的坚固木桥。在河边林隙建造此桥可开通通往村庄的东侧道路。
 CMC_Imp_StoneTileFloor_CardName,Stone Tile Floor,石砖地面
@@ -796,15 +804,15 @@ CMC_AcademyLectern_FinalNotReady,You are not ready for the final examination.,�
 CharacterTraits_Perk_HigherEducation_PerkName,Higher Education,高等教育
 CharacterTraits_Perk_HigherEducation_PerkDescription,"Retired trait. The village Academy now stands for every character, and its courses gate their blueprint rewards for everyone; this trait no longer appears at character creation and has no effect. It is kept only so older saves that selected it remain valid.",已停用特质。村庄学院如今对所有角色开放，其课程也统一决定所有人的蓝图奖励；此特质不再出现于角色创建界面，也不再产生任何效果，仅为保留旧存档中已选择此特质角色的有效性而存在。
 CharacterTraits_Perk_GradArchitecture_PerkName,Architecture Graduate,建筑学毕业生
-CharacterTraits_Perk_GradArchitecture_PerkDescription,"You completed the Academy's architecture course. The Water-Driven Sawmill and Grinding Mill blueprints are yours, and together with a Metallurgy degree, the Water-Driven Forge and Workshop.",你完成了学院的建筑学课程。水力锯木厂与水力磨坊的蓝图已归你所有，若再修完冶金学学位，还可获得水力锻造炉与水力工坊。
+CharacterTraits_Perk_GradArchitecture_PerkDescription,"You completed the Academy's architecture course. The Water-Driven Sawmill and Grinding Mill blueprints are yours, and together with a Metallurgy degree, the Water-Driven Forge and Workshop. You also keep a steady Beaver Blessing as strong as one spirit blessing.",你完成了学院的建筑课程。水力锯木厂和水力磨坊的蓝图归你所有，若再持有冶金学位，还可获得水力锻炉和水力工坊。你还会持续获得相当于一次精灵赐福的河狸赐福。
 CharacterTraits_Perk_GradMetallurgy_PerkName,Metallurgy Graduate,冶金学毕业生
-CharacterTraits_Perk_GradMetallurgy_PerkDescription,"You completed the Academy's metallurgy course. The Copper Sheet recipe is yours outright, with no research needed, and together with an Architecture degree, the Water-Driven Forge and Workshop.",你完成了学院的冶金学课程。铜板配方已直接归你所有，无需研究；若再修完建筑学学位，还可获得水力锻造炉与水力工坊。
+CharacterTraits_Perk_GradMetallurgy_PerkDescription,"You completed the Academy's metallurgy course. The Copper Sheet recipe is yours outright, with no research needed, and together with an Architecture degree, the Water-Driven Forge and Workshop. Your Smithing counts 25 higher, so your metalwork comes out better.",你完成了学院的冶金课程。铜板配方直接归你所有，无需研究；若再持有建筑学位，还可获得水力锻炉和水力工坊。你的金工技能视为高出25点，打造的金属制品品质更好。
 CharacterTraits_Perk_GradHerbalism_PerkName,Herbalism Graduate,药草学毕业生
-CharacterTraits_Perk_GradHerbalism_PerkDescription,You completed the Academy's herbalism course. You spot twice as much whenever you forage.,你完成了学院的药草学课程。每次采集时，你的发现量都是常人的两倍。
+CharacterTraits_Perk_GradHerbalism_PerkDescription,"You completed the Academy's herbalism course. Every forage gives you twice as much. The extra finds are added as you gather them, so they do not show up in any drop-chance list.",你完成了学院的草药学课程。每次觅食的收获都会翻倍。额外的收获是在采集时加入的，因此不会显示在任何掉落概率列表中。
 CharacterTraits_Perk_GradFishing_PerkName,Fishing Graduate,钓鱼毕业生
-CharacterTraits_Perk_GradFishing_PerkDescription,"You completed the Academy's fishing course. The Iron Fishing Rod recipe is yours, and you've learned to read the water for a better catch.",你完成了学院的钓鱼课程。铁制钓竿的配方已归你所有，你也学会了如何读懂水情以获得更好的渔获。
+CharacterTraits_Perk_GradFishing_PerkDescription,"You completed the Academy's fishing course. The Iron Fishing Rod recipe is yours, and you've learned to read the water: you keep a steady Fishing Aid as strong as one spirit blessing.",你完成了学院的捕鱼课程。铁钓竿的配方归你所有，你也学会了观察水面：持续获得相当于一次精灵赐福的捕鱼援助。
 CharacterTraits_Perk_GradArmorer_PerkName,Armorer Graduate,制甲毕业生
-CharacterTraits_Perk_GradArmorer_PerkDescription,"You completed the Academy's armorer course. The copper and iron armor recipes (Breastplate, Helmet, Greaves, Gauntlets) are yours.",你完成了学院的制甲课程。铜制与铁制护甲（胸甲、头盔、护胫、护手）的配方已归你所有。
+CharacterTraits_Perk_GradArmorer_PerkDescription,"You completed the Academy's armorer course. The copper and iron armor recipes (Breastplate, Helmet, Greaves, Gauntlets) are yours, and your Smithing counts 25 higher, so your metalwork comes out better.",你完成了学院的铠甲课程。铜制和铁制铠甲配方（胸甲、头盔、护胫、护手）归你所有，你的金工技能也视为高出25点，打造的金属制品品质更好。
 CharacterTraits_Perk_GradMedicine_PerkName,Medicine Graduate,医学毕业生
 CharacterTraits_Perk_GradMedicine_PerkDescription,"You completed the Academy's medicine course. You know how to dress a wound and manage pain, so your wounds bleed a little less and aches sit a little lighter.",你完成了学院的医学课程。你懂得如何包扎伤口、控制疼痛，因此你的伤口出血略少，疼痛也略轻一些。
 CMC_AcademyLectern_DA_Fishing,Study Fishing,学习钓鱼
@@ -2230,7 +2238,7 @@ CMC_CarpentryBench_DA_CarpentryFinal,Final Exam: Carpentry,期末考试：木工
 CMC_CarpentryBench_DA_CarpentryFinal_Desc,The final two-hour examination. Pass it to earn the Carpentry degree: unlocks the Outfit Wardrobe and Wicker Chair blueprints.,最后两小时的考试。通过考试即可获得木工学位：解锁套装衣柜和藤椅的蓝图。
 CMC_CarpentryBench_FinalNotReady,You are not ready for the final examination.,你还没有准备好参加期末考试。
 CharacterTraits_Perk_GradCarpentry_PerkName,Carpentry Graduate,木工课程毕业生
-CharacterTraits_Perk_GradCarpentry_PerkDescription,You completed the Academy's carpentry course. The Outfit Wardrobe and Wicker Chair blueprints are yours.,你完成了学院的木工课程。套装衣柜和藤椅的蓝图现在归你所有。
+CharacterTraits_Perk_GradCarpentry_PerkDescription,"You completed the Academy's carpentry course. The Outfit Wardrobe and Wicker Chair blueprints are yours, and you keep a steady Beaver Blessing as strong as one spirit blessing.",你完成了学院的木工课程。服装衣柜和柳条椅的蓝图归你所有，你还会持续获得相当于一次精灵赐福的河狸赐福。
 CMC_Bp_WickerChair_CardName,Wicker Chair,藤椅
 CMC_Bp_WickerChair_CardDescription,"A lashed-frame chair, woven tight enough to actually sit in.",一把用藤条捆扎编织而成的椅子，编得足够紧实，可以真正坐上去。
 CMC_Bp_WickerChair_UnlockConditionsDesc,Graduate the Academy's Carpentry course,从学院的木工课程毕业
@@ -2390,7 +2398,7 @@ CMC_MarketStallDressed_DA_TakeDownAwning_ActionName,Take Down Awning,拆下遮�
 CMC_MarketStallDressed_DA_TakeDownAwning_ActionDescription,"Remove the awning and bunting, returning the stall to its plain frame.",拆下遮篷和彩旗，让摊位恢复朴素的框架。
 CharacterTraits_Perk_CaravanPeddler_PerkDescription,"You've spent years on the road, more comfortable haggling than homesteading. Start with a Market Stall Kit already assembled and bundled for travel, plus a pair of bear figurines ready to sell. Set the stall up once you reach the village to start trading.",你多年奔波在路上，比起安家更习惯讨价还价。初始携带一套已经组装好、便于携带的集市摊位套件，外加一对准备出售的熊形雕像。抵达村庄后架起摊位即可开始交易。
 CharacterTraits_Perk_CaravanPeddler_PerkName,Caravan Peddler,行商小贩
-CharacterTraits_Perk_PottersApprentice_PerkDescription,"You trained under a potter before striking out on your own. Start with clay for sculpting, a flint knife for shaping, and a couple of lumps of ready-ground pigment for decorating your work.",你曾在一位陶匠手下学艺，后来才独立闯荡。初始携带用于塑形的陶土、一把用于修坯的燧石小刀，以及几块用来装饰作品的现成研磨颜料。
+CharacterTraits_Perk_PottersApprentice_PerkDescription,"You trained under a potter before striking out on your own. Start with five lumps of clay, two lumps of ready-ground pigment for decorating your work, charcoal for drawing and a basket to carry it all.",你曾跟随一位陶匠学艺，之后独自闯荡。开局携带五块黏土、两块研磨好的颜料用于装饰作品、用于绘图的木炭，以及一个装下所有东西的编织篓。
 CharacterTraits_Perk_PottersApprentice_PerkName,Potter's Apprentice,制陶学徒
 CMC_ApothecaryTrustMirror_StatName,Apothecary's Trust (player copy),药剂师的信任度（玩家副本）
 CMC_ApothecaryTrustMirror_StatDescription,"Hidden player-side copy of the Apothecary's NPCStat trust value (cmcStatApothecaryTrust), refreshed every 5s by QuestChainSchedulePatch. Blueprint StatValues gates can only read player GameStats, never NPCStats, so this mirror exists purely to let a trust-threshold blueprint reveal (e.g. a Bear Figurine) gate on it.",药剂师NPCStat信任值（cmcStatApothecaryTrust）的隐藏玩家侧副本，由QuestChainSchedulePatch每5秒刷新一次。蓝图的StatValues门槛只能读取玩家GameStat，无法读取NPCStat，因此该副本的存在纯粹是为了让基于信任门槛的蓝图揭示（例如熊形雕像）能够以此为条件。
@@ -2547,3 +2555,33 @@ CMC_RiverSwim_ActionName,Swim across the river,游过河去
 CMC_RiverSwim_ActionDescription,"Wade in and swim for the far bank. No bridge needed, but the cold current drains most of your stamina, leaves you soaked and weary, and burns a good meal's worth of calories. Strong swimmers (Swimming 50+) cross with far less effort, and every crossing trains the skill.",涉水下河，游向对岸。无需桥梁，但冰冷的激流会耗去你大半体力，让你浑身湿透、疲惫不堪，还会消耗不少热量。游泳熟练者（游泳 50+）过河要轻松得多，而且每次过河都会锻炼这项技能。
 CMC_RiverSwim_ConfirmText,"Swim across? You need most of your stamina, and you will reach the far bank soaked and exhausted.",要游过河吗？这需要你大部分的体力，到达对岸时你会浑身湿透、筋疲力尽。
 CMC_RiverSwim_FadeMessage,You plunge into the cold current and strike out for the far bank...,你一头扎进冰冷的激流，奋力向对岸游去……
+CharacterTraits_Perk_Nightcrawler_PerkName,Nightcrawler,夜行者
+CharacterTraits_Perk_Nightcrawler_PerkDescription,"You suffer from a rare disease, sun harms you, while darkness nourishes you. You can only leave your dwelling at night or when you wear heavy clothing. People fear you, treating you as a freak, even a legendary creature of darkness. You realize the Inquisition will soon find you, so you fled here. In this jungle far from humanity, you can finally be yourself.",你患有一种罕见的疾病，阳光会伤害你，而黑暗滋养着你。你只能在夜晚或穿着厚重衣物时离开住所。人们害怕你，把你当作怪物，甚至传说中的黑暗生物。你知道宗教裁判所很快就会找到你，于是逃到了这里。在这片远离人类的丛林中，你终于可以做回自己。
+CMC_TraitNightcrawlerSun_StatName,Sunlight Exposure,阳光暴露
+CMC_TraitNightcrawlerSun_StatDescription,How harshly direct sunlight is falling on you. Darkness is where you belong; strong unsheltered daylight burns.,阳光直射你的严重程度。黑暗是你的归宿，强烈无遮蔽的日光会灼伤你。
+CMC_TraitNightcrawlerSun_Status_NourishedByDarkness_Name,Nourished by Darkness,黑暗滋养
+CMC_TraitNightcrawlerSun_Status_NourishedByDarkness_Description,"Darkness nourishes you. Here, in the dark, you are stronger than anyone.",黑暗滋养着你。在这里，你比任何人都强大。
+CMC_TraitNightcrawlerSun_Status_TolerableLight_Name,Tolerable Light,尚可忍受的光线
+CMC_TraitNightcrawlerSun_Status_TolerableLight_Description,You can walk in the sunlight!,你可以在阳光下行走了！
+CMC_TraitNightcrawlerSun_Status_HarshSunlight_Name,Harsh Sunlight,刺眼的阳光
+CMC_TraitNightcrawlerSun_Status_HarshSunlight_Description,"The sunlight is very strong, you'd better hide.",阳光非常强烈，你最好藏起来。
+CMC_TraitNightcrawlerSun_Status_SearingSunlight_Name,Searing Sunlight,灼热的阳光
+CMC_TraitNightcrawlerSun_Status_SearingSunlight_Description,"The sunlight is too intense, you might die.",阳光太强烈了，你可能会死。
+CMC_TraitNightcrawlerSun_Status_BlazingSunlight_Name,Blazing Sunlight,炽烈的阳光
+CMC_TraitNightcrawlerSun_Status_BlazingSunlight_Description,"The sun is too beautiful, it'll all be over soon!",阳光太美了，一切将要结束！
+CMC_TraitNightcrawlerShade_StatName,Sun Protection,阳光防护
+CMC_TraitNightcrawlerShade_StatDescription,"How well shaded you are from the sun. Being indoors, wearing clothing, or a Bee Suit all count.",你被遮蔽阳光的程度。待在室内、穿着衣物或穿蚋衣都算数。
+CMC_TraitNightcrawlerShade_Status_Unshaded_Name,Unshaded,毫无遮蔽
+CMC_TraitNightcrawlerShade_Status_Unshaded_Description,"Completely unshaded, the sunlight will kill you!",完全没有遮蔽，阳光会杀死你！
+CMC_TraitNightcrawlerShade_Status_InsufficientShade_Name,Insufficient Shade,遮蔽不足
+CMC_TraitNightcrawlerShade_Status_InsufficientShade_Description,"Insufficient shade, try not to go outside!",遮蔽不足，尽量不要外出！
+CMC_TraitNightcrawlerShade_Status_GoodShade_Name,Good Shade,良好遮蔽
+CMC_TraitNightcrawlerShade_Status_GoodShade_Description,"Good shade, you can stay outside a little longer.",良好的遮蔽，你可以在外面多待一会儿。
+CMC_TraitNightcrawlerShade_Status_FullShade_Name,Full Shade,完全遮蔽
+CMC_TraitNightcrawlerShade_Status_FullShade_Description,"The best shade, the sunlight can no longer harm you.",最好的遮蔽，阳光再也伤不了你了。
+CMC_TraitNightcrawlerBurn_StatName,Sun-Scorched,日光灼伤
+CMC_TraitNightcrawlerBurn_StatDescription,How badly the sun has burned you today. It fades in darkness or shelter.,今天阳光灼伤你的程度。在黑暗或遮蔽处会逐渐消退。
+CMC_TraitNightcrawlerBurn_Status_CatchingFire_Name,Catching Fire,着火了
+CMC_TraitNightcrawlerBurn_Status_CatchingFire_Description,You shouldn't be in the sun! You're on fire!,你不该待在阳光下！你着火了！
+CMC_TraitNightcrawlerBurnCounter_StatName,Burn Flare Cooldown,灼伤冷却
+CMC_TraitNightcrawlerBurnCounter_StatDescription,An internal timer that keeps the burn from flaring up again right away.,内部计时器，防止灼伤事件立即再次触发。

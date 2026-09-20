@@ -1,0 +1,38 @@
+{
+  "target": "CMC_HerbPoultice.png",
+  "sourceCard": "CardData/Item/CMC_HerbPoultice.json",
+  "subject": "a flat square pad of pale linen cloth folded around mashed green herbs and tied with thin twine, dark green herb paste soaking through the cloth in patches",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a flat square pad of pale linen cloth folded around mashed green herbs and tied with thin twine, dark green herb paste soaking through the cloth in patches, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, bowl, mortar and pestle, bandage roll, jar, moss clump, loose leaves.",
+  "historyId": "mTBVjTCKBahJz9C8cJtI",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783576182_3f57dbd5_1789783577332_6ff08bb2.png",
+  "credits": 90,
+  "generated": "2026-09-18",
+  "note": "Revamp of a card that borrowed a vanilla sprite showing a different object. Claude picked C from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed); then a pale part of the subject that the border key cut into was restored from the raw sample by a morphological hole fill (fill_holes.py). Repointed CardImageWarpData from 'HealersMoss' on CardData/Item/CMC_HerbPoultice.json, CardData/Blueprint/Bp_CMC_HerbPoultice.json.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783579715_185308fa_1789783579895_f061e2a2.png",
+      "verdict": "herbs piled on top of the cloth rather than soaking through"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783578697_76f00faf_1789783578948_21411a03.png",
+      "verdict": "larger pad, herbs on top; keyer cut the pale top"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783576182_3f57dbd5_1789783577332_6ff08bb2.png",
+      "verdict": "PICK: flat square linen pad tied with twine, green paste soaking THROUGH the cloth in patches; keyer cut a pale corner, repaired by hole fill"
+    }
+  ],
+  "picked": "C",
+  "predicted": "C"
+}

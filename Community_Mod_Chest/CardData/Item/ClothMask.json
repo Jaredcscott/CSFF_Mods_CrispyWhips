@@ -15,7 +15,7 @@
   "WeightReductionWhenEquipped": -25.0,
   "TradingValue": 5.0,
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
-  "CardImageWarpData": "Coif_Cloth",
+  "CardImageWarpData": "CMC_ClothMask",
   "CardImageWarpType": 3,
   "CardTagsWarpData": [
     "tag_Clothing"

@@ -1,0 +1,72 @@
+{
+    "UniqueID": "cmcStatTraitNightcrawlerBurn",
+    "GameName": {
+        "ParentObjectID": "cmcStatTraitNightcrawlerBurn",
+        "LocalizationKey": "CMC_TraitNightcrawlerBurn_StatName",
+        "DefaultText": "Sun-Scorched"
+    },
+    "Description": {
+        "ParentObjectID": "cmcStatTraitNightcrawlerBurn",
+        "LocalizationKey": "CMC_TraitNightcrawlerBurn_StatDescription",
+        "DefaultText": "How badly the sun has burned you today. It fades in darkness or shelter."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 24.0},
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {"x": -10.0, "y": 10.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 0,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": false,
+    "DefaultStatusName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusDescription": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusIcon": {"m_FileID": 0, "m_PathID": 0},
+    "Statuses": [
+        {
+            "GameName": {
+                "ParentObjectID": "cmcStatTraitNightcrawlerBurn",
+                "LocalizationKey": "CMC_TraitNightcrawlerBurn_Status_CatchingFire_Name",
+                "DefaultText": "Catching Fire"
+            },
+            "Description": {
+                "ParentObjectID": "cmcStatTraitNightcrawlerBurn",
+                "LocalizationKey": "CMC_TraitNightcrawlerBurn_Status_CatchingFire_Description",
+                "DefaultText": "You shouldn't be in the sun! You're on fire!"
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Sun",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 8, "y": 24},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 0,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        }
+    ],
+    "UsesNovelty": false
+}

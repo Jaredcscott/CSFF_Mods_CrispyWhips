@@ -12,7 +12,7 @@
     "LocalizationKey": "CMC_JailRationTray_CardDescription",
     "DefaultText": "A wooden tray, pushed through the low slot in the door each morning. Whatever it holds today is already sitting on the cell floor."
   },
-  "CardImageWarpData": "Plate_Clay",
+  "CardImageWarpData": "CMC_JailRationTray",
   "CardImageWarpType": 3,
   "ObjectWeight": 0,
   "CardInteractions": [],

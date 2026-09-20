@@ -9,7 +9,7 @@
         "LocalizationKey": "CMC_WheeledHorse_CardDescription",
         "DefaultText": "A pull-toy horse whittled from wood, its wheels turning on a stick axle and a cord tied at its neck for towing. A cheerful little companion for a quiet homestead."
     },
-    "CardImageWarpData": "Plank",
+    "CardImageWarpData": "CMC_WheeledHorse",
     "CardImageWarpType": 3,
     "CardTagsWarpData": [],
     "CardTagsWarpType": 3,

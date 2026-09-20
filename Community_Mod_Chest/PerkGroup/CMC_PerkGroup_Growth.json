@@ -1,0 +1,11 @@
+{
+    "UniqueID": "cmcPerkGroupGrowth",
+    "GroupName": {
+        "ParentObjectID": "cmcPerkGroupGrowth",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "Wild Growth"
+    },
+    "PerksList": [],
+    "PerksListWarpData": ["traitsperkabundantgrowth", "traits_perk_weakened_growth"],
+    "PerksListWarpType": 3
+}

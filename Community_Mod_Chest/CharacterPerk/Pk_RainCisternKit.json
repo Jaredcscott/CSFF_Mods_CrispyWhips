@@ -39,7 +39,7 @@
   "PerkIconWarpData": "Cistern",
   "PerkIconWarpType": 3,
   "DifficultyRating": -50,
-  "DisplayPriority": 2750.0,
+  "DisplayPriority": 45.5,
   "HiddenUntilUnlocked": false,
   "AddedStartingHours": 0,
   "OverrideEnvironment": { "m_FileID": 0, "m_PathID": 0 },

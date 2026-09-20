@@ -1,0 +1,11 @@
+{
+    "UniqueID": "cmcPerkGroupBlood",
+    "GroupName": {
+        "ParentObjectID": "cmcPerkGroupBlood",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "Blood"
+    },
+    "PerksList": [],
+    "PerksListWarpData": ["traits_perk_trollblood", "traits_perk_bleeder"],
+    "PerksListWarpType": 3
+}

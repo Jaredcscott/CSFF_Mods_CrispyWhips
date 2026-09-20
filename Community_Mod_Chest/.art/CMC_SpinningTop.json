@@ -1,0 +1,38 @@
+{
+  "target": "CMC_SpinningTop.png",
+  "sourceCard": "CardData/Item/CMC_SpinningTop.json",
+  "subject": "one small whittled wooden spinning top shaped like a pear, with a sharp point at the bottom and a short knob on top, plain honey-brown wood, a length of thin cord wound in neat loops around its upper body with one loose end trailing",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of one small whittled wooden spinning top shaped like a pear, with a sharp point at the bottom and a short knob on top, plain honey-brown wood, a length of thin cord wound in neat loops around its upper body with one loose end trailing, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, several tops, long stick, paint, beads, yo-yo.",
+  "historyId": "4WFoaY5UCgN8zEWaDS98",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783049336_f46bd11f_1789783050094_314c7da1.png",
+  "credits": 90,
+  "generated": "2026-09-18",
+  "note": "Revamp of a card that borrowed a vanilla sprite showing a different object. Claude picked B from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed). Repointed CardImageWarpData from 'LongStick' on CardData/Item/CMC_SpinningTop.json, CardData/Blueprint/Bp_CMC_SpinningTop.json.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783052782_c18e048a_1789783053117_dd80052f.png",
+      "verdict": "knob, point and cord present; faceted body less pear-shaped"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783049336_f46bd11f_1789783050094_314c7da1.png",
+      "verdict": "PICK: clean pear silhouette, knob on top, sharp point, neat cord loops on the upper body, one loose end trailing"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783049387_2407ade7_1789783049530_07b034be.png",
+      "verdict": "pear and knob present; cord loops untidy"
+    }
+  ],
+  "picked": "B",
+  "predicted": "B"
+}

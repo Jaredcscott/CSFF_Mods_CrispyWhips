@@ -1,0 +1,9 @@
+{
+  "id": "MillerCottage",
+  "type": "scene",
+  "image": "Resource/Picture/CMC_CottageMiller_Interior.png",
+  "status": "approved",
+  "source": "Shipped location art (CardImageWarpData of the Miller's cottage interior cards), already an empty room, used as it is.",
+  "description": "the Miller's own small cottage: stone walls with timber beams, a stone hearth with a low fire and stacked logs on the left, a hanging lantern, plain shelves of clay crocks and jars, a small shuttered window, a plank table with a hand quern millstone dusted with flour, grain sacks with wheat ears in the corner, planks leaning on the wall, worn floorboards, warm firelight",
+  "notes": "The plate is framed by stone door jambs; a composition may bring the camera inside and drop them."
+}

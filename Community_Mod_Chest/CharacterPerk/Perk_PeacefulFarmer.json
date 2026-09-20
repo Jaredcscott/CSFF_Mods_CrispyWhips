@@ -12,7 +12,7 @@
     "AddedCardsWarpType": 3,
     "AddedStartingHours": 0,
     "CardsOnBoardObjectives": [],
-    "CharacterPerkPerkGroup": "aacb8df12eedb7b48a9801360ae638c7",
+    "CharacterPerkPerkGroup": "None",
     "CheckingNotificationDetails": 0,
     "CompleteOnLose": false,
     "CompleteOnWin": false,
@@ -73,7 +73,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "You spent your years tending crops and cooking simple meals. Start with a head start in Cooking, turnroot, meadowgrass and flax seeds, a flint hoe and a clay bowl, and keep a steady Foraging Aid as strong as one spirit blessing.",
+        "DefaultText": "Retired trait. It no longer appears at character creation: its seeds and tools are vanilla Farming Gear's job, its skill is vanilla Farmer's, and Green Thumb now carries the crop blessing. Characters who already have it keep its seeds, tools and steady Foraging Aid.",
         "LocalizationKey": "CharacterTraits_Perk_PeacefulFarmer_PerkDescription",
         "ParentObjectID": "traits_perk_peaceful_farmer"
     },
@@ -100,41 +100,7 @@
     },
     "ResetLockInEditor": false,
     "StartUnlocked": true,
-    "StartingStatModifiers": [
-        {
-            "Stat": {
-                "m_FileID": 0,
-                "m_PathID": 0
-            },
-            "StatWarpData": "93c4433b9c1640343b87576d355e53b4",
-            "StatWarpType": 3,
-            "ValueModifier": {
-                "x": 50.0,
-                "y": 50.0
-            },
-            "RateModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "MinValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "MaxValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "CannotModifyBeyond": {
-                "Active": false,
-                "FloatValue": 0.0,
-                "MaxValue": 0.0
-            },
-            "ApplyEachTick": false,
-            "InstantModifier": false,
-            "IgnoreNovelty": false,
-            "IsInverse": false
-        }
-    ],
+    "StartingStatModifiers": [],
     "StatsObjectives": [],
     "SunsCost": 0,
     "TagsOnBoardObjectives": [],

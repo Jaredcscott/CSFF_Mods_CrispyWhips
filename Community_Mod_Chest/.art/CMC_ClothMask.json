@@ -1,0 +1,38 @@
+{
+  "target": "CMC_ClothMask.png",
+  "sourceCard": "CardData/Item/ClothMask.json",
+  "subject": "a simple face covering made from one rectangular strip of plain undyed linen cloth with a long tie string at each end, shown flat and gently curved as if shaped to a face",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a simple face covering made from one rectangular strip of plain undyed linen cloth with a long tie string at each end, shown flat and gently curved as if shaped to a face, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, face, person, head, hood, coif, cap, patterned bandana, eye holes.",
+  "historyId": "3mo4RzO2g63x6jujstol",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783732184_2709c4ba_1789783732935_a81590b5.png",
+  "credits": 90,
+  "generated": "2026-09-18",
+  "note": "Revamp of a card that borrowed a vanilla sprite showing a different object. Claude picked B from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed). Repointed CardImageWarpData from 'Coif_Cloth' on CardData/Item/ClothMask.json, CardData/Blueprint/Bp_ClothMask.json.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783727809_b2fb71ac_1789783728232_9212da21.png",
+      "verdict": "shaped mask with ties; seams make it read as a modern mask"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783732184_2709c4ba_1789783732935_a81590b5.png",
+      "verdict": "PICK: one plain undyed linen strip gently curved to a face, a long tie string at each end"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783729191_ed096974_1789783729760_d1f1bac6.png",
+      "verdict": "pleated surgical-mask shape with ear loops"
+    }
+  ],
+  "picked": "B",
+  "predicted": "B"
+}

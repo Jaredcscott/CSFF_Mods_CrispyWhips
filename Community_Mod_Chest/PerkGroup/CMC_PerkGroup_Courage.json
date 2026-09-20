@@ -1,0 +1,11 @@
+{
+    "UniqueID": "cmcPerkGroupCourage",
+    "GroupName": {
+        "ParentObjectID": "cmcPerkGroupCourage",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "Courage"
+    },
+    "PerksList": [],
+    "PerksListWarpData": ["traits_perk_weak_courage", "traits_perk_weak_cowardice", "b51278a30a1d22f4c80f02eabb132799", "a4c82e406f47a39429a6de5bc7b2c478"],
+    "PerksListWarpType": 3
+}

@@ -13,7 +13,7 @@
     "LocalizationKey": "CMC_HerbPoultice_CardDesc"
   },
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
-  "CardImageWarpData": "HealersMoss",
+  "CardImageWarpData": "CMC_HerbPoultice",
   "CardImageWarpType": 3,
   "CardHelpSection": {
     "ParentObjectID": "cmcHerbPoultice",

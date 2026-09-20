@@ -12,7 +12,7 @@
     "CompleteOnWin": false,
     "DebugCompletion": false,
     "DifficultyRating": 200,
-    "DisplayPriority": 2530.0,
+    "DisplayPriority": 39.0,
     "EditorOnly": false,
     "EquippedCards": [],
     "EquippedCardsWarpData": [],
@@ -37,7 +37,7 @@
                 "m_FileID": 0,
                 "m_PathID": 0
             },
-            "StatWarpData": "1cfae8f993bbbce448477637d44b3cb3",
+            "StatWarpData": "a3a18885af47bf8458293eaca1128c91",
             "StatWarpType": 3,
             "ValueModifier": {
                 "x": 0.0,
@@ -100,7 +100,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "Plants wither under your care. This trait weakens Foraging Aid from other sources, so a single spirit blessing barely holds, and makes a Wild Growth blessing fade sooner. On its own it does nothing.",
+        "DefaultText": "Plants wither under your care. This trait weakens a Fertility Boon from other sources, so a single spirit blessing barely holds on the crops you plant, and makes a Wild Growth blessing fade sooner. On its own it does nothing.",
         "LocalizationKey": "CharacterTraits_Perk_BlackThumb_PerkDescription",
         "ParentObjectID": "traitsperkblackthumb"
     },

@@ -8,11 +8,11 @@
     "Description": {
         "ParentObjectID": "cmcStatTraitAgoraphobia",
         "LocalizationKey": "CMC_TraitAgoraphobia_StatDescription",
-        "DefaultText": "Your dread of open ground. It grips you whenever you have no shelter around you and lets go once you are under cover."
+        "DefaultText": "Your dread of open ground. It grips you whenever you have no shelter and lets go under a roof."
     },
     "IsRuntimeOnly": false,
     "BaseValue": 0.0,
-    "MinMaxValue": {"x": 0.0, "y": 20.0},
+    "MinMaxValue": {"x": 0.0, "y": 11.0},
     "BaseRatePerTick": 0.0,
     "MinMaxRate": {"x": 0.0, "y": 0.0},
     "Transfers": [],
@@ -33,7 +33,7 @@
     "InvertedDirection": false,
     "VisibleValueRange": {"x": 0.0, "y": 0.0},
     "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
-    "StatusesHaveNoBar": true,
+    "StatusesHaveNoBar": false,
     "DefaultStatusName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
     "DefaultStatusDescription": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
     "DefaultStatusIcon": {"m_FileID": 0, "m_PathID": 0},
@@ -42,12 +42,12 @@
             "GameName": {
                 "ParentObjectID": "cmcStatTraitAgoraphobia",
                 "LocalizationKey": "CMC_TraitAgoraphobia_Status_Unsheltered_Name",
-                "DefaultText": "Exposed in the Open"
+                "DefaultText": "Exposed to the Wilderness"
             },
             "Description": {
                 "ParentObjectID": "cmcStatTraitAgoraphobia",
                 "LocalizationKey": "CMC_TraitAgoraphobia_Status_Unsheltered_Description",
-                "DefaultText": "You have no shelter around you. Your fear sits closer to the surface and your stress slowly builds."
+                "DefaultText": "Nothing stands between you and the open sky. You are frightened and your stress builds until you find shelter."
             },
             "StatusLog": {
                 "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
@@ -64,7 +64,7 @@
                     "Stat": {"m_FileID": 0, "m_PathID": 0},
                     "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
                     "StatWarpType": 3,
-                    "ValueModifier": {"x": 14.0, "y": 14.0},
+                    "ValueModifier": {"x": 40.0, "y": 40.0},
                     "RateModifier": {"x": 0.0, "y": 0.0},
                     "MinValueModifier": {"x": 0.0, "y": 0.0},
                     "MaxValueModifier": {"x": 0.0, "y": 0.0},
@@ -91,9 +91,74 @@
             ],
             "EffectsOnNPCStats": [],
             "EffectsOnActions": [],
-            "NotifyPlayer": 3,
+            "NotifyPlayer": 0,
             "RepeatTextNotification": 0,
-            "AlertLevel": 1,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        },
+        {
+            "GameName": {
+                "ParentObjectID": "cmcStatTraitAgoraphobia",
+                "LocalizationKey": "CMC_TraitAgoraphobia_Status_Sheltered_Name",
+                "DefaultText": "Feeling Safe"
+            },
+            "Description": {
+                "ParentObjectID": "cmcStatTraitAgoraphobia",
+                "LocalizationKey": "CMC_TraitAgoraphobia_Status_Sheltered_Description",
+                "DefaultText": "Walls around you and a roof overhead. Your fear eases and your stress drains away."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Shield",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 11, "y": 11},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -40.0, "y": -40.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": -0.3, "y": -0.3},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 0,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
             "AlertSounds": [],
             "RepeatAlertSounds": 0,
             "AmbientSounds": [],

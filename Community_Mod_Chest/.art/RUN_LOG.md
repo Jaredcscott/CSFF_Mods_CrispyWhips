@@ -14,6 +14,30 @@
 | 2026-08-26 | CMC_VillageHomeSignCarved | nano-banana-2 | 2K | 27 | x6srpu2IanfUBaiJFvgY | OK |
 | 2026-08-26 | CMC_Miller_Cottage | nano-banana-2 | 2K | 27 | nl2RD4CL8Z1ftiIHsJ4x | OK |
 | 2026-08-26 | CMC_Weaver_Cottage | nano-banana-2 | 2K | 27 | KygDSoJT0C2THo2fCP2P | OK |
+| 2026-09-18 | CMC_Miller_Inn (refs: CMC_Miller) | nano-banana-2 image2image | 2K | 30 | CqAf7qZqTyWU37MvstA8 | CANDIDATE |
+| 2026-09-18 | Miller (fragment, refs: CMC_Miller) | nano-banana-2 image2image | 2K | 30 | KY1iTJyjI5CGTx4Gdofv | OK |
+| 2026-09-18 | CMC_Miller_Inn (refs: Miller + Inn) | nano-banana-2 image2image | 2K | 30 | ys4SycFJiM58V1ZUA690 | CANDIDATE |
+| 2026-09-18 | CMC_Miller_Academy x3 (refs: Miller + Academy) | nano-banana-2 image2image | 2K | 90 | CdX7JRdp1UGirGcTH2YN | CANDIDATE |
+| 2026-09-18 | CMC_Miller_Cottage x3 (refs: Miller + MillerCottage) | nano-banana-2 image2image | 2K | 90 | rBhEM4jhsNUY2pVxcnXS | CANDIDATE |
+| 2026-09-18 | CMC_Miller_Inn (candidate 2 selected, shipped CMC 1.68.31) | nano-banana-2 image2image | 2K | 0 | ys4SycFJiM58V1ZUA690 | OK |
+| 2026-09-18 | CMC_Miller_Academy (A2 selected, shipped CMC 1.68.31) | nano-banana-2 image2image | 2K | 0 | CdX7JRdp1UGirGcTH2YN | OK |
+| 2026-09-18 | CMC_Miller_Cottage (C3 selected, shipped CMC 1.68.31) | nano-banana-2 image2image | 2K | 0 | rBhEM4jhsNUY2pVxcnXS | OK |
+| 2026-09-18 | CMC_WheeledHorse (revamp 3-up batch, 3 of 3 candidates; option A picked by Claude, owner may override) | nano-banana-2 | 2K | 90 | xYN7jVmKSXuoKzUYAkrh | OK |
+| 2026-09-18 | CMC_SpinningTop (revamp 3-up batch, 3 of 3 candidates; option B picked by Claude, owner may override) | nano-banana-2 | 2K | 90 | 4WFoaY5UCgN8zEWaDS98 | OK |
+| 2026-09-18 | CMC_BoneDice (revamp 3-up batch, 2 of 3 candidates; option A picked by Claude, owner may override) | nano-banana-2 | 2K | 60 | iFDwfQorI27rJA47pG3T | OK |
+| 2026-09-18 | CMC_ClayOcarina (revamp 3-up batch, 3 of 3 candidates; option B picked by Claude, owner may override) | nano-banana-2 | 2K | 90 | 99eWyzAFsoxCcoWcYYvn | OK |
+| 2026-09-18 | CMC_BurglarsKit (revamp 3-up batch, 3 of 3 candidates; option C picked by Claude, owner may override) | nano-banana-2 | 2K | 90 | X3YCtu7UwZQ2sySxQFsn | OK |
+| 2026-09-18 | CMC_JailWaterJug (revamp 3-up batch, 3 of 3 candidates; option C picked by Claude, owner may override; white paper ENCLOSED by the subject) | nano-banana-2 | 2K | 90 | ckFbQH7lFqZx7UDLC9dt | OK |
+| 2026-09-18 | CMC_HollowSage (revamp 3-up batch, 2 of 3 candidates; option B picked by Claude, owner may override) | nano-banana-2 | 2K | 60 | V0itPnEEF4HA5PvtfCO7 | OK |
+| 2026-09-18 | CMC_SilverwortBlossom (revamp 3-up batch, 3 of 3 candidates; option B picked by Claude, owner may override; the pale body the border key cut into was restored from the raw sample by a hole fill limited to the body) | nano-banana-2 | 2K | 90 | w2NLLESuLPvrAOLTjBQ8 | OK |
+| 2026-09-18 | CMC_HerbPoultice (revamp 3-up batch, 3 of 3 candidates; option C picked by Claude, owner may override; a pale part of the subject that the border key cut into was restored from the raw sample by a morphological hole fill) | nano-banana-2 | 2K | 90 | mTBVjTCKBahJz9C8cJtI | OK |
+| 2026-09-18 | CMC_HuntingStand (revamp 3-up batch, 3 of 3 candidates; option C picked by Claude, owner may override; white paper ENCLOSED by the subject) | nano-banana-2 | 2K | 90 | Lp5AzHS0S2mh2pDZDZCr | OK |
+| 2026-09-18 | CMC_HuntingStandKit (revamp 3-up batch, 3 of 3 candidates; option C picked by Claude, owner may override) | nano-banana-2 | 2K | 90 | fv6g97Xix2BO3l7tbLOL | OK |
+| 2026-09-18 | CMC_CausewayKit (revamp 3-up batch, 3 of 3 candidates; option B picked by Claude, owner may override) | nano-banana-2 | 2K | 90 | N4ZUX08VA9PZCD1E9Kpy | OK |
+| 2026-09-18 | CMC_Club (revamp 3-up batch, 3 of 3 candidates; option A picked by Claude, owner may override) | nano-banana-2 | 2K | 90 | ghQLBXJsWKuDCzgh5kx3 | OK |
+| 2026-09-18 | CMC_ClothMask (revamp 3-up batch, 3 of 3 candidates; option B picked by Claude, owner may override) | nano-banana-2 | 2K | 90 | 3mo4RzO2g63x6jujstol | OK |
+| 2026-09-18 | CMC_JailRationTray (revamp 3-up batch, 3 of 3 candidates; option A picked by Claude, owner may override) | nano-banana-2 | 2K | 90 | h1ocK10OpcSxABl44Bbt | OK |
+| 2026-09-18 | CMC_MarketStall (revamp 3-up batch, 3 of 3 candidates; option C picked by Claude, owner may override; white paper ENCLOSED by the subject) | nano-banana-2 image2image | 2K | 90 | rFL93XGwwtwXd0VRFRWh | OK |
 
 ## Notes
 

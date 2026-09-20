@@ -8,11 +8,11 @@
     "Description": {
         "ParentObjectID": "cmcStatTraitDrunkard",
         "LocalizationKey": "CMC_TraitDrunkard_StatDescription",
-        "DefaultText": "Your need for a drink. It gnaws at you while you are sober and lets go while you are tipsy or drunk."
+        "DefaultText": "Your need for a drink, and how well you hold it once you have one."
     },
     "IsRuntimeOnly": false,
     "BaseValue": 0.0,
-    "MinMaxValue": {"x": 0.0, "y": 1100.0},
+    "MinMaxValue": {"x": 0.0, "y": 170.0},
     "BaseRatePerTick": 0.0,
     "MinMaxRate": {"x": 0.0, "y": 0.0},
     "Transfers": [],
@@ -33,7 +33,7 @@
     "InvertedDirection": false,
     "VisibleValueRange": {"x": 0.0, "y": 0.0},
     "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
-    "StatusesHaveNoBar": true,
+    "StatusesHaveNoBar": false,
     "DefaultStatusName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
     "DefaultStatusDescription": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
     "DefaultStatusIcon": {"m_FileID": 0, "m_PathID": 0},
@@ -42,12 +42,12 @@
             "GameName": {
                 "ParentObjectID": "cmcStatTraitDrunkard",
                 "LocalizationKey": "CMC_TraitDrunkard_Status_Sober_Name",
-                "DefaultText": "Craving a Drink"
+                "DefaultText": "Alcohol Addiction"
             },
             "Description": {
                 "ParentObjectID": "cmcStatTraitDrunkard",
                 "LocalizationKey": "CMC_TraitDrunkard_Status_Sober_Description",
-                "DefaultText": "You are sober and it wears on you. Your stress slowly builds until you are tipsy again."
+                "DefaultText": "You need a drink. Until you have one your stress climbs, nothing satisfies you and everything aches."
             },
             "StatusLog": {
                 "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
@@ -57,29 +57,14 @@
             "Icon": {"m_FileID": 0, "m_PathID": 0},
             "IconWarpData": "Alcohol_Old",
             "IconWarpType": 3,
-            "ValueRange": {"x": 1000, "y": 1012},
+            "ValueRange": {"x": 100, "y": 112},
             "UsePercentageForRange": false,
-            "EffectsOnStats": [
-                {
-                    "Stat": {"m_FileID": 0, "m_PathID": 0},
-                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
-                    "StatWarpType": 3,
-                    "ValueModifier": {"x": 0.0, "y": 0.0},
-                    "RateModifier": {"x": 0.3, "y": 0.3},
-                    "MinValueModifier": {"x": 0.0, "y": 0.0},
-                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
-                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
-                    "ApplyEachTick": false,
-                    "InstantModifier": false,
-                    "IgnoreNovelty": false,
-                    "IsInverse": false
-                }
-            ],
+            "EffectsOnStats": [],
             "EffectsOnNPCStats": [],
             "EffectsOnActions": [],
-            "NotifyPlayer": 3,
+            "NotifyPlayer": 0,
             "RepeatTextNotification": 0,
-            "AlertLevel": 1,
+            "AlertLevel": 0,
             "AlertSounds": [],
             "RepeatAlertSounds": 0,
             "AmbientSounds": [],
@@ -92,13 +77,13 @@
         {
             "GameName": {
                 "ParentObjectID": "cmcStatTraitDrunkard",
-                "LocalizationKey": "CMC_TraitDrunkard_Status_Drinking_Name",
-                "DefaultText": "Craving Sated"
+                "LocalizationKey": "CMC_TraitDrunkard_Status_Tipsy_Name",
+                "DefaultText": "Finally, a Drink"
             },
             "Description": {
                 "ParentObjectID": "cmcStatTraitDrunkard",
-                "LocalizationKey": "CMC_TraitDrunkard_Status_Drinking_Description",
-                "DefaultText": "You are tipsy or drunk and the craving is quiet. Alcohol relieves your stress more than it would for anyone else."
+                "LocalizationKey": "CMC_TraitDrunkard_Status_Tipsy_Description",
+                "DefaultText": "The craving lets go and you feel like yourself again. The drink costs you nothing, but it does nothing more for you either."
             },
             "StatusLog": {
                 "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
@@ -108,15 +93,29 @@
             "Icon": {"m_FileID": 0, "m_PathID": 0},
             "IconWarpData": "Alcohol_Old",
             "IconWarpType": 3,
-            "ValueRange": {"x": 1013, "y": 1048},
+            "ValueRange": {"x": 113, "y": 124},
             "UsePercentageForRange": false,
             "EffectsOnStats": [
                 {
                     "Stat": {"m_FileID": 0, "m_PathID": 0},
-                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpData": "c589f92d8a479a24c937ea90fa2d1a82",
                     "StatWarpType": 3,
                     "ValueModifier": {"x": 0.0, "y": 0.0},
-                    "RateModifier": {"x": -1.0, "y": -1.0},
+                    "RateModifier": {"x": 4.0, "y": 4.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "c672b35248e9f2349a084e1514d6c9f8",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": 0.5, "y": 0.5},
                     "MinValueModifier": {"x": 0.0, "y": 0.0},
                     "MaxValueModifier": {"x": 0.0, "y": 0.0},
                     "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
@@ -128,7 +127,165 @@
             ],
             "EffectsOnNPCStats": [],
             "EffectsOnActions": [],
-            "NotifyPlayer": 2,
+            "NotifyPlayer": 0,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        },
+        {
+            "GameName": {
+                "ParentObjectID": "cmcStatTraitDrunkard",
+                "LocalizationKey": "CMC_TraitDrunkard_Status_Drunk_Name",
+                "DefaultText": "Satisfied"
+            },
+            "Description": {
+                "ParentObjectID": "cmcStatTraitDrunkard",
+                "LocalizationKey": "CMC_TraitDrunkard_Status_Drunk_Description",
+                "DefaultText": "The drink warms you through and lifts your mood, and it does not leave you thirsty, sick or muddled."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Alcohol_Old",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 125, "y": 148},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "c589f92d8a479a24c937ea90fa2d1a82",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": 6.0, "y": 6.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "c672b35248e9f2349a084e1514d6c9f8",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": 2.0, "y": 2.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "547f09c7ea6d11d4bbf6714255b0dfd5",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": -1.5, "y": -1.5},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 0,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        },
+        {
+            "GameName": {
+                "ParentObjectID": "cmcStatTraitDrunkard",
+                "LocalizationKey": "CMC_TraitDrunkard_Status_HorriblyDrunk_Name",
+                "DefaultText": "I Won't Get Drunk!"
+            },
+            "Description": {
+                "ParentObjectID": "cmcStatTraitDrunkard",
+                "LocalizationKey": "CMC_TraitDrunkard_Status_HorriblyDrunk_Description",
+                "DefaultText": "Plenty to drink and you are holding it together: no thirst, no sickness, no confusion."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Alcohol_Old",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 149, "y": 170},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "c589f92d8a479a24c937ea90fa2d1a82",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": 8.0, "y": 8.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "c672b35248e9f2349a084e1514d6c9f8",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": 3.0, "y": 3.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "547f09c7ea6d11d4bbf6714255b0dfd5",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": -3.0, "y": -3.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 0,
             "RepeatTextNotification": 0,
             "AlertLevel": 0,
             "AlertSounds": [],

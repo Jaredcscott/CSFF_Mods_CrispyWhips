@@ -6,9 +6,12 @@
         "68c14d265ea6c874ba79444d2e1ef7b3",
         "68c14d265ea6c874ba79444d2e1ef7b3",
         "68c14d265ea6c874ba79444d2e1ef7b3",
-        "367203307c951b44f817c5182fce330b",
+        "68c14d265ea6c874ba79444d2e1ef7b3",
+        "68c14d265ea6c874ba79444d2e1ef7b3",
         "potterysculpturepigment",
-        "potterysculpturepigment"
+        "potterysculpturepigment",
+        "51c751469bd15ce46804e399479d1764",
+        "694cdedcfd63f354099aea87a53aa496"
     ],
     "AddedCardsWarpType": 3,
     "AddedStartingHours": 0,
@@ -19,7 +22,7 @@
     "CompleteOnWin": false,
     "DebugCompletion": false,
     "DifficultyRating": -200,
-    "DisplayPriority": 2355.0,
+    "DisplayPriority": 43.0,
     "EditorOnly": false,
     "EquippedCards": [],
     "EquippedCardsWarpData": [],
@@ -40,7 +43,7 @@
     },
     "PassiveStatModifiers": [],
     "PerkDescription": {
-        "DefaultText": "You trained under a potter before striking out on your own. Start with clay for sculpting, a flint knife for shaping, and a couple of lumps of ready-ground pigment for decorating your work.",
+        "DefaultText": "You trained under a potter before striking out on your own. Start with five lumps of clay, two lumps of ready-ground pigment for decorating your work, charcoal for drawing and a basket to carry it all.",
         "LocalizationKey": "CharacterTraits_Perk_PottersApprentice_PerkDescription",
         "ParentObjectID": "traits_perk_potters_apprentice"
     },

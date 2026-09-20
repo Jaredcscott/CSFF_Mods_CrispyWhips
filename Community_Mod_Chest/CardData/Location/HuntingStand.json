@@ -24,7 +24,7 @@
   "IsEnvironment": false,
   "IsAttachedToEnvironment": true,
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
-  "CardImageWarpData": "Plank",
+  "CardImageWarpData": "CMC_HuntingStand",
   "CardImageWarpType": 3,
   "CardTagsWarpData": [
     "tag_Structure",

@@ -85,7 +85,7 @@
     "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
     "BlueprintActionTagsWarpType": 3,
     "CardImage": { "m_FileID": 0, "m_PathID": 0 },
-    "CardImageWarpData": "HealersMoss",
+    "CardImageWarpData": "CMC_HerbPoultice",
     "CardImageWarpType": 3,
     "BlueprintUnlockTicksCost": 8.0,
     "ResearchedNotification": 0

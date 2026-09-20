@@ -11,7 +11,7 @@
         "LocalizationKey": "CMC_PlankCauseway_BP_Desc",
         "DefaultText": "Cut and lash plank sections over a stone footing, sized to the ford at Clay Shoal. Can only be built at Clay Shoal. Drag the finished causeway onto a Flooded Ford to bridge the spring thaw and open the road to Sodden Hollow."
     },
-    "CardImageWarpData": "Plank",
+    "CardImageWarpData": "CMC_CausewayKit",
     "CardImageWarpType": 3,
     "UnlockConditionsDesc": {
         "ParentObjectID": "bpcmcplankcauseway",

@@ -1,0 +1,11 @@
+{
+    "UniqueID": "cmcPerkGroupDarkness",
+    "GroupName": {
+        "ParentObjectID": "cmcPerkGroupDarkness",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "Darkness"
+    },
+    "PerksList": [],
+    "PerksListWarpData": ["traitsperknyctophobia", "cmcperknightcrawler"],
+    "PerksListWarpType": 3
+}

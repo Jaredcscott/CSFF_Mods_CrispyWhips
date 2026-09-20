@@ -1,0 +1,35 @@
+{
+    "UniqueID": "cmcStatTraitNightcrawlerBurnCounter",
+    "GameName": {
+        "ParentObjectID": "cmcStatTraitNightcrawlerBurnCounter",
+        "LocalizationKey": "CMC_TraitNightcrawlerBurnCounter_StatName",
+        "DefaultText": "Burn Flare Cooldown"
+    },
+    "Description": {
+        "ParentObjectID": "cmcStatTraitNightcrawlerBurnCounter",
+        "LocalizationKey": "CMC_TraitNightcrawlerBurnCounter_StatDescription",
+        "DefaultText": "An internal timer that keeps the burn from flaring up again right away."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 4.0},
+    "BaseRatePerTick": -1.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": false,
+    "DefaultStatusName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusDescription": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusIcon": {"m_FileID": 0, "m_PathID": 0},
+    "Statuses": [],
+    "UsesNovelty": false
+}

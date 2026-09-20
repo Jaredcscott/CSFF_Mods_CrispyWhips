@@ -1,0 +1,9 @@
+{
+  "id": "Academy",
+  "type": "scene",
+  "image": "Resource/Picture/VillageAcademyInterior.png",
+  "status": "approved",
+  "source": "Shipped location art (CardImageWarpData of the village academy interior cards), already an empty room, used as it is.",
+  "description": "the village Academy workshop: sturdy timber-framed walls, heavy wooden workbenches with vises and planes, saws, chisels and pliers hung on a tool rack, coils of rope on pegs, shelves of stacked planks, metal ingots and jars, a small stone forge glowing at the back, a hanging lantern, a slanted drafting lectern with a blueprint, a quill and an inkwell, wide warm-lit floorboards",
+  "notes": "The plate is framed by a stone archway; a composition may bring the camera inside and drop the arch. Shared by every character's Academy portrait."
+}

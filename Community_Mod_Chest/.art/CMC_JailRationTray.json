@@ -1,0 +1,38 @@
+{
+  "target": "CMC_JailRationTray.png",
+  "sourceCard": "CardData/Location/CMC_JailRationTray.json",
+  "subject": "a plain rough wooden tray: a flat rectangular board with low raised rims, worn and scratched, empty",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a plain rough wooden tray: a flat rectangular board with low raised rims, worn and scratched, empty, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, clay plate, food, bowl, handles, cloth.",
+  "historyId": "h1ocK10OpcSxABl44Bbt",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783945070_41f49829_1789783945769_f345467b.png",
+  "credits": 90,
+  "generated": "2026-09-18",
+  "note": "Revamp of a card that borrowed a vanilla sprite showing a different object. Claude picked A from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed). Repointed CardImageWarpData from 'Plate_Clay' on CardData/Location/CMC_JailRationTray.json.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783945070_41f49829_1789783945769_f345467b.png",
+      "verdict": "PICK: flat rectangular board, low rims, visibly worn and scratched, empty"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783946948_30bbe6b3_1789783947823_fbd5c5ac.png",
+      "verdict": "pale weathered wood; scratches faint"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783945306_bebbd6bb_1789783946101_014f0f54.png",
+      "verdict": "all phrases present; scratches less visible"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A"
+}

@@ -1,0 +1,232 @@
+{
+    "UniqueID": "cmcStatTraitNightcrawlerShade",
+    "GameName": {
+        "ParentObjectID": "cmcStatTraitNightcrawlerShade",
+        "LocalizationKey": "CMC_TraitNightcrawlerShade_StatName",
+        "DefaultText": "Sun Protection"
+    },
+    "Description": {
+        "ParentObjectID": "cmcStatTraitNightcrawlerShade",
+        "LocalizationKey": "CMC_TraitNightcrawlerShade_StatDescription",
+        "DefaultText": "How well shaded you are from the sun. Being indoors, wearing clothing, or a Bee Suit all count."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {"x": 0.0, "y": 16.0},
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {"x": 0.0, "y": 0.0},
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [
+        {
+            "Stat": {"m_FileID": 0, "m_PathID": 0},
+            "StatWarpData": "0b9d0c63229f413439aeb1a96c9bd29f",
+            "StatWarpType": 3,
+            "Scale": {"Active": false, "FloatValue": 0.0}
+        }
+    ],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 0,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": false,
+    "InvertedDirection": false,
+    "VisibleValueRange": {"x": 0.0, "y": 0.0},
+    "TrendIndicatorRateRange": {"x": 0.0, "y": 0.0},
+    "StatusesHaveNoBar": false,
+    "DefaultStatusName": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusDescription": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+    "DefaultStatusIcon": {"m_FileID": 0, "m_PathID": 0},
+    "Statuses": [
+        {
+            "GameName": {
+                "ParentObjectID": "cmcStatTraitNightcrawlerShade",
+                "LocalizationKey": "CMC_TraitNightcrawlerShade_Status_Unshaded_Name",
+                "DefaultText": "Unshaded"
+            },
+            "Description": {
+                "ParentObjectID": "cmcStatTraitNightcrawlerShade",
+                "LocalizationKey": "CMC_TraitNightcrawlerShade_Status_Unshaded_Description",
+                "DefaultText": "Completely unshaded, the sunlight will kill you!"
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Sun",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 10, "y": 11},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 0,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        },
+        {
+            "GameName": {
+                "ParentObjectID": "cmcStatTraitNightcrawlerShade",
+                "LocalizationKey": "CMC_TraitNightcrawlerShade_Status_InsufficientShade_Name",
+                "DefaultText": "Insufficient Shade"
+            },
+            "Description": {
+                "ParentObjectID": "cmcStatTraitNightcrawlerShade",
+                "LocalizationKey": "CMC_TraitNightcrawlerShade_Status_InsufficientShade_Description",
+                "DefaultText": "Insufficient shade, try not to go outside!"
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Shield",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 12, "y": 13},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "cmcStatTraitNightcrawlerSun",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -15.0, "y": -15.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 0,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        },
+        {
+            "GameName": {
+                "ParentObjectID": "cmcStatTraitNightcrawlerShade",
+                "LocalizationKey": "CMC_TraitNightcrawlerShade_Status_GoodShade_Name",
+                "DefaultText": "Good Shade"
+            },
+            "Description": {
+                "ParentObjectID": "cmcStatTraitNightcrawlerShade",
+                "LocalizationKey": "CMC_TraitNightcrawlerShade_Status_GoodShade_Description",
+                "DefaultText": "Good shade, you can stay outside a little longer."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Shield",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 14, "y": 15},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "cmcStatTraitNightcrawlerSun",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -35.0, "y": -35.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 0,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        },
+        {
+            "GameName": {
+                "ParentObjectID": "cmcStatTraitNightcrawlerShade",
+                "LocalizationKey": "CMC_TraitNightcrawlerShade_Status_FullShade_Name",
+                "DefaultText": "Full Shade"
+            },
+            "Description": {
+                "ParentObjectID": "cmcStatTraitNightcrawlerShade",
+                "LocalizationKey": "CMC_TraitNightcrawlerShade_Status_FullShade_Description",
+                "DefaultText": "The best shade, the sunlight can no longer harm you."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Shield",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 16, "y": 16},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "cmcStatTraitNightcrawlerSun",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -60.0, "y": -60.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 0,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        }
+    ],
+    "UsesNovelty": false
+}

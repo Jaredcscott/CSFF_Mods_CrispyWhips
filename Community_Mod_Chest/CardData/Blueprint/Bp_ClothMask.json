@@ -84,7 +84,7 @@
   "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
   "BlueprintActionTagsWarpType": 3,
   "CardImage": { "m_FileID": 0, "m_PathID": 0 },
-  "CardImageWarpData": "Coif_Cloth",
+  "CardImageWarpData": "CMC_ClothMask",
   "CardImageWarpType": 3,
   "BlueprintUnlockTicksCost": 4.0,
   "ResearchedNotification": 0

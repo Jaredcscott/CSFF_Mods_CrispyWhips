@@ -1,0 +1,57 @@
+{
+  "target": "CMC_Miller_Inn.png",
+  "status": "shipped in CMC 1.68.31 (2026-09-18); Resource/Picture holds the finished pick, 512x768 RGBA, full-bleed",
+  "sourceCard": "Patcher/CottageResidentSchedulePatch.cs (InnSpriteName, Miller entry)",
+  "composition": {
+    "character": "Miller",
+    "scene": "Inn",
+    "props": [],
+    "finish": "full-bleed",
+    "see": ".art/compositions.json"
+  },
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "references": [
+    {
+      "role": "character",
+      "fragment": "Miller",
+      "image": ".art/fragments/characters/Miller.png",
+      "sha256": "b30cc903e5349ca064b8334f5c171e6d21fa1fc7db75b15e8f45a62fa49db3e5",
+      "id": "9xgFsaRVPTPN7txSu8GE"
+    },
+    {
+      "role": "scene",
+      "fragment": "Inn",
+      "image": "Resource/Picture/VillageInnInterior.png",
+      "sha256": "86fddd91129fe2c78e0dc0578dd4cac476011afa49037cfe1f922227ef673267",
+      "id": "wn0OHoSpcwaOPM4nVFDJ"
+    }
+  ],
+  "historyId": "ys4SycFJiM58V1ZUA690",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789780807596_8940c8db_1789780808194_492db186.png",
+  "credits": 30,
+  "generated": "2026-09-18",
+  "candidates": [
+    {
+      "n": "1",
+      "historyId": "CqAf7qZqTyWU37MvstA8",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789780296478_254ec04b_1789780296805_78dadafa.png",
+      "refs": "CMC_Miller anchor only",
+      "verdict": "character on-model, room invented (not the Inn card)"
+    },
+    {
+      "n": "2",
+      "historyId": "ys4SycFJiM58V1ZUA690",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789780807596_8940c8db_1789780808194_492db186.png",
+      "refs": "Miller + Inn fragments",
+      "verdict": "on-model, the Inn card's room; hair close to the top edge"
+    }
+  ],
+  "picked": "2"
+}

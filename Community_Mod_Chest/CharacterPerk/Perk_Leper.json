@@ -12,7 +12,7 @@
     "CompleteOnWin": false,
     "DebugCompletion": false,
     "DifficultyRating": 200,
-    "DisplayPriority": 2546.0,
+    "DisplayPriority": 49.0,
     "EditorOnly": false,
     "EquippedCards": [],
     "EquippedCardsWarpData": [],
@@ -136,11 +136,11 @@
                 "m_FileID": 0,
                 "m_PathID": 0
             },
-            "StatWarpData": "59e9ebfecfacb154b8436e93f094b316",
+            "StatWarpData": "93c8d624eb40ea94e8e1e5a4b2ea2ad9",
             "StatWarpType": 3,
             "ValueModifier": {
-                "x": -100.0,
-                "y": -100.0
+                "x": -50.0,
+                "y": -50.0
             },
             "RateModifier": {
                 "x": 0.0,
@@ -166,7 +166,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "A wasting affliction has killed the feeling in your flesh and eaten at your face. Injury no longer hurts you at all. Your skin keeps out less of the filth it meets, your features are ruined, and people trade and speak with you only when they must.",
+        "DefaultText": "A wasting affliction has killed the feeling in your flesh and eaten at your face. Injury no longer hurts you at all. Your skin keeps out less of the filth it meets, your ruined features put traders off, and you have little feeling left for other people.",
         "LocalizationKey": "CharacterTraits_Perk_Leper_PerkDescription",
         "ParentObjectID": "traits_perk_leper"
     },

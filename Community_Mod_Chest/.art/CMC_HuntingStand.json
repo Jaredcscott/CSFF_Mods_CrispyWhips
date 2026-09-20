@@ -1,0 +1,38 @@
+{
+  "target": "CMC_HuntingStand.png",
+  "sourceCard": "CardData/Location/HuntingStand.json",
+  "subject": "a simple elevated hunting platform: a small square deck of rough planks lashed with rope between the lower branches of a single bare tree trunk, a crude pole ladder leaning up to it, no railing, no roof",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a simple elevated hunting platform: a small square deck of rough planks lashed with rope between the lower branches of a single bare tree trunk, a crude pole ladder leaning up to it, no railing, no roof, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, treehouse cabin, roof, walls, forest, several trees, grass, ground.",
+  "historyId": "Lp5AzHS0S2mh2pDZDZCr",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783579490_a39243bd_1789783580257_7148d3a8.png",
+  "credits": 90,
+  "generated": "2026-09-18",
+  "note": "Revamp of a card that borrowed a vanilla sprite showing a different object. Claude picked C from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed); then white paper ENCLOSED by the subject (which the border-connected key cannot reach) was keyed out with the keyer's own 200-250 ramp (key_enclosed.py). Repointed CardImageWarpData from 'Plank' on CardData/Location/HuntingStand.json.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783582794_ef923672_1789783583123_74cb9074.png",
+      "verdict": "deck, ladder and branches; rope lashing only at the trunk"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783582021_e47d5f28_1789783582263_79ab7de3.png",
+      "verdict": "deck and ladder; lashing at the trunk only"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783579490_a39243bd_1789783580257_7148d3a8.png",
+      "verdict": "PICK: square plank deck lashed with rope at several branches of one bare trunk, pole ladder leaning up, no railing or roof; paper between the rungs keyed out"
+    }
+  ],
+  "picked": "C",
+  "predicted": "C"
+}

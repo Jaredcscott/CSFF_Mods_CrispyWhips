@@ -1,0 +1,11 @@
+{
+    "UniqueID": "cmcPerkGroupArrival",
+    "GroupName": {
+        "ParentObjectID": "cmcPerkGroupArrival",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "Arrival"
+    },
+    "PerksList": [],
+    "PerksListWarpData": ["traits_perk_fugitive", "traitsperklosttourist"],
+    "PerksListWarpType": 3
+}

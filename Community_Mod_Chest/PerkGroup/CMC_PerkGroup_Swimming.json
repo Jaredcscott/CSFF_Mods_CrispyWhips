@@ -1,0 +1,11 @@
+{
+    "UniqueID": "cmcPerkGroupSwimming",
+    "GroupName": {
+        "ParentObjectID": "cmcPerkGroupSwimming",
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "Swimming"
+    },
+    "PerksList": [],
+    "PerksListWarpData": ["traits_perk_swimmer", "traits_perk_sinker"],
+    "PerksListWarpType": 3
+}

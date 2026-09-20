@@ -10,7 +10,7 @@
     "AddedCardsWarpType": 3,
     "AddedStartingHours": 0,
     "CardsOnBoardObjectives": [],
-    "CharacterPerkPerkGroup": "aacb8df12eedb7b48a9801360ae638c7",
+    "CharacterPerkPerkGroup": "None",
     "CheckingNotificationDetails": 0,
     "CompleteOnLose": false,
     "CompleteOnWin": false,
@@ -37,7 +37,7 @@
     },
     "PassiveStatModifiers": [],
     "PerkDescription": {
-        "DefaultText": "You have an eye for the earth's riches. Start with flint, greenstone ore, and a whetstone, plus a head start in Knapping and Metalworking.",
+        "DefaultText": "Retired trait, merged into Mineral Rich. It no longer appears at character creation; characters who already have it keep what it gave them.",
         "LocalizationKey": "CharacterTraits_Perk_Prospector_PerkDescription",
         "ParentObjectID": "traits_perk_prospector"
     },

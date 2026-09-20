@@ -1,0 +1,44 @@
+{
+  "31a3eb2127bc31fc055fcb5ba70b367862c8c186ba958e9dd19c5a50a76b9acb": {
+    "id": "Ac8Mz1NvulWDWTnItrxQ",
+    "label": "CMC_MarketStall (subject)",
+    "source": "Community_Mod_Chest/Resource/Picture/CMC_MarketStall.png",
+    "uploaded": "2026-09-18",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/CMC_MarketStall_1789783966935_700a8608.png"
+  },
+  "86fddd91129fe2c78e0dc0578dd4cac476011afa49037cfe1f922227ef673267": {
+    "id": "wn0OHoSpcwaOPM4nVFDJ",
+    "label": "Inn (scene fragment)",
+    "source": "Community_Mod_Chest/Resource/Picture/VillageInnInterior.png",
+    "uploaded": "2026-09-18",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/VillageInnInterior_1789780735062_379b2d21.png"
+  },
+  "adb6b835e2fe5aeb2b7fd7895158c549fdb3d8e967f55b1adec83e9f3f74bf48": {
+    "id": "ErLZTi1Xn4UZxR3STqxR",
+    "label": "CMC_Miller (character anchor)",
+    "source": "Community_Mod_Chest/Resource/Picture/CMC_Miller.png",
+    "uploaded": "2026-09-18",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/CMC_Miller_1789779877297_9bfa404a.png"
+  },
+  "b30cc903e5349ca064b8334f5c171e6d21fa1fc7db75b15e8f45a62fa49db3e5": {
+    "id": "9xgFsaRVPTPN7txSu8GE",
+    "label": "Miller (character fragment)",
+    "source": "Community_Mod_Chest/.art/fragments/characters/Miller.png",
+    "uploaded": "2026-09-18",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/Miller_1789780732281_55cf4883.png"
+  },
+  "e3bad553bf54bea5f2e834ac2881f1a116a12c5f6fd69d71c1c89a35ec02ae78": {
+    "id": "udpnaAUPTU2tKqaI0IIH",
+    "label": "Academy (scene fragment)",
+    "source": "Community_Mod_Chest/Resource/Picture/VillageAcademyInterior.png",
+    "uploaded": "2026-09-18",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/VillageAcademyInterior_1789781307234_adcf26ae.png"
+  },
+  "e5c0d93dfff8f96ed0ad099277afb94e1db2908d0f88ef400f3e073ccade8727": {
+    "id": "b1aebbrMAAYnBymIn5KF",
+    "label": "MillerCottage (scene fragment)",
+    "source": "Community_Mod_Chest/Resource/Picture/CMC_CottageMiller_Interior.png",
+    "uploaded": "2026-09-18",
+    "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/CMC_CottageMiller_Interior_1789781309241_67e8af21.png"
+  }
+}

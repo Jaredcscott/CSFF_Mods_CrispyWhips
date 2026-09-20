@@ -3,12 +3,18 @@
     "ActionObjectives": [],
     "AddedCards": [],
     "AddedCardsWarpData": [
-        "bef002cfd45b3e8459864746f403cf73",
-        "bef002cfd45b3e8459864746f403cf73",
-        "bef002cfd45b3e8459864746f403cf73",
         "bcc7d7a764978e447bc38b36dcca2055",
         "bcc7d7a764978e447bc38b36dcca2055",
-        "82c2223daea9801488123f7264fd4527"
+        "bcc7d7a764978e447bc38b36dcca2055",
+        "bcc7d7a764978e447bc38b36dcca2055",
+        "bcc7d7a764978e447bc38b36dcca2055",
+        "bcc7d7a764978e447bc38b36dcca2055",
+        "bef002cfd45b3e8459864746f403cf73",
+        "bef002cfd45b3e8459864746f403cf73",
+        "bef002cfd45b3e8459864746f403cf73",
+        "4722087bd24e3b840adcc8886119fa3e",
+        "a7384e5147b23a642809451cc4ef24fb",
+        "8695a7aa22521aa45be582d3c1558f78"
     ],
     "AddedCardsWarpType": 3,
     "AddedStartingHours": 0,
@@ -19,7 +25,7 @@
     "CompleteOnWin": false,
     "DebugCompletion": false,
     "DifficultyRating": -200,
-    "DisplayPriority": 2263.0,
+    "DisplayPriority": 43.5,
     "EditorOnly": false,
     "EquippedCards": [],
     "EquippedCardsWarpData": [],
@@ -40,7 +46,7 @@
     },
     "PassiveStatModifiers": [],
     "PerkDescription": {
-        "DefaultText": "You begin your run at a mineral-rich location. Start with extra flint, two chunks of greenstone ore, and a whetstone to get your stoneworking off to a strong start.",
+        "DefaultText": "You love stones, all kinds of stones, and you have heard there is a red stone out here that you have never seen. Start with six greenstones, three flints, a sharpened stone, a stone and a heavy stone.",
         "LocalizationKey": "CharacterTraits_Perk_MineralRich_PerkDescription",
         "ParentObjectID": "traitsperkmineralrich"
     },

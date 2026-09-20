@@ -77,7 +77,7 @@
     "BlueprintActionTagsWarpData": ["HandAction", "CraftAction"],
     "BlueprintActionTagsWarpType": 3,
     "CardImage": { "m_FileID": 0, "m_PathID": 0 },
-    "CardImageWarpData": "Chisel_Iron",
+    "CardImageWarpData": "CMC_BurglarsKit",
     "CardImageWarpType": 3,
     "ResearchedNotification": 0
 }

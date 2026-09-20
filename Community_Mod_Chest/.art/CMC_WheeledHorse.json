@@ -1,0 +1,38 @@
+{
+  "target": "CMC_WheeledHorse.png",
+  "sourceCard": "CardData/Item/CMC_WheeledHorse.json",
+  "subject": "a small whittled wooden pull-toy horse standing on four small round wooden wheels on two stick axles, a simple carved horse head with a short carved mane, plain unpainted pale wood, a length of thin cord tied at its neck trailing forward",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a small whittled wooden pull-toy horse standing on four small round wooden wheels on two stick axles, a simple carved horse head with a short carved mane, plain unpainted pale wood, a length of thin cord tied at its neck trailing forward, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, rocking horse, real horse, saddle, paint, rider, cart, plank.",
+  "historyId": "xYN7jVmKSXuoKzUYAkrh",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783048625_4d32140d_1789783048767_6a79f197.png",
+  "credits": 90,
+  "generated": "2026-09-18",
+  "note": "Revamp of a card that borrowed a vanilla sprite showing a different object. Claude picked A from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed). Repointed CardImageWarpData from 'Plank' on CardData/Item/CMC_WheeledHorse.json, CardData/Blueprint/Bp_CMC_WheeledHorse.json.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783048625_4d32140d_1789783048767_6a79f197.png",
+      "verdict": "PICK: faceted whittled horse, four wheels on stick axles, cord tied at the neck trailing forward"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783046851_a8183cfd_1789783047311_406faf07.png",
+      "verdict": "adds a flat base frame between the wheels that was not asked for"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783047479_85457cbe_1789783047816_84610485.png",
+      "verdict": "all phrases present; smoother, less whittled"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A"
+}

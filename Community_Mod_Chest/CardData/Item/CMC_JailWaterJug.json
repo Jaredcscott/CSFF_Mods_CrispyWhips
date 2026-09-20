@@ -9,7 +9,7 @@
     "LocalizationKey": "CMC_JailWaterJug_CardDescription",
     "DefaultText": "A chipped clay jug, filled once a day along with the ration bowl. Not much, but enough to keep you going."
   },
-  "CardImageWarpData": "Waterskin",
+  "CardImageWarpData": "CMC_JailWaterJug",
   "CardImageWarpType": 3,
   "ObjectWeight": 1,
   "DoesNotPile": true,

@@ -12,7 +12,7 @@
     "CompleteOnWin": false,
     "DebugCompletion": false,
     "DifficultyRating": 150,
-    "DisplayPriority": 2540.0,
+    "DisplayPriority": 53.5,
     "EditorOnly": false,
     "EquippedCards": [],
     "EquippedCardsWarpData": [],
@@ -37,15 +37,81 @@
                 "m_FileID": 0,
                 "m_PathID": 0
             },
-            "StatWarpData": "c589f92d8a479a24c937ea90fa2d1a82",
+            "StatWarpData": "9243632feab991943866f63aa00aaffb",
             "StatWarpType": 3,
             "ValueModifier": {
                 "x": 0.0,
                 "y": 0.0
             },
             "RateModifier": {
-                "x": -0.5,
-                "y": -0.5
+                "x": 0.5,
+                "y": 0.5
+            },
+            "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false
+        },
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatWarpData": "4600908b798d4d84faed4ee5715efd77",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "RateModifier": {
+                "x": 1.0,
+                "y": 1.0
+            },
+            "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false
+        },
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatWarpData": "09146684775757a4faddfec029318cc1",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "RateModifier": {
+                "x": 0.5,
+                "y": 0.5
             },
             "MinValueModifier": {
                 "x": 0.0,
@@ -67,7 +133,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "Your body sheds water quickly. You become thirsty noticeably faster than normal, requiring more frequent drinks to stay hydrated.",
+        "DefaultText": "Your kidneys struggle to clear poisons. Wolfsbane poisoning, witchstone poisoning and fireroot toxicity all stay in your body about twice as long as normal.",
         "LocalizationKey": "CharacterTraits_Perk_BadKidneys_PerkDescription",
         "ParentObjectID": "traits_perk_bad_kidneys"
     },
