@@ -492,13 +492,26 @@ public static class ActionRouter
     }
 
     // MoveNext is stepped manually (rather than `while (original.MoveNext()) yield return ...`)
-    // so a throw from the WRAPPED GAME'S OWN coroutine can be caught outside the yield — C#
-    // iterators cannot yield inside a try block that has a catch clause. Without this, an
-    // exception mid-action (e.g. a bad dialog/stat-mod state) propagates out of this wrapper
-    // uncaught, the same failure shape already fixed once for GameManager.ChangeEnvironment
-    // (see Patching/BugFixes/ChangeEnvironmentCrashGuard.cs): the coroutine never reaches the
-    // point where the game clears RootAction, so PerformingAction stays true forever and every
-    // later action shows "I can't do two things at once..." with no recovery short of quitting.
+    // so a throw from the WRAPPED GAME'S OWN coroutine can be caught outside the yield: C#
+    // iterators cannot yield inside a try block that has a catch clause.
+    //
+    // What the catch achieves, and what it does NOT (corrected 2.26.2; this comment used to claim
+    // it prevented the busy-lock):
+    //   - It DOES let this wrapper finish normally, so whatever drives it finishes too. A vanilla
+    //     caller that started the action with StartCoroutineEx(..., out controller) reads
+    //     controller.state == Finished instead of hanging on Running forever, because
+    //     CoroutineController.Start has no catch (.decomp/CoroutineController.cs). The exception
+    //     is logged once with the route, action and card attached, and After handlers are skipped.
+    //   - It does NOT clear the busy-lock. A C# iterator that throws is finished: every later
+    //     MoveNext returns false, so the rest of GameManager.ActionRoutine never runs, including
+    //     `RootAction = null` (.decomp/GameManager.cs line 5222) and the return to
+    //     GameStates.SELECT. If the throwing action was the root action, RootAction stays set and
+    //     every click still answers "I can't do two things at once..." until a restart.
+    //     ChangeEnvironmentCrashGuard and AddInstancedEnvCrashGuard differ in the way that
+    //     matters: they swallow the throw INSIDE a call the action waits on, so the action itself
+    //     survives and clears RootAction. This catch sits OUTSIDE the action.
+    // The real defence is keeping the throw from happening at all: see CardUtil.TryRemoveCard
+    // and Patching/BugFixes/SaveStaleCardGuard.cs for the 2026-09-19 autosave case.
     private static IEnumerator RunWrapped(IEnumerator original, WrapState ws)
     {
         bool completedCleanly = true;
@@ -514,9 +527,11 @@ public static class ActionRouter
                 catch (Exception ex)
                 {
                     completedCleanly = false;
-                    Log.Error($"[ActionRouter] wrapped action coroutine threw and was suppressed to prevent a "
-                        + $"permanent action-lock (\"I can't do two things at once\"). Route='{ws.Ctx?.Route}' "
-                        + $"Action='{ws.Ctx?.ActionName ?? ws.Ctx?.ActionKey}' Card='{ws.Ctx?.CardUid}'. Exception: {ex}");
+                    Log.Error($"[ActionRouter] wrapped action coroutine threw. The exception was contained so anything "
+                        + $"waiting on this action can finish, but the game's own action did not complete: if it was the "
+                        + $"root action, every later click answers \"I can't do two things at once...\" until a restart. "
+                        + $"Route='{ws.Ctx?.Route}' Action='{ws.Ctx?.ActionName ?? ws.Ctx?.ActionKey}' "
+                        + $"Card='{ws.Ctx?.CardUid}'. Exception: {ex}");
                     break;
                 }
                 if (!moved) break;

@@ -141,7 +141,11 @@ internal static class PerkOriginTagPatch
                 Log.Warn($"PerkOriginTagPatch: {type.Name}.{methodName} not found - that perk label shows without a mod tag");
                 return;
             }
-            harmony.Patch(method, postfix: new HarmonyMethod(typeof(PerkOriginTagPatch), postfixName));
+            // Priority.Last: run AFTER any other mod's postfix on the same UI method. WikiMod 3.5.1's
+            // MenuPerkPreviewMod rewrites the perk tooltip in its own Setup postfix (empty title,
+            // the name in bold inside the content), and at the default priority it ran after this
+            // one and threw the tag away (measured on the in-run character sheet, 2026-09-18).
+            harmony.Patch(method, postfix: new HarmonyMethod(typeof(PerkOriginTagPatch), postfixName) { priority = Priority.Last });
             Log.Debug($"PerkOriginTagPatch: patched {type.Name}.{methodName}");
         }
         catch (Exception ex)
@@ -231,6 +235,23 @@ internal static class PerkOriginTagPatch
             var taggedTitle = Append(tipTitle, suffix);
             // "" is the hold text vanilla's own Setup passes for a perk preview.
             if (!ReferenceEquals(taggedTitle, tipTitle)) tip.SetTooltip(taggedTitle, tip.Content, "");
+        }
+        else
+        {
+            // WikiMod's tooltip shape: no title, the perk name as "<b>Name</b>" inside the content.
+            // Tag that name in place; any other content (NoTooltip's empty one included) is left alone.
+            var content = tip.Content;
+            string name = perk.PerkName;
+            if (!string.IsNullOrEmpty(content) && !string.IsNullOrEmpty(name))
+            {
+                var bold = "<b>" + name + "</b>";
+                int at = content.IndexOf(bold, StringComparison.Ordinal);
+                if (at >= 0)
+                {
+                    var tagged = content.Substring(0, at) + "<b>" + name + suffix + "</b>" + content.Substring(at + bold.Length);
+                    tip.SetTooltip(tipTitle ?? "", tagged, "");
+                }
+            }
         }
         Trace(perk, suffix, "MenuPerkPreview");
     }

@@ -11,5 +11,5 @@ global using BepInEx.Logging;
 global using HarmonyLib;
 global using UnityEngine;
 
-[assembly: AssemblyVersion("2.26.0.0")]
-[assembly: AssemblyFileVersion("2.26.0.0")]
+[assembly: AssemblyVersion("2.26.2.0")]
+[assembly: AssemblyFileVersion("2.26.2.0")]

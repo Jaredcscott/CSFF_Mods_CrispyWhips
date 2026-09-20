@@ -4,6 +4,35 @@ All notable changes to CSFFModFramework are documented here.
 
 ---
 
+## [2.26.2] - 2026-09-19
+
+### Fixed
+
+- **Every action could stop with "I can't do two things at once..." right after an autosave.**
+  It happened most often the moment a day passed in a modded village, and only a restart got the
+  game moving again. The cause: when a mod removed a card (Community Mod Chest trimming extra
+  trees at dawn, the framework trimming doubled terrain on an expansion tile, a Sirus23 sheep
+  wandering off or a wolf eating from the ground), the framework's shared removal helper
+  destroyed the card but left it on the game's master list of cards. The next autosave tripped
+  over that emptied entry, and because the save runs in the middle of the action that ended the
+  day, the action never finished and the game stayed "busy" for good. The helper now removes
+  cards the way the game itself does, so a removed card leaves every list the game keeps (still
+  without dropping any loot of its own). Thanks to Dory22 for the report.
+- **A broken card entry can no longer freeze a save.** Just before every save, the framework now
+  drops any entry on that master list that points at a card which no longer exists, and logs a
+  warning naming it. This also covers the same mistake coming from any other mod, and stops such
+  an entry from bringing a removed card back, or duplicating one, when the save is loaded.
+
+## [2.26.1] - 2026-09-18
+
+### Fixed
+
+- **With WikiMod installed, the perk origin tag was missing from the character sheet.** The
+  in-run perk row on the Character tab shows icons, and each perk's name is in its hover
+  tooltip. WikiMod rewrites that tooltip after the framework had tagged it, so "Swimmer [CMC]"
+  read "Swimmer". The framework now tags after other mods, including in WikiMod's tooltip
+  layout. Players without WikiMod saw the tag already and see no change.
+
 ## [2.26.0] - 2026-09-17
 
 ### Added

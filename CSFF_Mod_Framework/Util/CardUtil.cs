@@ -1128,26 +1128,137 @@ public static class CardUtil
 
     private static readonly Dictionary<Type, MethodInfo> _removeMethodCache = new();
 
+    // Vanilla GameManager.RemoveCard, resolved once per process on first use (see TryRemoveCard).
+    private static bool       _vanillaRemoveResolved;
+    private static MethodInfo _vanillaRemoveCard;
+    private static Type       _vanillaRemoveCardParamType;
+    private static object     _vanillaRemoveNullUser;
+    private static object     _vanillaRemoveStandardOption;
+
+    // Every early return on the removal path is a non-throwing miss (a null MethodInfo, a type
+    // that does not match), so each CAUSE warns once instead of letting a game update silently
+    // downgrade every removal to the fallback.
+    private static readonly HashSet<string> _removeWarnedCauses = new();
+
+    private static void WarnRemoveOnce(string cause, string message)
+    {
+        if (_removeWarnedCauses.Add(cause)) Log.Warn(message);
+    }
+
     /// <summary>
-    /// Removes a card via the game's own removal methods (RemoveFromGame → DestroyCard →
-    /// DestroyCardFromInventory, whichever exists on this game version), with flexible
-    /// 0–2 bool parameter signatures. Returns true if a method was found and invoked.
+    /// Resolves vanilla <c>GameManager.RemoveCard</c> and the two argument values that cannot be
+    /// spelled at compile time. Returns null on success, or a short cause naming what did not
+    /// match, in which case every out value is null and the caller must fall back.
     ///
-    /// <para><strong>DestroyCard is a Unity coroutine</strong> (EA 0.66i:
-    /// <c>IEnumerator DestroyCard(bool _NoDelay)</c> on <c>InGameCardBase</c>; it is
-    /// currently the ONLY removal method that exists — <c>RemoveFromGame</c> and
-    /// <c>DestroyCardFromInventory</c> are absent from this game version). Calling it via a
-    /// bare reflection <c>MethodInfo.Invoke</c> only constructs the compiler-generated state
-    /// machine and returns it immediately — none of its body (unslotting, passive-effect/
-    /// stat-modifier cancellation, <c>OnLogicDestroyed</c>) runs until something drives it
-    /// with <c>MoveNext()</c>. Every vanilla call site wraps it in
-    /// <c>StartCoroutine</c>/<c>StartCoroutineEx</c> (decompile-confirmed,
-    /// <c>GameManager.cs</c> ~8445, ~9866) — a naked <c>Invoke</c> silently discarded the
-    /// returned enumerator, so the card was never actually removed even though the call
-    /// reported success (no exception thrown). Fixed by starting any <c>IEnumerator</c>
-    /// result as a real coroutine on the GameManager singleton (itself a
-    /// <c>MonoBehaviour</c> via <c>MBSingleton&lt;GameManager&gt;</c>), matching vanilla's
-    /// own usage. See Documentation/Retrospectives/worldmap-clone-duplicate-terrain.md.</para>
+    /// <para>Decompile reference (EA 0.67i, body unchanged in 0.68): <c>private IEnumerator
+    /// RemoveCard(InGameCardBase _Card, bool _NoDelay, bool _DoDrops, InGameNPCOrPlayer _User,
+    /// RemoveOption _RemoveOption = RemoveOption.Standard, bool _DontSpillLiquid = false)</c>,
+    /// <c>.decomp/GameManager.cs</c> line 9671. <c>RemoveOption</c> is a private enum nested in
+    /// <c>GameManager</c> (line 15), and vanilla spells the absent user
+    /// <c>InGameNPCOrPlayer.Null</c> at every internal call site (for example line 10309).</para>
+    ///
+    /// <para>Pure reflection over <paramref name="gameManagerType"/> with no Unity call, so the
+    /// workspace gate drives it against a replica of the decompiled signature.</para>
+    /// </summary>
+    internal static string ResolveVanillaRemoveCard(Type gameManagerType, out MethodInfo method,
+        out object nullUser, out object standardOption)
+    {
+        method = null; nullUser = null; standardOption = null;
+        if (gameManagerType == null) return "GameManager type unavailable";
+
+        // RemoveCard is private, and GetMethods never returns a base type's private members, so
+        // walk the hierarchy and stop at the first type that declares one.
+        MethodInfo[] candidates = Array.Empty<MethodInfo>();
+        for (var t = gameManagerType; t != null && candidates.Length == 0; t = t.BaseType)
+            candidates = t.GetMethods(All | BindingFlags.DeclaredOnly)
+                .Where(x => x.Name == "RemoveCard" && x.GetParameters().Length == 6)
+                .ToArray();
+        if (candidates.Length == 0) return "no RemoveCard overload with 6 parameters";
+        if (candidates.Length > 1) return $"{candidates.Length} RemoveCard overloads with 6 parameters";
+
+        var m = candidates[0];
+        if (!typeof(IEnumerator).IsAssignableFrom(m.ReturnType))
+            return $"RemoveCard returns {m.ReturnType.Name}, not IEnumerator";
+
+        var p = m.GetParameters();
+        if (p[1].ParameterType != typeof(bool) || p[2].ParameterType != typeof(bool)
+            || p[5].ParameterType != typeof(bool))
+            return "RemoveCard bool parameters are no longer at positions 1, 2 and 5";
+
+        var userType = p[3].ParameterType;
+        var nullProp = userType.GetProperty("Null", BindingFlags.Static | BindingFlags.Public);
+        if (nullProp == null || nullProp.PropertyType != userType)
+            return $"{userType.Name}.Null not found";
+
+        var optionType = p[4].ParameterType;
+        if (!optionType.IsEnum || optionType.DeclaringType != m.DeclaringType)
+            return $"RemoveCard parameter 4 is {optionType.FullName}, not an enum nested in GameManager";
+        if (!Enum.IsDefined(optionType, "Standard"))
+            return $"{optionType.Name}.Standard not defined";
+
+        // By name, not by number: a reordered enum must not turn Standard into RemoveAll.
+        standardOption = Enum.Parse(optionType, "Standard");
+        nullUser = nullProp.GetValue(null, null);
+        method = m;
+        return null;
+    }
+
+    /// <summary>
+    /// The argument array <see cref="TryRemoveCard"/> passes to vanilla <c>RemoveCard</c>:
+    /// the card, <c>_NoDelay: true</c> (what this helper always passed to DestroyCard, and what
+    /// vanilla's own mid-transition trim uses, <c>GameManager.cs</c> line 10309),
+    /// <c>_DoDrops: false</c> (a removal must never spawn the card's <c>DroppedOnDestroy</c>
+    /// loot: every caller either wants nothing left behind or spawns its own remains first),
+    /// the null user (so no <c>OnInteract</c> trigger fires, as for every vanilla non-player
+    /// removal), <c>RemoveOption.Standard</c> (inventory is spilled or removed exactly as the
+    /// card's own <c>SpillsInventoryOnDestroy</c> says), and <c>_DontSpillLiquid: false</c>
+    /// (the contained liquid card is removed WITH its container; <c>true</c> exists for
+    /// transforms that hand the liquid to a new card, line 10693, and here it would leave an
+    /// orphaned liquid card in <c>AllCards</c>, the very defect this path exists to prevent).
+    /// </summary>
+    internal static object[] BuildVanillaRemoveCardArgs(object card, object nullUser, object standardOption)
+        => new object[] { card, true, false, nullUser, standardOption, false };
+
+    /// <summary>
+    /// Removes a card from the game the way the game itself does: through vanilla
+    /// <c>GameManager.RemoveCard</c>, started as a coroutine on the GameManager. Returns true
+    /// when a removal was started.
+    ///
+    /// <para><strong>Why RemoveCard and not DestroyCard (2.26.2).</strong> Until 2.26.2 this
+    /// helper called <c>InGameCardBase.DestroyCard</c> directly. DestroyCard
+    /// (<c>.decomp/InGameCardBase.cs</c> line 9798) never takes the card out of
+    /// <c>GameManager.AllCards</c>; vanilla does that in <c>RemoveCard</c> (<c>AllCards.Remove(_Card)</c>
+    /// at <c>.decomp/GameManager.cs</c> line 9739, plus the duty, action, passive-effect and
+    /// per-type list cleanup that follows) BEFORE it calls DestroyCard itself (line 9983). With
+    /// card pooling on, DestroyCard then runs <c>ResetCard</c>, which sets <c>CardModel = null</c>
+    /// (<c>.decomp/InGameCardBase.cs</c> line 10095) and returns the object to the pool, so the
+    /// stale <c>AllCards</c> entry outlived the card until the next travel rebuilt the list.
+    /// <c>GameLoad.SaveGameByReference</c> (<c>.decomp/GameLoad.cs</c> lines 719-725) dereferences
+    /// <c>AllCards[l].CardModel.CardType</c> with no null check, so the next autosave threw inside
+    /// <c>GameManager.ActionRoutine</c>, which never reached <c>RootAction = null</c>, and every
+    /// click afterwards answered "I can't do two things at once..." (player report 2026-09-19,
+    /// after a day rollover in a modded village). <c>Patching/BugFixes/SaveStaleCardGuard</c> is
+    /// the matching safety net for stale entries from any other source.</para>
+    ///
+    /// <para><strong>Both paths are Unity coroutines</strong> (RemoveCard and EA 0.66i+
+    /// <c>IEnumerator DestroyCard(bool _NoDelay)</c>). Calling one via a bare reflection
+    /// <c>MethodInfo.Invoke</c> only constructs the compiler-generated state machine and returns
+    /// it: none of its body runs until something drives it with <c>MoveNext()</c>. Every vanilla
+    /// call site wraps them in <c>StartCoroutine</c>/<c>StartCoroutineEx</c>; a naked
+    /// <c>Invoke</c> (framework 2.25.21 and earlier) silently removed nothing while reporting
+    /// success. Both are therefore started on the GameManager singleton (a
+    /// <c>MonoBehaviour</c> via <c>MBSingleton&lt;GameManager&gt;</c>). StartCoroutine runs the
+    /// routine up to its first yield immediately, and RemoveCard's <c>AllCards.Remove</c> sits
+    /// before any yield for every non-Environment card with a null user, so the card is out of
+    /// <c>AllCards</c> by the time this method returns. See
+    /// Documentation/Retrospectives/worldmap-clone-duplicate-terrain.md.</para>
+    ///
+    /// <para><strong>Fallback.</strong> If RemoveCard cannot be resolved on this game version
+    /// (one Warn per cause), or the card is not an <c>InGameCardBase</c>, the pre-2.26.2 path runs
+    /// (RemoveFromGame, DestroyCard or DestroyCardFromInventory, whichever exists, with flexible
+    /// 0-2 bool parameter signatures) and the card is also removed from <c>AllCards</c>
+    /// explicitly, so the stale-entry freeze cannot come back through the fallback either. The
+    /// fallback still skips vanilla's other list cleanup.</para>
     ///
     /// <para>CAUTION: for cards inside another card's inventory these paths trigger
     /// OnDestroy callbacks that can relocate cards to adjacent containers (CLAUDE.md
@@ -1159,54 +1270,130 @@ public static class CardUtil
         if (card == null) return false;
         try
         {
-            var cardType = card.GetType();
-            if (!_removeMethodCache.TryGetValue(cardType, out var m))
+            // Unity's == on the MonoBehaviour static type, so a destroyed GameManager reads null.
+            var gm = GetGameManagerInstance() as MonoBehaviour;
+            if (gm != null)
             {
-                foreach (var n in new[] { "RemoveFromGame", "DestroyCard", "DestroyCardFromInventory" })
+                if (!_vanillaRemoveResolved)
                 {
-                    foreach (var cand in cardType.GetMethods(All).Where(x => x.Name == n))
+                    // Resolution is by type, so one attempt per process is final.
+                    _vanillaRemoveResolved = true;
+                    var cause = ResolveVanillaRemoveCard(gm.GetType(), out _vanillaRemoveCard,
+                        out _vanillaRemoveNullUser, out _vanillaRemoveStandardOption);
+                    if (cause != null)
+                        WarnRemoveOnce("resolve",
+                            $"CardUtil.TryRemoveCard: vanilla GameManager.RemoveCard could not be resolved ({cause}). "
+                            + "Falling back to DestroyCard plus an explicit AllCards removal; removed cards skip the game's own list cleanup on this game version.");
+                    else
+                        _vanillaRemoveCardParamType = _vanillaRemoveCard.GetParameters()[0].ParameterType;
+                }
+
+                if (_vanillaRemoveCard != null)
+                {
+                    if (_vanillaRemoveCardParamType.IsInstanceOfType(card))
                     {
-                        var p = cand.GetParameters();
-                        if (p.Length == 0 || (p.Length <= 2 && p.All(pp => pp.ParameterType == typeof(bool))))
+                        var routine = _vanillaRemoveCard.Invoke(gm,
+                            BuildVanillaRemoveCardArgs(card, _vanillaRemoveNullUser, _vanillaRemoveStandardOption)) as IEnumerator;
+                        if (routine != null)
                         {
-                            m = cand;
-                            break;
+                            gm.StartCoroutine(routine);
+                            return true;
                         }
+                        WarnRemoveOnce("routine-null",
+                            "CardUtil.TryRemoveCard: GameManager.RemoveCard returned no IEnumerator; falling back to DestroyCard plus an explicit AllCards removal.");
                     }
-                    if (m != null) break;
+                    else
+                    {
+                        WarnRemoveOnce("card-type:" + card.GetType().FullName,
+                            $"CardUtil.TryRemoveCard: {card.GetType().Name} is not a {_vanillaRemoveCardParamType.Name}, so GameManager.RemoveCard cannot take it; falling back to DestroyCard plus an explicit AllCards removal.");
+                    }
                 }
-                _removeMethodCache[cardType] = m;
-            }
-            if (m == null)
-            {
-                Log.Warn($"CardUtil.TryRemoveCard: no removal method found on {cardType.Name}");
-                return false;
             }
 
-            var pms = m.GetParameters();
-            object result;
-            if (pms.Length == 0) result = m.Invoke(card, null);
-            else if (pms.Length == 1) result = m.Invoke(card, new object[] { true });
-            else result = m.Invoke(card, new object[] { true, true });
-
-            // Reflection-invoking a coroutine method only builds the state machine — it must
-            // be driven via StartCoroutine or its body (the actual removal) never runs.
-            if (result is IEnumerator coroutine)
-            {
-                if (GetGameManagerInstance() is not MonoBehaviour gm)
-                {
-                    Log.Warn($"CardUtil.TryRemoveCard: {m.Name} returned IEnumerator but GameManager instance is unavailable to drive it — card NOT removed");
-                    return false;
-                }
-                gm.StartCoroutine(coroutine);
-            }
-            return true;
+            return TryRemoveCardFallback(card, gm);
         }
         catch (Exception ex)
         {
             Log.Warn($"CardUtil.TryRemoveCard failed: {ex.InnerException?.Message ?? ex.Message}");
             return false;
         }
+    }
+
+    // The pre-2.26.2 removal path, kept for a game version on which RemoveCard cannot be
+    // resolved. It adds the one step whose absence caused the 2026-09-19 freeze: taking the card
+    // out of GameManager.AllCards, in the same order vanilla RemoveCard does (AllCards.Remove
+    // before DestroyCard, .decomp/GameManager.cs lines 9739 and 9983).
+    private static bool TryRemoveCardFallback(object card, MonoBehaviour gm)
+    {
+        var cardType = card.GetType();
+        if (!_removeMethodCache.TryGetValue(cardType, out var m))
+        {
+            foreach (var n in new[] { "RemoveFromGame", "DestroyCard", "DestroyCardFromInventory" })
+            {
+                foreach (var cand in cardType.GetMethods(All).Where(x => x.Name == n))
+                {
+                    var p = cand.GetParameters();
+                    if (p.Length == 0 || (p.Length <= 2 && p.All(pp => pp.ParameterType == typeof(bool))))
+                    {
+                        m = cand;
+                        break;
+                    }
+                }
+                if (m != null) break;
+            }
+            _removeMethodCache[cardType] = m;
+        }
+        if (m == null)
+        {
+            Log.Warn($"CardUtil.TryRemoveCard: no removal method found on {cardType.Name}");
+            return false;
+        }
+
+        var pms = m.GetParameters();
+        object result;
+        if (pms.Length == 0) result = m.Invoke(card, null);
+        else if (pms.Length == 1) result = m.Invoke(card, new object[] { true });
+        else result = m.Invoke(card, new object[] { true, true });
+
+        // Reflection-invoking a coroutine method only builds the state machine: it must be
+        // driven via StartCoroutine or its body (the actual removal) never runs.
+        if (result is IEnumerator coroutine)
+        {
+            if (gm == null)
+            {
+                Log.Warn($"CardUtil.TryRemoveCard: {m.Name} returned IEnumerator but GameManager instance is unavailable to drive it: card NOT removed");
+                return false;
+            }
+            RemoveFromAllCards(gm, card);
+            gm.StartCoroutine(coroutine);
+        }
+        else if (gm != null)
+        {
+            // A synchronous removal method (none exists on EA 0.67i/0.68) may or may not clear
+            // AllCards itself; List.Remove of an absent entry is a no-op, so do it either way.
+            RemoveFromAllCards(gm, card);
+        }
+        return true;
+    }
+
+    // One entry, as vanilla RemoveCard's List.Remove does; SaveStaleCardGuard prunes any
+    // duplicate reference left behind by other code.
+    private static void RemoveFromAllCards(MonoBehaviour gm, object card)
+    {
+        var field = GetCachedField(gm.GetType(), "AllCards");
+        if (field == null)
+        {
+            WarnRemoveOnce("allcards-field",
+                "CardUtil.TryRemoveCard: GameManager.AllCards field not found; a card removed by the fallback path stays listed until the next travel.");
+            return;
+        }
+        if (field.GetValue(gm) is not IList allCards)
+        {
+            WarnRemoveOnce("allcards-null",
+                "CardUtil.TryRemoveCard: GameManager.AllCards is null or not a list; a card removed by the fallback path stays listed until the next travel.");
+            return;
+        }
+        allCards.Remove(card);
     }
 
     /// <summary>

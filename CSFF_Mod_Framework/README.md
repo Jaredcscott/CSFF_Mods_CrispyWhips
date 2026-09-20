@@ -4,7 +4,7 @@ Standalone modding framework for Card Survival: Fantasy Forest. Provides mod dis
 
 ## Status
 
-- **Version:** 2.26.0
+- **Version:** 2.26.2
 - **Game Version**: EA 0.67i (vanilla JSON delta 0 vs 0.67h: not one game data file changed.
   Game code did change, so `lib/Assembly-CSharp.dll` was refreshed from the live binary and every
   in-house project rebuilt from clean against it: 16/16 Release builds, 0 errors, 0 warnings.
@@ -402,7 +402,7 @@ inventory loops, GUID tables, and dedup guards that every mod previously re-impl
 | `Api.ContentRegistry.RegisterWithResult` | `Registered` / `DuplicateSkipped` / `Failed` outcome enum (D2) | `Register(bool)` delegates to it |
 | `CardUtil.GetDurability` / `SetDurability` / `GetDurabilityMax` | Absolute stat read/write + max read over both runtime shapes (flat `CurrentX` properties and `DurabilityStats` containers), JSON or runtime stat names | Proven in CMC QualitySplit and Sirus WolfTick |
 | `CardUtil.TransformInPlacePreservingStats` | In-place CardModel swap that captures/restores chosen durability stats | Formalizes WDI fishpond pattern; adoption with WDI migration |
-| `CardUtil.TryRemoveCard` / `RemoveCardCleanly` | Game-method removal (board cards) / placeholder-swap removal (in-inventory cards) | Used by Sirus WolfTick |
+| `CardUtil.TryRemoveCard` / `RemoveCardCleanly` | Removal through vanilla `GameManager.RemoveCard` (board cards; since 2.26.2 the card also leaves `GameManager.AllCards` and vanilla's other card lists, and never spawns its `DroppedOnDestroy` loot) / placeholder-swap removal (in-inventory cards) | Used by Sirus WolfTick and SheepPen, CMC TreeRespawn, the framework's WorldMap live trim |
 
 ## Runtime Services API (Tier 2 — v2.5.0)
 

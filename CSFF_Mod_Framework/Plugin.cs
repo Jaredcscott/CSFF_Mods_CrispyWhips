@@ -5,7 +5,7 @@ public class Plugin : BaseUnityPlugin
 {
     public const string PluginGuid = "crispywhips.CSFFModFramework";
     public const string PluginName = "CSFF Mod Framework";
-    public const string PluginVersion = "2.26.0";
+    public const string PluginVersion = "2.26.2";
 
     public static Plugin Instance { get; private set; }
     internal new static ManualLogSource Logger { get; private set; }
@@ -189,6 +189,11 @@ public class Plugin : BaseUnityPlugin
         // unguarded call site, not just ChangeEnvironment. Confirmed in the wild via a
         // permanent action-lock while placing a Rain Cistern Kit (2026-08-14).
         Patching.BugFixes.AddInstancedEnvCrashGuard.ApplyPatch(Harmony);
+        // Same "I can't do two things at once..." lock, reached through an autosave: a card
+        // removed without vanilla GameManager.RemoveCard stays in GameManager.AllCards, and
+        // GameLoad.SaveGameByReference throws on its null CardModel inside ActionRoutine. This
+        // prefix drops such broken entries before every save (player report 2026-09-19).
+        Patching.BugFixes.SaveStaleCardGuard.ApplyPatch(Harmony);
 
         // WorldMap clone envs could show doubled forage terrain (two Ponds, two Pine Trees,
         // two Small Pine Trees) after a player's FIRST mid-session visit to an expansion tile —
