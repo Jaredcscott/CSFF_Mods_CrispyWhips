@@ -2,6 +2,12 @@
 
 All notable changes to this mod are documented here.
 
+## [1.16.8] - 2026-09-18
+
+### Changed
+- **Salt-Cured Meat has its own picture.** It was borrowing the game's Cooked Meat picture; it is
+  now a thick red slab caked in coarse salt, on both the item and its blueprint.
+
 ## [1.16.7] - 2026-09-18
 
 ### Changed

@@ -1,7 +1,7 @@
 # Advanced Copper Tools
 
 **Quality of Life & Advanced Metalworking**
-**Version:** 1.16.7
+**Version:** 1.16.8
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.65)
 
@@ -417,7 +417,7 @@ These hooks are mod-scoped and filter on this mod's UniqueIDs. The exception is 
 1. Install BepInEx if not already installed.
 2. Install CSFFModFramework in `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. Drop this mod folder at `BepInEx/plugins/Advanced_Copper_Tools/`.
-4. Launch the game — content loads automatically; check `BepInEx/LogOutput.log` for `Advanced_Copper_Tools v1.16.7 loaded.`
+4. Launch the game — content loads automatically; check `BepInEx/LogOutput.log` for `Advanced_Copper_Tools v1.16.8 loaded.`
 
 ### Deployed file structure
 
@@ -457,7 +457,7 @@ Other in-house mods build directly on top of ACT's content:
 
 ## Troubleshooting
 
-**Blueprints not appearing?** Verify CSFFModFramework is loaded — check `LogOutput.log` for `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.16.7 loaded.`
+**Blueprints not appearing?** Verify CSFFModFramework is loaded — check `LogOutput.log` for `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.16.8 loaded.`
 
 **Pan / kettle won't boil?** It must be on a *lit* fire source with fuel remaining. Vanilla water types boil via their own `LiquidFuelValue` OnFull transform; if the liquid isn't a heatable type, nothing happens.
 

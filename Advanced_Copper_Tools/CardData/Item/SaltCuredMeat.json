@@ -25,7 +25,7 @@
     "m_FileID": 0,
     "m_PathID": 0
   },
-  "CardImageWarpData": "Meat_Cooked",
+  "CardImageWarpData": "SaltCuredMeat",
   "CardImageWarpType": 3,
   "SpoilageTime": {
     "ParentObjectID": "advanced_copper_tools_salt_cured_meat",
