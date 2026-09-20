@@ -1,6 +1,6 @@
 # Sirus23 Mod Collection
 
-**Version:** 1.21.2
+**Version:** 1.21.5
 **Author:** Sirus, Jared
 **For:** Card Survival: Fantasy Forest (EA 0.65)
 **Requires:** CSFFModFramework 2.5.0+

@@ -1207,6 +1207,39 @@
                     "InstantModifier": false,
                     "IgnoreNovelty": false,
                     "IsInverse": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "f4b08d0250e6099419e010a83578b9db",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 7.5,
+                        "y": 7.5
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
                 }
             ],
             "InterpolatedStatModifications": [],

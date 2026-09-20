@@ -24,7 +24,7 @@
     "DoesNotPile": false,
     "AlwaysUpdate": false,
     "CardImage": {"m_FileID": 0, "m_PathID": 0},
-    "CardImageWarpData": "Fat",
+    "CardImageWarpData": "sh_lanolin",
     "CardImageWarpType": 3,
     "CardInteractions": [],
     "DismantleActions": [],

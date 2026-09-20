@@ -1,0 +1,38 @@
+{
+  "target": "sh_curdled_milk.png",
+  "sourceCard": "CardData/Item/CurdledMilk.json",
+  "subject": "a small plain hand-formed unglazed reddish-orange terracotta clay bowl holding milk that has split: soft lumpy white curds clumped together, floating in thin translucent pale yellow-green whey, the surface broken and uneven, not smooth",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a small plain hand-formed unglazed reddish-orange terracotta clay bowl holding milk that has split: soft lumpy white curds clumped together, floating in thin translucent pale yellow-green whey, the surface broken and uneven, not smooth, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, mug, cup, handle, smooth milk surface, spoon, cheese wheel, wood, wooden bowl.",
+  "historyId": "IvGxmqaPInNVpAAqrk0C",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789782925400_4a343600_1789782925902_ed31d264.png",
+  "credits": 90,
+  "generated": "2026-09-18",
+  "note": "Revamp of a card that already had its own art. Claude picked B from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed).",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789782924686_febb4b29_1789782925064_fbfafee2.png",
+      "verdict": "clay bowl, curds present; whey mostly hidden under the curds"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789782925400_4a343600_1789782925902_ed31d264.png",
+      "verdict": "PICK: separate white curds floating with pale yellow-green whey clearly visible between them: reads as split milk"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789782925060_0cac79c1_1789782925672_eae9ed37.png",
+      "verdict": "curds and whey present; whey pale, reads closer to cottage cheese"
+    }
+  ],
+  "picked": "B",
+  "predicted": "B"
+}

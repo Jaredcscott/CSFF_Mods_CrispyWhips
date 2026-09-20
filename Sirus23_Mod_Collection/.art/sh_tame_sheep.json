@@ -1,0 +1,46 @@
+{
+  "target": "sh_tame_sheep.png",
+  "sourceCard": "CardData/Item/TameSheep.json",
+  "subject": "a tame white ewe with a leather collar; change: remove the fence post, meadow, grass and flowers behind it: the same ewe standing alone",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows a tame white ewe with a leather collar: draw this same animal or object, keeping its materials, colours, proportions, markings and construction details identical, changed only as follows: remove the fence post, meadow, grass and flowers behind it: the same ewe standing alone.\nHand-painted watercolor-and-ink game item illustration of a tame white ewe with a leather collar, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, fence, meadow, grass, flowers, second animal, udder.",
+  "historyId": "9k9kbPZUKM3RuXWZogBY",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789784089209_a03ade62_1789784089335_06d01290.png",
+  "credits": 90,
+  "generated": "2026-09-18",
+  "references": [
+    {
+      "id": "jgQjtYHzQXATZ0B4oZxq",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/sh_tame_sheep_1789783963201_d697d696.png",
+      "label": "sh_tame_sheep (subject)",
+      "source": "Sirus23_Mod_Collection/Resource/Picture/sh_tame_sheep.png"
+    }
+  ],
+  "note": "Revamp of a card that already had its own art. Claude picked B from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed); then the pale body the border key cut into was restored from the raw sample by a hole fill limited to the body (box:118,275,432,565 skip-paper 250; fill_holes.py), so real gaps such as between the legs stay transparent.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789784090417_3106919e_1789784090656_46a939e5.png",
+      "verdict": "on-model ewe; keyer cut 10k body px"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789784089209_a03ade62_1789784089335_06d01290.png",
+      "verdict": "PICK: the same ewe with the braided collar and pink nose, fence and meadow gone; pale fleece repaired by a body-limited fill"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789784089674_e7e063c7_1789784090538_e5415fb4.png",
+      "verdict": "on-model; near-identical to B"
+    }
+  ],
+  "picked": "B",
+  "predicted": "B"
+}

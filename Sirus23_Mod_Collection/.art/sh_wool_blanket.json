@@ -1,0 +1,38 @@
+{
+  "target": "sh_wool_blanket.png",
+  "sourceCard": "CardData/Item/WoolBlanket.json",
+  "subject": "one thick woollen blanket folded into a neat rectangle, cream wool with two broad russet-brown stripes near each end, a short knotted fringe along the ends, soft heavy folds",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of one thick woollen blanket folded into a neat rectangle, cream wool with two broad russet-brown stripes near each end, a short knotted fringe along the ends, soft heavy folds, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, fire, fireplace, bed, strap, buckle, rolled up, pillow.",
+  "historyId": "ZPn9trKGpJxjfFoa2XJr",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783037359_e507a445_1789783038026_76e1ff09.png",
+  "credits": 90,
+  "generated": "2026-09-18",
+  "note": "Revamp of a card that already had its own art. Claude picked C from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed); then a pale part of the subject that the border key cut into was restored from the raw sample by a morphological hole fill (fill_holes.py).",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783039050_9d3b5a4a_1789783039171_ff7783a5.png",
+      "verdict": "knotted fringe prominent; stripes are narrow pairs rather than two broad stripes"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783038249_5b7725d9_1789783038930_e77cf9a0.png",
+      "verdict": "broad stripe and fringe present; stripes partly hidden by the fold"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783037359_e507a445_1789783038026_76e1ff09.png",
+      "verdict": "PICK: two broad russet stripes near each end, fringe at the ends, soft heavy folds; small cut near the top corner repaired by hole fill"
+    }
+  ],
+  "picked": "C",
+  "predicted": "C"
+}

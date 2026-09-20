@@ -1,0 +1,38 @@
+{
+  "target": "sh_wool_tunic.png",
+  "sourceCard": "CardData/Item/WoolTunic.json",
+  "subject": "a simple short-sleeved woollen tunic laid flat, undyed warm oatmeal wool cloth with visible woven texture, a straight boxy cut reaching the thighs, a plain round neckline with no lacing, simple hand-stitched seams at the shoulders and sides",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a simple short-sleeved woollen tunic laid flat, undyed warm oatmeal wool cloth with visible woven texture, a straight boxy cut reaching the thighs, a plain round neckline with no lacing, simple hand-stitched seams at the shoulders and sides, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, lacing, laces, buttons, belt, collar, person wearing it, hanger, trousers.",
+  "historyId": "YCHpYESrZMGsCZGtXl8q",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783042062_49b8a38b_1789783042246_3410e8db.png",
+  "credits": 90,
+  "generated": "2026-09-18",
+  "note": "Revamp of a card that already had its own art. Claude picked A from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed).",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783042062_49b8a38b_1789783042246_3410e8db.png",
+      "verdict": "PICK: boxy thigh-length cut, round neck with no lacing, hand-stitched seams visible at both shoulders and the side"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783042939_be626f9a_1789783043593_15b46f79.png",
+      "verdict": "all phrases present; fewer visible stitched seams"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789783043564_bdd96436_1789783043810_38ae7fc6.png",
+      "verdict": "keyer cut 49k px of the pale chest"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A"
+}

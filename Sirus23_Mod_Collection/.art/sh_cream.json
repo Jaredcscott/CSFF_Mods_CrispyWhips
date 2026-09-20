@@ -1,0 +1,38 @@
+{
+  "target": "sh_cream.png",
+  "sourceCard": "CardData/Item/Cream.json",
+  "subject": "a small squat unglazed reddish-orange terracotta clay cream jug with a short pinched pouring lip and no handle, filled to the brim with thick glossy ivory-yellow cream, one slow drip of cream running down from the lip",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a small squat unglazed reddish-orange terracotta clay cream jug with a short pinched pouring lip and no handle, filled to the brim with thick glossy ivory-yellow cream, one slow drip of cream running down from the lip, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, handle, pitcher handle, flowers, rock, grass, meadow, milk splash, wood, wooden bowl.",
+  "historyId": "R5XoDxlcUmSNOfhcAvnA",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789782923440_7b9569b1_1789782924158_6a649b9f.png",
+  "credits": 90,
+  "generated": "2026-09-18",
+  "note": "Revamp of a card that already had its own art. Claude picked B from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed).",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789782924091_f0a7f0f0_1789782924340_38ccc536.png",
+      "verdict": "handle-free jug, pinched lip and drip all present; cream paler ivory, pot rounder than squat"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789782923440_7b9569b1_1789782924158_6a649b9f.png",
+      "verdict": "PICK: squat pot, pinched lip, ivory-yellow cream to the brim, one clean drip from the lip"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789782928215_5d757460_1789782929038_e651b5de.png",
+      "verdict": "all phrases present; drip long and thin, pot taller than squat"
+    }
+  ],
+  "picked": "B",
+  "predicted": "B"
+}

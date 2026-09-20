@@ -30,7 +30,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "CardImageWarpData": "ClayBowl",
+    "CardImageWarpData": "sh_buttermilk",
     "CardImageWarpType": 3,
     "ShowImageAboveTitle": false,
     "CardType": 0,
@@ -1377,6 +1377,39 @@
                     "ValueModifier": {
                         "x": 15.0,
                         "y": 15.0
+                    },
+                    "RateModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MinValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "MaxValueModifier": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "CannotModifyBeyond": {
+                        "Active": false,
+                        "FloatValue": 0.0,
+                        "MaxValue": 0.0
+                    },
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "f4b08d0250e6099419e010a83578b9db",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 2.25,
+                        "y": 2.25
                     },
                     "RateModifier": {
                         "x": 0.0,

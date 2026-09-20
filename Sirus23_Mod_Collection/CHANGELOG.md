@@ -5,6 +5,62 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.21.5] - 2026-09-18
+
+### Changed
+
+- **New art for the dairy and wool cards and the sheep.** Cream, Curdled Milk, Wool, Yarn, Felted
+  Wool, Woven Cloth, Wool Blanket and Wool Tunic have new paintings that show what each one is: a
+  squat pot of cream with a drip from its pinched lip, white curds floating in pale whey, crimped
+  wool locks, a two-ply ball of yarn, felt folded once, a blanket with two russet stripes and a
+  fringe. Whey and Lanolin were borrowing the game's Old Milk and Fat pictures and now have their
+  own. The Lamb, Ram, Tame Sheep and Lactating Sheep were painted standing in a meadow, unlike
+  every other card; they are now the same animals on a plain card, and the Lactating Sheep, whose
+  picture was an exact copy of the Tame Sheep's, now shows its udder. The Owl Carcass is now a dead
+  owl lying on its side. The Cheese Cloth blueprint was still showing the old Woven Cloth picture
+  and now shows the cheese cloth.
+
+## [1.21.4] - 2026-09-18
+
+### Changed
+
+- **Finished art for fifteen cards that were showing a placeholder.** Ten items were plain white
+  cards, as were the blueprints for four of them: Berry Mix, Berry Yogurt, Bone Treat, Buttermilk
+  Hardtack, Feather Pillow, Owl Treat, Ricotta Rye Round, Salted Butter, Smoked Cheese and Soured
+  Turnroot. Five more borrowed another item's picture: Clarified Butter showed Butter's, Sour Cream,
+  Warm Milk and Yogurt all showed Cream's, and Cheese Cloth showed Woven Cloth's. Each now has its
+  own illustration. Art only, no gameplay change.
+
+### Fixed
+
+- **Buttermilk showed no picture at all.** Its image pointed at `ClayBowl`, a sprite name the game
+  does not have, so the card rendered blank. It now has its own illustration.
+
+- **Felt Mittens sat on a white rectangle.** Its picture still carried the white paper it was
+  painted on, where every other card is cut out cleanly; it now matches them. The sixteen new
+  pictures above also lose a faint paper texture that was left around their edges, and the
+  download is a little smaller for it. Art only, no gameplay change.
+
+## [1.21.3] - 2026-09-17
+
+### Changed
+
+- **Smaller download (now 16.2 MB).** The build script wrote a second, byte-identical copy of every
+  card image into `Resource/Texture2D/` alongside `Resource/Picture/`, which nothing ever read, so
+  every release archive carried the whole art set twice. The Felt Mittens image had also shipped at
+  1696x2528 instead of the 512-wide size the rest of the mod uses. Both fixed; no gameplay change.
+
+- **Every dairy food in this mod now adds Dairy Saturation, the way vanilla milk and cheese do.**
+  Eating or drinking a Sirus23 dairy product used to leave that stat untouched, so nothing in the
+  game could tell a Sheep Cheese from a Turnroot. This is what lets Community Mod Chest's Lactose
+  Intolerant trait react to our dairy the same way it reacts to vanilla's: Sheep Cheese, Aged Sheep
+  Cheese and Smoked Cheese add 7.5, Ricotta adds 3.75, Warm Milk, Yogurt and a mug of Sheep Milk add
+  4.5, Butter, Salted Butter and Clarified Butter add 18, Cream and Sour Cream add 10.5, Whey adds
+  0.75 and Buttermilk adds 2.25, matching vanilla's own cheese, milk and butter amounts. The mixed
+  dairy dishes add half of their main dairy ingredient's amount: Berry Yogurt 2.25, Buttered Roots 9,
+  Buttermilk Hardtack 1.125, Cheese-Stuffed Flatbread 3.75, Creamy Mash 5.25, Ricotta Rye Round 1.875
+  and Soured Turnroot 5.25. Nothing about spoilage, nutrition or trading value changes.
+
 ## [1.21.2] - 2026-09-09
 
 ### Changed

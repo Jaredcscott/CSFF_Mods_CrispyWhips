@@ -1,0 +1,25 @@
+{
+  "target": "sh_smoked_cheese.png",
+  "sourceCard": "CardData/Item/SmokedCheese.json",
+  "subject": "a small wheel of sheep cheese with a dark amber smoke-browned rind, one wedge cut away to show the pale cream interior",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a small wheel of sheep cheese with a dark amber smoke-browned rind, one wedge cut away to show the pale cream interior, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame. Avoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame.",
+  "historyId": "whZ7Q6DyAMXr72uDqX6e",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760576809_ada190fb_1789760577372_3228c0b4.png",
+  "credits": 90,
+  "generated": "2026-09-18",
+  "note": "Owner picked option C of a 3-up batch (not picked: A=sh_smoked_cheese__v1.png, B=sh_smoked_cheese__v2.png). Shipped form: resized to 512x768 and the white paper keyed to transparent by scratchpad cutout.py (border-connected pixels with min channel >= 200, alpha ramped over 200-255), matching the existing shipped art convention. Replaced: white placeholder.",
+  "candidates": [
+    {"n": "A", "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760463474_3ad4db1b_1789760464059_51c9486c.png"},
+    {"n": "B", "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760463055_09a852e0_1789760463403_5d646d8b.png"},
+    {"n": "C", "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760576809_ada190fb_1789760577372_3228c0b4.png"}
+  ],
+  "picked": "C"
+}

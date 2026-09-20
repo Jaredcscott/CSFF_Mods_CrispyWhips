@@ -82,6 +82,14 @@
                         "x": 40.0,
                         "y": 40.0
                     }
+                },
+                {
+                    "StatWarpData": "f4b08d0250e6099419e010a83578b9db",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 7.5,
+                        "y": 7.5
+                    }
                 }
             ]
         }

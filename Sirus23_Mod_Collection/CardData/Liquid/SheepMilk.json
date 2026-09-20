@@ -117,6 +117,18 @@
                         "x": 22.0,
                         "y": 22.0
                     }
+                },
+                {
+                    "Stat": {
+                        "m_FileID": 0,
+                        "m_PathID": 0
+                    },
+                    "StatWarpData": "f4b08d0250e6099419e010a83578b9db",
+                    "StatWarpType": 3,
+                    "ValueModifier": {
+                        "x": 4.5,
+                        "y": 4.5
+                    }
                 }
             ],
             "ReceivingCardChanges": {

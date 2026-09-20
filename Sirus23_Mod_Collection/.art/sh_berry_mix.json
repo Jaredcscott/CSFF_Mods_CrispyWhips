@@ -1,0 +1,25 @@
+{
+  "target": "sh_berry_mix.png",
+  "sourceCard": "CardData/Item/BerryMix.json",
+  "subject": "a small loose heap of mixed dried berries rolled together, shrivelled dark blue-black berries and wrinkled deep red berries tumbled in one pile",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a small loose heap of mixed dried berries rolled together, shrivelled dark blue-black berries and wrinkled deep red berries tumbled in one pile, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame. Avoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame.",
+  "historyId": "oenCu9AAbvZJnaiP3Kpe",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760342507_2e4359df_1789760342584_12fa65e0.png",
+  "credits": 90,
+  "generated": "2026-09-18",
+  "note": "Owner picked option C of a 3-up batch (not picked: A=sh_berry_mix__v1.png, B=sh_berry_mix__v2.png). Shipped form: resized to 512x768 and the white paper keyed to transparent by scratchpad cutout.py (border-connected pixels with min channel >= 200, alpha ramped over 200-255), matching the existing shipped art convention. Replaced: white placeholder.",
+  "candidates": [
+    {"n": "A", "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760343790_be9ea08f_1789760344263_06dfa2bf.png"},
+    {"n": "B", "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760341675_5349ce07_1789760342549_fa71e86b.png"},
+    {"n": "C", "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789760342507_2e4359df_1789760342584_12fa65e0.png"}
+  ],
+  "picked": "C"
+}

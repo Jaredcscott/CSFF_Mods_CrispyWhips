@@ -1,0 +1,46 @@
+{
+  "target": "sh_lamb.png",
+  "sourceCard": "CardData/Item/Lamb.json",
+  "subject": "a young lamb; change: remove the meadow, grass, flowers and sunlight behind it: the same lamb standing alone",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows a young lamb: draw this same animal or object, keeping its materials, colours, proportions, markings and construction details identical, changed only as follows: remove the meadow, grass, flowers and sunlight behind it: the same lamb standing alone.\nHand-painted watercolor-and-ink game item illustration of a young lamb, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, meadow, grass, flowers, fence, sun rays, second animal.",
+  "historyId": "VQdJofsm0YkHoqz8l6ot",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789784079464_444416e3_1789784079562_85cb201f.png",
+  "credits": 90,
+  "generated": "2026-09-18",
+  "references": [
+    {
+      "id": "QCpRxRfsDOmudBqYBiN2",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/sh_lamb_1789783958651_d6af1ef8.png",
+      "label": "sh_lamb (subject)",
+      "source": "Sirus23_Mod_Collection/Resource/Picture/sh_lamb.png"
+    }
+  ],
+  "note": "Revamp of a card that already had its own art. Claude picked C from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed); then the pale body the border key cut into was restored from the raw sample by a hole fill limited to the body (box:110,275,410,505 skip-paper 250; fill_holes.py), so real gaps such as between the legs stay transparent.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789784078625_d255b15e_1789784078979_e169907a.png",
+      "verdict": "on-model lamb; keyer cut 7.9k body px"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789784078164_d0dc8d4c_1789784078401_b885098b.png",
+      "verdict": "on-model lamb; keyer cut 7.8k body px"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789784079464_444416e3_1789784079562_85cb201f.png",
+      "verdict": "PICK: closest to the shipped lamb's face and pink ears, meadow gone; pale body repaired by a fill limited to the body"
+    }
+  ],
+  "picked": "C",
+  "predicted": "C"
+}

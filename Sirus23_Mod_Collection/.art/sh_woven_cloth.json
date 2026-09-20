@@ -1,0 +1,38 @@
+{
+  "target": "sh_woven_cloth.png",
+  "sourceCard": "CardData/Item/WovenCloth.json",
+  "subject": "a neatly folded stack of thick, tightly plain-woven undyed wool cloth, warm oatmeal colour, clear criss-cross weave, the folds showing the heavy cloth edge, one short frayed edge",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a neatly folded stack of thick, tightly plain-woven undyed wool cloth, warm oatmeal colour, clear criss-cross weave, the folds showing the heavy cloth edge, one short frayed edge, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, branch, trees, forest, draped fabric, loose open gauze, garment.",
+  "historyId": "QS7pzVhLKxPd90mZL7Ag",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789782992290_d814eab6_1789782992920_115cfdfc.png",
+  "credits": 90,
+  "generated": "2026-09-18",
+  "note": "Revamp of a card that already had its own art. Claude picked C from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed).",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789782994425_7f7ab208_1789782994810_c5bb84ab.png",
+      "verdict": "folded stack, criss-cross weave; frayed on several edges rather than one"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789782993477_967324d8_1789782993591_c8dc9621.png",
+      "verdict": "keyer cut the pale top fold (27k px), repair leaves a smear"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789782992290_d814eab6_1789782992920_115cfdfc.png",
+      "verdict": "PICK: thick folded stack, warm oatmeal, clear criss-cross weave, one short frayed edge"
+    }
+  ],
+  "picked": "C",
+  "predicted": "C"
+}

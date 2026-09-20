@@ -1,0 +1,38 @@
+{
+  "target": "sh_lanolin.png",
+  "sourceCard": "CardData/Item/Lanolin.json",
+  "subject": "a soft rounded lump of waxy pale golden-yellow lanolin grease with a glossy, finger-smeared surface, sitting in a small shallow plain unglazed reddish-orange terracotta clay dish, a few thin wisps of cream raw wool stuck to its edge",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of a soft rounded lump of waxy pale golden-yellow lanolin grease with a glossy, finger-smeared surface, sitting in a small shallow plain unglazed reddish-orange terracotta clay dish, a few thin wisps of cream raw wool stuck to its edge, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, butter block, candle, jar lid, liquid oil, spoon, knife, wood, wooden dish.",
+  "historyId": "fNwXykq6uRPwQJHU1UXK",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789782932089_5d0aa6cf_1789782932637_7c2b06a2.png",
+  "credits": 90,
+  "generated": "2026-09-18",
+  "note": "Revamp of a card that borrowed a vanilla sprite showing a different object. Claude picked C from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed). Repointed CardImageWarpData from 'Fat' on CardData/Item/Lanolin.json.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789782932103_cacbf518_1789782932415_3fb4cf14.png",
+      "verdict": "lump drawn as a whipped swirl, reads as cream or butter rather than waxy grease"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789782931220_a5cea0d0_1789782931343_fdd3f23a.png",
+      "verdict": "lump too large for the dish, overflowing; wisps present"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789782932089_5d0aa6cf_1789782932637_7c2b06a2.png",
+      "verdict": "PICK: glossy golden waxy lump in a shallow clay dish, raw-wool wisps at its edge"
+    }
+  ],
+  "picked": "C",
+  "predicted": "C"
+}

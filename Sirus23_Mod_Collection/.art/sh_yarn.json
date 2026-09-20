@@ -1,0 +1,38 @@
+{
+  "target": "sh_yarn.png",
+  "sourceCard": "CardData/Item/Yarn.json",
+  "subject": "one round wound ball of undyed cream wool yarn with visible twisted two-ply strands wrapped in crossing bands, a single loose strand trailing off to one side",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted watercolor-and-ink game item illustration of one round wound ball of undyed cream wool yarn with visible twisted two-ply strands wrapped in crossing bands, a single loose strand trailing off to one side, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, knitting needles, candle, table, basket, several balls, skein, spindle.",
+  "historyId": "Ym3a18RdUzD45KpAiG6u",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789782986118_1d9a2d88_1789782987354_93baeca2.png",
+  "credits": 90,
+  "generated": "2026-09-18",
+  "note": "Revamp of a card that already had its own art. Claude picked C from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed).",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789782985409_7ed28213_1789782986058_aa57d729.png",
+      "verdict": "two-ply crossing bands and a long frayed strand; all phrases present"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789782987403_e9212f77_1789782988013_7fab044a.png",
+      "verdict": "crossing bands present; grey smudge at the top of the ball"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789782986118_1d9a2d88_1789782987354_93baeca2.png",
+      "verdict": "PICK: crossing two-ply bands, one tidy strand trailing to the side; its hole count is the real gap between strand and ball, so no fill"
+    }
+  ],
+  "picked": "C",
+  "predicted": "C"
+}

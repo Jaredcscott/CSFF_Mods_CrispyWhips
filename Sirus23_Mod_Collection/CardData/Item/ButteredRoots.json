@@ -57,6 +57,11 @@
                     "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
                     "StatWarpType": 3,
                     "ValueModifier": { "x": 40.0, "y": 40.0 }
+                },
+                {
+                    "StatWarpData": "f4b08d0250e6099419e010a83578b9db",
+                    "StatWarpType": 3,
+                    "ValueModifier": { "x": 9.0, "y": 9.0 }
                 }
             ]
         }

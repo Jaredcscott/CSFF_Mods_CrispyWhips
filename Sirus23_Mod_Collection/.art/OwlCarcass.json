@@ -1,0 +1,61 @@
+{
+  "target": "OwlCarcass.png",
+  "sourceCard": "CardData/Item/OwlCarcass.json",
+  "subject": "a pale great horned owl; change: the owl is dead: lying on its side, eyes closed, wings folded loosely against its body, legs and talons curled limply, head resting to one side, two loose feathers beside it, no blood",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows a pale great horned owl: keep its species, feather colours, markings, ear tufts and ink-and-watercolor rendering identical, but CHANGE ITS POSE COMPLETELY. The owl is dead and lies flat on its side, its body horizontal with its long axis running left to right across the frame, head at one end resting sideways with the eyes closed and the ear tufts pointing sideways, one wing lying loose and slightly spread over its body, both legs stretched out stiffly to the side with the talons curled, two loose feathers lying beside it, no blood. It is not sitting, not perched and not upright.\nHand-painted watercolor-and-ink game item illustration of a dead pale great horned owl lying on its side, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, sitting owl, upright owl, standing owl, perched, open eyes, branch, blood, gore, flying.",
+  "historyId": "xuCFYM9hxG4a5feJWaIw",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789784616887_f201918b_1789784617439_14dfbe4d.png",
+  "credits": 150,
+  "generated": "2026-09-18",
+  "references": [
+    {
+      "id": "RpMGD3eTUwm461jOp0Fb",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/WildOwl_1789783965129_467003bc.png",
+      "label": "WildOwl (subject)",
+      "source": "Sirus23_Mod_Collection/Resource/Picture/WildOwl.png"
+    }
+  ],
+  "note": "Revamp of a card that already had its own art. Claude picked E from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed). Round 1 (WzuY6gertyhOwD4c1NeQ, samples A and B, one sample failed and was refunded) kept the owl sitting upright with only its eyes closed, missing 'lying on its side'; round 2 (xuCFYM9hxG4a5feJWaIw, C-E) restated the pose as a complete change and moved the upright forms into Avoid.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789784295830_fbc5c5a0_1789784296508_f736cbf4.png",
+      "verdict": "OFF-BRIEF: still sitting upright, only the eyes closed",
+      "historyId": "WzuY6gertyhOwD4c1NeQ"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789784298565_367dae73_1789784299161_01bc2613.png",
+      "verdict": "OFF-BRIEF: still sitting upright, only the eyes closed",
+      "historyId": "WzuY6gertyhOwD4c1NeQ"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789784616561_5604204e_1789784616732_abd71bf5.png",
+      "verdict": "lying down, eyes closed; talons pale and hard to read",
+      "historyId": "xuCFYM9hxG4a5feJWaIw"
+    },
+    {
+      "n": "D",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789784620778_cefe443e_1789784621657_5b6d2ec8.png",
+      "verdict": "lying diagonally, half upright",
+      "historyId": "xuCFYM9hxG4a5feJWaIw"
+    },
+    {
+      "n": "E",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789784616887_f201918b_1789784617439_14dfbe4d.png",
+      "verdict": "PICK (retry with a stronger pose instruction): the same pale owl lying horizontally on its side, eyes closed, one wing loose, legs stiff with curled talons, two loose feathers, no blood",
+      "historyId": "xuCFYM9hxG4a5feJWaIw"
+    }
+  ],
+  "picked": "E",
+  "predicted": "E"
+}

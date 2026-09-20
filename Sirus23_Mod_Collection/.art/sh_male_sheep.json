@@ -1,0 +1,46 @@
+{
+  "target": "sh_male_sheep.png",
+  "sourceCard": "CardData/Item/MaleSheep.json",
+  "subject": "a tame ram with curled horns and a leather collar; change: remove the fence, meadow, grass and flowers behind it: the same ram standing alone",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows a tame ram with curled horns and a leather collar: draw this same animal or object, keeping its materials, colours, proportions, markings and construction details identical, changed only as follows: remove the fence, meadow, grass and flowers behind it: the same ram standing alone.\nHand-painted watercolor-and-ink game item illustration of a tame ram with curled horns and a leather collar, in the style of a cozy hand-illustrated survival-crafting game: visible black ink linework outlines with loose confident linework, soft watercolor and gouache shading, warm muted natural palette, gentle directional light from the upper left, slight three-quarter angle, single object only, comfortably inset from every edge with generous white margin (object fills roughly the lower two-thirds of the frame, never touching an edge), isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no cast shadow, no scenery, no surface, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, digital vector art, flat cel-shading, pixel art, neon colors, lens flare, multiple objects, cropped, blurry, low contrast, black background, grey background, off-white background, gradient background, checkerboard, transparency grid, scenery behind the object, ground plane extending to the edges, drop shadow, text, watermark, signature, logo, border, frame, fence, meadow, grass, flowers, second animal.",
+  "historyId": "Kb7sQJ7kJo6ObEGmlvwv",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789784081898_90b2a2d4_1789784082523_0f17fe7e.png",
+  "credits": 90,
+  "generated": "2026-09-18",
+  "references": [
+    {
+      "id": "r9IpOPOPvEI8J5kbPGwG",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/sh_male_sheep_1789783960893_23169385.png",
+      "label": "sh_male_sheep (subject)",
+      "source": "Sirus23_Mod_Collection/Resource/Picture/sh_male_sheep.png"
+    }
+  ],
+  "note": "Revamp of a card that already had its own art. Claude picked B from the samples on the owner's instruction ('you pick, I can override'), so predicted records Claude's pick as its prediction of the owner's; an owner override changes picked and leaves predicted. Finished by /process-card-art (GIMP; 512x768, alpha, border-connected paper keyed).",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789784095387_9ce1a40f_1789784095908_58113d2d.png",
+      "verdict": "painted on grey paper texture that the keyer cannot remove: whole frame opaque"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789784081898_90b2a2d4_1789784082523_0f17fe7e.png",
+      "verdict": "PICK: the same ram, curled horns and braided collar kept, fence and meadow gone, clean white paper"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-09/create-image/XbhdRvvhTk0K7JCPQP3H/image_1789784083700_763d99b2_1789784084212_5fcfa437.png",
+      "verdict": "on-model; a grey smudge above the horns"
+    }
+  ],
+  "picked": "B",
+  "predicted": "B"
+}
