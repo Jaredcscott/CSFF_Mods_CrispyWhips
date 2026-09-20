@@ -2,6 +2,6 @@
 	"Name": "Mod_Update_Manager",
 	"ShortName": "MUM",
 	"Author": "Jared",
-	"Version": "2.1.46",
+	"Version": "2.1.51",
 	"Description": "One-click installer and updater for the 9-mod crispywhips suite via the Install & Update tab: every mod ships bundled inside this DLL, so it works offline with no API key. Also checks your installed mods against Nexus Mods, maps local mods to Nexus IDs, and provides an in-game update dashboard with optional caching, scheduling, discovery, conflict hints, missing-dependency detection, and basic analytics. Beta compatibility details should be published in each mod's release notes."
 }

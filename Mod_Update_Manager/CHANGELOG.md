@@ -5,6 +5,67 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [2.1.51] - 2026-09-19
+
+### Changed
+
+- **Refreshed the embedded mod suite.** Re-embeds CSFF Mod Framework 2.26.2, Community Mod Chest
+  1.68.36, Herbs & Fungi 1.13.5 and Skill Speed Boost 1.10.5 after their latest deploy. The other
+  five suite mods are embedded at the same versions as 2.1.50. No change to Mod Update Manager's
+  own behaviour.
+
+---
+
+## [2.1.50] - 2026-09-19
+
+### Changed
+
+- **Refreshed the embedded mod suite for the Nightcrawler trait.** Community Mod Chest 1.68.36 is
+  re-embedded: a new character-creation trait built from chiweichiwei's Nightcrawler design,
+  replacing the retired Sensitive Skin. The other eight suite mods are embedded at the same
+  versions as 2.1.49. No change to Mod Update Manager's own behaviour.
+
+---
+
+## [2.1.49] - 2026-09-19
+
+### Changed
+
+- **Refreshed the embedded mod suite.** Re-embeds CSFF Mod Framework 2.26.2 (fixes actions
+  permanently freezing with "I can't do two things at once..." right after an autosave),
+  Community Mod Chest 1.68.35 (trait rework), Herbs & Fungi 1.13.5 and Skill Speed Boost 1.10.5,
+  which had moved ahead of the 2.1.48 embed. The other five suite mods are embedded at the same
+  versions as 2.1.48. No change to Mod Update Manager's own behaviour.
+
+---
+
+## [2.1.48] - 2026-09-18
+
+### Changed
+
+- **Refreshed the embedded mod suite with new card art.** Three mods are re-embedded:
+  - **Community Mod Chest 1.68.32:** fifteen cards that were showing another object's picture now
+    have their own.
+  - **Advanced Copper Tools 1.16.8:** Salt-Cured Meat has its own picture.
+  - **Herbs & Fungi 1.13.4:** Truffle Butter, Hemp Stalks and the Apothecary Shelf have their own
+    pictures.
+
+  The other six suite mods are embedded at the same versions as 2.1.47. No change to Mod Update
+  Manager's own behaviour.
+
+---
+
+## [2.1.47] - 2026-09-18
+
+### Changed
+
+- **Refreshed the embedded mod suite.** Community Mod Chest 1.68.31 is re-embedded: the Miller's
+  Inn, Academy and Cottage portraits now show the same man as his village portrait, each set in the
+  room that location's card shows. The other eight suite mods are embedded at the same versions as
+  2.1.46. No change to Mod Update Manager's own behaviour.
+
+---
+
 ## [2.1.46] - 2026-09-18
 
 ### Changed

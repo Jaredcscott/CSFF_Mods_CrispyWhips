@@ -1,6 +1,6 @@
 # Mod Update Manager
 
-**Version:** 2.1.46  
+**Version:** 2.1.51  
 **Author:** Jared (crispywhips)  
 **For:** Card Survival: Fantasy Forest (EA 0.67i)
 
@@ -32,7 +32,7 @@ It also does not validate game-beta compatibility by itself. When a mod update i
 - **Major-version warning** — Update entries where the major version changes are flagged in red.
 - **Changelogs** — On-demand Nexus changelog fetch per mod, shown as an inline scrollable panel.
 - **Mod list export** — Analytics tab generates a formatted plain-text list of all installed mods (name, version, status, notes) suitable for bug reports.
-- **Self-exclusion** — A sentinel registry entry keeps Mod Update Manager from checking itself against Nexus and from being tagged with the generic "No Nexus Mod ID configured" error (it is not currently published on Nexus).
+- **Self-exclusion** — A sentinel registry entry keeps Mod Update Manager from checking itself against Nexus and from being tagged with the generic "No Nexus Mod ID configured" error. Updates to Mod Update Manager itself are published on its own Nexus page (mod 38).
 
 ## Requirements
 
@@ -118,7 +118,7 @@ For beta-compatible mod releases, include the supported CSFF build in the publis
 **Window does not open with F3**
 - Check `BepInEx/LogOutput.log` for errors.
 - Verify BepInEx is installed correctly.
-- Look for `Mod_Update_Manager v2.1.46 loaded.` in the log.
+- Look for `Mod_Update_Manager v2.1.51 loaded.` in the log.
 
 **Install & Update tab shows "Unknown" status for every mod**
 - The embedded suite ZIPs failed to read (`SuiteVersionReader.RefreshAll` logs an error). Check `LogOutput.log`; this doesn't affect the Nexus-tracking tabs.
