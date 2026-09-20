@@ -1,6 +1,6 @@
 # Skill Speed Boost
 
-**Version:** 1.10.4
+**Version:** 1.10.5
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.67h)
 
@@ -141,7 +141,7 @@ Control learning speed with global or per-skill multipliers:
 
 ## Affected Skills
 
-Rather than a hardcoded list, the mod scans every vanilla `GameStat` at load time and treats any stat that uses the same staleness flag as Fishing (`UsesNovelty`) as a skill, auto-registering per-skill XP/staleness config for it under its real in-game name. Nine stats set that flag without being skills and are excluded by name - Stress, Morale, Profile, Altered Mindstate, Mental Structure, Focus, Gratification, Loneliness and Thought Depth - so no XP or staleness setting in this mod touches your mental stats. That leaves 32 vanilla skills, including:
+Rather than a hardcoded list, the mod scans every vanilla `GameStat` at load time and treats any stat that uses the same staleness flag as Fishing (`UsesNovelty`) as a skill, auto-registering per-skill XP/staleness config for it under its real in-game name. Ten stats set that flag without being skills and are excluded by name - Stress, Morale, Profile, Altered Mindstate, Mental Structure, Focus, Gratification, Loneliness, Thought Depth and Arousal (added by the game's EA 0.68 update) - so no XP or staleness setting in this mod touches your mental stats or your arousal. That leaves 32 vanilla skills, including:
 
 **Crafting:** Smithing, Tailoring, Weaving, Cooking, Woodworking, Leatherworking, Pottery, Metalworking, Knapping, Crafting  
 **Gathering:** Herbalism, Fishing, Spear Fishing  

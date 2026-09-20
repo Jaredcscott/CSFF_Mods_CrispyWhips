@@ -12,7 +12,7 @@ internal class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.skill_speed_boost";
     public const string PluginName = "Skill Speed Boost";
-    public const string PluginVersion = "1.10.4";
+    public const string PluginVersion = "1.10.5";
 
     internal static Plugin Instance { get; private set; }
     internal new static ManualLogSource Logger;

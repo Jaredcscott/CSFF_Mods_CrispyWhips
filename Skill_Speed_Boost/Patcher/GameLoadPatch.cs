@@ -24,9 +24,13 @@ namespace Skill_Speed_Boost.Patcher
         internal static readonly Dictionary<string, string> SkillNamesByUniqueId = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
 
         // Vanilla stats that set UsesNovelty but are NOT skills. Measured on the EA 0.67i export:
-        // 41 GameStats set UsesNovelty; 31 are Skill_*, these 9 are mental stats, and the 10th
-        // (Perception) IS a skill and is documented as one. Every name below matches its
-        // GameName.DefaultText exactly, which is what the Ordinal comparer requires.
+        // 41 GameStats set UsesNovelty; 31 are Skill_*, the first 9 below are mental stats, and
+        // the 10th (Perception) IS a skill and is documented as one. EA 0.68 added Arousal, which
+        // also sets UsesNovelty: on a live 0.68 game this scan admitted it as a 34th "skill"
+        // (read back from SkillNamesByUniqueId, 2026-09-19), so every XP multiplier scaled its
+        // gains and the staleness settings rewrote its novelty fields. A game update can add
+        // another such stat, so re-read that dictionary after each one. Every name below matches
+        // its GameName.DefaultText exactly, which is what the Ordinal comparer requires.
         internal static readonly HashSet<string> IgnoredNames = new HashSet<string>(StringComparer.Ordinal)
         {
             "Stress",
@@ -37,7 +41,8 @@ namespace Skill_Speed_Boost.Patcher
             "Focus",
             "Gratification",
             "Loneliness",
-            "Thought Depth"
+            "Thought Depth",
+            "Arousal"
         };
 
         /// <summary>

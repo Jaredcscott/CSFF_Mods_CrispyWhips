@@ -493,9 +493,10 @@ internal static class MorningBonusPatch
                 return true;
 
             // Fallback: UsesNovelty, which lives on the GameStat/StatModel definition rather than
-            // the runtime InGameStat instance. It is NOT a skill test on its own: 10 of the 41
-            // vanilla stats that set it are not skills, and GameLoadPatch deliberately keeps 9 of
-            // them (Morale, Stress, Focus, Loneliness, ...) OUT of SkillUniqueIds - so for exactly
+            // the runtime InGameStat instance. It is NOT a skill test on its own: 9 of the 41
+            // vanilla stats that set it on EA 0.67i are not skills, EA 0.68 added a 10th
+            // (Arousal), and GameLoadPatch deliberately keeps all of them (Morale, Stress, Focus,
+            // Loneliness, Arousal, ...) OUT of SkillUniqueIds - so for exactly
             // those stats the primary lookup above misses and this fallback is what decides. Left
             // bare it answered yes, and every multiplier in this postfix then applied to a mental
             // stat: with area familiarity on by default, a Morale gain was scaled by the location

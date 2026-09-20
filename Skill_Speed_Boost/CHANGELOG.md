@@ -5,6 +5,20 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.10.5] - 2026-09-19
+
+### Fixed
+
+- **Your XP settings no longer touch Arousal.** The game's EA 0.68 update added an Arousal stat
+  that uses the same staleness flag as a skill, so the mod counted it as a 33rd vanilla skill. Every
+  XP setting then applied to it: a global multiplier of 3 made arousal build three times as fast,
+  and the mod's staleness settings were written onto it. The mod now leaves Arousal alone, as it
+  already did for Stress, Morale, Focus and the other mental stats. If your config gained
+  `Arousal_Multiplier`, `Arousal_UseStaleness` and `Arousal_StalenessMultiplier` entries under
+  1.10.4, they now do nothing and can be deleted.
+
+---
+
 ## [1.10.4] - 2026-09-14
 
 ### Fixed
