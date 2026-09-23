@@ -133,7 +133,7 @@ internal class Plugin : BaseUnityPlugin
     /// Applies <see cref="ActiveProfile"/>, but at startup only when it differs from the preset
     /// already written into the config file (<see cref="AppliedProfile"/>).
     ///
-    /// A preset writes eight keys. Re-asserting it on every launch therefore silently reverted any
+    /// A preset writes nine keys. Re-asserting it on every launch therefore silently reverted any
     /// individual toggle the player changed afterwards, which is the opposite of what README and
     /// FEATURES both tell them to do (audit M12). <paramref name="force"/> is true only for an
     /// interactive change of ActiveProfile, where applying it IS the request.
@@ -454,7 +454,7 @@ internal class Plugin : BaseUnityPlugin
         _activeProfile.SettingChanged += (sender, args) => ApplyProfileOnce(force: true);
 
         // At startup, apply only when the chosen preset is not the one already written into this
-        // config file. A preset writes EIGHT keys, so re-asserting it unconditionally every launch
+        // config file. A preset writes NINE keys, so re-asserting it unconditionally every launch
         // silently reverted any individual toggle the player edited afterwards - while README and
         // FEATURES both told them to make exactly that edit (audit M12). The AppliedProfile latch
         // makes the write one-shot per profile change, which is what both docs already promise.

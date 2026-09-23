@@ -2,7 +2,7 @@
 
 **Version:** 1.10.5
 **Author:** Jared (crispywhips)
-**For:** Card Survival: Fantasy Forest (EA 0.67h)
+**For:** Card Survival: Fantasy Forest (EA 0.68)
 
 ---
 
@@ -46,7 +46,7 @@ Skill Speed Boost provides comprehensive control over skill progression mechanic
 ### Requirements
 - [BepInEx 5.4.23.4+](https://github.com/BepInEx/BepInEx/releases)
 - **CSFFModFramework** (recommended) — since v1.9.2, `GameLoadPatch`, `AreaFamiliarityPatch`, and `MorningBonusPatch` (the staleness config, area familiarity, and morning bonus features) call the framework's `Api.Reflect`/`Api.StatAccess`/`Api.CardUtil` utilities directly. The mod declares `CSFFModFramework` as a `SoftDependency` for load order; without it installed, those features throw instead of applying.
-- Card Survival: Fantasy Forest (EA 0.67h)
+- Card Survival: Fantasy Forest (EA 0.68)
 
 ### Steps
 1. Install CSFFModFramework in `BepInEx/plugins/CSFF_Mod_Framework/`
