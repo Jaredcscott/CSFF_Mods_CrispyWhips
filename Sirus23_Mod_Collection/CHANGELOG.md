@@ -5,6 +5,19 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.21.6] - 2026-09-22
+
+### Fixed
+
+- **Cheese Cloth, Felt Mittens and the Ram were see-through in places.** Cutting the 1.21.5 art off
+  its paper backing leaked through a gap in each picture's ink outline and ate away the pale parts
+  inside it, so the board showed through the middle of the cloth, down the face of both mittens, and
+  across the ram's shoulder. All three are solid again, with their painted weave, felt and fleece
+  intact, and the gaps that are meant to be see-through (the shears' handles, the curl of the ram's
+  horn, between a sheep's legs) are untouched.
+
+---
+
 ## [1.21.5] - 2026-09-18
 
 ### Changed
