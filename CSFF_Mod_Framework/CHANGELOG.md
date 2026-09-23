@@ -4,6 +4,24 @@ All notable changes to CSFFModFramework are documented here.
 
 ---
 
+## [2.26.5] - 2026-09-23
+
+### Fixed
+
+- **The first trip out of a map with a ForceStay drop threw an error, and the game then stopped
+  updating how full each location is for the rest of that session** (the weight bar, and the
+  checks and paused rates that read a location's weight). A map node's ConditionalDrops
+  entry marked `"ForceStay": true` has its card stop following the player, and the framework did
+  that at the start of a run, after the save's cards had already loaded. On the first load after
+  starting the game, the save's copy was still registered as a card that follows the player; leaving
+  the map left it behind in that list, the game's weight calculation hit it
+  (`NullReferenceException` in `GameManager.CalculateEnvWeightsRoutine`, with a crash-report upload
+  in `Player.log`) and never ran again until the next load. Community Mod Chest's Village is the
+  live case: its Levee is such a drop, so leaving the Village for the first time after launching the
+  game did this. The framework now sets it when the game data loads, before any save exists, and if
+  a card is ever still set at run start it is also taken out of that list. It was found with the
+  test harness; a second load in the same session never showed it, which is why it went unnoticed.
+
 ## [2.26.4] - 2026-09-23
 
 ### Fixed

@@ -258,6 +258,14 @@ internal static class WorldMapInjector
                 StripOrphanedTravelDAs();
         }
 
+        // ForceStay conditional drops must carry AlwaysUpdate=false BEFORE any save's cards load.
+        // At run start (RegisterNode) is too late: LoadCards has already put the card into
+        // GameManager.AlwaysUpdateCards, and RemoveCard only takes out an entry whose model is
+        // still AlwaysUpdate, so the first travel of every process left a pooled card in that list
+        // and CalculateEnvWeightsRoutine threw on it (2.26.5). Clones exist by now, and this runs
+        // after AlwaysUpdateService (which would otherwise set a mod ForceStay card back to true).
+        ConditionalDropService.ApplyForceStayAtLoad(_prepared.Select(p => p.Def));
+
         string modeLabel = fullMap != null ? "full replacement" : "additive";
         Log.Info($"WorldMapInjector: prepared {_prepared.Count} node(s) [{modeLabel}], {Api.WorldMap.InjectedEdges.Count} travel edge(s) recorded; " +
                  "WorldMapData node injection deferred to run start (WorldMapData is not loaded at data-load time)");

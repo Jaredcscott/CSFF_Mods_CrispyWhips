@@ -52,6 +52,42 @@ internal static class ConditionalDropService
     // ── public API ──────────────────────────────────────────────────────────
 
     /// <summary>
+    /// Load-time half of the ForceStay rule, called from <see cref="WorldMapInjector.PrepareAll"/>:
+    /// sets <c>AlwaysUpdate=false</c> on every ForceStay drop's CardData before any save's cards
+    /// exist, so the game never registers a live copy in <c>GameManager.AlwaysUpdateCards</c>.
+    /// A UID that does not resolve here is skipped silently: <see cref="RegisterNode"/> warns
+    /// about the same UID at run start.
+    /// </summary>
+    internal static void ApplyForceStayAtLoad(IEnumerable<MapNodeDefinition> defs)
+    {
+        int patched = 0;
+        foreach (var def in defs)
+        {
+            if (def?.ConditionalDrops == null) continue;
+            foreach (var drop in def.ConditionalDrops)
+            {
+                if (!drop.ForceStay || string.IsNullOrEmpty(drop.UID)) continue;
+                if (GameRegistry.GetByUid(drop.UID) is CardData card && card.AlwaysUpdate)
+                {
+                    card.AlwaysUpdate = false;
+                    patched++;
+                    Log.Debug($"ConditionalDropService: patched AlwaysUpdate=false on '{drop.UID}' at load (ForceStay; would follow player on env transition)");
+                }
+            }
+        }
+        if (patched > 0)
+            Log.Info($"ConditionalDropService: patched AlwaysUpdate=false on {patched} ForceStay card(s) at load");
+    }
+
+    /// <summary>Removes every live card of <paramref name="card"/> from GameManager.AlwaysUpdateCards.</summary>
+    private static int PurgeAlwaysUpdateEntries(CardData card)
+    {
+        var gm = MBSingleton<GameManager>.Instance;
+        if (gm == null || gm.AlwaysUpdateCards == null) return 0;
+        return gm.AlwaysUpdateCards.RemoveAll(c => c != null && c.CardModel == card);
+    }
+
+    /// <summary>
     /// Registers one node's ConditionalDrops and patches <c>AlwaysUpdate=false</c> on any
     /// ForceStay=true card whose CardData has AlwaysUpdate=true (prevents CT2 board cards
     /// from following the player on environment transitions — CLAUDE.md §AlwaysUpdate).
@@ -75,12 +111,19 @@ internal static class ConditionalDropService
                 continue;
             }
 
-            // Patch AlwaysUpdate=false so CT2 board cards don't follow the player.
+            // ApplyForceStayAtLoad already cleared AlwaysUpdate on every ForceStay card it could
+            // resolve at load. Still true here means a card that pass missed, and any copy of it the
+            // save loaded is already in GameManager.AlwaysUpdateCards under the old flag. RemoveCard
+            // will not take such an entry out once the flag is false, so remove it now; otherwise
+            // the first travel leaves a pooled card in the list, CalculateEnvWeightsRoutine throws
+            // on it and environment weights stop updating for the rest of the run.
             if (drop.ForceStay && card.AlwaysUpdate)
             {
                 card.AlwaysUpdate = false;
                 alwaysUpdatePatched++;
-                Log.Debug($"ConditionalDropService: patched AlwaysUpdate=false on '{drop.UID}' (was true — would follow player on env transition)");
+                int purged = PurgeAlwaysUpdateEntries(card);
+                Log.Warn($"ConditionalDropService: '{drop.UID}' still had AlwaysUpdate=true at run start (missed at load); " +
+                         $"set false and removed {purged} live entr{(purged == 1 ? "y" : "ies")} from GameManager.AlwaysUpdateCards");
             }
 
             kept.Add(drop);
