@@ -1228,8 +1228,10 @@ public static class CardUtil
     /// helper called <c>InGameCardBase.DestroyCard</c> directly. DestroyCard
     /// (<c>.decomp/InGameCardBase.cs</c> line 9798) never takes the card out of
     /// <c>GameManager.AllCards</c>; vanilla does that in <c>RemoveCard</c> (<c>AllCards.Remove(_Card)</c>
-    /// at <c>.decomp/GameManager.cs</c> line 9739, plus the duty, action, passive-effect and
-    /// per-type list cleanup that follows) BEFORE it calls DestroyCard itself (line 9983). With
+    /// on EA 0.67i, <c>Board.Remove(AllCards, _Card)</c> since 0.68, plus the duty, action,
+    /// passive-effect and per-type list cleanup that follows) BEFORE it calls DestroyCard itself
+    /// (<c>_Card.DestroyCard(_NoDelay)</c> further down the same method; the order is asserted by
+    /// <c>Development_Tools/Tests/Framework-TryRemoveCard-AllCards.Tests.ps1</c>). With
     /// card pooling on, DestroyCard then runs <c>ResetCard</c>, which sets <c>CardModel = null</c>
     /// (<c>.decomp/InGameCardBase.cs</c> line 10095) and returns the object to the pool, so the
     /// stale <c>AllCards</c> entry outlived the card until the next travel rebuilt the list.

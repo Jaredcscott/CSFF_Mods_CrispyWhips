@@ -95,9 +95,18 @@ public sealed class ActionHandler
     /// <summary>Post-completion callback for <see cref="ActionTiming.AfterWrapped"/>.</summary>
     public Action<ActionContext> After;
 
-    // Frame dedup: the same logical action can fire through multiple game methods in
-    // one frame (PerformStackActionRoutine + ActionRoutine) — dispatch each handler once.
+    // Dispatch dedup (ActionRouter.ClaimDispatch): one card's action reaches the router through
+    // up to three nested game methods in one frame (PerformStackActionRoutine, then
+    // PerformActionAsEnumerator, then ActionRoutine), all passing the same card, so each handler
+    // dispatches once per (frame, card, given card). Keyed on the frame ALONE until 2.26.4, which
+    // skipped every stacked card after the first on EA 0.68a: its inline coroutine runner runs
+    // cards 2..N of a stack action inside card 1's frame. Measured live 2026-09-23 (tracker
+    // T2.260): a 3-card stack Open ran Open 3 times and fired its AfterWrapped handler once. The
+    // given card is in the key for the other stack, a stack DROPPED onto one receiver. What the
+    // key still cannot tell apart is the same pair performing the action twice within one frame.
     internal int LastDispatchFrame = -1;
+    internal object LastDispatchCard;
+    internal object LastDispatchGiven;
 }
 
 /// <summary>
@@ -423,6 +432,27 @@ public static class ActionRouter
         public ActionContext Ctx;
     }
 
+    /// <summary>
+    /// True when <paramref name="h"/> has not yet dispatched for this (<paramref name="card"/>,
+    /// <paramref name="given"/>) pair in <paramref name="frame"/>, and records that it now has.
+    /// The same pair arriving through a second route in the same frame is refused. A different
+    /// card in the same frame is not: the next card of a stack button action (a new
+    /// <paramref name="card"/>), or the next dragged card of a stack dropped onto one receiver
+    /// (a new <paramref name="given"/>; WaitForCardOnCardActionConfirmation runs cards 2..N in
+    /// fast mode), both of which EA 0.68a's inline runner can dispatch inside one frame. Pure,
+    /// so Development_Tools/Tests/Framework-ActionRouterDispatch.Tests.ps1 drives it directly.
+    /// </summary>
+    internal static bool ClaimDispatch(ActionHandler h, int frame, object card, object given)
+    {
+        if (h.LastDispatchFrame == frame
+            && ReferenceEquals(h.LastDispatchCard, card)
+            && ReferenceEquals(h.LastDispatchGiven, given)) return false;
+        h.LastDispatchFrame = frame;
+        h.LastDispatchCard = card;
+        h.LastDispatchGiven = given;
+        return true;
+    }
+
     private static bool DispatchPrefix(string route, object action, object card, object given,
         ref IEnumerator result, ref object state)
     {
@@ -448,8 +478,7 @@ public static class ActionRouter
                 if (h.CardUid == null && !SafeBool(h.CardPredicate, ctx, h.Name)) continue;
                 if (!ActionMatches(h, ctx)) continue;
 
-                if (h.LastDispatchFrame == Time.frameCount) continue;
-                h.LastDispatchFrame = Time.frameCount;
+                if (!ClaimDispatch(h, Time.frameCount, card, given)) continue;
 
                 switch (h.Timing)
                 {
@@ -512,6 +541,19 @@ public static class ActionRouter
     //     survives and clears RootAction. This catch sits OUTSIDE the action.
     // The real defence is keeping the throw from happening at all: see CardUtil.TryRemoveCard
     // and Patching/BugFixes/SaveStaleCardGuard.cs for the 2026-09-19 autosave case.
+    //
+    // EA 0.68a narrows what this catch can see (read from the decompile 2026-09-22; runtime
+    // effect not yet observed). StartCoroutineEx now defaults to InlineRoutineRunner
+    // (.decomp/InlineRoutineRunner.cs, CoroutineRunnerMode.Inline), and vanilla replaced
+    // `yield return StartCoroutine(X())` with `yield return X()` inside ActionRoutineSteps
+    // (ProduceCards, the event AddCard) and the durability OnFull/OnZero chain. A yielded
+    // IEnumerator passes through `original.Current` below and the runner pushes it as its OWN
+    // stack frame, so a throw inside it never reaches `original.MoveNext()` and this catch
+    // never runs. The runner logs it, drops the whole chain (this wrapper and the action
+    // included), and leaves the controller Running (CreateInline, never MarkFinished), so
+    // whatever waits on it hangs. Launching the game with `-coroutineRunner Unity` restores
+    // the 0.68 runner, which is the A/B test for any 0.68a lockup whose stack shows
+    // InlineRoutineRunner.Step.
     private static IEnumerator RunWrapped(IEnumerator original, WrapState ws)
     {
         bool completedCleanly = true;

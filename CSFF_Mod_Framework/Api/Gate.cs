@@ -2,8 +2,8 @@ namespace CSFFModFramework.Api;
 
 /// <summary>
 /// Frame and game-time dedup gates (Centralization Tier 1). Replaces the
-/// frame-count dedup guards (memory: reference_frame_count_dedup) and per-DTP
-/// tick detection re-implemented in WDI, ACT, CMC, and Sirus.
+/// frame-count dedup guards and per-DTP tick detection re-implemented in WDI,
+/// ACT, CMC, and Sirus.
 ///
 /// <para>Callers own the state field (one static int per call site), so independent
 /// handlers never share or corrupt each other's gates:</para>
@@ -19,6 +19,13 @@ public static class Gate
     /// subsequent call in the same frame. Use to guard DismantleAction handlers that
     /// can fire through multiple Harmony patches (PerformStackActionRoutine + ActionRoutine).
     /// Initialize the state field to -1.
+    /// <para>NOT safe for a handler that must run once per CARD of a stack action. EA 0.68a's
+    /// default inline coroutine runner runs a stack's cards 2..N (and a dropped stack's cards
+    /// onto one receiver) inside card 1's frame, so this gate lets card 1 through and drops
+    /// the rest. ActionRouter hit exactly that and now keys its dedup on (frame, card, given
+    /// card): see ActionRouter.ClaimDispatch and tracker row T2.260. Key on the card as well
+    /// whenever a stack can reach the guarded handler. No caller in this repo uses this gate
+    /// (checked 2026-09-23).</para>
     /// </summary>
     public static bool OncePerFrame(ref int lastFrame)
     {

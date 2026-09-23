@@ -4,6 +4,27 @@ All notable changes to CSFFModFramework are documented here.
 
 ---
 
+## [2.26.4] - 2026-09-23
+
+### Fixed
+
+- **An action run on a whole stack of cards could do its mod-added part for only the first
+  card.** Since game version EA 0.68a runs a stack action's cards one after another without a
+  pause, the framework read cards 2, 3 and so on as repeats of the first and skipped the extra
+  effect a mod attaches to that action for them. The stack still used up every card. The
+  framework now tells the cards of a stack apart, so each one gets its effect, and the same goes
+  for a stack of cards dragged onto another card. It was found with the test harness: opening
+  three stacked test kits at once produced one kit's contents.
+- **GIF animations could never attach to a card.** The GIF service looked up a card's data as a field although the game stores it as a property, so every lookup came back empty, and its durability condition sets read values that do not exist on a card in play. Both now read the real members, and a changed member is reported once in the log instead of failing silently. No released mod ships a GIF, so no player saw a difference.
+
+## [2.26.3] - 2026-09-22
+
+### Changed
+
+- **New artwork for the Portal Kit and the placed Portal.** The kit is now the dormant crystal
+  itself rather than a boxed product, and a placed portal is an open vortex, so an unused kit and
+  a working portal can be told apart at a glance. Artwork by Chiwei.
+
 ## [2.26.2] - 2026-09-19
 
 ### Fixed

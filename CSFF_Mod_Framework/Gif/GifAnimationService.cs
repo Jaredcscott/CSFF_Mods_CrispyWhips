@@ -1,3 +1,4 @@
+using CSFFModFramework.Api;
 using CSFFModFramework.Reflection;
 using CSFFModFramework.Util;
 using UnityEngine.UI;
@@ -18,33 +19,36 @@ namespace CSFFModFramework.Gif;
 internal static class GifAnimationService
 {
     // -------------------------------------------------------------------------
-    // Reflection cache for InGameCardBase durability access
+    // Durability slots, indexed by DurabilityConditionDef.DurabilityType
     // -------------------------------------------------------------------------
+    //
+    // A slot's live value is a float on InGameCardBase; its Active flag and MaxValue sit on the
+    // CardData's DurabilityStat. The liquid slot has no DurabilityStat: its maximum is
+    // CardData.MaxLiquidCapacity. Before 2.26.4 this read InGameCardBase fields named after the
+    // CardData stats plus an "InGameDurability" type, none of which exist, and looked CardModel up
+    // as a field although it is an auto-property; every GIF lookup returned null.
+    // All reads go through Reflect (property, then field).
 
-    private static Type _inGameCardBaseType;
-    private static FieldInfo _cardDataField;
-    private static Type _inGameDurabilityType;
-
-    // Cached field accessors for the six standard durability slots
-    private static readonly string[] DurabilityFieldNames = new[]
+    private static readonly string[] DurabilityStatNames = new[]
     {
-        "SpoilageTime",     // 0
-        "UsageDurability",  // 1
-        "FuelCapacity",     // 2
-        "Progress",         // 3
-        "LiquidCapacity",   // 4
+        "SpoilageTime",       // 0
+        "UsageDurability",    // 1
+        "FuelCapacity",       // 2
+        "Progress",           // 3
+        null,                 // 4 liquid: CardData.MaxLiquidCapacity
         "SpecialDurability1", // 5
         "SpecialDurability2", // 6
         "SpecialDurability3", // 7
         "SpecialDurability4", // 8
     };
 
-    private static FieldInfo[] _durabilityFields;
-    private static FieldInfo _currentValueField;
-    private static FieldInfo _maxValueField;
-    private static FieldInfo _activeField;
+    private static readonly string[] CurrentValueNames = new[]
+    {
+        "CurrentSpoilage", "CurrentUsageDurability", "CurrentFuel", "CurrentProgress",
+        "CurrentLiquidQuantity", "CurrentSpecial1", "CurrentSpecial2", "CurrentSpecial3", "CurrentSpecial4",
+    };
 
-    private static bool _reflectionReady;
+    private static readonly HashSet<string> _warned = new();
 
     public static bool HasDefinitions => GifLoader.CardDefinitions.Count > 0;
 
@@ -150,9 +154,6 @@ internal static class GifAnimationService
     {
         if (cs.DurabilityConditions.Count == 0) return true;
 
-        EnsureReflection(inGameCard);
-        if (!_reflectionReady) return false;
-
         foreach (var dc in cs.DurabilityConditions)
         {
             if (!DurabilityConditionPasses(dc, inGameCard))
@@ -165,89 +166,62 @@ internal static class GifAnimationService
     private static bool DurabilityConditionPasses(DurabilityConditionDef dc, object inGameCard)
     {
         int idx = dc.DurabilityType;
-        if (_durabilityFields == null || idx < 0 || idx >= _durabilityFields.Length) return false;
-        if (_durabilityFields[idx] == null) return false;
+        if (idx < 0 || idx >= CurrentValueNames.Length) return false;
 
-        var durability = _durabilityFields[idx].GetValue(inGameCard);
-        if (durability == null) return false;
-
-        // Check Active flag
-        if (_activeField != null)
+        if (!Reflect.TryGetMember(inGameCard, "CardModel", out var model))
         {
-            var active = _activeField.GetValue(durability);
-            if (active is bool b && !b) return false;
+            WarnOnce("CardModel-missing", $"{inGameCard.GetType().Name}.CardModel not found; GIF condition sets inactive.");
+            return false;
         }
+        if (model == null) return false;
 
-        if (_currentValueField == null || _maxValueField == null) return false;
-
-        float current = Convert.ToSingle(_currentValueField.GetValue(durability));
-        float max     = Convert.ToSingle(_maxValueField.GetValue(durability));
+        float max;
+        var statName = DurabilityStatNames[idx];
+        if (statName == null)
+        {
+            max = Reflect.GetFloat(model, "MaxLiquidCapacity");
+        }
+        else
+        {
+            if (!Reflect.TryGetMember(model, statName, out var stat) || stat == null)
+            {
+                WarnOnce(statName + "-missing", $"{model.GetType().Name}.{statName} not found; GIF condition on slot {idx} inactive.");
+                return false;
+            }
+            if (Reflect.GetMember(stat, "Active") is bool active && !active) return false;
+            max = Reflect.GetFloat(stat, "MaxValue");
+        }
         if (max <= 0f) return false;
 
-        float normalized = Mathf.Clamp01(current / max);
-        return normalized >= dc.MinNormalized && normalized <= dc.MaxNormalized;
-    }
-
-    private static void EnsureReflection(object inGameCard)
-    {
-        if (_reflectionReady) return;
-
-        _inGameCardBaseType = inGameCard?.GetType();
-        if (_inGameCardBaseType == null) return;
-
-        // Walk up to InGameCardBase if we have a subclass
-        var t = _inGameCardBaseType;
-        while (t != null && t.Name != "InGameCardBase") t = t.BaseType;
-        if (t != null) _inGameCardBaseType = t;
-
-        // Find CardData field
-        _cardDataField = AccessTools.Field(_inGameCardBaseType, "CardModel")
-                      ?? AccessTools.Field(_inGameCardBaseType, "CardData")
-                      ?? AccessTools.Field(_inGameCardBaseType, "_cardData");
-
-        // Find durability fields (InGameDurability instances on InGameCardBase)
-        _durabilityFields = new FieldInfo[DurabilityFieldNames.Length];
-        for (int i = 0; i < DurabilityFieldNames.Length; i++)
-            _durabilityFields[i] = AccessTools.Field(_inGameCardBaseType, DurabilityFieldNames[i]);
-
-        // Find InGameDurability's CurrentValue and MaxValue fields via first found slot
-        FieldInfo sample = _durabilityFields.FirstOrDefault(f => f != null);
-        if (sample != null)
+        var currentName = CurrentValueNames[idx];
+        if (!Reflect.TryGetMember(inGameCard, currentName, out var current) || current == null)
         {
-            _inGameDurabilityType = sample.FieldType;
-            _currentValueField = AccessTools.Field(_inGameDurabilityType, "CurrentValue")
-                              ?? AccessTools.Field(_inGameDurabilityType, "currentValue");
-            _maxValueField     = AccessTools.Field(_inGameDurabilityType, "MaxValue")
-                              ?? AccessTools.Field(_inGameDurabilityType, "maxValue");
-            _activeField       = AccessTools.Field(_inGameDurabilityType, "Active")
-                              ?? AccessTools.Field(_inGameDurabilityType, "active");
+            WarnOnce(currentName + "-missing", $"{inGameCard.GetType().Name}.{currentName} not found; GIF condition on slot {idx} inactive.");
+            return false;
         }
 
-        _reflectionReady = true;
+        float normalized = Mathf.Clamp01(Convert.ToSingle(current) / max);
+        return normalized >= dc.MinNormalized && normalized <= dc.MaxNormalized;
     }
 
     private static string GetCardUniqueId(object inGameCard)
     {
         if (inGameCard == null) return null;
 
-        EnsureReflection(inGameCard);
-
-        // Try to get CardData.UniqueID via the CardModel/CardData field
-        if (_cardDataField != null)
+        // CardModel is an auto-property on InGameCardBase ({ get; private set; }), so it must be
+        // read as a property: a field lookup returns null for it.
+        if (!Reflect.TryGetMember(inGameCard, "CardModel", out var cardData))
         {
-            var cardData = _cardDataField.GetValue(inGameCard);
-            if (cardData is UniqueIDScriptable uid)
-                return uid.UniqueID;
-            if (cardData != null)
-            {
-                var uidProp = AccessTools.Property(cardData.GetType(), "UniqueID");
-                return uidProp?.GetValue(cardData) as string;
-            }
+            WarnOnce("CardModel-missing", $"{inGameCard.GetType().Name}.CardModel not found; GIF animations inactive.");
+            return null;
         }
+        if (cardData is UniqueIDScriptable uid) return uid.UniqueID;
+        return cardData == null ? null : Reflect.GetMember(cardData, "UniqueID") as string;
+    }
 
-        // Fallback: look for a UniqueID property/field directly
-        var uidField = AccessTools.Field(inGameCard.GetType(), "UniqueID");
-        return uidField?.GetValue(inGameCard) as string;
+    private static void WarnOnce(string cause, string message)
+    {
+        if (_warned.Add(cause)) Log.Warn($"GifAnimationService: {message}");
     }
 
     // -------------------------------------------------------------------------
