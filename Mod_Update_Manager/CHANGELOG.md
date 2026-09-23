@@ -5,6 +5,19 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [2.1.58] - 2026-09-23
+
+### Changed
+
+- **Refreshed the embedded mod suite.** Re-embeds Herbs and Fungi 1.13.6 and Quick Transfer
+  1.8.1. With them:
+  - The ground King Oyster card no longer has a hole through the middle of its mushroom pile.
+  - Quick Transfer leaves a warning in the log when it has to skip a transfer because it cannot
+    read the clicked card, instead of skipping silently.
+
+  The other seven suite mods are re-embedded at their current versions. No change to Mod Update
+  Manager's own behaviour.
+
 ## [2.1.57] - 2026-09-23
 
 ### Changed
