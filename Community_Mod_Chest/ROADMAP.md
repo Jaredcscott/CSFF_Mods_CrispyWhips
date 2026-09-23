@@ -1,92 +1,86 @@
 # Roadmap: Community Mod Chest
-Version at time of writing: 1.68.17
-Date: 2026-09-05
-Audit score: 7/10 (FIX BEFORE RELEASE - 0 CRITICAL, 2 CMC-owned design gaps, 20 warnings, 6 minor)
-Re-derived 2026-09-05 after the mod's first-ever `/audit-environments` run. The report's headline
-CRITICAL was re-graded to a Design Gap AND assigned to `CSFFModFramework` (DG-F1), so it is not
-counted here - see Phase 0.
+Version at time of writing: 1.68.37
+Date: 2026-09-20
+Audit score: 9/10 - PASS (release ready; 0 CRITICAL, 0 CMC-owned Design Gaps)
+
+Re-derived 2026-09-20 during `/consolidate-audit`, after the 09-14..09-20 Trait Effect Repair rework
+(Nightcrawler trait + Sensitive Skin retirement), the achievement-board fix (retro GRADUATED 09-19),
+and the fresh 2026-09-20 audit-mod / critical-analysis / code-quality re-runs. Every Phase 0 item from
+the 2026-09-05 roadmap has since resolved or been refuted (see the Plan Reconciliation Log at the foot
+of this file), so this phase is now dominated by in-game verification debt, not code fixes.
 
 ## Current State
 
-**Theme**: A community-suggested content grab-bag that has grown a mature village-simulation layer on top of it - a named-resident roster with daily schedules, an Academy with seven courses and graduate perks, a four-guard Town Watch with a full Village Crime / Jail / Banishment enforcement loop, a five-chest merchant economy, tameable cats, seasonal road blocks, and a Village Reputation civic-growth meter. Aimed at players who want long-form settlement progression woven into the survival core.
+**Theme**: A community-suggested content grab-bag that has grown into the fleet's most elaborate village-simulation layer - a five-resident roster with daily schedules and quest chains, an Academy with seven courses and graduate perks, a four-guard Town Watch with a full Village Crime / Jail / Banishment enforcement loop (including a hidden-tunnel escape), a five-chest merchant economy, three tameable cats, seasonal road blocks on 3 of 4 seasons, and a Village Reputation civic-growth meter. Aimed at players who want long-form settlement progression woven into the survival core.
 
-**Content**: 81 item JSONs / 79 blueprints / 60 location cards (CT2 structures + exits + boards) / 7 interior CT4 environments / 3 CT10 improvements / 58 perks / 10 NPCAgents / 206 GameStats / 116 custom images / 66 C# files. Declarative surface: `BlueprintTabs.json`, `DropInjections.json`, `InjectImprovementInto.json`, `MapMod.json`, `TradingValues.json`, `WorldMap/MapNodes.json`, `EncounterGuards/`, `GameSourceModify/`, `ScriptableObject/` dialog tree.
+**Content**: 80 item JSONs / 79 blueprints / 62 location cards (CT2 structures + exits + boards + 7 interior CT4 environments) / 59 perks / 221 GameStats / 10 NPCAgents / 131 custom images / 65 C# files / 1 SelfTriggeredAction. Declarative surface: `BlueprintTabs.json`, `DropInjections.json`, `InjectImprovementInto.json`, `MapMod.json`, `TradingValues.json`, `WorldMap/MapNodes.json`, `EncounterGuards/`, `GameSourceModify/`, `ScriptableObject/` dialog tree.
 
-**Stability**: 7/10. Zero CRITICAL, **two CMC-owned design gaps** (both from the 2026-09-05
-environments audit: DG1 uncovered CT2 board seeds, DG2 un-floorable CMC interiors), zero
-unreachable/dead-end items (415 produced / 119 consumed). Code quality 10/10 with 0 warnings. Clean build (0 errors / 0 warnings), full EN/CN localization parity (2273/2273 keys, 0 missing / 0 extra / 0 stale). WorldMap mechanical hygiene clean. The one open code finding from the last cycle (A10, hot-path diagnostic logging) was **resolved 2026-09-05**.
+**Stability**: 9/10 - PASS. Zero CRITICAL, zero CMC-owned Design Gaps. The fresh 2026-09-20 verdict-carriers agree: critical-analysis SOLID (0 crit / 0 mech / 0 design / 0 broken promises), code-quality 10/10 (its one warning, a `SpawnService.Spawn` null-misread in `VillageFounderPerkPatch`, was fixed the same day), acquisition graph fully closed (416 produced / 119 consumed, 0 unreachable / 0 dead-end). Clean build (0/0), EN/CN parity 2387/2387, Bin/Release sync clean, WorldMap mechanical hygiene clean, version sync 1.68.37 across all three files.
 
-**Open work**: 0 genuine red retrospectives. 7 items Pending Verification / Open Plan, almost all awaiting in-game reconfirmation of already-shipped fixes:
-- `cmc-village-hearth-fuel-not-refilling` - fix shipped 1.68.13. **The INDEX.md glyph is stale (still shows red, should be yellow)**; no negative reports across 1.68.14-1.68.17. Flagged in two prior consolidations and still uncorrected.
-- `portal-hub-env-overlap-2026-08-24` - **the one item with a known live failure**: outbound-arrival fix confirmed in-game, but the instanced-interior return-trip fix (framework 2.25.14) FAILED in-game 2026-08-27. Owes a Session 5 root-cause pass.
-- `cmc-village-conditional-drop-fixtures-missing`, `worldmap-clone-duplicate-terrain`, `guard-kill-despawn`, `CMC-HSP-compat` - shipped fixes awaiting in-game reconfirmation.
-- `questinjector-blueprint-reset-risk` (framework-level, Open Plan) - CMC no longer uses QuestInjector; low current risk, root cause undiagnosed fleet-wide.
-- Umbrella: `Documentation/Retrospectives/RETRO_CLOSURE_PLAN_2026-09-01` + its 13-prompt pack.
+**Open work**: 0 red retrospectives. Several 🟡 Pending Verification / Open Plan, almost all awaiting in-game reconfirmation of already-shipped fixes:
+- `cmc-village-hearth-fuel-not-refilling` - fix shipped 1.68.13, Inn-proven; sole blocker is a live Academy-visit confirmation (T2.137/T2.149). It is the single BROKEN feature-map grade - an evidence gap, not a code defect.
+- `cmc-guard-combat-no-damage` - diagnostic proven firing; open question T4.35 is which Encounter a guard fight opens (needs a human reading the `Approach <EncounterName>` log line).
+- `river-bridge-east-click-noop` - root cause pinned, fix shipped CSFFModFramework 2.25.30; awaits a relaunch + eastbound click (T2.186).
+- `cmc-village-conditional-drop-fixtures-missing` - root cause is framework-side (`AlwaysUpdateService`, DG-FW1 below); the retro is deliberately open pending `/resolve-retro`'s runtime-evidence gate.
+- `worldmap-clone-duplicate-terrain` - the data-duplication premise is now MEASURED FALSE (2026-09-11); the remaining check is whether the player's symptom is visual (WikiMod's dead slot code), tracked on T2.147/T2.128.
+- `guard-kill-despawn` - despawn + respawn-race fixed (1.54.3), immediate-removal added; not re-verified in-game.
+- `CMC-HSP-compat` - FIXED in 1.68.20 (Extra Rain Cistern Kit rename + re-UID clearing the substring alias); awaits only the T3.41 in-game confirmation.
+- Framework/fleet umbrellas: `wikimod-old-save-load-crash`, `questinjector-blueprint-reset-risk` (CMC no longer uses QuestInjector), `gate-red-baseline-rediscovery`, `RETRO_CLOSURE_PLAN_2026-09-01` + its 13-prompt pack.
+- Trait-rework verification debt: T2.239 + T1.84-T1.114, all `pending` (code shipped 1.68.25-1.68.30; the owner explicitly lifted the playthrough gate on code work 2026-09-17).
 
-**Framework compliance**: Tier 2. Action interception routes through `Api.ActionRouter` (no direct `ActionRoutine` or coroutine patches anywhere in the tree - the only textual hit is a comment), encounter suppression is declarative via `EncounterGuards/*.json`, improvements inject via `InjectImprovementInto.json`, blueprints via `BlueprintTabs.json`. Reconcilers iterate every matching instance (the historical duplicate-instance desync class is handled). No `DropCollectionGuardPatch`, no unfiltered hot-path prefixes, no `ModLoaderVerison`/`ModEditorVersion`. AdvancedCopperTools is a documented HARD dependency (since 1.56.0); HerbsAndFungi / WaterDrivenInfrastructure / HomesteadPerks are soft with graceful degradation.
+**Framework compliance**: Tier 2. Action interception routes through `Api.ActionRouter` (no direct `ActionRoutine`/coroutine patches - only a comment mentions it), encounter suppression is declarative via `EncounterGuards/*.json`, improvements inject via `InjectImprovementInto.json`, blueprints via `BlueprintTabs.json`, per-run handler registration follows the unregister-before-register / once-guard / paired-Reset patterns. Reconcilers iterate every matching instance. No `DropCollectionGuardPatch`, no unfiltered hot-path prefixes, no `ModLoaderVerison`/`ModEditorVersion`. AdvancedCopperTools is a HARD dependency (since 1.56.0); HerbsAndFungi / WaterDrivenInfrastructure / HomesteadPerks / Sirus23 are soft with graceful degradation.
 
 ---
 
 ## Phase 0: Stabilize
 
-> The environments audit changed this phase's shape. Two CMC-owned Design Gaps now lead it, and the
-> single largest finding of that audit is **NOT CMC's to fix**: `AlwaysUpdateService` force-setting
-> `AlwaysUpdate = true` on every mod CT2 card is a `CSFFModFramework` design gap (**DG-F1**, tracked
-> in `CSFFModFramework/ROADMAP.md` Phase 0 and `CSFFModFramework/.audit/summary.md`). CMC's DG1 is a
-> workaround for it and is blocked on that decision; DG2 is independent and buildable now. There is
-> still no CRITICAL, and A10 has already cleared.
->
-> **Ownership rule for this phase: do not attempt to fix `AlwaysUpdate` behaviour from the CMC tree.**
-> The mechanism is confirmed, the consequence is global tracking rather than card loss, and the only
-> CMC-side lever (`ConditionalDrops` + `ForceStay`) does not address the cause.
+> No CRITICAL and no CMC-owned Design Gaps remain, so there is no code to fix here. What is left is
+> in-game verification debt and one framework-owned item. This phase closes when the retros below get
+> their runtime evidence.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| **DG1: 28 CMC CT2 cards are seeded onto environment boards through paths that never restore `AlwaysUpdate = false`.** Only 9 CMC cards ride the `ConditionalDrops` + `ForceStay: true` correction; the other 28 keep the framework-forced value - 23 interior fixtures in the 7 hand-authored CT4 interiors' `DefaultEnvCardDrops` (7 Exits, 7 Village Hall notice boards, 5 Copper Chests, Lectern, Inn Counter, Jail Door/Bed/RationTray) plus 5 SealableGate challenge cards seeded via `SeedOnEnvUIDs`. `CardCloneService.NeutralizeFollowerDrops` runs for CLONE envs only; a hand-authored CT4 gets no equivalent pass. **OWNERSHIP: the root cause is framework-side (DG-F1) - the only CMC-side lever is the declarative `ForceStay` route, which is a WORKAROUND, not a fix. Sequence this AFTER the framework's DG-F1 decision lands**, because a scoping change there may make it unnecessary. | Design Gap (blocked on framework) | **P0 (blocked)** | Medium |
-| **DG2: no CMC-authored interior can host CMC's own Stone Tile Floor improvement.** `cmcimpstonetilefloor` is injected into 9 vanilla CT8 interiors (all 11 `InjectImprovementInto.json` targets resolve), but zero CMC interiors are targets and none of the 7 declares `EnvironmentImprovements` - a player who builds out the village cannot floor any building the mod itself adds. Purely declarative: add the 7 interior CT8 UIDs to `InjectImprovementInto.json`. **Fully CMC-owned and buildable now** - independent of DG-F1 and DG1. | Design Gap | **P0** | Quick |
-| ~~Run `/audit-environments Community_Mod_Chest`~~ - **DONE 2026-09-05.** Output: `.audit/environments-report.md`. All six of the skill's named critical checks PASSED (0 `AlwaysUpdate:true` on CT4/CT8, 0 underscore env UIDs, all 12 clone templates non-instanced, no travel DA carries `RequiredStatValues`, 7/7 CT4-CT8 pairs, no non-CT8 env-watch spawning), plus 5/5 SealableGate prefix matches across 9 clearing actions, 0 coord collisions, 0 clone-name collisions and 0 missing `*WarpType` companions. It produced DG1/DG2 above, W16-W20, M3-M6, and the framework-owned DG-F1. | Audit coverage gap | **DONE** | - |
-| Add `CardName.LocalizationKey` to `CardData/Location/CMC_MarketStall.json` - the `CMC_MarketStall_CardName` rows **already exist in both `SimpEn.csv` and `SimpCn.csv`** and are stranded, so Chinese players see an untranslated name. Closes the mod's only localization hole. | Localization fix | P0 | Quick |
-| Correct the `cmc-village-hearth-fuel-not-refilling` glyph in `Documentation/Retrospectives/INDEX.md` from red to yellow - the retro file itself documents the 1.68.13 fix. One character; flagged twice and still open. | Doc accuracy | P0 | Quick |
-| Recover the truncated blocking reason for playtest **T2.135 (Town Wood Pile)** and either run or retire it - it is the sole cause of the mod's only BROKEN feature-map grade, and it is a blocked test, not a code defect. | Evidence gap | P0 | Quick |
-| Spot-check `CardData/Location/CMC_JailCellBed.json`'s nested `ParentObjectID` (a GUID) against its own `UniqueID` (`cmcJailCellBed`) - present-and-mismatched is a real bug where omitted is convention. | Structure fix | P1 | Quick |
-| Remove the stray `StarsCost` field from `CharacterPerk/Perk_Claws.json:203`. | Schema hygiene | P1 | Quick |
+| **DG-FW1 (framework-owned): scope `AlwaysUpdateService.EnableAll`'s blanket CT2 write.** It force-sets `AlwaysUpdate=true` on every mod CT2 card, making CMC's board fixtures `IndependentFromEnv` and absent from the persisted board - the mechanism behind `cmc-village-conditional-drop-fixtures-missing`. Framework 2.25.28 added a `skippedInert` branch (per the Plan Reconciliation Log 2026-09-07); confirm it covers CMC's fixtures and close the retro via runtime evidence. **Do NOT attempt to fix this from the CMC tree.** | Design Gap (framework) | P0 | Framework-side |
+| Collect the retro-gated runtime confirmations: hearth-fuel Academy visit (T2.137/T2.149), guard-combat Encounter (T4.35), River Bridge eastbound (T2.186), guard-kill despawn, CMC-HSP-compat (T3.41), Stone Tile Floor in CMC interiors (T2.187). | Evidence gap | P0 | Human playthrough |
+| Record the trait-rework verification debt (T2.239, T1.84-T1.114) as playthroughs happen - the code shipped 1.68.25-1.68.30 and the owner lifted the code-work gate; these are human rows, not agent work. | Evidence gap | P1 | Human playthrough |
 
 ---
 
 ## Phase 1: Foundation
 
-> Table stakes. Most of this is already done - what remains is refreshing artifacts that have gone stale under a fast release cadence.
+> Table stakes. Version/localization/build hygiene are already clean; what remains is refreshing audit
+> artifacts that went stale under a fast release cadence.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Refresh the 5 per-domain audit reports (`/audit-items`, `/audit-blueprints`, `/audit-structures`, `/audit-images`, `/audit-perks`) - all dated 2026-08-24, all predate the 2026-09-05 source commit and are UNTRUSTED per CLAUDE.md. Individual findings were re-checked on disk this consolidation, but the reports themselves were not re-run. | Audit hygiene | P1 | Medium |
-| Regenerate `feature-map.md` for 1.68.17 - it is written for 1.68.16 and carries its own regenerate-after-version-bump warning. | Audit hygiene | P1 | Medium |
-| Re-run `/critical-analysis Community_Mod_Chest` against 1.68.17 - the current report is dated 2026-09-01 and two source commits have landed since (the ACT Copper Sheet lock removal and the heather Incense Burner), neither of which it has reviewed. | Audit hygiene | P1 | Medium |
-| Version hygiene: **already clean** (ModInfo.json / Plugin.cs / README.md all read 1.68.17; bin/Release sync shows 0 missing, 0 out-of-date, 0 orphaned). No action. | Verified | - | - |
-| Localization baseline: **already clean** (2273/2273 EN/CN parity, no header row, no duplicate keys) apart from the Market Stall key in Phase 0. | Verified | - | - |
+| Refresh the 5 stale domain sub-reports (`/audit-items`, `/audit-blueprints`, `/audit-structures`, `/audit-perks`, `/audit-images`) - all dated 2026-09-09..09-12, all predate the trait rework and card-art revamp, all UNTRUSTED per CLAUDE.md. Individual findings were re-checked on disk this consolidation, but the reports were not re-run. This formally closes the carried W2/W3/W4 authoring nits. | Audit hygiene | P1 | Medium |
+| Regenerate `feature-map.md` for 1.68.37 - it is written for 1.68.16 and predates the achievement-board fix, Nightcrawler, and the card art. Its one BROKEN grade (hearths) is evidence-gated, not a defect. | Audit hygiene | P1 | Medium |
+| Version hygiene: **already clean** (1.68.37 across ModInfo/Plugin/README; bin/Release sync 0/0/0). No action. | Verified | - | - |
+| Localization baseline: **already clean** (2387/2387 EN/CN parity, no header row, no duplicate keys). No action. | Verified | - | - |
+| Code quality + critical analysis: **already fresh** (both re-run 2026-09-20, 10/10 and SOLID). No action. | Verified | - | - |
 
 ---
 
 ## Phase 2: Core Expansion
 
-> The three highest-value content additions, ordered by how much existing content they activate.
+> The highest-value content additions, ordered by how much existing content they activate.
 
 ### The Apothecary Remedy Line
 **What**: An Allergy Tonic, a Stomach Settler, and a Clotting Salve produced at the Apothecary Cabin from H&F herbs plus CMC's own Herb Paste, each countering a specific shipped drawback trait.
-**Why**: This is the single strongest unbuilt idea in the mod. CMC ships seven drawback traits (`Bleeder`, `DeadlyDisease`, `SeasonalAllergies`, `WeakStomach`, `BadKidneys`, `Insomniac`, `Leper`) and a full Apothecary NPC with a quest chain - and `ls CardData/Item/` finds **no tonic, salve, settler, remedy or antidote of any kind**. Every one of those traits is currently a one-way debuff with no counter-play. It simultaneously gives the Apothecary a reason to exist past her quest chain and supplies the missing sink for the CMC-to-HerbsAndFungi herbal pairing.
-**Requires**: none (the Medicine course's Herb Poultice + Tincture is the pattern to copy).
+**Why**: The single strongest unbuilt idea in the mod. CMC ships seven drawback traits (`Bleeder`, `DeadlyDisease`, `SeasonalAllergies`, `WeakStomach`, `BadKidneys`, `Insomniac`, `Leper`) and a full Apothecary NPC with a quest chain, yet `CardData/Item/` holds no tonic, salve, settler, remedy or antidote of any kind. Every one of those traits is a one-way debuff with no counter-play. It gives the Apothecary a reason past her quest chain and supplies the missing sink for the CMC-to-HerbsAndFungi herbal pairing.
+**Requires**: none (the Medicine course's Herb Poultice + Tincture is the pattern to copy). Pairs naturally with the new **combat wound-care crafting** idea (Clean Bandage / Suture Kit) tied to the guard-fight wound items.
 **Complexity**: Medium
 
-### The DEFERRED_ITEMS.md Residue
-**What**: Club, Sling + Sling Stones, Bone Helmet, Grinding Slab Kit, Stone Block, Stone Tile (singular), Cloth Mask, Long Johns, and the Hunting Stand system.
-**Why**: Fully specced in `Documentation/Ideas/Community_Mod_Chest/DEFERRED_ITEMS.md` with UniqueIDs already confirmed safe to reuse. This is the cheapest content-per-token work left in the mod - no design decisions, no new mechanisms, pure JSON on proven patterns.
-**Requires**: check each against vanilla before building. The bone-tier tools in this same family were correctly dropped because vanilla already ships `BoneNeedle`/`HookBone`, and the same trap applies here.
-**Complexity**: Medium (but highly parallelizable)
+### Widen the pigment-dye line + author FlavourTags (two ready pure-JSON wins)
+**What**: (a) Add ochre/berry pigments on the `Bp_Pigment` grind pattern plus a coloured variant per garment, and extend the `Dye with Pigment` CI to the currently un-dyeable garments; (b) author `FlavourTags` on CMC's food/herb roster (Wild Garlic, Herb Paste, Silverwort/Hollow Sage, Inn stock) and one `FlavourMatrix/*.json` synergy pair.
+**Why**: Both are confirmed gaps at v1.68.37. Potter's Apprentice starts the player with "two ready-ground pigments" the dye system never exposes, and every CMC card ships `FlavourTags: []` with no `FlavourMatrix`, so none of the mod's edibles read in stews or the flavour-synergy system.
+**Requires**: `Intensity` is the `FlavourIntensities` ENUM (0=Medium, 1=Strong, 2=Subtle), NOT a strength number (CLAUDE.md); framework 2.23.6+ for FlavourMatrix.
+**Complexity**: Medium (both highly parallelizable, pure JSON)
 
 ### Voluntary Redemption / Making-Amends Track
 **What**: A real path back to Clean without a cell or a fight - a Village Hall reparations fine scaled to the crime band, or a restitution errand that walks `cmcStatVillageCrime` down.
-**Why**: The crime loop is the mod's most elaborate system (guard pursuit, gauntlet, jail sentencing, hidden-tunnel escape, banishment) and it is almost entirely punitive. The only constructive path shipped is the single "Make it right" Miller restitution seed. A player who commits one theft has no way to make good on it short of serving time.
-**Requires**: a design decision - fine-only (a CI calling `ReduceCrime`) versus an errand chain. If an errand chain, it **must** use the clamped-marker pattern (`reference_npc_errand_clamped_marker_pattern`), never an unclamped counter, or the errand softlocks itself over time.
+**Why**: The crime loop is the mod's most elaborate system (guard pursuit, gauntlet, jail sentencing, tunnel escape, banishment) and it is almost entirely punitive. The only constructive path shipped is the single "Make it right" Miller restitution seed.
+**Requires**: a design decision - fine-only (a CI calling `ReduceCrime`) vs. an errand chain. An errand chain **must** use the clamped-marker pattern (`reference_npc_errand_clamped_marker_pattern`), never an unclamped counter, or it softlocks itself over time.
 **Complexity**: Complex
 
 ---
@@ -95,19 +89,19 @@ unreachable/dead-end items (415 produced / 119 consumed). Code quality 10/10 wit
 
 ### Merchant purse-tier and Reputation bucket readouts
 **What**: Publish a coarse `cmcStat<Resident>PurseTier` (lean / modest / flush) on the weekly accrual tick, and publish at least one of `VillageReputationPatch.cs`'s internally-computed `ConstructionBucketMax` / `QuestBucketMax` values as its own hidden stat.
-**Why**: Both systems already compute the information and then throw it away. Sales bounce when a chest cannot afford an item, and a thief picks a target by purse size, but none of it is legible until a sale fails. Reputation reads identically whether the player built everything and knows nobody, or knows everybody and built nothing. Neither `ls GameStat/` search finds a `*Purse*` or `*Bucket*` stat today.
+**Why**: Both systems compute the information and then throw it away. Sales bounce when a chest cannot afford an item, but none of it is legible until a sale fails; Reputation reads identically whether you built everything and know nobody, or know everybody and built nothing.
 **Requires**: a decision on where the accrual patch publishes the tier (chest wealth is inventory, not a stat).
 **Complexity**: Medium
 
 ### Gift-preference friendship for the Miller and Weaver
 **What**: A gift-preference drag interaction mirroring the Professor's - grain/flour for the Miller, cloth/dye for the Weaver.
-**Why**: Verified 2026-09-05: `Agent_Apothecary.json`, `Agent_InnKeeper.json` and `Agent_Professor.json` carry gift handling; the Miller and Weaver carry none, so their Trust moves only through scripted errands. Two of the five named residents cannot be befriended at all outside a quest.
+**Why**: `Agent_Apothecary/InnKeeper/Professor.json` carry gift handling; the Miller and Weaver carry none, so two of the five named residents cannot be befriended outside a scripted errand.
 **Requires**: the Professor's JSON `DragAndDropAction` idiom (`GivenCardChanges.ModType:3`); ships fastest as pure JSON. Keep gifts a slow secondary track, never an errand bypass.
 **Complexity**: Quick
 
 ### A summer route hazard (optional - close the row if it does not fit the fiction)
 **What**: A fourth seasonal `SealableGates` entry for summer.
-**Why**: `WorldMap/MapNodes.json` now carries `SealTrigger` `"Season"` entries for Autumn (Deadfall), Winter (three Snow Drifts) and Spring (Clay Shoal flood) - three live templates to copy. Summer is the only season with no route pressure.
+**Why**: `MapNodes.json` now carries `"Season"` `SealTrigger` entries for Autumn (Deadfall), Winter (three Snow Drifts) and Spring (Clay Shoal flood) - three live templates. Summer is the only season with no route pressure.
 **Requires**: **every** clearing action on the challenge card must share the gate's `ClearActionKeyPrefix` (CLAUDE.md - a mismatched by-hand action softlocks the road silently). Enforced by `MapNodes-Schema.Tests.ps1`.
 **Complexity**: Quick
 
@@ -125,12 +119,12 @@ unreachable/dead-end items (415 produced / 119 consumed). Code quality 10/10 wit
 
 | Item | What | Complexity |
 |------|------|------------|
-| Distinct finished-potion sprite | `CMC_ApothecaryHealingMixture.json` and `CMC_ApothecaryHealingPotion.json` both point at `CMC_Alchemist_Potions`, so the intermediate and the finished product are visually identical on the board | Quick |
-| Distinct Market Stall dressed art | `CMC_MarketStall.png` and `CMC_MarketStallDressed.png` are **byte-identical** (md5 `589df0ef...`). The self-transform mechanism works; the art does not yet differ, so the awning toggle is invisible | Quick |
-| Retire the last two diagnostic patches | `GuardCombatDiagnosticPatch.cs` and `CompanionFollowDiagnostics.cs` - delete or demote **only after** `guard-kill-despawn` and companion-follow are log-confirmed in-game. Grep `Documentation/Retrospectives/` for a diagnostic's tag before touching it | Quick |
-| Blueprint schema-completeness sweep | ~51 blueprint files omit optional keys (`CardImage` placeholder and similar). Cosmetic, non-breaking; batch it with the Phase 1 `/audit-blueprints` refresh | Quick |
-| `CMC_AshBoarTrail.json` placement | `CardType: 2` filed under `CardData/Item/`. Loads and works; move it to `CardData/Location/` only alongside other structure work, and only after confirming nothing keys on the path | Quick |
-| Perk schema consistency | 17 compact `Pk_*.json` files omit required-field keys when the backing array is empty, deviating from every other perk's explicit-`false` style | Quick |
+| Village Home Sign real art | Both faces currently ship blank placeholder art (README self-discloses this); the carve/plane mechanic is complete but the sign reads as a plain white card until the illustrations land | Quick |
+| Jail + cell art | The Jail and its cell ship blank placeholder art (README self-discloses); only guards are attackable | Quick |
+| Distinct finished-potion sprite | `CMC_ApothecaryHealingMixture.json` and `CMC_ApothecaryHealingPotion.json` both point at `CMC_Alchemist_Potions`, so intermediate and finished product are visually identical | Quick |
+| Distinct Market Stall dressed art | `CMC_MarketStall.png` and `CMC_MarketStallDressed.png` are byte-identical; the awning toggle works but is visually invisible | Quick |
+| Retire the last two diagnostic patches | `GuardCombatDiagnosticPatch.cs` and `CompanionFollowDiagnostics.cs` - delete/demote **only after** their retros are log-confirmed in-game (T4.35, T2.237). Grep `Documentation/Retrospectives/` for a diagnostic's tag before touching it | Quick |
+| Refresh the stale domain-report authoring nits | JailRation `ActionTagsWarpData`, ~4 unverified blank-card sprite names, 9 perks with CSV/JSON description divergence - batch with the Phase 1 report refresh | Quick |
 
 ---
 
@@ -138,17 +132,17 @@ unreachable/dead-end items (415 produced / 119 consumed). Code quality 10/10 wit
 
 > Where this mod should be at v2.0.
 
-Community Mod Chest has outgrown its own name. What began as a grab-bag of community item requests is now the fleet's most elaborate settlement simulation: a five-resident village with schedules and quest chains, an Academy with seven degrees, a criminal-justice system with sentencing and escape, a merchant economy with per-NPC wealth, and a civic reputation meter that tracks both what you built and who you know. At v2.0 the mod's identity should stop apologizing for the grab-bag and lean fully into being **the village layer for Card Survival** - the thing a player installs when they want somewhere to belong rather than just more recipes.
+Community Mod Chest has outgrown its own name. What began as a grab-bag of community item requests is now the fleet's most elaborate settlement simulation: a five-resident village with schedules and quest chains, an Academy with seven degrees, a criminal-justice system with sentencing and escape, a merchant economy with per-NPC wealth, and a civic reputation meter that tracks both what you built and who you know. At v2.0 the mod's identity should lean fully into being **the village layer for Card Survival** - the thing a player installs when they want somewhere to belong rather than just more recipes.
 
-The two structural gaps standing between here and that identity are both about **reciprocity**. First, the village currently reacts to your crimes but not to your virtue: there is a punishment ladder and no redemption ladder, and residents treat a Wanted or Banished player exactly like a model citizen. Second, the village gives the player systems but very little that gives back - the drawback traits have no remedies, the residents have no gifts, and the Reputation meter's two halves are computed and discarded. Closing those two loops would turn a set of impressive mechanisms into a place that responds.
+The two structural gaps between here and that identity are both about **reciprocity**. First, the village reacts to your crimes but not to your virtue: there is a punishment ladder and no redemption ladder, and residents treat a Wanted or Banished player exactly like a model citizen. Second, the village gives the player systems but little that gives back - the drawback traits have no remedies, the Miller and Weaver have no gifts, and the Reputation meter's two halves are computed and discarded. Closing those loops turns a set of impressive mechanisms into a place that responds.
 
-The third and largest opportunity is **evidence, not content**. This mod carries 93 feature groups of which only 19 are human-verified, ~916 LOC of Achievement Board code nobody has ever watched run, a potential permadeath fix (the Bleeder Blood Pressure floor) with zero in-game confirmation, and a self-described release blocker (T4.21, the jail safety net) verified on paper only. At this scale, a single dedicated verification playthrough is worth more than a whole content phase.
+The third and largest opportunity is **evidence, not content**. This mod carries ~93 feature groups of which only ~19 are human-verified, a 🟡 backlog of shipped-but-unconfirmed fixes (hearth-fuel, guard-combat, river-bridge eastbound, guard-kill despawn), and a whole trait rework (1.68.25-1.68.30) whose ~30 verification rows are all still `pending`. At this scale, a single dedicated verification playthrough is worth more than a whole content phase - and the owner has explicitly decoupled code work from the playthrough queue (2026-09-17), so the two can proceed in parallel.
 
 **Potential major additions** (not yet justified - revisit after Phase 3):
-- **Generic NPC archetypes** (Shopkeeper, Hirable Hunter, a charming companion, an Elder with quests) - specced in `VILLAGE_AREA.md` and deliberately not covered by the named-resident roster. CMC now has a mature NPCAgent chassis, so the build cost has fallen sharply since the spec was written.
-- **Reviving the benched Wisp quest-giver** (`Documentation/Ideas/Community_Mod_Chest/Wisp_and_NPCs/`) - its original blocker was "wait for the vanilla NPC rework," which is overtaken by events now that CMC built its own chassis. Its hard-won lessons (non-instanced clone envs; never attach a vanilla QuestLog to the player save) remain load-bearing and must survive any revival.
-- **Named outfit presets** - the one-motion Dress/Undress mechanism already covers both the Clothes Rack and the Wardrobe; the preset-*storage* half needs real design, not routing generalization.
-- **A sleep-axis scented incense** - deliberately deferred, not merely unbuilt. The only hook is the `SleepClock` stat, and hanging a passive `RateModifier` on the game's own sleep-timing stat is the vanilla-mechanics risk class CLAUDE.md warns about. Needs a discrete sleep-quality mechanism identified first.
+- **Generic NPC archetypes** (Shopkeeper, Hirable Hunter, a charming companion, an Elder with quests) - specced in `VILLAGE_AREA.md`, deliberately not covered by the named-resident roster. The mature NPCAgent chassis has dropped the build cost sharply.
+- **Reviving the benched Wisp quest-giver** (`Documentation/Ideas/Community_Mod_Chest/Wisp_and_NPCs/`) - its "wait for the vanilla NPC rework" blocker is overtaken by events now that CMC built its own chassis. Its load-bearing lessons (non-instanced clone envs; never attach a vanilla QuestLog to the player save) must survive any revival.
+- **Named outfit presets** - the one-motion Dress/Undress mechanism already covers Clothes Rack and Wardrobe; the preset-storage half needs real design, not routing generalization.
+- **A sleep-axis scented incense** - deliberately deferred: the only hook is the `SleepClock` stat, and a passive `RateModifier` on the game's own sleep-timing stat is the vanilla-mechanics risk class CLAUDE.md warns about. Needs a discrete sleep-quality mechanism identified first.
 
 These live in `Documentation/Ideas/Community_Mod_Chest/`.
 
@@ -171,7 +165,6 @@ These live in `Documentation/Ideas/Community_Mod_Chest/`.
 
 ```
 /audit-mod Community_Mod_Chest             - full health check, updates .audit/
-/audit-environments Community_Mod_Chest    - THE missing audit; run this first
 /critical-analysis Community_Mod_Chest     - adversarial review
 /repair-items Community_Mod_Chest          - auto-fix item JSON issues
 /repair-structures Community_Mod_Chest     - auto-fix structure JSON issues
@@ -181,28 +174,6 @@ These live in `Documentation/Ideas/Community_Mod_Chest/`.
 /export-to-repo Community_Mod_Chest        - push to public repo
 /playthrough-test-plan record              - log in-game verification results
 ```
-
----
-
-## 2026-09-05 environments-audit addendum
-
-Two testing notes from `.audit/environments-report.md` that belong in the playthrough plan rather than
-in a phase table:
-
-1. **All 7 CMC interiors are `InstancedEnvironment: false`** (verified in every CT4 file), so they
-   **cannot** serve as the instanced-interior fixture for `portal-hub-env-overlap-2026-08-24`'s T2.146
-   repro. A tester who reaches for the Village Inn or the Academy - the most convenient interiors in the
-   fleet - gets a **false pass**. The retest needs a genuinely instanced vanilla interior (Cabin /
-   Cellar / Coop / Enclosure / attic / mine). Write this into the T2.146 item text.
-2. **All 12 clone boards and all 7 interior boards in the current save are duplicate-free**, which
-   narrows `worldmap-clone-duplicate-terrain`'s Open Unknown #3. It rules out a pre-existing
-   contaminated baseline in the author's slot; the save is too young to be a negative result.
-
-Also worth carrying: `cmc-village-conditional-drop-fixtures-missing` **Open Unknown #2 is now answered
-statically** (root cause is `CSFFModFramework/Loading/AlwaysUpdateService.cs:72`; all three candidate
-hypotheses ruled out). The retro is **deliberately still open** - closure needs `/resolve-retro`'s
-runtime-evidence gate, and the freshest local save cannot corroborate the T1.59 pass because its
-`VisitedEnvironments` lists only `cmcEnvVillagePath`.
 
 ## Plan Reconciliation Log
 

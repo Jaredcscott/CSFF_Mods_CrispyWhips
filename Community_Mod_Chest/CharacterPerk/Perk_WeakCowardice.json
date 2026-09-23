@@ -75,7 +75,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "PerkIconWarpData": "Stress",
+    "PerkIconWarpData": "CMC_Pk_WeakCowardice",
     "PerkIconWarpType": 3,
     "PerkName": {
         "DefaultText": "Cowardice",

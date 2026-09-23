@@ -69,6 +69,12 @@
                             "DroppedCardWarpData": "3ba0c209e55d7cb4d8da51697e34b584",
                             "DroppedCardWarpType": 3,
                             "Quantity": {"x": 1, "y": 1}
+                        },
+                        {
+                            "DroppedCard": {"m_FileID": 0, "m_PathID": 0},
+                            "DroppedCardWarpData": "cmcEventNightcrawlerBurned",
+                            "DroppedCardWarpType": 3,
+                            "Quantity": {"x": 1, "y": 1}
                         }
                     ]
                 }

@@ -27,7 +27,7 @@
     ],
     "StatPriority": 0,
     "RequiredPerks": [],
-    "Visibility": 0,
+    "Visibility": 2,
     "VisibleInDetailedList": false,
     "CannotBeInspected": false,
     "InvertedDirection": false,

@@ -64,43 +64,10 @@
             "InstantModifier": false,
             "IgnoreNovelty": false,
             "IsInverse": false
-        },
-        {
-            "Stat": {
-                "m_FileID": 0,
-                "m_PathID": 0
-            },
-            "StatWarpData": "f643add8502636a4b9faa8ab19a37550",
-            "StatWarpType": 3,
-            "ValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "RateModifier": {
-                "x": -0.3,
-                "y": -0.3
-            },
-            "MinValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "MaxValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "CannotModifyBeyond": {
-                "Active": false,
-                "FloatValue": 0.0,
-                "MaxValue": 0.0
-            },
-            "ApplyEachTick": false,
-            "InstantModifier": false,
-            "IgnoreNovelty": false,
-            "IsInverse": false
         }
     ],
     "PerkDescription": {
-        "DefaultText": "Plants wither under your care. This trait weakens a Fertility Boon from other sources, so a single spirit blessing barely holds on the crops you plant, and makes a Wild Growth blessing fade sooner. On its own it does nothing.",
+        "DefaultText": "Plants wither under your care. This trait weakens a Fertility Boon from other sources, so a single spirit blessing barely holds on the crops you plant. On its own it does nothing.",
         "LocalizationKey": "CharacterTraits_Perk_BlackThumb_PerkDescription",
         "ParentObjectID": "traitsperkblackthumb"
     },
@@ -108,7 +75,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "PerkIconWarpData": "Appleweed_Item",
+    "PerkIconWarpData": "CMC_Pk_Thumb_Black",
     "PerkIconWarpType": 3,
     "PerkName": {
         "DefaultText": "Black Thumb",

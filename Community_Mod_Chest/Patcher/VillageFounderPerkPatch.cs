@@ -199,10 +199,11 @@ namespace CommunityModChest.Patcher
                 {
                     if (s.EnvUid != envUid) continue;
                     if (CardExistsAnywhere(gm, s.Uid)) continue;
-                    if (SpawnService.Spawn(s.Uid) == null)
+                    SpawnService.Spawn(s.Uid);
+                    if (!CardExistsAnywhere(gm, s.Uid))
                     {
                         allPlaced = false;
-                        Plugin.Logger.LogWarning($"[VillageFounderPerkPatch] Failed to spawn structure '{s.Uid}' — will retry next tick.");
+                        Plugin.Logger.LogWarning($"[VillageFounderPerkPatch] Structure '{s.Uid}' not on board after spawn - will retry next tick.");
                     }
                 }
 

@@ -232,7 +232,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "A disease has taken hold and it is winning. You begin sick and sore, the pain never leaves, and your defences are compromised, so infections of the gut, the chest and the blood creep upward day after day. Keep your immune system up with good morale, food, sleep and medicine and they recede; neglect it and the disease runs its course.",
+        "DefaultText": "A disease has taken hold and it is winning. You begin queasy with it, the pain never leaves, and your defences are compromised, so infections of the gut, the chest and the blood creep upward day after day. Keep your immune system up with good morale, food, sleep and medicine and they recede; neglect it and the disease runs its course.",
         "LocalizationKey": "CharacterTraits_Perk_DeadlyDisease_PerkDescription",
         "ParentObjectID": "traits_perk_deadly_disease"
     },
@@ -240,7 +240,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "PerkIconWarpData": "Nausea",
+    "PerkIconWarpData": "CMC_Perk_DeadlyDisease",
     "PerkIconWarpType": 3,
     "PerkName": {
         "DefaultText": "Deadly Disease",
@@ -268,107 +268,8 @@
             "StatWarpData": "547f09c7ea6d11d4bbf6714255b0dfd5",
             "StatWarpType": 3,
             "ValueModifier": {
-                "x": 40.0,
-                "y": 40.0
-            },
-            "RateModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "MinValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "MaxValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "CannotModifyBeyond": {
-                "Active": false,
-                "FloatValue": 0.0,
-                "MaxValue": 0.0
-            },
-            "ApplyEachTick": false,
-            "InstantModifier": false,
-            "IgnoreNovelty": false,
-            "IsInverse": false
-        },
-        {
-            "Stat": {
-                "m_FileID": 0,
-                "m_PathID": 0
-            },
-            "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
-            "StatWarpType": 3,
-            "ValueModifier": {
-                "x": 30.0,
-                "y": 30.0
-            },
-            "RateModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "MinValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "MaxValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "CannotModifyBeyond": {
-                "Active": false,
-                "FloatValue": 0.0,
-                "MaxValue": 0.0
-            },
-            "ApplyEachTick": false,
-            "InstantModifier": false,
-            "IgnoreNovelty": false,
-            "IsInverse": false
-        },
-        {
-            "Stat": {
-                "m_FileID": 0,
-                "m_PathID": 0
-            },
-            "StatWarpData": "9ff897d4c2d410544a8d7ccd323bdb86",
-            "StatWarpType": 3,
-            "ValueModifier": {
-                "x": 40.0,
-                "y": 40.0
-            },
-            "RateModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "MinValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "MaxValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "CannotModifyBeyond": {
-                "Active": false,
-                "FloatValue": 0.0,
-                "MaxValue": 0.0
-            },
-            "ApplyEachTick": false,
-            "InstantModifier": false,
-            "IgnoreNovelty": false,
-            "IsInverse": false
-        },
-        {
-            "Stat": {
-                "m_FileID": 0,
-                "m_PathID": 0
-            },
-            "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
-            "StatWarpType": 3,
-            "ValueModifier": {
-                "x": 30.0,
-                "y": 30.0
+                "x": 12.0,
+                "y": 12.0
             },
             "RateModifier": {
                 "x": 0.0,

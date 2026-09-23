@@ -75,7 +75,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "PerkIconWarpData": "Nausea",
+    "PerkIconWarpData": "CMC_Pk_WeakStomach",
     "PerkIconWarpType": 3,
     "PerkName": {
         "DefaultText": "Weak Stomach",

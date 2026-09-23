@@ -109,7 +109,7 @@ Combat_And_Armor_Bp_BoneLamellar_UnlockConditionsDesc,Bring the Professor bones 
 CharacterTraits_Perk_Angler_PerkName,Angler,垂钓者
 CharacterTraits_Perk_Angler_PerkDescription,"You've spent years by the water. Start with an iron fishing rod, fishing line and bait.",你在水边度过了许多年。开局携带一根铁钓竿、钓鱼线和鱼饵。
 CharacterTraits_Perk_GreenThumb_PerkName,Green Thumb,绿手指
-CharacterTraits_Perk_GreenThumb_PerkDescription,"Plants thrive under your care. Start with Turnroot seeds, Meadowgrass seeds and a Flint Hoe, and keep a steady Fertility Boon for the crops you plant, as strong as one spirit blessing. A Wild Growth blessing also lasts longer for you.",植物在你的照料下茁壮成长。开局携带芜菁根种子、草甸草种子和一把燧石锄，并为你亲手种下的作物持续获得相当于一次精灵赐福的丰饶福祉。野性成长赐福在你身上也会持续更久。
+CharacterTraits_Perk_GreenThumb_PerkDescription,"Plants thrive under your care. Start with enough meadowgrass seed to sow a full field and a Flint Hoe, and keep a steady Fertility Boon for the crops you plant, as strong as one spirit blessing.","植物在你的照料下茅壮成长。开局携带足以播种一整块田地的草甸草种子和一把燧石锄，并为你亲手种下的作物持续获得相当于一次精灵赐福的丰饶福祉。"
 CharacterTraits_Perk_StrongKidneys_PerkName,Strong Kidneys,强肾
 CharacterTraits_Perk_StrongKidneys_PerkDescription,"Your kidneys clear poisons quickly. Witchstone poisoning and fireroot toxicity leave your body about twice as fast as normal, and wolfsbane poisoning a little faster.",你的肾脏能迅速排出毒素。巫石中毒和火根中毒消退的速度约为常人的两倍，乌头中毒也会稍快一些。
 CharacterTraits_Perk_NaturalTrader_PerkName,Natural Trader,天生商人
@@ -223,7 +223,7 @@ CharacterTraits_Perk_Sinker_PerkDescription,"You are dense in the water. Swimmin
 CharacterTraits_Perk_WeakStomach_PerkName,Weak Stomach,肠胃虚弱
 CharacterTraits_Perk_WeakStomach_PerkDescription,Your stomach is easily upset. Nausea takes longer to recover from lingering well after the cause is gone.,你的肠胃十分敏感。恶心感消退得更慢，即便病因已经消失也会久久不散。
 CharacterTraits_Perk_BlackThumb_PerkName,Black Thumb,黑手指
-CharacterTraits_Perk_BlackThumb_PerkDescription,"Plants wither under your care. This trait weakens a Fertility Boon from other sources, so a single spirit blessing barely holds on the crops you plant, and makes a Wild Growth blessing fade sooner. On its own it does nothing.",植物在你手中只会枯萎。此特质会削弱来自其他来源的丰饶福祉，单次精灵赐福几乎无法维持你亲手种下的作物，野性成长赐福也会更快消退。它本身没有任何效果。
+CharacterTraits_Perk_BlackThumb_PerkDescription,"Plants wither under your care. This trait weakens a Fertility Boon from other sources, so a single spirit blessing barely holds on the crops you plant. On its own it does nothing.","植物在你手中只会枯萎。此特质会削弱来自其他来源的丰饶福祉，单次精灵赐福几乎无法维持你亲手种下的作物。它本身没有任何效果。"
 CharacterTraits_Perk_BadKidneys_PerkName,Bad Kidneys,弱肾
 CharacterTraits_Perk_BadKidneys_PerkDescription,"Your kidneys struggle to clear poisons. Wolfsbane poisoning, witchstone poisoning and fireroot toxicity all stay in your body about twice as long as normal.",你的肾脏难以排出毒素。乌头中毒、巫石中毒和火根中毒在你体内停留的时间约为常人的两倍。
 Comfort_Bedroll_Placed_CardName,Bedroll,睡垫
@@ -536,11 +536,11 @@ CharacterTraits_Perk_MineralRich_PerkDescription,"You love stones, all kinds of 
 CharacterTraits_Perk_PeacefulFarmer_PerkName,Peaceful Farmer,安宁农夫
 CharacterTraits_Perk_PeacefulFarmer_PerkDescription,"Retired trait. It no longer appears at character creation: its seeds and tools are vanilla Farming Gear's job, its skill is vanilla Farmer's, and Green Thumb now carries the crop blessing. Characters who already have it keep its seeds, tools and steady Foraging Aid.",已退役的特质。它不再出现在角色创建中：种子和工具由原版的务农装备提供，技能由原版的农夫提供，作物赐福现在由绿拇指提供。已拥有它的角色保留其种子、工具和持续的觅食援助。
 CharacterTraits_Perk_AbundantGrowth_PerkName,Abundant Growth,茂盛生长
-CharacterTraits_Perk_AbundantGrowth_PerkDescription,"The land seems to respond to your presence. Start with turnroot, meadowgrass and flax seeds and fresh heather flowers, and keep a steady Foraging Aid as strong as one spirit blessing.",大地似乎对你的存在有所回应。开局携带翻根、牧草与亚麻种子以及新鲜的帚石南花，并始终保有相当于一次精魄赐福的觅食援助。
+CharacterTraits_Perk_AbundantGrowth_PerkDescription,"The land seems to respond to your presence. You keep a steady Foraging Aid as strong as one spirit blessing.","大地似乎对你的存在有所回应。你始终保有相当于一次精魄赐福的觅食援助。"
 CharacterTraits_Perk_Trollblood_PerkName,Trollblood,巨魔之血
 CharacterTraits_Perk_Trollblood_PerkDescription,"Thick, stubborn blood runs in your veins. Wounds bleed less than they would for anyone else, and pain sits far lighter on you, though neither one fades any faster.",你的血液浓稠而顽固。伤口的出血比常人更少，疼痛落在你身上也轻得多，只是两者都不会消退得更快。
 CharacterTraits_Perk_SpirituallyHarmonious_PerkName,Spiritually Harmonious,灵性和谐
-CharacterTraits_Perk_SpirituallyHarmonious_PerkDescription,"You are at peace with the world around you. Your insight into the spirit realm is exceptional and stress washes over you without finding purchase, fading faster than it would for others.",你与周遭的世界相处融洽。你对灵界的洞察力非同寻常，压力从你身上掠过却难以停驻，消退的速度也比常人更快。
+CharacterTraits_Perk_SpirituallyHarmonious_PerkDescription,"You are at peace with the world around you. Your insight into the spirit realm is exceptional, and you can carry twice the hollowness that gathers when a life is taken without release before the spirits turn cold to you.","你与周遭的世界相处融洽。你对灵界的洞察力非同寻常；夺去性命却未送走其魂时积聚的空壳化，你能承受常人的两倍，之后灵体才会对你冷淡。"
 CharacterTraits_Perk_WideHands_PerkName,Wide Hands,宽厚双手
 CharacterTraits_Perk_WideHands_PerkDescription,"Your large, dexterous hands are made for working. You start ahead in Crafting and Knapping, and always count as a little more skilled at both, so the things you make come out a little better.",你那双宽厚灵巧的手天生适合劳作。开局即在制作与打制上领先一步，并且始终被视作略微更熟练，因此你做出的东西品质会略好一些。
 CharacterTraits_Perk_Claws_PerkName,Claws,利爪
@@ -560,7 +560,7 @@ CharacterTraits_Perk_WeakCourage_PerkDescription,"You have a bit more nerve than
 CharacterTraits_Perk_WeakCowardice_PerkName,Cowardice,怯懦
 CharacterTraits_Perk_WeakCowardice_PerkDescription,"Your nerve falters more easily than most. A modest, permanent reduction to your Courage makes scary actions a little harder to push through — but you still have enough grit to act when it truly matters.",你比大多数人更容易胆怯。你的勇气受到小幅永久削弱，让可怕的行动稍难坚持——但在真正关键的时刻，你仍有足够的勇气去行动。
 CharacterTraits_Perk_SpirituallyTroubled_PerkName,Spiritually Troubled,灵性不安
-CharacterTraits_Perk_SpirituallyTroubled_PerkDescription,"The spirits do not look kindly upon you. Stress weighs heavier and lingers longer, and the unease of an unfriendly spirit world keeps your nerves on edge.",灵体并不善待你。压力压得更重、消退得更慢，来自不友善灵界的不安也让你的神经时刻紧绷。
+CharacterTraits_Perk_SpirituallyTroubled_PerkDescription,"The spirits do not look kindly upon you. A hollowness hangs about you that never lifts, as though a life had been taken and never released, so the spirits stay colder to you for as long as you live, every life you take without release drives you deeper, and the unease of an unfriendly spirit world keeps your nerves on edge.","灵体并不善待你。一股挥之不去的空壳化始终缠绕着你，仿佛曾夺去性命却未曾送走其魂，因此灵体终生都对你格外冷淡；你每夺去一条性命而未送走其魂，都会让你陷得更深，来自不友善灵界的不安也让你的神经时刻紧绷。"
 CharacterTraits_Perk_WeakenedGrowth_PerkName,Weakened Growth,生长迟滞
 CharacterTraits_Perk_WeakenedGrowth_PerkDescription,"The land yields little for you. This trait weakens Foraging Aid from other sources, so a single spirit blessing barely holds. On its own it does nothing.",大地对你格外吝啬。此特质会削弱来自其他来源的觅食援助，单独一次精魄赐福几乎无法维持。它本身不会产生任何效果。
 CharacterTraits_Perk_Leper_PerkName,Leper,麻风病患者
@@ -576,7 +576,7 @@ CMC_TraitSeasonalAllergies_StatDescription,Your reaction to spring air. It flare
 CMC_TraitSeasonalAllergies_Status_Spring_Name,Spring Allergies,春季过敏
 CMC_TraitSeasonalAllergies_Status_Spring_Description,Spring is in the air and your body hates it. You are less comfortable and upper respiratory infections take hold more easily.,春天的气息弥漫四周，你的身体难以承受。你的舒适度下降，也更容易患上上呼吸道感染。
 CharacterTraits_Perk_DeadlyDisease_PerkName,Deadly Disease,致命恶疾
-CharacterTraits_Perk_DeadlyDisease_PerkDescription,"A disease has taken hold and it is winning. You begin sick and sore, the pain never leaves, and your defences are compromised, so infections of the gut, the chest and the blood creep upward day after day. Keep your immune system up with good morale, food, sleep and medicine and they recede; neglect it and the disease runs its course.",一种恶疾已经扎根，并且正在占据上风。你开局便病痛缠身，疼痛始终挥之不去，免疫力也遭到削弱，肠胃、呼吸道与血液的感染因此日渐加重。用良好的心情、饮食、睡眠与药物撑住免疫系统，感染便会消退；放任不管，疾病就会一路走到尽头。
+CharacterTraits_Perk_DeadlyDisease_PerkDescription,"A disease has taken hold and it is winning. You begin queasy with it, the pain never leaves, and your defences are compromised, so infections of the gut, the chest and the blood creep upward day after day. Keep your immune system up with good morale, food, sleep and medicine and they recede; neglect it and the disease runs its course.","一种恶疾已经扎根，并且正在占据上风。你开局便觉恶心，疼痛始终挥之不去，免疫力也遭到削弱，肠胃、呼吸道与血液的感染因此日渐加重。用良好的心情、饮食、睡眠与药物撑住免疫系统，感染便会消退；放任不管，疾病就会一路走到尽头。"
 CharacterTraits_Perk_Lunacy_PerkName,Lunacy,月疯症
 CharacterTraits_Perk_Lunacy_PerkDescription,"You are bound to the moon. As she waxes you grow elated, and under the full moon you are manic. As she wanes your mood sinks, and while she is gone you grieve for her.",你被月亮牵引着。月亮渐盈时你会越发亢奋，满月之下你会陷入狂躁。月亮渐亏时你的情绪低落，而她消失时你会为她哀伤。
 CMC_TraitLunacy_StatName,Moon-Bound,月之牵绊
@@ -2585,3 +2585,6 @@ CMC_TraitNightcrawlerBurn_Status_CatchingFire_Name,Catching Fire,着火了
 CMC_TraitNightcrawlerBurn_Status_CatchingFire_Description,You shouldn't be in the sun! You're on fire!,你不该待在阳光下！你着火了！
 CMC_TraitNightcrawlerBurnCounter_StatName,Burn Flare Cooldown,灼伤冷却
 CMC_TraitNightcrawlerBurnCounter_StatDescription,An internal timer that keeps the burn from flaring up again right away.,内部计时器，防止灼伤事件立即再次触发。
+CMC_EventNightcrawlerBurned_CardName,"Burned!","被灼伤了！"
+CMC_EventNightcrawlerBurned_CardDesc,"The sun has been on you too long and your skin has caught. Get out of the light and stay out of it until dark.","阳光在你身上停留得太久，你的皮肤已经燃了起来。离开光下，并在天黑前一直避开它。"
+CMC_EventNightcrawlerBurned_Dismiss,"Oh no...","不好……"

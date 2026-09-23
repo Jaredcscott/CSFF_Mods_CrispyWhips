@@ -93,7 +93,7 @@ Combat_And_Armor_Bp_BoneLamellar_UnlockConditionsDesc,Bring the Professor bones 
 CharacterTraits_Perk_Angler_PerkName,Angler
 CharacterTraits_Perk_Angler_PerkDescription,"You've spent years by the water. Start with an iron fishing rod, fishing line and bait."
 CharacterTraits_Perk_GreenThumb_PerkName,Green Thumb
-CharacterTraits_Perk_GreenThumb_PerkDescription,"Plants thrive under your care. Start with Turnroot seeds, Meadowgrass seeds and a Flint Hoe, and keep a steady Fertility Boon for the crops you plant, as strong as one spirit blessing. A Wild Growth blessing also lasts longer for you."
+CharacterTraits_Perk_GreenThumb_PerkDescription,"Plants thrive under your care. Start with enough meadowgrass seed to sow a full field and a Flint Hoe, and keep a steady Fertility Boon for the crops you plant, as strong as one spirit blessing."
 CharacterTraits_Perk_StrongKidneys_PerkName,Strong Kidneys
 CharacterTraits_Perk_StrongKidneys_PerkDescription,"Your kidneys clear poisons quickly. Witchstone poisoning and fireroot toxicity leave your body about twice as fast as normal, and wolfsbane poisoning a little faster."
 CharacterTraits_Perk_NaturalTrader_PerkName,Natural Trader
@@ -205,7 +205,7 @@ CharacterTraits_Perk_Sinker_PerkDescription,"You are dense in the water. Swimmin
 CharacterTraits_Perk_WeakStomach_PerkName,Weak Stomach
 CharacterTraits_Perk_WeakStomach_PerkDescription,Your stomach is easily upset. Nausea takes longer to recover from lingering well after the cause is gone.
 CharacterTraits_Perk_BlackThumb_PerkName,Black Thumb
-CharacterTraits_Perk_BlackThumb_PerkDescription,"Plants wither under your care. This trait weakens a Fertility Boon from other sources, so a single spirit blessing barely holds on the crops you plant, and makes a Wild Growth blessing fade sooner. On its own it does nothing."
+CharacterTraits_Perk_BlackThumb_PerkDescription,"Plants wither under your care. This trait weakens a Fertility Boon from other sources, so a single spirit blessing barely holds on the crops you plant. On its own it does nothing."
 CharacterTraits_Perk_BadKidneys_PerkName,Bad Kidneys
 CharacterTraits_Perk_BadKidneys_PerkDescription,"Your kidneys struggle to clear poisons. Wolfsbane poisoning, witchstone poisoning and fireroot toxicity all stay in your body about twice as long as normal."
 Comfort_Bedroll_Placed_CardName,Bedroll
@@ -476,11 +476,11 @@ CharacterTraits_Perk_MineralRich_PerkDescription,"You love stones, all kinds of 
 CharacterTraits_Perk_PeacefulFarmer_PerkName,Peaceful Farmer
 CharacterTraits_Perk_PeacefulFarmer_PerkDescription,"Retired trait. It no longer appears at character creation: its seeds and tools are vanilla Farming Gear's job, its skill is vanilla Farmer's, and Green Thumb now carries the crop blessing. Characters who already have it keep its seeds, tools and steady Foraging Aid."
 CharacterTraits_Perk_AbundantGrowth_PerkName,Abundant Growth
-CharacterTraits_Perk_AbundantGrowth_PerkDescription,"The land seems to respond to your presence. Start with turnroot, meadowgrass and flax seeds and fresh heather flowers, and keep a steady Foraging Aid as strong as one spirit blessing."
+CharacterTraits_Perk_AbundantGrowth_PerkDescription,"The land seems to respond to your presence. You keep a steady Foraging Aid as strong as one spirit blessing."
 CharacterTraits_Perk_Trollblood_PerkName,Trollblood
 CharacterTraits_Perk_Trollblood_PerkDescription,"Thick, stubborn blood runs in your veins. Wounds bleed less than they would for anyone else, and pain sits far lighter on you, though neither one fades any faster."
 CharacterTraits_Perk_SpirituallyHarmonious_PerkName,Spiritually Harmonious
-CharacterTraits_Perk_SpirituallyHarmonious_PerkDescription,"You are at peace with the world around you. Your insight into the spirit realm is exceptional and stress washes over you without finding purchase, fading faster than it would for others."
+CharacterTraits_Perk_SpirituallyHarmonious_PerkDescription,"You are at peace with the world around you. Your insight into the spirit realm is exceptional, and you can carry twice the hollowness that gathers when a life is taken without release before the spirits turn cold to you."
 CharacterTraits_Perk_WideHands_PerkName,Wide Hands
 CharacterTraits_Perk_WideHands_PerkDescription,"Your large, dexterous hands are made for working. You start ahead in Crafting and Knapping, and always count as a little more skilled at both, so the things you make come out a little better."
 CharacterTraits_Perk_Claws_PerkName,Claws
@@ -500,7 +500,7 @@ CharacterTraits_Perk_WeakCourage_PerkDescription,"You have a bit more nerve than
 CharacterTraits_Perk_WeakCowardice_PerkName,Cowardice
 CharacterTraits_Perk_WeakCowardice_PerkDescription,"Your nerve falters more easily than most. A modest, permanent reduction to your Courage makes scary actions a little harder to push through — but you still have enough grit to act when it truly matters."
 CharacterTraits_Perk_SpirituallyTroubled_PerkName,Spiritually Troubled
-CharacterTraits_Perk_SpirituallyTroubled_PerkDescription,"The spirits do not look kindly upon you. Stress weighs heavier and lingers longer, and the unease of an unfriendly spirit world keeps your nerves on edge."
+CharacterTraits_Perk_SpirituallyTroubled_PerkDescription,"The spirits do not look kindly upon you. A hollowness hangs about you that never lifts, as though a life had been taken and never released, so the spirits stay colder to you for as long as you live, every life you take without release drives you deeper, and the unease of an unfriendly spirit world keeps your nerves on edge."
 CharacterTraits_Perk_WeakenedGrowth_PerkName,Weakened Growth
 CharacterTraits_Perk_WeakenedGrowth_PerkDescription,"The land yields little for you. This trait weakens Foraging Aid from other sources, so a single spirit blessing barely holds. On its own it does nothing."
 CharacterTraits_Perk_Leper_PerkName,Leper
@@ -516,7 +516,7 @@ CMC_TraitSeasonalAllergies_StatDescription,Your reaction to spring air. It flare
 CMC_TraitSeasonalAllergies_Status_Spring_Name,Spring Allergies
 CMC_TraitSeasonalAllergies_Status_Spring_Description,Spring is in the air and your body hates it. You are less comfortable and upper respiratory infections take hold more easily.
 CharacterTraits_Perk_DeadlyDisease_PerkName,Deadly Disease
-CharacterTraits_Perk_DeadlyDisease_PerkDescription,"A disease has taken hold and it is winning. You begin sick and sore, the pain never leaves, and your defences are compromised, so infections of the gut, the chest and the blood creep upward day after day. Keep your immune system up with good morale, food, sleep and medicine and they recede; neglect it and the disease runs its course."
+CharacterTraits_Perk_DeadlyDisease_PerkDescription,"A disease has taken hold and it is winning. You begin queasy with it, the pain never leaves, and your defences are compromised, so infections of the gut, the chest and the blood creep upward day after day. Keep your immune system up with good morale, food, sleep and medicine and they recede; neglect it and the disease runs its course."
 CharacterTraits_Perk_Lunacy_PerkName,Lunacy
 CharacterTraits_Perk_Lunacy_PerkDescription,"You are bound to the moon. As she waxes you grow elated, and under the full moon you are manic. As she wanes your mood sinks, and while she is gone you grieve for her."
 CMC_TraitLunacy_StatName,Moon-Bound
@@ -2485,3 +2485,6 @@ CMC_TraitNightcrawlerBurn_Status_CatchingFire_Name,Catching Fire
 CMC_TraitNightcrawlerBurn_Status_CatchingFire_Description,You shouldn't be in the sun! You're on fire!
 CMC_TraitNightcrawlerBurnCounter_StatName,Burn Flare Cooldown
 CMC_TraitNightcrawlerBurnCounter_StatDescription,An internal timer that keeps the burn from flaring up again right away.
+CMC_EventNightcrawlerBurned_CardName,"Burned!"
+CMC_EventNightcrawlerBurned_CardDesc,"The sun has been on you too long and your skin has caught. Get out of the light and stay out of it until dark."
+CMC_EventNightcrawlerBurned_Dismiss,"Oh no..."

@@ -1,0 +1,26 @@
+{
+  "UniqueID": "cmcEventNightcrawlerBurned",
+  "CardType": 3,
+  "CardName": {
+    "DefaultText": "Burned!",
+    "LocalizationKey": "CMC_EventNightcrawlerBurned_CardName"
+  },
+  "CardDescription": {
+    "DefaultText": "The sun has been on you too long and your skin has caught. Get out of the light and stay out of it until dark.",
+    "LocalizationKey": "CMC_EventNightcrawlerBurned_CardDesc"
+  },
+  "CardImage": { "m_FileID": 0, "m_PathID": 0 },
+  "CardImageWarpData": "Spirit_Fire",
+  "CardImageWarpType": 3,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "DefaultText": "Oh no...",
+        "LocalizationKey": "CMC_EventNightcrawlerBurned_Dismiss"
+      },
+      "DaytimeCost": 0,
+      "ProducedCards": [],
+      "ReceivingCardChanges": { "ModType": 3 }
+    }
+  ]
+}

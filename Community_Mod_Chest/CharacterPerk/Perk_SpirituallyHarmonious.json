@@ -37,15 +37,15 @@
                 "m_FileID": 0,
                 "m_PathID": 0
             },
-            "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+            "StatWarpData": "850468f601ecb5d4881ccf2a0a08249f",
             "StatWarpType": 3,
             "ValueModifier": {
-                "x": 0.0,
-                "y": 0.0
+                "x": -672.0,
+                "y": -672.0
             },
             "RateModifier": {
-                "x": -0.3,
-                "y": -0.3
+                "x": 0.0,
+                "y": 0.0
             },
             "MinValueModifier": {
                 "x": 0.0,
@@ -67,7 +67,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "You are at peace with the world around you. Your insight into the spirit realm is exceptional and stress washes over you without finding purchase, fading faster than it would for others.",
+        "DefaultText": "You are at peace with the world around you. Your insight into the spirit realm is exceptional, and you can carry twice the hollowness that gathers when a life is taken without release before the spirits turn cold to you.",
         "LocalizationKey": "CharacterTraits_Perk_SpirituallyHarmonious_PerkDescription",
         "ParentObjectID": "traits_perk_spiritually_harmonious"
     },
@@ -75,7 +75,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "PerkIconWarpData": "Moon",
+    "PerkIconWarpData": "CMC_Pk_SpirituallyHarmonious",
     "PerkIconWarpType": 3,
     "PerkName": {
         "DefaultText": "Spiritually Harmonious",

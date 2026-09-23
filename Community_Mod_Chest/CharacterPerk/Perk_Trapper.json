@@ -46,7 +46,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "PerkIconWarpData": "SnareTrap",
+    "PerkIconWarpData": "CMC_Pk_Trapper",
     "PerkIconWarpType": 3,
     "PerkName": {
         "DefaultText": "Trapper",

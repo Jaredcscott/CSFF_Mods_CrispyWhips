@@ -55,9 +55,9 @@
                 "TicksToRegister": 0
             },
             "Icon": {"m_FileID": 0, "m_PathID": 0},
-            "IconWarpData": "Darkness",
+            "IconWarpData": "CMC_Pk_Nightcrawler_TraitNightcrawlerSun_1",
             "IconWarpType": 3,
-            "ValueRange": {"x": 200, "y": 230},
+            "ValueRange": {"x": 101, "y": 239},
             "UsePercentageForRange": false,
             "EffectsOnStats": [
                 {
@@ -204,9 +204,9 @@
                 "TicksToRegister": 0
             },
             "Icon": {"m_FileID": 0, "m_PathID": 0},
-            "IconWarpData": "WeatherClear_0",
+            "IconWarpData": "CMC_Pk_Nightcrawler_TraitNightcrawlerSun_2",
             "IconWarpType": 3,
-            "ValueRange": {"x": 231, "y": 249},
+            "ValueRange": {"x": 240, "y": 254},
             "UsePercentageForRange": false,
             "EffectsOnStats": [],
             "EffectsOnNPCStats": [],
@@ -240,9 +240,9 @@
                 "TicksToRegister": 0
             },
             "Icon": {"m_FileID": 0, "m_PathID": 0},
-            "IconWarpData": "Sun",
+            "IconWarpData": "CMC_Pk_Nightcrawler_TraitNightcrawlerSun_3",
             "IconWarpType": 3,
-            "ValueRange": {"x": 250, "y": 266},
+            "ValueRange": {"x": 255, "y": 269},
             "UsePercentageForRange": false,
             "EffectsOnStats": [
                 {
@@ -300,6 +300,20 @@
                     "InstantModifier": false,
                     "IgnoreNovelty": false,
                     "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "888d2d2a99e3f044291c6748a0fa8d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 2.0, "y": 2.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
                 }
             ],
             "EffectsOnNPCStats": [],
@@ -333,9 +347,9 @@
                 "TicksToRegister": 0
             },
             "Icon": {"m_FileID": 0, "m_PathID": 0},
-            "IconWarpData": "Sun",
+            "IconWarpData": "CMC_Pk_Nightcrawler_TraitNightcrawlerSun_4",
             "IconWarpType": 3,
-            "ValueRange": {"x": 267, "y": 283},
+            "ValueRange": {"x": 270, "y": 299},
             "UsePercentageForRange": false,
             "EffectsOnStats": [
                 {
@@ -393,13 +407,27 @@
                     "InstantModifier": false,
                     "IgnoreNovelty": false,
                     "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "888d2d2a99e3f044291c6748a0fa8d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 4.0, "y": 4.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
                 }
             ],
             "EffectsOnNPCStats": [],
             "EffectsOnActions": [],
-            "NotifyPlayer": 0,
+            "NotifyPlayer": 1,
             "RepeatTextNotification": 0,
-            "AlertLevel": 0,
+            "AlertLevel": 2,
             "AlertSounds": [],
             "RepeatAlertSounds": 0,
             "AmbientSounds": [],
@@ -426,9 +454,9 @@
                 "TicksToRegister": 0
             },
             "Icon": {"m_FileID": 0, "m_PathID": 0},
-            "IconWarpData": "Sun",
+            "IconWarpData": "CMC_Pk_Nightcrawler_TraitNightcrawlerSun_5",
             "IconWarpType": 3,
-            "ValueRange": {"x": 284, "y": 300},
+            "ValueRange": {"x": 300, "y": 300},
             "UsePercentageForRange": false,
             "EffectsOnStats": [
                 {
@@ -486,13 +514,27 @@
                     "InstantModifier": false,
                     "IgnoreNovelty": false,
                     "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "888d2d2a99e3f044291c6748a0fa8d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 6.0, "y": 6.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
                 }
             ],
             "EffectsOnNPCStats": [],
             "EffectsOnActions": [],
-            "NotifyPlayer": 0,
+            "NotifyPlayer": 1,
             "RepeatTextNotification": 0,
-            "AlertLevel": 0,
+            "AlertLevel": 3,
             "AlertSounds": [],
             "RepeatAlertSounds": 0,
             "AmbientSounds": [],

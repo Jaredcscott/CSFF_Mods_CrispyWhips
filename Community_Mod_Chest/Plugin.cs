@@ -27,7 +27,7 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.CommunityModChest";
     public const string PluginName = "Community Mod Chest";
-    public const string PluginVersion = "1.68.36";
+    public const string PluginVersion = "1.68.39";
 
     internal new static ManualLogSource Logger { get; private set; }
     internal static ConfigEntry<bool> EnableAshPartnerSpike { get; private set; }
@@ -100,6 +100,10 @@ internal class Plugin : ContentModPlugin
         // GameStat/CMC_TraitNyctophobia.json). TraitsTickHandler and TraitsActionHandler were deleted in
         // 1.68.25: every stat they touched was a GameStat definition, so each read was NaN and each write
         // a silent no-op (Documentation/Design/Trait_Effect_Repair_As_Built.md, D1 and D2).
+        // Those composites lose any at-base change made during travel (a campfire left behind or
+        // found on arrival), because vanilla forwards source changes as NotInBase-scoped deltas;
+        // this resyncs CMC's composites absolutely instead (1.68.39, chiweichiwei 2026-09-22).
+        TryApply("TraitCompositeResyncPatch", () => TraitCompositeResyncPatch.Apply(harmony));
         // Clears Rotten Remains that accumulate in NPC inventories as their carried food spoils.
         TryApply("NpcRottenRemainsCleanupPatch", () => NpcRottenRemainsCleanupPatch.Initialize());
         TryApply("PerkItemInitPatch", PerkItemInitPatch.Register);

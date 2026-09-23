@@ -295,39 +295,6 @@
             "InstantModifier": false,
             "IgnoreNovelty": false,
             "IsInverse": false
-        },
-        {
-            "Stat": {
-                "m_FileID": 0,
-                "m_PathID": 0
-            },
-            "StatWarpData": "cmcStatTraitSkinShelter",
-            "StatWarpType": 3,
-            "ValueModifier": {
-                "x": 10.0,
-                "y": 10.0
-            },
-            "RateModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "MinValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "MaxValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "CannotModifyBeyond": {
-                "Active": false,
-                "FloatValue": 0.0,
-                "MaxValue": 0.0
-            },
-            "ApplyEachTick": false,
-            "InstantModifier": false,
-            "IgnoreNovelty": false,
-            "IsInverse": false
         }
     ],
     "PerkDescription": {
@@ -339,7 +306,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "PerkIconWarpData": "Darkness",
+    "PerkIconWarpData": "CMC_Pk_Nightcrawler",
     "PerkIconWarpType": 3,
     "PerkName": {
         "ParentObjectID": "cmcperknightcrawler",

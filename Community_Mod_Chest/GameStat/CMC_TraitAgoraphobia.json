@@ -55,7 +55,7 @@
                 "TicksToRegister": 0
             },
             "Icon": {"m_FileID": 0, "m_PathID": 0},
-            "IconWarpData": "Stress",
+            "IconWarpData": "CMC_Pk_Agoraphobia_TraitAgoraphobia_1",
             "IconWarpType": 3,
             "ValueRange": {"x": 10, "y": 10},
             "UsePercentageForRange": false,
@@ -120,7 +120,7 @@
                 "TicksToRegister": 0
             },
             "Icon": {"m_FileID": 0, "m_PathID": 0},
-            "IconWarpData": "Shield",
+            "IconWarpData": "CMC_Pk_Agoraphobia_TraitAgoraphobia_2",
             "IconWarpType": 3,
             "ValueRange": {"x": 11, "y": 11},
             "UsePercentageForRange": false,

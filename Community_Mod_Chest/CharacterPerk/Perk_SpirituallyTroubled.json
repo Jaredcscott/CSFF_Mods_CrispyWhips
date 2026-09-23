@@ -37,11 +37,11 @@
                 "m_FileID": 0,
                 "m_PathID": 0
             },
-            "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+            "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
             "StatWarpType": 3,
             "ValueModifier": {
-                "x": 20.0,
-                "y": 20.0
+                "x": 15.0,
+                "y": 15.0
             },
             "RateModifier": {
                 "x": 0.0,
@@ -70,11 +70,11 @@
                 "m_FileID": 0,
                 "m_PathID": 0
             },
-            "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
+            "StatWarpData": "850468f601ecb5d4881ccf2a0a08249f",
             "StatWarpType": 3,
             "ValueModifier": {
-                "x": 15.0,
-                "y": 15.0
+                "x": 672.0,
+                "y": 672.0
             },
             "RateModifier": {
                 "x": 0.0,
@@ -100,7 +100,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "The spirits do not look kindly upon you. Stress weighs heavier and lingers longer, and the unease of an unfriendly spirit world keeps your nerves on edge.",
+        "DefaultText": "The spirits do not look kindly upon you. A hollowness hangs about you that never lifts, as though a life had been taken and never released, so the spirits stay colder to you for as long as you live, every life you take without release drives you deeper, and the unease of an unfriendly spirit world keeps your nerves on edge.",
         "LocalizationKey": "CharacterTraits_Perk_SpirituallyTroubled_PerkDescription",
         "ParentObjectID": "traits_perk_spiritually_troubled"
     },
@@ -108,7 +108,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "PerkIconWarpData": "Moon",
+    "PerkIconWarpData": "CMC_Pk_SpirituallyTroubled",
     "PerkIconWarpType": 3,
     "PerkName": {
         "DefaultText": "Spiritually Troubled",

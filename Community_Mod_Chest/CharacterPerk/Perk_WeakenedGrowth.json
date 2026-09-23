@@ -6,7 +6,7 @@
     "AddedCardsWarpType": 3,
     "AddedStartingHours": 0,
     "CardsOnBoardObjectives": [],
-    "CharacterPerkPerkGroup": "72120cda8e1cef540b1b25118dd7edaa",
+    "CharacterPerkPerkGroup": "aacb8df12eedb7b48a9801360ae638c7",
     "CheckingNotificationDetails": 0,
     "CompleteOnLose": false,
     "CompleteOnWin": false,
@@ -75,7 +75,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "PerkIconWarpData": "Appleweed_Item",
+    "PerkIconWarpData": "CMC_Pk_Growth_Weakened",
     "PerkIconWarpType": 3,
     "PerkName": {
         "DefaultText": "Weakened Growth",

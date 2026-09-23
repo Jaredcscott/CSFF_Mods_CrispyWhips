@@ -55,7 +55,7 @@
                 "TicksToRegister": 0
             },
             "Icon": {"m_FileID": 0, "m_PathID": 0},
-            "IconWarpData": "Darkness",
+            "IconWarpData": "CMC_Pk_Nyctophobia_Trait_1-2",
             "IconWarpType": 3,
             "ValueRange": {"x": 110, "y": 110},
             "UsePercentageForRange": false,
@@ -120,7 +120,7 @@
                 "TicksToRegister": 0
             },
             "Icon": {"m_FileID": 0, "m_PathID": 0},
-            "IconWarpData": "Darkness",
+            "IconWarpData": "CMC_Pk_Nyctophobia_Trait_1-2",
             "IconWarpType": 3,
             "ValueRange": {"x": 111, "y": 120},
             "UsePercentageForRange": false,
@@ -185,7 +185,7 @@
                 "TicksToRegister": 0
             },
             "Icon": {"m_FileID": 0, "m_PathID": 0},
-            "IconWarpData": "Spirit_Fire",
+            "IconWarpData": "CMC_Pk_Nyctophobia_Trait_3-4",
             "IconWarpType": 3,
             "ValueRange": {"x": 121, "y": 160},
             "UsePercentageForRange": false,
@@ -236,7 +236,7 @@
                 "TicksToRegister": 0
             },
             "Icon": {"m_FileID": 0, "m_PathID": 0},
-            "IconWarpData": "Sun",
+            "IconWarpData": "CMC_Pk_Nyctophobia_Trait_3-4",
             "IconWarpType": 3,
             "ValueRange": {"x": 161, "y": 210},
             "UsePercentageForRange": false,

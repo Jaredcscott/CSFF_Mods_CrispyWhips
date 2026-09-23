@@ -5,6 +5,154 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.68.39] - 2026-09-22
+
+### Fixed
+
+- **Trait conditions now always match what a reload would show.** chiweichiwei saw Nightcrawler's
+  Sunlight Exposure keep a campfire's light after walking away from it, until a reload put it
+  right. The base game counts firelight towards your stats only while you are at camp, and trait
+  conditions such as Nyctophobia and Nightcrawler's Sunlight Exposure and Sun Protection were
+  updated only by the change in their source. Any change the base game let slip past would stick
+  until a reload. They now recount from the source itself every time it changes, so a missed
+  change is corrected on the next one. An ordinary trip away from a burning fire is already
+  counted correctly, so the exact route that let the light stick is still being tracked down.
+- **Nightcrawler's sun works again.** Since 1.68.37 Sunlight Exposure read the game's Sun Strength,
+  which turns out to sit at zero all day, every day: the base game switches it off with a
+  permanent -100. So the sun never harmed a Nightcrawler at all, and the whole day read as
+  Nourished by Darkness. Sunlight Exposure reads light again, as it did in 1.68.36, with the bands
+  refitted to how daylight actually behaves in the forest: it is dark at night, it brightens for
+  about an hour at dawn and dusk, and then it is full day. Night is Nourished by Darkness. A
+  campfire at night is Tolerable Light, costing you the darkness bonus but not hurting. Dawn and
+  dusk are Harsh Sunlight, the first warning. Full day in the open is Blazing Sunlight, which burns
+  quickly. Shade now matters at every step:
+  - Light clothing brings full day down to Searing.
+  - Good shade brings it down to Harsh.
+  - Full shade (any interior or cave) brings it down to Tolerable, where nothing burns.
+
+  Indoors at night stays Nourished, even beside a hearth. Found in our own playtesting.
+- **Spiritually Troubled lasts.** In 1.68.38 its hollowness was a starting value, and Hollowness
+  drains a little every fifteen minutes, so it slipped below the point where the spirits notice
+  after the very first fifteen minutes. It is now permanent, as chiweichiwei designed it: you stay
+  hollowed for as long as you live, and every life you take without release drives you deeper.
+
+### Changed
+
+- **Spiritually Harmonious lets you carry twice the hollowness before the spirits turn cold**,
+  instead of draining it faster. This is chiweichiwei's original design. 1.68.38 said it could not
+  work because Hollowness cannot go below zero; that was wrong, because a trait's effect sits on
+  top of the stat and the limit only applies when the game reads it, so the first 672 points of
+  hollowness are simply absorbed.
+- **Abundant Growth no longer starts you with seeds.** chiweichiwei pointed out that its Foraging
+  Aid is already a strong benefit, that flax seed comes with the base game's Seed Bag, and that
+  meadowgrass seed can be found in the world, so the trait is now the Foraging Aid alone. Green
+  Thumb keeps its meadowgrass seed and Flint Hoe.
+
+## [1.68.38] - 2026-09-22
+
+### Changed
+
+- **Traits and perks have their own artwork now.** Thirty-seven perks had been borrowing a vanilla
+  picture, so the character creation screen showed the same image several times over: a water drop
+  stood in for Sinker, Swimmer, Bad Kidneys and Strong Kidneys alike, both Thumbs and three plant
+  traits all shared one sprig of appleweed, and four different ailments shared one nausea icon.
+  Each of those perks now has its own icon. Artwork by chiweichiwei.
+- **Trait statuses now change picture as the trait changes.** Moon-Bound draws its own moon for
+  each of the six phases instead of reusing one vanilla moon; Nightcrawler's Sunlight Exposure
+  escalates visibly from a bat at rest, through a plain sun, to a blazing sun carrying three
+  warning marks; Sun-Scorched has its own flame; Agoraphobia shows exposure and shelter; and
+  Nyctophobia shows dark and light. Several of these bands previously shared a single icon, so
+  the picture stayed put while the trait got worse. Artwork by chiweichiwei.
+- **Strong sun now heats you.** Harsh, Searing and Blazing Sunlight raise body temperature by 2, 4
+  and 6 respectively, on top of what they already did, so a Nightcrawler caught in the open warms
+  as well as burns. Requested by chiweichiwei.
+- **Sun Protection is no longer listed among your statuses.** It exists to feed Sunlight Exposure,
+  which is the bar worth watching; two readouts for one mechanic read as a fault rather than as
+  detail. Requested by chiweichiwei.
+- **Severe Dairy Cramps now run their course.** The severe band raised nausea and pain and nothing
+  else. It now also drives stool liquidity at 4 per tick, the rate the base game's own severe
+  Fireroot toxicity uses, and raises an alert. Requested by chiweichiwei, who points out that real
+  lactose intolerance does rather more than cramp.
+- **Abundant Growth and Green Thumb start you with seed you can actually sow.** Both handed out a
+  single seed of each kind, and a field needs four; Abundant Growth also gave fresh heather flowers
+  when planting heather wants ten fresh stems, and both gave turnroot seeds, which nothing in the
+  game plants, cooks or uses. Abundant Growth now starts you with four meadowgrass seed, four flax
+  seed and ten heather stems, enough to sow a full field of each; Green Thumb starts you with four
+  meadowgrass seed and the Flint Hoe. The turnroot seeds are gone from both and the descriptions no
+  longer promise them. Reported by chiweichiwei.
+- **Abundant Growth and Weakened Growth now sit under Knowledge** with the other head-start traits,
+  rather than in Situational. Requested by chiweichiwei.
+- **Green Thumb and Black Thumb no longer touch Wild Growth.** Wild Growth governs foraging and
+  clearing, not the crops you plant, so it does not belong on a planting trait. Both keep their
+  Fertility Boon effect. Requested by chiweichiwei.
+- **Spiritually Harmonious and Spiritually Troubled are built on Hollowness now, not Stress.** Both
+  moved stress around, which was indistinguishable from the several other traits that do. Harmonious
+  now drains Hollowness three times as fast, so the weight of a life taken without release leaves you
+  quickly; Troubled starts you already hollowed, at the exact point the game's own Hollowness status
+  begins, so the spirits are cold to you from the first day. Requested by chiweichiwei.
+  (Corrected in 1.68.39: this entry also claimed the reporter's negative Hollowness value for
+  Harmonious could not work. That was wrong, and Troubled's starting value wore off after one tick;
+  both traits now follow the reporter's design. See 1.68.39.)
+- **Deadly Disease no longer piles on at character creation.** Beyond the Nausea fix below, it no
+  longer starts you with extra pain, a rash and stress on top of everything else. The disease itself
+  is unchanged: the constant pain, the crippled immune system and the three rising infections all
+  still come from the trait's passive effects, which is where its difficulty was always meant to sit.
+  Requested by chiweichiwei.
+
+### Fixed
+
+- **Deadly Disease no longer wedges a new game at the moment it starts.** The trait began you at
+  Nausea 40, but the game caps Nausea at 24, so that value landed exactly on the cap, and 24 sits
+  inside the 20-to-24 band the base game's own vomit trigger watches. Every new Deadly Disease
+  character therefore started inside that window: the vomit fired during start-up instead of
+  during play, and the run stuck on "I can't do two things at once..." with no vomit screen ever
+  appearing. The trait now starts you at Nausea 12, still queasy as the description promises, but
+  clear of the trigger. Found and traced to this trait by chiweichiwei, who confirmed that changing
+  the value stopped it. Note this is a different cause of that same message than the autosave fault
+  fixed in CSFFModFramework 2.26.2; if you met it partway through a session rather than at the very
+  start of a new one, that was the other one. `Perk-StartingStatTriggerWindow.Tests.ps1` now fails
+  the build if any trait's starting stat clamps onto a cap that falls inside one of these windows.
+- **Nightcrawler gets its night back indoors.** Being under a roof applied a Sunlight Exposure
+  reduction of -500, which floored the stat below every band at once, so a Nightcrawler indoors had
+  no status at all: not the sun damage, but not the darkness bonuses either, which is what made the
+  night-time buffs look broken inside. Shelter no longer touches Sunlight Exposure. Sun Protection,
+  which every interior and cave already grants at full strength, now does that work by itself on
+  the same scale as everything else. The Nourished by Darkness band also starts lower, at 16 rather
+  than 20, so shade moves you into darkness instead of off the bottom of the scale.
+  Reported by chiweichiwei.
+- **Sunlight Exposure keeps warning past Harsh Sunlight.** Only the Harsh band raised an alert, so
+  the warning stopped at exactly the point the danger got worse. Searing and Blazing now alert as
+  well, at rising severity. Reported by chiweichiwei.
+- **Catching fire announces itself.** Sun-Scorched reaching its Catching Fire band passed in
+  silence; it now raises a critical alert. Reported by chiweichiwei.
+
+### Added
+
+- **Catching fire now announces itself with an event.** Reaching the top of Sun-Scorched used to
+  add a Burn wound with nothing to mark it, so the first you knew was a new wound card. A "Burned!"
+  event card now appears alongside it, the way the base game announces frostbite. Requested by
+  chiweichiwei.
+
+## [1.68.37] - 2026-09-20
+
+### Fixed
+
+- **Nightcrawler's Sunlight Exposure now escalates through the day instead of pinning at max.**
+  Harness row T1.119 found vanilla Light reads 100 outdoors for twelve hours a day (four seasonal
+  `TimeOfDayMods` windows nest and stack), so the stat sat at Blazing Sunlight from dawn to dusk
+  and the player never passed through Harsh Sunlight, the one status that alerts. The composite
+  now reads vanilla Sun Strength (0-6 across the day) instead of Light, with the perk offset and
+  all five band boundaries re-derived from that range (20-21 Nourished, 22-23 Tolerable, 24 Harsh,
+  25 Searing, 26 Blazing), and the Sun Protection shade reductions rescaled to match (-1/-2/-4).
+  See `Documentation/Design/Nightcrawler_Trait_As_Built.md` for the full derivation. Confirmed live
+  that the composite no longer reads Light and the new offset/range are deployed; the harness's
+  forced-band re-test is blocked on a separate, newly discovered issue (`cheat/stat` cannot drive
+  vanilla Sun Strength the way it drove Light) unrelated to this fix, so `T1.119` stays pending
+  rather than being recorded either way - see the design doc's 2026-09-20 re-run notes.
+  (Corrected in 1.68.39: Sun Strength does not vary across the day. The base game holds it at zero
+  with a permanent -100, so this change stopped the sun from harming a Nightcrawler at all, and the
+  blocked re-test was that fault. See 1.68.39.)
+
 ## [1.68.36] - 2026-09-19
 
 A new trait built from chiweichiwei's Nightcrawler design, and Sensitive Skin retired to make

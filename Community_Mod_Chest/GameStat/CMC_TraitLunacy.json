@@ -55,7 +55,7 @@
                 "TicksToRegister": 0
             },
             "Icon": {"m_FileID": 0, "m_PathID": 0},
-            "IconWarpData": "Moon_New",
+            "IconWarpData": "CMC_Pk_Lunacy_TraitLunacy_1",
             "IconWarpType": 3,
             "ValueRange": {"x": 11, "y": 11},
             "UsePercentageForRange": false,
@@ -106,7 +106,7 @@
                 "TicksToRegister": 0
             },
             "Icon": {"m_FileID": 0, "m_PathID": 0},
-            "IconWarpData": "Moon_WaxingCrescent",
+            "IconWarpData": "CMC_Pk_Lunacy_TraitLunacy_2",
             "IconWarpType": 3,
             "ValueRange": {"x": 12, "y": 12},
             "UsePercentageForRange": false,
@@ -157,7 +157,7 @@
                 "TicksToRegister": 0
             },
             "Icon": {"m_FileID": 0, "m_PathID": 0},
-            "IconWarpData": "Moon_WaxingGibbous",
+            "IconWarpData": "CMC_Pk_Lunacy_TraitLunacy_3",
             "IconWarpType": 3,
             "ValueRange": {"x": 13, "y": 13},
             "UsePercentageForRange": false,
@@ -208,7 +208,7 @@
                 "TicksToRegister": 0
             },
             "Icon": {"m_FileID": 0, "m_PathID": 0},
-            "IconWarpData": "Moon",
+            "IconWarpData": "CMC_Pk_Lunacy_TraitLunacy_4",
             "IconWarpType": 3,
             "ValueRange": {"x": 14, "y": 14},
             "UsePercentageForRange": false,
@@ -259,7 +259,7 @@
                 "TicksToRegister": 0
             },
             "Icon": {"m_FileID": 0, "m_PathID": 0},
-            "IconWarpData": "Moon_WaningGibbous",
+            "IconWarpData": "CMC_Pk_Lunacy_TraitLunacy_5",
             "IconWarpType": 3,
             "ValueRange": {"x": 15, "y": 15},
             "UsePercentageForRange": false,
@@ -310,7 +310,7 @@
                 "TicksToRegister": 0
             },
             "Icon": {"m_FileID": 0, "m_PathID": 0},
-            "IconWarpData": "Moon_WaningCrescent",
+            "IconWarpData": "CMC_Pk_Lunacy_TraitLunacy_6",
             "IconWarpType": 3,
             "ValueRange": {"x": 16, "y": 16},
             "UsePercentageForRange": false,

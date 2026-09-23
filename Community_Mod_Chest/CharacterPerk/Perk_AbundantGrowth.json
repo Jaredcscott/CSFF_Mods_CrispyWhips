@@ -2,16 +2,11 @@
     "ActionModifiers": [],
     "ActionObjectives": [],
     "AddedCards": [],
-    "AddedCardsWarpData": [
-        "f8b27d11cd391a341a46c2558f25016b",
-        "4b808ab565a447644a7bd924eb3e3e1f",
-        "fb8f4ceac4b150149a6ccaeace7b9a82",
-        "022d83d74a3b5df4e9f50e70d216d4c0"
-    ],
+    "AddedCardsWarpData": [],
     "AddedCardsWarpType": 3,
     "AddedStartingHours": 0,
     "CardsOnBoardObjectives": [],
-    "CharacterPerkPerkGroup": "72120cda8e1cef540b1b25118dd7edaa",
+    "CharacterPerkPerkGroup": "aacb8df12eedb7b48a9801360ae638c7",
     "CheckingNotificationDetails": 0,
     "CompleteOnLose": false,
     "CompleteOnWin": false,
@@ -72,7 +67,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "The land seems to respond to your presence. Start with turnroot, meadowgrass and flax seeds and fresh heather flowers, and keep a steady Foraging Aid as strong as one spirit blessing.",
+        "DefaultText": "The land seems to respond to your presence. You keep a steady Foraging Aid as strong as one spirit blessing.",
         "LocalizationKey": "CharacterTraits_Perk_AbundantGrowth_PerkDescription",
         "ParentObjectID": "traitsperkabundantgrowth"
     },
@@ -80,7 +75,7 @@
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "PerkIconWarpData": "Appleweed_Item",
+    "PerkIconWarpData": "CMC_Pk_Growth_Abundant",
     "PerkIconWarpType": 3,
     "PerkName": {
         "DefaultText": "Abundant Growth",
