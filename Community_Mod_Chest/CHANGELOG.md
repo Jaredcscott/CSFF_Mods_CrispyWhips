@@ -7,6 +7,8 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [1.68.39] - 2026-09-22
 
+Thanks to chiweichiwei, whose reports and trait designs are behind this release.
+
 ### Fixed
 
 - **Trait conditions now always match what a reload would show.** chiweichiwei saw Nightcrawler's

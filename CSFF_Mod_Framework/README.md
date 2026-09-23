@@ -669,6 +669,11 @@ attach it with a root manifest:
 
 ---
 
+## Credits
+
+- **Portal art:** Portal Kit and placed Portal artwork by chiweichiwei, used with permission
+  (see `ASSET_CREDITS.md`).
+
 ## License
 
 Released under the [MIT License](LICENSE). Copyright (c) 2026 Jared Scott.

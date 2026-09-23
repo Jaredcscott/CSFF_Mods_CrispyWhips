@@ -7,6 +7,9 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [2.1.55] - 2026-09-23
 
+Thanks to chiweichiwei, whose reports and trait designs are behind the Community Mod Chest
+changes in this update.
+
 ### Changed
 
 - **Refreshed the embedded mod suite** (this entry also covers the unpublished 2.1.53 and 2.1.54

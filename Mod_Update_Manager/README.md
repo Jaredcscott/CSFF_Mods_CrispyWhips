@@ -137,6 +137,8 @@ For beta-compatible mod releases, include the supported CSFF build in the publis
 ## Credits
 
 - **Author:** Jared (crispywhips)
+- **Community:** chiweichiwei, for trait designs, playtesting and artwork in the bundled Community
+  Mod Chest and CSFF Mod Framework
 - **Framework:** BepInEx and Harmony
 - **API:** Nexus Mods API
 - **Game:** Card Survival: Fantasy Forest by WinterSpring Games
