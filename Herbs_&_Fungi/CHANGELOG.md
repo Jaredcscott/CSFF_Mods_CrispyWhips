@@ -5,6 +5,14 @@ All notable changes to this mod. Dates are release dates.
 ---
 
 
+## [1.13.6] - 2026-09-23
+
+### Fixed
+
+- **The ground King Oyster card no longer has a hole in the middle of its mushroom pile.** The
+  card art's white background had been cut away through a gap in the drawing's outline, so the
+  board showed through the centre of the pile. The picture is repaired.
+
 ## [1.13.5] - 2026-09-19
 
 ### Fixed

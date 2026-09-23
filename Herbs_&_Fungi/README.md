@@ -1,6 +1,6 @@
 # Herbs and Fungi - Player Guide
 
-**Version:** 1.13.5
+**Version:** 1.13.6
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.65)
 
