@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
+using CSFFModFramework.Api;
 using CSFFModFramework.Util;
 using HarmonyLib;
 
@@ -20,16 +21,20 @@ namespace CommunityModChest.Patcher
     /// When the player holds the Herbalism degree (Academy course, in-run perk), every
     /// non-null Item-type entry in the selected collection's CurrentDrop list is
     /// duplicated — one spawned card per entry, so the haul doubles exactly.
+    ///
+    /// CurrentDrop is an auto-property ({ get; private set; }, .decomp/CardsDropCollection.cs),
+    /// never a field. Until 1.68.41 this patch looked it up with GetField, which returns null
+    /// for a property, so it returned silently on every forage and never doubled anything
+    /// (walkthrough T2.259). Members are now read through Reflect.TryGetMember (property, then
+    /// field), and every exit that means "the game moved" warns once per cause.
     /// </summary>
     internal static class HerbalismForagePatch
     {
         private static bool _applied;
-        private static FieldInfo _currentDropField;   // CardsDropCollection.CurrentDrop (List<CardDropEndResult>)
-        private static FieldInfo _endResultCardField; // CardDropEndResult.Card (CardData)
-        private static FieldInfo _cardTypeField;      // CardData.CardType (CardTypes enum)
         private static MethodInfo _memberwiseClone;
         private static bool _announcedThisSession;
         private static bool _cloneErrorLogged;
+        private static readonly HashSet<string> _warned = new HashSet<string>();
 
         private const int CardTypeItem = 0;
 
@@ -56,8 +61,9 @@ namespace CommunityModChest.Patcher
             Plugin.Logger.LogDebug("[HerbalismForagePatch] applied.");
         }
 
-        // __result = CardsDropCollection (rolled copy), __0 = CardAction
-        private static void SelectCardCollection_Postfix(object __result, object __0)
+        // __result = CardsDropCollection (rolled copy), __0 = CardAction,
+        // __3 = InGameNPCOrPlayer _User (a struct: Player flag + InGameNPC NPC)
+        private static void SelectCardCollection_Postfix(object __result, object __0, object __3)
         {
             try
             {
@@ -66,10 +72,23 @@ namespace CommunityModChest.Patcher
                 string actionName = CardUtil.GetActionName(__0);
                 if (actionName == null || actionName.IndexOf("Forage", StringComparison.OrdinalIgnoreCase) < 0) return;
 
+                // The degree is the player's: an NPC's forage (the Professor fills his satchel
+                // this way) must not double because the player graduated.
+                if (IsNpcUser(__3)) return;
+
                 if (!AcademyCourseService.HasCourse(AcademyCourseService.GradHerbalism)) return;
 
-                _currentDropField ??= __result.GetType().GetField("CurrentDrop", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-                if (_currentDropField?.GetValue(__result) is not IList drops || drops.Count == 0) return;
+                if (!Reflect.TryGetMember(__result, "CurrentDrop", out var currentDrop))
+                {
+                    WarnOnce("CurrentDrop-missing", $"{__result.GetType().Name}.CurrentDrop not found - forage doubling inactive.");
+                    return;
+                }
+                if (currentDrop is not IList drops)
+                {
+                    WarnOnce("CurrentDrop-not-list", $"{__result.GetType().Name}.CurrentDrop is {currentDrop?.GetType().Name ?? "null"}, not a list - forage doubling inactive.");
+                    return;
+                }
+                if (drops.Count == 0) return;
 
                 var duplicates = new List<object>(drops.Count);
                 int originalCount = drops.Count;
@@ -103,13 +122,32 @@ namespace CommunityModChest.Patcher
 
         private static bool IsItemDrop(object endResult)
         {
-            _endResultCardField ??= endResult.GetType().GetField("Card", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-            var card = _endResultCardField?.GetValue(endResult);
-            if (card == null) return false;
+            if (!Reflect.TryGetMember(endResult, "Card", out var card))
+            {
+                WarnOnce("Card-missing", $"{endResult.GetType().Name}.Card not found - forage doubling inactive.");
+                return false;
+            }
+            if (card == null) return false; // a drop entry with no card: vanilla skips it too
 
-            _cardTypeField ??= card.GetType().GetField("CardType", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-            var cardType = _cardTypeField?.GetValue(card);
-            return cardType != null && Convert.ToInt32(cardType) == CardTypeItem;
+            if (!Reflect.TryGetMember(card, "CardType", out var cardType) || cardType == null)
+            {
+                WarnOnce("CardType-missing", $"{card.GetType().Name}.CardType not found - forage doubling inactive.");
+                return false;
+            }
+            return Convert.ToInt32(cardType) == CardTypeItem;
+        }
+
+        private static bool IsNpcUser(object user)
+        {
+            if (user == null) return false;
+            if (Reflect.GetMember(user, "Player") is bool isPlayer && isPlayer) return false;
+            return Reflect.GetMember(user, "NPC") is UnityEngine.Object npc && npc != null;
+        }
+
+        private static void WarnOnce(string cause, string message)
+        {
+            if (!_warned.Add(cause)) return;
+            Plugin.Logger.LogWarning($"[HerbalismForagePatch] {message}");
         }
 
         // Shallow clone keeps the entry independent of its sibling in the list while

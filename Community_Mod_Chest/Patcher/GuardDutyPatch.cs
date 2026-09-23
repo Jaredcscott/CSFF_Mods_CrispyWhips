@@ -351,6 +351,8 @@ namespace CommunityModChest.Patcher
             _changeStatDutyActionType, _statModifierType;
         private static MethodInfo _getFromIdMethod;
         private static MethodInfo _checkForDutiesMethod;
+        private static object[] _checkForDutiesArgs;
+        private static bool _checkForDutiesArgsWarned;
 
         /// <summary>
         /// True once every guard's AgentDuties array has been attached. GuardSpawnPatch
@@ -387,8 +389,10 @@ namespace CommunityModChest.Patcher
         /// <summary>
         /// Forces the witnessing guard's own duty selection to re-run RIGHT NOW instead of
         /// waiting for the next tick, by starting the exact same private coroutine the engine's
-        /// own tick loop calls (<c>InGameNPC.CheckForDuties(bool)</c>, .decomp/InGameNPC.cs:1994)
-        /// via reflection, on the guard's own MonoBehaviour. Started, never synchronously drained
+        /// own tick loop calls (<c>InGameNPC.CheckForDuties(TickSteps)</c>, started from
+        /// <c>InGameNPC.UpdateTick</c>) via reflection, on the guard's own MonoBehaviour. The
+        /// argument comes from <see cref="BuildCheckForDutiesArgs"/>; through 1.68.39 this passed a
+        /// bool, which Invoke rejected on every witnessed attack, so the re-check never ran. Started, never synchronously drained
         /// (reference_synchronous_coroutine_drain_freeze) — it runs across normal frames exactly
         /// like the engine's own call does, it just doesn't wait for the next tick to begin.
         ///
@@ -396,8 +400,8 @@ namespace CommunityModChest.Patcher
         /// has nothing to select yet), before the crime gate actually passes (CheckForDuties'
         /// own condition evaluation just finds nothing selectable and no-ops, same as any regular
         /// tick), and for the attacked guard's own witness entry (FindWitnesses does not exclude
-        /// the victim — but that guard is IsInCombat, and CheckForDuties' own first check yields
-        /// break immediately, so no extra guard is needed here).
+        /// the victim — but that guard is IsInCombat, and SelectDuty returns null for an NPC in
+        /// combat, so CheckForDuties selects nothing and no extra guard is needed here).
         /// </summary>
         private static void OnAttackWitnessed(GuardWitnessPatch.Witness witness)
         {
@@ -414,7 +418,18 @@ namespace CommunityModChest.Patcher
                     return;
                 }
 
-                if (_checkForDutiesMethod.Invoke(witness.GuardNpc, new object[] { false }) is not IEnumerator routine)
+                _checkForDutiesArgs ??= BuildCheckForDutiesArgs(_checkForDutiesMethod);
+                if (_checkForDutiesArgs == null)
+                {
+                    if (!_checkForDutiesArgsWarned)
+                    {
+                        _checkForDutiesArgsWarned = true;
+                        Plugin.Logger.LogWarning($"[GuardDutyPatch] InGameNPC.CheckForDuties has an unrecognised signature ({_checkForDutiesMethod}); witnessed-attack immediate re-check inactive.");
+                    }
+                    return;
+                }
+
+                if (_checkForDutiesMethod.Invoke(witness.GuardNpc, _checkForDutiesArgs) is not IEnumerator routine)
                     return;
 
                 npcBehaviour.StartCoroutine(routine);
@@ -424,6 +439,31 @@ namespace CommunityModChest.Patcher
             {
                 Plugin.Logger.LogWarning($"[GuardDutyPatch] OnAttackWitnessed failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
             }
+        }
+
+        /// <summary>
+        /// Builds CheckForDuties' argument from the parameter the game actually declares, so a
+        /// signature change reports itself instead of throwing on every witnessed attack. EA 0.68a
+        /// declares <c>CheckForDuties(TickSteps _TickStep)</c>; pass
+        /// <c>TickSteps.EarlyBeforeDurabilities</c>, the DutyExecutionOptions every guard duty in
+        /// this file sets, so the pursuit duties pass CheckForDuties' own IsValidTickStep check.
+        /// Side effect, checked against .decomp/InGameNPC.cs: selecting a duty at that step also
+        /// sets <c>SelectedADutyBeforeCardUpdates</c>, whose only reader sits in UpdateTick after the
+        /// step's own reset, so it either clears at the next tick or lets the step in flight run the
+        /// duty this re-check just chose. The bool arm keeps the older shape working. Returns null
+        /// for any other shape.
+        /// </summary>
+        private static object[] BuildCheckForDutiesArgs(MethodInfo method)
+        {
+            var parameters = method.GetParameters();
+            if (parameters.Length != 1) return null;
+
+            var paramType = parameters[0].ParameterType;
+            if (paramType.IsEnum && Enum.IsDefined(paramType, "EarlyBeforeDurabilities"))
+                return new[] { Enum.Parse(paramType, "EarlyBeforeDurabilities") };
+            if (paramType == typeof(bool))
+                return new object[] { false };
+            return null;
         }
 
         private static bool ResolveTypes()

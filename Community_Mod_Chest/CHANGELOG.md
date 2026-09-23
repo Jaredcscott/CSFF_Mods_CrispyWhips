@@ -5,6 +5,29 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.68.41] - 2026-09-23
+
+Thanks to Chiwei, who asked whether the Herbalism graduate's doubled forage was working at all.
+It was not, and this release fixes it.
+
+### Fixed
+
+- **The Herbalism graduate now really doubles your foraging.** The perk has always promised that
+  every forage gives you twice as much, but it never did: the mod looked for the game's list of
+  foraged finds in the wrong place, found nothing, and quietly gave up on every forage. It now
+  reads the list correctly, so each item a forage turns up comes with a second one. If a game
+  update ever moves that list again, the mod writes one warning to the log instead of failing
+  silently. The doubling applies only to your own foraging: an NPC who forages, such as the
+  Professor filling his satchel, finds the normal amount. Found by the test harness, which
+  foraged six times as a graduate and got every find exactly once. In-game check tracked as
+  T2.259.
+
+## [1.68.40] - 2026-09-23
+
+### Fixed
+
+- **A guard who sees you attack another guard now reacts straight away.** Witnessing an attack is meant to make that guard re-pick its duty on the spot, so a pursuit starts now instead of at the next tick. The mod was handing the game's duty check a true/false value where the game expects a tick step, so the check failed on every witnessed attack. Each failure added an `[GuardDutyPatch] OnAttackWitnessed failed` warning to the log, and the guard waited for its next tick. The call now builds its argument from the parameter the game actually declares. If the game ever changes that method again, the mod logs one clear warning instead of failing on every attack. Nothing else about the Watch changes: witness registration, Suspicion, Village Crime and pursuit ranges are as before. In-game check tracked as T2.261.
+
 ## [1.68.39] - 2026-09-22
 
 Thanks to Chiwei, whose reports and trait designs are behind this release.

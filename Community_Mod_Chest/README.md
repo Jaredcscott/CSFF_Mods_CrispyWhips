@@ -1,6 +1,6 @@
 # Community Mod Chest
 
-**Version:** 1.68.39
+**Version:** 1.68.41
 
 **Language:** English, Simplified Chinese
 
@@ -99,4 +99,4 @@ Thank you, Chiwei.
 
 Copy the mod folder into `BepInEx/plugins/Community_Mod_Chest/` with `Community_Mod_Chest.dll` inside it.
 
-On a clean load, the log shows: `Community Mod Chest v1.68.39 loaded.`
+On a clean load, the log shows: `Community Mod Chest v1.68.41 loaded.`
