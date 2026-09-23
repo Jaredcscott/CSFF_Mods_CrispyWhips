@@ -5,6 +5,18 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [2.1.57] - 2026-09-23
+
+### Changed
+
+- **Refreshed the embedded mod suite.** Re-embeds CSFF Mod Framework 2.26.5. With it:
+  - Leaving the Community Mod Chest Village for the first time after starting the game no longer
+    throws an error, and the game keeps updating how full each location is for the rest of the
+    session (the weight bar, and the checks and paused rates that read it).
+
+  The other eight suite mods are re-embedded at their current versions. No change to Mod Update
+  Manager's own behaviour.
+
 ## [2.1.56] - 2026-09-23
 
 Thanks to Chiwei, whose question about the Herbalism graduate led to the Community Mod Chest fix
