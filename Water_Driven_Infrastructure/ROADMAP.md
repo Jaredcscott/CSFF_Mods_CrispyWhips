@@ -1,94 +1,105 @@
 # Roadmap: Water Driven Infrastructure
-Version at time of writing: 1.11.0
-Date: 2026-09-07
-Audit score: 9/10 - PASS, 0 CRITICAL (consolidated 2026-09-05; see `.audit/summary.md`)
+Version at time of writing: 1.11.2
+Date: 2026-09-22
+Audit score: 9/10 - PASS, 0 mod-breaking CRITICAL (consolidated 2026-09-22; see `.audit/summary.md`)
 
 ## Current State
 
 **Theme**: Late-game, water-powered manufacturing and automation. Build large-scale infrastructure
-(sawmill, forge, workshop, grinding mill, ore sluice, fishpond, mill race outlets) near rivers,
-powered by water wheels and mill races and fed by WDI's own copper/iron metalworking and fastener
-pipeline. For players past the early survival tier who want bulk processing. **Fully standalone since
-1.8.0** - AdvancedCopperTools is a soft, optional enhancement and never a gate.
+(sawmill, forge, workshop, grinding mill, ore sluice, fishpond, fish funnel, mill race outlets) near
+rivers, powered by water wheels and mill races and fed by WDI's own copper/iron metalworking and
+fastener pipeline. For players past the early survival tier who want bulk processing. **Fully standalone
+since 1.8.0** - AdvancedCopperTools is a soft, optional enhancement and never a gate.
 
 **Content**: 24 items / 25 blueprints / 11 CT2 structures + 4 CT10 improvements / 7 perks /
 5 NPCDuty files / 30 custom images (all references resolve). 0 SelfTriggeredActions, 0 spawn Triggers,
 0 Liquid cards.
 
-**Stability**: **9/10 - release ready.** 0 CRITICAL, 0 DESIGN GAP, 6 WARNING, 7 MINOR. Critical
-Analysis verdict: **SOLID** (0 critical / 0 mechanical / 0 design / 0 broken promises). Acquisition
-coverage fully closed (112 produced / 55 consumed, 0 unreachable, 0 dead-end). Build clean (0 errors /
-0 warnings), versions synced at 1.10.19 across ModInfo.json / Plugin.cs / README.md, English
-localization complete (521 CSV / 405 JSON keys, 0 missing), Chinese parity CLEAN at 417/417.
+**Stability**: **9/10 - release ready.** 0 mod-breaking CRITICAL, 0 DESIGN GAP. Critical Analysis
+verdict (2026-09-22): **SOLID** (0 critical / 0 mechanical / 0 design / 0 broken promises). Code-quality
+(2026-09-22) carries one category-rubric critical (B1, cosmetic Debug-only Invoke-catch) plus 3
+hardening warnings. Acquisition coverage fully closed (115 produced / 56 consumed, 0 unreachable,
+0 dead-end). Build clean (0 errors / 0 warnings), versions synced across ModInfo.json / Plugin.cs /
+README.md, Chinese parity CLEAN.
 
-**Resolved since the last roadmap** (re-verified against source 2026-09-05, do not re-open):
-- The framework-level `CompatibleNPCDuties[].TargetWarpData` GUID-resolution gap flagged as CRITICAL
-  in `structures-report.md` (2026-08-14) - fixed in `CSFFModFramework/Data/WarpResolver.cs:792-806`
-  (base-type `GameRegistry.GetByUid` fallback naming `NPCDutyOrDutyTagRef.Target`), shipped framework
-  2.22.5, framework now at 2.25.24.
+**Resolved since the last roadmap** (re-verified against source, do not re-open):
+- The framework-level `CompatibleNPCDuties[].TargetWarpData` GUID-resolution gap (flagged CRITICAL in
+  `structures-report.md` 2026-08-14) - fixed in `CSFFModFramework/Data/WarpResolver.cs` (base-type
+  `GameRegistry.GetByUid` fallback), shipped framework 2.22.4, framework now at 2.25.32.
 - The `perks-report.md` DESIGN GAP (`Features.json` listed 3 of 7 perk UIDs) - all 7 now listed.
-- The "Cast Iron Sheet has no WDI-solo consumer" warning - closed by `Bp_IronRivetsFromSheet.json`
-  (v1.10.14), which shears one sheet into 8 Iron Rivets with no forge and no other mod.
+- Missing "not yet confirmed in-game" caveats on the v1.10.16-1.10.18 CHANGELOG/README entries - the
+  current README carries the caveat on all three (prior W2).
+- The 2 em-dash characters in `ModInfo.json` Description - 0 em-dashes present now (prior W6).
+- The framework `T1.56` ActionRouter receiver/given index-order defect that rode WDI's `MillRaceGate`
+  handler - fixed in framework 2.25.29 (2026-09-08); in-game confirmation now tracked fleet-wide at
+  T1.81, not WDI-blocking.
 
-**Open work**: no 🔴 Open or 🟡 Pending retrospective references this mod (all 4 WDI retros are
-archived as graduated). The real open work is **verification, not repair**: 4 of the 5 Partner station
-"operate" duties have never been observed in-game, and 5 further playthrough items are pending
-(T2.74, T2.113, T2.115, T2.116, T2.131, T2.132). One external risk is tracked but not WDI-owned: the
-open framework `ActionRouter` CardOnCardAction index defect (T1.56) rides WDI's card-unbounded
-`MillRaceGate` handler.
+**Open work**: no open or pending retrospective references this mod (all 4 WDI retros are archived as
+graduated). The real open work is **verification, not repair**: the Forge (T2.89) and Workshop (T2.90)
+Partner duties have never been observed becoming the current duty in-game, T2.113 (Cut Iron Rivets from
+Sheet) carries a recorded FAIL that two static re-checks could not reproduce, and the Fish Funnel rate
+(T2.198/T2.199) is an untuned placeholder. 3 of 5 station duties are now confirmed PASS (Grinding Mill,
+Ore Sluice, Sawmill).
 
 **Framework compliance**: **Tier 2, fully adopted.** `Api.ActionRouter` (19 references - all action
 interception; WDI no longer patches `ActionRoutine`/`PerformStackActionRoutine` directly),
-`Api.SpawnService` (10), `Api.TickEvents` (4), `Api.WorldMap` (4, dynamic mill-race node append),
-`Api.BlueprintAlternates` (8 pairs, the ACT decoupling). Zero deprecated patterns: no
+`Api.SpawnService` (10), `Api.TickEvents` (4), `Api.WorldMap` (4, dynamic mill-race node append), and
+`BlueprintAlternates` (the ACT fastener/sheet decoupling). Zero deprecated patterns: no
 `DropCollectionGuardPatch`, no `InitializeNullFields`, no `ModLoaderVerison`/`ModEditorVersion`, no
-manual perk or blueprint injection. Plugin.cs uses per-class `ApplyPatch(harmony)` (not `PatchAll`)
-and emits exactly one Info line at startup.
+manual perk or blueprint injection. Plugin.cs uses per-class `ApplyPatch(harmony)` (not `PatchAll`) and
+emits exactly one Info line at startup.
 
 ---
 
 ## Phase 0: Stabilize
 
-> Score is 9/10 with 0 CRITICAL and no open retrospectives, so a full Phase 0 is not warranted. Two
-> items nonetheless gate a clean public release.
+> Score is 9/10 with 0 mod-breaking CRITICAL and no open retrospectives, so a full Phase 0 is not
+> warranted. One item is a genuine runtime-break risk that gates a fully clean release.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| **Regenerate `lib/Assembly-CSharp-nstrip.dll`** against EA 0.67h. Current copy is dated 2026-04-30 - months stale. A stale publicized DLL compiles clean and throws `MissingMethodException` at runtime on any direct typed call into a changed game signature. **Cannot be fixed by copy** - requires the operator's external NStrip tool, then a full rebuild. Fleet-wide gap (7 of 9 content mods), tracked as playthrough T1.71. | Runtime-break risk | P0 | Operator task (blocked on external tool) |
-| **Close the honesty caveat on v1.10.16-v1.10.18** - those CHANGELOG/README entries read as done, without the "not yet confirmed in-game" caveat their unverified siblings carry. `wdi_selfsmelt_quality_chain` (T2.131) is still `pending`. Either add the caveat or run the verification pass (melt a copper gear or iron part in the Forge/Workshop, confirm output nugget quality >= source quality, floored at 50%). | Docs honesty | P0 | Quick |
+| **Regenerate `lib/Assembly-CSharp-nstrip.dll`** against the live game (EA 0.68a). Current copy is months stale. A stale publicized DLL compiles clean and throws `MissingMethodException` at runtime on any direct typed call into a changed game signature. WDI is one of only 6 mods whose built DLL carries *typed* game references (4, all resolving today), so this is a live risk here, unlike most nstrip binders. **Cannot be fixed by copy** - requires the operator's external NStrip tool, then a full rebuild. Fleet-wide gap, tracked as T1.71. | Runtime-break risk | P0 | Operator task (blocked on external tool) |
 
 ---
 
 ## Phase 1: Foundation
 
-> Table stakes. Version, localization and build hygiene are already clean, so this phase is short.
+> Table stakes. Version, localization and build hygiene are already clean, so this phase is short:
+> two cheap code-hygiene fixes, one docs-currency fix, and the mod's single largest confidence hole
+> (Forge/Workshop duty verification).
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| **Verify the 4 pending Partner station duties in-game** (Ore Sluice, Sawmill, Forge, Workshop). 1 of 5 is confirmed (T2.80, PASS 2026-08-15, covering M0 firetending + the M2 Grinding Mill). This is the mod's single largest confidence hole and it blocks any further duty work. | Verification | P1 | Medium (needs a play session) |
-| **Re-check the unresolved "no reachable path" observation** from the 1.10.13 diagnostic session - four of five stations reported no reachable path for the Partner, never re-tested. It may simply reflect which structures existed in that save. If it reproduces, open `/failure-digest wdi-duty-selection-weight`. | Verification | P1 | Medium |
-| **Validate `StationDutyBaseWeight = 850`** (`Patcher/MillDutyPatch.cs:77`). It is an unvalidated tuning constant introduced to fix duty-selection starvation; nothing has confirmed it does not now starve vanilla survival duties. | Tuning | P1 | Quick (rides the same play session) |
-| **[F1] Cache the per-click reflection lookups** in `ResolveGrindResult` (`ActionInterceptPatch.cs:746`) and `GetHammerHitInfo` (`:1923`) behind a `Dictionary<Type, FieldInfo>`, mirroring `FishpondPopulationPatch._cardModelCache`. Perf hygiene, carried since 2026-08-16. | Framework hygiene | P2 | Quick |
-| **Replace the 2 em-dash characters in `ModInfo.json` Description** with hyphens or colons (fleet style rule; player-facing field). | Style | P2 | Quick |
-| **Re-run `/audit-blueprints WaterDrivenInfrastructure`** - the existing report is dated 2026-05-20 and scanned only 16 of the now-25 blueprints. | Audit coverage | P2 | Quick |
-| **Comment the `tag_SmeltsAt1100` naming discrepancy** (copper gears self-smelt at >=900C; the tag name is accurate only for the Forge "Smelt High-Heat Ore" gate). **Do NOT rename the tag** - it is save-visible data. | Clarity | P3 | Quick |
+| **[B1] Unwrap `InnerException` in the two cosmetic Invoke catches** (`ActionInterceptPatch.cs:2074`, `:2609`) - change `ex.Message` to `ex.InnerException?.ToString() ?? ex.ToString()`. Closes the last unmet Invoke-catch rule; Debug-level cosmetic paths, so no behavior change. | Code hygiene | P1 | Quick |
+| **[G5] Add a WarnOnce breadcrumb** before the non-throwing null return in `GetCardData` (`ActionInterceptPatch.cs:810`) and the sibling structural field reads (`:746`, `:1925`). A future `CardModel`/`CardInteractions` rename would otherwise silently no-op every Grind/Hammer/quality gate with zero log (`reference_latch_blind_to_nonthrowing_null`). | Reliability | P1 | Quick |
+| **Verify the Forge (T2.89) and Workshop (T2.90) Partner duties in-game** in a save where the station is built, heated, and reachable - to separate a code bug from an untestable environment (the 2026-09-06 session had no reachable/heated station). This is the mod's single largest confidence hole. | Verification | P1 | Medium (play session) |
+| **Validate `StationDutyBaseWeight = 850`** (`Patcher/MillDutyPatch.cs`). Unvalidated tuning constant; confirm it does not starve vanilla survival duties. Rides the same play session. | Tuning | P1 | Quick |
+| **Update the stale EA-version string** (`ModInfo.json` Description "Tested with EA 0.66", `README.md:5` header, `README.md:267` Installation) to the true current-tested version. Live game data is EA 0.68a. Docs-currency only - do at the next version bump / migration; needs the owner's tested version, not a blind rewrite. Dated CHANGELOG entries (0.65/0.63f) are historical and left alone. | Docs currency | P1 | Quick |
+| **[F4/W4] Cache the per-click reflection + avoid the per-retry scene scan.** Prefer `EnumerateGameManagerAllCards()` in the lump/nugget/fish/iron retry loops as Grind All already does (up to ~60 `FindObjectsOfType` scans per Cast Metal Lump today); cache the `GraphicsManager` type in `RefreshOpenInventoryPopup`. Perf hygiene, correctness unaffected. | Framework hygiene | P2 | Quick |
+| **[I2-adjacent] Replace the `IndexOf` action gate** in `MillRaceNetwork.cs:396` (`IsDrawWaterAction("Draw")`, etc.) with exact matches or a documented per-card allow-list. Brittle over-match; low risk today (branches scoped to WDI card UIDs). | Brittleness hygiene | P2 | Quick |
+| **Re-run `/audit-blueprints WaterDrivenInfrastructure`** - the standing report scanned only 16 of the now-25 blueprints. Full set already covered by critical-analysis; this refreshes the domain report. | Audit coverage | P2 | Quick |
 
 ---
 
 ## Phase 2: Core Expansion
 
-> Two of the three shipped in 1.11.0 (Fish Funnel, Ore Sluice tailings) and were removed from
-> this phase on 2026-09-07; see the Plan Reconciliation Log at the end of this file.
-> One remains, re-verified as NOT shipped.
+> Two of the last cycle's three candidates shipped in 1.11.0 (Fish Funnel, Ore Sluice tailings) and one
+> (Fish Drying Rack) was ruled out. Most remaining ideas are gated behind the power-model decision in
+> Phase 3, so the least-blocked new content is a single infrastructure piece.
 
-### Fish Drying Rack
-**What**: A river-side drying rack turning raw fish into dried fish, using the `FuelCapacity`/
-`Wetness` drying mechanism (memory `reference_tendon_drying_fuelcapacity`).
-**Why**: Completes the fishing subsystem - pond and funnel produce raw fish with no preservation
-path, the classic food-without-preservation gap. With ice fishing already shipped on the winter pond,
-WDI now produces fish year-round and has nowhere to put them.
-**Requires**: confirm no sibling mod already claims fish preservation.
+### Water Reservoir
+**What**: A large-scale CT2 water-storage structure, fillable during rainy seasons, acting as an offline
+buffer that keeps Mill Race Outlets producing when river access is seasonal.
+**Why**: Player-requested (Sirus23, Discord, 2026-08-08) and the natural next Infrastructure pick. It
+extends the outlet's existing water-supply role without needing the wheel power-model decision first.
+**Requires**: none blocking; decide storage capacity and refill rate.
 **Complexity**: Medium
+
+> **Fish Drying Rack is RULED OUT** (rejected 2026-08-16 by user decision): vanilla `DryingRack` +
+> `Smokehouse` already cover the raw-to-dried fish chain, so a WDI rack would be redundant. Re-promote
+> only with a genuinely differentiated angle (e.g. a passive WDI-side bonus to the vanilla stations).
+> Reason recorded in `.audit/ideas.md`, `Documentation/Ideas/.../IDEAS.md`, and
+> `Documentation/Design/WDI_Audit_Remediation_As_Built.md`.
 
 ---
 
@@ -96,47 +107,43 @@ WDI now produces fish year-round and has nowhere to put them.
 
 ### Water Wheel power model (unblocks three downstream features)
 **What**: Decide whether to introduce an explicit load model (one wheel powers N stations, the N+1th
-needs a second wheel) or keep the current any-adjacent-race-works model. Needs a per-tick C#
-dispatcher either way.
+needs a second wheel) or keep the current any-adjacent-race-works model. Needs a per-tick C# dispatcher
+either way.
 **Why**: This one decision is the bottleneck for the **Control Valve** (on/off toggle without
-dismantling), the **Overshot Wheel** (higher-throughput tier: shorter Cut/Hammer/Smelt timers or
-higher Blast gain), and the ACT bronze gear/bearing tier. The README's chain already implies one
-wheel feeds many machines, while every station in fact gates on mill-race adjacency alone - so the
-mod's own documentation is ahead of its mechanics here.
+dismantling), the **Overshot Wheel** (higher-throughput tier: shorter Cut/Hammer/Smelt timers or higher
+Blast gain), and the ACT bronze gear/bearing tier. The README's chain already implies one wheel feeds
+many machines, while every station in fact gates on mill-race adjacency alone.
 **Requires**: a design decision from the user before any code.
 **Complexity**: Complex
 
 ### AdvancedCopperTools - bronze gear and bearing tier
 **What**: A bronze tier gated on ACT billets (SD4 metal types Tin=120, TinBronze=130, WhiteBronze=140),
 feeding a WDI Overshot Wheel upgrade.
-**Why**: The fastener/sheet interop is already live and proven in both directions
-(`Api.BlueprintAlternates`, 8 pairs in `GameLoadPatch.cs:117-136`). A materials tier is the natural
-next rung, and WDI already hard-references ACT's SD4 scheme.
+**Why**: The fastener/sheet interop is already live and proven both directions (`BlueprintAlternates`).
+A materials tier is the natural next rung, and WDI already hard-references ACT's SD4 scheme.
 **Requires**: the power-model decision above.
 **Complexity**: Medium
 
 ### Community_Mod_Chest - iron fishing-rod fittings
-**What**: A WDI Workshop "Forge Iron Fittings" recipe producing the fittings CMC's fishing rod
-consumes.
-**Why**: WDI is the repo's only iron-forging station, and CMC's rod currently has no in-repo source
-for its metal parts. Tightest current cross-mod pairing.
+**What**: A WDI Workshop "Forge Iron Fittings" recipe producing the fittings CMC's fishing rod consumes.
+**Why**: WDI is the repo's only iron-forging station, and CMC's rod currently has no in-repo source for
+its metal parts. Tightest current cross-mod pairing.
 **Requires**: decide the UID owner first (memory `feedback_cross_mod_output_dependency`).
 **Complexity**: Medium
 
 ### Powered Pond Aeration
-**What**: A wheel-driven aerator upgrade (or a "Water Mill nearby" gate) raising the pond's stocking
-cap in `FishpondPopulationPatch`.
-**Why**: The Fishpond gates on mill-race adjacency only - it never actually consumes the Water Wheel
-or Water Mill, so the mod's flagship power source has no fisheries payoff. Distinct from
-feeding-for-growth (that speeds growth; this raises the ceiling).
+**What**: A wheel-driven aerator upgrade (or a "Water Mill nearby" gate) raising the pond's stocking cap
+in `FishpondPopulationPatch`.
+**Why**: The Fishpond gates on mill-race adjacency only - it never consumes the Water Wheel or Water
+Mill, so the flagship power source has no fisheries payoff. Distinct from feeding-for-growth (that speeds
+growth; this raises the ceiling).
 **Requires**: new cap values; decide gate-on-placed-Water-Mill vs. a consumable.
 **Complexity**: Medium
 
 ### RepeatAction compatibility confirmation
 **What**: Confirm WDI's IEnumerator-wrapped Cut / Hammer All / Smelt are RepeatAction-queueable.
-**Why**: Verification task, not new content - but WDI is the repo's bulk-processing mod and RA is the
-repo's repetition mod, so a silent incompatibility would be felt by exactly the overlapping audience.
-Document the result either way.
+**Why**: Verification task, not new content - WDI is the repo's bulk-processing mod and RA is the repo's
+repetition mod, so a silent incompatibility hits exactly the overlapping audience. Document either way.
 **Complexity**: Quick
 
 ---
@@ -145,11 +152,11 @@ Document the result either way.
 
 | Item | What | Complexity |
 |------|------|------------|
-| Structure maintenance / wear loop | Water wheels and mill races never degrade - permanent once built. Add a `UsageDurability` drain plus a "Repair" DismantleAction consuming a few Planks. **Decision needed**: decay rate, and whether a fully-worn wheel stops powering downstream stations or only warns. Note this is structure upkeep, distinct from the ruled-out tool-repair mechanic below. | Complex |
-| Fishpond feeding for accelerated growth | A "Feed" DismantleAction consuming bugs or food scraps, boosting the growth rate already driven by `FishpondPopulationPatch`. Decision needed on feed types and acceleration amount. | Medium |
-| Sized storage station variants (QoL) | Sawmill (6 slots) and Workshop (14 slots) have fixed inventories. Decision needed: a separate log-yard / ingot-rack adjacent structure, vs. an in-place "Expand" upgrade swapping the station's CardModel for a higher-slot variant (in-place swap only - never `Destroy`). | Medium |
-| Clean the T2.80/T2.81 playtest note bodies | Both carry `"status": "pass"` while the note text still reads "Confirm both..." / "never verified". Status is authoritative; the prose is just stale. | Quick |
-| GIF animation candidates | The Water Wheel and Mill Race are the mod's identity cards and are currently static. See `Documentation/CSFF_GIF_Authoring.md`; framework ships native GIF support. | Medium |
+| Fish Funnel rate tuning | The +100% Common Fish Population boost is an untuned 1.11.0 placeholder. Once T2.198/T2.199 confirm it builds and doubles the rate, revisit the multiplier against realistic Funnel Trap fill times. | Quick |
+| Structure maintenance / wear loop | Water wheels and mill races never degrade. Add a `UsageDurability` drain plus a "Repair" DismantleAction consuming a few Planks. **Decision needed**: decay rate, and whether a fully-worn wheel stops powering downstream or only warns. Structure upkeep, distinct from the ruled-out tool-repair mechanic. | Complex |
+| Fishpond feeding for accelerated growth | A "Feed" DismantleAction consuming bugs or food scraps, boosting the growth already driven by `FishpondPopulationPatch`. Decision needed on feed types and acceleration. | Medium |
+| Sized storage station variants (QoL) | Sawmill (6 slots) and Workshop (14 slots) have fixed inventories. Decision: a separate log-yard / ingot-rack adjacent structure, vs. an in-place "Expand" upgrade swapping the station's CardModel for a higher-slot variant (in-place swap only - never `Destroy`). | Medium |
+| GIF animation candidates | The Water Wheel and Mill Race are the mod's identity cards and are static. See `Documentation/CSFF_GIF_Authoring.md`; framework ships native GIF support. | Medium |
 
 ---
 
@@ -159,31 +166,31 @@ At v2.0, WDI should be the repo's answer to "I have survived; now I want to indu
 infrastructure chain and the metalworking pipeline are both complete and standalone today, so the
 remaining growth is in two directions: **power that actually means something** (a load model, wheel
 tiers, and stations that consume the wheel rather than merely standing near it), and **automation the
-player can trust** (five Partner duties that are confirmed to fire, then extended). The Irrigation
-Mill Race Chain is the natural centerpiece: multi-environment plumbing where directional mill-race
-improvements carry flow across locations and a terminal race auto-tops `TilledField`/`GardenPlot`
-Hydration, turning WDI from a set of stations into a network the player routes.
+player can trust** (five Partner duties that are confirmed to fire, then extended - 3 of 5 confirmed so
+far). The Irrigation Mill Race Chain is the natural centerpiece: multi-environment plumbing where
+directional mill-race improvements carry flow across locations and a terminal race auto-tops
+`TilledField`/`GardenPlot` Hydration, turning WDI from a set of stations into a network the player routes.
 
 **Potential major additions** (not yet justified - revisit after Phase 3):
 - **Irrigation Mill Race Chain** - fully specced (6 JSON + 16 CSV + a multi-source BFS in
   `IrrigationChainPatch.cs`); blocked on HerbsAndFungi crops for a meaningful flagship input.
-- **Water Reservoir** - large-scale CT2 water storage fillable in rainy seasons, an offline buffer for
-  outlets when river access is seasonal. Player-requested (Sirus23, Discord, 2026-08-08).
+- **Water Reservoir** - promoted to Phase 2 above (player-requested).
 - **Stamp Mill / Ore Crusher** - a crushing step ahead of the Sluice, making ore processing a genuine
   two-stage pipeline rather than one wide-input station.
-- **Aquatic plant cultivation** (watercress, reeds) - WDI owns every water structure in the repo and
-  no mod claims aquatic flora. Confirm vanilla ships no watercress/reed/cattail item first.
+- **Aquatic plant cultivation** (watercress, reeds) - WDI owns every water structure in the repo and no
+  mod claims aquatic flora. Confirm vanilla ships no watercress/reed/cattail item first.
 
 **Explicitly ruled out - do not re-promote without an owner decision:**
 - **Water-powered Sharpening Wheel** (restoring `UsageDurability` on blades). Repo convention forbids
-  repair mechanics for crafted metal items (memory `feedback_no_repair_mechanics`); the sanctioned
-  loop is smelt-and-recraft. Requires an explicit carve-out from the user BEFORE any build.
-- **A bare index swap on `Api.ActionRouter`** to fix the T1.56 CardOnCardAction defect. Already
-  attempted and REVERTED - it double-fires every receiver-keyed drag handler across 6 mods. The fix is
-  framework-owned and needs its own plan; do not attempt a WDI-local workaround.
+  repair mechanics for crafted metal items (memory `feedback_no_repair_mechanics`); the sanctioned loop
+  is smelt-and-recraft. Requires an explicit carve-out from the user BEFORE any build.
+- **Fish Drying Rack** - see Phase 2 note.
+- **A bare index swap on `Api.ActionRouter`** to fix the T1.56 CardOnCardAction defect. Already attempted
+  and REVERTED - it double-fires every receiver-keyed drag handler across 6 mods. Framework-owned, fixed
+  in 2.25.29; do not attempt a WDI-local workaround.
 
-These live in `Documentation/Ideas/WaterDrivenInfrastructure/IDEAS.md`. The promoted subset used to
-live in `Documentation/Plans/WaterDrivenInfrastructure/Audit_Remediation_Plan.md`; that plan drained on
+These live in `Documentation/Ideas/WaterDrivenInfrastructure/IDEAS.md`. The promoted subset used to live
+in `Documentation/Plans/WaterDrivenInfrastructure/Audit_Remediation_Plan.md`; that plan drained on
 2026-09-07 and is archived at `Documentation/Design/WDI_Audit_Remediation_As_Built.md`.
 
 ---
@@ -193,7 +200,7 @@ live in `Documentation/Plans/WaterDrivenInfrastructure/Audit_Remediation_Plan.md
 | Trigger | Action |
 |---------|--------|
 | After any new content phase | Run `/audit-mod WaterDrivenInfrastructure` and update this roadmap |
-| **Game version update** | Refresh `lib/Assembly-CSharp.dll` AND regenerate `lib/Assembly-CSharp-nstrip.dll` with NStrip, then rebuild. WDI carries its own nstrip copy and makes direct typed calls - a stale one is a silent `MissingMethodException`. Then `/update-mod-version`, `/diagnose-log`. |
+| **Game version update** | Refresh `lib/Assembly-CSharp.dll` AND regenerate `lib/Assembly-CSharp-nstrip.dll` with NStrip, then rebuild. WDI carries its own nstrip copy and makes direct typed calls - a stale one is a silent `MissingMethodException`. Then `/update-mod-version`, `/diagnose-log`, and update the EA-version string in ModInfo/README. |
 | After fixing a critical issue | Run `/critical-analysis WaterDrivenInfrastructure` to verify the fix |
 | After any duty or `ActionRouter` change | Re-run the Partner duty playthrough items - this is the mod's least-verified subsystem |
 | After Phase 2 complete | Run `/export-to-repo WaterDrivenInfrastructure` and bump the minor version |

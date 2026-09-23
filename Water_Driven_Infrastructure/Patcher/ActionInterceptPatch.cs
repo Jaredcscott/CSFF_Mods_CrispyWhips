@@ -2071,7 +2071,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 var refresh = visuals?.GetType().GetMethod("RefreshDurabilities", Flags);
                 refresh?.Invoke(visuals, null);
             }
-            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] RefreshCardDurabilityVisuals: {ex.Message}"); }
+            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] RefreshCardDurabilityVisuals: {ex.InnerException?.ToString() ?? ex.ToString()}"); }
         }
 
         private static void EjectCardsFromStructure(object structure, IEnumerable<object> cards)
@@ -2606,7 +2606,7 @@ namespace WaterDrivenInfrastructure.Patcher
                 var refresh = popup?.GetType().GetMethod("RefreshInventory", Flags);
                 refresh?.Invoke(popup, null);
             }
-            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] RefreshOpenInventoryPopup: {ex.Message}"); }
+            catch (Exception ex) { Logger?.LogDebug($"[ActionIntercept] RefreshOpenInventoryPopup: {ex.InnerException?.ToString() ?? ex.ToString()}"); }
         }
 
         private static int GetCardCharges(object card)
