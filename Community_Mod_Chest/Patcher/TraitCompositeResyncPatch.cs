@@ -12,7 +12,7 @@ namespace CommunityModChest.Patcher
     /// <summary>
     /// Keeps CMC's composite trait stats equal to the stat they read, across travel.
     ///
-    /// Reported by chiweichiwei (Nexus, 2026-09-22): light a campfire with Nightcrawler (CMC 1.68.36,
+    /// Reported by Chiwei (Nexus, 2026-09-22): light a campfire with Nightcrawler (CMC 1.68.36,
     /// then a composite of Light), leave the map without putting it out, and Sunlight Exposure keeps
     /// the fire's +25 until a reload; Nyctophobia, also a composite of Light, does the same.
     ///

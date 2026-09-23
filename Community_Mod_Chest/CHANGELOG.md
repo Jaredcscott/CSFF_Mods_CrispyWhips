@@ -7,11 +7,11 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [1.68.39] - 2026-09-22
 
-Thanks to chiweichiwei, whose reports and trait designs are behind this release.
+Thanks to Chiwei, whose reports and trait designs are behind this release.
 
 ### Fixed
 
-- **Trait conditions now always match what a reload would show.** chiweichiwei saw Nightcrawler's
+- **Trait conditions now always match what a reload would show.** Chiwei saw Nightcrawler's
   Sunlight Exposure keep a campfire's light after walking away from it, until a reload put it
   right. The base game counts firelight towards your stats only while you are at camp, and trait
   conditions such as Nyctophobia and Nightcrawler's Sunlight Exposure and Sun Protection were
@@ -35,17 +35,17 @@ Thanks to chiweichiwei, whose reports and trait designs are behind this release.
   Indoors at night stays Nourished, even beside a hearth. Found in our own playtesting.
 - **Spiritually Troubled lasts.** In 1.68.38 its hollowness was a starting value, and Hollowness
   drains a little every fifteen minutes, so it slipped below the point where the spirits notice
-  after the very first fifteen minutes. It is now permanent, as chiweichiwei designed it: you stay
+  after the very first fifteen minutes. It is now permanent, as Chiwei designed it: you stay
   hollowed for as long as you live, and every life you take without release drives you deeper.
 
 ### Changed
 
 - **Spiritually Harmonious lets you carry twice the hollowness before the spirits turn cold**,
-  instead of draining it faster. This is chiweichiwei's original design. 1.68.38 said it could not
+  instead of draining it faster. This is Chiwei's original design. 1.68.38 said it could not
   work because Hollowness cannot go below zero; that was wrong, because a trait's effect sits on
   top of the stat and the limit only applies when the game reads it, so the first 672 points of
   hollowness are simply absorbed.
-- **Abundant Growth no longer starts you with seeds.** chiweichiwei pointed out that its Foraging
+- **Abundant Growth no longer starts you with seeds.** Chiwei pointed out that its Foraging
   Aid is already a strong benefit, that flax seed comes with the base game's Seed Bag, and that
   meadowgrass seed can be found in the world, so the trait is now the Foraging Aid alone. Green
   Thumb keeps its meadowgrass seed and Flint Hoe.
@@ -58,22 +58,22 @@ Thanks to chiweichiwei, whose reports and trait designs are behind this release.
   picture, so the character creation screen showed the same image several times over: a water drop
   stood in for Sinker, Swimmer, Bad Kidneys and Strong Kidneys alike, both Thumbs and three plant
   traits all shared one sprig of appleweed, and four different ailments shared one nausea icon.
-  Each of those perks now has its own icon. Artwork by chiweichiwei.
+  Each of those perks now has its own icon. Artwork by Chiwei.
 - **Trait statuses now change picture as the trait changes.** Moon-Bound draws its own moon for
   each of the six phases instead of reusing one vanilla moon; Nightcrawler's Sunlight Exposure
   escalates visibly from a bat at rest, through a plain sun, to a blazing sun carrying three
   warning marks; Sun-Scorched has its own flame; Agoraphobia shows exposure and shelter; and
   Nyctophobia shows dark and light. Several of these bands previously shared a single icon, so
-  the picture stayed put while the trait got worse. Artwork by chiweichiwei.
+  the picture stayed put while the trait got worse. Artwork by Chiwei.
 - **Strong sun now heats you.** Harsh, Searing and Blazing Sunlight raise body temperature by 2, 4
   and 6 respectively, on top of what they already did, so a Nightcrawler caught in the open warms
-  as well as burns. Requested by chiweichiwei.
+  as well as burns. Requested by Chiwei.
 - **Sun Protection is no longer listed among your statuses.** It exists to feed Sunlight Exposure,
   which is the bar worth watching; two readouts for one mechanic read as a fault rather than as
-  detail. Requested by chiweichiwei.
+  detail. Requested by Chiwei.
 - **Severe Dairy Cramps now run their course.** The severe band raised nausea and pain and nothing
   else. It now also drives stool liquidity at 4 per tick, the rate the base game's own severe
-  Fireroot toxicity uses, and raises an alert. Requested by chiweichiwei, who points out that real
+  Fireroot toxicity uses, and raises an alert. Requested by Chiwei, who points out that real
   lactose intolerance does rather more than cramp.
 - **Abundant Growth and Green Thumb start you with seed you can actually sow.** Both handed out a
   single seed of each kind, and a field needs four; Abundant Growth also gave fresh heather flowers
@@ -81,17 +81,17 @@ Thanks to chiweichiwei, whose reports and trait designs are behind this release.
   game plants, cooks or uses. Abundant Growth now starts you with four meadowgrass seed, four flax
   seed and ten heather stems, enough to sow a full field of each; Green Thumb starts you with four
   meadowgrass seed and the Flint Hoe. The turnroot seeds are gone from both and the descriptions no
-  longer promise them. Reported by chiweichiwei.
+  longer promise them. Reported by Chiwei.
 - **Abundant Growth and Weakened Growth now sit under Knowledge** with the other head-start traits,
-  rather than in Situational. Requested by chiweichiwei.
+  rather than in Situational. Requested by Chiwei.
 - **Green Thumb and Black Thumb no longer touch Wild Growth.** Wild Growth governs foraging and
   clearing, not the crops you plant, so it does not belong on a planting trait. Both keep their
-  Fertility Boon effect. Requested by chiweichiwei.
+  Fertility Boon effect. Requested by Chiwei.
 - **Spiritually Harmonious and Spiritually Troubled are built on Hollowness now, not Stress.** Both
   moved stress around, which was indistinguishable from the several other traits that do. Harmonious
   now drains Hollowness three times as fast, so the weight of a life taken without release leaves you
   quickly; Troubled starts you already hollowed, at the exact point the game's own Hollowness status
-  begins, so the spirits are cold to you from the first day. Requested by chiweichiwei.
+  begins, so the spirits are cold to you from the first day. Requested by Chiwei.
   (Corrected in 1.68.39: this entry also claimed the reporter's negative Hollowness value for
   Harmonious could not work. That was wrong, and Troubled's starting value wore off after one tick;
   both traits now follow the reporter's design. See 1.68.39.)
@@ -99,7 +99,7 @@ Thanks to chiweichiwei, whose reports and trait designs are behind this release.
   longer starts you with extra pain, a rash and stress on top of everything else. The disease itself
   is unchanged: the constant pain, the crippled immune system and the three rising infections all
   still come from the trait's passive effects, which is where its difficulty was always meant to sit.
-  Requested by chiweichiwei.
+  Requested by Chiwei.
 
 ### Fixed
 
@@ -109,7 +109,7 @@ Thanks to chiweichiwei, whose reports and trait designs are behind this release.
   character therefore started inside that window: the vomit fired during start-up instead of
   during play, and the run stuck on "I can't do two things at once..." with no vomit screen ever
   appearing. The trait now starts you at Nausea 12, still queasy as the description promises, but
-  clear of the trigger. Found and traced to this trait by chiweichiwei, who confirmed that changing
+  clear of the trigger. Found and traced to this trait by Chiwei, who confirmed that changing
   the value stopped it. Note this is a different cause of that same message than the autosave fault
   fixed in CSFFModFramework 2.26.2; if you met it partway through a session rather than at the very
   start of a new one, that was the other one. `Perk-StartingStatTriggerWindow.Tests.ps1` now fails
@@ -121,19 +121,19 @@ Thanks to chiweichiwei, whose reports and trait designs are behind this release.
   which every interior and cave already grants at full strength, now does that work by itself on
   the same scale as everything else. The Nourished by Darkness band also starts lower, at 16 rather
   than 20, so shade moves you into darkness instead of off the bottom of the scale.
-  Reported by chiweichiwei.
+  Reported by Chiwei.
 - **Sunlight Exposure keeps warning past Harsh Sunlight.** Only the Harsh band raised an alert, so
   the warning stopped at exactly the point the danger got worse. Searing and Blazing now alert as
-  well, at rising severity. Reported by chiweichiwei.
+  well, at rising severity. Reported by Chiwei.
 - **Catching fire announces itself.** Sun-Scorched reaching its Catching Fire band passed in
-  silence; it now raises a critical alert. Reported by chiweichiwei.
+  silence; it now raises a critical alert. Reported by Chiwei.
 
 ### Added
 
 - **Catching fire now announces itself with an event.** Reaching the top of Sun-Scorched used to
   add a Burn wound with nothing to mark it, so the first you knew was a new wound card. A "Burned!"
   event card now appears alongside it, the way the base game announces frostbite. Requested by
-  chiweichiwei.
+  Chiwei.
 
 ## [1.68.37] - 2026-09-20
 
@@ -157,7 +157,7 @@ Thanks to chiweichiwei, whose reports and trait designs are behind this release.
 
 ## [1.68.36] - 2026-09-19
 
-A new trait built from chiweichiwei's Nightcrawler design, and Sensitive Skin retired to make
+A new trait built from Chiwei's Nightcrawler design, and Sensitive Skin retired to make
 room for it. See `Documentation/Design/Nightcrawler_Trait_As_Built.md` for the full design,
 including the corrections the numbers needed.
 
@@ -181,7 +181,7 @@ including the corrections the numbers needed.
 
 ## [1.68.35] - 2026-09-19
 
-A trait rework built from a player's detailed design notes (chiweichiwei, Nexus). Where the
+A trait rework built from a player's detailed design notes (Chiwei, Nexus). Where the
 design would have broken against the game's own rules it was adjusted, and each such case is
 explained below. Ships alongside CSFFModFramework 2.26.2, which carries the autosave fix noted
 at the end.
@@ -303,7 +303,7 @@ at the end.
   release archive carried the whole art set twice. On top of that, five images (the Miller and
   Weaver at-home portraits, both Village Home Sign faces, and the Fishing Net) had shipped at
   1696x2528 instead of the 512-wide size every other card uses. Both are fixed, which also lowers
-  the texture memory those five images take up in-game. Thanks to chiweichiwei for reporting it.
+  the texture memory those five images take up in-game. Thanks to Chiwei for reporting it.
 - **Revised art for the Miller and Weaver at-home portraits and both Village Home Sign faces.**
 
 ### Fixed
@@ -338,20 +338,20 @@ at the end.
 
   None of the seven needs anything done to an existing save: a character who already has one of
   these traits picks up the fix automatically on load. English and Chinese. Suggested by
-  chiweichiwei.
+  Chiwei.
 - **Sinker and Swimmer's swimming bonuses could never hold, and Sinker's penalty did nothing.**
   Sinker now costs extra Stamina, Gratification and Focus on every swim, including the river
   crossing, and weakens a Swimming Aid blessing; its old, do-nothing Swimming penalty is gone.
   Swimmer's Swimming Aid bonus finally holds on its own instead of decaying away, and it keeps
   its Swimming head start, which unlocks the cheaper river crossing from [1.68.29]. Suggested by
-  chiweichiwei.
+  Chiwei.
 - **Green Thumb, Peaceful Farmer, Abundant Growth, Claws, Troglodyte and Angler's constant aid
   bonuses decayed to nothing.** Each granted less aid per tick than the aid stat loses on its own
   (Angler's was a one-time boost that faded in about 30 ticks, under 8 in-game hours), so none of them ever held
   even their first tier. All six now hold their first tier on their own indefinitely, the
   strength of one spirit blessing. Weakened Growth and Black Thumb are unchanged; their
   descriptions now say plainly that they only weaken aid coming from another source. Suggested by
-  chiweichiwei.
+  Chiwei.
 
 Text changes are in English and Chinese.
 
@@ -395,7 +395,7 @@ Text changes are in English and Chinese.
   a new hidden Herbal Dressing stat that carries the BloodLoss relief while the dressing holds, with
   a second poultice packing the wound for double effect. Item help text was corrected where it
   promised effects (fever, faster healing, infection resistance) that never existed. Investigation
-  prompted by chiweichiwei's 2026-09-15 report.
+  prompted by Chiwei's 2026-09-15 report.
 
 ## [1.68.27] - 2026-09-16
 
@@ -404,35 +404,35 @@ Text changes are in English and Chinese.
 - **Aged's Fitness cap.** 1.68.26 lowered Fitness's maximum by 640, which only capped a trained
   body; the correct reading is one tier lower from the start. It is now a Fitness ValueModifier
   -640 instead of a cap, so a default-physique Aged character reads Low Fitness rather than
-  Normal, and the 2560 ceiling on hard training still holds. Suggested by chiweichiwei.
+  Normal, and the 2560 ceiling on hard training still holds. Suggested by Chiwei.
 - **Trollblood and Medicine Graduate did nothing.** Both lowered Blood Loss and Pain through a
   rate, and neither stat has a base value to rate against, so both perks were silent no-ops.
   Trollblood is now a one-time Blood Loss -3 (the vanilla tourniquet value) and Pain -200.
   Medicine Graduate, a lighter version, is now Blood Loss -1 and Pain -50. Reported by
-  chiweichiwei.
+  Chiwei.
 - **Leper was harsher than its description and gentler than intended.** Rash +193 pinned the
   Rash status permanently (rising Stress toward the base game's anxiety trigger), while Pain +20
   and Nausea +2 sat below their first status and did nothing. Leper is redesigned around numbness
   and disfigurement: Pain -500 (no wound ever hurts), Skin Integrity -1, Facial Harmony -50 and
   Socials -100. Its difficulty rating drops from 350 to 200 because the pain half is now a pure
-  benefit. Suggested by chiweichiwei.
+  benefit. Suggested by Chiwei.
 - **Deadly Disease's caps hid its own symptoms without stopping the disease.** 1.68.26 removed
   the caps but kept dead Nausea and Rash rates. It now lowers Immune System by 100 and raises the
   gut, upper-respiratory and systemic infection rates by 1.25 and the lower-respiratory rate by
   0.25, so the disease only progresses while immunity stays down and recedes when it is kept up.
-  The starting bout and permanent Pain +25 are unchanged. Suggested by chiweichiwei.
+  The starting bout and permanent Pain +25 are unchanged. Suggested by Chiwei.
 - **Born Mark's Luck bonus could never hold.** +0.5 could not outpace Luck's own tier decay, so
   the mark never held even tier 1. It is now +1.2, matching the game's other Aid-shaped stats.
   Luck itself has no reader yet in this game version, so the trait still has no visible effect;
-  its cost drops from 30 Suns to 5 to match. Suggested by chiweichiwei.
+  its cost drops from 30 Suns to 5 to match. Suggested by Chiwei.
 - **Wide Hands' quality bonus did nothing.** Its QualityCraftingBonus rate targeted a per-craft
   scratch stat that every craft resets before anything reads it. It now raises Crafting and
   Knapping by 15 each, which the decompiled interpolation code confirms feeds directly into craft
-  quality. Reported by chiweichiwei.
+  quality. Reported by Chiwei.
 - **Seasonal Allergies' permanent rash.** Its always-on Rash +96 and Nausea +3, in place since
   1.67.7, are removed, and the perk is pulled from the starting trait list until its intended
   spring-only flare ships. A character who already holds it keeps it harmlessly. Suggested by
-  chiweichiwei.
+  Chiwei.
 - **Melee Fighting was missing from the Skills tab.** The skill has worked since it shipped
   (Club, Stone Mace, the Charred Tip Strike weapon move all raise it), but it never appeared in
   the detailed Skills stat list. `StatTabInjectionPatch` now injects into a list of tabs instead
@@ -457,17 +457,17 @@ Text changes are in English and Chinese.
 - **Bleeder made you unable to bleed to death.** Its minimum Blood Pressure of 15 applied to
   every source of blood loss, not just the trait, and the game only kills at 0. The floor is gone.
   The slower recovery stays: Blood Pressure still comes back on its own, at half the normal rate,
-  and the trait never drained it by itself. Reported by chiweichiwei.
+  and the trait never drained it by itself. Reported by Chiwei.
 - **Aged kept you permanently Tired.** Lowering Stamina by 8 held a fully rested character at 24
   of 32, inside the Tired band, so every aged character had a bigger appetite, ran warm and trained
   their Fitness up all day. Aged now keeps Fitness below Very High however hard you train, burns
   body fat more slowly (the base game's Slow Metabolism rate, without its lower body temperature)
-  and keeps its lasting Pain. Suggested by chiweichiwei.
+  and keeps its lasting Pain. Suggested by Chiwei.
 - **Fugitive, Lost Tourist and Drunkard made you immune to extreme stress.** Each lowered the
   Stress maximum to 150, which removed Extremely Stressed and the base game's anxiety attack at
   full Stress. The cap is gone from all three. Fugitive also loses its slower stress recovery and
   instead never lets Stress fall below 26, so a fugitive can never fully relax (Relaxed ends at 25).
-  Suggested by chiweichiwei.
+  Suggested by Chiwei.
 - **Deadly Disease blocked severe nausea and rash.** It capped Nausea below the Nauseous band,
   which also stopped vomiting, and Rash below Severe Rash. Both caps are gone. The description no
   longer claims the symptoms worsen over time: Nausea and Rash fade, just more slowly than normal,
@@ -475,7 +475,7 @@ Text changes are in English and Chinese.
 - **Insomniac made your sleep last longer instead of disturbing it.** It slowed a hidden sleep
   timer, so for about three hours after waking the game still counted you as asleep (colder, and
   open to nightmares). It now makes sleepiness build more slowly, so you stay awake longer. Harsher
-  sleep-deprivation penalties follow in a later update. Suggested by chiweichiwei.
+  sleep-deprivation penalties follow in a later update. Suggested by Chiwei.
 
 Text changes are in English and Chinese.
 
@@ -862,7 +862,7 @@ Ships the bone-tier sewing gate and a second incense scent, and corrects three n
 
 ## [1.68.8] — 2026-08-26
 
-Closes the 2026-08-25 chiweichiwei player-feedback batch. 1.68.4 shipped the approved half (trait tab moves, numeric trait fixes, cottage hearths); this release ships the remainder — the communal wood pile that the village fires now run on, and the Village Founder wording fix — and records the two reports that were investigated and closed with no code change.
+Closes the 2026-08-25 Chiwei player-feedback batch. 1.68.4 shipped the approved half (trait tab moves, numeric trait fixes, cottage hearths); this release ships the remainder — the communal wood pile that the village fires now run on, and the Village Founder wording fix — and records the two reports that were investigated and closed with no code change.
 
 ### Added
 
@@ -913,7 +913,7 @@ Closes the 2026-08-25 chiweichiwei player-feedback batch. 1.68.4 shipped the app
 
 ## [1.68.4] — 2026-08-25
 
-Character-creation trait pass, resolving the approved half of the 2026-08-25 chiweichiwei player-feedback batch. The numeric values below are a first tuning pass, not final balance — they are expected to move again once played.
+Character-creation trait pass, resolving the approved half of the 2026-08-25 Chiwei player-feedback batch. The numeric values below are a first tuning pass, not final balance — they are expected to move again once played.
 
 ### Changed
 

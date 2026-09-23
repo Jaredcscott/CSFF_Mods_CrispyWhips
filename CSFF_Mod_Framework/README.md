@@ -671,7 +671,7 @@ attach it with a root manifest:
 
 ## Credits
 
-- **Portal art:** Portal Kit and placed Portal artwork by chiweichiwei, used with permission
+- **Portal art:** Portal Kit and placed Portal artwork by Chiwei, used with permission
   (see `ASSET_CREDITS.md`).
 
 ## License

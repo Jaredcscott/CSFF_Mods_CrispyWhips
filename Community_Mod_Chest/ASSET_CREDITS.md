@@ -3,7 +3,7 @@
 Artwork shipped in this package, with its source and terms. Counts measured 2026-09-22 against
 `Resource/Picture/` (184 PNG files).
 
-## chiweichiwei, received 2026-09-22 (53 files)
+## Chiwei, received 2026-09-22 (53 files)
 
 Perk and trait-status icons, contributed as PNG with layered PSD sources. The PSDs were supplied
 with the drop and are held outside this repository.
@@ -18,7 +18,7 @@ All 53 were delivered as RGBA with the background already keyed. `CMC_Pk_Trapper
 `CMC_Pk_Troglodyte.png` arrived at card-art resolution (896x829 and 896x1344) and were downscaled
 to a 512px long edge, since a perk icon renders small; the other 51 ship exactly as received.
 
-chiweichiwei also contributed the Nightcrawler trait design shipped in 1.68.36.
+Chiwei also contributed the Nightcrawler trait design shipped in 1.68.36.
 
 ## Generated in-repo (26 files)
 
@@ -34,11 +34,11 @@ unencumbered. Record a file's source here when you next touch it.
 
 ## Terms
 
-chiweichiwei granted free use of the 2026-09-22 artwork in the Raptor Studios CSFF mod suite,
+Chiwei granted free use of the 2026-09-22 artwork in the Raptor Studios CSFF mod suite,
 including its public Nexus releases, with attribution. Confirmed by the maintainer 2026-09-22.
-Attribute as "Artwork by chiweichiwei". This grant covers use within the suite; it is not a transfer
+Attribute as "Artwork by Chiwei". This grant covers use within the suite; it is not a transfer
 of copyright and does not license the artwork for use outside these mods. The terms above apply only
-to chiweichiwei's files; the 105 files in the section above remain unrecorded.
+to Chiwei's files; the 105 files in the section above remain unrecorded.
 
 ## Adding artwork
 

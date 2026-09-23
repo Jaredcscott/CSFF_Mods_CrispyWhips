@@ -7,7 +7,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [2.1.55] - 2026-09-23
 
-Thanks to chiweichiwei, whose reports and trait designs are behind the Community Mod Chest
+Thanks to Chiwei, whose reports and trait designs are behind the Community Mod Chest
 changes in this update.
 
 ### Changed
@@ -17,7 +17,7 @@ changes in this update.
   - Trait conditions such as Nyctophobia and Nightcrawler's Sunlight Exposure now always match what
     a reload would show.
   - Nightcrawler's sun works again: it had been reading a base-game stat that stays at zero all day.
-  - Spiritually Troubled and Harmonious follow chiweichiwei's design.
+  - Spiritually Troubled and Harmonious follow Chiwei's design.
   - Abundant Growth no longer starts you with seeds.
 
   All nine suite mods were rebuilt against the base game's EA 0.68a update. Herbs and Fungi carries
@@ -28,7 +28,7 @@ changes in this update.
 ### Changed
 
 - **Refreshed the embedded mod suite.** Re-embeds CSFF Mod Framework 2.26.3 and Community Mod Chest
-  1.68.38, both carrying new artwork by chiweichiwei: 37 perk icons and 16 trait-status icons that
+  1.68.38, both carrying new artwork by Chiwei: 37 perk icons and 16 trait-status icons that
   replace borrowed vanilla sprites, plus new Portal Kit and placed Portal art. Community Mod Chest
   1.68.38 also fixes a wedge at character creation for the Deadly Disease trait. The other seven
   suite mods are re-embedded unchanged.
@@ -49,7 +49,7 @@ changes in this update.
 ### Changed
 
 - **Refreshed the embedded mod suite for the Nightcrawler trait.** Community Mod Chest 1.68.36 is
-  re-embedded: a new character-creation trait built from chiweichiwei's Nightcrawler design,
+  re-embedded: a new character-creation trait built from Chiwei's Nightcrawler design,
   replacing the retired Sensitive Skin. The other eight suite mods are embedded at the same
   versions as 2.1.49. No change to Mod Update Manager's own behaviour.
 

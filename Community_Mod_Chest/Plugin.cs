@@ -102,7 +102,7 @@ internal class Plugin : ContentModPlugin
         // a silent no-op (Documentation/Design/Trait_Effect_Repair_As_Built.md, D1 and D2).
         // Those composites lose any at-base change made during travel (a campfire left behind or
         // found on arrival), because vanilla forwards source changes as NotInBase-scoped deltas;
-        // this resyncs CMC's composites absolutely instead (1.68.39, chiweichiwei 2026-09-22).
+        // this resyncs CMC's composites absolutely instead (1.68.39, Chiwei 2026-09-22).
         TryApply("TraitCompositeResyncPatch", () => TraitCompositeResyncPatch.Apply(harmony));
         // Clears Rotten Remains that accumulate in NPC inventories as their carried food spoils.
         TryApply("NpcRottenRemainsCleanupPatch", () => NpcRottenRemainsCleanupPatch.Initialize());

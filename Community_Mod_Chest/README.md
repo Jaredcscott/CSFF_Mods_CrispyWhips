@@ -8,20 +8,20 @@
 
 A collection of community-suggested content additions for Card Survival: Fantasy Forest.
 
-## Thanks to chiweichiwei
+## Thanks to Chiwei
 
-Much of this mod's character-creation content has been shaped by chiweichiwei, a player who has
+Much of this mod's character-creation content has been shaped by Chiwei, a player who has
 tested it closely since August 2026 and contributed designs, bug reports and artwork:
 
 - **Trait designs:** the Nightcrawler trait (1.68.36), the trait rework in 1.68.35, and the
   Spiritually Troubled and Spiritually Harmonious redesign (1.68.39), plus many tuning suggestions.
-- **Artwork by chiweichiwei:** 37 perk icons and 16 trait-status icons (1.68.38), used with
+- **Artwork by Chiwei:** 37 perk icons and 16 trait-status icons (1.68.38), used with
   permission (see `ASSET_CREDITS.md`).
 - **Testing and bug reports:** feedback behind ten releases from 1.68.4 to 1.68.39, including
   tracing the Deadly Disease wedge at character creation (1.68.38) and reporting the campfire
   light that stuck to Nightcrawler's Sunlight Exposure (1.68.39).
 
-Thank you, chiweichiwei.
+Thank you, Chiwei.
 
 ## Contents
 

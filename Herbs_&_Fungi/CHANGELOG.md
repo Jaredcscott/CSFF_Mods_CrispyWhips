@@ -64,7 +64,7 @@ All notable changes to this mod. Dates are release dates.
   hidden Yarrow Clotting stat, both carrying their relief through a decaying status the way vanilla
   medicines work. Ground Yarrow's "Mix into Hot Water" step no longer doses the player directly; the
   tea it brews doses instead. Item help text was corrected where it claimed effects (fever, faster
-  healing, infection resistance) that never existed. Investigation prompted by chiweichiwei's
+  healing, infection resistance) that never existed. Investigation prompted by Chiwei's
   2026-09-15 report.
 
 ### Fixed (packaging)
