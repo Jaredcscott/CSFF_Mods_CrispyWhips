@@ -9,6 +9,17 @@ namespace Quick_Transfer.Patcher
     {
         private static ManualLogSource Logger => Plugin.Logger;
 
+        // Reflect.TryGetMember returns null instead of throwing, so a member renamed by a game update
+        // never reaches the click prefix's catch and every transfer would be skipped with no log line.
+        // Breadcrumb each cause once per session instead.
+        private static readonly HashSet<string> warnedSkipCauses = new HashSet<string>();
+
+        static void WarnSkipOnce(string cause)
+        {
+            if (warnedSkipCauses.Add(cause))
+                Logger.LogWarning($"Transfer skipped: could not read the clicked card's {cause}. If this repeats on ordinary cards after a game update, a member was renamed.");
+        }
+
         private static Type cardGraphicsType;
         private static MethodInfo onPointerClickMethod;
 
@@ -161,16 +172,16 @@ namespace Quick_Transfer.Patcher
                 if (buttonInt != (int)Plugin.TransferMouseButton.Value) return;
 
                 var card = GetCardFromGraphics(__instance);
-                if (card == null) return;
+                if (card == null) { WarnSkipOnce("card"); return; }
 
                 var cardModel = GetMemberValue(card, "CardModel");
-                if (cardModel == null) return;
+                if (cardModel == null) { WarnSkipOnce("CardModel"); return; }
 
                 savedUniqueId = GetMemberValue(cardModel, "UniqueID")?.ToString();
-                if (string.IsNullOrEmpty(savedUniqueId)) return;
+                if (string.IsNullOrEmpty(savedUniqueId)) { WarnSkipOnce("UniqueID"); return; }
 
                 var slot = GetCurrentSlot(card);
-                if (slot == null) return;
+                if (slot == null) { WarnSkipOnce("slot"); return; }
 
                 savedSourceSlot = slot;
                 savedTransferCount = ResolveTransferCount(Plugin.GetEffectiveTransferAmount(), slot);

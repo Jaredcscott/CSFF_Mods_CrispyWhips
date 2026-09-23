@@ -2,6 +2,14 @@
 
 All notable changes to this mod are documented here.
 
+## [1.8.1] - 2026-09-23
+
+### Fixed
+- **Silent skips on the transfer click now leave one warning each.** If the clicked card, its model, its UniqueID or its slot cannot be read (the shape a game update renaming a field takes), Quick Transfer used to skip the transfer with nothing in the log. Each cause now logs one warning per session. Found by the 2026-09-15 code-quality review (G5).
+- **A translation with broken placeholders is now diagnosable.** When a localized overlay string's `{0}`-style placeholders do not match the English template, the overlay already fell back to English; it now also leaves a debug breadcrumb naming the key. Found by the 2026-09-15 audit (preflight D17).
+
+Diagnostics only: no gameplay change.
+
 ## [1.8.0] - 2026-09-07
 
 ### Added
