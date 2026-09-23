@@ -5,6 +5,25 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [2.1.56] - 2026-09-23
+
+Thanks to Chiwei, whose question about the Herbalism graduate led to the Community Mod Chest fix
+in this update.
+
+### Changed
+
+- **Refreshed the embedded mod suite.** Re-embeds CSFF Mod Framework 2.26.4 and Community Mod
+  Chest 1.68.41. With them:
+  - The Herbalism graduate now really doubles your foraging. It never had.
+  - A guard who sees you attack another guard reacts straight away instead of at its next turn.
+  - The framework runs a mod's extra effect for every card of a stack action, not only the
+    first. No card in the released mods offered such a stack button, so no player lost anything.
+  - The credits in the bundled Community Mod Chest and framework READMEs and art credits now
+    name Chiwei.
+
+  The other seven suite mods are re-embedded at their current versions. No change to Mod Update
+  Manager's own behaviour.
+
 ## [2.1.55] - 2026-09-23
 
 Thanks to Chiwei, whose reports and trait designs are behind the Community Mod Chest
