@@ -1,6 +1,6 @@
 # Skill Speed Boost
 
-**Version:** 1.10.5
+**Version:** 1.10.6
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.68)
 

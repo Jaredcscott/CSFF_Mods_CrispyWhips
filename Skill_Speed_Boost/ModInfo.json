@@ -2,6 +2,6 @@
 	"Name": "Skill Speed Boost",
 	"ShortName": "SSB",
 	"Author": "Jared",
-	"Version": "1.10.5",
+	"Version": "1.10.6",
 	"Description": "Skill progression control: per-skill XP multipliers (0-10x), staleness decay (global or per-skill rate), morning XP bonus, area familiarity bonuses with an optional starting floor, difficulty presets that set the whole stack (Balanced, Casual, Hardcore, Immersive, etc.), skill synergies (combo XP for chaining related skills), level-based XP scaling with Linear/EaseIn/EaseOut curves, an optional first-use-of-the-day bonus, an optional well-rested bonus, an optional low-condition XP penalty for working while exhausted, starving or parched, an optional cap on the combined multiplier, and effective-settings and per-XP-gain logs for troubleshooting."
 }

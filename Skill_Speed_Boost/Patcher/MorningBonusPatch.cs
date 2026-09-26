@@ -77,7 +77,7 @@ internal static class MorningBonusPatch
     }
 
     // IEnumerator coroutine postfix: yield the original first, then inspect the delta.
-    static IEnumerator ChangeStat_Post(IEnumerator enumerator, object[] __args)
+    static IEnumerator ChangeStat_Post(IEnumerator enumerator, object __instance, object[] __args)
     {
         object stat = GetArg(__args, _statArgIndex);
         object modification = GetArg(__args, _modificationArgIndex);
@@ -107,6 +107,16 @@ internal static class MorningBonusPatch
         // rose, and the bonus on that "gain" was written into AtBaseModifiedValue, where it stayed
         // until InGameStat.Init zeroed the modifier fields on the next load.
         if (!IsPermanentModification(modification))
+        {
+            yield return enumerator;
+            yield break;
+        }
+
+        // A run's starting stat modifiers (gamemode, character, and every perk's StartingStatModifiers)
+        // are Permanent changes too, applied by InitializeStatsAndActions inside GameManager.Awake while
+        // IsInitializing is true. They are not XP: scaling them turned a perk's +75 Herbalism into 150
+        // on an 8x config (walkthrough T1.118). No skill is practised while a run is initializing.
+        if (IsRunInitializing(__instance))
         {
             yield return enumerator;
             yield break;
@@ -420,6 +430,35 @@ internal static class MorningBonusPatch
         catch (Exception ex)
         {
             WarnOnce("CurrentBaseValue-write", $"Writing CurrentBaseValue failed - XP bonuses are being dropped and the game's own gain kept: {ex.Message}");
+            return false;
+        }
+    }
+
+    private static PropertyInfo _isInitializingProperty;
+    private static bool _isInitializingResolved;
+
+    /// <summary>
+    /// GameManager.IsInitializing on the instance ChangeStatValue runs on. Unreadable means false,
+    /// the pre-1.10.6 behaviour (a starting skill bonus is scaled again), with one warning per cause.
+    /// </summary>
+    private static bool IsRunInitializing(object gameManager)
+    {
+        if (gameManager == null) return false;
+        if (!_isInitializingResolved)
+        {
+            _isInitializingResolved = true;
+            _isInitializingProperty = gameManager.GetType().GetProperty("IsInitializing",
+                BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+        }
+        if (_isInitializingProperty == null)
+        {
+            WarnOnce("IsInitializing-missing", "GameManager.IsInitializing not found - a perk's starting skill bonus is scaled as XP again. The game has probably renamed it.");
+            return false;
+        }
+        try { return _isInitializingProperty.GetValue(gameManager, null) is true; }
+        catch (Exception ex)
+        {
+            WarnOnce("IsInitializing-read", $"Reading GameManager.IsInitializing failed - a perk's starting skill bonus is scaled as XP: {ex.Message}");
             return false;
         }
     }

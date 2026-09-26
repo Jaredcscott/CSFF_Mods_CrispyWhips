@@ -5,6 +5,16 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.10.6] - 2026-09-25
+
+### Fixed
+
+- **A perk's starting skill bonus is no longer multiplied by your XP settings.** When a new run
+  starts, the game hands out every perk's starting stats the same way it records practice, so the
+  mod treated a perk's "+75 Herbalism" as 75 XP earned and multiplied it: with a multiplier of 8 the
+  perk started you at 150 instead of 75. The mod now leaves the game's own start-of-run setup alone
+  and only scales skill gains made while you play.
+
 ## [1.10.5] - 2026-09-19
 
 ### Fixed
