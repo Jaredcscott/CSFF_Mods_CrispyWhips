@@ -360,7 +360,11 @@ internal static class WarpResolver
                         try
                         {
                             var newElem = Activator.CreateInstance(elemType);
+                            // Before the walk so a JSON list lands in a real List<T>; after it for
+                            // the nested objects the walk itself creates. See BackfillSerializedCollections.
+                            BackfillSerializedCollections(newElem, 0);
                             Walk(newElem, elemDict);
+                            BackfillSerializedCollections(newElem, 0);
                             newElems.Add(newElem);
                         }
                         catch (Exception ex)
@@ -507,6 +511,13 @@ internal static class WarpResolver
                                 rtList[i] = elem;
                         }
                     }
+                }
+                else if (rtVal == null && jsonArr.Count == 0 && IsSerializedCollection(field.FieldType))
+                {
+                    // JSON "[]" on a null field means an empty collection, as Unity reads it. Before
+                    // 2.26.12 it left the field null (see BackfillSerializedCollections).
+                    field.SetValue(rtObj, EmptyCollection(field.FieldType));
+                    resolved++;
                 }
                 else if (rtVal == null && field.FieldType.IsArray)
                 {
@@ -961,6 +972,88 @@ internal static class WarpResolver
         if (typeof(UnityEngine.Object).IsAssignableFrom(t)) return false;
         return true;
     }
+
+    // Per-type list of the fields Unity's serializer would write (see UnitySerializedFields).
+    private static readonly Dictionary<Type, FieldInfo[]> _unityFieldsCache = new();
+
+    /// <summary>
+    /// Give an object this resolver built with Activator.CreateInstance the collections Unity's
+    /// deserializer would have given it. Unity never leaves a serialized array or List&lt;T&gt;
+    /// null (an omitted or empty one comes back empty), and it builds every serialized
+    /// [Serializable] class field; a WarpType 4/6 element is not deserialized by Unity, so each
+    /// such field it omitted, or wrote as [], stayed null. Vanilla code null-checks these, but
+    /// third-party readers assume Unity's shape: WikiMod's stat tooltip calls
+    /// StatStatus.EffectsOnActions.ToList() unguarded, and threw on every hover once CMC's added
+    /// Stomach stage (GameSourceModify/Calories_Stomach.json) was current (Chiwei, 2026-09-24;
+    /// fixed 2.26.12). Only fields that are still null are touched, and only on objects this
+    /// resolver created, never on vanilla ones. Structs are not recursed into.
+    /// </summary>
+    private static void BackfillSerializedCollections(object obj, int depth)
+    {
+        if (obj == null || depth > 4) return;
+        foreach (var field in UnitySerializedFields(obj.GetType()))
+        {
+            try
+            {
+                var ft = field.FieldType;
+                var cur = field.GetValue(obj);
+                if (cur == null)
+                {
+                    if (IsSerializedCollection(ft))
+                    {
+                        field.SetValue(obj, EmptyCollection(ft));
+                        continue;
+                    }
+                    if (!IsUnitySerializableClass(ft)) continue;
+                    cur = Activator.CreateInstance(ft);
+                    field.SetValue(obj, cur);
+                }
+                if (cur is IList items)
+                {
+                    var et = GetFieldElementType(ft);
+                    if (et == null || !IsUnitySerializableClass(et)) continue;
+                    foreach (var e in items) BackfillSerializedCollections(e, depth + 1);
+                }
+                else if (IsUnitySerializableClass(ft))
+                {
+                    BackfillSerializedCollections(cur, depth + 1);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Debug($"WarpResolver: could not default {obj.GetType().Name}.{field.Name} for '{_currentUid}': {Log.ExceptionText(ex)}");
+            }
+        }
+    }
+
+    /// <summary>Instance fields Unity serializes: public or [SerializeField], never [NonSerialized], readonly or const.</summary>
+    private static FieldInfo[] UnitySerializedFields(Type t)
+    {
+        if (_unityFieldsCache.TryGetValue(t, out var cached)) return cached;
+        var list = new List<FieldInfo>();
+        foreach (var f in t.GetFields(AllInstance))
+        {
+            if (f.IsNotSerialized || f.IsInitOnly || f.IsLiteral) continue;
+            if (!f.IsPublic && !f.IsDefined(typeof(UnityEngine.SerializeField), true)) continue;
+            list.Add(f);
+        }
+        return _unityFieldsCache[t] = list.ToArray();
+    }
+
+    /// <summary>A one-dimensional array or a List&lt;T&gt;, the two collections Unity serializes.</summary>
+    private static bool IsSerializedCollection(Type t)
+        => (t.IsArray && t.GetArrayRank() == 1)
+           || (t.IsGenericType && t.GetGenericTypeDefinition() == typeof(List<>));
+
+    private static object EmptyCollection(Type t)
+        => t.IsArray ? Array.CreateInstance(t.GetElementType(), 0) : Activator.CreateInstance(t);
+
+    /// <summary>A [Serializable] non-generic class Unity would build in place of null.</summary>
+    private static bool IsUnitySerializableClass(Type t)
+        => t.IsClass && !t.IsAbstract && !t.IsGenericType && t != typeof(string)
+           && t.IsSerializable && !typeof(Delegate).IsAssignableFrom(t)
+           && !typeof(UnityEngine.Object).IsAssignableFrom(t)
+           && t.GetConstructor(Type.EmptyTypes) != null;
 
     /// <summary>
     /// Expand an array to a new size, preserving existing elements and creating

@@ -4,7 +4,7 @@ Standalone modding framework for Card Survival: Fantasy Forest. Provides mod dis
 
 ## Status
 
-- **Version:** 2.26.11
+- **Version:** 2.26.12
 - **Game Version**: built and reference-checked against EA 0.68b on 2026-09-25 (commit `bddccaaf0`, whose
   message records the live DLL hash, the rebuilds and the RefCheck counts). The version in force is
   whatever `Documentation/GameData/CURRENT_VERSION.txt` names: re-read it there rather than trusting this line.

@@ -4,6 +4,24 @@ All notable changes to CSFFModFramework are documented here.
 
 ---
 
+## [2.26.12] - 2026-09-26
+
+### Fixed
+
+- **WikiMod's Stomach details no longer vanish past 200 with Community Mod Chest's Giant Stomach.**
+  Community Mod Chest adds a Digestion stage above 200 to the base game's Stomach, and the framework
+  built that stage with some of its lists left empty in a way the base game never produces. The game
+  itself copes; WikiMod does not, and its whole Stomach tooltip failed once you ate past 200. Any
+  stage, drop or other entry a mod adds to an existing object is now built exactly as the game would
+  build it. Reported by Chiwei.
+
+### Changed
+
+- **For mod authors:** in a `*WarpData` list with WarpType 4 or 6 whose entries are objects, a list
+  written as `[]` or left out of an entry now arrives as an empty list rather than as nothing, and a
+  list of objects on a field the game keeps as a `List` is now filled in (before, it was dropped).
+  Only entries the framework creates are affected; existing base-game objects are never touched.
+
 ## [2.26.11] - 2026-09-26
 
 ### Fixed
