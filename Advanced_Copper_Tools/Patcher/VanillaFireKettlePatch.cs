@@ -10,21 +10,30 @@ using CSFFModFramework.Api;
 namespace Advanced_Copper_Tools.Patcher
 {
     /// <summary>
-    /// Adds copper cooking containers to vanilla fire cards so they can be dragged onto
-    /// campfires, fireplaces, fire pits, etc., and get heated once inside.
+    /// Lets ACT's copper tea kettle and copper cauldron sit on vanilla fires and heat there.
     ///
-    /// Root cause of placement failure: vanilla fire InventoryFilter.AcceptedTags contains
-    /// the game's compiled (obfuscated) CardTag SO objects (e.g. TextMeshProUGUI_6680).
-    /// Our items use human-readable tag names (e.g. tag_HeatAbleAndBoilableLiquid) which
-    /// the framework resolves to NEW runtime-created CardTag SOs — different objects from
-    /// the vanilla ones.  The tag-match check therefore fails.
+    /// Two injections per fire, both keyed on the two ACT cards themselves:
+    ///   1. The containers are appended to the fire's InventoryFilter.AcceptedCards.
+    ///      CardFilter.SupportsCard returns true for any AcceptedCards match (after the fire's
+    ///      own NOT filters), so no tag injection is needed and none is done.
+    ///   2. A CookingRecipe whose CompatibleCards are those containers is appended to the fire's
+    ///      CookingRecipes, heating the container's contents. GetRecipeForCard returns the FIRST
+    ///      match, so appending never overrides a vanilla recipe.
     ///
-    /// Fix: after the framework resolves our items' CardTags, inject those same SO references
-    /// into each fire's InventoryFilter.AcceptedTags, so the game's inclusion check succeeds.
-    /// AcceptedCards is also populated as a belt-and-suspenders fallback.
-    ///
-    /// NOTE: Do NOT add InventorySlots to fires that have 0 slots — those use weight-based
-    /// inventory mode (MaxWeightCapacity) and a null slot breaks placement.
+    /// What this patch must NEVER do to a vanilla fire (1.16.10, player report):
+    ///   - write MaxWeightCapacity. Vanilla capacities (Campfire 600, Fireplace 1200, FirePit 2400,
+    ///     Oven 1200) are the cooking ladder: a container fits where its full weight fits, exactly
+    ///     like vanilla pots. Up to 1.16.9 this raised every listed fire to 2580, and gave the
+    ///     SaunaStove (no inventory in vanilla) a 2580 inventory that accepted any card.
+    ///   - widen AcceptedTags or match a recipe by a vanilla tag. Those tags are vanilla objects,
+    ///     so every vanilla card carrying them would have been let in or heated too.
+    /// Fires with no vanilla inventory (SaunaStove) are not in the list at all. The Oven gets the
+    /// kettle only, and the copper cauldron goes into its NOTAcceptedCards, as vanilla's Oven names
+    /// the ClayCauldron there. The Oven's one accepted tag is tag_Clay (read in-game 2026-09-26,
+    /// export name Image_7993), which the copper cauldron does not carry, so today leaving it off
+    /// AcceptedCards already keeps it out; the NOT entry states the rule and survives a tag change.
+    /// The Hearths are slot inventories (2 slots, LegacyInventory while capacity is 0), which the
+    /// old capacity write silently turned into weight inventories.
     /// </summary>
     public static class VanillaFireKettlePatch
     {
@@ -33,21 +42,6 @@ namespace Advanced_Copper_Tools.Patcher
         private const string KettleUid = "advanced_copper_tools_copper_tea_kettle";
         private const string CauldronUid = "advanced_copper_tools_copper_cauldron";
         private static bool _loggedReady;
-
-        // Whitelist of tag names relevant to fire slot acceptance. Injecting all container
-        // tags (tag_Metal, tag_Craftable, etc.) would let any matching vanilla item onto fires.
-        private static readonly HashSet<string> FireSlotTagWhitelist = new HashSet<string>(StringComparer.Ordinal)
-        {
-            "tag_Cookable",
-            "tag_WaterContainer",
-            "tag_WaterContainerLarge",
-            "tag_CookingContainer",
-            "tag_CookingPot",
-            "tag_StewContainer",
-            "tag_ContainerOpenLarge",
-            "tag_HeatAbleAndBoilableLiquid",
-            "tag_Heatable",
-        };
 
         private static readonly HashSet<string> LitFireGuids = new HashSet<string>
         {
@@ -59,7 +53,14 @@ namespace Advanced_Copper_Tools.Patcher
             "58523f8a86c4e0347b93d4a8ff192a13", // FireplaceExtinguished
             "e6cc2a4d002a46745abc87aac39680b6", // Hearth
             "760141d2251da2947b2d537c4b2eeacb", // HearthAwakened
-            "4ea0fc8cb98942e498ec7fa941a69211", // SaunaStove
+            "eeef909ec09637145a5ff38003b48d8c", // Oven
+        };
+
+        // Vanilla's Oven InventoryFilter carries a NOT CardFilter for the ClayCauldron
+        // (b1b5f3f02a453df42acaa396d61738f0): cauldrons do not go in the oven. The copper
+        // cauldron follows the same rule.
+        private static readonly HashSet<string> NoCauldronFireGuids = new HashSet<string>
+        {
             "eeef909ec09637145a5ff38003b48d8c", // Oven
         };
 
@@ -84,96 +85,30 @@ namespace Advanced_Copper_Tools.Patcher
                     else if (LitFireGuids.Contains(uid)) fireCands.Add((uid, item));
                 }
 
-                var containers = new List<object>();
-                if (kettleCard != null) containers.Add(kettleCard);
-                if (cauldronCard != null) containers.Add(cauldronCard);
-
-                if (containers.Count == 0)
+                if (kettleCard == null && cauldronCard == null)
                 {
                     Logger?.LogDebug("[KettleFire] ACT copper fire containers not present in AllData; injection skipped for this pass.");
                     return;
                 }
 
-                // Collect the resolved CardTag SOs from our container items.
-                // These are the runtime objects the framework assigned when resolving our
-                // CardTagsWarpData.  We inject them into each fire's AcceptedTags so the
-                // game's tag-match check (item.CardTags ∩ fire.AcceptedTags) succeeds.
-                var containerTags = CollectResolvedTags(containers);
-                var containerTagIds = containerTags.ConvertAll(t => {
-                    var uo = t as UnityEngine.Object;
-                    return uo != null ? $"{uo.name}(id={uo.GetInstanceID()})" : "null";
-                });
-                Logger?.LogDebug($"[KettleFire] Diag: Collected {containerTags.Count} tag SO(s): [{string.Join(", ", containerTagIds)}]");
-
-                // Log first fire's AcceptedTags with instance IDs for comparison
-                if (fireCands.Count > 0)
-                {
-                    var (fuid, fcard) = fireCands[0];
-                    var ff = fcard.GetType().GetField("InventoryFilter", Flags);
-                    var filt = ff?.GetValue(fcard);
-                    if (filt != null)
-                    {
-                        var atf = filt.GetType().GetField("AcceptedTags", Flags);
-                        var at = atf?.GetValue(filt) as Array;
-                        var atNames = new System.Text.StringBuilder();
-                        if (at != null) foreach (var t in at)
-                        {
-                            var uo = t as UnityEngine.Object;
-                            atNames.Append(uo != null ? $"{uo.name}(id={uo.GetInstanceID()})" : "null").Append(", ");
-                        }
-                        Logger?.LogDebug($"[KettleFire] Diag: {fuid} AcceptedTags ({at?.Length ?? 0}): [{atNames}]");
-                        Logger?.LogDebug($"[KettleFire] Diag: InventoryFilter field={ff != null}, filter type={filt.GetType().Name}");
-
-                        // Check TagFilters (NOT entries that could block our items)
-                        var tff = filt.GetType().GetField("TagFilters", Flags);
-                        var tf = tff?.GetValue(filt) as Array;
-                        if (tf != null && tf.Length > 0)
-                        {
-                            var tfLog = new System.Text.StringBuilder();
-                            foreach (var tfEntry in tf)
-                            {
-                                var tagField = tfEntry?.GetType().GetField("Tag", Flags);
-                                var notField = tfEntry?.GetType().GetField("NOT", Flags);
-                                var tagSO = tagField?.GetValue(tfEntry) as UnityEngine.Object;
-                                bool isNot = notField != null && (bool)notField.GetValue(tfEntry);
-                                tfLog.Append($"NOT={isNot} tag={tagSO?.name ?? "null"}(id={tagSO?.GetInstanceID()}), ");
-                            }
-                            Logger?.LogDebug($"[KettleFire] Diag: {fuid} TagFilters ({tf.Length}): [{tfLog}]");
-                        }
-                    }
-                    else
-                    {
-                        var fp = fcard.GetType().GetProperty("InventoryFilter", Flags);
-                        Logger?.LogDebug($"[KettleFire] Diag: {fuid} InventoryFilter field=null, property={fp?.Name ?? "null"}");
-                    }
-                }
-
-                // Locate tag_HeatAbleAndBoilableLiquid for the CookingRecipe CompatibleTags
-                var cardTagType = AccessTools.TypeByName("CardTag");
-                UnityEngine.Object heatableTag = null;
-                if (cardTagType != null && typeof(UnityEngine.Object).IsAssignableFrom(cardTagType))
-                {
-                    foreach (var t in Resources.FindObjectsOfTypeAll(cardTagType))
-                    {
-                        if (t != null && t.name == "tag_HeatAbleAndBoilableLiquid") { heatableTag = t; break; }
-                    }
-                }
-                if (heatableTag == null)
-                    Logger?.LogDebug("[KettleFire] tag_HeatAbleAndBoilableLiquid not found; CookingRecipe will use CompatibleCards only.");
-
                 int patched = 0;
                 foreach (var (uid, fire) in fireCands)
                 {
-                    bool tagOk    = AddAcceptedTagsToFilter(fire, "InventoryFilter", containerTags, uid);
-                    bool cardOk   = AddAcceptedCardsToFilter(fire, "InventoryFilter", containers, uid);
-                    bool weightOk = EnsureFireWeightCapacity(fire, containers, uid);
-                    bool recipeOk = InjectHeatingRecipe(fire, containers, heatableTag, uid);
-                    if (tagOk || cardOk || weightOk || recipeOk) patched++;
+                    var containers = new List<object>();
+                    if (kettleCard != null) containers.Add(kettleCard);
+                    if (cauldronCard != null && !NoCauldronFireGuids.Contains(uid)) containers.Add(cauldronCard);
+                    if (containers.Count == 0) continue;
+
+                    bool cardOk   = AddCardsToFilter(fire, "InventoryFilter", "AcceptedCards", containers, uid);
+                    bool recipeOk = InjectHeatingRecipe(fire, containers, uid);
+                    bool rejectOk = cauldronCard != null && NoCauldronFireGuids.Contains(uid)
+                        && AddCardsToFilter(fire, "InventoryFilter", "NOTAcceptedCards", new List<object> { cauldronCard }, uid);
+                    if (cardOk || recipeOk || rejectOk) patched++;
                 }
 
                 if (!_loggedReady)
                 {
-                    Logger?.LogDebug($"[KettleFire] Fire placement ready for {containers.Count} ACT copper container(s) on {fireCands.Count} vanilla fire card(s); changed {patched} card(s) this pass.");
+                    Logger?.LogDebug($"[KettleFire] Fire placement ready for ACT copper containers on {fireCands.Count} vanilla fire card(s); changed {patched} card(s) this pass.");
                     _loggedReady = true;
                 }
                 else
@@ -188,89 +123,11 @@ namespace Advanced_Copper_Tools.Patcher
         }
 
         // -------------------------------------------------------------------------
-        // Collect resolved CardTag SOs from container items
+        // Card-list injection into the fire's filter: names exactly the ACT containers,
+        // in AcceptedCards (let in) or NOTAcceptedCards (keep out), nothing else
         // -------------------------------------------------------------------------
 
-        static List<object> CollectResolvedTags(IReadOnlyList<object> containers)
-        {
-            var result = new List<object>();
-            foreach (var card in containers)
-            {
-                if (card == null) continue;
-                var tagsField = card.GetType().GetField("CardTags", Flags);
-                var tags = tagsField?.GetValue(card) as Array;
-                if (tags == null) continue;
-                foreach (var t in tags)
-                {
-                    if (t == null || result.Contains(t)) continue;
-                    var name = (t as UnityEngine.Object)?.name;
-                    if (name != null && FireSlotTagWhitelist.Contains(name)) result.Add(t);
-                }
-            }
-            return result;
-        }
-
-        // -------------------------------------------------------------------------
-        // AcceptedTags injection — PRIMARY fix for the obfuscated-vs-human-readable mismatch
-        // -------------------------------------------------------------------------
-
-        static bool AddAcceptedTagsToFilter(object fireCard, string filterMemberName, IReadOnlyList<object> tagsToAdd, string label)
-        {
-            try
-            {
-                if (tagsToAdd.Count == 0) return false;
-
-                var filterField = fireCard.GetType().GetField(filterMemberName, Flags);
-                var filter = filterField != null
-                    ? filterField.GetValue(fireCard)
-                    : fireCard.GetType().GetProperty(filterMemberName, Flags)?.GetValue(fireCard, null);
-                if (filter == null) return false;
-
-                var acceptedTagsField = filter.GetType().GetField("AcceptedTags", Flags);
-                if (acceptedTagsField == null || !acceptedTagsField.FieldType.IsArray) return false;
-
-                var elemType = acceptedTagsField.FieldType.GetElementType();
-                if (elemType == null) return false;
-
-                var existing = acceptedTagsField.GetValue(filter) as Array;
-                var merged = new List<object>();
-                if (existing != null)
-                    foreach (var t in existing) if (t != null && !merged.Contains(t)) merged.Add(t);
-
-                bool changed = false;
-                foreach (var tag in tagsToAdd)
-                {
-                    if (tag != null && elemType.IsInstanceOfType(tag) && !merged.Contains(tag))
-                    {
-                        merged.Add(tag);
-                        changed = true;
-                    }
-                }
-
-                if (!changed) return false;
-
-                var newArr = Array.CreateInstance(elemType, merged.Count);
-                for (int i = 0; i < merged.Count; i++) newArr.SetValue(merged[i], i);
-                acceptedTagsField.SetValue(filter, newArr);
-
-                // Write filter back to owner — required if InventoryFilter is a value type (struct).
-                filterField?.SetValue(fireCard, filter);
-
-                Logger?.LogDebug($"[KettleFire] {label}: added {changed} ACT tag(s) to {filterMemberName}.AcceptedTags.");
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Logger?.LogError($"[KettleFire] {label}: AddAcceptedTagsToFilter failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
-                return false;
-            }
-        }
-
-        // -------------------------------------------------------------------------
-        // AcceptedCards injection — belt-and-suspenders fallback
-        // -------------------------------------------------------------------------
-
-        static bool AddAcceptedCardsToFilter(object fireCard, string filterMemberName, IReadOnlyList<object> acceptedCards, string label)
+        static bool AddCardsToFilter(object fireCard, string filterMemberName, string arrayFieldName, IReadOnlyList<object> cards, string label)
         {
             try
             {
@@ -278,21 +135,29 @@ namespace Advanced_Copper_Tools.Patcher
                 var filter = filterField != null
                     ? filterField.GetValue(fireCard)
                     : fireCard.GetType().GetProperty(filterMemberName, Flags)?.GetValue(fireCard, null);
-                if (filter == null) return false;
+                if (filter == null)
+                {
+                    Logger?.LogWarning($"[KettleFire] {label}: {filterMemberName} not found; cannot set {arrayFieldName} for ACT containers on this fire.");
+                    return false;
+                }
 
-                var acceptedCardsField = filter.GetType().GetField("AcceptedCards", Flags);
-                if (acceptedCardsField == null || !acceptedCardsField.FieldType.IsArray) return false;
+                var cardsField = filter.GetType().GetField(arrayFieldName, Flags);
+                if (cardsField == null || !cardsField.FieldType.IsArray)
+                {
+                    Logger?.LogWarning($"[KettleFire] {label}: {filterMemberName}.{arrayFieldName} not found; cannot set it for ACT containers on this fire.");
+                    return false;
+                }
 
-                var elemType = acceptedCardsField.FieldType.GetElementType();
+                var elemType = cardsField.FieldType.GetElementType();
                 if (elemType == null) return false;
 
-                var existing = acceptedCardsField.GetValue(filter) as Array;
+                var existing = cardsField.GetValue(filter) as Array;
                 var merged = new List<object>();
                 if (existing != null)
                     foreach (var card in existing) if (card != null && !merged.Contains(card)) merged.Add(card);
 
                 bool changed = false;
-                foreach (var card in acceptedCards)
+                foreach (var card in cards)
                 {
                     if (card != null && elemType.IsInstanceOfType(card) && !merged.Contains(card))
                     {
@@ -305,66 +170,33 @@ namespace Advanced_Copper_Tools.Patcher
 
                 var newArr = Array.CreateInstance(elemType, merged.Count);
                 for (int i = 0; i < merged.Count; i++) newArr.SetValue(merged[i], i);
-                acceptedCardsField.SetValue(filter, newArr);
+                cardsField.SetValue(filter, newArr);
 
-                // Write filter back — handles struct InventoryFilter.
+                // Write filter back: CardFilter is a struct, so the change lives only in this box until then.
                 filterField?.SetValue(fireCard, filter);
 
-                Logger?.LogDebug($"[KettleFire] {label}: added ACT containers to {filterMemberName}.AcceptedCards.");
+                Logger?.LogDebug($"[KettleFire] {label}: added {cards.Count} ACT container(s) to {filterMemberName}.{arrayFieldName}.");
                 return true;
             }
             catch (Exception ex)
             {
-                Logger?.LogError($"[KettleFire] {label}: AddAcceptedCardsToFilter failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
-                return false;
-            }
-        }
-
-        static bool EnsureFireWeightCapacity(object fireCard, IReadOnlyList<object> containers, string label)
-        {
-            try
-            {
-                float requiredCapacity = 0f;
-                foreach (var container in containers)
-                {
-                    float objectWeight = Reflect.GetFloat(container, "ObjectWeight");
-                    float liquidCapacity = Reflect.GetFloat(container, "MaxLiquidCapacity");
-                    float contentWeightReduction = Reflect.GetFloat(container, "ContentWeightReduction");
-                    float effectiveFullWeight = objectWeight + Math.Max(0f, liquidCapacity + contentWeightReduction);
-                    if (effectiveFullWeight > requiredCapacity) requiredCapacity = effectiveFullWeight;
-                }
-
-                if (requiredCapacity <= 0f) return false;
-
-                float currentCapacity = Reflect.GetFloat(fireCard, "MaxWeightCapacity");
-                if (currentCapacity >= requiredCapacity) return false;
-
-                if (!Reflect.SetMember(fireCard, "MaxWeightCapacity", requiredCapacity)) return false;
-
-                Logger?.LogDebug($"[KettleFire] {label}: raised MaxWeightCapacity from {currentCapacity:0.#} to {requiredCapacity:0.#} for ACT copper containers.");
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Logger?.LogError($"[KettleFire] {label}: EnsureFireWeightCapacity failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
+                Logger?.LogError($"[KettleFire] {label}: AddCardsToFilter({arrayFieldName}) failed: {ex.InnerException?.ToString() ?? ex.ToString()}");
                 return false;
             }
         }
 
         // -------------------------------------------------------------------------
-        // CookingRecipe injection — heats items with tag_HeatAbleAndBoilableLiquid
+        // CookingRecipe injection: heats the ACT containers, matched by card only
         // -------------------------------------------------------------------------
 
-        static bool InjectHeatingRecipe(object fireCard, IReadOnlyList<object> compatibleCards, UnityEngine.Object heatableTag, string label)
+        static bool InjectHeatingRecipe(object fireCard, IReadOnlyList<object> compatibleCards, string label)
         {
             try
             {
                 var spec = new RecipeSpec
                 {
                     CompatibleCards = compatibleCards,
-                    CompatibleTags = heatableTag != null
-                        ? new object[] { heatableTag }
-                        : Array.Empty<object>(),
+                    CompatibleTags = Array.Empty<object>(),
                     ConditionsCard = 0, // no heat condition required (fire is always lit)
                     Duration = 1,
                     CookerModType = 0, // fire itself unchanged

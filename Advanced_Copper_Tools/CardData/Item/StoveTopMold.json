@@ -11,6 +11,7 @@
     "DefaultText": "A cast metal stove top still in its clay mold. Break with a hammer to free the casting."
   },
   "CardType": 0,
+  "ToggleablePiling": true,
   "ObjectWeight": 400.0,
   "TradingValue": 600.0,
   "CardTags": [],

@@ -11,6 +11,7 @@
     "DefaultText": "A heavy metal stove top freed from its casting mold."
   },
   "CardType": 0,
+  "ToggleablePiling": true,
   "ObjectWeight": 400.0,
   "TradingValue": 800.0,
   "CardTags": [],

@@ -279,6 +279,7 @@
   "CardImageWarpData": "ShapedMetalPan",
   "CardImageWarpType": 3,
   "CardType": 0,
+  "ToggleablePiling": true,
   "ObjectWeight": 40.0,
   "TradingValue": 100.0,
   "MaxLiquidCapacity": 1200.0,

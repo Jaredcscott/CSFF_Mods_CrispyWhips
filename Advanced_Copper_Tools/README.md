@@ -1,7 +1,7 @@
 # Advanced Copper Tools
 
 **Quality of Life & Advanced Metalworking**
-**Version:** 1.16.9
+**Version:** 1.16.10
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.65)
 
@@ -22,8 +22,8 @@ Major systems:
 - **Copper Bathtub** — 3-state placed structure (empty / cold / warm) with deep cleansing and morale benefits; the warm state now splits into a lukewarm **Warm Bath** and a piping-hot **Hot Bath** tier (≥50% heat) with a bigger mood boost and a genuine Stress reduction
 - **Metal Lantern** — 4-variant portable light (item × placed × lit × unlit) running on rendered oil
 - **Oil chain** — Render animal fat (or hemp seed oil with H&F installed) into clean lamp oil; carry it in a Copper Oil Flask (now tracks copper-through-white-bronze metal type)
-- **Copper Tea Kettle** — Liquid container that boils water on any fire source
-- **Copper Cauldron** — Fire-placeable batch vessel with a 3000-weight cooking basket and a 6240 ml basin (now tracks copper-through-white-bronze metal type)
+- **Copper Tea Kettle** - Liquid container that boils water on a lit fire or stove, on any fire with room for its weight (a full kettle needs a Fireplace, Fire Pit or Oven; a Campfire takes it about half full)
+- **Copper Cauldron** - Fire-placeable batch vessel with a 3000-weight cooking basket and a 6240 ml basin; weighs 1200 like the vanilla clay cauldron, so it needs a Fireplace or Fire Pit (now tracks copper-through-white-bronze metal type)
 - **Tea Blending Station** — 3-variant kit / placed / lit workstation with six herb-and-grinding slots, a built-in 8-bowl water reservoir, passive drying, a "Grind All" action, a heated reservoir while lit, and three brewable herbal teas (Calming from willow bark, Warming from wild garlic, Focus from spirit mushrooms)
 - **Copper Chest** (formerly "Copper Pantry") — Sealed, animal-safe storage that slows spoilage to 20% of normal
 - **Iron-Grade Armor** — Iron Sheet forged from iron nuggets feeds a tougher iron helmet/bracers/greaves/armor tier with higher Armor Values and durability than copper
@@ -228,17 +228,18 @@ The flask holds 6 charges — enough to fully refuel a lantern twice. Drag the f
 
 ## Copper Tea Kettle
 
-A copper liquid container (build 3 ticks, unlock 32 ticks; 3 metal sheets + hammer + 1 Tin Solder) that boils water on any fire source.
+A copper liquid container (build 3 ticks, unlock 32 ticks; 3 metal sheets + hammer + 1 Tin Solder) that boils water on a lit fire or stove.
 
 - 200-unit Temperature; vanilla "Cool Down" passive dissipates heat off the source
-- Place on a lit stove, campfire, or copper bathtub heat to boil
+- Place on a lit stove, fire, or copper bathtub heat to boil
+- Fits a vanilla fire the way vanilla pots do, by weight against the fire's own capacity: the kettle weighs 180 and its water counts, so a full kettle (about 970) fits a Fireplace (1200), Fire Pit (2400) or Oven (1200), while a Campfire (600) takes it only about half full. The Copper Stove holds it at any fill
 - Holds water; the held liquid runs its own boil → BoiledWater transform via `LiquidFuelValue`
 
 ---
 
 ## Copper Cauldron
 
-A large portable cooking vessel for batch cooking and brewing. Place the cauldron into a lit campfire, fireplace, fire pit, stove, or other fire source to heat it like the vanilla clay cauldron.
+A large portable cooking vessel for batch cooking and brewing. Place the cauldron into a lit fireplace or fire pit to heat it like the vanilla clay cauldron. It weighs 1200, the same as the clay cauldron, so it follows the same fire rules: one fits a Fireplace, two fit a Fire Pit, a Campfire is too small, and the Oven refuses it as it refuses the clay cauldron.
 
 **Recipe** (build 6 ticks, unlock 48 ticks): 5 metal sheets + 4 copper nails + hammer (not consumed) + 1 Tin Solder.
 
@@ -246,7 +247,7 @@ A large portable cooking vessel for batch cooking and brewing. Place the cauldro
 
 - Weight-limited ingredient basket (3000 capacity) for batch cooking `tag_Cookable` or `tag_Boilable` items; how many fit depends on their weight, not on a fixed slot count
 - 6240 ml open basin; boil/brew recipes require liquid in the cauldron
-- Accepted by vanilla-style fire inventories through cooking-container tags
+- Accepted by vanilla fire inventories by name (the fire accepts this card, not a tag), so no vanilla item gains a new place to go
 - Cools down when removed from heat, matching vanilla cooking containers
 
 ---
@@ -417,7 +418,7 @@ These hooks are mod-scoped and filter on this mod's UniqueIDs. The exception is 
 1. Install BepInEx if not already installed.
 2. Install CSFFModFramework in `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. Drop this mod folder at `BepInEx/plugins/Advanced_Copper_Tools/`.
-4. Launch the game — content loads automatically; check `BepInEx/LogOutput.log` for `Advanced_Copper_Tools v1.16.9 loaded.`
+4. Launch the game — content loads automatically; check `BepInEx/LogOutput.log` for `Advanced_Copper_Tools v1.16.10 loaded.`
 
 ### Deployed file structure
 
@@ -444,7 +445,7 @@ BepInEx/plugins/Advanced_Copper_Tools/
 - Depends on CSFFModFramework for JSON loading, WarpData resolution, sprites, perks, and blueprint tab injection.
 - Declares HerbsAndFungi as a soft dependency so the optional hemp-oil recipe loads after H&F when it is installed.
 - The `Render Hemp Seed Oil` blueprint references an H&F card — without H&F installed, the recipe registers but its ingredient cannot be obtained.
-- ACT modifies vanilla fire cards (campfire, fireplace, fire pit, etc.) to accept ACT containers — this is what `VanillaFireKettlePatch` does, and it is scoped, idempotent, and safe. ACT does not modify vanilla drops, stats, or any other vanilla card data. Safe to add to existing saves; safe to remove (modded items disappear without corrupting the save).
+- ACT changes vanilla fire cards (Campfire, Fireplace, Fire Pit, their extinguished forms, Hearth, Awakened Hearth, lit Oven) only to make room for its two copper containers: the copper kettle and copper cauldron are added to the fire's accepted cards, and a heating recipe for those two cards is appended after the fire's own recipes. The lit Oven takes the kettle only and lists the copper cauldron among the cards it refuses, exactly as vanilla lists the clay cauldron there. That is all `VanillaFireKettlePatch` does. It never changes a fire's weight capacity, never touches the Sauna Stove, and never widens a fire to accept or heat vanilla items (up to 1.16.9 it raised every one of these fires, and the Sauna Stove, to 2580 capacity; fixed in 1.16.10). ACT does not modify vanilla drops, stats, or any other vanilla card data. Safe to add to existing saves; safe to remove (modded items disappear without corrupting the save).
 
 ### Depended on by
 
@@ -457,7 +458,7 @@ Other in-house mods build directly on top of ACT's content:
 
 ## Troubleshooting
 
-**Blueprints not appearing?** Verify CSFFModFramework is loaded — check `LogOutput.log` for `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.16.9 loaded.`
+**Blueprints not appearing?** Verify CSFFModFramework is loaded — check `LogOutput.log` for `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.16.10 loaded.`
 
 **Pan / kettle won't boil?** It must be on a *lit* fire source with fuel remaining. Vanilla water types boil via their own `LiquidFuelValue` OnFull transform; if the liquid isn't a heatable type, nothing happens.
 
@@ -471,7 +472,16 @@ Other in-house mods build directly on top of ACT's content:
 
 ## Version History
 
-### v1.16.7 (current)
+### v1.16.10 (current)
+- **Vanilla fires keep their own capacities again.** ACT had raised every fire it touches, and the
+  Sauna Stove, to 2580; the Campfire, Fireplace, Fire Pit and Oven are back to 600, 1200, 2400 and
+  1200, and the Sauna Stove holds nothing, as in vanilla. Reported by Chiwei.
+- **Copper Cauldron weighs 1200 like the clay cauldron**, so it needs a Fireplace or Fire Pit and
+  stays out of the Oven. A full Copper Tea Kettle needs a Fireplace, Fire Pit or Oven.
+- **Alloy Metal Sheets can be picked out of a pile** with the pile's expand toggle, as vanilla metal
+  nuggets can. Reported by Chiwei.
+
+### v1.16.7
 - **Download cut from 37.2 MB to 11.8 MB.** Every card image had been packaged twice, and the three
   Copper Bathtub images shipped at 2400x1792 instead of the 512-wide size the rest of the mod uses.
   No gameplay, content or balance change.
@@ -617,6 +627,7 @@ Other in-house mods build directly on top of ACT's content:
 ## Credits
 
 - **Author:** Jared (crispywhips)
+- **Thanks to Chiwei**, a player whose report behind 1.16.10 caught ACT overwriting the vanilla fire capacities (and giving the Sauna Stove an inventory) and alloy Metal Sheets that could not be picked out of a pile
 - **Framework:** [CSFFModFramework](https://github.com/jscott3/CSFF_Mods) — handles JSON loading, WarpData resolution, sprites, perk injection, blueprint tab injection, and ProducedCards normalization
 - **Tooling:** BepInEx + Harmony
 - **Game:** Card Survival: Fantasy Forest by WinterSpring Games

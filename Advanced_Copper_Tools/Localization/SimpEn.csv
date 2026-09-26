@@ -129,8 +129,8 @@ Advanced_Copper_Tools_CopperStove_CookCookables_ActionName,Cook Cookables,烹饪
 Advanced_Copper_Tools_CopperStove_HeatContainers_ActionName,Heat up Cooking and Water Containers and Heatables,加热烹饪和水容器及可加热物
 Advanced_Copper_Tools_CopperStove_BoilLiquids_ActionName,Heats up and Boils Liquids,加热并沸腾液体
 Advanced_Copper_Tools_CopperCauldron_CardName,Copper Cauldron,铜制大锅
-Advanced_Copper_Tools_CopperCauldron_CardDescription,A broad copper cauldron with a large open basin. Place it on a campfire or fireplace to heat it up and cook or brew several items at once. Holds 30% more liquid than a clay cauldron. Food stored inside spoils 30% slower than normal.,一口宽口铜制大锅，具有宽大的开口盆。将其放置在营地火堆或壁炉上加热，可同时烹饪或酿造多种物品。容量比陶制大锅多30%。储存在内的食物变质速度比正常慢30%。
-Advanced_Copper_Tools_CopperCauldron_CardHelpSection,"<b>Usage:</b> Fill at a river or lake, then place on a campfire or fireplace to heat up. Temperature must reach 100 before cooking or boiling begins. Holds up to 6240 ml of liquid. Copper slows food spoilage by 30% while stored inside.",<b>用途：</b> 在河流或湖泊中注水，然后放置在营地火堆或壁炉上加热。温度必须达到100才能开始烹饪或沸腾。最多可容纳6240毫升液体。铜质材料使储存在内的食物变质速度减慢30%。
+Advanced_Copper_Tools_CopperCauldron_CardDescription,A broad copper cauldron with a large open basin. Place it on a fireplace or fire pit to heat it up and cook or brew several items at once. Holds 30% more liquid than a clay cauldron. Food stored inside spoils 30% slower than normal.,一口宽口铜制大锅，具有宽大的开口盆。将其放置在壁炉或火坑上加热，可同时烹饪或酿造多种物品。容量比陶制大锅多30%。储存在内的食物变质速度比正常慢30%。
+Advanced_Copper_Tools_CopperCauldron_CardHelpSection,"<b>Usage:</b> Fill at a river or lake, then place on a fireplace or fire pit to heat up. Like the clay cauldron, it is too heavy for a campfire. Temperature must reach 100 before cooking or boiling begins. Holds up to 6240 ml of liquid. Copper slows food spoilage by 30% while stored inside.",<b>用途：</b> 在河流或湖泊中注水，然后放置在壁炉或火坑上加热。与粘土大锅一样，它太重，无法放在营火上。温度必须达到100才能开始烹饪或沸腾。最多可容纳6240毫升液体。铜质材料使储存在内的食物变质速度减慢30%。
 Advanced_Copper_Tools_CopperCauldron_Dismantle_ActionName,Dismantle,拆解
 Advanced_Copper_Tools_CopperCauldron_Dismantle_ActionDescription,Take apart the cauldron to recover its main components.,拆解大锅以回收其主要部件。
 Advanced_Copper_Tools_CopperCauldron_PickUp_ActionName,Pick Up,拾起
@@ -140,7 +140,7 @@ Advanced_Copper_Tools_CopperCauldron_CookBatch_ActionName,Cook,烹饪
 Advanced_Copper_Tools_CopperCauldron_BrewBatch_ActionName,Boil,煮沸
 Advanced_Copper_Tools_CopperCauldron_BrewBatch_CannotCookText,Needs liquid in the cauldron.,大锅内需要液体。
 Advanced_Copper_Tools_Bp_CopperCauldron_CardName,Copper Cauldron,铜制大锅
-Advanced_Copper_Tools_Bp_CopperCauldron_CardDescription,"Assemble a large copper cauldron from copper sheets, copper nails, and a hammer. Place the finished cauldron on a campfire or fireplace to cook and brew with its 6240 ml basin.",用铜片、铜钉和锤子组装一口大型铜制大锅。将完成的大锅放置在营地火堆或壁炉上，用其6240毫升的盆进行烹饪和酿造。
+Advanced_Copper_Tools_Bp_CopperCauldron_CardDescription,"Assemble a large copper cauldron from copper sheets, copper nails, and a hammer. Place the finished cauldron on a fireplace or fire pit to cook and brew with its 6240 ml basin.",用铜片、铜钉和锤子组装一口大型铜制大锅。将完成的大锅放置在壁炉或火坑上，用其6240毫升的盆进行烹饪和酿造。
 Advanced_Copper_Tools_Bp_CopperCauldron_UnlockConditionsDesc,Metal Sheet Needed,需要金属片
 Advanced_Copper_Tools_CopperStove_Progress_CardStatName,Charcoal,木炭
 Advanced_Copper_Tools_CopperStove_Special1_CardStatName,Ash Amount,灰烬量

@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "advanced_copper_tools_copper_cauldron",
     "LocalizationKey": "Advanced_Copper_Tools_CopperCauldron_CardDescription",
-    "DefaultText": "A broad copper cauldron with a large open basin. Place it on a campfire or fireplace to heat it up and cook or brew several items at once. Holds 30% more liquid than a clay cauldron. Food stored inside spoils 30% slower than normal."
+    "DefaultText": "A broad copper cauldron with a large open basin. Place it on a fireplace or fire pit to heat it up and cook or brew several items at once. Holds 30% more liquid than a clay cauldron. Food stored inside spoils 30% slower than normal."
   },
   "CanBeRenamed": false,
   "AlternateNames": [
@@ -96,7 +96,7 @@
   "CardHelpSection": {
     "ParentObjectID": "advanced_copper_tools_copper_cauldron",
     "LocalizationKey": "Advanced_Copper_Tools_CopperCauldron_CardHelpSection",
-    "DefaultText": "<b>Usage:</b> Fill at a river or lake, then place on a campfire or fireplace to heat up. Temperature must reach 100 before cooking or boiling begins. Holds up to 6240 ml of liquid. Copper slows food spoilage by 30% while stored inside."
+    "DefaultText": "<b>Usage:</b> Fill at a river or lake, then place on a fireplace or fire pit to heat up. Like the clay cauldron, it is too heavy for a campfire. Temperature must reach 100 before cooking or boiling begins. Holds up to 6240 ml of liquid. Copper slows food spoilage by 30% while stored inside."
   },
   "CardImage": {
     "m_FileID": 0,
@@ -112,7 +112,7 @@
   "CardType": 0,
   "CannotBeTransferred": false,
   "NotAutoSolvableEvent": false,
-  "ObjectWeight": 520.0,
+  "ObjectWeight": 1200.0,
   "TradingValue": 450.0,
   "CardTags": [],
   "CardTagsWarpData": [

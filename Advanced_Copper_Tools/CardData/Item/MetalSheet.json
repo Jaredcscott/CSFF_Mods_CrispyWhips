@@ -11,6 +11,7 @@
     "DefaultText": "A flat metal sheet, hammered thin."
   },
   "CardType": 0,
+  "ToggleablePiling": true,
   "ObjectWeight": 150.0,
   "TradingValue": 400.0,
   "CardTags": [],

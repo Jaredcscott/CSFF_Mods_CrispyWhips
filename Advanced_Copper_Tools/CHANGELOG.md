@@ -2,6 +2,57 @@
 
 All notable changes to this mod are documented here.
 
+## [1.16.10] - 2026-09-26
+
+Thanks to Chiwei, whose report is behind both fixes in this release: ACT overwriting the vanilla
+fire capacities, and alloy sheets that could not be picked out of a pile.
+
+### Fixed
+- **Vanilla fires keep their own capacities again.** Since 1.7.5 (May 2026), ACT raised every
+  vanilla fire it lets the copper kettle and cauldron onto to a capacity of 2580: Campfire (600),
+  Fireplace (1200), Fire Pit (2400) and the lit Oven (1200), lit or out. The unlit Oven was not on
+  the list, which is why the Oven's capacity jumped when it was lit. The two Hearths, which hold two
+  slots in vanilla, were turned into 2580-weight inventories the same way; they have their two slots
+  back. The number came from a wrong
+  estimate of the kettle's full weight, counting its water at 1 weight per unit where water weighs
+  0.33. ACT no longer changes any fire's capacity, so the vanilla cooking ladder is back: a Campfire
+  takes two clay bowls or one cooking pot, a Fireplace one clay cauldron, a Fire Pit two.
+- **The Sauna Stove no longer holds items.** ACT gave it the same 2580 capacity, and since its
+  vanilla filter is empty it then accepted any card, food included, and did nothing with it. ACT no
+  longer touches the Sauna Stove at all.
+- **ACT no longer widens what vanilla fires accept or heat.** The copper kettle and cauldron are let
+  onto fires, and heated there, by name only. Before, each fire was also opened to several vanilla
+  container tags and the heating recipe matched a vanilla tag, so vanilla items carrying those tags
+  could be let in or heated as well.
+- **Metal Sheets of different metals can be picked apart.** Copper, Ghost Bronze, Tin, Tin Bronze and
+  White Bronze sheets are one card named after its metal, so they pile together, and the pile had no
+  expand toggle: there was no way to drag out a bronze sheet for the Bronze Armor Set. The pile now
+  has the toggle, as vanilla metal nuggets and bars do. Cast Stove Tops, Stove Top Molds and shaped
+  pan blanks, which also come in several metals, get the same toggle, and so do Copper Nails, to
+  match Iron Nails. There are no alloy nails: Copper Nails are hammered from copper-grade nuggets only
+  and carry no metal type, so every nail is the same.
+
+### Changed
+- **The Copper Cauldron weighs 1200, the same as the vanilla clay cauldron (was 520).** It follows the
+  same fire rules as a result: one fits a Fireplace, two fit a Fire Pit, and a Campfire is too small.
+  It is also kept out of the Oven, which refuses the clay cauldron by name. It is heavier to carry.
+- **A full Copper Tea Kettle needs a Fireplace, Fire Pit or Oven.** The kettle weighs 180 and its
+  water counts, so full of water it weighs about 970, more than a Campfire's 600. A Campfire takes it
+  about half full, and the Copper Stove holds it at any fill. With the old 2580 capacities it fit
+  anywhere.
+- In an existing save, a fire already holding more than its restored capacity keeps what it holds;
+  it accepts nothing new until enough is taken out.
+
+### Docs
+- The README, the Player Guide and the cauldron's in-game text (English and Chinese) now say which
+  fires take the kettle and the cauldron. The README's compatibility note, which said ACT changes
+  nothing else on vanilla cards, now lists exactly what ACT adds to each fire.
+- **The Player Guide's recipes match the blueprints again.** Most had drifted: every recipe that
+  takes Tin Solder now says so, and the sheet, stove, pan, saw, armor, wheelbarrow parts, lantern,
+  oil, chest and tea station recipes, the armor's crafting tab and unlock, the Tea Station reservoir
+  (8 bowls, not 300) and the smelting recovery table (read from the mod's own smelting table; the
+  kettle and wheelbarrow bucket it listed are not in it) are corrected.
+
 ## [1.16.9] - 2026-09-23
 
 ### Docs
