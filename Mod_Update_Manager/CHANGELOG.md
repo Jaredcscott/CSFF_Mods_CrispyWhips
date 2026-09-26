@@ -5,6 +5,24 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [2.1.60] - 2026-09-26
+
+### Changed
+
+- **Refreshed the embedded mod suite with Advanced Copper Tools 1.16.10.** Thanks to Chiwei,
+  whose report is behind both fixes:
+  - Vanilla fires keep their own capacity again (Campfire 600, Fireplace 1200, Fire Pit 2400,
+    Oven 1200). Up to 1.16.9 Advanced Copper Tools raised every fire to 2580, gave the Sauna
+    Stove an inventory that took food, and turned the Hearth's two slots into a weight
+    inventory.
+  - The Copper Cauldron weighs 1200 like the Clay Cauldron, so it needs a Fireplace or a Fire
+    Pit and the Oven refuses it; a full Copper Tea Kettle needs a Fireplace, Fire Pit or Oven.
+  - A pile of mixed Metal Sheets (and Stove Top Molds, shaped pan heads and Copper Nails) can be
+    opened, so you can pick the bronze sheet a recipe needs.
+
+  The other eight suite mods are re-embedded at the same versions as 2.1.59. Advanced Copper
+  Tools' own changelog has the full list.
+
 ## [2.1.59] - 2026-09-26
 
 ### Changed
