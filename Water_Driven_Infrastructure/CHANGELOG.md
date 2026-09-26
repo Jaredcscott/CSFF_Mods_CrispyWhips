@@ -2,6 +2,18 @@
 
 All notable changes to this mod are documented here.
 
+## [1.11.3] - 2026-09-25
+
+### Fixed
+- **Copper nuggets from self-smelting copper items now get the forge's quality floor.** The base
+  game marks every new metal nugget as copper the moment it appears, and the mod read that mark as
+  "this nugget was already handled elsewhere", so it skipped every nugget and they came out at the
+  item's own low quality. It now treats the copper mark as the default it is. In-game check tracked
+  as T2.131.
+- **The same mistake applied to smelting the iron parts, bearing, axle and wrench back into
+  nuggets:** those nuggets could stay marked copper instead of iron. Fixed the same way; not yet
+  confirmed in-game.
+
 ## [1.11.2] - 2026-09-18
 
 ### Changed

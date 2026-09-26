@@ -1359,6 +1359,15 @@ namespace WaterDrivenInfrastructure.Patcher
             ApplyIronBarType(preIds, sourceQualityPct);
         }
 
+        // A new nugget's metal type is NOT 0 by the time these one-frame passes read it: vanilla
+        // MetalNugget's OnStatsChangeAction "Backwards Comptability - if Metal Type is 0 put it to
+        // 100" stamps every fresh nugget Copper (100) first. So 100 means "untyped default", and only
+        // another value (iron 200, tin 120, from the sluice or another path) means typed elsewhere.
+        // Reading 100 as typed skipped every nugget: walkthrough T2.131 (r39) found six copper
+        // self-smelt nuggets with no quality floor.
+        private static bool IsTypedByAnotherPath(float sd4) =>
+            !float.IsNaN(sd4) && sd4 > 0f && Math.Abs(sd4 - NuggetCopperType) > 0.5f;
+
         private static int ApplyIronBarType(HashSet<int> preIds, float sourceQualityPct)
         {
             int updated = 0;
@@ -1370,7 +1379,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     if (card is UnityEngine.Object uo && preIds != null && preIds.Contains(uo.GetInstanceID())) continue;
 
                     float sd4 = CardUtil.GetDurability(card, "SpecialDurability4");
-                    if (!float.IsNaN(sd4) && sd4 > 0f) continue; // already typed
+                    if (IsTypedByAnotherPath(sd4)) continue;
 
                     bool ok = CardUtil.SetDurability(card, "SpecialDurability4", IronBarMetalType);
                     ok &= ApplyBlastNuggetQuality(card, sourceQualityPct);
@@ -1510,7 +1519,7 @@ namespace WaterDrivenInfrastructure.Patcher
                     if (card is UnityEngine.Object uo && preIds != null && preIds.Contains(uo.GetInstanceID())) continue;
 
                     float sd4 = CardUtil.GetDurability(card, "SpecialDurability4");
-                    if (!float.IsNaN(sd4) && sd4 > 0f) continue; // already typed (iron/sluice) — leave alone
+                    if (IsTypedByAnotherPath(sd4)) continue;
 
                     if (ApplyBlastNuggetQuality(card, sourceQualityPct)) updated++;
                 }

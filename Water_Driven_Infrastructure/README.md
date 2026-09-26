@@ -1,6 +1,6 @@
 # Water Driven Infrastructure
 
-**Version:** 1.11.2
+**Version:** 1.11.3
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.66)
 **Requires:** CSFFModFramework (AdvancedCopperTools optional — enhances, doesn't gate)
@@ -273,7 +273,7 @@ All perks appear in the **Situational** tab.
 2. Deploy CSFFModFramework to `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. (Optional) Deploy AdvancedCopperTools to `BepInEx/plugins/Advanced_Copper_Tools/`.
 4. Extract this mod to `BepInEx/plugins/Water_Driven_Infrastructure/`.
-5. Launch the game — check `BepInEx/LogOutput.log` for `WaterDrivenInfrastructure v1.11.2 loaded.`
+5. Launch the game — check `BepInEx/LogOutput.log` for `WaterDrivenInfrastructure v1.11.3 loaded.`
 
 ### Deployed layout
 
@@ -323,7 +323,7 @@ All patches filter on this mod's UniqueIDs and never modify vanilla cards, drops
 
 ## Troubleshooting
 
-**Blueprints not appearing?** Verify CSFFModFramework is installed and check `LogOutput.log` for `WaterDrivenInfrastructure v1.11.2 loaded.` AdvancedCopperTools is optional.
+**Blueprints not appearing?** Verify CSFFModFramework is installed and check `LogOutput.log` for `WaterDrivenInfrastructure v1.11.3 loaded.` AdvancedCopperTools is optional.
 
 **Forge won't smelt?** Temperature must reach 1100°. Feed charcoal and use the Blast action before attempting to smelt.
 
