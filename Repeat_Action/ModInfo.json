@@ -2,6 +2,6 @@
 	"Name": "RepeatAction",
 	"ShortName": "RA",
 	"Author": "Jared",
-	"Version": "2.1.5",
+	"Version": "2.1.6",
 	"Description": "A quality-of-life mod that repeats your last action with configurable keybinds and safety limits, including stop floors on any vanilla or modded stat. Set a count (or Unlimited) with the +/- keys or the mouse wheel. Player-initiated actions are captured by default; a repeat succeeds only while the card and game conditions still match, and stops cleanly when they no longer do, reporting the game's own reason. Group actions can repeat as whole sweeps or one card at a time. A progress bar tracks each run; optional verbose diagnostics log why a run stopped, and an optional on-screen indicator shows the current count while a card popup is open."
 }

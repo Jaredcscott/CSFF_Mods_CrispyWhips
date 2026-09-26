@@ -1,6 +1,6 @@
 # Repeat Action
 
-**Version:** 2.1.5
+**Version:** 2.1.6
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (Early Access)
 
@@ -26,7 +26,7 @@ A quality-of-life mod that lets you automatically repeat your last action multip
 - **Travel Support**: Repeat a direction action (North/South/East/West) to keep moving — the mod finds the matching direction on each new location card and stops cleanly when there's no path forward
 - **Drag-Drop Support**: Repeat drag-drop actions like making twine, soaking reeds, or chopping trees with tools
 - **Stack Support**: Repeat stack-button actions on card piles
-- **Group Actions, Two Ways**: Group actions (Eat All, group harvests) replay as one whole-group sweep per iteration by default. Turn on `Per-Card Group Repeat` to process exactly one card of the captured group per iteration instead, so the count is a hard per-card cap and the run stops with "no more targets" when the group runs out
+- **Group Actions, Two Ways**: Group actions (Eat All, group harvests) replay as one whole-group sweep per iteration by default. Turn on `Per-Card Group Repeat` to process exactly one card of the captured group per iteration instead, so the count is a hard per-card cap and the run stops with "no more targets" when the group runs out. Either way, each iteration rebuilds the group exactly as the game's own button would, so every card's requirements, flavour, spices and time cost are counted afresh
 - **Event-Aware**: With `Stop On Low Stats` enabled, the run stops when a critical stat condition starts blocking actions (dehydration, starvation, etc.); other popups pause the run until you dismiss them
 - **Honest Stop Reasons**: When a repeat stops early, the notification shows the game's own reason (e.g. a missing requirement), not a guess
 - **Verbose Run Diagnostics** *(off by default)*: When on, `BepInEx/LogOutput.log` records every decision a run makes while it is active - which safety gate tripped and with what values, which card could not be found, what the game's availability check said - so you can read why a run stopped without enabling BepInEx debug logging. Never logs outside a run

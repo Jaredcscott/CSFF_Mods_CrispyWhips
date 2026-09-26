@@ -57,8 +57,9 @@ namespace Repeat_Action.Patcher
             public bool IsLiquidTransfer;                // CardOnCard only
             public bool StackLiquids;                    // StackAction only
             public List<InGameCardBase> GroupCards;      // GroupAction only
-            public List<DismantleCardAction> GroupActions;
             public List<string> GroupUids;
+            public GroupInventoryAction GroupDef;        // GroupAction only: the button's definition, so a
+                                                         // replay rebuilds the group the way the game does
         }
 
         // Actions never captured: auto-advancing story/event popups is unrecoverable.
@@ -141,6 +142,18 @@ namespace Repeat_Action.Patcher
         private static bool cancelRequested;
         private static int groupCaptureFrame = -1;       // PerformGroupInventoryAction loops PerformAction internally
 
+        // The group builder's definition (GroupInventoryAction) is only an argument to the button's
+        // Setup(), never stored on it, so it is recorded per button here and handed to the group
+        // capture when that button's Perform() fires in the same frame.
+        private static readonly Dictionary<GroupInventoryActionButton, GroupInventoryAction> groupDefsByButton =
+            new Dictionary<GroupInventoryActionButton, GroupInventoryAction>();
+        private static GroupInventoryAction pendingGroupDef;
+        private static int pendingGroupDefFrame = -1;
+        private static bool groupDefMissingWarned;
+
+        // ActionAvailable warns once per exception type; the run stops either way.
+        private static readonly HashSet<string> availabilityFailuresWarned = new HashSet<string>();
+
         // Per-Card Group Repeat: the live cards already dispatched during the CURRENT run, so each
         // iteration lands on the next still-unprocessed member of the captured group. Reset per run.
         private static readonly List<InGameCardBase> perCardDispatched = new List<InGameCardBase>();
@@ -181,7 +194,16 @@ namespace Repeat_Action.Patcher
                     AccessTools.Method(gm, nameof(GameManager.PerformGroupInventoryAction)),
                     nameof(GameManager.PerformGroupInventoryAction), nameof(PerformGroupInventoryAction_Prefix));
 
-                Logger.LogDebug("ActionPatch v2 applied — native-dispatch capture on 5 GameManager funnels");
+                var gb = typeof(GroupInventoryActionButton);
+                Patch(harmony,
+                    AccessTools.Method(gb, nameof(GroupInventoryActionButton.Setup),
+                        new[] { typeof(int), typeof(GroupInventoryAction), typeof(InGameCardBase) }),
+                    "GroupInventoryActionButton.Setup", nameof(GroupButtonSetup_Postfix), postfix: true);
+                Patch(harmony,
+                    AccessTools.Method(gb, nameof(GroupInventoryActionButton.Perform)),
+                    "GroupInventoryActionButton.Perform", nameof(GroupButtonPerform_Prefix));
+
+                Logger.LogDebug("ActionPatch v2 applied - native-dispatch capture on 5 GameManager funnels and the group button");
             }
             catch (Exception ex)
             {
@@ -197,13 +219,15 @@ namespace Repeat_Action.Patcher
         /// (EA 0.66bb added an InGameNPC param to CollectActionModifiers and every dispatch
         /// threw MissingMethodException). An unresolvable funnel is therefore an ERROR the
         /// player's log always shows; the healthy-case signature dump stays at Debug so the
-        /// mod keeps to its one-Info-line-at-startup budget.
+        /// mod keeps to its one-Info-line-at-startup budget. Each patch is isolated: the
+        /// patches bind the original's parameters BY NAME, so a renamed parameter makes
+        /// harmony.Patch throw, and that must cost only this patch, not every one after it.
         /// </summary>
-        private static void Patch(Harmony harmony, System.Reflection.MethodInfo target, string label, string prefixName)
+        private static void Patch(Harmony harmony, System.Reflection.MethodInfo target, string label, string patchName, bool postfix = false)
         {
             if (target == null)
             {
-                Logger.LogError($"Dispatch funnel '{label}' not found on GameManager - the game's signature likely changed in a game update. Repeat will not capture this action kind.");
+                Logger.LogError($"Patch target '{label}' not found - the game's signature likely changed in a game update. Repeat will not capture this action kind.");
                 return;
             }
             var ps = target.GetParameters();
@@ -211,7 +235,16 @@ namespace Repeat_Action.Patcher
             for (int i = 0; i < ps.Length; i++) sig[i] = $"{ps[i].ParameterType.Name} {ps[i].Name}";
             Logger.LogDebug($"[Funnel] {label}({string.Join(", ", sig)})");
 
-            harmony.Patch(target, prefix: new HarmonyMethod(typeof(ActionPatch), prefixName));
+            try
+            {
+                var method = new HarmonyMethod(typeof(ActionPatch), patchName);
+                if (postfix) harmony.Patch(target, postfix: method);
+                else harmony.Patch(target, prefix: method);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError($"Could not patch '{label}' - Repeat will not capture this action kind: {ex}");
+            }
         }
 
         // =====================================================================
@@ -309,6 +342,21 @@ namespace Repeat_Action.Patcher
                 if (IsBlockedAction(name)) { if (last == null) lastRejectedName = name; return; }
                 if (IsRestLike(name) && last != null && !IsRestLike(last.ActionName)) return;
 
+                // A replay rebuilds the group from the button's definition. Without it only the
+                // click-time action copies exist, and replaying those re-applies their stale time
+                // cost and flavour totals, so the action is refused rather than captured.
+                if (pendingGroupDefFrame != Time.frameCount)
+                {
+                    if (!groupDefMissingWarned)
+                    {
+                        groupDefMissingWarned = true;
+                        Logger.LogWarning($"[Capture] Group action '{name}' arrived without its group button's definition (the GroupInventoryActionButton patches did not run), so group actions cannot be repeated this session.");
+                    }
+                    if (last == null) lastRejectedName = name;
+                    return;
+                }
+                pendingGroupDefFrame = -1;
+
                 var uids = new List<string>(_Cards.Count);
                 for (int i = 0; i < _Cards.Count; i++) uids.Add(UidOf(_Cards[i]));
 
@@ -321,13 +369,45 @@ namespace Repeat_Action.Patcher
                     ReceivingCard = _Cards[0],
                     ReceivingUid = uids[0],
                     GroupCards = new List<InGameCardBase>(_Cards),
-                    GroupActions = new List<DismantleCardAction>(_Actions),
                     GroupUids = uids,
+                    GroupDef = pendingGroupDef,
                 };
                 lastRejectedName = null;
                 Logger.LogDebug($"[Capture] GroupAction: '{name}' on {_Cards.Count} card(s)");
             }
             catch (Exception ex) { Logger.LogError($"[Capture] PerformGroupInventoryAction error: {ex}"); }
+        }
+
+        static void GroupButtonSetup_Postfix(GroupInventoryActionButton __instance, GroupInventoryAction _Action)
+        {
+            try
+            {
+                if (__instance == null) return;
+                if (groupDefsByButton.Count > 64) PruneDestroyedButtons();
+                groupDefsByButton[__instance] = _Action;
+            }
+            catch (Exception ex) { Logger.LogError($"[Capture] GroupInventoryActionButton.Setup error: {ex}"); }
+        }
+
+        static void GroupButtonPerform_Prefix(GroupInventoryActionButton __instance)
+        {
+            try
+            {
+                if (__instance != null && groupDefsByButton.TryGetValue(__instance, out var def))
+                {
+                    pendingGroupDef = def;
+                    pendingGroupDefFrame = Time.frameCount;
+                }
+            }
+            catch (Exception ex) { Logger.LogError($"[Capture] GroupInventoryActionButton.Perform error: {ex}"); }
+        }
+
+        /// <summary>Buttons are pooled, so this stays small; drop any destroyed with their popup.</summary>
+        private static void PruneDestroyedButtons()
+        {
+            var dead = new List<GroupInventoryActionButton>();
+            foreach (var b in groupDefsByButton.Keys) if (!b) dead.Add(b);
+            for (int i = 0; i < dead.Count; i++) groupDefsByButton.Remove(dead[i]);
         }
 
         private static void CaptureAction(FunnelKind kind, CardAction action, InGameCardBase receiving, InGameCardBase given, bool stackLiquids)
@@ -707,38 +787,54 @@ namespace Repeat_Action.Patcher
         }
 
         /// <summary>
-        /// Whole-group mode (default): rebuild the whole captured group from live cards and sweep it
-        /// in one PerformGroupInventoryAction, exactly as the player's click did. Per-Card Group
-        /// Repeat: walk the captured group in order and dispatch only the FIRST member not yet
-        /// processed this run (same funnel, one-element lists), so one iteration = one card and the
-        /// run ends with "no more targets" once the group is exhausted.
+        /// Rebuild the group every iteration exactly as the game's group button does:
+        /// GroupInventoryAction.TryAddingCardToGroupActionList over the live members makes fresh
+        /// action copies, drops any member whose requirements fail, and gives the FIRST member the
+        /// group's time cost plus the flavour and spice totals of the cards actually present.
+        /// Replaying the click-time copies instead re-applied their stale totals (once per card in
+        /// Per-Card mode, with spice flavour re-added on every call) and skipped the member checks.
+        /// Whole-group mode (default): every live captured member, one sweep per iteration.
+        /// Per-Card Group Repeat: the first captured member not yet processed this run whose
+        /// requirements pass, as a group of one, so one iteration = one card and the run ends with
+        /// "no more targets" once the group is exhausted.
         /// </summary>
         private static bool DispatchGroup(Captured cap, int completed, ref Coroutine running, ref string failReason)
         {
             bool perCard = PerCardGroupMode;
             var cards = new List<InGameCardBase>();
             var actions = new List<DismantleCardAction>();
+            // Cards already tried this iteration (plus, per card, those processed this run), so a
+            // consumed member's same-UID fallback in ResolveCard never lands on one card twice.
+            var tried = perCard ? new List<InGameCardBase>(perCardDispatched) : new List<InGameCardBase>();
+            int liveMembers = 0;
+            string blockedMessage = null;
             for (int i = 0; i < cap.GroupCards.Count; i++)
             {
-                // Per-card: exclude everything already dispatched this run; a captured member that
-                // was consumed falls back (via ResolveCard) to another live card of the same UID.
-                var c = ResolveCard(cap.GroupCards[i], i < cap.GroupUids.Count ? cap.GroupUids[i] : null, null,
-                    perCard ? perCardDispatched : cards);
-                if (c == null || cards.Contains(c)) continue;
-                cards.Add(c);
-                actions.Add(cap.GroupActions[i]);
-                if (perCard) break;
+                var c = ResolveCard(cap.GroupCards[i], i < cap.GroupUids.Count ? cap.GroupUids[i] : null, null, tried);
+                if (c == null) continue;
+                tried.Add(c);
+                liveMembers++;
+                string msg = RefreshGroupCandidates(cap.GroupDef, c);
+                if (blockedMessage == null) blockedMessage = msg;
+                cap.GroupDef.TryAddingCardToGroupActionList(c, InGameNPCOrPlayer.PlayerAgent, ref cards, ref actions);
+                if (perCard && cards.Count > 0) break;
             }
             if (cards.Count == 0)
             {
-                RunLog(perCard
-                    ? $"all {cap.GroupCards.Count} captured group member(s) already processed or gone ({perCardDispatched.Count} dispatched this run)"
-                    : $"none of the {cap.GroupCards.Count} captured group member(s) is live on this board");
-                failReason = completed > 0 ? "no more targets" : "target cards not found";
+                if (liveMembers == 0)
+                {
+                    RunLog(perCard
+                        ? $"all {cap.GroupCards.Count} captured group member(s) already processed or gone ({perCardDispatched.Count} dispatched this run)"
+                        : $"none of the {cap.GroupCards.Count} captured group member(s) is live on this board");
+                    failReason = completed > 0 ? "no more targets" : "target cards not found";
+                }
+                else
+                {
+                    failReason = string.IsNullOrEmpty(blockedMessage) ? "requirements no longer met" : blockedMessage;
+                    RunLog($"{liveMembers} live group member(s), but the game's group builder accepted none for '{cap.ActionName}': {failReason}");
+                }
                 return false;
             }
-
-            if (!ActionAvailable(actions[0], cards[0], null, ref failReason)) return false;
 
             running = GameManager.PerformGroupInventoryAction(cards, actions, _FastMode: false, InGameNPCOrPlayer.PlayerAgent);
             if (running == null) { failReason = "the game rejected the action"; return false; }
@@ -747,10 +843,44 @@ namespace Repeat_Action.Patcher
         }
 
         /// <summary>
+        /// The builder's SimpleConditionsCheck reads state only CollectActionModifiers maintains, so
+        /// refresh every action on the card that the builder may pick (the group's action tag or an
+        /// alternate) against the live card first: the same staleness ActionAvailable guards against
+        /// for single actions. Returns the first action-modifier block message, or null.
+        /// </summary>
+        private static string RefreshGroupCandidates(GroupInventoryAction def, InGameCardBase c)
+        {
+            var das = c.DismantleActions;
+            if (das == null) return null;
+            string blocked = null;
+            for (int i = 0; i < das.Length; i++)
+            {
+                var a = das[i];
+                if (a == null || !IsGroupCandidate(def, a)) continue;
+                a.CollectActionModifiers(c, null, null);
+                if (blocked == null && !string.IsNullOrEmpty(a.ActionBlockedMessage)) blocked = a.ActionBlockedMessage;
+            }
+            return blocked;
+        }
+
+        /// <summary>Mirrors the tag test in GroupInventoryAction.TryAddingCardToGroupActionList.</summary>
+        private static bool IsGroupCandidate(GroupInventoryAction def, DismantleCardAction a)
+        {
+            if (a.HasActionTag(def.Action)) return true;
+            if (def.AlternateActionTags == null) return false;
+            for (int j = 0; j < def.AlternateActionTags.Length; j++)
+                if (a.HasActionTag(def.AlternateActionTags[j])) return true;
+            return false;
+        }
+
+        /// <summary>
         /// The same availability test the UI runs to enable a button: refresh the action's
         /// modifier state against the live cards FIRST (SimpleConditionsCheck reads fields
         /// only CollectActionModifiers maintains — stale state was the 1.x "Action
-        /// unavailable" bug), then check. Fails open: the game re-validates in ActionRoutine.
+        /// unavailable" bug), then check. Fails CLOSED: nothing downstream re-checks (the game's
+        /// ActionRoutine runs no condition test, EA 0.68b), so an action whose check throws would
+        /// otherwise run with its requirements unchecked. Both game checks accept a null card, so
+        /// cardless actions (Rest, time skip) take the same path.
         /// </summary>
         private static bool ActionAvailable(CardAction action, InGameCardBase card, InGameCardBase given, ref string failReason)
         {
@@ -768,8 +898,13 @@ namespace Repeat_Action.Patcher
             }
             catch (Exception ex)
             {
-                RunLog($"availability check threw ({ex.GetType().Name}) - dispatching anyway");
-                return true;
+                string type = ex.GetType().Name;
+                if (availabilityFailuresWarned.Add(type))
+                    Logger.LogWarning($"[Repeat] The game's availability check threw on '{action.ActionName.DefaultText}', so the run stops instead of dispatching it unchecked. Later {type}s from this check go to Verbose Run Diagnostics only. {ex}");
+                else
+                    RunLog($"availability check threw ({type}) on '{action.ActionName.DefaultText}' - run stopped");
+                failReason = "availability check failed (see log)";
+                return false;
             }
         }
 
@@ -795,11 +930,14 @@ namespace Repeat_Action.Patcher
         }
 
         /// <summary>
-        /// Resolve a replay target from the CURRENT environment's card list. Always scans
-        /// AllCards (env-scoped; cleared on environment change) rather than trusting the
-        /// captured reference — a stale ref can stay Unity-alive after travel and would
-        /// otherwise replay onto a card that is no longer in play. Prefers the exact
-        /// instance the player used; falls back to another live card of the same UniqueID.
+        /// Resolve a replay target from the cards in the player's CURRENT environment. Always
+        /// scans AllCards rather than trusting the captured reference: a stale ref can stay
+        /// Unity-alive after travel and would otherwise replay onto a card that is no longer in
+        /// play. AllCards alone is NOT this board - travel re-adds background cards whose
+        /// environment is elsewhere (every NPC's card, cards in an allied NPC's location), so
+        /// each entry must also pass InPlayerEnv; a ContainedLiquid inherits its container's
+        /// verdict. Prefers the exact instance the player used; falls back to another live card
+        /// of the same UniqueID.
         /// </summary>
         private static InGameCardBase ResolveCard(InGameCardBase original, string uid, InGameCardBase exclude = null, List<InGameCardBase> excludeList = null)
         {
@@ -809,8 +947,9 @@ namespace Repeat_Action.Patcher
             for (int i = 0; i < gm.AllCards.Count; i++)
             {
                 var c = gm.AllCards[i];
+                if (!InPlayerEnv(c)) continue;
                 var hit = MatchCard(c, original, uid, exclude, excludeList);
-                if (hit == null && c != null && c)
+                if (hit == null)
                     hit = MatchCard(c.ContainedLiquid, original, uid, exclude, excludeList);
                 if (hit == null) continue;
                 if (ReferenceEquals(hit, original)) return hit; // exact instance the player used
@@ -818,6 +957,12 @@ namespace Repeat_Action.Patcher
             }
             return fallback;
         }
+
+        /// <summary>
+        /// True when the card is in the player's current environment. Carried cards qualify: travel
+        /// moves them and their contents to the new environment (InGameCardBase.UpdatePlayerEnvironment).
+        /// </summary>
+        private static bool InPlayerEnv(InGameCardBase c) => c != null && c && c.CardEnvironment.MatchesPlayerEnv;
 
         private static InGameCardBase MatchCard(InGameCardBase c, InGameCardBase original, string uid, InGameCardBase exclude, List<InGameCardBase> excludeList)
         {
@@ -857,8 +1002,8 @@ namespace Repeat_Action.Patcher
 
         /// <summary>
         /// Fallback when the captured receiving card no longer exists anywhere: find the same
-        /// action (by identity/key/name) on any live card. Covers travel (direction action on
-        /// the new location card) and same-kind respawned targets.
+        /// action (by identity/key/name) on any live card in the player's environment. Covers
+        /// travel (direction action on the new location card) and same-kind respawned targets.
         /// </summary>
         private static bool FindActionAnywhere(Captured cap, out InGameCardBase card, out CardAction action)
         {
@@ -871,7 +1016,7 @@ namespace Repeat_Action.Patcher
             for (int i = 0; i < gm.AllCards.Count; i++)
             {
                 var c = gm.AllCards[i];
-                if (!IsLive(c)) continue;
+                if (!IsLive(c) || !InPlayerEnv(c)) continue;
                 var a = FindInActions(c.DismantleActions, cap);
                 if (a != null)
                 {
@@ -929,9 +1074,18 @@ namespace Repeat_Action.Patcher
                     return null;
                 }
                 if (gm == null || gm.StatsDict == null) return null;
-                if (!gm.StatsDict.TryGetValue(model, out var stat) || stat == null) return null;
+                if (!gm.StatsDict.TryGetValue(model, out var stat) || stat == null)
+                {
+                    // Resolves, but is not a stat this run tracks (e.g. absent from this gamemode).
+                    RunLog($"CheckThreshold('{who}'): stat GUID {guid} is not active in this run; this stop cannot fire.");
+                    return null;
+                }
                 float max = stat.CurrentMinMaxValue.y;
-                if (max <= 0f) return null;
+                if (max <= 0f)
+                {
+                    RunLog($"CheckThreshold('{who}'): stat GUID {guid} has max {max:0.#}, so a percentage floor is undefined; this stop cannot fire.");
+                    return null;
+                }
                 float pct = stat.SimpleCurrentValue / max * 100f;
                 if (pct < threshold)
                 {

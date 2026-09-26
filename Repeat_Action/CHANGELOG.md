@@ -1,5 +1,17 @@
 # Repeat Action — Changelog
 
+## [2.1.6] - 2026-09-25
+
+Built against EA 0.68b.
+
+### Fixed
+
+- **Repeated group actions now count flavour, spices and time the way the game's own button does.** A repeat used to replay the exact action copies from your original click, so every iteration carried the flavour and spice totals of the cards that were in the group back then. With `Per-Card Group Repeat` on, each single card eaten applied the flavour total of the whole captured group and paid the whole group's time cost, and in a mixed group the cards after the first kind of food cost no time at all. With spiced food, the spice flavour grew stronger on every iteration in either mode. Each iteration now rebuilds the group from the cards actually there, exactly as pressing the button again would: every card's requirements are checked again (a card that no longer qualifies is left out, as the button leaves it out), and flavour, spices and time are counted from the cards being processed. If a game update ever breaks this, group actions report as not supported instead of repeating the old way.
+- **A repeat can no longer act on a card that is not on your board.** After travel the game keeps some cards from other places loaded in the background (companions and other characters, cards at an ally's location), and a repeat could pick one of those as its target. Targets must now be in your current location. Items in the bags you carry still count, since they travel with you.
+- **If the game's own availability check fails with an error, the run now stops and says so** ("availability check failed (see log)"), with the full error written to `BepInEx/LogOutput.log` as a warning (once per kind of error; repeats of it go to Verbose Run Diagnostics). Before, the repeat carried on without checking the action's requirements at all.
+- **A game update that breaks one of the mod's hooks now disables only that kind of action**, with an error naming it, instead of also disabling every hook set up after it.
+- **Verbose Run Diagnostics now explains a stat stop that can never fire.** A stop floor on a stat your run does not track, or on a stat whose maximum is 0, leaves a "this stop cannot fire" line instead of silently never triggering.
+
 ## [2.1.5] - 2026-09-08
 
 Built against EA 0.67i.
