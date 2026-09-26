@@ -5,6 +5,16 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [2.1.61] - 2026-09-26
+
+### Changed
+
+- **Refreshed the embedded mod suite with CSFF Mod Framework 2.26.12.** Thanks to Chiwei, whose
+  report is behind the fix: with WikiMod installed, its Stomach details no longer vanish once a
+  Giant Stomach character (Community Mod Chest) eats past 200.
+
+  The other eight suite mods are re-embedded at the same versions as 2.1.60.
+
 ## [2.1.60] - 2026-09-26
 
 ### Changed
