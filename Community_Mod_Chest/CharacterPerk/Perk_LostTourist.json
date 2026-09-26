@@ -37,48 +37,15 @@
                 "m_FileID": 0,
                 "m_PathID": 0
             },
-            "StatWarpData": "3dc9b7924c4bec142af1c255f6df235d",
-            "StatWarpType": 3,
-            "ValueModifier": {
-                "x": 20.0,
-                "y": 20.0
-            },
-            "RateModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "MinValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "MaxValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "CannotModifyBeyond": {
-                "Active": false,
-                "FloatValue": 0.0,
-                "MaxValue": 0.0
-            },
-            "ApplyEachTick": false,
-            "InstantModifier": false,
-            "IgnoreNovelty": false,
-            "IsInverse": false
-        },
-        {
-            "Stat": {
-                "m_FileID": 0,
-                "m_PathID": 0
-            },
-            "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+            "StatWarpData": "ad5665dcf2e21ed49a5817b1b7005b2e",
             "StatWarpType": 3,
             "ValueModifier": {
                 "x": 0.0,
                 "y": 0.0
             },
             "RateModifier": {
-                "x": 0.2,
-                "y": 0.2
+                "x": 1.0,
+                "y": 1.0
             },
             "MinValueModifier": {
                 "x": 0.0,
@@ -133,7 +100,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "You stumbled into this wilderness entirely by accident. You miss civilization and the people you left behind, so you feel for others more than most, but loneliness and stress build faster in the wild.",
+        "DefaultText": "You stumbled into this wilderness entirely by accident and arrive already on edge. You miss civilization and the people you left behind, so you feel for others more than most, but alone in the wild you grow isolated twice as fast.",
         "LocalizationKey": "CharacterTraits_Perk_LostTourist_PerkDescription",
         "ParentObjectID": "traitsperklosttourist"
     },

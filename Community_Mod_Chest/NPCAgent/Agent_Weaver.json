@@ -14,6 +14,12 @@
     "WeightCategoryWarpData": "Light",
     "WeightCategoryWarpType": 3,
     "AgentTags": [],
+    "AgentStats": [
+        {
+            "ModelStatWarpData": "cmcStatWeaverTrust",
+            "ModelStatWarpType": 3
+        }
+    ],
     "Interactions": [
         {
             "ButtonName": {
@@ -123,7 +129,7 @@
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
             "RequiredStatValues": [
-                {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 2.5}},
+                {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 2.0, "y": 2.0}},
                 {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
             ],
             "HideIfConditionsNotMet": true,
@@ -151,7 +157,7 @@
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
             "RequiredStatValues": [
-                {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 2.5, "y": 3.5}},
+                {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 3.0, "y": 3.0}},
                 {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
             ],
             "HideIfConditionsNotMet": true,
@@ -179,7 +185,7 @@
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
             "RequiredStatValues": [
-                {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 3.5, "y": 4.5}},
+                {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 4.0, "y": 4.0}},
                 {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
             ],
             "HideIfConditionsNotMet": true,
@@ -207,7 +213,7 @@
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
             "RequiredStatValues": [
-                {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 4.5, "y": 5.5}},
+                {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 5.0, "y": 5.0}},
                 {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
             ],
             "HideIfConditionsNotMet": true,
@@ -235,7 +241,7 @@
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
             "RequiredStatValues": [
-                {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 5.5, "y": 6.5}},
+                {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 6.0, "y": 6.0}},
                 {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
             ],
             "HideIfConditionsNotMet": true,
@@ -264,7 +270,7 @@
             "ActionTagsWarpType": 3,
             "RequiredStatValues": [
                 {"StatWarpData": "cmcStatWeaverMoveIn", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 999999.0}},
-                {"StatWarpData": "cmcStatApothQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 20.0}},
+                {"StatWarpData": "cmcStatApothQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 2.0, "y": 20.0}},
                 {"StatWarpData": "cmcStatInterlockS1", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
             ],
             "HideIfConditionsNotMet": true,

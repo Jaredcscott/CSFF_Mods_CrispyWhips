@@ -1110,17 +1110,18 @@ namespace CommunityModChest.Patcher
         /// §10.8.11.9 — "the player still has at least one 'Think better of it' left", i.e.
         /// <see cref="SterlingEscapeCountStatUid"/> is 0, 1 or 2.
         ///
-        /// <para>The range is bounded at 3.5 rather than an open-ended sentinel because the stat
+        /// <para>The range is {0, chances - 1} rather than an open-ended sentinel because the stat
         /// is clamped 0-3 by its own <c>MinMaxValue</c> — a huge upper bound would only reintroduce
         /// the float-precision hazard the <see cref="CrimeRangeMax"/> comment warns about
-        /// (reference_triggerrange_fractional_overflow) for no reachable values.</para>
+        /// (reference_triggerrange_fractional_overflow) for no reachable values. Integer bounds,
+        /// because the compare floors both bounds (see <see cref="ChancesExhaustedTrigger"/>).</para>
         /// </summary>
         private static object ChancesRemainingTrigger()
         {
             if (_sterlingEscapeCountStat == null) return null;
             var trigger = Activator.CreateInstance(_statValueTriggerType);
             Reflect.SetMember(trigger, "Stat", _sterlingEscapeCountStat);
-            Reflect.SetMember(trigger, "TriggerRange", new Vector2(-0.5f, SterlingChancesAllowed - 0.5f));
+            Reflect.SetMember(trigger, "TriggerRange", new Vector2(0f, SterlingChancesAllowed - 1f));
             return trigger;
         }
 
@@ -1132,7 +1133,11 @@ namespace CommunityModChest.Patcher
             if (_sterlingEscapeCountStat == null) return null;
             var trigger = Activator.CreateInstance(_statValueTriggerType);
             Reflect.SetMember(trigger, "Stat", _sterlingEscapeCountStat);
-            Reflect.SetMember(trigger, "TriggerRange", new Vector2(SterlingChancesAllowed - 0.5f, SterlingChancesAllowed + 0.5f));
+            // Integer bounds: StatValueTrigger.IsInRange floors both bounds and the value
+            // (.decomp/ExtraMath.cs FloatIsInRange, RoundingMethods.Floor), so the old
+            // {2.5, 3.5} became [2, 3] and overlapped ChancesRemaining at 2 - both finish-arrest
+            // duties were selectable with one chance still left.
+            Reflect.SetMember(trigger, "TriggerRange", new Vector2(SterlingChancesAllowed, SterlingChancesAllowed));
             return trigger;
         }
 

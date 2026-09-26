@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatJailSuppliesGranted",
+    "GameName": {
+        "LocalizationKey": "CMC_JailSuppliesGranted_StatName",
+        "DefaultText": "Jail Supplies Granted"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_JailSuppliesGranted_StatDescription",
+        "DefaultText": "Hidden flag: whether this sentence's one-time fireplace-building supplies have already been placed in the cell. 0 = not yet granted, 1 = granted; reset on every new sentence."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 1.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

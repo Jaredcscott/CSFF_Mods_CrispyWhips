@@ -92,6 +92,28 @@ namespace CommunityModChest.Patcher
     /// once per 15 in-game minutes, only while the player is actively spending DTP — exactly when
     /// "does a day/hour pass" questions are meaningful) plus the existing <c>DayRollover</c> event,
     /// per the same doctrine as every other CMC schedule patch.</para>
+    ///
+    /// <para><b>Cell fireplace supplies (owner decision, 2026-09-26): "we want to keep the built in
+    /// fire places which get restocked. We also want a buildable fireplace in the jail and ensure
+    /// within the jail cell the player has everything they need."</b> The six village interiors
+    /// <see cref="VillageFireplacePatch"/> auto-tends already have a hearth, so vanilla Imp_FirePlace
+    /// (<c>41a50d68ca445034197a936ac8680dcc</c>) is buildable in the Jail Cell only, where it is an
+    /// ordinary player-built fireplace, fed and lit by hand. This class supplies the means, all in
+    /// bounded amounts that stay in the cell and never touch the door or the tunnel:
+    /// (1) once per sentence, exactly what its three <c>BlueprintStages</c> cost (vanilla export
+    /// <c>Imp_FirePlace.json</c>): 18 Stone (<c>a7384e5147b23a642809451cc4ef24fb</c>), 12 Mud Brick
+    /// (<c>6c2001f42a960db4583cdd65a47ecf3c</c>), 6 Clay (<c>68c14d265ea6c874ba79444d2e1ef7b3</c>) and
+    /// 1 Twigs (<c>fa8834c3111a71f47bdd23d66b33cf61</c>); (2) one Dry Peat Turf
+    /// (<c>b51bf40c705602c469a0c57f9462bcfa</c>) with each daily ration, which FireplaceExtinguished's
+    /// "Feed Peat" interaction turns into +52 fuel of a 96 maximum; (3) one Lit Tinder
+    /// (<c>f924def05400db54b9a99935631a632f</c>) a day, and only while a COLD fireplace
+    /// (FireplaceExtinguished, <c>58523f8a86c4e0347b93d4a8ff192a13</c>, the card the blueprint drops)
+    /// stands in the cell with no Lit Tinder already there. The tinder waits for the fireplace because
+    /// Lit Tinder burns out in six ticks (<c>TinderLit.json</c> FuelCapacity 6 at -1 per tick) while
+    /// the build takes twelve, and it is daily because a fire fed one peat a day goes out daily and
+    /// "Light Fire" consumes the tinder. Every grant uses the same env-gated retry idiom as
+    /// <see cref="GrantDailyRationIfDue"/>, because a spawn lands on whatever board is CURRENT (root
+    /// CLAUDE.md, Runtime Card Spawning).</para>
     /// </summary>
     internal static class JailPatch
     {
@@ -112,6 +134,37 @@ namespace CommunityModChest.Patcher
         internal const string JailCellEnvUid = "cmcEnvJailCell";
         private const string RationFoodUid = "cmcJailRationFood";
         private const string WaterJugUid = "cmcJailWaterJug";
+
+        // ── Fireplace supplies (owner decision 2026-09-26, see class doc) ────────
+        // Vanilla item GUIDs, verified against Imp_FirePlace.json's BlueprintStages,
+        // FireplaceExtinguished.json's CardInteractions and TinderLit.json (Documentation/GameData/
+        // CSFF-JsonData_Current/.../UniqueIDScriptableJsonDataWithWarpLitAllInOne/CardData/).
+        private const string StoneUid = "a7384e5147b23a642809451cc4ef24fb";       // StoneSmall
+        private const string MudBrickUid = "6c2001f42a960db4583cdd65a47ecf3c";     // MudBrick
+        private const string ClayUid = "68c14d265ea6c874ba79444d2e1ef7b3";         // Clay
+        private const string TwigsUid = "fa8834c3111a71f47bdd23d66b33cf61";        // Twigs
+        private const string TinderLitUid = "f924def05400db54b9a99935631a632f";   // Lit Tinder
+        private const string DailyFuelUid = "b51bf40c705602c469a0c57f9462bcfa";    // Dry Peat Turf
+        private const string FireplaceColdUid = "58523f8a86c4e0347b93d4a8ff192a13"; // FireplaceExtinguished
+
+        // Exactly what Imp_FirePlace's three BlueprintStages cost, summed (6+12 Stone across
+        // stages 1-2, 6+6 Mud Brick across stages 2-3, 6 Clay and 1 Twigs on stage 3), never more.
+        // Tinder and peat are per DAY, not per sentence: see class doc for why.
+        private const int StoneQty = 18;
+        private const int MudBrickQty = 12;
+        private const int ClayQty = 6;
+        private const int TwigsQty = 1;
+        private const int TinderLitQty = 1;
+        private const int DailyFuelQty = 1;
+
+        /// <summary>Hidden 0/1 flag: whether this sentence's one-time construction bundle has
+        /// already been placed. Reset to 0 in <see cref="OnArrestPendingRaised"/> so a later
+        /// re-arrest re-arms the delivery for the new sentence.</summary>
+        private const string SuppliesGrantedStatUid = "cmcStatJailSuppliesGranted";
+
+        /// <summary>Hidden record of the day the last Lit Tinder was placed, in the same
+        /// +1-offset "0 = never" form as <see cref="RationDayStatUid"/>.</summary>
+        private const string TinderDayStatUid = "cmcStatJailTinderDay";
 
         // ── Sentencing (§10.8.7.2) ───────────────────────────────────────────────
         private const float CrimeDivisor = 8f;
@@ -205,6 +258,10 @@ namespace CommunityModChest.Patcher
 
                 bool ok = HiddenStat.Set(SentenceRemainingStatUid, days);
                 ok &= HiddenStat.Set(SentenceOriginalStatUid, days);
+                // Re-arm the one-time construction bundle for THIS sentence: a prisoner sentenced
+                // a second time (re-arrest after release, or after an escape recapture) must get a
+                // fresh delivery, not silently skip it because a prior sentence flipped this flag.
+                ok &= HiddenStat.Set(SuppliesGrantedStatUid, 0f);
                 if (!ok)
                 {
                     Plugin.Logger.LogWarning(
@@ -230,7 +287,11 @@ namespace CommunityModChest.Patcher
                 float remaining = HiddenStat.Get(SentenceRemainingStatUid);
                 if (remaining < 0f || remaining <= 0f) return; // unreadable or not serving
 
-                float next = Math.Max(0f, remaining - 1f);
+                // Ceiling first: a save written before 1.68.42 can hold a half-day remainder (the
+                // old tunnel-caught penalty added original * 0.5). Rounding it up here serves the
+                // same number of rollovers as before (4.5 -> 4 -> ... -> 0 is five, as 4.5 -> 3.5
+                // -> ... -> 0.5 -> 0 was) and leaves the stat a whole number from then on.
+                float next = Math.Max(0f, (float)Math.Ceiling(remaining - 0.01f) - 1f);
                 HiddenStat.Set(SentenceRemainingStatUid, next);
 
                 if (next <= 0f)
@@ -353,6 +414,8 @@ namespace CommunityModChest.Patcher
                 if (remaining < 0f || remaining <= 0f) return; // unreadable or not serving
 
                 GrantDailyRationIfDue();
+                GrantCellSuppliesIfDue();
+                GrantTinderIfDue();
 
                 if (Plugin.EnableJailSafetyNet == null || Plugin.EnableJailSafetyNet.Value)
                     RunSafetyNet();
@@ -376,8 +439,66 @@ namespace CommunityModChest.Patcher
 
             SpawnService.Spawn(RationFoodUid);
             SpawnService.Spawn(WaterJugUid);
+            // One Dry Peat Turf per day alongside food and water: +52 fuel (of the fireplace's 96
+            // maximum) through the "Feed Peat" interaction, bounded by the ration's own daily cadence.
+            for (int i = 0; i < DailyFuelQty; i++) SpawnService.Spawn(DailyFuelUid);
             HiddenStat.Set(RationDayStatUid, today + 1);
-            Plugin.Logger.LogInfo("[JailPatch] Today's ration placed in the cell.");
+            Plugin.Logger.LogInfo("[JailPatch] Today's ration (food, water, fireplace fuel) placed in the cell.");
+        }
+
+        /// <summary>
+        /// One-time, per-sentence delivery of exactly what Imp_FirePlace's three BlueprintStages
+        /// cost to build (class doc has the citation and the owner decision). Gated like
+        /// <see cref="GrantDailyRationIfDue"/>: it fires only once the prisoner is standing in the
+        /// cell, and retries every tick until <see cref="SuppliesGrantedStatUid"/> is readable and
+        /// still 0, so the spawn never lands on whatever board was current when the sentence was set.
+        /// </summary>
+        private static void GrantCellSuppliesIfDue()
+        {
+            if (GameQuery.CurrentEnvironmentUniqueId != JailCellEnvUid) return;
+
+            float granted = HiddenStat.Get(SuppliesGrantedStatUid);
+            if (granted < 0f) return; // stat not ready
+            if (granted >= 0.5f) return; // already delivered this sentence
+
+            for (int i = 0; i < StoneQty; i++) SpawnService.Spawn(StoneUid);
+            for (int i = 0; i < MudBrickQty; i++) SpawnService.Spawn(MudBrickUid);
+            for (int i = 0; i < ClayQty; i++) SpawnService.Spawn(ClayUid);
+            for (int i = 0; i < TwigsQty; i++) SpawnService.Spawn(TwigsUid);
+
+            HiddenStat.Set(SuppliesGrantedStatUid, 1f);
+            Plugin.Logger.LogInfo(
+                $"[JailPatch] Fireplace building supplies placed in the cell: {StoneQty} Stone, {MudBrickQty} " +
+                $"Mud Brick, {ClayQty} Clay, {TwigsQty} Twigs.");
+        }
+
+        /// <summary>
+        /// At most one Lit Tinder a day, and only while a cold fireplace (FireplaceExtinguished) is in
+        /// the cell and no Lit Tinder already is. Lit Tinder burns out in six ticks, so it is useless
+        /// until the fireplace exists, and a fire fed one peat a day needs relighting each day.
+        /// </summary>
+        private static void GrantTinderIfDue()
+        {
+            if (GameQuery.CurrentEnvironmentUniqueId != JailCellEnvUid) return;
+
+            int today = GameQuery.CurrentDay;
+            float stored = HiddenStat.Get(TinderDayStatUid);
+            if (stored < 0f) return; // stat not ready
+            int storedDay = stored < 0.5f ? -1 : (int)Math.Round(stored) - 1; // +1-offset "0 = never" idiom
+            if (storedDay == today) return; // already given today
+
+            bool coldFireplace = false;
+            foreach (var card in GameQuery.CardsInPlayerEnv())
+            {
+                var uid = CardUtil.GetCardUniqueId(card);
+                if (uid == TinderLitUid) return; // one is already burning here; wait for it
+                if (uid == FireplaceColdUid) coldFireplace = true;
+            }
+            if (!coldFireplace) return;
+
+            for (int i = 0; i < TinderLitQty; i++) SpawnService.Spawn(TinderLitUid);
+            HiddenStat.Set(TinderDayStatUid, today + 1);
+            Plugin.Logger.LogInfo("[JailPatch] Lit Tinder placed beside the cold fireplace in the cell.");
         }
 
         /// <summary>

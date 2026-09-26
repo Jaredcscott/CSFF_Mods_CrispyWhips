@@ -875,7 +875,19 @@ namespace CommunityModChest.Patcher
 
             int missing = 0;
             foreach (var card in known)
-                if (!current.Contains(card)) missing++;
+            {
+                if (current.Contains(card)) continue;
+
+                // A card the diff no longer sees is not always one someone carried off. A
+                // destroyed UnityEngine.Object is NOT C#-null under a bare object-typed
+                // comparison (CLAUDE.md "Harmony Patching Pitfalls"), and a card replaced by
+                // another instance (e.g. food transforming on spoil, TransformCardInPlace)
+                // leaves its OLD instance destroyed rather than stolen. Neither is pilferage.
+                if (!Reflect.IsAlive(card)) continue;
+                if (Reflect.GetBool(card, "Destroyed")) continue;
+
+                missing++;
+            }
 
             _knownContents[cfg.ChestUid] = current;
             if (missing == 0) return;

@@ -6,7 +6,7 @@
     "AddedCardsWarpType": 3,
     "AddedStartingHours": 0,
     "CardsOnBoardObjectives": [],
-    "CharacterPerkPerkGroup": "335cd7a47a90df5419abc30a4105db1a",
+    "CharacterPerkPerkGroup": "72120cda8e1cef540b1b25118dd7edaa",
     "CheckingNotificationDetails": 0,
     "CompleteOnLose": false,
     "CompleteOnWin": false,
@@ -67,7 +67,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "You are at peace with the world around you. Your insight into the spirit realm is exceptional, and you can carry twice the hollowness that gathers when a life is taken without release before the spirits turn cold to you.",
+        "DefaultText": "You are at peace with the world around you. You can carry twice the hollowness that gathers when a life is taken without release before the spirits turn cold to you.",
         "LocalizationKey": "CharacterTraits_Perk_SpirituallyHarmonious_PerkDescription",
         "ParentObjectID": "traits_perk_spiritually_harmonious"
     },
@@ -94,41 +94,7 @@
     },
     "ResetLockInEditor": false,
     "StartUnlocked": true,
-    "StartingStatModifiers": [
-        {
-            "Stat": {
-                "m_FileID": 0,
-                "m_PathID": 0
-            },
-            "StatWarpData": "36e14930ddfdcdb4b901f6416b5453be",
-            "StatWarpType": 3,
-            "ValueModifier": {
-                "x": 75.0,
-                "y": 75.0
-            },
-            "RateModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "MinValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "MaxValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "CannotModifyBeyond": {
-                "Active": false,
-                "FloatValue": 0.0,
-                "MaxValue": 0.0
-            },
-            "ApplyEachTick": false,
-            "InstantModifier": false,
-            "IgnoreNovelty": false,
-            "IsInverse": false
-        }
-    ],
+    "StartingStatModifiers": [],
     "StatsObjectives": [],
     "SunsCost": 15,
     "TagsOnBoardObjectives": [],

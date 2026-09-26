@@ -3,7 +3,7 @@
     "StartingConditions": {
         "RequiredStatValues": [
             {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
-            {"StatWarpData": "cmcStatLostCat", "StatWarpType": 3, "TriggerRange": {"x": 2.5, "y": 10.5}},
+            {"StatWarpData": "cmcStatLostCat", "StatWarpType": 3, "TriggerRange": {"x": 3.0, "y": 10.0}},
             {"StatWarpData": "cmcStatAshBoarHuntSpot", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.5}}
         ]
     },

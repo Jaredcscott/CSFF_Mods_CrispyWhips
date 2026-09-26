@@ -78,7 +78,7 @@
           "Stat": { "m_FileID": 0, "m_PathID": 0 },
           "StatWarpData": "cmcStatJailTunnelProgress",
           "StatWarpType": 3,
-          "TriggerRange": { "x": 5.5, "y": 6.5 }
+          "TriggerRange": { "x": 6.0, "y": 6.0 }
         }
       ],
       "HideIfConditionsNotMet": true,

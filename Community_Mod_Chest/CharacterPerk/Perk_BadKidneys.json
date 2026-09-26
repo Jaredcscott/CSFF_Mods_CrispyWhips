@@ -12,7 +12,7 @@
     "CompleteOnWin": false,
     "DebugCompletion": false,
     "DifficultyRating": 150,
-    "DisplayPriority": 53.5,
+    "DisplayPriority": 82.4,
     "EditorOnly": false,
     "EquippedCards": [],
     "EquippedCardsWarpData": [],
@@ -130,10 +130,43 @@
             "InstantModifier": false,
             "IgnoreNovelty": false,
             "IsInverse": false
+        },
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatWarpData": "491d8412a34b95f4fade25d71457514d",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "RateModifier": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MaxValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false
         }
     ],
     "PerkDescription": {
-        "DefaultText": "Your kidneys struggle to clear poisons. Wolfsbane poisoning, witchstone poisoning and fireroot toxicity all stay in your body about twice as long as normal.",
+        "DefaultText": "Your kidneys struggle to clear what you take in. Wolfsbane poisoning, witchstone poisoning and fireroot toxicity all stay in your body about twice as long as normal, and so does the warmth of firebrew.",
         "LocalizationKey": "CharacterTraits_Perk_BadKidneys_PerkDescription",
         "ParentObjectID": "traits_perk_bad_kidneys"
     },

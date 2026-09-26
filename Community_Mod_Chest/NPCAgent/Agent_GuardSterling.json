@@ -54,7 +54,7 @@
             },
             "Conditions": {
                 "RequiredStatValues": [
-                    {"StatWarpData": "cmcStatSterlingEscapeCount", "StatWarpType": 3, "TriggerRange": {"x": 2.5, "y": 3.5}}
+                    {"StatWarpData": "cmcStatSterlingEscapeCount", "StatWarpType": 3, "TriggerRange": {"x": 3.0, "y": 3.0}}
                 ]
             },
             "ButtonType": 1,

@@ -257,7 +257,7 @@ namespace CommunityModChest.Patcher
             if (GetStatValue(gm, ref _marketStallMilestoneStat, MarketStallMilestoneUid) >= 1.0f) return true;
             if (_marketStallMilestoneStat == null) return false; // stat not registered yet — retry next tick
 
-            var stall = CardFinder.Find(MarketStallUid);
+            var stall = CardFinder.Find(MarketStallUid) ?? CardFinder.Find(MarketStallPatch.DressedStallUid);
             if (stall == null || CardUtil.GetDurability(stall, "SpecialDurability1") < MarketStallRevenueThreshold) return false;
 
             if (CardUtil.GetCachedField(gm.GetType(), "StatsDict")?.GetValue(gm) is not IDictionary statsDict) return false;

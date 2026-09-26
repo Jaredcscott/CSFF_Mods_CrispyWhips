@@ -233,7 +233,7 @@
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
             "RequiredStatValues": [
-                {"StatWarpData": "cmcStatInnQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 2.5}},
+                {"StatWarpData": "cmcStatInnQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 2.0, "y": 2.0}},
                 {"StatWarpData": "cmcStatInnQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
             ],
             "HideIfConditionsNotMet": true,
@@ -261,7 +261,7 @@
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
             "RequiredStatValues": [
-                {"StatWarpData": "cmcStatInnQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 2.5, "y": 3.5}},
+                {"StatWarpData": "cmcStatInnQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 3.0, "y": 3.0}},
                 {"StatWarpData": "cmcStatInnQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
             ],
             "HideIfConditionsNotMet": true,
@@ -289,7 +289,7 @@
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
             "RequiredStatValues": [
-                {"StatWarpData": "cmcStatInnQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 3.5, "y": 4.5}},
+                {"StatWarpData": "cmcStatInnQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 4.0, "y": 4.0}},
                 {"StatWarpData": "cmcStatInnQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
             ],
             "HideIfConditionsNotMet": true,

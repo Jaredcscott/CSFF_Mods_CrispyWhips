@@ -1,5 +1,6 @@
 {
   "UniqueID": "cmcmarketstalldressed",
+  "SpillsInventoryOnDestroy": true,
   "CardType": 2,
   "CardName": {
     "DefaultText": "Market Stall",
@@ -30,13 +31,15 @@
     { "m_FileID": 0, "m_PathID": 0 }
   ],
   "SpecialDurability1": {
+    "Active": true,
     "CardStatName": {
       "DefaultText": "Sales Revenue",
       "LocalizationKey": "CMC_MarketStallDressed_SD1_Name"
     },
     "MaxValue": 480,
     "FloatValue": 0,
-    "ShowAsBar": true,
+    "HidingOptions": 1,
+    "TextDisplay": 2,
     "RatePerDaytimePoint": 0
   },
   "DismantleActions": [

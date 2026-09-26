@@ -1,7 +1,7 @@
 # Asset Credits
 
-Artwork shipped in this package, with its source and terms. Counts measured 2026-09-22 against
-`Resource/Picture/` (184 PNG files).
+Artwork shipped in this package, with its source and terms. Counts measured 2026-09-26 against
+`Resource/Picture/` (183 PNG files).
 
 ## Chiwei, received 2026-09-22 (53 files)
 
@@ -20,6 +20,23 @@ to a 512px long edge, since a perk icon renders small; the other 51 ship exactly
 
 Chiwei also contributed the Nightcrawler trait design shipped in 1.68.36.
 
+## Chiwei, received 2026-09-24 (2 new files, 5 replaced)
+
+Sent with Chiwei's trait rebalance package against CMC 1.68.41 and adopted in 1.68.45.
+
+- **2 new perk icons**: `CMC_Pk_Claws.png` (Claws, which borrowed the vanilla `Knife_Flint` sprite
+  before) and `CMC_Pk_GiantStomach.png` (the new Giant Stomach perk; delivered as
+  `CMC_PK_GiantStomach.png` and renamed to the suite's `CMC_Pk_` casing).
+- **5 re-crops** replacing files from the 2026-09-22 drop under the same names:
+  `CMC_Pk_Agoraphobia.png`, `CMC_Pk_Agoraphobia_TraitAgoraphobia_1.png`, `CMC_Pk_Nyctophobia.png`,
+  `CMC_Pk_Nyctophobia_Trait_1-2.png` and `CMC_Pk_WeakStomach.png`.
+
+All seven arrived as RGBA with the background keyed, 200 to 220px square, and ship as received.
+The same package moved every harmful Sunlight Exposure band onto
+`CMC_Pk_Nightcrawler_TraitNightcrawlerSun_2.png`, so `_3`, `_4` and `_5` from the 2026-09-22 drop
+were no longer referenced by any status and were removed in 1.68.45. 50 of the 53 files from that
+drop still ship.
+
 ## Generated in-repo (26 files)
 
 Card art generated through `/create-image` (OpenArt, model `nano-banana-2`) and finished with
@@ -37,7 +54,8 @@ unencumbered. Record a file's source here when you next touch it.
 Chiwei granted free use of the 2026-09-22 artwork in the Raptor Studios CSFF mod suite,
 including its public Nexus releases, with attribution. Confirmed by the maintainer 2026-09-22.
 Attribute as "Artwork by Chiwei". This grant covers use within the suite; it is not a transfer
-of copyright and does not license the artwork for use outside these mods. The terms above apply only
+of copyright and does not license the artwork for use outside these mods. The maintainer
+confirmed on 2026-09-26 that the same terms and attribution cover the 2026-09-24 icons. The terms above apply only
 to Chiwei's files; the 105 files in the section above remain unrecorded.
 
 ## Adding artwork

@@ -101,6 +101,10 @@
       "EffectName": "Comfort (+12)",
       "OnlyWhenEquipped": false,
       "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTInBG": true,
+      "Conditions": {
+        "NotInBackground": true
+      },
       "StatModifiers": [
         {
           "Stat": { "m_FileID": 0, "m_PathID": 0 },
@@ -122,6 +126,10 @@
       "EffectName": "Insulation",
       "OnlyWhenEquipped": false,
       "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTInBG": true,
+      "Conditions": {
+        "NotInBackground": true
+      },
       "StatModifiers": [
         {
           "Stat": { "m_FileID": 0, "m_PathID": 0 },

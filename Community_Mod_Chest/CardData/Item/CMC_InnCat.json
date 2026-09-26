@@ -22,6 +22,126 @@
     },
     "AlternateNames": [
         {
+            "Conditions": {"Special1Range": {"x": 1.0, "y": 1.0}, "Special3Range": {"x": 0.0, "y": 24.0}},
+            "Art": {"CardImageWarpData": "CMC_InnCat_Hunting", "CardImageWarpType": 3},
+            "Description": {
+                "LocalizationKey": "CMC_InnCat_CareLow_CardDescription",
+                "DefaultText": "Ash keeps well clear of you these days -- ears back, tail low, gone before you've crossed the yard. He hasn't forgotten the inn. He's just stopped trusting you to feed it."
+            }
+        },
+        {
+            "Conditions": {"Special1Range": {"x": 1.0, "y": 1.0}, "Special3Range": {"x": 25.0, "y": 54.0}},
+            "Art": {"CardImageWarpData": "CMC_InnCat_Hunting", "CardImageWarpType": 3},
+            "Description": {
+                "LocalizationKey": "CMC_InnCat_CareMid_CardDescription",
+                "DefaultText": "Ash tolerates you well enough -- a glance from across the room, maybe a slow blink if you're lucky -- but the easy affection of a well-kept cat isn't there anymore."
+            }
+        },
+        {
+            "Conditions": {"Special1Range": {"x": 1.0, "y": 1.0}, "Special3Range": {"x": 75.0, "y": 100.0}},
+            "Art": {"CardImageWarpData": "CMC_InnCat_Hunting", "CardImageWarpType": 3},
+            "Description": {
+                "LocalizationKey": "CMC_InnCat_CareHigh_CardDescription",
+                "DefaultText": "Ash follows at your heel like he's the one keeping watch over you, purring before you've even crouched down. Whatever he once was to the inn, he's yours now."
+            }
+        },
+        {
+            "Conditions": {"Special1Range": {"x": 2.0, "y": 2.0}, "Special3Range": {"x": 0.0, "y": 24.0}},
+            "Art": {"CardImageWarpData": "CMC_InnCat_Swimming", "CardImageWarpType": 3},
+            "Description": {
+                "LocalizationKey": "CMC_InnCat_CareLow_CardDescription",
+                "DefaultText": "Ash keeps well clear of you these days -- ears back, tail low, gone before you've crossed the yard. He hasn't forgotten the inn. He's just stopped trusting you to feed it."
+            }
+        },
+        {
+            "Conditions": {"Special1Range": {"x": 2.0, "y": 2.0}, "Special3Range": {"x": 25.0, "y": 54.0}},
+            "Art": {"CardImageWarpData": "CMC_InnCat_Swimming", "CardImageWarpType": 3},
+            "Description": {
+                "LocalizationKey": "CMC_InnCat_CareMid_CardDescription",
+                "DefaultText": "Ash tolerates you well enough -- a glance from across the room, maybe a slow blink if you're lucky -- but the easy affection of a well-kept cat isn't there anymore."
+            }
+        },
+        {
+            "Conditions": {"Special1Range": {"x": 2.0, "y": 2.0}, "Special3Range": {"x": 75.0, "y": 100.0}},
+            "Art": {"CardImageWarpData": "CMC_InnCat_Swimming", "CardImageWarpType": 3},
+            "Description": {
+                "LocalizationKey": "CMC_InnCat_CareHigh_CardDescription",
+                "DefaultText": "Ash follows at your heel like he's the one keeping watch over you, purring before you've even crouched down. Whatever he once was to the inn, he's yours now."
+            }
+        },
+        {
+            "Conditions": {"Special1Range": {"x": 3.0, "y": 3.0}, "Special3Range": {"x": 0.0, "y": 24.0}},
+            "Art": {"CardImageWarpData": "CMC_InnCat_Lounging", "CardImageWarpType": 3},
+            "Description": {
+                "LocalizationKey": "CMC_InnCat_CareLow_CardDescription",
+                "DefaultText": "Ash keeps well clear of you these days -- ears back, tail low, gone before you've crossed the yard. He hasn't forgotten the inn. He's just stopped trusting you to feed it."
+            }
+        },
+        {
+            "Conditions": {"Special1Range": {"x": 3.0, "y": 3.0}, "Special3Range": {"x": 25.0, "y": 54.0}},
+            "Art": {"CardImageWarpData": "CMC_InnCat_Lounging", "CardImageWarpType": 3},
+            "Description": {
+                "LocalizationKey": "CMC_InnCat_CareMid_CardDescription",
+                "DefaultText": "Ash tolerates you well enough -- a glance from across the room, maybe a slow blink if you're lucky -- but the easy affection of a well-kept cat isn't there anymore."
+            }
+        },
+        {
+            "Conditions": {"Special1Range": {"x": 3.0, "y": 3.0}, "Special3Range": {"x": 75.0, "y": 100.0}},
+            "Art": {"CardImageWarpData": "CMC_InnCat_Lounging", "CardImageWarpType": 3},
+            "Description": {
+                "LocalizationKey": "CMC_InnCat_CareHigh_CardDescription",
+                "DefaultText": "Ash follows at your heel like he's the one keeping watch over you, purring before you've even crouched down. Whatever he once was to the inn, he's yours now."
+            }
+        },
+        {
+            "Conditions": {"Special1Range": {"x": 4.0, "y": 4.0}, "Special3Range": {"x": 0.0, "y": 24.0}},
+            "Art": {"CardImageWarpData": "CMC_InnCat_Gift", "CardImageWarpType": 3},
+            "Description": {
+                "LocalizationKey": "CMC_InnCat_CareLow_CardDescription",
+                "DefaultText": "Ash keeps well clear of you these days -- ears back, tail low, gone before you've crossed the yard. He hasn't forgotten the inn. He's just stopped trusting you to feed it."
+            }
+        },
+        {
+            "Conditions": {"Special1Range": {"x": 4.0, "y": 4.0}, "Special3Range": {"x": 25.0, "y": 54.0}},
+            "Art": {"CardImageWarpData": "CMC_InnCat_Gift", "CardImageWarpType": 3},
+            "Description": {
+                "LocalizationKey": "CMC_InnCat_CareMid_CardDescription",
+                "DefaultText": "Ash tolerates you well enough -- a glance from across the room, maybe a slow blink if you're lucky -- but the easy affection of a well-kept cat isn't there anymore."
+            }
+        },
+        {
+            "Conditions": {"Special1Range": {"x": 4.0, "y": 4.0}, "Special3Range": {"x": 75.0, "y": 100.0}},
+            "Art": {"CardImageWarpData": "CMC_InnCat_Gift", "CardImageWarpType": 3},
+            "Description": {
+                "LocalizationKey": "CMC_InnCat_CareHigh_CardDescription",
+                "DefaultText": "Ash follows at your heel like he's the one keeping watch over you, purring before you've even crouched down. Whatever he once was to the inn, he's yours now."
+            }
+        },
+        {
+            "Conditions": {"Special1Range": {"x": 5.0, "y": 5.0}, "Special3Range": {"x": 0.0, "y": 24.0}},
+            "Art": {"CardImageWarpData": "CMC_InnCat_Greeting", "CardImageWarpType": 3},
+            "Description": {
+                "LocalizationKey": "CMC_InnCat_CareLow_CardDescription",
+                "DefaultText": "Ash keeps well clear of you these days -- ears back, tail low, gone before you've crossed the yard. He hasn't forgotten the inn. He's just stopped trusting you to feed it."
+            }
+        },
+        {
+            "Conditions": {"Special1Range": {"x": 5.0, "y": 5.0}, "Special3Range": {"x": 25.0, "y": 54.0}},
+            "Art": {"CardImageWarpData": "CMC_InnCat_Greeting", "CardImageWarpType": 3},
+            "Description": {
+                "LocalizationKey": "CMC_InnCat_CareMid_CardDescription",
+                "DefaultText": "Ash tolerates you well enough -- a glance from across the room, maybe a slow blink if you're lucky -- but the easy affection of a well-kept cat isn't there anymore."
+            }
+        },
+        {
+            "Conditions": {"Special1Range": {"x": 5.0, "y": 5.0}, "Special3Range": {"x": 75.0, "y": 100.0}},
+            "Art": {"CardImageWarpData": "CMC_InnCat_Greeting", "CardImageWarpType": 3},
+            "Description": {
+                "LocalizationKey": "CMC_InnCat_CareHigh_CardDescription",
+                "DefaultText": "Ash follows at your heel like he's the one keeping watch over you, purring before you've even crouched down. Whatever he once was to the inn, he's yours now."
+            }
+        },
+        {
             "Conditions": {"Special1Range": {"x": 1.0, "y": 1.0}},
             "Art": {"CardImageWarpData": "CMC_InnCat_Hunting", "CardImageWarpType": 3}
         },

@@ -330,7 +330,7 @@
         {
             "Conditions": {
                 "RequiredStatValues": [
-                    {"StatWarpData": "cmcStatLostCat", "StatWarpType": 3, "TriggerRange": {"x": 2.5, "y": 1000000000.0}}
+                    {"StatWarpData": "cmcStatLostCat", "StatWarpType": 3, "TriggerRange": {"x": 3.0, "y": 1000000000.0}}
                 ],
                 "RequiredNPCStatValues": [
                     {"UseAssociatedAgent": false, "TargetAgentWarpData": "cmcProfessorAgent", "TargetAgentWarpType": 3, "TargetStatWarpData": "cmcStatProfAshNews", "TargetStatWarpType": 3, "ConditionRange": {"x": 0.0, "y": 0.0}}
@@ -434,7 +434,7 @@
             "Conditions": {
                 "RequiredStatValues": [
                     {"StatWarpData": "cmcStatProfQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
-                    {"StatWarpData": "cmcStatProfQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 2.5}}
+                    {"StatWarpData": "cmcStatProfQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 2.0, "y": 2.0}}
                 ]
             },
             "Answer": {
@@ -447,7 +447,7 @@
             "Conditions": {
                 "RequiredStatValues": [
                     {"StatWarpData": "cmcStatProfQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
-                    {"StatWarpData": "cmcStatProfQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 2.5, "y": 3.5}}
+                    {"StatWarpData": "cmcStatProfQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 3.0, "y": 3.0}}
                 ]
             },
             "Answer": {
@@ -460,7 +460,7 @@
             "Conditions": {
                 "RequiredStatValues": [
                     {"StatWarpData": "cmcStatInterlockS4", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}},
-                    {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 4.5, "y": 20.0}}
+                    {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 5.0, "y": 20.0}}
                 ]
             },
             "Answer": {

@@ -16,6 +16,150 @@
   "CardImageWarpData": "CMC_JailCellInterior",
   "CardImageWarpType": 3,
   "ObjectWeight": 0,
+  "PassiveStatEffects": [],
+  "PassiveEffects": [
+    {
+      "EffectName": "Insulation",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "Conditions": {
+        "NotInBackground": true
+      },
+      "StatModifiers": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "0d5ec8f104b2ba149b4bb2b536bc21a4",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 6.0, "y": 6.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ]
+    },
+    {
+      "EffectName": "Cabin Fever",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "Conditions": {
+        "NotInBackground": true
+      },
+      "StatModifiers": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "31b0e29bb41fc4e44bdfc299b21446b9",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 0.0, "y": 0.0 },
+          "RateModifier": { "x": 5.0, "y": 5.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ]
+    },
+    {
+      "EffectName": "Cabin Fever Claustrophobic",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "Conditions": {
+        "NotInBackground": true,
+        "RequiredStatValues": [
+          {
+            "Stat": { "m_FileID": 0, "m_PathID": 0 },
+            "StatWarpData": "c3f6593d3b600a94da61b44e8e5b65a0",
+            "StatWarpType": 3,
+            "TriggerRange": { "x": 1.0, "y": 1.0 },
+            "NotifyWhenNotMet": false,
+            "HideAllWhenNotMet": false
+          }
+        ]
+      },
+      "StatModifiers": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "31b0e29bb41fc4e44bdfc299b21446b9",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 0.0, "y": 0.0 },
+          "RateModifier": { "x": 1.0, "y": 1.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ]
+    },
+    {
+      "EffectName": "Cabin Fever Homebody",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "Conditions": {
+        "NotInBackground": true,
+        "RequiredStatValues": [
+          {
+            "Stat": { "m_FileID": 0, "m_PathID": 0 },
+            "StatWarpData": "4920511802ff95040b3e6e9f5df5b21d",
+            "StatWarpType": 3,
+            "TriggerRange": { "x": 1.0, "y": 1.0 },
+            "NotifyWhenNotMet": false,
+            "HideAllWhenNotMet": false
+          }
+        ]
+      },
+      "StatModifiers": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "31b0e29bb41fc4e44bdfc299b21446b9",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 0.0, "y": 0.0 },
+          "RateModifier": { "x": -0.5, "y": -0.5 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ]
+    },
+    {
+      "EffectName": "Hide Water Level outside River Locations",
+      "OnlyWhenEquipped": false,
+      "EquippedOnBodyOnly": false,
+      "OnlyWhenNOTInBG": true,
+      "Conditions": {
+        "NotInBackground": true
+      },
+      "StatModifiers": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "fb093dc50699ce04fb70751e6db05e40",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": -7665.0, "y": -7665.0 },
+          "RateModifier": { "x": 0.0, "y": 0.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ]
+    }
+  ],
   "DismantleActions": [
     {
       "ActionName": {

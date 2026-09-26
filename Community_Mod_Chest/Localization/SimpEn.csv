@@ -93,7 +93,7 @@ Combat_And_Armor_Bp_BoneLamellar_UnlockConditionsDesc,Bring the Professor bones 
 CharacterTraits_Perk_Angler_PerkName,Angler
 CharacterTraits_Perk_Angler_PerkDescription,"You've spent years by the water. Start with an iron fishing rod, fishing line and bait."
 CharacterTraits_Perk_GreenThumb_PerkName,Green Thumb
-CharacterTraits_Perk_GreenThumb_PerkDescription,"Plants thrive under your care. Start with enough meadowgrass seed to sow a full field and a Flint Hoe, and keep a steady Fertility Boon for the crops you plant, as strong as one spirit blessing."
+CharacterTraits_Perk_GreenThumb_PerkDescription,"Plants thrive under your care. The crops you plant keep a steady Fertility Boon, as strong as one spirit blessing."
 CharacterTraits_Perk_StrongKidneys_PerkName,Strong Kidneys
 CharacterTraits_Perk_StrongKidneys_PerkDescription,"Your kidneys clear poisons quickly. Witchstone poisoning and fireroot toxicity leave your body about twice as fast as normal, and wolfsbane poisoning a little faster."
 CharacterTraits_Perk_NaturalTrader_PerkName,Natural Trader
@@ -197,7 +197,7 @@ CeramicLamp_Bp_CardName,Ceramic Lamp
 CeramicLamp_Bp_CardDescription,Shape clay into a shallow oil lamp with a wick channel.
 CeramicLamp_Bp_UnlockConditionsDesc,Clay Needed
 CharacterTraits_Perk_Insomniac_PerkName,Insomniac
-CharacterTraits_Perk_Insomniac_PerkDescription,"You rarely feel sleepy, so you stay awake longer than others. Your body pays for it sooner: every stage of sleep deprivation arrives about a fifth earlier than it would for anyone else."
+CharacterTraits_Perk_Insomniac_PerkDescription,"You rarely feel sleepy: you can stay up more than twice as long as others before tiredness sets in. Your body still keeps count, though, and going without sleep catches up with you on the usual schedule, whether you feel tired or not."
 CMC_TraitInsomniac_StatName,Insomnia
 CMC_TraitInsomniac_StatDescription,Retired. Insomniac now speeds up the game's own sleep deprivation instead of adding a separate status.
 CharacterTraits_Perk_Sinker_PerkName,Sinker
@@ -207,7 +207,7 @@ CharacterTraits_Perk_WeakStomach_PerkDescription,Your stomach is easily upset. N
 CharacterTraits_Perk_BlackThumb_PerkName,Black Thumb
 CharacterTraits_Perk_BlackThumb_PerkDescription,"Plants wither under your care. This trait weakens a Fertility Boon from other sources, so a single spirit blessing barely holds on the crops you plant. On its own it does nothing."
 CharacterTraits_Perk_BadKidneys_PerkName,Bad Kidneys
-CharacterTraits_Perk_BadKidneys_PerkDescription,"Your kidneys struggle to clear poisons. Wolfsbane poisoning, witchstone poisoning and fireroot toxicity all stay in your body about twice as long as normal."
+CharacterTraits_Perk_BadKidneys_PerkDescription,"Your kidneys struggle to clear what you take in. Wolfsbane poisoning, witchstone poisoning and fireroot toxicity all stay in your body about twice as long as normal, and so does the warmth of firebrew."
 Comfort_Bedroll_Placed_CardName,Bedroll
 Comfort_Bedroll_Placed_CardDescription,"A sleeping mat laid out on the ground. Provides insulation while resting on it. Needs occasional maintenance or it will fall apart.
 
@@ -480,7 +480,7 @@ CharacterTraits_Perk_AbundantGrowth_PerkDescription,"The land seems to respond t
 CharacterTraits_Perk_Trollblood_PerkName,Trollblood
 CharacterTraits_Perk_Trollblood_PerkDescription,"Thick, stubborn blood runs in your veins. Wounds bleed less than they would for anyone else, and pain sits far lighter on you, though neither one fades any faster."
 CharacterTraits_Perk_SpirituallyHarmonious_PerkName,Spiritually Harmonious
-CharacterTraits_Perk_SpirituallyHarmonious_PerkDescription,"You are at peace with the world around you. Your insight into the spirit realm is exceptional, and you can carry twice the hollowness that gathers when a life is taken without release before the spirits turn cold to you."
+CharacterTraits_Perk_SpirituallyHarmonious_PerkDescription,You are at peace with the world around you. You can carry twice the hollowness that gathers when a life is taken without release before the spirits turn cold to you.
 CharacterTraits_Perk_WideHands_PerkName,Wide Hands
 CharacterTraits_Perk_WideHands_PerkDescription,"Your large, dexterous hands are made for working. You start ahead in Crafting and Knapping, and always count as a little more skilled at both, so the things you make come out a little better."
 CharacterTraits_Perk_Claws_PerkName,Claws
@@ -492,7 +492,7 @@ CharacterTraits_Perk_ExiledArtist_PerkDescription,"Forced from your homeland, yo
 CharacterTraits_Perk_BornMark_PerkName,Born Mark
 CharacterTraits_Perk_BornMark_PerkDescription,"You were born with a distinctive mark that the spirits take notice of. It keeps your Luck raised. Nothing in the world reads Luck yet, so the mark changes nothing you can see today."
 CharacterTraits_Perk_Aged_PerkName,Aged
-CharacterTraits_Perk_Aged_PerkDescription,"The years have taken their toll. Your body starts weaker than it otherwise would, and however hard you train it never regains the fitness of youth. It burns through its reserves more slowly, and a dull ache never quite leaves you."
+CharacterTraits_Perk_Aged_PerkDescription,"The years have taken their toll. However hard you train, your body never regains the fitness of youth, and your energy never quite fills. You burn through your reserves more slowly and grow sleepy more slowly, but a dull ache never quite leaves you."
 CharacterTraits_Perk_Bleeder_PerkName,Bleeder
 CharacterTraits_Perk_Bleeder_PerkDescription,"Your blood does not clot well. Wounds bleed for significantly longer than they should, making even minor injuries into dangerous situations."
 CharacterTraits_Perk_WeakCourage_PerkName,Weak Courage
@@ -500,7 +500,7 @@ CharacterTraits_Perk_WeakCourage_PerkDescription,"You have a bit more nerve than
 CharacterTraits_Perk_WeakCowardice_PerkName,Cowardice
 CharacterTraits_Perk_WeakCowardice_PerkDescription,"Your nerve falters more easily than most. A modest, permanent reduction to your Courage makes scary actions a little harder to push through — but you still have enough grit to act when it truly matters."
 CharacterTraits_Perk_SpirituallyTroubled_PerkName,Spiritually Troubled
-CharacterTraits_Perk_SpirituallyTroubled_PerkDescription,"The spirits do not look kindly upon you. A hollowness hangs about you that never lifts, as though a life had been taken and never released, so the spirits stay colder to you for as long as you live, every life you take without release drives you deeper, and the unease of an unfriendly spirit world keeps your nerves on edge."
+CharacterTraits_Perk_SpirituallyTroubled_PerkDescription,"The spirits do not look kindly upon you. A hollowness hangs about you that never lifts, as though a life had been taken and never released, so the spirits stay colder to you for as long as you live, and every life you take without release drives you deeper."
 CharacterTraits_Perk_WeakenedGrowth_PerkName,Weakened Growth
 CharacterTraits_Perk_WeakenedGrowth_PerkDescription,"The land yields little for you. This trait weakens Foraging Aid from other sources, so a single spirit blessing barely holds. On its own it does nothing."
 CharacterTraits_Perk_Leper_PerkName,Leper
@@ -508,7 +508,7 @@ CharacterTraits_Perk_Leper_PerkDescription,"A wasting affliction has killed the 
 CharacterTraits_Perk_Fugitive_PerkName,Fugitive
 CharacterTraits_Perk_Fugitive_PerkDescription,"You fled your old life in a hurry with little more than the clothes on your back. You arrive tense and frightened, and the dread of being hunted means you never fully relax. Yet it took nerve to run, and you have more courage than most."
 CharacterTraits_Perk_LostTourist_PerkName,Lost Tourist
-CharacterTraits_Perk_LostTourist_PerkDescription,"You stumbled into this wilderness entirely by accident. You miss civilization and the people you left behind, so you feel for others more than most, but loneliness and stress build faster in the wild."
+CharacterTraits_Perk_LostTourist_PerkDescription,"You stumbled into this wilderness entirely by accident and arrive already on edge. You miss civilization and the people you left behind, so you feel for others more than most, but alone in the wild you grow isolated twice as fast."
 CharacterTraits_Perk_SeasonalAllergies_PerkName,Seasonal Allergies
 CharacterTraits_Perk_SeasonalAllergies_PerkDescription,"Spring air does not agree with you. All through spring you are less comfortable and upper respiratory infections take hold more easily, though a healthy immune system still fights them off. The rest of the year you are fine."
 CMC_TraitSeasonalAllergies_StatName,Seasonal Allergies
@@ -516,7 +516,7 @@ CMC_TraitSeasonalAllergies_StatDescription,Your reaction to spring air. It flare
 CMC_TraitSeasonalAllergies_Status_Spring_Name,Spring Allergies
 CMC_TraitSeasonalAllergies_Status_Spring_Description,Spring is in the air and your body hates it. You are less comfortable and upper respiratory infections take hold more easily.
 CharacterTraits_Perk_DeadlyDisease_PerkName,Deadly Disease
-CharacterTraits_Perk_DeadlyDisease_PerkDescription,"A disease has taken hold and it is winning. You begin queasy with it, the pain never leaves, and your defences are compromised, so infections of the gut, the chest and the blood creep upward day after day. Keep your immune system up with good morale, food, sleep and medicine and they recede; neglect it and the disease runs its course."
+CharacterTraits_Perk_DeadlyDisease_PerkDescription,"A disease has taken hold. You begin queasy with it, the pain never leaves, and infections of the gut, the chest and the blood keep pushing against your defences. Keep your immune system strong with good morale, food, sleep and medicine and they recede; let it fall too low and the disease runs its course."
 CharacterTraits_Perk_Lunacy_PerkName,Lunacy
 CharacterTraits_Perk_Lunacy_PerkDescription,"You are bound to the moon. As she waxes you grow elated, and under the full moon you are manic. As she wanes your mood sinks, and while she is gone you grieve for her."
 CMC_TraitLunacy_StatName,Moon-Bound
@@ -534,7 +534,7 @@ CMC_TraitLunacy_Status_WaningGibbous_Description,No! Don't leave me!
 CMC_TraitLunacy_Status_WaningCrescent_Name,Waning Crescent
 CMC_TraitLunacy_Status_WaningCrescent_Description,I miss her so much!
 CharacterTraits_Perk_Agoraphobia_PerkName,Agoraphobia
-CharacterTraits_Perk_Agoraphobia_PerkDescription,"Open ground fills you with dread. Out in the open you are frightened and your stress builds. Under a roof you feel safe: your fear and stress ease, and cabin fever creeps up on you slowly, as it does for a homebody."
+CharacterTraits_Perk_Agoraphobia_PerkDescription,"Open ground fills you with dread. Out in the open you are frightened, and the fear wears on your nerves. Under a roof you feel safe and your stress drains away, and cabin fever creeps up on you slowly, as it does for a homebody."
 CMC_TraitAgoraphobia_StatName,Agoraphobia
 CMC_TraitAgoraphobia_StatDescription,Your dread of open ground. It grips you whenever you have no shelter and lets go under a roof.
 CMC_TraitAgoraphobia_Status_Unsheltered_Name,Exposed to the Wilderness
@@ -542,9 +542,9 @@ CMC_TraitAgoraphobia_Status_Unsheltered_Description,Nothing stands between you a
 CMC_TraitAgoraphobia_Status_Sheltered_Name,Feeling Safe
 CMC_TraitAgoraphobia_Status_Sheltered_Description,Walls around you and a roof overhead. Your fear eases and your stress drains away.
 CharacterTraits_Perk_Nyctophobia_PerkName,Nyctophobia
-CharacterTraits_Perk_Nyctophobia_PerkDescription,"The dark terrifies you. In pitch darkness you are terrified and your stress soars, and in dim light you are badly shaken. A light in your hand steadies you a little, and bright daylight makes you bold."
+CharacterTraits_Perk_Nyctophobia_PerkDescription,"The dark terrifies you. In pitch darkness you are badly shaken and in dim light you are frightened, and either way the fear wears on your nerves. A light in your hand steadies you, and bright daylight eases your stress."
 CMC_TraitNyctophobia_StatName,Nyctophobia
-CMC_TraitNyctophobia_StatDescription,"Your fear of the dark. The less light around you, the worse it gets, and bright light makes you bold."
+CMC_TraitNyctophobia_StatDescription,"Your fear of the dark. The less light around you, the worse it gets, and bright light calms you."
 CMC_TraitNyctophobia_Status_VeryDark_Name,Pitch Black
 CMC_TraitNyctophobia_Status_VeryDark_Description,I can't see anything! I hear something approaching!
 CMC_TraitNyctophobia_Status_Dark_Name,Darkness
@@ -572,13 +572,13 @@ CMC_TraitLactoseIntolerant_Status_Mild_Description,The dairy you had is not sitt
 CMC_TraitLactoseIntolerant_Status_Severe_Name,Severe Dairy Cramps
 CMC_TraitLactoseIntolerant_Status_Severe_Description,You have had far too much dairy. The nausea and cramps are worse and will ease only as it digests.
 CharacterTraits_Perk_Drunkard_PerkName,Drunkard
-CharacterTraits_Perk_Drunkard_PerkDescription,"You cannot go long without a drink. Sober, your stress keeps climbing, nothing satisfies you and a dull ache sets in. Tipsy, you finally feel like yourself. Drunk, the drink lifts your mood without the thirst, nausea or muddled mind, and even horribly drunk you hold it together. Alcohol also stays in you about twice as long."
+CharacterTraits_Perk_Drunkard_PerkDescription,"You cannot go long without a drink, and the craving never fully lets go: drunk or sober, your stress creeps up, nothing quite satisfies you and a dull ache stays with you. Drink still helps. Tipsy, you finally feel like yourself. Drunk, the drink lifts your mood without the thirst, nausea or muddled mind, and even horribly drunk you hold it together. Alcohol also stays in you about twice as long."
 CMC_TraitDrunkard_StatName,Alcohol Craving
 CMC_TraitDrunkard_StatDescription,"Your need for a drink, and how well you hold it once you have one."
 CMC_TraitDrunkard_Status_Sober_Name,Alcohol Addiction
-CMC_TraitDrunkard_Status_Sober_Description,"You need a drink. Until you have one your stress climbs, nothing satisfies you and everything aches."
+CMC_TraitDrunkard_Status_Sober_Description,"You need a drink. Your stress climbs, nothing satisfies you and everything aches."
 CMC_TraitDrunkard_Status_Tipsy_Name,"Finally, a Drink"
-CMC_TraitDrunkard_Status_Tipsy_Description,"The craving lets go and you feel like yourself again. The drink costs you nothing, but it does nothing more for you either."
+CMC_TraitDrunkard_Status_Tipsy_Description,"The drink costs you nothing and steadies your mind a little, though the craving never fully lets go."
 CMC_TraitDrunkard_Status_Drunk_Name,Satisfied
 CMC_TraitDrunkard_Status_Drunk_Description,"The drink warms you through and lifts your mood, and it does not leave you thirsty, sick or muddled."
 CMC_TraitDrunkard_Status_HorriblyDrunk_Name,I Won't Get Drunk!
@@ -2002,6 +2002,10 @@ CMC_JailRationDay_StatName,Jail Ration Day
 CMC_JailRationDay_StatDescription,Hidden record: the day the daily ration was last placed in the cell.
 CMC_JailStonesCounted_StatName,Stones Counted
 CMC_JailStonesCounted_StatDescription,Flavor counter: how many times the stones have been counted.
+CMC_JailSuppliesGranted_StatName,Jail Supplies Granted
+CMC_JailSuppliesGranted_StatDescription,"Hidden flag: whether this sentence's one-time fireplace-building supplies have already been placed in the cell. 0 = not yet granted, 1 = granted; reset on every new sentence."
+CMC_JailTinderDay_StatName,Jail Tinder Day
+CMC_JailTinderDay_StatDescription,Hidden record: the day a Lit Tinder was last placed in the cell.
 CMC_JailRationFood_CardName,Meager Prison Ration
 CMC_JailRationFood_CardDescription,"A thin bowl of cold gruel, slid through the door's grille once a day. It won't fill you up, but the warden makes sure you get just enough to keep your strength."
 CMC_JailRationFood_DA_Eat,Eat
@@ -2488,3 +2492,7 @@ CMC_TraitNightcrawlerBurnCounter_StatDescription,An internal timer that keeps th
 CMC_EventNightcrawlerBurned_CardName,"Burned!"
 CMC_EventNightcrawlerBurned_CardDesc,"The sun has been on you too long and your skin has caught. Get out of the light and stay out of it until dark."
 CMC_EventNightcrawlerBurned_Dismiss,"Oh no..."
+CMC_TraitNightcrawlerBurn_Status_Smouldering_Name,Smouldering
+CMC_TraitNightcrawlerBurn_Status_Smouldering_Description,Your skin is starting to burn. Get out of the light before it catches.
+CharacterTraits_Perk_GiantStomach_PerkName,Giant Stomach
+CharacterTraits_Perk_GiantStomach_PerkDescription,"Your stomach is huge! It holds five times as much food as anyone else's and empties faster when it is very full, and no amount of eating makes you sick."

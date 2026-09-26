@@ -19,7 +19,15 @@ namespace CommunityModChest.Patcher
     {
         private const string KitUid        = "cmcmarketstallkit";
         private const string StallUid      = "cmcmarketstall";
+        /// <summary>"Set Up Awning" transforms the plain stall into this card (TransferInventory +
+        /// TransferSpecial1) and "Take Down Awning" transforms it back, so both UIDs are the same
+        /// stall and every handler below must answer for both.</summary>
+        internal const string DressedStallUid = "cmcmarketstalldressed";
         private const string VillageEnvUid = "cmcEnvVillage";
+
+        internal static bool IsStallUid(string uid) =>
+            string.Equals(uid, StallUid, StringComparison.OrdinalIgnoreCase)
+            || string.Equals(uid, DressedStallUid, StringComparison.OrdinalIgnoreCase);
 
         private const string NuggetGuid = "4b0f4937a5ecb90499428c8c10288afc";
         private const string SaltGuid   = "f91b5676fc26c0e48a4ee6fd9dfc2ffa";
@@ -67,7 +75,7 @@ namespace CommunityModChest.Patcher
             ActionRouter.Register(new ActionHandler
             {
                 Name             = "MarketStallCollectCopper",
-                CardUid          = StallUid,
+                CardPredicate    = ctx => IsStallUid(ctx.CardUid),
                 ActionNamePrefix = "Collect as Copper",
                 Timing           = ActionTiming.AfterWrapped,
                 After            = CollectCopperAfter,
@@ -77,7 +85,7 @@ namespace CommunityModChest.Patcher
             ActionRouter.Register(new ActionHandler
             {
                 Name             = "MarketStallCollectSalt",
-                CardUid          = StallUid,
+                CardPredicate    = ctx => IsStallUid(ctx.CardUid),
                 ActionNamePrefix = "Collect as Salt",
                 Timing           = ActionTiming.AfterWrapped,
                 After            = CollectSaltAfter,
@@ -127,6 +135,7 @@ namespace CommunityModChest.Patcher
             try
             {
                 var stalls = CardFinder.FindAll(StallUid);
+                stalls.AddRange(CardFinder.FindAll(DressedStallUid));
                 if (stalls.Count == 0) return;
 
                 foreach (var stall in stalls)

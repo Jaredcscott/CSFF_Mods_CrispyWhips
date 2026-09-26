@@ -14,6 +14,12 @@
     "WeightCategoryWarpData": "Light",
     "WeightCategoryWarpType": 3,
     "AgentTags": [],
+    "AgentStats": [
+        {
+            "ModelStatWarpData": "cmcStatMillerTrust",
+            "ModelStatWarpType": 3
+        }
+    ],
     "Interactions": [
         {
             "ButtonName": {
@@ -123,7 +129,7 @@
             "ActionTagsWarpData": [],
             "ActionTagsWarpType": 3,
             "RequiredStatValues": [
-                {"StatWarpData": "cmcStatMillerQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 2.5}},
+                {"StatWarpData": "cmcStatMillerQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 2.0, "y": 2.0}},
                 {"StatWarpData": "cmcStatMillerQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.25}}
             ],
             "HideIfConditionsNotMet": true,

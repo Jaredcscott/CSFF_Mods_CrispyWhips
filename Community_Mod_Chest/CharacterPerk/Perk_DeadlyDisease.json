@@ -70,39 +70,6 @@
                 "m_FileID": 0,
                 "m_PathID": 0
             },
-            "StatWarpData": "322eaed3c37a4cd4b8b088495db6a8ed",
-            "StatWarpType": 3,
-            "ValueModifier": {
-                "x": -100.0,
-                "y": -100.0
-            },
-            "RateModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "MinValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "MaxValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "CannotModifyBeyond": {
-                "Active": false,
-                "FloatValue": 0.0,
-                "MaxValue": 0.0
-            },
-            "ApplyEachTick": false,
-            "InstantModifier": false,
-            "IgnoreNovelty": false,
-            "IsInverse": false
-        },
-        {
-            "Stat": {
-                "m_FileID": 0,
-                "m_PathID": 0
-            },
             "StatWarpData": "1a8d37787d69c9b4aa05d332921f3763",
             "StatWarpType": 3,
             "ValueModifier": {
@@ -232,7 +199,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "A disease has taken hold and it is winning. You begin queasy with it, the pain never leaves, and your defences are compromised, so infections of the gut, the chest and the blood creep upward day after day. Keep your immune system up with good morale, food, sleep and medicine and they recede; neglect it and the disease runs its course.",
+        "DefaultText": "A disease has taken hold. You begin queasy with it, the pain never leaves, and infections of the gut, the chest and the blood keep pushing against your defences. Keep your immune system strong with good morale, food, sleep and medicine and they recede; let it fall too low and the disease runs its course.",
         "LocalizationKey": "CharacterTraits_Perk_DeadlyDisease_PerkDescription",
         "ParentObjectID": "traits_perk_deadly_disease"
     },

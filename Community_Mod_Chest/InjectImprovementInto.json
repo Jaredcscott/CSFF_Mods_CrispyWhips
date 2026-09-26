@@ -16,5 +16,13 @@
   { "TargetEnvUID": "cmcMillerCottageInteriorLocation", "ImprovementUID": "cmcimpstonetilefloor" },
   { "TargetEnvUID": "cmcVillageHallInteriorLocation", "ImprovementUID": "cmcimpstonetilefloor" },
   { "TargetEnvUID": "cmcWeaverCottageInteriorLocation", "ImprovementUID": "cmcimpstonetilefloor" },
-  { "TargetEnvUID": "cmcJailCellLocation", "ImprovementUID": "cmcimpstonetilefloor" }
+  { "TargetEnvUID": "cmcJailCellLocation", "ImprovementUID": "cmcimpstonetilefloor" },
+  { "TargetEnvUID": "cmcJailCellLocation", "ImprovementUID": "41a50d68ca445034197a936ac8680dcc" },
+  { "TargetEnvUID": "cmcAcademyInteriorLocation", "ImprovementUID": "68733e1539725384398068d02313d218" },
+  { "TargetEnvUID": "cmcApothecaryCabinInteriorLocation", "ImprovementUID": "68733e1539725384398068d02313d218" },
+  { "TargetEnvUID": "cmcInnInteriorLocation", "ImprovementUID": "68733e1539725384398068d02313d218" },
+  { "TargetEnvUID": "cmcMillerCottageInteriorLocation", "ImprovementUID": "68733e1539725384398068d02313d218" },
+  { "TargetEnvUID": "cmcVillageHallInteriorLocation", "ImprovementUID": "68733e1539725384398068d02313d218" },
+  { "TargetEnvUID": "cmcWeaverCottageInteriorLocation", "ImprovementUID": "68733e1539725384398068d02313d218" },
+  { "TargetEnvUID": "cmcJailCellLocation", "ImprovementUID": "68733e1539725384398068d02313d218" }
 ]

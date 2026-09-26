@@ -47,7 +47,7 @@
             "Description": {
                 "ParentObjectID": "cmcStatTraitDrunkard",
                 "LocalizationKey": "CMC_TraitDrunkard_Status_Sober_Description",
-                "DefaultText": "You need a drink. Until you have one your stress climbs, nothing satisfies you and everything aches."
+                "DefaultText": "You need a drink. Your stress climbs, nothing satisfies you and everything aches."
             },
             "StatusLog": {
                 "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
@@ -59,7 +59,50 @@
             "IconWarpType": 3,
             "ValueRange": {"x": 100, "y": 112},
             "UsePercentageForRange": false,
-            "EffectsOnStats": [],
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": 0.75, "y": 0.75},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": -1.0, "y": -1.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 75.0, "y": 75.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
             "EffectsOnNPCStats": [],
             "EffectsOnActions": [],
             "NotifyPlayer": 0,
@@ -83,7 +126,7 @@
             "Description": {
                 "ParentObjectID": "cmcStatTraitDrunkard",
                 "LocalizationKey": "CMC_TraitDrunkard_Status_Tipsy_Description",
-                "DefaultText": "The craving lets go and you feel like yourself again. The drink costs you nothing, but it does nothing more for you either."
+                "DefaultText": "The drink costs you nothing and steadies your mind a little, though the craving never fully lets go."
             },
             "StatusLog": {
                 "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
@@ -96,6 +139,48 @@
             "ValueRange": {"x": 113, "y": 124},
             "UsePercentageForRange": false,
             "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": 0.75, "y": 0.75},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": -1.0, "y": -1.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 75.0, "y": 75.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
                 {
                     "Stat": {"m_FileID": 0, "m_PathID": 0},
                     "StatWarpData": "c589f92d8a479a24c937ea90fa2d1a82",
@@ -161,6 +246,48 @@
             "ValueRange": {"x": 125, "y": 148},
             "UsePercentageForRange": false,
             "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": 0.75, "y": 0.75},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": -1.0, "y": -1.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 75.0, "y": 75.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
                 {
                     "Stat": {"m_FileID": 0, "m_PathID": 0},
                     "StatWarpData": "c589f92d8a479a24c937ea90fa2d1a82",
@@ -240,6 +367,48 @@
             "ValueRange": {"x": 149, "y": 170},
             "UsePercentageForRange": false,
             "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": 0.75, "y": 0.75},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 0.0, "y": 0.0},
+                    "RateModifier": {"x": -1.0, "y": -1.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": 75.0, "y": 75.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                },
                 {
                     "Stat": {"m_FileID": 0, "m_PathID": 0},
                     "StatWarpData": "c589f92d8a479a24c937ea90fa2d1a82",

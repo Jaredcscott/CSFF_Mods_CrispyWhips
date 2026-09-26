@@ -30,7 +30,6 @@
     },
     "MaxValue": 672,
     "FloatValue": 96,
-    "ShowAsBar": true,
     "RatePerDaytimePoint": 0
   },
   "SpecialDurability2": {
@@ -41,7 +40,6 @@
     },
     "MaxValue": 480,
     "FloatValue": 0,
-    "ShowAsBar": true,
     "RatePerDaytimePoint": 0
   },
   "CardInteractions": [

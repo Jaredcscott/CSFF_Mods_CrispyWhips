@@ -2,7 +2,7 @@
     "StartingPoint": true,
     "StartingConditions": {
         "RequiredStatValues": [
-            {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 6.5, "y": 20.0}},
+            {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 7.0, "y": 20.0}},
             {"StatWarpData": "cmcStatWeaverRopeEpilogueDone", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
         ]
     },

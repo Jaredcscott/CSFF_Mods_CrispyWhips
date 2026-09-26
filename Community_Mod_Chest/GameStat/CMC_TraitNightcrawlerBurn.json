@@ -13,7 +13,7 @@
     "IsRuntimeOnly": false,
     "BaseValue": 0.0,
     "MinMaxValue": {"x": 0.0, "y": 24.0},
-    "BaseRatePerTick": -1.0,
+    "BaseRatePerTick": -2.0,
     "MinMaxRate": {"x": -10.0, "y": 10.0},
     "Transfers": [],
     "TimeOfDayMods": [],
@@ -34,6 +34,42 @@
         {
             "GameName": {
                 "ParentObjectID": "cmcStatTraitNightcrawlerBurn",
+                "LocalizationKey": "CMC_TraitNightcrawlerBurn_Status_Smouldering_Name",
+                "DefaultText": "Smouldering"
+            },
+            "Description": {
+                "ParentObjectID": "cmcStatTraitNightcrawlerBurn",
+                "LocalizationKey": "CMC_TraitNightcrawlerBurn_Status_Smouldering_Description",
+                "DefaultText": "Your skin is starting to burn. Get out of the light before it catches."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "CMC_Pk_Nightcrawler_TraitNightcrawlerBurn",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 2, "y": 15},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 1,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 3,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        },
+        {
+            "GameName": {
+                "ParentObjectID": "cmcStatTraitNightcrawlerBurn",
                 "LocalizationKey": "CMC_TraitNightcrawlerBurn_Status_CatchingFire_Name",
                 "DefaultText": "Catching Fire"
             },
@@ -50,7 +86,7 @@
             "Icon": {"m_FileID": 0, "m_PathID": 0},
             "IconWarpData": "CMC_Pk_Nightcrawler_TraitNightcrawlerBurn",
             "IconWarpType": 3,
-            "ValueRange": {"x": 8, "y": 24},
+            "ValueRange": {"x": 16, "y": 24},
             "UsePercentageForRange": false,
             "EffectsOnStats": [],
             "EffectsOnNPCStats": [],

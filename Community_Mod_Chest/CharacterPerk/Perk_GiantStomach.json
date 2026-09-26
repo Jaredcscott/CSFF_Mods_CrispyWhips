@@ -6,13 +6,13 @@
     "AddedCardsWarpType": 3,
     "AddedStartingHours": 0,
     "CardsOnBoardObjectives": [],
-    "CharacterPerkPerkGroup": "335cd7a47a90df5419abc30a4105db1a",
+    "CharacterPerkPerkGroup": "5d894fd43dd840949ae17ae1bda18bbc",
     "CheckingNotificationDetails": 0,
     "CompleteOnLose": false,
     "CompleteOnWin": false,
     "DebugCompletion": false,
-    "DifficultyRating": 150,
-    "DisplayPriority": 54.5,
+    "DifficultyRating": -100,
+    "DisplayPriority": 51.2,
     "EditorOnly": false,
     "EquippedCards": [],
     "EquippedCardsWarpData": [],
@@ -37,23 +37,56 @@
                 "m_FileID": 0,
                 "m_PathID": 0
             },
-            "StatWarpData": "07f59e0f9e41a214c85ffa3078273264",
+            "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
             "StatWarpType": 3,
             "ValueModifier": {
                 "x": 0.0,
                 "y": 0.0
             },
             "RateModifier": {
-                "x": 0.25,
-                "y": 0.25
+                "x": 0.0,
+                "y": 0.0
             },
             "MinValueModifier": {
                 "x": 0.0,
                 "y": 0.0
             },
             "MaxValueModifier": {
-                "x": 32.0,
-                "y": 32.0
+                "x": 800.0,
+                "y": 800.0
+            },
+            "CannotModifyBeyond": {
+                "Active": false,
+                "FloatValue": 0.0,
+                "MaxValue": 0.0
+            },
+            "ApplyEachTick": false,
+            "InstantModifier": false,
+            "IgnoreNovelty": false,
+            "IsInverse": false
+        },
+        {
+            "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+            },
+            "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+            "StatWarpType": 3,
+            "ValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MinValueModifier": {
+                "x": 0.0,
+                "y": 0.0
+            },
+            "MaxValueModifier": {
+                "x": -50.0,
+                "y": -50.0
             },
             "CannotModifyBeyond": {
                 "Active": false,
@@ -67,20 +100,20 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "You rarely feel sleepy: you can stay up more than twice as long as others before tiredness sets in. Your body still keeps count, though, and going without sleep catches up with you on the usual schedule, whether you feel tired or not.",
-        "LocalizationKey": "CharacterTraits_Perk_Insomniac_PerkDescription",
-        "ParentObjectID": "traits_perk_insomniac"
+        "DefaultText": "Your stomach is huge! It holds five times as much food as anyone else's and empties faster when it is very full, and no amount of eating makes you sick.",
+        "LocalizationKey": "CharacterTraits_Perk_GiantStomach_PerkDescription",
+        "ParentObjectID": "traits_perk_giant_stomach"
     },
     "PerkIcon": {
         "m_FileID": 0,
         "m_PathID": 0
     },
-    "PerkIconWarpData": "CMC_Pk_Insomniac",
+    "PerkIconWarpData": "CMC_Pk_GiantStomach",
     "PerkIconWarpType": 3,
     "PerkName": {
-        "DefaultText": "Insomniac",
-        "LocalizationKey": "CharacterTraits_Perk_Insomniac_PerkName",
-        "ParentObjectID": "traits_perk_insomniac"
+        "DefaultText": "Giant Stomach",
+        "LocalizationKey": "CharacterTraits_Perk_GiantStomach_PerkName",
+        "ParentObjectID": "traits_perk_giant_stomach"
     },
     "PerkUnlockConditions": {
         "DefaultText": "",
@@ -96,8 +129,8 @@
     "StartUnlocked": true,
     "StartingStatModifiers": [],
     "StatsObjectives": [],
-    "SunsCost": 1,
+    "SunsCost": 15,
     "TagsOnBoardObjectives": [],
     "TimeObjectives": [],
-    "UniqueID": "traits_perk_insomniac"
+    "UniqueID": "traits_perk_giant_stomach"
 }

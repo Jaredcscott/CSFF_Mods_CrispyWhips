@@ -130,7 +130,10 @@ namespace CommunityModChest.Patcher
                 float remaining = HiddenStat.Get(JailPatch.SentenceRemainingStatUid);
                 if (remaining < 0f) remaining = 0f;
 
-                float penaltyDays = original * 0.5f;
+                // Whole days only, rounded up. The cell door's "Your sentence: N more days" lines
+                // gate on exact integer values (StatValueTrigger floors the stat before comparing),
+                // so a half-day remainder from an odd original sentence would read one day short.
+                float penaltyDays = (float)Math.Ceiling(original * 0.5f);
                 float nextRemaining = Math.Min(JailPatch.MaxSentenceDays, remaining + penaltyDays);
                 HiddenStat.Set(JailPatch.SentenceRemainingStatUid, nextRemaining);
 

@@ -1,0 +1,46 @@
+{
+  "UniqueID": "278d5a1a68f65cb4883b775e8492464f",
+  "StatusesWarpData": [
+    {
+      "GameName": {
+        "ParentObjectID": "278d5a1a68f65cb4883b775e8492464f",
+        "LocalizationKey": "Calories_Stomach_Statuses[3].GameName",
+        "DefaultText": "Digestion"
+      },
+      "Description": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
+      "StatusLog": {
+        "LogText": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" },
+        "Category": { "m_FileID": 0, "m_PathID": 0 }
+      },
+      "Icon": { "m_FileID": 0, "m_PathID": 0 },
+      "ValueRange": { "x": 201, "y": 1000 },
+      "EffectsOnStats": [
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 0.0, "y": 0.0 },
+          "RateModifier": { "x": -30.0, "y": -30.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 }
+        },
+        {
+          "Stat": { "m_FileID": 0, "m_PathID": 0 },
+          "StatWarpData": "70ed1a00d50493243a5b17c5fb794cce",
+          "StatWarpType": 3,
+          "ValueModifier": { "x": 0.0, "y": 0.0 },
+          "RateModifier": { "x": 30.0, "y": 30.0 },
+          "MinValueModifier": { "x": 0.0, "y": 0.0 },
+          "MaxValueModifier": { "x": 0.0, "y": 0.0 },
+          "CannotModifyBeyond": { "Active": false, "FloatValue": 0.0, "MaxValue": 0.0 }
+        }
+      ],
+      "EffectsOnActions": [],
+      "AlertSounds": [],
+      "CombatEffects": [],
+      "PreventingActionMessage": { "ParentObjectID": "", "LocalizationKey": "", "DefaultText": "" }
+    }
+  ],
+  "StatusesWarpType": 4
+}

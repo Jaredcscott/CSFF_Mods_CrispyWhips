@@ -3,7 +3,7 @@
     "StartingConditions": {
         "RequiredStatValues": [
             {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
-            {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 4.5, "y": 20.0}},
+            {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 5.0, "y": 20.0}},
             {"StatWarpData": "cmcStatInterlockS4", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
         ]
     },

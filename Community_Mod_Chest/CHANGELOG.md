@@ -5,6 +5,177 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.68.45] - 2026-09-26
+
+Thanks to Chiwei, whose trait rebalance, new Giant Stomach trait, artwork and bug reports are
+behind this release.
+
+### Added
+
+- **Giant Stomach**, a new positive trait designed by Chiwei (15 Suns). Your stomach holds five
+  times as much food as anyone else's, and once it is fuller than an ordinary stomach could ever
+  be it empties into your gut faster. No amount of eating makes you sick. Icon by Chiwei. In-game check tracked as T2.280.
+- **Village interiors now work like a cabin room.** All seven of the mod's interiors (the Academy,
+  the Apothecary's Cabin, the Inn, the Miller's and Weaver's cottages, the Village Hall and the Jail
+  Cell) now give the base game cabin's Insulation and Cabin Fever (faster for a Claustrophobic
+  character, slower for a Homebody), and hide the outdoor water level. The six homes and halls give
+  the cabin's full 200 Comfort instead of +10; the Jail Cell gives none. Windows can be built in
+  every interior. Requested by Chiwei; in-game check tracked as T2.281.
+- **A fireplace for the Jail Cell.** The Fireplace can be built in the Jail Cell only, because the
+  other six interiors already have a hearth the village keeps lit, and a second one there would stop
+  that. A prisoner now finds what the fireplace needs in the cell: the stone, mud brick, clay and
+  twigs to build it, once per sentence; a peat turf with each day's food and water; and, once the
+  fireplace stands, one lit tinder a day whenever it is cold. None of it opens the door.
+
+### Changed
+
+Chiwei's trait rebalance, adopted from the package Chiwei sent against 1.68.41:
+
+- **Aged:** training can no longer bring your Fitness back to a young body's peak, and your Energy
+  never quite fills. You burn through your reserves more slowly and grow sleepy more slowly, and
+  the dull ache stays.
+- **Insomniac:** you can stay awake more than twice as long before tiredness sets in. Sleep
+  deprivation no longer builds faster than normal: it arrives on the usual schedule, whether you
+  feel tired or not.
+- **Bad Kidneys:** the warmth of firebrew now lingers about twice as long too.
+- **Deadly Disease:** no longer lowers your Immune System outright. The disease's infections still
+  press against it, and keeping it strong still holds them back.
+- **Green Thumb:** no longer starts you with extra items. The steady Fertility Boon on your crops is
+  the whole trait.
+- **Lost Tourist:** you no longer start out lonely, and alone in the wild you now grow isolated
+  twice as fast instead of slowly gathering stress. You still arrive on edge and feel for others
+  more than most.
+- **Spiritually Harmonious** no longer starts you with extra Insight, and **Spiritually Troubled**
+  no longer adds Fear. Both now sit in the Situational category.
+- **Weak Stomach:** nausea now creeps up over time instead of sitting at a fixed level.
+- **Agoraphobia:** out in the open you are now frightened rather than stressed, and under a roof
+  your stress drains away.
+- **Nyctophobia:** pitch darkness badly shakes you and dim light frightens you, a light in your
+  hand steadies you, and bright light eases your stress.
+- **Lunacy:** the waxing gibbous and full moon now lift your mood while they unsettle you, and the
+  darker phases weigh on it.
+- **Drunkard:** the craving (rising stress, nothing quite satisfying you, a dull ache) now belongs
+  to the trait's condition, so the condition shows what it is doing to you, drunk or sober.
+- **Nightcrawler:** shade and sunlight now work in one condition. Sunlight Exposure runs from
+  Nourished by Darkness through Tolerable Light to Harsh, Searing and Blazing Sunlight; the harsh
+  bands also make you feel hotter (+2, +4 and +6 to how warm you feel). Each point of shade (a hat,
+  a roof) takes 2.5 off your exposure, and that holds after saving and reloading. Darkness no
+  longer strengthens your immune system or calms your fear, and its lift to your morale is a
+  quarter of what it was; sunlight no longer costs you immune system or morale, but the burn
+  builds a little faster in harsh and searing sun, and Blazing Sunlight is now a critical alert.
+  Burning now warns you first (Smouldering) before it catches, and when it catches the burn wound
+  arrives as you close the Burned! message.
+- **Categories:** Bleeder moves to Physiological, Born Mark to Physical, and Wide Hands to Knowledge.
+- **Icons:** Claws has its own icon, and the Agoraphobia, Nyctophobia and Weak Stomach icons are
+  re-cropped. Artwork by Chiwei.
+
+In-game checks tracked as T2.278 (the trait changes) and T2.279 (Nightcrawler's shade and burn).
+
+### Fixed
+
+- **Opening the Inn Keeper's chest no longer counts as theft.** The mod read the empty slot every
+  chest keeps as if it were an item, and when the game rebuilt the chest's slots (opening it sorts
+  them) that "item" went missing. The Inn Keeper is always home, so he caught you every time: crime
+  rose and Village Reputation fell, again after every reload. Food spoiling inside a chest no longer
+  counts as theft either. Taking something for real is still caught as before. Needs CSFF Mod
+  Framework 2.26.10. Reported by Chiwei; in-game check tracked as T4.42.
+- **Map tiles no longer grow a second pond, river or tree beside their own.** Foraging Forest and
+  Stillwater Meadow could show two identical Ponds; Sodden Hollow, Moss-Grown Clearing, Clay Shoal,
+  Hunter's Crossing and Sett Warren two identical Birch, Alder or Willow; and Clay Shoal a river
+  beside its bog. Each tile inherited "plant one if it is missing" upkeep from the base-game
+  location it copies, and that upkeep could not see the tile's own copy (fixed in CSFF Mod
+  Framework 2.26.10, which this version needs). The mod's own tree regrowth also counted those
+  species twice and now keeps one of each. A save that already has the extra copy heals the first
+  time you step onto that tile (with CSFF Mod Framework 2.26.11; on 2.26.10 it healed only when a
+  save was loaded while standing on the tile). Reported by Chiwei; in-game check tracked as T2.282.
+
+## [1.68.44] - 2026-09-25
+
+### Fixed
+
+- **A Stone Tile Floor now warms only the room it is laid in.** Its Comfort +12 and Insulation +1
+  used to reach you from any room you had left behind, so a tiled cabin floor kept you comfortable
+  out in the forest. The EA 0.68b update made the base game's Windows, Earthen Floors and
+  Plastered Walls work this way, and the Stone Tile Floor now matches them: the bonus applies while
+  you are in that room and stops when you walk out. In-game check tracked as T2.262.
+
+## [1.68.43] - 2026-09-25
+
+### Fixed
+
+- **The map tiles no longer grow a second copy of a tree they already have when you arrive.**
+  Measured at Highland Pines: two Pine Trees and two Small Pine Trees where the tile has one of
+  each. The mod's tree regrowth looked for each tree by the base game's own card, but these tiles
+  place their own copy of the tree, so on arrival it saw "no Pine Tree" and planted a base-game
+  one beside the tile's own. The extra tree stayed through
+  saving and reloading. Regrowth now recognises the tile's own tree, plants that same kind when one
+  is really missing, and removes a doubled base-game copy the next time you enter the tile, so a
+  save that already has two sorts itself out. In-game checks tracked as T2.128 and T2.147.
+- **The Apothecary now thanks you when an errand is done, and the Weaver now offers her Climbing
+  Rope.** Both conversations always opened on the usual greeting, which hid every line meant to
+  come first: the Apothecary's thanks for the three herbs, for the powders and for the Weaver's
+  cloth, and the Weaver's rope offer once her errands are finished. So the herb errand sat at
+  "delivered" for good, its renown never counted toward the Village Hall (whose top Reputation
+  needs every errand), the powder errand's thanks could never follow it, and the Herb Paste,
+  Pigment, Cloth Mask and Climbing Rope recipes they hand over never arrived that way (all four can
+  still be researched as before). Those lines now open first, so an errand you already delivered
+  is thanked the next time you talk to her. The Weaver's rope offer is tracked as T2.98.
+- **Ash's Care line now shows on the days he is caught hunting, swimming, lounging, bringing a gift
+  or greeting you.** The game uses only the first matching look for a card, and those five pictures
+  were checked before the Care lines, so on those days the card fell back to its plain description.
+  Every picture now carries the Care line that goes with it. Tracked as T2.109.
+
+### Documentation
+
+- README: Advanced Copper Tools is required, not optional. Community Mod Chest declares it as a hard
+  dependency, so BepInEx does not load the mod at all without it; the README said the mod still
+  loaded and only some buildings stopped working.
+
+## [1.68.42] - 2026-09-23
+
+### Fixed
+
+- **Packing up a market stall or taking apart the outfit wardrobe no longer deletes what is inside.**
+  Pack Up Stall (with or without the awning) and the wardrobe's Take Apart destroyed every item
+  still stored in them. Those items are now set down on the ground beside you, as the base game's
+  shelves and racks do.
+- **Trust with the Miller, the Weaver and the Apothecary now actually builds.** Their trust was
+  defined but never attached to them, so every trust gain did nothing: chatting, finishing their
+  errands, the Village Founder's head start, and selling into a Copper Chest they own. Trust stayed
+  at zero, so their friendship lines on the Village Hall boards never moved past the first one.
+  Each of the three now carries their trust, and existing saves pick it up on load, starting from
+  zero. The Professor, who already had his, is unchanged. In-game check tracked as T4.38.
+- **Quest and village readouts no longer show two lines at once, and quest rewards no longer
+  unlock one step early.** Many of the mod's conditions were written with half-step bounds (for
+  example "between 1.5 and 2.5" to mean "exactly 2"), but the game rounds both the value and the
+  bounds down before comparing, so each such condition also matched the step below. The effects:
+  a quest's thank-you dialog could appear one quest early; an NPC's board could show two quest or
+  friendship lines together; blueprints rewarded by a quest (the Inn Keeper's plate, cup and vase, the
+  Professor's figurines and bone armor, the Miller's hunting stand and stone tiles, the Weaver's
+  clothing and rope, the wind chimes, the tricolor wall hanging, the fire-hardened spear) unlocked
+  one step before the
+  quest that grants them was finished; and the Town board could show both "strained" and "low
+  renown" for a brand-new village. Every such condition now names the exact step it means.
+- **The jail cell's tunnel no longer offers Crawl through one dig early.** It appeared at 5 digs
+  of 6. It now appears only once the tunnel is finished. In-game check tracked as T4.26.
+- **The cell door's "N more days" readout shows one line, and a sentence is always whole days.**
+  The door showed two different day counts at once for every sentence (the same rounding as
+  above). Being caught digging also added half your original sentence, which could leave a half
+  day. That penalty now rounds up to a whole day, and a save holding a half day from before is
+  rounded up at the next day's end, so you serve the same number of days as before.
+- **Captain Sterling no longer offers both of his arrest choices at once.** With one "think better
+  of it" left, the lenient and the forced arrest were both selectable. Now exactly one is.
+- **The Market Stall's Sales Revenue works, with or without the awning.** The revenue counter was
+  switched off in the card data, so it never showed and reset to zero on every reload. Putting the
+  awning up also switched the stall to a version that Collect as Copper and Collect as Salt did not
+  recognise, so those buttons paid nothing and no revenue built up. The counter now shows and
+  keeps its value, and the dressed stall earns, pays out, and counts toward the market's village
+  milestone and chronicle entry just as the plain one does. In-game check tracked as T2.110.
+- **The Village Hall now shows its Village Renown bar.** The mod kept the value up to date, but the
+  bar was switched off in the card data, so it never appeared.
+
+---
+
 ## [1.68.41] - 2026-09-23
 
 Thanks to Chiwei, who asked whether the Herbalism graduate's doubled forage was working at all.

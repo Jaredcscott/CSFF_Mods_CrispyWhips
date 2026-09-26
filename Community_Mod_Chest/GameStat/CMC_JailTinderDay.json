@@ -1,0 +1,42 @@
+{
+    "UniqueID": "cmcStatJailTinderDay",
+    "GameName": {
+        "LocalizationKey": "CMC_JailTinderDay_StatName",
+        "DefaultText": "Jail Tinder Day"
+    },
+    "Description": {
+        "LocalizationKey": "CMC_JailTinderDay_StatDescription",
+        "DefaultText": "Hidden record of the in-game day a Lit Tinder was last placed beside the cold fireplace in the jail cell, +1-offset so 0 means never. Written by JailPatch; compared against the current day so at most one tinder is granted per calendar day of a sentence."
+    },
+    "IsRuntimeOnly": false,
+    "BaseValue": 0.0,
+    "MinMaxValue": {
+        "x": 0.0,
+        "y": 999999.0
+    },
+    "BaseRatePerTick": 0.0,
+    "MinMaxRate": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "Transfers": [],
+    "TimeOfDayMods": [],
+    "CompositeStats": [],
+    "StatPriority": 0,
+    "RequiredPerks": [],
+    "Visibility": 2,
+    "VisibleInDetailedList": false,
+    "CannotBeInspected": true,
+    "InvertedDirection": false,
+    "VisibleValueRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "TrendIndicatorRateRange": {
+        "x": 0.0,
+        "y": 0.0
+    },
+    "StatusesHaveNoBar": true,
+    "Statuses": [],
+    "UsesNovelty": false
+}

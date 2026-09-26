@@ -91,7 +91,7 @@
             "Conditions": {
                 "RequiredStatValues": [
                     {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
-                    {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 2.5}}
+                    {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 2.0, "y": 2.0}}
                 ],
                 "RequiredNPCStatValues": [
                     {
@@ -118,7 +118,7 @@
             "Conditions": {
                 "RequiredStatValues": [
                     {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
-                    {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 2.5, "y": 3.5}}
+                    {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 3.0, "y": 3.0}}
                 ]
             },
             "Answer": {
@@ -135,7 +135,7 @@
             "Conditions": {
                 "RequiredStatValues": [
                     {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
-                    {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 3.5, "y": 4.5}}
+                    {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 4.0, "y": 4.0}}
                 ]
             },
             "Answer": {
@@ -152,7 +152,7 @@
             "Conditions": {
                 "RequiredStatValues": [
                     {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
-                    {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 4.5, "y": 5.5}}
+                    {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 5.0, "y": 5.0}}
                 ]
             },
             "Answer": {
@@ -169,7 +169,7 @@
             "Conditions": {
                 "RequiredStatValues": [
                     {"StatWarpData": "cmcStatWeaverQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
-                    {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 5.5, "y": 6.5}}
+                    {"StatWarpData": "cmcStatWeaverQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 6.0, "y": 6.0}}
                 ]
             },
             "Answer": {
@@ -186,7 +186,7 @@
             "Conditions": {
                 "RequiredStatValues": [
                     {"StatWarpData": "cmcStatWeaverMoveIn", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 999999.0}},
-                    {"StatWarpData": "cmcStatApothQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 20.0}},
+                    {"StatWarpData": "cmcStatApothQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 2.0, "y": 20.0}},
                     {"StatWarpData": "cmcStatInterlockS1", "StatWarpType": 3, "TriggerRange": {"x": -0.5, "y": 0.5}}
                 ]
             },

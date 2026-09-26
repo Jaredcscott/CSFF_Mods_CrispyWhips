@@ -19,7 +19,24 @@
         "LocalizationKey": "CMC_EventNightcrawlerBurned_Dismiss"
       },
       "DaytimeCost": 0,
-      "ProducedCards": [],
+      "ProducedCards": [
+        {
+          "CollectionName": "W_FireBurn",
+          "CollectionMessages": [],
+          "CountsAsSuccess": false,
+          "RevealInventory": false,
+          "CollectionUses": { "x": 0, "y": 0 },
+          "CollectionWeight": 0,
+          "DroppedCards": [
+            {
+              "DroppedCard": { "m_FileID": 0, "m_PathID": 0 },
+              "DroppedCardWarpData": "3ba0c209e55d7cb4d8da51697e34b584",
+              "DroppedCardWarpType": 3,
+              "Quantity": { "x": 1, "y": 1 }
+            }
+          ]
+        }
+      ],
       "ReceivingCardChanges": { "ModType": 3 }
     }
   ]

@@ -1,5 +1,6 @@
 {
     "UniqueID": "cmcOutfitWardrobe",
+    "SpillsInventoryOnDestroy": true,
     "CardName": {
         "ParentObjectID": "cmcOutfitWardrobe",
         "LocalizationKey": "CMC_OutfitWardrobe_Placed_CardName",

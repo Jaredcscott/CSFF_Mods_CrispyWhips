@@ -24,7 +24,7 @@
             "ObjectiveName": "InterlockS1Done",
             "CompletionWeight": 1,
             "StatCondition": {
-                "TriggerRange": { "x": 1.5, "y": 20.0 },
+                "TriggerRange": { "x": 2.0, "y": 20.0 },
                 "StatWarpData": "cmcStatInterlockS1",
                 "StatWarpType": 3
             },

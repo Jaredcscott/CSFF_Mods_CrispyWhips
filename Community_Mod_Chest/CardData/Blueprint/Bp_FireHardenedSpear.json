@@ -25,7 +25,7 @@
       "ObjectiveName": "LostCatThanked",
       "CompletionWeight": 1,
       "StatCondition": {
-        "TriggerRange": { "x": 2.5, "y": 20.0 },
+        "TriggerRange": { "x": 3.0, "y": 20.0 },
         "StatWarpData": "cmcStatLostCat",
         "StatWarpType": 3
       },

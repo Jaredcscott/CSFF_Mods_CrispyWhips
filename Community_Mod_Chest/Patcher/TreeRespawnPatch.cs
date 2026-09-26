@@ -37,6 +37,14 @@ namespace CommunityModChest.Patcher
     /// into StripLegacyBoardUIDs (see above), <see cref="SpawnMissingTrees"/> also trims any excess
     /// down to the declared per-species target — self-correcting both future races and any
     /// already-duplicated save.
+    ///
+    /// CORRECTION 2026-09-26 (retro worldmap-clone-duplicate-terrain): the Pine Trail report above
+    /// was NOT a race with the native action. Pine Trail's native tree actions are tag-gated and
+    /// see the tile's env-local trees; its doubles came from this patch counting only the vanilla
+    /// UniqueID (fixed in 1.68.43) and from EnvTrees targeting two Birch. The native actions that
+    /// DID double are the card-gated ones (Birch, Large Alder, Willow, Pond, River), which tested the
+    /// vanilla card by reference; the framework now guards those on every clone location card
+    /// (CardCloneService.GuardCreatorsAgainstEnvLocalDrops).
     /// </summary>
     internal static class TreeRespawnPatch
     {
@@ -50,28 +58,55 @@ namespace CommunityModChest.Patcher
         private const string TreeSmallAlder = "0602e2df5cb0a7843b5517326590a915";
         private const string TreeLargeWillow = "f27a6838066ae10428aa6df6d6259221";
 
-        // Per-environment target tree counts, derived from the vanilla template CT8's
-        // OnStatsChangeActions (one action entry per tree slot; repeated UIDs = multiple trees of
-        // that species). SpawnMissingTrees counts board presence by species and spawns the difference.
-        // Source: Documentation/GameData CT8 JSON GUID-count query per template, 2026-07-31.
+        // Per-environment target tree counts. ONE of each species: all eight vanilla tree cards are
+        // UniqueOnBoard, and every template below seeds exactly one of each species it has
+        // (DefaultEnvCardDrops Quantity 1..1). SpawnMissingTrees counts board presence by species
+        // and spawns the difference, so a repeated UID here means this patch plants and keeps two
+        // identical trees. Development_Tools/Tests/WorldMap-CloneCreatorEnvLocalGuard.Tests.ps1
+        // holds every row to that.
+        //
+        // History, so the doubles are not re-derived: the 2026-07-31 table counted each tree GUID
+        // in the template's location-card JSON, and a "Create Birch/Alder/Willow Tree" action names
+        // its card twice (inverted RequiredCardsOnBoard + ProducedCards), so every card-gated
+        // species came out as two. Pine Trail's Birch and Clay Shoal's Willow are not in their
+        // templates (GrovePine_PineGrove, River_ClearingAlder_BoggyMeadows) at all: they are CMC
+        // additions and stay, at one tree each.
         private static readonly Dictionary<string, string[]> EnvTrees = new()
         {
             ["cmcEnvVillagePath"]    = new[] { TreeLargeOak, TreeSmallOak },
             ["cmcEnvHighGrove"]      = new[] { TreeLargePine, TreeSmallPine },
-            ["cmcEnvPineTrail"]      = new[] { TreeLargePine, TreeSmallPine, TreeLargeBirch, TreeLargeBirch },
-            ["cmcEnvVillage"]        = new[] { TreeLargeOak, TreeSmallOak, TreeLargeBirch, TreeLargeBirch },
-            ["cmcEnvVillageFarm"]    = new[] { TreeLargePine, TreeSmallPine, TreeLargeBirch, TreeLargeBirch },
-            ["cmcEnvClayFlats"]      = new[] { TreeLargeAlder, TreeLargeAlder, TreeSmallAlder, TreeLargeWillow, TreeLargeWillow },
-            ["cmcEnvMarshHollow"]    = new[] { TreeLargeAlder, TreeLargeAlder, TreeSmallAlder, TreeLargeBirch, TreeLargeBirch, TreeLargeWillow, TreeLargeWillow },
-            ["cmcEnvMossyClearing"]  = new[] { TreeLargeOak, TreeSmallOak, TreeLargeBirch, TreeLargeBirch, TreeLargeWillow, TreeLargeWillow },
+            ["cmcEnvPineTrail"]      = new[] { TreeLargePine, TreeSmallPine, TreeLargeBirch },
+            ["cmcEnvVillage"]        = new[] { TreeLargeOak, TreeSmallOak, TreeLargeBirch },
+            ["cmcEnvVillageFarm"]    = new[] { TreeLargePine, TreeSmallPine, TreeLargeBirch },
+            ["cmcEnvClayFlats"]      = new[] { TreeLargeAlder, TreeSmallAlder, TreeLargeWillow },
+            ["cmcEnvMarshHollow"]    = new[] { TreeLargeAlder, TreeSmallAlder, TreeLargeBirch, TreeLargeWillow },
+            ["cmcEnvMossyClearing"]  = new[] { TreeLargeOak, TreeSmallOak, TreeLargeBirch, TreeLargeWillow },
             ["cmcEnvForagingForest"] = new[] { TreeLargePine, TreeSmallPine },
-            ["cmcEnvHuntersCrossing"]= new[] { TreeLargePine, TreeSmallPine, TreeLargeBirch, TreeLargeBirch },
+            ["cmcEnvHuntersCrossing"]= new[] { TreeLargePine, TreeSmallPine, TreeLargeBirch },
             ["cmcEnvDeerMeadow"]     = new[] { TreeLargePine, TreeSmallPine },
-            ["cmcEnvBadgerWarren"]   = new[] { TreeLargePine, TreeSmallPine, TreeLargeBirch, TreeLargeBirch },
+            ["cmcEnvBadgerWarren"]   = new[] { TreeLargePine, TreeSmallPine, TreeLargeBirch },
         };
+
+        private const string EnvLocalSuffix = "__envlocal";
 
         private static bool _initialized;
         private static string _prevEnvUid;
+
+        // The UniqueID this env's own DefaultEnvCardDrops seeds for a tree species: the env-local
+        // variant when the clone substituted one, else the vanilla UniqueID (also the fallback when
+        // the env card cannot be read, which is what this patch always spawned before).
+        private static string SeededFormOf(string envUid, string treeUid)
+        {
+            if (CardUtil.GetCardDataById(envUid) is CardData env && env.DefaultEnvCardDrops != null)
+            {
+                var envLocalUid = treeUid + EnvLocalSuffix;
+                foreach (var drop in env.DefaultEnvCardDrops)
+                    if (drop.DroppedCard != null &&
+                        string.Equals(drop.DroppedCard.UniqueID, envLocalUid, StringComparison.OrdinalIgnoreCase))
+                        return drop.DroppedCard.UniqueID;
+            }
+            return treeUid;
+        }
 
         public static void Initialize()
         {
@@ -142,24 +177,38 @@ namespace CommunityModChest.Patcher
 
             foreach (var kvp in targetCounts)
             {
-                boardCards.TryGetValue(kvp.Key, out var present);
-                var current = present?.Count ?? 0;
+                // A clone env seeds the framework's env-local variant of an AlwaysUpdate tree
+                // ("<uid>__envlocal", CardCloneService.GetEnvLocalVariant), not the vanilla card, so a
+                // species is on the board under either UniqueID. Counting only the vanilla one read a
+                // seeded Pine Tree as missing and planted a vanilla copy beside it on arrival: two Pine
+                // Trees and two Small Pine Trees at Highland Pines, surviving save and reload (walkthrough
+                // T2.128/T2.147, r39). Vanilla copies go first, so an excess trims the stray and keeps the
+                // env's own.
+                var present = new List<object>();
+                if (boardCards.TryGetValue(kvp.Key, out var vanillaCopies)) present.AddRange(vanillaCopies);
+                if (boardCards.TryGetValue(kvp.Key + EnvLocalSuffix, out var envLocalCopies)) present.AddRange(envLocalCopies);
+                var current = present.Count;
                 var needed = kvp.Value - current;
                 if (needed > 0)
                 {
+                    var spawnUid = SeededFormOf(envUid, kvp.Key);
                     for (int i = 0; i < needed; i++)
                     {
-                        SpawnService.Spawn(kvp.Key);
-                        Plugin.Logger.LogDebug($"[TreeRespawnPatch] '{envUid}': spawned '{kvp.Key}' ({current + i + 1}/{kvp.Value}).");
+                        SpawnService.Spawn(spawnUid);
+                        Plugin.Logger.LogDebug($"[TreeRespawnPatch] '{envUid}': spawned '{spawnUid}' ({current + i + 1}/{kvp.Value}).");
                     }
                 }
-                else if (needed < 0 && present != null)
+                else if (needed < 0)
                 {
                     var excess = -needed;
                     for (int i = 0; i < excess && i < present.Count; i++)
                     {
+                        // Info: this only runs when a tile holds more of a species than its target,
+                        // i.e. once per affected tile while an old save heals, so it is the line an
+                        // in-game check reads to confirm a doubled tree was removed.
+                        var removedUid = CardUtil.GetCardUniqueId(present[i]);
                         if (CardUtil.TryRemoveCard(present[i]))
-                            Plugin.Logger.LogDebug($"[TreeRespawnPatch] '{envUid}': removed excess duplicate '{kvp.Key}' ({current - i - 1}/{kvp.Value}).");
+                            Plugin.Logger.LogInfo($"[TreeRespawnPatch] '{envUid}': removed excess duplicate '{removedUid}' ({current - i - 1}/{kvp.Value}).");
                     }
                 }
             }

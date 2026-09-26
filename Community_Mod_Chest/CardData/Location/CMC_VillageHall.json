@@ -28,6 +28,7 @@
     "FuelCapacity": { "Active": false },
     "Progress": { "Active": false },
     "SpecialDurability1": {
+        "Active": true,
         "CardStatName": {
             "ParentObjectID": "cmcVillageHall",
             "LocalizationKey": "CMC_VillageHall_SD1_Name",
@@ -35,7 +36,8 @@
         },
         "MaxValue": 100.0,
         "FloatValue": 0.0,
-        "ShowAsBar": true,
+        "HidingOptions": 1,
+        "TextDisplay": 2,
         "RatePerDaytimePoint": 0.0
     },
     "SpecialDurability2": { "Active": false },

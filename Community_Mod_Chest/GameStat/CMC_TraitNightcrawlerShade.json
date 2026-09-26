@@ -57,7 +57,7 @@
             "Icon": {"m_FileID": 0, "m_PathID": 0},
             "IconWarpData": "Sun",
             "IconWarpType": 3,
-            "ValueRange": {"x": 10, "y": 11},
+            "ValueRange": {"x": 10, "y": 10},
             "UsePercentageForRange": false,
             "EffectsOnStats": [],
             "EffectsOnNPCStats": [],
@@ -93,14 +93,116 @@
             "Icon": {"m_FileID": 0, "m_PathID": 0},
             "IconWarpData": "Shield",
             "IconWarpType": 3,
-            "ValueRange": {"x": 12, "y": 13},
+            "ValueRange": {"x": 11, "y": 11},
             "UsePercentageForRange": false,
             "EffectsOnStats": [
                 {
                     "Stat": {"m_FileID": 0, "m_PathID": 0},
                     "StatWarpData": "cmcStatTraitNightcrawlerSun",
                     "StatWarpType": 3,
-                    "ValueModifier": {"x": -15.0, "y": -15.0},
+                    "ValueModifier": {"x": -2.5, "y": -2.5},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 0,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        },
+        {
+            "GameName": {
+                "ParentObjectID": "cmcStatTraitNightcrawlerShade",
+                "LocalizationKey": "CMC_TraitNightcrawlerShade_Status_InsufficientShade_Name",
+                "DefaultText": "Insufficient Shade"
+            },
+            "Description": {
+                "ParentObjectID": "cmcStatTraitNightcrawlerShade",
+                "LocalizationKey": "CMC_TraitNightcrawlerShade_Status_InsufficientShade_Description",
+                "DefaultText": "Insufficient shade, try not to go outside!"
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Shield",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 12, "y": 12},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "cmcStatTraitNightcrawlerSun",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -5.0, "y": -5.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 0,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        },
+        {
+            "GameName": {
+                "ParentObjectID": "cmcStatTraitNightcrawlerShade",
+                "LocalizationKey": "CMC_TraitNightcrawlerShade_Status_InsufficientShade_Name",
+                "DefaultText": "Insufficient Shade"
+            },
+            "Description": {
+                "ParentObjectID": "cmcStatTraitNightcrawlerShade",
+                "LocalizationKey": "CMC_TraitNightcrawlerShade_Status_InsufficientShade_Description",
+                "DefaultText": "Insufficient shade, try not to go outside!"
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Shield",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 13, "y": 13},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "cmcStatTraitNightcrawlerSun",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -7.5, "y": -7.5},
                     "RateModifier": {"x": 0.0, "y": 0.0},
                     "MinValueModifier": {"x": 0.0, "y": 0.0},
                     "MaxValueModifier": {"x": 0.0, "y": 0.0},
@@ -144,14 +246,65 @@
             "Icon": {"m_FileID": 0, "m_PathID": 0},
             "IconWarpData": "Shield",
             "IconWarpType": 3,
-            "ValueRange": {"x": 14, "y": 15},
+            "ValueRange": {"x": 14, "y": 14},
             "UsePercentageForRange": false,
             "EffectsOnStats": [
                 {
                     "Stat": {"m_FileID": 0, "m_PathID": 0},
                     "StatWarpData": "cmcStatTraitNightcrawlerSun",
                     "StatWarpType": 3,
-                    "ValueModifier": {"x": -35.0, "y": -35.0},
+                    "ValueModifier": {"x": -10.0, "y": -10.0},
+                    "RateModifier": {"x": 0.0, "y": 0.0},
+                    "MinValueModifier": {"x": 0.0, "y": 0.0},
+                    "MaxValueModifier": {"x": 0.0, "y": 0.0},
+                    "CannotModifyBeyond": {"Active": false, "FloatValue": 0.0, "MaxValue": 0.0},
+                    "ApplyEachTick": false,
+                    "InstantModifier": false,
+                    "IgnoreNovelty": false,
+                    "IsInverse": false
+                }
+            ],
+            "EffectsOnNPCStats": [],
+            "EffectsOnActions": [],
+            "NotifyPlayer": 0,
+            "RepeatTextNotification": 0,
+            "AlertLevel": 0,
+            "AlertSounds": [],
+            "RepeatAlertSounds": 0,
+            "AmbientSounds": [],
+            "GameOver": false,
+            "ActionsMaxTicks": 0,
+            "PreventingActionMessage": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+            "CombatEffects": [],
+            "ConfidenceModifier": 0.0
+        },
+        {
+            "GameName": {
+                "ParentObjectID": "cmcStatTraitNightcrawlerShade",
+                "LocalizationKey": "CMC_TraitNightcrawlerShade_Status_GoodShade_Name",
+                "DefaultText": "Good Shade"
+            },
+            "Description": {
+                "ParentObjectID": "cmcStatTraitNightcrawlerShade",
+                "LocalizationKey": "CMC_TraitNightcrawlerShade_Status_GoodShade_Description",
+                "DefaultText": "Good shade, you can stay outside a little longer."
+            },
+            "StatusLog": {
+                "LogText": {"ParentObjectID": "", "LocalizationKey": "", "DefaultText": ""},
+                "Category": {"m_FileID": 0, "m_PathID": 0},
+                "TicksToRegister": 0
+            },
+            "Icon": {"m_FileID": 0, "m_PathID": 0},
+            "IconWarpData": "Shield",
+            "IconWarpType": 3,
+            "ValueRange": {"x": 15, "y": 15},
+            "UsePercentageForRange": false,
+            "EffectsOnStats": [
+                {
+                    "Stat": {"m_FileID": 0, "m_PathID": 0},
+                    "StatWarpData": "cmcStatTraitNightcrawlerSun",
+                    "StatWarpType": 3,
+                    "ValueModifier": {"x": -12.5, "y": -12.5},
                     "RateModifier": {"x": 0.0, "y": 0.0},
                     "MinValueModifier": {"x": 0.0, "y": 0.0},
                     "MaxValueModifier": {"x": 0.0, "y": 0.0},
@@ -202,7 +355,7 @@
                     "Stat": {"m_FileID": 0, "m_PathID": 0},
                     "StatWarpData": "cmcStatTraitNightcrawlerSun",
                     "StatWarpType": 3,
-                    "ValueModifier": {"x": -60.0, "y": -60.0},
+                    "ValueModifier": {"x": -15.0, "y": -15.0},
                     "RateModifier": {"x": 0.0, "y": 0.0},
                     "MinValueModifier": {"x": 0.0, "y": 0.0},
                     "MaxValueModifier": {"x": 0.0, "y": 0.0},

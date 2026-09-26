@@ -45,6 +45,9 @@ namespace CommunityModChest.Patcher
             new Structure { Name = "Village Well", CardUid = "cmcimpwell", ChronicleStatUid = "cmcStatChronicleWellDay" },
             new Structure { Name = "River Bridge", CardUid = "cmcimpriverbridge", ChronicleStatUid = "cmcStatChronicleRiverBridgeDay" },
             new Structure { Name = "Market Stall", CardUid = "cmcmarketstall", ChronicleStatUid = "cmcStatChronicleMarketStallDay" },
+            // The awning-dressed stall is the same stall (MarketStallPatch.DressedStallUid); the
+            // stamp is one-shot, so whichever form is seen first records it.
+            new Structure { Name = "Market Stall", CardUid = MarketStallPatch.DressedStallUid, ChronicleStatUid = "cmcStatChronicleMarketStallDay" },
         };
 
         private static bool _initialized;

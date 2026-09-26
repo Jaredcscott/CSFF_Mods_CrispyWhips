@@ -3,7 +3,7 @@
     "StartingConditions": {
         "RequiredStatValues": [
             {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
-            {"StatWarpData": "cmcStatVillageWeek", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 9999.0}},
+            {"StatWarpData": "cmcStatVillageWeek", "StatWarpType": 3, "TriggerRange": {"x": 2.0, "y": 9999.0}},
             {"StatWarpData": "cmcStatInnOnboardStep", "StatWarpType": 3, "TriggerRange": {"x": 0.0, "y": 0.5}}
         ]
     },

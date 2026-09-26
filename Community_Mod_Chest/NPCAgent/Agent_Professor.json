@@ -221,8 +221,8 @@
                     "StatWarpData": "cmcStatProfQuestChain",
                     "StatWarpType": 3,
                     "TriggerRange": {
-                        "x": 1.5,
-                        "y": 2.5
+                        "x": 2.0,
+                        "y": 2.0
                     }
                 },
                 {
@@ -278,8 +278,8 @@
                     "StatWarpData": "cmcStatProfQuestChain",
                     "StatWarpType": 3,
                     "TriggerRange": {
-                        "x": 2.5,
-                        "y": 3.5
+                        "x": 3.0,
+                        "y": 3.0
                     }
                 },
                 {
@@ -344,7 +344,7 @@
                     "StatWarpData": "cmcStatWeaverQuestChain",
                     "StatWarpType": 3,
                     "TriggerRange": {
-                        "x": 4.5,
+                        "x": 5.0,
                         "y": 20.0
                     }
                 },

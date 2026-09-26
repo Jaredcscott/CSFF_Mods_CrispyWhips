@@ -3,7 +3,7 @@
     "StartingConditions": {
         "RequiredStatValues": [
             {"StatWarpData": "cmcStatApothQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 1.5}},
-            {"StatWarpData": "cmcStatApothPowderProgress", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 2.5}}
+            {"StatWarpData": "cmcStatApothPowderProgress", "StatWarpType": 3, "TriggerRange": {"x": 2.0, "y": 2.0}}
         ]
     },
     "Line": {

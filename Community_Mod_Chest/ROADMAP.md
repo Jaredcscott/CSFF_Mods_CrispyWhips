@@ -1,63 +1,66 @@
 # Roadmap: Community Mod Chest
-Version at time of writing: 1.68.37
-Date: 2026-09-20
-Audit score: 9/10 - PASS (release ready; 0 CRITICAL, 0 CMC-owned Design Gaps)
+Version at time of writing: 1.68.44
+Date: 2026-09-25
+Audit score: 9/10 - PASS (0 CRITICAL, 1 CMC-owned Design Gap; see `.audit/summary.md`, consolidated 2026-09-25)
 
-Re-derived 2026-09-20 during `/consolidate-audit`, after the 09-14..09-20 Trait Effect Repair rework
-(Nightcrawler trait + Sensitive Skin retirement), the achievement-board fix (retro GRADUATED 09-19),
-and the fresh 2026-09-20 audit-mod / critical-analysis / code-quality re-runs. Every Phase 0 item from
-the 2026-09-05 roadmap has since resolved or been refuted (see the Plan Reconciliation Log at the foot
-of this file), so this phase is now dominated by in-game verification debt, not code fixes.
+Re-derived 2026-09-25 during `/consolidate-audit`, after six releases in four days (1.68.39-1.68.44:
+trait composite resync, Nightcrawler's sun back on Light, the witnessed-attack guard recheck, Herbalism
+forage doubling, the half-step `TriggerRange` sweep, resident Trust, Market Stall revenue, clone-tile
+tree doubling, the errand thanks lines, and the Stone Tile Floor going room-local for EA 0.68b parity).
+The prior roadmap (2026-09-20) had no CMC-owned code left in Phase 0. That changed on 2026-09-23 when the
+r39 TestHarness pass found DG1, the guard subdual gap, which is now the one code item in Phase 0.
 
 ## Current State
 
-**Theme**: A community-suggested content grab-bag that has grown into the fleet's most elaborate village-simulation layer - a five-resident roster with daily schedules and quest chains, an Academy with seven courses and graduate perks, a four-guard Town Watch with a full Village Crime / Jail / Banishment enforcement loop (including a hidden-tunnel escape), a five-chest merchant economy, three tameable cats, seasonal road blocks on 3 of 4 seasons, and a Village Reputation civic-growth meter. Aimed at players who want long-form settlement progression woven into the survival core.
+**Theme**: A community-suggested content grab-bag that has grown into the fleet's most elaborate village-simulation layer - a five-resident roster with daily schedules, trust and quest chains, an Academy with seven courses and graduate perks, a four-guard Town Watch with a Village Crime / Jail / Banishment loop, a five-chest merchant economy, three tameable cats, seasonal road blocks on 3 of 4 seasons, and a Village Reputation civic-growth meter. Aimed at players who want long-form settlement progression woven into the survival core.
 
-**Content**: 80 item JSONs / 79 blueprints / 62 location cards (CT2 structures + exits + boards + 7 interior CT4 environments) / 59 perks / 221 GameStats / 10 NPCAgents / 131 custom images / 65 C# files / 1 SelfTriggeredAction. Declarative surface: `BlueprintTabs.json`, `DropInjections.json`, `InjectImprovementInto.json`, `MapMod.json`, `TradingValues.json`, `WorldMap/MapNodes.json`, `EncounterGuards/`, `GameSourceModify/`, `ScriptableObject/` dialog tree.
+**Content**: 80 items / 79 blueprints / 62 location cards (CT2 structures, exits, boards, interior CT8s) + 7 CT4 interior environments + 3 CT10 improvements + 1 event / 59 perks (+4 NPC perks) / 221 GameStats + 35 NPCStats / 10 NPCAgents / 6 guard Encounters / 184 custom images / 65 `Patcher/*.cs` files / 178 DialogLines + 12 DialogScenes / 1 SelfTriggeredAction. Declarative surface: `BlueprintTabs.json`, `DropInjections.json`, `InjectImprovementInto.json`, `MapMod.json`, `TradingValues.json`, `WorldMap/MapNodes.json`, `EncounterGuards/` (3), `GameSourceModify/` (15), `ScriptableObject/` dialog tree.
 
-**Stability**: 9/10 - PASS. Zero CRITICAL, zero CMC-owned Design Gaps. The fresh 2026-09-20 verdict-carriers agree: critical-analysis SOLID (0 crit / 0 mech / 0 design / 0 broken promises), code-quality 10/10 (its one warning, a `SpawnService.Spawn` null-misread in `VillageFounderPerkPatch`, was fixed the same day), acquisition graph fully closed (416 produced / 119 consumed, 0 unreachable / 0 dead-end). Clean build (0/0), EN/CN parity 2387/2387, Bin/Release sync clean, WorldMap mechanical hygiene clean, version sync 1.68.37 across all three files.
+**Stability**: 9/10 - PASS. 0 CRITICAL; 1 CMC-owned Design Gap (DG1: no spear-guard fight can end with the player held, so the Captain summon, lenient arrest and jail are unreachable in real play); 2 warnings (the intentional K33 landmark build time, and a README that still calls the sign, jail and cell art blank placeholders). Version sync 1.68.44 across `ModInfo.json`, `Plugin.cs:30` and `README.md:3`; `SimpEn.csv`/`SimpCn.csv` 2390/2390 keys with none one-sided. Every `.audit/` report predates the 1.68.44 source commit; this consolidation re-read each carried finding on disk rather than re-running the audits.
 
-**Open work**: 0 red retrospectives. Several 🟡 Pending Verification / Open Plan, almost all awaiting in-game reconfirmation of already-shipped fixes:
-- `cmc-village-hearth-fuel-not-refilling` - fix shipped 1.68.13, Inn-proven; sole blocker is a live Academy-visit confirmation (T2.137/T2.149). It is the single BROKEN feature-map grade - an evidence gap, not a code defect.
-- `cmc-guard-combat-no-damage` - diagnostic proven firing; open question T4.35 is which Encounter a guard fight opens (needs a human reading the `Approach <EncounterName>` log line).
-- `river-bridge-east-click-noop` - root cause pinned, fix shipped CSFFModFramework 2.25.30; awaits a relaunch + eastbound click (T2.186).
-- `cmc-village-conditional-drop-fixtures-missing` - root cause is framework-side (`AlwaysUpdateService`, DG-FW1 below); the retro is deliberately open pending `/resolve-retro`'s runtime-evidence gate.
-- `worldmap-clone-duplicate-terrain` - the data-duplication premise is now MEASURED FALSE (2026-09-11); the remaining check is whether the player's symptom is visual (WikiMod's dead slot code), tracked on T2.147/T2.128.
-- `guard-kill-despawn` - despawn + respawn-race fixed (1.54.3), immediate-removal added; not re-verified in-game.
-- `CMC-HSP-compat` - FIXED in 1.68.20 (Extra Rain Cistern Kit rename + re-UID clearing the substring alias); awaits only the T3.41 in-game confirmation.
-- Framework/fleet umbrellas: `wikimod-old-save-load-crash`, `questinjector-blueprint-reset-risk` (CMC no longer uses QuestInjector), `gate-red-baseline-rediscovery`, `RETRO_CLOSURE_PLAN_2026-09-01` + its 13-prompt pack.
-- Trait-rework verification debt: T2.239 + T1.84-T1.114, all `pending` (code shipped 1.68.25-1.68.30; the owner explicitly lifted the playthrough gate on code work 2026-09-17).
+**Released vs. source**: players have 1.68.41. The public repo was last published at `e9338e15d` (1.68.41, `.claude/mod-publish-status.json`), and the `Mod_Update_Manager` embed holds `Community_Mod_Chest.zip` at 1.68.41. 1.68.42-1.68.44 are source-only.
 
-**Framework compliance**: Tier 2. Action interception routes through `Api.ActionRouter` (no direct `ActionRoutine`/coroutine patches - only a comment mentions it), encounter suppression is declarative via `EncounterGuards/*.json`, improvements inject via `InjectImprovementInto.json`, blueprints via `BlueprintTabs.json`, per-run handler registration follows the unregister-before-register / once-guard / paired-Reset patterns. Reconcilers iterate every matching instance. No `DropCollectionGuardPatch`, no unfiltered hot-path prefixes, no `ModLoaderVerison`/`ModEditorVersion`. AdvancedCopperTools is a HARD dependency (since 1.56.0); HerbsAndFungi / WaterDrivenInfrastructure / HomesteadPerks / Sirus23 are soft with graceful degradation.
+**Open work**: 0 red retrospectives. Yellow (Pending Verification / Open Plan) rows, almost all awaiting in-game confirmation of already-shipped fixes:
+- `cmc-village-hearth-fuel-not-refilling` - attempt 3 shipped 1.68.19; T2.137 and T2.149 recorded `fail` on 2026-09-07 against older builds; the feature-map's one BROKEN grade (Town Wood Pile) rests on these.
+- `cmc-guard-combat-no-damage` - diagnostic proven firing; the open question (T4.35) is which Encounter a guard fight opens. Now entangled with DG1: a guard fight that cannot end in a hold has fewer endings to observe.
+- `river-bridge-east-click-noop` - fix in framework 2.25.30; awaits T2.186.
+- `cmc-village-conditional-drop-fixtures-missing` - root cause fixed framework-side (DG-F1, `96a33a8d6`); Session 4 (2026-09-23) passed T2.242 live through the TestHarness (village fixtures and all 7 Hall boards exactly one across leave, return and reload), and T2.242 is now confirmed. It was not the last gate after all: the retro's closure plan also requires a Portal Hub arrival into the Village (CMC's `MapMod.json` world lands in `cmcEnvVillage`), which no run has done, so `/resolve-retro` held it at Pending Verification on 2026-09-25 and filed that check as `T2.277`. T2.185 (the framework change's own check) stays pending.
+- `worldmap-clone-duplicate-terrain` - the r39 measurement (2026-09-23) put the doubled trees in board data (a vanilla-UID tree beside the clone's own `__envlocal` copy, surviving a reload); 1.68.43 fixed `TreeRespawnPatch` to recognise the tile's own tree and trim the vanilla copy. T2.128 and T2.147 still carry `fail` verdicts from 2026-09-07 and need re-arming for the new build.
+- `guard-kill-despawn` - event-driven removal (1.54.3) not yet re-verified in-game.
+- `CMC-HSP-compat` - fixed 1.68.20; awaits T3.41.
+- Framework/fleet umbrellas: `wikimod-old-save-load-crash`, `questinjector-blueprint-reset-risk` (CMC does not use QuestInjector), `gate-red-baseline-rediscovery`, `RETRO_CLOSURE_PLAN_2026-09-01` + its pack.
+
+**Framework compliance**: Tier 2. Action interception routes through `Api.ActionRouter` (9 files), spawning through `Api.SpawnService` (12 files), ticks through `Api.TickEvents` (41 files), and `Plugin.cs` extends `ContentModPlugin`; encounter suppression is declarative (`EncounterGuards/*.json`), improvements inject via `InjectImprovementInto.json`, blueprints via `BlueprintTabs.json`. No `DropCollectionGuardPatch`, no `ModLoaderVerison`/`ModEditorVersion`. AdvancedCopperTools is a HARD dependency (`Plugin.cs:21`); HerbsAndFungi, WaterDrivenInfrastructure and Sirus23 are soft (`Plugin.cs:22-24`).
 
 ---
 
 ## Phase 0: Stabilize
 
-> No CRITICAL and no CMC-owned Design Gaps remain, so there is no code to fix here. What is left is
-> in-game verification debt and one framework-owned item. This phase closes when the retros below get
-> their runtime evidence.
+> One CMC-owned code item (DG1) and the evidence debt behind the yellow retros. DG1 has its own plan;
+> build it from there, not from this table.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| **DG-FW1 (framework-owned): scope `AlwaysUpdateService.EnableAll`'s blanket CT2 write.** It force-sets `AlwaysUpdate=true` on every mod CT2 card, making CMC's board fixtures `IndependentFromEnv` and absent from the persisted board - the mechanism behind `cmc-village-conditional-drop-fixtures-missing`. Framework 2.25.28 added a `skippedInert` branch (per the Plan Reconciliation Log 2026-09-07); confirm it covers CMC's fixtures and close the retro via runtime evidence. **Do NOT attempt to fix this from the CMC tree.** | Design Gap (framework) | P0 | Framework-side |
-| Collect the retro-gated runtime confirmations: hearth-fuel Academy visit (T2.137/T2.149), guard-combat Encounter (T4.35), River Bridge eastbound (T2.186), guard-kill despawn, CMC-HSP-compat (T3.41), Stone Tile Floor in CMC interiors (T2.187). | Evidence gap | P0 | Human playthrough |
-| Record the trait-rework verification debt (T2.239, T1.84-T1.114) as playthroughs happen - the code shipped 1.68.25-1.68.30 and the owner lifted the code-work gate; these are human rows, not agent work. | Evidence gap | P1 | Human playthrough |
+| **DG1: give Thorne and Corrin a subdual enemy action** (`EncounterResult` 8, gated on `RequiredWrestlingState` 2, weighted to compete only once the player is losing) and align Vane's `PlayerDemoralizedEffects` with 1.45.0. Today the only result-8 value in `Encounter/` is `cmcEncounterSterlingArrest.json:1999`, so `cmcStatCaptainSummoned` never rises from a fight and every path into the jail hangs off it. Build steps, the options considered and the one open blind spot (vanilla `GenericEncounterPlayerAction` overrides) are in `Documentation/Plans/Community_Mod_Chest/Guard_Subdual_Summon_Plan.md`. | Design Gap fix | P0 | Medium |
+| **Re-arm the tracker rows that 1.68.42 and 1.68.43 cite** but whose verdicts predate those fixes: T2.128, T2.147 (`fail`), T4.38 (`fail`), T2.110, T4.26, T2.98, T2.109 (`skip`). A verdict is a claim about the build it was recorded on. | Evidence currency | P0 | Quick |
+| Collect the retro-gated runtime confirmations: hearths (T2.137/T2.149), guard-combat Encounter (T4.35), River Bridge eastbound (T2.186), AlwaysUpdate scoping (T2.185), CMC-HSP-compat (T3.41), Stone Tile Floor in CMC interiors (T2.187) and room-local (T2.262), companion follow window (T2.237). The TestHarness can drive most of these; the owner lifted the playthrough gate on code work (2026-09-17), so none of this blocks Phase 1-2. | Evidence gap | P1 | Human or harness playthrough |
 
 ---
 
 ## Phase 1: Foundation
 
-> Table stakes. Version/localization/build hygiene are already clean; what remains is refreshing audit
-> artifacts that went stale under a fast release cadence.
+> Hygiene is clean at the file level; what is left is refreshing the audit artifacts that fell behind a
+> fast release cadence, one docs-honesty fix, and getting 1.68.42-1.68.44 to players.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Refresh the 5 stale domain sub-reports (`/audit-items`, `/audit-blueprints`, `/audit-structures`, `/audit-perks`, `/audit-images`) - all dated 2026-09-09..09-12, all predate the trait rework and card-art revamp, all UNTRUSTED per CLAUDE.md. Individual findings were re-checked on disk this consolidation, but the reports were not re-run. This formally closes the carried W2/W3/W4 authoring nits. | Audit hygiene | P1 | Medium |
-| Regenerate `feature-map.md` for 1.68.37 - it is written for 1.68.16 and predates the achievement-board fix, Nightcrawler, and the card art. Its one BROKEN grade (hearths) is evidence-gated, not a defect. | Audit hygiene | P1 | Medium |
-| Version hygiene: **already clean** (1.68.37 across ModInfo/Plugin/README; bin/Release sync 0/0/0). No action. | Verified | - | - |
-| Localization baseline: **already clean** (2387/2387 EN/CN parity, no header row, no duplicate keys). No action. | Verified | - | - |
-| Code quality + critical analysis: **already fresh** (both re-run 2026-09-20, 10/10 and SOLID). No action. | Verified | - | - |
+| **Correct `README.md:58` and `README.md:69`** (summary W2): both say the Village Home Sign faces and the Jail and its cell "ship blank placeholder art", but all four cards ship painted art (`CMC_VillageHomeSignRustic/Carved.png`, `CMC_Jail.png`, `CMC_JailCellInterior.png`). CHANGELOG Documentation line in the same commit. | Docs honesty | P1 | Quick |
+| **Re-run `/code-quality Community_Mod_Chest`**: 11 C# files changed since the 1.68.37 review (+453/-35), including the new 283-line `Patcher/TraitCompositeResyncPatch.cs`, which no code-quality pass has read. Then `/critical-analysis` (its "0 broken promises" predates DG1) and `/audit-mod` at 1.68.44. | Audit hygiene | P1 | Medium |
+| Regenerate `feature-map.md` (written for v1.68.16, 28 versions ago); refresh the five domain reports (2026-09-12) at the next content release. | Audit hygiene | P2 | Medium |
+| **Ship 1.68.42-1.68.44 to players** once DG1 and the README fix land: `/export-to-repo Community_Mod_Chest`, then `/package-mod-suite` and deploy `Mod_Update_Manager` LAST (framework first, then the other suite mods, then the repack, then MUM). | Release | P1 | Quick |
+| Minor polish batch (summary M1-M8), one commit: `StarsCost: 0` on `Pk_GradMedicine`, drop the four orphan `*WarpType` keys, normalise the bare-string `CardImage` on `CMC_MarketStall.json:13` / `CMC_TownWoodPile.json:13`, give `CMC_WellPlans` a weight, align `Perk_Bleeder` / `Perk_WeakStomach` JSON punctuation with the CSV. | Authoring hygiene | P2 | Quick |
+| Version hygiene: **clean** (1.68.44 in all three files). No action. | Verified | - | - |
+| Localization baseline: **clean** (2390/2390 EN/CN keys, none one-sided). No action. | Verified | - | - |
 
 ---
 
@@ -65,22 +68,28 @@ of this file), so this phase is now dominated by in-game verification debt, not 
 
 > The highest-value content additions, ordered by how much existing content they activate.
 
+### Make the jail layer reachable content (DG1 follow-through)
+**What**: after the subdual action lands, walk the whole arrest chain end to end: lose to Thorne or Corrin, Sterling summoned, the lenient "think better of it" arrest, sentencing, rations, warden shifts, the tunnel.
+**Why**: the jail, its sentencing rules and its escape tunnel are among the mod's largest systems, and today real play cannot enter them (only the test fixtures can). Once reachable, the redemption track below and the wound-care crafting idea both gain a real player population.
+**Requires**: Phase 0 DG1.
+**Complexity**: Medium (mostly verification and tuning)
+
 ### The Apothecary Remedy Line
-**What**: An Allergy Tonic, a Stomach Settler, and a Clotting Salve produced at the Apothecary Cabin from H&F herbs plus CMC's own Herb Paste, each countering a specific shipped drawback trait.
-**Why**: The single strongest unbuilt idea in the mod. CMC ships seven drawback traits (`Bleeder`, `DeadlyDisease`, `SeasonalAllergies`, `WeakStomach`, `BadKidneys`, `Insomniac`, `Leper`) and a full Apothecary NPC with a quest chain, yet `CardData/Item/` holds no tonic, salve, settler, remedy or antidote of any kind. Every one of those traits is a one-way debuff with no counter-play. It gives the Apothecary a reason past her quest chain and supplies the missing sink for the CMC-to-HerbsAndFungi herbal pairing.
-**Requires**: none (the Medicine course's Herb Poultice + Tincture is the pattern to copy). Pairs naturally with the new **combat wound-care crafting** idea (Clean Bandage / Suture Kit) tied to the guard-fight wound items.
+**What**: An Allergy Tonic, a Stomach Settler and a Clotting Salve produced at the Apothecary Cabin from H&F herbs plus CMC's own Herb Paste, each countering a shipped drawback trait.
+**Why**: CMC ships seven drawback traits (`Bleeder`, `DeadlyDisease`, `SeasonalAllergies`, `WeakStomach`, `BadKidneys`, `Insomniac`, `Leper`) and a full Apothecary NPC, yet `CardData/Item/` holds no tonic, salve, remedy or antidote of any kind (filename sweep, 2026-09-25). It gives the Apothecary a reason past her quest chain and supplies the missing sink for the CMC-to-HerbsAndFungi pairing.
+**Requires**: none (the Medicine course's Herb Poultice + Tincture is the pattern). Pairs with combat wound-care crafting (Clean Bandage / Suture Kit).
 **Complexity**: Medium
 
-### Widen the pigment-dye line + author FlavourTags (two ready pure-JSON wins)
-**What**: (a) Add ochre/berry pigments on the `Bp_Pigment` grind pattern plus a coloured variant per garment, and extend the `Dye with Pigment` CI to the currently un-dyeable garments; (b) author `FlavourTags` on CMC's food/herb roster (Wild Garlic, Herb Paste, Silverwort/Hollow Sage, Inn stock) and one `FlavourMatrix/*.json` synergy pair.
-**Why**: Both are confirmed gaps at v1.68.37. Potter's Apprentice starts the player with "two ready-ground pigments" the dye system never exposes, and every CMC card ships `FlavourTags: []` with no `FlavourMatrix`, so none of the mod's edibles read in stews or the flavour-synergy system.
+### Widen the pigment-dye line + author FlavourTags (two ready pure-JSON wins; plan N1/N2)
+**What**: (a) ochre/berry pigments on the `Bp_Pigment` grind pattern plus a coloured variant per garment, and the `Dye with Pigment` CI extended beyond the three garments that have it (`Chaperon`, `ClothCoat`, `ClothScarf`); (b) `FlavourTags` on CMC's food/herb roster and one `FlavourMatrix/*.json` synergy pair.
+**Why**: both re-confirmed unbuilt 2026-09-25 (three dyed variants only; the 5 cards with a `FlavourTags` key all empty, no `FlavourMatrix/`). Both are already promoted in `Documentation/Plans/Community_Mod_Chest/Audit_Remediation_Plan.md`, with the Toys & Games use (N3).
 **Requires**: `Intensity` is the `FlavourIntensities` ENUM (0=Medium, 1=Strong, 2=Subtle), NOT a strength number (CLAUDE.md); framework 2.23.6+ for FlavourMatrix.
-**Complexity**: Medium (both highly parallelizable, pure JSON)
+**Complexity**: Medium (highly parallelizable, pure JSON)
 
 ### Voluntary Redemption / Making-Amends Track
-**What**: A real path back to Clean without a cell or a fight - a Village Hall reparations fine scaled to the crime band, or a restitution errand that walks `cmcStatVillageCrime` down.
-**Why**: The crime loop is the mod's most elaborate system (guard pursuit, gauntlet, jail sentencing, tunnel escape, banishment) and it is almost entirely punitive. The only constructive path shipped is the single "Make it right" Miller restitution seed.
-**Requires**: a design decision - fine-only (a CI calling `ReduceCrime`) vs. an errand chain. An errand chain **must** use the clamped-marker pattern (`reference_npc_errand_clamped_marker_pattern`), never an unclamped counter, or it softlocks itself over time.
+**What**: A real path back to Clean without a cell or a fight: a Village Hall reparations fine scaled to the crime band, or a restitution errand that walks `cmcStatVillageCrime` down.
+**Why**: the crime loop is almost entirely punitive; the only constructive path shipped is the "Make it right" Miller restitution drag. It matters more once DG1 makes arrests happen.
+**Requires**: a design decision (fine-only vs. an errand chain). An errand chain **must** use the clamped-marker pattern (`reference_npc_errand_clamped_marker_pattern`), never an unclamped counter.
 **Complexity**: Complex
 
 ---
@@ -88,30 +97,36 @@ of this file), so this phase is now dominated by in-game verification debt, not 
 ## Phase 3: Integration & Depth
 
 ### Merchant purse-tier and Reputation bucket readouts
-**What**: Publish a coarse `cmcStat<Resident>PurseTier` (lean / modest / flush) on the weekly accrual tick, and publish at least one of `VillageReputationPatch.cs`'s internally-computed `ConstructionBucketMax` / `QuestBucketMax` values as its own hidden stat.
-**Why**: Both systems compute the information and then throw it away. Sales bounce when a chest cannot afford an item, but none of it is legible until a sale fails; Reputation reads identically whether you built everything and know nobody, or know everybody and built nothing.
+**What**: Publish a coarse `cmcStat<Resident>PurseTier` (lean / modest / flush) on the weekly accrual tick, and publish at least one of `VillageReputationPatch.cs`'s `ConstructionBucketMax` / `QuestBucketMax` (`:97-98`) contributions as its own hidden stat.
+**Why**: both systems compute the information and throw it away; the patch writes only `cmcStatVillageReputation` (`:73`), and `GameStat/` holds no purse stat.
 **Requires**: a decision on where the accrual patch publishes the tier (chest wealth is inventory, not a stat).
 **Complexity**: Medium
 
 ### Gift-preference friendship for the Miller and Weaver
-**What**: A gift-preference drag interaction mirroring the Professor's - grain/flour for the Miller, cloth/dye for the Weaver.
-**Why**: `Agent_Apothecary/InnKeeper/Professor.json` carry gift handling; the Miller and Weaver carry none, so two of the five named residents cannot be befriended outside a scripted errand.
-**Requires**: the Professor's JSON `DragAndDropAction` idiom (`GivenCardChanges.ModType:3`); ships fastest as pure JSON. Keep gifts a slow secondary track, never an errand bypass.
+**What**: A gift drag that writes the Miller's and Weaver's trust stat directly (grain/flour for the Miller, cloth/dye for the Weaver).
+**Why**: since 1.68.42 both carry a trust stat, but every drag on `Agent_Miller.json` (3) and `Agent_Weaver.json` (9) is an errand or interlock delivery; outside errands, the Inn Keeper's `Gift Wild Garlic` is the only drag across the five resident agents that writes a friendship stat.
+**Requires**: the `DragAndDropActions` idiom with `GivenCardChanges.ModType:3`; keep gifts a slow secondary track, never an errand bypass.
 **Complexity**: Quick
+
+### Give the `Fugitive` trait a hook into the Watch
+**What**: a small starting `cmcStatVillageCrime` in the Suspected band, or a one-time first-contact wariness flag.
+**Why**: no `Patcher/` file mentions Fugitive and `Perk_Fugitive.json` touches no `cmcStat*`, so the trait's "hunted" flavour never meets the mod's own crime loop.
+**Requires**: read the starting-stat clamp rule in CLAUDE.md (a `StartingStatModifiers` overshoot lands exactly on the cap) and `reference_hidden_stat_quest_state_machine`; "watched more closely", never "already Wanted".
+**Complexity**: Medium
 
 ### A summer route hazard (optional - close the row if it does not fit the fiction)
 **What**: A fourth seasonal `SealableGates` entry for summer.
-**Why**: `MapNodes.json` now carries `"Season"` `SealTrigger` entries for Autumn (Deadfall), Winter (three Snow Drifts) and Spring (Clay Shoal flood) - three live templates. Summer is the only season with no route pressure.
-**Requires**: **every** clearing action on the challenge card must share the gate's `ClearActionKeyPrefix` (CLAUDE.md - a mismatched by-hand action softlocks the road silently). Enforced by `MapNodes-Schema.Tests.ps1`.
+**Why**: `WorldMap/MapNodes.json` carries `Season` `SealTrigger` entries for Autumn (`:85`), Winter (`:158`, `:170`, `:182`) and Spring (`:272`); summer is the only season with no route pressure.
+**Requires**: **every** clearing action on the challenge card must share the gate's `ClearActionKeyPrefix` (CLAUDE.md; a mismatched by-hand action softlocks the road silently). Enforced by `MapNodes-Schema.Tests.ps1`.
 **Complexity**: Quick
 
 ### WaterDrivenInfrastructure and SkillSpeedBoost hooks
-**What**: Extend the Academy graduate perks - Architecture/Metallurgy already unlock WDI stations; an SSB-style learning-speed bonus inside a course's own skill domain is the natural next tier.
-**Why**: Deepens the Academy's payoff without adding courses.
-**Requires**: confirm no domain overlap first, and read SSB's single-composition-point guard rule before wiring - a bonus missing from that early-out guard is silently dead when it is the only one enabled.
+**What**: Extend the Academy graduate perks: Architecture/Metallurgy already unlock WDI stations; an SSB-style learning-speed bonus inside a course's own skill domain is the natural next tier.
+**Why**: deepens the Academy's payoff without adding courses.
+**Requires**: confirm no domain overlap first, and read SSB's single-composition-point guard rule before wiring.
 **Complexity**: Medium
 
-> **Standing constraint, learned the hard way on 2026-09-04.** CMC may never again apply the C# blueprint-lock idiom to another mod's material. The Metallurgy course locked ACT's `advanced_copper_tools_bp_metal_sheet` and stranded 21 downstream ACT blueprints for every non-graduate, with zero in-game explanation. Fixed in 1.68.17 by replacing the lock with a grant. Lock END PRODUCTS only; **GRANT** materials. Enforced by `Development_Tools/Tests/Academy-CourseGating.Tests.ps1`.
+> **Standing constraint, learned the hard way on 2026-09-04.** CMC may never again apply the C# blueprint-lock idiom to another mod's material. The Metallurgy course locked ACT's `advanced_copper_tools_bp_metal_sheet` and stranded 21 downstream ACT blueprints for every non-graduate, with zero in-game explanation. Fixed in 1.68.17 by replacing the lock with a grant (`AcademyCourseService.cs:161-169`). Lock END PRODUCTS only; **GRANT** materials. Enforced by `Development_Tools/Tests/Academy-CourseGating.Tests.ps1`.
 
 ---
 
@@ -119,12 +134,10 @@ of this file), so this phase is now dominated by in-game verification debt, not 
 
 | Item | What | Complexity |
 |------|------|------------|
-| Village Home Sign real art | Both faces currently ship blank placeholder art (README self-discloses this); the carve/plane mechanic is complete but the sign reads as a plain white card until the illustrations land | Quick |
-| Jail + cell art | The Jail and its cell ship blank placeholder art (README self-discloses); only guards are attackable | Quick |
-| Distinct finished-potion sprite | `CMC_ApothecaryHealingMixture.json` and `CMC_ApothecaryHealingPotion.json` both point at `CMC_Alchemist_Potions`, so intermediate and finished product are visually identical | Quick |
-| Distinct Market Stall dressed art | `CMC_MarketStall.png` and `CMC_MarketStallDressed.png` are byte-identical; the awning toggle works but is visually invisible | Quick |
-| Retire the last two diagnostic patches | `GuardCombatDiagnosticPatch.cs` and `CompanionFollowDiagnostics.cs` - delete/demote **only after** their retros are log-confirmed in-game (T4.35, T2.237). Grep `Documentation/Retrospectives/` for a diagnostic's tag before touching it | Quick |
-| Refresh the stale domain-report authoring nits | JailRation `ActionTagsWarpData`, ~4 unverified blank-card sprite names, 9 perks with CSV/JSON description divergence - batch with the Phase 1 report refresh | Quick |
+| Dedicated Carpentry graduate icon | `Pk_GradCarpentry.json` reuses `VillageAcademyArchitecture`; the 2026-09-22 icon drop added none for Carpentry. A `/create-image` job | Quick |
+| Toys & Games use (plan N3) | `CMC_BoneDice`, `CMC_SpinningTop`, `CMC_WheeledHorse` carry 0 actions; a cat play-toy Care lever and a small fidget self-action give the line a purpose | Medium |
+| Retire the last two diagnostic patches | `GuardCombatDiagnosticPatch` (`Plugin.cs:237`) and `CompanionFollowDiagnostics` (`Plugin.cs:161`): delete or demote **only after** their retros are confirmed in-game (T4.35, T2.237). Grep `Documentation/Retrospectives/` for a diagnostic's tag before touching it | Quick |
+| Close the art rows the prior roadmap carried | Village Home Sign faces, Jail + cell and the Market Stall dressed art all ship real art now (the stall pair diverged in `1b95a0405`); the distinct-potion-sprite row was closed by design 2026-09-12. Nothing to build; only the README sentences in Phase 1 remain | - |
 
 ---
 
@@ -132,19 +145,17 @@ of this file), so this phase is now dominated by in-game verification debt, not 
 
 > Where this mod should be at v2.0.
 
-Community Mod Chest has outgrown its own name. What began as a grab-bag of community item requests is now the fleet's most elaborate settlement simulation: a five-resident village with schedules and quest chains, an Academy with seven degrees, a criminal-justice system with sentencing and escape, a merchant economy with per-NPC wealth, and a civic reputation meter that tracks both what you built and who you know. At v2.0 the mod's identity should lean fully into being **the village layer for Card Survival** - the thing a player installs when they want somewhere to belong rather than just more recipes.
+Community Mod Chest has outgrown its own name. What began as a grab-bag of community item requests is now the fleet's most elaborate settlement simulation: a five-resident village with schedules, trust and quest chains, an Academy with seven degrees, a criminal-justice system with sentencing and escape, a merchant economy with per-NPC wealth, and a civic reputation meter. At v2.0 the mod's identity should lean fully into being **the village layer for Card Survival** - the thing a player installs when they want somewhere to belong rather than just more recipes.
 
-The two structural gaps between here and that identity are both about **reciprocity**. First, the village reacts to your crimes but not to your virtue: there is a punishment ladder and no redemption ladder, and residents treat a Wanted or Banished player exactly like a model citizen. Second, the village gives the player systems but little that gives back - the drawback traits have no remedies, the Miller and Weaver have no gifts, and the Reputation meter's two halves are computed and discarded. Closing those loops turns a set of impressive mechanisms into a place that responds.
-
-The third and largest opportunity is **evidence, not content**. This mod carries ~93 feature groups of which only ~19 are human-verified, a 🟡 backlog of shipped-but-unconfirmed fixes (hearth-fuel, guard-combat, river-bridge eastbound, guard-kill despawn), and a whole trait rework (1.68.25-1.68.30) whose ~30 verification rows are all still `pending`. At this scale, a single dedicated verification playthrough is worth more than a whole content phase - and the owner has explicitly decoupled code work from the playthrough queue (2026-09-17), so the two can proceed in parallel.
+The first gap between here and that identity is **reachability**: DG1 shows that a large shipped system (the arrest-to-jail chain) can exist, pass its fixture-driven walkthroughs, and still be unreachable in real play. The second is **reciprocity**: the village reacts to your crimes but not to your virtue, the drawback traits have no remedies, the Miller and Weaver have no gifts, and the Reputation meter's two halves are computed and discarded. The third and largest is **evidence, not content**: at ~93 feature groups the mod needs verification runs more than new systems, and the TestHarness now makes many of those runs an agent job rather than a human one.
 
 **Potential major additions** (not yet justified - revisit after Phase 3):
-- **Generic NPC archetypes** (Shopkeeper, Hirable Hunter, a charming companion, an Elder with quests) - specced in `VILLAGE_AREA.md`, deliberately not covered by the named-resident roster. The mature NPCAgent chassis has dropped the build cost sharply.
-- **Reviving the benched Wisp quest-giver** (`Documentation/Ideas/Community_Mod_Chest/Wisp_and_NPCs/`) - its "wait for the vanilla NPC rework" blocker is overtaken by events now that CMC built its own chassis. Its load-bearing lessons (non-instanced clone envs; never attach a vanilla QuestLog to the player save) must survive any revival.
-- **Named outfit presets** - the one-motion Dress/Undress mechanism already covers Clothes Rack and Wardrobe; the preset-storage half needs real design, not routing generalization.
-- **A sleep-axis scented incense** - deliberately deferred: the only hook is the `SleepClock` stat, and a passive `RateModifier` on the game's own sleep-timing stat is the vanilla-mechanics risk class CLAUDE.md warns about. Needs a discrete sleep-quality mechanism identified first.
+- **Generic NPC archetypes** (Shopkeeper, Hirable Hunter, a charming companion, an Elder with quests) - specced in `VILLAGE_AREA.md`, deliberately not covered by the named-resident roster.
+- **Reviving the benched Wisp quest-giver** (`Documentation/Ideas/Community_Mod_Chest/Wisp_and_NPCs/`) - its "wait for the vanilla NPC rework" blocker is overtaken by CMC's own NPCAgent chassis. Its lessons (non-instanced clone envs; never attach a vanilla QuestLog to the player save) must survive any revival.
+- **Named outfit presets** - the one-motion Dress/Undress routing exists; the preset-storage half needs real design.
+- **A sleep-axis scented incense** - deliberately deferred: the only hook is the `SleepClock` stat, and a passive `RateModifier` on the game's own sleep-timing stat is the vanilla-mechanics risk class CLAUDE.md warns about.
 
-These live in `Documentation/Ideas/Community_Mod_Chest/`.
+These live in `Documentation/Ideas/Community_Mod_Chest/`. `IDEAS.md` still lists two shipped Near-Term entries and one refuted one; its own 2026-09-20 append says `/consolidate-ideas Community_Mod_Chest` is due before the next append.
 
 ---
 
@@ -153,11 +164,12 @@ These live in `Documentation/Ideas/Community_Mod_Chest/`.
 | Trigger | Action |
 |---------|--------|
 | After any new content phase | Run `/audit-mod Community_Mod_Chest` and update this roadmap |
-| Game version update | Run `/update-mod-version`, refresh `lib/Assembly-CSharp-nstrip.dll` (CMC references `HerbsAndFungi/lib/Assembly-CSharp-nstrip.dll` by relative path - regenerating it needs the external NStrip install), re-run `/diagnose-log` |
+| Game version update | Run `/update-mod-version`, refresh `lib/Assembly-CSharp-nstrip.dll` (CMC references `HerbsAndFungi/lib/Assembly-CSharp-nstrip.dll`; regenerating it needs the external NStrip install), re-run `/diagnose-log` |
 | After fixing a critical issue | Run `/critical-analysis Community_Mod_Chest` to verify the fix |
-| After Phase 2 complete | Run `/export-to-repo Community_Mod_Chest`, bump minor version, then repackage the suite and deploy `Mod_Update_Manager` **last** |
+| After a fix batch lands | Run `/export-to-repo Community_Mod_Chest`, then repackage the suite and deploy `Mod_Update_Manager` **last** |
 | Any change touching a sibling mod's content | Re-read the Phase 3 standing constraint above and run `Development_Tools/Tests/Academy-CourseGating.Tests.ps1` |
-| Whenever a play session happens | Record results with `/playthrough-test-plan record` - this mod's largest deficit is verification, not code |
+| A fix names an existing tracker row as its check | Re-arm that row for the new build in the same pass; a verdict recorded on an older build does not verify new code |
+| Whenever a play session or harness run happens | Record results with `/playthrough-test-plan record` |
 
 ---
 
@@ -166,6 +178,7 @@ These live in `Documentation/Ideas/Community_Mod_Chest/`.
 ```
 /audit-mod Community_Mod_Chest             - full health check, updates .audit/
 /critical-analysis Community_Mod_Chest     - adversarial review
+/code-quality Community_Mod_Chest          - C# reliability review
 /repair-items Community_Mod_Chest          - auto-fix item JSON issues
 /repair-structures Community_Mod_Chest     - auto-fix structure JSON issues
 /build-mod Community_Mod_Chest             - build Release DLL

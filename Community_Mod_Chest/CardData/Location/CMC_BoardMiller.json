@@ -189,8 +189,8 @@
           "StatWarpData": "cmcStatMillerQuestChain",
           "StatWarpType": 3,
           "TriggerRange": {
-            "x": 1.5,
-            "y": 2.5
+            "x": 2.0,
+            "y": 2.0
           }
         },
         {
@@ -227,8 +227,8 @@
           "StatWarpData": "cmcStatMillerQuestChain",
           "StatWarpType": 3,
           "TriggerRange": {
-            "x": 1.5,
-            "y": 2.5
+            "x": 2.0,
+            "y": 2.0
           }
         },
         {
@@ -341,8 +341,8 @@
           "StatWarpData": "cmcStatMillerQuestChain",
           "StatWarpType": 3,
           "TriggerRange": {
-            "x": 1.5,
-            "y": 2.5
+            "x": 2.0,
+            "y": 2.0
           }
         },
         {
@@ -379,8 +379,8 @@
           "StatWarpData": "cmcStatMillerTrustMirror",
           "StatWarpType": 3,
           "TriggerRange": {
-            "x": -0.5,
-            "y": 14.5
+            "x": 0.0,
+            "y": 14.0
           }
         }
       ],
@@ -409,8 +409,8 @@
           "StatWarpData": "cmcStatMillerTrustMirror",
           "StatWarpType": 3,
           "TriggerRange": {
-            "x": 14.5,
-            "y": 24.5
+            "x": 15.0,
+            "y": 24.0
           }
         }
       ],
@@ -439,7 +439,7 @@
           "StatWarpData": "cmcStatMillerTrustMirror",
           "StatWarpType": 3,
           "TriggerRange": {
-            "x": 24.5,
+            "x": 25.0,
             "y": 9999.0
           }
         }
@@ -499,8 +499,8 @@
           "StatWarpData": "cmcStatMillerQuestChain",
           "StatWarpType": 3,
           "TriggerRange": {
-            "x": 1.5,
-            "y": 4.5
+            "x": 2.0,
+            "y": 4.0
           }
         }
       ],
@@ -529,8 +529,8 @@
           "StatWarpData": "cmcStatMillerQuestChain",
           "StatWarpType": 3,
           "TriggerRange": {
-            "x": 2.5,
-            "y": 5.5
+            "x": 3.0,
+            "y": 5.0
           }
         }
       ],

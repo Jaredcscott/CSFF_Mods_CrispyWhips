@@ -2,7 +2,7 @@
     "StartingPoint": true,
     "StartingConditions": {
         "RequiredStatValues": [
-            {"StatWarpData": "cmcStatMillerQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 2.5}},
+            {"StatWarpData": "cmcStatMillerQuestChain", "StatWarpType": 3, "TriggerRange": {"x": 2.0, "y": 2.0}},
             {"StatWarpData": "cmcStatMillerQuestArmed", "StatWarpType": 3, "TriggerRange": {"x": 0.25, "y": 0.75}}
         ]
     },

@@ -24,7 +24,7 @@
             "ObjectiveName": "InnQuestChainAtLeast2",
             "CompletionWeight": 1,
             "StatCondition": {
-                "TriggerRange": { "x": 1.5, "y": 20.0 },
+                "TriggerRange": { "x": 2.0, "y": 20.0 },
                 "StatWarpData": "cmcStatInnQuestChain",
                 "StatWarpType": 3
             },

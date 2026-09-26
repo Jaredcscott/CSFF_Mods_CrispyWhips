@@ -3,8 +3,8 @@
     "StartingConditions": {
         "RequiredStatValues": [
             {"StatWarpData": "cmcStatVillagePhase", "StatWarpType": 3, "TriggerRange": {"x": 0.5, "y": 9999.0}},
-            {"StatWarpData": "cmcStatInnStoryIndex", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 2.5}},
-            {"StatWarpData": "cmcStatInnStoryStep", "StatWarpType": 3, "TriggerRange": {"x": 1.5, "y": 2.5}}
+            {"StatWarpData": "cmcStatInnStoryIndex", "StatWarpType": 3, "TriggerRange": {"x": 2.0, "y": 2.0}},
+            {"StatWarpData": "cmcStatInnStoryStep", "StatWarpType": 3, "TriggerRange": {"x": 2.0, "y": 2.0}}
         ]
     },
     "Line": {

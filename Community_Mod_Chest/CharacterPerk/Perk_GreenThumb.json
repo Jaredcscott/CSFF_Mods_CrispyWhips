@@ -2,13 +2,7 @@
     "ActionModifiers": [],
     "ActionObjectives": [],
     "AddedCards": [],
-    "AddedCardsWarpData": [
-        "4b808ab565a447644a7bd924eb3e3e1f",
-        "4b808ab565a447644a7bd924eb3e3e1f",
-        "4b808ab565a447644a7bd924eb3e3e1f",
-        "4b808ab565a447644a7bd924eb3e3e1f",
-        "9b6a1dd5ae3c5574e97cc837d64a2ea9"
-    ],
+    "AddedCardsWarpData": [],
     "AddedCardsWarpType": 3,
     "AddedStartingHours": 0,
     "CardsOnBoardObjectives": [],
@@ -73,7 +67,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "Plants thrive under your care. Start with enough meadowgrass seed to sow a full field and a Flint Hoe, and keep a steady Fertility Boon for the crops you plant, as strong as one spirit blessing.",
+        "DefaultText": "Plants thrive under your care. The crops you plant keep a steady Fertility Boon, as strong as one spirit blessing.",
         "LocalizationKey": "CharacterTraits_Perk_GreenThumb_PerkDescription",
         "ParentObjectID": "traits_perk_green_thumb"
     },

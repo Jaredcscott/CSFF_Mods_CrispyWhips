@@ -109,7 +109,7 @@ Combat_And_Armor_Bp_BoneLamellar_UnlockConditionsDesc,Bring the Professor bones 
 CharacterTraits_Perk_Angler_PerkName,Angler,垂钓者
 CharacterTraits_Perk_Angler_PerkDescription,"You've spent years by the water. Start with an iron fishing rod, fishing line and bait.",你在水边度过了许多年。开局携带一根铁钓竿、钓鱼线和鱼饵。
 CharacterTraits_Perk_GreenThumb_PerkName,Green Thumb,绿手指
-CharacterTraits_Perk_GreenThumb_PerkDescription,"Plants thrive under your care. Start with enough meadowgrass seed to sow a full field and a Flint Hoe, and keep a steady Fertility Boon for the crops you plant, as strong as one spirit blessing.","植物在你的照料下茅壮成长。开局携带足以播种一整块田地的草甸草种子和一把燧石锄，并为你亲手种下的作物持续获得相当于一次精灵赐福的丰饶福祉。"
+CharacterTraits_Perk_GreenThumb_PerkDescription,"Plants thrive under your care. The crops you plant keep a steady Fertility Boon, as strong as one spirit blessing.",植物在你的照料下茁壮成长。你亲手种下的作物会持续获得相当于一次精灵赐福的丰饶福祉。
 CharacterTraits_Perk_StrongKidneys_PerkName,Strong Kidneys,强肾
 CharacterTraits_Perk_StrongKidneys_PerkDescription,"Your kidneys clear poisons quickly. Witchstone poisoning and fireroot toxicity leave your body about twice as fast as normal, and wolfsbane poisoning a little faster.",你的肾脏能迅速排出毒素。巫石中毒和火根中毒消退的速度约为常人的两倍，乌头中毒也会稍快一些。
 CharacterTraits_Perk_NaturalTrader_PerkName,Natural Trader,天生商人
@@ -215,7 +215,7 @@ CeramicLamp_Bp_CardName,Ceramic Lamp,陶灯
 CeramicLamp_Bp_CardDescription,Shape clay into a shallow oil lamp with a wick channel.,用陶土塑出一盏带灯芯槽的浅口油灯。
 CeramicLamp_Bp_UnlockConditionsDesc,Clay Needed,需要粘土
 CharacterTraits_Perk_Insomniac_PerkName,Insomniac,失眠者
-CharacterTraits_Perk_Insomniac_PerkDescription,"You rarely feel sleepy, so you stay awake longer than others. Your body pays for it sooner: every stage of sleep deprivation arrives about a fifth earlier than it would for anyone else.",你很少感到困倦，因此能比别人醒得更久。但身体会更早为此付出代价：缺乏睡眠的每个阶段都会比常人提前约五分之一到来。
+CharacterTraits_Perk_Insomniac_PerkDescription,"You rarely feel sleepy: you can stay up more than twice as long as others before tiredness sets in. Your body still keeps count, though, and going without sleep catches up with you on the usual schedule, whether you feel tired or not.",你很少感到困倦：在倦意袭来之前，你能比别人多撑两倍以上的时间。但身体仍在默默计数，无论你是否觉得累，缺乏睡眠的后果都会按常人的节奏找上你。
 CMC_TraitInsomniac_StatName,Insomnia,失眠
 CMC_TraitInsomniac_StatDescription,Retired. Insomniac now speeds up the game's own sleep deprivation instead of adding a separate status.,已退役。失眠症现在会加快游戏本身的缺乏睡眠进程，而不再添加单独的状态。
 CharacterTraits_Perk_Sinker_PerkName,Sinker,旱鸭子
@@ -225,7 +225,7 @@ CharacterTraits_Perk_WeakStomach_PerkDescription,Your stomach is easily upset. N
 CharacterTraits_Perk_BlackThumb_PerkName,Black Thumb,黑手指
 CharacterTraits_Perk_BlackThumb_PerkDescription,"Plants wither under your care. This trait weakens a Fertility Boon from other sources, so a single spirit blessing barely holds on the crops you plant. On its own it does nothing.","植物在你手中只会枯萎。此特质会削弱来自其他来源的丰饶福祉，单次精灵赐福几乎无法维持你亲手种下的作物。它本身没有任何效果。"
 CharacterTraits_Perk_BadKidneys_PerkName,Bad Kidneys,弱肾
-CharacterTraits_Perk_BadKidneys_PerkDescription,"Your kidneys struggle to clear poisons. Wolfsbane poisoning, witchstone poisoning and fireroot toxicity all stay in your body about twice as long as normal.",你的肾脏难以排出毒素。乌头中毒、巫石中毒和火根中毒在你体内停留的时间约为常人的两倍。
+CharacterTraits_Perk_BadKidneys_PerkDescription,"Your kidneys struggle to clear what you take in. Wolfsbane poisoning, witchstone poisoning and fireroot toxicity all stay in your body about twice as long as normal, and so does the warmth of firebrew.",你的肾脏难以排出摄入体内的东西。乌头中毒、巫石中毒和火根中毒在你体内停留的时间约为常人的两倍，火酿带来的暖意也同样如此。
 Comfort_Bedroll_Placed_CardName,Bedroll,睡垫
 Comfort_Bedroll_Placed_CardDescription,"A sleeping mat laid out on the ground. Provides insulation while resting on it. Needs occasional maintenance or it will fall apart.
 
@@ -540,7 +540,7 @@ CharacterTraits_Perk_AbundantGrowth_PerkDescription,"The land seems to respond t
 CharacterTraits_Perk_Trollblood_PerkName,Trollblood,巨魔之血
 CharacterTraits_Perk_Trollblood_PerkDescription,"Thick, stubborn blood runs in your veins. Wounds bleed less than they would for anyone else, and pain sits far lighter on you, though neither one fades any faster.",你的血液浓稠而顽固。伤口的出血比常人更少，疼痛落在你身上也轻得多，只是两者都不会消退得更快。
 CharacterTraits_Perk_SpirituallyHarmonious_PerkName,Spiritually Harmonious,灵性和谐
-CharacterTraits_Perk_SpirituallyHarmonious_PerkDescription,"You are at peace with the world around you. Your insight into the spirit realm is exceptional, and you can carry twice the hollowness that gathers when a life is taken without release before the spirits turn cold to you.","你与周遭的世界相处融洽。你对灵界的洞察力非同寻常；夺去性命却未送走其魂时积聚的空壳化，你能承受常人的两倍，之后灵体才会对你冷淡。"
+CharacterTraits_Perk_SpirituallyHarmonious_PerkDescription,You are at peace with the world around you. You can carry twice the hollowness that gathers when a life is taken without release before the spirits turn cold to you.,你与周遭的世界相处融洽。夺去性命却未送走其魂时积聚的空壳化，你能承受常人的两倍，之后灵体才会对你冷淡。
 CharacterTraits_Perk_WideHands_PerkName,Wide Hands,宽厚双手
 CharacterTraits_Perk_WideHands_PerkDescription,"Your large, dexterous hands are made for working. You start ahead in Crafting and Knapping, and always count as a little more skilled at both, so the things you make come out a little better.",你那双宽厚灵巧的手天生适合劳作。开局即在制作与打制上领先一步，并且始终被视作略微更熟练，因此你做出的东西品质会略好一些。
 CharacterTraits_Perk_Claws_PerkName,Claws,利爪
@@ -552,7 +552,7 @@ CharacterTraits_Perk_ExiledArtist_PerkDescription,"Forced from your homeland, yo
 CharacterTraits_Perk_BornMark_PerkName,Born Mark,天生印记
 CharacterTraits_Perk_BornMark_PerkDescription,"You were born with a distinctive mark that the spirits take notice of. It keeps your Luck raised. Nothing in the world reads Luck yet, so the mark changes nothing you can see today.",你生来便带有一道显眼的印记，连灵体都对此有所留意。它让你的幸运值始终偏高。但目前世上还没有任何东西会读取幸运值，因此这道印记不会带来任何你能察觉的改变。
 CharacterTraits_Perk_Aged_PerkName,Aged,年迈
-CharacterTraits_Perk_Aged_PerkDescription,"The years have taken their toll. Your body starts weaker than it otherwise would, and however hard you train it never regains the fitness of youth. It burns through its reserves more slowly, and a dull ache never quite leaves you.",岁月在你身上留下了痕迹。你的身体比原本更虚弱，无论怎样锻炼，都再也回不到年轻时的体能巅峰。身体消耗储备的速度更慢，一丝钝痛也始终挥之不去。
+CharacterTraits_Perk_Aged_PerkDescription,"The years have taken their toll. However hard you train, your body never regains the fitness of youth, and your energy never quite fills. You burn through your reserves more slowly and grow sleepy more slowly, but a dull ache never quite leaves you.",岁月在你身上留下了痕迹。无论怎样锻炼，你的身体都再也回不到年轻时的体能巅峰，精力也始终无法充满。你消耗储备的速度更慢，困意来得也更慢，但一丝钝痛始终挥之不去。
 CharacterTraits_Perk_Bleeder_PerkName,Bleeder,凝血不良
 CharacterTraits_Perk_Bleeder_PerkDescription,"Your blood does not clot well. Wounds bleed for significantly longer than they should, making even minor injuries into dangerous situations.",你的血液难以凝结。伤口出血的时间明显长于常理，哪怕是轻伤也可能演变为危险的局面。
 CharacterTraits_Perk_WeakCourage_PerkName,Weak Courage,微弱勇气
@@ -560,7 +560,7 @@ CharacterTraits_Perk_WeakCourage_PerkDescription,"You have a bit more nerve than
 CharacterTraits_Perk_WeakCowardice_PerkName,Cowardice,怯懦
 CharacterTraits_Perk_WeakCowardice_PerkDescription,"Your nerve falters more easily than most. A modest, permanent reduction to your Courage makes scary actions a little harder to push through — but you still have enough grit to act when it truly matters.",你比大多数人更容易胆怯。你的勇气受到小幅永久削弱，让可怕的行动稍难坚持——但在真正关键的时刻，你仍有足够的勇气去行动。
 CharacterTraits_Perk_SpirituallyTroubled_PerkName,Spiritually Troubled,灵性不安
-CharacterTraits_Perk_SpirituallyTroubled_PerkDescription,"The spirits do not look kindly upon you. A hollowness hangs about you that never lifts, as though a life had been taken and never released, so the spirits stay colder to you for as long as you live, every life you take without release drives you deeper, and the unease of an unfriendly spirit world keeps your nerves on edge.","灵体并不善待你。一股挥之不去的空壳化始终缠绕着你，仿佛曾夺去性命却未曾送走其魂，因此灵体终生都对你格外冷淡；你每夺去一条性命而未送走其魂，都会让你陷得更深，来自不友善灵界的不安也让你的神经时刻紧绷。"
+CharacterTraits_Perk_SpirituallyTroubled_PerkDescription,"The spirits do not look kindly upon you. A hollowness hangs about you that never lifts, as though a life had been taken and never released, so the spirits stay colder to you for as long as you live, and every life you take without release drives you deeper.",灵体并不善待你。一股挥之不去的空壳化始终缠绕着你，仿佛曾夺去性命却未曾送走其魂，因此灵体终生都对你格外冷淡；你每夺去一条性命而未送走其魂，都会让你陷得更深。
 CharacterTraits_Perk_WeakenedGrowth_PerkName,Weakened Growth,生长迟滞
 CharacterTraits_Perk_WeakenedGrowth_PerkDescription,"The land yields little for you. This trait weakens Foraging Aid from other sources, so a single spirit blessing barely holds. On its own it does nothing.",大地对你格外吝啬。此特质会削弱来自其他来源的觅食援助，单独一次精魄赐福几乎无法维持。它本身不会产生任何效果。
 CharacterTraits_Perk_Leper_PerkName,Leper,麻风病患者
@@ -568,7 +568,7 @@ CharacterTraits_Perk_Leper_PerkDescription,"A wasting affliction has killed the 
 CharacterTraits_Perk_Fugitive_PerkName,Fugitive,逃亡者
 CharacterTraits_Perk_Fugitive_PerkDescription,"You fled your old life in a hurry with little more than the clothes on your back. You arrive tense and frightened, and the dread of being hunted means you never fully relax. Yet it took nerve to run, and you have more courage than most.",你匆忙逃离了过去的生活，身上几乎只剩一身衣服。你抵达时紧张又惊恐，被追捕的恐惧让你永远无法彻底放松。但逃亡需要胆量，你的勇气胜过常人。
 CharacterTraits_Perk_LostTourist_PerkName,Lost Tourist,迷路游客
-CharacterTraits_Perk_LostTourist_PerkDescription,"You stumbled into this wilderness entirely by accident. You miss civilization and the people you left behind, so you feel for others more than most, but loneliness and stress build faster in the wild.",你完全是误打误撞闯进了这片荒野。你怀念文明，也思念留在身后的人们，因此比常人更能体会他人的感受，但在野外，孤独和压力也会累积得更快。
+CharacterTraits_Perk_LostTourist_PerkDescription,"You stumbled into this wilderness entirely by accident and arrive already on edge. You miss civilization and the people you left behind, so you feel for others more than most, but alone in the wild you grow isolated twice as fast.",你完全是误打误撞闯进了这片荒野，初来乍到便已心神不宁。你怀念文明，也思念留在身后的人们，因此比常人更能体会他人的感受，但独处荒野时，你陷入孤立的速度是常人的两倍。
 CharacterTraits_Perk_SeasonalAllergies_PerkName,Seasonal Allergies,季节性过敏
 CharacterTraits_Perk_SeasonalAllergies_PerkDescription,"Spring air does not agree with you. All through spring you are less comfortable and upper respiratory infections take hold more easily, though a healthy immune system still fights them off. The rest of the year you are fine.",春天的空气与你不合。整个春季，你的舒适度都会下降，也更容易患上上呼吸道感染，不过健康的免疫系统仍能将其抵御。一年中的其余时间你安然无恙。
 CMC_TraitSeasonalAllergies_StatName,Seasonal Allergies,季节性过敏
@@ -576,7 +576,7 @@ CMC_TraitSeasonalAllergies_StatDescription,Your reaction to spring air. It flare
 CMC_TraitSeasonalAllergies_Status_Spring_Name,Spring Allergies,春季过敏
 CMC_TraitSeasonalAllergies_Status_Spring_Description,Spring is in the air and your body hates it. You are less comfortable and upper respiratory infections take hold more easily.,春天的气息弥漫四周，你的身体难以承受。你的舒适度下降，也更容易患上上呼吸道感染。
 CharacterTraits_Perk_DeadlyDisease_PerkName,Deadly Disease,致命恶疾
-CharacterTraits_Perk_DeadlyDisease_PerkDescription,"A disease has taken hold and it is winning. You begin queasy with it, the pain never leaves, and your defences are compromised, so infections of the gut, the chest and the blood creep upward day after day. Keep your immune system up with good morale, food, sleep and medicine and they recede; neglect it and the disease runs its course.","一种恶疾已经扎根，并且正在占据上风。你开局便觉恶心，疼痛始终挥之不去，免疫力也遭到削弱，肠胃、呼吸道与血液的感染因此日渐加重。用良好的心情、饮食、睡眠与药物撑住免疫系统，感染便会消退；放任不管，疾病就会一路走到尽头。"
+CharacterTraits_Perk_DeadlyDisease_PerkDescription,"A disease has taken hold. You begin queasy with it, the pain never leaves, and infections of the gut, the chest and the blood keep pushing against your defences. Keep your immune system strong with good morale, food, sleep and medicine and they recede; let it fall too low and the disease runs its course.",一种恶疾已经在你体内扎根。你开局便觉恶心，疼痛始终挥之不去，肠胃、呼吸道与血液的感染也不断冲击着你的防线。用良好的心情、饮食、睡眠与药物让免疫系统保持强健，感染便会消退；一旦免疫力跌得太低，疾病就会一路走到尽头。
 CharacterTraits_Perk_Lunacy_PerkName,Lunacy,月疯症
 CharacterTraits_Perk_Lunacy_PerkDescription,"You are bound to the moon. As she waxes you grow elated, and under the full moon you are manic. As she wanes your mood sinks, and while she is gone you grieve for her.",你被月亮牵引着。月亮渐盈时你会越发亢奋，满月之下你会陷入狂躁。月亮渐亏时你的情绪低落，而她消失时你会为她哀伤。
 CMC_TraitLunacy_StatName,Moon-Bound,月之牵绊
@@ -594,7 +594,7 @@ CMC_TraitLunacy_Status_WaningGibbous_Description,No! Don't leave me!,不！别�
 CMC_TraitLunacy_Status_WaningCrescent_Name,Waning Crescent,残月
 CMC_TraitLunacy_Status_WaningCrescent_Description,I miss her so much!,我好想她！
 CharacterTraits_Perk_Agoraphobia_PerkName,Agoraphobia,广场恐惧症
-CharacterTraits_Perk_Agoraphobia_PerkDescription,"Open ground fills you with dread. Out in the open you are frightened and your stress builds. Under a roof you feel safe: your fear and stress ease, and cabin fever creeps up on you slowly, as it does for a homebody.",开阔之地令你惶恐不安。身处旷野时你会受到惊吓，压力不断累积。在屋檐下你会感到安全：恐惧和压力都会减轻，幽闭恐惧症也会像御宅族一样缓慢地累积。
+CharacterTraits_Perk_Agoraphobia_PerkDescription,"Open ground fills you with dread. Out in the open you are frightened, and the fear wears on your nerves. Under a roof you feel safe and your stress drains away, and cabin fever creeps up on you slowly, as it does for a homebody.",开阔之地令你惶恐不安。身处旷野时你会受到惊吓，恐惧不断消磨你的神经。在屋檐下你会感到安全，压力逐渐消散，幽闭恐惧症也会像御宅族一样缓慢地累积。
 CMC_TraitAgoraphobia_StatName,Agoraphobia,广场恐惧症
 CMC_TraitAgoraphobia_StatDescription,Your dread of open ground. It grips you whenever you have no shelter and lets go under a roof.,你对开阔之地的恐惧。只要没有遮蔽，它就会攫住你；到了屋檐下便会松开。
 CMC_TraitAgoraphobia_Status_Unsheltered_Name,Exposed to the Wilderness,暴露在荒野
@@ -602,9 +602,9 @@ CMC_TraitAgoraphobia_Status_Unsheltered_Description,Nothing stands between you a
 CMC_TraitAgoraphobia_Status_Sheltered_Name,Feeling Safe,感到安全
 CMC_TraitAgoraphobia_Status_Sheltered_Description,Walls around you and a roof overhead. Your fear eases and your stress drains away.,四周有墙，头顶有屋檐。你的恐惧渐渐平息，压力也慢慢消散。
 CharacterTraits_Perk_Nyctophobia_PerkName,Nyctophobia,黑暗恐惧症
-CharacterTraits_Perk_Nyctophobia_PerkDescription,"The dark terrifies you. In pitch darkness you are terrified and your stress soars, and in dim light you are badly shaken. A light in your hand steadies you a little, and bright daylight makes you bold.",黑暗令你恐惧。在一片漆黑中你会惊恐万分，压力急剧攀升；光线昏暗时你也会惊魂不定。手中的光亮能让你稍稍镇定，明亮的阳光则会让你勇气倍增。
+CharacterTraits_Perk_Nyctophobia_PerkDescription,"The dark terrifies you. In pitch darkness you are badly shaken and in dim light you are frightened, and either way the fear wears on your nerves. A light in your hand steadies you, and bright daylight eases your stress.",黑暗令你恐惧。在一片漆黑中你会惊魂不定，光线昏暗时你也会受到惊吓，无论哪种情况，恐惧都会消磨你的神经。手中的光亮能让你镇定下来，明亮的阳光则会缓解你的压力。
 CMC_TraitNyctophobia_StatName,Nyctophobia,黑暗恐惧症
-CMC_TraitNyctophobia_StatDescription,"Your fear of the dark. The less light around you, the worse it gets, and bright light makes you bold.",你对黑暗的恐惧。周围的光线越少，情况就越糟；明亮的光线则会让你勇气倍增。
+CMC_TraitNyctophobia_StatDescription,"Your fear of the dark. The less light around you, the worse it gets, and bright light calms you.",你对黑暗的恐惧。周围的光线越少，情况就越糟；明亮的光线则会让你平静下来。
 CMC_TraitNyctophobia_Status_VeryDark_Name,Pitch Black,伸手不见五指
 CMC_TraitNyctophobia_Status_VeryDark_Description,I can't see anything! I hear something approaching!,我什么都看不见！我听到有东西在靠近！
 CMC_TraitNyctophobia_Status_Dark_Name,Darkness,黑暗
@@ -632,13 +632,13 @@ CMC_TraitLactoseIntolerant_Status_Mild_Description,The dairy you had is not sitt
 CMC_TraitLactoseIntolerant_Status_Severe_Name,Severe Dairy Cramps,严重乳制品不适
 CMC_TraitLactoseIntolerant_Status_Severe_Description,You have had far too much dairy. The nausea and cramps are worse and will ease only as it digests.,你摄入了太多乳制品。恶心和腹痛更加严重，只有随着消化才会慢慢缓解。
 CharacterTraits_Perk_Drunkard_PerkName,Drunkard,酒鬼
-CharacterTraits_Perk_Drunkard_PerkDescription,"You cannot go long without a drink. Sober, your stress keeps climbing, nothing satisfies you and a dull ache sets in. Tipsy, you finally feel like yourself. Drunk, the drink lifts your mood without the thirst, nausea or muddled mind, and even horribly drunk you hold it together. Alcohol also stays in you about twice as long.",你离不开酒。清醒时，你的压力不断攀升，什么都无法让你满足，还会隐隐作痛。微醺时，你终于找回了自己。喝醉时，酒能提振你的情绪，却不会让你口渴、恶心或头脑混乱；即使大醉，你也能撑得住。酒精在你体内停留的时间也约为常人的两倍。
+CharacterTraits_Perk_Drunkard_PerkDescription,"You cannot go long without a drink, and the craving never fully lets go: drunk or sober, your stress creeps up, nothing quite satisfies you and a dull ache stays with you. Drink still helps. Tipsy, you finally feel like yourself. Drunk, the drink lifts your mood without the thirst, nausea or muddled mind, and even horribly drunk you hold it together. Alcohol also stays in you about twice as long.",你离不开酒，而且渴望从未真正放过你：无论醉着还是醒着，你的压力都在慢慢攀升，什么都无法让你真正满足，隐隐的疼痛也始终伴随着你。但酒仍然有用。微醺时，你终于找回了自己。喝醉时，酒能提振你的情绪，却不会让你口渴、恶心或头脑混乱；即使大醉，你也能撑得住。酒精在你体内停留的时间也约为常人的两倍。
 CMC_TraitDrunkard_StatName,Alcohol Craving,酒瘾
 CMC_TraitDrunkard_StatDescription,"Your need for a drink, and how well you hold it once you have one.",你对酒的渴望，以及喝到酒之后你能多好地驾驭它。
 CMC_TraitDrunkard_Status_Sober_Name,Alcohol Addiction,酒精成瘾
-CMC_TraitDrunkard_Status_Sober_Description,"You need a drink. Until you have one your stress climbs, nothing satisfies you and everything aches.",你需要喝一杯。在喝到之前，你的压力不断攀升，什么都无法让你满足，浑身隐隐作痛。
+CMC_TraitDrunkard_Status_Sober_Description,"You need a drink. Your stress climbs, nothing satisfies you and everything aches.",你需要喝一杯。你的压力不断攀升，什么都无法让你满足，浑身隐隐作痛。
 CMC_TraitDrunkard_Status_Tipsy_Name,"Finally, a Drink",终于喝到了
-CMC_TraitDrunkard_Status_Tipsy_Description,"The craving lets go and you feel like yourself again. The drink costs you nothing, but it does nothing more for you either.",渴望终于松开了你，你又找回了自己。这杯酒没有让你付出代价，但也没有给你更多好处。
+CMC_TraitDrunkard_Status_Tipsy_Description,"The drink costs you nothing and steadies your mind a little, though the craving never fully lets go.",这杯酒没有让你付出代价，还让你的心神稍稍安定，只是渴望从未真正松开你。
 CMC_TraitDrunkard_Status_Drunk_Name,Satisfied,心满意足
 CMC_TraitDrunkard_Status_Drunk_Description,"The drink warms you through and lifts your mood, and it does not leave you thirsty, sick or muddled.",酒暖遍全身，让你心情舒畅，也不会让你口渴、恶心或头脑混乱。
 CMC_TraitDrunkard_Status_HorriblyDrunk_Name,I Won't Get Drunk!,我才不会醉！
@@ -2094,6 +2094,10 @@ CMC_JailRationDay_StatName,Jail Ration Day,监狱配给日
 CMC_JailRationDay_StatDescription,Hidden record: the day the daily ration was last placed in the cell.,隐藏记录：上次将每日口粮放入牢房的日期。
 CMC_JailStonesCounted_StatName,Stones Counted,数石头计数
 CMC_JailStonesCounted_StatDescription,Flavor counter: how many times the stones have been counted.,风味计数器：记录石头被数过的次数。
+CMC_JailSuppliesGranted_StatName,Jail Supplies Granted,监狱物资已发放
+CMC_JailSuppliesGranted_StatDescription,"Hidden flag: whether this sentence's one-time fireplace-building supplies have already been placed in the cell. 0 = not yet granted, 1 = granted; reset on every new sentence.",隐藏标记：本次刑期一次性的壁炉建造物资是否已放入牢房。0表示尚未发放，1表示已发放；每次重新判刑时都会重置。
+CMC_JailTinderDay_StatName,Jail Tinder Day,监狱火种日
+CMC_JailTinderDay_StatDescription,Hidden record: the day a Lit Tinder was last placed in the cell.,隐藏记录：上次将燃着的火种放入牢房的日期。
 CMC_JailRationFood_CardName,Meager Prison Ration,微薄的监狱配给
 CMC_JailRationFood_CardDescription,"A thin bowl of cold gruel, slid through the door's grille once a day. It won't fill you up, but the warden makes sure you get just enough to keep your strength.",一碗稀薄的冷粥，每天透过门上的铁栅递进来一次。虽然吃不饱，但狱卒会确保你能维持基本的体力。
 CMC_JailRationFood_DA_Eat,Eat,食用
@@ -2588,3 +2592,7 @@ CMC_TraitNightcrawlerBurnCounter_StatDescription,An internal timer that keeps th
 CMC_EventNightcrawlerBurned_CardName,"Burned!","被灼伤了！"
 CMC_EventNightcrawlerBurned_CardDesc,"The sun has been on you too long and your skin has caught. Get out of the light and stay out of it until dark.","阳光在你身上停留得太久，你的皮肤已经燃了起来。离开光下，并在天黑前一直避开它。"
 CMC_EventNightcrawlerBurned_Dismiss,"Oh no...","不好……"
+CMC_TraitNightcrawlerBurn_Status_Smouldering_Name,Smouldering,开始灼伤
+CMC_TraitNightcrawlerBurn_Status_Smouldering_Description,Your skin is starting to burn. Get out of the light before it catches.,你的皮肤开始灼痛。趁还没烧起来，赶紧离开光下。
+CharacterTraits_Perk_GiantStomach_PerkName,Giant Stomach,巨无霸胃
+CharacterTraits_Perk_GiantStomach_PerkDescription,"Your stomach is huge! It holds five times as much food as anyone else's and empties faster when it is very full, and no amount of eating makes you sick.",你的胃非常大！它能装下常人五倍的食物，装得很满时消化得也更快，而且再怎么吃也不会吃到反胃。

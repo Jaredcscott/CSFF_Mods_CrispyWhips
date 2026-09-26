@@ -6,7 +6,7 @@
     "AddedCardsWarpType": 3,
     "AddedStartingHours": 0,
     "CardsOnBoardObjectives": [],
-    "CharacterPerkPerkGroup": "335cd7a47a90df5419abc30a4105db1a",
+    "CharacterPerkPerkGroup": "72120cda8e1cef540b1b25118dd7edaa",
     "CheckingNotificationDetails": 0,
     "CompleteOnLose": false,
     "CompleteOnWin": false,
@@ -32,39 +32,6 @@
         "m_PathID": 0
     },
     "PassiveStatModifiers": [
-        {
-            "Stat": {
-                "m_FileID": 0,
-                "m_PathID": 0
-            },
-            "StatWarpData": "9e7fdaf5f13d3a64f89f29422ba60f5c",
-            "StatWarpType": 3,
-            "ValueModifier": {
-                "x": 15.0,
-                "y": 15.0
-            },
-            "RateModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "MinValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "MaxValueModifier": {
-                "x": 0.0,
-                "y": 0.0
-            },
-            "CannotModifyBeyond": {
-                "Active": false,
-                "FloatValue": 0.0,
-                "MaxValue": 0.0
-            },
-            "ApplyEachTick": false,
-            "InstantModifier": false,
-            "IgnoreNovelty": false,
-            "IsInverse": false
-        },
         {
             "Stat": {
                 "m_FileID": 0,
@@ -100,7 +67,7 @@
         }
     ],
     "PerkDescription": {
-        "DefaultText": "The spirits do not look kindly upon you. A hollowness hangs about you that never lifts, as though a life had been taken and never released, so the spirits stay colder to you for as long as you live, every life you take without release drives you deeper, and the unease of an unfriendly spirit world keeps your nerves on edge.",
+        "DefaultText": "The spirits do not look kindly upon you. A hollowness hangs about you that never lifts, as though a life had been taken and never released, so the spirits stay colder to you for as long as you live, and every life you take without release drives you deeper.",
         "LocalizationKey": "CharacterTraits_Perk_SpirituallyTroubled_PerkDescription",
         "ParentObjectID": "traits_perk_spiritually_troubled"
     },

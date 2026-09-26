@@ -25,7 +25,7 @@
             "ObjectiveName": "WeaverQuestChainAtLeast6",
             "CompletionWeight": 1,
             "StatCondition": {
-                "TriggerRange": { "x": 5.5, "y": 20.0 },
+                "TriggerRange": { "x": 6.0, "y": 20.0 },
                 "StatWarpData": "cmcStatWeaverQuestChain",
                 "StatWarpType": 3
             },
