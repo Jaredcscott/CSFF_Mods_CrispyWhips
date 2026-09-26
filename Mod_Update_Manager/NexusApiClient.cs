@@ -45,6 +45,13 @@ namespace mod_update_manager
         private const string GAME_DOMAIN = "cardsurvivalfantasyforest";
         private const int CACHE_EXPIRY_HOURS = 24;
 
+        // UnityWebRequest has no timeout by default. Every caller waits on the callback (the
+        // update check polls _checksCompleted, discovery spins on a flag), so one request that
+        // never completes would leave IsChecking true for the session - the Check for Updates
+        // button greyed out and the scheduler stalled, with nothing in the log. A timeout turns
+        // that into an ordinary failed check.
+        private const int REQUEST_TIMEOUT_SECONDS = 30;
+
         private string _apiKey;
         private MonoBehaviour _coroutineRunner;
         private string _diskCachePath;
@@ -294,6 +301,7 @@ namespace mod_update_manager
 
             using (var request = UnityWebRequest.Get(url))
             {
+                request.timeout = REQUEST_TIMEOUT_SECONDS;
                 request.SetRequestHeader("apikey", _apiKey);
                 request.SetRequestHeader("Accept", "application/json");
                 request.SetRequestHeader("User-Agent", $"Mod_Update_Manager/{Plugin.PluginVersion}");
@@ -360,6 +368,7 @@ namespace mod_update_manager
             
             using (var request = UnityWebRequest.Get(url))
             {
+                request.timeout = REQUEST_TIMEOUT_SECONDS;
                 request.SetRequestHeader("apikey", _apiKey);
                 request.SetRequestHeader("Accept", "application/json");
 
@@ -404,6 +413,7 @@ namespace mod_update_manager
             var url = $"{BASE_URL}/games/{GAME_DOMAIN}/mods/{modId}/changelogs.json";
             using (var request = UnityWebRequest.Get(url))
             {
+                request.timeout = REQUEST_TIMEOUT_SECONDS;
                 request.SetRequestHeader("apikey", _apiKey);
                 request.SetRequestHeader("Accept", "application/json");
                 request.SetRequestHeader("User-Agent", $"Mod_Update_Manager/{Plugin.PluginVersion}");

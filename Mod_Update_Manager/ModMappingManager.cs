@@ -90,8 +90,9 @@ namespace mod_update_manager
         /// </summary>
         private void CreateDefaultMappings()
         {
-            // Start with an empty list — the known mod registry handles auto-detection,
-            // and user mappings will be added via the UI or auto-saved after first check.
+            // Start with an empty list - the known mod registry handles auto-detection, and the
+            // only rows written here are the ones the user adds in the UI (UpdateChecker no longer
+            // auto-saves checked IDs, which would outrank later registry corrections).
             var defaultMappings = new List<ModMapping>();
 
             try

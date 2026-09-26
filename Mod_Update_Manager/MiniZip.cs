@@ -110,6 +110,18 @@ namespace mod_update_manager
             return data;
         }
 
+        /// <summary>
+        /// Throws, writing nothing, if <paramref name="entry"/> could not be extracted: a
+        /// non-Stored method, a bad local header, or data running past the end of the archive.
+        /// ModSuiteExtractor runs this over every entry before it wipes the install being replaced.
+        /// </summary>
+        public static void Validate(Stream zip, Entry entry)
+        {
+            long dataOffset = LocateDataOffset(zip, entry);
+            if (dataOffset + entry.UncompressedSize > zip.Length)
+                throw new InvalidDataException($"MiniZip: entry '{entry.Name}' runs past the end of the archive.");
+        }
+
         public static void ExtractToFile(Stream zip, Entry entry, string destPath)
         {
             long dataOffset = LocateDataOffset(zip, entry);

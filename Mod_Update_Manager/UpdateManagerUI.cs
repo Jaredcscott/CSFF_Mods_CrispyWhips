@@ -853,10 +853,17 @@ namespace mod_update_manager
             {
                 var restartStyle = new GUIStyle(GUI.skin.label) { normal = { textColor = new Color(1f, 0.3f, 0.3f) }, fontStyle = FontStyle.Bold, wordWrap = true };
                 GUILayout.Label("Mods installed. Restart Card Survival: Fantasy Forest to load the changes.", restartStyle);
+                // The banner returns before the status line below, so without this a failed or
+                // skipped row in a batch that also installed something was never shown.
+                if (!string.IsNullOrEmpty(_suiteStatusMessage))
+                    GUILayout.Label(_suiteStatusMessage, _summaryStyle);
                 GUILayout.Space(4);
                 if (GUILayout.Button("Quit Game (then relaunch from Steam)"))
                 {
-                    System.Diagnostics.Process.Start("steam://run/1413240");
+                    // 2868860 is CSFF (steamapps/appmanifest_2868860.acf; the harness pins the same id
+                    // in Harness-LaunchNoArgs.Tests.ps1). No arguments: any argument makes Steam
+                    // open a dialog that waits for a click.
+                    System.Diagnostics.Process.Start("steam://run/2868860");
                     UnityEngine.Application.Quit();
                 }
                 return;
@@ -905,8 +912,29 @@ namespace mod_update_manager
                 if (_suiteSelected.Contains(e.FolderName) && e.FolderName != "CSFF_Mod_Framework")
                     ordered.Add(e);
 
+            // Apply never moves a mod backwards, and never wipes one it cannot replace. "Select All"
+            // and the row checkboxes can pick any row, including one whose installed copy is NEWER
+            // than this MUM's embed (a player who took a hotfix from Nexus after the suite was
+            // packed: the row reads [Up to Date]) and one whose embed could not be read ([Unknown]:
+            // the extract would fail). Both are left as installed and counted in the done line.
+            // A same-version row still reinstalls, which is the repair path.
+            var skipped = new List<string>();
             foreach (var entry in ordered)
             {
+                var installedNow = SuiteVersionReader.ReadInstalledVersion(entry);
+                string skipReason = null;
+                if (entry.Status == SuiteInstallStatus.Unknown)
+                    skipReason = "its bundled copy could not be read";
+                else if (installedNow != null && VersionComparer.Compare(entry.EmbeddedVersion, installedNow) < 0)
+                    skipReason = $"installed {installedNow} is newer than bundled {entry.EmbeddedVersion}";
+
+                if (skipReason != null)
+                {
+                    Plugin.Logger.LogWarning($"Suite: skipped {entry.FolderName}: {skipReason}; left as installed.");
+                    skipped.Add(entry.DisplayName);
+                    continue;
+                }
+
                 bool result;
                 try
                 {
@@ -934,7 +962,8 @@ namespace mod_update_manager
 
             _suiteApplying = false;
             _suitePendingRestart = ok > 0;
-            _suiteStatusMessage = $"Done: {ok} installed, {fail} failed.";
+            _suiteStatusMessage = $"Done: {ok} installed, {fail} failed."
+                + (skipped.Count > 0 ? $" Skipped {skipped.Count}, left as installed (see the log for why): {string.Join(", ", skipped)}." : "");
         }
 
         // ── Mod list helpers ─────────────────────────────────────────────────

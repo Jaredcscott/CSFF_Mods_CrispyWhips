@@ -1,8 +1,8 @@
 # Mod Update Manager
 
-**Version:** 2.1.58  
+**Version:** 2.1.59  
 **Author:** Jared (crispywhips)  
-**For:** Card Survival: Fantasy Forest (EA 0.67i)
+**For:** Card Survival: Fantasy Forest (EA 0.68)
 
 ## Overview
 
@@ -14,7 +14,7 @@ It also does not validate game-beta compatibility by itself. When a mod update i
 
 ## Shipped Features
 
-- **Crispywhips Mod Suite installer** — the "Install & Update" tab (the default tab on open) lets you install or update the whole crispywhips in-house mod family in one click: CSFF Mod Framework, Advanced Copper Tools, Herbs & Fungi, Water Driven Infrastructure, Community Mod Chest, Homestead Perks, Repeat Action, Quick Transfer, and Skill Speed Boost. Each of these mods ships bundled inside the Mod Update Manager DLL itself as an embedded ZIP — no separate download or manual copy is needed. Per-mod rows show installed vs. bundled version and a status badge (`[Up to Date]` / `[Update Available]` / `[Not Installed]` / `[Install Incomplete]` if a post-extract file check finds something missing); "Select Out of Date / Not Installed" or "Select All" plus "Apply Updates" extracts the selected mods straight into `BepInEx/plugins/`, preserving the framework's `SpriteCache/`. A restart-required banner (with a one-click game-quit button) appears after applying. **Sirus23 Mod Collection is not part of this bundle** — install it separately. This does not touch Nexus and needs no API key.
+- **Crispywhips Mod Suite installer** — the "Install & Update" tab (the default tab on open) lets you install or update the whole crispywhips in-house mod family in one click: CSFF Mod Framework, Advanced Copper Tools, Herbs & Fungi, Water Driven Infrastructure, Community Mod Chest, Homestead Perks, Repeat Action, Quick Transfer, and Skill Speed Boost. Each of these mods ships bundled inside the Mod Update Manager DLL itself as an embedded ZIP — no separate download or manual copy is needed. Per-mod rows show installed vs. bundled version and a status badge (`[Up to Date]` / `[Update Available]` / `[Not Installed]` / `[Install Incomplete]` if a post-extract file check finds something missing); "Select Out of Date / Not Installed" or "Select All" plus "Apply Updates" extracts the selected mods straight into `BepInEx/plugins/`, preserving the framework's `SpriteCache/`. Apply never downgrades: a selected mod whose installed version is newer than the bundled copy, or whose bundled copy cannot be read, is left as installed and listed as skipped. A restart-required banner (with a one-click game-quit button) appears after applying. **Sirus23 Mod Collection is not part of this bundle** — install it separately. This does not touch Nexus and needs no API key.
 - Scans installed mods on game startup and from the UI.
 - Reads `ModInfo.json` from standard plugin folders and one nested folder level; also detects loose plugin DLLs without a `ModInfo.json` (listed with an Unknown version).
 - Checks mapped mods against Nexus Mods when an API key is configured.
@@ -38,7 +38,7 @@ It also does not validate game-beta compatibility by itself. When a mod update i
 
 | Requirement | Notes |
 |-------------|-------|
-| Card Survival: Fantasy Forest | Steam version (EA 0.67i) |
+| Card Survival: Fantasy Forest | Steam version (EA 0.68) |
 | BepInEx 5.x | Mod framework |
 | Nexus Mods API Key | Free, requires Nexus account (only needed for the **My Mods** tab's Nexus checks — the **Install & Update** suite tab works fully offline) |
 | Internet Connection | Needed to check for updates (not needed for the Install & Update suite tab, which extracts from mods bundled in its own DLL) |
@@ -111,20 +111,20 @@ Config file: `BepInEx/config/crispywhips.mod_update_manager.cfg`
 
 Click the **Changelog** button on any checked mod to fetch and display its Nexus version history inline. The changelog view is on-demand and does not run at startup.
 
-For beta-compatible mod releases, include the supported CSFF build in the published release notes, for example `Compatible with Card Survival: Fantasy Forest EA 0.67i`. This keeps compatibility information available without implying that the manager performs automatic beta validation.
+For beta-compatible mod releases, include the supported CSFF build in the published release notes, for example `Compatible with Card Survival: Fantasy Forest EA 0.68a`. This keeps compatibility information available without implying that the manager performs automatic beta validation.
 
 ## Troubleshooting
 
 **Window does not open with F3**
 - Check `BepInEx/LogOutput.log` for errors.
 - Verify BepInEx is installed correctly.
-- Look for `Mod_Update_Manager v2.1.58 loaded.` in the log.
+- Look for `Mod_Update_Manager v2.1.59 loaded.` in the log.
 
 **Install & Update tab shows "Unknown" status for every mod**
 - The embedded suite ZIPs failed to read (`SuiteVersionReader.RefreshAll` logs an error). Check `LogOutput.log`; this doesn't affect the Nexus-tracking tabs.
 
 **A row shows "[Install Incomplete]" after Apply Updates**
-- The extractor confirmed the ZIP finished writing but found one or more expected files missing from `BepInEx/plugins/<Folder>/` afterward (a common cause: another process, such as antivirus real-time scanning, briefly locked a file mid-write). Check `LogOutput.log` for `Suite verify:` lines naming the missing paths, close anything that might be locking files in the plugins folder, and re-select that mod and Apply Updates again.
+- The extractor confirmed the ZIP finished writing but found one or more expected files missing from `BepInEx/plugins/<Folder>/` afterward, or shorter than the bundled copy (a common cause: another process, such as antivirus real-time scanning, briefly locked a file mid-write). Check `LogOutput.log` for `Suite verify:` lines naming the missing paths, close anything that might be locking files in the plugins folder, and re-select that mod and Apply Updates again.
 
 **API key not set**
 - Enter your Nexus API key in the Settings tab and click Save.

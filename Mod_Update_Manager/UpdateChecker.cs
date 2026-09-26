@@ -190,8 +190,10 @@ namespace mod_update_manager
                             ModComparisonView.IsMajorUpdate(mod.Version, response.Version);
                         mod.CheckFailed = false;
 
-                        if (!string.IsNullOrEmpty(response.Name))
-                            _mappingManager.SetMapping(mod.FolderName, nexusId, response.Name);
+                        // Deliberately NOT persisted to the user mappings file. That file outranks
+                        // KnownModRegistry in GetNexusModId, so copying every checked ID into it (as
+                        // this did through 2.1.58) froze each registry ID for good and hid any later
+                        // registry correction, and rewrote the file once per response.
 
                         Plugin.Logger.LogDebug($"{mod.Name}: {mod.Version} -> {response.Version} (Needs update: {mod.NeedsUpdate})");
                     }

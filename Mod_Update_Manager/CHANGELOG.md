@@ -5,6 +5,73 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [2.1.59] - 2026-09-26
+
+### Changed
+
+- **Refreshed the embedded mod suite.** Re-embeds CSFF Mod Framework 2.26.11, Community Mod Chest
+  1.68.45, Advanced Copper Tools 1.16.9, Herbs and Fungi 1.13.7, Water Driven Infrastructure
+  1.11.3, Skill Speed Boost 1.10.6 and Repeat Action 2.1.6. With them:
+  - Community Mod Chest's trait rebalance by Chiwei, the new Giant Stomach trait, village
+    interiors that work like a cabin room, and a fireplace you can build in the Jail Cell.
+  - Opening the Inn Keeper's chest no longer counts as theft.
+  - Mod map tiles no longer grow a second pond, river or tree, and one an older save already has
+    disappears when you travel onto that tile.
+  - "Return to Portal" works after loading a save or restarting the game, and GIF card
+    animations play.
+  - Dismantling a Drying Stack or Drying Tray (Herbs and Fungi), or packing up a market stall or
+    the outfit wardrobe (Community Mod Chest), no longer destroys what is on or in it.
+  - Copper nuggets from self-smelting copper items get the forge's quality floor (Water Driven
+    Infrastructure).
+  - A perk's starting skill bonus is no longer multiplied by your XP settings (Skill Speed Boost).
+  - Repeated group actions count flavour, spices and time the way the game's own button does
+    (Repeat Action).
+
+  Homestead Perks and Quick Transfer are re-embedded at their current versions. Each mod's own
+  changelog has the full list.
+
+### Fixed
+
+These change Mod Update Manager's own behaviour.
+
+- **"Quit Game (then relaunch from Steam)" now relaunches Card Survival.** The button shown after
+  a suite install asked Steam to run app 1413240, which is not this game, so Steam tried to start
+  something else while the game quit. It now uses the game's own id, 2868860.
+- **"Select All" then "Apply Updates" no longer downgrades a mod.** A mod whose installed version
+  is newer than the copy bundled in Mod Update Manager (for example one you updated from Nexus
+  after this Mod Update Manager was released) shows `[Up to Date]`, but Select All still selected
+  it and Apply replaced it with the older bundled copy. Apply now leaves such a mod as installed,
+  and does the same for a row whose bundled copy could not be read (`[Unknown]`). Reinstalling the
+  same version still works, as a repair. The done line lists what was skipped and the log says why.
+- **The done line is shown after an install that needs a restart.** When at least one mod
+  installed, the restart banner hid the "Done: N installed, M failed" line, so a failure in the
+  same batch never showed. It now appears under the banner.
+- **A bundled mod that cannot be extracted no longer deletes the installed copy.** Apply cleared
+  the mod's folder before reading the bundled archive, so an archive it could not read (missing,
+  truncated, or compressed in a way the in-game reader does not support) left the folder empty.
+  The whole archive is now checked first, and nothing is deleted unless all of it can be
+  extracted. A missing bundled archive is now logged as an error; before, it showed only in the
+  status line.
+- **`[Install Incomplete]` now also catches a file that landed short.** The check after extracting
+  confirmed each file existed but not its size, although its own description said it caught
+  zero-length files. It now compares every file's size with the bundled copy.
+- **An update check can no longer hang for the rest of the session.** Nexus requests had no
+  timeout, so one that never answered kept the check running forever: the Check for Updates button
+  stayed greyed out and background checks stopped, with nothing in the log. Requests now give up
+  after 30 seconds and count as a failed check.
+- **Checking for updates no longer fills your mappings file.** Every successful check copied that
+  mod's Nexus ID into `ModUpdateManager_Mappings.json`, rewriting the file each time. Entries there
+  override the built-in list of known mods, so a correction to that list in a later version would
+  never have reached you. The Settings tab's Current Mappings now holds only the ones you add; rows
+  that earlier versions added automatically stay until you remove them there.
+- **Community Mod Chest, Homestead Perks and Sirus23 Mod Collection are now checked for updates.**
+  The built-in list of known Nexus mods stopped before these three were published, and none of
+  them names its Nexus page in its own `ModInfo.json`, so the My Mods tab listed them as Unmapped
+  and never told you about a new version. They are now recognised automatically.
+- **The README's compatibility line now reads EA 0.68.** It named the 0.68a hotfix after the game
+  had moved to 0.68b. Mod Update Manager runs on both, so the line now names the game version
+  without a hotfix letter.
+
 ## [2.1.58] - 2026-09-23
 
 ### Changed

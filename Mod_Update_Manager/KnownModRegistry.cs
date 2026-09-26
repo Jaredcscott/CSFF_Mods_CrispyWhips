@@ -132,7 +132,22 @@ namespace mod_update_manager
             // ID 37: Greenstone of RiverConfluence (linxier1)
             { "Greenstone of RiverConfluence",   ("37", "Greenstone of RiverConfluence") },
 
-            // Sentinel — not yet published on Nexus; filtered from "Unable to Check" display
+            // ID 42: Sirus23 Mod Collection (crispywhips93)
+            { "Sirus23_Mod_Collection",          ("42", "Sirus23 Mod Collection") },
+            { "Sirus23 Mod Collection",          ("42", "Sirus23 Mod Collection") },
+
+            // ID 49: Community Mod Chest (crispywhips93)
+            { "Community_Mod_Chest",             ("49", "Community Mod Chest") },
+            { "CommunityModChest",               ("49", "Community Mod Chest") },
+            { "Community Mod Chest",             ("49", "Community Mod Chest") },
+
+            // ID 52: Homestead Perks (crispywhips93)
+            { "Homestead_Perks",                 ("52", "Homestead Perks") },
+            { "HomesteadPerks",                  ("52", "Homestead Perks") },
+            { "Homestead Perks",                 ("52", "Homestead Perks") },
+
+            // Sentinel: Mod Update Manager itself (Nexus 38). Deliberately never checked against Nexus
+            // and filtered from the "Unable to Check" display; README "Self-exclusion" explains why.
             { "Mod_Update_Manager",              ("self", "Mod Update Manager") },
             { "ModUpdateManager",                ("self", "Mod Update Manager") },
             { "Mod Update Manager",              ("self", "Mod Update Manager") },
@@ -180,7 +195,7 @@ namespace mod_update_manager
 
         /// <summary>
         /// Returns true when the identifier maps to the sentinel "self" entry
-        /// (i.e. this mod is Mod_Update_Manager itself, not yet published on Nexus).
+        /// (i.e. this mod is Mod_Update_Manager itself, which is never checked against Nexus).
         /// </summary>
         public static bool IsSelfMod(string identifier)
         {
