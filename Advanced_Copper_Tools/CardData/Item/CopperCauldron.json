@@ -226,16 +226,6 @@
         "Metal"
       ],
       "ActionSoundsWarpType": 3,
-      "RequiredReceivingDurabilities": {
-        "RequiredInventoryEmpty": true,
-        "RequiredLiquidQuantity": 0.0,
-        "HideActionIfNotMet": true,
-        "FailMessage": {
-          "ParentObjectID": "advanced_copper_tools_copper_cauldron",
-          "LocalizationKey": "Advanced_Copper_Tools_CopperCauldron_HasContents",
-          "DefaultText": "Empty the cauldron first."
-        }
-      },
       "ProducedCards": [
         {
           "CollectionName": "",

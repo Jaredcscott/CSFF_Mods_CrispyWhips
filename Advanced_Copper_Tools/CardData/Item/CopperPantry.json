@@ -259,15 +259,6 @@
         "Metal"
       ],
       "ActionSoundsWarpType": 3,
-      "RequiredReceivingDurabilities": {
-        "RequiredInventoryEmpty": true,
-        "HideActionIfNotMet": true,
-        "FailMessage": {
-          "ParentObjectID": "advanced_copper_tools_copper_pantry",
-          "LocalizationKey": "Advanced_Copper_Tools_CopperPantry_DismantleActions_Dismantle_FailMessage",
-          "DefaultText": "Empty the chest first."
-        }
-      },
       "ProducedCards": [
         {
           "CollectionName": "",

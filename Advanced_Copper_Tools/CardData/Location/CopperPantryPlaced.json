@@ -187,15 +187,6 @@
             "ActionTagsWarpType": 3,
             "ActionSoundsWarpData": ["Metal"],
             "ActionSoundsWarpType": 3,
-            "RequiredReceivingDurabilities": {
-                "RequiredInventoryEmpty": true,
-                "HideActionIfNotMet": true,
-                "FailMessage": {
-                    "ParentObjectID": "advanced_copper_tools_copper_pantry_placed",
-                    "LocalizationKey": "Advanced_Copper_Tools_CopperPantryPlaced_DismantleActions_PickUp_FailMessage",
-                    "DefaultText": "Empty the chest before picking it up."
-                }
-            },
             "ReceivingCardChanges": {
                 "ModType": 2,
                 "TransformInto": { "m_FileID": 0, "m_PathID": 0 },
@@ -224,15 +215,6 @@
             "ActionTagsWarpType": 3,
             "ActionSoundsWarpData": ["Metal"],
             "ActionSoundsWarpType": 3,
-            "RequiredReceivingDurabilities": {
-                "RequiredInventoryEmpty": true,
-                "HideActionIfNotMet": true,
-                "FailMessage": {
-                    "ParentObjectID": "advanced_copper_tools_copper_pantry_placed",
-                    "LocalizationKey": "Advanced_Copper_Tools_CopperPantry_DismantleActions_Dismantle_FailMessage",
-                    "DefaultText": "Empty the chest first."
-                }
-            },
             "ProducedCards": [
                 {
                     "CollectionName": "",

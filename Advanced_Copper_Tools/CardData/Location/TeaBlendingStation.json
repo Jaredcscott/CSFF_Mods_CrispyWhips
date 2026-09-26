@@ -530,15 +530,6 @@
         "Wood"
       ],
       "ActionSoundsWarpType": 3,
-      "RequiredReceivingDurabilities": {
-        "RequiredInventoryEmpty": true,
-        "HideActionIfNotMet": true,
-        "FailMessage": {
-          "ParentObjectID": "advanced_copper_tools_tea_blending_station",
-          "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_PickUp_FailMessage",
-          "DefaultText": "Remove items from the station first."
-        }
-      },
       "ReceivingCardChanges": {
         "ModType": 2,
         "TransformInto": {
@@ -603,15 +594,6 @@
         "Wood"
       ],
       "ActionSoundsWarpType": 3,
-      "RequiredReceivingDurabilities": {
-        "RequiredInventoryEmpty": true,
-        "HideActionIfNotMet": true,
-        "FailMessage": {
-          "ParentObjectID": "advanced_copper_tools_tea_blending_station",
-          "LocalizationKey": "Advanced_Copper_Tools_TeaBlendingStation_HasItems",
-          "DefaultText": "Remove items from the station first."
-        }
-      },
       "ProducedCards": [
         {
           "CollectionName": "",

@@ -1,7 +1,7 @@
 # Advanced Copper Tools
 
 **Quality of Life & Advanced Metalworking**
-**Version:** 1.16.8
+**Version:** 1.16.9
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.65)
 
@@ -255,12 +255,12 @@ A large portable cooking vessel for batch cooking and brewing. Place the cauldro
 
 A dedicated workbench with six herb-and-grinding slots, a built-in 8-bowl water reservoir, an integrated copper stove, and a Grind All action.
 
-**Three variants** (kit → placed → lit). Every transform carries inventory, liquid, and fuel.
+**Three variants** (kit → placed → lit). Every transform carries liquid and fuel. Lighting and putting out the station also carry whatever sits in its six slots; picking it up does not, because the kit has no slots, so anything still in them is set down beside you.
 
 | Variant | Card Type | Pickable | Drains Fuel? |
 |---------|-----------|:--------:|:------------:|
 | **Tea Station Kit** | 0 (item) | yes | no |
-| **Tea Station** (placed, unlit) | 2 | yes (must be empty) | no |
+| **Tea Station** (placed, unlit) | 2 | yes (slot contents are set down) | no |
 | **Tea Station** (placed, lit) | 2 | no — extinguish first | yes |
 
 **Recipe** (build 4 ticks, unlock 64 ticks): 2 planks + 4 twine + 1 copper tea kettle + 1 small copper stove + 1 rotary quern + 15 stone (Stone). Place the kit to set up the workbench.
@@ -271,7 +271,7 @@ A dedicated workbench with six herb-and-grinding slots, a built-in 8-bowl water 
 
 **Reservoir (built-in 8-charge Water Charges tank)**: Drag clay bowls of water onto the station to fill it. Use "Draw Cold Water" with an empty bowl to extract cold water. While lit, the station heats its own held liquid via a Harmony per-tick patch (Water Temp 0 → 12, ~30 in-game minutes from cold), and you can use "Draw Hot Water" once the reservoir is at 50%+ heat.
 
-**Light Fire / Extinguish / Pick Up**: Drag a fire source (gated by ≥10% fuel) to light. Extinguish via DismantleAction. Pick Up requires the reservoir empty and the station unlit; it transforms back to the kit with fuel and contents intact.
+**Light Fire / Extinguish / Pick Up**: Drag a fire source (gated by ≥10% fuel) to light. Extinguish via DismantleAction. Pick Up is offered only on the unlit station; it transforms back to the kit, and anything in the six slots is set down beside you rather than carried.
 
 ---
 
@@ -417,7 +417,7 @@ These hooks are mod-scoped and filter on this mod's UniqueIDs. The exception is 
 1. Install BepInEx if not already installed.
 2. Install CSFFModFramework in `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. Drop this mod folder at `BepInEx/plugins/Advanced_Copper_Tools/`.
-4. Launch the game — content loads automatically; check `BepInEx/LogOutput.log` for `Advanced_Copper_Tools v1.16.8 loaded.`
+4. Launch the game — content loads automatically; check `BepInEx/LogOutput.log` for `Advanced_Copper_Tools v1.16.9 loaded.`
 
 ### Deployed file structure
 
@@ -457,13 +457,13 @@ Other in-house mods build directly on top of ACT's content:
 
 ## Troubleshooting
 
-**Blueprints not appearing?** Verify CSFFModFramework is loaded — check `LogOutput.log` for `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.16.8 loaded.`
+**Blueprints not appearing?** Verify CSFFModFramework is loaded — check `LogOutput.log` for `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.16.9 loaded.`
 
 **Pan / kettle won't boil?** It must be on a *lit* fire source with fuel remaining. Vanilla water types boil via their own `LiquidFuelValue` OnFull transform; if the liquid isn't a heatable type, nothing happens.
 
 **Stove fuel not depleting?** That's correct on the *unlit* stove. Once you light the stove (drag a fire source onto it), it consumes fuel at the standard rate and the fuel display reads as a percentage.
 
-**Tea Station won't pick up?** The reservoir must be empty AND the stove must be unlit. Extinguish first, then drain water.
+**Tea Station won't pick up?** The stove must be unlit: Pick Up only appears on the unlit station, so extinguish it first. Anything left in the six slots is set down beside you when you pick it up.
 
 **Items show `[MISSING]` text?** `Localization/SimpEn.csv` is missing or corrupted — re-extract the mod folder.
 

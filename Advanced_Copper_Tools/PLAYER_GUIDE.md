@@ -155,7 +155,7 @@ A 3-state relaxation and cleansing structure. One of the best morale investments
 ### Other Actions
 - **Add Firewood / Add Fuel** — top up the fuel during heating
 - **Empty** — drain the water when done
-- **Pick Up** — carry the tub to a new location (tub must be empty first)
+- **Pick Up** — carry the tub to a new location (works whether it is empty, full or warm; a filled tub is picked up as a filled tub)
 - **Dismantle** — recover materials including the wheelbarrow bucket and stove
 
 ---
@@ -254,7 +254,7 @@ A dedicated herb-processing workbench with six slots, a built-in water reservoir
 | State | Type | Pickable | Notes |
 |-------|------|:--------:|-------|
 | **Tea Station Kit** | Item | Yes | Carry and place when ready |
-| **Tea Station (unlit)** | Placed | Yes (if empty) | Drying and grinding; must be empty to pick up |
+| **Tea Station (unlit)** | Placed | Yes | Drying and grinding; picking it up sets the slot contents down beside you |
 | **Tea Station (lit)** | Placed | No | Full function; extinguish before picking up |
 
 **Recipe:** 2 planks + 4 twine + 1 Copper Tea Kettle + 1 Small Copper Stove + 1 rotary quern + 15 stone.
@@ -286,7 +286,7 @@ The lit station heats its own reservoir — cold water in a lit station warms to
 
 ### Picking Up
 
-The station must be **unlit AND reservoir empty** before it can be picked up. Extinguish first, drain water, then use the Pick Up action. Fuel and slot contents carry over to the Kit form.
+The station must be **unlit** before it can be picked up: Pick Up only appears on the unlit station, so extinguish it first. The Kit has no slots, so anything still in the six slots is set down beside you instead of being carried.
 
 ---
 

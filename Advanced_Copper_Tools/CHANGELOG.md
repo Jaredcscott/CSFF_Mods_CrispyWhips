@@ -2,6 +2,16 @@
 
 All notable changes to this mod are documented here.
 
+## [1.16.9] - 2026-09-23
+
+### Docs
+- **The README no longer says the Tea Blending Station must be empty before you pick it up.** It
+  never had to be: picking it up sets anything still in its six slots down beside you, and the
+  README now says so. The troubleshooting line that told you to drain the reservoir first is
+  corrected too; the only requirement is that the stove is out. The Player Guide had the same
+  mistake and is corrected the same way, and its Copper Bathtub section no longer says the tub
+  must be empty before Pick Up: a full or warm tub can be picked up too. No gameplay change.
+
 ## [1.16.8] - 2026-09-18
 
 ### Changed

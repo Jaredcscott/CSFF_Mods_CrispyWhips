@@ -137,15 +137,6 @@
       "ActionTagsWarpType": 3,
       "ActionSoundsWarpData": [ "Metal" ],
       "ActionSoundsWarpType": 3,
-      "RequiredReceivingDurabilities": {
-        "RequiredInventoryEmpty": true,
-        "HideActionIfNotMet": true,
-        "FailMessage": {
-          "ParentObjectID": "advanced_copper_tools_ore_chest",
-          "LocalizationKey": "Advanced_Copper_Tools_OreChest_DismantleActions_Dismantle_FailMessage",
-          "DefaultText": "Empty the crate first."
-        }
-      },
       "ProducedCards": [
         {
           "CollectionName": "",
