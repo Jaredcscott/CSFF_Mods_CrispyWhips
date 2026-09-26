@@ -44,7 +44,10 @@ public static class Gate
     public static bool OncePerDtpTick(ref int lastDtp)
     {
         int dtp = GameQuery.DayTimePoints;
-        if (dtp < 0) return false;
+        // No run (main menu, loading): forget the last reading, so the next run's first value
+        // primes the gate instead of being compared with the previous run's last one (a night
+        // save followed by a morning load used to fire a phantom rollover).
+        if (dtp < 0) { lastDtp = int.MinValue; return false; }
         if (lastDtp == int.MinValue) { lastDtp = dtp; return false; }
         if (dtp == lastDtp) return false;
         lastDtp = dtp;
@@ -52,17 +55,31 @@ public static class Gate
     }
 
     /// <summary>
-    /// True once per in-game day rollover (DTP wrap from ~0 back up to ~96 — the same
-    /// detection TriggerService and WildlifeRaidService use). Initialize the state
-    /// field to <c>int.MinValue</c>; the first observed value primes the gate without firing.
+    /// True once per in-game day rollover (the same detection TriggerService, TickEvents and
+    /// WildlifeRaidService use; see <see cref="DaysRolledOver"/>). Initialize the state field to
+    /// <c>int.MinValue</c>; the first observed value primes the gate without firing. The field
+    /// now holds a day number, not a DayTimePoints value; callers only pass it back in.
     /// </summary>
-    public static bool OncePerDayRollover(ref int lastDtp)
+    public static bool OncePerDayRollover(ref int lastDtp) => DaysRolledOver(ref lastDtp) > 0;
+
+    /// <summary>
+    /// Number of in-game days that began since the last call (0 on most calls). The state field
+    /// holds the last observed <c>GameManager.CurrentDay</c>, which vanilla's NightRoutine
+    /// increments exactly once per day as it resets DayTimePoints. Before 2.26.8 the rollover was
+    /// inferred from DayTimePoints jumping up by more than 50 between two polls, which cannot see a
+    /// day that began inside a gap of about 46 or more ticks (11.5 in-game hours) between two polls,
+    /// since the jump then reads 50 or less, and cannot count two days in one gap.
+    /// </summary>
+    internal static int DaysRolledOver(ref int lastDay)
     {
-        int dtp = GameQuery.DayTimePoints;
-        if (dtp < 0) return false;
-        if (lastDtp == int.MinValue) { lastDtp = dtp; return false; }
-        bool wrapped = dtp > lastDtp + 50;
-        lastDtp = dtp;
-        return wrapped;
+        // No run (main menu, loading): forget the last reading, so the next run's first value
+        // primes the gate instead of being compared with the previous run's last one.
+        if (GameQuery.DayTimePoints < 0) { lastDay = int.MinValue; return 0; }
+        int day = GameQuery.CurrentDay;
+        if (day <= 0) return 0;
+        if (lastDay == int.MinValue) { lastDay = day; return 0; }
+        int rolled = day - lastDay;
+        lastDay = day;
+        return rolled > 0 ? rolled : 0;
     }
 }

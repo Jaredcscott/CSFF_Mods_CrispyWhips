@@ -600,6 +600,19 @@ namespace LitJson
     {
         public JsonMapper() { }
 
+        // Trace, not Debug.WriteLine: Debug.WriteLine is [Conditional("DEBUG")] and compiled out of
+        // the Release build, so before framework 2.26.8 these failures were silent for every player.
+        // BepInEx routes Trace into LogOutput.log. Once per (type, member), so a repeated failure
+        // cannot flood the log.
+        private static readonly HashSet<string> _warned = new HashSet<string>();
+
+        private static void WarnOnce(string key, string what, Exception ex)
+        {
+            lock (_warned) { if (!_warned.Add(key)) return; }
+            var cause = ex.InnerException ?? ex;
+            System.Diagnostics.Trace.TraceWarning($"[LitJsonStub] {what}: {cause.GetType().Name}: {cause.Message}");
+        }
+
         public static string ToJson(object obj)
         {
             var sb = new StringBuilder();
@@ -669,8 +682,14 @@ namespace LitJson
             w.WriteObjectStart();
             foreach (var p in t.GetProperties(BindingFlags.Instance | BindingFlags.Public))
                 if (p.CanRead && p.GetIndexParameters().Length == 0)
-                    try { w.WritePropertyName(p.Name); WriteValue(p.GetValue(obj, null), w); }
-                    catch (Exception ex) { System.Diagnostics.Debug.WriteLine($"[LitJsonStub] WriteValue: property write failed for {t.Name}.{p.Name}: {ex.GetType().Name} {ex.Message}"); }
+                {
+                    // Read before writing the name: a getter that throws after the name is written
+                    // would leave a property with no value and malformed JSON.
+                    object value;
+                    try { value = p.GetValue(obj, null); }
+                    catch (Exception ex) { WarnOnce(t.FullName + "." + p.Name + "/get", $"ToJson skipped {t.Name}.{p.Name}, its getter threw", ex); continue; }
+                    w.WritePropertyName(p.Name); WriteValue(value, w);
+                }
             foreach (var f in t.GetFields(BindingFlags.Instance | BindingFlags.Public))
             { w.WritePropertyName(f.Name); WriteValue(f.GetValue(obj), w); }
             w.WriteObjectEnd();
@@ -883,14 +902,14 @@ namespace LitJson
                     if (prop != null && prop.CanWrite)
                     {
                         try { prop.SetValue(inst, FromJsonData(d[key], prop.PropertyType), null); }
-                        catch (Exception ex) { System.Diagnostics.Debug.WriteLine($"[LitJsonStub] ToObject: property set failed for {t.Name}.{key}: {ex.GetType().Name} {ex.Message}"); }
+                        catch (Exception ex) { WarnOnce(t.FullName + "." + key + "/prop", $"ToObject left {t.Name}.{key} at its default, the property set failed", ex); }
                         continue;
                     }
                     var fld = t.GetField(key, BindingFlags.Instance | BindingFlags.Public);
                     if (fld != null)
                     {
                         try { fld.SetValue(inst, FromJsonData(d[key], fld.FieldType)); }
-                        catch (Exception ex) { System.Diagnostics.Debug.WriteLine($"[LitJsonStub] ToObject: field set failed for {t.Name}.{key}: {ex.GetType().Name} {ex.Message}"); }
+                        catch (Exception ex) { WarnOnce(t.FullName + "." + key + "/field", $"ToObject left {t.Name}.{key} at its default, the field set failed", ex); }
                     }
                 }
             }

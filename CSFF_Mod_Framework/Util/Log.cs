@@ -20,6 +20,17 @@ internal static class Log
     public static string ExceptionText(Exception ex) => ex?.InnerException?.ToString() ?? ex?.ToString() ?? "<null exception>";
 
     /// <summary>
+    /// A key for "log once per cause" latches: the unwrapped exception's type plus the method that
+    /// threw it. One shared bool per call site lets the first cause silence every different later one.
+    /// </summary>
+    public static string CauseKey(Exception ex)
+    {
+        var cause = ex?.InnerException ?? ex;
+        var site = cause?.TargetSite;
+        return $"{cause?.GetType().FullName}@{site?.DeclaringType?.FullName}.{site?.Name}";
+    }
+
+    /// <summary>
     /// Diagnostic logging — only emitted when Verbose is true.
     /// Use for per-item traces, timing info, and diagnostic dumps.
     /// </summary>

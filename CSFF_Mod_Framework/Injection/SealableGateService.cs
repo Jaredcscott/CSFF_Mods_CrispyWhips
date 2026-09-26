@@ -655,7 +655,7 @@ internal static class SealableGateService
                 return contains.Invoke(value, new[] { cardData }) is true;
             }
         }
-        catch (Exception ex) { Log.Debug($"SealableGateService: EnvSaveContainsCard error: {ex.Message}"); }
+        catch (Exception ex) { Log.Debug($"SealableGateService: EnvSaveContainsCard error: {Log.ExceptionText(ex)}"); }
         return false;
     }
 

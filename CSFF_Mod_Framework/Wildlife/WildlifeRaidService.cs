@@ -84,8 +84,7 @@ internal static class WildlifeRaidService
             if (!TryCompleteOneTimeSetup()) return;
         }
 
-        // Day rollover: DayTimePoints wraps each day in the range [0..96]; a jump of >50
-        // upward is the wrap. Detection shared with mods via Api.Gate.
+        // Day rollover: GameManager.CurrentDay advancing. Detection shared with mods via Api.Gate.
         if (Api.Gate.OncePerDayRollover(ref _lastDayTimePoints))
         {
             try { TryRaid(); }
@@ -272,91 +271,54 @@ internal static class WildlifeRaidService
             return false;
         }
 
-        var cardType = card.GetType();
-        try
-        {
-            var cardModelProp = cardType.GetProperty("CardModel", Flags);
-            if (cardModelProp != null && cardModelProp.CanWrite)
-            {
-                cardModelProp.SetValue(card, rotten);
-            }
-            else
-            {
-                var cardModelField = cardType.GetField("CardModel", Flags)
-                    ?? cardType.GetField("<CardModel>k__BackingField", Flags);
-                if (cardModelField == null) return false;
-                cardModelField.SetValue(card, rotten);
-            }
-
-            // Preferred: SetupCardSource(CardData, ...) for a full reinit.
-            var setup = cardType.GetMethods(Flags)
-                .FirstOrDefault(m => m.Name == "SetupCardSource" && m.GetParameters().Length >= 1);
-            if (setup != null)
-            {
-                var p = setup.GetParameters();
-                var args = new object[p.Length];
-                args[0] = rotten;
-                for (int i = 1; i < p.Length; i++)
-                {
-                    var pt = p[i].ParameterType;
-                    args[i] = pt.IsValueType ? Activator.CreateInstance(pt) : null;
-                }
-                try { setup.Invoke(card, args); return true; }
-                catch (Exception ex) { Log.Debug($"[WildlifeRaid] SetupCardSource failed: {Log.ExceptionText(ex)}"); }
-            }
-
-            // Fallback: ResetCard() — repaints visuals/stats from CardModel.
-            var reset = cardType.GetMethod("ResetCard", Flags);
-            reset?.Invoke(card, null);
-            return true;
-        }
-        catch (Exception ex)
-        {
-            Log.Debug($"[WildlifeRaid] transform failed: {Log.ExceptionText(ex)}");
-            return false;
-        }
+        // CardUtil.TransformCardInPlace goes through SetModel, so visuals, liquid info and the
+        // board's per-model buckets follow the new model. Before 2.26.6 this swapped CardModel
+        // raw, then invoked ResetCard with no arguments; on EA 0.68 ResetCard takes a float and
+        // returns an IEnumerator, so the call threw and left a half-transformed card.
+        return CardUtil.TransformCardInPlace(card, RottenRemainsUID);
     }
+
+    // GameManager.ChangeStatValue(InGameStat, float, StatModification) is the private coroutine
+    // vanilla itself starts for a permanent stat change (stat transfers, EA 0.68b GameManager.cs
+    // 6914-6915): it clamps, updates statuses and fires the stat's triggers. Before 2.26.8 this
+    // looked for GameManager.GetStat / FindStat, which do not exist, so the raid's stress penalty
+    // was never applied and nothing said so.
+    private static readonly MethodInfo _changeStatValue = AccessTools.Method(typeof(GameManager), "ChangeStatValue",
+        new[] { typeof(InGameStat), typeof(float), typeof(StatModification) });
+    private static readonly HashSet<string> _stressWarned = new();
 
     private static void ApplyStress(float amount)
     {
         if (amount <= 0f) return;
-        if (_gameManagerType == null || _gameManagerInstanceProp == null) return;
-        var gm = _gameManagerInstanceProp.GetValue(null, null);
-        if (gm == null) return;
-
-        // Resolve the stat. Prefer GameManager.GetStat(UID) or FindStat; fall back to game registry.
-        object statObj = null;
-        foreach (var name in new[] { "GetStat", "FindStat" })
+        var gm = MBSingleton<GameManager>.Instance;
+        if (!gm) { WarnStressOnce("gm", "GameManager.Instance is null"); return; }
+        if (_changeStatValue == null || _changeStatValue.ReturnType != typeof(IEnumerator))
         {
-            var m = _gameManagerType.GetMethod(name, Flags);
-            if (m != null && m.GetParameters().Length == 1)
-            {
-                try { statObj = m.Invoke(gm, new object[] { StressStatUID }); if (statObj != null) break; }
-                catch (Exception ex) { Log.Debug($"[WildlifeRaid] {name}() invoke failed: {Log.ExceptionText(ex)}"); }
-            }
-        }
-        if (statObj == null && GameRegistry.GetByUid(StressStatUID) != null)
-        {
-            // The asset lookup gives us the GameStat SO — runtime "current" stat lives on InGameStat
-            // or similar. If GetStat wasn't present, we conservatively skip rather than write to the
-            // asset (which would persist across saves).
-            Log.Debug("[WildlifeRaid] stress application skipped: no runtime GetStat method found.");
+            WarnStressOnce("method", "GameManager.ChangeStatValue(InGameStat, float, StatModification) returning IEnumerator not found");
             return;
         }
-        if (statObj == null) return;
-
-        var curProp = statObj.GetType().GetProperty("CurrentValue", Flags);
-        if (curProp == null || !curProp.CanWrite) return;
+        if (!(GameRegistry.GetByUid(StressStatUID) is GameStat stressDef))
+        {
+            WarnStressOnce("def", $"GameStat '{StressStatUID}' (Stress) not found");
+            return;
+        }
+        if (gm.StatsDict == null || !gm.StatsDict.TryGetValue(stressDef, out var stress) || !stress)
+        {
+            WarnStressOnce("instance", "no live InGameStat for Stress in GameManager.StatsDict");
+            return;
+        }
         try
         {
-            float cur = Convert.ToSingle(curProp.GetValue(statObj, null));
-            float max = cur;
-            var maxProp = statObj.GetType().GetProperty("MaxValue", Flags);
-            if (maxProp != null) { try { max = Convert.ToSingle(maxProp.GetValue(statObj, null)); } catch (Exception ex) { Log.Debug($"[WildlifeRaid] stress MaxValue read failed: {ex.GetType().Name}"); } }
-            float next = Math.Min(cur + amount, max);
-            curProp.SetValue(statObj, Convert.ChangeType(next, curProp.PropertyType), null);
+            // An IEnumerator method does nothing until it is started: a bare Invoke only builds it.
+            var routine = (IEnumerator)_changeStatValue.Invoke(gm, new object[] { stress, amount, StatModification.Permanent });
+            gm.StartCoroutine(routine);
         }
-        catch (Exception ex) { Log.Debug($"[WildlifeRaid] stress write failed: {Log.ExceptionText(ex)}"); }
+        catch (Exception ex) { WarnStressOnce("invoke", $"ChangeStatValue failed: {Log.ExceptionText(ex)}"); }
+    }
+
+    private static void WarnStressOnce(string cause, string message)
+    {
+        if (_stressWarned.Add(cause)) Log.Warn($"[WildlifeRaid] raid stress penalty not applied: {message}.");
     }
 
     private static List<object> CollectAllCards()

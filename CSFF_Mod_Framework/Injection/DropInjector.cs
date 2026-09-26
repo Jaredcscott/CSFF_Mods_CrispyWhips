@@ -57,7 +57,11 @@ internal static class DropInjector
             {
                 var json = File.ReadAllText(path);
                 var parsed = MiniJson.Parse(json);
-                if (parsed is not List<object> arr) continue;
+                if (parsed is not List<object> arr)
+                {
+                    Log.Warn($"DropInjector: {mod.Name} DropInjections.json skipped, its root must be a JSON array");
+                    continue;
+                }
 
                 int modCount = 0;
                 foreach (var item in arr)

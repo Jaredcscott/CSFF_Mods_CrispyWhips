@@ -17,14 +17,12 @@ internal static class TriggerService
 
     private static bool _ready;
     private static bool _setupAttempted;
-    private static int _lastDayTimePoints = int.MinValue;
+    private static int _lastDay = int.MinValue;
     private static bool _wasInstanced;
     private static readonly List<TriggerDefinition> _pendingSpawns = new();
 
     private static Type _gameManagerType;
     private static PropertyInfo _gmInstanceProp;
-    private static PropertyInfo _dtpProp;
-    private static FieldInfo _dtpField;
     private static MethodInfo _giveCardMethod;
     private static MethodInfo _getFromIdGeneric;
     private static Type _cardDataType;
@@ -35,7 +33,7 @@ internal static class TriggerService
     {
         _ready = false;
         _setupAttempted = false;
-        _lastDayTimePoints = int.MinValue;
+        _lastDay = int.MinValue;
         _wasInstanced = false;
         _pendingSpawns.Clear();
         _memberCache.Clear();
@@ -59,19 +57,14 @@ internal static class TriggerService
         }
         _wasInstanced = isInstanced;
 
-        var dtp = ReadDayTimePoints();
-        if (dtp < 0) return;
-
-        if (_lastDayTimePoints == int.MinValue) { _lastDayTimePoints = dtp; return; }
-
-        // DTP counts DOWN (96→0) then wraps back to ~96. A jump of >50 upward = day rollover.
-        if (dtp > _lastDayTimePoints + 50)
+        // Gate.DaysRolledOver reads GameManager.CurrentDay and resets itself when no run is loaded,
+        // so the next run primes instead of comparing with this run's last value.
+        int days = Api.Gate.DaysRolledOver(ref _lastDay);
+        if (days > 0)
         {
-            try { OnDayRollover(); }
+            try { OnDayRollover(days); }
             catch (Exception ex) { Log.Warn($"[TriggerService] day-rollover processing failed: {Log.ExceptionText(ex)}"); }
         }
-
-        _lastDayTimePoints = dtp;
     }
 
     // ─────────────────────────────────────────────────────────────── setup ──
@@ -117,15 +110,6 @@ internal static class TriggerService
             }
         }
 
-        // DayTimePoints — try several known field/property names (per CLAUDE.md §Runtime Stat Change Hook).
-        foreach (var name in new[] { "DayTimePoints", "CurrentDayTimePoints", "DaytimePoints" })
-        {
-            _dtpProp  = _gameManagerType.GetProperty(name, Flags);
-            if (_dtpProp  != null) break;
-            _dtpField = _gameManagerType.GetField(name, Flags);
-            if (_dtpField != null) break;
-        }
-
         // GiveCard(CardData, ...) — first overload whose first param is CardData.
         if (_cardDataType != null)
         {
@@ -143,12 +127,14 @@ internal static class TriggerService
 
     // ─────────────────────────────────────────────────────── day-tick logic ──
 
-    private static void OnDayRollover()
+    // days: how many in-game days began since the last poll (usually 1). Each trigger still rolls
+    // at most once per poll, but its frequency counter advances by every day that passed.
+    private static void OnDayRollover(int days)
     {
         bool isInstanced = !Api.GameQuery.IsOutdoors;
         foreach (var def in TriggerLoader.LoadedTriggers)
         {
-            def.DaysAccumulated += 1f;
+            def.DaysAccumulated += days;
 
             float daysNeeded = def.DaysBetweenFires;
             if (def.DaysAccumulated < daysNeeded) continue;
@@ -265,7 +251,7 @@ internal static class TriggerService
             }
             catch (Exception ex)
             {
-                Log.Debug($"[TriggerService] GetFromID<CardData>('{uid}') failed: {ex.GetType().Name}");
+                Log.Debug($"[TriggerService] GetFromID<CardData>('{uid}') failed: {Log.ExceptionText(ex)}");
             }
         }
         return GameRegistry.GetByUid(uid);
@@ -302,22 +288,6 @@ internal static class TriggerService
         var env = GetMemberValue(card, "CardEnvironment");
         if (env == null) return false;
         return GetMemberValue(env, "MatchesPlayerEnv") is true;
-    }
-
-    // ─────────────────────────────────────────────────────────── DTP reader ──
-
-    private static int ReadDayTimePoints()
-    {
-        if (_gmInstanceProp == null) return -1;
-        var gm = _gmInstanceProp.GetValue(null, null);
-        if (gm == null) return -1;
-        try
-        {
-            if (_dtpProp  != null) return Convert.ToInt32(_dtpProp.GetValue(gm, null));
-            if (_dtpField != null) return Convert.ToInt32(_dtpField.GetValue(gm));
-        }
-        catch (Exception ex) { Log.Debug($"[TriggerService] ReadDayTimePoints: {ex.GetType().Name}"); }
-        return -1;
     }
 
     // ─────────────────────────────────────────────────── reflection helpers ──

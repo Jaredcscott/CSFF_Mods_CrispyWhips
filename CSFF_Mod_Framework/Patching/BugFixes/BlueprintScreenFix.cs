@@ -8,8 +8,9 @@ namespace CSFFModFramework.Patching.BugFixes;
 /// </summary>
 internal static class BlueprintScreenFix
 {
-    private static bool _loggedShow;
-    private static bool _loggedToggle;
+    // One line per distinct cause (method + exception type + throwing method). Before 2.26.8 one bool
+    // per method let the first exception silence every later, different one, and only the message was logged.
+    private static readonly HashSet<string> _loggedCauses = new();
 
     public static void ApplyPatch(Harmony harmony)
     {
@@ -29,21 +30,20 @@ internal static class BlueprintScreenFix
 
     static Exception ShowFinalizer(Exception __exception)
     {
-        if (__exception != null && !_loggedShow)
-        {
-            _loggedShow = true;
-            Util.Log.Warn($"BlueprintScreenFix: swallowed exception in BlueprintModelsScreen.Show (CardSizeReduce): {__exception.Message}");
-        }
+        Report("Show", __exception);
         return null;
     }
 
     static Exception ToggleFinalizer(Exception __exception)
     {
-        if (__exception != null && !_loggedToggle)
-        {
-            _loggedToggle = true;
-            Util.Log.Warn($"BlueprintScreenFix: swallowed exception in BlueprintModelsScreen.Toggle (CardSizeReduce): {__exception.Message}");
-        }
+        Report("Toggle", __exception);
         return null;
+    }
+
+    private static void Report(string method, Exception ex)
+    {
+        if (ex == null || !_loggedCauses.Add(method + "|" + Util.Log.CauseKey(ex))) return;
+        Util.Log.Warn($"BlueprintScreenFix: swallowed an exception in BlueprintModelsScreen.{method} so the screen still works "
+                    + $"(CardSizeReduce's postfix is the known source; the trace names the actual one): {Util.Log.ExceptionText(ex)}");
     }
 }

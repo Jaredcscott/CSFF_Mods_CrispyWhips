@@ -58,6 +58,15 @@ internal static class CatchUpTickBatching
     private static int[] _chunkSizes;
     private static int _chunkCursor;
 
+    // The env data ArmForHop compressed. A hop can end with chunks unconsumed (CatchUpBudgetClamp
+    // cuts it short by raising LastUpdatedTick, or ChangeEnvironmentCrashGuard swallows a throw),
+    // and GameManager.WakeDormantCardsInEnvironment runs its own IsCatchingUp ApplyRates loop
+    // without passing through ChangeEnvironment. Without this identity check that loop consumed the
+    // leftover chunk sizes and decayed the woken cards K times per tick.
+    private static EnvironmentSaveDataByReference _armedEnvData;
+    private static readonly System.Reflection.FieldInfo _catchingUpEnvDataField =
+        AccessTools.Field(typeof(GameManager), "CatchingUpEnvData");
+
     // Independent re-entrancy guards: each repeat-loop below calls straight back
     // into its own patched method, which would otherwise re-trigger the same
     // repeat logic recursively.
@@ -189,6 +198,7 @@ internal static class CatchUpTickBatching
         CurrentBatchScale = 1f;
         _chunkSizes = null;
         _chunkCursor = 0;
+        _armedEnvData = null;
 
         if (_batchK <= 0 || envData == null) return; // 0 = disabled
 
@@ -206,6 +216,7 @@ internal static class CatchUpTickBatching
             _chunkSizes[i] = baseSize + (i < remainder ? 1 : 0);
 
         envData.LastUpdatedTick = now - numChunks;
+        _armedEnvData = envData;
         Armed = true;
         Util.Log.Debug($"CatchUpTickBatching: armed {numChunks} chunk(s) for {gap} ticks (K={_batchK}).");
     }
@@ -220,6 +231,15 @@ internal static class CatchUpTickBatching
     private static void ApplyRates_Prefix(GameManager __instance)
     {
         if (!Armed || !IsCatchingUp(__instance)) { CurrentBatchTicksInt = 1; CurrentBatchScale = 1f; return; }
+        // Every other hook scales by CurrentBatchTicksInt, so holding it at 1 here keeps a different
+        // env's catch-up (a dormant-card wake) unbatched.
+        if (_catchingUpEnvDataField == null
+            || !ReferenceEquals(_catchingUpEnvDataField.GetValue(__instance), _armedEnvData))
+        {
+            CurrentBatchTicksInt = 1;
+            CurrentBatchScale = 1f;
+            return;
+        }
         if (_chunkSizes == null || _chunkCursor >= _chunkSizes.Length)
         {
             CurrentBatchTicksInt = 1;

@@ -82,6 +82,13 @@ internal static class AudioLoader
         {
             var chunkId = System.Text.Encoding.ASCII.GetString(bytes, dataOffset, 4);
             var chunkSize = BitConverter.ToInt32(bytes, dataOffset + 4);
+            // A negative size moves the offset backwards and -8 leaves it where it is, so before
+            // 2.26.8 a malformed file could spin this loop forever and hang the game at load.
+            if (chunkSize < 0)
+            {
+                Log.Warn($"AudioLoader: {Path.GetFileName(filePath)} skipped, its '{chunkId}' chunk has a negative size ({chunkSize}).");
+                return null;
+            }
             if (chunkId == "data")
             {
                 dataOffset += 8;
@@ -92,6 +99,12 @@ internal static class AudioLoader
         }
 
         if (dataSize == 0 || dataOffset + dataSize > bytes.Length) return null;
+
+        if (channels <= 0 || bitsPerSample < 8)
+        {
+            Log.Warn($"AudioLoader: {Path.GetFileName(filePath)} skipped, its header says {channels} channel(s) at {bitsPerSample} bits per sample.");
+            return null;
+        }
 
         int bytesPerSample = bitsPerSample / 8;
         int sampleCount = dataSize / (bytesPerSample * channels);

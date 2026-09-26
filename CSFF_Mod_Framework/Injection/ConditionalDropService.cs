@@ -43,8 +43,7 @@ internal static class ConditionalDropService
     private static readonly HashSet<MapNodeDefinition> _registeredNodes = new();
 
     private static bool _subscribedToDTP;
-    private static MethodInfo _destroyCardMethod;
-    private static bool _destroyMethodResolved;
+    private static readonly HashSet<string> _removeFailedWarned = new(StringComparer.OrdinalIgnoreCase);
 
     /// <summary>True when at least one conditional drop has been registered this session.</summary>
     internal static bool HasDrops => _dropsByEnv.Count > 0;
@@ -242,8 +241,14 @@ internal static class ConditionalDropService
         {
             if (!string.Equals(CardUtil.GetCardUniqueId(ingameCard), uid, StringComparison.OrdinalIgnoreCase))
                 continue;
-            CallDestroyCard(ingameCard);
-            Log.Debug($"ConditionalDropService: removed out-of-condition '{uid}' from board");
+            // CardUtil.TryRemoveCard drives vanilla's RemoveCard coroutine, which is what takes a
+            // card out of AllCards. Before 2.26.6 this called a parameterless DestroyCard that no
+            // longer exists (EA 0.66i+ has only IEnumerator DestroyCard(bool)), so nothing was ever
+            // removed and out-of-season fields stacked (CMC's cmcEnvVillageFarm).
+            if (CardUtil.TryRemoveCard(ingameCard))
+                Log.Debug($"ConditionalDropService: removed out-of-condition '{uid}' from board");
+            else if (_removeFailedWarned.Add(uid))
+                Log.Warn($"ConditionalDropService: could not remove out-of-condition '{uid}' from the board; it stays until the player removes it");
         }
     }
 
@@ -254,23 +259,6 @@ internal static class ConditionalDropService
             if (string.Equals(CardUtil.GetCardUniqueId(c), uid, StringComparison.OrdinalIgnoreCase))
                 count++;
         return count;
-    }
-
-    private static void CallDestroyCard(object ingameCard)
-    {
-        if (!_destroyMethodResolved)
-        {
-            _destroyMethodResolved = true;
-            var t = ingameCard.GetType();
-            for (; t != null; t = t.BaseType)
-            {
-                _destroyCardMethod = t.GetMethod("DestroyCard", BF, null, Type.EmptyTypes, null);
-                if (_destroyCardMethod != null) break;
-            }
-            if (_destroyCardMethod == null)
-                Log.Warn("ConditionalDropService: InGameCardBase.DestroyCard() not found — board card removal unavailable");
-        }
-        _destroyCardMethod?.Invoke(ingameCard, null);
     }
 
     // ── condition evaluation ─────────────────────────────────────────────────
@@ -362,7 +350,7 @@ internal static class ConditionalDropService
         }
         catch (Exception ex)
         {
-            Log.Warn($"ConditionalDropService: IsQuestActive('{questUID}') failed: {ex.Message}");
+            Log.Warn($"ConditionalDropService: IsQuestActive('{questUID}') failed: {Log.ExceptionText(ex)}");
             return false;
         }
     }

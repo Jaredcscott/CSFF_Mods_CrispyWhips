@@ -4,6 +4,184 @@ All notable changes to CSFFModFramework are documented here.
 
 ---
 
+## [2.26.11] - 2026-09-26
+
+### Fixed
+
+- **An extra pond, river or tree on a mod map tile now disappears when you travel onto that tile.**
+  In 2.26.10 that repair only ran when a save loaded with you already standing on the tile, so an
+  older save kept its extra copies on every other tile until you happened to reload there. The
+  framework's per-arrival check on mod map tiles had in fact never run on travel since it was
+  added in 2.25.19; it now runs on every arrival.
+
+### Changed
+
+- **Framework internals, no gameplay change:** the crash guard on travel (the fix for the
+  permanent "I can't do two things at once..." lock) is now installed after every other framework
+  patch. Installed earlier, it stopped later patches on the travel code from running while you
+  travel, which is what switched off the per-arrival check above. The opt-in travel timing
+  diagnostic (`TrackingTimingDiagnostics`) is covered by this too.
+
+## [2.26.10] - 2026-09-26
+
+### Fixed
+
+- **Map tiles no longer grow a second pond, river or tree beside their own.** Each mod map tile is
+  a copy of a base-game location, and it inherited that location's "create a Pond (or Birch, Alder,
+  Willow, River) if it is missing" upkeep. That upkeep looks for the base game's own card, never
+  saw the tile's own copy, and planted a base-game one beside it. The inherited upkeep now also
+  waits for the tile's own copy to be gone. A save that already has the extra copy heals the first
+  time you step onto that tile. This covers Community Mod Chest's Foraging Forest, Stillwater
+  Meadow, Clay Shoal, Sodden Hollow, Moss-Grown Clearing, Hunter's Crossing and Sett Warren, and
+  Herbs and Fungi's Highland Meadow and Misty Falls. Reported by Chiwei.
+- **An empty container slot is no longer reported as a card.** `Api.Inventory.Cards` treated the
+  empty slot every container keeps as if it were an item, so a mod reading a container's contents
+  saw one card too many, and one "went missing" whenever the game rebuilt its slots. This is what
+  made opening the Inn Keeper's chest in Community Mod Chest count as a theft. Real cards still read
+  exactly as before.
+
+## [2.26.9] - 2026-09-25
+
+### Changed
+
+- **The Arcane Wayfinder perk and the Portal Kit blueprint are hidden when no installed mod adds a
+  portal world.** Worlds come from mods that ship a `MapMod.json` (in this suite: Advanced Copper
+  Tools, Community Mod Chest and Herbs and Fungi). Without one, the portal opened onto nothing. With
+  any of them installed, nothing changes. Characters that already have the perk, and portals already
+  built, are not affected.
+- **The framework no longer looks for the vanilla Forge as a smelting target.** Its id was mistyped,
+  so the Forge never received mod smelting recipes, and it still does not. Mod items keep smelting at
+  900 C in the Furnace, the Bloomery and the mod stations, as before.
+
+### Fixed
+
+- **"Return to Portal" now works after loading a save or restarting the game.** The return point
+  used to live only in memory, so after a reload the Exit card could not route anywhere. It also
+  carried over between saves in one session, so another save could get an Exit card that sent the
+  player to the first save's location. The memory is now cleared on every load, and when it has no
+  entry the Exit sends the player to where the save's placed Portal Hub stands.
+
+## [2.26.8] - 2026-09-25
+
+### Fixed
+
+- **A new day could go unnoticed when many hours passed between two of the framework's checks.**
+  The framework guessed that a day had started when the time of day jumped forward by more than
+  half a day between two checks, so a day that began inside a long stretch handled in one step was
+  missed. It now follows the game's own day counter. Things that run once a day include jail
+  sentences, the market stall, tree respawns and village crime (CMC), sheep-pen predators (Sirus23),
+  wildlife raids, seasonal drops and mod spawn triggers. Spawn triggers now also count every day that
+  passed, not just one.
+- **Wildlife raids never applied their stress penalty.** The raid looked for game methods that do
+  not exist, so the "small stress hit" it describes never happened, and nothing said so. It now
+  raises Stress through the same path the game uses for its own stat changes. Raids are off by
+  default (`WildlifeRaidsEnabled`).
+- **A mod's custom icon on a card's durability or fuel bar was never loaded from the mod's own
+  images.** The framework looked for two stat names that do not exist. The other stat bars were
+  unaffected.
+- **Taming could check or top up the wrong copy of a companion.** After a tame, the framework took
+  the first matching card anywhere in the game's card list, which also holds carried cards and
+  cards in other areas. With a companion of the same kind already owned, a failed tame could read
+  as a success, and the older companion's empty stats could be refilled instead of the new one's. It
+  now looks only at the board you are on, and only refills a companion whose stats are all at zero,
+  which is how a new one arrives.
+- **A malformed WAV file in a mod could freeze the game while loading.** The file is now skipped
+  with a warning naming it.
+- **For mod authors:** `Api.ContainerSort` never sorted anything, because it looked for inventory and
+  stat names the in-game card does not have. It now uses the real ones. No released mod calls it yet.
+  The LitJSON stub no longer writes a property name with no value (invalid JSON) when a property's
+  getter throws; it skips that property and says so.
+
+### Changed
+
+- **Failures that used to be silent now leave a line in the log.** Errors caught around a game
+  method called by name now show the real cause instead of "Exception has been thrown by the target
+  of an invocation". A `DropInjections.json`, `SmeltingRecipes.json` or spawn-trigger file with the
+  wrong outer shape now says it was skipped. A `*WarpData` key with no valid `*WarpType` beside it, or
+  one naming a field that does not exist, is listed in one warning at load (every key in the fleet's
+  own mods passes). The LitJSON stub's failures were compiled out of release builds and now reach
+  the log. Framework helpers that mods call, such as perk, improvement and unlock checks, warn once
+  if a game update renames something they read. The popup and blueprint-screen crash guards now log
+  every different cause with its full trace, not just the first one of the session.
+- **The check for other mods patching the same game action methods now runs after every mod has
+  loaded.** It used to run too early to see any of them. With SkillSpeedBoost or PartnerOverhaul
+  installed, the log now shows one warning per patched method. These are notes for those mods'
+  authors; nothing is broken.
+- `Api.Gate.OncePerDayRollover`'s state field now holds a day number rather than a time-of-day value.
+  Callers only pass it back in, so no mod needs to change.
+
+---
+
+## [2.26.7] - 2026-09-25
+
+### Fixed
+
+- **Cards produced by a mod's actions started with every stat at zero.** When a mod card's button,
+  drag action or timer produced a new card, the framework had filled in a hidden per-drop value that
+  the game only ever leaves empty for its own cards. The game reads a filled-in value as "start the
+  new card with these stats", and this one was all zeros, so the new card's freshness, durability,
+  fuel, charges and liquid all started at zero instead of the values in its own file. The framework
+  now leaves that value empty, so produced cards start with their designed stats. The same pass also
+  stopped mod drops that are meant to land inside a container from landing there, and now they do.
+  Mods that already correct a new card's stats after it appears, such as Sirus23's companions and
+  Water Driven Infrastructure's fish, keep working.
+- **Portal travel always took the fallback route on game version 0.68b.** The update added a
+  parameter to the game method a portal uses to start travel, so the framework could not find it. It
+  fell back to a route that can leave the destination half set up, and logged a warning on every
+  click. It now finds the method by its fixed leading parameters and fills in the rest. If a future
+  update changes the method again, one warning names the versions it found.
+- **A long catch-up that was cut short could age cards in another area up to 16 times too fast.**
+  After the catch-up time limit stopped a long replay early, the unused batching stayed switched on.
+  The game's separate wake-up of cards in other areas then used it, aging those cards by a whole
+  batch on every tick. Batching now applies only to the area it was set up for.
+- **GIF card animations never played.** There were three separate faults. The animation hooks were
+  only installed if GIF definitions were already loaded, but that check ran before they load. The
+  cooking hook pointed at a game method that does not exist. And the frames were drawn underneath
+  the card's static picture. All three are fixed, and a reused card picture no longer keeps
+  animating the previous card's GIF. No released mod ships a GIF, so no player saw a difference.
+
+---
+
+## [2.26.6] - 2026-09-25
+
+### Fixed
+
+- **Herbs and Fungi's Anti-Nausea Tea blueprint could never unlock, and Stimulant Tea unlocked
+  only through the Water Driven Infrastructure mill.** Both wait for the first Dried Ginger or
+  Ground Ginseng, which the framework's card-spawned event reports. That event came from the game's
+  `GiveCard`, which the game itself only uses in its cheat menu, so it never saw ginger drying or
+  ginseng being ground. It now comes from the game's own spawn event, which fires for every card
+  the game creates during play. The first Dried Ginger or Ground Ginseng now unlocks its tea.
+- **Community Mod Chest's Village Farm kept every season's field.** A map drop that only belongs in
+  one season (the flax, turnroot and rye fields) was meant to be removed when its season ended, but
+  the removal called a game method that no longer exists, so nothing was removed and the next
+  season's field appeared beside the old one. Out-of-season fields are now removed on arrival.
+  (The 2026-07 note that this service already used `CardUtil.TryRemoveCard` was wrong; it does now.)
+- **Loading a morning save after quitting at night counted as a new day.** The once-a-day timer
+  compared the new save's time of day with the last one it saw before the main menu. Now the menu
+  resets it. Things that ran on that false day included jail sentences and the market stall (CMC),
+  sheep-pen predators (Sirus23) and spawn-trigger day counts.
+- **A card that changed into another card could be missed by mods that look cards up through the
+  framework**, until some unrelated card entered or left the board: for example, Community Mod
+  Chest's market stall could skip its daily sale right after "Set Up Awning" turned it into the
+  dressed stall. The lookup now notices a card being replaced, not only the number of cards
+  changing.
+- **Wildlife raids (off by default) left the spoiled food half-changed**, still showing the old
+  picture. The rot now uses the framework's normal card transform. The raid's stress penalty is
+  still not applied on this game build; that is a separate fix.
+- **The Portal Kit blueprint said it takes cured hide.** It takes Fresh Fur, and now says so
+  (English and Chinese).
+
+### Documentation
+
+- README corrected against the code: the NPCAgent section no longer promises automatic spawning
+  (that step was removed in 2.15.0; spawning needs an `Animals/*.json` `Ref` or your own
+  `GameManager.CreateNPC` call). `SpawnService` no longer claims to apply stat overrides: on this
+  game build `Spawn`'s overrides, `OnNextSpawn` and JSON `SpawnStatDefaults` are all dropped. The
+  README also now covers every config key, the right game version, the portal Exit card, the smelting
+  targets (the vanilla Forge is not one), the load order, and the dependency list (Repeat Action is
+  standalone).
+
 ## [2.26.5] - 2026-09-23
 
 ### Fixed

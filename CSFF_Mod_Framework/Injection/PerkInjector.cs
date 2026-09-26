@@ -51,6 +51,8 @@ internal static class PerkInjector
             if (Loading.JsonDataLoader.ParsedJsonByUniqueId.TryGetValue(uid, out var parsed)
                 && parsed.TryGetValue("CharacterPerkPerkGroup", out var g))
                 groupId = g as string;
+            if (Portal.PortalService.IsPortalContentHidden(uid))
+                groupId = HiddenGroupToken;
 
             perkToGroup[uid] = string.IsNullOrEmpty(groupId) ? SituationalPerkGroupGuid : groupId;
         }

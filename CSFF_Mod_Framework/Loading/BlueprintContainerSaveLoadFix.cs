@@ -641,7 +641,7 @@ internal static class BlueprintContainerSaveLoadFix
             if (flagField == null) return false;
             return (bool)flagField.GetValue(cardModel);
         }
-        catch (Exception ex) { Log.Debug($"[BlueprintContainerSaveLoadFix] ContainerStartsBlueprintsLocked: reflection failed for {DescribeCard(card)}: {ex.GetType().Name} {ex.Message}"); return false; }
+        catch (Exception ex) { Log.Debug($"[BlueprintContainerSaveLoadFix] ContainerStartsBlueprintsLocked: reflection failed for {DescribeCard(card)}: {Log.ExceptionText(ex)}"); return false; }
     }
 
     /// <summary>
@@ -679,7 +679,7 @@ internal static class BlueprintContainerSaveLoadFix
             }
             return count;
         }
-        catch (Exception ex) { Log.Debug($"[BlueprintContainerSaveLoadFix] UnlockContainedBlueprints: reflection failed for {DescribeCard(card)}: {ex.GetType().Name} {ex.Message}"); return 0; }
+        catch (Exception ex) { Log.Debug($"[BlueprintContainerSaveLoadFix] UnlockContainedBlueprints: reflection failed for {DescribeCard(card)}: {Log.ExceptionText(ex)}"); return 0; }
     }
 
     /// <summary>
@@ -853,7 +853,7 @@ internal static class BlueprintContainerSaveLoadFix
             // total runtime slots: hidden recipe slots + normal storage slots.
             return Math.Max(0, inventorySlots.Length - containedBlueprintCount);
         }
-        catch (Exception ex) { Log.Debug($"[BlueprintContainerSaveLoadFix] GetHybridStorageSlotCount: reflection failed for {DescribeCard(card)}: {ex.GetType().Name} {ex.Message}"); return 0; }
+        catch (Exception ex) { Log.Debug($"[BlueprintContainerSaveLoadFix] GetHybridStorageSlotCount: reflection failed for {DescribeCard(card)}: {Log.ExceptionText(ex)}"); return 0; }
     }
 
     private static Array GetContainedBlueprints(object card)
@@ -911,7 +911,7 @@ internal static class BlueprintContainerSaveLoadFix
                 null);
             update?.Invoke(visuals, null);
         }
-        catch (Exception ex) { Log.Debug($"[BlueprintContainerSaveLoadFix] RefreshInventoryInfo: UpdateInventoryInfo invoke failed for {DescribeCard(card)}: {ex.GetType().Name} {ex.Message}"); }
+        catch (Exception ex) { Log.Debug($"[BlueprintContainerSaveLoadFix] RefreshInventoryInfo: UpdateInventoryInfo invoke failed for {DescribeCard(card)}: {Log.ExceptionText(ex)}"); }
     }
 
     private static string DescribeBlueprint(object bp)

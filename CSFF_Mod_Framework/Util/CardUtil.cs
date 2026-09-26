@@ -259,6 +259,45 @@ public static class CardUtil
         return _fieldCache[key] = ReflectionHelpers.FindField(type, name);
     }
 
+    // GetMemberValue and GetCachedField return null both when a member holds null (normal: no
+    // character yet, an env never visited) and when the member does not exist at all (a game update
+    // renamed it). The public queries below failed closed on the second with no line at any
+    // verbosity before 2.26.8, and about ten content mods call them. These two wrappers keep the
+    // first case silent and warn once per (type, member) on the second.
+    private static readonly HashSet<(Type, string)> _missingMemberWarned = new();
+
+    private static void WarnMissingMember(Type type, string name, string caller)
+    {
+        if (type != null && _missingMemberWarned.Add((type, name)))
+            Log.Warn($"CardUtil.{caller}: {type.Name} has no member '{name}' (a game update may have renamed it), so {caller} fails closed.");
+    }
+
+    private static object RequiredMember(object instance, string name, string caller)
+    {
+        var value = GetMemberValue(instance, name);
+        if (value == null && instance != null)
+        {
+            var t = instance.GetType();
+            if (GetCachedProperty(t, name) == null && GetCachedField(t, name) == null)
+                WarnMissingMember(t, name, caller);
+        }
+        return value;
+    }
+
+    private static FieldInfo RequiredField(Type type, string name, string caller)
+    {
+        var field = GetCachedField(type, name);
+        if (field == null) WarnMissingMember(type, name, caller);
+        return field;
+    }
+
+    private static MethodInfo RequiredMethod(Type type, string name, string caller)
+    {
+        var method = type?.GetMethod(name, All);
+        if (method == null) WarnMissingMember(type, name, caller);
+        return method;
+    }
+
     /// <summary>
     /// Finds a property by walking the inheritance chain, caching results per (Type, name).
     /// Prefer this over <see cref="FindProperty"/> for hot paths.
@@ -340,9 +379,9 @@ public static class CardUtil
         {
             var gm = GetGameManagerInstance();
             if (gm == null) return false;
-            var character = GetMemberValue(gm, "CurrentPlayerCharacter");
+            var character = RequiredMember(gm, "CurrentPlayerCharacter", nameof(IsPerkEquipped));
             if (character == null) return false;
-            if (GetMemberValue(character, "CharacterPerks") is not IEnumerable perks) return false;
+            if (RequiredMember(character, "CharacterPerks", nameof(IsPerkEquipped)) is not IEnumerable perks) return false;
             foreach (var perk in perks)
             {
                 if (perk == null) continue;
@@ -410,7 +449,7 @@ public static class CardUtil
 
             var gm = GetGameManagerInstance();
             if (gm == null) return false;
-            var envDataField = GetCachedField(gm.GetType(), "EnvironmentsData");
+            var envDataField = RequiredField(gm.GetType(), "EnvironmentsData", nameof(IsImprovementBuilt));
             if (envDataField?.GetValue(gm) is not IDictionary envData) return false;
 
             foreach (DictionaryEntry entry in envData)
@@ -418,8 +457,10 @@ public static class CardUtil
                 var value = entry.Value;
                 if (value == null) continue;
                 var vt = value.GetType();
+                // EnvironmentID is an optional legacy key: EnvironmentSaveDataByReference has none on
+                // EA 0.68b, so it must not warn. DictionaryKey is the live one.
                 var envId   = GetCachedField(vt, "EnvironmentID")?.GetValue(value) as string;
-                var dictKey = GetCachedField(vt, "DictionaryKey")?.GetValue(value) as string;
+                var dictKey = RequiredField(vt, "DictionaryKey", nameof(IsImprovementBuilt))?.GetValue(value) as string;
                 bool isTarget =
                     envUID.Equals(envId,               StringComparison.Ordinal) ||
                     EnvKeyMatchesUid(envUID, dictKey)                            ||
@@ -427,7 +468,7 @@ public static class CardUtil
                 if (!isTarget) continue;
 
                 // An env can have multiple entries (EnvID constructed differently); scan all matches.
-                if (GetCachedField(vt, "CurrentlyBuiltImprovements")?.GetValue(value) is IEnumerable built)
+                if (RequiredField(vt, "CurrentlyBuiltImprovements", nameof(IsImprovementBuilt))?.GetValue(value) is IEnumerable built)
                     foreach (var uid in built)
                         if (impUID.Equals(uid as string, StringComparison.Ordinal)) return true;
             }
@@ -499,7 +540,7 @@ public static class CardUtil
             var gm = GetGameManagerInstance();
             if (gm == null) return false;
 
-            var envDataField = GetCachedField(gm.GetType(), "EnvironmentsData");
+            var envDataField = RequiredField(gm.GetType(), "EnvironmentsData", nameof(MarkImprovementBuilt));
             if (envDataField?.GetValue(gm) is IDictionary envData)
             {
                 foreach (DictionaryEntry entry in envData)
@@ -507,15 +548,15 @@ public static class CardUtil
                     var value = entry.Value;
                     if (value == null) continue;
                     var vt = value.GetType();
-                    var envId   = GetCachedField(vt, "EnvironmentID")?.GetValue(value) as string;
-                    var dictKey = GetCachedField(vt, "DictionaryKey")?.GetValue(value) as string;
+                    var envId   = GetCachedField(vt, "EnvironmentID")?.GetValue(value) as string; // optional legacy key, see IsImprovementBuilt
+                    var dictKey = RequiredField(vt, "DictionaryKey", nameof(MarkImprovementBuilt))?.GetValue(value) as string;
                     bool isTarget =
                         envUID.Equals(envId,               StringComparison.Ordinal) ||
                         envUID.Equals(dictKey,             StringComparison.Ordinal) ||
                         envUID.Equals(entry.Key as string, StringComparison.Ordinal);
                     if (!isTarget) continue;
 
-                    var cbiField = GetCachedField(vt, "CurrentlyBuiltImprovements");
+                    var cbiField = RequiredField(vt, "CurrentlyBuiltImprovements", nameof(MarkImprovementBuilt));
                     if (cbiField == null) return false;
                     if (cbiField.GetValue(value) is not IList built)
                     {
@@ -529,7 +570,8 @@ public static class CardUtil
 
             // Env not yet visited (no EnvironmentsData entry) — create it so the mark persists.
             var envIdType = FindGameType("EnvID");
-            var getEnvSaveData = gm.GetType().GetMethod("GetEnvSaveData", All);
+            var getEnvSaveData = RequiredMethod(gm.GetType(), "GetEnvSaveData", nameof(MarkImprovementBuilt));
+            if (envIdType == null) WarnMissingMember(gm.GetType(), "EnvID (type)", nameof(MarkImprovementBuilt));
             if (envIdType == null || getEnvSaveData == null) return false;
 
             var envId2 = Activator.CreateInstance(envIdType, new object[] { envUID });
@@ -537,7 +579,7 @@ public static class CardUtil
             if (envSaveObj == null) return false;
 
             var svt = envSaveObj.GetType();
-            var svtCbi = GetCachedField(svt, "CurrentlyBuiltImprovements");
+            var svtCbi = RequiredField(svt, "CurrentlyBuiltImprovements", nameof(MarkImprovementBuilt));
             if (svtCbi == null) return false;
             if (svtCbi.GetValue(envSaveObj) is not IList newBuilt)
             {
@@ -565,16 +607,16 @@ public static class CardUtil
         {
             var gm = GetGameManagerInstance();
             if (gm == null) return false;
-            if (GetMemberValue(gm, "UnlockableCards") is not IEnumerable unlockable) return false;
+            if (RequiredMember(gm, "UnlockableCards", nameof(ForceUnlockCard)) is not IEnumerable unlockable) return false;
 
             foreach (var uc in unlockable)
             {
                 if (uc == null) continue;
-                var unlockedCard = GetMemberValue(uc, "UnlockedCard");
+                var unlockedCard = RequiredMember(uc, "UnlockedCard", nameof(ForceUnlockCard));
                 if (unlockedCard == null) continue;
                 if (!cardUID.Equals(GetCardUniqueId(unlockedCard), StringComparison.Ordinal)) continue;
 
-                var setStartUnlocked = uc.GetType().GetMethod("SetStartUnlocked", All);
+                var setStartUnlocked = RequiredMethod(uc.GetType(), "SetStartUnlocked", nameof(ForceUnlockCard));
                 if (setStartUnlocked == null) return false;
                 setStartUnlocked.Invoke(uc, Array.Empty<object>());
                 return true;
@@ -892,9 +934,14 @@ public static class CardUtil
                 _setModelMethod.Invoke(card, new[] { cardData });
                 return;
             }
-            _resetCardMethod?.Invoke(card, null);
+            if (_resetCardMethod != null) { _resetCardMethod.Invoke(card, null); return; }
+            WarnMissingMember(card.GetType(), "SetModel(CardData)", nameof(ReinitCard));
         }
-        catch (Exception ex) { Log.Debug($"CardUtil.ReinitCard: reinit on {card.GetType().Name} threw: {ex}"); }
+        catch (Exception ex)
+        {
+            if (_missingMemberWarned.Add((typeof(CardUtil), "ReinitCard|" + Log.CauseKey(ex))))
+                Log.Warn($"CardUtil.ReinitCard: reinit on {card.GetType().Name} threw, so the card kept its old model: {Log.ExceptionText(ex)}");
+        }
     }
 
     // ── Absolute durability get/set (Tier 1) ─────────────────────────────────

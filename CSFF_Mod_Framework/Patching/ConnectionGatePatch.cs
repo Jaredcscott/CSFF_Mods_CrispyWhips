@@ -51,12 +51,19 @@ internal static class ConnectionGatePatch
         }
 
         PatchOne(harmony, targetType, "CompleteImprovement", nameof(CompleteImprovement_Postfix));
-        PatchOne(harmony, targetType, "SetBlueprintStage", nameof(SetBlueprintStage_Postfix));
+        // Two overloads exist on EA 0.68b: the private SetBlueprintStage(int, InGameNPCOrPlayer) that
+        // every stage change funnels through (Increase/Decrease and the public overload all call it)
+        // and the public SetBlueprintStage(int, bool). Bind the funnel by signature; before 2.26.8
+        // this took whichever overload metadata listed first.
+        PatchOne(harmony, targetType, "SetBlueprintStage", nameof(SetBlueprintStage_Postfix),
+            new[] { typeof(int), typeof(InGameNPCOrPlayer) });
     }
 
-    private static void PatchOne(Harmony harmony, Type targetType, string methodName, string postfixName)
+    private static void PatchOne(Harmony harmony, Type targetType, string methodName, string postfixName, Type[] paramTypes = null)
     {
-        var method = targetType.GetMethods(BF).FirstOrDefault(m => m.Name == methodName);
+        var method = paramTypes != null
+            ? targetType.GetMethod(methodName, BF, null, paramTypes, null)
+            : targetType.GetMethods(BF).FirstOrDefault(m => m.Name == methodName);
         if (method == null)
         {
             Log.Warn($"ConnectionGatePatch: InGameCardBase.{methodName} not found — improvement-gated connections may not update until run start");
@@ -66,7 +73,7 @@ internal static class ConnectionGatePatch
         var postfix = new HarmonyMethod(typeof(ConnectionGatePatch)
             .GetMethod(postfixName, BindingFlags.Static | BindingFlags.NonPublic));
         harmony.Patch(method, postfix: postfix);
-        Log.Debug($"ConnectionGatePatch: patched InGameCardBase.{methodName}");
+        Log.Debug($"ConnectionGatePatch: patched InGameCardBase.{methodName}({string.Join(", ", method.GetParameters().Select(p => p.ParameterType.Name))})");
     }
 
     private static void CompleteImprovement_Postfix()

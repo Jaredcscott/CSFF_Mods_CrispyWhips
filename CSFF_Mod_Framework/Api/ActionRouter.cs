@@ -282,6 +282,22 @@ public static class ActionRouter
         else Log.Debug("[ActionRouter] GameManager.PerformActionAsEnumerator not found (OK on this game version).");
 
         WarnOnExternalPostfixes();
+        // This pass runs when the first content mod registers a handler, usually in its Awake,
+        // before later plugins have applied their own patches: before 2.26.8 it was the only pass
+        // and never saw SkillSpeedBoost's or PartnerOverhaul's postfixes. Check again once, at the
+        // first run boot, when every plugin has loaded. OnGMInitialized re-fires on every run
+        // start, so the handler latches (once per process).
+        GameManager.OnGMInitialized += RecheckExternalPostfixesOnce;
+    }
+
+    private static bool _externalPostfixesRechecked;
+    private static readonly HashSet<(MethodBase, string)> _externalPostfixWarned = new();
+
+    private static void RecheckExternalPostfixesOnce()
+    {
+        if (_externalPostfixesRechecked) return;
+        _externalPostfixesRechecked = true;
+        WarnOnExternalPostfixes();
     }
 
     /// <summary>Applies one route's prefix + postfix pair; returns false when Harmony rejected it.</summary>
@@ -372,12 +388,13 @@ public static class ActionRouter
                 foreach (var p in info.Postfixes)
                 {
                     if (p.owner == Plugin.PluginGuid) continue;
+                    if (!_externalPostfixWarned.Add((method, p.owner))) continue;
                     Log.Warn($"[ActionRouter] WARNING: external postfix by '{p.owner}' detected on "
                            + $"{method.Name} — possible iterator composition conflict. Migrate that "
                            + "mod onto ActionRouter handlers.");
                 }
             }
-            catch (Exception ex) { Log.Debug($"[ActionRouter] WarnOnExternalPostfixes: patch-info read failed for {method.Name}: {ex.GetType().Name} {ex.Message}"); }
+            catch (Exception ex) { Log.Debug($"[ActionRouter] WarnOnExternalPostfixes: patch-info read failed for {method.Name}: {Log.ExceptionText(ex)}"); }
         }
     }
 
@@ -542,18 +559,29 @@ public static class ActionRouter
     // The real defence is keeping the throw from happening at all: see CardUtil.TryRemoveCard
     // and Patching/BugFixes/SaveStaleCardGuard.cs for the 2026-09-19 autosave case.
     //
-    // EA 0.68a narrows what this catch can see (read from the decompile 2026-09-22; runtime
-    // effect not yet observed). StartCoroutineEx now defaults to InlineRoutineRunner
-    // (.decomp/InlineRoutineRunner.cs, CoroutineRunnerMode.Inline), and vanilla replaced
+    // What the inline coroutine runner hides from this catch (read from the decompiles of EA 0.68a
+    // on 2026-09-22 and EA 0.68b on 2026-09-25; the runtime effect is observed on neither).
+    // StartCoroutineEx defaults to InlineRoutineRunner in both (.decomp/InlineRoutineRunner.cs,
+    // CoroutineRunnerMode.Inline). A yielded IEnumerator passes through `original.Current` below
+    // and the runner pushes it as its OWN stack frame, so a throw inside it never reaches
+    // `original.MoveNext()` and this catch never runs. The runner logs it, drops the whole chain
+    // (this wrapper and the action included), and leaves the controller Running (CreateInline,
+    // never MarkFinished), so whatever waits on it hangs.
+    // Which nested calls take that path changed between the two builds. 0.68a had replaced
     // `yield return StartCoroutine(X())` with `yield return X()` inside ActionRoutineSteps
-    // (ProduceCards, the event AddCard) and the durability OnFull/OnZero chain. A yielded
-    // IEnumerator passes through `original.Current` below and the runner pushes it as its OWN
-    // stack frame, so a throw inside it never reaches `original.MoveNext()` and this catch
-    // never runs. The runner logs it, drops the whole chain (this wrapper and the action
-    // included), and leaves the controller Running (CreateInline, never MarkFinished), so
-    // whatever waits on it hangs. Launching the game with `-coroutineRunner Unity` restores
-    // the 0.68 runner, which is the A/B test for any 0.68a lockup whose stack shows
-    // InlineRoutineRunner.Step.
+    // (ProduceCards, the event AddCard) and the durability OnFull/OnZero chain. 0.68b wraps its
+    // nested calls to ProduceCards, AddCard, RemoveCard, ChangeEnvironment, LoadCardSet,
+    // ChangeCardDurabilities, CheckAllStatsForActions, a spawned card's Init and the OnFull/OnZero
+    // DoActionForDurability chain back in StartCoroutine (that form rose from 2 sites to 30 in
+    // GameManager.cs and from 1 to 17 in InGameCardBase.cs between the two decompiles). A
+    // yielded Coroutine is not an IEnumerator, so InlineRoutineRunner.Step hands off and waits on
+    // it as a separate Unity coroutine instead of stacking it: a throw there stays inside that
+    // child rather than dropping the runner's chain, and this catch still does not see it. Whether
+    // the waiting action then resumes is Unity's behaviour for a faulted child coroutine, not
+    // observed here. The nested yields still inline on 0.68b are GameManager's
+    // PerformActionNested and ApplyCardStateChange calls. Launching the game with
+    // `-coroutineRunner Unity` restores the 0.68 runner, which is the A/B test for any lockup
+    // whose stack shows InlineRoutineRunner.Step.
     private static IEnumerator RunWrapped(IEnumerator original, WrapState ws)
     {
         bool completedCleanly = true;

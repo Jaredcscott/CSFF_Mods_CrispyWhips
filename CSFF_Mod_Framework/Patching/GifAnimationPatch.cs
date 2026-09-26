@@ -1,71 +1,61 @@
 using CSFFModFramework.Gif;
-using CSFFModFramework.Reflection;
 using CSFFModFramework.Util;
 
 namespace CSFFModFramework.Patching;
 
 /// <summary>
-/// Harmony postfixes that drive GIF animation on card visuals. Two hooks:
-///   CardGraphics.Setup           — runs after the card image is initialized
-///   InGameCardBase.RefreshCookingStatus — runs when cooking state flips
+/// Harmony postfixes that drive GIF animation on card visuals. Two hooks, both on CardGraphics:
+///   CardGraphics.Setup(InGameCardBase)  - a card visual is (re)initialised; graphics are pooled
+///   CardGraphics.RefreshCookingStatus() - cooking or slot state changed; vanilla rewrites the art here
 ///
-/// Both patches use string-based type resolution (deferred one frame via coroutine)
-/// because Assembly-CSharp types aren't reliably indexed during BepInEx Awake.
+/// Registration waits until GifLoader has read the definitions: LoadOrchestrator calls
+/// RegisterIfDefinitions right after its GifLoader phase, so a game without GIF content patches
+/// nothing. Before 2.26.7 the definitions check ran in Plugin.Awake, before any definition had
+/// loaded, so these patches never registered; the cooking hook also named
+/// InGameCardBase.RefreshCookingStatus, which does not exist (the method is on CardGraphics and
+/// takes no parameter, .decomp/CardGraphics.cs).
 /// </summary>
 internal static class GifAnimationPatch
 {
-    public static void ApplyPatch(Harmony harmony)
+    private static Harmony _harmony;
+    private static bool _registered;
+
+    /// <summary>Called from Plugin.Awake; only records the Harmony instance (see class remarks).</summary>
+    public static void ApplyPatch(Harmony harmony) => _harmony = harmony;
+
+    /// <summary>Called once GifLoader has run. Patches only when a mod shipped GIF definitions.</summary>
+    internal static void RegisterIfDefinitions()
     {
+        if (_registered) return;
+        if (!GifAnimationService.HasDefinitions)
+        {
+            Log.Debug("GifAnimationPatch: no GIF card definitions loaded; nothing to patch.");
+            return;
+        }
+        if (_harmony == null)
+        {
+            Log.Warn("GifAnimationPatch: GIF definitions loaded but ApplyPatch never ran; GIF animation unavailable.");
+            return;
+        }
+        _registered = true;
+
         try
         {
-            if (!GifAnimationService.HasDefinitions)
-            {
-                Log.Debug("GifAnimationPatch: no GIF card definitions found — skipping patch registration.");
-                return;
-            }
+            bool setup = SafePatcher.TryPatch(_harmony, typeof(CardGraphics), "Setup",
+                postfix: new HarmonyMethod(typeof(GifAnimationPatch), nameof(CardGraphics_Setup_Postfix)));
+            bool cooking = SafePatcher.TryPatch(_harmony, typeof(CardGraphics), "RefreshCookingStatus",
+                postfix: new HarmonyMethod(typeof(GifAnimationPatch), nameof(CardGraphics_RefreshCookingStatus_Postfix)));
 
-            Plugin.Instance.StartCoroutine(DeferredPatch(harmony));
+            if (setup && cooking)
+                Log.Debug("GifAnimationPatch: patched CardGraphics.Setup and CardGraphics.RefreshCookingStatus");
+            else if (setup)
+                Log.Warn("GifAnimationPatch: CardGraphics.RefreshCookingStatus not patched; GIFs will not switch on cooking and vanilla art refreshes will pause a GIF until its next frame");
+            else
+                Log.Warn("GifAnimationPatch: CardGraphics.Setup not patched; card GIF animation unavailable");
         }
         catch (Exception ex)
         {
-            Log.Warn($"[GifAnimationPatch] ApplyPatch failed: {Log.ExceptionText(ex)}");
-        }
-    }
-
-    private static System.Collections.IEnumerator DeferredPatch(Harmony harmony)
-    {
-        yield return null; // one frame — Assembly-CSharp types reliably indexed after this
-
-        // --- CardGraphics.Setup postfix ---
-        var cardGraphicsType = ReflectionCache.FindType("CardGraphics");
-        if (cardGraphicsType != null)
-        {
-            bool patched = SafePatcher.TryPatch(
-                harmony, cardGraphicsType, "Setup",
-                postfix: new HarmonyMethod(typeof(GifAnimationPatch), nameof(CardGraphics_Setup_Postfix)));
-
-            if (patched)
-                Log.Debug("GifAnimationPatch: patched CardGraphics.Setup");
-            else
-                Log.Warn("GifAnimationPatch: failed to patch CardGraphics.Setup");
-        }
-        else
-        {
-            Log.Warn("GifAnimationPatch: CardGraphics type not found — card GIF support unavailable");
-        }
-
-        // --- InGameCardBase.RefreshCookingStatus postfix ---
-        var inGameCardBaseType = ReflectionCache.FindType("InGameCardBase");
-        if (inGameCardBaseType != null)
-        {
-            bool patched = SafePatcher.TryPatch(
-                harmony, inGameCardBaseType, "RefreshCookingStatus",
-                postfix: new HarmonyMethod(typeof(GifAnimationPatch), nameof(InGameCardBase_RefreshCookingStatus_Postfix)));
-
-            if (patched)
-                Log.Debug("GifAnimationPatch: patched InGameCardBase.RefreshCookingStatus");
-            else
-                Log.Warn("GifAnimationPatch: failed to patch InGameCardBase.RefreshCookingStatus — cooking GIF switching may not work");
+            Log.Warn($"[GifAnimationPatch] registration failed: {Log.ExceptionText(ex)}");
         }
     }
 
@@ -73,9 +63,7 @@ internal static class GifAnimationPatch
     // Patch methods
     // -------------------------------------------------------------------------
 
-    // CardGraphics.Setup(InGameCardBase card) — fires when a card's visual is set up.
-    // __instance = CardGraphics component; first parameter is the InGameCardBase owning the card.
-    // We pass both so GifAnimationService can search either for the Image component.
+    // CardGraphics.Setup(InGameCardBase _From): __instance = CardGraphics, __0 = the card it now shows.
     static void CardGraphics_Setup_Postfix(object __instance, object __0)
     {
         try
@@ -88,17 +76,17 @@ internal static class GifAnimationPatch
         }
     }
 
-    // InGameCardBase.RefreshCookingStatus(bool isCooking)
-    // __instance = InGameCardBase; first bool parameter = new cooking state.
-    static void InGameCardBase_RefreshCookingStatus_Postfix(object __instance, bool __0)
+    // CardGraphics.RefreshCookingStatus(): __instance = CardGraphics. The card and its cooking state
+    // are read from CardGraphics.CardLogic.
+    static void CardGraphics_RefreshCookingStatus_Postfix(object __instance)
     {
         try
         {
-            GifAnimationService.OnRefreshCookingStatus(__instance, __0);
+            GifAnimationService.OnRefreshCookingStatus(__instance);
         }
         catch (Exception ex)
         {
-            Log.Debug($"GifAnimationPatch.InGameCardBase_RefreshCookingStatus_Postfix: {Log.ExceptionText(ex)}");
+            Log.Debug($"GifAnimationPatch.CardGraphics_RefreshCookingStatus_Postfix: {Log.ExceptionText(ex)}");
         }
     }
 }

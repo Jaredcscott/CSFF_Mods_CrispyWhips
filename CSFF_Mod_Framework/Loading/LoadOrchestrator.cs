@@ -74,7 +74,11 @@ internal static class LoadOrchestrator
             // 3a. Decode GIFs and load CardData/Gif/*.json definitions. Drives the
             //     animations applied by Patching.GifAnimationPatch at runtime.
             if (mods.Any(m => m.HasGifContent))
+            {
                 RunPhase(sw, "GifLoader", () => Gif.GifLoader.LoadAll(mods));
+                // The GIF patches can only decide whether to register once definitions exist.
+                Patching.GifAnimationPatch.RegisterIfDefinitions();
+            }
             else
                 Log.Debug("[Skip] GifLoader: no mod ships CardData/Gif/ JSON");
 

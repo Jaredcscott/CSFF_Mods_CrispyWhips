@@ -69,6 +69,9 @@ internal static class BlueprintInjector
             _queued.Add((uid, tabKey, subTabKey));
         }
 
+        if (_queued.RemoveAll(q => Portal.PortalService.IsPortalContentHidden(q.uniqueId)) > 0)
+            Log.Info("[BlueprintInjector] Portal Kit blueprint and Arcane Wayfinder perk hidden: no installed mod registers a portal world (MapMod.json)");
+
         if (_queued.Count == 0) return;
 
         Log.Info($"[BlueprintInjector] InjectAll: {_queued.Count} blueprints queued for tab injection");

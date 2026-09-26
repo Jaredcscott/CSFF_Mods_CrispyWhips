@@ -32,7 +32,7 @@ internal static class CatchUpEquipmentScanSkip
         var enabledCfg = config.Bind(
             "Performance", "LogCatchUpEquipmentScanHits", true,
             "Diagnostic for the Phase 2 catch-up performance verify pass (see "
-            + "Documentation/Plans/CSFFModFramework/CatchUp_Performance_Plan.md). Logs "
+            + "Documentation/Design/CatchUp_Performance_As_Built.md). Logs "
             + "an Info line any time CharacterScreen.HasCardEquipped returns true for a "
             + "card while GameManager.IsCatchingUp is true — that would be the one case "
             + "where a proposed catch-up short-circuit (not yet shipped) would give the "

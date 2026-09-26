@@ -8,7 +8,7 @@
   "CardDescription": {
     "ParentObjectID": "csffmfw_bp_portal_kit",
     "LocalizationKey": "CSFFMFW_BpPortalKit_CardDescription",
-    "DefaultText": "Bind a witch stone into cured hide and dried wolfsbane, sealed with animal fat. Assembles a portable Portal Hub kit."
+    "DefaultText": "Bind a witch stone into fresh fur and dried wolfsbane, sealed with animal fat. Assembles a portable Portal Hub kit."
   },
   "CardType": 7,
   "UnlockConditionsDesc": {

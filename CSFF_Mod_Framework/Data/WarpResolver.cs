@@ -39,6 +39,25 @@ internal static class WarpResolver
     private static readonly HashSet<string> _unresolvedAudioClips = new(StringComparer.OrdinalIgnoreCase);
     private static string _currentUid = "";
 
+    // Non-empty *WarpData keys that Walk skips with nothing resolved: the sibling *WarpType is
+    // missing or not 3/4/5/6 ("uid: key"), or no field of that name exists on the runtime type
+    // ("Type.field"). Before 2.26.8 both were silent, which is the authoring trap root CLAUDE.md
+    // warns about. Reported as one line each at the end of ResolveAll. Measured 2026-09-25: every
+    // non-empty *WarpData key in this repo's mods (9,893) carries WarpType 3 or 4.
+    private static readonly HashSet<string> _skippedNoWarpType = new(StringComparer.Ordinal);
+    private static readonly HashSet<string> _skippedNoField = new(StringComparer.Ordinal);
+
+    private static bool IsNonEmptyWarpValue(object v)
+        => v is string s ? s.Length > 0 : v is List<object> l && l.Count > 0;
+
+    private static void ReportSkipped(HashSet<string> set, string what)
+    {
+        if (set.Count == 0) return;
+        const int shown = 15;
+        var list = string.Join(", ", set.OrderBy(x => x, StringComparer.Ordinal).Take(shown));
+        Log.Warn($"WarpResolver: {set.Count} *WarpData key(s) {what}, so they resolved nothing: {list}{(set.Count > shown ? ", ..." : "")}");
+    }
+
     // Live-scan cache (per ScriptableObject type) used to find already-loaded vanilla tags that
     // are absent from the early Database SO cache (which can be built before vanilla data finishes
     // loading). One FindObjectsOfTypeAll call per type per run. Reset per ResolveAll.
@@ -57,6 +76,8 @@ internal static class WarpResolver
         _triggerResolveCount = 0;
         _unresolvedByMod.Clear();
         _unresolvedAudioClips.Clear();
+        _skippedNoWarpType.Clear();
+        _skippedNoField.Clear();
         _currentUid = "";
         _liveTagScanByType.Clear();
         _rescuedVanillaTags.Clear();
@@ -136,6 +157,9 @@ internal static class WarpResolver
         }
         _currentUid = "";
 
+        ReportSkipped(_skippedNoWarpType, "have no *WarpType of 3, 4, 5 or 6 beside them");
+        ReportSkipped(_skippedNoField, "name a field that does not exist on the object they sit in");
+
         if (_unresolvedAudioClips.Count > 0)
             Log.Debug($"WarpResolver: {_unresolvedAudioClips.Count} unique AudioClip refs deferred (bundle-loaded): {string.Join(", ", _unresolvedAudioClips)}");
 
@@ -193,13 +217,18 @@ internal static class WarpResolver
             }
 
             // Support WarpType 3 (Reference), 4 (Add), 5 (Modify), 6 (AddReference)
-            if (warpType != 3 && warpType != 4 && warpType != 5 && warpType != 6) continue;
+            if (warpType != 3 && warpType != 4 && warpType != 5 && warpType != 6)
+            {
+                if (IsNonEmptyWarpValue(json[key])) _skippedNoWarpType.Add($"{_currentUid}: {key}");
+                continue;
+            }
 
             var field = CachedField(rtType, baseName);
             if (field == null)
             {
                 if (baseName == "TriggerCards" || baseName == "TriggerTags")
                     Log.Debug($"WarpResolver: field '{baseName}' not found on {rtType.Name}");
+                if (IsNonEmptyWarpValue(json[key])) _skippedNoField.Add($"{rtType.Name}.{baseName}");
                 continue;
             }
 

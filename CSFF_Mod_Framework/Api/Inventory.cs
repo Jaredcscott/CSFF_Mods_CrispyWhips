@@ -17,6 +17,37 @@ namespace CSFFModFramework.Api;
 /// </summary>
 public static class Inventory
 {
+    // Cached once (never re-resolved to null, per CardUtil.FindGameType) so the pre-0.63
+    // fallback below can tell a real card from an empty InventorySlot wrapper without
+    // paying reflection cost per slot per call.
+    private static Type _cardBaseType;
+    private static bool _cardBaseTypeResolveAttempted;
+    private static bool _cardBaseTypeMissingWarned;
+
+    private static bool IsCardInstance(object obj)
+    {
+        if (!_cardBaseTypeResolveAttempted)
+        {
+            _cardBaseTypeResolveAttempted = true;
+            _cardBaseType = CardUtil.FindGameType("InGameCardBase");
+        }
+        if (_cardBaseType == null)
+        {
+            // Silent Catch Blocks rule: a data-read path that fails closed needs a
+            // breadcrumb, not a quiet behaviour change. Fail closed here (treat the
+            // slot as not-a-card) rather than resurrecting the pre-fix phantom-add.
+            if (!_cardBaseTypeMissingWarned)
+            {
+                _cardBaseTypeMissingWarned = true;
+                Log.Warn("[Api.Inventory] Cards: InGameCardBase type not found; the pre-0.63 " +
+                    "slot-is-card fallback is disabled for this session (nothing is added for " +
+                    "an unwrapped slot with no inner list).");
+            }
+            return false;
+        }
+        return _cardBaseType.IsInstanceOfType(obj);
+    }
+
     /// <summary>
     /// All individual cards inside <paramref name="container"/>, flattened across
     /// InventorySlot wrappers and stacks. Returns an empty list when the container
@@ -32,16 +63,22 @@ public static class Inventory
         {
             if (slot == null) continue;
             var inner = CardUtil.GetInventoryList(slot);
-            if (inner != null && inner.Count > 0)
+            if (inner != null)
             {
+                // EA 0.68b InventorySlot shape: always resolves its own (possibly empty)
+                // AllCards list. An empty slot legitimately contributes zero cards here -
+                // it is NOT itself a card (bug: it was being added as one, see CLAUDE.md
+                // "Harmony Patching Pitfalls" / CMC's copper-chest false-theft report).
                 foreach (var card in inner)
                     if (card != null) result.Add(card);
             }
-            else
+            else if (IsCardInstance(slot))
             {
-                // Pre-0.63 shape: the "slot" IS the card.
+                // Pre-0.63 shape: the "slot" IS the card (no wrapper, no inner list).
                 result.Add(slot);
             }
+            // else: neither an InventorySlot wrapper (no inner list resolved) nor a real
+            // card instance - nothing to contribute.
         }
         return result;
     }

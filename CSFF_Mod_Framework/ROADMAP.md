@@ -1,7 +1,7 @@
 # Roadmap: CSFF Mod Framework
-Version at time of writing: 2.26.0
-Date: 2026-09-17 (refreshed by `/consolidate-audit` after source commit `8881c18cb`)
-Audit score: 9/10 - PASS
+Version at time of writing: 2.26.9
+Date: 2026-09-25 (refreshed by `/consolidate-audit` after source commit `c88041752`)
+Audit score: 5/10 - FAIL (capped; the `/audit-mod` rubric gives 9/10, and the BROKEN critical-analysis verdict on record, which read 2.26.5, caps it at 5/10)
 
 > **This is the framework, not a content mod.** The content-mod roadmap template (Tier 2 migration,
 > theme expansion, art) mostly does not apply: the framework DEFINES Tier 2, and its own content is a
@@ -19,55 +19,72 @@ Animal System (tame/companion, traps, tracks, encounters from a JSON manifest wi
 standalone GameModifierPackage / flavour-synergy injection.
 
 **Content**: 1 item / 1 blueprint / 2 structures / 1 perk / 2 custom images (the Portal Hub reference set
-only - Wayfinder perk -> Portal Kit item -> placed Portal Hub CT2 -> Hub Exit CT8). ~147 `.cs` engine
-files.
+only, all under `CardData/Hub/`: Wayfinder perk -> Portal Kit item (CT0) -> placed Portal Hub (CT2,
+`csffmfwportalplaced`) -> Hub Exit (CT2, `653ab779572b47039c856911d02c9d51`); art `Portal_Kit.png`,
+`Portal_Placed.png`). 151 `.cs` engine files. Since 2.26.9 the Wayfinder perk and the Portal Kit
+blueprint are hidden when no installed mod ships a `MapMod.json` world.
 
-**Stability**: 9/10 - PASS. 0 preflight CRITICAL, 0 design gaps, 0 broken promises. Clean Release build
-at 2.26.0 (0 errors / 0 warnings), localization parity clean (13 EN / 13 CN), bin/Release sync clean.
-Carrying 1 runtime-verification caveat (C1 river-bridge, fix shipped 2.25.30) and 2 tracked warnings (W1
-retro/open-plan bucket, W2 unused `Api.ContainerSort` - owner-decided LEAVE on 2026-09-17). W3
-(code-quality F1) was RESOLVED 2026-09-17 in commit `8881c18cb`.
+**Stability**: 5/10 - FAIL (capped). 1 CRITICAL-table item (C1, a fix-shipped retro awaiting `T2.186`),
+0 design gaps, 4 warnings, 7 minor. The 2026-09-25 critical-analysis (BROKEN at 2.26.5) and code-quality
+(4/10 at 2.26.5) re-runs found real defects; four same-day releases fixed every one of them in source
+except the latent W6 (disclosed in the README) and the noted W-17:
+2.26.6 `e3deae1c1` (seasonal drops removed through `CardUtil.TryRemoveCard`, `CardSpawned` relays vanilla
+`OnCardSpawned`, no phantom day on menu -> load, `CardFinder` sees Transform products, README corrected),
+2.26.7 `bc1c99448` (produced mod cards keep their designed stats, portal `AddCard` on 0.68b, GIFs play),
+2.26.8 `2e28db8e2` (19 reflected-invoke catches unwrap their cause, raid stress, day rollover on
+`CurrentDay`, new gate `Framework-ReflectedSignatures.Tests.ps1`), 2.26.9 `c88041752` (portal content
+hidden without worlds, portal return point survives reloads, Forge lookup dropped). The framework was
+deployed at 2026-09-25T14:43:49 (`.claude/mod-deploy-status.json`), so tracker rows `T2.266`-`T2.276`,
+all `pending`, are checkable on the installed build. The 5/10 cap lifts only when a critical-analysis
+pass reads 2.26.9 or later (fleet mission `csff-framework-critical-analysis-2269`).
 
-**Open work** (all 🟡 pending-verification / open-plan; none 🔴 open, none a current static defect):
-- `river-bridge-east-click-noop` (T2.186) - fix shipped 2.25.30, present/unmodified at 2.26.0; awaits one in-game click check.
-- `wikimod-old-save-load-crash` - fix shipped 2.25.25/2.25.26; a 2026-09-06 live log already showed it working; needs formal retro graduation.
-- `worldmap-clone-duplicate-terrain` - data-duplication premise measured FALSE 2026-09-11; remaining check is presentation-layer, build-free.
-- `cmc-village-conditional-drop-fixtures-missing` - CMC-scoped symptom; framework ships the 2.25.4 diagnostics that will pinpoint it.
-- `questinjector-blueprint-reset-risk` (+ `RETRO_CLOSURE_PLAN_2026-07-23`) - shipped, hard-gated OFF since 2.17.0, owes root-cause diagnostics before any re-enable.
+**Open work** (no 🔴 open retrospective; all 🟡 pending-verification / open-plan, none a current static defect):
+- `river-bridge-east-click-noop` (`T2.186`, `pending`) - fix shipped 2.25.30 (`c6973b394`), unchanged through 2.26.9; awaits one in-game click check.
+- `wikimod-old-save-load-crash` - fix shipped 2.25.25/2.25.26; a 2026-09-06 live log showed it working; closes on `T3.43` (`pending`).
+- `worldmap-clone-duplicate-terrain` - data-duplication premise measured FALSE 2026-09-11; remaining checks are presentation-layer and build-free (`T2.147`).
+- `cmc-village-conditional-drop-fixtures-missing` - root cause was this framework's `AlwaysUpdateService` forcing CT2 fixtures (fixed DG-F1, `96a33a8d6`, 2.25.28); walk-in and reload passed live (`T2.242`); one check left, a Portal Hub arrival into the Village (`T2.277`).
+- `questinjector-blueprint-reset-risk` (+ `RETRO_CLOSURE_PLAN_2026-07-23`, abandoned-for-now) - shipped, hard-gated OFF since 2.17.0, owes root-cause diagnostics before any re-enable.
 - `gate-red-baseline-rediscovery` - fix is to the TEST, queued as fleet mission `csff-gate-debt-preexisting` (not framework code).
+- `RETRO_CLOSURE_PLAN_2026-09-01` and its prompt pack (open plan spanning several of the above).
 
 **Framework compliance**: This mod IS the framework - it DEFINES Tier 2 (`Api.ActionRouter`,
 `Api.SpawnService`, `Api.TickEvents`, `Api.ContentModPlugin`, `Api.EncounterGuards`, `Api.GameQuery`,
-`Api.StatAccess`). No deprecated pattern present: no `DropCollectionGuardPatch`, no unfiltered hot-path
-prefix, no manual perk/blueprint injection, no `ModLoaderVerison` in its own manifest. Process-lifetime
-tick guards (`GameManager`-null early-outs) and per-run handler-registration discipline are in place.
+`Api.StatAccess`). No deprecated pattern present: no `DropCollectionGuardPatch` reference in any `.cs`
+file, no manual perk/blueprint injection in a content mod's sense, no `ModLoaderVerison` or
+`ModEditorVersion` in its own manifest. Process-lifetime tick guards (`GameManager`-null early-outs),
+per-run handler-registration discipline, and (since 2.26.8) a Pester gate that resolves every hard-coded
+reflection target against the game DLL are in place.
 
 ---
 
 ## Phase 0: Stabilize
 
-> Audit score is 9/10 (>= 8), but 🟡 retrospectives remain open, so this phase stays - it is light and
-> mostly runtime-verification, not code.
+> Audit score is 5/10 (capped) and 🟡 retrospectives remain open. Almost all of this phase is runtime
+> verification of code that already shipped, not new code.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
+| **In-game checks for 2.26.6-2.26.9** on the deployed build: `T2.266` (H&F tea unlock via the spawn event), `T2.267` (CMC seasonal field removal), `T2.268` (no phantom day on menu -> load), `T2.269` (`CardFinder` sees a transformed card), `T2.270` (produced-card stats), `T2.271` (portal `AddCard` path), `T2.272` (day rollover over a long gap), `T2.273` (raid stress, raids opt-in), `T2.274` (boot-log read of the new warnings), `T2.275` (portal return after a reload), `T2.276` (portal content hidden without worlds). Per the 14:40 summary sync, the TestHarness can drive `T2.267`, `T2.268` and `T2.274`. | Runtime verification | P0 | Medium (harness + human play) |
+| **critical-analysis over 2.26.9**: the only thing that lifts the 5/10 cap. Registered as fleet mission `csff-framework-critical-analysis-2269`. | Audit re-run | P0 | Medium |
 | **C1 `river-bridge-east-click-noop`** in-game close on `T2.186`: quit-to-desktop relaunch, load save, reach River Clearing (bridge built, Pathfinder held), click East, grep `LogOutput.log` for `[TravelDaCacheResync]` FIRST | Retro close (runtime) | P0 | Quick (human play) |
-| ~~**W3 / F1** - add `ReflectionCache.HasParameterlessCtor(fieldType)` probe before the `Activator.CreateInstance` at `Util/ReflectionHelpers.cs:252`~~ - **DONE 2026-09-17, commit `8881c18cb`** (+2/-1, explicit-path; all three call sites now identical; Release rebuild 0 warnings / 0 errors) | Code consistency fix | ✅ Resolved | - |
-| `wikimod-old-save-load-crash` - formal retro graduation (evidence already in hand, 2026-09-06 log) | Retro close (evidence-in-hand) | P1 | Quick |
-| `worldmap-clone-duplicate-terrain` - run the two build-free discriminators (reload-in-place = visual vs data; pull WikiMod.dll = its dead `AddSlot` prefix); do NOT ship another board-data fix | Retro close (runtime) | P1 | Quick (human play) |
+| `wikimod-old-save-load-crash` - close on `T3.43` (boards populate on an old save with WikiMod installed), then `/resolve-retro` | Retro close (runtime) | P1 | Quick (human play) |
+| `worldmap-clone-duplicate-terrain` - run the two build-free discriminators on `T2.147` (reload-in-place = visual vs data; pull `WikiMod.dll` = its dead `AddSlot` prefix); do NOT ship another board-data fix | Retro close (runtime) | P1 | Quick (human play) |
+| **W6** - register the portal travel and exit handlers from their own `OnGMInitialized` hook whenever any mod has `HasMapMod`, instead of hanging them off `WorldMapInjector.PrepareAll` (`Injection/WorldMapInjector.cs:1007-1013`, `:273`; `Loading/LoadOrchestrator.cs:260-269` vs `:318-319`). Latent: no in-house mod ships `MapMod.json` without map nodes, and README line 146 discloses the gap. | Latent fix | P2 | Quick |
 
 ---
 
 ## Phase 1: Foundation
 
-> Table-stakes hygiene; all currently GREEN, listed so a regression is caught on the next pass.
+> Table-stakes hygiene. Mostly GREEN; listed so a regression is caught on the next pass.
 
 | Item | Type | Priority | Complexity |
 |------|------|----------|------------|
-| Versions synced across `ModInfo.json` / `Plugin.cs` / `README.md` (all 2.26.0) | Version hygiene | P1 | Quick (done) |
-| Chinese localization parity (13 EN / 13 CN clean) | Localization | P1 | Quick (done) |
-| bin/Release sync clean; refresh `lib/Assembly-CSharp.dll` on every game update and rebuild all mods | Game-version hygiene | P1 | Medium (per update) |
-| Regenerate the 9 `Assembly-CSharp-nstrip.dll` binders with the external NStrip tool (authoring-surface only, not a runtime hazard on 0.67i per `RefCheck/`) | Game-version hygiene | P1 | Medium (owner tool) |
+| Versions synced across `ModInfo.json` / `Plugin.cs` / `README.md` (all 2.26.9) | Version hygiene | P1 | Quick (done) |
+| Chinese localization parity (13 EN / 13 CN clean at the 2.26.5 pre-flight; 2.26.6 edited the Portal Kit row in both CSVs) | Localization | P1 | Quick (done) |
+| Refresh `lib/Assembly-CSharp.dll` on every game update and rebuild all mods (EA 0.68b refresh landed in `bddccaaf0`) | Game-version hygiene | P1 | Medium (per update) |
+| Keep `Development_Tools/Tests/Framework-ReflectedSignatures.Tests.ps1` current: every new hard-coded reflection target gets a row, so a game update that moves one goes red instead of silent (code-quality W-16) | Game-version hygiene | P1 | Quick (per change) |
+| Regenerate the 9 `Assembly-CSharp-nstrip.dll` binders with the external NStrip tool (authoring-surface only, not a runtime hazard per `Development_Tools/RefCheck/`) | Game-version hygiene | P1 | Medium (owner tool) |
+| Log hygiene: W9 (Info lines at `Util/CardUtil.cs:345`, `Patching/BugFixes/CardScaleCompat.cs:49`, `:77`), M3 (`Loading/BlueprintContainerSaveLoadFix.cs:150` faulted-coroutine catch at Debug), M4 (`Injection/NPCAgentActivationService.cs:144-163` survey runs with Verbose off) | Logging | P2 | Quick |
 
 ---
 
@@ -79,9 +96,9 @@ tick guards (`GameManager`-null early-outs) and per-run handler-registration dis
 > those types from `DataBase.AllData`).
 
 ### Generalize `WildlifeRaidService` to `Api.Raid` / `Raids.json`
-**What**: keep the shipped engine but expose trigger / target-tag / effect through a registration seam or a declarative `Raids.json`, replacing the single hardcoded bear-spoils-food rule.
-**Why**: the only raid rule today is baked in; a seam lets Sirus23 and future hostile-encounter mods add raids without C#.
-**Requires**: none (engine already exists).
+**What**: keep the shipped engine but expose trigger / target-tag / effect through a registration seam or a declarative `Raids.json`, replacing the single hardcoded bear-spoils-food rule (`Wildlife/WildlifeRaidService.cs:23-27` constants).
+**Why**: the only raid rule today is baked in; a seam lets Sirus23 and future hostile-encounter mods add raids without C#. Both halves of the current rule were fixed in source in 2026-09-25 releases (rot in 2.26.6, stress in 2.26.8), so the engine is finally a sound base.
+**Requires**: `T2.273` (raid stress) passing first, so the generalization starts from a verified rule.
 **Complexity**: Medium.
 
 ### Author-time gate-misconfig static check
@@ -90,11 +107,11 @@ tick guards (`GameManager`-null early-outs) and per-run handler-registration dis
 **Requires**: none.
 **Complexity**: Medium.
 
-### Fold the ctor-probe into `InitializeSerializableDefaults` itself (from W3/F1)
-**What**: rather than re-implementing `HasParameterlessCtor` at each of the three call sites, move the guard INSIDE the helper so no future caller can omit it.
-**Why**: W3/F1 is exactly a caller that omitted the guard; centralizing removes the whole class.
-**Requires**: none - W3/F1 shipped 2026-09-17 (`8881c18cb`), so this is now a pure centralization refactor over three identical call sites rather than a fix that supersedes a pending one.
-**Complexity**: Quick.
+### Portal-only world mods (from W6)
+**What**: once the Phase 0 W6 fix lands, document `MapMod.json` alone as a complete world registration and drop the README's known-gap paragraph.
+**Why**: lets a world mod ship a portal destination without authoring WorldMap nodes.
+**Requires**: the Phase 0 W6 fix.
+**Complexity**: Quick (docs, after the fix).
 
 ---
 
@@ -103,15 +120,15 @@ tick guards (`GameManager`-null early-outs) and per-run handler-registration dis
 > Cross-mod surfaces and the shipped-but-unexercised paths.
 
 ### `QuestInjector` re-enable path
-**What**: diagnose the blueprint-research-reset root cause that got `QuestInjector` hard-gated OFF (2.17.0), then a save-compat harness (add-content -> save -> remove-mod -> load) before any re-enable.
+**What**: diagnose the blueprint-research-reset root cause that got `QuestInjector` hard-gated OFF (2.17.0), then a save-compat harness (add-content -> save -> remove-mod -> load) before any re-enable. Its repro row `T3.20` currently reads `skip`.
 **Why**: unblocks quest-chain consumer mods (TradersAndNPCs, MagicAndSpirits); currently a documented dead path.
 **Requires**: re-author the deleted `_FwVerificationHarness/` fixture; owner play session.
 **Complexity**: Complex (spans sessions, needs runtime evidence).
 
-### `NPCCharacterPerk` / `ConstructionCardGroup` / `CookingRecipeGroup` consumers
-**What**: these types self-activate from `AllData` (no injector needed - premise corrected 2026-09-11); the missing half is a consumer mod that ships the content.
-**Why**: turns already-working engine surfaces into player-visible content.
-**Requires**: a downstream mod (DecorationAndComfort / CookingExpanded ideas). `NPCCharacterPerk` already has one (CMC Village Guards); its acceptance is `T2.235`.
+### Consumers for the self-activating group types, and for GIF cards
+**What**: `ConstructionCardGroup` / `CookingRecipeGroup` / `BookmarkGroup` self-activate from `AllData` (no injector needed - premise corrected 2026-09-11); the missing half is a consumer mod that ships the content. The same holds for GIF card animation: 2.26.7 made it work end to end (code-quality A-1), but no mod ships `CardData/Gif/`, so it is verified by build and trace only.
+**Why**: turns already-working engine surfaces into player-visible content and gives each one its first runtime proof.
+**Requires**: a downstream mod (DecorationAndComfort / CookingExpanded ideas, or a first animated card in an existing mod per `Documentation/CSFF_GIF_Authoring.md`). `NPCCharacterPerk` already has one (CMC Village Guards); its acceptance is `T2.235`.
 **Complexity**: Medium (in the consumer, not here).
 
 ### General `PatchAll`-isolation seam
@@ -128,10 +145,13 @@ tick guards (`GameManager`-null early-outs) and per-run handler-registration dis
 
 | Item | What | Complexity |
 |------|------|------------|
-| W2 - `Api.ContainerSort` | **Owner-decided 2026-09-17: LEAVE AS-IS** as documented-unused API. This is settled, not an open question - do NOT re-raise it as a finding needing resolution, and do NOT delete `Api/ContainerSort.cs` on the reasoning that it is unreferenced. Listed here as a standing disclosure so the next audit recognises it rather than rediscovering it. | None (settled) |
-| M1 - `csffmfwportalkit` boilerplate | Optionally fill the 11 omitted standard fields (no runtime impact; loader defaults them) | Quick |
+| W2 - `Api.ContainerSort` | **Owner-decided 2026-09-17: LEAVE AS-IS** as documented-unused API. This is settled, not an open question - do NOT re-raise it as a finding needing resolution, and do NOT delete `Api/ContainerSort.cs` on the reasoning that it is unreferenced. Since 2.26.8 it reads the real in-game members, so it works if a mod ever calls it. | None (settled) |
+| M1 - `csffmfwportalkit` boilerplate | Optionally fill the 9 omitted standard fields (no runtime impact; loader defaults them) | Quick |
 | M2 - `csffmfw_perk_wayfinder` | Optionally declare `NoSafetyMode` explicitly (defaults false, non-functional today) | Quick |
-| Refresh stale sub-reports | Re-run the four 2026-06-27 category audits + `karpathy-plan` at the next `/full-mod-audit-chain` (critical-analysis and code-quality are already current) | Quick |
+| M5 / M6 - stale class docs | `ChangeEnvironmentCrashGuard.cs:14-18` (says one exception class; the finalizer swallows all) and `ConnectionGatePatch.cs:19` (names `SetBlueprintStage(int)`; the patch binds `(int, InGameNPCOrPlayer)`) | Quick |
+| M7 - stale plan citations in comments | Repoint the comments that cite the deleted `CatchUp_Performance_Plan.md`, `Animal_System_Plan.md` and `Game_Performance_Options_2026-08-25.md` at their as-built docs or the deleting commit (list in `.audit/summary.md` M7) | Quick |
+| Optional shared default-instance helper | The ctor probe is already inside `InitializeSerializableDefaults` (`Util/ReflectionHelpers.cs:252`); a single helper for the three `Activator.CreateInstance` sites (`JsonDataLoader.cs:480`, `PassiveEffectNormalizer.cs:224`, `ReflectionHelpers.cs:252`) is a refactor, not a fix | Quick |
+| Refresh stale sub-reports | Re-run the four 2026-06-27 category audits, `mod-report.md` (2026-09-17) and `karpathy-plan.md` at the next `/full-mod-audit-chain`; this consolidation re-derived their open rows at HEAD, but the reports themselves still describe older trees | Quick |
 
 ---
 
@@ -142,11 +162,14 @@ tick guards (`GameManager`-null early-outs) and per-run handler-registration dis
 The framework's endpoint is a fully declarative modding surface: every subsystem a content mod needs
 (drops, improvements, blueprints, perks, worldmap, portals, animals, modifiers, flavour, quests, raids)
 authorable from JSON with zero mod-side C#, and every shipped engine path exercised by at least one
-consumer or explicitly retired. The two structural debts to retire before v3.0 are (a) the shipped-but-
-unexercised injection paths (`QuestInjector`, `CharacterRosterInjector`, `SealableGates.ResealCondition`)
-- either proven via a save-compat harness or removed. The second former debt, the last unused public API
-(`Api.ContainerSort`), is CLOSED as of 2026-09-17: the owner decided it stays as documented-unused API,
-so it is a standing disclosure rather than something to retire before v3.0.
+consumer or explicitly retired. The structural debt to retire before v3.0 is the set of
+shipped-but-unexercised paths (`QuestInjector`, `CharacterRosterInjector`, `SealableGates.ResealCondition`,
+and now GIF card animation), each either proven through a consumer or a save-compat harness, or removed.
+The former second debt, the last unused public API (`Api.ContainerSort`), is CLOSED as of 2026-09-17: the
+owner decided it stays as documented-unused API, so it is a standing disclosure rather than something to
+retire before v3.0. The 2026-09-25 re-audit adds one lesson to the vision: string-based reflection
+against a moving game build is the framework's largest silent-failure surface, and the reflected-signature
+gate added in 2.26.8 is the kind of guard every new reflection target should arrive with.
 
 **Potential major additions** (not yet justified - revisit after Phase 3):
 - `Api.Raid` / `Raids.json` declarative hostile-encounter engine - fits the existing `WildlifeRaidService` and the animal/encounter theme.
@@ -162,9 +185,9 @@ their corrected "blocked on a consumer, do not write an injector" reasoning.
 
 | Trigger | Action |
 |---------|--------|
-| After any engine-surface phase | Run `/audit-mod CSFFModFramework` and `/code-quality CSFFModFramework`, update this roadmap |
-| Game version update | Refresh `lib/Assembly-CSharp.dll` on EVERY mod, regenerate the nstrip binders, `/decompile-assembly`, re-run `Development_Tools/RefCheck/`, re-run `/update-mod-version` |
-| After fixing a defect on a runtime-gated path | Do NOT certify from source - collect the in-game log evidence per the retro's gate (CLAUDE.md "the log says it worked but in-game it did not") |
+| After any engine-surface phase | Run `/audit-mod CSFFModFramework`, `/code-quality CSFFModFramework` and `/critical-analysis CSFFModFramework`, then update this roadmap |
+| Game version update | Refresh `lib/Assembly-CSharp.dll` on EVERY mod, regenerate the nstrip binders, `/decompile-assembly`, re-run `Development_Tools/RefCheck/` and `Framework-ReflectedSignatures.Tests.ps1`, re-run `/update-mod-version` |
+| After fixing a defect on a runtime-gated path | Do NOT certify from source - collect the in-game log evidence per the retro's gate (CLAUDE.md "the log says it worked but in-game it did not") and file a tracker row before the prose that cites it |
 | After a framework change that content mods link | Rebuild every content mod clean (`-t:Rebuild`) to signature-check against the new reference |
 
 ---

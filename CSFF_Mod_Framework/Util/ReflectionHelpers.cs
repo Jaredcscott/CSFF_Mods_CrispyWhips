@@ -174,7 +174,7 @@ internal static class ReflectionHelpers
             if (prop?.CanRead == true) return prop.GetValue(instance, null);
             return FindField(t, name)?.GetValue(instance);
         }
-        catch (Exception ex) { Log.Debug($"ReflectionHelpers.GetMemberValue: read failed for member '{name}' on {instance.GetType().Name}: {ex.GetType().Name} {ex.Message}"); return null; }
+        catch (Exception ex) { Log.Debug($"ReflectionHelpers.GetMemberValue: read failed for member '{name}' on {instance.GetType().Name}: {Log.ExceptionText(ex)}"); return null; }
     }
 
     /// <summary>
@@ -196,7 +196,7 @@ internal static class ReflectionHelpers
             var field = FindField(t, name);
             if (field != null) { field.SetValue(instance, value); return true; }
         }
-        catch (Exception ex) { Log.Debug($"ReflectionHelpers.SetMemberValue: write failed for member '{name}' on {instance.GetType().Name}: {ex.GetType().Name} {ex.Message}"); }
+        catch (Exception ex) { Log.Debug($"ReflectionHelpers.SetMemberValue: write failed for member '{name}' on {instance.GetType().Name}: {Log.ExceptionText(ex)}"); }
         return false;
     }
 
@@ -220,6 +220,8 @@ internal static class ReflectionHelpers
     /// <summary>
     /// Initializes all null fields in an object with their default values, recursively up to a depth limit.
     /// Used to ensure ProducedCards and other nested structures have proper initialized fields.
+    /// Only fields Unity itself would serialize are touched: the engine reads a null runtime-only
+    /// field as "not set", so filling one changes game behaviour (see UnitySerializesField).
     /// </summary>
     public static int InitializeSerializableDefaults(object owner, int depth)
     {
@@ -229,6 +231,7 @@ internal static class ReflectionHelpers
         foreach (var field in owner.GetType().GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic))
         {
             if (field.IsInitOnly) continue;
+            if (!UnitySerializesField(field)) continue;
 
             var fieldType = field.FieldType;
             if (fieldType == typeof(string) || fieldType.IsPrimitive || fieldType.IsEnum || fieldType == typeof(decimal))
@@ -254,7 +257,7 @@ internal static class ReflectionHelpers
                 }
                 catch (Exception ex)
                 {
-                    Log.Debug($"ReflectionHelpers.InitializeSerializableDefaults: CreateInstance failed for field '{field.Name}' ({fieldType.Name}) on {owner.GetType().Name}: {ex.GetType().Name} {ex.Message}");
+                    Log.Debug($"ReflectionHelpers.InitializeSerializableDefaults: CreateInstance failed for field '{field.Name}' ({fieldType.Name}) on {owner.GetType().Name}: {Log.ExceptionText(ex)}");
                     replacement = null;
                 }
             }
@@ -270,5 +273,29 @@ internal static class ReflectionHelpers
         }
 
         return initialized;
+    }
+
+    /// <summary>
+    /// True when Unity's serializer would populate this field, so a null in it is a loader gap worth
+    /// filling. Unity leaves [NonSerialized] fields, non-public fields without [SerializeField], and
+    /// fields of non-[Serializable] classes null, and the game treats that null as meaningful:
+    /// <c>CardDrop.DropDurabilities</c> is a [NonSerialized] <c>TransferedDurabilities</c> whose
+    /// parameterless constructor marks every stat Active at 0, and a non-null one makes
+    /// <c>ProduceCards</c> hand it to <c>InGameCardBase.Init</c>, which then zeroes every active
+    /// durability of the spawned card (.decomp/GameManager.cs ProduceCards, InGameCardBase.cs Init;
+    /// chain traced on the EA 0.68b decompile, 2026-09-25). Before 2.26.7 this helper filled it on
+    /// every mod ProducedCards drop.
+    /// </summary>
+    private static bool UnitySerializesField(FieldInfo field)
+    {
+        if (field.IsNotSerialized) return false;
+        if (!field.IsPublic && !field.IsDefined(typeof(SerializeField), true)) return false;
+
+        var t = field.FieldType;
+        if (t.IsArray) t = t.GetElementType();
+        else if (t.IsGenericType && t.GetGenericTypeDefinition() == typeof(List<>)) t = t.GetGenericArguments()[0];
+        if (t == null) return false;
+        if (t.IsValueType || t == typeof(string) || typeof(UnityEngine.Object).IsAssignableFrom(t)) return true;
+        return t.IsSerializable; // true for [Serializable] classes; false for e.g. TransferedDurabilities
     }
 }

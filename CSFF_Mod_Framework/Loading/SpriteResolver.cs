@@ -10,9 +10,12 @@ internal static class SpriteResolver
     private static readonly Dictionary<(Type, string), FieldInfo> _spriteFieldCache = new();
     private static Dictionary<string, string> _diskSpritePaths; // sprite name → file path, built once
 
+    // CardData's DurabilityStat fields (EA 0.68b .decomp/CardData.cs 163-180). Before 2.26.8 two
+    // entries read "UsageTime" and "Fuel", which do not exist, so an OverrideIcon on the usage or
+    // fuel stat never resolved from disk.
     private static readonly string[] DurabilityIconFields =
     {
-        "SpoilageTime", "UsageTime", "Fuel", "Progress",
+        "SpoilageTime", "UsageDurability", "FuelCapacity", "Progress",
         "SpecialDurability1", "SpecialDurability2", "SpecialDurability3", "SpecialDurability4"
     };
 

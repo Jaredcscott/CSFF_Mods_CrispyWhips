@@ -5,8 +5,12 @@ namespace CSFFModFramework.Api;
 /// <summary>
 /// API for sorting items within a container's inventory slots.
 ///
-/// Pass any InGameCardBase that has an <c>InventorySlots</c> field (e.g. a chest, barrel,
-/// or workstation). Slots are reordered in-place; the item counts are not changed.
+/// Pass any InGameCardBase container (a chest, barrel or workstation): its
+/// <c>CardsInInventory</c> slot list is reordered in place; the item counts are not changed.
+/// Before 2.26.8 this looked for <c>InventorySlots</c> and CardData stat names on the in-game
+/// card, none of which exist there, so every call returned without doing anything and without a
+/// line. A missing member now warns once. No fleet mod calls this yet, so the reordering has not
+/// been exercised in play.
 /// </summary>
 public static class ContainerSort
 {
@@ -24,7 +28,7 @@ public static class ContainerSort
 
     // ── Convenience wrappers ──────────────────────────────────────────────────
 
-    /// <summary>Sort so highest-usage (most worn) items come first. Useful for consuming damaged items.</summary>
+    /// <summary>Sort by remaining usage durability, most remaining first (ascending puts the most worn first).</summary>
     public static void SortByUsage(object container, bool descending = true) =>
         Sort(container, Axis.Usage, descending);
 
@@ -95,16 +99,26 @@ public static class ContainerSort
 
     // ── Internals ─────────────────────────────────────────────────────────────
 
+    private static readonly HashSet<string> _warned = new();
+
+    private static void WarnOnce(string key, string message)
+    {
+        if (_warned.Add(key)) Log.Warn($"[ContainerSort] {message}");
+    }
+
     private static IList GetSlotsList(object container)
     {
         var t = container.GetType();
-        foreach (var name in new[] { "InventorySlots", "Slots", "CardSlots" })
+        bool found = false;
+        foreach (var name in new[] { "CardsInInventory", "InventorySlots", "Slots", "CardSlots" })
         {
             var field = ReflectionHelpers.FindField(t, name);
             if (field == null) continue;
+            found = true;
             var val = field.GetValue(container) as IList;
             if (val != null) return val;
         }
+        if (!found) WarnOnce("slots:" + t.FullName, $"{t.Name} has no CardsInInventory slot list; nothing was sorted.");
         return null;
     }
 
@@ -121,6 +135,8 @@ public static class ContainerSort
         {
             member = FindDurabilityMember(t, axis);
             _durCache[key] = member;
+            if (member == null)
+                WarnOnce($"axis:{t.FullName}:{axis}", $"{t.Name} has no member for the {axis} axis, so that sort leaves the order unchanged.");
         }
         if (member == null) return 0f;
 
@@ -136,15 +152,18 @@ public static class ContainerSort
 
     private static MemberInfo FindDurabilityMember(Type t, Axis axis)
     {
+        // The live values on InGameCardBase (EA 0.68b: CurrentSpoilage, CurrentUsageDurability,
+        // CurrentSpecial1-4). The game has no quality stat, so Quality resolves only on a card type
+        // that declares one.
         string[] candidates = axis switch
         {
-            Axis.Usage    => new[] { "UsageDurability" },
-            Axis.Quality  => new[] { "QualityDurability" },
-            Axis.Spoilage => new[] { "SpoilageTime", "SpoilageTimer", "Spoilage" },
-            Axis.Special1 => new[] { "SpecialDurability1", "Special1" },
-            Axis.Special2 => new[] { "SpecialDurability2", "Special2" },
-            Axis.Special3 => new[] { "SpecialDurability3", "Special3" },
-            Axis.Special4 => new[] { "SpecialDurability4", "Special4" },
+            Axis.Usage    => new[] { "CurrentUsageDurability" },
+            Axis.Quality  => new[] { "CurrentQuality", "QualityDurability" },
+            Axis.Spoilage => new[] { "CurrentSpoilage" },
+            Axis.Special1 => new[] { "CurrentSpecial1" },
+            Axis.Special2 => new[] { "CurrentSpecial2" },
+            Axis.Special3 => new[] { "CurrentSpecial3" },
+            Axis.Special4 => new[] { "CurrentSpecial4" },
             _             => Array.Empty<string>()
         };
         foreach (var name in candidates)

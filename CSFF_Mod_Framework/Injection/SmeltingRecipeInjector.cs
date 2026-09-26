@@ -13,13 +13,14 @@ namespace CSFFModFramework.Injection;
 
 /// <summary>
 /// Reads SmeltingRecipes.json from each mod and injects custom CookingRecipes
-/// into the vanilla Forge and Furnace so mod copper items return exact nugget counts.
+/// into the vanilla Furnace and every mod smelting station (a card tagged tag_SmeltingContainer
+/// that ships its own CookingRecipes) so mod copper items return exact nugget counts. The vanilla
+/// Forge is deliberately not a target: its id here was a typo from ede83db72 until 2.26.9, so it never
+/// received these recipes, and the owner chose on 2026-09-25 to drop the lookup rather than start.
 /// Clones the vanilla "Smelt Small Tool" recipe as a template to inherit all conditions.
 /// </summary>
 internal static class SmeltingRecipeInjector
 {
-    private const string FORGE_UID = "bbbbd576f3cb8e434a85032487085cf57";
-    private const string LEGACY_FORGE_UID = "0e4fa8919542c6c44a464c3fba469661";
     private const string FURNACE_UID = "984bad0c8931f3545bef58171f9bf252";
     private const string NUGGET_UID = "4b0f4937a5ecb90499428c8c10288afc";
 
@@ -38,7 +39,11 @@ internal static class SmeltingRecipeInjector
             {
                 var json = File.ReadAllText(path);
                 var parsed = MiniJson.Parse(json);
-                if (parsed is not List<object> arr) continue;
+                if (parsed is not List<object> arr)
+                {
+                    Log.Warn($"SmeltingRecipeInjector: {mod.Name} SmeltingRecipes.json skipped, its root must be a JSON array");
+                    continue;
+                }
 
                 int modCount = 0;
                 foreach (var item in arr)
@@ -94,8 +99,7 @@ internal static class SmeltingRecipeInjector
             }
         }
 
-        // 4. Find forge and furnace
-        var forgeCard = FindCardByUid(FORGE_UID) ?? FindCardByUid(LEGACY_FORGE_UID);
+        // 4. Find the furnace
         var furnaceCard = UniqueIDScriptable.GetFromID<CardData>(FURNACE_UID);
 
         // Also find mod smelting stations (any card with tag_SmeltingContainer + CookingRecipes)
@@ -104,7 +108,7 @@ internal static class SmeltingRecipeInjector
         FieldInfo cardTagsFieldCached = null;
         foreach (var obj in allData)
         {
-            if (obj is CardData cd && cd != forgeCard && cd != furnaceCard
+            if (obj is CardData cd && cd != furnaceCard
                 && !string.IsNullOrEmpty(cd.UniqueID)
                 && HasSmeltingContainerTag(cd, ref cardTagsFieldCached))
             {
@@ -115,13 +119,12 @@ internal static class SmeltingRecipeInjector
         }
 
         var targets = new List<CardData>();
-        if (forgeCard != null) targets.Add(forgeCard);
         if (furnaceCard != null) targets.Add(furnaceCard);
         targets.AddRange(customForges);
 
         if (targets.Count == 0)
         {
-            Log.Error("SmeltingRecipeInjector: no forge/furnace found");
+            Log.Error("SmeltingRecipeInjector: no furnace or mod smelting station found");
             return;
         }
 
@@ -147,7 +150,6 @@ internal static class SmeltingRecipeInjector
         object fallbackRecipe = null;
         var templateSources = new List<CardData>();
         if (furnaceCard != null) templateSources.Add(furnaceCard);
-        if (forgeCard != null && !ReferenceEquals(forgeCard, furnaceCard)) templateSources.Add(forgeCard);
 
         foreach (var templateSource in templateSources)
         {
@@ -172,7 +174,7 @@ internal static class SmeltingRecipeInjector
                     if (r == null) continue;
                     var tags = compatTagsField?.GetValue(r) as Array;
                     var cards = ccField?.GetValue(r) as Array;
-                    Log.Debug($"SmeltingRecipeInjector: Forge recipe[{i}] CompatibleTags={tags?.Length ?? -1}, CompatibleCards={cards?.Length ?? -1}");
+                    Log.Debug($"SmeltingRecipeInjector: template recipe[{i}] CompatibleTags={tags?.Length ?? -1}, CompatibleCards={cards?.Length ?? -1}");
                     if (tags != null && tags.Length > 0)
                     {
                         templateRecipe = r;
@@ -200,7 +202,7 @@ internal static class SmeltingRecipeInjector
 
         if (templateRecipe == null || cookingRecipeType == null)
         {
-            Log.Error("SmeltingRecipeInjector: no template recipe found on forge/furnace");
+            Log.Error("SmeltingRecipeInjector: no template recipe found on the furnace");
             return;
         }
 
@@ -266,7 +268,7 @@ internal static class SmeltingRecipeInjector
             field.SetValue(target, combined);
             injected += recipesToAdd.Count;
 
-            // Forge/furnace targets are vanilla — mark for NullReferenceCompactor.
+            // The furnace is vanilla, so mark every target for NullReferenceCompactor.
             Loading.FrameworkDirtyTracker.MarkDirty(target);
 
             // Verify the recipes are actually on the target
@@ -373,9 +375,10 @@ internal static class SmeltingRecipeInjector
                 }
             }
 
-            // Override smelting threshold to 900°C — vanilla forge caps at 1000°C, so the
-            // vanilla template's {1100,3000} range never fires there. {900,3000} lets items
-            // smelt in both vanilla forge (≥900°C) and vanilla furnace.
+            // Smelting threshold 900 C instead of the template's {1100,3000}. It was added so the
+            // vanilla Forge (max 1000 C) could smelt these too, but the Forge was never a target
+            // (see the class doc). It stays because players already smelt these items at 900 C
+            // in the Furnace and the mod stations; raising it would change that.
             // ReceivingRequiredDurabilityRanges is nested inside the Conditions sub-object.
             var conditionsField = AccessTools.Field(recipeType, "Conditions");
             if (conditionsField != null)
@@ -445,11 +448,6 @@ internal static class SmeltingRecipeInjector
         if (v is long l) return (int)l;
         if (v is int i) return i;
         return 0;
-    }
-
-    private static CardData FindCardByUid(string uid)
-    {
-        return string.IsNullOrEmpty(uid) ? null : UniqueIDScriptable.GetFromID<CardData>(uid);
     }
 
     /// <summary>Collect card/tag identifiers from a recipe for duplicate detection.</summary>

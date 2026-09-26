@@ -5,7 +5,7 @@ public class Plugin : BaseUnityPlugin
 {
     public const string PluginGuid = "crispywhips.CSFFModFramework";
     public const string PluginName = "CSFF Mod Framework";
-    public const string PluginVersion = "2.26.5";
+    public const string PluginVersion = "2.26.11";
 
     public static Plugin Instance { get; private set; }
     internal new static ManualLogSource Logger { get; private set; }
@@ -179,15 +179,11 @@ public class Plugin : BaseUnityPlugin
         // Commissions button spills past the popup panel. Forces the row's existing
         // HorizontalLayoutGroup to shrink children to fit, scoped to that exact NPC state.
         Patching.BugFixes.NPCActionRowOverflowFix.ApplyPatch(Harmony);
-        // Finalizer that swallows WorldMapData.AddInstancedEnv's ArgumentException (two
-        // instanced envs colliding on default map Coordinates) so GameManager.ChangeEnvironment
-        // can't leave RootAction stuck, which otherwise permanently locks the player out of
-        // every action ("I can't do two things at once...") until the app is restarted.
-        Patching.BugFixes.ChangeEnvironmentCrashGuard.ApplyPatch(Harmony);
-        // Same underlying vanilla bug as above, but patched at the root (AddInstancedEnv
-        // itself) instead of one caller — covers GameManager.ProduceCards and every other
-        // unguarded call site, not just ChangeEnvironment. Confirmed in the wild via a
-        // permanent action-lock while placing a Rain Cistern Kit (2026-08-14).
+        // Same underlying vanilla bug as ChangeEnvironmentCrashGuard (applied LAST, below), but
+        // patched at the root (AddInstancedEnv itself) instead of one caller — covers
+        // GameManager.ProduceCards and every other unguarded call site, not just
+        // ChangeEnvironment. Confirmed in the wild via a permanent action-lock while placing a
+        // Rain Cistern Kit (2026-08-14).
         Patching.BugFixes.AddInstancedEnvCrashGuard.ApplyPatch(Harmony);
         // Same "I can't do two things at once..." lock, reached through an autosave: a card
         // removed without vanilla GameManager.RemoveCard stays in GameManager.AllCards, and
@@ -258,6 +254,18 @@ public class Plugin : BaseUnityPlugin
         // localize player reports of wildlife getting permanently stuck on mod-injected
         // WorldMap trail nodes. See WildlifeStuckDiagnostics' doc comment.
         Patching.Diagnostics.WildlifeStuckDiagnostics.Configure(Config);
+
+        // Finalizer that swallows WorldMapData.AddInstancedEnv's ArgumentException (two
+        // instanced envs colliding on default map Coordinates) so GameManager.ChangeEnvironment
+        // can't leave RootAction stuck, which otherwise permanently locks the player out of
+        // every action ("I can't do two things at once...") until the app is restarted.
+        // KEEP THIS THE LAST PATCH APPLIED HERE: Harmony JIT-compiles ChangeEnvironment's
+        // replacement MoveNext at patch time, and Mono inlines small callees (a coroutine's
+        // state-machine builder, a property getter) into it as they are AT THAT MOMENT, so any
+        // patch applied afterwards to such a callee is skipped on every travel. Through 2.26.10
+        // this ran before ApplyLiveTrimPatch and the live clone-env trim never ran on travel.
+        // Enforced by Development_Tools/Tests/Framework-ChangeEnvironmentPatchOrder.Tests.ps1.
+        Patching.BugFixes.ChangeEnvironmentCrashGuard.ApplyPatch(Harmony);
 
         Util.Log.Info($"{PluginName} v{PluginVersion} loaded. ({Harmony.GetPatchedMethods().Count()} methods patched)");
     }

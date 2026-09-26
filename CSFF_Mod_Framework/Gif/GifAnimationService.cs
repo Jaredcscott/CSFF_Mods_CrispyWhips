@@ -14,7 +14,7 @@ namespace CSFFModFramework.Gif;
 ///   - If no condition set matches, falls back to CardGif.
 ///
 /// Called from GifAnimationPatch postfixes on CardGraphics.Setup and
-/// InGameCardBase.RefreshCookingStatus.
+/// CardGraphics.RefreshCookingStatus.
 /// </summary>
 internal static class GifAnimationService
 {
@@ -57,8 +57,11 @@ internal static class GifAnimationService
     // -------------------------------------------------------------------------
 
     /// <summary>
-    /// Called from CardGraphics.Setup postfix.
+    /// Called from the CardGraphics.Setup postfix.
     /// Finds the card Image component, attaches/updates a GifPlayer, and selects the active GIF.
+    /// CardGraphics are pooled, so a card with no GIF must also stop a player left on the image by
+    /// the card it was last set up for: that player paints overrideSprite and would otherwise keep
+    /// animating the previous card's frames over this card's art.
     /// </summary>
     public static void OnCardSetup(object cardGraphics, object inGameCard)
     {
@@ -66,17 +69,11 @@ internal static class GifAnimationService
 
         try
         {
-            var uniqueId = GetCardUniqueId(inGameCard);
-            if (uniqueId == null) return;
-            if (!GifLoader.CardDefinitions.TryGetValue(uniqueId, out var def)) return;
-
-            var frameSet = ResolveFrameSet(def, inGameCard, isCooking: false);
-            if (frameSet == null) return;
-
             var image = FindCardImage(cardGraphics);
             if (image == null) return;
 
-            ApplyGif(image, frameSet, def.CardGif?.Loop ?? true);
+            bool cooking = inGameCard is InGameCardBase card && card && card.IsCooking();
+            ShowFrameSet(image, ResolveForCard(inGameCard, cooking));
         }
         catch (Exception ex)
         {
@@ -85,34 +82,51 @@ internal static class GifAnimationService
     }
 
     /// <summary>
-    /// Called from InGameCardBase.RefreshCookingStatus postfix.
-    /// Switches between CardGif and CookingGif based on cooking state.
+    /// Called from the CardGraphics.RefreshCookingStatus postfix. Vanilla has just rewritten
+    /// CardImage.overrideSprite with the static art; this re-selects the GIF (cooking override,
+    /// condition sets, base GIF) and puts the current frame straight back.
     /// </summary>
-    public static void OnRefreshCookingStatus(object inGameCard, bool isCooking)
+    public static void OnRefreshCookingStatus(object cardGraphics)
     {
         if (!HasDefinitions) return;
 
         try
         {
-            var uniqueId = GetCardUniqueId(inGameCard);
-            if (uniqueId == null) return;
-            if (!GifLoader.CardDefinitions.TryGetValue(uniqueId, out var def)) return;
+            if (cardGraphics is not CardGraphics graphics) return;
+            var card = graphics.CardLogic;
+            if (!card) return;
 
-            var targetDef = isCooking ? def.CookingGif : def.CardGif;
-            if (targetDef == null) return;
-
-            if (!GifLoader.GifFrameSets.TryGetValue(targetDef.GifName, out var frameSet)) return;
-            frameSet.Loop = targetDef.Loop;
-
-            var image = FindCardImage(inGameCard);
+            var image = FindCardImage(graphics);
             if (image == null) return;
 
-            ApplyGif(image, frameSet, targetDef.Loop);
+            ShowFrameSet(image, ResolveForCard(card, card.IsCooking()));
         }
         catch (Exception ex)
         {
             Log.Debug($"GifAnimationService.OnRefreshCookingStatus: {Log.ExceptionText(ex)}");
         }
+    }
+
+    private static GifFrameSet ResolveForCard(object inGameCard, bool isCooking)
+    {
+        var uniqueId = GetCardUniqueId(inGameCard);
+        if (uniqueId == null) return null;
+        if (!GifLoader.CardDefinitions.TryGetValue(uniqueId, out var def)) return null;
+        return ResolveFrameSet(def, inGameCard, isCooking);
+    }
+
+    // Plays frameSet on the image, or stops a player left there when the card has no GIF.
+    private static void ShowFrameSet(Image image, GifFrameSet frameSet)
+    {
+        var player = image.GetComponent<GifPlayer>();
+        if (frameSet == null)
+        {
+            if (player != null) player.Stop();
+            return;
+        }
+        ApplyGif(image, frameSet, frameSet.Loop);
+        player = player != null ? player : image.GetComponent<GifPlayer>();
+        if (player != null) player.ReapplyCurrentFrame();
     }
 
     // -------------------------------------------------------------------------
@@ -238,6 +252,9 @@ internal static class GifAnimationService
     private static Image FindCardImage(object obj)
     {
         if (obj == null) return null;
+
+        // The card art Image the game itself writes (CardGraphics.CardImage); no reflection needed.
+        if (obj is CardGraphics graphics && graphics.CardImage != null) return graphics.CardImage;
 
         var t = obj.GetType();
 

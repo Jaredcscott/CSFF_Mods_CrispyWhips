@@ -190,6 +190,23 @@ internal static class PortalService
     }
 
     private static MethodInfo _addCardFromSourceMethod;
+    private static bool _addCardLookupDone;
+
+    // The source-card AddCard overload: (CardData _Data, InGameCardBase _FromCard, bool _InCurrentEnv,
+    // SpecialDrop, 4 x reference, bool _UseDefaultInventory, SpawningLiquid, Vector2Int _Tick,
+    // EnvDictKey _TravelTargetKey, ...). Every position TryStartAddCardFromSource writes is checked,
+    // so a reorder fails the match (and warns once) instead of invoking with mistyped arguments.
+    private static bool HasAddCardFromSourceShape(ParameterInfo[] ps) =>
+        ps.Length >= 12
+        && ps[0].ParameterType == typeof(CardData)
+        && ps[1].ParameterType.Name == "InGameCardBase"
+        && ps[2].ParameterType == typeof(bool)
+        && ps[3].ParameterType.IsEnum
+        && ps.Skip(4).Take(4).All(p => !p.ParameterType.IsValueType)
+        && ps[8].ParameterType == typeof(bool)
+        && ps[9].ParameterType == typeof(SpawningLiquid)
+        && ps[10].ParameterType == typeof(Vector2Int)
+        && ps[11].ParameterType == typeof(EnvDictKey);
 
     // Session-scoped: for each mod-hub environment the player has arrived at via an outbound
     // Portal Hub trip, the FULL StringDictionnaryKey of the environment they departed from (NOT
@@ -200,8 +217,9 @@ internal static class PortalService
     // single shared field) — a player who visits two different mod hubs in the same session
     // must get routed back to EACH hub's own departure point, not whichever was visited most
     // recently. Backs the "Return to Portal" button on csffmfw_hub_exit — see StartReturnTravel.
-    // Not persisted across a save reload; re-captured fresh on every outbound trip, so entries
-    // self-correct and a reload just means "no return recorded yet" for that arrival env.
+    // Cleared at every run start (RegisterHubExitHandler): before 2.26.9 it lived for the whole
+    // process, so a trip in save A spawned an exit in save B that routed to save A's env key. After
+    // a reload or restart the return point comes from the save instead (TryFindSavedPortalEnv).
     private static readonly Dictionary<string, string> _returnEnvKeyByArrival = new();
 
     private static void StartEnvironmentTravel(CardData cardData, object sourceCard, string worldName, bool recordReturn = false, EnvID? presetEnvId = null)
@@ -266,23 +284,28 @@ internal static class PortalService
 
             var gmType = gmInstance.GetType();
             PrepareNextEnvironment(gmInstance, gmType, cardData, presetEnvId);
-            _addCardFromSourceMethod ??= gmType
-                .GetMethods(BindingFlags.Instance | BindingFlags.NonPublic)
-                .FirstOrDefault(m =>
+            if (!_addCardLookupDone)
+            {
+                _addCardLookupDone = true;
+                // Match on the twelve leading parameters, which have been stable across game versions;
+                // the tail is filled per parameter below. An exact-arity match broke on EA 0.68b, which
+                // inserted InGameNPCOrPlayer _User after _TravelTargetKey (16 -> 17 parameters), and
+                // sent every portal click down the GiveCard fallback.
+                _addCardFromSourceMethod = gmType
+                    .GetMethods(BindingFlags.Instance | BindingFlags.NonPublic)
+                    .FirstOrDefault(m => m.Name == "AddCard" && HasAddCardFromSourceShape(m.GetParameters()));
+                if (_addCardFromSourceMethod == null)
                 {
-                    if (m.Name != "AddCard") return false;
-                    var ps = m.GetParameters();
-                    return ps.Length == 16
-                        && ps[0].ParameterType == typeof(CardData)
-                        && ps[1].ParameterType.Name == "InGameCardBase"
-                        && ps[2].ParameterType == typeof(bool);
-                });
+                    var seen = gmType.GetMethods(BindingFlags.Instance | BindingFlags.NonPublic)
+                        .Where(m => m.Name == "AddCard")
+                        .Select(m => "(" + string.Join(", ", m.GetParameters().Select(p => p.ParameterType.Name)) + ")");
+                    Log.Warn("[PortalService] GameManager.AddCard(CardData, InGameCardBase, bool, ...) not found; "
+                           + "portal travel will use the GiveCard fallback. AddCard overloads seen: " + string.Join(" | ", seen));
+                }
+            }
 
             if (_addCardFromSourceMethod == null)
-            {
-                Log.Warn("[PortalService] GameManager.AddCard(CardData, InGameCardBase, ...) not found; falling back to GiveCard");
                 return false;
-            }
 
             var parameters = _addCardFromSourceMethod.GetParameters();
             if (!parameters[1].ParameterType.IsInstanceOfType(sourceCard))
@@ -296,25 +319,26 @@ internal static class PortalService
             if (CardUtil.GetMemberValue(gmInstance, "CurrentTickInfo") is Vector3Int tickInfo)
                 currentTick = tickInfo.z;
 
-            var args = new object[]
+            var args = new object[parameters.Length];
+            args[0] = cardData;
+            args[1] = sourceCard;
+            args[2] = true;                           // _InCurrentEnv
+            args[3] = specialDropNone;                // _DropInSpecialPlace
+            // 4-7: transferred durabilities, inherited ingredients, flavours, spices -> null
+            args[8] = true;                           // _UseDefaultInventory
+            args[9] = SpawningLiquid.DefaultLiquid;   // _WithLiquid
+            args[10] = new Vector2Int(currentTick, 0); // _Tick
+            args[11] = default(EnvDictKey);           // _TravelTargetKey
+            for (int i = 12; i < parameters.Length; i++)
             {
-                cardData,
-                sourceCard,
-                true,
-                specialDropNone,
-                null,
-                null,
-                null,
-                null,
-                true,
-                SpawningLiquid.DefaultLiquid,
-                new Vector2Int(currentTick, 0),
-                default(EnvDictKey),
-                null,
-                true,
-                null,
-                null
-            };
+                var p = parameters[i];
+                if (p.ParameterType == typeof(InGameNPCOrPlayer))
+                    args[i] = InGameNPCOrPlayer.Null; // what vanilla's own GiveCard passes
+                else if (p.HasDefaultValue)
+                    args[i] = p.DefaultValue;         // _WithSpecialSlotInfo null, _MoveView true, ...
+                else
+                    args[i] = p.ParameterType.IsValueType ? Activator.CreateInstance(p.ParameterType) : null;
+            }
 
             if (_addCardFromSourceMethod.Invoke(gmInstance, args) is not IEnumerator enumerator)
             {
@@ -385,6 +409,18 @@ internal static class PortalService
     // ─── Shared Portal Hub — DA injection + handler registration ────────────
 
     private const string HubPlacedUid = "csffmfwportalplaced";
+
+    // The Arcane Wayfinder perk and the Portal Kit blueprint lead nowhere unless some mod registers
+    // a portal world (PortalRegistry always holds vanilla Fantasy Forest as world 0). Owner decision
+    // 2026-09-25: keep both out of character creation and the journal in that case. PerkInjector and
+    // BlueprintInjector ask this; both run after MapModLoader has filled the registry.
+    private const string WayfinderPerkUid = "csffmfwperkwayfinder";
+    private const string PortalKitBlueprintUid = "csffmfw_bp_portal_kit";
+
+    internal static bool IsPortalContentHidden(string uid) =>
+        PortalRegistry.Worlds.Count <= 1
+        && (string.Equals(uid, WayfinderPerkUid, StringComparison.OrdinalIgnoreCase)
+            || string.Equals(uid, PortalKitBlueprintUid, StringComparison.OrdinalIgnoreCase));
 
     /// <summary>
     /// <strong>Phase 5i-b (data-load).</strong> Injects one travel <c>DismantleCardAction</c>
@@ -611,6 +647,9 @@ internal static class PortalService
     /// </summary>
     internal static void RegisterHubExitHandler()
     {
+        // Runs once per run start, so this is where the previous run's recorded trips are dropped.
+        _returnEnvKeyByArrival.Clear();
+
         if (_hubExitHandler != null) ActionRouter.Unregister(_hubExitHandler);
 
         _hubExitHandler = ActionRouter.Register(new ActionHandler
@@ -627,40 +666,103 @@ internal static class PortalService
     private static void StartReturnTravel(object sourceCard)
     {
         var currentUid = GameQuery.CurrentEnvironmentUniqueId;
-        if (string.IsNullOrEmpty(currentUid) || !_returnEnvKeyByArrival.TryGetValue(currentUid, out var returnEnvKey) || string.IsNullOrEmpty(returnEnvKey))
-        {
-            Log.Warn($"[PortalService] 'Return to Portal' clicked but no return environment is recorded "
-                + $"this session for the current environment '{currentUid ?? "(null)"}' (recorded arrivals: "
-                + $"[{string.Join(", ", _returnEnvKeyByArrival.Keys)}]) — player likely didn't arrive here via a "
-                + "Portal Hub trip this session (walk-in or post-save-reload) — no-op.");
-            ShowNoReturnRecordedMessage();
-            return;
-        }
-
-        // Reconstruct via the string-key ctor (the exact round-trip vanilla uses at save/load for
-        // CurrentEnvironmentKey, EnvID.cs) rather than looking the UID up and rebuilding with
-        // `new EnvID(CardData)` — that ctor nulls itself for an instanced destination (no parent
-        // chain available), which is exactly the corruption class this fix closes.
         EnvID returnEnvId;
-        try
+        if (!string.IsNullOrEmpty(currentUid)
+            && _returnEnvKeyByArrival.TryGetValue(currentUid, out var returnEnvKey)
+            && !string.IsNullOrEmpty(returnEnvKey))
         {
-            returnEnvId = new EnvID(returnEnvKey);
-        }
-        catch (Exception ex)
-        {
-            Log.Warn($"[PortalService] 'Return to Portal': failed to reconstruct EnvID from recorded key '{returnEnvKey}': {Log.ExceptionText(ex)}");
-            ShowNoReturnRecordedMessage();
-            return;
-        }
+            // Reconstruct via the string-key ctor (the exact round-trip vanilla uses at save/load for
+            // CurrentEnvironmentKey, EnvID.cs) rather than looking the UID up and rebuilding with
+            // `new EnvID(CardData)` — that ctor nulls itself for an instanced destination (no parent
+            // chain available), which is exactly the corruption class this fix closes.
+            try
+            {
+                returnEnvId = new EnvID(returnEnvKey);
+            }
+            catch (Exception ex)
+            {
+                Log.Warn($"[PortalService] 'Return to Portal': failed to reconstruct EnvID from recorded key '{returnEnvKey}': {Log.ExceptionText(ex)}");
+                ShowNoReturnRecordedMessage();
+                return;
+            }
 
-        if (returnEnvId.IsNull || returnEnvId.EnvCard == null)
+            if (returnEnvId.IsNull || returnEnvId.EnvCard == null)
+            {
+                Log.Warn($"[PortalService] 'Return to Portal': recorded env key '{returnEnvKey}' did not resolve to a valid card (renamed/removed since departure?) — no-op.");
+                ShowNoReturnRecordedMessage();
+                return;
+            }
+        }
+        else if (TryFindSavedPortalEnv(out returnEnvId))
         {
-            Log.Warn($"[PortalService] 'Return to Portal': recorded env key '{returnEnvKey}' did not resolve to a valid card (renamed/removed since departure?) — no-op.");
+            // No trip recorded this run (the save was loaded after the trip): the return point is
+            // where the save says the placed Portal Hub stands.
+            Log.Info($"[PortalService] 'Return to Portal': no trip recorded this run for '{currentUid ?? "(null)"}'; "
+                + $"returning to the placed Portal Hub found in the save at '{returnEnvId.StringDictionnaryKey}'");
+        }
+        else
+        {
+            Log.Warn($"[PortalService] 'Return to Portal' clicked in '{currentUid ?? "(null)"}' with no trip recorded "
+                + $"this run (recorded arrivals: [{string.Join(", ", _returnEnvKeyByArrival.Keys)}]) and no placed "
+                + "Portal Hub found in the save — no-op.");
             ShowNoReturnRecordedMessage();
             return;
         }
 
         StartEnvironmentTravel(returnEnvId.EnvCard, sourceCard, "Portal", presetEnvId: returnEnvId);
+    }
+
+    /// <summary>
+    /// Finds the environment where this save's placed Portal Hub stands, for a "Return to Portal"
+    /// click after the save was reloaded (or the game restarted) since the outbound trip. Scans the
+    /// game's saved environment data (<c>GameManager.EnvironmentsData</c>, which the save writes and
+    /// loads) for <see cref="HubPlacedUid"/>, skipping the current environment. With several placed
+    /// hubs it takes the environment the player left most recently (highest
+    /// <c>LastUpdatedTick</c>), which is the one the trip started from.
+    /// </summary>
+    private static bool TryFindSavedPortalEnv(out EnvID envId)
+    {
+        envId = EnvID.Empty;
+        var gm = MBSingleton<GameManager>.Instance;
+        if (!gm || gm.EnvironmentsData == null) return false;
+
+        var currentKey = gm.CurrentEnvironment.DictionnaryKey;
+        int bestTick = int.MinValue;
+        EnvDictKey bestKey = default;
+        bool found = false;
+        foreach (var kv in gm.EnvironmentsData)
+        {
+            if (kv.Value == null || kv.Key.Equals(currentKey)) continue;
+            var cards = kv.Value.GetRegularCards;
+            if (cards == null) continue;
+            foreach (var card in cards)
+            {
+                var id = card?.CardID;
+                if (string.IsNullOrEmpty(id)) continue;
+                // SaveID writes "uid(Name)"; accept the bare UID too.
+                if (!id.StartsWith(HubPlacedUid, StringComparison.Ordinal)) continue;
+                if (id.Length != HubPlacedUid.Length && id[HubPlacedUid.Length] != '(') continue;
+                if (!found || kv.Value.LastUpdatedTick > bestTick)
+                {
+                    bestTick = kv.Value.LastUpdatedTick;
+                    bestKey = kv.Key;
+                    found = true;
+                }
+                break;
+            }
+        }
+        if (!found) return false;
+
+        try
+        {
+            envId = new EnvID(bestKey);
+        }
+        catch (Exception ex)
+        {
+            Log.Warn($"[PortalService] saved Portal Hub environment could not be rebuilt: {Log.ExceptionText(ex)}");
+            return false;
+        }
+        return !envId.IsNull && envId.EnvCard != null;
     }
 
     /// <summary>
@@ -683,7 +785,7 @@ internal static class PortalService
             }
             popup.Setup(
                 "Return to Portal",
-                "This exit doesn't know where to send you back yet. It only remembers a return trip after you travel OUT through a placed Portal Hub this session — if you loaded a save (or walked in) already standing here, build/use a Portal Hub to travel to another world first, then this exit will bring you back here.",
+                "This exit doesn't know where to send you back: no placed Portal Hub was found in this save. Place a Portal Hub and travel out through it, and this exit will bring you back to it.",
                 null);
         }
         catch (Exception ex)

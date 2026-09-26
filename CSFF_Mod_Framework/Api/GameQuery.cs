@@ -606,19 +606,37 @@ public static class GameQuery
         catch (Exception ex) { Log.Debug($"[GameQuery] GameManager.Instance read threw: {Log.ExceptionText(ex)}"); return null; }
     }
 
+    // CardEnvironment is an EnvID struct, so a boxed read is never null while the member exists: null
+    // here means the member itself is gone. Before 2.26.8 that emptied every env-scoped query with no
+    // line; it now warns once per (type, member).
+    private static readonly HashSet<(Type, string)> _missingEnvMember = new();
+
     private static bool IsInPlayerEnv(object card)
     {
         var env = CardUtil.GetMemberValue(card, "CardEnvironment");
-        if (env == null) return false;
+        if (env == null) { WarnMissingEnvMember(card, "CardEnvironment"); return false; }
         var val = CardUtil.GetMemberValue(env, "MatchesPlayerEnv");
-        return val is bool b && b;
+        if (val is bool b) return b;
+        WarnMissingEnvMember(env, "MatchesPlayerEnv");
+        return false;
     }
+
+    private static void WarnMissingEnvMember(object owner, string member)
+    {
+        if (owner != null && _missingEnvMember.Add((owner.GetType(), member)))
+            Log.Warn($"[GameQuery] {owner.GetType().Name}.{member} could not be read, so env-scoped queries (CardsInPlayerEnv and its callers) see no cards.");
+    }
+
+    // CardTags FieldInfo per CardData runtime type; nulls cached too (the field exists or it doesn't).
+    private static readonly Dictionary<Type, FieldInfo> _cardTagsField = new();
 
     private static bool HasTag(object cardData, string tagName)
     {
         try
         {
-            var tagsField = cardData.GetType().GetField("CardTags", Flags);
+            var type = cardData.GetType();
+            if (!_cardTagsField.TryGetValue(type, out var tagsField))
+                _cardTagsField[type] = tagsField = type.GetField("CardTags", Flags);
             if (tagsField?.GetValue(cardData) is IList list)
                 foreach (var t in list)
                     if (t is UnityEngine.Object uo && uo.name == tagName) return true;

@@ -13,6 +13,7 @@ public class GifPlayer : MonoBehaviour
     private Image _image;
     private GifFrameSet _current;
     private Coroutine _coroutine;
+    private int _index;
 
     public bool IsPlaying => _coroutine != null;
     public GifFrameSet Current => _current;
@@ -56,6 +57,17 @@ public class GifPlayer : MonoBehaviour
         _current = null;
     }
 
+    /// <summary>
+    /// Re-applies the frame currently showing. Vanilla CardGraphics.Setup and RefreshCookingStatus
+    /// write the static art into overrideSprite; calling this right after them avoids a frame of
+    /// static art before the loop's next tick.
+    /// </summary>
+    public void ReapplyCurrentFrame()
+    {
+        if (_image == null || _current == null || _current.Frames.Length == 0) return;
+        _image.overrideSprite = _current.Frames[Mathf.Clamp(_index, 0, _current.Frames.Length - 1)];
+    }
+
     private void StopAnimation()
     {
         if (_coroutine != null)
@@ -70,19 +82,22 @@ public class GifPlayer : MonoBehaviour
         if (_image == null || _current == null || _current.Frames.Length == 0)
             yield break;
 
-        int index = 0;
+        // overrideSprite, not sprite: the card Image renders overrideSprite whenever it is set, and
+        // vanilla always sets it (CardGraphics.Setup, RefreshCookingStatus), so frames written to
+        // .sprite were never visible (fixed 2.26.7).
+        _index = 0;
         while (true)
         {
-            _image.sprite = _current.Frames[index];
+            _image.overrideSprite = _current.Frames[_index];
 
-            float delay = _current.Delays.Length > index ? _current.Delays[index] : 0.1f;
+            float delay = _current.Delays.Length > _index ? _current.Delays[_index] : 0.1f;
             yield return new WaitForSecondsRealtime(delay);
 
-            index++;
-            if (index >= _current.Frames.Length)
+            _index++;
+            if (_index >= _current.Frames.Length)
             {
-                if (!_current.Loop) yield break;
-                index = 0;
+                if (!_current.Loop) { _index = _current.Frames.Length - 1; yield break; }
+                _index = 0;
             }
         }
     }

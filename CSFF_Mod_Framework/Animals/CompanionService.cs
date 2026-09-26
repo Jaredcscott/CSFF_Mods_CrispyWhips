@@ -105,11 +105,11 @@ internal static class CompanionService
                 Timing = ActionTiming.AfterWrapped,
                 After = _ =>
                 {
-                    var companion = FindLiveCard(companionUid);
-                    if (companion != null)
+                    var companions = FindLiveCardsInPlayerEnv(companionUid);
+                    if (companions.Count > 0)
                     {
                         Log.Info($"Animals: {speciesId}: Interaction '{ixName}' succeeded — companion '{companionUid}' is live.");
-                        if (initStats) InitCompanionStatsToFull(companion, speciesId);
+                        if (initStats) foreach (var companion in companions) InitCompanionStatsToFull(companion, speciesId);
                         if (despawnAgent) RetireAndRelocate(agent, stats, spiritWorld, speciesId);
                     }
                     else
@@ -136,30 +136,40 @@ internal static class CompanionService
         return npc != null && ReferenceEquals(npc.AssociatedCard, card);
     }
 
-    private static InGameCardBase FindLiveCard(string uid)
+    // Every live instance of the companion card on the player's board. AllCards also holds carried
+    // and background cards (root CLAUDE.md, AllCards env scoping), and a player can already own a
+    // companion of the same card, so before 2.26.8 the first UID match could be an off-board or older
+    // instance: it read as "tame succeeded" and had its stats topped up instead of the new one.
+    private static List<InGameCardBase> FindLiveCardsInPlayerEnv(string uid)
     {
+        var found = new List<InGameCardBase>();
         var gm = MBSingleton<GameManager>.Instance;
-        if (gm?.AllCards == null) return null;
+        if (gm?.AllCards == null) return found;
         foreach (var card in gm.AllCards)
-            if (card != null && card.CardModel != null && card.CardModel.UniqueID == uid)
-                return card;
-        return null;
+            if (card && card.CardModel != null && card.CardModel.UniqueID == uid && card.CardEnvironment.MatchesPlayerEnv)
+                found.Add(card);
+        return found;
     }
 
-    /// <summary>Sets every ACTIVE durability stat that reads exactly 0 to its max. Safe by
-    /// construction: this only ever runs the instant a companion this same action just spawned
-    /// is found live, so an all-zero snapshot is unambiguously "never initialized," never
-    /// legitimate neglect (mirrors Sirus23's own <c>WolfTickPatch.TryInitFreshSpawn</c>).</summary>
+    /// <summary>Sets every ACTIVE durability stat to its max, but only on an instance whose active
+    /// stats ALL read exactly 0: that snapshot is unambiguously "never initialized," never
+    /// legitimate neglect (mirrors Sirus23's own <c>WolfTickPatch.TryInitFreshSpawn</c>). An
+    /// instance with any active stat above 0 is an older companion, or one that spawned with its
+    /// JSON values (framework 2.26.7 onward), and is left alone.</summary>
     private static void InitCompanionStatsToFull(InGameCardBase companion, string speciesId)
     {
-        int fixedCount = 0;
+        var zeroed = new List<(string Stat, float Max)>();
         foreach (var statName in CardUtil.AllDurabilityStats)
         {
             float cur = CardUtil.GetDurability(companion, statName);
             float max = CardUtil.GetDurabilityMax(companion, statName);
-            if (float.IsNaN(cur) || float.IsNaN(max) || max <= 0f || cur > 0f) continue;
-            if (CardUtil.SetDurability(companion, statName, max)) fixedCount++;
+            if (float.IsNaN(cur) || float.IsNaN(max) || max <= 0f) continue;
+            if (cur > 0f) return;
+            zeroed.Add((statName, max));
         }
+        int fixedCount = 0;
+        foreach (var (stat, max) in zeroed)
+            if (CardUtil.SetDurability(companion, stat, max)) fixedCount++;
         if (fixedCount > 0)
             Log.Info($"Animals: {speciesId}: companion spawned with {fixedCount} zeroed stat(s) — initialized to full immediately after tame.");
     }

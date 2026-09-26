@@ -3,28 +3,23 @@ using CSFFModFramework.Util;
 namespace CSFFModFramework.Api;
 
 /// <summary>
-/// Framework-owned card spawning with stat initialization (Centralization Tier 2, P4).
-/// Replaces the per-mod GiveCard reflection + pending-flag GiveCard postfix chains
-/// (WDI ×4, CMC remainder shard, ACT Grind All outputs, Sirus).
+/// Framework-owned card spawning (Centralization Tier 2, P4). Replaces the per-mod GiveCard
+/// reflection chains (WDI, CMC remainder shard, Sirus).
 ///
-/// <para><b>Direct spawn</b> — resolve, spawn via the game's <c>GameManager.GiveCard</c>
-/// (the only working spawn method, CLAUDE.md §Runtime Card Spawning), and apply stat
-/// overrides on the returned card immediately (before any post-spawn time ticks):</para>
-/// <code>
-/// var card = SpawnService.Spawn("my_mod_item",
-///     new Dictionary&lt;string,float&gt; { ["SpecialDurability4"] = 200f });
-/// </code>
+/// <para><b>Direct spawn</b>: resolve and spawn through the game's <c>GameManager.GiveCard</c>
+/// (CLAUDE.md, Runtime Card Spawning). <c>GiveCard</c> returns void on the live game, so
+/// <c>Spawn</c> returns null even on success.</para>
 ///
-/// <para><b>Queued overrides</b> — for cards the GAME spawns (ProducedCards, OnFull,
-/// perk kits), register the override before the game-side spawn happens; the framework's
-/// single GiveCard postfix applies it to the next matching spawn(s):</para>
-/// <code>
-/// SpawnService.OnNextSpawn("my_mod_shard",
-///     new Dictionary&lt;string,float&gt; { ["UsageDurability"] = 10f }, count: 3);
-/// </code>
+/// <para><b>Stat overrides are not applied on this game build.</b> <c>Spawn</c>'s
+/// <c>statOverrides</c>, <c>OnNextSpawn</c> and a card's JSON <c>SpawnStatDefaults</c> are
+/// accepted and then dropped, because no hook here holds the spawned instance (a Warn for
+/// <c>Spawn</c>, a Debug line for the other two). Set stats yourself after the spawn.</para>
+///
+/// <para><b>Spawn event</b>: <see cref="CardSpawned"/> fires for every card the game creates
+/// during play, from vanilla's <c>GameManager.OnCardSpawned</c>.</para>
 ///
 /// <para>Stat names accept JSON-side names ("SpoilageTime", "SpecialDurability4") or
-/// runtime names ("CurrentSpoilage") — see <c>CardUtil.SetDurability</c>.</para>
+/// runtime names ("CurrentSpoilage"); see <c>CardUtil.SetDurability</c>.</para>
 /// </summary>
 public static class SpawnService
 {
@@ -74,22 +69,25 @@ public static class SpawnService
     private static event Action<object, string> _cardSpawned;
 
     /// <summary>
-    /// Raised from the framework's GiveCard postfix for EVERY card the game spawns
-    /// (args: in-game card, its UniqueID). Subscribing applies the GiveCard patch
-    /// lazily. Use to observe game-side spawns without writing your own postfix.
+    /// Raised for every card the game creates during play (args: the in-game card, its
+    /// UniqueID), from vanilla's <c>GameManager.OnCardSpawned</c>, which <c>AddCard</c> invokes
+    /// for drops, blueprint results, transforms and <c>GiveCard</c> spawns alike. Before 2.26.6
+    /// this came from a <c>GiveCard</c> postfix, and vanilla calls <c>GiveCard</c> only from the
+    /// cheat menu, so the event fired for mod spawns alone and passed the CardData template.
     /// </summary>
     public static event Action<object, string> CardSpawned
     {
-        add { _cardSpawned += value; EnsurePatched(); }
+        add { _cardSpawned += value; EnsureCardSpawnedHook(); }
         remove { _cardSpawned -= value; }
     }
 
     // ── Direct spawn ─────────────────────────────────────────────────────────
 
     /// <summary>
-    /// Spawns a card by UniqueID and applies optional stat overrides. Returns the
-    /// spawned in-game card, or null on failure (every failure path is logged —
-    /// CLAUDE.md: always log at null checks in spawn chains).
+    /// Spawns a card by UniqueID onto the current board. On the live game this returns null
+    /// even on success (<c>GiveCard</c> returns void), and <paramref name="statOverrides"/> are
+    /// dropped with a Warn. Every failure path is logged (CLAUDE.md: always log at null checks
+    /// in spawn chains).
     /// </summary>
     public static object Spawn(string uid, IDictionary<string, float> statOverrides = null)
     {
@@ -104,8 +102,8 @@ public static class SpawnService
     }
 
     /// <summary>
-    /// Spawns a card from a resolved CardData and applies optional stat overrides.
-    /// Returns the spawned in-game card, or null on failure.
+    /// Spawns a card from a resolved CardData. Same return value and override behaviour as
+    /// the UniqueID overload.
     /// </summary>
     public static object Spawn(object cardData, IDictionary<string, float> statOverrides = null)
     {
@@ -283,6 +281,45 @@ public static class SpawnService
         return _giveCardMethod;
     }
 
+    private static bool _cardSpawnedHooked;
+
+    // Vanilla raises GameManager.OnCardSpawned from AddCard for every card it creates during
+    // play (.decomp/GameManager.cs). It is a static delegate that vanilla only Combines and
+    // Removes its own handlers on, never resets, so one subscription lasts the process.
+    private static void EnsureCardSpawnedHook()
+    {
+        if (_cardSpawnedHooked) return;
+        _cardSpawnedHooked = true;
+        try
+        {
+            GameManager.OnCardSpawned += OnVanillaCardSpawned;
+            Log.Debug("[SpawnService] subscribed to GameManager.OnCardSpawned.");
+        }
+        catch (Exception ex)
+        {
+            Log.Warn($"[SpawnService] could not subscribe to GameManager.OnCardSpawned; CardSpawned will not fire: {Log.ExceptionText(ex)}");
+        }
+    }
+
+    private static void OnVanillaCardSpawned(InGameCardBase card)
+    {
+        var subscribers = _cardSpawned;
+        if (subscribers == null || card == null) return;
+        string uid;
+        try { uid = CardUtil.GetCardUniqueId(card); }
+        catch (Exception ex)
+        {
+            Log.Debug($"[SpawnService] CardSpawned: UniqueID read threw: {ex.GetType().Name} {ex.Message}");
+            return;
+        }
+        if (uid == null) return;
+        foreach (var d in subscribers.GetInvocationList())
+        {
+            try { ((Action<object, string>)d)(card, uid); }
+            catch (Exception ex) { Log.Warn($"[SpawnService] CardSpawned subscriber threw: {Log.ExceptionText(ex)}"); }
+        }
+    }
+
     private static void EnsurePatched()
     {
         if (_patchAttempted) return;
@@ -304,11 +341,10 @@ public static class SpawnService
         }
     }
 
-    // GameManager.GiveCard(CardData _Data, bool _Complete) returns VOID in EA 0.64f, so a
-    // postfix's __result is always null. We read the CardData ARGUMENT (__0) instead — it
-    // carries the UniqueID, which is all the CardSpawned event needs. (Relying on __result
-    // here was why WorldMapInjector.OnCloneEnvCardSpawned never fired and the Village Path
-    // CT8 never spawned; see Retrospectives/village-path-east-travel.md.)
+    // GameManager.GiveCard(CardData _Data, bool _Complete) returns VOID, so a postfix's
+    // __result is always null and there is no spawned instance to apply overrides to. Since
+    // 2.26.6 this postfix only expires stale OnNextSpawn entries; CardSpawned is raised from
+    // vanilla's GameManager.OnCardSpawned instead (EnsureCardSpawnedHook).
     private static void GiveCard_Postfix(object __0)
     {
         if (__0 == null) return;
@@ -342,14 +378,6 @@ public static class SpawnService
         catch (Exception ex)
         {
             Log.Warn($"[SpawnService] GiveCard postfix error: {Log.ExceptionText(ex)}");
-        }
-
-        var handler = _cardSpawned;
-        if (handler == null) return;
-        foreach (var d in handler.GetInvocationList())
-        {
-            try { ((Action<object, string>)d)(__0, uid); }
-            catch (Exception ex) { Log.Warn($"[SpawnService] CardSpawned subscriber threw: {Log.ExceptionText(ex)}"); }
         }
     }
 

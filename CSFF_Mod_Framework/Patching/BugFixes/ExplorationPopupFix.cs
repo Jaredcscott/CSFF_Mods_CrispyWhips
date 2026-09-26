@@ -11,7 +11,9 @@ namespace CSFFModFramework.Patching.BugFixes;
 /// </summary>
 internal static class ExplorationPopupFix
 {
-    private static bool _logged;
+    // One line per distinct cause (exception type + throwing method). Before 2.26.8 a single bool
+    // let WikiMod's known exception silence every later, different one, and only the message was logged.
+    private static readonly HashSet<string> _loggedCauses = new();
 
     public static void ApplyPatch(Harmony harmony)
     {
@@ -28,11 +30,9 @@ internal static class ExplorationPopupFix
 
     static Exception SetupFinalizer(Exception __exception)
     {
-        if (__exception != null && !_logged)
-        {
-            _logged = true;
-            Util.Log.Warn($"ExplorationPopupFix: swallowed exception in ExplorationPopup.Setup (WikiMod minimap): {__exception.Message}");
-        }
+        if (__exception != null && _loggedCauses.Add(Util.Log.CauseKey(__exception)))
+            Util.Log.Warn("ExplorationPopupFix: swallowed an exception in ExplorationPopup.Setup so the popup still opens "
+                        + $"(WikiMod's minimap postfix is the known source; the trace names the actual one): {Util.Log.ExceptionText(__exception)}");
         return null;
     }
 }

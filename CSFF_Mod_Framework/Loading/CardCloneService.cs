@@ -24,8 +24,12 @@ namespace CSFFModFramework.Loading;
 /// <para>Only the identity fields change: UniqueID, SO name, and a fresh CardName
 /// LocalizedString (never mutate the template's — CLAUDE.md §Runtime
 /// DismantleAction Injection). The clone Env's DefaultEnvCardDrops entry that
-/// spawned the template's location card is repointed at the cloned location card;
-/// all other drops (trees, enrichers) keep their vanilla references.</para>
+/// spawned the template's location card is repointed at the cloned location card.
+/// Every other drop whose card is AlwaysUpdate (all vanilla trees, Pond, the river cards) is
+/// swapped for a <c>&lt;uid&gt;__envlocal</c> variant by <see cref="NeutralizeFollowerDrops"/>;
+/// the rest keep their vanilla references. Because of that swap, the location card's inherited
+/// "create X if missing" actions must be taught about the variants:
+/// <see cref="GuardCreatorsAgainstEnvLocalDrops"/>.</para>
 /// </summary>
 internal static class CardCloneService
 {
@@ -536,6 +540,16 @@ internal static class CardCloneService
     // Cache reflected fields by (declaring-or-derived Type, fieldName) — base-walking, public+nonpublic.
     private static readonly Dictionary<(Type, string), FieldInfo> _fieldCache = new();
 
+    // CardData fields that hold CardAction[]/List<CardAction-derived> on a location card. Shared by
+    // the two passes that rewrite a clone location card's inherited actions (StripActionsProducingUids
+    // and GuardCreatorsAgainstEnvLocalDrops). SelfTriggeredActions is a separate ScriptableObject
+    // collection, not a CardData action array, so it is not scanned.
+    private static readonly string[] LocationActionFields =
+    {
+        "OnStatsChangeActions", "CardInteractions",
+        "DismantleActions", "AlternateDismantleActions", "OnInteractActions",
+    };
+
     private static FieldInfo GetFieldDeep(Type type, string name)
     {
         var key = (type, name);
@@ -577,16 +591,8 @@ internal static class CardCloneService
         if (cloneCard == null || stripUids == null || stripUids.Count == 0) return;
         var uidSet = new HashSet<string>(stripUids, StringComparer.OrdinalIgnoreCase);
 
-        // Only CardData fields that are CardAction[]/List<CardAction-derived>. SelfTriggeredActions is
-        // a separate ScriptableObject collection, not a CardData action array, so it is not scanned.
-        string[] actionFields =
-        {
-            "OnStatsChangeActions", "CardInteractions",
-            "DismantleActions", "AlternateDismantleActions", "OnInteractActions",
-        };
-
         int totalRemoved = 0;
-        foreach (var fieldName in actionFields)
+        foreach (var fieldName in LocationActionFields)
         {
             try { totalRemoved += StripActionsInField(cloneCard, fieldName, uidSet); }
             catch (Exception ex)
@@ -655,6 +661,208 @@ internal static class CardCloneService
             }
         }
         return false;
+    }
+
+    private const string EnvLocalSuffix = "__envlocal";
+
+    /// <summary>
+    /// Makes a clone location card's inherited "create X if missing" actions see the env-local
+    /// variants its own environment seeds, so they stop planting a vanilla copy beside them.
+    ///
+    /// <para><strong>The defect (retro worldmap-clone-duplicate-terrain, 2026-09-26):</strong>
+    /// vanilla explorable cards carry <c>OnStatsChangeActions</c> such as "Create a Pond if it is
+    /// missing" and "Create Birch Tree", gated by an INVERTED <c>RequiredCardsOnBoard</c> entry on the
+    /// vanilla card and fired every tick by the <c>Counter</c> stat. <c>Object.Instantiate</c> copies
+    /// them onto the clone. <see cref="NeutralizeFollowerDrops"/> then makes the clone env seed
+    /// <c>&lt;uid&gt;__envlocal</c> instead of every AlwaysUpdate default drop (all eight vanilla
+    /// trees, Pond, the river cards). <c>GameManager.CardIsOnBoard</c> matches <c>CardModel</c> BY
+    /// REFERENCE (<c>.decomp/GameManager.cs</c> 13723, 13780; scan mode 12694, 12746), so the env-local
+    /// copy never satisfies "Pond is on the board", the inverted condition passes, and the action adds
+    /// a vanilla Pond beside the clone's own. Two identical Ponds, capped at two because the vanilla
+    /// copy then satisfies its own condition. Tag-gated creators ("Create Large Tree" on
+    /// <c>RequiredTagsOnBoard</c>) are NOT affected: <c>TagInCards</c> matches <c>HasTag</c>, which
+    /// the env-local copy shares.</para>
+    ///
+    /// <para><strong>The fix:</strong> for every inverted condition whose trigger card this env seeds
+    /// as an env-local variant, APPEND a matching inverted condition on the variant, so the action
+    /// fires only when neither form is on the board. The vanilla condition stays: a seasonal transform
+    /// (Pond to the vanilla PondFrozen and back) turns the env-local copy into the vanilla card, and
+    /// the original condition is what keeps that case from planting a second one. The action's
+    /// products that ARE the guarded card are repointed to the variant, so a re-planted tree or pond
+    /// is the same env-local form the env seeds. Non-inverted conditions, tag conditions and every
+    /// other product are left exactly as inherited.</para>
+    ///
+    /// <para>Scoped to clone location cards: it only ever touches <paramref name="locationClone"/>,
+    /// whose action arrays <c>Object.Instantiate</c> deep-copied (no vanilla card shares them), and
+    /// only for variants present in <paramref name="envClone"/>'s own drops. Idempotent, so a
+    /// re-prepare in the same process adds nothing. Must run AFTER <see cref="StripNonLocationDrops"/>,
+    /// <see cref="AppendExtraDrops"/> and <see cref="StripActionsProducingUids"/>: the first two decide
+    /// which variants the env really seeds, and the third matches products by their VANILLA UniqueID,
+    /// so repointing a product first would stop it stripping the actions it is meant to strip.</para>
+    /// </summary>
+    /// <returns>One entry per guarded action ("'Create a Pond if it is missing' guards Pond"),
+    /// empty when nothing on this card needed it.</returns>
+    internal static List<string> GuardCreatorsAgainstEnvLocalDrops(CardData envClone, CardData locationClone)
+    {
+        var guarded = new List<string>();
+        if (envClone == null || locationClone == null || !ResolveFields()) return guarded;
+
+        // Vanilla UniqueID -> the env-local variant this env's FINAL DefaultEnvCardDrops seeds.
+        var variants = new Dictionary<string, CardData>(StringComparer.Ordinal);
+        if (_envDropsField.GetValue(envClone) is IEnumerable drops)
+        {
+            foreach (var drop in drops)
+            {
+                if (drop == null) continue;
+                var dropped = _droppedCardField.GetValue(drop) as CardData;
+                if (dropped == null) continue;
+                var uid = dropped.UniqueID;
+                if (string.IsNullOrEmpty(uid) || !uid.EndsWith(EnvLocalSuffix, StringComparison.Ordinal)) continue;
+                variants[uid.Substring(0, uid.Length - EnvLocalSuffix.Length)] = dropped;
+            }
+        }
+        if (variants.Count == 0) return guarded;
+
+        var strayRules = new Dictionary<string, HashSet<string>>(StringComparer.Ordinal);
+        foreach (var fieldName in LocationActionFields)
+        {
+            try
+            {
+                var field = GetFieldDeep(locationClone.GetType(), fieldName);
+                if (field?.GetValue(locationClone) is not IEnumerable actions) continue;
+                foreach (var item in actions)
+                {
+                    if (item is not CardAction action) continue;
+                    var summary = GuardCreatorAction(action, variants, strayRules);
+                    if (summary != null) guarded.Add(summary);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Warn($"CardCloneService.GuardCreatorsAgainstEnvLocalDrops: '{locationClone.name}' field '{fieldName}' failed: {ex.GetType().Name}: {ex.Message}");
+            }
+        }
+        if (!string.IsNullOrEmpty(locationClone.UniqueID))
+        {
+            if (strayRules.Count > 0) _strayProductRules[locationClone.UniqueID] = strayRules;
+            else _strayProductRules.Remove(locationClone.UniqueID);
+        }
+        return guarded;
+    }
+
+    // Clone location card UID -> (product UID -> env-local variant UIDs). One entry per product of a
+    // guarded creator that is a DIFFERENT card from everything it guards, so the repoint cannot
+    // cover it: Clay Shoal's "Create a River if it is missing" is gated on RiverBog (which the env
+    // seeds as RiverBog__envlocal) and produces vanilla River. Before the guard it planted a River
+    // beside the bog; a River standing next to one of the listed variants can only have come from
+    // there, and it is not a twin of any declared drop, so the UID-family heal cannot see it.
+    private static readonly Dictionary<string, Dictionary<string, HashSet<string>>> _strayProductRules =
+        new(StringComparer.Ordinal);
+
+    /// <summary>
+    /// For the live trim's existing-save heal: products of this clone location card's guarded
+    /// creators that the guard could not repoint, each with the env-local variant UIDs whose
+    /// presence on the board proves a copy of it was planted by the pre-guard action. Null when the
+    /// card has none. Only UniqueOnBoard products are listed.
+    /// </summary>
+    internal static IReadOnlyDictionary<string, HashSet<string>> GetStrayProductRules(string locationUid)
+    {
+        if (string.IsNullOrEmpty(locationUid)) return null;
+        return _strayProductRules.TryGetValue(locationUid, out var rules) ? rules : null;
+    }
+
+    /// <summary>Appends the env-local twin of each guarded inverted condition on one action,
+    /// repoints the matching products, and records stray-product rules for the ones it cannot
+    /// repoint. Returns a one-line summary when twins were added, else null. Safe to run twice:
+    /// already-present twins are not re-added, and the rules are rebuilt the same either way.</summary>
+    private static string GuardCreatorAction(CardAction action, Dictionary<string, CardData> variants,
+                                             Dictionary<string, HashSet<string>> strayRules)
+    {
+        var conditions = action.RequiredCardsOnBoard;
+        if (conditions == null || conditions.Length == 0) return null;
+
+        List<CardOnBoardCondition> twins = null;
+        HashSet<string> guardedUids = null;
+        List<string> guardedNames = null;
+        foreach (var condition in conditions)
+        {
+            if (!condition.Inverted || condition.TriggerCard == null) continue;
+            var triggerUid = condition.TriggerCard.UniqueID;
+            if (string.IsNullOrEmpty(triggerUid) || !variants.TryGetValue(triggerUid, out var variant)) continue;
+            if (guardedUids != null && guardedUids.Contains(triggerUid)) continue; // one twin per card
+            (guardedUids ??= new HashSet<string>(StringComparer.Ordinal)).Add(triggerUid);
+            if (HasInvertedCondition(conditions, variant)) continue; // already guarded (re-prepare)
+
+            // CardOnBoardCondition is a struct: the copy keeps OnlyInHand / NotInHand /
+            // ExcludeInventories / OnlyEquipped exactly as the vanilla entry has them.
+            var twin = condition;
+            twin.TriggerCard = variant;
+            (twins ??= new List<CardOnBoardCondition>()).Add(twin);
+            (guardedNames ??= new List<string>()).Add(condition.TriggerCard.name);
+        }
+        if (guardedUids == null) return null;
+
+        if (twins != null)
+        {
+            var merged = new CardOnBoardCondition[conditions.Length + twins.Count];
+            Array.Copy(conditions, merged, conditions.Length);
+            for (int i = 0; i < twins.Count; i++) merged[conditions.Length + i] = twins[i];
+            action.RequiredCardsOnBoard = merged;
+        }
+
+        int repointed = RepointProducedCardsToVariants(action, guardedUids, variants, strayRules, out var strayNames);
+        if (twins == null) return null;
+        return $"'{action.ActionName.DefaultText}' guards {string.Join("/", guardedNames)}" +
+               (repointed > 0 ? $", {repointed} product(s) now env-local" : "") +
+               (strayNames != null ? $", stray {string.Join("/", strayNames)} healed on arrival" : "");
+    }
+
+    private static bool HasInvertedCondition(CardOnBoardCondition[] conditions, CardData card)
+    {
+        foreach (var c in conditions)
+            if (c.Inverted && ReferenceEquals(c.TriggerCard, card)) return true;
+        return false;
+    }
+
+    /// <summary>Repoints each <c>ProducedCards</c> drop whose card is one of
+    /// <paramref name="uids"/> to that card's env-local variant. Every OTHER UniqueOnBoard product
+    /// that has no env-local variant here is recorded in <paramref name="strayRules"/> against the
+    /// guarded variants (see <see cref="GetStrayProductRules"/>), and named in
+    /// <paramref name="strayNames"/> (null when there are none).</summary>
+    private static int RepointProducedCardsToVariants(CardAction action, HashSet<string> uids, Dictionary<string, CardData> variants,
+                                                      Dictionary<string, HashSet<string>> strayRules, out List<string> strayNames)
+    {
+        strayNames = null;
+        if (action.ProducedCards == null) return 0;
+        int repointed = 0;
+        foreach (var collection in action.ProducedCards)
+        {
+            if (collection == null) continue;
+            // CardsDropCollection.DroppedCards is a PRIVATE CardDrop[] (.decomp/CardsDropCollection.cs).
+            if (GetFieldDeep(collection.GetType(), "DroppedCards")?.GetValue(collection) is not CardDrop[] cardDrops) continue;
+            for (int i = 0; i < cardDrops.Length; i++)
+            {
+                var dropped = cardDrops[i].DroppedCard;
+                if (dropped == null || string.IsNullOrEmpty(dropped.UniqueID)) continue;
+                if (uids.Contains(dropped.UniqueID))
+                {
+                    // CardDrop is a struct: assign through the array slot, never through a copy.
+                    cardDrops[i].DroppedCard = variants[dropped.UniqueID];
+                    repointed++;
+                    continue;
+                }
+                // Not repointable: a different card from everything guarded (Clay Shoal's River,
+                // gated on RiverBog). Already-env-local products (a re-prepare) and cards this env
+                // seeds its own variant of are handled elsewhere, so they are never stray.
+                if (strayRules == null || !dropped.UniqueOnBoard) continue;
+                if (dropped.UniqueID.EndsWith(EnvLocalSuffix, StringComparison.Ordinal) || variants.ContainsKey(dropped.UniqueID)) continue;
+                if (!strayRules.TryGetValue(dropped.UniqueID, out var gates))
+                    strayRules[dropped.UniqueID] = gates = new HashSet<string>(StringComparer.Ordinal);
+                foreach (var guardedUid in uids) gates.Add(variants[guardedUid].UniqueID);
+                (strayNames ??= new List<string>()).Add(dropped.name);
+            }
+        }
+        return repointed;
     }
 
     private static void Register(UniqueIDScriptable obj, string sourceMod)

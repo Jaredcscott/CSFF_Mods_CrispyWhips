@@ -33,7 +33,11 @@ internal static class TriggerLoader
                 try
                 {
                     var json = File.ReadAllText(file);
-                    if (MiniJson.Parse(json) is not Dictionary<string, object> parsed) continue;
+                    if (MiniJson.Parse(json) is not Dictionary<string, object> parsed)
+                    {
+                        Log.Warn($"[TriggerLoader] {mod.Name}: {Path.GetFileName(file)} skipped, its root must be a JSON object");
+                        continue;
+                    }
 
                     var def = ParseTrigger(parsed, mod.Name);
                     if (def == null) continue;
