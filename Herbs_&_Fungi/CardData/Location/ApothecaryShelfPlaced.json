@@ -214,15 +214,6 @@
                 "Wood"
             ],
             "ActionSoundsWarpType": 3,
-            "RequiredReceivingDurabilities": {
-                "RequiredInventoryEmpty": true,
-                "HideActionIfNotMet": true,
-                "FailMessage": {
-                    "ParentObjectID": "herbs_fungi_apothecary_shelf_placed",
-                    "LocalizationKey": "Herbs_And_Fungi_ApothecaryShelfPlaced_DismantleActions_PickUp_FailMessage",
-                    "DefaultText": "Clear the shelf before taking it down."
-                }
-            },
             "ReceivingCardChanges": {
                 "ModType": 2,
                 "TransformInto": {
@@ -256,15 +247,6 @@
                 "Wood"
             ],
             "ActionSoundsWarpType": 3,
-            "RequiredReceivingDurabilities": {
-                "RequiredInventoryEmpty": true,
-                "HideActionIfNotMet": true,
-                "FailMessage": {
-                    "ParentObjectID": "herbs_fungi_apothecary_shelf_placed",
-                    "LocalizationKey": "Herbs_And_Fungi_ApothecaryShelfPlaced_DismantleActions_Dismantle_FailMessage",
-                    "DefaultText": "Clear the shelf first."
-                }
-            },
             "ProducedCards": [
                 {
                     "CollectionName": "",

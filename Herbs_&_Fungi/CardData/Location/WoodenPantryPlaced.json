@@ -217,15 +217,6 @@
                 "Wood"
             ],
             "ActionSoundsWarpType": 3,
-            "RequiredReceivingDurabilities": {
-                "RequiredInventoryEmpty": true,
-                "HideActionIfNotMet": true,
-                "FailMessage": {
-                    "ParentObjectID": "herbs_fungi_wooden_pantry_placed",
-                    "LocalizationKey": "Herbs_And_Fungi_WoodenPantryPlaced_DismantleActions_PickUp_FailMessage",
-                    "DefaultText": "Empty the pantry before picking it up."
-                }
-            },
             "ReceivingCardChanges": {
                 "ModType": 2,
                 "TransformInto": {
@@ -259,15 +250,6 @@
                 "Wood"
             ],
             "ActionSoundsWarpType": 3,
-            "RequiredReceivingDurabilities": {
-                "RequiredInventoryEmpty": true,
-                "HideActionIfNotMet": true,
-                "FailMessage": {
-                    "ParentObjectID": "herbs_fungi_wooden_pantry_placed",
-                    "LocalizationKey": "Herbs_And_Fungi_WoodenPantry_DismantleActions_Dismantle_FailMessage",
-                    "DefaultText": "Empty the pantry first."
-                }
-            },
             "ProducedCards": [
                 {
                     "CollectionName": "",

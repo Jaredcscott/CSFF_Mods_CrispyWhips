@@ -1577,12 +1577,12 @@ Herbs_And_Fungi_RoastedPeanuts_SpoilageTime_OnFull_ActionDescription,The roasted
 Herbs_And_Fungi_RoastedPeanuts_Grind_ActionName,Grind,研磨
 Herbs_And_Fungi_RoastedPeanuts_Grind_ActionDescription,Grind the roasted peanuts into peanut butter.,将烤花生研磨成花生酱。
 Herbs_And_Fungi_PeanutOil_CardName,Peanut Oil,花生油
-Herbs_And_Fungi_PeanutOil_CardDescription,"Cold-pressed oil extracted from raw peanuts, served in a clay bowl. Nutty and rich. Eat it, season food with it, or render it into lamp oil.",用生花生冷榞提取的油，盛在陶碗中。坚果香浓郁。可直接食用、给食物调味，或熟制成灯油。
+Herbs_And_Fungi_PeanutOil_CardDescription,"Cold-pressed oil extracted from raw peanuts, served in a clay bowl. Nutty and rich. Eat it or season food with it.",用生花生冷榞提取的油，盛在陶碗中。坚果香浓郁。可直接食用或给食物调味。
 Herbs_And_Fungi_PeanutOil_CardHelpSection,"<b>Crafted:</b> By pressing 3 Raw Peanuts + Clay Bowl on a placed Oil Press.
 
-<b>Uses:</b> Eat directly (returns empty clay bowl), drag onto food to season, or render over a fire into lamp oil.","<b>制作：</b> 在已放置的榞油机上用3个生花生+陶碗压榞而成。
+<b>Uses:</b> Eat directly (returns empty clay bowl) or drag onto food to season.","<b>制作：</b> 在已放置的榞油机上用3个生花生+陶碗压榞而成。
 
-<b>用途:</b> 直接食用（返还空陶碗），拖到食物上调味，或在火上熟制成灯油。"
+<b>用途:</b> 直接食用（返还空陶碗）或拖到食物上调味。"
 Herbs_And_Fungi_PeanutOil_Eat_ActionName,Eat,吃
 Herbs_And_Fungi_Bp_OilPressPeanuts_CardName,Press Peanuts,压榞花生
 Herbs_And_Fungi_Bp_OilPressPeanuts_CardDescription,Crush 3 raw peanuts in the press and collect in a clay bowl to extract peanut oil.,在榞油机中压碎3个生花生，用陶碗收集榞出的花生油。
@@ -1649,12 +1649,12 @@ Herbs_And_Fungi_HerbalOilGinseng_CardName,Ginseng Herbal Oil,人参药油
 Herbs_And_Fungi_Perk_HerbalistHeadstart_PerkName,Herbalist's Advantage,草药师优势
 Herbs_And_Fungi_Perk_HerbalistHeadstart_PerkDescription,"Start as an experienced herbalist: your Herbalism skill begins already sharpened, ahead of where a fresh start would normally put it.",以资深草药师的身份开始，草药认知获得提升。
 Herbs_And_Fungi_LinseedOil_CardName,Linseed Oil,亚麻籽油
-Herbs_And_Fungi_LinseedOil_CardDescription,"Cold-pressed oil extracted from flax seeds, served in a clay bowl. Nutty and rich. Eat it, season food with it, or render it into lamp oil. Traditionally valued outside the kitchen too, for treating wood.",从亚麻籽冷榨的油，盛于陶碗中。坚果香浓郁。可直接食用、为食物调味，或熬炼成灯油。传统上用于涂抹木质工具。
+Herbs_And_Fungi_LinseedOil_CardDescription,"Cold-pressed oil extracted from flax seeds, served in a clay bowl. Nutty and rich. Eat it or season food with it. Traditionally valued outside the kitchen too, for treating wood.",从亚麻籽冷榨的油，盛于陶碗中。坚果香浓郁。可直接食用或为食物调味。传统上用于涂抹木质工具。
 Herbs_And_Fungi_LinseedOil_CardHelpSection,"<b>Crafted:</b> By pressing 3 Flax Seeds + Clay Bowl on a placed Oil Press.
 
-<b>Uses:</b> Eat directly (returns empty clay bowl), drag onto food to season, or render over a fire into lamp oil.","<b>制作：</b>在放置的油压机上压榨亚麻籽。
+<b>Uses:</b> Eat directly (returns empty clay bowl) or drag onto food to season.","<b>制作：</b>在放置的油压机上压榨亚麻籽。
 
-<b>用途：</b>可直接食用、拖到食物上调味、或在火上熬炼成灯油。"
+<b>用途：</b>可直接食用或拖到食物上调味。"
 Herbs_And_Fungi_LinseedOil_Eat_ActionName,Eat,食用
 Herbs_And_Fungi_Bp_OilPressFlax_CardName,Press Flax Seeds,压榨亚麻籽
 Herbs_And_Fungi_Bp_OilPressFlax_CardDescription,Crush 3 flax seeds in the press and collect in a clay bowl to extract linseed oil.,在压榨机中压碎3粒亚麻籽并用陶碗盛装以提取亚麻籽油。

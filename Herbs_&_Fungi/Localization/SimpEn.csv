@@ -1476,10 +1476,10 @@ Herbs_And_Fungi_RoastedPeanuts_SpoilageTime_OnFull_ActionDescription,The roasted
 Herbs_And_Fungi_RoastedPeanuts_Grind_ActionName,Grind
 Herbs_And_Fungi_RoastedPeanuts_Grind_ActionDescription,Grind the roasted peanuts into peanut butter.
 Herbs_And_Fungi_PeanutOil_CardName,Peanut Oil
-Herbs_And_Fungi_PeanutOil_CardDescription,"Cold-pressed oil extracted from raw peanuts, served in a clay bowl. Nutty and rich. Eat it, season food with it, or render it into lamp oil."
+Herbs_And_Fungi_PeanutOil_CardDescription,"Cold-pressed oil extracted from raw peanuts, served in a clay bowl. Nutty and rich. Eat it or season food with it."
 Herbs_And_Fungi_PeanutOil_CardHelpSection,"<b>Crafted:</b> By pressing 3 Raw Peanuts + Clay Bowl on a placed Oil Press.
 
-<b>Uses:</b> Eat directly (returns empty clay bowl), drag onto food to season, or render over a fire into lamp oil."
+<b>Uses:</b> Eat directly (returns empty clay bowl) or drag onto food to season."
 Herbs_And_Fungi_PeanutOil_Eat_ActionName,Eat
 Herbs_And_Fungi_Bp_OilPressPeanuts_CardName,Press Peanuts
 Herbs_And_Fungi_Bp_OilPressPeanuts_CardDescription,Crush 3 raw peanuts in the press and collect in a clay bowl to extract peanut oil.
@@ -1536,10 +1536,10 @@ Herbs_And_Fungi_HerbalOilGinseng_CardName,Ginseng Herbal Oil
 Herbs_And_Fungi_Perk_HerbalistHeadstart_PerkName,Herbalist's Advantage
 Herbs_And_Fungi_Perk_HerbalistHeadstart_PerkDescription,"Start as an experienced herbalist: your Herbalism skill begins already sharpened, ahead of where a fresh start would normally put it."
 Herbs_And_Fungi_LinseedOil_CardName,Linseed Oil
-Herbs_And_Fungi_LinseedOil_CardDescription,"Cold-pressed oil extracted from flax seeds, served in a clay bowl. Nutty and rich. Eat it, season food with it, or render it into lamp oil. Traditionally valued outside the kitchen too, for treating wood."
+Herbs_And_Fungi_LinseedOil_CardDescription,"Cold-pressed oil extracted from flax seeds, served in a clay bowl. Nutty and rich. Eat it or season food with it. Traditionally valued outside the kitchen too, for treating wood."
 Herbs_And_Fungi_LinseedOil_CardHelpSection,"<b>Crafted:</b> By pressing 3 Flax Seeds + Clay Bowl on a placed Oil Press.
 
-<b>Uses:</b> Eat directly (returns empty clay bowl), drag onto food to season, or render over a fire into lamp oil."
+<b>Uses:</b> Eat directly (returns empty clay bowl) or drag onto food to season."
 Herbs_And_Fungi_LinseedOil_Eat_ActionName,Eat
 Herbs_And_Fungi_Bp_OilPressFlax_CardName,Press Flax Seeds
 Herbs_And_Fungi_Bp_OilPressFlax_CardDescription,Crush 3 flax seeds in the press and collect in a clay bowl to extract linseed oil.

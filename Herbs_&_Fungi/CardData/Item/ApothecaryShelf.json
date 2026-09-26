@@ -176,15 +176,6 @@
                 "Wood"
             ],
             "ActionSoundsWarpType": 3,
-            "RequiredReceivingDurabilities": {
-                "RequiredInventoryEmpty": true,
-                "HideActionIfNotMet": true,
-                "FailMessage": {
-                    "ParentObjectID": "herbs_fungi_apothecary_shelf",
-                    "LocalizationKey": "Herbs_And_Fungi_ApothecaryShelf_DismantleActions_Dismantle_FailMessage",
-                    "DefaultText": "Clear the shelf first."
-                }
-            },
             "ProducedCards": [
                 {
                     "CollectionName": "",

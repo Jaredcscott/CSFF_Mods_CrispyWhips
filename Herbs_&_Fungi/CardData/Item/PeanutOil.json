@@ -8,12 +8,12 @@
     "CardDescription": {
         "ParentObjectID": "herbs_fungi_peanut_oil",
         "LocalizationKey": "Herbs_And_Fungi_PeanutOil_CardDescription",
-        "DefaultText": "Cold-pressed oil extracted from raw peanuts, served in a clay bowl. Nutty and rich. Eat it, season food with it, or render it into lamp oil."
+        "DefaultText": "Cold-pressed oil extracted from raw peanuts, served in a clay bowl. Nutty and rich. Eat it or season food with it."
     },
     "CardHelpSection": {
         "ParentObjectID": "herbs_fungi_peanut_oil",
         "LocalizationKey": "Herbs_And_Fungi_PeanutOil_CardHelpSection",
-        "DefaultText": "<b>Crafted:</b> By pressing 3 Raw Peanuts + Clay Bowl on a placed Oil Press.\n\n<b>Uses:</b> Eat directly (returns empty clay bowl), drag onto food to season, or render over a fire into lamp oil."
+        "DefaultText": "<b>Crafted:</b> By pressing 3 Raw Peanuts + Clay Bowl on a placed Oil Press.\n\n<b>Uses:</b> Eat directly (returns empty clay bowl) or drag onto food to season."
     },
     "CardType": 0,
     "ObjectWeight": 100,

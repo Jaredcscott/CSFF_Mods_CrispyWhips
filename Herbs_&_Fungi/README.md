@@ -1,6 +1,6 @@
 # Herbs and Fungi - Player Guide
 
-**Version:** 1.13.6
+**Version:** 1.13.7
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.65)
 
@@ -398,7 +398,7 @@ Patching beyond what the framework provides:
 - **Apothecary quest gate fix** — Stimulant Tea (Ground Ginseng) and Anti-Nausea Tea (Dried Ginger) now unlock independently based on the player actually obtaining the corresponding H&F item, instead of both unlocking together when CMC's Apothecary herb-fetch quest completed. Matches the mod's soft-dependency design (works with or without CMC installed).
 
 ### v1.10.0
-- **Peanut Oil** — press 3 Raw Peanuts + a Clay Bowl on the Oil Press; edible, seasons food, joins the `tag_Oil` lamp-fuel pool.
+- **Peanut Oil** — press 3 Raw Peanuts + a Clay Bowl on the Oil Press; edible and seasons food. (This entry used to add that it joins a `tag_Oil` lamp-fuel pool, but no lamp or lantern in the suite burns that tag, so the claim was dropped in 1.13.7.)
 - **Peanut Butter** — grind Roasted Peanuts with any grinding tool; a dense, very drying fat-and-protein meal that keeps for two months.
 - **Forager's Trail Mix** — Cooking-tab recipe: 2 Roasted Peanuts + 2 Dried Billberries → 2 travel rations, lighter on thirst than plain roasted peanuts.
 - The peanut cycle no longer dead-ends at "roasted": all three new items consume shipped peanut content.

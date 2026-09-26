@@ -5,6 +5,19 @@ All notable changes to this mod. Dates are release dates.
 ---
 
 
+## [1.13.7] - 2026-09-23
+
+### Fixed
+
+- **Dismantling a Drying Stack or a Drying Tray no longer destroys what is on it.** Taking either
+  apart with trays or herbs still on it deleted them along with the frame. They are now set down
+  beside you, the same way the Wooden Pantry, the Apothecary Shelf and the game's own drying rack
+  already empty when they are taken apart.
+- **Peanut Oil and Linseed Oil no longer claim they can be rendered into lamp oil.** No recipe and
+  no lamp takes either oil, so that use is gone from both cards (English and Chinese) and from the
+  README. Hemp Seed Oil keeps the line, because Advanced Copper Tools' Render Hemp Seed Oil recipe
+  really does turn it into lamp oil.
+
 ## [1.13.6] - 2026-09-23
 
 ### Fixed

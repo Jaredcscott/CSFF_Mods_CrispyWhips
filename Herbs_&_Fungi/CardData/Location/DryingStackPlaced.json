@@ -131,7 +131,7 @@
         ],
         "TagFilters": []
     },
-    "SpillsInventoryOnDestroy": false,
+    "SpillsInventoryOnDestroy": true,
     "InventorySlotsText": {
         "ParentObjectID": "",
         "LocalizationKey": "",
@@ -191,15 +191,6 @@
                 "Wood"
             ],
             "ActionSoundsWarpType": 3,
-            "RequiredReceivingDurabilities": {
-                "RequiredInventoryEmpty": true,
-                "HideActionIfNotMet": true,
-                "FailMessage": {
-                    "ParentObjectID": "herbs_fungi_drying_stack_placed",
-                    "LocalizationKey": "Herbs_And_Fungi_DryingStack_DismantleActions_Dismantle_FailMessage",
-                    "DefaultText": "Remove drying trays from the stack first."
-                }
-            },
             "ProducedCards": [
                 {
                     "CollectionName": "",
