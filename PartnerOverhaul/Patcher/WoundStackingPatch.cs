@@ -38,6 +38,12 @@ namespace PartnerOverhaul.Patcher
     {
         private static BepInEx.Logging.ManualLogSource Logger => Plugin.Logger;
 
+        // Warn-once per session when the dedup cannot run because the character screen / equipment
+        // slots are not resolvable while ConsolidateWounds is ON. Without this an enabled option that
+        // appears to "do nothing" fails closed with zero log output (root CLAUDE.md § Silent Catch
+        // Blocks). The normal negative answer (CardIsWound == false) stays silent.
+        private static bool _warnedScreenUnavailable;
+
         // How far back from a List<CardData>.Add call to look for the PlayerWound.DroppedCards load
         // that identifies the wound-candidate site. Real spacing is 3 instructions
         // (ldfld DroppedCards / ldloc l / ldelem.ref / callvirt Add); the two OTHER
@@ -155,10 +161,10 @@ namespace PartnerOverhaul.Patcher
         private static bool IsWoundAlreadyPresent(List<CardData> _List, CardData _Card)
         {
             var graphics = MBSingleton<GraphicsManager>.Instance;
-            if (graphics == null) return false;
+            if (graphics == null) { WarnScreenUnavailableOnce(); return false; }
 
             var characterScreen = graphics.CharacterWindow;
-            if (characterScreen == null) return false;
+            if (characterScreen == null) { WarnScreenUnavailableOnce(); return false; }
 
             // Gate on wound-ness FIRST: armor, weapons and every other DroppedCards entry fall
             // straight through to vanilla.
@@ -175,10 +181,10 @@ namespace PartnerOverhaul.Patcher
             }
 
             var line = characterScreen.EquipmentSlotsLine;
-            if (line == null) return false;
+            if (line == null) { WarnScreenUnavailableOnce(); return false; }
 
             var slots = line.Slots;
-            if (slots == null || slots.Count == 0) return false;
+            if (slots == null || slots.Count == 0) { WarnScreenUnavailableOnce(); return false; }
 
             for (int i = 0; i < slots.Count; i++)
             {
@@ -192,6 +198,14 @@ namespace PartnerOverhaul.Patcher
             }
 
             return false;
+        }
+
+        private static void WarnScreenUnavailableOnce()
+        {
+            if (_warnedScreenUnavailable) return;
+            _warnedScreenUnavailable = true;
+            Logger.LogDebug("[WoundStacking] ConsolidateWounds is ON but the character screen / equipment "
+                + "slots are not resolvable at wound time - dedup is inactive this event (vanilla stacking).");
         }
 
         private static bool IsSameWound(CardData _A, CardData _B)

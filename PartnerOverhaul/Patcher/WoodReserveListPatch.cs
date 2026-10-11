@@ -8,6 +8,11 @@ namespace PartnerOverhaul.Patcher
     /// exists for NPC interactions beyond Dialog/Encounter). V1 is a coarse config-file list of
     /// CardData UniqueIDs a Partner should never auto-select for Firekeeping/fuel duties — no
     /// in-game toggle yet, documented as a known limitation.
+    /// Scope (1.1.0): the filter applies only when an ALLIED Partner is selecting items for
+    /// PartnerDuty_Firekeeping. SortFoundItemsByPreference is shared by every NPC (wild animals
+    /// included) and every duty's item selection, so before 1.1.0 a reserved UID was withheld
+    /// from all of them, which the config text never promised. The scope is the duty, not the
+    /// card, so mod cards that carry Firekeeping at card level stay covered.
     /// </summary>
     public static class WoodReserveListPatch
     {
@@ -15,6 +20,9 @@ namespace PartnerOverhaul.Patcher
         private static HashSet<string> _reservedUids = new HashSet<string>();
         private static string _lastConfigValue;
         private static bool _loggedInitialCount;
+
+        // PartnerDuty_Firekeeping (vanilla NPCDuty UniqueID, EA 0.68b export).
+        internal const string PartnerDutyFirekeepingUid = "6147eff5b0fe3014ca57364f4d075514";
 
         public static void ApplyPatch(Harmony harmony)
         {
@@ -24,12 +32,16 @@ namespace PartnerOverhaul.Patcher
             Logger.LogDebug("WoodReserveListPatch applied.");
         }
 
-        private static void FilterReservedItems(ref List<InGameCardBase> _Items)
+        // _FromNPC and _FromDuty are injected by Harmony by parameter name from
+        // SortFoundItemsByPreference's own signature. Kept TYPED (never object): a destroyed
+        // Unity object is only null under UnityEngine.Object's == overload.
+        private static void FilterReservedItems(ref List<InGameCardBase> _Items, InGameNPC _FromNPC, NPCDuty _FromDuty)
         {
             try
             {
                 RefreshReservedSetIfNeeded();
                 if (_reservedUids.Count == 0 || _Items == null || _Items.Count == 0) return;
+                if (!AppliesTo(_FromDuty, _FromNPC != null && _FromNPC.AlliedWithPlayer)) return;
 
                 _Items.RemoveAll(item => item != null && item.CardModel != null
                     && _reservedUids.Contains(item.CardModel.UniqueID));
@@ -38,6 +50,23 @@ namespace PartnerOverhaul.Patcher
             {
                 Logger.LogDebug($"[WoodReserveListPatch] FilterReservedItems failed: {ex}");
             }
+        }
+
+        /// <summary>
+        /// True only for an allied Partner's Firekeeping item selection: the one place the
+        /// "Reserved Fuel/Wood UIDs" option promises to act. Internal so a harness leg can call
+        /// it with a duty UniqueID string (TestHarness resolves the string to the NPCDuty).
+        /// </summary>
+        internal static bool AppliesTo(NPCDuty duty, bool allied)
+        {
+            return allied && duty != null && duty.UniqueID == PartnerDutyFirekeepingUid;
+        }
+
+        /// <summary>True when the UniqueID is on the reserve list (re-reads the config value first).</summary>
+        internal static bool IsReserved(string uid)
+        {
+            RefreshReservedSetIfNeeded();
+            return uid != null && _reservedUids.Contains(uid);
         }
 
         private static void RefreshReservedSetIfNeeded()

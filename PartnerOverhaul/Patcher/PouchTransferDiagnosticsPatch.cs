@@ -1,14 +1,15 @@
 namespace PartnerOverhaul.Patcher
 {
     /// <summary>
-    /// LogInfo-only diagnostics for the reported Pouch/acorn-flour stacking math bug (see
-    /// Documentation/Plans/PartnerOverhaul/PartnerOverhaul_Plan.md "Explicitly out of scope /
-    /// unresolved"). No behavior change — this exists to capture a real LogOutput.log of the
-    /// generic engine liquid-transfer clamp (InGameCardBase.ClampLiquidTransferQuantity, shared
-    /// by hundreds of vanilla items) whenever Pouch or AcornFlourRaw is one of the two cards
-    /// involved, so a future fix can be built from evidence instead of a guess, per root
-    /// CLAUDE.md's Debugging Discipline. Gated by its own Plugin.EnablePouchDiagnostics
-    /// (independent of Plugin.EnableDiagnostics — different subsystem).
+    /// LogInfo-only diagnostics for the Pouch/acorn-flour liquid-transfer clamp. Shipped 1.0.2 to
+    /// capture evidence for the reported stacking-math bug (a partial pour destroying the whole
+    /// card) before any fix was attempted, per root CLAUDE.md's Debugging Discipline — that bug is
+    /// now FIXED as of 1.1.0 by PartialPowderPourPatch (verified: tracker T2.436, harness scenario
+    /// T2.436_po_partial_powder_pour_refused.json). No behavior change here; this diagnostic is
+    /// kept live to capture InGameCardBase.ClampLiquidTransferQuantity (shared by hundreds of
+    /// vanilla items) for any other Pouch/AcornFlourRaw transfer behavior worth evidencing later.
+    /// Gated by its own Plugin.EnablePouchDiagnostics (independent of Plugin.EnableDiagnostics —
+    /// different subsystem).
     /// </summary>
     public static class PouchTransferDiagnosticsPatch
     {

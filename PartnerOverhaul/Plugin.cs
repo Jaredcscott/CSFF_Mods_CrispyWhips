@@ -7,15 +7,17 @@ namespace PartnerOverhaul
     // object at boot (Patcher/GameLoadPatch.cs) or Harmony-patches vanilla behavior directly.
     // The framework SoftDependency below is deliberate even though no framework JSON services
     // are consumed: our GameLoad.LoadMainGameData postfix needs to run after the framework's
-    // own repair passes (ForeignInstanceReconciler, etc.) on that same vanilla hook — see
-    // Documentation/Plans/PartnerOverhaul/PartnerOverhaul_Plan.md "Architecture decision".
+    // own repair passes (ForeignInstanceReconciler, etc.) on that same vanilla hook — the
+    // original "Architecture decision" writeup was in Documentation/Plans/PartnerOverhaul/
+    // PartnerOverhaul_Plan.md, retired 2026-09-05 (171efccbb); read it pre-deletion via
+    // `git show 171efccbb^:Documentation/Plans/PartnerOverhaul/PartnerOverhaul_Plan.md`.
     [BepInDependency("crispywhips.CSFFModFramework", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
     internal class Plugin : BaseUnityPlugin
     {
         private const string PluginGuid = "crispywhips.partner_overhaul";
         public const string PluginName = "PartnerOverhaul";
-        public const string PluginVersion = "1.0.5";
+        public const string PluginVersion = "1.1.0";
 
         internal new static BepInEx.Logging.ManualLogSource Logger;
         internal static Plugin Instance { get; private set; }
@@ -31,12 +33,21 @@ namespace PartnerOverhaul
         // subsystem/toggle from EnableDiagnostics above. Default OFF for the same reason.
         public static ConfigEntry<bool> EnablePouchDiagnostics { get; private set; }
 
+        // 1.1.0 (folded in 2026-10-05) - Fire Keeping's tag-fuel decision also passes on Charcoal (GameLoadPatch Fix 4),
+        // so the 1.1.0 Feed Charcoal wiring is reachable; no config, no vanilla card retagged.
+        // 1.1.0 - refuse a powder pour that would destroy a whole card to add part of it (the
+        // reported pouch/acorn-flour stacking-math bug). A bug fix, so default ON; switchable
+        // because it changes a mechanic every powder in the game shares.
+        public static ConfigEntry<bool> RefusePartialPowderPours { get; private set; }
+
         // Phase 4 — small opt-in QoL additions, default OFF (these are new features / design
         // changes, not bug fixes — see root CLAUDE.md § Feature Honesty).
         public static ConfigEntry<bool> ReduceNPCMoveCosts { get; private set; }
         public static ConfigEntry<int> NPCMoveCostReductionPercent { get; private set; }
         public static ConfigEntry<string> ReservedFuelUIDs { get; private set; }
         public static ConfigEntry<bool> ConsolidateWounds { get; private set; }
+        public static ConfigEntry<bool> PartnersDrinkFromLakes { get; private set; }
+        public static ConfigEntry<bool> ColdPartnerAsksForWarmth { get; private set; }
 
         private void Awake()
         {
@@ -56,6 +67,12 @@ namespace PartnerOverhaul
                 false,
                 "Log extra LogInfo detail for the reported Pouch/acorn-flour stacking math bug (generic liquid-transfer clamp). Default OFF. TURN THIS ON before capturing a LogOutput.log for that bug report.");
 
+            RefusePartialPowderPours = Config.Bind(
+                "Fixes",
+                "Refuse Partial Powder Pours",
+                true,
+                "Refuses pouring a powder (Acorn Flour, ground medicine, any solid with a liquid form) into a container that has room for only part of it. Vanilla destroys the whole card and keeps only the part that fits: a Pouch holds 150 and one Acorn Flour pours 112.5, so a second flour lost 75. Pours that fit are unchanged.");
+
             ReduceNPCMoveCosts = Config.Bind(
                 "QoL (opt-in feature, not a bug fix)",
                 "Reduce Partner Move Costs",
@@ -74,13 +91,25 @@ namespace PartnerOverhaul
                 "QoL (opt-in feature, not a bug fix)",
                 "Reserved Fuel/Wood UIDs",
                 "",
-                "Comma-separated CardData UniqueIDs a Partner should NEVER auto-select for Firekeeping/fuel duties (e.g. to keep oak logs for crafting and let them burn twigs instead). No in-game UI for this yet — edit this config value directly.");
+                "Comma-separated CardData UniqueIDs a Partner should NEVER auto-select for Fire Keeping (e.g. to keep Wood for crafting and let it burn twigs instead). Scope: only an allied Partner's Fire Keeping duty (PartnerDuty_Firekeeping, on any fire that offers it, modded ones included); every other duty and every other NPC, wild animals included, still sees these items. No in-game UI for this yet: edit this config value directly.");
 
             ConsolidateWounds = Config.Bind(
                 "QoL (opt-in feature, not a bug fix)",
                 "Consolidate Duplicate Wounds",
                 false,
                 "Stops a combat round from applying a wound you already have equipped (e.g. accumulating 28 separate Minor Lacerations). Vanilla spawns a fresh, independently-healing wound card every round with no dedup — the count is accurate, not a display bug, so removing it is a combat design change, not a bug fix. Damage, stat changes, armor wear and the encounter log are unaffected. NOT yet confirmed in-game.");
+
+            PartnersDrinkFromLakes = Config.Bind(
+                "QoL (opt-in feature, not a bug fix)",
+                "Partners Drink From Lakes And Streams",
+                false,
+                "Lets a Partner drink from a lake, bog, marsh, mire, swamp or stream the way vanilla lets it drink from a river, and lets its Seek Drink trip end at one. Default OFF: Seek Drink walks to the closest water, so on a map with both a river and a lake the destination can change. Ponds are not included (their water is a poorer, riskier drink). Read at game load, so changing it needs a restart.");
+
+            ColdPartnerAsksForWarmth = Config.Bind(
+                "QoL (opt-in feature, not a bug fix)",
+                "Cold Partner Asks For Warmth",
+                false,
+                "Makes a following Partner ask you for warmth while it \"Looks very cold.\" (Body Temperature 1 to 50) with no fire in reach, instead of only once it \"Looks hypothermic.\" (0 and below), when vanilla first lets it. It reuses the game's own Express Need for Warmth request, so it asks at most once per dialog cooldown, only while it is on your board, and moves nobody: it does not change what the Partner does about the cold, and no other duty is affected. Read at game load, so changing it needs a restart; BepInEx keeps a value already written in an existing .cfg.");
 
             try { Patcher.GameLoadPatch.ApplyPatch(_harmony); }
             catch (Exception ex) { Logger.LogError($"GameLoadPatch failed: {ex}"); }
@@ -97,8 +126,14 @@ namespace PartnerOverhaul
             try { Patcher.PouchTransferDiagnosticsPatch.ApplyPatch(_harmony); }
             catch (Exception ex) { Logger.LogError($"PouchTransferDiagnosticsPatch failed: {ex}"); }
 
+            try { Patcher.PartialPowderPourPatch.ApplyPatch(_harmony); }
+            catch (Exception ex) { Logger.LogError($"PartialPowderPourPatch failed: {ex}"); }
+
             try { Patcher.PathSpeedPatch.ApplyPatch(_harmony); }
             catch (Exception ex) { Logger.LogError($"PathSpeedPatch failed: {ex}"); }
+
+            try { Patcher.ColdPartnerWarmthPatch.ApplyPatch(_harmony); }
+            catch (Exception ex) { Logger.LogError($"ColdPartnerWarmthPatch failed: {ex}"); }
 
             try { Patcher.WoodReserveListPatch.ApplyPatch(_harmony); }
             catch (Exception ex) { Logger.LogError($"WoodReserveListPatch failed: {ex}"); }
