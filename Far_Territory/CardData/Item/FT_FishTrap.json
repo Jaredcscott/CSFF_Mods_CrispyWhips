@@ -1,0 +1,37 @@
+{
+  "UniqueID": "ft_fish_trap",
+  "CardType": 0,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_FishTrap_CardName",
+    "DefaultText": "Fish Trap"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_FishTrap_CardDescription",
+    "DefaultText": "A cage of twigs and twine with a funnel mouth. Stake it in the shallows of a calm shore and it catches fish while you are away."
+  },
+  "CardImageWarpData": "FT_FishTrap",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 900.0,
+  "CannotBeTrashed": true,
+  "ToggleablePiling": true,
+  "WhenCreatedSoundsWarpData": [
+    "LargeObject"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "InventoryFilter": {
+    "AcceptedCardsWarpData": [
+      "ft_goatfish",
+      "ft_parrotfish",
+      "ft_bonefish",
+      "ft_herring",
+      "ft_grouper",
+      "ft_threadfin",
+      "ft_mudskipper"
+    ],
+    "AcceptedCardsWarpType": 3
+  },
+  "SpillsInventoryOnDestroy": true,
+  "InventorySlots": [null, null, null, null],
+  "MaxWeightCapacity": 4000.0,
+  "TransferCookingResultsOnTransform": true
+}

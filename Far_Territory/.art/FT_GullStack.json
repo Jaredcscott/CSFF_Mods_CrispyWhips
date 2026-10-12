@@ -1,0 +1,35 @@
+{
+  "target": "FT_GullStack.png",
+  "sourceCard": null,
+  "subject": "a tall sheer stack of rock rising straight out of the sea, white with gull droppings, gulls perched on every ledge, tufts of salt-crusted grass on top, open sea all around and no beach",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted illustration of a tall sheer stack of rock rising straight out of the sea, white with gull droppings, gulls perched on every ledge, tufts of salt-crusted grass on top, open sea all around and no beach, in the style of a cozy hand-illustrated survival-crafting game: clean black ink linework with rich painterly colour and soft shading, warm natural light, a full-frame portrait scene (2:3) filling the whole canvas edge to edge with no white margin, a clear focal point in the middle, no characters unless stated, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, white background, white margin, cropped focal point, blurry, text, watermark, signature, logo, border, frame, user interface.",
+  "historyId": "8LlJluqDPdrAL4wsNtrK",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647484162_def6cc62_1791647484927_f2e24043.png",
+  "credits": 90,
+  "generated": "2026-10-10",
+  "note": "Owner pick from the 2026-10-10 batch picker; predicted was written before the owner looked. Finished by /process-card-art --full-bleed.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647484162_def6cc62_1791647484927_f2e24043.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647483269_f647bfc1_1791647484538_60baffb0.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647483938_4cf67524_1791647484701_84a67bf4.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "C"
+}

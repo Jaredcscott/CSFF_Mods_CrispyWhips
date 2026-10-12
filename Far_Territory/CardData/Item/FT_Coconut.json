@@ -1,0 +1,145 @@
+{
+  "UniqueID": "ft_coconut",
+  "CardType": 0,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_Coconut_CardName",
+    "DefaultText": "Husked Coconut"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_Coconut_CardDescription",
+    "DefaultText": "A brown, hard-shelled coconut with the husk off. Strike it open with a hammer, stone or the back of an axe: the water, the meat and a shell bowl are inside."
+  },
+  "CardImageWarpData": "FT_Coconut",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 500.0,
+  "MaxStack": 8,
+  "SpoilageTime": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 1440.0,
+    "RatePerDaytimePoint": 1.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_Coconut_Spoilage",
+      "DefaultText": "Spoilage"
+    },
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_Coconut_Spoiled",
+        "DefaultText": "The coconut has gone bad."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": false
+      }
+    }
+  },
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_Coconut_CI_Crack",
+        "DefaultText": "Crack Open"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_Coconut_CI_Crack_Desc",
+        "DefaultText": "Strike the nut open on its seam. You get the water, the white meat and half the shell to keep as a bowl."
+      },
+      "DaytimeCost": 1,
+      "CompatibleCards": {
+        "TriggerTagsWarpData": [
+          "tag_HammeringToolGeneral",
+          "tag_HammeringToolHard",
+          "tag_Axe",
+          "tag_AdvancedAxe"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "RequiredStatValues": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "79290cafb08e48f4d871704c20e69b1c",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 10.0,
+            "y": 100.0
+          },
+          "NotifyWhenNotMet": true,
+          "HideAllWhenNotMet": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 11.0,
+            "y": 10000.0
+          },
+          "NotifyWhenNotMet": true,
+          "HideAllWhenNotMet": false
+        }
+      ],
+      "GivenCardChanges": {
+        "ModType": 1,
+        "UsageChange": {
+          "x": -0.5,
+          "y": -0.5
+        }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "Cracked",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_coconut_water",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_coconut_meat",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 2,
+                "y": 2
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_coconut_shell_bowl",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

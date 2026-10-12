@@ -1,0 +1,37 @@
+{
+  "target": "FT_DriftwoodShore.png",
+  "sourceCard": [
+    "CardData/Location/FT_ShoreLocation.json"
+  ],
+  "subject": "a low shore of grey shingle and tangled wrack and driftwood piled at a river mouth, the sea close behind under a grey sky",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted illustration of a low shore of grey shingle and tangled wrack and driftwood piled at a river mouth, the sea close behind under a grey sky, in the style of a cozy hand-illustrated survival-crafting game: clean black ink linework with rich painterly colour and soft shading, warm natural light, a full-frame portrait scene (2:3) filling the whole canvas edge to edge with no white margin, a clear focal point in the middle, no characters unless stated, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, white background, white margin, cropped focal point, blurry, text, watermark, signature, logo, border, frame, user interface.",
+  "historyId": "DIYuPgM1JROmH7AWa5uA",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085422626_ca053003_1791085422958_c2c4edf9.png",
+  "credits": 90,
+  "generated": "2026-10-03",
+  "note": "Owner pick from the 2026-10-03 batch picker. predicted was written before the owner looked. Finished by /process-card-art --full-bleed.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085422626_ca053003_1791085422958_c2c4edf9.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085422358_7f9bbdbc_1791085423581_1097fffa.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791085424561_937f2879_1791085425132_c0ea85f2.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "C"
+}

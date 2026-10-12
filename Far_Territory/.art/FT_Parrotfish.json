@@ -1,0 +1,45 @@
+{
+  "target": "FT_Parrotfish.png",
+  "sourceCard": "CardData/Item/FT_Parrotfish.json",
+  "subject": "one parrotfish lying on its side: a blunt rounded head with a hard beak-like mouth of fused teeth, large scales in blue and green, a squared tail. A single whole fish.",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: one parrotfish lying on its side: a blunt rounded head with a hard beak-like mouth of fused teeth, large scales in blue and green, a squared tail. A single whole fish.\nStyle: vanilla survival card game item art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, slight three-quarter angle, a single subject comfortably inset from every edge with a generous white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: coral, hook, line, multiple fish, footprints, tracks, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, cropped, blurry, scenery behind the subject, grey background, off-white background, gradient background, checkerboard, transparency grid, drop shadow, text, watermark, signature, logo, border, frame.",
+  "refs": [
+    {
+      "label": "vanilla Trout (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Trout_1791697557182_73386fae.png"
+    },
+    {
+      "label": "vanilla Perch (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Perch_1791697557695_897f7b94.png"
+    }
+  ],
+  "historyId": "50skFachsGX25ob78nCL",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698510460_0bc2a3d0_1791698510583_94fb2e90.png",
+  "credits": 60,
+  "generated": "2026-10-11",
+  "note": "Owner pick 2026-10-11 from the Prompt 26 picker page picker_26 (3 samples; predicted C, written before the owner looked). Finished by /process-card-art (white paper keyed). Used by FT_Parrotfish.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698511944_c8d8a6a2_1791698512144_73bc251e.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698510460_0bc2a3d0_1791698510583_94fb2e90.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698511548_b4c37651_1791698511626_a293b4da.png"
+    }
+  ],
+  "picked": "B",
+  "predicted": "C"
+}

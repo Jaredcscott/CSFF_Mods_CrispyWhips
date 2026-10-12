@@ -1,0 +1,42 @@
+{
+  "UniqueID": "ft_pop_parrotfish",
+  "GameName": {
+    "LocalizationKey": "Far_Territory_Pop_Parrotfish_StatName",
+    "DefaultText": "Population Parrotfish"
+  },
+  "Description": {
+    "LocalizationKey": "Far_Territory_Pop_Parrotfish_StatDescription",
+    "DefaultText": "Hidden: how many parrotfish the sea still holds. Each catch lowers it by 1000 and it regrows 2 a tick; the fuller it is, the likelier a catch."
+  },
+  "IsRuntimeOnly": false,
+  "BaseValue": 60000.0,
+  "MinMaxValue": {
+    "x": 0.0,
+    "y": 60000.0
+  },
+  "BaseRatePerTick": 2.0,
+  "MinMaxRate": {
+    "x": 0.0,
+    "y": 0.0
+  },
+  "Transfers": [],
+  "TimeOfDayMods": [],
+  "CompositeStats": [],
+  "StatPriority": 0,
+  "RequiredPerks": [],
+  "Visibility": 2,
+  "VisibleInDetailedList": false,
+  "CannotBeInspected": true,
+  "InvertedDirection": false,
+  "VisibleValueRange": {
+    "x": 0.0,
+    "y": 0.0
+  },
+  "TrendIndicatorRateRange": {
+    "x": 0.0,
+    "y": 0.0
+  },
+  "StatusesHaveNoBar": true,
+  "Statuses": [],
+  "UsesNovelty": false
+}

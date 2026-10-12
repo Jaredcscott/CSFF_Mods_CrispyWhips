@@ -1,0 +1,37 @@
+{
+  "//": "Far Territory plan P13 part 1 (Documentation/Plans/FarTerritory/MASTER_PLAN.md section 13, pack Prompt 24): the island's bat. Card Survival: Tropical Island has its bats only in the Bat Cave (the Bat Colony there; Documentation/Research/FarTerritory/csti_inventory.md section 3); this mod's name for it is Bat Roost (island_layout.md). A GENERATED agent (no Agent.Ref) that never leaves the roost: no ActivityWindow and one unwindowed CustomDuty that only waits, so it is on the Bat Roost board at every hour. Its bite lands as the base game's W_BiteWound. Every number is a TUNABLE PLACEHOLDER.",
+  "//Encounter": "Encounter.Ref points at FarTerritory/Encounter/ft_encounter_bat.json (Development_Tools/FarTerritory/derive_animals.py, from vanilla Combat_EncounterFox, partridge body template): a flutter, a bite and a flit away, weighted toward flitting away; every hurting tier of the bite drops W_BiteWound only (plan W0-6).",
+  "//Blood": "Agent.Blood.RatePerTick is 0 (see Macaque.json).",
+  "SchemaVersion": 1,
+  "SpeciesId": "ft_bat",
+  "DisplayName": "Bat",
+  "LocalizationKey": "Far_Territory_Bat_AgentName",
+  "Sprite": "FT_Bat",
+  "Agent": {
+    "Blood": { "Start": 10, "Max": 10, "RatePerTick": 0 },
+    "PoisonResistance": { "Start": 10, "RatePerTick": 0.4 }
+  },
+  "Spawn": {
+    "HomeEnv": "ftEnvBatRoost",
+    "DeathRespawnTicks": 288
+  },
+  "CustomDuties": [
+    {
+      "Name": "Hang",
+      "BaseWeight": 10,
+      "Actions": [
+        { "Type": "Wait", "Ticks": 4 }
+      ]
+    }
+  ],
+  "Tracks": {
+    "Enabled": false
+  },
+  "Encounter": {
+    "Ref": "ft_encounter_bat",
+    "ApproachButton": true
+  },
+  "Carcass": {
+    "Card": "ft_bat_carcass"
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "UniqueID": "ft_coconut_green",
+  "CardType": 0,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_CoconutGreen_CardName",
+    "DefaultText": "Green Coconut"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_CoconutGreen_CardDescription",
+    "DefaultText": "A coconut still in its thick fibrous husk, heavy as a stone. Cut the husk away with a blade or an axe."
+  },
+  "CardImageWarpData": "FT_CoconutGreen",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 1200.0,
+  "MaxStack": 6,
+  "SpoilageTime": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 1920.0,
+    "RatePerDaytimePoint": 1.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_CoconutGreen_Spoilage",
+      "DefaultText": "Spoilage"
+    },
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_CoconutGreen_Spoiled",
+        "DefaultText": "The coconut has gone bad in its husk."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": false
+      }
+    }
+  },
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_CoconutGreen_CI_Husk",
+        "DefaultText": "Husk the Coconut"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_CoconutGreen_CI_Husk_Desc",
+        "DefaultText": "Cut the husk off with a blade or an axe. The husk comes apart into fibre, and the hard nut inside is left."
+      },
+      "DaytimeCost": 1,
+      "CompatibleCards": {
+        "TriggerTagsWarpData": [
+          "tag_Cutter",
+          "tag_CutterAdv",
+          "tag_Axe",
+          "tag_AdvancedAxe"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "RequiredStatValues": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "79290cafb08e48f4d871704c20e69b1c",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 10.0,
+            "y": 100.0
+          },
+          "NotifyWhenNotMet": true,
+          "HideAllWhenNotMet": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 11.0,
+            "y": 10000.0
+          },
+          "NotifyWhenNotMet": true,
+          "HideAllWhenNotMet": false
+        }
+      ],
+      "GivenCardChanges": {
+        "ModType": 1,
+        "UsageChange": {
+          "x": -0.5,
+          "y": -0.5
+        }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "Husked",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_coconut",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "b8885e78517570b4293c573871625e11",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 2,
+                "y": 2
+              },
+              "TransferRules": {
+                "Spoilage": 0,
+                "Usage": 0,
+                "Fuel": 0,
+                "Progress": 0,
+                "Special1": 0,
+                "Special2": 3,
+                "Special3": 0,
+                "Special4": 0,
+                "SpoilageValue": 0.0,
+                "UsageValue": 0.0,
+                "FuelValue": 0.0,
+                "ProgressValue": 0.0,
+                "Special1Value": 0.0,
+                "Special2Value": 25.0,
+                "Special3Value": 0.0,
+                "Special4Value": 0.0,
+                "SpoilageFrom": 0,
+                "UsageFrom": 0,
+                "FuelFrom": 0,
+                "ProgressFrom": 0,
+                "Special1From": 0,
+                "Special2From": 0,
+                "Special3From": 0,
+                "Special4From": 0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

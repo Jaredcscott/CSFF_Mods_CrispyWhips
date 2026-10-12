@@ -1,0 +1,50 @@
+{
+  "//": "Far Territory plan P13 part 1 (Documentation/Plans/FarTerritory/MASTER_PLAN.md section 13, pack Prompt 24): the island's macaque. Card Survival: Tropical Island puts it in the Macaque Den and the jungles (Documentation/Research/FarTerritory/csti_inventory.md section 3: Jungle, Deep Jungle, Jungle Highlands, Wetlands); this mod's names for those are Monkey Den, Vine Woods, Green Deep, Misty Ridge and Reed Marsh (island_layout.md). A GENERATED agent (no Agent.Ref), so Carcass.Card applies and the framework wires the shared vanilla agent stats. It does not raid food: there is no raid counter (owner Q6). Every number is a TUNABLE PLACEHOLDER, re-derived for CSFF, never CSTI's data.",
+  "//Encounter": "Encounter.Ref points at FarTerritory/Encounter/ft_encounter_macaque.json, which Development_Tools/FarTerritory/derive_animals.py derives from vanilla Combat_EncounterFox: a threat, a bite and an escape, and every hurting tier of the bite drops the base game's W_BiteWound only (plan W0-6). Agent.Blood and PoisonResistance match that encounter's Blood and Value4, which load from these NPCStats.",
+  "//Range": "The five WanderEnvs are joined without a climb: Monkey Den to Misty Ridge by its hidden entrance edge, Misty Ridge to Green Deep, Green Deep to Reed Marsh and Reed Marsh to Vine Woods by compass links (a generated agent's pathfinding refuses climb paths). By night the troop is in the Monkey Den (an on-stage roost, so a player who enters the den at night finds it there).",
+  "//Blood": "Agent.Blood.RatePerTick is 0 as in every Harsh Wilds manifest: the lifecycle ticker counts the agent dead only while its blood sits at 4 or below, so a regenerating blood would walk a killed animal back before DeathRespawnTicks.",
+  "SchemaVersion": 1,
+  "SpeciesId": "ft_macaque",
+  "DisplayName": "Macaque",
+  "LocalizationKey": "Far_Territory_Macaque_AgentName",
+  "Sprite": "FT_Macaque",
+  "WeightCategory": "Medium",
+  "Agent": {
+    "Blood": { "Start": 50, "Max": 50, "RatePerTick": 0 },
+    "PoisonResistance": { "Start": 20, "RatePerTick": 0.4 }
+  },
+  "Spawn": {
+    "HomeEnv": "ftEnvMonkeyDen",
+    "DeathRespawnTicks": 672
+  },
+  "ActivityWindow": {
+    "ActiveHours": { "Start": 6, "End": 19 },
+    "Roost": "ftEnvMonkeyDen"
+  },
+  "Movement": {
+    "WanderEnvs": [
+      "ftEnvMonkeyDen",
+      "ftEnvMistyRidge",
+      "ftEnvGreenDeep",
+      "ftEnvReedMarsh",
+      "ftEnvVineWoods"
+    ],
+    "WanderWeight": 100
+  },
+  "//Tracks": "Vanilla default track card. RevealSkillCurve is ADDITIVE on the global Skill_Tracking curve (skill 0 -> 50%, 150 -> 100%): -20 at skill 0 makes a 30% find for a novice. TUNABLE, NOT PLAYTESTED.",
+  "Tracks": {
+    "Enabled": true,
+    "LifetimeTicks": { "Min": 24, "Max": 48 },
+    "AddedDiscoverChance": 0,
+    "RevealSkill": "Skill_Tracking",
+    "RevealSkillCurve": { "StatRange": [0, 150], "ChanceRange": [-20, 10] },
+    "BloodTrail": true
+  },
+  "Encounter": {
+    "Ref": "ft_encounter_macaque",
+    "ApproachButton": true
+  },
+  "Carcass": {
+    "Card": "ft_macaque_carcass"
+  }
+}

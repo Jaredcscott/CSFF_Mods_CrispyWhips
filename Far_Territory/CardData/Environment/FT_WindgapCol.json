@@ -1,0 +1,112 @@
+{
+  "UniqueID": "ftEnvWindgapCol",
+  "CardType": 4,
+  "InstancedEnvironment": false,
+  "AlwaysUpdate": false,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_Env_WindgapCol_CardName",
+    "DefaultText": "Windgap Col"
+  },
+  "CardImageWarpData": "FT_WindgapCol",
+  "CardImageWarpType": 3,
+  "MaxWeightCapacity": 1000000.0,
+  "AlwaysDropUniqueDefaultEnvDrops": true,
+  "Ambience": {
+    "InternalName": "Day",
+    "BackgroundSoundWarpData": "FlowerGlade",
+    "BackgroundSoundWarpType": 3,
+    "OnlyOneNoiseAtATime": false,
+    "RandomNoises": [],
+    "StatConditions": [],
+    "TimeOfDayConditions": [
+      {
+        "TimeType": 2,
+        "CompareType": 0,
+        "StartValue": 0,
+        "EndValue": 0,
+        "MomentOfDayValue": {
+          "MaskValue": 15
+        },
+        "SeasonValue": {
+          "MaskValue": 0
+        }
+      }
+    ],
+    "NPCStatConditions": []
+  },
+  "AlternateAmbiences": [
+    {
+      "InternalName": "Night",
+      "BackgroundSoundWarpData": "ClearingPineLoop_Night",
+      "BackgroundSoundWarpType": 3,
+      "OnlyOneNoiseAtATime": false,
+      "RandomNoises": [],
+      "StatConditions": [],
+      "TimeOfDayConditions": [
+        {
+          "TimeType": 2,
+          "CompareType": 0,
+          "StartValue": 0,
+          "EndValue": 0,
+          "MomentOfDayValue": {
+            "MaskValue": 240
+          },
+          "SeasonValue": {
+            "MaskValue": 0
+          }
+        }
+      ],
+      "NPCStatConditions": []
+    }
+  ],
+  "DefaultEnvCardDrops": [
+    {
+      "DroppedCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "DroppedCardWarpData": "ftLocWindgapCol",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "DroppedCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "DroppedCardWarpData": "ft_path_windgapcol_screeslope",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "DroppedCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "DroppedCardWarpData": "ft_path_windgapcol_rustgrotto",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "DroppedCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "DroppedCardWarpData": "ft_path_windgapcol_glimmergrotto",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    }
+  ]
+}

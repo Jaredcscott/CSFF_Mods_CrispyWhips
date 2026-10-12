@@ -1,0 +1,45 @@
+{
+  "target": "FT_WindgapCol.png",
+  "sourceCard": "CardData/Environment/FT_WindgapCol.json",
+  "subject": "a high snowy mountain saddle between two peaks, deep snow scoured into ridges by the wind with snow blowing off the crests, and two dark cave mouths in the rock on either side: the left one stained rust-red, the right one glinting with small bright specks.",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: a high snowy mountain saddle between two peaks, deep snow scoured into ridges by the wind with snow blowing off the crests, and two dark cave mouths in the rock on either side: the left one stained rust-red, the right one glinting with small bright specks.\nStyle: vanilla survival card game location art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, animals, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
+  "refs": [
+    {
+      "label": "vanilla Lake1_Winter (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Lake1_Winter_1791697555368_d362d79a.png"
+    },
+    {
+      "label": "vanilla HeatherMarsh_Winter (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/HeatherMarsh_Winter_1791697555937_afd4587d.png"
+    }
+  ],
+  "historyId": "l1cfo2qGdHA8gQmQ4Xec",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698927665_8a18f05a_1791698927752_903cc073.png",
+  "credits": 60,
+  "generated": "2026-10-11",
+  "note": "Owner pick 2026-10-11 from the Prompt 32 picker page picker_32 (3 samples; predicted B, written before the owner looked). Finished by /process-card-art --full-bleed. Used by FT_WindgapCol, FT_WindgapColLocation.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698930744_ed8c5211_1791698930884_d0704c45.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698929906_f50abe75_1791698930138_42f005fc.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698927665_8a18f05a_1791698927752_903cc073.png"
+    }
+  ],
+  "picked": "C",
+  "predicted": "B"
+}

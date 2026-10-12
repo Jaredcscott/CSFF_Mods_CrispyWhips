@@ -1,0 +1,189 @@
+{
+  "UniqueID": "ftLocLightlessHall",
+  "CardType": 8,
+  "InstancedEnvironment": false,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": false,
+  "DoesNotPile": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_LightlessHall_CardName",
+    "DefaultText": "Lightless Hall"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_LightlessHall_CardDescription",
+    "DefaultText": "A small chamber under the Sinkhole, utterly black and silent. A narrow way leads on toward the Middle Hall. No daylight reaches here: bring a lit torch or lantern to work."
+  },
+  "CardImageWarpData": "FT_LightlessHall",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0,
+  "SpecialDurability1": {
+    "Active": true,
+    "FloatValue": 576.0,
+    "MaxValue": 576.0,
+    "RatePerDaytimePoint": 1.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_LightlessHall_Gleanings",
+      "DefaultText": "Gleanings"
+    },
+    "HidingOptions": 1
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_LightlessHall_DA_Forage",
+        "DefaultText": "Forage"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_LightlessHall_DA_Forage_Desc",
+        "DefaultText": "Feel over the bare floor by torchlight. There is little here."
+      },
+      "DaytimeCost": 2,
+      "ActionTagsWarpData": [
+        "ForageAction",
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 11.0,
+            "y": 10000.0
+          },
+          "NotifyWhenNotMet": true,
+          "HideAllWhenNotMet": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "79290cafb08e48f4d871704c20e69b1c",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 10.0,
+            "y": 100.0
+          },
+          "NotifyWhenNotMet": true,
+          "HideAllWhenNotMet": false
+        }
+      ],
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.15,
+          "MaxValue": 1.0
+        },
+        "FailMessage": {
+          "LocalizationKey": "Far_Territory_LightlessHall_DA_Forage_Fail",
+          "DefaultText": "Nothing worth picking up yet"
+        }
+      },
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -3.0,
+            "y": -3.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "16af37a364285d14586629e3e0700e55",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -43.0,
+            "y": -43.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ProducedCards": [
+        {
+          "CollectionName": "Stones",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "a7384e5147b23a642809451cc4ef24fb",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 2
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Nothing",
+          "CollectionWeight": 4,
+          "DroppedCards": []
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": -96.0,
+          "y": -96.0
+        }
+      }
+    }
+  ]
+}

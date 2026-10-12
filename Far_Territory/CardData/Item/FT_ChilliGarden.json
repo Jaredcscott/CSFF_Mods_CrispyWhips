@@ -1,0 +1,82 @@
+{
+  "UniqueID": "ft_chilli_garden",
+  "CardType": 0,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_ChilliGarden_CardName",
+    "DefaultText": "Chilli Plant (Garden)"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_ChilliGarden_CardDescription",
+    "DefaultText": "A garden-grown plant, ready to harvest. The plant stays in the plot and grows its next crop."
+  },
+  "CardImageWarpData": "FT_ChilliPlant",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 100.0,
+  "DoesNotPile": true,
+  "CardTagsWarpData": [
+    "tag_Gardenable",
+    "tag_GardenPlantMature"
+  ],
+  "CardTagsWarpType": 3,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_ChilliGarden_DA_Harvest",
+        "DefaultText": "Harvest"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_ChilliGarden_DA_Harvest_Desc",
+        "DefaultText": "Gather the crop. The plant stays in the plot and grows its next crop."
+      },
+      "DaytimeCost": 1,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "ProducedCards": [
+        {
+          "CollectionName": "Harvest",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_chilli",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 3,
+                "y": 5
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "ft_chilli_growing",
+        "TransformIntoWarpType": 3
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_ChilliGarden_DA_Uproot",
+        "DefaultText": "Uproot"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_ChilliGarden_DA_Uproot_Desc",
+        "DefaultText": "Pull the plant up and throw it away. Nothing is gained."
+      },
+      "DaytimeCost": 1,
+      "ConfirmPopup": true,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ]
+}

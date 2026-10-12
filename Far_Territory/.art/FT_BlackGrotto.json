@@ -1,0 +1,45 @@
+{
+  "target": "FT_BlackGrotto.png",
+  "sourceCard": "CardData/Environment/FT_BlackGrotto.json",
+  "subject": "a cave mouth in a muddy marsh bank seen from just inside: pale daylight and a fringe of reeds at the opening, and a few steps in the cave turns pitch black, the cold wet stone fading into total darkness. No animals.",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: a cave mouth in a muddy marsh bank seen from just inside: pale daylight and a fringe of reeds at the opening, and a few steps in the cave turns pitch black, the cold wet stone fading into total darkness. No animals.\nStyle: vanilla survival card game location art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, waterfall, animals, light deep inside the cave, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
+  "refs": [
+    {
+      "label": "vanilla Tunnel_1 (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Tunnel_1_1791697554255_c7ac50b2.png"
+    },
+    {
+      "label": "vanilla Waterfall_Cave (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Waterfall_Cave_1791697554788_97421448.png"
+    }
+  ],
+  "historyId": "TwAvyWY9gi9TEOjRqfvh",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698211474_83971934_1791698211792_25364eba.png",
+  "credits": 60,
+  "generated": "2026-10-11",
+  "note": "Owner pick 2026-10-11 from the Prompt 18 picker page picker_18 (3 samples; predicted C, written before the owner looked). Finished by /process-card-art --full-bleed. Used by FT_BlackGrotto, FT_BlackGrottoLocation.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698206592_35f00e66_1791698206673_da26afc7.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698211474_83971934_1791698211792_25364eba.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698205077_e4b3fec3_1791698205136_f8d46171.png"
+    }
+  ],
+  "picked": "B",
+  "predicted": "C"
+}

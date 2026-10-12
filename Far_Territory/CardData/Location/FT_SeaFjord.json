@@ -1,0 +1,445 @@
+{
+  "UniqueID": "ft_sea_fjord",
+  "CardType": 2,
+  "AlwaysUpdate": false,
+  "UniqueOnBoard": true,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_SeaFjord_CardName",
+    "DefaultText": "The Fjord"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_SeaFjord_CardDescription",
+    "DefaultText": "Deep, black, ice-cold water between the cliffs, too cold to dive in. You can wash in it if you can stand it, or sit and watch it for seals and, far out, whales."
+  },
+  "CardImageWarpData": "FT_SeaFjord",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_SeaFjord_DA_Wash",
+        "DefaultText": "Wash in the Fjord"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_SeaFjord_DA_Wash_Desc",
+        "DefaultText": "Wade into the icy water and scrub yourself clean. It will leave you soaked and shivering."
+      },
+      "DaytimeCost": 1,
+      "ActionSoundsWarpData": [
+        "DiveShort"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ActionTagsWarpData": [
+        "InteractionImage"
+      ],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "cadd43716eaada54facd772f39eaa090",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -50.0,
+            "y": -50.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "08d242ad068c51b4fbef44d546645ac7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 100.0,
+            "y": 100.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "48296aba51d95204fbc4f805056ac66a",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -50.0,
+            "y": -50.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "9ff897d4c2d410544a8d7ccd323bdb86",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -100.0,
+            "y": -100.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "f8c19cb042ab86948a2cb5f9cb07e455",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -100.0,
+            "y": -100.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 2.0,
+            "y": 2.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -500.0,
+            "y": -500.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "16af37a364285d14586629e3e0700e55",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -3.0,
+            "y": -3.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_SeaFjord_DA_Watch",
+        "DefaultText": "Watch the Water"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_SeaFjord_DA_Watch_Desc",
+        "DefaultText": "Sit a while on the rocks and look out over the fjord. Seals come and go, and far out there are sometimes whales."
+      },
+      "DaytimeCost": 2,
+      "ActionTagsWarpData": [
+        "InteractionImage"
+      ],
+      "ActionTagsWarpType": 3,
+      "ProducedCards": [
+        {
+          "CollectionName": "Whale",
+          "CollectionMessages": [
+            {
+              "LocalizationKey": "Far_Territory_SeaFjord_Whale",
+              "DefaultText": "Far out in the fjord a whale breaks the surface, blows a plume of mist and slides back under."
+            }
+          ],
+          "CountsAsSuccess": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 1,
+          "StatsDropChanceModifiers": [],
+          "DroppedCards": []
+        },
+        {
+          "CollectionName": "Seals",
+          "CollectionMessages": [
+            {
+              "LocalizationKey": "Far_Territory_SeaFjord_Seals",
+              "DefaultText": "Round grey heads bob up in the water and watch you back: seals."
+            }
+          ],
+          "CountsAsSuccess": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 2,
+          "StatsDropChanceModifiers": [],
+          "DroppedCards": []
+        },
+        {
+          "CollectionName": "Nothing",
+          "CollectionMessages": [
+            {
+              "LocalizationKey": "Far_Territory_SeaFjord_Nothing",
+              "DefaultText": "Only grey water, ice and the wind."
+            }
+          ],
+          "CountsAsSuccess": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 4,
+          "StatsDropChanceModifiers": [],
+          "DroppedCards": []
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    }
+  ]
+}

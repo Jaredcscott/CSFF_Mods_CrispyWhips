@@ -1,0 +1,88 @@
+{
+  "UniqueID": "ftEnvPuffinCliffs",
+  "CardType": 4,
+  "InstancedEnvironment": false,
+  "AlwaysUpdate": false,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_Env_PuffinCliffs_CardName",
+    "DefaultText": "Puffin Cliffs"
+  },
+  "CardImageWarpData": "FT_PuffinCliffs",
+  "CardImageWarpType": 3,
+  "MaxWeightCapacity": 1000000.0,
+  "AlwaysDropUniqueDefaultEnvDrops": true,
+  "Ambience": {
+    "InternalName": "Day",
+    "BackgroundSoundWarpData": "FlowerGlade",
+    "BackgroundSoundWarpType": 3,
+    "OnlyOneNoiseAtATime": false,
+    "RandomNoises": [],
+    "StatConditions": [],
+    "TimeOfDayConditions": [
+      {
+        "TimeType": 2,
+        "CompareType": 0,
+        "StartValue": 0,
+        "EndValue": 0,
+        "MomentOfDayValue": {
+          "MaskValue": 15
+        },
+        "SeasonValue": {
+          "MaskValue": 0
+        }
+      }
+    ],
+    "NPCStatConditions": []
+  },
+  "AlternateAmbiences": [
+    {
+      "InternalName": "Night",
+      "BackgroundSoundWarpData": "ClearingPineLoop_Night",
+      "BackgroundSoundWarpType": 3,
+      "OnlyOneNoiseAtATime": false,
+      "RandomNoises": [],
+      "StatConditions": [],
+      "TimeOfDayConditions": [
+        {
+          "TimeType": 2,
+          "CompareType": 0,
+          "StartValue": 0,
+          "EndValue": 0,
+          "MomentOfDayValue": {
+            "MaskValue": 240
+          },
+          "SeasonValue": {
+            "MaskValue": 0
+          }
+        }
+      ],
+      "NPCStatConditions": []
+    }
+  ],
+  "DefaultEnvCardDrops": [
+    {
+      "DroppedCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "DroppedCardWarpData": "ftLocPuffinCliffs",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "DroppedCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "DroppedCardWarpData": "ft_sea_fjord",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    }
+  ]
+}

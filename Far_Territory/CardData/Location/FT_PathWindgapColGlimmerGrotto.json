@@ -1,0 +1,69 @@
+{
+  "UniqueID": "ft_path_windgapcol_glimmergrotto",
+  "CardType": 2,
+  "AlwaysUpdate": false,
+  "UniqueOnBoard": true,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_PathWindgapColGlimmerGrotto_CardName",
+    "DefaultText": "Path to Glimmer Grotto"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_PathWindgapColGlimmerGrotto_CardDescription",
+    "DefaultText": "A cave mouth on the col that glints when the light catches it."
+  },
+  "CardImageWarpData": "FT_PathCaveMouth",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_PathWindgapColGlimmerGrotto_DA_Travel",
+        "DefaultText": "Enter the Glimmer Grotto"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_PathWindgapColGlimmerGrotto_DA_Travel_Desc",
+        "DefaultText": "Step into the cave out of the wind. It is only a few steps."
+      },
+      "DaytimeCost": 0,
+      "ActionSoundsWarpData": [
+        "ExploreBushes"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ActionTagsWarpData": [
+        "TravelAction",
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "NotBaseAction": true,
+      "ProducedCards": [
+        {
+          "CollectionName": "Travel",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ftEnvGlimmerGrotto",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "FadeToBlack": 1,
+      "FadeMessage": {
+        "LocalizationKey": "Far_Territory_PathWindgapColGlimmerGrotto_DA_Travel_Fade",
+        "DefaultText": "Stepping into the cave..."
+      }
+    }
+  ]
+}

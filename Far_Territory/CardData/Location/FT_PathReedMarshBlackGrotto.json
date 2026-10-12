@@ -1,0 +1,69 @@
+{
+  "UniqueID": "ft_path_reedmarsh_blackgrotto",
+  "CardType": 2,
+  "AlwaysUpdate": false,
+  "UniqueOnBoard": true,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_PathReedMarshBlackGrotto_CardName",
+    "DefaultText": "Path to Black Grotto"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_PathReedMarshBlackGrotto_CardDescription",
+    "DefaultText": "A cave mouth in the marsh bank swallows the light a few steps in."
+  },
+  "CardImageWarpData": "FT_PathCaveMouth",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_PathReedMarshBlackGrotto_DA_Travel",
+        "DefaultText": "Enter the Black Grotto"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_PathReedMarshBlackGrotto_DA_Travel_Desc",
+        "DefaultText": "Go in under the lip of the bank into the dark. It is only a few steps. You will want a light."
+      },
+      "DaytimeCost": 0,
+      "ActionSoundsWarpData": [
+        "ExploreBushes"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ActionTagsWarpData": [
+        "TravelAction",
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "NotBaseAction": true,
+      "ProducedCards": [
+        {
+          "CollectionName": "Travel",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ftEnvBlackGrotto",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "FadeToBlack": 1,
+      "FadeMessage": {
+        "LocalizationKey": "Far_Territory_PathReedMarshBlackGrotto_DA_Travel_Fade",
+        "DefaultText": "Going into the dark..."
+      }
+    }
+  ]
+}

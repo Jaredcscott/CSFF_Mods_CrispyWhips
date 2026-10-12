@@ -1,0 +1,295 @@
+{
+  "UniqueID": "ft_stat_cinchona",
+  "GameName": {
+    "LocalizationKey": "Far_Territory_Effect_Cinchona_StatName",
+    "DefaultText": "Cinchona Bitters"
+  },
+  "Description": {
+    "LocalizationKey": "Far_Territory_Effect_Cinchona_StatDescription",
+    "DefaultText": "Chewed cinchona bark still working in you. It brings a fever down and dulls aches, and wears off over the following hours."
+  },
+  "IsRuntimeOnly": false,
+  "BaseValue": 0.0,
+  "MinMaxValue": {
+    "x": 0.0,
+    "y": 48.0
+  },
+  "BaseRatePerTick": -1.0,
+  "MinMaxRate": {
+    "x": 0.0,
+    "y": 0.0
+  },
+  "Transfers": [],
+  "TimeOfDayMods": [],
+  "CompositeStats": [],
+  "StatPriority": 0,
+  "RequiredPerks": [],
+  "Visibility": 0,
+  "VisibleInDetailedList": false,
+  "CannotBeInspected": false,
+  "InvertedDirection": false,
+  "VisibleValueRange": {
+    "x": 0.0,
+    "y": 0.0
+  },
+  "TrendIndicatorRateRange": {
+    "x": 0.0,
+    "y": 0.0
+  },
+  "StatusesHaveNoBar": false,
+  "DefaultStatusName": {
+    "ParentObjectID": "",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "DefaultStatusDescription": {
+    "ParentObjectID": "",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "DefaultStatusIcon": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "DefaultStatusIconWarpData": "Fever",
+  "DefaultStatusIconWarpType": 3,
+  "Statuses": [
+    {
+      "GameName": {
+        "LocalizationKey": "Far_Territory_Effect_Cinchona_Status_Mild_Name",
+        "DefaultText": "Cinchona Bitters"
+      },
+      "Description": {
+        "LocalizationKey": "Far_Territory_Effect_Cinchona_Status_Mild_Description",
+        "DefaultText": "The bitter bark brings a fever down and dulls aches."
+      },
+      "StatusLog": {
+        "LogText": {
+          "ParentObjectID": "",
+          "LocalizationKey": "",
+          "DefaultText": ""
+        },
+        "Category": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TicksToRegister": 0
+      },
+      "Icon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "IconWarpData": "Fever",
+      "IconWarpType": 3,
+      "ValueRange": {
+        "x": 1,
+        "y": 24
+      },
+      "UsePercentageForRange": false,
+      "EffectsOnStats": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "0ef92382faa66c643975c2c0f42ad82c",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "RateModifier": {
+            "x": -10.0,
+            "y": -10.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -25.0,
+            "y": -25.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "EffectsOnNPCStats": [],
+      "EffectsOnActions": [],
+      "NotifyPlayer": 0,
+      "RepeatTextNotification": 0,
+      "AlertLevel": 0,
+      "AlertSounds": [],
+      "RepeatAlertSounds": 0,
+      "AmbientSounds": [],
+      "GameOver": false,
+      "ActionsMaxTicks": 0,
+      "PreventingActionMessage": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "CombatEffects": [],
+      "ConfidenceModifier": 0.0
+    },
+    {
+      "GameName": {
+        "LocalizationKey": "Far_Territory_Effect_Cinchona_Status_Strong_Name",
+        "DefaultText": "Strong Cinchona Bitters"
+      },
+      "Description": {
+        "LocalizationKey": "Far_Territory_Effect_Cinchona_Status_Strong_Description",
+        "DefaultText": "Doses taken close together. A fever falls fast while they last."
+      },
+      "StatusLog": {
+        "LogText": {
+          "ParentObjectID": "",
+          "LocalizationKey": "",
+          "DefaultText": ""
+        },
+        "Category": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TicksToRegister": 0
+      },
+      "Icon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "IconWarpData": "Fever",
+      "IconWarpType": 3,
+      "ValueRange": {
+        "x": 25,
+        "y": 48
+      },
+      "UsePercentageForRange": false,
+      "EffectsOnStats": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "0ef92382faa66c643975c2c0f42ad82c",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "RateModifier": {
+            "x": -20.0,
+            "y": -20.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -50.0,
+            "y": -50.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "EffectsOnNPCStats": [],
+      "EffectsOnActions": [],
+      "NotifyPlayer": 0,
+      "RepeatTextNotification": 0,
+      "AlertLevel": 0,
+      "AlertSounds": [],
+      "RepeatAlertSounds": 0,
+      "AmbientSounds": [],
+      "GameOver": false,
+      "ActionsMaxTicks": 0,
+      "PreventingActionMessage": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "CombatEffects": [],
+      "ConfidenceModifier": 0.0
+    }
+  ],
+  "UsesNovelty": false
+}

@@ -1,0 +1,190 @@
+{
+  "UniqueID": "ft_palm_young",
+  "CardType": 2,
+  "AlwaysUpdate": true,
+  "UniqueOnBoard": false,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_PalmYoung_CardName",
+    "DefaultText": "Young Palm"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_PalmYoung_CardDescription",
+    "DefaultText": "A young palm, still waist high. It will grow into a full coconut palm in about a month, unless you cut it for its fronds."
+  },
+  "CardImageWarpData": "FT_PalmYoung",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "SpoilageTime": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 2880.0,
+    "RatePerDaytimePoint": 1.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_PalmYoung_Growth",
+      "DefaultText": "Growth"
+    },
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_PalmYoung_Grown",
+        "DefaultText": "The young palm has grown into a coconut palm."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "ft_palm",
+        "TransformIntoWarpType": 3
+      }
+    }
+  },
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_PalmYoung_CI_Cut",
+        "DefaultText": "Cut the Young Palm"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_PalmYoung_CI_Cut_Desc",
+        "DefaultText": "Cut the young palm down for its fronds. It will not grow back."
+      },
+      "DaytimeCost": 1,
+      "CompatibleCards": {
+        "TriggerTagsWarpData": [
+          "tag_Cutter",
+          "tag_CutterAdv",
+          "tag_Axe",
+          "tag_AdvancedAxe"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "RequiredStatValues": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "79290cafb08e48f4d871704c20e69b1c",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 10.0,
+            "y": 100.0
+          },
+          "NotifyWhenNotMet": true,
+          "HideAllWhenNotMet": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 11.0,
+            "y": 10000.0
+          },
+          "NotifyWhenNotMet": true,
+          "HideAllWhenNotMet": false
+        }
+      ],
+      "GivenCardChanges": {
+        "ModType": 1,
+        "UsageChange": {
+          "x": -1.0,
+          "y": -1.0
+        }
+      },
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "Fronds",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_palm_frond",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 2,
+                "y": 3
+              }
+            }
+          ]
+        }
+      ],
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -6.0,
+            "y": -6.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 2.0,
+            "y": 2.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ]
+    }
+  ]
+}

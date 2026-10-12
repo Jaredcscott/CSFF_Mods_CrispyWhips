@@ -1,0 +1,52 @@
+{
+  "target": "FT_SteamingShelf.png",
+  "sourceCard": "CardData/Environment/FT_SteamingShelf.json",
+  "subject": "a rock ledge under snowy grey cliffs where white steam drifts from a small steaming pool of hot water, the snow melted back in a ring of bare dark wet rock around it, and a band of grey-white rock salt showing in the cliff wall above. No people.",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: a rock ledge under snowy grey cliffs where white steam drifts from a small steaming pool of hot water, the snow melted back in a ring of bare dark wet rock around it, and a band of grey-white rock salt showing in the cliff wall above. No people.\nStyle: vanilla survival card game location art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, buildings, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
+  "refs": [
+    {
+      "label": "vanilla Lake1_Winter (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Lake1_Winter_1791697555368_d362d79a.png"
+    },
+    {
+      "label": "vanilla HeatherMarsh_Winter (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/HeatherMarsh_Winter_1791697555937_afd4587d.png"
+    }
+  ],
+  "historyId": "mpX4unDNLExicuokkATQ",
+  "redrawHistoryId": "FNN9IOe2GBKeZoKg9Ppc",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698928467_955ac4cf_1791698928544_26d30fec.png",
+  "credits": 80,
+  "generated": "2026-10-11",
+  "note": "Owner pick 2026-10-11 from the Prompt 32 picker page picker_32 (3 samples; predicted C, written before the owner looked). Finished by /process-card-art --full-bleed. Used by FT_SteamingShelf, FT_SteamingShelfLocation. Redraw history: FNN9IOe2GBKeZoKg9Ppc.",
+  "candidates": [
+    {
+      "n": "A-rejected",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698940243_72f15cd5_1791698940310_f27d34a3.png",
+      "verdict": "rejected before the pick: a trodden trail line with scuffed marks running through the snow to the pool; never shown to the owner"
+    },
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791699717572_0e9b4fcb_1791699717693_a96f5fcb.png",
+      "verdict": "redraw of the rejected A with the same prompt"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698928467_955ac4cf_1791698928544_26d30fec.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698926357_254a1fba_1791698927396_74ad8d03.png"
+    }
+  ],
+  "picked": "B",
+  "predicted": "C"
+}

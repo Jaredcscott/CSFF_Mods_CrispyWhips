@@ -1,0 +1,31 @@
+{
+  "UniqueID": "ft_palm_frond",
+  "CardType": 0,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_PalmFrond_CardName",
+    "DefaultText": "Palm Frond"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_PalmFrond_CardDescription",
+    "DefaultText": "A long, tough leaf of the palm. Dry, it burns quickly as weak fuel."
+  },
+  "CardImageWarpData": "FT_PalmFrond",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 100.0,
+  "MaxStack": 10,
+  "CardTagsWarpData": [
+    "tag_Fuel",
+    "tag_FuelWeak"
+  ],
+  "CardTagsWarpType": 3,
+  "FuelCapacity": {
+    "Active": true,
+    "FloatValue": 8.0,
+    "MaxValue": 10000.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_PalmFrond_FuelCapacity",
+      "DefaultText": "Fuel"
+    },
+    "HidingOptions": 2
+  }
+}

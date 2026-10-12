@@ -1,0 +1,323 @@
+{
+  "UniqueID": "ft_mango",
+  "CardType": 0,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_Mango_CardName",
+    "DefaultText": "Mango"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_Mango_CardDescription",
+    "DefaultText": "A ripe mango, soft and fragrant, its flesh orange and dripping. Eaten raw it quenches a little thirst too. Set one in a garden plot and its stone takes root."
+  },
+  "CardImageWarpData": "FT_Mango",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 150.0,
+  "MaxStack": 8,
+  "CardTagsWarpData": [
+    "tag_HumanFood",
+    "tag_Plateable",
+    "tag_Gardenable"
+  ],
+  "CardTagsWarpType": 3,
+  "SpoilageTime": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 288.0,
+    "RatePerDaytimePoint": 1.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_Mango_Spoilage",
+      "DefaultText": "Spoilage"
+    },
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_Mango_Spoiled",
+        "DefaultText": "The mango has spoiled."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": false
+      }
+    }
+  },
+  "Progress": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 1.0,
+    "RatePerDaytimePoint": 0.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_Mango_Planting",
+      "DefaultText": "Planting"
+    },
+    "HidingOptions": 2,
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_Mango_Planted",
+        "DefaultText": "The mango has taken root in the garden plot."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "ft_mango_growing",
+        "TransformIntoWarpType": 3
+      }
+    }
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_Mango_DA_Eat",
+        "DefaultText": "Eat"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_Mango_DA_Eat_Desc",
+        "DefaultText": "Eat the mango, skin and all but the stone."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "ActionTagsWarpData": [
+        "VegetarianAction",
+        "EatingAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 26.0,
+            "y": 26.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 30.0,
+            "y": 30.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 30.0,
+            "y": 30.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "c589f92d8a479a24c937ea90fa2d1a82",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 12.0,
+            "y": 12.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "9824a150f7bc85f4384a0ed026a69f0a",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 48.0,
+            "y": 48.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "5e303712abfb8134c9cdcc3a15ef563e",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 10.0,
+            "y": 10.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "ca65984e668e95344a7009df3dcfb052",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 20.0,
+            "y": 20.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ]
+}

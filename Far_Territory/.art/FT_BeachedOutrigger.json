@@ -1,0 +1,42 @@
+{
+  "target": "FT_BeachedOutrigger.png",
+  "sourceCard": [
+    "CardData/Location/FT_MooredBoatIsland.json"
+  ],
+  "subject": "",
+  "model": "nano-banana-2",
+  "mode": "image2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 shows the outrigger canoe on white sand: redraw this same picture and the same boat exactly (hull, float, booms and lashings), changed only in this: the paddle is one simple plain wooden paddle with a straight shaft and a plain flat oval blade, no carving, no decoration, lying along the hull.\nThe painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, blurry, plain white background, vignette, white border, text, watermark, signature, logo, border, frame, user interface.",
+  "historyId": "4xHcT2eU0kiRjSSxYNgz",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791089985443_bb636e27_1791089985857_fa59b111.png",
+  "credits": 150,
+  "generated": "2026-10-03",
+  "note": "Round 3 of the 2026-10-03 batch (regenerated from the owner's notes on rounds 1 and 2); owner pick. No prediction recorded for this round.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791089985122_8cf765fb_1791089985705_009ac0a1.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791089985443_bb636e27_1791089985857_fa59b111.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791089987136_a57e12cd_1791089987928_0c2806f7.png"
+    }
+  ],
+  "picked": "B",
+  "references": [
+    {
+      "label": "FT_BeachedOutrigger__v1.png",
+      "role": "subject"
+    }
+  ]
+}

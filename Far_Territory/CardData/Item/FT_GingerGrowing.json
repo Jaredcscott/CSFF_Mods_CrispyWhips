@@ -1,0 +1,65 @@
+{
+  "UniqueID": "ft_ginger_growing",
+  "CardType": 0,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_GingerGrowing_CardName",
+    "DefaultText": "Growing Ginger"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_GingerGrowing_CardDescription",
+    "DefaultText": "A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 15 days there."
+  },
+  "CardImageWarpData": "FT_GrowingStrap",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 100.0,
+  "DoesNotPile": true,
+  "CardTagsWarpData": [
+    "tag_Gardenable",
+    "tag_GardenPlantGrowing"
+  ],
+  "CardTagsWarpType": 3,
+  "Progress": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 1440.0,
+    "RatePerDaytimePoint": 0.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_GingerGrowing_Growth",
+      "DefaultText": "Growth"
+    },
+    "HidingOptions": 3,
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_GingerGrowing_Ready",
+        "DefaultText": "The ginger is ready to harvest."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "ft_ginger_garden",
+        "TransformIntoWarpType": 3
+      }
+    }
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_GingerGrowing_DA_Uproot",
+        "DefaultText": "Uproot"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_GingerGrowing_DA_Uproot_Desc",
+        "DefaultText": "Pull the plant up and throw it away. Nothing is gained."
+      },
+      "DaytimeCost": 1,
+      "ConfirmPopup": true,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ]
+}

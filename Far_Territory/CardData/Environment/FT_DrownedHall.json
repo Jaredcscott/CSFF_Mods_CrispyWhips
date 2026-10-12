@@ -1,0 +1,117 @@
+{
+  "UniqueID": "ftEnvDrownedHall",
+  "CardType": 4,
+  "InstancedEnvironment": false,
+  "AlwaysUpdate": false,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_Env_DrownedHall_CardName",
+    "DefaultText": "Drowned Hall"
+  },
+  "CardImageWarpData": "FT_DrownedHall",
+  "CardImageWarpType": 3,
+  "MaxWeightCapacity": 1000000.0,
+  "AlwaysDropUniqueDefaultEnvDrops": true,
+  "Ambience": {
+    "InternalName": "Day",
+    "BackgroundSoundWarpData": "RiverGroveOakDay",
+    "BackgroundSoundWarpType": 3,
+    "RandomNoises": [],
+    "StatConditions": [],
+    "NPCStatConditions": [],
+    "TimeOfDayConditions": [
+      {
+        "TimeType": 2,
+        "CompareType": 0,
+        "StartValue": 0,
+        "EndValue": 0,
+        "MomentOfDayValue": {
+          "MaskValue": 15
+        },
+        "SeasonValue": {
+          "MaskValue": 0
+        }
+      }
+    ]
+  },
+  "AlternateAmbiences": [
+    {
+      "InternalName": "EarlyNight",
+      "BackgroundSoundWarpData": "RiverEarlyNightLoop",
+      "BackgroundSoundWarpType": 3,
+      "RandomNoises": [],
+      "StatConditions": [],
+      "NPCStatConditions": [],
+      "TimeOfDayConditions": [
+        {
+          "TimeType": 2,
+          "CompareType": 0,
+          "StartValue": 0,
+          "EndValue": 0,
+          "MomentOfDayValue": {
+            "MaskValue": 48
+          },
+          "SeasonValue": {
+            "MaskValue": 0
+          }
+        }
+      ]
+    },
+    {
+      "InternalName": "LateNight",
+      "BackgroundSoundWarpData": "RiverLoop_Quiet",
+      "BackgroundSoundWarpType": 3,
+      "RandomNoises": [],
+      "StatConditions": [],
+      "NPCStatConditions": [],
+      "TimeOfDayConditions": [
+        {
+          "TimeType": 2,
+          "CompareType": 0,
+          "StartValue": 0,
+          "EndValue": 0,
+          "MomentOfDayValue": {
+            "MaskValue": 192
+          },
+          "SeasonValue": {
+            "MaskValue": 0
+          }
+        }
+      ]
+    }
+  ],
+  "DefaultEnvCardDrops": [
+    {
+      "DroppedCardWarpData": "ftLocDrownedHall",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "DroppedCardWarpData": "ft_cave_darkness",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "DroppedCardWarpData": "ft_path_drownedhall_cliffboundcove",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "DroppedCardWarpData": "ft_path_drownedhall_glitteringhall",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    }
+  ],
+  "IsDarkPlace": true
+}

@@ -1,0 +1,361 @@
+{
+  "UniqueID": "ft_stat_coffee",
+  "GameName": {
+    "LocalizationKey": "Far_Territory_Effect_Coffee_StatName",
+    "DefaultText": "Coffee Buzz"
+  },
+  "Description": {
+    "LocalizationKey": "Far_Territory_Effect_Coffee_StatDescription",
+    "DefaultText": "Raw coffee berries still working in you. They keep you awake, leave you a little on edge and thirsty, and wear off over the following hours."
+  },
+  "IsRuntimeOnly": false,
+  "BaseValue": 0.0,
+  "MinMaxValue": {
+    "x": 0.0,
+    "y": 24.0
+  },
+  "BaseRatePerTick": -1.0,
+  "MinMaxRate": {
+    "x": 0.0,
+    "y": 0.0
+  },
+  "Transfers": [],
+  "TimeOfDayMods": [],
+  "CompositeStats": [],
+  "StatPriority": 0,
+  "RequiredPerks": [],
+  "Visibility": 0,
+  "VisibleInDetailedList": false,
+  "CannotBeInspected": false,
+  "InvertedDirection": false,
+  "VisibleValueRange": {
+    "x": 0.0,
+    "y": 0.0
+  },
+  "TrendIndicatorRateRange": {
+    "x": 0.0,
+    "y": 0.0
+  },
+  "StatusesHaveNoBar": false,
+  "DefaultStatusName": {
+    "ParentObjectID": "",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "DefaultStatusDescription": {
+    "ParentObjectID": "",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "DefaultStatusIcon": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "DefaultStatusIconWarpData": "Sleepy_Old",
+  "DefaultStatusIconWarpType": 3,
+  "Statuses": [
+    {
+      "GameName": {
+        "LocalizationKey": "Far_Territory_Effect_Coffee_Status_Mild_Name",
+        "DefaultText": "Coffee Buzz"
+      },
+      "Description": {
+        "LocalizationKey": "Far_Territory_Effect_Coffee_Status_Mild_Description",
+        "DefaultText": "You feel more awake, a little on edge and a little thirsty."
+      },
+      "StatusLog": {
+        "LogText": {
+          "ParentObjectID": "",
+          "LocalizationKey": "",
+          "DefaultText": ""
+        },
+        "Category": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TicksToRegister": 0
+      },
+      "Icon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "IconWarpData": "Sleepy_Old",
+      "IconWarpType": 3,
+      "ValueRange": {
+        "x": 1,
+        "y": 12
+      },
+      "UsePercentageForRange": false,
+      "EffectsOnStats": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "07f59e0f9e41a214c85ffa3078273264",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "RateModifier": {
+            "x": 1.5,
+            "y": 1.5
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "RateModifier": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "c589f92d8a479a24c937ea90fa2d1a82",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "RateModifier": {
+            "x": -0.25,
+            "y": -0.25
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "EffectsOnNPCStats": [],
+      "EffectsOnActions": [],
+      "NotifyPlayer": 0,
+      "RepeatTextNotification": 0,
+      "AlertLevel": 0,
+      "AlertSounds": [],
+      "RepeatAlertSounds": 0,
+      "AmbientSounds": [],
+      "GameOver": false,
+      "ActionsMaxTicks": 0,
+      "PreventingActionMessage": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "CombatEffects": [],
+      "ConfidenceModifier": 0.0
+    },
+    {
+      "GameName": {
+        "LocalizationKey": "Far_Territory_Effect_Coffee_Status_Strong_Name",
+        "DefaultText": "Coffee Jitters"
+      },
+      "Description": {
+        "LocalizationKey": "Far_Territory_Effect_Coffee_Status_Strong_Description",
+        "DefaultText": "Far too many berries. Wide awake, jittery and parched."
+      },
+      "StatusLog": {
+        "LogText": {
+          "ParentObjectID": "",
+          "LocalizationKey": "",
+          "DefaultText": ""
+        },
+        "Category": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TicksToRegister": 0
+      },
+      "Icon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "IconWarpData": "Sleepy_Old",
+      "IconWarpType": 3,
+      "ValueRange": {
+        "x": 13,
+        "y": 24
+      },
+      "UsePercentageForRange": false,
+      "EffectsOnStats": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "07f59e0f9e41a214c85ffa3078273264",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "RateModifier": {
+            "x": 3.0,
+            "y": 3.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "RateModifier": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "c589f92d8a479a24c937ea90fa2d1a82",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "RateModifier": {
+            "x": -0.5,
+            "y": -0.5
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "EffectsOnNPCStats": [],
+      "EffectsOnActions": [],
+      "NotifyPlayer": 0,
+      "RepeatTextNotification": 0,
+      "AlertLevel": 0,
+      "AlertSounds": [],
+      "RepeatAlertSounds": 0,
+      "AmbientSounds": [],
+      "GameOver": false,
+      "ActionsMaxTicks": 0,
+      "PreventingActionMessage": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "CombatEffects": [],
+      "ConfidenceModifier": 0.0
+    }
+  ],
+  "UsesNovelty": false
+}

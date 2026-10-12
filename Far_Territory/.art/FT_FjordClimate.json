@@ -1,0 +1,41 @@
+{
+  "target": "FT_FjordClimate.png",
+  "sourceCard": "CardData/Location/FT_FjordClimate.json",
+  "subject": "raw wet cold off black water: a low grey sky over a dark fjord, mist rising off the water and snowfields running down to it.",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 2,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: raw wet cold off black water: a low grey sky over a dark fjord, mist rising off the water and snowfields running down to it.\nStyle: vanilla survival card game location art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, boats, sunshine, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
+  "refs": [
+    {
+      "label": "vanilla WeatherClear_Full (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/WeatherClear_Full_1791700798627_d650169f.png"
+    },
+    {
+      "label": "vanilla Lake1_Winter (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Lake1_Winter_1791697555368_d362d79a.png"
+    }
+  ],
+  "historyId": "ZO0MKE36UIRw6vBGTgZL",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791702514428_d8838826_1791702514895_17888139.png",
+  "credits": 40,
+  "generated": "2026-10-11",
+  "note": "Owner pick 2026-10-11 from the Prompt 32 picker page picker_32b (2 samples; predicted A, written before the owner looked). Finished by /process-card-art --full-bleed. Used by FT_FjordClimate.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791702514428_d8838826_1791702514895_17888139.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791702512957_01c04cf8_1791702513029_9bdb5714.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A"
+}

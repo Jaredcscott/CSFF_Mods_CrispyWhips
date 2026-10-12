@@ -1,0 +1,40 @@
+{
+  "UniqueID": "ft_palm_cleared",
+  "CardType": 2,
+  "AlwaysUpdate": true,
+  "UniqueOnBoard": false,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_PalmCleared_CardName",
+    "DefaultText": "Felled Palm"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_PalmCleared_CardDescription",
+    "DefaultText": "A palm stump and a few strips of trunk. A green shoot will rise from it in about ten days."
+  },
+  "CardImageWarpData": "FT_PalmCleared",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "SpoilageTime": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 960.0,
+    "RatePerDaytimePoint": 1.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_PalmCleared_Sprouting",
+      "DefaultText": "Sprouting"
+    },
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_PalmCleared_Sprouted",
+        "DefaultText": "A shoot rises from the palm stump."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "ft_palm_young",
+        "TransformIntoWarpType": 3
+      }
+    }
+  }
+}

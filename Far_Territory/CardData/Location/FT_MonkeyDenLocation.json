@@ -1,0 +1,247 @@
+{
+  "UniqueID": "ftLocMonkeyDen",
+  "CardType": 8,
+  "InstancedEnvironment": false,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": false,
+  "DoesNotPile": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_MonkeyDen_CardName",
+    "DefaultText": "Monkey Den"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_MonkeyDen_CardDescription",
+    "DefaultText": "A dry hollow among the roots of the ridge where a troop of macaques sleeps and eats. The floor is littered with the leavings of their meals: shells, feathers and gnawed bones."
+  },
+  "CardImageWarpData": "FT_MonkeyDen",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0,
+  "SpecialDurability1": {
+    "Active": true,
+    "FloatValue": 576.0,
+    "MaxValue": 576.0,
+    "RatePerDaytimePoint": 1.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_MonkeyDen_Gleanings",
+      "DefaultText": "Gleanings"
+    },
+    "HidingOptions": 1
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_MonkeyDen_DA_Forage",
+        "DefaultText": "Forage"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_MonkeyDen_DA_Forage_Desc",
+        "DefaultText": "Pick through the litter on the den floor for anything the troop has left behind."
+      },
+      "DaytimeCost": 2,
+      "ActionTagsWarpData": [
+        "ForageAction",
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 11.0,
+            "y": 10000.0
+          },
+          "NotifyWhenNotMet": true,
+          "HideAllWhenNotMet": false
+        }
+      ],
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.15,
+          "MaxValue": 1.0
+        },
+        "FailMessage": {
+          "LocalizationKey": "Far_Territory_MonkeyDen_DA_Forage_Fail",
+          "DefaultText": "Nothing worth picking up yet"
+        }
+      },
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -3.0,
+            "y": -3.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "16af37a364285d14586629e3e0700e55",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -43.0,
+            "y": -43.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ProducedCards": [
+        {
+          "CollectionName": "Bones",
+          "CollectionWeight": 2,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "674b640f46671f1418af4559b259b442",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Bird Bones",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "3dda5e481d296c5409b05ac6e66a9221",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Feathers",
+          "CollectionWeight": 2,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ac7fa8419b608d54fa2002aa589d3f94",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 2
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Rotten Remains",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "25a487b16088c2046a51935973ba6a90",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Coconut",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_coconut",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Nothing",
+          "CollectionWeight": 1,
+          "DroppedCards": []
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": -96.0,
+          "y": -96.0
+        }
+      }
+    }
+  ]
+}

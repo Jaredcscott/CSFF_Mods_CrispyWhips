@@ -1,0 +1,154 @@
+{
+  "UniqueID": "ft_china_rose",
+  "CardType": 0,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_ChinaRose_CardName",
+    "DefaultText": "China Rose"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_ChinaRose_CardDescription",
+    "DefaultText": "A big red flower with a long golden spike. The petals can be eaten raw: tart, a little slimy and faintly floral."
+  },
+  "CardImageWarpData": "FT_ChinaRose",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 10.0,
+  "MaxStack": 8,
+  "CardTagsWarpData": [
+    "tag_HumanFood",
+    "tag_Flower"
+  ],
+  "CardTagsWarpType": 3,
+  "FlavourTags": [
+    {
+      "Flavour": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "FlavourWarpData": "7c9da6f50cc16e9428ccffb051c1454f",
+      "FlavourWarpType": 3,
+      "Intensity": 0
+    },
+    {
+      "Flavour": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "FlavourWarpData": "36fc84b5b14bc204cbd938ed02204080",
+      "FlavourWarpType": 3,
+      "Intensity": 2
+    }
+  ],
+  "SpoilageTime": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 288.0,
+    "RatePerDaytimePoint": 1.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_ChinaRose_Spoilage",
+      "DefaultText": "Spoilage"
+    },
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_ChinaRose_Spoiled",
+        "DefaultText": "The China rose has wilted and spoiled."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": false
+      }
+    }
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_ChinaRose_DA_Eat",
+        "DefaultText": "Eat the Petals"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_ChinaRose_DA_Eat_Desc",
+        "DefaultText": "Eat the flower. Tart and a little slimy."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "ActionTagsWarpData": [
+        "VegetarianAction",
+        "EatingAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "c88a8dd710996d64982b4948ca1ec996",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 2.0,
+            "y": 2.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ]
+}

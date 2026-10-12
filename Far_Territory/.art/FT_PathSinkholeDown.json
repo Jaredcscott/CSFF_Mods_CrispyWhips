@@ -1,0 +1,39 @@
+{
+  "target": "FT_PathSinkholeDown.png",
+  "sourceCard": [
+    "CardData/Location/FT_PathWesternUplandsSinkhole.json"
+  ],
+  "subject": "standing at the edge of a sinkhole in open upland grass and looking down into it: a ragged round hole torn in the turf, its rim of broken grass, exposed brown soil and dangling roots, the rough grey rock walls of the shaft dropping away steeply to a floor of broken rubble and loose stones in shadow far below. Pale overcast daylight on the grass around the rim. No rope, no ladder, no people.",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "(see historyId; the item or scene template of this folder's 2026-10-11 sidecars with the subject above)",
+  "refs": [
+    {
+      "label": "vanilla Tunnel_1 (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Tunnel_1_1791697554255_c7ac50b2.png"
+    },
+    {
+      "label": "vanilla Waterfall_Cave (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Waterfall_Cave_1791697554788_97421448.png"
+    }
+  ],
+  "historyId": "3aVUGVg0kugh9RTVyXwQ",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791743173285_a2b8643c_1791743173341_df395e4f.png",
+  "credits": 20,
+  "generated": "2026-10-11",
+  "note": "Owner asked 2026-10-11 for one sample per card, redos to follow; replaces the base-game stand-in (Rope). Finished by /process-card-art --full-bleed. Used by FT_PathWesternUplandsSinkhole.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791743173285_a2b8643c_1791743173341_df395e4f.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A"
+}

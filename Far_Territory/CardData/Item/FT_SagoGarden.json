@@ -1,0 +1,92 @@
+{
+  "UniqueID": "ft_sago_garden",
+  "CardType": 0,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_SagoGarden_CardName",
+    "DefaultText": "Sago Palm (Garden)"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_SagoGarden_CardDescription",
+    "DefaultText": "A garden-grown sago palm with a trunk full of starch. Cut it down for the pith and a fresh shoot to plant again."
+  },
+  "CardImageWarpData": "FT_SagoPalm",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 100.0,
+  "DoesNotPile": true,
+  "CardTagsWarpData": [
+    "tag_Gardenable",
+    "tag_GardenPlantMature"
+  ],
+  "CardTagsWarpType": 3,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_SagoGarden_DA_Harvest",
+        "DefaultText": "Harvest"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_SagoGarden_DA_Harvest_Desc",
+        "DefaultText": "Cut the young palm down and scrape out its pith. A shoot is kept to plant again. The plant is used up."
+      },
+      "DaytimeCost": 1,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "ProducedCards": [
+        {
+          "CollectionName": "Harvest",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_sago_pith",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 3,
+                "y": 5
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_sago_shoot",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_SagoGarden_DA_Uproot",
+        "DefaultText": "Uproot"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_SagoGarden_DA_Uproot_Desc",
+        "DefaultText": "Pull the plant up and throw it away. Nothing is gained."
+      },
+      "DaytimeCost": 1,
+      "ConfirmPopup": true,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ]
+}

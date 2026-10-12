@@ -1,0 +1,35 @@
+{
+  "target": "FT_PathSwimToStack.png",
+  "sourceCard": null,
+  "subject": "open green water between a beach and a distant white rock stack with gulls, a line of swimming ripples crossing the water toward it, seen from the water's edge, sunlit, no person",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted illustration of open green water between a beach and a distant white rock stack with gulls, a line of swimming ripples crossing the water toward it, seen from the water's edge, sunlit, no person, in the style of a cozy hand-illustrated survival-crafting game: clean black ink linework with rich painterly colour and soft shading, warm natural light, a full-frame portrait scene (2:3) filling the whole canvas edge to edge with no white margin, a clear focal point in the middle, no characters unless stated, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, white background, white margin, cropped focal point, blurry, text, watermark, signature, logo, border, frame, user interface.",
+  "historyId": "Br3sOiHnwo9cGP5wluDo",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647593749_cf98ce4a_1791647594635_65d55f01.png",
+  "credits": 90,
+  "generated": "2026-10-10",
+  "note": "Owner pick from the 2026-10-10 batch picker; predicted was written before the owner looked. Finished by /process-card-art --full-bleed.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647593749_cf98ce4a_1791647594635_65d55f01.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647597336_ca792a04_1791647597902_2b414d08.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647593406_90b1c546_1791647595219_5fd0a78c.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "B"
+}

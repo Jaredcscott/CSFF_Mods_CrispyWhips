@@ -1,0 +1,156 @@
+{
+  "UniqueID": "ftEnvVineWoods",
+  "CardType": 4,
+  "InstancedEnvironment": false,
+  "AlwaysUpdate": false,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_Env_VineWoods_CardName",
+    "DefaultText": "Vine Woods"
+  },
+  "CardImageWarpData": "FT_VineWoods",
+  "CardImageWarpType": 3,
+  "MaxWeightCapacity": 1000000.0,
+  "AlwaysDropUniqueDefaultEnvDrops": true,
+  "Ambience": {
+    "InternalName": "Day",
+    "BackgroundSoundWarpData": "RiverGroveOakDay",
+    "BackgroundSoundWarpType": 3,
+    "RandomNoises": [],
+    "StatConditions": [],
+    "NPCStatConditions": [],
+    "TimeOfDayConditions": [
+      {
+        "TimeType": 2,
+        "CompareType": 0,
+        "StartValue": 0,
+        "EndValue": 0,
+        "MomentOfDayValue": {
+          "MaskValue": 15
+        },
+        "SeasonValue": {
+          "MaskValue": 0
+        }
+      }
+    ]
+  },
+  "AlternateAmbiences": [
+    {
+      "InternalName": "EarlyNight",
+      "BackgroundSoundWarpData": "RiverEarlyNightLoop",
+      "BackgroundSoundWarpType": 3,
+      "RandomNoises": [],
+      "StatConditions": [],
+      "NPCStatConditions": [],
+      "TimeOfDayConditions": [
+        {
+          "TimeType": 2,
+          "CompareType": 0,
+          "StartValue": 0,
+          "EndValue": 0,
+          "MomentOfDayValue": {
+            "MaskValue": 48
+          },
+          "SeasonValue": {
+            "MaskValue": 0
+          }
+        }
+      ]
+    },
+    {
+      "InternalName": "LateNight",
+      "BackgroundSoundWarpData": "RiverLoop_Quiet",
+      "BackgroundSoundWarpType": 3,
+      "RandomNoises": [],
+      "StatConditions": [],
+      "NPCStatConditions": [],
+      "TimeOfDayConditions": [
+        {
+          "TimeType": 2,
+          "CompareType": 0,
+          "StartValue": 0,
+          "EndValue": 0,
+          "MomentOfDayValue": {
+            "MaskValue": 192
+          },
+          "SeasonValue": {
+            "MaskValue": 0
+          }
+        }
+      ]
+    }
+  ],
+  "DefaultEnvCardDrops": [
+    {
+      "DroppedCardWarpData": "ftLocVineWoods",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "DroppedCardWarpData": "ft_path_vinewoods_palmfringe",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "DroppedCardWarpData": "ft_banana_plant",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "DroppedCardWarpData": "ft_almond_tree",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "DroppedCardWarpData": "ft_wild_yam",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "DroppedCardWarpData": "ft_kava_plant",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "DroppedCardWarpData": "ft_cinchona_tree",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "DroppedCardWarpData": "ft_weevil_lily_plant",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "DroppedCardWarpData": "ft_snake_grass_patch",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    }
+  ]
+}

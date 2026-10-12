@@ -1,0 +1,41 @@
+{
+  "target": "FT_VolcanoClimate.png",
+  "sourceCard": "CardData/Location/FT_VolcanoClimate.json",
+  "subject": "dry steady heat over black volcanic rock: shimmering heat haze in a pale hazy sky above a black slope, a thin trail of smoke, no snow.",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 2,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: dry steady heat over black volcanic rock: shimmering heat haze in a pale hazy sky above a black slope, a thin trail of smoke, no snow.\nStyle: vanilla survival card game location art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, lava fountain, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
+  "refs": [
+    {
+      "label": "vanilla WeatherClear_Full (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/WeatherClear_Full_1791700798627_d650169f.png"
+    },
+    {
+      "label": "vanilla Path (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Path_1791693750843_84388d59.png"
+    }
+  ],
+  "historyId": "Fja9YHPk1YFn44moHEBE",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791702519490_60f32365_1791702519565_49931386.png",
+  "credits": 40,
+  "generated": "2026-10-11",
+  "note": "Owner pick 2026-10-11 from the Prompt 18 picker page picker_18b (2 samples; predicted A, written before the owner looked). Finished by /process-card-art --full-bleed. Used by FT_VolcanoClimate.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791702519490_60f32365_1791702519565_49931386.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791702518602_4a178943_1791702518666_10cc71ef.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A"
+}

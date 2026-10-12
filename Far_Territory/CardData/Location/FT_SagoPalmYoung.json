@@ -1,0 +1,40 @@
+{
+  "UniqueID": "ft_sago_palm_young",
+  "CardType": 2,
+  "AlwaysUpdate": true,
+  "UniqueOnBoard": false,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_SagoPalmYoung_CardName",
+    "DefaultText": "Young Sago Palm"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_SagoPalmYoung_CardDescription",
+    "DefaultText": "A young sago palm rising from the suckers of a felled one. It grows into a full sago palm in about a month."
+  },
+  "CardImageWarpData": "FT_SagoPalmYoung",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "SpoilageTime": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 2880.0,
+    "RatePerDaytimePoint": 1.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_SagoPalmYoung_Growth",
+      "DefaultText": "Growth"
+    },
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_SagoPalmYoung_Grown",
+        "DefaultText": "The young sago palm has grown into a sago palm."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "ft_sago_palm",
+        "TransformIntoWarpType": 3
+      }
+    }
+  }
+}

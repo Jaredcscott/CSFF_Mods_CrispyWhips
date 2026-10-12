@@ -1,0 +1,122 @@
+{
+  "UniqueID": "ft_aloe_leaf",
+  "CardType": 0,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_AloeLeaf_CardName",
+    "DefaultText": "Aloe Vera Leaf"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_AloeLeaf_CardDescription",
+    "DefaultText": "A thick, spiny leaf full of cool, clear gel. Spread on the skin it eases a burn's sting and helps it mend for a few hours. Set one in a garden plot and it roots."
+  },
+  "CardImageWarpData": "FT_AloeLeaf",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 80.0,
+  "MaxStack": 8,
+  "CardTagsWarpData": [
+    "tag_Gardenable"
+  ],
+  "CardTagsWarpType": 3,
+  "SpoilageTime": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 960.0,
+    "RatePerDaytimePoint": 1.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_AloeLeaf_Spoilage",
+      "DefaultText": "Spoilage"
+    },
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_AloeLeaf_Spoiled",
+        "DefaultText": "The aloe leaf has spoiled."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": false
+      }
+    }
+  },
+  "Progress": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 1.0,
+    "RatePerDaytimePoint": 0.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_AloeLeaf_Planting",
+      "DefaultText": "Planting"
+    },
+    "HidingOptions": 2,
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_AloeLeaf_Planted",
+        "DefaultText": "The aloe leaf has taken root in the garden plot."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "ft_aloe_growing",
+        "TransformIntoWarpType": 3
+      }
+    }
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_AloeLeaf_DA_Apply",
+        "DefaultText": "Apply the Gel"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_AloeLeaf_DA_Apply_Desc",
+        "DefaultText": "Split the leaf and spread its gel on your skin. Burns sting less and mend faster for a few hours (Aloe Salve)."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "ft_stat_aloe",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 24.0,
+            "y": 24.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ]
+}

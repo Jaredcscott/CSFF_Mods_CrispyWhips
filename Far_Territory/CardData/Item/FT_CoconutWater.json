@@ -1,0 +1,163 @@
+{
+  "UniqueID": "ft_coconut_water",
+  "CardType": 0,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_CoconutWater_CardName",
+    "DefaultText": "Coconut Water"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_CoconutWater_CardDescription",
+    "DefaultText": "The clear, faintly sweet water of a fresh coconut, caught in the cracked shell. It does not keep."
+  },
+  "CardImageWarpData": "FT_CoconutWater",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 300.0,
+  "MaxStack": 4,
+  "SpoilageTime": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 192.0,
+    "RatePerDaytimePoint": 1.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_CoconutWater_Spoilage",
+      "DefaultText": "Spoilage"
+    },
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_CoconutWater_Spoiled",
+        "DefaultText": "The coconut water has turned."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": false
+      }
+    }
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_CoconutWater_DA_Drink",
+        "DefaultText": "Drink"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_CoconutWater_DA_Drink_Desc",
+        "DefaultText": "Drink the coconut water."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "ActionTagsWarpData": [],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "c589f92d8a479a24c937ea90fa2d1a82",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 90.0,
+            "y": 90.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 8.0,
+            "y": 8.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 20.0,
+            "y": 20.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      },
+      "ActionSoundsWarpData": [
+        "Drink"
+      ],
+      "ActionSoundsWarpType": 3
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "target": "FT_RopeAndPitons.png",
+  "sourceCard": "CardData/Item/FT_RopeAndPitons.json",
+  "subject": "a neat coil of brown rope with five short iron spikes (pitons) with eye-rings lying beside it.",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 2,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: a neat coil of brown rope with five short iron spikes (pitons) with eye-rings lying beside it.\nStyle: vanilla survival card game item art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, slight three-quarter angle, a single subject comfortably inset from every edge with a generous white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: hammer, climber, hooks, footprints, tracks, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, cropped, blurry, scenery behind the subject, grey background, off-white background, gradient background, checkerboard, transparency grid, drop shadow, text, watermark, signature, logo, border, frame.",
+  "refs": [
+    {
+      "label": "vanilla MeatHook_Iron_Rope (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/MeatHook_Iron_Rope_1791700795833_1d4eef9b.png"
+    },
+    {
+      "label": "vanilla LogPiece (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/LogPiece_1791697573880_2de4c7fa.png"
+    }
+  ],
+  "historyId": "qYtycwZa1ZpC56q6QOjb",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791702447936_8f47a94c_1791702448125_bdc9bdc3.png",
+  "credits": 40,
+  "generated": "2026-10-11",
+  "note": "Owner pick 2026-10-11 from the Prompt 32 picker page picker_32b (2 samples; predicted A, written before the owner looked). Finished by /process-card-art (white paper keyed). Used by Bp_FT_RopeAndPitons, FT_RopeAndPitons. 7 enclosed pocket(s) of white paper that the border-connected key cannot reach (between legs, coils, leaflets or roots) were keyed afterwards with the same 200 to 250 ramp, limited to 3 px past each pocket; painted whites were left opaque.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791702447012_abc1b453_1791702447150_fb11eb4a.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791702447936_8f47a94c_1791702448125_bdc9bdc3.png"
+    }
+  ],
+  "picked": "B",
+  "predicted": "A"
+}

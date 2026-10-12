@@ -1,0 +1,18 @@
+{
+  "UniqueID": "ft_moored_boat_island",
+  "CardType": 2,
+  "AlwaysUpdate": false,
+  "UniqueOnBoard": true,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_MooredBoatIsland_CardName",
+    "DefaultText": "Homeward Sand"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_MooredBoatIsland_CardDescription",
+    "DefaultText": "Fine white sand slopes gently into clear shallows here, the easiest place on this shore to come in through the surf. Back to the north-west, past the open water, lies the mainland coast."
+  },
+  "CardImageWarpData": "FT_HomewardSand",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0
+}

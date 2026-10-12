@@ -1,0 +1,41 @@
+{
+  "target": "FT_RockSaltSeam.png",
+  "sourceCard": "CardData/Location/FT_RockSaltSeam.json",
+  "subject": "a chunk of grey cliff rock with a thick band of grey-white rock salt running through it, the salt crusted and glittering where it has been wetted and dried.",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 2,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: a chunk of grey cliff rock with a thick band of grey-white rock salt running through it, the salt crusted and glittering where it has been wetted and dried.\nStyle: vanilla survival card game item art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, slight three-quarter angle, a single subject comfortably inset from every edge with a generous white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: tools, people, footprints, tracks, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, cropped, blurry, scenery behind the subject, grey background, off-white background, gradient background, checkerboard, transparency grid, drop shadow, text, watermark, signature, logo, border, frame.",
+  "refs": [
+    {
+      "label": "vanilla LogPiece (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/LogPiece_1791697573880_2de4c7fa.png"
+    },
+    {
+      "label": "vanilla PineNuts (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/PineNuts_1791697574555_66534f44.png"
+    }
+  ],
+  "historyId": "xNdRMoShUoTxpdAGUeZo",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791702444671_87e2dd37_1791702444765_ac865cdd.png",
+  "credits": 40,
+  "generated": "2026-10-11",
+  "note": "Owner pick 2026-10-11 from the Prompt 32 picker page picker_32b (2 samples; predicted A, written before the owner looked). Finished by /process-card-art (white paper keyed). Used by FT_RockSaltSeam.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791702442958_af608521_1791702443043_37a1c45d.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791702444671_87e2dd37_1791702444765_ac865cdd.png"
+    }
+  ],
+  "picked": "B",
+  "predicted": "A"
+}

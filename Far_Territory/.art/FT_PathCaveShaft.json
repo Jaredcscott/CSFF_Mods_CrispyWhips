@@ -1,0 +1,45 @@
+{
+  "target": "FT_PathCaveShaft.png",
+  "sourceCard": "CardData/Location/FT_PathDrownedHallGlitteringHall.json",
+  "subject": "looking up a vertical shaft of wet rock with ledges and handholds, climbing into the dark above. No torch; dim, cool, sourceless cave light.",
+  "model": "nano-banana-2",
+  "mode": "image2image (picked first-batch sample as composition reference, vanilla CSFF sprite as style reference)",
+  "params": {
+    "imageCount": 2,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is the COMPOSITION and look to keep: looking up a vertical shaft of wet rock with ledges and handholds, climbing into the dark above. Redraw this same picture, changed only as the Change line says.\nReference image 2 is a STYLE reference only: match its flat posterized fills, thin dark ink outlines and small hatch marks; do not copy its subject or composition.\nChange: Remove every torch, flame, fire and lit sconce, and remove the warm orange torchlight glow at the edges of the frame. The light now comes from nowhere in particular: dim, cool and natural for a cave, the rock in muted blue-grey and grey-brown shades, the far openings fading into darkness. Keep everything else exactly as in reference image 1: the same rock forms, the same openings, the same floor, the same camera position and framing.\nStyle: vanilla survival card game location art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, animals, torch, torches, flame, fire, sconce, lantern, warm orange glow, firelight, lit edge of the frame, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
+  "refs": [
+    {
+      "label": "FT_PathCaveShaft picked C (composition)",
+      "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701833710_1fd679f4_1791701833851_68fae048.png"
+    },
+    {
+      "label": "vanilla Tunnel_1 (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Tunnel_1_1791697554255_c7ac50b2.png"
+    }
+  ],
+  "historyId": "mgjhjnds1aFSeqc7eZk5",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791705004791_797d61c6_1791705004880_b1b76248.png",
+  "credits": 40,
+  "generated": "2026-10-11",
+  "note": "Owner pick 2026-10-11 from the redraw picker page picker_redraw (2 samples; predicted A, written before the owner looked). Owner asked for the same picture with one change; composition reference: FT_PathCaveShaft picked C sample from the first batch. Finished by /process-card-art --full-bleed. Used by FT_PathDrownedHallGlitteringHall, FT_PathGlitteringHallDrownedHall, FT_PathLowerHallMiddleHall, FT_PathMiddleHallLowerHall, FT_PathMiddleHallUpperHall, FT_PathUpperHallMiddleHall.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791705004791_797d61c6_1791705004880_b1b76248.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791705006547_0b996894_1791705006655_54e646a1.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A",
+  "composition_reference": {
+    "sample": "FT_PathCaveShaft picked C",
+    "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701833710_1fd679f4_1791701833851_68fae048.png"
+  }
+}

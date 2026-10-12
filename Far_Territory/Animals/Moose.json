@@ -1,0 +1,43 @@
+{
+  "//": "Far Territory plan P17 (Documentation/Plans/FarTerritory/MASTER_PLAN.md section 15, pack Prompt 28): the grassland's moose. Neither vanilla nor Harsh Wilds ships a moose, so it is this mod's (Open question 12). It browses the willow fen and grazes the plain beside it, never stalks and never attacks unprompted; a player who approaches it may still leave it alone, and one who fights it faces a heavy charge. A GENERATED agent (no Agent.Ref), so Carcass.Card applies and the framework wires the shared vanilla agent stats. Every number is a TUNABLE PLACEHOLDER, set beside Harsh Wilds' wisent and musk ox, never measured against play.",
+  "//Encounter": "Encounter.Ref points at FarTerritory/Encounter/ft_encounter_moose.json, which Development_Tools/FarTerritory/derive_animals.py derives from vanilla Combat_EncounterBoar the way Harsh Wilds derives its wisent: an antler swing, a knock-down, a charge and a hoof strike, every bite wound swapped for the base game's W_Puncture, FightOrEscape at the start (the boar forces the fight), and defeat drains AgentBlood so the generated death action drops the carcass. Agent.Blood and PoisonResistance match that encounter's Blood and Value4, which load from these NPCStats.",
+  "//Range": "The two WanderEnvs are the grassland's two boards, joined by a compass link (Sedge Fen east to Wildrye Plain), so a generated agent's pathfinding reaches both. Nothing joins them to the forest but the walking trail, which is a path card with a hidden map edge, so the moose stays on the grassland.",
+  "//Blood": "Agent.Blood.RatePerTick is 0 as in every Harsh Wilds manifest: the lifecycle ticker counts the agent dead only while its blood sits at 4 or below, so a regenerating blood would walk a killed animal back before DeathRespawnTicks.",
+  "SchemaVersion": 1,
+  "SpeciesId": "ft_moose",
+  "DisplayName": "Moose",
+  "LocalizationKey": "Far_Territory_Moose_AgentName",
+  "Sprite": "FT_Moose",
+  "WeightCategory": "Heavy",
+  "Agent": {
+    "Blood": { "Start": 260, "Max": 260, "RatePerTick": 0 },
+    "PoisonResistance": { "Start": 130, "RatePerTick": 0.4 }
+  },
+  "Spawn": {
+    "HomeEnv": "ftEnvSedgeFen",
+    "DeathRespawnTicks": 1344
+  },
+  "Movement": {
+    "WanderEnvs": [
+      "ftEnvSedgeFen",
+      "ftEnvWildryePlain"
+    ],
+    "WanderWeight": 100
+  },
+  "//Tracks": "Vanilla default track card. A beast this heavy is easy to track: RevealSkillCurve is ADDITIVE on the global Skill_Tracking curve (skill 0 -> 50%, 150 -> 100%), +10 at skill 0 to +20 at 150, as Harsh Wilds gives its wisent. TUNABLE, NOT PLAYTESTED.",
+  "Tracks": {
+    "Enabled": true,
+    "LifetimeTicks": { "Min": 48, "Max": 96 },
+    "AddedDiscoverChance": 0,
+    "RevealSkill": "Skill_Tracking",
+    "RevealSkillCurve": { "StatRange": [0, 150], "ChanceRange": [10, 20] },
+    "BloodTrail": true
+  },
+  "Encounter": {
+    "Ref": "ft_encounter_moose",
+    "ApproachButton": true
+  },
+  "Carcass": {
+    "Card": "ft_moose_carcass"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "UniqueID": "ft_china_rose_cutting",
+  "CardType": 0,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_ChinaRoseCutting_CardName",
+    "DefaultText": "China Rose Cutting"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_ChinaRoseCutting_CardDescription",
+    "DefaultText": "A young green stem snapped from a China rose. Set it in a garden plot and it roots."
+  },
+  "CardImageWarpData": "FT_ChinaRoseCutting",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 20.0,
+  "MaxStack": 8,
+  "CardTagsWarpData": [
+    "tag_Gardenable"
+  ],
+  "CardTagsWarpType": 3,
+  "SpoilageTime": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 960.0,
+    "RatePerDaytimePoint": 1.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_ChinaRoseCutting_Spoilage",
+      "DefaultText": "Spoilage"
+    },
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_ChinaRoseCutting_Spoiled",
+        "DefaultText": "The China rose cutting has spoiled."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": false
+      }
+    }
+  },
+  "Progress": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 1.0,
+    "RatePerDaytimePoint": 0.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_ChinaRoseCutting_Planting",
+      "DefaultText": "Planting"
+    },
+    "HidingOptions": 2,
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_ChinaRoseCutting_Planted",
+        "DefaultText": "The China rose cutting has taken root in the garden plot."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "ft_china_rose_growing",
+        "TransformIntoWarpType": 3
+      }
+    }
+  }
+}

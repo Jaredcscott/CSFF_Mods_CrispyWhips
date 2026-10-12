@@ -1,0 +1,223 @@
+{
+  "UniqueID": "ft_coffee_berries",
+  "CardType": 0,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_CoffeeBerries_CardName",
+    "DefaultText": "Coffee Berries"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_CoffeeBerries_CardDescription",
+    "DefaultText": "A handful of red berries, sweetish around two hard beans. Eaten raw they keep you awake for a while but leave you jittery and thirsty. Set them in a garden plot and the beans sprout."
+  },
+  "CardImageWarpData": "FT_CoffeeBerries",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 20.0,
+  "MaxStack": 8,
+  "CardTagsWarpData": [
+    "tag_HumanFood",
+    "tag_Gardenable"
+  ],
+  "CardTagsWarpType": 3,
+  "SpoilageTime": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 480.0,
+    "RatePerDaytimePoint": 1.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_CoffeeBerries_Spoilage",
+      "DefaultText": "Spoilage"
+    },
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_CoffeeBerries_Spoiled",
+        "DefaultText": "The coffee berries has spoiled."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": false
+      }
+    }
+  },
+  "Progress": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 1.0,
+    "RatePerDaytimePoint": 0.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_CoffeeBerries_Planting",
+      "DefaultText": "Planting"
+    },
+    "HidingOptions": 2,
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_CoffeeBerries_Planted",
+        "DefaultText": "The coffee berries has taken root in the garden plot."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "ft_coffee_growing",
+        "TransformIntoWarpType": 3
+      }
+    }
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_CoffeeBerries_DA_Eat",
+        "DefaultText": "Eat"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_CoffeeBerries_DA_Eat_Desc",
+        "DefaultText": "Eat the berries, spitting out the beans. You feel more awake for a while (Coffee Buzz)."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "ActionTagsWarpData": [
+        "VegetarianAction",
+        "EatingAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 3.0,
+            "y": 3.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "9824a150f7bc85f4384a0ed026a69f0a",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 10.0,
+            "y": 10.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "ca65984e668e95344a7009df3dcfb052",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 6.0,
+            "y": 6.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "ft_stat_coffee",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 6.0,
+            "y": 6.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ]
+}

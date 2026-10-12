@@ -1,0 +1,51 @@
+[
+  {
+    "Locations": {
+      "Uids": [
+        "c5d461c899e25624a99e45496f18b48c"
+      ]
+    },
+    "Action": "Forage",
+    "ActionMode": "exact",
+    "Drops": [
+      { "Card": "ft_path_westernwildwoods_wildryeplain", "Chance": 35.0, "Quantity": [1, 1] }
+    ]
+  },
+  {
+    "Locations": {
+      "Uids": [
+        "8c6c0c29e4de0d741b40a2f19e8380b8"
+      ]
+    },
+    "Action": "Forage",
+    "ActionMode": "exact",
+    "Drops": [
+      { "Card": "ft_path_fangvale_screeslope", "Chance": 30.0, "Quantity": [1, 1] }
+    ]
+  },
+  {
+    "Locations": {
+      "Uids": [
+        "ftLocWildryePlain"
+      ]
+    },
+    "Action": "Search the Grazing Grounds",
+    "ActionMode": "exact",
+    "Drops": [
+      { "Card": "hw_wisent_carcass", "Chance": 12.0, "Quantity": [1, 1] },
+      { "Card": "hw_muskox_carcass", "Chance": 12.0, "Quantity": [1, 1], "Seasons": ["Winter"] }
+    ]
+  },
+  {
+    "Locations": {
+      "Uids": [
+        "ftLocFjordHead"
+      ]
+    },
+    "Action": "Search the Snowfield",
+    "ActionMode": "exact",
+    "Drops": [
+      { "Card": "hw_muskox_carcass", "Chance": 15.0, "Quantity": [1, 1], "Seasons": ["Winter"] }
+    ]
+  }
+]

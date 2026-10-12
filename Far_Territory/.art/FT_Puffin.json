@@ -1,0 +1,45 @@
+{
+  "target": "FT_Puffin.png",
+  "sourceCard": "Animals/Puffin.json",
+  "subject": "one puffin standing on a grassy cliff ledge beside a burrow hole: black back, white face and chest, and a big triangular bill striped red, orange and grey, orange feet.",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: one puffin standing on a grassy cliff ledge beside a burrow hole: black back, white face and chest, and a big triangular bill striped red, orange and grey, orange feet.\nStyle: vanilla survival card game wild animal art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, multiple birds, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
+  "refs": [
+    {
+      "label": "vanilla Stag_Wild (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Stag_Wild_1791697556472_3fc2d99a.png"
+    },
+    {
+      "label": "vanilla Lake1_Winter (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Lake1_Winter_1791697555368_d362d79a.png"
+    }
+  ],
+  "historyId": "lHcXoDZriF2YFbrInkyo",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791699157635_04a24937_1791699157738_8350e1b9.png",
+  "credits": 60,
+  "generated": "2026-10-11",
+  "note": "Owner pick 2026-10-11 from the Prompt 32 picker page picker_32 (3 samples; predicted B, written before the owner looked). Finished by /process-card-art --full-bleed. Used by Puffin, ft_encounter_puffin.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791699157635_04a24937_1791699157738_8350e1b9.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791699157285_00c6841e_1791699157466_19ed59bb.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791699156699_4b3db3a8_1791699156741_44ff8535.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "B"
+}

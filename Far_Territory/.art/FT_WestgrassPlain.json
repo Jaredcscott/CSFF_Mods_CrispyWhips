@@ -1,0 +1,45 @@
+{
+  "target": "FT_WestgrassPlain.png",
+  "sourceCard": "CardData/Environment/FT_WestgrassPlain.json",
+  "subject": "a wide open plain of tall pale straw-coloured grass, bright after the woods, the wind bending it in long rippling waves, the ground rising gently toward low hills in the distance, the dark edge of a jungle at one side. Big pale sky. No animals.",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: a wide open plain of tall pale straw-coloured grass, bright after the woods, the wind bending it in long rippling waves, the ground rising gently toward low hills in the distance, the dark edge of a jungle at one side. Big pale sky. No animals.\nStyle: vanilla survival card game location art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, animals, birds, a worn trail line, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
+  "refs": [
+    {
+      "label": "vanilla BoggyMeadows (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/BoggyMeadows_1791697553603_15fe9a26.png"
+    },
+    {
+      "label": "vanilla Path (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Path_1791693750843_84388d59.png"
+    }
+  ],
+  "historyId": "TySAuCnzfErvZK4KZfTI",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698042603_0884d373_1791698042882_6f66918c.png",
+  "credits": 60,
+  "generated": "2026-10-11",
+  "note": "Owner pick 2026-10-11 from the Prompt 18 picker page picker_18 (3 samples; predicted A, written before the owner looked). Finished by /process-card-art --full-bleed. Used by FT_WestgrassPlain, FT_WestgrassPlainLocation.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698042739_b22e7fec_1791698042803_a15835f5.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698043294_66083c59_1791698043410_ac22d2b7.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698042603_0884d373_1791698042882_6f66918c.png"
+    }
+  ],
+  "picked": "C",
+  "predicted": "A"
+}

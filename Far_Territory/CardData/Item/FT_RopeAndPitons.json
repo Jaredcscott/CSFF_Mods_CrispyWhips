@@ -1,0 +1,59 @@
+{
+  "UniqueID": "ft_rope_and_pitons",
+  "CardType": 0,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_RopeAndPitons_CardName",
+    "DefaultText": "Rope and Pitons"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_RopeAndPitons_CardDescription",
+    "DefaultText": "A coil of rope with a handful of iron spikes to hammer into cracks in the rock. Carried in your hand it makes every climb safer, and the steepest mountain paths cannot be climbed without it."
+  },
+  "CardImageWarpData": "FT_RopeAndPitons",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 800.0,
+  "DoesNotPile": true,
+  "WhenCreatedSoundsWarpData": [
+    "Metal"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "PassiveEffects": [
+    {
+      "EffectName": "Rope and Pitons Climbing Aid",
+      "OnlyWhenEquipped": false,
+      "OnlyWhenInHand": true,
+      "Conditions": {
+        "NotInBackground": false,
+        "InBackground": false,
+        "PlayerUsesCard": 0,
+        "RequiredStatValues": []
+      },
+      "StatModifiers": [
+        {
+          "StatWarpData": "33f8297bdbbdf7a47b9944f633fdcad8",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 72.0,
+            "y": 72.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ]
+    }
+  ]
+}

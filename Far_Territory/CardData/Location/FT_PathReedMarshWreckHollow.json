@@ -1,0 +1,236 @@
+{
+  "UniqueID": "ft_path_reedmarsh_wreckhollow",
+  "CardType": 2,
+  "AlwaysUpdate": false,
+  "UniqueOnBoard": true,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_PathReedMarshWreckHollow_CardName",
+    "DefaultText": "Path to Wreck Hollow"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_PathReedMarshWreckHollow_CardDescription",
+    "DefaultText": "A trampled gap in the reeds leads up into a hollow in the hillside where something large and wooden lies."
+  },
+  "CardImageWarpData": "FT_PathUplandTrack",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_PathReedMarshWreckHollow_DA_Travel",
+        "DefaultText": "Enter Wreck Hollow"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_PathReedMarshWreckHollow_DA_Travel_Desc",
+        "DefaultText": "Push through the gap and up into the hollow. It is only a few steps."
+      },
+      "DaytimeCost": 0,
+      "ActionSoundsWarpData": [
+        "ExploreBushes"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ActionTagsWarpData": [
+        "TravelAction",
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "NotBaseAction": true,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "e70593661cf8d7c41aa7052d60118305",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 20.0,
+            "y": 20.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -10.0,
+            "y": -10.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 2.0,
+            "y": 2.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -12.0,
+            "y": -12.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "16af37a364285d14586629e3e0700e55",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -43.0,
+            "y": -43.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ProducedCards": [
+        {
+          "CollectionName": "Travel",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ftEnvWreckHollow",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "FadeToBlack": 1,
+      "FadeMessage": {
+        "LocalizationKey": "Far_Territory_PathReedMarshWreckHollow_DA_Travel_Fade",
+        "DefaultText": "Pushing through the reeds..."
+      }
+    }
+  ]
+}

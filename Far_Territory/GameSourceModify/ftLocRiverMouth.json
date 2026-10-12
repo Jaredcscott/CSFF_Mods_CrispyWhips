@@ -1,0 +1,10 @@
+{
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_RiverMouth_CardDescription",
+    "DefaultText": "The river slows and spreads here before it meets the sea, and the water turns brackish. Reeds crowd the mud, and the mosquitoes are as bad as anywhere upstream."
+  },
+  "CardHelpSection": {
+    "LocalizationKey": "Far_Territory_RiverMouth_CardHelpSection",
+    "DefaultText": "<b>Estuary, Riverbank:</b>\n\n<b>Conditions:</b> Brackish water, humid soil.\n\n<b>Flora:</b> Reeds.\n\n<b>Fauna:</b> Mosquitoes, river fish."
+  }
+}

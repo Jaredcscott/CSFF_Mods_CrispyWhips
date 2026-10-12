@@ -1,0 +1,1863 @@
+Far_Territory_Env_LandingBeach_CardName,Seaward Sands
+Far_Territory_Env_Shore_CardName,Driftwood Shore
+Far_Territory_Seashells_CardName,Seashells
+Far_Territory_Seashells_CardDescription,"A handful of empty shells, ridged and chalky. Ground with a stone they crumble into bonemeal for gardens and fields."
+Far_Territory_Seashells_CI_Grind,Grind
+Far_Territory_Seashells_CI_Grind_Desc,Crush the shells into a coarse powder.
+Far_Territory_Driftwood_CardName,Driftwood Log
+Far_Territory_Driftwood_CardDescription,"A whole trunk the river brought down and the tide threw back, bleached and smooth. Hauled clear of the water it is an ordinary log."
+Far_Territory_Driftwood_DA_HaulOut,Haul Out
+Far_Territory_Driftwood_DA_HaulOut_Desc,Drag the log up out of the wet so it can be carried and worked like any other.
+Far_Territory_LandingBeach_CardName,Seaward Sands
+Far_Territory_LandingBeach_CardDescription,"A wide beach of pale sand where the land finally runs out. Gulls work the tideline, and the open sea stretches away to the south and east."
+Far_Territory_LandingBeach_Gleanings,Gleanings
+Far_Territory_LandingBeach_DA_Forage,Forage
+Far_Territory_LandingBeach_DA_Forage_Desc,Search the tideline for anything the water left behind.
+Far_Territory_LandingBeach_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_LandingBeach_DA_West,West
+Far_Territory_LandingBeach_DA_West_Fade,Travelling West...
+Far_Territory_ShellSand_CardName,Shell-Strewn Sand
+Far_Territory_ShellSand_CardDescription,A stretch of sand where every tide leaves a fresh scatter of shells. Comb it and it fills again given time.
+Far_Territory_ShellSand_Shells,Shells
+Far_Territory_ShellSand_DA_Comb,Comb the Sand
+Far_Territory_ShellSand_DA_Comb_Desc,Sift the sand by hand for shells worth keeping.
+Far_Territory_ShellSand_DA_Comb_Fail,The tide has not brought more yet
+Far_Territory_Shore_CardName,Driftwood Shore
+Far_Territory_Shore_CardDescription,"Past the river's mouth the bank gives way to a low shore of shingle and wrack. The sea is close enough to hear, and whatever the river carries down ends up here."
+Far_Territory_Shore_Gleanings,Gleanings
+Far_Territory_Shore_DA_Forage,Forage
+Far_Territory_Shore_DA_Forage_Desc,Search the tideline for anything the water left behind.
+Far_Territory_Shore_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_RiverMouth_CardDescription,"The river slows and spreads here before it meets the sea, and the water turns brackish. Reeds crowd the mud, and the mosquitoes are as bad as anywhere upstream."
+Far_Territory_RiverMouth_CardHelpSection,"<b>Estuary, Riverbank:</b>
+
+<b>Conditions:</b> Brackish water, humid soil.
+
+<b>Flora:</b> Reeds.
+
+<b>Fauna:</b> Mosquitoes, river fish."
+Far_Territory_RiverMouth_CardName,Brackwater Mouth
+Far_Territory_Env_RiverMouth_CardName,Brackwater Mouth
+Far_Territory_Env_LandfallStrand_CardName,Landfall Strand
+Far_Territory_LandfallStrand_CardName,Landfall Strand
+Far_Territory_LandfallStrand_CardDescription,"A curve of white sand where the island meets the sea. Palms lean over the beach, and green, broken country rises inland."
+Far_Territory_LandfallStrand_Gleanings,Gleanings
+Far_Territory_LandfallStrand_DA_Forage,Forage
+Far_Territory_LandfallStrand_DA_Forage_Desc,Search the tideline for anything the water left behind.
+Far_Territory_LandfallStrand_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_MooredBoatMainland_CardName,Misty Coast
+Far_Territory_MooredBoatMainland_CardDescription,"A stony shore under low mist, dark firs crowding down to the water and a weathered driftwood post standing at the waterline with a rope wound round it. Far out to the south-east, on a clear day, there is land."
+Far_Territory_MooredBoatMainland_DA_SetSail,Set Sail for the Island
+Far_Territory_MooredBoatMainland_DA_SetSail_Desc,Push off past the breakers and paddle across the open water to the island. The crossing takes about six hours.
+Far_Territory_MooredBoatMainland_DA_SetSail_Fade,Sailing for the island...
+Far_Territory_MooredBoatIsland_CardName,Homeward Sand
+Far_Territory_MooredBoatIsland_CardDescription,"Fine white sand slopes gently into clear shallows here, the easiest place on this shore to come in through the surf. Back to the north-west, past the open water, lies the mainland coast."
+Far_Territory_MooredBoatIsland_DA_SetSail,Set Sail for the Mainland
+Far_Territory_MooredBoatIsland_DA_SetSail_Desc,Run the outrigger back into the surf and paddle home to the mainland beach. The crossing takes about six hours.
+Far_Territory_MooredBoatIsland_DA_SetSail_Fade,Sailing for the mainland...
+Far_Territory_Outrigger_CardName,Outrigger Canoe
+Far_Territory_Outrigger_CardDescription,"A narrow dugout canoe lashed by two poles to a slim log float, a paddle laid along its bottom. It carries you across the open water between the mainland coast and the island."
+Far_Territory_SeaShore_CardName,The Sea
+Far_Territory_SeaShore_CardDescription,"Green water breaking on white sand, warm to the knee. You can wash in it, or hold your breath and dive for what lies on the bottom."
+Far_Territory_SeaShore_DA_Wash,Wash in the Sea
+Far_Territory_SeaShore_DA_Wash_Desc,"Wade in and scrub off the road, the sweat and the sand."
+Far_Territory_SeaShore_DA_Dive,Dive for Shells
+Far_Territory_SeaShore_DA_Dive_Desc,Hold your breath and feel along the bottom for shells and weed.
+Far_Territory_TidePool_CardName,Tide Pool
+Far_Territory_TidePool_CardDescription,"A bowl in the rocks the sea left full: crabs in the crevices, prawns in the shallows, weed on the walls. Pick it clean and it slowly restocks."
+Far_Territory_TidePool_Catch,Catch
+Far_Territory_TidePool_DA_Forage,Forage the Pool
+Far_Territory_TidePool_DA_Forage_Desc,Turn over the weed and reach into the crevices for crabs and prawns.
+Far_Territory_TidePool_DA_Forage_Fail,The pool is picked clean for now
+Far_Territory_Seaweed_CardName,Seaweed
+Far_Territory_Seaweed_CardDescription,"Glossy green strands off the rocks, salty and a little slick. Edible as it comes, if you do not mind the chew."
+Far_Territory_Seaweed_Spoilage,Spoilage
+Far_Territory_Seaweed_Spoiled,The seaweed has spoiled.
+Far_Territory_Seaweed_DA_Eat,Eat Raw
+Far_Territory_Seaweed_DA_Eat_Desc,Chew the weed as it is.
+Far_Territory_Crab_CardName,Shore Crab
+Far_Territory_Crab_CardDescription,"A palm-sized crab, hard-shelled and quick. The claws hold the meat."
+Far_Territory_Crab_Spoilage,Spoilage
+Far_Territory_Crab_Spoiled,The shore crab has spoiled.
+Far_Territory_Crab_DA_Eat,Eat Raw
+Far_Territory_Crab_DA_Eat_Desc,Crack the shell and eat the meat as it is.
+Far_Territory_Prawn_CardName,Rock Prawn
+Far_Territory_Prawn_CardDescription,"A clear-bodied prawn from the shallows of the pool. Little, but sweet."
+Far_Territory_Prawn_Spoilage,Spoilage
+Far_Territory_Prawn_Spoiled,The rock prawn has spoiled.
+Far_Territory_Prawn_DA_Eat,Eat Raw
+Far_Territory_Prawn_DA_Eat_Desc,Peel it and eat it as it is.
+Far_Territory_Env_CoralInlet_CardName,Coral Inlet
+Far_Territory_CoralInlet_CardName,Coral Inlet
+Far_Territory_CoralInlet_CardDescription,"A sheltered inlet where the reef breaks the swell. The water lies clear and still over coral and sand, and the tide lays weed and shells along the beach."
+Far_Territory_CoralInlet_Gleanings,Gleanings
+Far_Territory_CoralInlet_DA_Forage,Forage
+Far_Territory_CoralInlet_DA_Forage_Desc,"Search the tideline for shells, weed and anything else the reef let through."
+Far_Territory_CoralInlet_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_SeaCoralInlet_CardName,The Reef Water
+Far_Territory_SeaCoralInlet_CardDescription,"Clear, warm water over the reef, so still you can see the coral below. You can wash in it, or hold your breath and dive for what lies on the bottom."
+Far_Territory_SeaCoralInlet_DA_Wash,Wash in the Sea
+Far_Territory_SeaCoralInlet_DA_Wash_Desc,"Wade in and scrub off the road, the sweat and the sand."
+Far_Territory_SeaCoralInlet_DA_Dive,Dive for Shells
+Far_Territory_SeaCoralInlet_DA_Dive_Desc,Hold your breath and feel along the bottom for shells and weed.
+Far_Territory_LandfallStrand_DA_South,South
+Far_Territory_LandfallStrand_DA_South_Fade,Travelling South...
+Far_Territory_Env_BoulderShore_CardName,Boulder Shore
+Far_Territory_BoulderShore_CardName,Boulder Shore
+Far_Territory_BoulderShore_CardDescription,"A shore of dark, weed-hung boulders where the swell breaks white. Pools of trapped seawater sit between the rocks, and far to the east an islet streaked white by gulls stands out of the sea."
+Far_Territory_BoulderShore_Gleanings,Gleanings
+Far_Territory_BoulderShore_DA_Forage,Forage
+Far_Territory_BoulderShore_DA_Forage_Desc,"Pick over the rocks and pools for shells, flint and anything the swell left wedged between the boulders."
+Far_Territory_BoulderShore_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_Env_RootwaterThicket_CardName,Rootwater Thicket
+Far_Territory_RootwaterThicket_CardName,Rootwater Thicket
+Far_Territory_RootwaterThicket_CardDescription,"A drowned wood of stilt-rooted trees standing in brown, brackish water. Crabs scuttle over the mud between the roots, and the sea seeps in and out beneath the canopy."
+Far_Territory_RootwaterThicket_Gleanings,Gleanings
+Far_Territory_RootwaterThicket_DA_Forage,Forage
+Far_Territory_RootwaterThicket_DA_Forage_Desc,"Wade among the roots for crabs, sticks and the weed the tide leaves hanging in them."
+Far_Territory_RootwaterThicket_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_Env_BleakStrand_CardName,Bleak Strand
+Far_Territory_BleakStrand_CardName,Bleak Strand
+Far_Territory_BleakStrand_CardDescription,"A long, empty beach of grey sand under a bare headland, littered with sea-worn flint and bleached wood. To the north an islet of white-streaked rock stands off the shore."
+Far_Territory_BleakStrand_Gleanings,Gleanings
+Far_Territory_BleakStrand_DA_Forage,Forage
+Far_Territory_BleakStrand_DA_Forage_Desc,"Walk the empty tideline for flint, shells and stones."
+Far_Territory_BleakStrand_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_Env_PalmFringe_CardName,Palm Fringe
+Far_Territory_PalmFringe_CardName,Palm Fringe
+Far_Territory_PalmFringe_CardDescription,"Where the beach gives way to the jungle: leaning palms, scrub and dry fronds over pale sand. Inland, the green closes in."
+Far_Territory_PalmFringe_Gleanings,Gleanings
+Far_Territory_PalmFringe_DA_Forage,Forage
+Far_Territory_PalmFringe_DA_Forage_Desc,"Search the scrub at the edge of the trees for sticks, dry leaves and stones."
+Far_Territory_PalmFringe_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_Env_CliffboundCove_CardName,Cliffbound Cove
+Far_Territory_CliffboundCove_CardName,Cliffbound Cove
+Far_Territory_CliffboundCove_CardDescription,"A little hidden beach walled in by cliffs. The cove is deep and calm, and across the open water to the north-east an islet of white-streaked rock breaks the horizon."
+Far_Territory_CliffboundCove_Gleanings,Gleanings
+Far_Territory_CliffboundCove_DA_Forage,Forage
+Far_Territory_CliffboundCove_DA_Forage_Desc,"Search the small beach for shells, stones and the odd crab under the weed."
+Far_Territory_CliffboundCove_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_Env_GullStack_CardName,Gull Stack
+Far_Territory_GullStack_CardName,Gull Stack
+Far_Territory_GullStack_CardDescription,"A stack of rock rising sheer from the sea, white with the droppings of the gulls that nest on every ledge. Nothing grows here but salt-crusted grass, and the only way back is to swim."
+Far_Territory_GullStack_Gleanings,Gleanings
+Far_Territory_GullStack_DA_Forage,Forage
+Far_Territory_GullStack_DA_Forage_Desc,"Climb about the ledges for feathers, shells and stones, keeping clear of the nesting gulls."
+Far_Territory_GullStack_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_SeaBoulderShore_CardName,The Rocky Swell
+Far_Territory_SeaBoulderShore_CardDescription,"Warm water surging in and out between the boulders. You can wash in a sheltered gap between the rocks, or hold your breath and dive along them for what clings there."
+Far_Territory_SeaBoulderShore_DA_Wash,Wash in the Sea
+Far_Territory_SeaBoulderShore_DA_Wash_Desc,"Wade in and scrub off the road, the sweat and the sand."
+Far_Territory_SeaBoulderShore_DA_Dive,Dive Along the Rocks
+Far_Territory_SeaBoulderShore_DA_Dive_Desc,"Hold your breath and feel along the rocks for shells, weed and loose stones."
+Far_Territory_SeaBleakStrand_CardName,The Grey Surf
+Far_Territory_SeaBleakStrand_CardDescription,"Long grey rollers break on the strand and drag back over flint and shell. You can wash in the shallows, or dive out past the break."
+Far_Territory_SeaBleakStrand_DA_Wash,Wash in the Sea
+Far_Territory_SeaBleakStrand_DA_Wash_Desc,"Wade in and scrub off the road, the sweat and the sand."
+Far_Territory_SeaBleakStrand_DA_Dive,Dive Past the Break
+Far_Territory_SeaBleakStrand_DA_Dive_Desc,"Swim out past the breaking surf and feel along the bottom for shells, flint and weed."
+Far_Territory_SeaRootwaterThicket_CardName,The Brackish Shallows
+Far_Territory_SeaRootwaterThicket_CardDescription,"Brown water, half sea and half rain, lapping among the roots. You can wash in it, or grope along the muddy bottom between the roots."
+Far_Territory_SeaRootwaterThicket_DA_Wash,Wash in the Sea
+Far_Territory_SeaRootwaterThicket_DA_Wash_Desc,"Wade in and scrub off the road, the sweat and the sand."
+Far_Territory_SeaRootwaterThicket_DA_Dive,Grope Among the Roots
+Far_Territory_SeaRootwaterThicket_DA_Dive_Desc,Duck under and feel along the muddy bottom between the roots for crabs and weed.
+Far_Territory_SeaCliffboundCove_CardName,The Cove Water
+Far_Territory_SeaCliffboundCove_CardDescription,"Deep, still water in the cliffs' shadow, clear down to a pale sandy floor. You can wash in it, or dive for what lies on the bottom."
+Far_Territory_SeaCliffboundCove_DA_Wash,Wash in the Sea
+Far_Territory_SeaCliffboundCove_DA_Wash_Desc,"Wade in and scrub off the road, the sweat and the sand."
+Far_Territory_SeaCliffboundCove_DA_Dive,Dive in the Cove
+Far_Territory_SeaCliffboundCove_DA_Dive_Desc,Hold your breath and search the cove's sandy floor for shells and weed.
+Far_Territory_PathBoulderShoreGullStack_CardName,Swim to Gull Stack
+Far_Territory_PathBoulderShoreGullStack_CardDescription,"Gull Stack stands off the shore across open water, a hard swim away. Swimming there soaks you through and tires you, and you need daylight to see the rocks."
+Far_Territory_PathBoulderShoreGullStack_DA_Travel,Swim to Gull Stack
+Far_Territory_PathBoulderShoreGullStack_DA_Travel_Desc,Swim across the open water to Gull Stack. It takes about half an hour and leaves you soaked and tired.
+Far_Territory_PathBoulderShoreGullStack_DA_Travel_Fade,Swimming to Gull Stack...
+Far_Territory_PathGullStackBoulderShore_CardName,Swim to Boulder Shore
+Far_Territory_PathGullStackBoulderShore_CardDescription,"Across the water lies Boulder Shore. Swimming back soaks you through and tires you, and you need daylight to see the rocks."
+Far_Territory_PathGullStackBoulderShore_DA_Travel,Swim to Boulder Shore
+Far_Territory_PathGullStackBoulderShore_DA_Travel_Desc,Swim across the open water to Boulder Shore. It takes about half an hour and leaves you soaked and tired.
+Far_Territory_PathGullStackBoulderShore_DA_Travel_Fade,Swimming to Boulder Shore...
+Far_Territory_PathBleakStrandGullStack_CardName,Swim to Gull Stack
+Far_Territory_PathBleakStrandGullStack_CardDescription,"Gull Stack stands off the shore across open water, a hard swim away. Swimming there soaks you through and tires you, and you need daylight to see the rocks."
+Far_Territory_PathBleakStrandGullStack_DA_Travel,Swim to Gull Stack
+Far_Territory_PathBleakStrandGullStack_DA_Travel_Desc,Swim across the open water to Gull Stack. It takes about half an hour and leaves you soaked and tired.
+Far_Territory_PathBleakStrandGullStack_DA_Travel_Fade,Swimming to Gull Stack...
+Far_Territory_PathGullStackBleakStrand_CardName,Swim to Bleak Strand
+Far_Territory_PathGullStackBleakStrand_CardDescription,"Across the water lies Bleak Strand. Swimming back soaks you through and tires you, and you need daylight to see the rocks."
+Far_Territory_PathGullStackBleakStrand_DA_Travel,Swim to Bleak Strand
+Far_Territory_PathGullStackBleakStrand_DA_Travel_Desc,Swim across the open water to Bleak Strand. It takes about half an hour and leaves you soaked and tired.
+Far_Territory_PathGullStackBleakStrand_DA_Travel_Fade,Swimming to Bleak Strand...
+Far_Territory_PathCliffboundCoveGullStack_CardName,Swim to Gull Stack
+Far_Territory_PathCliffboundCoveGullStack_CardDescription,"Gull Stack stands off the shore across open water, a hard swim away. Swimming there soaks you through and tires you, and you need daylight to see the rocks."
+Far_Territory_PathCliffboundCoveGullStack_DA_Travel,Swim to Gull Stack
+Far_Territory_PathCliffboundCoveGullStack_DA_Travel_Desc,Swim across the open water to Gull Stack. It takes about half an hour and leaves you soaked and tired.
+Far_Territory_PathCliffboundCoveGullStack_DA_Travel_Fade,Swimming to Gull Stack...
+Far_Territory_PathGullStackCliffboundCove_CardName,Swim to Cliffbound Cove
+Far_Territory_PathGullStackCliffboundCove_CardDescription,"Across the water lies Cliffbound Cove. Swimming back soaks you through and tires you, and you need daylight to see the rocks."
+Far_Territory_PathGullStackCliffboundCove_DA_Travel,Swim to Cliffbound Cove
+Far_Territory_PathGullStackCliffboundCove_DA_Travel_Desc,Swim across the open water to Cliffbound Cove. It takes about half an hour and leaves you soaked and tired.
+Far_Territory_PathGullStackCliffboundCove_DA_Travel_Fade,Swimming to Cliffbound Cove...
+Far_Territory_PathLandfallStrandPalmFringe_CardName,Path to Palm Fringe
+Far_Territory_PathLandfallStrandPalmFringe_CardDescription,A few steps through the scrub at the top of the beach bring you to Palm Fringe.
+Far_Territory_PathLandfallStrandPalmFringe_DA_Travel,Walk to Palm Fringe
+Far_Territory_PathLandfallStrandPalmFringe_DA_Travel_Desc,Walk through the scrub to Palm Fringe. It is only a few steps.
+Far_Territory_PathLandfallStrandPalmFringe_DA_Travel_Fade,Walking to Palm Fringe...
+Far_Territory_PathPalmFringeLandfallStrand_CardName,Path to Landfall Strand
+Far_Territory_PathPalmFringeLandfallStrand_CardDescription,A few steps through the scrub at the top of the beach bring you to Landfall Strand.
+Far_Territory_PathPalmFringeLandfallStrand_DA_Travel,Walk to Landfall Strand
+Far_Territory_PathPalmFringeLandfallStrand_DA_Travel_Desc,Walk through the scrub to Landfall Strand. It is only a few steps.
+Far_Territory_PathPalmFringeLandfallStrand_DA_Travel_Fade,Walking to Landfall Strand...
+Far_Territory_PathCoralInletRootwaterThicket_CardName,Path to Rootwater Thicket
+Far_Territory_PathCoralInletRootwaterThicket_CardDescription,"A long way round along the shore, over rocks and through mud, to Rootwater Thicket."
+Far_Territory_PathCoralInletRootwaterThicket_DA_Travel,Walk to Rootwater Thicket
+Far_Territory_PathCoralInletRootwaterThicket_DA_Travel_Desc,Follow the shore the long way round to Rootwater Thicket. It takes about half an hour.
+Far_Territory_PathCoralInletRootwaterThicket_DA_Travel_Fade,Walking to Rootwater Thicket...
+Far_Territory_PathRootwaterThicketCoralInlet_CardName,Path to Coral Inlet
+Far_Territory_PathRootwaterThicketCoralInlet_CardDescription,"A long way round along the shore, over rocks and through mud, to Coral Inlet."
+Far_Territory_PathRootwaterThicketCoralInlet_DA_Travel,Walk to Coral Inlet
+Far_Territory_PathRootwaterThicketCoralInlet_DA_Travel_Desc,Follow the shore the long way round to Coral Inlet. It takes about half an hour.
+Far_Territory_PathRootwaterThicketCoralInlet_DA_Travel_Fade,Walking to Coral Inlet...
+Far_Territory_PathRootwaterThicketBleakStrand_CardName,Path to Bleak Strand
+Far_Territory_PathRootwaterThicketBleakStrand_CardDescription,"A long way round along the shore, over rocks and through mud, to Bleak Strand."
+Far_Territory_PathRootwaterThicketBleakStrand_DA_Travel,Walk to Bleak Strand
+Far_Territory_PathRootwaterThicketBleakStrand_DA_Travel_Desc,Follow the shore the long way round to Bleak Strand. It takes about half an hour.
+Far_Territory_PathRootwaterThicketBleakStrand_DA_Travel_Fade,Walking to Bleak Strand...
+Far_Territory_PathBleakStrandRootwaterThicket_CardName,Path to Rootwater Thicket
+Far_Territory_PathBleakStrandRootwaterThicket_CardDescription,"A long way round along the shore, over rocks and through mud, to Rootwater Thicket."
+Far_Territory_PathBleakStrandRootwaterThicket_DA_Travel,Walk to Rootwater Thicket
+Far_Territory_PathBleakStrandRootwaterThicket_DA_Travel_Desc,Follow the shore the long way round to Rootwater Thicket. It takes about half an hour.
+Far_Territory_PathBleakStrandRootwaterThicket_DA_Travel_Fade,Walking to Rootwater Thicket...
+Far_Territory_LandfallStrand_DA_East,East
+Far_Territory_LandfallStrand_DA_East_Fade,Travelling East...
+Far_Territory_Canoe_CardName,Dugout Canoe
+Far_Territory_Canoe_CardDescription,"A dugout canoe hollowed from a tree log, its seams patched with bark. On a flowing river it carries you and your load all the way down to Brackwater Mouth, the river's end, in about an hour. It cannot be paddled upstream, on a lake, a marsh or a frozen river, and it is heavy to carry."
+Far_Territory_Canoe_DA_Paddle,Paddle Downstream
+Far_Territory_Canoe_DA_Paddle_Desc,"Push off into the current and let the river carry you down to Brackwater Mouth, where it meets the sea. About an hour."
+Far_Territory_Canoe_DA_Paddle_Fade,Paddling downstream...
+Far_Territory_BpCanoe_CardName,Dugout Canoe
+Far_Territory_BpCanoe_CardDescription,"A dugout canoe that paddles you down a flowing river to Brackwater Mouth. Requires a tree log, 2 oak bark and a cutting tool."
+Far_Territory_BpCanoe_UnlockConditionsDesc,Unlocked after obtaining a Tree Log
+Far_Territory_VineWoods_CardName,Vine Woods
+Far_Territory_VineWoods_CardDescription,"A tangled wood of vine-hung trees under a close green roof. The light comes down in coins, the air is thick and wet, and every trunk is wrapped in creepers. The sea breeze is a short walk to the west."
+Far_Territory_VineWoods_Gleanings,Gleanings
+Far_Territory_VineWoods_DA_Forage,Forage
+Far_Territory_VineWoods_DA_Forage_Desc,"Push through the undergrowth for sticks, fibres and stones, and the mud where the roots hold water."
+Far_Territory_VineWoods_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_VineWoods_DA_East,East
+Far_Territory_VineWoods_DA_East_Fade,Travelling East...
+Far_Territory_VineWoods_DA_South,South
+Far_Territory_VineWoods_DA_South_Fade,Travelling South...
+Far_Territory_Env_VineWoods_CardName,Vine Woods
+Far_Territory_WestgrassPlain_CardName,Westgrass Plain
+Far_Territory_WestgrassPlain_CardDescription,"A wide, open plain of tall pale grass, bright after the woods. The wind runs through it in long waves, and the ground rises gently to the south."
+Far_Territory_WestgrassPlain_Gleanings,Gleanings
+Far_Territory_WestgrassPlain_DA_Forage,Forage
+Far_Territory_WestgrassPlain_DA_Forage_Desc,"Walk the grass for tough fibres, loose stones and the odd stick."
+Far_Territory_WestgrassPlain_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_WestgrassPlain_DA_East,East
+Far_Territory_WestgrassPlain_DA_East_Fade,Travelling East...
+Far_Territory_Env_WestgrassPlain_CardName,Westgrass Plain
+Far_Territory_EastgrassPlain_CardName,Eastgrass Plain
+Far_Territory_EastgrassPlain_CardDescription,"The eastern half of the grassland: knee-high grass dotted with scrub, with a grey beach showing beyond it to the east."
+Far_Territory_EastgrassPlain_Gleanings,Gleanings
+Far_Territory_EastgrassPlain_DA_Forage,Forage
+Far_Territory_EastgrassPlain_DA_Forage_Desc,"Walk the grass for fibres, stones and dry twigs."
+Far_Territory_EastgrassPlain_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_Env_EastgrassPlain_CardName,Eastgrass Plain
+Far_Territory_ReedMarsh_CardName,Reed Marsh
+Far_Territory_ReedMarsh_CardDescription,"Low ground of standing water, black mud and tall reeds. The air hums with insects, and the way south goes deeper into the trees. A broken rock face rises to the east."
+Far_Territory_ReedMarsh_Gleanings,Gleanings
+Far_Territory_ReedMarsh_DA_Forage,Forage
+Far_Territory_ReedMarsh_DA_Forage_Desc,"Wade the edges for mud, reed fibres and sticks."
+Far_Territory_ReedMarsh_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_ReedMarsh_DA_South,South
+Far_Territory_ReedMarsh_DA_South_Fade,Travelling South...
+Far_Territory_Env_ReedMarsh_CardName,Reed Marsh
+Far_Territory_GreenDeep_CardName,Green Deep
+Far_Territory_GreenDeep_CardDescription,"The wood closed over completely: great trunks, a roof so thick it is dusk at noon, and a floor of leaf mould that gives underfoot. Paths of a kind lead off east and south."
+Far_Territory_GreenDeep_Gleanings,Gleanings
+Far_Territory_GreenDeep_DA_Forage,Forage
+Far_Territory_GreenDeep_DA_Forage_Desc,"Search the dim forest floor for fallen sticks, fibres and mud."
+Far_Territory_GreenDeep_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_GreenDeep_DA_East,East
+Far_Territory_GreenDeep_DA_East_Fade,Travelling East...
+Far_Territory_GreenDeep_DA_South,South
+Far_Territory_GreenDeep_DA_South_Fade,Travelling South...
+Far_Territory_Env_GreenDeep_CardName,Green Deep
+Far_Territory_MistyRidge_CardName,Misty Ridge
+Far_Territory_MistyRidge_CardDescription,"A high, windswept ridge of broken rock and stunted trees, wrapped in drifting cloud. Cliffs drop away to the west, and the green of the forest lies far below."
+Far_Territory_MistyRidge_Gleanings,Gleanings
+Far_Territory_MistyRidge_DA_Forage,Forage
+Far_Territory_MistyRidge_DA_Forage_Desc,"Pick over the rock and scrub for stones, flint and sticks."
+Far_Territory_MistyRidge_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_Env_MistyRidge_CardName,Misty Ridge
+Far_Territory_HiddenVale_CardName,Hidden Vale
+Far_Territory_HiddenVale_CardDescription,"A small green valley closed in on every side, with a quiet stream and soft ground. Nothing in it has been disturbed for a very long time."
+Far_Territory_HiddenVale_Gleanings,Gleanings
+Far_Territory_HiddenVale_DA_Forage,Forage
+Far_Territory_HiddenVale_DA_Forage_Desc,"Search the valley floor for stones, sticks, fibres and mud."
+Far_Territory_HiddenVale_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_Env_HiddenVale_CardName,Hidden Vale
+Far_Territory_PathPalmFringeVineWoods_DA_Travel,Walk to Vine Woods
+Far_Territory_PathPalmFringeVineWoods_DA_Travel_Desc,Follow the trail inland from the scrub into the jungle. It takes about half an hour.
+Far_Territory_PathPalmFringeVineWoods_DA_Travel_Fade,Walking into the jungle...
+Far_Territory_PathPalmFringeVineWoods_CardName,Path to Vine Woods
+Far_Territory_PathPalmFringeVineWoods_CardDescription,"A trail from the back of the beach into the jungle: a few steps of scrub, then the trees close over."
+Far_Territory_PathVineWoodsPalmFringe_DA_Travel,Walk to Palm Fringe
+Far_Territory_PathVineWoodsPalmFringe_DA_Travel_Desc,Follow the trail back out of the jungle to the palms and the sand. It takes about half an hour.
+Far_Territory_PathVineWoodsPalmFringe_DA_Travel_Fade,Walking back to the beach...
+Far_Territory_PathVineWoodsPalmFringe_CardName,Path to Palm Fringe
+Far_Territory_PathVineWoodsPalmFringe_CardDescription,A trail out of the jungle to the beach: the trees thin and the light comes up white.
+Far_Territory_PathCliffboundCoveMistyRidge_DA_Climb,Climb Up to Misty Ridge
+Far_Territory_PathCliffboundCoveMistyRidge_DA_Climb_Desc,Scramble up the cliff to Misty Ridge. Skill and good handholds make a fall less likely; a tired climber is sure to fall. It takes about a quarter of an hour.
+Far_Territory_PathCliffboundCoveMistyRidge_DA_Climb_Fade,Climbing the cliff...
+Far_Territory_PathCliffboundCoveMistyRidge_CardName,Climb to Misty Ridge
+Far_Territory_PathCliffboundCoveMistyRidge_CardDescription,"A steep stony scramble up the cliffs behind the cove to the ridge above. A fall hurts, and a tired climber is sure to fall."
+Far_Territory_PathMistyRidgeCliffboundCove_DA_Climb,Climb Down to Cliffbound Cove
+Far_Territory_PathMistyRidgeCliffboundCove_DA_Climb_Desc,Climb down the cliff to Cliffbound Cove. Skill and good handholds make a fall less likely; a tired climber is sure to fall. It takes about a quarter of an hour.
+Far_Territory_PathMistyRidgeCliffboundCove_DA_Climb_Fade,Climbing down the cliff...
+Far_Territory_PathMistyRidgeCliffboundCove_CardName,Climb down to Cliffbound Cove
+Far_Territory_PathMistyRidgeCliffboundCove_CardDescription,"A steep climb down the cliffs to a hidden cove. A fall hurts, and a tired climber is sure to fall."
+Far_Territory_PathReedMarshMistyRidge_DA_Climb,Climb Up to Misty Ridge
+Far_Territory_PathReedMarshMistyRidge_DA_Climb_Desc,Climb the broken rock face up to Misty Ridge. Skill and good handholds make a fall less likely; a tired climber is sure to fall. It takes about a quarter of an hour.
+Far_Territory_PathReedMarshMistyRidge_DA_Climb_Fade,Climbing the rock face...
+Far_Territory_PathReedMarshMistyRidge_CardName,Climb to Misty Ridge
+Far_Territory_PathReedMarshMistyRidge_CardDescription,"A broken rock face above the marsh, steep but climbable, leads up to the ridge. A fall hurts, and a tired climber is sure to fall."
+Far_Territory_PathMistyRidgeReedMarsh_DA_Climb,Climb Down to Reed Marsh
+Far_Territory_PathMistyRidgeReedMarsh_DA_Climb_Desc,Climb down the rock face to Reed Marsh. Skill and good handholds make a fall less likely; a tired climber is sure to fall. It takes about a quarter of an hour.
+Far_Territory_PathMistyRidgeReedMarsh_DA_Climb_Fade,Climbing down the rock face...
+Far_Territory_PathMistyRidgeReedMarsh_CardName,Climb down to Reed Marsh
+Far_Territory_PathMistyRidgeReedMarsh_CardDescription,"A rock face drops from the ridge to the marsh below. A fall hurts, and a tired climber is sure to fall."
+Far_Territory_CoralInlet_DA_East,East
+Far_Territory_CoralInlet_DA_East_Fade,Travelling East...
+Far_Territory_RootwaterThicket_DA_South,South
+Far_Territory_RootwaterThicket_DA_South_Fade,Travelling South...
+Far_Territory_BleakStrand_DA_West,West
+Far_Territory_BleakStrand_DA_West_Fade,Travelling West...
+Far_Territory_CoconutGreen_Spoilage,Spoilage
+Far_Territory_CoconutGreen_Spoiled,The coconut has gone bad in its husk.
+Far_Territory_CoconutGreen_CI_Husk,Husk the Coconut
+Far_Territory_CoconutGreen_CI_Husk_Desc,"Cut the husk off with a blade or an axe. The husk comes apart into fibre, and the hard nut inside is left."
+Far_Territory_CoconutGreen_CardName,Green Coconut
+Far_Territory_CoconutGreen_CardDescription,"A coconut still in its thick fibrous husk, heavy as a stone. Cut the husk away with a blade or an axe."
+Far_Territory_Coconut_Spoilage,Spoilage
+Far_Territory_Coconut_Spoiled,The coconut has gone bad.
+Far_Territory_Coconut_CI_Crack,Crack Open
+Far_Territory_Coconut_CI_Crack_Desc,"Strike the nut open on its seam. You get the water, the white meat and half the shell to keep as a bowl."
+Far_Territory_Coconut_CardName,Husked Coconut
+Far_Territory_Coconut_CardDescription,"A brown, hard-shelled coconut with the husk off. Strike it open with a hammer, stone or the back of an axe: the water, the meat and a shell bowl are inside."
+Far_Territory_CoconutWater_Spoilage,Spoilage
+Far_Territory_CoconutWater_Spoiled,The coconut water has turned.
+Far_Territory_CoconutWater_DA_Drink,Drink
+Far_Territory_CoconutWater_DA_Drink_Desc,Drink the coconut water.
+Far_Territory_CoconutWater_CardName,Coconut Water
+Far_Territory_CoconutWater_CardDescription,"The clear, faintly sweet water of a fresh coconut, caught in the cracked shell. It does not keep."
+Far_Territory_CoconutMeat_Spoilage,Spoilage
+Far_Territory_CoconutMeat_Spoiled,The coconut meat has spoiled.
+Far_Territory_CoconutMeat_DA_Eat,Eat
+Far_Territory_CoconutMeat_DA_Eat_Desc,Eat the coconut meat raw.
+Far_Territory_CoconutMeat_CardName,Coconut Meat
+Far_Territory_CoconutMeat_CardDescription,"White, firm and oily flesh from inside a cracked coconut. Eaten raw it fills and gives a good deal of energy."
+Far_Territory_CoconutShellBowl_CardName,Coconut Shell Bowl
+Far_Territory_CoconutShellBowl_CardDescription,"Half a coconut shell, smoothed inside. It holds a drink and, left out in the open, catches rain."
+Far_Territory_PalmFrond_FuelCapacity,Fuel
+Far_Territory_PalmFrond_CardName,Palm Frond
+Far_Territory_PalmFrond_CardDescription,"A long, tough leaf of the palm. Dry, it burns quickly as weak fuel."
+Far_Territory_Palm_DA_Climb,Climb the Palm
+Far_Territory_Palm_DA_Climb_Desc,"Shinny up the trunk and twist a coconut loose. Skill and a climbing aid make a fall less likely; a tired climber is sure to fall, and a fall shakes the nut loose where it is lost. Takes about half an hour."
+Far_Territory_Palm_DA_Climb_Fail,No coconut is ripe on this palm yet
+Far_Territory_Palm_CI_Fell,Fell the Palm
+Far_Territory_Palm_CI_Fell_Desc,"Chop the palm down. Every nut still in the crown comes down with it, with the fronds, and a shoot will rise from the stump in time. The palm is gone for a month or more."
+Far_Territory_Palm_CardName,Coconut Palm
+Far_Territory_Palm_CardDescription,"A tall, leaning palm with a crown of green nuts. Climb it to pick a coconut, or fell it for the lot. The crown slowly bears again."
+Far_Territory_Palm_Coconuts,Coconuts
+Far_Territory_PalmCleared_CardName,Felled Palm
+Far_Territory_PalmCleared_CardDescription,A palm stump and a few strips of trunk. A green shoot will rise from it in about ten days.
+Far_Territory_PalmCleared_Sprouting,Sprouting
+Far_Territory_PalmCleared_Sprouted,A shoot rises from the palm stump.
+Far_Territory_PalmYoung_CardName,Young Palm
+Far_Territory_PalmYoung_CardDescription,"A young palm, still waist high. It will grow into a full coconut palm in about a month, unless you cut it for its fronds."
+Far_Territory_PalmYoung_Growth,Growth
+Far_Territory_PalmYoung_Grown,The young palm has grown into a coconut palm.
+Far_Territory_PalmYoung_CI_Cut,Cut the Young Palm
+Far_Territory_PalmYoung_CI_Cut_Desc,Cut the young palm down for its fronds. It will not grow back.
+Far_Territory_Pop_Goatfish_StatName,Population Goatfish
+Far_Territory_Pop_Goatfish_StatDescription,"Hidden: how many goatfish the sea still holds. Each catch lowers it by 1000 and it regrows 2 a tick; the fuller it is, the likelier a catch."
+Far_Territory_Pop_Parrotfish_StatName,Population Parrotfish
+Far_Territory_Pop_Parrotfish_StatDescription,"Hidden: how many parrotfish the sea still holds. Each catch lowers it by 1000 and it regrows 2 a tick; the fuller it is, the likelier a catch."
+Far_Territory_Pop_Bonefish_StatName,Population Bonefish
+Far_Territory_Pop_Bonefish_StatDescription,"Hidden: how many bonefish the sea still holds. Each catch lowers it by 1000 and it regrows 2 a tick; the fuller it is, the likelier a catch."
+Far_Territory_Pop_Herring_StatName,Population Silver Herring
+Far_Territory_Pop_Herring_StatDescription,"Hidden: how many silver herring the sea still holds. Each catch lowers it by 1000 and it regrows 2 a tick; the fuller it is, the likelier a catch."
+Far_Territory_Pop_Grouper_StatName,Population Reef Grouper
+Far_Territory_Pop_Grouper_StatDescription,"Hidden: how many reef grouper the sea still holds. Each catch lowers it by 1000 and it regrows 1 a tick; the fuller it is, the likelier a catch."
+Far_Territory_Pop_Threadfin_StatName,Population Threadfin
+Far_Territory_Pop_Threadfin_StatDescription,"Hidden: how many threadfin the sea still holds. Each catch lowers it by 1000 and it regrows 1 a tick; the fuller it is, the likelier a catch."
+Far_Territory_Pop_Mudskipper_StatName,Population Mudskipper
+Far_Territory_Pop_Mudskipper_StatDescription,"Hidden: how many mudskipper the sea still holds. Each catch lowers it by 1000 and it regrows 2 a tick; the fuller it is, the likelier a catch."
+Far_Territory_Pop_Conch_StatName,Population Conch
+Far_Territory_Pop_Conch_StatDescription,"Hidden: how many conch the sea still holds. Each catch lowers it by 1000 and it regrows 1 a tick; the fuller it is, the likelier a catch."
+Far_Territory_Pop_Oyster_StatName,Population Oyster
+Far_Territory_Pop_Oyster_StatDescription,"Hidden: how many oyster the sea still holds. Each catch lowers it by 1000 and it regrows 0.5 a tick; the fuller it is, the likelier a catch."
+Far_Territory_Pop_Urchin_StatName,Population Sea Urchin
+Far_Territory_Pop_Urchin_StatDescription,"Hidden: how many sea urchin the sea still holds. Each catch lowers it by 1000 and it regrows 0.5 a tick; the fuller it is, the likelier a catch."
+Far_Territory_Goatfish_CardName,Goatfish
+Far_Territory_Goatfish_CardDescription,"A slim yellow-barred fish that roots along the sand on two chin whiskers. Sweet, mild meat."
+Far_Territory_Goatfish_Spoilage,Spoilage
+Far_Territory_Goatfish_Spoiled,The goatfish has spoiled.
+Far_Territory_Goatfish_DA_Eat,Eat Raw
+Far_Territory_Goatfish_DA_Eat_Desc,Eat the goatfish as it is.
+Far_Territory_Parrotfish_CardName,Parrotfish
+Far_Territory_Parrotfish_CardDescription,"A blunt-headed fish in blue and green, with a hard beak for scraping coral. Firm, white meat."
+Far_Territory_Parrotfish_Spoilage,Spoilage
+Far_Territory_Parrotfish_Spoiled,The parrotfish has spoiled.
+Far_Territory_Parrotfish_DA_Eat,Eat Raw
+Far_Territory_Parrotfish_DA_Eat_Desc,Eat the parrotfish as it is.
+Far_Territory_Bonefish_CardName,Bonefish
+Far_Territory_Bonefish_CardDescription,"A silver, torpedo-bodied fish of the shallow flats. It fights hard and is full of fine bones, but the meat is good."
+Far_Territory_Bonefish_Spoilage,Spoilage
+Far_Territory_Bonefish_Spoiled,The bonefish has spoiled.
+Far_Territory_Bonefish_DA_Eat,Eat Raw
+Far_Territory_Bonefish_DA_Eat_Desc,Eat the bonefish as it is.
+Far_Territory_SilverHerring_CardName,Silver Herring
+Far_Territory_SilverHerring_CardDescription,"A small shoaling fish, bright as a coin. Oily, and quick to spoil."
+Far_Territory_SilverHerring_Spoilage,Spoilage
+Far_Territory_SilverHerring_Spoiled,The silver herring has spoiled.
+Far_Territory_SilverHerring_DA_Eat,Eat Raw
+Far_Territory_SilverHerring_DA_Eat_Desc,Eat the silver herring as it is.
+Far_Territory_ReefGrouper_CardName,Reef Grouper
+Far_Territory_ReefGrouper_CardDescription,"A heavy, thick-lipped fish that lies in the reef shade. A great deal of meat on it."
+Far_Territory_ReefGrouper_Spoilage,Spoilage
+Far_Territory_ReefGrouper_Spoiled,The reef grouper has spoiled.
+Far_Territory_ReefGrouper_DA_Eat,Eat Raw
+Far_Territory_ReefGrouper_DA_Eat_Desc,Eat the reef grouper as it is.
+Far_Territory_Threadfin_CardName,Threadfin
+Far_Territory_Threadfin_CardDescription,"A pale fish of the brackish shallows, with long threads trailing from its fins. Rich and fatty."
+Far_Territory_Threadfin_Spoilage,Spoilage
+Far_Territory_Threadfin_Spoiled,The threadfin has spoiled.
+Far_Territory_Threadfin_DA_Eat,Eat Raw
+Far_Territory_Threadfin_DA_Eat_Desc,Eat the threadfin as it is.
+Far_Territory_Mudskipper_CardName,Mudskipper
+Far_Territory_Mudskipper_CardDescription,A small fish that crawls out onto the mud and watches you with bulging eyes. More bone than meat.
+Far_Territory_Mudskipper_Spoilage,Spoilage
+Far_Territory_Mudskipper_Spoiled,The mudskipper has spoiled.
+Far_Territory_Mudskipper_DA_Eat,Eat Raw
+Far_Territory_Mudskipper_DA_Eat_Desc,Eat the mudskipper as it is.
+Far_Territory_Conch_CardName,Conch
+Far_Territory_Conch_CardDescription,"A spiralled shell the size of a fist, with a muscular foot inside. Tough but good when chewed long."
+Far_Territory_Conch_Spoilage,Spoilage
+Far_Territory_Conch_Spoiled,The conch has spoiled.
+Far_Territory_Conch_DA_Eat,Eat Raw
+Far_Territory_Conch_DA_Eat_Desc,"Open the conch and eat what is inside, raw."
+Far_Territory_Oyster_CardName,Oyster
+Far_Territory_Oyster_CardDescription,"A rough, grey shell that opens on a plump, salty oyster."
+Far_Territory_Oyster_Spoilage,Spoilage
+Far_Territory_Oyster_Spoiled,The oyster has spoiled.
+Far_Territory_Oyster_DA_Eat,Eat Raw
+Far_Territory_Oyster_DA_Eat_Desc,"Open the oyster and eat what is inside, raw."
+Far_Territory_SeaUrchin_CardName,Sea Urchin
+Far_Territory_SeaUrchin_CardDescription,"A black ball of spines. Opened with care, the orange roe inside is rich."
+Far_Territory_SeaUrchin_Spoilage,Spoilage
+Far_Territory_SeaUrchin_Spoiled,The sea urchin has spoiled.
+Far_Territory_SeaUrchin_DA_Eat,Eat Raw
+Far_Territory_SeaUrchin_DA_Eat_Desc,"Open the sea urchin and eat what is inside, raw."
+Far_Territory_FishTrap_CardName,Fish Trap
+Far_Territory_FishTrap_CardDescription,A cage of twigs and twine with a funnel mouth. Stake it in the shallows of a calm shore and it catches fish while you are away.
+Far_Territory_FishTrapPlaced_CardName,Fish Trap (Set)
+Far_Territory_FishTrapPlaced_CardDescription,A fish trap staked in the shallows. It springs every few hours; haul it out to take what it holds.
+Far_Territory_FishTrapPlaced_DA_HaulOut,Haul Out the Trap
+Far_Territory_FishTrapPlaced_DA_HaulOut_Desc,"Wade out and lift the trap, with whatever it caught, onto the shore."
+Far_Territory_FishTrapPlaced_Triggered,Trap Triggered!
+Far_Territory_BpFishTrap_CardName,Fish Trap
+Far_Territory_BpFishTrap_CardDescription,A funnel-mouthed cage of twigs and twine for the shallows of a calm shore. Requires 4 twigs and 3 twine.
+Far_Territory_BpFishTrap_UnlockConditionsDesc,Available from the start
+Far_Territory_Fishing_NoLuck,No luck...
+Far_Territory_SeaShore_CI_Fish,Fish with a Line
+Far_Territory_SeaShore_CI_Fish_Desc,Cast a line from the shore and wait. What you land depends on this water and on how much of each fish is left in the sea.
+Far_Territory_SeaShore_CI_Spear,Spear Fish
+Far_Territory_SeaShore_CI_Spear_Desc,Wade into the shallows and spear what swims by. Needs daylight and a steady arm.
+Far_Territory_SeaShore_CI_SetTrap,Set the Fish Trap
+Far_Territory_SeaShore_CI_SetTrap_Desc,Wade out and stake the trap in the shallows. It catches fish on its own while you are away.
+Far_Territory_SeaCoralInlet_CI_Fish,Fish with a Line
+Far_Territory_SeaCoralInlet_CI_Fish_Desc,Cast a line from the shore and wait. What you land depends on this water and on how much of each fish is left in the sea.
+Far_Territory_SeaCoralInlet_CI_Spear,Spear Fish
+Far_Territory_SeaCoralInlet_CI_Spear_Desc,Wade into the shallows and spear what swims by. Needs daylight and a steady arm.
+Far_Territory_SeaCoralInlet_CI_SetTrap,Set the Fish Trap
+Far_Territory_SeaCoralInlet_CI_SetTrap_Desc,Wade out and stake the trap in the shallows. It catches fish on its own while you are away.
+Far_Territory_SeaBoulderShore_CI_Fish,Fish with a Line
+Far_Territory_SeaBoulderShore_CI_Fish_Desc,Cast a line from the shore and wait. What you land depends on this water and on how much of each fish is left in the sea.
+Far_Territory_SeaBleakStrand_CI_Fish,Fish with a Line
+Far_Territory_SeaBleakStrand_CI_Fish_Desc,Cast a line from the shore and wait. What you land depends on this water and on how much of each fish is left in the sea.
+Far_Territory_SeaCliffboundCove_CI_Fish,Fish with a Line
+Far_Territory_SeaCliffboundCove_CI_Fish_Desc,Cast a line from the shore and wait. What you land depends on this water and on how much of each fish is left in the sea.
+Far_Territory_SeaCliffboundCove_CI_Spear,Spear Fish
+Far_Territory_SeaCliffboundCove_CI_Spear_Desc,Wade into the shallows and spear what swims by. Needs daylight and a steady arm.
+Far_Territory_SeaCliffboundCove_CI_SetTrap,Set the Fish Trap
+Far_Territory_SeaCliffboundCove_CI_SetTrap_Desc,Wade out and stake the trap in the shallows. It catches fish on its own while you are away.
+Far_Territory_SeaRootwaterThicket_CI_Fish,Fish with a Line
+Far_Territory_SeaRootwaterThicket_CI_Fish_Desc,Cast a line from the shore and wait. What you land depends on this water and on how much of each fish is left in the sea.
+Far_Territory_SeaRootwaterThicket_CI_Spear,Spear Fish
+Far_Territory_SeaRootwaterThicket_CI_Spear_Desc,Wade into the shallows and spear what swims by. Needs daylight and a steady arm.
+Far_Territory_SeaRootwaterThicket_CI_SetTrap,Set the Fish Trap
+Far_Territory_SeaRootwaterThicket_CI_SetTrap_Desc,Wade out and stake the trap in the shallows. It catches fish on its own while you are away.
+Far_Territory_WesternUplands_CardName,Western Uplands
+Far_Territory_WesternUplands_CardDescription,"Where the jungle gives out, the land climbs into open, rolling hills of short grass and scattered boulders. The wind never stops here, the grass is thinner than the plain's, and to the south a ridge sits wrapped in cloud."
+Far_Territory_WesternUplands_Gleanings,Gleanings
+Far_Territory_WesternUplands_DA_Forage,Forage
+Far_Territory_WesternUplands_DA_Forage_Desc,"Search the thin grass and the boulders for fibres, stones, flint and sticks."
+Far_Territory_WesternUplands_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_WesternUplands_DA_East,East
+Far_Territory_WesternUplands_DA_East_Fade,Travelling East...
+Far_Territory_Env_WesternUplands_CardName,Western Uplands
+Far_Territory_EasternUplands_CardName,Eastern Uplands
+Far_Territory_EasternUplands_CardDescription,"Higher, drier hills where bare grey stone breaks through the turf. The ground is loose underfoot, and to the south it darkens and a smudge of smoke hangs above the skyline."
+Far_Territory_EasternUplands_Gleanings,Gleanings
+Far_Territory_EasternUplands_DA_Forage,Forage
+Far_Territory_EasternUplands_DA_Forage_Desc,"Turn over loose stone on the bare hillside for stones, flint and the odd stick."
+Far_Territory_EasternUplands_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_EasternUplands_DA_South,South
+Far_Territory_EasternUplands_DA_South_Fade,Travelling South...
+Far_Territory_Env_EasternUplands_CardName,Eastern Uplands
+Far_Territory_FireMountain_CardName,Fire Mountain
+Far_Territory_FireMountain_CardDescription,"A black, cracked mountain that steams and ticks in its own heat. The rock underfoot is warm to the touch, the slope shivers now and then, and it is far hotter here than anywhere else on the island. A crater opens on the southern shoulder."
+Far_Territory_FireMountain_Gleanings,Gleanings
+Far_Territory_FireMountain_DA_Forage,Forage
+Far_Territory_FireMountain_DA_Forage_Desc,Pick over the cracked black rock for stone and flint.
+Far_Territory_FireMountain_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_FireMountain_DA_South,South
+Far_Territory_FireMountain_DA_South_Fade,Travelling South...
+Far_Territory_Env_FireMountain_CardName,Fire Mountain
+Far_Territory_SourCrater_CardName,Sour Crater
+Far_Territory_SourCrater_CardDescription,"A bowl in the mountain's shoulder holding a still lake of milky yellow-green water that smells sharply sour. The rim is crusted with pale mineral, the air shimmers with heat from below, and nothing lives in the water."
+Far_Territory_SourCrater_Gleanings,Gleanings
+Far_Territory_SourCrater_DA_Forage,Forage
+Far_Territory_SourCrater_DA_Forage_Desc,"Search the crusted rim and the muddy edge of the lake for stones, mud and sticks."
+Far_Territory_SourCrater_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_Env_SourCrater_CardName,Sour Crater
+Far_Territory_WreckHollow_CardName,Wreck Hollow
+Far_Territory_WreckHollow_CardDescription,"A shallow hollow in the hillside where an old wooden ship lies keeled over on dry ground, far from any water. Its ribs are bare, its planking has gone grey and soft, and creeper and moss have taken the rest. Some long-ago voyage ended here."
+Far_Territory_WreckHollow_Gleanings,Gleanings
+Far_Territory_WreckHollow_DA_Forage,Forage
+Far_Territory_WreckHollow_DA_Forage_Desc,"Search the rotting hull and the creeper around it for sticks, rope fibre and loose stones."
+Far_Territory_WreckHollow_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_Env_WreckHollow_CardName,Wreck Hollow
+Far_Territory_FallenDwelling_CardName,Fallen Dwelling
+Far_Territory_FallenDwelling_CardDescription,"The tumbled walls of an old settlement of mud and wood, roofless and half swallowed by the valley floor. Nobody has lived here for a very long time: only the shape of a hearth and a low doorway remain."
+Far_Territory_FallenDwelling_Gleanings,Gleanings
+Far_Territory_FallenDwelling_DA_Forage,Forage
+Far_Territory_FallenDwelling_DA_Forage_Desc,"Dig through the fallen walls and the soft ground for mud, stones and old fibre."
+Far_Territory_FallenDwelling_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_Env_FallenDwelling_CardName,Fallen Dwelling
+Far_Territory_WestgrassPlain_DA_South,South
+Far_Territory_WestgrassPlain_DA_South_Fade,Travelling South...
+Far_Territory_EastgrassPlain_DA_South,South
+Far_Territory_EastgrassPlain_DA_South_Fade,Travelling South...
+Far_Territory_MistyRidge_DA_North,North
+Far_Territory_MistyRidge_DA_North_Fade,Travelling North...
+Far_Territory_Shipwreck_CardName,Wrecked Ship
+Far_Territory_Shipwreck_CardDescription,"The hull of a wooden ship, tipped on its side and open to the sky. The keel is split and the ribs show through the grey planking, and a tree has grown up through the deck. Whatever it carried, and whoever sailed it, is long gone."
+Far_Territory_PathBleakStrandFireMountain_CardName,Path to Fire Mountain
+Far_Territory_PathBleakStrandFireMountain_CardDescription,"A long, rising track leaves the grey beach and climbs across black rock toward the foot of the smoking mountain."
+Far_Territory_PathBleakStrandFireMountain_DA_Travel,Walk to Fire Mountain
+Far_Territory_PathBleakStrandFireMountain_DA_Travel_Desc,Follow the track inland and up the black slope. It takes about half an hour.
+Far_Territory_PathBleakStrandFireMountain_DA_Travel_Fade,Climbing toward the mountain...
+Far_Territory_PathFireMountainBleakStrand_CardName,Path to Bleak Strand
+Far_Territory_PathFireMountainBleakStrand_CardDescription,A track winds down the mountain's black flank to a long grey beach.
+Far_Territory_PathFireMountainBleakStrand_DA_Travel,Walk to Bleak Strand
+Far_Territory_PathFireMountainBleakStrand_DA_Travel_Desc,Follow the track down the slope to the beach. It takes about half an hour.
+Far_Territory_PathFireMountainBleakStrand_DA_Travel_Fade,Walking down to the beach...
+Far_Territory_PathReedMarshWreckHollow_CardName,Path to Wreck Hollow
+Far_Territory_PathReedMarshWreckHollow_CardDescription,A trampled gap in the reeds leads up into a hollow in the hillside where something large and wooden lies.
+Far_Territory_PathReedMarshWreckHollow_DA_Travel,Enter Wreck Hollow
+Far_Territory_PathReedMarshWreckHollow_DA_Travel_Desc,Push through the gap and up into the hollow. It is only a few steps.
+Far_Territory_PathReedMarshWreckHollow_DA_Travel_Fade,Pushing through the reeds...
+Far_Territory_PathWreckHollowReedMarsh_CardName,Path to Reed Marsh
+Far_Territory_PathWreckHollowReedMarsh_CardDescription,"The way back out of the hollow, down through the creeper to the reeds."
+Far_Territory_PathWreckHollowReedMarsh_DA_Travel,Leave for Reed Marsh
+Far_Territory_PathWreckHollowReedMarsh_DA_Travel_Desc,Climb out of the hollow and down to the marsh. It is only a few steps.
+Far_Territory_PathWreckHollowReedMarsh_DA_Travel_Fade,Leaving the hollow...
+Far_Territory_PathHiddenValeFallenDwelling_CardName,Path to Fallen Dwelling
+Far_Territory_PathHiddenValeFallenDwelling_CardDescription,"A faint track through the long grass of the vale leads to a low, tumbled wall."
+Far_Territory_PathHiddenValeFallenDwelling_DA_Travel,Enter Fallen Dwelling
+Far_Territory_PathHiddenValeFallenDwelling_DA_Travel_Desc,Follow the faint track to the fallen walls. It is only a few steps.
+Far_Territory_PathHiddenValeFallenDwelling_DA_Travel_Fade,Following the faint track...
+Far_Territory_PathFallenDwellingHiddenVale_CardName,Path to Hidden Vale
+Far_Territory_PathFallenDwellingHiddenVale_CardDescription,The faint track leads back out of the ruin into the vale.
+Far_Territory_PathFallenDwellingHiddenVale_DA_Travel,Leave for Hidden Vale
+Far_Territory_PathFallenDwellingHiddenVale_DA_Travel_Desc,Follow the track back out into the vale. It is only a few steps.
+Far_Territory_PathFallenDwellingHiddenVale_DA_Travel_Fade,Leaving the ruin...
+Far_Territory_Env_SeaGrotto_CardName,Sea Grotto
+Far_Territory_SeaGrotto_CardName,Sea Grotto
+Far_Territory_SeaGrotto_CardDescription,"A low sea cave in the black rocks, its floor wet with every swell that finds its way in. Salt crusts the walls and the air is cold and loud with dripping water."
+Far_Territory_SeaGrotto_Gleanings,Gleanings
+Far_Territory_SeaGrotto_DA_Forage,Forage
+Far_Territory_SeaGrotto_DA_Forage_Desc,Pick over the wet rocks at the back of the grotto for stones and what the swell leaves behind.
+Far_Territory_SeaGrotto_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_PathBoulderShoreSeaGrotto_CardName,Path to Sea Grotto
+Far_Territory_PathBoulderShoreSeaGrotto_CardDescription,"A low black opening at the foot of the rocks, wet to the lip, leads into a sea cave."
+Far_Territory_PathBoulderShoreSeaGrotto_DA_Travel,Enter the Sea Grotto
+Far_Territory_PathBoulderShoreSeaGrotto_DA_Travel_Desc,Duck under the lip of the rock into the sea cave. It is only a few steps.
+Far_Territory_PathBoulderShoreSeaGrotto_DA_Travel_Fade,Ducking into the grotto...
+Far_Territory_PathSeaGrottoBoulderShore_CardName,Path to Boulder Shore
+Far_Territory_PathSeaGrottoBoulderShore_CardDescription,A bright slot of daylight shows the way back out of the grotto.
+Far_Territory_PathSeaGrottoBoulderShore_DA_Travel,Leave for Boulder Shore
+Far_Territory_PathSeaGrottoBoulderShore_DA_Travel_Desc,Follow the light back out onto the rocks. It is only a few steps.
+Far_Territory_PathSeaGrottoBoulderShore_DA_Travel_Fade,Leaving the grotto...
+Far_Territory_Env_WaveGrotto_CardName,Wave Grotto
+Far_Territory_WaveGrotto_CardName,Wave Grotto
+Far_Territory_WaveGrotto_CardDescription,A wet cave on the open coast where the sea runs in and out through a crack in the rock. Its floor is a shallow pool of weed and small creatures. There is no tide to time: it is simply wet.
+Far_Territory_WaveGrotto_Gleanings,Gleanings
+Far_Territory_WaveGrotto_DA_Forage,Forage
+Far_Territory_WaveGrotto_DA_Forage_Desc,"Wade the shallow pool at the back of the cave for crabs, prawns, weed and urchins."
+Far_Territory_WaveGrotto_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_PathBleakStrandWaveGrotto_CardName,Path to Wave Grotto
+Far_Territory_PathBleakStrandWaveGrotto_CardDescription,"A crack in the cliff, with the sea running in and out of it, opens into a wet cave."
+Far_Territory_PathBleakStrandWaveGrotto_DA_Travel,Enter the Wave Grotto
+Far_Territory_PathBleakStrandWaveGrotto_DA_Travel_Desc,Wade in through the crack into the cave. It is only a few steps.
+Far_Territory_PathBleakStrandWaveGrotto_DA_Travel_Fade,Wading into the cave...
+Far_Territory_PathWaveGrottoBleakStrand_CardName,Path to Bleak Strand
+Far_Territory_PathWaveGrottoBleakStrand_CardDescription,The crack of daylight shows the way back out to the strand.
+Far_Territory_PathWaveGrottoBleakStrand_DA_Travel,Leave for Bleak Strand
+Far_Territory_PathWaveGrottoBleakStrand_DA_Travel_Desc,Wade back out through the crack to the strand. It is only a few steps.
+Far_Territory_PathWaveGrottoBleakStrand_DA_Travel_Fade,Leaving the cave...
+Far_Territory_Env_PlainGrotto_CardName,Plain Grotto
+Far_Territory_PlainGrotto_CardName,Plain Grotto
+Far_Territory_PlainGrotto_CardDescription,"A shallow cave in a grassy bank, dry and just deep enough to get out of the wind. Nothing lives here but beetles, and perhaps a lizard that is gone before you look."
+Far_Territory_PlainGrotto_Gleanings,Gleanings
+Far_Territory_PlainGrotto_DA_Forage,Forage
+Far_Territory_PlainGrotto_DA_Forage_Desc,Turn over the loose stones and litter at the back of the cave.
+Far_Territory_PlainGrotto_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_PathWestgrassPlainPlainGrotto_CardName,Path to Plain Grotto
+Far_Territory_PathWestgrassPlainPlainGrotto_CardDescription,A shallow cave opens in the bank at the edge of the plain.
+Far_Territory_PathWestgrassPlainPlainGrotto_DA_Travel,Enter the Plain Grotto
+Far_Territory_PathWestgrassPlainPlainGrotto_DA_Travel_Desc,Step into the cave out of the wind. It is only a few steps.
+Far_Territory_PathWestgrassPlainPlainGrotto_DA_Travel_Fade,Stepping into the cave...
+Far_Territory_PathPlainGrottoWestgrassPlain_CardName,Path to Westgrass Plain
+Far_Territory_PathPlainGrottoWestgrassPlain_CardDescription,The grass of the plain shows bright at the mouth of the cave.
+Far_Territory_PathPlainGrottoWestgrassPlain_DA_Travel,Leave for Westgrass Plain
+Far_Territory_PathPlainGrottoWestgrassPlain_DA_Travel_Desc,Step back out of the cave onto the plain. It is only a few steps.
+Far_Territory_PathPlainGrottoWestgrassPlain_DA_Travel_Fade,Leaving the cave...
+Far_Territory_Env_BatRoost_CardName,Bat Roost
+Far_Territory_BatRoost_CardName,Bat Roost
+Far_Territory_BatRoost_CardDescription,"A tall cave in the ridge, its roof black and shifting with sleeping bats. The floor beneath is deep in droppings, and pale crystals crust the walls where they have dripped for years."
+Far_Territory_BatRoost_Gleanings,Gleanings
+Far_Territory_BatRoost_DA_Forage,Forage
+Far_Territory_BatRoost_DA_Forage_Desc,"Scrape the crystals from the wall and sift the floor under the roost, taking care not to wake the bats."
+Far_Territory_BatRoost_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_PathMistyRidgeBatRoost_CardName,Path to Bat Roost
+Far_Territory_PathMistyRidgeBatRoost_CardDescription,"A tall dark slit in the ridge, with a faint ammonia smell on the air, opens into a cave."
+Far_Territory_PathMistyRidgeBatRoost_DA_Travel,Enter the Bat Roost
+Far_Territory_PathMistyRidgeBatRoost_DA_Travel_Desc,"Slip through the slit into the roost, quietly. It is only a few steps."
+Far_Territory_PathMistyRidgeBatRoost_DA_Travel_Fade,Slipping in among the bats...
+Far_Territory_PathBatRoostMistyRidge_CardName,Path to Misty Ridge
+Far_Territory_PathBatRoostMistyRidge_CardDescription,A grey slit of daylight shows the way back out of the roost.
+Far_Territory_PathBatRoostMistyRidge_DA_Travel,Leave for Misty Ridge
+Far_Territory_PathBatRoostMistyRidge_DA_Travel_Desc,Slip back out through the slit onto the ridge. It is only a few steps.
+Far_Territory_PathBatRoostMistyRidge_DA_Travel_Fade,Leaving the roost...
+Far_Territory_Env_MonkeyDen_CardName,Monkey Den
+Far_Territory_MonkeyDen_CardName,Monkey Den
+Far_Territory_MonkeyDen_CardDescription,"A dry hollow among the roots of the ridge where a troop of macaques sleeps and eats. The floor is littered with the leavings of their meals: shells, feathers and gnawed bones."
+Far_Territory_MonkeyDen_Gleanings,Gleanings
+Far_Territory_MonkeyDen_DA_Forage,Forage
+Far_Territory_MonkeyDen_DA_Forage_Desc,Pick through the litter on the den floor for anything the troop has left behind.
+Far_Territory_MonkeyDen_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_PathMistyRidgeMonkeyDen_CardName,Path to Monkey Den
+Far_Territory_PathMistyRidgeMonkeyDen_CardDescription,"A hollow among the roots of the ridge, trampled bare and scattered with shells, is the mouth of a den."
+Far_Territory_PathMistyRidgeMonkeyDen_DA_Travel,Enter the Monkey Den
+Far_Territory_PathMistyRidgeMonkeyDen_DA_Travel_Desc,Crawl in among the roots to the den. It is only a few steps.
+Far_Territory_PathMistyRidgeMonkeyDen_DA_Travel_Fade,Crawling into the den...
+Far_Territory_PathMonkeyDenMistyRidge_CardName,Path to Misty Ridge
+Far_Territory_PathMonkeyDenMistyRidge_CardDescription,The tangle of roots at the mouth of the den shows the way back out.
+Far_Territory_PathMonkeyDenMistyRidge_DA_Travel,Leave the Monkey Den
+Far_Territory_PathMonkeyDenMistyRidge_DA_Travel_Desc,Crawl back out through the roots onto the ridge. It is only a few steps.
+Far_Territory_PathMonkeyDenMistyRidge_DA_Travel_Fade,Leaving the den...
+Far_Territory_Env_BlackGrotto_CardName,Black Grotto
+Far_Territory_BlackGrotto_CardName,Black Grotto
+Far_Territory_BlackGrotto_CardDescription,A cave mouth in the marsh bank that swallows the light a few steps in. The air is cold and still and smells of wet stone; beyond the first bend you cannot see your hands. Bring a lit torch or lantern to work here.
+Far_Territory_BlackGrotto_Gleanings,Gleanings
+Far_Territory_BlackGrotto_DA_Forage,Forage
+Far_Territory_BlackGrotto_DA_Forage_Desc,Feel along the walls and the floor by torchlight for what the dark has hidden.
+Far_Territory_BlackGrotto_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_PathReedMarshBlackGrotto_CardName,Path to Black Grotto
+Far_Territory_PathReedMarshBlackGrotto_CardDescription,A cave mouth in the marsh bank swallows the light a few steps in.
+Far_Territory_PathReedMarshBlackGrotto_DA_Travel,Enter the Black Grotto
+Far_Territory_PathReedMarshBlackGrotto_DA_Travel_Desc,Go in under the lip of the bank into the dark. It is only a few steps. You will want a light.
+Far_Territory_PathReedMarshBlackGrotto_DA_Travel_Fade,Going into the dark...
+Far_Territory_PathBlackGrottoReedMarsh_CardName,Path to Reed Marsh
+Far_Territory_PathBlackGrottoReedMarsh_CardDescription,A pale patch of daylight marks the way back out of the grotto.
+Far_Territory_PathBlackGrottoReedMarsh_DA_Travel,Leave for Reed Marsh
+Far_Territory_PathBlackGrottoReedMarsh_DA_Travel_Desc,Follow the pale light back out into the marsh. It is only a few steps.
+Far_Territory_PathBlackGrottoReedMarsh_DA_Travel_Fade,Leaving the grotto...
+Far_Territory_Env_Sinkhole_CardName,Sinkhole
+Far_Territory_Sinkhole_CardName,Sinkhole
+Far_Territory_Sinkhole_CardDescription,"A shaft fallen in on the high ground: a ragged hole in the turf with a floor of rubble a man's height below, and a low opening at its foot that leads further into the hill."
+Far_Territory_Sinkhole_Gleanings,Gleanings
+Far_Territory_Sinkhole_DA_Forage,Forage
+Far_Territory_Sinkhole_DA_Forage_Desc,Sort through the rubble at the foot of the shaft for stones and old bones.
+Far_Territory_Sinkhole_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_PathWesternUplandsSinkhole_CardName,Climb down into the Sinkhole
+Far_Territory_PathWesternUplandsSinkhole_CardDescription,"A ragged hole in the turf drops away to a rubble floor. A fall hurts, and a tired climber is sure to fall."
+Far_Territory_PathWesternUplandsSinkhole_DA_Climb,Climb Down into the Sinkhole
+Far_Territory_PathWesternUplandsSinkhole_DA_Climb_Desc,Climb down the rough wall of the shaft to the rubble floor. Skill and good handholds make a fall less likely; a tired climber is sure to fall. It takes about a quarter of an hour.
+Far_Territory_PathWesternUplandsSinkhole_DA_Climb_Fade,Climbing down the shaft...
+Far_Territory_PathSinkholeWesternUplands_CardName,Climb up to Western Uplands
+Far_Territory_PathSinkholeWesternUplands_CardDescription,"The rough wall of the shaft rises to a ring of daylight. A fall hurts, and a tired climber is sure to fall."
+Far_Territory_PathSinkholeWesternUplands_DA_Climb,Climb Up to Western Uplands
+Far_Territory_PathSinkholeWesternUplands_DA_Climb_Desc,Climb the rough wall of the shaft back up to the uplands. Skill and good handholds make a fall less likely; a tired climber is sure to fall. It takes about a quarter of an hour.
+Far_Territory_PathSinkholeWesternUplands_DA_Climb_Fade,Climbing up the shaft...
+Far_Territory_Env_LavaTube_CardName,Lava Tube
+Far_Territory_LavaTube_CardName,Lava Tube
+Far_Territory_LavaTube_CardDescription,"A smooth round tunnel in the black rock, left by a flow of lava long cold. It is dry and dusty, and wide enough to walk upright, and runs into the hill past the reach of daylight."
+Far_Territory_LavaTube_Gleanings,Gleanings
+Far_Territory_LavaTube_DA_Forage,Forage
+Far_Territory_LavaTube_DA_Forage_Desc,Break loose stones and flint from the walls of the tube.
+Far_Territory_LavaTube_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_PathEasternUplandsLavaTube_CardName,Path to Lava Tube
+Far_Territory_PathEasternUplandsLavaTube_CardDescription,"A round black tunnel mouth opens in the rock of the uplands, smooth as the inside of a pipe."
+Far_Territory_PathEasternUplandsLavaTube_DA_Travel,Enter the Lava Tube
+Far_Territory_PathEasternUplandsLavaTube_DA_Travel_Desc,Walk into the tunnel out of the wind. It is only a few steps.
+Far_Territory_PathEasternUplandsLavaTube_DA_Travel_Fade,Walking into the tunnel...
+Far_Territory_PathLavaTubeEasternUplands_CardName,Path to Eastern Uplands
+Far_Territory_PathLavaTubeEasternUplands_CardDescription,A round disc of daylight shows the way back out of the tube.
+Far_Territory_PathLavaTubeEasternUplands_DA_Travel,Leave for Eastern Uplands
+Far_Territory_PathLavaTubeEasternUplands_DA_Travel_Desc,Walk back out to the uplands. It is only a few steps.
+Far_Territory_PathLavaTubeEasternUplands_DA_Travel_Fade,Leaving the tube...
+Far_Territory_CaveDarkness_CardName,Cave Darkness
+Far_Territory_CaveDarkness_CardDescription,"No daylight reaches this deep. Bring a lit torch, lantern or brazier to work here."
+Far_Territory_Env_DrippingHall_CardName,Dripping Hall
+Far_Territory_DrippingHall_CardName,Dripping Hall
+Far_Territory_DrippingHall_CardDescription,"A low, wet chamber behind the Black Grotto. Water drips from the roof all day into a clear spring pool in the rock, and the walls shine with it. No daylight reaches here: bring a lit torch or lantern to work."
+Far_Territory_DrippingHall_Gleanings,Gleanings
+Far_Territory_DrippingHall_DA_Forage,Forage
+Far_Territory_DrippingHall_DA_Forage_Desc,Search the wet floor and the edge of the pool by torchlight.
+Far_Territory_DrippingHall_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_Env_Squeeze_CardName,The Squeeze
+Far_Territory_Squeeze_CardName,The Squeeze
+Far_Territory_Squeeze_CardDescription,"A crack between two walls of wet rock that runs on and down, so tight in places that you push your pack ahead of you. A green-stained copper vein shows in one wall. No daylight reaches here: bring a lit torch or lantern to work."
+Far_Territory_Squeeze_Gleanings,Gleanings
+Far_Territory_Squeeze_DA_Forage,Forage
+Far_Territory_Squeeze_DA_Forage_Desc,Pick over the rubble on the floor of the crack by torchlight.
+Far_Territory_Squeeze_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_Env_LowerHall_CardName,Lower Hall
+Far_Territory_LowerHall_CardName,Lower Hall
+Far_Territory_LowerHall_CardDescription,"A long, low chamber at the bottom of the cave, its floor littered with broken rock and flint. A shaft climbs to the Middle Hall, a squeeze runs off toward the Dripping Hall, a side opening glitters, and a copper vein shows in the wall. No daylight reaches here: bring a lit torch or lantern to work."
+Far_Territory_LowerHall_Gleanings,Gleanings
+Far_Territory_LowerHall_DA_Forage,Forage
+Far_Territory_LowerHall_DA_Forage_Desc,Pick over the broken rock on the floor by torchlight.
+Far_Territory_LowerHall_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_Env_GlitteringHall_CardName,Glittering Hall
+Far_Territory_GlitteringHall_CardName,Glittering Hall
+Far_Territory_GlitteringHall_CardDescription,"A high chamber whose walls are crusted with pale crystal that catches any light and throws it back. A copper vein runs through the crystal, and a shaft drops to dark water below. No daylight reaches here: bring a lit torch or lantern to work."
+Far_Territory_GlitteringHall_Gleanings,Gleanings
+Far_Territory_GlitteringHall_DA_Forage,Forage
+Far_Territory_GlitteringHall_DA_Forage_Desc,"Prise loose what the crystal walls and the floor will give, by torchlight."
+Far_Territory_GlitteringHall_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_Env_DrownedHall_CardName,Drowned Hall
+Far_Territory_DrownedHall_CardName,Drowned Hall
+Far_Territory_DrownedHall_CardDescription,"A chamber half full of still sea water, reached from Cliffbound Cove by an underwater passage. Crabs and prawns move on the drowned ledges, and a shaft climbs into the rock above. No daylight reaches here: bring a lit torch or lantern to work."
+Far_Territory_DrownedHall_Gleanings,Gleanings
+Far_Territory_DrownedHall_DA_Forage,Forage
+Far_Territory_DrownedHall_DA_Forage_Desc,Grope along the drowned ledges and the shingle by torchlight.
+Far_Territory_DrownedHall_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_Env_MiddleHall_CardName,Middle Hall
+Far_Territory_MiddleHall_CardName,Middle Hall
+Far_Territory_MiddleHall_CardDescription,"A chamber halfway down the cave, joined by shafts to the halls above and below, with a narrow way off into blackness and a copper vein in the wall. No daylight reaches here: bring a lit torch or lantern to work."
+Far_Territory_MiddleHall_Gleanings,Gleanings
+Far_Territory_MiddleHall_DA_Forage,Forage
+Far_Territory_MiddleHall_DA_Forage_Desc,Pick over the broken rock on the floor by torchlight.
+Far_Territory_MiddleHall_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_Env_UpperHall_CardName,Upper Hall
+Far_Territory_UpperHall_CardName,Upper Hall
+Far_Territory_UpperHall_CardDescription,"The highest chamber, a few steps in from the Lava Tube, where the smooth tunnel gives way to broken rock and a copper vein. A shaft drops away into the dark below. No daylight reaches here: bring a lit torch or lantern to work."
+Far_Territory_UpperHall_Gleanings,Gleanings
+Far_Territory_UpperHall_DA_Forage,Forage
+Far_Territory_UpperHall_DA_Forage_Desc,Pick over the broken rock on the floor by torchlight.
+Far_Territory_UpperHall_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_Env_LightlessHall_CardName,Lightless Hall
+Far_Territory_LightlessHall_CardName,Lightless Hall
+Far_Territory_LightlessHall_CardDescription,"A small chamber under the Sinkhole, utterly black and silent. A narrow way leads on toward the Middle Hall. No daylight reaches here: bring a lit torch or lantern to work."
+Far_Territory_LightlessHall_Gleanings,Gleanings
+Far_Territory_LightlessHall_DA_Forage,Forage
+Far_Territory_LightlessHall_DA_Forage_Desc,Feel over the bare floor by torchlight. There is little here.
+Far_Territory_LightlessHall_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_PathBlackGrottoDrippingHall_CardName,Path to Dripping Hall
+Far_Territory_PathBlackGrottoDrippingHall_CardDescription,A way on through the dark rock to the Dripping Hall.
+Far_Territory_PathBlackGrottoDrippingHall_DA_Travel,Go to Dripping Hall
+Far_Territory_PathBlackGrottoDrippingHall_DA_Travel_Desc,Feel your way to the Dripping Hall by torchlight. It is only a few steps.
+Far_Territory_PathBlackGrottoDrippingHall_DA_Travel_Fade,Going on through the dark...
+Far_Territory_PathDrippingHallBlackGrotto_CardName,Path to Black Grotto
+Far_Territory_PathDrippingHallBlackGrotto_CardDescription,A way back up toward the Black Grotto and the marsh beyond it.
+Far_Territory_PathDrippingHallBlackGrotto_DA_Travel,Go to Black Grotto
+Far_Territory_PathDrippingHallBlackGrotto_DA_Travel_Desc,Feel your way to the Black Grotto by torchlight. It is only a few steps.
+Far_Territory_PathDrippingHallBlackGrotto_DA_Travel_Fade,Going on through the dark...
+Far_Territory_PathDrippingHallSqueeze_CardName,Path to The Squeeze
+Far_Territory_PathDrippingHallSqueeze_CardDescription,"A way on through the dark rock to the Squeeze. It winds a little way, low and wet."
+Far_Territory_PathDrippingHallSqueeze_DA_Travel,Go to The Squeeze
+Far_Territory_PathDrippingHallSqueeze_DA_Travel_Desc,Feel your way to the Squeeze by torchlight. It takes about a quarter of an hour.
+Far_Territory_PathDrippingHallSqueeze_DA_Travel_Fade,Going on through the dark...
+Far_Territory_PathSqueezeDrippingHall_CardName,Path to Dripping Hall
+Far_Territory_PathSqueezeDrippingHall_CardDescription,"A way on through the dark rock to the Dripping Hall. It winds a little way, low and wet."
+Far_Territory_PathSqueezeDrippingHall_DA_Travel,Go to Dripping Hall
+Far_Territory_PathSqueezeDrippingHall_DA_Travel_Desc,Feel your way to the Dripping Hall by torchlight. It takes about a quarter of an hour.
+Far_Territory_PathSqueezeDrippingHall_DA_Travel_Fade,Going on through the dark...
+Far_Territory_PathSqueezeLowerHall_CardName,Narrow Crack to Lower Hall
+Far_Territory_PathSqueezeLowerHall_CardDescription,"A crack so tight you must crawl it on your belly, pushing your pack ahead. It leads to the Lower Hall. It is slow, filthy and hard on the hands."
+Far_Territory_PathSqueezeLowerHall_DA_Travel,Crawl through to Lower Hall
+Far_Territory_PathSqueezeLowerHall_DA_Travel_Desc,"Crawl the narrow crack to the Lower Hall. It takes about half an hour, costs 15 stamina, leaves you filthy and scrapes your hands."
+Far_Territory_PathSqueezeLowerHall_DA_Travel_Fade,Squeezing through the crack...
+Far_Territory_PathLowerHallSqueeze_CardName,Narrow Crack
+Far_Territory_PathLowerHallSqueeze_CardDescription,"A crack so tight you must crawl it on your belly, pushing your pack ahead. It leads to the Squeeze. It is slow, filthy and hard on the hands."
+Far_Territory_PathLowerHallSqueeze_DA_Travel,Crawl into the Squeeze
+Far_Territory_PathLowerHallSqueeze_DA_Travel_Desc,"Crawl the narrow crack to the Squeeze. It takes about half an hour, costs 15 stamina, leaves you filthy and scrapes your hands."
+Far_Territory_PathLowerHallSqueeze_DA_Travel_Fade,Squeezing through the crack...
+Far_Territory_PathCliffboundCoveDrownedHall_CardName,Underwater Passage
+Far_Territory_PathCliffboundCoveDrownedHall_CardDescription,A dark opening under the cove's still water leads into the rock. Swimming through soaks you and tires you; the way is short but it is all underwater.
+Far_Territory_PathCliffboundCoveDrownedHall_DA_Travel,Swim to the Drowned Hall
+Far_Territory_PathCliffboundCoveDrownedHall_DA_Travel_Desc,Take a breath and swim down and in through the passage under the rock to the Drowned Hall. It takes about half an hour and leaves you soaked and tired.
+Far_Territory_PathCliffboundCoveDrownedHall_DA_Travel_Fade,Swimming through the passage...
+Far_Territory_PathDrownedHallCliffboundCove_CardName,Underwater Passage Out
+Far_Territory_PathDrownedHallCliffboundCove_CardDescription,The pool's dark water drops to a passage that comes up in Cliffbound Cove. Swimming through soaks you and tires you; the way is short but it is all underwater.
+Far_Territory_PathDrownedHallCliffboundCove_DA_Travel,Swim out to Cliffbound Cove
+Far_Territory_PathDrownedHallCliffboundCove_DA_Travel_Desc,Take a breath and swim down and out through the passage under the rock to Cliffbound Cove. It takes about half an hour and leaves you soaked and tired.
+Far_Territory_PathDrownedHallCliffboundCove_DA_Travel_Fade,Swimming through the passage...
+Far_Territory_PathDrownedHallGlitteringHall_CardName,Climb up to Glittering Hall
+Far_Territory_PathDrownedHallGlitteringHall_CardDescription,"A shaft of wet rock climbs into the dark toward the Glittering Hall. A fall hurts, and a tired climber is sure to fall."
+Far_Territory_PathDrownedHallGlitteringHall_DA_Climb,Climb Up to Glittering Hall
+Far_Territory_PathDrownedHallGlitteringHall_DA_Climb_Desc,Climb the shaft to the Glittering Hall by torchlight. Skill and good handholds make a fall less likely; a tired climber is sure to fall. It takes about a quarter of an hour.
+Far_Territory_PathDrownedHallGlitteringHall_DA_Climb_Fade,Climbing up the shaft...
+Far_Territory_PathGlitteringHallDrownedHall_CardName,Climb down to Drowned Hall
+Far_Territory_PathGlitteringHallDrownedHall_CardDescription,"A shaft of wet rock drops into the dark toward the Drowned Hall. A fall hurts, and a tired climber is sure to fall."
+Far_Territory_PathGlitteringHallDrownedHall_DA_Climb,Climb Down to Drowned Hall
+Far_Territory_PathGlitteringHallDrownedHall_DA_Climb_Desc,Climb down the shaft to the Drowned Hall by torchlight. Skill and good handholds make a fall less likely; a tired climber is sure to fall. It takes about a quarter of an hour.
+Far_Territory_PathGlitteringHallDrownedHall_DA_Climb_Fade,Climbing down the shaft...
+Far_Territory_PathGlitteringHallLowerHall_CardName,Path to Lower Hall
+Far_Territory_PathGlitteringHallLowerHall_CardDescription,A way on through the dark rock to the Lower Hall.
+Far_Territory_PathGlitteringHallLowerHall_DA_Travel,Go to Lower Hall
+Far_Territory_PathGlitteringHallLowerHall_DA_Travel_Desc,Feel your way to the Lower Hall by torchlight. It is only a few steps.
+Far_Territory_PathGlitteringHallLowerHall_DA_Travel_Fade,Going on through the dark...
+Far_Territory_PathLowerHallGlitteringHall_CardName,Path to Glittering Hall
+Far_Territory_PathLowerHallGlitteringHall_CardDescription,A way on through the dark rock to the Glittering Hall.
+Far_Territory_PathLowerHallGlitteringHall_DA_Travel,Go to Glittering Hall
+Far_Territory_PathLowerHallGlitteringHall_DA_Travel_Desc,Feel your way to the Glittering Hall by torchlight. It is only a few steps.
+Far_Territory_PathLowerHallGlitteringHall_DA_Travel_Fade,Going on through the dark...
+Far_Territory_PathLowerHallMiddleHall_CardName,Climb up to Middle Hall
+Far_Territory_PathLowerHallMiddleHall_CardDescription,"A shaft of wet rock climbs into the dark toward the Middle Hall. A fall hurts, and a tired climber is sure to fall."
+Far_Territory_PathLowerHallMiddleHall_DA_Climb,Climb Up to Middle Hall
+Far_Territory_PathLowerHallMiddleHall_DA_Climb_Desc,Climb the shaft to the Middle Hall by torchlight. Skill and good handholds make a fall less likely; a tired climber is sure to fall. It takes about a quarter of an hour.
+Far_Territory_PathLowerHallMiddleHall_DA_Climb_Fade,Climbing up the shaft...
+Far_Territory_PathMiddleHallLowerHall_CardName,Climb down to Lower Hall
+Far_Territory_PathMiddleHallLowerHall_CardDescription,"A shaft of wet rock drops into the dark toward the Lower Hall. A fall hurts, and a tired climber is sure to fall."
+Far_Territory_PathMiddleHallLowerHall_DA_Climb,Climb Down to Lower Hall
+Far_Territory_PathMiddleHallLowerHall_DA_Climb_Desc,Climb down the shaft to the Lower Hall by torchlight. Skill and good handholds make a fall less likely; a tired climber is sure to fall. It takes about a quarter of an hour.
+Far_Territory_PathMiddleHallLowerHall_DA_Climb_Fade,Climbing down the shaft...
+Far_Territory_PathMiddleHallUpperHall_CardName,Climb up to Upper Hall
+Far_Territory_PathMiddleHallUpperHall_CardDescription,"A shaft of wet rock climbs into the dark toward the Upper Hall. A fall hurts, and a tired climber is sure to fall."
+Far_Territory_PathMiddleHallUpperHall_DA_Climb,Climb Up to Upper Hall
+Far_Territory_PathMiddleHallUpperHall_DA_Climb_Desc,Climb the shaft to the Upper Hall by torchlight. Skill and good handholds make a fall less likely; a tired climber is sure to fall. It takes about a quarter of an hour.
+Far_Territory_PathMiddleHallUpperHall_DA_Climb_Fade,Climbing up the shaft...
+Far_Territory_PathUpperHallMiddleHall_CardName,Climb down to Middle Hall
+Far_Territory_PathUpperHallMiddleHall_CardDescription,"A shaft of wet rock drops into the dark toward the Middle Hall. A fall hurts, and a tired climber is sure to fall."
+Far_Territory_PathUpperHallMiddleHall_DA_Climb,Climb Down to Middle Hall
+Far_Territory_PathUpperHallMiddleHall_DA_Climb_Desc,Climb down the shaft to the Middle Hall by torchlight. Skill and good handholds make a fall less likely; a tired climber is sure to fall. It takes about a quarter of an hour.
+Far_Territory_PathUpperHallMiddleHall_DA_Climb_Fade,Climbing down the shaft...
+Far_Territory_PathMiddleHallLightlessHall_CardName,Path to Lightless Hall
+Far_Territory_PathMiddleHallLightlessHall_CardDescription,A way on through the dark rock to the Lightless Hall.
+Far_Territory_PathMiddleHallLightlessHall_DA_Travel,Go to Lightless Hall
+Far_Territory_PathMiddleHallLightlessHall_DA_Travel_Desc,Feel your way to the Lightless Hall by torchlight. It is only a few steps.
+Far_Territory_PathMiddleHallLightlessHall_DA_Travel_Fade,Going on through the dark...
+Far_Territory_PathLightlessHallMiddleHall_CardName,Path to Middle Hall
+Far_Territory_PathLightlessHallMiddleHall_CardDescription,A way on through the dark rock to the Middle Hall.
+Far_Territory_PathLightlessHallMiddleHall_DA_Travel,Go to Middle Hall
+Far_Territory_PathLightlessHallMiddleHall_DA_Travel_Desc,Feel your way to the Middle Hall by torchlight. It is only a few steps.
+Far_Territory_PathLightlessHallMiddleHall_DA_Travel_Fade,Going on through the dark...
+Far_Territory_PathSinkholeLightlessHall_CardName,Path to Lightless Hall
+Far_Territory_PathSinkholeLightlessHall_CardDescription,A way on through the dark rock to the Lightless Hall.
+Far_Territory_PathSinkholeLightlessHall_DA_Travel,Go to Lightless Hall
+Far_Territory_PathSinkholeLightlessHall_DA_Travel_Desc,Feel your way to the Lightless Hall by torchlight. It is only a few steps.
+Far_Territory_PathSinkholeLightlessHall_DA_Travel_Fade,Going on through the dark...
+Far_Territory_PathLightlessHallSinkhole_CardName,Path to Sinkhole
+Far_Territory_PathLightlessHallSinkhole_CardDescription,A way back toward the grey light of the Sinkhole.
+Far_Territory_PathLightlessHallSinkhole_DA_Travel,Go to Sinkhole
+Far_Territory_PathLightlessHallSinkhole_DA_Travel_Desc,Feel your way to the Sinkhole by torchlight. It is only a few steps.
+Far_Territory_PathLightlessHallSinkhole_DA_Travel_Fade,Going on through the dark...
+Far_Territory_PathLavaTubeUpperHall_CardName,Path to Upper Hall
+Far_Territory_PathLavaTubeUpperHall_CardDescription,A way on through the dark rock to the Upper Hall.
+Far_Territory_PathLavaTubeUpperHall_DA_Travel,Go to Upper Hall
+Far_Territory_PathLavaTubeUpperHall_DA_Travel_Desc,Feel your way to the Upper Hall by torchlight. It is only a few steps.
+Far_Territory_PathLavaTubeUpperHall_DA_Travel_Fade,Going on through the dark...
+Far_Territory_PathUpperHallLavaTube_CardName,Path to Lava Tube
+Far_Territory_PathUpperHallLavaTube_CardDescription,A way back toward the grey light of the Lava Tube.
+Far_Territory_PathUpperHallLavaTube_DA_Travel,Go to Lava Tube
+Far_Territory_PathUpperHallLavaTube_DA_Travel_Desc,Feel your way to the Lava Tube by torchlight. It is only a few steps.
+Far_Territory_PathUpperHallLavaTube_DA_Travel_Fade,Going on through the dark...
+Far_Territory_Banana_CardName,Banana
+Far_Territory_Banana_CardDescription,"A short, fat island banana, yellow and sweet. Eaten raw it fills well. Set one in a garden plot and it takes root."
+Far_Territory_Banana_Spoilage,Spoilage
+Far_Territory_Banana_Spoiled,The banana has spoiled.
+Far_Territory_Banana_Planting,Planting
+Far_Territory_Banana_Planted,The banana has taken root in the garden plot.
+Far_Territory_Banana_DA_Eat,Eat
+Far_Territory_Banana_DA_Eat_Desc,Peel the banana and eat it.
+Far_Territory_BananaPlant_DA_Pick,Cut a Bunch
+Far_Territory_BananaPlant_DA_Pick_Desc,Cut down a ripe bunch of bananas. Takes about fifteen minutes.
+Far_Territory_BananaPlant_DA_Pick_Fail,No bunch is ripe on this plant yet
+Far_Territory_BananaPlant_CardName,Banana Plant
+Far_Territory_BananaPlant_CardDescription,"A broad-leaved banana plant, its heavy bunch hanging under the leaves. A new bunch ripens in time."
+Far_Territory_BananaPlant_Yield,Ripe Bunches
+Far_Territory_BananaGrowing_CardName,Growing Banana
+Far_Territory_BananaGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 20 days there."
+Far_Territory_BananaGrowing_Growth,Growth
+Far_Territory_BananaGrowing_Ready,The banana is ready to harvest.
+Far_Territory_BananaGrowing_DA_Uproot,Uproot
+Far_Territory_BananaGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_BananaGarden_CardName,Banana Plant (Garden)
+Far_Territory_BananaGarden_CardDescription,"A garden-grown plant, ready to harvest. The plant stays in the plot and grows its next crop."
+Far_Territory_BananaGarden_DA_Harvest,Harvest
+Far_Territory_BananaGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the plot and grows its next crop.
+Far_Territory_BananaGarden_DA_Uproot,Uproot
+Far_Territory_BananaGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_Mango_CardName,Mango
+Far_Territory_Mango_CardDescription,"A ripe mango, soft and fragrant, its flesh orange and dripping. Eaten raw it quenches a little thirst too. Set one in a garden plot and its stone takes root."
+Far_Territory_Mango_Spoilage,Spoilage
+Far_Territory_Mango_Spoiled,The mango has spoiled.
+Far_Territory_Mango_Planting,Planting
+Far_Territory_Mango_Planted,The mango has taken root in the garden plot.
+Far_Territory_Mango_DA_Eat,Eat
+Far_Territory_Mango_DA_Eat_Desc,"Eat the mango, skin and all but the stone."
+Far_Territory_MangoTree_DA_Pick,Pick Mangoes
+Far_Territory_MangoTree_DA_Pick_Desc,Pick the ripe mangoes within reach. Takes about fifteen minutes.
+Far_Territory_MangoTree_DA_Pick_Fail,No mango is ripe on this tree yet
+Far_Territory_MangoTree_CardName,Mango Tree
+Far_Territory_MangoTree_CardDescription,A spreading mango tree hung with fruit. Mangoes ripen on it a few at a time.
+Far_Territory_MangoTree_Yield,Ripe Mangoes
+Far_Territory_MangoGrowing_CardName,Growing Mango
+Far_Territory_MangoGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there."
+Far_Territory_MangoGrowing_Growth,Growth
+Far_Territory_MangoGrowing_Ready,The mango is ready to harvest.
+Far_Territory_MangoGrowing_DA_Uproot,Uproot
+Far_Territory_MangoGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_MangoGarden_CardName,Mango Sapling (Garden)
+Far_Territory_MangoGarden_CardDescription,"A garden-grown plant, ready to harvest. The plant stays in the plot and grows its next crop."
+Far_Territory_MangoGarden_DA_Harvest,Harvest
+Far_Territory_MangoGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the plot and grows its next crop.
+Far_Territory_MangoGarden_DA_Uproot,Uproot
+Far_Territory_MangoGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_TropicalAlmond_CardName,Tropical Almonds
+Far_Territory_TropicalAlmond_CardDescription,Ridged green almonds from the beach almond tree. Crack the shell and eat the kernel raw. Set one in a garden plot and it takes root.
+Far_Territory_TropicalAlmond_Spoilage,Spoilage
+Far_Territory_TropicalAlmond_Spoiled,The tropical almonds have spoiled.
+Far_Territory_TropicalAlmond_Planting,Planting
+Far_Territory_TropicalAlmond_Planted,The tropical almonds have taken root in the garden plot.
+Far_Territory_TropicalAlmond_DA_Eat,Crack and Eat
+Far_Territory_TropicalAlmond_DA_Eat_Desc,Crack the shell on a stone and eat the kernel.
+Far_Territory_AlmondTree_DA_Pick,Gather Almonds
+Far_Territory_AlmondTree_DA_Pick_Desc,Pick up the almonds lying under the tree. Takes about fifteen minutes.
+Far_Territory_AlmondTree_DA_Pick_Fail,No almonds lie under this tree yet
+Far_Territory_AlmondTree_CardName,Tropical Almond Tree
+Far_Territory_AlmondTree_CardDescription,A tiered beach almond tree with broad leaves. Its nuts fall and gather beneath it.
+Far_Territory_AlmondTree_Yield,Fallen Nuts
+Far_Territory_TropicalAlmondGrowing_CardName,Growing Almond Tree
+Far_Territory_TropicalAlmondGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there."
+Far_Territory_TropicalAlmondGrowing_Growth,Growth
+Far_Territory_TropicalAlmondGrowing_Ready,The almond tree is ready to harvest.
+Far_Territory_TropicalAlmondGrowing_DA_Uproot,Uproot
+Far_Territory_TropicalAlmondGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_TropicalAlmondGarden_CardName,Almond Sapling (Garden)
+Far_Territory_TropicalAlmondGarden_CardDescription,"A garden-grown plant, ready to harvest. The plant stays in the plot and grows its next crop."
+Far_Territory_TropicalAlmondGarden_DA_Harvest,Harvest
+Far_Territory_TropicalAlmondGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the plot and grows its next crop.
+Far_Territory_TropicalAlmondGarden_DA_Uproot,Uproot
+Far_Territory_TropicalAlmondGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_Jujube_CardName,Jujubes
+Far_Territory_Jujube_CardDescription,"A handful of small red jujubes, crisp and sweet like a tart apple. Eaten raw. Set some in a garden plot and they take root."
+Far_Territory_Jujube_Spoilage,Spoilage
+Far_Territory_Jujube_Spoiled,The jujubes have spoiled.
+Far_Territory_Jujube_Planting,Planting
+Far_Territory_Jujube_Planted,The jujubes have taken root in the garden plot.
+Far_Territory_Jujube_DA_Eat,Eat
+Far_Territory_Jujube_DA_Eat_Desc,Eat the jujubes.
+Far_Territory_JujubeBush_DA_Pick,Pick Jujubes
+Far_Territory_JujubeBush_DA_Pick_Desc,Pick the ripe jujubes from between the thorns. Takes about fifteen minutes.
+Far_Territory_JujubeBush_DA_Pick_Fail,No jujubes are ripe on this shrub yet
+Far_Territory_JujubeBush_CardName,Wild Jujube
+Far_Territory_JujubeBush_CardDescription,A thorny wild jujube shrub dotted with red fruit. More fruit ripens in time.
+Far_Territory_JujubeBush_Yield,Ripe Jujubes
+Far_Territory_JujubeGrowing_CardName,Growing Jujube
+Far_Territory_JujubeGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 20 days there."
+Far_Territory_JujubeGrowing_Growth,Growth
+Far_Territory_JujubeGrowing_Ready,The jujube is ready to harvest.
+Far_Territory_JujubeGrowing_DA_Uproot,Uproot
+Far_Territory_JujubeGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_JujubeGarden_CardName,Jujube Shrub (Garden)
+Far_Territory_JujubeGarden_CardDescription,"A garden-grown plant, ready to harvest. The plant stays in the plot and grows its next crop."
+Far_Territory_JujubeGarden_DA_Harvest,Harvest
+Far_Territory_JujubeGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the plot and grows its next crop.
+Far_Territory_JujubeGarden_DA_Uproot,Uproot
+Far_Territory_JujubeGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_NipaFruit_CardName,Nipa Fruit
+Far_Territory_NipaFruit_CardDescription,"A round, knobbly head of nipa palm fruit. Pry the segments apart and eat the soft white seeds raw. Set one in a garden plot and it takes root."
+Far_Territory_NipaFruit_Spoilage,Spoilage
+Far_Territory_NipaFruit_Spoiled,The nipa fruit has spoiled.
+Far_Territory_NipaFruit_Planting,Planting
+Far_Territory_NipaFruit_Planted,The nipa fruit has taken root in the garden plot.
+Far_Territory_NipaFruit_DA_Eat,Eat the Seeds
+Far_Territory_NipaFruit_DA_Eat_Desc,Pry the fruit apart and eat its soft white seeds.
+Far_Territory_NipaPalm_DA_Pick,Cut a Fruit Head
+Far_Territory_NipaPalm_DA_Pick_Desc,Wade in and cut a ripe fruit head from its stalk. Takes about fifteen minutes.
+Far_Territory_NipaPalm_DA_Pick_Fail,No fruit head is ripe on this palm yet
+Far_Territory_NipaPalm_CardName,Nipa Palm
+Far_Territory_NipaPalm_CardDescription,"A stemless palm growing out of the brackish mud, its fronds rising straight from the ground. Fruit heads ripen low among them."
+Far_Territory_NipaPalm_Yield,Fruit Heads
+Far_Territory_NipaFruitGrowing_CardName,Growing Nipa Palm
+Far_Territory_NipaFruitGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there."
+Far_Territory_NipaFruitGrowing_Growth,Growth
+Far_Territory_NipaFruitGrowing_Ready,The nipa palm is ready to harvest.
+Far_Territory_NipaFruitGrowing_DA_Uproot,Uproot
+Far_Territory_NipaFruitGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_NipaFruitGarden_CardName,Nipa Palm (Garden)
+Far_Territory_NipaFruitGarden_CardDescription,"A garden-grown plant, ready to harvest. The plant stays in the plot and grows its next crop."
+Far_Territory_NipaFruitGarden_DA_Harvest,Harvest
+Far_Territory_NipaFruitGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the plot and grows its next crop.
+Far_Territory_NipaFruitGarden_DA_Uproot,Uproot
+Far_Territory_NipaFruitGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_Yam_CardName,Yam
+Far_Territory_Yam_CardDescription,"A long, earthy wild yam root. Eaten raw it is starchy, filling and dull. Set one in a garden plot and it sprouts."
+Far_Territory_Yam_Spoilage,Spoilage
+Far_Territory_Yam_Spoiled,The yam has spoiled.
+Far_Territory_Yam_Planting,Planting
+Far_Territory_Yam_Planted,The yam has taken root in the garden plot.
+Far_Territory_Yam_DA_Eat,Eat Raw
+Far_Territory_Yam_DA_Eat_Desc,Scrape off the skin and chew the raw yam.
+Far_Territory_WildYam_DA_Pick,Dig up a Yam
+Far_Territory_WildYam_DA_Pick_Desc,Dig down beside the vine and work a tuber loose by hand. Takes about half an hour and dirties you.
+Far_Territory_WildYam_DA_Pick_Fail,No tuber is big enough to dig yet
+Far_Territory_WildYam_CardName,Wild Yam Vine
+Far_Territory_WildYam_CardDescription,A twining yam vine with heart-shaped leaves. Its tubers swell underground and can be dug up.
+Far_Territory_WildYam_Yield,Tubers
+Far_Territory_YamGrowing_CardName,Growing Yam
+Far_Territory_YamGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 15 days there."
+Far_Territory_YamGrowing_Growth,Growth
+Far_Territory_YamGrowing_Ready,The yam is ready to harvest.
+Far_Territory_YamGrowing_DA_Uproot,Uproot
+Far_Territory_YamGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_YamGarden_CardName,Yam Vine (Garden)
+Far_Territory_YamGarden_CardDescription,"A garden-grown plant, ready to harvest. The plant is used up."
+Far_Territory_YamGarden_DA_Harvest,Harvest
+Far_Territory_YamGarden_DA_Harvest_Desc,Gather the crop. The plant is used up.
+Far_Territory_YamGarden_DA_Uproot,Uproot
+Far_Territory_YamGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_SagoPith_CardName,Sago Pith
+Far_Territory_SagoPith_CardDescription,"Pale, fibrous starch scraped from inside a sago palm's trunk. Eaten raw it is bland and heavy, but it fills an empty belly."
+Far_Territory_SagoPith_Spoilage,Spoilage
+Far_Territory_SagoPith_Spoiled,The sago pith has spoiled.
+Far_Territory_SagoPith_DA_Eat,Eat
+Far_Territory_SagoPith_DA_Eat_Desc,Chew a handful of the raw pith.
+Far_Territory_SagoShoot_CardName,Sago Shoot
+Far_Territory_SagoShoot_CardDescription,A young sucker cut from the base of a sago palm. Set it in a garden plot and it takes root.
+Far_Territory_SagoShoot_Spoilage,Spoilage
+Far_Territory_SagoShoot_Spoiled,The sago shoot has spoiled.
+Far_Territory_SagoShoot_Planting,Planting
+Far_Territory_SagoShoot_Planted,The sago shoot has taken root in the garden plot.
+Far_Territory_SagoGrowing_CardName,Growing Sago Palm
+Far_Territory_SagoGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there."
+Far_Territory_SagoGrowing_Growth,Growth
+Far_Territory_SagoGrowing_Ready,The sago palm is ready to harvest.
+Far_Territory_SagoGrowing_DA_Uproot,Uproot
+Far_Territory_SagoGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_SagoGarden_CardName,Sago Palm (Garden)
+Far_Territory_SagoGarden_CardDescription,A garden-grown sago palm with a trunk full of starch. Cut it down for the pith and a fresh shoot to plant again.
+Far_Territory_SagoGarden_DA_Harvest,Harvest
+Far_Territory_SagoGarden_DA_Harvest_Desc,Cut the young palm down and scrape out its pith. A shoot is kept to plant again. The plant is used up.
+Far_Territory_SagoGarden_DA_Uproot,Uproot
+Far_Territory_SagoGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_SagoPalm_CardName,Sago Palm
+Far_Territory_SagoPalm_CardDescription,"A swamp palm with a thick, soft trunk packed with starch. Fell it with an axe and split it to scrape out the pith. A new palm rises from its suckers in time."
+Far_Territory_SagoPalm_CI_Fell,Fell the Sago Palm
+Far_Territory_SagoPalm_CI_Fell_Desc,"Chop the palm down, split the trunk and scrape out the starchy pith. You also take a few fronds and a shoot to plant. A young palm takes its place."
+Far_Territory_SagoPalmYoung_CardName,Young Sago Palm
+Far_Territory_SagoPalmYoung_CardDescription,A young sago palm rising from the suckers of a felled one. It grows into a full sago palm in about a month.
+Far_Territory_SagoPalmYoung_Growth,Growth
+Far_Territory_SagoPalmYoung_Grown,The young sago palm has grown into a sago palm.
+Far_Territory_Effect_Aloe_StatName,Aloe Salve
+Far_Territory_Effect_Aloe_StatDescription,"Aloe gel spread on the skin. It cools what burns and helps a burn mend, and wears off over the following hours."
+Far_Territory_Effect_Aloe_Status_Mild_Name,Aloe Salve
+Far_Territory_Effect_Aloe_Status_Mild_Description,Aloe gel on your skin dulls the sting of a burn and helps it mend.
+Far_Territory_Effect_Aloe_Status_Strong_Name,Thick Aloe Salve
+Far_Territory_Effect_Aloe_Status_Strong_Description,A thick layer of aloe gel. Burns ease and mend faster while it lasts.
+Far_Territory_Effect_Cinchona_StatName,Cinchona Bitters
+Far_Territory_Effect_Cinchona_StatDescription,"Chewed cinchona bark still working in you. It brings a fever down and dulls aches, and wears off over the following hours."
+Far_Territory_Effect_Cinchona_Status_Mild_Name,Cinchona Bitters
+Far_Territory_Effect_Cinchona_Status_Mild_Description,The bitter bark brings a fever down and dulls aches.
+Far_Territory_Effect_Cinchona_Status_Strong_Name,Strong Cinchona Bitters
+Far_Territory_Effect_Cinchona_Status_Strong_Description,Doses taken close together. A fever falls fast while they last.
+Far_Territory_Effect_Kava_StatName,Kava Calm
+Far_Territory_Effect_Kava_StatDescription,"Chewed kava root still working in you. It numbs the mouth, eases worry and dulls aches, and wears off over the following hours."
+Far_Territory_Effect_Kava_Status_Mild_Name,Kava Calm
+Far_Territory_Effect_Kava_Status_Mild_Description,A numb mouth and an easy mind. Worries fade a little faster.
+Far_Territory_Effect_Kava_Status_Strong_Name,Heavy Kava Calm
+Far_Territory_Effect_Kava_Status_Strong_Description,"Too much kava: calm and numb, and drowsy with it."
+Far_Territory_Effect_Coffee_StatName,Coffee Buzz
+Far_Territory_Effect_Coffee_StatDescription,"Raw coffee berries still working in you. They keep you awake, leave you a little on edge and thirsty, and wear off over the following hours."
+Far_Territory_Effect_Coffee_Status_Mild_Name,Coffee Buzz
+Far_Territory_Effect_Coffee_Status_Mild_Description,"You feel more awake, a little on edge and a little thirsty."
+Far_Territory_Effect_Coffee_Status_Strong_Name,Coffee Jitters
+Far_Territory_Effect_Coffee_Status_Strong_Description,"Far too many berries. Wide awake, jittery and parched."
+Far_Territory_Effect_Ginger_StatName,Ginger Warmth
+Far_Territory_Effect_Ginger_StatDescription,"Chewed ginger still working in you. It settles a queasy stomach and dulls aches a little, and wears off over the following hours."
+Far_Territory_Effect_Ginger_Status_Mild_Name,Ginger Warmth
+Far_Territory_Effect_Ginger_Status_Mild_Description,A hot tingle in the mouth. A queasy stomach settles faster.
+Far_Territory_GingerPlant_CardName,Ginger Plant
+Far_Territory_GingerPlant_CardDescription,"A clump of tall, narrow-leaved ginger stems over knotted roots in damp ground."
+Far_Territory_GingerPlant_Yield,Ginger Roots
+Far_Territory_GingerPlant_DA_Dig,Dig up Ginger
+Far_Territory_GingerPlant_DA_Dig_Desc,Dig a knob of ginger root from the clump. Takes about half an hour and dirties your hands.
+Far_Territory_GingerPlant_DA_Dig_Fail,No ginger is ready to dig here yet
+Far_Territory_KavaPlant_CardName,Kava Plant
+Far_Territory_KavaPlant_CardDescription,A leafy shrub with jointed green stems. Its thick root is what people chew.
+Far_Territory_KavaPlant_Yield,Kava Roots
+Far_Territory_KavaPlant_DA_Dig,Dig up Kava Root
+Far_Territory_KavaPlant_DA_Dig_Desc,Dig a piece of root from the shrub. Takes about half an hour and dirties your hands.
+Far_Territory_KavaPlant_DA_Dig_Fail,No kava root is ready to dig here yet
+Far_Territory_ChilliPlant_CardName,Chilli Plant
+Far_Territory_ChilliPlant_CardDescription,A small bushy plant hung with slim red chillies.
+Far_Territory_ChilliPlant_Yield,Ripe Chillies
+Far_Territory_ChilliPlant_DA_Pick,Pick Chillies
+Far_Territory_ChilliPlant_DA_Pick_Desc,Pick the ripe chillies. Takes about fifteen minutes.
+Far_Territory_ChilliPlant_DA_Pick_Fail,No chilli is ripe on this plant yet
+Far_Territory_LemongrassClump_CardName,Lemongrass
+Far_Territory_LemongrassClump_CardDescription,"A dense clump of tall, pale grass that smells of lemon when you crush a blade."
+Far_Territory_LemongrassClump_Yield,Stalks
+Far_Territory_LemongrassClump_DA_Cut,Cut Lemongrass
+Far_Territory_LemongrassClump_DA_Cut_Desc,Pull a few stalks from the clump. Takes about fifteen minutes.
+Far_Territory_LemongrassClump_DA_Cut_Fail,The clump has no stalks left to spare yet
+Far_Territory_JasmineBush_CardName,Jasmine Bush
+Far_Territory_JasmineBush_CardDescription,A sprawling bush starred with small white flowers that smell sweet at dusk.
+Far_Territory_JasmineBush_Yield,Flowers
+Far_Territory_JasmineBush_DA_Pick,Pick Jasmine Flowers
+Far_Territory_JasmineBush_DA_Pick_Desc,Pick a handful of open flowers. Takes about fifteen minutes.
+Far_Territory_JasmineBush_DA_Pick_Fail,No flowers are open on this bush yet
+Far_Territory_JasmineBush_DA_Cutting,Take a Jasmine Cutting
+Far_Territory_JasmineBush_DA_Cutting_Desc,Snap off a young shoot to plant. It costs the bush some of its flowers. Takes about fifteen minutes.
+Far_Territory_JasmineBush_DA_Cutting_Fail,The bush has no shoot to spare yet
+Far_Territory_AloePlant_CardName,Aloe Vera
+Far_Territory_AloePlant_CardDescription,"A rosette of thick, spiny grey-green leaves full of clear gel."
+Far_Territory_AloePlant_Yield,Leaves
+Far_Territory_AloePlant_DA_Cut,Cut an Aloe Leaf
+Far_Territory_AloePlant_DA_Cut_Desc,Snap off one of the fleshy outer leaves. Takes about fifteen minutes.
+Far_Territory_AloePlant_DA_Cut_Fail,No leaf is big enough to cut yet
+Far_Territory_CinchonaTree_CardName,Cinchona Tree
+Far_Territory_CinchonaTree_CardDescription,A slim tree with glossy leaves and reddish bark that tastes very bitter.
+Far_Territory_CinchonaTree_Yield,Bark
+Far_Territory_CinchonaTree_DA_Peel,Peel Cinchona Bark
+Far_Territory_CinchonaTree_DA_Peel_Desc,Peel strips of bark from the trunk. Takes about half an hour.
+Far_Territory_CinchonaTree_DA_Peel_Fail,The trunk has no bark left to peel yet
+Far_Territory_CinchonaTree_DA_Seedling,Dig up a Cinchona Seedling
+Far_Territory_CinchonaTree_DA_Seedling_Desc,Dig up one of the seedlings around the trunk to plant. It costs the tree some of its bark. Takes about half an hour and dirties your hands.
+Far_Territory_CinchonaTree_DA_Seedling_Fail,No seedling is big enough to dig up yet
+Far_Territory_CoffeeBush_CardName,Coffee Bush
+Far_Territory_CoffeeBush_CardDescription,A glossy-leaved shrub with clusters of red berries along its branches.
+Far_Territory_CoffeeBush_Yield,Ripe Berries
+Far_Territory_CoffeeBush_DA_Pick,Pick Coffee Berries
+Far_Territory_CoffeeBush_DA_Pick_Desc,Pick the red berries. Takes about fifteen minutes.
+Far_Territory_CoffeeBush_DA_Pick_Fail,No berry is ripe on this bush yet
+Far_Territory_Ginger_CardName,Ginger Root
+Far_Territory_Ginger_CardDescription,"A knobbly root with pale, fiery flesh. Chewed raw it settles a queasy stomach for a few hours and dulls aches a little. A strong, pungent spice. Set one in a garden plot and it sprouts."
+Far_Territory_Ginger_Spoilage,Spoilage
+Far_Territory_Ginger_Spoiled,The ginger root has spoiled.
+Far_Territory_Ginger_Planting,Planting
+Far_Territory_Ginger_Planted,The ginger root has taken root in the garden plot.
+Far_Territory_Ginger_DA_Chew,Chew
+Far_Territory_Ginger_DA_Chew_Desc,"Chew the raw root. Hot and sharp, it settles the stomach for a few hours (Ginger Warmth)."
+Far_Territory_KavaRoot_CardName,Kava Root
+Far_Territory_KavaRoot_CardDescription,"A thick, woody root with an earthy, peppery bite. Chewed raw it numbs the mouth, eases worry and dulls aches for a few hours; too much leaves you drowsy. Set one in a garden plot and it sprouts."
+Far_Territory_KavaRoot_Spoilage,Spoilage
+Far_Territory_KavaRoot_Spoiled,The kava root has spoiled.
+Far_Territory_KavaRoot_Planting,Planting
+Far_Territory_KavaRoot_Planted,The kava root has taken root in the garden plot.
+Far_Territory_KavaRoot_DA_Chew,Chew the Root
+Far_Territory_KavaRoot_DA_Chew_Desc,Chew the raw root. Your mouth goes numb and your mind goes easy for a few hours (Kava Calm).
+Far_Territory_Chilli_CardName,Chillies
+Far_Territory_Chilli_CardDescription,"A few slim red chillies, fiercely hot. Eaten raw they burn the mouth and leave you thirsty. A strong, spicy flavour. Set them in a garden plot and their seeds sprout."
+Far_Territory_Chilli_Spoilage,Spoilage
+Far_Territory_Chilli_Spoiled,The chillies has spoiled.
+Far_Territory_Chilli_Planting,Planting
+Far_Territory_Chilli_Planted,The chillies has taken root in the garden plot.
+Far_Territory_Chilli_DA_Eat,Eat
+Far_Territory_Chilli_DA_Eat_Desc,Eat the chillies raw. Your mouth burns and you want water.
+Far_Territory_Lemongrass_CardName,Lemongrass
+Far_Territory_Lemongrass_CardDescription,"A bundle of pale, fibrous stalks that smell of lemon. Too tough to eat much of, but good for chewing. A herbal, slightly sour flavour. Set it in a garden plot and it roots."
+Far_Territory_Lemongrass_Spoilage,Spoilage
+Far_Territory_Lemongrass_Spoiled,The lemongrass has spoiled.
+Far_Territory_Lemongrass_Planting,Planting
+Far_Territory_Lemongrass_Planted,The lemongrass has taken root in the garden plot.
+Far_Territory_Lemongrass_DA_Chew,Chew
+Far_Territory_Lemongrass_DA_Chew_Desc,Chew the tender base of the stalks for their lemony juice.
+Far_Territory_JasmineFlowers_CardName,Jasmine Flowers
+Far_Territory_JasmineFlowers_CardDescription,"A handful of small white flowers with a heavy, sweet scent. A strong, floral flavour."
+Far_Territory_JasmineFlowers_Spoilage,Spoilage
+Far_Territory_JasmineFlowers_Spoiled,The jasmine flowers has spoiled.
+Far_Territory_JasmineFlowers_DA_Eat,Eat the Petals
+Far_Territory_JasmineFlowers_DA_Eat_Desc,Eat the flowers. They taste much as they smell.
+Far_Territory_JasmineCutting_CardName,Jasmine Cutting
+Far_Territory_JasmineCutting_CardDescription,A young green shoot snapped from a jasmine bush. Set it in a garden plot and it roots.
+Far_Territory_JasmineCutting_Spoilage,Spoilage
+Far_Territory_JasmineCutting_Spoiled,The jasmine cutting has spoiled.
+Far_Territory_JasmineCutting_Planting,Planting
+Far_Territory_JasmineCutting_Planted,The jasmine cutting has taken root in the garden plot.
+Far_Territory_AloeLeaf_CardName,Aloe Vera Leaf
+Far_Territory_AloeLeaf_CardDescription,"A thick, spiny leaf full of cool, clear gel. Spread on the skin it eases a burn's sting and helps it mend for a few hours. Set one in a garden plot and it roots."
+Far_Territory_AloeLeaf_Spoilage,Spoilage
+Far_Territory_AloeLeaf_Spoiled,The aloe leaf has spoiled.
+Far_Territory_AloeLeaf_Planting,Planting
+Far_Territory_AloeLeaf_Planted,The aloe leaf has taken root in the garden plot.
+Far_Territory_AloeLeaf_DA_Apply,Apply the Gel
+Far_Territory_AloeLeaf_DA_Apply_Desc,Split the leaf and spread its gel on your skin. Burns sting less and mend faster for a few hours (Aloe Salve).
+Far_Territory_CinchonaBark_CardName,Cinchona Bark
+Far_Territory_CinchonaBark_CardDescription,"Curled strips of reddish bark, bitter enough to make your eyes water. Chewed, it brings a fever down and dulls aches for a few hours."
+Far_Territory_CinchonaBark_Spoilage,Spoilage
+Far_Territory_CinchonaBark_Spoiled,The cinchona bark has spoiled.
+Far_Territory_CinchonaBark_DA_Chew,Chew the Bark
+Far_Territory_CinchonaBark_DA_Chew_Desc,Chew a strip of the bitter bark. A fever falls and aches dull for a few hours (Cinchona Bitters).
+Far_Territory_CinchonaSeedling_CardName,Cinchona Seedling
+Far_Territory_CinchonaSeedling_CardDescription,A young cinchona tree dug up with its roots. Set it in a garden plot and it takes root.
+Far_Territory_CinchonaSeedling_Spoilage,Spoilage
+Far_Territory_CinchonaSeedling_Spoiled,The cinchona seedling has spoiled.
+Far_Territory_CinchonaSeedling_Planting,Planting
+Far_Territory_CinchonaSeedling_Planted,The cinchona seedling has taken root in the garden plot.
+Far_Territory_CoffeeBerries_CardName,Coffee Berries
+Far_Territory_CoffeeBerries_CardDescription,"A handful of red berries, sweetish around two hard beans. Eaten raw they keep you awake for a while but leave you jittery and thirsty. Set them in a garden plot and the beans sprout."
+Far_Territory_CoffeeBerries_Spoilage,Spoilage
+Far_Territory_CoffeeBerries_Spoiled,The coffee berries has spoiled.
+Far_Territory_CoffeeBerries_Planting,Planting
+Far_Territory_CoffeeBerries_Planted,The coffee berries has taken root in the garden plot.
+Far_Territory_CoffeeBerries_DA_Eat,Eat
+Far_Territory_CoffeeBerries_DA_Eat_Desc,"Eat the berries, spitting out the beans. You feel more awake for a while (Coffee Buzz)."
+Far_Territory_GingerGrowing_CardName,Growing Ginger
+Far_Territory_GingerGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 15 days there."
+Far_Territory_GingerGrowing_Growth,Growth
+Far_Territory_GingerGrowing_Ready,The ginger is ready to harvest.
+Far_Territory_GingerGrowing_DA_Uproot,Uproot
+Far_Territory_GingerGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_GingerGarden_CardName,Ginger Plant (Garden)
+Far_Territory_GingerGarden_CardDescription,"A garden-grown plant, ready to harvest. The plant is used up."
+Far_Territory_GingerGarden_DA_Harvest,Harvest
+Far_Territory_GingerGarden_DA_Harvest_Desc,Gather the crop. The plant is used up.
+Far_Territory_GingerGarden_DA_Uproot,Uproot
+Far_Territory_GingerGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_KavaGrowing_CardName,Growing Kava
+Far_Territory_KavaGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there."
+Far_Territory_KavaGrowing_Growth,Growth
+Far_Territory_KavaGrowing_Ready,The kava is ready to harvest.
+Far_Territory_KavaGrowing_DA_Uproot,Uproot
+Far_Territory_KavaGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_KavaGarden_CardName,Kava Plant (Garden)
+Far_Territory_KavaGarden_CardDescription,"A garden-grown plant, ready to harvest. The plant is used up."
+Far_Territory_KavaGarden_DA_Harvest,Harvest
+Far_Territory_KavaGarden_DA_Harvest_Desc,Gather the crop. The plant is used up.
+Far_Territory_KavaGarden_DA_Uproot,Uproot
+Far_Territory_KavaGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_ChilliGrowing_CardName,Growing Chilli
+Far_Territory_ChilliGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 15 days there."
+Far_Territory_ChilliGrowing_Growth,Growth
+Far_Territory_ChilliGrowing_Ready,The chilli is ready to harvest.
+Far_Territory_ChilliGrowing_DA_Uproot,Uproot
+Far_Territory_ChilliGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_ChilliGarden_CardName,Chilli Plant (Garden)
+Far_Territory_ChilliGarden_CardDescription,"A garden-grown plant, ready to harvest. The plant stays in the plot and grows its next crop."
+Far_Territory_ChilliGarden_DA_Harvest,Harvest
+Far_Territory_ChilliGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the plot and grows its next crop.
+Far_Territory_ChilliGarden_DA_Uproot,Uproot
+Far_Territory_ChilliGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_LemongrassGrowing_CardName,Growing Lemongrass
+Far_Territory_LemongrassGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 10 days there."
+Far_Territory_LemongrassGrowing_Growth,Growth
+Far_Territory_LemongrassGrowing_Ready,The lemongrass is ready to harvest.
+Far_Territory_LemongrassGrowing_DA_Uproot,Uproot
+Far_Territory_LemongrassGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_LemongrassGarden_CardName,Lemongrass (Garden)
+Far_Territory_LemongrassGarden_CardDescription,"A garden-grown plant, ready to harvest. The plant stays in the plot and grows its next crop."
+Far_Territory_LemongrassGarden_DA_Harvest,Harvest
+Far_Territory_LemongrassGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the plot and grows its next crop.
+Far_Territory_LemongrassGarden_DA_Uproot,Uproot
+Far_Territory_LemongrassGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_JasmineGrowing_CardName,Growing Jasmine
+Far_Territory_JasmineGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 20 days there."
+Far_Territory_JasmineGrowing_Growth,Growth
+Far_Territory_JasmineGrowing_Ready,The jasmine is ready to harvest.
+Far_Territory_JasmineGrowing_DA_Uproot,Uproot
+Far_Territory_JasmineGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_JasmineGarden_CardName,Jasmine Bush (Garden)
+Far_Territory_JasmineGarden_CardDescription,"A garden-grown plant, ready to harvest. The plant stays in the plot and grows its next crop."
+Far_Territory_JasmineGarden_DA_Harvest,Harvest
+Far_Territory_JasmineGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the plot and grows its next crop.
+Far_Territory_JasmineGarden_DA_Uproot,Uproot
+Far_Territory_JasmineGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_AloeGrowing_CardName,Growing Aloe
+Far_Territory_AloeGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 20 days there."
+Far_Territory_AloeGrowing_Growth,Growth
+Far_Territory_AloeGrowing_Ready,The aloe is ready to harvest.
+Far_Territory_AloeGrowing_DA_Uproot,Uproot
+Far_Territory_AloeGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_AloeGarden_CardName,Aloe Vera (Garden)
+Far_Territory_AloeGarden_CardDescription,"A garden-grown plant, ready to harvest. The plant stays in the plot and grows its next crop."
+Far_Territory_AloeGarden_DA_Harvest,Harvest
+Far_Territory_AloeGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the plot and grows its next crop.
+Far_Territory_AloeGarden_DA_Uproot,Uproot
+Far_Territory_AloeGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_CinchonaGrowing_CardName,Growing Cinchona
+Far_Territory_CinchonaGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there."
+Far_Territory_CinchonaGrowing_Growth,Growth
+Far_Territory_CinchonaGrowing_Ready,The cinchona is ready to harvest.
+Far_Territory_CinchonaGrowing_DA_Uproot,Uproot
+Far_Territory_CinchonaGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_CinchonaGarden_CardName,Cinchona Sapling (Garden)
+Far_Territory_CinchonaGarden_CardDescription,"A garden-grown plant, ready to harvest. The plant stays in the plot and grows its next crop."
+Far_Territory_CinchonaGarden_DA_Harvest,Harvest
+Far_Territory_CinchonaGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the plot and grows its next crop.
+Far_Territory_CinchonaGarden_DA_Uproot,Uproot
+Far_Territory_CinchonaGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_CoffeeGrowing_CardName,Growing Coffee
+Far_Territory_CoffeeGrowing_CardDescription,"A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there."
+Far_Territory_CoffeeGrowing_Growth,Growth
+Far_Territory_CoffeeGrowing_Ready,The coffee is ready to harvest.
+Far_Territory_CoffeeGrowing_DA_Uproot,Uproot
+Far_Territory_CoffeeGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_CoffeeGarden_CardName,Coffee Bush (Garden)
+Far_Territory_CoffeeGarden_CardDescription,"A garden-grown plant, ready to harvest. The plant stays in the plot and grows its next crop."
+Far_Territory_CoffeeGarden_DA_Harvest,Harvest
+Far_Territory_CoffeeGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the plot and grows its next crop.
+Far_Territory_CoffeeGarden_DA_Uproot,Uproot
+Far_Territory_CoffeeGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_ChinaRoseBush_CardName,China Rose
+Far_Territory_ChinaRoseBush_CardDescription,"A glossy-leaved shrub hung with big red flowers, each with a long golden spike at its heart."
+Far_Territory_ChinaRoseBush_Yield,Flowers
+Far_Territory_ChinaRoseBush_DA_Pick,Pick China Roses
+Far_Territory_ChinaRoseBush_DA_Pick_Desc,Pick a few of the open flowers. Takes about fifteen minutes.
+Far_Territory_ChinaRoseBush_DA_Pick_Fail,No flowers are open on this shrub yet
+Far_Territory_ChinaRoseBush_DA_Cutting,Take a China Rose Cutting
+Far_Territory_ChinaRoseBush_DA_Cutting_Desc,Snap off a young green stem to plant. It costs the shrub some of its flowers. Takes about fifteen minutes.
+Far_Territory_ChinaRoseBush_DA_Cutting_Fail,The shrub has no stem to spare yet
+Far_Territory_ChinaRose_CardName,China Rose
+Far_Territory_ChinaRose_CardDescription,"A big red flower with a long golden spike. The petals can be eaten raw: tart, a little slimy and faintly floral."
+Far_Territory_ChinaRose_Spoilage,Spoilage
+Far_Territory_ChinaRose_Spoiled,The China rose has wilted and spoiled.
+Far_Territory_ChinaRose_DA_Eat,Eat the Petals
+Far_Territory_ChinaRose_DA_Eat_Desc,Eat the flower. Tart and a little slimy.
+Far_Territory_ChinaRoseCutting_CardName,China Rose Cutting
+Far_Territory_ChinaRoseCutting_CardDescription,A young green stem snapped from a China rose. Set it in a garden plot and it roots.
+Far_Territory_ChinaRoseCutting_Spoilage,Spoilage
+Far_Territory_ChinaRoseCutting_Spoiled,The China rose cutting has spoiled.
+Far_Territory_ChinaRoseCutting_Planting,Planting
+Far_Territory_ChinaRoseCutting_Planted,The China rose cutting has taken root in the garden plot.
+Far_Territory_ChinaRoseGrowing_CardName,Growing China Rose
+Far_Territory_ChinaRoseGrowing_CardDescription,"A young shrub taking hold in a garden plot. It grows only while it sits in the plot, and flowers after about 20 days there."
+Far_Territory_ChinaRoseGrowing_Growth,Growth
+Far_Territory_ChinaRoseGrowing_Ready,The China rose is in flower.
+Far_Territory_ChinaRoseGrowing_DA_Uproot,Uproot
+Far_Territory_ChinaRoseGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_ChinaRoseGarden_CardName,China Rose (Garden)
+Far_Territory_ChinaRoseGarden_CardDescription,A garden-grown China rose in flower. The shrub stays in the plot and flowers again.
+Far_Territory_ChinaRoseGarden_DA_Harvest,Harvest
+Far_Territory_ChinaRoseGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the plot and grows its next crop.
+Far_Territory_ChinaRoseGarden_DA_Uproot,Uproot
+Far_Territory_ChinaRoseGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_SpiderLilyPlant_CardName,Spider Lily
+Far_Territory_SpiderLilyPlant_CardDescription,"A clump of long, strap-shaped leaves around a stalk of thin white flowers splayed like a spider's legs. Every part of it is poisonous to eat."
+Far_Territory_SpiderLilyPlant_Yield,Leaves
+Far_Territory_SpiderLilyPlant_DA_Cut,Cut Spider Lily Leaves
+Far_Territory_SpiderLilyPlant_DA_Cut_Desc,Cut a few of the long leaves. Takes about fifteen minutes.
+Far_Territory_SpiderLilyPlant_DA_Cut_Fail,No leaves are ready to cut here yet
+Far_Territory_SpiderLilyPlant_DA_Bulb,Lift a Spider Lily Bulb
+Far_Territory_SpiderLilyPlant_DA_Bulb_Desc,Dig up one of the offset bulbs round the clump to plant. Takes about half an hour and dirties your hands.
+Far_Territory_SpiderLilyPlant_DA_Bulb_Fail,The clump has no bulb to spare yet
+Far_Territory_SpiderLilyLeaves_CardName,Spider Lily Leaves
+Far_Territory_SpiderLilyLeaves_CardDescription,"Long, thick, fleshy leaves. Poisonous to eat, but warmed and bound on the skin they ease aches for a few hours."
+Far_Territory_SpiderLilyLeaves_Spoilage,Spoilage
+Far_Territory_SpiderLilyLeaves_Spoiled,The spider lily leaves have spoiled.
+Far_Territory_SpiderLilyLeaves_DA_Poultice,Bind as a Poultice
+Far_Territory_SpiderLilyLeaves_DA_Poultice_Desc,Warm the leaves until they soften and bind them on where it aches. Aches ease for a few hours (Lily Poultice). Takes about fifteen minutes.
+Far_Territory_SpiderLilyBulb_CardName,Spider Lily Bulb
+Far_Territory_SpiderLilyBulb_CardDescription,"A pale bulb with its roots still on, lifted from a spider lily clump. Poisonous. Set it in a garden plot and it grows."
+Far_Territory_SpiderLilyBulb_Spoilage,Spoilage
+Far_Territory_SpiderLilyBulb_Spoiled,The spider lily bulb has spoiled.
+Far_Territory_SpiderLilyBulb_Planting,Planting
+Far_Territory_SpiderLilyBulb_Planted,The spider lily bulb has taken root in the garden plot.
+Far_Territory_SpiderLilyGrowing_CardName,Growing Spider Lily
+Far_Territory_SpiderLilyGrowing_CardDescription,"A young clump taking hold in a garden plot. It grows only while it sits in the plot, and is ready to cut after about 15 days there."
+Far_Territory_SpiderLilyGrowing_Growth,Growth
+Far_Territory_SpiderLilyGrowing_Ready,The spider lily is ready to cut.
+Far_Territory_SpiderLilyGrowing_DA_Uproot,Uproot
+Far_Territory_SpiderLilyGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_SpiderLilyGarden_CardName,Spider Lily (Garden)
+Far_Territory_SpiderLilyGarden_CardDescription,"A garden-grown spider lily, ready to cut. The clump stays in the plot and grows new leaves."
+Far_Territory_SpiderLilyGarden_DA_Harvest,Harvest
+Far_Territory_SpiderLilyGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the plot and grows its next crop.
+Far_Territory_SpiderLilyGarden_DA_Uproot,Uproot
+Far_Territory_SpiderLilyGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_WeevilLilyPlant_CardName,Weevil Lily
+Far_Territory_WeevilLilyPlant_CardDescription,"A low clump of long, pleated leaves like young palm fronds, rising straight from the forest floor. The leaves are tough with fibre."
+Far_Territory_WeevilLilyPlant_Yield,Leaves
+Far_Territory_WeevilLilyPlant_DA_Cut,Cut Weevil Lily Leaves
+Far_Territory_WeevilLilyPlant_DA_Cut_Desc,Cut a few of the long pleated leaves. Takes about fifteen minutes.
+Far_Territory_WeevilLilyPlant_DA_Cut_Fail,No leaves are ready to cut here yet
+Far_Territory_WeevilLilyPlant_DA_Rhizome,Dig up a Weevil Lily Rhizome
+Far_Territory_WeevilLilyPlant_DA_Rhizome_Desc,Dig up a piece of the creeping root to plant. Takes about half an hour and dirties your hands.
+Far_Territory_WeevilLilyPlant_DA_Rhizome_Fail,The clump has no root to spare yet
+Far_Territory_WeevilLilyLeaves_CardName,Weevil Lily Leaves
+Far_Territory_WeevilLilyLeaves_CardDescription,"Long, pleated leaves, tough with fibre. Stripped, each gives the base game's Fibers for twine."
+Far_Territory_WeevilLilyLeaves_Spoilage,Spoilage
+Far_Territory_WeevilLilyLeaves_Spoiled,The weevil lily leaves have rotted.
+Far_Territory_WeevilLilyLeaves_DA_Strip,Strip into Fibers
+Far_Territory_WeevilLilyLeaves_DA_Strip_Desc,Split the leaf along its pleats and scrape the fibre clean. Gives 1 Fibers. Takes about fifteen minutes.
+Far_Territory_WeevilLilyRhizome_CardName,Weevil Lily Rhizome
+Far_Territory_WeevilLilyRhizome_CardDescription,A knobbly piece of creeping root dug from a weevil lily. Set it in a garden plot and it grows.
+Far_Territory_WeevilLilyRhizome_Spoilage,Spoilage
+Far_Territory_WeevilLilyRhizome_Spoiled,The weevil lily rhizome has spoiled.
+Far_Territory_WeevilLilyRhizome_Planting,Planting
+Far_Territory_WeevilLilyRhizome_Planted,The weevil lily rhizome has taken root in the garden plot.
+Far_Territory_WeevilLilyGrowing_CardName,Growing Weevil Lily
+Far_Territory_WeevilLilyGrowing_CardDescription,"A young clump taking hold in a garden plot. It grows only while it sits in the plot, and is ready to cut after about 15 days there."
+Far_Territory_WeevilLilyGrowing_Growth,Growth
+Far_Territory_WeevilLilyGrowing_Ready,The weevil lily is ready to cut.
+Far_Territory_WeevilLilyGrowing_DA_Uproot,Uproot
+Far_Territory_WeevilLilyGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_WeevilLilyGarden_CardName,Weevil Lily (Garden)
+Far_Territory_WeevilLilyGarden_CardDescription,"A garden-grown weevil lily, ready to cut. The clump stays in the plot and grows new leaves."
+Far_Territory_WeevilLilyGarden_DA_Harvest,Harvest
+Far_Territory_WeevilLilyGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the plot and grows its next crop.
+Far_Territory_WeevilLilyGarden_DA_Uproot,Uproot
+Far_Territory_WeevilLilyGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_SnakeGrassPatch_CardName,Snake Grass
+Far_Territory_SnakeGrassPatch_CardDescription,"A thick stand of stiff, upright blades banded dark and pale green like a snake's skin. Their fibre is long and strong."
+Far_Territory_SnakeGrassPatch_Yield,Blades
+Far_Territory_SnakeGrassPatch_DA_Cut,Cut Snake Grass
+Far_Territory_SnakeGrassPatch_DA_Cut_Desc,Cut a few of the stiff blades at the base. Takes about fifteen minutes.
+Far_Territory_SnakeGrassPatch_DA_Cut_Fail,No blades are ready to cut here yet
+Far_Territory_SnakeGrass_CardName,Snake Grass
+Far_Territory_SnakeGrass_CardDescription,"A stiff, banded blade of snake grass. Stripped, it gives the base game's Fibers for twine. A cut blade set in a garden plot roots."
+Far_Territory_SnakeGrass_Spoilage,Spoilage
+Far_Territory_SnakeGrass_Spoiled,The snake grass has spoiled.
+Far_Territory_SnakeGrass_Planting,Planting
+Far_Territory_SnakeGrass_Planted,The snake grass has taken root in the garden plot.
+Far_Territory_SnakeGrass_DA_Strip,Strip into Fibers
+Far_Territory_SnakeGrass_DA_Strip_Desc,Crush the blade and scrape out its long fibres. Gives 2 Fibers. Takes about fifteen minutes.
+Far_Territory_SnakeGrassGrowing_CardName,Growing Snake Grass
+Far_Territory_SnakeGrassGrowing_CardDescription,"Young blades taking hold in a garden plot. They grow only while they sit in the plot, and are ready to cut after about 10 days there."
+Far_Territory_SnakeGrassGrowing_Growth,Growth
+Far_Territory_SnakeGrassGrowing_Ready,The snake grass is ready to cut.
+Far_Territory_SnakeGrassGrowing_DA_Uproot,Uproot
+Far_Territory_SnakeGrassGrowing_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_SnakeGrassGarden_CardName,Snake Grass (Garden)
+Far_Territory_SnakeGrassGarden_CardDescription,"Garden-grown snake grass, ready to cut. The patch stays in the plot and grows new blades."
+Far_Territory_SnakeGrassGarden_DA_Harvest,Harvest
+Far_Territory_SnakeGrassGarden_DA_Harvest_Desc,Gather the crop. The plant stays in the plot and grows its next crop.
+Far_Territory_SnakeGrassGarden_DA_Uproot,Uproot
+Far_Territory_SnakeGrassGarden_DA_Uproot_Desc,Pull the plant up and throw it away. Nothing is gained.
+Far_Territory_Effect_SpiderLily_StatName,Lily Poultice
+Far_Territory_Effect_SpiderLily_StatDescription,"Warm spider lily leaves bound on the skin. They ease aches, and wear off over the following hours."
+Far_Territory_Effect_SpiderLily_Status_Name,Lily Poultice
+Far_Territory_Effect_SpiderLily_Status_Description,Warm leaves bound on the skin. Aches ease while they last.
+Far_Territory_Enc_Macaque,Macaque
+Far_Territory_Enc_TheMacaque,the macaque
+Far_Territory_Enc_TheMacaqueBaresItsTeethAndShrieks,The macaque bares its teeth and shrieks.
+Far_Territory_Enc_TheShriekRattlesYou,The shriek rattles you...
+Far_Territory_Enc_TheMacaqueLeapsAtYouAndBites,The macaque leaps at you and bites!
+Far_Territory_Enc_YouFailToDodgeItsBite,You fail to dodge its bite...
+Far_Territory_Enc_YouSuccessfullyDodgeTheBite,You successfully dodge the bite...
+Far_Territory_Enc_FortunatelyTheAttackWasnTEnoughToHurtYou,"Fortunately, the attack wasn't enough to hurt you."
+Far_Territory_Enc_YouGotABadBiteMarkFromTheAttack,You got a bad bite mark from the attack!
+Far_Territory_Enc_TheMacaqueTriesToGetAway,The macaque tries to get away!
+Far_Territory_Enc_TheMacaqueBoltsForTheTrees,The macaque bolts for the trees...
+Far_Territory_Enc_TheMacaqueDartsInClose,The macaque darts in close.
+Far_Territory_Enc_TheMacaqueFallsStill,The macaque falls still.
+Far_Territory_Enc_TheMacaqueSwingsAwayIntoTheBranches,The macaque swings away into the branches...
+Far_Territory_Enc_YouRetreatAndEscape,You retreat and escape...
+Far_Territory_Enc_YouRunAwayFromTheMacaque,You run away from the macaque...
+Far_Territory_Enc_YouSeeAMacaque,You see a Macaque!
+Far_Territory_Enc_LeaveItAlone,Leave it alone
+Far_Territory_Enc_MonitorLizard,Monitor Lizard
+Far_Territory_Enc_TheMonitorLizard,the monitor lizard
+Far_Territory_Enc_TheMonitorLizardHissesAndLashesItsTail,The monitor lizard hisses and lashes its tail.
+Far_Territory_Enc_YouAreUnsettledByTheHiss,You are unsettled by the hiss...
+Far_Territory_Enc_TheMonitorLizardLungesToBiteYou,The monitor lizard lunges to bite you!
+Far_Territory_Enc_TheMonitorLizardTurnsToEscape,The monitor lizard turns to escape!
+Far_Territory_Enc_TheMonitorLizardScramblesAway,The monitor lizard scrambles away...
+Far_Territory_Enc_TheMonitorLizardCrawlsInClose,The monitor lizard crawls in close.
+Far_Territory_Enc_TheMonitorLizardGoesLimp,The monitor lizard goes limp.
+Far_Territory_Enc_TheMonitorLizardSlipsAwayIntoTheScrub,The monitor lizard slips away into the scrub...
+Far_Territory_Enc_YouRunAwayFromTheMonitorLizard,You run away from the monitor lizard...
+Far_Territory_Enc_YouSeeAMonitorLizard,You see a Monitor Lizard!
+Far_Territory_Enc_Cobra,Cobra
+Far_Territory_Enc_TheCobra,the cobra
+Far_Territory_Enc_TheCobraRearsUpAndSpreadsItsHood,The cobra rears up and spreads its hood.
+Far_Territory_Enc_YouFreezeAtTheSightOfTheHood,You freeze at the sight of the hood...
+Far_Territory_Enc_TheCobraStrikes,The cobra strikes!
+Far_Territory_Enc_TheCobraDropsLowToSlipAway,The cobra drops low to slip away!
+Far_Territory_Enc_TheCobraSlidesOffThroughTheGrass,The cobra slides off through the grass...
+Far_Territory_Enc_TheCobraSwaysCloser,The cobra sways closer.
+Far_Territory_Enc_TheCobraLiesStill,The cobra lies still.
+Far_Territory_Enc_TheCobraVanishesIntoTheGrass,The cobra vanishes into the grass...
+Far_Territory_Enc_YouBackAwayFromTheCobra,You back away from the cobra...
+Far_Territory_Enc_YouSeeACobra,You see a Cobra!
+Far_Territory_Enc_Seagull,Seagull
+Far_Territory_Enc_TheSeagull,the seagull
+Far_Territory_Enc_TheSeagullSpreadsItsWingsAndScreams,The seagull spreads its wings and screams.
+Far_Territory_Enc_TheScreamingPutsYouOff,The screaming puts you off...
+Far_Territory_Enc_TheSeagullDivesAtYouAndBites,The seagull dives at you and bites!
+Far_Territory_Enc_TheSeagullBeatsItsWingsToTakeOff,The seagull beats its wings to take off!
+Far_Territory_Enc_TheSeagullLiftsIntoTheAir,The seagull lifts into the air...
+Far_Territory_Enc_TheSeagullHopsInClose,The seagull hops in close.
+Far_Territory_Enc_TheSeagullDropsToTheGround,The seagull drops to the ground.
+Far_Territory_Enc_TheSeagullWheelsAwayOverTheSea,The seagull wheels away over the sea...
+Far_Territory_Enc_YouRunFromTheSeagull,You run from the seagull...
+Far_Territory_Enc_YouSeeASeagull,You see a Seagull!
+Far_Territory_Enc_Bat,Bat
+Far_Territory_Enc_TheBat,the bat
+Far_Territory_Enc_TheBatFluttersRoundYourHeadSqueaking,"The bat flutters round your head, squeaking."
+Far_Territory_Enc_YouFlinchAtTheSqueaking,You flinch at the squeaking...
+Far_Territory_Enc_TheBatSwoopsInAndBites,The bat swoops in and bites!
+Far_Territory_Enc_TheBatFlitsBackTowardTheRoof,The bat flits back toward the roof!
+Far_Territory_Enc_TheBatFluttersOffIntoTheDark,The bat flutters off into the dark...
+Far_Territory_Enc_TheBatFlitsInClose,The bat flits in close.
+Far_Territory_Enc_TheBatFallsToTheFloor,The bat falls to the floor.
+Far_Territory_Enc_TheBatVanishesAmongTheOthersOnTheRoof,The bat vanishes among the others on the roof...
+Far_Territory_Enc_YouDuckAwayFromTheBat,You duck away from the bat...
+Far_Territory_Enc_YouSeeABat,You see a Bat!
+Far_Territory_Macaque_AgentName,Macaque
+Far_Territory_Monitor_AgentName,Monitor Lizard
+Far_Territory_Cobra_AgentName,Cobra
+Far_Territory_Seagull_AgentName,Seagull
+Far_Territory_Bat_AgentName,Bat
+Far_Territory_MacaqueCarcass_CardName,Macaque Carcass
+Far_Territory_MacaqueCarcass_CardDescription,"A dead macaque, small and wiry. Butcher it with a blade for a little meat and its bones before it spoils."
+Far_Territory_MacaqueCarcass_Spoilage,Spoilage
+Far_Territory_MacaqueCarcass_Spoiled,The carcass has rotted.
+Far_Territory_MacaqueCarcass_CI_Butcher,Butcher
+Far_Territory_MacaqueCarcass_CI_Butcher_Desc,Cut the carcass up with a blade for its meat and bones.
+Far_Territory_MonitorCarcass_CardName,Monitor Lizard Carcass
+Far_Territory_MonitorCarcass_CardDescription,"A dead monitor lizard, long and heavy in the tail. Butcher it with a blade for its pale meat and its bones before it spoils."
+Far_Territory_MonitorCarcass_Spoilage,Spoilage
+Far_Territory_MonitorCarcass_Spoiled,The carcass has rotted.
+Far_Territory_MonitorCarcass_CI_Butcher,Butcher
+Far_Territory_MonitorCarcass_CI_Butcher_Desc,Cut the carcass up with a blade for its meat and bones.
+Far_Territory_CobraCarcass_CardName,Cobra Carcass
+Far_Territory_CobraCarcass_CardDescription,"A dead cobra, its hood folded flat. Butcher it with a blade for a strip of meat before it spoils."
+Far_Territory_CobraCarcass_Spoilage,Spoilage
+Far_Territory_CobraCarcass_Spoiled,The carcass has rotted.
+Far_Territory_CobraCarcass_CI_Butcher,Butcher
+Far_Territory_CobraCarcass_CI_Butcher_Desc,Cut the carcass up with a blade for its meat.
+Far_Territory_BatCarcass_CardName,Bat Carcass
+Far_Territory_BatCarcass_CardDescription,"A dead bat, mostly wing. Butcher it with a blade for a scrap of meat before it spoils."
+Far_Territory_BatCarcass_Spoilage,Spoilage
+Far_Territory_BatCarcass_Spoiled,The carcass has rotted.
+Far_Territory_BatCarcass_CI_Butcher,Butcher
+Far_Territory_BatCarcass_CI_Butcher_Desc,Cut the carcass up with a blade for its meat.
+Far_Territory_SeagullNest_CardName,Seagull Nest
+Far_Territory_SeagullNest_CardDescription,"A rough nest of twigs and weed wedged on a ledge, ringed with droppings and loose feathers. Sometimes there are eggs in it, sometimes only old bones. The gulls lay again in time."
+Far_Territory_SeagullNest_Laying,Laying
+Far_Territory_SeagullNest_DA_Search,Search the Nest
+Far_Territory_SeagullNest_DA_Search_Desc,"Reach up onto the ledge and go through the nest: nest twigs, feathers, up to three eggs, or only bird bones."
+Far_Territory_SeagullNest_DA_Search_Fail,The nest has been searched lately
+Far_Territory_SeaHazard_Shark,A shark came out of the blue and bit you before you could reach the shallows.
+Far_Territory_SeaHazard_Krait,A banded sea krait struck at your leg and slid away into the weed.
+Far_Territory_SeaHazard_UrchinSpine,You trod on an urchin and its spines broke off in your foot.
+Far_Territory_SeaHazard_UrchinShod,"You trod on an urchin, but your footwear took the spines."
+Far_Territory_Enc_Moose,Moose
+Far_Territory_Enc_TheMoose,the moose
+Far_Territory_Enc_TheMooseSwingsItsBroadAntlersAtYou,The moose swings its broad antlers at you!
+Far_Territory_Enc_YouFailToDodgeTheAttack,You fail to dodge the attack...
+Far_Territory_Enc_YouSuccessfullyGetOutOfTheWay,You successfully get out of the way...
+Far_Territory_Enc_YouGotANastyBruise,You got a nasty bruise.
+Far_Territory_Enc_YourSkinWasPiercedCausingAMinorLaceratio,"Your skin was pierced, causing a minor laceration."
+Far_Territory_Enc_YourLeftArmWasHitAndIsNowThrobbingInPain,Your left arm was hit and is now throbbing in pain.
+Far_Territory_Enc_YourRightArmWasHitAndIsNowThrobbingInPai,Your right arm was hit and is now throbbing in pain.
+Far_Territory_Enc_YourLeftLegWasHitAndIsNowThrobbingInPain,Your left leg was hit and is now throbbing in pain.
+Far_Territory_Enc_YourRightLegWasHitAndIsNowThrobbingInPai,Your right leg was hit and is now throbbing in pain.
+Far_Territory_Enc_YouGotANastyPunctureWound,You got a nasty puncture wound.
+Far_Territory_Enc_YouGotADeepLacerationOnYourLeftLeg,You got a deep laceration on your left leg!
+Far_Territory_Enc_YouGotADeepLacerationOnYourRightLeg,You got a deep laceration on your right leg!
+Far_Territory_Enc_YouGotADeepLacerationOnYourLeftArm,You got a deep laceration on your left arm!
+Far_Territory_Enc_YouGotADeepLacerationOnYourRightArm,You got a deep laceration on your right arm!
+Far_Territory_Enc_YouGotManyLacerations,You got many lacerations!
+Far_Territory_Enc_YourLeftArmIsBrokenItHurts,Your left arm is broken! It hurts!
+Far_Territory_Enc_YourRightArmIsBrokenItHurts,Your right arm is broken! It hurts!
+Far_Territory_Enc_YourLeftLegIsBrokenItHurts,Your left leg is broken! It hurts!
+Far_Territory_Enc_YourRightLegIsBrokenItHurts,Your right leg is broken! It hurts!
+Far_Territory_Enc_TheMooseTriesToKnockYouDown,The moose tries to knock you down!
+Far_Territory_Enc_YouLoseYourBalanceAndLandOnYourBack,You lose your balance and land on your back!
+Far_Territory_Enc_TheMooseChargesIntoYouAtFullSpeed,The moose charges into you at full speed!
+Far_Territory_Enc_TheMooseRearsAndStampsDownWithItsFrontHo,The moose rears and stamps down with its front hooves!
+Far_Territory_Enc_YouFailToAvoidTheAttack,You fail to avoid the attack...
+Far_Territory_Enc_ItStopsToCatchItsBreath,It stops to catch its breath...
+Far_Territory_Enc_ItTurnsAroundAndTriesToEscape,It turns around and tries to escape...
+Far_Territory_Enc_TheMooseLowersItsHeadAndChargesAtYou,The moose lowers its head and charges at you!
+Far_Territory_Enc_TheMooseCollapsesToTheGround,The moose collapses to the ground.
+Far_Territory_Enc_TheMooseCrashesAwayThroughTheWillows,The moose crashes away through the willows...
+Far_Territory_Enc_YouRetreatAndEscapeFromTheMoose,You retreat and escape from the moose...
+Far_Territory_Enc_YouRunAwayFromTheMoose,You run away from the moose!
+Far_Territory_Enc_YouSeeAMoose,You see a Moose!
+Far_Territory_Enc_ABullMooseLiftsItsDrippingHeadFromTheRee,A bull moose lifts its dripping head from the reeds and stares at you.
+Far_Territory_Enc_Continue,Continue
+Far_Territory_Env_WildryePlain_CardName,Wildrye Plain
+Far_Territory_Env_SedgeFen_CardName,Sedge Fen
+Far_Territory_WildryePlain_CardName,Wildrye Plain
+Far_Territory_WildryePlain_CardDescription,"Open grassland far to the west of the forest: wild rye and meadowgrass to the knee, running on under a wide sky. Old bones lie in the grass where the big grazers have passed."
+Far_Territory_WildryePlain_Gleanings,Gleanings
+Far_Territory_WildryePlain_DA_Forage,Forage
+Far_Territory_WildryePlain_DA_Forage_Desc,Walk the long grass for tough fibres and loose stones.
+Far_Territory_WildryePlain_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_WildryePlain_DA_West,West
+Far_Territory_WildryePlain_DA_West_Fade,Travelling West...
+Far_Territory_WildryePlain_DA_Search,Search the Grazing Grounds
+Far_Territory_WildryePlain_DA_Search_Desc,"Walk out among the trampled grass and wallows where the herds graze, looking for what they leave behind."
+Far_Territory_SedgeFen_CardName,Sedge Fen
+Far_Territory_SedgeFen_CardDescription,"Wet ground beyond the plain, all sedge, cattail and willow scrub, with black pools between the tussocks. Browsed willow stems and deep tracks in the mud show what feeds here."
+Far_Territory_SedgeFen_Gleanings,Gleanings
+Far_Territory_SedgeFen_DA_Forage,Forage
+Far_Territory_SedgeFen_DA_Forage_Desc,Pick through the sedge and willow scrub for fibres and willow twigs.
+Far_Territory_SedgeFen_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_PathWesternWildWoodsWildryePlain_CardName,Trail West
+Far_Territory_PathWesternWildWoodsWildryePlain_CardDescription,"A game trail leading west out of the wild woods, beaten flat by big hooves. The trees thin along it toward open country."
+Far_Territory_PathWesternWildWoodsWildryePlain_DA_Travel,Walk West to Wildrye Plain
+Far_Territory_PathWesternWildWoodsWildryePlain_DA_Travel_Desc,"Follow the game trail west out of the forest to the open grassland. It is a long walk, about an hour and a half."
+Far_Territory_PathWesternWildWoodsWildryePlain_DA_Travel_Fade,Walking west out of the forest...
+Far_Territory_PathWildryePlainWesternWildWoods_CardName,Trail to the Forest
+Far_Territory_PathWildryePlainWesternWildWoods_CardDescription,"The game trail you came by, running east across the grass to the dark edge of the forest."
+Far_Territory_PathWildryePlainWesternWildWoods_DA_Travel,Walk East to the Western Wild Woods
+Far_Territory_PathWildryePlainWesternWildWoods_DA_Travel_Desc,"Follow the game trail back east to the Western Wild Woods. It is a long walk, about an hour and a half."
+Far_Territory_PathWildryePlainWesternWildWoods_DA_Travel_Fade,Walking back to the forest...
+Far_Territory_Moose_AgentName,Moose
+Far_Territory_MooseCarcass_CardName,Moose Carcass
+Far_Territory_MooseCarcass_CardDescription,"A dead moose, huge and long-legged. Butcher it with a blade for a great deal of meat, its hide, its bones and, if it is a bull, an antler, before it spoils."
+Far_Territory_MooseCarcass_Spoilage,Spoilage
+Far_Territory_MooseCarcass_Spoiled,The carcass has rotted.
+Far_Territory_MooseCarcass_CI_Butcher,Butcher
+Far_Territory_MooseCarcass_CI_Butcher_Desc,"Cut the carcass up with a blade for its meat, hide, bones and antler. It is long work."
+Far_Territory_Effect_SpringWarmth_StatName,Spring Warmth
+Far_Territory_Effect_SpringWarmth_StatDescription,"Heat soaked up from a hot spring, still in your bones. You feel warmer while it lasts, and it fades over the following hours."
+Far_Territory_Effect_SpringWarmth_Status_Name,Spring Warmth
+Far_Territory_Effect_SpringWarmth_Status_Description,Warm through from the hot spring. You feel the cold far less.
+Far_Territory_HotSpring_CardName,Hot Spring
+Far_Territory_HotSpring_CardDescription,"A pool of hot water steaming in a hollow of the rock, with a faint smell of eggs. The snow never lies around it. A soak washes the dirt away and warms you through, though you come out wet."
+Far_Territory_HotSpring_DA_Bathe,Bathe in the Hot Spring
+Far_Territory_HotSpring_DA_Bathe_Desc,"Strip off and sink into the hot water for half an hour. It washes off the dirt and leaves you warm for hours afterwards, but you climb out wet."
+Far_Territory_RockSaltSeam_CardName,Rock Salt Seam
+Far_Territory_RockSaltSeam_CardDescription,"A band of grey-white rock salt in the cliff, crusted where the steam from the spring has wetted it and dried again. Chipped out, it is ordinary salt. The seam is slow to give more once worked."
+Far_Territory_RockSaltSeam_SaltLeft,Salt left
+Far_Territory_RockSaltSeam_DA_Chip,Chip out Salt
+Far_Territory_RockSaltSeam_DA_Chip_Desc,Chip lumps of rock salt from the seam with a stone. Half an hour of hard work for a little salt.
+Far_Territory_RockSaltSeam_DA_Chip_Fail,The seam is worked out for now
+Far_Territory_RopeAndPitons_CardName,Rope and Pitons
+Far_Territory_RopeAndPitons_CardDescription,"A coil of rope with a handful of iron spikes to hammer into cracks in the rock. Carried in your hand it makes every climb safer, and the steepest mountain paths cannot be climbed without it."
+Far_Territory_BpRopeAndPitons_CardName,Rope and Pitons
+Far_Territory_BpRopeAndPitons_CardDescription,"A rope and a set of iron spikes for climbing. Raises your Climbing Aid while carried in your hand, and opens the steep paths in the far mountains. Requires a rope, 2 metal nuggets and a hard hammering tool."
+Far_Territory_BpRopeAndPitons_UnlockConditionsDesc,Unlocked after obtaining a Rope
+Far_Territory_Env_ScreeSlope_CardName,Scree Slope
+Far_Territory_ScreeSlope_CardName,Scree Slope
+Far_Territory_ScreeSlope_CardDescription,"The foot of the mountains, north of the forest: a long slope of broken stone below grey cliffs, with snow lying in every hollow. The trees give out here, and above the cliffs the peaks are white all year."
+Far_Territory_ScreeSlope_Gleanings,Gleanings
+Far_Territory_ScreeSlope_DA_Forage,Forage
+Far_Territory_ScreeSlope_DA_Forage_Desc,Pick over the loose scree for good stones and flint.
+Far_Territory_ScreeSlope_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_ScreeSlope_DA_East,East
+Far_Territory_ScreeSlope_DA_East_Fade,Travelling East...
+Far_Territory_Env_SteamingShelf_CardName,Steaming Shelf
+Far_Territory_SteamingShelf_CardName,Steaming Shelf
+Far_Territory_SteamingShelf_CardDescription,"A ledge under the cliffs where steam drifts out of the rock. A hot spring pools here, the snow melts back from it, and a seam of rock salt shows white in the wall above."
+Far_Territory_SteamingShelf_Gleanings,Gleanings
+Far_Territory_SteamingShelf_DA_Forage,Forage
+Far_Territory_SteamingShelf_DA_Forage_Desc,"Look along the warm, bare rock around the spring."
+Far_Territory_SteamingShelf_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_Env_WindgapCol_CardName,Windgap Col
+Far_Territory_WindgapCol_CardName,Windgap Col
+Far_Territory_WindgapCol_CardDescription,"A high saddle between two peaks, deep in snow and scoured by the wind. Two cave mouths open in the rock on either side: one stained rust-red, one that glints."
+Far_Territory_WindgapCol_Gleanings,Gleanings
+Far_Territory_WindgapCol_DA_Forage,Forage
+Far_Territory_WindgapCol_DA_Forage_Desc,Search the wind-scoured rock for loose stones and flint.
+Far_Territory_WindgapCol_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_Env_GreenstoneGrotto_CardName,Greenstone Grotto
+Far_Territory_GreenstoneGrotto_CardName,Greenstone Grotto
+Far_Territory_GreenstoneGrotto_CardDescription,"A cave at the foot of the cliffs, its walls streaked green. Two veins of greenstone run through the rock, ready for a pickaxe, and green chips lie among the rubble on the floor."
+Far_Territory_GreenstoneGrotto_Gleanings,Gleanings
+Far_Territory_GreenstoneGrotto_DA_Forage,Forage
+Far_Territory_GreenstoneGrotto_DA_Forage_Desc,Sift the rubble on the cave floor for stones and loose chips of greenstone.
+Far_Territory_GreenstoneGrotto_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_Env_RustGrotto_CardName,Rust Grotto
+Far_Territory_RustGrotto_CardName,Rust Grotto
+Far_Territory_RustGrotto_CardDescription,A cave under the col where water seeps red down the walls and leaves a crust of rust-brown ore behind. Lumps of it break away from the wall and lie dry on the floor.
+Far_Territory_RustGrotto_Gleanings,Gleanings
+Far_Territory_RustGrotto_DA_Forage,Forage
+Far_Territory_RustGrotto_DA_Forage_Desc,Gather the dry lumps of rust-brown ore that have broken off the walls.
+Far_Territory_RustGrotto_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_Env_GlimmerGrotto_CardName,Glimmer Grotto
+Far_Territory_GlimmerGrotto_CardName,Glimmer Grotto
+Far_Territory_GlimmerGrotto_CardDescription,"A cave whose walls glitter in any light. Most of it is only stone, but now and then a round, rough stone turns up that sounds hollow when knocked: a geode, with crystals inside."
+Far_Territory_GlimmerGrotto_Gleanings,Gleanings
+Far_Territory_GlimmerGrotto_DA_Forage,Forage
+Far_Territory_GlimmerGrotto_DA_Forage_Desc,"Search the glittering rubble for stones, and for the odd geode."
+Far_Territory_GlimmerGrotto_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_PathFangvaleScreeSlope_CardName,Trail North
+Far_Territory_PathFangvaleScreeSlope_CardDescription,"A goat trail leading north out of Fangvale, climbing toward the white peaks beyond the forest."
+Far_Territory_PathFangvaleScreeSlope_DA_Travel,Climb North to Scree Slope
+Far_Territory_PathFangvaleScreeSlope_DA_Travel_Desc,"Follow the trail up out of the forest to the foot of the mountains. A long, steep walk of about an hour and a half."
+Far_Territory_PathFangvaleScreeSlope_DA_Travel_Fade,Climbing toward the mountains...
+Far_Territory_PathScreeSlopeFangvale_CardName,Trail to the Forest
+Far_Territory_PathScreeSlopeFangvale_CardDescription,The goat trail winding back down the scree into the forest at Fangvale.
+Far_Territory_PathScreeSlopeFangvale_DA_Travel,Walk Down to Fangvale
+Far_Territory_PathScreeSlopeFangvale_DA_Travel_Desc,Follow the trail back down into the forest. About an hour going downhill.
+Far_Territory_PathScreeSlopeFangvale_DA_Travel_Fade,Walking down to the forest...
+Far_Territory_PathScreeSlopeWindgapCol_CardName,Cliff to Windgap Col
+Far_Territory_PathScreeSlopeWindgapCol_CardDescription,"A sheer rock face above the scree, the only way up to the col. It cannot be climbed without rope and pitons, and even with them a fall hurts."
+Far_Territory_PathScreeSlopeWindgapCol_DA_Climb,Climb the Cliff to Windgap Col
+Far_Territory_PathScreeSlopeWindgapCol_DA_Climb_Desc,"Climb the cliff to the col, driving pitons and running your rope through them. Needs Rope and Pitons in your hand. Skill and good handholds make a fall less likely; a tired climber is sure to fall. It takes half an hour."
+Far_Territory_PathScreeSlopeWindgapCol_DA_Climb_Fade,Climbing the cliff...
+Far_Territory_PathWindgapColScreeSlope_CardName,Cliff down to Scree Slope
+Far_Territory_PathWindgapColScreeSlope_CardDescription,"The cliff dropping away to the scree below. Going down needs no gear, but rope and pitons make a fall less likely."
+Far_Territory_PathWindgapColScreeSlope_DA_Climb,Climb Down to Scree Slope
+Far_Territory_PathWindgapColScreeSlope_DA_Climb_Desc,"Climb back down the cliff to the scree. Skill, good handholds and rope and pitons in your hand make a fall less likely; a tired climber is sure to fall. It takes half an hour."
+Far_Territory_PathWindgapColScreeSlope_DA_Climb_Fade,Climbing down the cliff...
+Far_Territory_PathScreeSlopeGreenstoneGrotto_CardName,Path to Greenstone Grotto
+Far_Territory_PathScreeSlopeGreenstoneGrotto_CardDescription,"A cave opens at the foot of the cliffs, its mouth streaked green."
+Far_Territory_PathScreeSlopeGreenstoneGrotto_DA_Travel,Enter the Greenstone Grotto
+Far_Territory_PathScreeSlopeGreenstoneGrotto_DA_Travel_Desc,Step into the cave out of the wind. It is only a few steps.
+Far_Territory_PathScreeSlopeGreenstoneGrotto_DA_Travel_Fade,Stepping into the cave...
+Far_Territory_PathGreenstoneGrottoScreeSlope_CardName,Way Out
+Far_Territory_PathGreenstoneGrottoScreeSlope_CardDescription,Daylight and cold air at the cave mouth.
+Far_Territory_PathGreenstoneGrottoScreeSlope_DA_Travel,Leave for Scree Slope
+Far_Territory_PathGreenstoneGrottoScreeSlope_DA_Travel_Desc,Step back out onto the scree.
+Far_Territory_PathGreenstoneGrottoScreeSlope_DA_Travel_Fade,Leaving the cave...
+Far_Territory_PathWindgapColRustGrotto_CardName,Path to Rust Grotto
+Far_Territory_PathWindgapColRustGrotto_CardDescription,"A cave mouth on the col, stained rust-red where water runs out of it."
+Far_Territory_PathWindgapColRustGrotto_DA_Travel,Enter the Rust Grotto
+Far_Territory_PathWindgapColRustGrotto_DA_Travel_Desc,Step into the cave out of the wind. It is only a few steps.
+Far_Territory_PathWindgapColRustGrotto_DA_Travel_Fade,Stepping into the cave...
+Far_Territory_PathRustGrottoWindgapCol_CardName,Way Out
+Far_Territory_PathRustGrottoWindgapCol_CardDescription,Daylight and the howl of the wind at the cave mouth.
+Far_Territory_PathRustGrottoWindgapCol_DA_Travel,Leave for Windgap Col
+Far_Territory_PathRustGrottoWindgapCol_DA_Travel_Desc,Step back out onto the col.
+Far_Territory_PathRustGrottoWindgapCol_DA_Travel_Fade,Leaving the cave...
+Far_Territory_PathWindgapColGlimmerGrotto_CardName,Path to Glimmer Grotto
+Far_Territory_PathWindgapColGlimmerGrotto_CardDescription,A cave mouth on the col that glints when the light catches it.
+Far_Territory_PathWindgapColGlimmerGrotto_DA_Travel,Enter the Glimmer Grotto
+Far_Territory_PathWindgapColGlimmerGrotto_DA_Travel_Desc,Step into the cave out of the wind. It is only a few steps.
+Far_Territory_PathWindgapColGlimmerGrotto_DA_Travel_Fade,Stepping into the cave...
+Far_Territory_PathGlimmerGrottoWindgapCol_CardName,Way Out
+Far_Territory_PathGlimmerGrottoWindgapCol_CardDescription,Daylight and the howl of the wind at the cave mouth.
+Far_Territory_PathGlimmerGrottoWindgapCol_DA_Travel,Leave for Windgap Col
+Far_Territory_PathGlimmerGrottoWindgapCol_DA_Travel_Desc,Step back out onto the col.
+Far_Territory_PathGlimmerGrottoWindgapCol_DA_Travel_Fade,Leaving the cave...
+Far_Territory_Env_FjordHead_CardName,Fjord Head
+Far_Territory_FjordHead_CardName,Fjord Head
+Far_Territory_FjordHead_CardDescription,"Where the meltwater off the col runs down into a long, deep inlet between sheer grey walls. Black water, a shingle beach strewn with kelp, and snowfields reaching down to the water's edge."
+Far_Territory_FjordHead_Gleanings,Gleanings
+Far_Territory_FjordHead_DA_Forage,Forage
+Far_Territory_FjordHead_DA_Forage_Desc,"Search the shingle for stones, kelp and shells."
+Far_Territory_FjordHead_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_FjordHead_DA_Search,Search the Snowfield
+Far_Territory_FjordHead_DA_Search_Desc,"Walk the snowfield above the shingle, looking for what the cold has left lying there."
+Far_Territory_Env_SealSkerry_CardName,Seal Skerry
+Far_Territory_SealSkerry_CardName,Seal Skerry
+Far_Territory_SealSkerry_CardDescription,"A low spit of dark rock at the fjord's mouth, worn smooth and stinking of fish. Seals haul out here to sleep, and the great tusked walrus lie among them."
+Far_Territory_SealSkerry_Gleanings,Gleanings
+Far_Territory_SealSkerry_DA_Forage,Forage
+Far_Territory_SealSkerry_DA_Forage_Desc,"Pick over the wet rock for kelp, shells and old bones."
+Far_Territory_SealSkerry_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_Env_PuffinCliffs_CardName,Puffin Cliffs
+Far_Territory_PuffinCliffs_CardName,Puffin Cliffs
+Far_Territory_PuffinCliffs_CardDescription,"Grassy ledges high above the fjord, riddled with burrows. Puffins whirr in and out from dawn to dusk, and the wind never stops."
+Far_Territory_PuffinCliffs_Gleanings,Gleanings
+Far_Territory_PuffinCliffs_DA_Forage,Forage
+Far_Territory_PuffinCliffs_DA_Forage_Desc,"Edge along the ledges for loose stones, feathers and the odd egg left in a burrow."
+Far_Territory_PuffinCliffs_DA_Forage_Fail,Nothing worth picking up yet
+Far_Territory_SeaFjord_DA_Wash,Wash in the Fjord
+Far_Territory_SeaFjord_DA_Wash_Desc,Wade into the icy water and scrub yourself clean. It will leave you soaked and shivering.
+Far_Territory_SeaFjord_DA_Watch,Watch the Water
+Far_Territory_SeaFjord_DA_Watch_Desc,"Sit a while on the rocks and look out over the fjord. Seals come and go, and far out there are sometimes whales."
+Far_Territory_SeaFjord_Whale,"Far out in the fjord a whale breaks the surface, blows a plume of mist and slides back under."
+Far_Territory_SeaFjord_Seals,Round grey heads bob up in the water and watch you back: seals.
+Far_Territory_SeaFjord_Nothing,"Only grey water, ice and the wind."
+Far_Territory_SeaFjord_CardName,The Fjord
+Far_Territory_SeaFjord_CardDescription,"Deep, black, ice-cold water between the cliffs, too cold to dive in. You can wash in it if you can stand it, or sit and watch it for seals and, far out, whales."
+Far_Territory_SealCarcass_CardName,Seal Carcass
+Far_Territory_SealCarcass_CardDescription,"A dead seal, sleek and heavy with blubber. Butcher it with a blade for its meat, fat, hide and bones before it spoils."
+Far_Territory_SealCarcass_Spoilage,Spoilage
+Far_Territory_SealCarcass_Spoiled,The carcass has rotted.
+Far_Territory_SealCarcass_CI_Butcher,Butcher
+Far_Territory_SealCarcass_CI_Butcher_Desc,"Cut the carcass up with a blade for its meat, fat, hide and bones."
+Far_Territory_WalrusCarcass_CardName,Walrus Carcass
+Far_Territory_WalrusCarcass_CardDescription,"A dead walrus, a mountain of wrinkled hide and blubber with two long ivory tusks. Butcher it with a blade for a great deal of meat and fat, its hide, its bones and its tusks before it spoils."
+Far_Territory_WalrusCarcass_Spoilage,Spoilage
+Far_Territory_WalrusCarcass_Spoiled,The carcass has rotted.
+Far_Territory_WalrusCarcass_CI_Butcher,Butcher
+Far_Territory_WalrusCarcass_CI_Butcher_Desc,"Cut the carcass up with a blade for its meat, fat, hide, bones and tusks. It is long work."
+Far_Territory_Enc_Seal,Seal
+Far_Territory_Enc_TheSeal,the seal
+Far_Territory_Enc_TheSealRearsUpAndBarksAtYou,The seal rears up and barks at you.
+Far_Territory_Enc_TheBarkingMakesYouHesitate,The barking makes you hesitate...
+Far_Territory_Enc_TheSealLungesAndBites,The seal lunges and bites!
+Far_Territory_Enc_TheSealHumpsTowardTheWater,The seal humps toward the water!
+Far_Territory_Enc_TheSealSlidesOffTheRocks,The seal slides off the rocks...
+Far_Territory_Enc_TheSealShufflesInClose,The seal shuffles in close.
+Far_Territory_Enc_TheSealLiesStillOnTheRocks,The seal lies still on the rocks.
+Far_Territory_Enc_TheSealSlipsIntoTheWaterAndIsGone,The seal slips into the water and is gone...
+Far_Territory_Enc_YouBackAwayFromTheSeal,You back away from the seal...
+Far_Territory_Enc_YouSeeASeal,You see a Seal!
+Far_Territory_Enc_Walrus,Walrus
+Far_Territory_Enc_TheWalrus,the walrus
+Far_Territory_Enc_TheWalrusRoarsAndSwingsItsGreatTusks,The walrus roars and swings its great tusks.
+Far_Territory_Enc_TheRoarShakesYou,The roar shakes you...
+Far_Territory_Enc_TheWalrusHeavesItselfAtYouAndBites,The walrus heaves itself at you and bites!
+Far_Territory_Enc_TheWalrusLurchesTowardTheWater,The walrus lurches toward the water!
+Far_Territory_Enc_TheWalrusHeavesItselfOffTheRocks,The walrus heaves itself off the rocks...
+Far_Territory_Enc_TheWalrusDragsItselfInClose,The walrus drags itself in close.
+Far_Territory_Enc_TheWalrusSlumpsOnTheRocks,The walrus slumps on the rocks.
+Far_Territory_Enc_TheWalrusCrashesIntoTheWaterAndSinksFrom,The walrus crashes into the water and sinks from sight...
+Far_Territory_Enc_YouRunFromTheWalrus,You run from the walrus...
+Far_Territory_Enc_YouSeeAWalrus,You see a Walrus!
+Far_Territory_Enc_Puffin,Puffin
+Far_Territory_Enc_ThePuffin,the puffin
+Far_Territory_Enc_ThePuffinFlapsItsStubbyWingsAtYou,The puffin flaps its stubby wings at you.
+Far_Territory_Enc_TheFlurryOfWingsStartlesYou,The flurry of wings startles you...
+Far_Territory_Enc_ThePuffinNipsYouWithItsBrightBeak,The puffin nips you with its bright beak!
+Far_Territory_Enc_ThePuffinWhirrsItsWingsToTakeOff,The puffin whirrs its wings to take off!
+Far_Territory_Enc_ThePuffinLiftsOffTheLedge,The puffin lifts off the ledge...
+Far_Territory_Enc_ThePuffinWaddlesInClose,The puffin waddles in close.
+Far_Territory_Enc_ThePuffinDropsToTheGround,The puffin drops to the ground.
+Far_Territory_Enc_ThePuffinWhirrsAwayOverTheFjord,The puffin whirrs away over the fjord...
+Far_Territory_Enc_YouLeaveThePuffinAlone,You leave the puffin alone...
+Far_Territory_Enc_YouSeeAPuffin,You see a Puffin!
+Far_Territory_Seal_AgentName,Seal
+Far_Territory_Walrus_AgentName,Walrus
+Far_Territory_Puffin_AgentName,Puffin
+Far_Territory_FjordHead_DA_South,South
+Far_Territory_FjordHead_DA_South_Fade,Travelling South...
+Far_Territory_FjordHead_DA_East,East
+Far_Territory_FjordHead_DA_East_Fade,Travelling East...
+Far_Territory_FjordHead_DA_North,North
+Far_Territory_FjordHead_DA_North_Fade,Travelling North...
+Far_Territory_SeaShore_CI_Net,Cast the Net
+Far_Territory_SeaShore_CI_Net_Desc,Heave a net out from the shore and haul it back in. A net that comes up full holds two of a fish rather than one; what it holds depends on this water and on how much of each fish is left in the sea.
+Far_Territory_SeaShore_CI_SetFunnelTrap,Set the Funnel Trap
+Far_Territory_SeaShore_CI_SetFunnelTrap_Desc,Wade out and stake the funnel trap in the shallows. It catches the sea's fish on its own while you are away.
+Far_Territory_SeaCoralInlet_CI_Net,Cast the Net
+Far_Territory_SeaCoralInlet_CI_Net_Desc,Heave a net out from the shore and haul it back in. A net that comes up full holds two of a fish rather than one; what it holds depends on this water and on how much of each fish is left in the sea.
+Far_Territory_SeaCoralInlet_CI_SetFunnelTrap,Set the Funnel Trap
+Far_Territory_SeaCoralInlet_CI_SetFunnelTrap_Desc,Wade out and stake the funnel trap in the shallows. It catches the sea's fish on its own while you are away.
+Far_Territory_SeaBoulderShore_CI_Net,Cast the Net
+Far_Territory_SeaBoulderShore_CI_Net_Desc,Heave a net out from the shore and haul it back in. A net that comes up full holds two of a fish rather than one; what it holds depends on this water and on how much of each fish is left in the sea.
+Far_Territory_SeaBleakStrand_CI_Net,Cast the Net
+Far_Territory_SeaBleakStrand_CI_Net_Desc,Heave a net out from the shore and haul it back in. A net that comes up full holds two of a fish rather than one; what it holds depends on this water and on how much of each fish is left in the sea.
+Far_Territory_SeaCliffboundCove_CI_Net,Cast the Net
+Far_Territory_SeaCliffboundCove_CI_Net_Desc,Heave a net out from the shore and haul it back in. A net that comes up full holds two of a fish rather than one; what it holds depends on this water and on how much of each fish is left in the sea.
+Far_Territory_SeaCliffboundCove_CI_SetFunnelTrap,Set the Funnel Trap
+Far_Territory_SeaCliffboundCove_CI_SetFunnelTrap_Desc,Wade out and stake the funnel trap in the shallows. It catches the sea's fish on its own while you are away.
+Far_Territory_SeaRootwaterThicket_CI_Net,Cast the Net
+Far_Territory_SeaRootwaterThicket_CI_Net_Desc,Heave a net out from the shore and haul it back in. A net that comes up full holds two of a fish rather than one; what it holds depends on this water and on how much of each fish is left in the sea.
+Far_Territory_SeaRootwaterThicket_CI_SetFunnelTrap,Set the Funnel Trap
+Far_Territory_SeaRootwaterThicket_CI_SetFunnelTrap_Desc,Wade out and stake the funnel trap in the shallows. It catches the sea's fish on its own while you are away.
+Far_Territory_FunnelTrapPlaced_CardName,Funnel Trap (Set)
+Far_Territory_FunnelTrapPlaced_CardDescription,A funnel trap staked in the shallows. It springs every few hours; haul it out to take what it holds.
+Far_Territory_FunnelTrapPlaced_DA_HaulOut,Haul Out the Trap
+Far_Territory_FunnelTrapPlaced_DA_HaulOut_Desc,Wade out and lift the funnel trap onto the shore. Whatever it caught spills out beside it.
+Far_Territory_FunnelTrapPlaced_Triggered,Trap Triggered!

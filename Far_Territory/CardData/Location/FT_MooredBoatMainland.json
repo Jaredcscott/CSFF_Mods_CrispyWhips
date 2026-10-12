@@ -1,0 +1,22 @@
+{
+  "UniqueID": "ft_moored_boat_mainland",
+  "CardType": 2,
+  "AlwaysUpdate": false,
+  "UniqueOnBoard": true,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_MooredBoatMainland_CardName",
+    "DefaultText": "Misty Coast"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_MooredBoatMainland_CardDescription",
+    "DefaultText": "A stony shore under low mist, dark firs crowding down to the water and a weathered driftwood post standing at the waterline with a rope wound round it. Far out to the south-east, on a clear day, there is land."
+  },
+  "CardImageWarpData": "FT_MooredOutrigger",
+  "CardImageWarpType": 3,
+  "CardTagsWarpData": [
+    "tag_ForbiddenPath"
+  ],
+  "CardTagsWarpType": 3,
+  "ObjectWeight": 0.0
+}

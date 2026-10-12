@@ -1,0 +1,89 @@
+{
+  "UniqueID": "ft_almond_tree",
+  "CardType": 2,
+  "AlwaysUpdate": false,
+  "UniqueOnBoard": false,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_AlmondTree_CardName",
+    "DefaultText": "Tropical Almond Tree"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_AlmondTree_CardDescription",
+    "DefaultText": "A tiered beach almond tree with broad leaves. Its nuts fall and gather beneath it."
+  },
+  "CardImageWarpData": "FT_AlmondTree",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "SpecialDurability1": {
+    "Active": true,
+    "FloatValue": 4.0,
+    "MaxValue": 4.0,
+    "RatePerDaytimePoint": 0.001388888888888889,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_AlmondTree_Yield",
+      "DefaultText": "Fallen Nuts"
+    },
+    "HidingOptions": 1
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_AlmondTree_DA_Pick",
+        "DefaultText": "Gather Almonds"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_AlmondTree_DA_Pick_Desc",
+        "DefaultText": "Pick up the almonds lying under the tree. Takes about fifteen minutes."
+      },
+      "DaytimeCost": 1,
+      "ActionSoundsWarpData": [
+        "ExploreBushes"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [],
+      "ProducedCards": [
+        {
+          "CollectionName": "Picked",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_tropical_almond",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 2,
+                "y": 3
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": -1.0,
+          "y": -1.0
+        }
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.24,
+          "MaxValue": 1.0
+        },
+        "FailMessage": {
+          "LocalizationKey": "Far_Territory_AlmondTree_DA_Pick_Fail",
+          "DefaultText": "No almonds lie under this tree yet"
+        }
+      }
+    }
+  ]
+}

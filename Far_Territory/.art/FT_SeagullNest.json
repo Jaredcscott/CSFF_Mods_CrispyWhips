@@ -1,0 +1,45 @@
+{
+  "target": "FT_SeagullNest.png",
+  "sourceCard": "CardData/Location/FT_SeagullNest.json",
+  "subject": "a rough seabird nest of twigs and dried seaweed on a small flat slab of rock, ringed with white droppings and a few loose grey and white feathers, two speckled olive eggs inside.",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: a rough seabird nest of twigs and dried seaweed on a small flat slab of rock, ringed with white droppings and a few loose grey and white feathers, two speckled olive eggs inside.\nStyle: vanilla survival card game item art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, slight three-quarter angle, a single subject comfortably inset from every edge with a generous white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: birds, chicks, footprints, tracks, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, cropped, blurry, scenery behind the subject, grey background, off-white background, gradient background, checkerboard, transparency grid, drop shadow, text, watermark, signature, logo, border, frame.",
+  "refs": [
+    {
+      "label": "vanilla Nestbox (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Nestbox_1791700795147_6e5ee106.png"
+    },
+    {
+      "label": "vanilla PineNuts (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/PineNuts_1791697574555_66534f44.png"
+    }
+  ],
+  "historyId": "56m5qrYZMDjY9GIEEK0f",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701213352_4b0a8a41_1791701213505_e4bcfcbf.png",
+  "credits": 60,
+  "generated": "2026-10-11",
+  "note": "Owner pick 2026-10-11 from the Prompt 26 picker page picker_26b (3 samples; predicted A, written before the owner looked). Finished by /process-card-art (white paper keyed). Used by FT_SeagullNest.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701213352_4b0a8a41_1791701213505_e4bcfcbf.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701216906_1b910fca_1791701217061_291bb268.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701215126_b43ec5f2_1791701215250_1988ea16.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A"
+}

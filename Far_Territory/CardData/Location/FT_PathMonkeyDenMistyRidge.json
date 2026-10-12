@@ -1,0 +1,69 @@
+{
+  "UniqueID": "ft_path_monkeyden_mistyridge",
+  "CardType": 2,
+  "AlwaysUpdate": false,
+  "UniqueOnBoard": true,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_PathMonkeyDenMistyRidge_CardName",
+    "DefaultText": "Path to Misty Ridge"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_PathMonkeyDenMistyRidge_CardDescription",
+    "DefaultText": "The tangle of roots at the mouth of the den shows the way back out."
+  },
+  "CardImageWarpData": "FT_PathCaveDaylight",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_PathMonkeyDenMistyRidge_DA_Travel",
+        "DefaultText": "Leave the Monkey Den"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_PathMonkeyDenMistyRidge_DA_Travel_Desc",
+        "DefaultText": "Crawl back out through the roots onto the ridge. It is only a few steps."
+      },
+      "DaytimeCost": 0,
+      "ActionSoundsWarpData": [
+        "ExploreBushes"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ActionTagsWarpData": [
+        "TravelAction",
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "NotBaseAction": true,
+      "ProducedCards": [
+        {
+          "CollectionName": "Travel",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ftEnvMistyRidge",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "FadeToBlack": 1,
+      "FadeMessage": {
+        "LocalizationKey": "Far_Territory_PathMonkeyDenMistyRidge_DA_Travel_Fade",
+        "DefaultText": "Leaving the den..."
+      }
+    }
+  ]
+}

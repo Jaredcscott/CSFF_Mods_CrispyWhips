@@ -1,0 +1,125 @@
+{
+  "UniqueID": "ftEnvDrippingHall",
+  "CardType": 4,
+  "InstancedEnvironment": false,
+  "AlwaysUpdate": false,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_Env_DrippingHall_CardName",
+    "DefaultText": "Dripping Hall"
+  },
+  "CardImageWarpData": "FT_DrippingHall",
+  "CardImageWarpType": 3,
+  "MaxWeightCapacity": 1000000.0,
+  "AlwaysDropUniqueDefaultEnvDrops": true,
+  "Ambience": {
+    "InternalName": "Day",
+    "BackgroundSoundWarpData": "RiverGroveOakDay",
+    "BackgroundSoundWarpType": 3,
+    "RandomNoises": [],
+    "StatConditions": [],
+    "NPCStatConditions": [],
+    "TimeOfDayConditions": [
+      {
+        "TimeType": 2,
+        "CompareType": 0,
+        "StartValue": 0,
+        "EndValue": 0,
+        "MomentOfDayValue": {
+          "MaskValue": 15
+        },
+        "SeasonValue": {
+          "MaskValue": 0
+        }
+      }
+    ]
+  },
+  "AlternateAmbiences": [
+    {
+      "InternalName": "EarlyNight",
+      "BackgroundSoundWarpData": "RiverEarlyNightLoop",
+      "BackgroundSoundWarpType": 3,
+      "RandomNoises": [],
+      "StatConditions": [],
+      "NPCStatConditions": [],
+      "TimeOfDayConditions": [
+        {
+          "TimeType": 2,
+          "CompareType": 0,
+          "StartValue": 0,
+          "EndValue": 0,
+          "MomentOfDayValue": {
+            "MaskValue": 48
+          },
+          "SeasonValue": {
+            "MaskValue": 0
+          }
+        }
+      ]
+    },
+    {
+      "InternalName": "LateNight",
+      "BackgroundSoundWarpData": "RiverLoop_Quiet",
+      "BackgroundSoundWarpType": 3,
+      "RandomNoises": [],
+      "StatConditions": [],
+      "NPCStatConditions": [],
+      "TimeOfDayConditions": [
+        {
+          "TimeType": 2,
+          "CompareType": 0,
+          "StartValue": 0,
+          "EndValue": 0,
+          "MomentOfDayValue": {
+            "MaskValue": 192
+          },
+          "SeasonValue": {
+            "MaskValue": 0
+          }
+        }
+      ]
+    }
+  ],
+  "DefaultEnvCardDrops": [
+    {
+      "DroppedCardWarpData": "ftLocDrippingHall",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "DroppedCardWarpData": "ft_cave_darkness",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "DroppedCardWarpData": "74a522ac545804d48a537cff31b7a6a8",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "DroppedCardWarpData": "ft_path_drippinghall_blackgrotto",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "DroppedCardWarpData": "ft_path_drippinghall_squeeze",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    }
+  ],
+  "IsDarkPlace": true
+}

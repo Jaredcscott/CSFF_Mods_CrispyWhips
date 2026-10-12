@@ -1,0 +1,89 @@
+{
+  "UniqueID": "ft_aloe_plant",
+  "CardType": 2,
+  "AlwaysUpdate": false,
+  "UniqueOnBoard": false,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_AloePlant_CardName",
+    "DefaultText": "Aloe Vera"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_AloePlant_CardDescription",
+    "DefaultText": "A rosette of thick, spiny grey-green leaves full of clear gel."
+  },
+  "CardImageWarpData": "FT_AloePlant",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "SpecialDurability1": {
+    "Active": true,
+    "FloatValue": 4.0,
+    "MaxValue": 4.0,
+    "RatePerDaytimePoint": 0.001388888888888889,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_AloePlant_Yield",
+      "DefaultText": "Leaves"
+    },
+    "HidingOptions": 1
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_AloePlant_DA_Cut",
+        "DefaultText": "Cut an Aloe Leaf"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_AloePlant_DA_Cut_Desc",
+        "DefaultText": "Snap off one of the fleshy outer leaves. Takes about fifteen minutes."
+      },
+      "DaytimeCost": 1,
+      "ActionSoundsWarpData": [
+        "ExploreBushes"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [],
+      "ProducedCards": [
+        {
+          "CollectionName": "Picked",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_aloe_leaf",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": -1.0,
+          "y": -1.0
+        }
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.24,
+          "MaxValue": 1.0
+        },
+        "FailMessage": {
+          "LocalizationKey": "Far_Territory_AloePlant_DA_Cut_Fail",
+          "DefaultText": "No leaf is big enough to cut yet"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "UniqueID": "ft_hot_spring",
+  "CardType": 2,
+  "AlwaysUpdate": false,
+  "UniqueOnBoard": true,
+  "DoesNotPile": true,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_HotSpring_CardName",
+    "DefaultText": "Hot Spring"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_HotSpring_CardDescription",
+    "DefaultText": "A pool of hot water steaming in a hollow of the rock, with a faint smell of eggs. The snow never lies around it. A soak washes the dirt away and warms you through, though you come out wet."
+  },
+  "CardImageWarpData": "FT_HotSpring",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_HotSpring_DA_Bathe",
+        "DefaultText": "Bathe in the Hot Spring"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_HotSpring_DA_Bathe_Desc",
+        "DefaultText": "Strip off and sink into the hot water for half an hour. It washes off the dirt and leaves you warm for hours afterwards, but you climb out wet."
+      },
+      "DaytimeCost": 2,
+      "ActionSoundsWarpData": [
+        "DiveShort"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "08d242ad068c51b4fbef44d546645ac7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 60.0,
+            "y": 60.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -30.0,
+            "y": -30.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "ft_stat_spring_warmth",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 16.0,
+            "y": 16.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    }
+  ]
+}

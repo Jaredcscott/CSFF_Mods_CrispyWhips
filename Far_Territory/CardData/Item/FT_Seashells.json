@@ -1,0 +1,54 @@
+{
+  "UniqueID": "ft_seashell",
+  "CardType": 0,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_Seashells_CardName",
+    "DefaultText": "Seashells"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_Seashells_CardDescription",
+    "DefaultText": "A handful of empty shells, ridged and chalky. Ground with a stone they crumble into bonemeal for gardens and fields."
+  },
+  "CardImageWarpData": "FT_Seashells",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 50.0,
+  "WhenCreatedSoundsWarpData": [
+    "StoneAppear"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_Seashells_CI_Grind",
+        "DefaultText": "Grind"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_Seashells_CI_Grind_Desc",
+        "DefaultText": "Crush the shells into a coarse powder."
+      },
+      "DaytimeCost": 2,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "0b0e10564f04caf4c99f8a4860411e9e",
+        "TransformIntoWarpType": 3
+      },
+      "GivenCardChanges": {
+        "ModType": 1,
+        "UsageChange": {
+          "x": -1.0,
+          "y": -1.0
+        }
+      },
+      "CompatibleCards": {
+        "TriggerCardsWarpData": [
+          "a7384e5147b23a642809451cc4ef24fb"
+        ],
+        "TriggerCardsWarpType": 3
+      }
+    }
+  ]
+}

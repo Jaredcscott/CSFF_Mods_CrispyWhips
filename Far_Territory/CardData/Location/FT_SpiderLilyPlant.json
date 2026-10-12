@@ -1,0 +1,181 @@
+{
+  "UniqueID": "ft_spider_lily_plant",
+  "CardType": 2,
+  "AlwaysUpdate": false,
+  "UniqueOnBoard": false,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_SpiderLilyPlant_CardName",
+    "DefaultText": "Spider Lily"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_SpiderLilyPlant_CardDescription",
+    "DefaultText": "A clump of long, strap-shaped leaves around a stalk of thin white flowers splayed like a spider's legs. Every part of it is poisonous to eat."
+  },
+  "CardImageWarpData": "FT_SpiderLilyPlant",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "SpecialDurability1": {
+    "Active": true,
+    "FloatValue": 4.0,
+    "MaxValue": 4.0,
+    "RatePerDaytimePoint": 0.001388888888888889,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_SpiderLilyPlant_Yield",
+      "DefaultText": "Leaves"
+    },
+    "HidingOptions": 1
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_SpiderLilyPlant_DA_Cut",
+        "DefaultText": "Cut Spider Lily Leaves"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_SpiderLilyPlant_DA_Cut_Desc",
+        "DefaultText": "Cut a few of the long leaves. Takes about fifteen minutes."
+      },
+      "DaytimeCost": 1,
+      "ActionSoundsWarpData": [
+        "ExploreBushes"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [],
+      "ProducedCards": [
+        {
+          "CollectionName": "Picked",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_spider_lily_leaves",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 2
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": -1.0,
+          "y": -1.0
+        }
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.24,
+          "MaxValue": 1.0
+        },
+        "FailMessage": {
+          "LocalizationKey": "Far_Territory_SpiderLilyPlant_DA_Cut_Fail",
+          "DefaultText": "No leaves are ready to cut here yet"
+        }
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_SpiderLilyPlant_DA_Bulb",
+        "DefaultText": "Lift a Spider Lily Bulb"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_SpiderLilyPlant_DA_Bulb_Desc",
+        "DefaultText": "Dig up one of the offset bulbs round the clump to plant. Takes about half an hour and dirties your hands."
+      },
+      "DaytimeCost": 2,
+      "ActionSoundsWarpData": [
+        "ExploreBushes"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 3.0,
+            "y": 3.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ProducedCards": [
+        {
+          "CollectionName": "Picked",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_spider_lily_bulb",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": -1.0,
+          "y": -1.0
+        }
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.24,
+          "MaxValue": 1.0
+        },
+        "FailMessage": {
+          "LocalizationKey": "Far_Territory_SpiderLilyPlant_DA_Bulb_Fail",
+          "DefaultText": "The clump has no bulb to spare yet"
+        }
+      }
+    }
+  ]
+}

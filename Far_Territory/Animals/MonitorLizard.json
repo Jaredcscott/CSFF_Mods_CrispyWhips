@@ -1,0 +1,50 @@
+{
+  "//": "Far Territory plan P13 part 1 (Documentation/Plans/FarTerritory/MASTER_PLAN.md section 13, pack Prompt 24): the island's monitor lizard. Card Survival: Tropical Island puts it in the grasslands' cave, on the Desolate Beach, the Eastern and Western Grasslands and the Mangrove Forest (Documentation/Research/FarTerritory/csti_inventory.md section 3); this mod's names for those are Plain Grotto, Bleak Strand, Eastgrass Plain, Westgrass Plain and Rootwater Thicket (island_layout.md). A GENERATED agent (no Agent.Ref). A day animal that shelters in the Plain Grotto by night (an on-stage roost). Every number is a TUNABLE PLACEHOLDER.",
+  "//Encounter": "Encounter.Ref points at FarTerritory/Encounter/ft_encounter_monitor.json (Development_Tools/FarTerritory/derive_animals.py, from vanilla Combat_EncounterFox): a threat, a bite and an escape; every hurting tier of the bite drops W_BiteWound only (plan W0-6). Agent.Blood and PoisonResistance match the encounter.",
+  "//Range": "Rootwater Thicket to Westgrass Plain, Westgrass to Eastgrass Plain and Eastgrass to Bleak Strand are compass links; Plain Grotto hangs off Westgrass Plain by its hidden entrance edge. No climb on the way.",
+  "//Blood": "Agent.Blood.RatePerTick is 0 (see Macaque.json).",
+  "SchemaVersion": 1,
+  "SpeciesId": "ft_monitor",
+  "DisplayName": "Monitor Lizard",
+  "LocalizationKey": "Far_Territory_Monitor_AgentName",
+  "Sprite": "FT_MonitorLizard",
+  "WeightCategory": "Medium",
+  "Agent": {
+    "Blood": { "Start": 60, "Max": 60, "RatePerTick": 0 },
+    "PoisonResistance": { "Start": 40, "RatePerTick": 0.4 }
+  },
+  "Spawn": {
+    "HomeEnv": "ftEnvWestgrassPlain",
+    "DeathRespawnTicks": 672
+  },
+  "ActivityWindow": {
+    "ActiveHours": { "Start": 7, "End": 18 },
+    "Roost": "ftEnvPlainGrotto"
+  },
+  "Movement": {
+    "WanderEnvs": [
+      "ftEnvWestgrassPlain",
+      "ftEnvEastgrassPlain",
+      "ftEnvRootwaterThicket",
+      "ftEnvBleakStrand",
+      "ftEnvPlainGrotto"
+    ],
+    "WanderWeight": 100
+  },
+  "//Tracks": "Vanilla default track card; a heavy tail-dragging lizard is a little easier to track than the macaque: -10 at skill 0 (a 40% find), +10 at 150. TUNABLE, NOT PLAYTESTED.",
+  "Tracks": {
+    "Enabled": true,
+    "LifetimeTicks": { "Min": 24, "Max": 48 },
+    "AddedDiscoverChance": 0,
+    "RevealSkill": "Skill_Tracking",
+    "RevealSkillCurve": { "StatRange": [0, 150], "ChanceRange": [-10, 10] },
+    "BloodTrail": true
+  },
+  "Encounter": {
+    "Ref": "ft_encounter_monitor",
+    "ApproachButton": true
+  },
+  "Carcass": {
+    "Card": "ft_monitor_carcass"
+  }
+}

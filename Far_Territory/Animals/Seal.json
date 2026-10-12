@@ -1,0 +1,38 @@
+{
+  "//": "Far Territory plan P16 (Documentation/Plans/FarTerritory/MASTER_PLAN.md section 14, pack Prompt 30): the fjords' seal, an Animals species on P13's pattern (Open question 11's default). A GENERATED agent (no Agent.Ref), so Carcass.Card applies and the framework wires the shared vanilla agent stats. Shy: it hauls out on Seal Skerry and the Fjord Head shingle, and a player who meets it mostly sees it slip back into the water. Every number is a TUNABLE PLACEHOLDER, never measured against play.",
+  "//Encounter": "Encounter.Ref points at FarTerritory/Encounter/ft_encounter_seal.json, which Development_Tools/FarTerritory/derive_animals.py derives from vanilla Combat_EncounterFox like the island animals: a bark, a bite and an escape (escape weighted highest), every hurting tier of the bite dropping the base game's W_BiteWound only. Agent.Blood and PoisonResistance match that encounter's Blood and Value4.",
+  "//Range": "The two WanderEnvs are joined by a compass link (Fjord Head east to Seal Skerry), so a generated agent's pathfinding reaches both. Nothing else is listed, so it never climbs to Windgap Col.",
+  "//Tracks": "No tracks: it lives on bare rock and shingle and in the water.",
+  "//Blood": "Agent.Blood.RatePerTick is 0 (see Macaque.json).",
+  "SchemaVersion": 1,
+  "SpeciesId": "ft_seal",
+  "DisplayName": "Seal",
+  "LocalizationKey": "Far_Territory_Seal_AgentName",
+  "Sprite": "FT_Seal",
+  "WeightCategory": "Medium",
+  "Agent": {
+    "Blood": { "Start": 80, "Max": 80, "RatePerTick": 0 },
+    "PoisonResistance": { "Start": 40, "RatePerTick": 0.4 }
+  },
+  "Spawn": {
+    "HomeEnv": "ftEnvSealSkerry",
+    "DeathRespawnTicks": 672
+  },
+  "Movement": {
+    "WanderEnvs": [
+      "ftEnvSealSkerry",
+      "ftEnvFjordHead"
+    ],
+    "WanderWeight": 100
+  },
+  "Tracks": {
+    "Enabled": false
+  },
+  "Encounter": {
+    "Ref": "ft_encounter_seal",
+    "ApproachButton": true
+  },
+  "Carcass": {
+    "Card": "ft_seal_carcass"
+  }
+}

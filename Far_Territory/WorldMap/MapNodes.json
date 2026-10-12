@@ -1,0 +1,898 @@
+[
+  {
+    "EnvironmentUID": "ftEnvRiverMouth",
+    "LocationUID": "ftLocRiverMouth",
+    "CloneOfEnvironmentUID": "9cf8090fd604a6341982135b27a86db5",
+    "DisplayName": "Brackwater Mouth",
+    "NameLocalizationKey": "Far_Territory_RiverMouth_CardName",
+    "EnvNameLocalizationKey": "Far_Territory_Env_RiverMouth_CardName",
+    "Coords": { "x": 0.0, "y": 0.0, "z": -60.0, "w": 0.0 },
+    "CardImage": "RiverShore",
+    "HideFromMap": false,
+    "StripAllInheritedDrops": true,
+    "ExtraDropUIDs": [
+      "f6ba7b43e3e920b49a84510ca27f527c",
+      "8d68dec9d46a35c4e8e2e3f5ac221051",
+      "8015982f01bcec648a22f56b03895098",
+      "ft_driftwood"
+    ],
+    "StripLegacyBoardUIDs": [
+      "0602e2df5cb0a7843b5517326590a915",
+      "3fbe36a6c9ef2e746affc9a5e91ed81a",
+      "f27a6838066ae10428aa6df6d6259221"
+    ],
+    "Connections": [
+      {
+        "EnvironmentUID": "9cf8090fd604a6341982135b27a86db5",
+        "PathCost": 10.0,
+        "TravelDirection": "North",
+        "HideConnection": false
+      },
+      {
+        "EnvironmentUID": "ftEnvShore",
+        "PathCost": 10.0,
+        "TravelDirection": "East",
+        "HideConnection": false
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvShore",
+    "Coords": { "x": 10.0, "y": 0.0, "z": -60.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": []
+  },
+  {
+    "EnvironmentUID": "ftEnvLandingBeach",
+    "Coords": { "x": 20.0, "y": 0.0, "z": -60.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvLandfallStrand",
+        "PathCost": 100.0,
+        "TravelDirection": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+        "HideConnection": true,
+        "PathCardUID": "ft_moored_boat_mainland",
+        "TravelActionTags": [ "ClimbAction" ]
+      },
+      {
+        "EnvironmentUID": "ftEnvShore",
+        "PathCost": 10.0,
+        "TravelDirection": "West",
+        "HideConnection": false
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvLandfallStrand",
+    "Coords": { "x": 50.0, "y": 0.0, "z": -90.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvCoralInlet",
+        "PathCost": 10.0,
+        "TravelDirection": "South",
+        "HideConnection": false
+      },
+      {
+        "EnvironmentUID": "ftEnvBoulderShore",
+        "PathCost": 10.0,
+        "TravelDirection": "East",
+        "HideConnection": false
+      },
+      {
+        "EnvironmentUID": "ftEnvPalmFringe",
+        "PathCost": 10.0,
+        "TravelDirection": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_landfallstrand_palmfringe",
+        "TravelActionTags": [
+          "TravelAction"
+        ]
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvCoralInlet",
+    "Coords": { "x": 50.0, "y": 0.0, "z": -100.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvRootwaterThicket",
+        "PathCost": 20.0,
+        "TravelDirection": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_coralinlet_rootwaterthicket",
+        "TravelActionTags": [
+          "TravelAction"
+        ]
+      },
+      {
+        "EnvironmentUID": "ftEnvVineWoods",
+        "PathCost": 10.0,
+        "TravelDirection": "East",
+        "HideConnection": false
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvBoulderShore",
+    "Coords": { "x": 60.0, "y": 0.0, "z": -90.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvSeaGrotto",
+        "PathCost": 20.0,
+        "TravelDirection": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_bouldershore_seagrotto",
+        "TravelActionTags": [ "TravelAction" ]
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvRootwaterThicket",
+    "Coords": { "x": 70.0, "y": 0.0, "z": -90.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvBleakStrand",
+        "PathCost": 20.0,
+        "TravelDirection": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_rootwaterthicket_bleakstrand",
+        "TravelActionTags": [
+          "TravelAction"
+        ]
+      },
+      {
+        "EnvironmentUID": "ftEnvWestgrassPlain",
+        "PathCost": 10.0,
+        "TravelDirection": "South",
+        "HideConnection": false
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvBleakStrand",
+    "Coords": { "x": 90.0, "y": 0.0, "z": -100.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvEastgrassPlain",
+        "PathCost": 10.0,
+        "TravelDirection": "West",
+        "HideConnection": false
+      },
+      {
+        "EnvironmentUID": "ftEnvFireMountain",
+        "PathCost": 20.0,
+        "TravelDirection": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_bleakstrand_firemountain",
+        "TravelActionTags": [
+          "TravelAction"
+        ]
+      },
+      {
+        "EnvironmentUID": "ftEnvWaveGrotto",
+        "PathCost": 20.0,
+        "TravelDirection": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_bleakstrand_wavegrotto",
+        "TravelActionTags": [ "TravelAction" ]
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvPalmFringe",
+    "Coords": { "x": 50.0, "y": 0.0, "z": -110.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvVineWoods",
+        "PathCost": 20.0,
+        "TravelDirection": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_palmfringe_vinewoods",
+        "TravelActionTags": [
+          "TravelAction"
+        ]
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvCliffboundCove",
+    "Coords": { "x": 50.0, "y": 0.0, "z": -120.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvMistyRidge",
+        "PathCost": 10.0,
+        "TravelDirection": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_cliffboundcove_mistyridge",
+        "TravelActionTags": [
+          "ClimbAction"
+        ]
+      },
+      {
+        "EnvironmentUID": "ftEnvDrownedHall",
+        "PathCost": 20.0,
+        "TravelDirection": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_cliffboundcove_drownedhall",
+        "TravelActionTags": [ "ClimbAction" ]
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvGullStack",
+    "Coords": { "x": 90.0, "y": 0.0, "z": -90.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvBoulderShore",
+        "PathCost": 20.0,
+        "TravelDirection": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_gullstack_bouldershore",
+        "TravelActionTags": [
+          "ClimbAction"
+        ]
+      },
+      {
+        "EnvironmentUID": "ftEnvBleakStrand",
+        "PathCost": 20.0,
+        "TravelDirection": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_gullstack_bleakstrand",
+        "TravelActionTags": [
+          "ClimbAction"
+        ]
+      },
+      {
+        "EnvironmentUID": "ftEnvCliffboundCove",
+        "PathCost": 20.0,
+        "TravelDirection": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_gullstack_cliffboundcove",
+        "TravelActionTags": [
+          "ClimbAction"
+        ]
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvVineWoods",
+    "Coords": { "x": 60.0, "y": 0.0, "z": -100.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvWestgrassPlain",
+        "PathCost": 10.0,
+        "TravelDirection": "East",
+        "HideConnection": false
+      },
+      {
+        "EnvironmentUID": "ftEnvReedMarsh",
+        "PathCost": 10.0,
+        "TravelDirection": "South",
+        "HideConnection": false
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvWestgrassPlain",
+    "Coords": { "x": 70.0, "y": 0.0, "z": -100.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvEastgrassPlain",
+        "PathCost": 10.0,
+        "TravelDirection": "East",
+        "HideConnection": false
+      },
+      {
+        "EnvironmentUID": "ftEnvWesternUplands",
+        "PathCost": 10.0,
+        "TravelDirection": "South",
+        "HideConnection": false
+      },
+      {
+        "EnvironmentUID": "ftEnvPlainGrotto",
+        "PathCost": 20.0,
+        "TravelDirection": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_westgrassplain_plaingrotto",
+        "TravelActionTags": [ "TravelAction" ]
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvEastgrassPlain",
+    "Coords": { "x": 80.0, "y": 0.0, "z": -100.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvEasternUplands",
+        "PathCost": 10.0,
+        "TravelDirection": "South",
+        "HideConnection": false
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvReedMarsh",
+    "Coords": { "x": 60.0, "y": 0.0, "z": -110.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvGreenDeep",
+        "PathCost": 10.0,
+        "TravelDirection": "South",
+        "HideConnection": false
+      },
+      {
+        "EnvironmentUID": "ftEnvMistyRidge",
+        "PathCost": 10.0,
+        "TravelDirection": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_reedmarsh_mistyridge",
+        "TravelActionTags": [
+          "ClimbAction"
+        ]
+      },
+      {
+        "EnvironmentUID": "ftEnvWreckHollow",
+        "PathCost": 20.0,
+        "TravelDirection": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_reedmarsh_wreckhollow",
+        "TravelActionTags": [
+          "TravelAction"
+        ]
+      },
+      {
+        "EnvironmentUID": "ftEnvBlackGrotto",
+        "PathCost": 20.0,
+        "TravelDirection": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_reedmarsh_blackgrotto",
+        "TravelActionTags": [ "TravelAction" ]
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvGreenDeep",
+    "Coords": { "x": 60.0, "y": 0.0, "z": -120.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvMistyRidge",
+        "PathCost": 10.0,
+        "TravelDirection": "East",
+        "HideConnection": false
+      },
+      {
+        "EnvironmentUID": "ftEnvHiddenVale",
+        "PathCost": 10.0,
+        "TravelDirection": "South",
+        "HideConnection": false
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvMistyRidge",
+    "Coords": { "x": 70.0, "y": 0.0, "z": -120.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvWesternUplands",
+        "PathCost": 10.0,
+        "TravelDirection": "North",
+        "HideConnection": false
+      },
+      {
+        "EnvironmentUID": "ftEnvBatRoost",
+        "PathCost": 20.0,
+        "TravelDirection": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_mistyridge_batroost",
+        "TravelActionTags": [ "TravelAction" ]
+      },
+      {
+        "EnvironmentUID": "ftEnvMonkeyDen",
+        "PathCost": 20.0,
+        "TravelDirection": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_mistyridge_monkeyden",
+        "TravelActionTags": [ "TravelAction" ]
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvHiddenVale",
+    "Coords": { "x": 60.0, "y": 0.0, "z": -130.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvFallenDwelling",
+        "PathCost": 20.0,
+        "TravelDirection": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_hiddenvale_fallendwelling",
+        "TravelActionTags": [
+          "TravelAction"
+        ]
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvWesternUplands",
+    "Coords": { "x": 70.0, "y": 0.0, "z": -110.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvEasternUplands",
+        "PathCost": 10.0,
+        "TravelDirection": "East",
+        "HideConnection": false
+      },
+      {
+        "EnvironmentUID": "ftEnvSinkhole",
+        "PathCost": 20.0,
+        "TravelDirection": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_westernuplands_sinkhole",
+        "TravelActionTags": [ "ClimbAction" ]
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvEasternUplands",
+    "Coords": { "x": 80.0, "y": 0.0, "z": -110.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvFireMountain",
+        "PathCost": 10.0,
+        "TravelDirection": "South",
+        "HideConnection": false
+      },
+      {
+        "EnvironmentUID": "ftEnvLavaTube",
+        "PathCost": 20.0,
+        "TravelDirection": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_easternuplands_lavatube",
+        "TravelActionTags": [ "TravelAction" ]
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvFireMountain",
+    "Coords": { "x": 80.0, "y": 0.0, "z": -120.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvSourCrater",
+        "PathCost": 10.0,
+        "TravelDirection": "South",
+        "HideConnection": false
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvSourCrater",
+    "Coords": { "x": 80.0, "y": 0.0, "z": -130.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": []
+  },
+  {
+    "EnvironmentUID": "ftEnvWreckHollow",
+    "Coords": { "x": 62.0, "y": 0.0, "z": -110.0, "w": 1.0 },
+    "HideFromMap": false,
+    "Connections": []
+  },
+  {
+    "EnvironmentUID": "ftEnvFallenDwelling",
+    "Coords": { "x": 62.0, "y": 0.0, "z": -130.0, "w": 1.0 },
+    "HideFromMap": false,
+    "Connections": []
+  },
+  {
+    "EnvironmentUID": "ftEnvSeaGrotto",
+    "Coords": { "x": 62.0, "y": 0.0, "z": -90.0, "w": 1.0 },
+    "HideFromMap": false,
+    "Connections": []
+  },
+  {
+    "EnvironmentUID": "ftEnvWaveGrotto",
+    "Coords": { "x": 90.0, "y": 0.0, "z": -102.0, "w": 1.0 },
+    "HideFromMap": false,
+    "Connections": []
+  },
+  {
+    "EnvironmentUID": "ftEnvPlainGrotto",
+    "Coords": { "x": 72.0, "y": 0.0, "z": -100.0, "w": 1.0 },
+    "HideFromMap": false,
+    "Connections": []
+  },
+  {
+    "EnvironmentUID": "ftEnvBatRoost",
+    "Coords": { "x": 72.0, "y": 0.0, "z": -120.0, "w": 1.0 },
+    "HideFromMap": false,
+    "Connections": []
+  },
+  {
+    "EnvironmentUID": "ftEnvMonkeyDen",
+    "Coords": { "x": 70.0, "y": 0.0, "z": -122.0, "w": 1.0 },
+    "HideFromMap": false,
+    "Connections": []
+  },
+  {
+    "EnvironmentUID": "ftEnvBlackGrotto",
+    "Coords": { "x": 60.0, "y": 0.0, "z": -112.0, "w": 1.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvDrippingHall",
+        "PathCost": 20.0,
+        "TravelDirection": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_blackgrotto_drippinghall",
+        "TravelActionTags": [ "TravelAction" ]
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvSinkhole",
+    "Coords": { "x": 72.0, "y": 0.0, "z": -110.0, "w": 1.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvLightlessHall",
+        "PathCost": 20.0,
+        "TravelDirection": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_sinkhole_lightlesshall",
+        "TravelActionTags": [ "TravelAction" ]
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvLavaTube",
+    "Coords": { "x": 82.0, "y": 0.0, "z": -110.0, "w": 1.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvUpperHall",
+        "PathCost": 20.0,
+        "TravelDirection": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_lavatube_upperhall",
+        "TravelActionTags": [ "TravelAction" ]
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvDrippingHall",
+    "Coords": { "x": 62.0, "y": 0.0, "z": -112.0, "w": 1.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvSqueeze",
+        "PathCost": 20.0,
+        "TravelDirection": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_drippinghall_squeeze",
+        "TravelActionTags": [ "TravelAction" ]
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvSqueeze",
+    "Coords": { "x": 64.0, "y": 0.0, "z": -112.0, "w": 1.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvLowerHall",
+        "PathCost": 20.0,
+        "TravelDirection": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_squeeze_lowerhall",
+        "TravelActionTags": [ "TravelAction" ]
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvDrownedHall",
+    "Coords": { "x": 52.0, "y": 0.0, "z": -120.0, "w": 1.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvGlitteringHall",
+        "PathCost": 20.0,
+        "TravelDirection": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_drownedhall_glitteringhall",
+        "TravelActionTags": [ "ClimbAction" ]
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvGlitteringHall",
+    "Coords": { "x": 54.0, "y": 0.0, "z": -120.0, "w": 1.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvLowerHall",
+        "PathCost": 20.0,
+        "TravelDirection": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_glitteringhall_lowerhall",
+        "TravelActionTags": [ "TravelAction" ]
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvLowerHall",
+    "Coords": { "x": 56.0, "y": 0.0, "z": -120.0, "w": 1.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvMiddleHall",
+        "PathCost": 20.0,
+        "TravelDirection": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_lowerhall_middlehall",
+        "TravelActionTags": [ "ClimbAction" ]
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvLightlessHall",
+    "Coords": { "x": 74.0, "y": 0.0, "z": -110.0, "w": 1.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvMiddleHall",
+        "PathCost": 20.0,
+        "TravelDirection": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_lightlesshall_middlehall",
+        "TravelActionTags": [ "TravelAction" ]
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvUpperHall",
+    "Coords": { "x": 84.0, "y": 0.0, "z": -110.0, "w": 1.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvMiddleHall",
+        "PathCost": 20.0,
+        "TravelDirection": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_upperhall_middlehall",
+        "TravelActionTags": [ "ClimbAction" ]
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvMiddleHall",
+    "Coords": { "x": 86.0, "y": 0.0, "z": -110.0, "w": 1.0 },
+    "HideFromMap": false,
+    "Connections": []
+  },
+  {
+    "EnvironmentUID": "ftEnvWildryePlain",
+    "Coords": { "x": -110.0, "y": 0.0, "z": 80.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvSedgeFen",
+        "PathCost": 10.0,
+        "TravelDirection": "West",
+        "HideConnection": false
+      },
+      {
+        "EnvironmentUID": "270ab01e5889c024f8b9f50bbce5fed3",
+        "PathCost": 50.0,
+        "TravelDirection": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_wildryeplain_westernwildwoods",
+        "TravelActionTags": [ "TravelAction" ]
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvSedgeFen",
+    "Coords": { "x": -120.0, "y": 0.0, "z": 80.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": []
+  },
+  {
+    "EnvironmentUID": "ftEnvScreeSlope",
+    "Coords": { "x": -40.0, "y": 0.0, "z": 110.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvSteamingShelf",
+        "PathCost": 10.0,
+        "TravelDirection": "East",
+        "HideConnection": false
+      },
+      {
+        "EnvironmentUID": "6e5b4f7c64c715244b7a76cbda244ac0",
+        "PathCost": 40.0,
+        "TravelDirection": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_screeslope_fangvale",
+        "TravelActionTags": [ "TravelAction" ]
+      },
+      {
+        "EnvironmentUID": "ftEnvWindgapCol",
+        "PathCost": 30.0,
+        "TravelDirection": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_screeslope_windgapcol",
+        "TravelActionTags": [ "ClimbAction" ]
+      },
+      {
+        "EnvironmentUID": "ftEnvGreenstoneGrotto",
+        "PathCost": 20.0,
+        "TravelDirection": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_screeslope_greenstonegrotto",
+        "TravelActionTags": [ "TravelAction" ]
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvSteamingShelf",
+    "Coords": { "x": -30.0, "y": 0.0, "z": 110.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": []
+  },
+  {
+    "EnvironmentUID": "ftEnvWindgapCol",
+    "Coords": { "x": -40.0, "y": 0.0, "z": 120.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvRustGrotto",
+        "PathCost": 20.0,
+        "TravelDirection": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_windgapcol_rustgrotto",
+        "TravelActionTags": [ "TravelAction" ]
+      },
+      {
+        "EnvironmentUID": "ftEnvGlimmerGrotto",
+        "PathCost": 20.0,
+        "TravelDirection": { "x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0 },
+        "HideConnection": true,
+        "PathCardUID": "ft_path_windgapcol_glimmergrotto",
+        "TravelActionTags": [ "TravelAction" ]
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvGreenstoneGrotto",
+    "Coords": { "x": -38.0, "y": 0.0, "z": 110.0, "w": 1.0 },
+    "HideFromMap": false,
+    "Connections": []
+  },
+  {
+    "EnvironmentUID": "ftEnvRustGrotto",
+    "Coords": { "x": -38.0, "y": 0.0, "z": 120.0, "w": 1.0 },
+    "HideFromMap": false,
+    "Connections": []
+  },
+  {
+    "EnvironmentUID": "ftEnvGlimmerGrotto",
+    "Coords": { "x": -42.0, "y": 0.0, "z": 120.0, "w": 1.0 },
+    "HideFromMap": false,
+    "Connections": []
+  },
+  {
+    "EnvironmentUID": "ftEnvFjordHead",
+    "Coords": { "x": -40.0, "y": 0.0, "z": 130.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": [
+      {
+        "EnvironmentUID": "ftEnvWindgapCol",
+        "PathCost": 10.0,
+        "TravelDirection": "South",
+        "HideConnection": false
+      },
+      {
+        "EnvironmentUID": "ftEnvSealSkerry",
+        "PathCost": 10.0,
+        "TravelDirection": "East",
+        "HideConnection": false
+      },
+      {
+        "EnvironmentUID": "ftEnvPuffinCliffs",
+        "PathCost": 10.0,
+        "TravelDirection": "North",
+        "HideConnection": false
+      }
+    ]
+  },
+  {
+    "EnvironmentUID": "ftEnvSealSkerry",
+    "Coords": { "x": -30.0, "y": 0.0, "z": 130.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": []
+  },
+  {
+    "EnvironmentUID": "ftEnvPuffinCliffs",
+    "Coords": { "x": -40.0, "y": 0.0, "z": 140.0, "w": 0.0 },
+    "HideFromMap": false,
+    "Connections": []
+  }
+]

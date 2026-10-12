@@ -1,0 +1,294 @@
+{
+  "UniqueID": "ftLocPuffinCliffs",
+  "CardType": 8,
+  "InstancedEnvironment": false,
+  "UniqueOnBoard": true,
+  "AlwaysUpdate": false,
+  "DoesNotPile": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_PuffinCliffs_CardName",
+    "DefaultText": "Puffin Cliffs"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_PuffinCliffs_CardDescription",
+    "DefaultText": "Grassy ledges high above the fjord, riddled with burrows. Puffins whirr in and out from dawn to dusk, and the wind never stops."
+  },
+  "CardImageWarpData": "FT_PuffinCliffs",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0,
+  "SpecialDurability1": {
+    "Active": true,
+    "FloatValue": 576.0,
+    "MaxValue": 576.0,
+    "RatePerDaytimePoint": 1.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_PuffinCliffs_Gleanings",
+      "DefaultText": "Gleanings"
+    },
+    "HidingOptions": 1
+  },
+  "AffectStatsOnlyWhenNotInBackground": true,
+  "PassiveStatEffects": [
+    {
+      "Stat": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "StatWarpData": "79290cafb08e48f4d871704c20e69b1c",
+      "StatWarpType": 3,
+      "ValueModifier": {
+        "x": 10.0,
+        "y": 10.0
+      },
+      "RateModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "MinValueModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "MaxValueModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "CannotModifyBeyond": {
+        "Active": false,
+        "FloatValue": 0.0,
+        "MaxValue": 0.0
+      },
+      "ApplyEachTick": false,
+      "InstantModifier": false,
+      "IgnoreNovelty": false,
+      "IsInverse": false
+    },
+    {
+      "Stat": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "StatWarpData": "fb093dc50699ce04fb70751e6db05e40",
+      "StatWarpType": 3,
+      "ValueModifier": {
+        "x": -7665.0,
+        "y": -7665.0
+      },
+      "RateModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "MinValueModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "MaxValueModifier": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "CannotModifyBeyond": {
+        "Active": false,
+        "FloatValue": 0.0,
+        "MaxValue": 0.0
+      },
+      "ApplyEachTick": false,
+      "InstantModifier": false,
+      "IgnoreNovelty": false,
+      "IsInverse": false
+    }
+  ],
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_PuffinCliffs_DA_Forage",
+        "DefaultText": "Forage"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_PuffinCliffs_DA_Forage_Desc",
+        "DefaultText": "Edge along the ledges for loose stones, feathers and the odd egg left in a burrow."
+      },
+      "DaytimeCost": 2,
+      "ActionTagsWarpData": [
+        "ForageAction",
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 11.0,
+            "y": 10000.0
+          },
+          "NotifyWhenNotMet": true,
+          "HideAllWhenNotMet": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "79290cafb08e48f4d871704c20e69b1c",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 10.0,
+            "y": 100.0
+          },
+          "NotifyWhenNotMet": true,
+          "HideAllWhenNotMet": false
+        }
+      ],
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.15,
+          "MaxValue": 1.0
+        },
+        "FailMessage": {
+          "LocalizationKey": "Far_Territory_PuffinCliffs_DA_Forage_Fail",
+          "DefaultText": "Nothing worth picking up yet"
+        }
+      },
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -3.0,
+            "y": -3.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "16af37a364285d14586629e3e0700e55",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -43.0,
+            "y": -43.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ProducedCards": [
+        {
+          "CollectionName": "Stones",
+          "CollectionWeight": 2,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "a7384e5147b23a642809451cc4ef24fb",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Feathers",
+          "CollectionWeight": 2,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ac7fa8419b608d54fa2002aa589d3f94",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 2
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Egg",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "1b6fc0a8c6369be4996290521b2dab5e",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Nothing",
+          "CollectionWeight": 3,
+          "DroppedCards": []
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": -96.0,
+          "y": -96.0
+        }
+      }
+    }
+  ]
+}

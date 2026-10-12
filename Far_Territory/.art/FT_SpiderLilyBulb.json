@@ -1,0 +1,45 @@
+{
+  "target": "FT_SpiderLilyBulb.png",
+  "sourceCard": "CardData/Item/FT_SpiderLilyBulb.json",
+  "subject": "one pale cream bulb with a tuft of thin roots at its base and the stubs of green leaves at the top.",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: one pale cream bulb with a tuft of thin roots at its base and the stubs of green leaves at the top.\nStyle: vanilla survival card game item art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, slight three-quarter angle, a single subject comfortably inset from every edge with a generous white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: flowers, pot, garlic cloves, footprints, tracks, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, cropped, blurry, scenery behind the subject, grey background, off-white background, gradient background, checkerboard, transparency grid, drop shadow, text, watermark, signature, logo, border, frame.",
+  "refs": [
+    {
+      "label": "vanilla Clover_Item (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Clover_Item_1791700796511_02e75a12.png"
+    },
+    {
+      "label": "vanilla Fireroot_Item (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Fireroot_Item_1791697571643_a266b2a4.png"
+    }
+  ],
+  "historyId": "ljwIwoGW3iD3STScgbj3",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701466366_f5ddb0c3_1791701466412_107ad77c.png",
+  "credits": 60,
+  "generated": "2026-10-11",
+  "note": "Owner pick 2026-10-11 from the Prompt 26 picker page picker_26b (3 samples; predicted B, written before the owner looked). Finished by /process-card-art (white paper keyed). Used by FT_SpiderLilyBulb. 3 enclosed pocket(s) of white paper that the border-connected key cannot reach (between legs, coils, leaflets or roots) were keyed afterwards with the same 200 to 250 ramp, limited to 3 px past each pocket; painted whites were left opaque.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701465523_ddaf637a_1791701465599_89039c95.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701466520_b591be69_1791701466561_52982b60.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701466366_f5ddb0c3_1791701466412_107ad77c.png"
+    }
+  ],
+  "picked": "C",
+  "predicted": "B"
+}

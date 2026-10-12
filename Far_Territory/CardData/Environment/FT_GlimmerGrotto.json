@@ -1,0 +1,108 @@
+{
+  "UniqueID": "ftEnvGlimmerGrotto",
+  "CardType": 4,
+  "InstancedEnvironment": false,
+  "AlwaysUpdate": false,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_Env_GlimmerGrotto_CardName",
+    "DefaultText": "Glimmer Grotto"
+  },
+  "CardImageWarpData": "FT_GlimmerGrotto",
+  "CardImageWarpType": 3,
+  "MaxWeightCapacity": 1000000.0,
+  "AlwaysDropUniqueDefaultEnvDrops": true,
+  "Ambience": {
+    "InternalName": "Day",
+    "BackgroundSoundWarpData": "RiverGroveOakDay",
+    "BackgroundSoundWarpType": 3,
+    "RandomNoises": [],
+    "StatConditions": [],
+    "NPCStatConditions": [],
+    "TimeOfDayConditions": [
+      {
+        "TimeType": 2,
+        "CompareType": 0,
+        "StartValue": 0,
+        "EndValue": 0,
+        "MomentOfDayValue": {
+          "MaskValue": 15
+        },
+        "SeasonValue": {
+          "MaskValue": 0
+        }
+      }
+    ]
+  },
+  "AlternateAmbiences": [
+    {
+      "InternalName": "EarlyNight",
+      "BackgroundSoundWarpData": "RiverEarlyNightLoop",
+      "BackgroundSoundWarpType": 3,
+      "RandomNoises": [],
+      "StatConditions": [],
+      "NPCStatConditions": [],
+      "TimeOfDayConditions": [
+        {
+          "TimeType": 2,
+          "CompareType": 0,
+          "StartValue": 0,
+          "EndValue": 0,
+          "MomentOfDayValue": {
+            "MaskValue": 48
+          },
+          "SeasonValue": {
+            "MaskValue": 0
+          }
+        }
+      ]
+    },
+    {
+      "InternalName": "LateNight",
+      "BackgroundSoundWarpData": "RiverLoop_Quiet",
+      "BackgroundSoundWarpType": 3,
+      "RandomNoises": [],
+      "StatConditions": [],
+      "NPCStatConditions": [],
+      "TimeOfDayConditions": [
+        {
+          "TimeType": 2,
+          "CompareType": 0,
+          "StartValue": 0,
+          "EndValue": 0,
+          "MomentOfDayValue": {
+            "MaskValue": 192
+          },
+          "SeasonValue": {
+            "MaskValue": 0
+          }
+        }
+      ]
+    }
+  ],
+  "DefaultEnvCardDrops": [
+    {
+      "DroppedCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "DroppedCardWarpData": "ftLocGlimmerGrotto",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "DroppedCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "DroppedCardWarpData": "ft_path_glimmergrotto_windgapcol",
+      "DroppedCardWarpType": 3,
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      }
+    }
+  ]
+}

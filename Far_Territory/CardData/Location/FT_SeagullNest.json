@@ -1,0 +1,241 @@
+{
+  "UniqueID": "ft_seagull_nest",
+  "CardType": 2,
+  "AlwaysUpdate": false,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_SeagullNest_CardName",
+    "DefaultText": "Seagull Nest"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_SeagullNest_CardDescription",
+    "DefaultText": "A rough nest of twigs and weed wedged on a ledge, ringed with droppings and loose feathers. Sometimes there are eggs in it, sometimes only old bones. The gulls lay again in time."
+  },
+  "CardImageWarpData": "FT_SeagullNest",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "SpecialDurability1": {
+    "Active": true,
+    "FloatValue": 960.0,
+    "MaxValue": 960.0,
+    "RatePerDaytimePoint": 1.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_SeagullNest_Laying",
+      "DefaultText": "Laying"
+    },
+    "HidingOptions": 1
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_SeagullNest_DA_Search",
+        "DefaultText": "Search the Nest"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_SeagullNest_DA_Search_Desc",
+        "DefaultText": "Reach up onto the ledge and go through the nest: nest twigs, feathers, up to three eggs, or only bird bones."
+      },
+      "DaytimeCost": 1,
+      "ActionTagsWarpData": [
+        "ForageAction",
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 11.0,
+            "y": 10000.0
+          },
+          "NotifyWhenNotMet": true,
+          "HideAllWhenNotMet": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "79290cafb08e48f4d871704c20e69b1c",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 10.0,
+            "y": 100.0
+          },
+          "NotifyWhenNotMet": true,
+          "HideAllWhenNotMet": false
+        }
+      ],
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.5,
+          "MaxValue": 1.0
+        },
+        "FailMessage": {
+          "LocalizationKey": "Far_Territory_SeagullNest_DA_Search_Fail",
+          "DefaultText": "The nest has been searched lately"
+        }
+      },
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -3.0,
+            "y": -3.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ProducedCards": [
+        {
+          "CollectionName": "Eggs",
+          "CollectionWeight": 4,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "1b6fc0a8c6369be4996290521b2dab5e",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 3
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ac7fa8419b608d54fa2002aa589d3f94",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 2
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "fa8834c3111a71f47bdd23d66b33cf61",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              },
+              "TransferRules": {
+                "Special4": 3,
+                "Special4Value": 1.0
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Empty nest",
+          "CollectionWeight": 3,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ac7fa8419b608d54fa2002aa589d3f94",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 2
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "fa8834c3111a71f47bdd23d66b33cf61",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 2
+              },
+              "TransferRules": {
+                "Special4": 3,
+                "Special4Value": 1.0
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Bird bones",
+          "CollectionWeight": 2,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "3dda5e481d296c5409b05ac6e66a9221",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ac7fa8419b608d54fa2002aa589d3f94",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": -480.0,
+          "y": -480.0
+        }
+      }
+    }
+  ]
+}

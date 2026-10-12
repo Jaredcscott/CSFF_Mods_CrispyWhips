@@ -1,0 +1,132 @@
+{
+  "UniqueID": "ft_outrigger",
+  "CardType": 2,
+  "AlwaysUpdate": false,
+  "UniqueOnBoard": true,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_Outrigger_CardName",
+    "DefaultText": "Outrigger Canoe"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_Outrigger_CardDescription",
+    "DefaultText": "A narrow dugout canoe lashed by two poles to a slim log float, a paddle laid along its bottom. It carries you across the open water between the mainland coast and the island."
+  },
+  "CardImageWarpData": "FT_Outrigger",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_MooredBoatMainland_DA_SetSail",
+        "DefaultText": "Set Sail for the Island"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_MooredBoatMainland_DA_SetSail_Desc",
+        "DefaultText": "Push off past the breakers and paddle across the open water to the island. The crossing takes about six hours."
+      },
+      "DaytimeCost": 24,
+      "NotBaseAction": true,
+      "RequiredCardsOnBoard": [
+        {
+          "TriggerCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "TriggerCardWarpData": "ft_moored_boat_mainland",
+          "TriggerCardWarpType": 3,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": true,
+          "Inverted": false,
+          "OnlyEquipped": false
+        }
+      ],
+      "HideIfConditionsNotMet": true,
+      "ProducedCards": [
+        {
+          "CollectionName": "Voyage",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ftEnvLandfallStrand",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "FadeToBlack": 1,
+      "FadeMessage": {
+        "LocalizationKey": "Far_Territory_MooredBoatMainland_DA_SetSail_Fade",
+        "DefaultText": "Sailing for the island..."
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_MooredBoatIsland_DA_SetSail",
+        "DefaultText": "Set Sail for the Mainland"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_MooredBoatIsland_DA_SetSail_Desc",
+        "DefaultText": "Run the outrigger back into the surf and paddle home to the mainland beach. The crossing takes about six hours."
+      },
+      "DaytimeCost": 24,
+      "NotBaseAction": true,
+      "RequiredCardsOnBoard": [
+        {
+          "TriggerCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "TriggerCardWarpData": "ft_moored_boat_island",
+          "TriggerCardWarpType": 3,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": true,
+          "Inverted": false,
+          "OnlyEquipped": false
+        }
+      ],
+      "HideIfConditionsNotMet": true,
+      "ProducedCards": [
+        {
+          "CollectionName": "Voyage",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ftEnvLandingBeach",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "FadeToBlack": 1,
+      "FadeMessage": {
+        "LocalizationKey": "Far_Territory_MooredBoatIsland_DA_SetSail_Fade",
+        "DefaultText": "Sailing for the mainland..."
+      }
+    }
+  ]
+}

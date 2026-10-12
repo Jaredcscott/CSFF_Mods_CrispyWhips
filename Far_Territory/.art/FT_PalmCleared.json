@@ -1,0 +1,67 @@
+{
+  "target": "FT_PalmCleared.png",
+  "sourceCard": "CardData/Location/FT_PalmCleared.json",
+  "subject": "the same beach as FT_Palm with the palm felled, showing ONLY a short cut palm stump on the sand: no fallen trunk, no fronds, no crown, nothing lying beside it.",
+  "model": "nano-banana-2",
+  "mode": "image2image (owner-approved earlier sample as composition reference, vanilla CSFF sprite as style reference)",
+  "params": {
+    "imageCount": 2,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is the COMPOSITION and look to keep: a beach with a calm sea, a small distant island with palms on the left horizon, a pale sky with a few clouds, grass tufts in the foreground sand, and a short cut palm stump with a flat pale fresh-cut top on the left. Redraw this same picture, changed only as the Change line says.\nReference image 2 is a STYLE reference only: match its flat posterized fills, thin dark ink outlines and small hatch marks; do not copy its subject or composition.\nChange: remove the fallen trunk, the green palm fronds and the coconuts completely. Keep ONLY the short cut palm stump standing in the sand, exactly as in reference image 1. Where the trunk and fronds lay there is now just plain smooth sand and the sea behind. Nothing lies beside the stump. Keep everything else exactly as in reference image 1: the same beach, the same sea, the same distant island, the same sky and light, the same grass tufts, the same camera position.\nStyle: vanilla survival card game location art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, animals, fallen trunk, log, logs, fronds, palm leaves, crown, coconuts, standing palm tree, axe, saw, wood chips, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
+  "refs": [
+    {
+      "label": "FT_PalmCleared round 2 sample A (composition)",
+      "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791705209915_6a121e8a_1791705210260_bbe6095b.png"
+    },
+    {
+      "label": "vanilla TreeOak (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/TreeOak_1791700790914_80eaf8fd.png"
+    }
+  ],
+  "historyId": "jKNTqQSksy8zsI4NwckQ",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791708224244_852fcaef_1791708224283_baa8b5a4.png",
+  "credits": 120,
+  "generated": "2026-10-11",
+  "note": "Owner pick 2026-10-11 from picker_redraw (FarTerritory_palmcleared_picks.html, 2 samples; predicted A, written before the owner looked). Three rounds: round 1 (FT_Palm pick B as composition) left the crown floating in the sky and was rejected before the owner saw it; round 2 drew the felled trunk and fronds, owner: good but remove the trunk and palm leaves leaving just the stump and beach; round 3 used round 2 sample A as composition. Finished by /process-card-art --full-bleed. Used by FT_PalmCleared.",
+  "composition_reference": {
+    "sample": "FT_PalmCleared round 2 sample A (itself composed from FT_Palm pick B, picker_26b)",
+    "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791705209915_6a121e8a_1791705210260_bbe6095b.png"
+  },
+  "candidates": [
+    {
+      "n": "R1A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791705053837_929018fa_1791705053899_28064921.png",
+      "verdict": "rejected round 1 (historyId 4SWsiB3EjddC4flrDybc): palm crown left floating in the sky with no trunk"
+    },
+    {
+      "n": "R1B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791705053762_995797b0_1791705054105_1aff31b0.png",
+      "verdict": "rejected round 1 (historyId 4SWsiB3EjddC4flrDybc): palm crown left floating in the sky with no trunk"
+    },
+    {
+      "n": "R2A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791705209915_6a121e8a_1791705210260_bbe6095b.png",
+      "verdict": "round 2 (historyId rmsnigVrdFrMMqHGvzlb): stump plus fallen trunk and fronds; owner: good but remove the trunk and palm leaves (this sample became the round 3 composition reference)"
+    },
+    {
+      "n": "R2B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791705210198_99e8f9d4_1791705210246_56372d16.png",
+      "verdict": "round 2 (historyId rmsnigVrdFrMMqHGvzlb): stump plus fallen trunk and fronds; owner: good but remove the trunk and palm leaves"
+    },
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791708224244_852fcaef_1791708224283_baa8b5a4.png",
+      "verdict": "round 3 (historyId jKNTqQSksy8zsI4NwckQ): stump only"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791708222684_7905dd1e_1791708223087_7852e3ec.png",
+      "verdict": "round 3 (historyId jKNTqQSksy8zsI4NwckQ): stump only"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A"
+}

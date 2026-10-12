@@ -1,0 +1,45 @@
+{
+  "target": "FT_UpperHall.png",
+  "sourceCard": "CardData/Environment/FT_UpperHall.json",
+  "subject": "a cave chamber where a smooth round lava tunnel gives way to broken rock, a green copper vein in the wall and a shaft dropping away into the dark. No torch; dim, cool, sourceless cave light.",
+  "model": "nano-banana-2",
+  "mode": "image2image (picked first-batch sample as composition reference, vanilla CSFF sprite as style reference)",
+  "params": {
+    "imageCount": 2,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference image 1 is the COMPOSITION and look to keep: a cave chamber where a smooth round lava tunnel gives way to broken rock, a green copper vein in the wall and a shaft dropping away into the dark. Redraw this same picture, changed only as the Change line says.\nReference image 2 is a STYLE reference only: match its flat posterized fills, thin dark ink outlines and small hatch marks; do not copy its subject or composition.\nChange: Remove every torch, flame, fire and lit sconce, and remove the warm orange torchlight glow at the edges of the frame. The light now comes from nowhere in particular: dim, cool and natural for a cave, the rock in muted blue-grey and grey-brown shades, the far openings fading into darkness. Keep everything else exactly as in reference image 1: the same rock forms, the same openings, the same floor, the same camera position and framing.\nStyle: vanilla survival card game location art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, animals, torch, torches, flame, fire, sconce, lantern, warm orange glow, firelight, lit edge of the frame, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
+  "refs": [
+    {
+      "label": "FT_UpperHall picked B (composition)",
+      "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701795375_6e326531_1791701795428_a19ae4f3.png"
+    },
+    {
+      "label": "vanilla Tunnel_1 (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Tunnel_1_1791697554255_c7ac50b2.png"
+    }
+  ],
+  "historyId": "gWQYeIBjkI3PHfCC0pcE",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791704998542_dd068e73_1791704998669_ef54e9b3.png",
+  "credits": 40,
+  "generated": "2026-10-11",
+  "note": "Owner pick 2026-10-11 from the redraw picker page picker_redraw (2 samples; predicted B, written before the owner looked). Owner asked for the same picture with one change; composition reference: FT_UpperHall picked B sample from the first batch. Finished by /process-card-art --full-bleed. Used by FT_UpperHall, FT_UpperHallLocation.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791704998542_dd068e73_1791704998669_ef54e9b3.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791705000139_3ad6355b_1791705000204_c9a162ee.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "B",
+  "composition_reference": {
+    "sample": "FT_UpperHall picked B",
+    "url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701795375_6e326531_1791701795428_a19ae4f3.png"
+  }
+}

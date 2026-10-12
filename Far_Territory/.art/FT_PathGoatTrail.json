@@ -1,0 +1,45 @@
+{
+  "target": "FT_PathGoatTrail.png",
+  "sourceCard": "CardData/Location/FT_PathFangvaleScreeSlope.json",
+  "subject": "a narrow stony trail climbing a slope of broken rock out of a pine forest toward white snowy peaks. No marks on the trail.",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: a narrow stony trail climbing a slope of broken rock out of a pine forest toward white snowy peaks. No marks on the trail.\nStyle: vanilla survival card game location art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, animals, a wide road, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
+  "refs": [
+    {
+      "label": "vanilla Lake1_Winter (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Lake1_Winter_1791697555368_d362d79a.png"
+    },
+    {
+      "label": "vanilla HeatherMarsh_Winter (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/HeatherMarsh_Winter_1791697555937_afd4587d.png"
+    }
+  ],
+  "historyId": "4hFNAOzVJ4ety9ZMwAel",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791699086496_d880a2c5_1791699086786_81441722.png",
+  "credits": 60,
+  "generated": "2026-10-11",
+  "note": "Owner pick 2026-10-11 from the Prompt 32 picker page picker_32 (3 samples; predicted B, written before the owner looked). Finished by /process-card-art --full-bleed. Used by FT_PathFangvaleScreeSlope, FT_PathScreeSlopeFangvale.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791699085483_1b3b01f1_1791699085568_9c012c21.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791699086496_d880a2c5_1791699086786_81441722.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791699087454_97f07cf5_1791699087834_c004d6cb.png"
+    }
+  ],
+  "picked": "B",
+  "predicted": "B"
+}

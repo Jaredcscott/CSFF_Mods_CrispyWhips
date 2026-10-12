@@ -1,0 +1,45 @@
+{
+  "target": "FT_Macaque.png",
+  "sourceCard": "Animals/Macaque.json",
+  "subject": "one macaque monkey crouched on a thick jungle branch: grey-brown fur, a bare pinkish face, a long thin tail hanging down, alert eyes, vines and broad leaves around it.",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: one macaque monkey crouched on a thick jungle branch: grey-brown fur, a bare pinkish face, a long thin tail hanging down, alert eyes, vines and broad leaves around it.\nStyle: vanilla survival card game wild animal art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, multiple animals, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
+  "refs": [
+    {
+      "label": "vanilla Squirrel_Wild (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Squirrel_Wild_1791700791887_47ea37d8.png"
+    },
+    {
+      "label": "vanilla Swamp1 (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Swamp1_1791693751649_15bef096.png"
+    }
+  ],
+  "historyId": "EaR3U4YpiFUHs7nLSukr",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701046045_cf0350c5_1791701046100_27c698d6.png",
+  "credits": 60,
+  "generated": "2026-10-11",
+  "note": "Owner pick 2026-10-11 from the Prompt 26 picker page picker_26b (3 samples; predicted B, written before the owner looked). Finished by /process-card-art --full-bleed. Used by Macaque, ft_encounter_macaque.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701046045_cf0350c5_1791701046100_27c698d6.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701050599_9337f6f9_1791701051303_0d181c07.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701045916_6267822b_1791701047264_87b5b998.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "B"
+}

@@ -1,0 +1,41 @@
+{
+  "target": "FT_WildYam.png",
+  "sourceCard": "CardData/Location/FT_WildYam.json",
+  "subject": "a twining wild yam vine climbing a small shrub, heart-shaped green leaves along its stems, the soil at its foot bulging over a buried tuber.",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 2,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: a twining wild yam vine climbing a small shrub, heart-shaped green leaves along its stems, the soil at its foot bulging over a buried tuber.\nStyle: vanilla survival card game plant art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, animals, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
+  "refs": [
+    {
+      "label": "vanilla Springberries_Plant (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Springberries_Plant_1791700789781_c8c7ea21.png"
+    },
+    {
+      "label": "vanilla Fireroot_Plant (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Fireroot_Plant_1791700790415_5376148c.png"
+    }
+  ],
+  "historyId": "9LGZQ5JUDMJ0Y9R8DQ6X",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791702213358_0a70a1b7_1791702213484_ddb5b8dc.png",
+  "credits": 40,
+  "generated": "2026-10-11",
+  "note": "Owner pick 2026-10-11 from the Prompt 26 picker page picker_26b (2 samples; predicted B, written before the owner looked). Finished by /process-card-art --full-bleed. Used by FT_WildYam, FT_YamGarden.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791702216590_5a3133e4_1791702216856_35c91cf0.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791702213358_0a70a1b7_1791702213484_ddb5b8dc.png"
+    }
+  ],
+  "picked": "B",
+  "predicted": "B"
+}

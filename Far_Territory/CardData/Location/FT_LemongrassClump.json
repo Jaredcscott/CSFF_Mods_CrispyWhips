@@ -1,0 +1,89 @@
+{
+  "UniqueID": "ft_lemongrass_clump",
+  "CardType": 2,
+  "AlwaysUpdate": false,
+  "UniqueOnBoard": false,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_LemongrassClump_CardName",
+    "DefaultText": "Lemongrass"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_LemongrassClump_CardDescription",
+    "DefaultText": "A dense clump of tall, pale grass that smells of lemon when you crush a blade."
+  },
+  "CardImageWarpData": "FT_LemongrassClump",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "SpecialDurability1": {
+    "Active": true,
+    "FloatValue": 4.0,
+    "MaxValue": 4.0,
+    "RatePerDaytimePoint": 0.001388888888888889,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_LemongrassClump_Yield",
+      "DefaultText": "Stalks"
+    },
+    "HidingOptions": 1
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_LemongrassClump_DA_Cut",
+        "DefaultText": "Cut Lemongrass"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_LemongrassClump_DA_Cut_Desc",
+        "DefaultText": "Pull a few stalks from the clump. Takes about fifteen minutes."
+      },
+      "DaytimeCost": 1,
+      "ActionSoundsWarpData": [
+        "ExploreBushes"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [],
+      "ProducedCards": [
+        {
+          "CollectionName": "Picked",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_lemongrass",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 2,
+                "y": 3
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": -1.0,
+          "y": -1.0
+        }
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.24,
+          "MaxValue": 1.0
+        },
+        "FailMessage": {
+          "LocalizationKey": "Far_Territory_LemongrassClump_DA_Cut_Fail",
+          "DefaultText": "The clump has no stalks left to spare yet"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "UniqueID": "ft_cinchona_tree",
+  "CardType": 2,
+  "AlwaysUpdate": false,
+  "UniqueOnBoard": false,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_CinchonaTree_CardName",
+    "DefaultText": "Cinchona Tree"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_CinchonaTree_CardDescription",
+    "DefaultText": "A slim tree with glossy leaves and reddish bark that tastes very bitter."
+  },
+  "CardImageWarpData": "FT_CinchonaTree",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "SpecialDurability1": {
+    "Active": true,
+    "FloatValue": 2.0,
+    "MaxValue": 2.0,
+    "RatePerDaytimePoint": 0.0006944444444444445,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_CinchonaTree_Yield",
+      "DefaultText": "Bark"
+    },
+    "HidingOptions": 1
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_CinchonaTree_DA_Peel",
+        "DefaultText": "Peel Cinchona Bark"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_CinchonaTree_DA_Peel_Desc",
+        "DefaultText": "Peel strips of bark from the trunk. Takes about half an hour."
+      },
+      "DaytimeCost": 2,
+      "ActionSoundsWarpData": [
+        "ExploreBushes"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [],
+      "ProducedCards": [
+        {
+          "CollectionName": "Picked",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_cinchona_bark",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 2
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": -1.0,
+          "y": -1.0
+        }
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.49,
+          "MaxValue": 1.0
+        },
+        "FailMessage": {
+          "LocalizationKey": "Far_Territory_CinchonaTree_DA_Peel_Fail",
+          "DefaultText": "The trunk has no bark left to peel yet"
+        }
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_CinchonaTree_DA_Seedling",
+        "DefaultText": "Dig up a Cinchona Seedling"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_CinchonaTree_DA_Seedling_Desc",
+        "DefaultText": "Dig up one of the seedlings around the trunk to plant. It costs the tree some of its bark. Takes about half an hour and dirties your hands."
+      },
+      "DaytimeCost": 2,
+      "ActionSoundsWarpData": [
+        "ExploreBushes"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 3.0,
+            "y": 3.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ProducedCards": [
+        {
+          "CollectionName": "Picked",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_cinchona_seedling",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": -1.0,
+          "y": -1.0
+        }
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.49,
+          "MaxValue": 1.0
+        },
+        "FailMessage": {
+          "LocalizationKey": "Far_Territory_CinchonaTree_DA_Seedling_Fail",
+          "DefaultText": "No seedling is big enough to dig up yet"
+        }
+      }
+    }
+  ]
+}

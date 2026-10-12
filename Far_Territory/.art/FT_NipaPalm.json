@@ -1,0 +1,41 @@
+{
+  "target": "FT_NipaPalm.png",
+  "sourceCard": "CardData/Location/FT_NipaPalm.json",
+  "subject": "a stemless nipa palm growing out of brackish mud, its long fronds rising straight from the ground, a round dark brown fruit head low among them.",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 2,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: a stemless nipa palm growing out of brackish mud, its long fronds rising straight from the ground, a round dark brown fruit head low among them.\nStyle: vanilla survival card game plant art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, animals, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
+  "refs": [
+    {
+      "label": "vanilla Springberries_Plant (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Springberries_Plant_1791700789781_c8c7ea21.png"
+    },
+    {
+      "label": "vanilla Fireroot_Plant (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Fireroot_Plant_1791700790415_5376148c.png"
+    }
+  ],
+  "historyId": "iRoOd68n4TNnyCMQSeKT",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791702145892_bdb9a9d5_1791702145955_aa12974b.png",
+  "credits": 40,
+  "generated": "2026-10-11",
+  "note": "Owner pick 2026-10-11 from the Prompt 26 picker page picker_26b (2 samples; predicted A, written before the owner looked). Finished by /process-card-art --full-bleed. Used by FT_NipaFruitGarden, FT_NipaPalm.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791702145892_bdb9a9d5_1791702145955_aa12974b.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791702147872_72c16d23_1791702147952_f2469a9e.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A"
+}

@@ -1,0 +1,89 @@
+{
+  "UniqueID": "ft_chilli_plant",
+  "CardType": 2,
+  "AlwaysUpdate": false,
+  "UniqueOnBoard": false,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_ChilliPlant_CardName",
+    "DefaultText": "Chilli Plant"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_ChilliPlant_CardDescription",
+    "DefaultText": "A small bushy plant hung with slim red chillies."
+  },
+  "CardImageWarpData": "FT_ChilliPlant",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "SpecialDurability1": {
+    "Active": true,
+    "FloatValue": 4.0,
+    "MaxValue": 4.0,
+    "RatePerDaytimePoint": 0.001388888888888889,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_ChilliPlant_Yield",
+      "DefaultText": "Ripe Chillies"
+    },
+    "HidingOptions": 1
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_ChilliPlant_DA_Pick",
+        "DefaultText": "Pick Chillies"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_ChilliPlant_DA_Pick_Desc",
+        "DefaultText": "Pick the ripe chillies. Takes about fifteen minutes."
+      },
+      "DaytimeCost": 1,
+      "ActionSoundsWarpData": [
+        "ExploreBushes"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [],
+      "ProducedCards": [
+        {
+          "CollectionName": "Picked",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_chilli",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 2,
+                "y": 4
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": -1.0,
+          "y": -1.0
+        }
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.24,
+          "MaxValue": 1.0
+        },
+        "FailMessage": {
+          "LocalizationKey": "Far_Territory_ChilliPlant_DA_Pick_Fail",
+          "DefaultText": "No chilli is ripe on this plant yet"
+        }
+      }
+    }
+  ]
+}

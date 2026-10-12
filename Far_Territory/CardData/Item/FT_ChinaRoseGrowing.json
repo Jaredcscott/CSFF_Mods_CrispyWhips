@@ -1,0 +1,65 @@
+{
+  "UniqueID": "ft_china_rose_growing",
+  "CardType": 0,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_ChinaRoseGrowing_CardName",
+    "DefaultText": "Growing China Rose"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_ChinaRoseGrowing_CardDescription",
+    "DefaultText": "A young shrub taking hold in a garden plot. It grows only while it sits in the plot, and flowers after about 20 days there."
+  },
+  "CardImageWarpData": "FT_GrowingShrub",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 100.0,
+  "DoesNotPile": true,
+  "CardTagsWarpData": [
+    "tag_Gardenable",
+    "tag_GardenPlantGrowing"
+  ],
+  "CardTagsWarpType": 3,
+  "Progress": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 1920.0,
+    "RatePerDaytimePoint": 0.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_ChinaRoseGrowing_Growth",
+      "DefaultText": "Growth"
+    },
+    "HidingOptions": 3,
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_ChinaRoseGrowing_Ready",
+        "DefaultText": "The China rose is in flower."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "ft_china_rose_garden",
+        "TransformIntoWarpType": 3
+      }
+    }
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_ChinaRoseGrowing_DA_Uproot",
+        "DefaultText": "Uproot"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_ChinaRoseGrowing_DA_Uproot_Desc",
+        "DefaultText": "Pull the plant up and throw it away. Nothing is gained."
+      },
+      "DaytimeCost": 1,
+      "ConfirmPopup": true,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ]
+}

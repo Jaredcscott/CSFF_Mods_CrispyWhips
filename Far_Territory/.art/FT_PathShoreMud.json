@@ -1,0 +1,48 @@
+{
+  "target": "FT_PathShoreMud.png",
+  "sourceCard": "CardData/Location/FT_PathRootwaterThicketBleakStrand.json",
+  "subject": "a rough, unmarked way along a tropical shoreline: wet dark grey-brown rocks with smooth flat sheets of dark brown-black mud between them, the calm grey-green sea to one side, and ahead where the shore bends a wood of trees on tall arching stilt roots; no worn trail, no people, no footprints",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject, their forest or their composition.\nSubject: a rough, unmarked way along a tropical shoreline, seen from low down at the near end. In the foreground and middle, a broken band of wet dark grey-brown rocks, slick and shining, with smooth flat sheets of dark brown-black mud between them, glistening where the tide has just drained off. The way is simply the open shoreline between the rocks and the mud, with no worn trail and no marks on the ground. To one side the calm grey-green sea laps at the rocks. Ahead, where the shore bends, a low dark wood of trees standing on tall arching stilt roots above the mud and brown water, their roots clearly visible. Overcast pale sky. No people, no animals, no boats.\nStyle: vanilla survival card game location art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, prints in the ground, sand, mud or snow, a worn trail, a path line, people, animals, birds, boats, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
+  "refs": [
+    {
+      "label": "vanilla Path (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Path_1791693750843_84388d59.png"
+    },
+    {
+      "label": "vanilla Swamp1 (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Swamp1_1791693751649_15bef096.png"
+    }
+  ],
+  "historyId": "rrMx9eAJhrLPstSVH4fT",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791693829924_1f8690a7_1791693830704_a1f7b8c3.png",
+  "credits": 90,
+  "generated": "2026-10-10",
+  "note": "Redo of the first 2026-10-10 batch (hP4R3UJxFsxRROWUc2Q2), whose subject asked for footprints, which the owner bans. All three samples passed a zoomed ground check (no prints). Owner picked C 2026-10-10. Finished by /process-card-art --full-bleed. Used by FT_PathRootwaterThicketBleakStrand and FT_PathBleakStrandRootwaterThicket.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791693828602_4e87d83c_1791693829374_6e705ff3.png",
+      "verdict": "no prints"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791693829952_d9f28013_1791693830136_a881561f.png",
+      "verdict": "no prints"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791693829924_1f8690a7_1791693830704_a1f7b8c3.png",
+      "verdict": "no prints; stilt-root wood ahead where the shore bends, glistening mud sheets"
+    }
+  ],
+  "picked": "C",
+  "predicted": "C"
+}

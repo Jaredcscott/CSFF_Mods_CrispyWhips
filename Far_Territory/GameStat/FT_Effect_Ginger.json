@@ -1,0 +1,177 @@
+{
+  "UniqueID": "ft_stat_ginger",
+  "GameName": {
+    "LocalizationKey": "Far_Territory_Effect_Ginger_StatName",
+    "DefaultText": "Ginger Warmth"
+  },
+  "Description": {
+    "LocalizationKey": "Far_Territory_Effect_Ginger_StatDescription",
+    "DefaultText": "Chewed ginger still working in you. It settles a queasy stomach and dulls aches a little, and wears off over the following hours."
+  },
+  "IsRuntimeOnly": false,
+  "BaseValue": 0.0,
+  "MinMaxValue": {
+    "x": 0.0,
+    "y": 24.0
+  },
+  "BaseRatePerTick": -1.0,
+  "MinMaxRate": {
+    "x": 0.0,
+    "y": 0.0
+  },
+  "Transfers": [],
+  "TimeOfDayMods": [],
+  "CompositeStats": [],
+  "StatPriority": 0,
+  "RequiredPerks": [],
+  "Visibility": 0,
+  "VisibleInDetailedList": false,
+  "CannotBeInspected": false,
+  "InvertedDirection": false,
+  "VisibleValueRange": {
+    "x": 0.0,
+    "y": 0.0
+  },
+  "TrendIndicatorRateRange": {
+    "x": 0.0,
+    "y": 0.0
+  },
+  "StatusesHaveNoBar": false,
+  "DefaultStatusName": {
+    "ParentObjectID": "",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "DefaultStatusDescription": {
+    "ParentObjectID": "",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "DefaultStatusIcon": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "DefaultStatusIconWarpData": "Nausea",
+  "DefaultStatusIconWarpType": 3,
+  "Statuses": [
+    {
+      "GameName": {
+        "LocalizationKey": "Far_Territory_Effect_Ginger_Status_Mild_Name",
+        "DefaultText": "Ginger Warmth"
+      },
+      "Description": {
+        "LocalizationKey": "Far_Territory_Effect_Ginger_Status_Mild_Description",
+        "DefaultText": "A hot tingle in the mouth. A queasy stomach settles faster."
+      },
+      "StatusLog": {
+        "LogText": {
+          "ParentObjectID": "",
+          "LocalizationKey": "",
+          "DefaultText": ""
+        },
+        "Category": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TicksToRegister": 0
+      },
+      "Icon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "IconWarpData": "Nausea",
+      "IconWarpType": 3,
+      "ValueRange": {
+        "x": 1,
+        "y": 24
+      },
+      "UsePercentageForRange": false,
+      "EffectsOnStats": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "547f09c7ea6d11d4bbf6714255b0dfd5",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "RateModifier": {
+            "x": -0.5,
+            "y": -0.5
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -10.0,
+            "y": -10.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "EffectsOnNPCStats": [],
+      "EffectsOnActions": [],
+      "NotifyPlayer": 0,
+      "RepeatTextNotification": 0,
+      "AlertLevel": 0,
+      "AlertSounds": [],
+      "RepeatAlertSounds": 0,
+      "AmbientSounds": [],
+      "GameOver": false,
+      "ActionsMaxTicks": 0,
+      "PreventingActionMessage": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "CombatEffects": [],
+      "ConfidenceModifier": 0.0
+    }
+  ],
+  "UsesNovelty": false
+}

@@ -1,0 +1,45 @@
+{
+  "target": "FT_PathJungleTrail.png",
+  "sourceCard": "CardData/Location/FT_PathPalmFringeVineWoods.json",
+  "subject": "the back of a tropical beach where a few steps of low scrub give way to the jungle: a narrow open gap between bushes leading into the trees, which close over into a dim green tunnel of leaves. No marks on the ground.",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: the back of a tropical beach where a few steps of low scrub give way to the jungle: a narrow open gap between bushes leading into the trees, which close over into a dim green tunnel of leaves. No marks on the ground.\nStyle: vanilla survival card game location art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, a worn trail line, animals, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
+  "refs": [
+    {
+      "label": "vanilla Path (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Path_1791693750843_84388d59.png"
+    },
+    {
+      "label": "vanilla Swamp1 (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Swamp1_1791693751649_15bef096.png"
+    }
+  ],
+  "historyId": "nICCjXxuhOk0jCEB002v",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698265670_0f54dc6b_1791698265765_b2f1e190.png",
+  "credits": 60,
+  "generated": "2026-10-11",
+  "note": "Owner pick 2026-10-11 from the Prompt 18 picker page picker_18 (3 samples; predicted A, written before the owner looked). Finished by /process-card-art --full-bleed. Used by FT_PathPalmFringeVineWoods, FT_PathVineWoodsPalmFringe.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698276240_c431792b_1791698276436_4d36516e.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698268566_a99b9ade_1791698268617_28654700.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698265670_0f54dc6b_1791698265765_b2f1e190.png"
+    }
+  ],
+  "picked": "C",
+  "predicted": "A"
+}

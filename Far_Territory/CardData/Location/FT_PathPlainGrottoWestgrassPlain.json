@@ -1,0 +1,69 @@
+{
+  "UniqueID": "ft_path_plaingrotto_westgrassplain",
+  "CardType": 2,
+  "AlwaysUpdate": false,
+  "UniqueOnBoard": true,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_PathPlainGrottoWestgrassPlain_CardName",
+    "DefaultText": "Path to Westgrass Plain"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_PathPlainGrottoWestgrassPlain_CardDescription",
+    "DefaultText": "The grass of the plain shows bright at the mouth of the cave."
+  },
+  "CardImageWarpData": "FT_PathCaveDaylight",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_PathPlainGrottoWestgrassPlain_DA_Travel",
+        "DefaultText": "Leave for Westgrass Plain"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_PathPlainGrottoWestgrassPlain_DA_Travel_Desc",
+        "DefaultText": "Step back out of the cave onto the plain. It is only a few steps."
+      },
+      "DaytimeCost": 0,
+      "ActionSoundsWarpData": [
+        "ExploreBushes"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ActionTagsWarpData": [
+        "TravelAction",
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "NotBaseAction": true,
+      "ProducedCards": [
+        {
+          "CollectionName": "Travel",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ftEnvWestgrassPlain",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "FadeToBlack": 1,
+      "FadeMessage": {
+        "LocalizationKey": "Far_Territory_PathPlainGrottoWestgrassPlain_DA_Travel_Fade",
+        "DefaultText": "Leaving the cave..."
+      }
+    }
+  ]
+}

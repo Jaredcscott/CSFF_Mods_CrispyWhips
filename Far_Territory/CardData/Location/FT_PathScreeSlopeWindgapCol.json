@@ -1,0 +1,445 @@
+{
+  "UniqueID": "ft_path_screeslope_windgapcol",
+  "CardType": 2,
+  "AlwaysUpdate": false,
+  "UniqueOnBoard": true,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_PathScreeSlopeWindgapCol_CardName",
+    "DefaultText": "Cliff to Windgap Col"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_PathScreeSlopeWindgapCol_CardDescription",
+    "DefaultText": "A sheer rock face above the scree, the only way up to the col. It cannot be climbed without rope and pitons, and even with them a fall hurts."
+  },
+  "CardImageWarpData": "FT_PathCliffClimb",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_PathScreeSlopeWindgapCol_DA_Climb",
+        "DefaultText": "Climb the Cliff to Windgap Col"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_PathScreeSlopeWindgapCol_DA_Climb_Desc",
+        "DefaultText": "Climb the cliff to the col, driving pitons and running your rope through them. Needs Rope and Pitons in your hand. Skill and good handholds make a fall less likely; a tired climber is sure to fall. It takes half an hour."
+      },
+      "DaytimeCost": 2,
+      "ActionSoundsWarpData": [
+        "ExploreBushes"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ActionTagsWarpData": [
+        "ClimbAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "NotBaseAction": true,
+      "RequiredStatValues": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 11.0,
+            "y": 1000000.0
+          },
+          "NotifyWhenNotMet": true,
+          "HideAllWhenNotMet": false
+        }
+      ],
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "e70593661cf8d7c41aa7052d60118305",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 10.0,
+            "y": 10.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "ba33a8566a73268498af987d98f045ae",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 10.0,
+            "y": 10.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -10.0,
+            "y": -10.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 6.0,
+            "y": 6.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "4e1c1fcb63b240843b8255abab28181a",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.25,
+            "y": 0.25
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -5.0,
+            "y": -5.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "16af37a364285d14586629e3e0700e55",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -43.0,
+            "y": -43.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ProducedCards": [
+        {
+          "CollectionName": "Fall - Abrasion",
+          "CollectionWeight": 3,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "886ff4644ed8edf4a82738a055c09070",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ftEnvWindgapCol",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Fall - Bruises",
+          "CollectionWeight": 6,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "c1d9b7a65a1755d4992a6cd08ff7dc9d",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ftEnvWindgapCol",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Success",
+          "CollectionWeight": 10,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ftEnvWindgapCol",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ],
+          "StatsDropChanceModifiers": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "4e1c1fcb63b240843b8255abab28181a",
+              "StatWarpType": 3,
+              "StatRange": {
+                "x": 0.0,
+                "y": 150.0
+              },
+              "InterpWeightRange": {
+                "x": 0,
+                "y": 150
+              },
+              "WhenOutOfRange": 1
+            },
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "33f8297bdbbdf7a47b9944f633fdcad8",
+              "StatWarpType": 3,
+              "StatRange": {
+                "x": 0.0,
+                "y": 288.0
+              },
+              "InterpWeightRange": {
+                "x": 0,
+                "y": 50
+              },
+              "WhenOutOfRange": 1
+            },
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+              "StatWarpType": 3,
+              "StatRange": {
+                "x": 16.0,
+                "y": 1000000.0
+              },
+              "InterpWeightRange": {
+                "x": 0,
+                "y": 0
+              },
+              "WhenOutOfRange": 2
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "FadeToBlack": 1,
+      "FadeMessage": {
+        "LocalizationKey": "Far_Territory_PathScreeSlopeWindgapCol_DA_Climb_Fade",
+        "DefaultText": "Climbing the cliff..."
+      },
+      "RequiredCardsOnBoard": [
+        {
+          "TriggerCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "TriggerCardWarpData": "ft_rope_and_pitons",
+          "TriggerCardWarpType": 3,
+          "OnlyInHand": true,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "Inverted": false,
+          "OnlyEquipped": false
+        }
+      ]
+    }
+  ]
+}

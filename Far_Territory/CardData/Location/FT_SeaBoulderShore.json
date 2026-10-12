@@ -1,0 +1,2162 @@
+{
+  "UniqueID": "ft_sea_boulder_shore",
+  "CardType": 2,
+  "AlwaysUpdate": false,
+  "UniqueOnBoard": true,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_SeaBoulderShore_CardName",
+    "DefaultText": "The Rocky Swell"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_SeaBoulderShore_CardDescription",
+    "DefaultText": "Warm water surging in and out between the boulders. You can wash in a sheltered gap between the rocks, or hold your breath and dive along them for what clings there."
+  },
+  "CardImageWarpData": "FT_SeaBoulderShore",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_SeaBoulderShore_DA_Wash",
+        "DefaultText": "Wash in the Sea"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_SeaBoulderShore_DA_Wash_Desc",
+        "DefaultText": "Wade in and scrub off the road, the sweat and the sand."
+      },
+      "DaytimeCost": 1,
+      "ActionSoundsWarpData": [
+        "DiveShort"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ActionTagsWarpData": [
+        "InteractionImage"
+      ],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "cadd43716eaada54facd772f39eaa090",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -50.0,
+            "y": -50.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "08d242ad068c51b4fbef44d546645ac7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 100.0,
+            "y": 100.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "48296aba51d95204fbc4f805056ac66a",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -50.0,
+            "y": -50.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "9ff897d4c2d410544a8d7ccd323bdb86",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -100.0,
+            "y": -100.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "f8c19cb042ab86948a2cb5f9cb07e455",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -100.0,
+            "y": -100.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 2.0,
+            "y": 2.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -500.0,
+            "y": -500.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "16af37a364285d14586629e3e0700e55",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -3.0,
+            "y": -3.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ProducedCards": [
+        {
+          "CollectionName": "Nothing",
+          "CollectionWeight": 100,
+          "DroppedCards": []
+        },
+        {
+          "CollectionName": "Shark",
+          "CollectionMessages": [
+            {
+              "LocalizationKey": "Far_Territory_SeaHazard_Shark",
+              "DefaultText": "A shark came out of the blue and bit you before you could reach the shallows."
+            }
+          ],
+          "CountsAsSuccess": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 1,
+          "StatsDropChanceModifiers": [],
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "4f9c5ba7f4f6fee4ab6d1bfeb1a565ff",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Urchin Spine",
+          "CollectionMessages": [
+            {
+              "LocalizationKey": "Far_Territory_SeaHazard_UrchinSpine",
+              "DefaultText": "You trod on an urchin and its spines broke off in your foot."
+            }
+          ],
+          "CountsAsSuccess": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 0,
+          "StatsDropChanceModifiers": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_urchin",
+              "StatWarpType": 3,
+              "StatRange": {
+                "x": 0.0,
+                "y": 6000.0
+              },
+              "InterpWeightRange": {
+                "x": 0,
+                "y": 6
+              },
+              "WhenOutOfRange": 1
+            },
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "384d7070fef781a40aba1f0f16dd5fa6",
+              "StatWarpType": 3,
+              "StatRange": {
+                "x": 0.0,
+                "y": 5.0
+              },
+              "InterpWeightRange": {
+                "x": 0,
+                "y": -7
+              },
+              "WhenOutOfRange": 1
+            }
+          ],
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "70f2dce38ab0c16418bd7b3721080591",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_urchin",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ],
+          "StatModifications": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_urchin",
+              "StatWarpType": 3,
+              "ValueModifier": {
+                "x": -1000.0,
+                "y": -1000.0
+              },
+              "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Urchin Shod",
+          "CollectionMessages": [
+            {
+              "LocalizationKey": "Far_Territory_SeaHazard_UrchinShod",
+              "DefaultText": "You trod on an urchin, but your footwear took the spines."
+            }
+          ],
+          "CountsAsSuccess": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 0,
+          "StatsDropChanceModifiers": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_urchin",
+              "StatWarpType": 3,
+              "StatRange": {
+                "x": 0.0,
+                "y": 6000.0
+              },
+              "InterpWeightRange": {
+                "x": 0,
+                "y": 6
+              },
+              "WhenOutOfRange": 1
+            },
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "384d7070fef781a40aba1f0f16dd5fa6",
+              "StatWarpType": 3,
+              "StatRange": {
+                "x": 5.0,
+                "y": 10.0
+              },
+              "InterpWeightRange": {
+                "x": 0,
+                "y": 0
+              },
+              "WhenOutOfRange": 2
+            }
+          ],
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_urchin",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ],
+          "StatModifications": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_urchin",
+              "StatWarpType": 3,
+              "ValueModifier": {
+                "x": -1000.0,
+                "y": -1000.0
+              },
+              "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_SeaBoulderShore_DA_Dive",
+        "DefaultText": "Dive Along the Rocks"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_SeaBoulderShore_DA_Dive_Desc",
+        "DefaultText": "Hold your breath and feel along the rocks for shells, weed and loose stones."
+      },
+      "DaytimeCost": 2,
+      "ActionSoundsWarpData": [
+        "DiveShort"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "RequiredStatValues": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "TriggerRange": {
+            "x": 11.0,
+            "y": 10000.0
+          },
+          "NotifyWhenNotMet": true,
+          "HideAllWhenNotMet": false
+        }
+      ],
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -4.0,
+            "y": -4.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "08d242ad068c51b4fbef44d546645ac7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 100.0,
+            "y": 100.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "16af37a364285d14586629e3e0700e55",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -10.0,
+            "y": -10.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ProducedCards": [
+        {
+          "CollectionName": "Shells",
+          "CollectionWeight": 20,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_seashell",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 2
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Seaweed",
+          "CollectionWeight": 20,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_seaweed",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 2
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Stones",
+          "CollectionWeight": 10,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "a7384e5147b23a642809451cc4ef24fb",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Conch",
+          "CountsAsSuccess": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 0,
+          "StatsDropChanceModifiers": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_conch",
+              "StatWarpType": 3,
+              "StatRange": {
+                "x": 0.0,
+                "y": 30000.0
+              },
+              "InterpWeightRange": {
+                "x": 0,
+                "y": 10
+              },
+              "WhenOutOfRange": 1
+            }
+          ],
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_conch",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ],
+          "StatModifications": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_conch",
+              "StatWarpType": 3,
+              "ValueModifier": {
+                "x": -1000.0,
+                "y": -1000.0
+              },
+              "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Sea Urchin",
+          "CountsAsSuccess": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 0,
+          "StatsDropChanceModifiers": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_urchin",
+              "StatWarpType": 3,
+              "StatRange": {
+                "x": 0.0,
+                "y": 6000.0
+              },
+              "InterpWeightRange": {
+                "x": 0,
+                "y": 10
+              },
+              "WhenOutOfRange": 1
+            }
+          ],
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_urchin",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ],
+          "StatModifications": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_urchin",
+              "StatWarpType": 3,
+              "ValueModifier": {
+                "x": -1000.0,
+                "y": -1000.0
+              },
+              "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Shark",
+          "CollectionMessages": [
+            {
+              "LocalizationKey": "Far_Territory_SeaHazard_Shark",
+              "DefaultText": "A shark came out of the blue and bit you before you could reach the shallows."
+            }
+          ],
+          "CountsAsSuccess": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 3,
+          "StatsDropChanceModifiers": [],
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "4f9c5ba7f4f6fee4ab6d1bfeb1a565ff",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Urchin Spine",
+          "CollectionMessages": [
+            {
+              "LocalizationKey": "Far_Territory_SeaHazard_UrchinSpine",
+              "DefaultText": "You trod on an urchin and its spines broke off in your foot."
+            }
+          ],
+          "CountsAsSuccess": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 0,
+          "StatsDropChanceModifiers": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_urchin",
+              "StatWarpType": 3,
+              "StatRange": {
+                "x": 0.0,
+                "y": 6000.0
+              },
+              "InterpWeightRange": {
+                "x": 0,
+                "y": 8
+              },
+              "WhenOutOfRange": 1
+            },
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "384d7070fef781a40aba1f0f16dd5fa6",
+              "StatWarpType": 3,
+              "StatRange": {
+                "x": 0.0,
+                "y": 5.0
+              },
+              "InterpWeightRange": {
+                "x": 0,
+                "y": -9
+              },
+              "WhenOutOfRange": 1
+            }
+          ],
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "70f2dce38ab0c16418bd7b3721080591",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_urchin",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ],
+          "StatModifications": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_urchin",
+              "StatWarpType": 3,
+              "ValueModifier": {
+                "x": -1000.0,
+                "y": -1000.0
+              },
+              "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Urchin Shod",
+          "CollectionMessages": [
+            {
+              "LocalizationKey": "Far_Territory_SeaHazard_UrchinShod",
+              "DefaultText": "You trod on an urchin, but your footwear took the spines."
+            }
+          ],
+          "CountsAsSuccess": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 0,
+          "StatsDropChanceModifiers": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_urchin",
+              "StatWarpType": 3,
+              "StatRange": {
+                "x": 0.0,
+                "y": 6000.0
+              },
+              "InterpWeightRange": {
+                "x": 0,
+                "y": 8
+              },
+              "WhenOutOfRange": 1
+            },
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "384d7070fef781a40aba1f0f16dd5fa6",
+              "StatWarpType": 3,
+              "StatRange": {
+                "x": 5.0,
+                "y": 10.0
+              },
+              "InterpWeightRange": {
+                "x": 0,
+                "y": 0
+              },
+              "WhenOutOfRange": 2
+            }
+          ],
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_urchin",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ],
+          "StatModifications": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_urchin",
+              "StatWarpType": 3,
+              "ValueModifier": {
+                "x": -1000.0,
+                "y": -1000.0
+              },
+              "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Nothing",
+          "CollectionWeight": 30,
+          "DroppedCards": []
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      }
+    }
+  ],
+  "CardInteractions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_SeaBoulderShore_CI_Fish",
+        "DefaultText": "Fish with a Line"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_SeaBoulderShore_CI_Fish_Desc",
+        "DefaultText": "Cast a line from the shore and wait. What you land depends on this water and on how much of each fish is left in the sea."
+      },
+      "DaytimeCost": 2,
+      "NotBaseAction": true,
+      "ActionSoundsWarpData": [
+        "DiveShort"
+      ],
+      "ActionSoundsWarpType": 3,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "61a14db03419ad34ea39f82968082c06",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -50.0,
+            "y": -50.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "3a62f37278e3edd43beff14a2935a4c3",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 4.0,
+            "y": 4.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 4.0,
+            "y": 4.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "a5ecd0cbbfb4c2a4a84657d2ab4e5334",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -6.0,
+            "y": -6.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 2.0,
+            "y": 2.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "GivenCardChanges": {
+        "ModType": 1,
+        "ModifyDurability": true,
+        "UsageChange": {
+          "x": -1.0,
+          "y": -1.0
+        }
+      },
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerCardsWarpData": [
+          "65153cfb5e4d1da49aaad460924e7ef9",
+          "bcea726d38311bf48981a3a2bb5a3054"
+        ],
+        "TriggerCardsWarpType": 3,
+        "TriggerTagsWarpData": [
+          "tag_FishingLine"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "Nothing",
+          "CollectionMessages": [
+            {
+              "LocalizationKey": "Far_Territory_Fishing_NoLuck",
+              "DefaultText": "No luck..."
+            }
+          ],
+          "CountsAsSuccess": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 160,
+          "StatsDropChanceModifiers": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "61a14db03419ad34ea39f82968082c06",
+              "StatWarpType": 3,
+              "StatRange": {
+                "x": 0.0,
+                "y": 150.0
+              },
+              "InterpWeightRange": {
+                "x": 0,
+                "y": -100
+              },
+              "WhenOutOfRange": 1
+            }
+          ],
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Goatfish",
+          "CountsAsSuccess": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 0,
+          "StatsDropChanceModifiers": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_goatfish",
+              "StatWarpType": 3,
+              "StatRange": {
+                "x": 0.0,
+                "y": 60000.0
+              },
+              "InterpWeightRange": {
+                "x": 0,
+                "y": 32
+              },
+              "WhenOutOfRange": 1
+            }
+          ],
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_goatfish",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ],
+          "StatModifications": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_goatfish",
+              "StatWarpType": 3,
+              "ValueModifier": {
+                "x": -1000.0,
+                "y": -1000.0
+              },
+              "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Parrotfish",
+          "CountsAsSuccess": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 0,
+          "StatsDropChanceModifiers": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_parrotfish",
+              "StatWarpType": 3,
+              "StatRange": {
+                "x": 0.0,
+                "y": 60000.0
+              },
+              "InterpWeightRange": {
+                "x": 0,
+                "y": 32
+              },
+              "WhenOutOfRange": 1
+            }
+          ],
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_parrotfish",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ],
+          "StatModifications": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_parrotfish",
+              "StatWarpType": 3,
+              "ValueModifier": {
+                "x": -1000.0,
+                "y": -1000.0
+              },
+              "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Bonefish",
+          "CountsAsSuccess": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 0,
+          "StatsDropChanceModifiers": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_bonefish",
+              "StatWarpType": 3,
+              "StatRange": {
+                "x": 0.0,
+                "y": 60000.0
+              },
+              "InterpWeightRange": {
+                "x": 0,
+                "y": 24
+              },
+              "WhenOutOfRange": 1
+            }
+          ],
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_bonefish",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ],
+          "StatModifications": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_bonefish",
+              "StatWarpType": 3,
+              "ValueModifier": {
+                "x": -1000.0,
+                "y": -1000.0
+              },
+              "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Reef Grouper",
+          "CountsAsSuccess": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 0,
+          "StatsDropChanceModifiers": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_grouper",
+              "StatWarpType": 3,
+              "StatRange": {
+                "x": 0.0,
+                "y": 30000.0
+              },
+              "InterpWeightRange": {
+                "x": 0,
+                "y": 12
+              },
+              "WhenOutOfRange": 1
+            }
+          ],
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_grouper",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ],
+          "StatModifications": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_grouper",
+              "StatWarpType": 3,
+              "ValueModifier": {
+                "x": -1000.0,
+                "y": -1000.0
+              },
+              "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_SeaBoulderShore_CI_Net",
+        "DefaultText": "Cast the Net"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_SeaBoulderShore_CI_Net_Desc",
+        "DefaultText": "Heave a net out from the shore and haul it back in. A net that comes up full holds two of a fish rather than one; what it holds depends on this water and on how much of each fish is left in the sea."
+      },
+      "DaytimeCost": 2,
+      "NotBaseAction": true,
+      "ActionSoundsWarpData": [
+        "DiveShort"
+      ],
+      "ActionSoundsWarpType": 3,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "61a14db03419ad34ea39f82968082c06",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 1.0,
+            "y": 1.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "3b79a4c6d7e151044a1c56fbbd401d78",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -50.0,
+            "y": -50.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "3a62f37278e3edd43beff14a2935a4c3",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 4.0,
+            "y": 4.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 4.0,
+            "y": 4.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "a5ecd0cbbfb4c2a4a84657d2ab4e5334",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -6.0,
+            "y": -6.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 2.0,
+            "y": 2.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "GivenCardChanges": {
+        "ModType": 1,
+        "ModifyDurability": true,
+        "UsageChange": {
+          "x": -1.0,
+          "y": -1.0
+        }
+      },
+      "CompatibleCards": {
+        "TriggerCards": [],
+        "TriggerTagsWarpData": [
+          "tag_FishingNet"
+        ],
+        "TriggerTagsWarpType": 3
+      },
+      "ProducedCards": [
+        {
+          "CollectionName": "Nothing",
+          "CollectionMessages": [
+            {
+              "LocalizationKey": "Far_Territory_Fishing_NoLuck",
+              "DefaultText": "No luck..."
+            }
+          ],
+          "CountsAsSuccess": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 160,
+          "StatsDropChanceModifiers": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "61a14db03419ad34ea39f82968082c06",
+              "StatWarpType": 3,
+              "StatRange": {
+                "x": 0.0,
+                "y": 150.0
+              },
+              "InterpWeightRange": {
+                "x": 0,
+                "y": -100
+              },
+              "WhenOutOfRange": 1
+            }
+          ],
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Goatfish",
+          "CountsAsSuccess": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 0,
+          "StatsDropChanceModifiers": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_goatfish",
+              "StatWarpType": 3,
+              "StatRange": {
+                "x": 0.0,
+                "y": 60000.0
+              },
+              "InterpWeightRange": {
+                "x": 0,
+                "y": 32
+              },
+              "WhenOutOfRange": 1
+            }
+          ],
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_goatfish",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 2,
+                "y": 2
+              }
+            }
+          ],
+          "StatModifications": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_goatfish",
+              "StatWarpType": 3,
+              "ValueModifier": {
+                "x": -2000.0,
+                "y": -2000.0
+              },
+              "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Parrotfish",
+          "CountsAsSuccess": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 0,
+          "StatsDropChanceModifiers": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_parrotfish",
+              "StatWarpType": 3,
+              "StatRange": {
+                "x": 0.0,
+                "y": 60000.0
+              },
+              "InterpWeightRange": {
+                "x": 0,
+                "y": 32
+              },
+              "WhenOutOfRange": 1
+            }
+          ],
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_parrotfish",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 2,
+                "y": 2
+              }
+            }
+          ],
+          "StatModifications": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_parrotfish",
+              "StatWarpType": 3,
+              "ValueModifier": {
+                "x": -2000.0,
+                "y": -2000.0
+              },
+              "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Bonefish",
+          "CountsAsSuccess": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 0,
+          "StatsDropChanceModifiers": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_bonefish",
+              "StatWarpType": 3,
+              "StatRange": {
+                "x": 0.0,
+                "y": 60000.0
+              },
+              "InterpWeightRange": {
+                "x": 0,
+                "y": 24
+              },
+              "WhenOutOfRange": 1
+            }
+          ],
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_bonefish",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 2,
+                "y": 2
+              }
+            }
+          ],
+          "StatModifications": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_bonefish",
+              "StatWarpType": 3,
+              "ValueModifier": {
+                "x": -2000.0,
+                "y": -2000.0
+              },
+              "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Reef Grouper",
+          "CountsAsSuccess": false,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CollectionWeight": 0,
+          "StatsDropChanceModifiers": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_grouper",
+              "StatWarpType": 3,
+              "StatRange": {
+                "x": 0.0,
+                "y": 30000.0
+              },
+              "InterpWeightRange": {
+                "x": 0,
+                "y": 12
+              },
+              "WhenOutOfRange": 1
+            }
+          ],
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_grouper",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 2,
+                "y": 2
+              }
+            }
+          ],
+          "StatModifications": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_grouper",
+              "StatWarpType": 3,
+              "ValueModifier": {
+                "x": -2000.0,
+                "y": -2000.0
+              },
+              "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

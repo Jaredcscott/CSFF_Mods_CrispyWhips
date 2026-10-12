@@ -1,0 +1,45 @@
+{
+  "target": "FT_PuffinCliffs.png",
+  "sourceCard": "CardData/Environment/FT_PuffinCliffs.json",
+  "subject": "grassy ledges high on a sea cliff above a dark fjord, the green turf riddled with small round burrow holes, a few puffins standing by the burrows and two in flight, the wind flattening the grass.",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: grassy ledges high on a sea cliff above a dark fjord, the green turf riddled with small round burrow holes, a few puffins standing by the burrows and two in flight, the wind flattening the grass.\nStyle: vanilla survival card game location art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
+  "refs": [
+    {
+      "label": "vanilla Lake1_Winter (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Lake1_Winter_1791697555368_d362d79a.png"
+    },
+    {
+      "label": "vanilla HeatherMarsh_Winter (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/HeatherMarsh_Winter_1791697555937_afd4587d.png"
+    }
+  ],
+  "historyId": "hBf7YRcOCJPy2xl1rW39",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791699092043_80e98715_1791699092188_d9c690da.png",
+  "credits": 60,
+  "generated": "2026-10-11",
+  "note": "Owner pick 2026-10-11 from the Prompt 32 picker page picker_32 (3 samples; predicted C, written before the owner looked). Finished by /process-card-art --full-bleed. Used by FT_PuffinCliffs, FT_PuffinCliffsLocation.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791699081078_8ec3a7fb_1791699081162_5e9c9130.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791699085960_8aee6d86_1791699086106_452042b2.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791699092043_80e98715_1791699092188_d9c690da.png"
+    }
+  ],
+  "picked": "C",
+  "predicted": "C"
+}

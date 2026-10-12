@@ -1,0 +1,1012 @@
+{
+  "UniqueID": "ft_fish_trap_placed",
+  "CardType": 2,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_FishTrapPlaced_CardName",
+    "DefaultText": "Fish Trap (Set)"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_FishTrapPlaced_CardDescription",
+    "DefaultText": "A fish trap staked in the shallows. It springs every few hours; haul it out to take what it holds."
+  },
+  "CardImageWarpData": "FT_FishTrapSet",
+  "CardImageWarpType": 3,
+  "AlwaysUpdate": true,
+  "CannotBeTrashed": true,
+  "ToggleablePiling": true,
+  "WhenCreatedSoundsWarpData": [
+    "LargeObject"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "CannotPutItemsIn": true,
+  "CannotTakeItemsOut": true,
+  "PreventsCardInteractions": true,
+  "InventoryFilter": {
+    "AcceptedCardsWarpData": [
+      "ft_goatfish",
+      "ft_parrotfish",
+      "ft_bonefish",
+      "ft_herring",
+      "ft_grouper",
+      "ft_threadfin",
+      "ft_mudskipper"
+    ],
+    "AcceptedCardsWarpType": 3
+  },
+  "SpillsInventoryOnDestroy": true,
+  "InventorySlots": [null, null, null, null],
+  "MaxWeightCapacity": 4000.0,
+  "TransferCookingResultsOnTransform": true,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_FishTrapPlaced_DA_HaulOut",
+        "DefaultText": "Haul Out the Trap"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_FishTrapPlaced_DA_HaulOut_Desc",
+        "DefaultText": "Wade out and lift the trap, with whatever it caught, onto the shore."
+      },
+      "DaytimeCost": 1,
+      "NotBaseAction": true,
+      "ActionTagsWarpData": [
+        "InteractionImage"
+      ],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "4c5ed70723dc40e439720acab06e6af7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 2.0,
+            "y": 2.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -2.0,
+            "y": -2.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "ft_fish_trap",
+        "TransformIntoWarpType": 3,
+        "TransferInventory": true
+      }
+    }
+  ],
+  "CookingRecipes": [
+    {
+      "ActionName": {
+        "LocalizationKey": "IGNOREKEY",
+        "DefaultText": "Catch Fish"
+      },
+      "Duration": 96,
+      "DurationRdmVariation": 24,
+      "CookerChanges": {
+        "TransferSpoilage": true,
+        "TransferUsage": true,
+        "TransferFuel": true,
+        "TransferCharges": true,
+        "TransferInventory": true
+      },
+      "HideCookingProgress": true,
+      "RandomSingleDrop": true,
+      "Notification": 1,
+      "CustomNotification": {
+        "LocalizationKey": "Far_Territory_FishTrapPlaced_Triggered",
+        "DefaultText": "Trap Triggered!"
+      },
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "61a14db03419ad34ea39f82968082c06",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.5,
+            "y": 0.5
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "UseCookerForCardDrops": true,
+      "DropsAsCollection": [
+        {
+          "CollectionName": "Nothing",
+          "CollectionWeight": 120,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "StatsDropChanceModifiers": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "61a14db03419ad34ea39f82968082c06",
+              "StatWarpType": 3,
+              "StatRange": {
+                "x": 0.0,
+                "y": 150.0
+              },
+              "InterpWeightRange": {
+                "x": 0,
+                "y": -80
+              },
+              "WhenOutOfRange": 1
+            }
+          ],
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Goatfish",
+          "CollectionWeight": 0,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CardDropChanceModifiers": [
+            {
+              "CardOnBoard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "CardOnBoardWarpData": "ft_sea_shore",
+              "CardOnBoardWarpType": 3,
+              "MaxWeightPerCard": 0,
+              "AddedStatModifiers": [
+                {
+                  "Stat": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                  },
+                  "StatWarpData": "ft_pop_goatfish",
+                  "StatWarpType": 3,
+                  "StatRange": {
+                    "x": 0.0,
+                    "y": 60000.0
+                  },
+                  "InterpWeightRange": {
+                    "x": 0,
+                    "y": 40
+                  },
+                  "WhenOutOfRange": 1
+                }
+              ]
+            },
+            {
+              "CardOnBoard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "CardOnBoardWarpData": "ft_sea_coral_inlet",
+              "CardOnBoardWarpType": 3,
+              "MaxWeightPerCard": 0,
+              "AddedStatModifiers": [
+                {
+                  "Stat": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                  },
+                  "StatWarpData": "ft_pop_goatfish",
+                  "StatWarpType": 3,
+                  "StatRange": {
+                    "x": 0.0,
+                    "y": 60000.0
+                  },
+                  "InterpWeightRange": {
+                    "x": 0,
+                    "y": 56
+                  },
+                  "WhenOutOfRange": 1
+                }
+              ]
+            },
+            {
+              "CardOnBoard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "CardOnBoardWarpData": "ft_sea_cliffbound_cove",
+              "CardOnBoardWarpType": 3,
+              "MaxWeightPerCard": 0,
+              "AddedStatModifiers": [
+                {
+                  "Stat": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                  },
+                  "StatWarpData": "ft_pop_goatfish",
+                  "StatWarpType": 3,
+                  "StatRange": {
+                    "x": 0.0,
+                    "y": 60000.0
+                  },
+                  "InterpWeightRange": {
+                    "x": 0,
+                    "y": 32
+                  },
+                  "WhenOutOfRange": 1
+                }
+              ]
+            },
+            {
+              "CardOnBoard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "CardOnBoardWarpData": "ft_sea_rootwater_thicket",
+              "CardOnBoardWarpType": 3,
+              "MaxWeightPerCard": 0,
+              "AddedStatModifiers": [
+                {
+                  "Stat": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                  },
+                  "StatWarpData": "ft_pop_goatfish",
+                  "StatWarpType": 3,
+                  "StatRange": {
+                    "x": 0.0,
+                    "y": 60000.0
+                  },
+                  "InterpWeightRange": {
+                    "x": 0,
+                    "y": 24
+                  },
+                  "WhenOutOfRange": 1
+                }
+              ]
+            }
+          ],
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_goatfish",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ],
+          "StatModifications": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_goatfish",
+              "StatWarpType": 3,
+              "ValueModifier": {
+                "x": -1000.0,
+                "y": -1000.0
+              },
+              "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Parrotfish",
+          "CollectionWeight": 0,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CardDropChanceModifiers": [
+            {
+              "CardOnBoard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "CardOnBoardWarpData": "ft_sea_shore",
+              "CardOnBoardWarpType": 3,
+              "MaxWeightPerCard": 0,
+              "AddedStatModifiers": [
+                {
+                  "Stat": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                  },
+                  "StatWarpData": "ft_pop_parrotfish",
+                  "StatWarpType": 3,
+                  "StatRange": {
+                    "x": 0.0,
+                    "y": 60000.0
+                  },
+                  "InterpWeightRange": {
+                    "x": 0,
+                    "y": 40
+                  },
+                  "WhenOutOfRange": 1
+                }
+              ]
+            },
+            {
+              "CardOnBoard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "CardOnBoardWarpData": "ft_sea_coral_inlet",
+              "CardOnBoardWarpType": 3,
+              "MaxWeightPerCard": 0,
+              "AddedStatModifiers": [
+                {
+                  "Stat": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                  },
+                  "StatWarpData": "ft_pop_parrotfish",
+                  "StatWarpType": 3,
+                  "StatRange": {
+                    "x": 0.0,
+                    "y": 60000.0
+                  },
+                  "InterpWeightRange": {
+                    "x": 0,
+                    "y": 56
+                  },
+                  "WhenOutOfRange": 1
+                }
+              ]
+            },
+            {
+              "CardOnBoard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "CardOnBoardWarpData": "ft_sea_cliffbound_cove",
+              "CardOnBoardWarpType": 3,
+              "MaxWeightPerCard": 0,
+              "AddedStatModifiers": [
+                {
+                  "Stat": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                  },
+                  "StatWarpData": "ft_pop_parrotfish",
+                  "StatWarpType": 3,
+                  "StatRange": {
+                    "x": 0.0,
+                    "y": 60000.0
+                  },
+                  "InterpWeightRange": {
+                    "x": 0,
+                    "y": 32
+                  },
+                  "WhenOutOfRange": 1
+                }
+              ]
+            },
+            {
+              "CardOnBoard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "CardOnBoardWarpData": "ft_sea_rootwater_thicket",
+              "CardOnBoardWarpType": 3,
+              "MaxWeightPerCard": 0,
+              "AddedStatModifiers": [
+                {
+                  "Stat": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                  },
+                  "StatWarpData": "ft_pop_parrotfish",
+                  "StatWarpType": 3,
+                  "StatRange": {
+                    "x": 0.0,
+                    "y": 60000.0
+                  },
+                  "InterpWeightRange": {
+                    "x": 0,
+                    "y": 24
+                  },
+                  "WhenOutOfRange": 1
+                }
+              ]
+            }
+          ],
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_parrotfish",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ],
+          "StatModifications": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_parrotfish",
+              "StatWarpType": 3,
+              "ValueModifier": {
+                "x": -1000.0,
+                "y": -1000.0
+              },
+              "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Bonefish",
+          "CollectionWeight": 0,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CardDropChanceModifiers": [
+            {
+              "CardOnBoard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "CardOnBoardWarpData": "ft_sea_coral_inlet",
+              "CardOnBoardWarpType": 3,
+              "MaxWeightPerCard": 0,
+              "AddedStatModifiers": [
+                {
+                  "Stat": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                  },
+                  "StatWarpData": "ft_pop_bonefish",
+                  "StatWarpType": 3,
+                  "StatRange": {
+                    "x": 0.0,
+                    "y": 60000.0
+                  },
+                  "InterpWeightRange": {
+                    "x": 0,
+                    "y": 48
+                  },
+                  "WhenOutOfRange": 1
+                }
+              ]
+            },
+            {
+              "CardOnBoard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "CardOnBoardWarpData": "ft_sea_cliffbound_cove",
+              "CardOnBoardWarpType": 3,
+              "MaxWeightPerCard": 0,
+              "AddedStatModifiers": [
+                {
+                  "Stat": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                  },
+                  "StatWarpData": "ft_pop_bonefish",
+                  "StatWarpType": 3,
+                  "StatRange": {
+                    "x": 0.0,
+                    "y": 60000.0
+                  },
+                  "InterpWeightRange": {
+                    "x": 0,
+                    "y": 24
+                  },
+                  "WhenOutOfRange": 1
+                }
+              ]
+            },
+            {
+              "CardOnBoard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "CardOnBoardWarpData": "ft_sea_rootwater_thicket",
+              "CardOnBoardWarpType": 3,
+              "MaxWeightPerCard": 0,
+              "AddedStatModifiers": [
+                {
+                  "Stat": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                  },
+                  "StatWarpData": "ft_pop_bonefish",
+                  "StatWarpType": 3,
+                  "StatRange": {
+                    "x": 0.0,
+                    "y": 60000.0
+                  },
+                  "InterpWeightRange": {
+                    "x": 0,
+                    "y": 24
+                  },
+                  "WhenOutOfRange": 1
+                }
+              ]
+            }
+          ],
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_bonefish",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ],
+          "StatModifications": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_bonefish",
+              "StatWarpType": 3,
+              "ValueModifier": {
+                "x": -1000.0,
+                "y": -1000.0
+              },
+              "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Silver Herring",
+          "CollectionWeight": 0,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CardDropChanceModifiers": [
+            {
+              "CardOnBoard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "CardOnBoardWarpData": "ft_sea_shore",
+              "CardOnBoardWarpType": 3,
+              "MaxWeightPerCard": 0,
+              "AddedStatModifiers": [
+                {
+                  "Stat": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                  },
+                  "StatWarpData": "ft_pop_herring",
+                  "StatWarpType": 3,
+                  "StatRange": {
+                    "x": 0.0,
+                    "y": 60000.0
+                  },
+                  "InterpWeightRange": {
+                    "x": 0,
+                    "y": 20
+                  },
+                  "WhenOutOfRange": 1
+                }
+              ]
+            },
+            {
+              "CardOnBoard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "CardOnBoardWarpData": "ft_sea_coral_inlet",
+              "CardOnBoardWarpType": 3,
+              "MaxWeightPerCard": 0,
+              "AddedStatModifiers": [
+                {
+                  "Stat": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                  },
+                  "StatWarpData": "ft_pop_herring",
+                  "StatWarpType": 3,
+                  "StatRange": {
+                    "x": 0.0,
+                    "y": 60000.0
+                  },
+                  "InterpWeightRange": {
+                    "x": 0,
+                    "y": 24
+                  },
+                  "WhenOutOfRange": 1
+                }
+              ]
+            }
+          ],
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_herring",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ],
+          "StatModifications": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_herring",
+              "StatWarpType": 3,
+              "ValueModifier": {
+                "x": -1000.0,
+                "y": -1000.0
+              },
+              "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Reef Grouper",
+          "CollectionWeight": 0,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CardDropChanceModifiers": [
+            {
+              "CardOnBoard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "CardOnBoardWarpData": "ft_sea_coral_inlet",
+              "CardOnBoardWarpType": 3,
+              "MaxWeightPerCard": 0,
+              "AddedStatModifiers": [
+                {
+                  "Stat": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                  },
+                  "StatWarpData": "ft_pop_grouper",
+                  "StatWarpType": 3,
+                  "StatRange": {
+                    "x": 0.0,
+                    "y": 30000.0
+                  },
+                  "InterpWeightRange": {
+                    "x": 0,
+                    "y": 32
+                  },
+                  "WhenOutOfRange": 1
+                }
+              ]
+            },
+            {
+              "CardOnBoard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "CardOnBoardWarpData": "ft_sea_cliffbound_cove",
+              "CardOnBoardWarpType": 3,
+              "MaxWeightPerCard": 0,
+              "AddedStatModifiers": [
+                {
+                  "Stat": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                  },
+                  "StatWarpData": "ft_pop_grouper",
+                  "StatWarpType": 3,
+                  "StatRange": {
+                    "x": 0.0,
+                    "y": 30000.0
+                  },
+                  "InterpWeightRange": {
+                    "x": 0,
+                    "y": 8
+                  },
+                  "WhenOutOfRange": 1
+                }
+              ]
+            }
+          ],
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_grouper",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ],
+          "StatModifications": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_grouper",
+              "StatWarpType": 3,
+              "ValueModifier": {
+                "x": -1000.0,
+                "y": -1000.0
+              },
+              "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Threadfin",
+          "CollectionWeight": 0,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CardDropChanceModifiers": [
+            {
+              "CardOnBoard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "CardOnBoardWarpData": "ft_sea_rootwater_thicket",
+              "CardOnBoardWarpType": 3,
+              "MaxWeightPerCard": 0,
+              "AddedStatModifiers": [
+                {
+                  "Stat": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                  },
+                  "StatWarpData": "ft_pop_threadfin",
+                  "StatWarpType": 3,
+                  "StatRange": {
+                    "x": 0.0,
+                    "y": 30000.0
+                  },
+                  "InterpWeightRange": {
+                    "x": 0,
+                    "y": 40
+                  },
+                  "WhenOutOfRange": 1
+                }
+              ]
+            }
+          ],
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_threadfin",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ],
+          "StatModifications": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_threadfin",
+              "StatWarpType": 3,
+              "ValueModifier": {
+                "x": -1000.0,
+                "y": -1000.0
+              },
+              "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+              }
+            }
+          ]
+        },
+        {
+          "CollectionName": "Mudskipper",
+          "CollectionWeight": 0,
+          "CollectionUses": {
+            "x": 0,
+            "y": 0
+          },
+          "CardDropChanceModifiers": [
+            {
+              "CardOnBoard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "CardOnBoardWarpData": "ft_sea_rootwater_thicket",
+              "CardOnBoardWarpType": 3,
+              "MaxWeightPerCard": 0,
+              "AddedStatModifiers": [
+                {
+                  "Stat": {
+                    "m_FileID": 0,
+                    "m_PathID": 0
+                  },
+                  "StatWarpData": "ft_pop_mudskipper",
+                  "StatWarpType": 3,
+                  "StatRange": {
+                    "x": 0.0,
+                    "y": 15000.0
+                  },
+                  "InterpWeightRange": {
+                    "x": 0,
+                    "y": 40
+                  },
+                  "WhenOutOfRange": 1
+                }
+              ]
+            }
+          ],
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_mudskipper",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ],
+          "StatModifications": [
+            {
+              "Stat": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "StatWarpData": "ft_pop_mudskipper",
+              "StatWarpType": 3,
+              "ValueModifier": {
+                "x": -1000.0,
+                "y": -1000.0
+              },
+              "RateModifier": {
+                "x": 0.0,
+                "y": 0.0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "EffectsToInventoryContent": [
+    {
+      "EffectName": "Preserve",
+      "SpoilageRateModifier": {
+        "Active": true,
+        "FloatValue": -1000.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "target": "FT_FjordHead.png",
+  "sourceCard": "CardData/Environment/FT_FjordHead.json",
+  "subject": "the head of a long, deep fjord between sheer grey rock walls, black still water, a grey shingle beach strewn with brown kelp in the foreground, and snowfields reaching down the slopes to the water's edge. No boats, no animals.",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: the head of a long, deep fjord between sheer grey rock walls, black still water, a grey shingle beach strewn with brown kelp in the foreground, and snowfields reaching down the slopes to the water's edge. No boats, no animals.\nStyle: vanilla survival card game location art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, boats, animals, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
+  "refs": [
+    {
+      "label": "vanilla Lake1_Winter (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Lake1_Winter_1791697555368_d362d79a.png"
+    },
+    {
+      "label": "vanilla HeatherMarsh_Winter (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/HeatherMarsh_Winter_1791697555937_afd4587d.png"
+    }
+  ],
+  "historyId": "vbr1SwFmfPEZEsDMh6US",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791699011748_b5166ea9_1791699011816_2364009b.png",
+  "credits": 60,
+  "generated": "2026-10-11",
+  "note": "Owner pick 2026-10-11 from the Prompt 32 picker page picker_32 (3 samples; predicted B, written before the owner looked). Finished by /process-card-art --full-bleed. Used by FT_FjordHead, FT_FjordHeadLocation.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791699011372_610fe8d1_1791699011439_03f2784a.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791699011748_b5166ea9_1791699011816_2364009b.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791699014655_5c58443a_1791699014792_6deb491b.png"
+    }
+  ],
+  "picked": "B",
+  "predicted": "B"
+}

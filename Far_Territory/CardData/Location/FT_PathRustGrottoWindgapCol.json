@@ -1,0 +1,69 @@
+{
+  "UniqueID": "ft_path_rustgrotto_windgapcol",
+  "CardType": 2,
+  "AlwaysUpdate": false,
+  "UniqueOnBoard": true,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_PathRustGrottoWindgapCol_CardName",
+    "DefaultText": "Way Out"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_PathRustGrottoWindgapCol_CardDescription",
+    "DefaultText": "Daylight and the howl of the wind at the cave mouth."
+  },
+  "CardImageWarpData": "FT_PathCaveDaylight",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_PathRustGrottoWindgapCol_DA_Travel",
+        "DefaultText": "Leave for Windgap Col"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_PathRustGrottoWindgapCol_DA_Travel_Desc",
+        "DefaultText": "Step back out onto the col."
+      },
+      "DaytimeCost": 0,
+      "ActionSoundsWarpData": [
+        "ExploreBushes"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ActionTagsWarpData": [
+        "TravelAction",
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "NotBaseAction": true,
+      "ProducedCards": [
+        {
+          "CollectionName": "Travel",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ftEnvWindgapCol",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "FadeToBlack": 1,
+      "FadeMessage": {
+        "LocalizationKey": "Far_Territory_PathRustGrottoWindgapCol_DA_Travel_Fade",
+        "DefaultText": "Leaving the cave..."
+      }
+    }
+  ]
+}

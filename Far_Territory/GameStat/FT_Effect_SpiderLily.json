@@ -1,0 +1,144 @@
+{
+  "UniqueID": "ft_stat_spider_lily",
+  "GameName": {
+    "LocalizationKey": "Far_Territory_Effect_SpiderLily_StatName",
+    "DefaultText": "Lily Poultice"
+  },
+  "Description": {
+    "LocalizationKey": "Far_Territory_Effect_SpiderLily_StatDescription",
+    "DefaultText": "Warm spider lily leaves bound on the skin. They ease aches, and wear off over the following hours."
+  },
+  "IsRuntimeOnly": false,
+  "BaseValue": 0.0,
+  "MinMaxValue": {
+    "x": 0.0,
+    "y": 24.0
+  },
+  "BaseRatePerTick": -1.0,
+  "MinMaxRate": {
+    "x": 0.0,
+    "y": 0.0
+  },
+  "Transfers": [],
+  "TimeOfDayMods": [],
+  "CompositeStats": [],
+  "StatPriority": 0,
+  "RequiredPerks": [],
+  "Visibility": 0,
+  "VisibleInDetailedList": false,
+  "CannotBeInspected": false,
+  "InvertedDirection": false,
+  "VisibleValueRange": {
+    "x": 0.0,
+    "y": 0.0
+  },
+  "TrendIndicatorRateRange": {
+    "x": 0.0,
+    "y": 0.0
+  },
+  "StatusesHaveNoBar": false,
+  "DefaultStatusName": {
+    "ParentObjectID": "",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "DefaultStatusDescription": {
+    "ParentObjectID": "",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "DefaultStatusIcon": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "DefaultStatusIconWarpData": "Bruise",
+  "DefaultStatusIconWarpType": 3,
+  "Statuses": [
+    {
+      "GameName": {
+        "LocalizationKey": "Far_Territory_Effect_SpiderLily_Status_Name",
+        "DefaultText": "Lily Poultice"
+      },
+      "Description": {
+        "LocalizationKey": "Far_Territory_Effect_SpiderLily_Status_Description",
+        "DefaultText": "Warm leaves bound on the skin. Aches ease while they last."
+      },
+      "StatusLog": {
+        "LogText": {
+          "ParentObjectID": "",
+          "LocalizationKey": "",
+          "DefaultText": ""
+        },
+        "Category": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TicksToRegister": 0
+      },
+      "Icon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "IconWarpData": "Bruise",
+      "IconWarpType": 3,
+      "ValueRange": {
+        "x": 1,
+        "y": 24
+      },
+      "UsePercentageForRange": false,
+      "EffectsOnStats": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -20.0,
+            "y": -20.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "EffectsOnNPCStats": [],
+      "EffectsOnActions": [],
+      "NotifyPlayer": 0,
+      "RepeatTextNotification": 0,
+      "AlertLevel": 0,
+      "AlertSounds": [],
+      "RepeatAlertSounds": 0,
+      "AmbientSounds": [],
+      "GameOver": false,
+      "ActionsMaxTicks": 0,
+      "PreventingActionMessage": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "CombatEffects": [],
+      "ConfidenceModifier": 0.0
+    }
+  ],
+  "UsesNovelty": false
+}

@@ -1,0 +1,35 @@
+{
+  "target": "FT_SeaRootwaterThicket.png",
+  "sourceCard": null,
+  "subject": "brown water lapping among the stilt roots of trees, a muddy bottom half-seen below the surface, green leaves overhead, half sea and half rain",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted illustration of brown water lapping among the stilt roots of trees, a muddy bottom half-seen below the surface, green leaves overhead, half sea and half rain, in the style of a cozy hand-illustrated survival-crafting game: clean black ink linework with rich painterly colour and soft shading, warm natural light, a full-frame portrait scene (2:3) filling the whole canvas edge to edge with no white margin, a clear focal point in the middle, no characters unless stated, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, white background, white margin, cropped focal point, blurry, text, watermark, signature, logo, border, frame, user interface.",
+  "historyId": "VuvmBNWTlgDgBSPfS2QX",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647562470_8ab47f66_1791647563297_33b480dd.png",
+  "credits": 90,
+  "generated": "2026-10-10",
+  "note": "Owner pick from the 2026-10-10 batch picker; predicted was written before the owner looked. Finished by /process-card-art --full-bleed.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647559107_48818dcf_1791647559647_eb578081.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647562470_8ab47f66_1791647563297_33b480dd.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647559304_f10c9368_1791647560168_591c67e2.png"
+    }
+  ],
+  "picked": "B",
+  "predicted": "B"
+}

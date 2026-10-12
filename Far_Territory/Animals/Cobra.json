@@ -1,0 +1,57 @@
+{
+  "//": "Far Territory plan P13 part 1 (Documentation/Plans/FarTerritory/MASTER_PLAN.md section 13, pack Prompt 24): the island's cobra. Card Survival: Tropical Island puts it on the Eastern and Western Grasslands and the Eastern and Western Highlands (Documentation/Research/FarTerritory/csti_inventory.md section 3, 'I see a Cobra!'); this mod's names for those are Eastgrass Plain, Westgrass Plain, Eastern Uplands and Western Uplands (island_layout.md). A GENERATED agent (no Agent.Ref). Its bite lands as the base game's W_BiteWound; there is no venom stat (owner Q6, the plan's Considered row on the krait's venom), so a cobra bite is a bite wound like any other. Every number is a TUNABLE PLACEHOLDER.",
+  "//Encounter": "Encounter.Ref points at FarTerritory/Encounter/ft_encounter_cobra.json (Development_Tools/FarTerritory/derive_animals.py, from vanilla Combat_EncounterFox): a hood display, a strike and an escape; every hurting tier of the strike drops W_BiteWound only (plan W0-6).",
+  "//Weights": "Duty selection is highest-weight-wins (InGameNPC.SelectDuty). Wander 100; Aggression 200 beats it whenever it can run, which is only while the player stands on the cobra's board (StartEncounterDutyAction.CanBePerformed), between 08:00 and 18:00, at most once a day: a cobra the player walks into strikes. TUNABLE.",
+  "//Range": "The four grass and upland boards form a square of compass links (Westgrass-Eastgrass, Westgrass-Western Uplands, Eastgrass-Eastern Uplands, Western-Eastern Uplands). By night the cobra is in the Spirit World (in its burrow, off every board).",
+  "//Blood": "Agent.Blood.RatePerTick is 0 (see Macaque.json).",
+  "SchemaVersion": 1,
+  "SpeciesId": "ft_cobra",
+  "DisplayName": "Cobra",
+  "LocalizationKey": "Far_Territory_Cobra_AgentName",
+  "Sprite": "FT_Cobra",
+  "WeightCategory": "Light",
+  "Agent": {
+    "Blood": { "Start": 30, "Max": 30, "RatePerTick": 0 },
+    "PoisonResistance": { "Start": 60, "RatePerTick": 0.4 }
+  },
+  "Spawn": {
+    "HomeEnv": "ftEnvWestgrassPlain",
+    "DeathRespawnTicks": 672
+  },
+  "ActivityWindow": {
+    "ActiveHours": { "Start": 6, "End": 20 },
+    "Roost": "SpiritWorld"
+  },
+  "Movement": {
+    "WanderEnvs": [
+      "ftEnvWestgrassPlain",
+      "ftEnvEastgrassPlain",
+      "ftEnvWesternUplands",
+      "ftEnvEasternUplands"
+    ],
+    "WanderWeight": 100
+  },
+  "//Tracks": "Vanilla default track card; a snake leaves a faint trail: -30 at skill 0 (a 20% find), 0 at 150. TUNABLE, NOT PLAYTESTED.",
+  "Tracks": {
+    "Enabled": true,
+    "LifetimeTicks": { "Min": 12, "Max": 24 },
+    "AddedDiscoverChance": 0,
+    "RevealSkill": "Skill_Tracking",
+    "RevealSkillCurve": { "StatRange": [0, 150], "ChanceRange": [-30, 0] },
+    "BloodTrail": false
+  },
+  "Encounter": {
+    "Ref": "ft_encounter_cobra",
+    "ApproachButton": true,
+    "Aggression": {
+      "Enabled": true,
+      "Hours": { "Start": 8, "End": 18 },
+      "BaseWeight": 200,
+      "RequirePlayerInEnv": true,
+      "MaxPerDay": 1
+    }
+  },
+  "Carcass": {
+    "Card": "ft_cobra_carcass"
+  }
+}

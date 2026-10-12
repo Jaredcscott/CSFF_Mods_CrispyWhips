@@ -1,0 +1,19 @@
+{
+  "UniqueID": "ft_shipwreck",
+  "CardType": 2,
+  "AlwaysUpdate": false,
+  "UniqueOnBoard": true,
+  "DoesNotPile": true,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_Shipwreck_CardName",
+    "DefaultText": "Wrecked Ship"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_Shipwreck_CardDescription",
+    "DefaultText": "The hull of a wooden ship, tipped on its side and open to the sky. The keel is split and the ribs show through the grey planking, and a tree has grown up through the deck. Whatever it carried, and whoever sailed it, is long gone."
+  },
+  "CardImageWarpData": "FT_Driftwood",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0
+}

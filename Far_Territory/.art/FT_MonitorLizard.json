@@ -1,0 +1,45 @@
+{
+  "target": "FT_MonitorLizard.png",
+  "sourceCard": "Animals/MonitorLizard.json",
+  "subject": "one large monitor lizard on the leafy floor of a jungle: long heavy body, dark grey-olive scaly skin speckled pale yellow, a long thick tail, a forked tongue flicking out.",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: one large monitor lizard on the leafy floor of a jungle: long heavy body, dark grey-olive scaly skin speckled pale yellow, a long thick tail, a forked tongue flicking out.\nStyle: vanilla survival card game wild animal art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, multiple animals, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
+  "refs": [
+    {
+      "label": "vanilla Squirrel_Wild (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Squirrel_Wild_1791700791887_47ea37d8.png"
+    },
+    {
+      "label": "vanilla Swamp1 (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Swamp1_1791693751649_15bef096.png"
+    }
+  ],
+  "historyId": "jEeav3l5Hy8QVp15ZlDc",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701049960_f7a1cfdd_1791701050035_68876e0b.png",
+  "credits": 60,
+  "generated": "2026-10-11",
+  "note": "Owner pick 2026-10-11 from the Prompt 26 picker page picker_26b (3 samples; predicted A, written before the owner looked). Finished by /process-card-art --full-bleed. Used by MonitorLizard, ft_encounter_monitor.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701049960_f7a1cfdd_1791701050035_68876e0b.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701049901_e280a4dd_1791701049963_4c409678.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701052618_3527750a_1791701052809_4477902a.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A"
+}

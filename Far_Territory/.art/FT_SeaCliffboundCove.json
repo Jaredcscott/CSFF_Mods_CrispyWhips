@@ -1,0 +1,35 @@
+{
+  "target": "FT_SeaCliffboundCove.png",
+  "sourceCard": null,
+  "subject": "deep still dark-green water in the shadow of tall cliffs, clear down to a pale sandy floor, calm surface with faint reflections of the rock",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted illustration of deep still dark-green water in the shadow of tall cliffs, clear down to a pale sandy floor, calm surface with faint reflections of the rock, in the style of a cozy hand-illustrated survival-crafting game: clean black ink linework with rich painterly colour and soft shading, warm natural light, a full-frame portrait scene (2:3) filling the whole canvas edge to edge with no white margin, a clear focal point in the middle, no characters unless stated, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, white background, white margin, cropped focal point, blurry, text, watermark, signature, logo, border, frame, user interface.",
+  "historyId": "HwXDfR4XN62j0OwWhoen",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647541453_2eae56ca_1791647541741_d25bf99f.png",
+  "credits": 90,
+  "generated": "2026-10-10",
+  "note": "Owner pick from the 2026-10-10 batch picker; predicted was written before the owner looked. Finished by /process-card-art --full-bleed.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647541453_2eae56ca_1791647541741_d25bf99f.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647541092_81ff1173_1791647541899_d0d6ee23.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647538693_a454e55d_1791647539117_2d58ba14.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "B"
+}

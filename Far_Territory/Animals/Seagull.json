@@ -1,0 +1,67 @@
+{
+  "//": "Far Territory plan P13 part 1 (Documentation/Plans/FarTerritory/MASTER_PLAN.md section 13, pack Prompt 24): the island's seagull. Card Survival: Tropical Island puts it on Bird Rock, the Desolate Beach and the Rocks (Documentation/Research/FarTerritory/csti_inventory.md section 3, 'You see a Seagull!'); this mod's names for those are Gull Stack, Bleak Strand and Boulder Shore (island_layout.md). A GENERATED agent (no Agent.Ref). CSTI's seagull raids on food are NOT built: there is no raid counter (owner Q6, the plan's Considered row on seagull raids). Its bite lands as the base game's W_BiteWound. The gulls' nest on Gull Stack is a separate forage card, ft_seagull_nest. Every number is a TUNABLE PLACEHOLDER.",
+  "//Flight": "Gull Stack is reached on the map only by swims, which carry the climb travel tag that every generated agent's pathfinding refuses, so a WanderEnvs list would strand the gull on whichever side it started. The gull flies instead: three CustomDuties of equal weight (ties are broken uniformly, InGameNPC.SelectDuty) each TELEPORT it to one of its three boards and wait 4 to 8 ticks there, valid 05:00 to 20:00. By night it roosts on Gull Stack (an on-stage roost).",
+  "//Encounter": "Encounter.Ref points at FarTerritory/Encounter/ft_encounter_seagull.json (Development_Tools/FarTerritory/derive_animals.py, from vanilla Combat_EncounterFox, partridge body template): a wing display, a diving bite and a take-off; every hurting tier of the bite drops W_BiteWound only (plan W0-6).",
+  "//Carcass": "A killed gull drops the base game's Bird Meat (5dc9560f81be57c4b9e22780f8a5ad78, quality 96 by default), 2 to 4 Feathers (ac7fa8419b608d54fa2002aa589d3f94) and Bird Bones (3dda5e481d296c5409b05ac6e66a9221) where it fell, with no separate gull carcass card.",
+  "//Blood": "Agent.Blood.RatePerTick is 0 (see Macaque.json).",
+  "SchemaVersion": 1,
+  "SpeciesId": "ft_seagull",
+  "DisplayName": "Seagull",
+  "LocalizationKey": "Far_Territory_Seagull_AgentName",
+  "Sprite": "FT_Seagull",
+  "Agent": {
+    "Blood": { "Start": 20, "Max": 20, "RatePerTick": 0 },
+    "PoisonResistance": { "Start": 10, "RatePerTick": 0.4 }
+  },
+  "Spawn": {
+    "HomeEnv": "ftEnvGullStack",
+    "DeathRespawnTicks": 288
+  },
+  "ActivityWindow": {
+    "ActiveHours": { "Start": 5, "End": 20 },
+    "Roost": "ftEnvGullStack"
+  },
+  "CustomDuties": [
+    {
+      "Name": "FlyGullStack",
+      "BaseWeight": 100,
+      "ValidHours": { "Start": 5, "End": 20 },
+      "Actions": [
+        { "Type": "Move", "Destination": "Env", "Env": "ftEnvGullStack", "MovementType": "Teleport" },
+        { "Type": "Wait", "TicksRange": [4, 8] }
+      ]
+    },
+    {
+      "Name": "FlyBoulderShore",
+      "BaseWeight": 100,
+      "ValidHours": { "Start": 5, "End": 20 },
+      "Actions": [
+        { "Type": "Move", "Destination": "Env", "Env": "ftEnvBoulderShore", "MovementType": "Teleport" },
+        { "Type": "Wait", "TicksRange": [4, 8] }
+      ]
+    },
+    {
+      "Name": "FlyBleakStrand",
+      "BaseWeight": 100,
+      "ValidHours": { "Start": 5, "End": 20 },
+      "Actions": [
+        { "Type": "Move", "Destination": "Env", "Env": "ftEnvBleakStrand", "MovementType": "Teleport" },
+        { "Type": "Wait", "TicksRange": [4, 8] }
+      ]
+    }
+  ],
+  "Tracks": {
+    "Enabled": false
+  },
+  "Encounter": {
+    "Ref": "ft_encounter_seagull",
+    "ApproachButton": true
+  },
+  "Carcass": {
+    "Card": "5dc9560f81be57c4b9e22780f8a5ad78",
+    "ExtraDrops": [
+      { "Card": "ac7fa8419b608d54fa2002aa589d3f94", "Amount": [2, 4] },
+      { "Card": "3dda5e481d296c5409b05ac6e66a9221", "Amount": [1, 1] }
+    ]
+  }
+}

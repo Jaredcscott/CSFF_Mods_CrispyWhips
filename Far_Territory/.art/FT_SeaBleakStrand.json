@@ -1,0 +1,35 @@
+{
+  "target": "FT_SeaBleakStrand.png",
+  "sourceCard": null,
+  "subject": "long grey rollers breaking on a strand and dragging back over flint stones and shell, cold grey light, white foam, no sand dunes",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted illustration of long grey rollers breaking on a strand and dragging back over flint stones and shell, cold grey light, white foam, no sand dunes, in the style of a cozy hand-illustrated survival-crafting game: clean black ink linework with rich painterly colour and soft shading, warm natural light, a full-frame portrait scene (2:3) filling the whole canvas edge to edge with no white margin, a clear focal point in the middle, no characters unless stated, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, white background, white margin, cropped focal point, blurry, text, watermark, signature, logo, border, frame, user interface.",
+  "historyId": "a30AawutmeR3x4ZmLPUF",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647539362_659270cc_1791647540472_b19ed2e5.png",
+  "credits": 90,
+  "generated": "2026-10-10",
+  "note": "Owner pick from the 2026-10-10 batch picker; predicted was written before the owner looked. Finished by /process-card-art --full-bleed.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647539702_89cb10b7_1791647540340_5c58d0e7.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647538840_a067c3f3_1791647539523_b070fb06.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647539362_659270cc_1791647540472_b19ed2e5.png"
+    }
+  ],
+  "picked": "C",
+  "predicted": "B"
+}

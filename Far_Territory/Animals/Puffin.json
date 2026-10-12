@@ -1,0 +1,47 @@
+{
+  "//": "Far Territory plan P16 (Documentation/Plans/FarTerritory/MASTER_PLAN.md section 14, pack Prompt 30): the fjords' puffins, an Animals species on P13's pattern (Open question 11's default). A GENERATED agent (no Agent.Ref). Every number is a TUNABLE PLACEHOLDER, never measured against play.",
+  "//Range": "The three WanderEnvs are the fjords' three boards, all joined by compass links through Fjord Head, so a generated agent's pathfinding reaches each. Active 05:00 to 20:00; by night the birds are in their burrows on Puffin Cliffs (an on-stage roost).",
+  "//Encounter": "Encounter.Ref points at FarTerritory/Encounter/ft_encounter_puffin.json (Development_Tools/FarTerritory/derive_animals.py, from vanilla Combat_EncounterFox, duck body template): a wing flurry, a nip and a take-off; every hurting tier of the nip drops W_BiteWound only.",
+  "//Carcass": "A killed puffin drops the base game's Bird Meat (5dc9560f81be57c4b9e22780f8a5ad78), 1 to 2 Feathers (ac7fa8419b608d54fa2002aa589d3f94) and Bird Bones (3dda5e481d296c5409b05ac6e66a9221) where it fell, as the seagull does, with no separate carcass card.",
+  "//Tracks": "No tracks: it flies.",
+  "//Blood": "Agent.Blood.RatePerTick is 0 (see Macaque.json).",
+  "SchemaVersion": 1,
+  "SpeciesId": "ft_puffin",
+  "DisplayName": "Puffin",
+  "LocalizationKey": "Far_Territory_Puffin_AgentName",
+  "Sprite": "FT_Puffin",
+  "Agent": {
+    "Blood": { "Start": 8, "Max": 8, "RatePerTick": 0 },
+    "PoisonResistance": { "Start": 5, "RatePerTick": 0.4 }
+  },
+  "Spawn": {
+    "HomeEnv": "ftEnvPuffinCliffs",
+    "DeathRespawnTicks": 288
+  },
+  "ActivityWindow": {
+    "ActiveHours": { "Start": 5, "End": 20 },
+    "Roost": "ftEnvPuffinCliffs"
+  },
+  "Movement": {
+    "WanderEnvs": [
+      "ftEnvPuffinCliffs",
+      "ftEnvFjordHead",
+      "ftEnvSealSkerry"
+    ],
+    "WanderWeight": 100
+  },
+  "Tracks": {
+    "Enabled": false
+  },
+  "Encounter": {
+    "Ref": "ft_encounter_puffin",
+    "ApproachButton": true
+  },
+  "Carcass": {
+    "Card": "5dc9560f81be57c4b9e22780f8a5ad78",
+    "ExtraDrops": [
+      { "Card": "ac7fa8419b608d54fa2002aa589d3f94", "Amount": [1, 2] },
+      { "Card": "3dda5e481d296c5409b05ac6e66a9221", "Amount": [1, 1] }
+    ]
+  }
+}

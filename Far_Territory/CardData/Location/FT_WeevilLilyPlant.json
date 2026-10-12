@@ -1,0 +1,181 @@
+{
+  "UniqueID": "ft_weevil_lily_plant",
+  "CardType": 2,
+  "AlwaysUpdate": false,
+  "UniqueOnBoard": false,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_WeevilLilyPlant_CardName",
+    "DefaultText": "Weevil Lily"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_WeevilLilyPlant_CardDescription",
+    "DefaultText": "A low clump of long, pleated leaves like young palm fronds, rising straight from the forest floor. The leaves are tough with fibre."
+  },
+  "CardImageWarpData": "FT_WeevilLilyPlant",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "SpecialDurability1": {
+    "Active": true,
+    "FloatValue": 4.0,
+    "MaxValue": 4.0,
+    "RatePerDaytimePoint": 0.001388888888888889,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_WeevilLilyPlant_Yield",
+      "DefaultText": "Leaves"
+    },
+    "HidingOptions": 1
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_WeevilLilyPlant_DA_Cut",
+        "DefaultText": "Cut Weevil Lily Leaves"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_WeevilLilyPlant_DA_Cut_Desc",
+        "DefaultText": "Cut a few of the long pleated leaves. Takes about fifteen minutes."
+      },
+      "DaytimeCost": 1,
+      "ActionSoundsWarpData": [
+        "ExploreBushes"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [],
+      "ProducedCards": [
+        {
+          "CollectionName": "Picked",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_weevil_lily_leaves",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 2,
+                "y": 3
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": -1.0,
+          "y": -1.0
+        }
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.24,
+          "MaxValue": 1.0
+        },
+        "FailMessage": {
+          "LocalizationKey": "Far_Territory_WeevilLilyPlant_DA_Cut_Fail",
+          "DefaultText": "No leaves are ready to cut here yet"
+        }
+      }
+    },
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_WeevilLilyPlant_DA_Rhizome",
+        "DefaultText": "Dig up a Weevil Lily Rhizome"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_WeevilLilyPlant_DA_Rhizome_Desc",
+        "DefaultText": "Dig up a piece of the creeping root to plant. Takes about half an hour and dirties your hands."
+      },
+      "DaytimeCost": 2,
+      "ActionSoundsWarpData": [
+        "ExploreBushes"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "111606ba528c30e4f8e38494f41b92c7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 3.0,
+            "y": 3.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ProducedCards": [
+        {
+          "CollectionName": "Picked",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_weevil_lily_rhizome",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": -1.0,
+          "y": -1.0
+        }
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.24,
+          "MaxValue": 1.0
+        },
+        "FailMessage": {
+          "LocalizationKey": "Far_Territory_WeevilLilyPlant_DA_Rhizome_Fail",
+          "DefaultText": "The clump has no root to spare yet"
+        }
+      }
+    }
+  ]
+}

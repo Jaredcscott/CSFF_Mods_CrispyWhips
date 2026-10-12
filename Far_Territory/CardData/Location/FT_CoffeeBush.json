@@ -1,0 +1,89 @@
+{
+  "UniqueID": "ft_coffee_bush",
+  "CardType": 2,
+  "AlwaysUpdate": false,
+  "UniqueOnBoard": false,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_CoffeeBush_CardName",
+    "DefaultText": "Coffee Bush"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_CoffeeBush_CardDescription",
+    "DefaultText": "A glossy-leaved shrub with clusters of red berries along its branches."
+  },
+  "CardImageWarpData": "FT_CoffeeBush",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "SpecialDurability1": {
+    "Active": true,
+    "FloatValue": 4.0,
+    "MaxValue": 4.0,
+    "RatePerDaytimePoint": 0.001388888888888889,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_CoffeeBush_Yield",
+      "DefaultText": "Ripe Berries"
+    },
+    "HidingOptions": 1
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_CoffeeBush_DA_Pick",
+        "DefaultText": "Pick Coffee Berries"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_CoffeeBush_DA_Pick_Desc",
+        "DefaultText": "Pick the red berries. Takes about fifteen minutes."
+      },
+      "DaytimeCost": 1,
+      "ActionSoundsWarpData": [
+        "ExploreBushes"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [],
+      "ProducedCards": [
+        {
+          "CollectionName": "Picked",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_coffee_berries",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 3,
+                "y": 5
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": -1.0,
+          "y": -1.0
+        }
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.24,
+          "MaxValue": 1.0
+        },
+        "FailMessage": {
+          "LocalizationKey": "Far_Territory_CoffeeBush_DA_Pick_Fail",
+          "DefaultText": "No berry is ripe on this bush yet"
+        }
+      }
+    }
+  ]
+}

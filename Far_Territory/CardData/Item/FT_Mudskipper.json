@@ -1,0 +1,200 @@
+{
+  "UniqueID": "ft_mudskipper",
+  "CardType": 0,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_Mudskipper_CardName",
+    "DefaultText": "Mudskipper"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_Mudskipper_CardDescription",
+    "DefaultText": "A small fish that crawls out onto the mud and watches you with bulging eyes. More bone than meat."
+  },
+  "CardTagsWarpData": [
+    "tag_HumanFood",
+    "tag_Plateable"
+  ],
+  "CardTagsWarpType": 3,
+  "CardImageWarpData": "FT_Mudskipper",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 80.0,
+  "MaxStack": 10,
+  "SpoilageTime": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 192.0,
+    "RatePerDaytimePoint": 1.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_Mudskipper_Spoilage",
+      "DefaultText": "Spoilage"
+    },
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_Mudskipper_Spoiled",
+        "DefaultText": "The mudskipper has spoiled."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": false
+      }
+    }
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_Mudskipper_DA_Eat",
+        "DefaultText": "Eat Raw"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_Mudskipper_DA_Eat_Desc",
+        "DefaultText": "Eat the mudskipper as it is."
+      },
+      "DaytimeCost": 0,
+      "UseMiniTicks": 1,
+      "ActionTagsWarpData": [
+        "CarnivorousAction",
+        "EatingAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "930cf914322e9f145af1315d96f85a28",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 12.0,
+            "y": 12.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "7d345fd0f1ba4b440b1ca5190f6eb1b9",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 15.0,
+            "y": 15.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "278d5a1a68f65cb4883b775e8492464f",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 15.0,
+            "y": 15.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "fcf10706cd6d1fd4ba39438f6ebee503",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 6.0,
+            "y": 6.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ]
+}

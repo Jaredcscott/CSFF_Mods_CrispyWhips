@@ -1,0 +1,295 @@
+{
+  "UniqueID": "ft_stat_aloe",
+  "GameName": {
+    "LocalizationKey": "Far_Territory_Effect_Aloe_StatName",
+    "DefaultText": "Aloe Salve"
+  },
+  "Description": {
+    "LocalizationKey": "Far_Territory_Effect_Aloe_StatDescription",
+    "DefaultText": "Aloe gel spread on the skin. It cools what burns and helps a burn mend, and wears off over the following hours."
+  },
+  "IsRuntimeOnly": false,
+  "BaseValue": 0.0,
+  "MinMaxValue": {
+    "x": 0.0,
+    "y": 48.0
+  },
+  "BaseRatePerTick": -1.0,
+  "MinMaxRate": {
+    "x": 0.0,
+    "y": 0.0
+  },
+  "Transfers": [],
+  "TimeOfDayMods": [],
+  "CompositeStats": [],
+  "StatPriority": 0,
+  "RequiredPerks": [],
+  "Visibility": 0,
+  "VisibleInDetailedList": false,
+  "CannotBeInspected": false,
+  "InvertedDirection": false,
+  "VisibleValueRange": {
+    "x": 0.0,
+    "y": 0.0
+  },
+  "TrendIndicatorRateRange": {
+    "x": 0.0,
+    "y": 0.0
+  },
+  "StatusesHaveNoBar": false,
+  "DefaultStatusName": {
+    "ParentObjectID": "",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "DefaultStatusDescription": {
+    "ParentObjectID": "",
+    "LocalizationKey": "",
+    "DefaultText": ""
+  },
+  "DefaultStatusIcon": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "DefaultStatusIconWarpData": "Pain",
+  "DefaultStatusIconWarpType": 3,
+  "Statuses": [
+    {
+      "GameName": {
+        "LocalizationKey": "Far_Territory_Effect_Aloe_Status_Mild_Name",
+        "DefaultText": "Aloe Salve"
+      },
+      "Description": {
+        "LocalizationKey": "Far_Territory_Effect_Aloe_Status_Mild_Description",
+        "DefaultText": "Aloe gel on your skin dulls the sting of a burn and helps it mend."
+      },
+      "StatusLog": {
+        "LogText": {
+          "ParentObjectID": "",
+          "LocalizationKey": "",
+          "DefaultText": ""
+        },
+        "Category": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TicksToRegister": 0
+      },
+      "Icon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "IconWarpData": "Pain",
+      "IconWarpType": 3,
+      "ValueRange": {
+        "x": 1,
+        "y": 24
+      },
+      "UsePercentageForRange": false,
+      "EffectsOnStats": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -25.0,
+            "y": -25.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "790683ee1f7ce42479fd30360f5ce41f",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "RateModifier": {
+            "x": -1.0,
+            "y": -1.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "EffectsOnNPCStats": [],
+      "EffectsOnActions": [],
+      "NotifyPlayer": 0,
+      "RepeatTextNotification": 0,
+      "AlertLevel": 0,
+      "AlertSounds": [],
+      "RepeatAlertSounds": 0,
+      "AmbientSounds": [],
+      "GameOver": false,
+      "ActionsMaxTicks": 0,
+      "PreventingActionMessage": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "CombatEffects": [],
+      "ConfidenceModifier": 0.0
+    },
+    {
+      "GameName": {
+        "LocalizationKey": "Far_Territory_Effect_Aloe_Status_Strong_Name",
+        "DefaultText": "Thick Aloe Salve"
+      },
+      "Description": {
+        "LocalizationKey": "Far_Territory_Effect_Aloe_Status_Strong_Description",
+        "DefaultText": "A thick layer of aloe gel. Burns ease and mend faster while it lasts."
+      },
+      "StatusLog": {
+        "LogText": {
+          "ParentObjectID": "",
+          "LocalizationKey": "",
+          "DefaultText": ""
+        },
+        "Category": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        },
+        "TicksToRegister": 0
+      },
+      "Icon": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "IconWarpData": "Pain",
+      "IconWarpType": 3,
+      "ValueRange": {
+        "x": 25,
+        "y": 48
+      },
+      "UsePercentageForRange": false,
+      "EffectsOnStats": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "ec5f330267076884dbe9cfdd2fd8503b",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -50.0,
+            "y": -50.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "790683ee1f7ce42479fd30360f5ce41f",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "RateModifier": {
+            "x": -2.0,
+            "y": -2.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "EffectsOnNPCStats": [],
+      "EffectsOnActions": [],
+      "NotifyPlayer": 0,
+      "RepeatTextNotification": 0,
+      "AlertLevel": 0,
+      "AlertSounds": [],
+      "RepeatAlertSounds": 0,
+      "AmbientSounds": [],
+      "GameOver": false,
+      "ActionsMaxTicks": 0,
+      "PreventingActionMessage": {
+        "ParentObjectID": "",
+        "LocalizationKey": "",
+        "DefaultText": ""
+      },
+      "CombatEffects": [],
+      "ConfidenceModifier": 0.0
+    }
+  ],
+  "UsesNovelty": false
+}

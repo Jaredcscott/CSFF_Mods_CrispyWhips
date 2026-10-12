@@ -1,0 +1,94 @@
+{
+  "UniqueID": "ft_spider_lily_leaves",
+  "CardType": 0,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_SpiderLilyLeaves_CardName",
+    "DefaultText": "Spider Lily Leaves"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_SpiderLilyLeaves_CardDescription",
+    "DefaultText": "Long, thick, fleshy leaves. Poisonous to eat, but warmed and bound on the skin they ease aches for a few hours."
+  },
+  "CardImageWarpData": "FT_SpiderLilyLeaves",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 30.0,
+  "MaxStack": 8,
+  "SpoilageTime": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 480.0,
+    "RatePerDaytimePoint": 1.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_SpiderLilyLeaves_Spoilage",
+      "DefaultText": "Spoilage"
+    },
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_SpiderLilyLeaves_Spoiled",
+        "DefaultText": "The spider lily leaves have spoiled."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": false
+      }
+    }
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_SpiderLilyLeaves_DA_Poultice",
+        "DefaultText": "Bind as a Poultice"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_SpiderLilyLeaves_DA_Poultice_Desc",
+        "DefaultText": "Warm the leaves until they soften and bind them on where it aches. Aches ease for a few hours (Lily Poultice). Takes about fifteen minutes."
+      },
+      "DaytimeCost": 1,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "ft_stat_spider_lily",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 24.0,
+            "y": 24.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ]
+}

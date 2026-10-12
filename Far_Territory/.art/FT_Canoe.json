@@ -1,0 +1,45 @@
+{
+  "target": "FT_Canoe.png",
+  "sourceCard": "CardData/Item/FT_Canoe.json",
+  "subject": "a dugout canoe: one whole tree log hollowed out into a long narrow boat, rough adze marks on the wood, pointed ends, its seams patched with strips of brown bark, a single plain wooden paddle lying inside. No outrigger, no sail.",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: a dugout canoe: one whole tree log hollowed out into a long narrow boat, rough adze marks on the wood, pointed ends, its seams patched with strips of brown bark, a single plain wooden paddle lying inside. No outrigger, no sail.\nStyle: vanilla survival card game item art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, slight three-quarter angle, a single subject comfortably inset from every edge with a generous white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: outrigger float, sail, mast, water, multiple paddles, footprints, tracks, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, cropped, blurry, scenery behind the subject, grey background, off-white background, gradient background, checkerboard, transparency grid, drop shadow, text, watermark, signature, logo, border, frame.",
+  "refs": [
+    {
+      "label": "vanilla LogPiece (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/LogPiece_1791697573880_2de4c7fa.png"
+    },
+    {
+      "label": "vanilla Bowl_Clay (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bowl_Clay_1791697575163_a3345586.png"
+    }
+  ],
+  "historyId": "PSG8GV4UQYqVuYkwUTe3",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698841313_270a83f2_1791698841361_f0657649.png",
+  "credits": 60,
+  "generated": "2026-10-11",
+  "note": "Owner pick 2026-10-11 from the Prompt 32 picker page picker_32 (3 samples; predicted A, written before the owner looked). Finished by /process-card-art (white paper keyed). Used by Bp_FT_Canoe, FT_Canoe.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698841313_270a83f2_1791698841361_f0657649.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698840570_417edc2a_1791698840812_fde8f508.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698839908_28b2ceda_1791698840007_26d582f8.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A"
+}

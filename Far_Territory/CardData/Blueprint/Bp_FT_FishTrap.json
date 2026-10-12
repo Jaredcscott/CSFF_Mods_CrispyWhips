@@ -1,0 +1,107 @@
+{
+  "UniqueID": "ft_bp_fish_trap",
+  "CardType": 7,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_BpFishTrap_CardName",
+    "DefaultText": "Fish Trap"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_BpFishTrap_CardDescription",
+    "DefaultText": "A funnel-mouthed cage of twigs and twine for the shallows of a calm shore. Requires 4 twigs and 3 twine."
+  },
+  "UnlockConditionsDesc": {
+    "LocalizationKey": "Far_Territory_BpFishTrap_UnlockConditionsDesc",
+    "DefaultText": "Available from the start"
+  },
+  "BlueprintUnlockTicksCost": 8.0,
+  "BuildingStatConditions": [],
+  "StartUnlocked": false,
+  "CardsOnBoard": [],
+  "TagsOnBoard": [],
+  "StatValues": [
+    {
+      "ObjectiveName": "ResearchableFromStart",
+      "CompletionWeight": 1,
+      "StatCondition": {
+        "Stat": {"m_FileID": 0, "m_PathID": 0},
+        "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+        "StatWarpType": 3,
+        "TriggerRange": {"x": 0.0, "y": 100000.0}
+      },
+      "ConstantlyChecking": false
+    }
+  ],
+  "BlueprintStages": [
+    {
+      "CannotRevertToThisStage": false,
+      "RequiredElements": [
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredTabGroup": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 4,
+          "DontSpend": false,
+          "RequiredCardWarpData": "fa8834c3111a71f47bdd23d66b33cf61",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredTabGroup": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 3,
+          "DontSpend": false,
+          "RequiredCardWarpData": "f6e8281ffa0e6eb4b8bf1dc5e5ae1338",
+          "RequiredCardWarpType": 3
+        }
+      ],
+      "StepActionTags": [],
+      "StepActionTagsWarpData": [
+        "HandAction"
+      ],
+      "StepActionTagsWarpType": 3
+    }
+  ],
+  "BuildingDaytimeCost": 6,
+  "DeconstructDaytimeCost": 2,
+  "BlueprintResult": [
+    {
+      "DroppedCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      },
+      "DroppedCardWarpData": "ft_fish_trap",
+      "DroppedCardWarpType": 3
+    }
+  ],
+  "BlueprintStatModifications": [],
+  "WhenCreatedSoundsWarpData": [
+    "Wood"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "BlueprintActionTagsWarpData": [
+    "HandAction",
+    "CraftAction"
+  ],
+  "BlueprintActionTagsWarpType": 3,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "FT_FishTrap",
+  "CardImageWarpType": 3,
+  "ResearchedNotification": 0
+}

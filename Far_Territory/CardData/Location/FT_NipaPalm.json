@@ -1,0 +1,89 @@
+{
+  "UniqueID": "ft_nipa_palm",
+  "CardType": 2,
+  "AlwaysUpdate": false,
+  "UniqueOnBoard": false,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_NipaPalm_CardName",
+    "DefaultText": "Nipa Palm"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_NipaPalm_CardDescription",
+    "DefaultText": "A stemless palm growing out of the brackish mud, its fronds rising straight from the ground. Fruit heads ripen low among them."
+  },
+  "CardImageWarpData": "FT_NipaPalm",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "SpecialDurability1": {
+    "Active": true,
+    "FloatValue": 2.0,
+    "MaxValue": 2.0,
+    "RatePerDaytimePoint": 0.0006944444444444445,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_NipaPalm_Yield",
+      "DefaultText": "Fruit Heads"
+    },
+    "HidingOptions": 1
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_NipaPalm_DA_Pick",
+        "DefaultText": "Cut a Fruit Head"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_NipaPalm_DA_Pick_Desc",
+        "DefaultText": "Wade in and cut a ripe fruit head from its stalk. Takes about fifteen minutes."
+      },
+      "DaytimeCost": 1,
+      "ActionSoundsWarpData": [
+        "ExploreBushes"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "StatModifications": [],
+      "ProducedCards": [
+        {
+          "CollectionName": "Picked",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ft_nipa_fruit",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 1,
+        "Special1Change": {
+          "x": -1.0,
+          "y": -1.0
+        }
+      },
+      "RequiredReceivingDurabilities": {
+        "RequiredSpecial1Percent": {
+          "Active": true,
+          "FloatValue": 0.49,
+          "MaxValue": 1.0
+        },
+        "FailMessage": {
+          "LocalizationKey": "Far_Territory_NipaPalm_DA_Pick_Fail",
+          "DefaultText": "No fruit head is ripe on this palm yet"
+        }
+      }
+    }
+  ]
+}

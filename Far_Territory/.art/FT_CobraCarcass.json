@@ -1,0 +1,45 @@
+{
+  "target": "FT_CobraCarcass.png",
+  "sourceCard": "CardData/Item/FT_CobraCarcass.json",
+  "subject": "a dead cobra lying in a loose S-shaped curve, its hood folded flat, dark olive-brown scales with a paler throat. Whole and intact, no blood.",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: a dead cobra lying in a loose S-shaped curve, its hood folded flat, dark olive-brown scales with a paler throat. Whole and intact, no blood.\nStyle: vanilla survival card game item art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, slight three-quarter angle, a single subject comfortably inset from every edge with a generous white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: blood pool, gore, ground, coiled alive pose, footprints, tracks, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, cropped, blurry, scenery behind the subject, grey background, off-white background, gradient background, checkerboard, transparency grid, drop shadow, text, watermark, signature, logo, border, frame.",
+  "refs": [
+    {
+      "label": "vanilla Squirrel (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Squirrel_1791700794433_70c7052b.png"
+    },
+    {
+      "label": "vanilla Stag (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Stag_1791697572421_8309684d.png"
+    }
+  ],
+  "historyId": "w0m92qV8qeb0He0qOGqK",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701139411_0197c90d_1791701139452_a90a50c9.png",
+  "credits": 60,
+  "generated": "2026-10-11",
+  "note": "Owner pick 2026-10-11 from the Prompt 26 picker page picker_26b (3 samples; predicted C, written before the owner looked). Finished by /process-card-art (white paper keyed). Used by FT_CobraCarcass.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701140213_421b7068_1791701140270_adcdb07c.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701139286_031962a3_1791701139349_88926e76.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791701139411_0197c90d_1791701139452_a90a50c9.png"
+    }
+  ],
+  "picked": "C",
+  "predicted": "C"
+}

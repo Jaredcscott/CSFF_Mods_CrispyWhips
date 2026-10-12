@@ -1,0 +1,48 @@
+{
+  "target": "FT_PathScrub.png",
+  "sourceCard": "CardData/Location/FT_PathLandfallStrandPalmFringe.json",
+  "subject": "the top of a tropical beach where white sand meets low green scrub: a narrow open gap of smooth pale sand a few steps through knee-high scrub and dry brown fronds, leaning palms just beyond, jungle behind; no marks on the sand, no people",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject, their forest or their composition.\nSubject: the top of a tropical beach where the white sand meets low green scrub, seen from the sand looking inland. A narrow open gap of smooth pale sand runs a few steps through knee-high clumps of low green scrub and dry brown fronds, and just beyond the scrub stand a few tall palms leaning over, with denser green jungle behind them. The gap is simply open sand between the bushes, smooth and untouched, with no marks on it. Bright soft daylight, pale blue sky. No people, no animals, no buildings.\nStyle: vanilla survival card game location art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, prints in the ground, sand, mud or snow, drag marks, a worn trail line, people, animals, birds, boats, huts, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
+  "refs": [
+    {
+      "label": "vanilla Path (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Path_1791693750843_84388d59.png"
+    },
+    {
+      "label": "vanilla Swamp1 (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Swamp1_1791693751649_15bef096.png"
+    }
+  ],
+  "historyId": "aNAVlxMCprdheE9912AY",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791695104135_0b86baad_1791695104692_dea1fc93.png",
+  "credits": 90,
+  "generated": "2026-10-10",
+  "note": "Redo of the first 2026-10-10 batch (9IT8l694dSLY4lDIZwwi), whose samples showed footprints, which the owner bans. All three samples passed a zoomed ground check. Owner picked C 2026-10-10 (prediction hit). Finished by /process-card-art --full-bleed. Used by FT_PathLandfallStrandPalmFringe and FT_PathPalmFringeLandfallStrand.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791695093008_bb5bcc62_1791695093550_0a4f8b99.png",
+      "verdict": "no prints; the gap opens into a wide sand apron"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791695096395_7a2dcc94_1791695097168_f2cd218e.png",
+      "verdict": "no prints; blurry grey smudge on the foreground sand"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791695104135_0b86baad_1791695104692_dea1fc93.png",
+      "verdict": "no prints; narrow gap a few steps through scrub and dry fronds, leaning palms beyond"
+    }
+  ],
+  "picked": "C",
+  "predicted": "C"
+}

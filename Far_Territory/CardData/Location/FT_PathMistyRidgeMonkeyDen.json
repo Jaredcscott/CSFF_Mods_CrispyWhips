@@ -1,0 +1,69 @@
+{
+  "UniqueID": "ft_path_mistyridge_monkeyden",
+  "CardType": 2,
+  "AlwaysUpdate": false,
+  "UniqueOnBoard": true,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_PathMistyRidgeMonkeyDen_CardName",
+    "DefaultText": "Path to Monkey Den"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_PathMistyRidgeMonkeyDen_CardDescription",
+    "DefaultText": "A hollow among the roots of the ridge, trampled bare and scattered with shells, is the mouth of a den."
+  },
+  "CardImageWarpData": "FT_PathCaveMouth",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_PathMistyRidgeMonkeyDen_DA_Travel",
+        "DefaultText": "Enter the Monkey Den"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_PathMistyRidgeMonkeyDen_DA_Travel_Desc",
+        "DefaultText": "Crawl in among the roots to the den. It is only a few steps."
+      },
+      "DaytimeCost": 0,
+      "ActionSoundsWarpData": [
+        "ExploreBushes"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ActionTagsWarpData": [
+        "TravelAction",
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "NotBaseAction": true,
+      "ProducedCards": [
+        {
+          "CollectionName": "Travel",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ftEnvMonkeyDen",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "FadeToBlack": 1,
+      "FadeMessage": {
+        "LocalizationKey": "Far_Territory_PathMistyRidgeMonkeyDen_DA_Travel_Fade",
+        "DefaultText": "Crawling into the den..."
+      }
+    }
+  ]
+}

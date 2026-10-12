@@ -1,0 +1,69 @@
+{
+  "UniqueID": "ft_path_easternuplands_lavatube",
+  "CardType": 2,
+  "AlwaysUpdate": false,
+  "UniqueOnBoard": true,
+  "CannotBeTrashed": true,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_PathEasternUplandsLavaTube_CardName",
+    "DefaultText": "Path to Lava Tube"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_PathEasternUplandsLavaTube_CardDescription",
+    "DefaultText": "A round black tunnel mouth opens in the rock of the uplands, smooth as the inside of a pipe."
+  },
+  "CardImageWarpData": "FT_PathCaveMouth",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 0.0,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_PathEasternUplandsLavaTube_DA_Travel",
+        "DefaultText": "Enter the Lava Tube"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_PathEasternUplandsLavaTube_DA_Travel_Desc",
+        "DefaultText": "Walk into the tunnel out of the wind. It is only a few steps."
+      },
+      "DaytimeCost": 0,
+      "ActionSoundsWarpData": [
+        "ExploreBushes"
+      ],
+      "ActionSoundsWarpType": 3,
+      "ActionTagsWarpData": [
+        "TravelAction",
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "NotBaseAction": true,
+      "ProducedCards": [
+        {
+          "CollectionName": "Travel",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ftEnvLavaTube",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "FadeToBlack": 1,
+      "FadeMessage": {
+        "LocalizationKey": "Far_Territory_PathEasternUplandsLavaTube_DA_Travel_Fade",
+        "DefaultText": "Walking into the tunnel..."
+      }
+    }
+  ]
+}

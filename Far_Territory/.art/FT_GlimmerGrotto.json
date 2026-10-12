@@ -1,0 +1,41 @@
+{
+  "target": "FT_GlimmerGrotto.png",
+  "sourceCard": "CardData/Environment/FT_GlimmerGrotto.json",
+  "subject": "inside a small cave whose grey rock walls glitter faintly all over with tiny pale mineral flecks catching a dim light, like scattered specks of light in the stone; a plain rock floor with a few ordinary grey stones, a low dark opening at the back.",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 2,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: inside a small cave whose grey rock walls glitter faintly all over with tiny pale mineral flecks catching a dim light, like scattered specks of light in the stone; a plain rock floor with a few ordinary grey stones, a low dark opening at the back.\nStyle: vanilla survival card game location art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, animals, geode, geodes, broken-open stone, crystal cluster, crystals, amethyst, gem, gemstones, purple, glowing crystals, torch, flame, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
+  "refs": [
+    {
+      "label": "vanilla Tunnel_1 (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Tunnel_1_1791697554255_c7ac50b2.png"
+    },
+    {
+      "label": "vanilla Waterfall_Cave (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Waterfall_Cave_1791697554788_97421448.png"
+    }
+  ],
+  "historyId": "28PkmavvQ4oi8gtDzRjP",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791705061608_677022a3_1791705061681_c60781eb.png",
+  "credits": 40,
+  "generated": "2026-10-11",
+  "note": "Owner pick 2026-10-11 from the redraw picker page picker_redraw (2 samples; predicted A, written before the owner looked). Owner asked for a fresh redraw; vanilla sprites as style references only. Finished by /process-card-art --full-bleed. Used by FT_GlimmerGrotto, FT_GlimmerGrottoLocation.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791705061608_677022a3_1791705061681_c60781eb.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791705060782_ddff1039_1791705060977_8607f51e.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A"
+}

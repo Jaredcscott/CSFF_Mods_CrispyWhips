@@ -1,0 +1,41 @@
+{
+  "target": "FT_PathUnderwater.png",
+  "sourceCard": "CardData/Location/FT_PathCliffboundCoveDrownedHall.json",
+  "subject": "fully underwater, seen from inside the water: a flooded rock passage running away from the viewer, its walls and roof rough dark rock entirely submerged, blue-green light filtering down from the water surface above in soft shafts, strings of small round air bubbles rising, a few strands of weed on the rock, and at the far end the passage opening toward brighter, paler blue-green water. Everything is under water; there is no air and no dry floor. No person.",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 2,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: fully underwater, seen from inside the water: a flooded rock passage running away from the viewer, its walls and roof rough dark rock entirely submerged, blue-green light filtering down from the water surface above in soft shafts, strings of small round air bubbles rising, a few strands of weed on the rock, and at the far end the passage opening toward brighter, paler blue-green water. Everything is under water; there is no air and no dry floor. No person.\nStyle: vanilla survival card game location art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, animals, fish, divers, swimmers, dry cave floor, dry rock, air pocket, water surface line across the middle, torch, flame, sand floor, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
+  "refs": [
+    {
+      "label": "vanilla Waterfall_Cave (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Waterfall_Cave_1791697554788_97421448.png"
+    },
+    {
+      "label": "vanilla Tunnel_1 (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Tunnel_1_1791697554255_c7ac50b2.png"
+    }
+  ],
+  "historyId": "uE8PkFt9SbIU6CD9344h",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791705056753_d64ece0c_1791705056848_0a4195ed.png",
+  "credits": 40,
+  "generated": "2026-10-11",
+  "note": "Owner pick 2026-10-11 from the redraw picker page picker_redraw (2 samples; predicted B, written before the owner looked). Owner asked for a fresh redraw; vanilla sprites as style references only. Finished by /process-card-art --full-bleed. Used by FT_PathCliffboundCoveDrownedHall, FT_PathDrownedHallCliffboundCove.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791705056223_dc1d1b2f_1791705056546_1191b123.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791705056753_d64ece0c_1791705056848_0a4195ed.png"
+    }
+  ],
+  "picked": "B",
+  "predicted": "B"
+}

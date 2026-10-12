@@ -1,0 +1,195 @@
+{
+  "UniqueID": "ft_canoe",
+  "CardType": 0,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_Canoe_CardName",
+    "DefaultText": "Dugout Canoe"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_Canoe_CardDescription",
+    "DefaultText": "A dugout canoe hollowed from a tree log, its seams patched with bark. On a flowing river it carries you and your load all the way down to Brackwater Mouth, the river's end, in about an hour. It cannot be paddled upstream, on a lake, a marsh or a frozen river, and it is heavy to carry."
+  },
+  "CardImageWarpData": "FT_Canoe",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 3000.0,
+  "WhenCreatedSoundsWarpData": [
+    "Wood"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_Canoe_DA_Paddle",
+        "DefaultText": "Paddle Downstream"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_Canoe_DA_Paddle_Desc",
+        "DefaultText": "Push off into the current and let the river carry you down to Brackwater Mouth, where it meets the sea. About an hour."
+      },
+      "DaytimeCost": 4,
+      "ActionSoundsWarpData": [
+        "DiveShort"
+      ],
+      "ActionSoundsWarpType": 3,
+      "NotBaseAction": true,
+      "HideIfConditionsNotMet": true,
+      "RequiredCardsOnBoard": [
+        {
+          "TriggerCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "TriggerCardWarpData": "f6ba7b43e3e920b49a84510ca27f527c",
+          "TriggerCardWarpType": 3,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "Inverted": false,
+          "OnlyEquipped": false
+        },
+        {
+          "TriggerCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "TriggerCardWarpData": "ftLocRiverMouth",
+          "TriggerCardWarpType": 3,
+          "OnlyInHand": false,
+          "NotInHand": false,
+          "ExcludeInventories": false,
+          "Inverted": true,
+          "OnlyEquipped": false
+        }
+      ],
+      "StatModifications": [
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "1cfd30cf13b69b949a0ac521f55a59a2",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -2.0,
+            "y": -2.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "08d242ad068c51b4fbef44d546645ac7",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": 10.0,
+            "y": 10.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": false,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        },
+        {
+          "Stat": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "StatWarpData": "16af37a364285d14586629e3e0700e55",
+          "StatWarpType": 3,
+          "ValueModifier": {
+            "x": -43.0,
+            "y": -43.0
+          },
+          "RateModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MinValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "MaxValueModifier": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "CannotModifyBeyond": {
+            "Active": false,
+            "FloatValue": 0.0,
+            "MaxValue": 0.0
+          },
+          "ApplyEachTick": true,
+          "InstantModifier": false,
+          "IgnoreNovelty": false,
+          "IsInverse": false
+        }
+      ],
+      "ProducedCards": [
+        {
+          "CollectionName": "Downstream",
+          "CollectionWeight": 1,
+          "DroppedCards": [
+            {
+              "DroppedCard": {
+                "m_FileID": 0,
+                "m_PathID": 0
+              },
+              "DroppedCardWarpData": "ftEnvRiverMouth",
+              "DroppedCardWarpType": 3,
+              "Quantity": {
+                "x": 1,
+                "y": 1
+              }
+            }
+          ]
+        }
+      ],
+      "ReceivingCardChanges": {
+        "ModType": 0
+      },
+      "FadeToBlack": 1,
+      "FadeMessage": {
+        "LocalizationKey": "Far_Territory_Canoe_DA_Paddle_Fade",
+        "DefaultText": "Paddling downstream..."
+      }
+    }
+  ]
+}

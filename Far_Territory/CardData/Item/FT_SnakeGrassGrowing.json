@@ -1,0 +1,65 @@
+{
+  "UniqueID": "ft_snake_grass_growing",
+  "CardType": 0,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_SnakeGrassGrowing_CardName",
+    "DefaultText": "Growing Snake Grass"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_SnakeGrassGrowing_CardDescription",
+    "DefaultText": "Young blades taking hold in a garden plot. They grow only while they sit in the plot, and are ready to cut after about 10 days there."
+  },
+  "CardImageWarpData": "FT_GrowingGrass",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 100.0,
+  "DoesNotPile": true,
+  "CardTagsWarpData": [
+    "tag_Gardenable",
+    "tag_GardenPlantGrowing"
+  ],
+  "CardTagsWarpType": 3,
+  "Progress": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 960.0,
+    "RatePerDaytimePoint": 0.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_SnakeGrassGrowing_Growth",
+      "DefaultText": "Growth"
+    },
+    "HidingOptions": 3,
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_SnakeGrassGrowing_Ready",
+        "DefaultText": "The snake grass is ready to cut."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "ft_snake_grass_garden",
+        "TransformIntoWarpType": 3
+      }
+    }
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_SnakeGrassGrowing_DA_Uproot",
+        "DefaultText": "Uproot"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_SnakeGrassGrowing_DA_Uproot_Desc",
+        "DefaultText": "Pull the plant up and throw it away. Nothing is gained."
+      },
+      "DaytimeCost": 1,
+      "ConfirmPopup": true,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ]
+}

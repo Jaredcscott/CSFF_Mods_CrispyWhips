@@ -1,0 +1,35 @@
+{
+  "target": "FT_BleakStrand.png",
+  "sourceCard": null,
+  "subject": "a long empty beach of grey sand under a bare headland, grey flint stones and bleached driftwood scattered along it, an overcast grey sky, a small islet of white-streaked rock far offshore",
+  "model": "nano-banana-2",
+  "mode": "text2image",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Hand-painted illustration of a long empty beach of grey sand under a bare headland, grey flint stones and bleached driftwood scattered along it, an overcast grey sky, a small islet of white-streaked rock far offshore, in the style of a cozy hand-illustrated survival-crafting game: clean black ink linework with rich painterly colour and soft shading, warm natural light, a full-frame portrait scene (2:3) filling the whole canvas edge to edge with no white margin, a clear focal point in the middle, no characters unless stated, no text, no watermark, no signature, no border, no frame.\nAvoid: photo, photorealistic, 3D render, pixel art, neon colors, lens flare, white background, white margin, cropped focal point, blurry, text, watermark, signature, logo, border, frame, user interface.",
+  "historyId": "OXW5rxWGaK9XsRR1IMKQ",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647477360_60514dee_1791647477659_c5e8ee3d.png",
+  "credits": 90,
+  "generated": "2026-10-10",
+  "note": "Owner pick from the 2026-10-10 batch picker; predicted was written before the owner looked. Finished by /process-card-art --full-bleed.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647477360_60514dee_1791647477659_c5e8ee3d.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647476750_b218db2c_1791647477717_737f6a69.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791647476971_e088fcbe_1791647477974_bb010c67.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "C"
+}

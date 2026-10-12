@@ -1,0 +1,66 @@
+{
+  "UniqueID": "ft_weevil_lily_rhizome",
+  "CardType": 0,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_WeevilLilyRhizome_CardName",
+    "DefaultText": "Weevil Lily Rhizome"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_WeevilLilyRhizome_CardDescription",
+    "DefaultText": "A knobbly piece of creeping root dug from a weevil lily. Set it in a garden plot and it grows."
+  },
+  "CardImageWarpData": "FT_WeevilLilyRhizome",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 20.0,
+  "MaxStack": 8,
+  "CardTagsWarpData": [
+    "tag_Gardenable"
+  ],
+  "CardTagsWarpType": 3,
+  "SpoilageTime": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 1440.0,
+    "RatePerDaytimePoint": 1.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_WeevilLilyRhizome_Spoilage",
+      "DefaultText": "Spoilage"
+    },
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_WeevilLilyRhizome_Spoiled",
+        "DefaultText": "The weevil lily rhizome has spoiled."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "25a487b16088c2046a51935973ba6a90",
+        "TransformIntoWarpType": 3,
+        "SpawnTransformAtSource": false
+      }
+    }
+  },
+  "Progress": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 1.0,
+    "RatePerDaytimePoint": 0.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_WeevilLilyRhizome_Planting",
+      "DefaultText": "Planting"
+    },
+    "HidingOptions": 2,
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_WeevilLilyRhizome_Planted",
+        "DefaultText": "The weevil lily rhizome has taken root in the garden plot."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "ft_weevil_lily_growing",
+        "TransformIntoWarpType": 3
+      }
+    }
+  }
+}

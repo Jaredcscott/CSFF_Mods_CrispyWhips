@@ -1,0 +1,39 @@
+{
+  "target": "FT_FishTrapSet.png",
+  "sourceCard": [
+    "CardData/Location/FT_FishTrapPlaced.json"
+  ],
+  "subject": "a fish trap set for fishing: a cylindrical cage of thin peeled twigs bound in rings of brown twine, its open funnel mouth of inward-turned twigs facing the viewer, lashed with twine to a single upright wooden stake standing beside it with a sharpened lower end; the twigs dark and wet, a few drops of water falling from its lower edge, a strand of green weed caught in the twigs, and one small silver fish visible inside the cage.",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "(see historyId; the item or scene template of this folder's 2026-10-11 sidecars with the subject above)",
+  "refs": [
+    {
+      "label": "vanilla LogPiece (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/LogPiece_1791697573880_2de4c7fa.png"
+    },
+    {
+      "label": "vanilla Bowl_Clay (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bowl_Clay_1791697575163_a3345586.png"
+    }
+  ],
+  "historyId": "suvlYRnYIyClUlafMuLp",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791743169824_acace581_1791743169914_5b94d3eb.png",
+  "credits": 20,
+  "generated": "2026-10-11",
+  "note": "Owner asked 2026-10-11 for one sample per card, redos to follow; replaces the base-game stand-in (FunnelTrap). Finished by /process-card-art (white paper keyed). Used by FT_FishTrapPlaced.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791743169824_acace581_1791743169914_5b94d3eb.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "A"
+}

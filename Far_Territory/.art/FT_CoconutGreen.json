@@ -1,0 +1,45 @@
+{
+  "target": "FT_CoconutGreen.png",
+  "sourceCard": "CardData/Item/FT_CoconutGreen.json",
+  "subject": "one whole green coconut still in its thick smooth green outer husk, oval and slightly three-sided, a small brown stem scar at the top. Unopened, no cut, no hairy brown shell showing.",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: one whole green coconut still in its thick smooth green outer husk, oval and slightly three-sided, a small brown stem scar at the top. Unopened, no cut, no hairy brown shell showing.\nStyle: vanilla survival card game item art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, slight three-quarter angle, a single subject comfortably inset from every edge with a generous white margin, isolated on a solid flat pure white background (#FFFFFF) that fills every edge of the frame, no ground shadow, no scenery, no surface. No text, no watermark, no signature, no border, no frame.\nAvoid: brown hairy shell, cut husk, palm leaves, multiple coconuts, footprints, tracks, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, pixel art, neon colours, cropped, blurry, scenery behind the subject, grey background, off-white background, gradient background, checkerboard, transparency grid, drop shadow, text, watermark, signature, logo, border, frame.",
+  "refs": [
+    {
+      "label": "vanilla PineNuts (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/PineNuts_1791697574555_66534f44.png"
+    },
+    {
+      "label": "vanilla Bowl_Clay (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bowl_Clay_1791697575163_a3345586.png"
+    }
+  ],
+  "historyId": "rm8D2JoHvgQBgYCNkwBb",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698343189_f5fec715_1791698343241_a9ebadf1.png",
+  "credits": 60,
+  "generated": "2026-10-11",
+  "note": "Owner pick 2026-10-11 from the Prompt 26 picker page picker_26 (3 samples; predicted B, written before the owner looked). Finished by /process-card-art (white paper keyed). Used by FT_CoconutGreen.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698343189_f5fec715_1791698343241_a9ebadf1.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698342839_b304df3e_1791698342886_5c24ca24.png"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698342441_2138eb2a_1791698342472_70ce8b7e.png"
+    }
+  ],
+  "picked": "A",
+  "predicted": "B"
+}

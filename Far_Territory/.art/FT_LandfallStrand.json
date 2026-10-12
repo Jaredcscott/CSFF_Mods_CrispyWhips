@@ -1,0 +1,26 @@
+{
+  "target": "FT_LandfallStrand.png",
+  "sourceCard": "CardData/Location/FT_LandfallStrandLocation.json",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF card art as style reference)",
+  "params": {
+    "imageCount": 1,
+    "aspectRatio": "2:3",
+    "resolution": "2K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are style references only: match their flat posterized colour fills, thin dark ink outlines, small ink tick marks and muted palette (reference 2 shows the palette of the other beach cards in this set: pale tan sand, grey-green sea, soft grey sky); do not copy their subjects or composition.\nSubject: a view from a low hill down onto a curving bay. A long crescent of smooth pale sand curves from the lower left round to the middle right, hugging calm muted blue-green sea on the right. Leaning coconut palms with ragged dark green fronds fringe the sand along its inland edge, and behind them rough green hills of broken jungle country rise toward the upper left. A muted pale sky with a few flat grey-white clouds. Small breaking waves leave a thin white line along the shore.\nThe sand is smooth and untouched: no footprints, no tracks, no prints of any kind.\nStyle: Card Survival Fantasy Forest game card art. Flat posterized colour fills in a few hard-edged tonal steps, cel-like, no soft gradients, no watercolour bleed, no paper texture. Thin dark ink outlines and small ink hatch and tick marks for texture. Muted naturalistic palette, the sea a muted grey-green, never bright turquoise. Realistic proportions, nothing glossy, no fantasy glow, no sun glare. The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, prints or marks in the sand, birds, gulls, people, boats, canoe, huts, bright turquoise water, saturated colours, sun disc, sparkles, photo, photorealistic, 3D render, anime, pixel art, neon colours, lens flare, watercolour, soft gradients, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
+  "refs": [
+    {
+      "label": "vanilla Bear_Wild (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Bear_Wild_1791652871562_fdb75618.png"
+    },
+    {
+      "label": "FT_LandingBeach staged (composition)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/FT_LandingBeach_1791675001021_48be3067.png"
+    }
+  ],
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791675246771_9a71c695_1791675247328_5714b3b5.png",
+  "generated": "2026-10-10",
+  "note": "Owner-approved 2026-10-10 in the Card Art Redo Review (second round, redrawn from the owner's notes on the first). Finished by /process-card-art --full-bleed."
+}

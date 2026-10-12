@@ -1,0 +1,52 @@
+{
+  "target": "FT_PathUplandTrack.png",
+  "sourceCard": "CardData/Location/FT_PathBleakStrandFireMountain.json",
+  "subject": "a faint narrow track of bare earth winding through long grass and over dark rock up a hillside toward distant higher ground. No marks on the track.",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 3,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: a faint narrow track of bare earth winding through long grass and over dark rock up a hillside toward distant higher ground. No marks on the track.\nStyle: vanilla survival card game location art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, a wide road, animals, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
+  "refs": [
+    {
+      "label": "vanilla BoggyMeadows (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/BoggyMeadows_1791697553603_15fe9a26.png"
+    },
+    {
+      "label": "vanilla Path (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Path_1791693750843_84388d59.png"
+    }
+  ],
+  "historyId": "Mfa7UEw1JzjgzimMwUyx",
+  "redrawHistoryId": "Ty6R98D1DG6Euk8aFL1G",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698269259_fe2a909a_1791698269397_d85bb990.png",
+  "credits": 80,
+  "generated": "2026-10-11",
+  "note": "Owner pick 2026-10-11 from the Prompt 18 picker page picker_18 (3 samples; predicted B, written before the owner looked). Finished by /process-card-art --full-bleed. Used by FT_PathBleakStrandFireMountain, FT_PathFallenDwellingHiddenVale, FT_PathFireMountainBleakStrand, FT_PathHiddenValeFallenDwelling, FT_PathReedMarshWreckHollow, FT_PathWreckHollowReedMarsh. Redraw history: Ty6R98D1DG6Euk8aFL1G (first redraw cqO9m27Z6HlnZJHPr5G2 FAILED upstream NO_IMAGE, not charged).",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698269259_fe2a909a_1791698269397_d85bb990.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698268452_4c08c161_1791698268497_d88794c1.png"
+    },
+    {
+      "n": "C-rejected",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791698269643_199024e6_1791698269697_a9c212af.png",
+      "verdict": "rejected before the pick: painted a framed border round the picture (not a print defect; replaced so all three samples are usable); never shown to the owner"
+    },
+    {
+      "n": "C",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791699911600_cfc872a8_1791699911655_d9dbc920.png",
+      "verdict": "redraw of the rejected C with the same prompt"
+    }
+  ],
+  "picked": "A",
+  "predicted": "B"
+}

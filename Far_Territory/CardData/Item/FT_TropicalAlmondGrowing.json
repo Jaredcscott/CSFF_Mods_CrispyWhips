@@ -1,0 +1,65 @@
+{
+  "UniqueID": "ft_tropical_almond_growing",
+  "CardType": 0,
+  "CardName": {
+    "LocalizationKey": "Far_Territory_TropicalAlmondGrowing_CardName",
+    "DefaultText": "Growing Almond Tree"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_TropicalAlmondGrowing_CardDescription",
+    "DefaultText": "A young plant taking hold in a garden plot. It grows only while it sits in the plot, and is ready to harvest after about 30 days there."
+  },
+  "CardImageWarpData": "FT_GrowingSapling",
+  "CardImageWarpType": 3,
+  "ObjectWeight": 100.0,
+  "DoesNotPile": true,
+  "CardTagsWarpData": [
+    "tag_Gardenable",
+    "tag_GardenPlantGrowing"
+  ],
+  "CardTagsWarpType": 3,
+  "Progress": {
+    "Active": true,
+    "FloatValue": 0.0,
+    "MaxValue": 2880.0,
+    "RatePerDaytimePoint": 0.0,
+    "CardStatName": {
+      "LocalizationKey": "Far_Territory_TropicalAlmondGrowing_Growth",
+      "DefaultText": "Growth"
+    },
+    "HidingOptions": 3,
+    "HasActionOnFull": true,
+    "OnFull": {
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_TropicalAlmondGrowing_Ready",
+        "DefaultText": "The almond tree is ready to harvest."
+      },
+      "ReceivingCardChanges": {
+        "ModType": 2,
+        "TransformIntoWarpData": "ft_tropical_almond_garden",
+        "TransformIntoWarpType": 3
+      }
+    }
+  },
+  "DismantleActions": [
+    {
+      "ActionName": {
+        "LocalizationKey": "Far_Territory_TropicalAlmondGrowing_DA_Uproot",
+        "DefaultText": "Uproot"
+      },
+      "ActionDescription": {
+        "LocalizationKey": "Far_Territory_TropicalAlmondGrowing_DA_Uproot_Desc",
+        "DefaultText": "Pull the plant up and throw it away. Nothing is gained."
+      },
+      "DaytimeCost": 1,
+      "ConfirmPopup": true,
+      "ActionTagsWarpData": [
+        "HandAction"
+      ],
+      "ActionTagsWarpType": 3,
+      "ReceivingCardChanges": {
+        "ModType": 3
+      }
+    }
+  ]
+}

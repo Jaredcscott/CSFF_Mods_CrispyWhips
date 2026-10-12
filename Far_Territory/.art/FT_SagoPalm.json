@@ -1,0 +1,41 @@
+{
+  "target": "FT_SagoPalm.png",
+  "sourceCard": "CardData/Location/FT_SagoPalm.json",
+  "subject": "a swamp sago palm with a thick soft trunk and a crown of long arching fronds, suckers sprouting at its base, standing in wet ground.",
+  "model": "nano-banana-2",
+  "mode": "image2image (vanilla CSFF sprites as style references)",
+  "params": {
+    "imageCount": 2,
+    "aspectRatio": "2:3",
+    "resolution": "1K",
+    "autoEnhancePrompt": false
+  },
+  "prompt": "Use the attached reference images, each for one purpose.\nReference images 1 and 2 are STYLE references only: match their flat posterized colour fills in a few tonal steps, thin dark ink outlines, small ink hatch marks and muted naturalistic palette; do not copy their subject or their composition.\nSubject: a swamp sago palm with a thick soft trunk and a crown of long arching fronds, suckers sprouting at its base, standing in wet ground.\nStyle: vanilla survival card game plant art: flat posterized colour fills, thin dark ink outlines, small ink hatch marks, muted naturalistic palette, a full-frame portrait scene (2:3). The painted scene reaches every edge of the frame. No text, no watermark, no signature, no border, no frame.\nAvoid: footprints, tracks, hoofprints, paw prints, bird prints, prints in the ground, sand, mud or snow, drag marks, people, animals, watercolour, soft gradients, glossy digital painting, photo, photorealistic, 3D render, anime, flat vector art, pixel art, neon colours, lens flare, blurry, text, watermark, signature, logo, border, frame, plain white background, vignette, white border.",
+  "refs": [
+    {
+      "label": "vanilla TreeOak (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/TreeOak_1791700790914_80eaf8fd.png"
+    },
+    {
+      "label": "vanilla Tree1 (style)",
+      "url": "https://cdn.openart.ai/openart-uploads/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/Tree1_1791700791469_422d956a.png"
+    }
+  ],
+  "historyId": "neeRpm5BgB7xViF9NH2z",
+  "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791702149470_df1741c5_1791702149716_3b52bc8c.png",
+  "credits": 40,
+  "generated": "2026-10-11",
+  "note": "Owner pick 2026-10-11 from the Prompt 26 picker page picker_26b (2 samples; predicted B, written before the owner looked). Finished by /process-card-art --full-bleed. Used by FT_SagoGarden, FT_SagoPalm.",
+  "candidates": [
+    {
+      "n": "A",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791702150244_bfa83342_1791702150316_ef6067a6.png"
+    },
+    {
+      "n": "B",
+      "resource_url": "https://cdn.openart.ai/openart-ai/production/2026-10/create-image/XbhdRvvhTk0K7JCPQP3H/image_1791702149470_df1741c5_1791702149716_3b52bc8c.png"
+    }
+  ],
+  "picked": "B",
+  "predicted": "B"
+}

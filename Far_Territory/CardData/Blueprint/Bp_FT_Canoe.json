@@ -1,0 +1,140 @@
+{
+  "UniqueID": "ft_bp_canoe",
+  "CardName": {
+    "LocalizationKey": "Far_Territory_BpCanoe_CardName",
+    "DefaultText": "Dugout Canoe"
+  },
+  "CardDescription": {
+    "LocalizationKey": "Far_Territory_BpCanoe_CardDescription",
+    "DefaultText": "A dugout canoe that paddles you down a flowing river to Brackwater Mouth. Requires a tree log, 2 oak bark and a cutting tool."
+  },
+  "CardType": 7,
+  "UnlockConditionsDesc": {
+    "LocalizationKey": "Far_Territory_BpCanoe_UnlockConditionsDesc",
+    "DefaultText": "Unlocked after obtaining a Tree Log"
+  },
+  "BlueprintUnlockTicksCost": 16.0,
+  "BuildingStatConditions": [],
+  "StartUnlocked": false,
+  "CardsOnBoard": [
+    {
+      "ObjectiveName": "HasTreeLog",
+      "CompletionWeight": 1,
+      "Card": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "Quantity": 1,
+      "ConstantlyChecking": false,
+      "OnlyInEnvironment": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "OnlyIfEquipped": false,
+      "OnlyInContainer": {
+        "Target": {
+          "m_FileID": 0,
+          "m_PathID": 0
+        }
+      },
+      "CardWarpData": "0ab556ab6af1efc47a2cba5cdf4ace04",
+      "CardWarpType": 3
+    }
+  ],
+  "TagsOnBoard": [],
+  "StatValues": [],
+  "BlueprintStages": [
+    {
+      "CannotRevertToThisStage": false,
+      "RequiredElements": [
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredTabGroup": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 1,
+          "DontSpend": false,
+          "RequiredCardWarpData": "0ab556ab6af1efc47a2cba5cdf4ace04",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredTabGroup": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 2,
+          "DontSpend": false,
+          "RequiredCardWarpData": "73a825e728a80114fa8145888aba2778",
+          "RequiredCardWarpType": 3
+        },
+        {
+          "RequiredCard": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredQuantity": 1,
+          "DontSpend": true,
+          "EffectOnIngredient": {
+            "ModType": 1,
+            "UsageChange": {
+              "x": -4.0,
+              "y": -4.0
+            }
+          },
+          "RequiredTabGroup": {
+            "m_FileID": 0,
+            "m_PathID": 0
+          },
+          "RequiredTabGroupWarpData": "GpTag_CuttingTool",
+          "RequiredTabGroupWarpType": 3
+        }
+      ],
+      "StepActionTags": [],
+      "StepActionTagsWarpData": [
+        "ToolAction"
+      ],
+      "StepActionTagsWarpType": 3
+    }
+  ],
+  "BuildingDaytimeCost": 8,
+  "DeconstructDaytimeCost": 2,
+  "BlueprintResult": [
+    {
+      "DroppedCard": {
+        "m_FileID": 0,
+        "m_PathID": 0
+      },
+      "Quantity": {
+        "x": 1,
+        "y": 1
+      },
+      "DroppedCardWarpData": "ft_canoe",
+      "DroppedCardWarpType": 3
+    }
+  ],
+  "BlueprintStatModifications": [],
+  "WhenCreatedSoundsWarpData": [
+    "Wood"
+  ],
+  "WhenCreatedSoundsWarpType": 3,
+  "BlueprintActionTagsWarpData": [
+    "HandAction",
+    "CraftAction"
+  ],
+  "BlueprintActionTagsWarpType": 3,
+  "CardImage": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "CardImageWarpData": "FT_Canoe",
+  "CardImageWarpType": 3,
+  "ResearchedNotification": 0
+}
