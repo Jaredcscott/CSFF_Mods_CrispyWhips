@@ -12,7 +12,7 @@ namespace FarTerritory;
 /// non-clone board's save entry (<see cref="EnvSaveDataPreCreate"/>) and the soft Forest Lore landmark
 /// (<see cref="LandmarkSeed"/>). <see cref="ContentModPlugin"/> prints the
 /// mod's one startup Info line ("{PluginName} v{PluginVersion} loaded.", CLAUDE.md "Mod Logging Norms"), so
-/// this class adds none. Plan: Documentation/Plans/FarTerritory/MASTER_PLAN.md.
+/// this class adds none. Plan: Documentation/Design/FarTerritory_As_Built.md.
 /// </summary>
 [BepInDependency("crispywhips.CSFFModFramework", BepInDependency.DependencyFlags.SoftDependency)]
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]

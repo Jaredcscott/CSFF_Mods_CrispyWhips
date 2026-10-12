@@ -1,5 +1,5 @@
 # Roadmap: Far Territory
-Version at time of writing: 0.1.0 (unpublished; the plan is `Documentation/Plans/FarTerritory/MASTER_PLAN.md`).
+Version at time of writing: 0.1.0 (published 2026-10-12 as a pre-release on GitHub and Nexus page 54; the plan is archived as built in `Documentation/Design/FarTerritory_As_Built.md`).
 
 The forward-looking roadmap has not been generated yet (`/roadmap FarTerritory`); this file currently holds only the plan reconciliation record below.
 
@@ -31,3 +31,10 @@ The forward-looking roadmap has not been generated yet (`/roadmap FarTerritory`)
 - **Disposition:** KEEP IN PLACE. Plan section 1.3, the as-built bullets for P5, P6, P16 and P18 and Prompt 10 were reworded to say so; Prompt 34's lead about `FT_IslandClimate` now notes that card is gone.
 - **Evidence:** build succeeded (0 warnings); `grep` for the four UIDs over `FarTerritory/CardData` returns nothing; the harness dry run accepts the new scenario T2.1530 and the 16 reworked FT scenarios. NOT yet run live.
 - **Verification debt:** T2.1530 (new, harness) plus the reworked T2.1303, T2.1394, T2.1514 and T2.1516 climate checks; the older rows' acceptance text was rewritten 2026-10-11 to the card-free wording.
+
+### 2026-10-12 - MASTER_PLAN closed (P19 built)
+- **Verdict:** counts: 22 selected phases, every one built; P19 (distribution) built this day on the owner's Q7 answer, "Nexus + Mod_Repos". 0 open prompts; 16 tracker rows still await a person at a running game (T2.1324, T2.1325, T2.1391, T2.1393, T2.1398, T2.1501, T2.1503, T2.1509, T2.1510, T2.1513, T2.1515, T2.1518, T2.1521, T2.1522, T2.1523, T2.1524).
+- **Disposition:** CLEARED. `Documentation/Plans/FarTerritory/MASTER_PLAN.md` moved to `Documentation/Design/FarTerritory_As_Built.md` with an archive banner; the drained pack was deleted and is that file's Appendix, whole. The Considered table and every Open question travel with it. Live citations (tracker sources, FT scenarios, the mod's Animals/Plugin/LandmarkSeed comments, research headers, the map table, `IDEAS_OVERVIEW`, Deploy-Mods comments) repointed; dated records left alone, and the Harsh Wilds plan (a peer's uncommitted edits) still cites the old path on line 276.
+- **Evidence:** `2096a381b` (CHANGELOG `[Unreleased]` folded into a dated `[0.1.0]`; `LICENSE` and `ASSET_CREDITS.md` added and shipped by the csproj); build 0 warnings; gates Csproj-ContentIncludes, Deploy-Mods, CardArt-ShippedForm, Sprite-NameResolves, PackSuite-UnreleasedGuard, Nexus-Publish all green. Release zip `Far_Territory_0-1-0.zip` md5 `a6924a6b6cdeed126e66d019f4fe466e`; GitHub export pushed (`Mod_Repos` `968a137`, 723 files); Nexus upload replaced the hand-uploaded 2026-10-06 build on file slot 8094105 (`fba6c4924`); `nexus_publish.py status` reads published 0.1.0.
+- **Left for the owner (website only):** paste the description (`nexus_publish.py describe FarTerritory --copy`), correct the summary (still "will add"), publish page 54 (it was `not_published` at the close). Per `Stable/README.md` a drained plan makes the mod a `Stable/` candidate (`Development_Tools/Move-ModFolder.ps1`), not moved here.
+- **Verification debt:** the 16 person rows above.

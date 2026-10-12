@@ -5,7 +5,7 @@ using CSFFModFramework.Util;
 namespace FarTerritory.Patcher;
 
 /// <summary>
-/// Plan P21 (Documentation/Plans/FarTerritory/MASTER_PLAN.md section 21, Open question 15): when Forest Lore is
+/// Plan P21 (Documentation/Design/FarTerritory_As_Built.md section 21, Open question 15): when Forest Lore is
 /// installed, its Standing Stones (<c>fl_standing_stones</c>) also stand on the grassland's Wildrye Plain.
 ///
 /// <para>Why code and not JSON (W0-13, MEASURED): <c>DropInjections.json</c> only appends a drop to an existing

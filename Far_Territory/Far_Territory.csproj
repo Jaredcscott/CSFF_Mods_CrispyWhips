@@ -26,7 +26,7 @@
          so nothing in the project folder can shadow these HintPaths. -->
     <ItemGroup>
         <Reference Include="CSFFModFramework">
-            <HintPath>..\HerbsAndFungi\lib\CSFFModFramework.dll</HintPath>
+            <HintPath>..\Stable\HerbsAndFungi\lib\CSFFModFramework.dll</HintPath>
             <Private>False</Private>
         </Reference>
         <Reference Include="0Harmony">
