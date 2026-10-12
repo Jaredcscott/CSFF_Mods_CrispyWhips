@@ -5,7 +5,7 @@
 **Requires:** CSFFModFramework 2.28.0 or later (a hard requirement: the map is added through the framework's `WorldMap/MapNodes.json`)
 **Status:** pre-release. This build adds the coast at the end of the river (three new places and a few cards), the sea and a tide pool on Seaward Sands, the boat crossing to the island's first beach, the island's warmth, the island's whole coast (seven shore places and Gull Stack, a rocky islet you reach by swimming), and its whole interior: jungle, grassland, marsh, deep wood, a hidden valley, a misty ridge, the uplands, a volcano with its acid lake, a shipwreck and an old ruin, and sixteen caves, eight of them a chain of dark halls under the island; the first far land, a grassland west of the forest with its moose; the mountains north of the forest, with a hot spring, rock salt, three caves and a cliff climbed with rope and pitons; and the fjords beyond the mountains, with seals, walrus, puffins and whales offshore. Every card has its own picture (only the River Mouth's paper-map picture and the remedy effects' status icons are the base game's), and every number below is a tunable placeholder, not a balanced value.
 
-Far Territory will add lands beyond the forest, reached by ordinary travel: first an island recreating Card Survival: Tropical Island's island as a tribute, with all text and art new, reached down the river to the sea, then the grassland, the mountains and the fjords (all three now in).
+Far Territory adds lands beyond the forest, reached by ordinary travel: an island recreating Card Survival: Tropical Island's island as a tribute, with all text and art new, reached down the river to the sea, then the grassland, the mountains and the fjords.
 
 ## Feature overview
 
@@ -28,6 +28,34 @@ Counts are of shipped data files (checked against the mod folder for this versio
 **Optional companions** (nothing breaks without them): Harsh Wilds (wisent and musk ox carcasses), Forest Lore (Standing Stones on Wildrye Plain), Sirus23 Mod Collection (its wild sheep can appear on island places), Advanced Copper Tools (its Grappling Hook also raises Climbing Aid). There are no configuration options; every number is a tunable value in the card JSON.
 
 **Language:** English only (`Localization/SimpEn.csv`; no Chinese file yet).
+
+## Installation
+
+Download Far Territory from its [Nexus Mods page](https://www.nexusmods.com/cardsurvivalfantasyforest/mods/54), or install it from the Mod Update Manager suite, where it is listed as "Far Territory (Pre-release)". The source is on [GitHub](https://github.com/Jaredcscott/CSFF_Mods_CrispyWhips/tree/main/Far_Territory).
+
+### Requirements
+- [BepInEx 5.x](https://github.com/BepInEx/BepInEx/releases) for Card Survival: Fantasy Forest
+- CSFF Mod Framework 2.28.0 or later (`CSFF_Mod_Framework`)
+
+### Steps
+1. Install BepInEx 5 and CSFF Mod Framework.
+2. Extract the `Far_Territory` folder into your `BepInEx/plugins/` directory.
+3. Launch the game. An existing save works: see Notes at the end for which cards an older save gains and which need a new run.
+
+Your plugins folder should look like:
+```
+BepInEx/
+  plugins/
+    CSFF_Mod_Framework/
+    Far_Territory/
+      Far_Territory.dll
+      ModInfo.json
+      CardData/
+      WorldMap/
+      ...
+```
+
+**License:** MIT (`LICENSE`). Every card picture is the mod's own; how each was made is in `ASSET_CREDITS.md`.
 
 ## Getting there
 
