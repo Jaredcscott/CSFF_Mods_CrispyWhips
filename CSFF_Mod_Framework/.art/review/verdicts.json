@@ -1,6 +1,12 @@
 {
   "about": "Owner art review verdicts, written by Development_Tools/CardArt/art_review.py. Keyed by path under Resource/; sha1 is the file that was judged.",
   "images": {
+    "GIF/Portal_Placed.gif": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "6be9f10a48784d6f69e9a236cb5ca58da9cdd79e",
+      "at": "2026-10-14T09:05:13+00:00"
+    },
     "Picture/ACT_MetalNails_Bronze.png": {
       "status": "approved",
       "notes": "",

@@ -4,7 +4,7 @@ The shared base for Card Survival: Fantasy Forest mods. It loads mod content fro
 
 It also fixes several base-game bugs and speeds up travel to long-unvisited places.
 
-- **Version:** 2.28.2
+- **Version:** 2.28.3
 - **Game version:** EA 0.68b
 - **Requires:** BepInEx 5.x
 - **Languages:** English and Simplified Chinese

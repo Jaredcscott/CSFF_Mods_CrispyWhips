@@ -73,7 +73,7 @@ internal static class GifAnimationService
             if (image == null) return;
 
             bool cooking = inGameCard is InGameCardBase card && card && card.IsCooking();
-            ShowFrameSet(image, ResolveForCard(inGameCard, cooking));
+            ShowFrameSet(image, inGameCard, cooking);
         }
         catch (Exception ex)
         {
@@ -99,7 +99,7 @@ internal static class GifAnimationService
             var image = FindCardImage(graphics);
             if (image == null) return;
 
-            ShowFrameSet(image, ResolveForCard(card, card.IsCooking()));
+            ShowFrameSet(image, card, card.IsCooking());
         }
         catch (Exception ex)
         {
@@ -107,26 +107,41 @@ internal static class GifAnimationService
         }
     }
 
-    private static GifFrameSet ResolveForCard(object inGameCard, bool isCooking)
+    private static GifCardDefinition DefinitionFor(object inGameCard)
     {
         var uniqueId = GetCardUniqueId(inGameCard);
         if (uniqueId == null) return null;
-        if (!GifLoader.CardDefinitions.TryGetValue(uniqueId, out var def)) return null;
-        return ResolveFrameSet(def, inGameCard, isCooking);
+        return GifLoader.CardDefinitions.TryGetValue(uniqueId, out var def) ? def : null;
     }
 
-    // Plays frameSet on the image, or stops a player left there when the card has no GIF.
-    private static void ShowFrameSet(Image image, GifFrameSet frameSet)
+    // Plays the card's GIF on the image, or stops a player left there when the card has none (a
+    // pooled CardGraphics keeps the player of the card it last showed). A definition with
+    // ConditionSets also gets a once-a-second re-check, since vanilla never refreshes the art
+    // when a durability crosses a condition's range.
+    private static void ShowFrameSet(Image image, object inGameCard, bool isCooking)
     {
+        var def = DefinitionFor(inGameCard);
+        var frameSet = def == null ? null : ResolveFrameSet(def, inGameCard, isCooking);
         var player = image.GetComponent<GifPlayer>();
-        if (frameSet == null)
+        bool watch = def != null && def.ConditionSets.Count > 0;
+        if (frameSet == null && !watch)
         {
-            if (player != null) player.Stop();
+            if (player != null) { player.SetResolver(null); player.Stop(); }
             return;
         }
-        ApplyGif(image, frameSet, frameSet.Loop);
-        player = player != null ? player : image.GetComponent<GifPlayer>();
-        if (player != null) player.ReapplyCurrentFrame();
+        if (player == null) player = image.gameObject.AddComponent<GifPlayer>();
+        player.CaptureStatic();
+        player.SetResolver(watch ? () => ResolveLive(def, inGameCard) : null);
+        if (frameSet != null) ApplyGif(image, frameSet, frameSet.Loop);
+        else player.Stop();
+        player.ReapplyCurrentFrame();
+    }
+
+    // The watch loop's resolver: null once the card is gone, which shows the still art.
+    private static GifFrameSet ResolveLive(GifCardDefinition def, object inGameCard)
+    {
+        if (inGameCard is not InGameCardBase card || !card) return null;
+        return ResolveFrameSet(def, card, card.IsCooking());
     }
 
     // -------------------------------------------------------------------------

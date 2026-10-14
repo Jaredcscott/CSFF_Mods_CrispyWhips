@@ -93,6 +93,7 @@ internal class ModManifest
     [NonSerialized] public bool HasMapCaches;          // Data/MapCaches/*.json, Data/*Map*.json, or Assets.MapCaches
     [NonSerialized] public bool HasTriggers;           // CardData/Trigger/*.json
     [NonSerialized] public bool HasGifContent;         // CardData/Gif/*.json
+    [NonSerialized] public bool HasMotionContent;      // CardData/Motion/*.json
     [NonSerialized] public bool HasGSMTagOrTypeMatch;  // GameSourceModify/ uses MatchTagWarpData/MatchTypeWarpData
     [NonSerialized] public bool HasDropInjections;      // DropInjections.json
     [NonSerialized] public bool HasImprovementInjections; // InjectImprovementInto.json

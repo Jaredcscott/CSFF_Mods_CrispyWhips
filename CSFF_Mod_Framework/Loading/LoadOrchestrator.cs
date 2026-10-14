@@ -83,6 +83,16 @@ internal static class LoadOrchestrator
             else
                 Log.Debug("[Skip] GifLoader: no mod ships CardData/Gif/ JSON");
 
+            // 3a'. Card motion definitions (CardData/Motion/*.json): which sprites breathe, sway or
+            //      drift. Mesh-only, no textures; patched by Patching.CardMotionPatch.
+            if (mods.Any(m => m.HasMotionContent))
+            {
+                RunPhase(sw, "CardMotionLoader", () => Motion.CardMotionLoader.LoadAll(mods));
+                Patching.CardMotionPatch.RegisterIfDefinitions();
+            }
+            else
+                Log.Debug("[Skip] CardMotionLoader: no mod ships CardData/Motion/ JSON");
+
             // 3b. Renamed-UID aliases must be known before any WarpData reference resolves.
             RunPhase(sw, "UidAliasService", () => UidAliasService.LoadAll(mods));
 

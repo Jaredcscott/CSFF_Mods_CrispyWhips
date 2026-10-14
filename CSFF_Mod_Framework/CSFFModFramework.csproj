@@ -59,6 +59,9 @@
         <Reference Include="UnityEngine.UIModule" HintPath="lib\UnityEngine.UIModule.dll">
             <Private>False</Private>
         </Reference>
+        <Reference Include="UnityEngine.TextRenderingModule" HintPath="lib\UnityEngine.TextRenderingModule.dll">
+            <Private>False</Private>
+        </Reference>
         <Reference Include="UnityEngine.AssetBundleModule" HintPath="lib\UnityEngine.AssetBundleModule.dll">
             <Private>False</Private>
         </Reference>
@@ -87,6 +90,7 @@
         <Content Include="CharacterPerk\**\*" CopyToOutputDirectory="PreserveNewest" />
         <Content Include="Localization\**\*" CopyToOutputDirectory="PreserveNewest" />
         <Content Include="Resource\Picture\**\*" CopyToOutputDirectory="PreserveNewest" />
+        <Content Include="Resource\GIF\**\*" CopyToOutputDirectory="PreserveNewest" />
         <Content Include="LICENSE" CopyToOutputDirectory="PreserveNewest" Condition="Exists('LICENSE')" />
         <Content Include="ASSET_CREDITS.md" CopyToOutputDirectory="PreserveNewest" Condition="Exists('ASSET_CREDITS.md')" />
         <Content Include="THIRD_PARTY_LICENSES.md" CopyToOutputDirectory="PreserveNewest" Condition="Exists('THIRD_PARTY_LICENSES.md')" />

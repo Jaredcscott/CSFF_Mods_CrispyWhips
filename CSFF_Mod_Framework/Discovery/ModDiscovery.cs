@@ -263,6 +263,9 @@ internal static class ModDiscovery
         mod.HasGifContent =
             HasAnyFile(Path.Combine(dir, "CardData", "Gif"), new[] { "*.json" });
 
+        mod.HasMotionContent =
+            HasAnyFile(Path.Combine(dir, "CardData", "Motion"), new[] { "*.json" });
+
         mod.HasGSMTagOrTypeMatch = HasGSMBulkMatch(dir);
 
         mod.HasFullMap = File.Exists(Path.Combine(dir, "WorldMap", "FullMap.json"));

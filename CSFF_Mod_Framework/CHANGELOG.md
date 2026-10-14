@@ -4,6 +4,23 @@ All notable changes to CSFFModFramework are documented here.
 
 ---
 
+## [2.28.3] - 2026-10-14
+
+### Added
+
+- **Card motion layer: NPCs and animals breathe, plants sway and location paintings drift.** A mod lists sprite names in `CardData/Motion/*.json` with a profile (`npc`, `animal`, `plant`, `location`, or its own numbers), and the framework bends that card's picture slightly: no image files and no extra texture memory. It works on cards on the board, the inspection popup, an NPC's portrait (including portraits a mod swaps at runtime) and the picture in an encounter. Cut-out art moves within its own margin; a full card painting moves inside the frame, mostly in the middle where the figure stands, so it never spills over the card's edge. New config `[Visuals] CardMotion` (default on) turns it off, and `CardMotionUpdatesPerSecond` (default 20) sets how often moving cards are redrawn. `CardData/Motion/` is skipped by the card loader like `CardData/Gif/`.
+- **The Portal Hub and its Exit are animated:** the swirl turns and its glow pulses.
+- **GIF condition sets follow the card while it sits on the board.** A definition with `ConditionSets` is re-checked once a second, so an animation tied to a stat range (a kettle steaming only while hot) starts and stops as the stat crosses it. When no animation applies any more, the card's still picture comes back instead of the last GIF frame staying on screen.
+- **`Development_Tools/CardArt/animate_card.py` (repo tool, not shipped)** builds a looping card GIF from a mod's own static art (flame sway, smoke drift, glow, water flow, wheel rotation) from a recipe in `<ModFolder>/.art/<GifName>_gif.json`, and reads the file back to check every frame.
+
+### Fixed
+
+- **A mod's `Resource/GIF` folder ships with the framework build.** The framework project copied only `Resource/Picture`, so a GIF in the framework's own folder never reached a release.
+
+### Documentation
+
+- `CardBackgroundGif`, `DefaultLiquidGif` and `LiquidGifs` are read from a GIF definition but never played; the authoring guide now says so, and says how often condition sets are re-checked.
+
 ## [2.28.2] - 2026-10-13
 
 ### Added

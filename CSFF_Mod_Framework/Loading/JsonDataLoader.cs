@@ -428,7 +428,7 @@ internal static class JsonDataLoader
     /// </summary>
     /// <summary>CardData/ subfolders whose JSON belongs to another loader, not CardData SOs.</summary>
     private static readonly HashSet<string> NonCardDataSubdirs =
-        new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "Trigger", "Gif" };
+        new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "Trigger", "Gif", "Motion" };
 
     private static void CollectFiles(ModManifest mod, string dir, string typeName, List<WorkItem> into)
     {
@@ -456,7 +456,8 @@ internal static class JsonDataLoader
             // CT0 entries that pollute AllData and confuse WarpResolver.
             var parentDirName = Path.GetFileName(Path.GetDirectoryName(file) ?? "");
             // CardData/Gif/ likewise holds GifLoader animation definitions (no UniqueID), which
-            // loaded as phantom CardData with an empty UniqueID. Keep NonCardDataSubdirs in sync.
+            // loaded as phantom CardData with an empty UniqueID; CardData/Motion/ (CardMotionLoader)
+            // is the same shape. Keep NonCardDataSubdirs in sync.
             if (NonCardDataSubdirs.Contains(parentDirName)) continue;
 
             into.Add(new WorkItem(mod, file, type, typeName));

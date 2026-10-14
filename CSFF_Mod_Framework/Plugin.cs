@@ -5,7 +5,7 @@ public class Plugin : BaseUnityPlugin
 {
     public const string PluginGuid = "crispywhips.CSFFModFramework";
     public const string PluginName = "CSFF Mod Framework";
-    public const string PluginVersion = "2.28.2";
+    public const string PluginVersion = "2.28.3";
 
     public static Plugin Instance { get; private set; }
     internal new static ManualLogSource Logger { get; private set; }
@@ -97,6 +97,16 @@ public class Plugin : BaseUnityPlugin
             + "Set false to hide the tags. A change needs a full quit to desktop and relaunch, because "
             + "this file is read once at startup.");
         Patching.PerkOriginTagPatch.Enabled = perkOriginTag.Value;
+
+        var cardMotion = Config.Bind("Visuals", "CardMotion", true,
+            "Subtle movement on mod art that asks for it: NPCs and animals breathe, location paintings drift "
+            + "slowly. Drawn by bending the card's picture, so it uses no extra images or texture memory. "
+            + "Set false to keep every card still. Takes effect at the next launch.");
+        var cardMotionRate = Config.Bind("Visuals", "CardMotionUpdatesPerSecond", 20f,
+            "How many times a second moving cards are redrawn (5 to 60). Lower costs less; 20 looks smooth "
+            + "for movement this small. Takes effect at the next launch.");
+        Motion.CardMotionService.Enabled = cardMotion.Value;
+        Motion.CardMotionDriver.TicksPerSecond = cardMotionRate.Value;
 
         Loading.SpriteTextureCache.CompressEnabled = Config.Bind("Performance", "CompressModSprites", false,
             "Compress cached mod sprites to DXT5 (about 4x less video memory and sprite cache; art can look slightly softer). "
@@ -260,6 +270,10 @@ public class Plugin : BaseUnityPlugin
         // GIF animation support — patches CardGraphics.Setup / RefreshCookingStatus.
         // Self-skips registration when no mod ships CardData/Gif/*.json.
         Patching.GifAnimationPatch.ApplyPatch(Harmony);
+
+        // Card motion layer: CardGraphics.Setup + InGameNPC.RefreshPortrait postfixes that bend the
+        // art of sprites named in CardData/Motion/*.json. Self-skips with no definitions or when off.
+        Patching.CardMotionPatch.ApplyPatch(Harmony);
 
         // Perk origin marker: display-only postfixes on MenuPerkButton.Setup, MenuPerkPreview.Setup
         // and MainMenu.SelectPerk that append the owning mod's short tag to a framework-loaded
