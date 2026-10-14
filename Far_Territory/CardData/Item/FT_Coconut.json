@@ -14,6 +14,8 @@
   "ObjectWeight": 500.0,
   "MaxStack": 8,
   "SpoilageTime": {
+    "OverrideIconWarpData": "Bacteria",
+    "OverrideIconWarpType": 3,
     "Active": true,
     "FloatValue": 0.0,
     "MaxValue": 1440.0,

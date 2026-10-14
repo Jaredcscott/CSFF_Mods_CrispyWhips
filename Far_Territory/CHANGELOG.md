@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.5] - 2026-10-14
+
+### Fixed
+
+- **Spoilage shows the bacteria icon** on 49 foods, plants and carcasses that showed the hourglass, as vanilla food does.
+- **Chilli, China Rose petals, Jasmine flowers, Ginger and Lemongrass taste of something when eaten straight.** Their Eat and Chew buttons never counted the food's flavours.
+
 ## [0.1.4] - 2026-10-14
 
 ### Changed

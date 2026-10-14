@@ -31,6 +31,8 @@
     }
   ],
   "SpoilageTime": {
+    "OverrideIconWarpData": "Bacteria",
+    "OverrideIconWarpType": 3,
     "Active": true,
     "FloatValue": 0.0,
     "MaxValue": 672.0,
@@ -78,6 +80,7 @@
   },
   "DismantleActions": [
     {
+      "ReceivingCardFlavourBonus": true,
       "ActionName": {
         "LocalizationKey": "Far_Territory_Chilli_DA_Eat",
         "DefaultText": "Eat"

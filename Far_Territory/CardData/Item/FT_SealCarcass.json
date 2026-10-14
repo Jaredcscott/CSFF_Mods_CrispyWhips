@@ -13,6 +13,8 @@
   "CardImageWarpType": 3,
   "ObjectWeight": 1500.0,
   "SpoilageTime": {
+    "OverrideIconWarpData": "Bacteria",
+    "OverrideIconWarpType": 3,
     "Active": true,
     "FloatValue": 0.0,
     "MaxValue": 240.0,
