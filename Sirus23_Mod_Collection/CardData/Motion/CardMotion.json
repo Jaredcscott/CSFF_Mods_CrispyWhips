@@ -1,0 +1,23 @@
+{
+  "_about": "Card motion layer (CSFFModFramework 2.28.3+, CardMotionLoader): sprite name -> built-in profile. npc and animal breathe, plant sways, location drifts slowly inside its frame. No image files.",
+  "Sprites": {
+    "fc_eyas": "animal",
+    "fc_owlet": "animal",
+    "fc_wolf_pup": "animal",
+    "FoxCompanion": "animal",
+    "HawkCompanion": "animal",
+    "OwlCompanion": "animal",
+    "OwlTied": "animal",
+    "sh_lactating_sheep": "animal",
+    "sh_lamb": "animal",
+    "sh_male_sheep": "animal",
+    "sh_tame_sheep": "animal",
+    "sh_truffle_hog": "animal",
+    "sh_wild_male_sheep": "animal",
+    "sh_wild_sheep": "animal",
+    "sir_ferret": "animal",
+    "WildHawk": "animal",
+    "WildOwl": "animal",
+    "WolfCompanion": "animal"
+  }
+}

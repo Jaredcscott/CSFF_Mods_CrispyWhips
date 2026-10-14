@@ -5,6 +5,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.22.3] - 2026-10-14
+
+### Added
+
+- **The animals breathe:** the wild owl and hawk, the wolf, fox, owl and hawk companions, the eyas, owlet and wolf pup, the ferret, the truffle hog and every sheep and lamb. Needs CSFF Mod Framework 2.28.3.
+
 ## [1.22.2] - 2026-10-13
 
 ### Fixed
