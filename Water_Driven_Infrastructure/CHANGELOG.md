@@ -2,6 +2,13 @@
 
 All notable changes to this mod are documented here.
 
+## [1.12.6] - 2026-10-14
+
+### Added
+- **The winter Fishpond drifts slowly**, like the other location paintings. Needs CSFF Mod Framework 2.28.3.
+- **More animated card art.** The Water-Driven Sawmill, Grinding Mill, Forge and Workshop (and the Expanded Sawmill and Workshop) now show their waterfall running and their splash pool spreading; the Forge and Workshop fires glow and the Grinding Mill's grain pours into the stone. The Overshot Wheel uses the turning Water Wheel art.
+- **The placed Ore Sluice and Water Basin are animated.** The creek runs past the sluice and falls below it; the Water Basin's trough pours and rings spread on its water.
+
 ## [1.12.5] - 2026-10-13
 
 ### Fixed

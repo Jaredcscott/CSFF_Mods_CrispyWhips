@@ -1,0 +1,19 @@
+{
+  "target": "../Resource/GIF/ForgeFullyBuilt.gif",
+  "source": "Resource/Picture/ForgeFullyBuilt.png",
+  "sourceCard": "CardData/Gif (water_sawmill_forge_placed CardGif)",
+  "tool": "Development_Tools/CardArt/animate_card.py",
+  "credits": 0,
+  "generated": "2026-10-14",
+  "note": "Tier 1 of Documentation/Research/Card_Animation_Candidates.md: the waterfall runs down and the splash pool spreads, the forge mouth glows; the wheel is mostly hidden behind the water in this painting, so it is not turned",
+  "frames": 8,
+  "duration_ms": 110,
+  "effects": [
+    { "type": "flow", "poly": [[25, 178], [105, 178], [200, 430], [200, 650], [90, 650], [60, 330]],
+      "mask": "water", "blur": 2, "mask_gain": 2.5, "period": 120, "dx": 0.15, "dy": 1, "feather": 3 },
+    { "type": "flow", "poly": [[60, 630], [230, 600], [340, 700], [330, 745], [60, 740]],
+      "mask": "water", "blur": 2, "mask_gain": 2.5, "period": 60, "dx": 1, "dy": 0.25, "feather": 4 },
+    { "type": "glow", "box": [398, 338, 495, 455], "mask": "fire", "blur": 4, "mask_gain": 2.0,
+      "bright": 0.16, "speed": 2, "feather": 4 }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "target": "../Resource/GIF/SawmillFullyBuilt.gif",
+  "source": "Resource/Picture/SawmillFullyBuilt.png",
+  "sourceCard": "CardData/Gif (water_sawmill_placed and water_sawmill_placed_expanded CardGif)",
+  "tool": "Development_Tools/CardArt/animate_card.py",
+  "credits": 0,
+  "generated": "2026-10-14",
+  "note": "Tier 1 of Documentation/Research/Card_Animation_Candidates.md: the waterfall runs down and the splash pool spreads. Not turned: the wheel (behind the water) and the saw blade, whose painted highlight would rotate with it and read as wrong lighting",
+  "frames": 8,
+  "duration_ms": 110,
+  "effects": [
+    { "type": "flow", "poly": [[40, 180], [110, 180], [195, 360], [200, 690], [110, 690], [90, 340]],
+      "mask": "water", "blur": 2, "mask_gain": 2.5, "period": 120, "dx": 0.1, "dy": 1, "feather": 3 },
+    { "type": "flow", "poly": [[85, 668], [235, 668], [275, 745], [85, 745]],
+      "mask": "water", "blur": 2, "mask_gain": 2.5, "period": 60, "dx": 1, "dy": 0.25, "feather": 4 }
+  ]
+}

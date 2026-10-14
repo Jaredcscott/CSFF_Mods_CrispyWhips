@@ -1,6 +1,30 @@
 {
   "about": "Owner art review verdicts, written by Development_Tools/CardArt/art_review.py. Keyed by path under Resource/; sha1 is the file that was judged.",
   "images": {
+    "GIF/ForgeFullyBuilt.gif": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "2bd5444b43ab66a5a0adbd19f905d2b1d00c104e",
+      "at": "2026-10-14T09:05:51+00:00"
+    },
+    "GIF/GrindingFullyBuilt.gif": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "252aca1d0cae321f52e9e187de4066055687cbaf",
+      "at": "2026-10-14T09:05:10+00:00"
+    },
+    "GIF/SawmillFullyBuilt.gif": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "17f4623db9ff22d2a33097e9d9ad62b5f3f2f67b",
+      "at": "2026-10-14T09:05:14+00:00"
+    },
+    "GIF/WaterMill.gif": {
+      "status": "alter",
+      "notes": "this one can stay stationary because no water",
+      "sha1": "64d7f3d273f691bc0db5d704addb0c7ff1c6166c",
+      "at": "2026-10-14T09:05:37+00:00"
+    },
     "GIF/WaterWheel.gif": {
       "status": "approved",
       "notes": "Regenerate this image such that the final result matches the Vanilla card art style. meat without the bowl. ",
@@ -20,6 +44,12 @@
           "at": "2026-10-12T17:03:01+00:00"
         }
       ]
+    },
+    "GIF/WorkshopFullyBuilt.gif": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "c9797209b2d0fe447f0d4cdca74eec9384b6c3f6",
+      "at": "2026-10-14T09:05:08+00:00"
     },
     "Picture/act_tin_solder.png": {
       "status": "approved",

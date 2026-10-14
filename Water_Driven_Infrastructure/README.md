@@ -1,6 +1,6 @@
 # Water Driven Infrastructure
 
-**Version:** 1.12.5
+**Version:** 1.12.6
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.68b)
 **Requires:** CSFFModFramework 2.28.0 or later. Advanced Copper Tools is optional and adds extras, but nothing needs it.
@@ -372,7 +372,7 @@ A Partner works only the stations you mark. The Forge and Workshop also take van
 2. Install CSFFModFramework to `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. (Optional) Install Advanced Copper Tools to `BepInEx/plugins/Advanced_Copper_Tools/`.
 4. Extract this mod to `BepInEx/plugins/Water_Driven_Infrastructure/`.
-5. Launch the game and look for `WaterDrivenInfrastructure v1.12.5 loaded.` in `BepInEx/LogOutput.log`.
+5. Launch the game and look for `WaterDrivenInfrastructure v1.12.6 loaded.` in `BepInEx/LogOutput.log`.
 
 ---
 
@@ -400,6 +400,7 @@ Most features were checked by scripted tests in a running game. Not yet tried in
 - The 1.12.3 fixes (nugget quality, Blast, Cast Metal Lump, Hammer All on an Iron Bloom, world temperature, Smelt Greenstone, retired parts turning into shared ones). They have scripted checks that are not yet confirmed by hand.
 - The Ore Sluice's new metal rates, the Iron Nail cost of Expand, and the Iron Sheet recipes for the Stamp Mill and Water Basin.
 - The animated Water Wheel art: seen working, not yet judged by eye.
+- The animated Sawmill, Grinding Mill, Forge, Workshop and Overshot Wheel art (1.12.6): built and checked frame by frame, not yet seen in a running game.
 - The pile toggle on Bronze Gears (1.12.5).
 - Partner duties for the Stamp Mill, Fishpond and expanded stations: scripted checks only.
 
@@ -407,7 +408,7 @@ Most features were checked by scripted tests in a running game. Not yet tried in
 
 ## Troubleshooting
 
-- **Blueprints not appearing?** Check that CSFFModFramework is installed and the log shows `WaterDrivenInfrastructure v1.12.5 loaded.`
+- **Blueprints not appearing?** Check that CSFFModFramework is installed and the log shows `WaterDrivenInfrastructure v1.12.6 loaded.`
 - **Forge won't smelt?** It must reach 1,100. Feed it charcoal and Blast first.
 - **Outlet not producing water?** It must be outdoors with a Mill Race built first. In winter it freezes: wait for spring, or keep a heat source there. Stations keep working, but a Rain Cistern stays unfed.
 - **Rain Cistern not filling?** It must stand at the same location as a running outlet and be empty or hold River Water.
@@ -462,6 +463,7 @@ Patches filter on this mod's UniqueIDs. Apart from BaseTemperatureHeal, they nev
 
 Full notes are in CHANGELOG.md.
 
+- **1.12.6:** animated card art for the Sawmill, Grinding Mill, Forge, Workshop and Overshot Wheel.
 - **1.12.5:** the Forge and Workshops no longer heat themselves with no fuel; Bronze Gear piles can be spread out.
 - **1.12.3:** Blast no longer warms the world, melted metal keeps its own quality, Partners only work marked stations, and WDI's own nails, solder and sheets give way to the shared ones.
 - **1.12.2:** Expand for the Sawmill and Workshop, Partner fishing, bronze gears, an animated Water Wheel.

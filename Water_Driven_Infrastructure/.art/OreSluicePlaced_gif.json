@@ -1,0 +1,141 @@
+{
+  "target": "../Resource/GIF/OreSluicePlaced.gif",
+  "source": "Resource/Picture/OreSluicePlaced.png",
+  "sourceCard": "CardData/Gif (water_sawmill_ore_sluice_placed CardGif)",
+  "tool": "Development_Tools/CardArt/animate_card.py",
+  "credits": 0,
+  "generated": "2026-10-14",
+  "note": "Tier 2: the creek runs down past the sluice, the cascade below it falls, and the water inside the sluice head runs; the wooden sluice and the rocks are outside the water polygons",
+  "frames": 8,
+  "duration_ms": 110,
+  "effects": [
+    {
+      "type": "flow",
+      "poly": [
+        [
+          0,
+          195
+        ],
+        [
+          345,
+          200
+        ],
+        [
+          230,
+          330
+        ],
+        [
+          160,
+          450
+        ],
+        [
+          60,
+          470
+        ],
+        [
+          0,
+          470
+        ]
+      ],
+      "mask": "water",
+      "blur": 2,
+      "mask_gain": 2.5,
+      "period": 90,
+      "dx": -0.35,
+      "dy": 1,
+      "feather": 4,
+      "strength": 1.0
+    },
+    {
+      "type": "flow",
+      "poly": [
+        [
+          30,
+          520
+        ],
+        [
+          290,
+          560
+        ],
+        [
+          300,
+          768
+        ],
+        [
+          0,
+          768
+        ],
+        [
+          0,
+          540
+        ]
+      ],
+      "mask": "water",
+      "blur": 2,
+      "mask_gain": 2.5,
+      "period": 100,
+      "dx": -0.1,
+      "dy": 1,
+      "feather": 4,
+      "strength": 1.0
+    },
+    {
+      "type": "flow",
+      "poly": [
+        [
+          340,
+          470
+        ],
+        [
+          512,
+          440
+        ],
+        [
+          512,
+          768
+        ],
+        [
+          330,
+          768
+        ]
+      ],
+      "mask": "water",
+      "blur": 2,
+      "mask_gain": 2.5,
+      "period": 80,
+      "dx": 0.1,
+      "dy": 1,
+      "feather": 4,
+      "strength": 1.0
+    },
+    {
+      "type": "flow",
+      "poly": [
+        [
+          330,
+          205
+        ],
+        [
+          420,
+          205
+        ],
+        [
+          420,
+          270
+        ],
+        [
+          330,
+          270
+        ]
+      ],
+      "mask": "water",
+      "blur": 2,
+      "mask_gain": 2.5,
+      "period": 40,
+      "dx": -0.2,
+      "dy": 1,
+      "feather": 4,
+      "strength": 1.0
+    }
+  ]
+}

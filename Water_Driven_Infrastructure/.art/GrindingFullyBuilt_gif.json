@@ -1,0 +1,19 @@
+{
+  "target": "../Resource/GIF/GrindingFullyBuilt.gif",
+  "source": "Resource/Picture/GrindingFullyBuilt.png",
+  "sourceCard": "CardData/Gif (water_sawmill_grinding_mill_placed CardGif)",
+  "tool": "Development_Tools/CardArt/animate_card.py",
+  "credits": 0,
+  "generated": "2026-10-14",
+  "note": "Tier 1 of Documentation/Research/Card_Animation_Candidates.md: the waterfall runs down, the splash pool spreads, and the grain stream pours from the hopper into the millstone; the wheel is behind the water and is not turned",
+  "frames": 8,
+  "duration_ms": 110,
+  "effects": [
+    { "type": "flow", "poly": [[25, 175], [110, 175], [185, 400], [180, 700], [100, 700], [90, 330]],
+      "mask": "water", "blur": 2, "mask_gain": 2.5, "period": 120, "dx": 0.1, "dy": 1, "feather": 3 },
+    { "type": "flow", "poly": [[70, 668], [225, 668], [255, 745], [70, 745]],
+      "mask": "water", "blur": 2, "mask_gain": 2.5, "period": 60, "dx": 1, "dy": 0.25, "feather": 4 },
+    { "type": "flow", "poly": [[356, 328], [384, 328], [420, 440], [398, 452]],
+      "mask": "all", "period": 50, "dx": 0.3, "dy": 1, "feather": 2 }
+  ]
+}
