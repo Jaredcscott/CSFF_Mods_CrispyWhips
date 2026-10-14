@@ -117,7 +117,7 @@
                 "TransferSpecial2": true,
                 "SpoilageTransferScale": {
                     "Active": true,
-                    "FloatValue": 1.0
+                    "FloatValue": 0.2666
                 },
                 "TransformIntoWarpData": "herbs_fungi_hemp_butter",
                 "TransformIntoWarpType": 3

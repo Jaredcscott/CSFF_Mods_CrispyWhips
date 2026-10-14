@@ -5,6 +5,17 @@ All notable changes to this mod. Dates are release dates.
 ---
 
 
+## [1.14.6] - 2026-10-14
+
+### Changed
+
+- **The forest trails stay still again.** Their slow drift (1.14.5) is off for now. The berry and chamomile plants still sway.
+
+### Fixed
+
+- **Hemp Butter no longer spoils the moment it solidifies.** Active Hemp Butter keeps for 18 days but the finished butter for 5, and the old spoilage was carried over as-is, so anything past about a quarter spoiled landed on a full bar and rotted. It now carries the same share: a half-spoiled Active Hemp Butter gives a half-spoiled Hemp Butter. Thanks to Banana Monk for the report.
+- **The same fix for raw pasties, Inactive Hemp Butter and Sliced Horseradish.** A mushroom or berry picked a day or more earlier made a raw pasty that rotted at once, because the pasty only keeps for one day; Hemp Flower Powder past half spoiled and Horseradish Root past 40% did the same. Each now keeps the share of freshness its ingredient had.
+
 ## [1.14.5] - 2026-10-14
 
 - **The forest trails drift and the berry and chamomile plants sway a little.** Needs CSFF Mod Framework 2.28.3.

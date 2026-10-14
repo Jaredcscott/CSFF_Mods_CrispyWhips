@@ -187,6 +187,10 @@
             "ReceivingCardChanges": {
                 "ModType": 2,
                 "TransferSpoilage": true,
+                "SpoilageTransferScale": {
+                    "Active": true,
+                    "FloatValue": 0.5
+                },
                 "TransferSpecial2": true,
                 "AverageGivenAndReceivingCards": true,
                 "TransformIntoWarpData": "herbs_fungi_hemp_butter_inactive",

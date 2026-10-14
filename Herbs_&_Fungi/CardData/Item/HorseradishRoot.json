@@ -105,7 +105,7 @@
                 "TransferSpoilage": true,
                 "SpoilageTransferScale": {
                     "Active": true,
-                    "FloatValue": 1.0
+                    "FloatValue": 0.4
                 }
             },
             "GivenCardChanges": {

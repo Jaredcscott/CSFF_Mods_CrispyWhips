@@ -378,6 +378,10 @@
                 "TransformIntoWarpData": "herbs_fungi_wild_berry_pasty_raw",
                 "TransformIntoWarpType": 3,
                 "TransferSpoilage": true,
+                "SpoilageTransferScale": {
+                    "Active": true,
+                    "FloatValue": 0.1666
+                },
                 "TransferSpecial2": true
             },
             "ReceivingCardChanges": {

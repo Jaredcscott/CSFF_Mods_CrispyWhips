@@ -759,6 +759,10 @@
                 "TransformIntoWarpData": "herbs_fungi_mushroom_pasty_raw",
                 "TransformIntoWarpType": 3,
                 "TransferSpoilage": true,
+                "SpoilageTransferScale": {
+                    "Active": true,
+                    "FloatValue": 0.1333
+                },
                 "TransferSpecial2": true
             },
             "ReceivingCardChanges": {
