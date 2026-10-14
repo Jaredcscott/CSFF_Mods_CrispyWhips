@@ -19,6 +19,20 @@
       "sha1": "688a24c93fe08273bffa914d3670c02163ac0271",
       "at": "2026-10-14T09:05:12+00:00"
     },
+    "GIF/VillageBridge.gif": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "64ecbca01926b27ec2e5e324020da614c98e5823",
+      "at": "2026-10-14T10:42:43+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "37289e1b6b4c858ccf21ae9f64ede94996765136",
+          "at": "2026-10-14T10:27:24+00:00"
+        }
+      ]
+    },
     "Picture/Bedroll.png": {
       "status": "approved",
       "notes": "",

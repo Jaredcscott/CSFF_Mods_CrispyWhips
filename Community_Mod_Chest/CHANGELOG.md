@@ -5,6 +5,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.69.14] - 2026-10-14
+
+- **Calmer river under the River Bridge:** its animated water now moves at about half the speed and less strongly.
+
 ## [1.69.13] - 2026-10-14
 
 - **The villagers breathe, the cats breathe, and the village drifts.** Every villager and guard portrait (in each of their places: the Inn, the Academy, their cottages and the forest) breathes softly; Ash, Shadow and the stray cat breathe; the Village, its paths, buildings and interiors drift slowly. Needs CSFF Mod Framework 2.28.3.

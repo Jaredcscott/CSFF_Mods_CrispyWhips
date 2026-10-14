@@ -5,9 +5,9 @@
   "tool": "Development_Tools/CardArt/animate_card.py",
   "credits": 0,
   "generated": "2026-10-14",
-  "note": "Tier 2: the river runs under the bridge; the bridge planks and banks are still (water mask inside the river band)",
+  "note": "Tier 2: the river runs under the bridge; the bridge planks and banks are still (water mask inside the river band) Water calmed 2026-10-14 (owner: \"the water animation is a bit much for all water please reduce the speed and intensity\"): flow period x0.6, flow strength x0.75, ripple amp x0.6, frame time x1.25, about half the speed.",
   "frames": 8,
-  "duration_ms": 120,
+  "duration_ms": 150,
   "effects": [
     {
       "type": "flow",
@@ -36,11 +36,11 @@
       "mask": "water",
       "blur": 2,
       "mask_gain": 2.5,
-      "period": 64,
+      "period": 38.4,
       "dx": 1,
       "dy": 0.12,
       "feather": 4,
-      "strength": 1.0
+      "strength": 0.75
     }
   ]
 }
