@@ -2,6 +2,6 @@
     "Name": "Forest Lore",
     "ShortName": "FL",
     "Author": "Jared",
-    "Version": "0.1.3",
+    "Version": "0.1.4",
     "Description": "Forest Lore (early development) adds the forest's own landmarks, ruins and hidden places to the map. Barrow Wood, south of the Old Glade, has an Ancient Cairn to open, standing stones to read and search, and a hollow oak to nap and sleep in. The Old Battlefield, north of the Moon Hills, can be searched for bones, bronze and, rarely, an old axe. The Abandoned Homestead, east of the Clay Banks, can be salvaged and repaired into a shelter with storage and a grinding slab. The Mud Springs, south of the Peat Bog, give mud, salt and tar that slowly refill, and the mud volcano warms you. Guano Rock, a short swim east of the Lake Island, gives manure. Digging peat can, rarely, turn up a Bog Body. West of the Old Hollow, a Rock Shelter leads down into the Sunken Caves: cave paintings, an ossuary, a squeeze only a light load fits through, and a lake to drink from and fish. Carved Stairs and Fairy Hole Ladders can be built from a board's Improvements tab to make vanilla climbs safer. A save that already visited a place will not gain sites added later. Requires CSFFModFramework 2.28.0 or later."
 }

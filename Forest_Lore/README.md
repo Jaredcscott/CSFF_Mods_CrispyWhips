@@ -1,6 +1,6 @@
 # Forest Lore
 
-**Version:** 0.1.3
+**Version:** 0.1.4
 **Author:** Jared
 **Requires:** CSFFModFramework 2.28.0 or later
 **Status:** pre-release, early development.

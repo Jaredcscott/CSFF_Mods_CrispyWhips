@@ -1,27 +1,6 @@
 {
   "_about": "Card motion layer (CSFFModFramework 2.28.3+, CardMotionLoader): sprite name -> built-in profile. npc and animal breathe, plant sways, location drifts slowly inside its frame. No image files.",
   "Sprites": {
-    "FL_AncientCairn": "location",
-    "FL_Battlefield": "location",
-    "FL_BogBody": "location",
-    "FL_BoneMounds": "location",
-    "FL_CaveExit": "location",
-    "FL_CaveLake": "location",
-    "FL_CaveMouth": "location",
-    "FL_CavePaintings": "location",
-    "FL_CircleStone": "location",
-    "FL_FallenWatchtower": "location",
-    "FL_GrindingSlab": "location",
-    "FL_GuanoRock": "location",
-    "FL_Homestead": "location",
-    "FL_MudVolcano": "location",
-    "FL_OverhangingRock": "location",
-    "FL_Petrospheres": "location",
-    "FL_RuinedHomestead": "location",
-    "FL_SaltCrust": "location",
-    "FL_Squeeze": "location",
-    "FL_StandingStones": "location",
-    "FL_TarSeep": "location",
     "FL_TreeHollow": "plant"
   }
 }

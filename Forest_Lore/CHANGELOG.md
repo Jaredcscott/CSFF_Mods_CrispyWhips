@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.4] - 2026-10-14
+
+### Changed
+
+- **The lore sites stay still again.** Their slow drift (0.1.3) is off for now. The Tree Hollow's branches still sway.
+
 ## [0.1.3] - 2026-10-14
 
 ### Added

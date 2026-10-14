@@ -17,5 +17,5 @@ internal class Plugin : ContentModPlugin
 {
     private const string PluginGuid = "crispywhips.forest_lore";
     public const string PluginName = "Forest Lore";
-    public const string PluginVersion = "0.1.3";
+    public const string PluginVersion = "0.1.4";
 }
