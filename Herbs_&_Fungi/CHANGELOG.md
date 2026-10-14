@@ -5,6 +5,12 @@ All notable changes to this mod. Dates are release dates.
 ---
 
 
+## [1.14.5] - 2026-10-14
+
+- **The forest trails drift and the berry and chamomile plants sway a little.** Needs CSFF Mod Framework 2.28.3.
+- **The Smouldering Incense Bundle is animated:** its smoke curl drifts and the burning tip glows. The unlit bundle stays still.
+- **The Wild Bees' Nest is animated:** the bees at the entrance buzz about.
+
 ## [1.14.4] - 2026-10-13
 
 - **Honey foods are worth their honeycomb again:** game EA 0.69c made Honeycomb a 168-calorie food, so honeying or preserving lost calories. Honeyed Berries (133), Honeyed Nuts (182), Berry Preserve (433), Plum Preserve (387) and Rhubarb Preserve (345) now give back at least what goes into them.

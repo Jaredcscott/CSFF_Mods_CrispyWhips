@@ -1,6 +1,6 @@
 # Herbs and Fungi: Player Guide
 
-**Version:** 1.14.4
+**Version:** 1.14.5
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.68)
 
@@ -503,6 +503,7 @@ Patch classes in `Patcher/`:
 
 Full notes are in `CHANGELOG.md`.
 
+- **1.14.5**: the Smouldering Incense Bundle has animated card art.
 - **1.14.4**: starter-kit perks hand items over as ordinary starting items, teas and remedies have realistic weights, and `ForageDropDensityScale` above 1.0 tops out at a certain drop.
 - **1.14.3**: the Mushroom Basket perk's basket and mushrooms land properly.
 - **1.14.2**: dozens of new wild foods, crops, dishes, drinks and medicines, the Old-Growth Grove, Fungal Bloom, Partners eating this mod's food, and new card art.

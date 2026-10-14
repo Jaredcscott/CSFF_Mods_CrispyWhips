@@ -1,6 +1,12 @@
 {
   "about": "Owner art review verdicts, written by Development_Tools/CardArt/art_review.py. Keyed by path under Resource/; sha1 is the file that was judged.",
   "images": {
+    "GIF/IncenseBundleLit.gif": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "5b08a99442e78483c0eb03de3d632fbd2c0028cb",
+      "at": "2026-10-14T09:05:11+00:00"
+    },
     "Picture/ApothecaryShelf.png": {
       "status": "approved",
       "notes": "",
