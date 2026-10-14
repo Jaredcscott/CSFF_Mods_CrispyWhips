@@ -1,6 +1,24 @@
 {
   "about": "Owner art review verdicts, written by Development_Tools/CardArt/art_review.py. Keyed by path under Resource/; sha1 is the file that was judged.",
   "images": {
+    "GIF/ACT_MetalLantern_Oilwell_On_Copper.gif": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "9c7ea9b21f15629a3947f8edefdca7cf46f9c00f",
+      "at": "2026-10-14T09:05:45+00:00"
+    },
+    "GIF/ACT_MetalLantern_On_Copper.gif": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "5a3b6db57261bd527919d73b18d6bb7ffed24639",
+      "at": "2026-10-14T09:05:44+00:00"
+    },
+    "GIF/CopperBrazier_Lit.gif": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "05622abc735801bcbd26904271e6f644ab373c2a",
+      "at": "2026-10-14T09:05:50+00:00"
+    },
     "Picture/ACT_CalmingTea.png": {
       "status": "approved",
       "notes": "",

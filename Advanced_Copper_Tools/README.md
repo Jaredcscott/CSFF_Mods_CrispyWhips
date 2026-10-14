@@ -1,7 +1,7 @@
 # Advanced Copper Tools
 
 **Quality of Life & Advanced Metalworking**
-**Version:** 1.18.4
+**Version:** 1.18.5
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.68)
 
@@ -633,7 +633,7 @@ For modders. Each hook is scoped to this mod's own cards unless noted.
 1. Install BepInEx if you have not already.
 2. Install CSFFModFramework in `BepInEx/plugins/CSFF_Mod_Framework/`.
 3. Put this mod's folder at `BepInEx/plugins/Advanced_Copper_Tools/`.
-4. Launch the game. `BepInEx/LogOutput.log` should show `Advanced_Copper_Tools v1.18.4 loaded.`
+4. Launch the game. `BepInEx/LogOutput.log` should show `Advanced_Copper_Tools v1.18.5 loaded.`
 
 ### Configuration
 
@@ -665,7 +665,7 @@ One BepInEx option, in `BepInEx/config/` under the section `Compatibility`:
 
 ## Troubleshooting
 
-**Blueprints not appearing?** Check that CSFFModFramework loaded: `LogOutput.log` should have `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.18.4 loaded.`
+**Blueprints not appearing?** Check that CSFFModFramework loaded: `LogOutput.log` should have `[CSFFModFramework]` lines and `Advanced_Copper_Tools v1.18.5 loaded.`
 
 **Pan or kettle won't boil?** It must sit on a lit fire with fuel left, and hold a liquid the game can heat.
 
@@ -681,6 +681,7 @@ One BepInEx option, in `BepInEx/config/` under the section `Compatibility`:
 
 Full detail for every version is in `CHANGELOG.md`.
 
+- **1.18.5:** the lit Copper Brazier, Metal Lantern and Lantern Oilwell have animated card art.
 - **1.18.4:** the Wheelbarrow and Tea Blending Station perks list their item as a starting item instead of equipment that cannot be worn. Taking apart copper gear returns Metal Sheets at quality 50. Item weights match the base game.
 - **1.18.3:** recipe and help text name everything each recipe takes, in English and Chinese.
 - **1.18.2:** the mines produce copper at the game's own pace, a worn Wearable Metal Pan weighs nothing, and the new Copper Sap Bucket collects tap sap and resin.

@@ -1,0 +1,15 @@
+{
+  "target": "../Resource/GIF/ACT_MetalLantern_On_Copper.gif",
+  "source": "Resource/Picture/ACT_MetalLantern_On_Copper.png",
+  "sourceCard": "CardData/Gif (advanced_copper_tools_metal_lantern_lit and _placed_lit CardGif)",
+  "tool": "Development_Tools/CardArt/animate_card.py",
+  "credits": 0,
+  "generated": "2026-10-14",
+  "note": "Tier 1 of Documentation/Research/Card_Animation_Candidates.md: the art shows no flame, only lit glass, so the glass glow flickers",
+  "frames": 8,
+  "duration_ms": 120,
+  "effects": [
+    { "type": "glow", "box": [55, 214, 242, 388], "mask": "bright", "blur": 3, "mask_gain": 1.5,
+      "tint": [255, 196, 110], "bright": 0.32, "feather": 4 }
+  ]
+}

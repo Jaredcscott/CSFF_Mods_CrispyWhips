@@ -1,0 +1,15 @@
+{
+  "target": "../Resource/GIF/ACT_MetalLantern_Oilwell_On_Copper.gif",
+  "source": "Resource/Picture/ACT_MetalLantern_Oilwell_On_Copper.png",
+  "sourceCard": "CardData/Gif (advanced_copper_tools_lantern_oilwell_lit CardGif)",
+  "tool": "Development_Tools/CardArt/animate_card.py",
+  "credits": 0,
+  "generated": "2026-10-14",
+  "note": "Tier 1 of Documentation/Research/Card_Animation_Candidates.md: the flame above the wick sways and breathes; wick and well are still",
+  "frames": 8,
+  "duration_ms": 110,
+  "effects": [
+    { "type": "flame", "box": [130, 0, 270, 136], "base_y": 134, "tip_y": 2, "amp": 7, "waves": 0.8,
+      "stretch": 0.04, "bright": 0.04, "mask": "all", "blur": 0, "feather": 2 }
+  ]
+}

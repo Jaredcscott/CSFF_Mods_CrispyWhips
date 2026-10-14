@@ -1,0 +1,9 @@
+{
+  "CardUniqueId": "advanced_copper_tools_copper_tea_kettle",
+  "ConditionSets": [
+    {
+      "Gif": { "GifName": "Copper_Tea_Kettle_Hot", "Loop": true },
+      "DurabilityConditions": [ { "DurabilityType": 2, "MinNormalized": 0.5, "MaxNormalized": 1.0 } ]
+    }
+  ]
+}

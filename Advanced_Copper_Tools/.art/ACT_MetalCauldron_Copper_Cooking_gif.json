@@ -1,0 +1,14 @@
+{
+  "target": "../Resource/GIF/ACT_MetalCauldron_Copper_Cooking.gif",
+  "source": "Resource/Picture/ACT_MetalCauldron_Copper.png",
+  "sourceCard": "CardData/Gif (advanced_copper_tools_copper_cauldron CookingGif)",
+  "tool": "Development_Tools/CardArt/animate_card.py",
+  "credits": 0,
+  "generated": "2026-10-14",
+  "note": "Tier 2: plays only while the cauldron cooks: the lid hops on the boil. Steam was tried and dropped: the sprite is cut tight to the lid, so there is no room above for a plume, and wisps drawn over the lid read as scratches",
+  "frames": 8,
+  "duration_ms": 110,
+  "effects": [
+    { "type": "shift", "box": [40, 0, 455, 98], "bounce": true, "ay": 2.5, "speed": 2, "mask": "all", "feather": 4 }
+  ]
+}

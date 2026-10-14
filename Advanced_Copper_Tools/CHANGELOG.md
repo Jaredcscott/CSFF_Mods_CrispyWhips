@@ -2,6 +2,14 @@
 
 All notable changes to this mod are documented here.
 
+## [1.18.5] - 2026-10-14
+
+### Added
+
+- **The mine locations move a little:** the Collapsed Wall, the ore lodes and veins and the Mine Daylight Shaft drift slowly, like the other location paintings. Needs CSFF Mod Framework 2.28.3.
+- **Animated card art for lit lights.** The lit Copper Brazier's fire flickers and its smoke drifts, the lit Metal Lantern's glass glows warmer and cooler, and the lit Lantern Oilwell's flame sways. Unlit cards stay still.
+- **Animated card art for warm and working copper.** The warm Copper Bathtub (carried and placed) steams and its fire flickers; the lit Small Copper Stove and lit Tea Blending Station glow in the firebox, and the station's kettle steams; the Copper Cauldron's lid rattles while it cooks; the Copper Tea Kettle steams from its spout while it is at least half hot.
+
 ## [1.18.4] - 2026-10-13
 
 ### Fixed
