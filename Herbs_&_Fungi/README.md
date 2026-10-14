@@ -503,6 +503,7 @@ Patch classes in `Patcher/`:
 
 Full notes are in `CHANGELOG.md`.
 
+- **1.14.7**: meat dries at a quarter of the speed on the Drying Tray (about a day for Bird Meat); spoilage shows the bacteria icon and drying the hammer icon, as vanilla food does; berries, mushrooms and herbs taste of something when eaten straight, not only from a bowl.
 - **1.14.6**: Hemp Butter, raw pasties, Inactive Hemp Butter and Sliced Horseradish keep their ingredient's freshness instead of rotting the moment they are made; the forest trails stay still.
 - **1.14.5**: the Smouldering Incense Bundle and the Wild Bees' Nest have animated card art, and the berry and chamomile plants sway.
 - **1.14.4**: starter-kit perks hand items over as ordinary starting items, teas and remedies have realistic weights, and `ForageDropDensityScale` above 1.0 tops out at a certain drop.

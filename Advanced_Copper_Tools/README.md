@@ -681,6 +681,7 @@ One BepInEx option, in `BepInEx/config/` under the section `Compatibility`:
 
 Full detail for every version is in `CHANGELOG.md`.
 
+- **1.18.7:** Salt-Cured Fish and Salt-Cured Meat show the bacteria spoilage icon and taste of something when eaten.
 - **1.18.6:** the mine locations stay still (the slow drift added in 1.18.5 is off for now).
 - **1.18.5:** animated card art for the lit Copper Brazier, Metal Lantern and Lantern Oilwell, and for warm copper: the Bathtub steams, the Small Copper Stove and Tea Blending Station glow, the Cauldron's lid rattles and the Tea Kettle steams.
 - **1.18.4:** the Wheelbarrow and Tea Blending Station perks list their item as a starting item instead of equipment that cannot be worn. Taking apart copper gear returns Metal Sheets at quality 50. Item weights match the base game.
