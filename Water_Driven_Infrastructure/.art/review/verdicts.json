@@ -4,20 +4,72 @@
     "GIF/ForgeFullyBuilt.gif": {
       "status": "approved",
       "notes": "",
-      "sha1": "2bd5444b43ab66a5a0adbd19f905d2b1d00c104e",
-      "at": "2026-10-14T09:05:51+00:00"
+      "sha1": "5b7ea702f0750b13e32d726122bfb630f9da6c89",
+      "at": "2026-10-14T10:42:12+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "2bd5444b43ab66a5a0adbd19f905d2b1d00c104e",
+          "at": "2026-10-14T09:05:51+00:00"
+        }
+      ]
     },
     "GIF/GrindingFullyBuilt.gif": {
       "status": "approved",
       "notes": "",
-      "sha1": "252aca1d0cae321f52e9e187de4066055687cbaf",
-      "at": "2026-10-14T09:05:10+00:00"
+      "sha1": "a65d1a400c0b8eaf7328e374433d894993562231",
+      "at": "2026-10-14T10:42:39+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "252aca1d0cae321f52e9e187de4066055687cbaf",
+          "at": "2026-10-14T09:05:10+00:00"
+        }
+      ]
+    },
+    "GIF/OreSluicePlaced.gif": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "4194ca0e1c07e2715eaabad8948d4b5fdc3b5693",
+      "at": "2026-10-14T10:42:40+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c09f893beb5268fcfcce52d8c8b987ffd08f75ec",
+          "at": "2026-10-14T10:27:20+00:00"
+        }
+      ]
     },
     "GIF/SawmillFullyBuilt.gif": {
       "status": "approved",
       "notes": "",
-      "sha1": "17f4623db9ff22d2a33097e9d9ad62b5f3f2f67b",
-      "at": "2026-10-14T09:05:14+00:00"
+      "sha1": "2448f9a0fdbf504f0cedff5e11d64eb0b4cbfe48",
+      "at": "2026-10-14T10:42:41+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "17f4623db9ff22d2a33097e9d9ad62b5f3f2f67b",
+          "at": "2026-10-14T09:05:14+00:00"
+        }
+      ]
+    },
+    "GIF/WaterBasin.gif": {
+      "status": "approved",
+      "notes": "",
+      "sha1": "4982ee6f3585fbe2d97c5cd455f9d1a616f108a1",
+      "at": "2026-10-14T10:42:44+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "15da857f5c9fe874d148cefe895af1518471d8fe",
+          "at": "2026-10-14T10:27:28+00:00"
+        }
+      ]
     },
     "GIF/WaterMill.gif": {
       "status": "alter",
@@ -48,8 +100,16 @@
     "GIF/WorkshopFullyBuilt.gif": {
       "status": "approved",
       "notes": "",
-      "sha1": "c9797209b2d0fe447f0d4cdca74eec9384b6c3f6",
-      "at": "2026-10-14T09:05:08+00:00"
+      "sha1": "b04652dbc4d7a844ec3b0717dfffdc068b0187bd",
+      "at": "2026-10-14T10:42:45+00:00",
+      "history": [
+        {
+          "status": "approved",
+          "notes": "",
+          "sha1": "c9797209b2d0fe447f0d4cdca74eec9384b6c3f6",
+          "at": "2026-10-14T09:05:08+00:00"
+        }
+      ]
     },
     "Picture/act_tin_solder.png": {
       "status": "approved",

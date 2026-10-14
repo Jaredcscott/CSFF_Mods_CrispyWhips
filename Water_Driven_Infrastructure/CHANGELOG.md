@@ -2,6 +2,11 @@
 
 All notable changes to this mod are documented here.
 
+## [1.12.7] - 2026-10-14
+
+### Changed
+- **Calmer water in the animated card art.** The waterfalls and splash pools of the Water-Driven Sawmill, Grinding Mill, Forge and Workshop, the Ore Sluice's creek and the Water Basin's pour and rings now move at about half the speed and less strongly. The fires and the grain are unchanged.
+
 ## [1.12.6] - 2026-10-14
 
 ### Added
