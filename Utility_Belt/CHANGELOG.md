@@ -2,6 +2,16 @@
 
 All notable changes to this mod are documented here.
 
+## [0.1.3] - Unreleased
+
+### Added
+- `Card Size`: each of eight card rows (location, base, hand, blueprint, open container, equipment, trade inventory, trade offer) can be `Normal`, `Smaller` (one row of smaller cards; `Smaller Size`, 0.7 by default), `TwoRows` (two rows of half-size cards) or `TwoRowsWhenCrowded` (two rows only while the row holds more cards than `Crowded Above`, 9 by default). Every row is `Normal` by default. Two rows use the game's own multi-row layout, and a row set back to `Normal` returns to exactly how the game drew it. This replaces the Card Size Reduce mod and its ModCore requirement.
+- `Capacity > Extra Hand Slots` (0, 3, 6 or 9; 0 by default) adds slots to your item bar from the next load.
+- `Capacity > Extra Carry Weight` (0, 3000, 6000 or 9000; 0 by default) raises the most weight you can carry, straight away and on every run. Nothing is saved, so turning it off puts the limit back.
+
+### Notes
+- While Card Size Reduce is installed, these options stay off and the log says so once.
+
 ## [0.1.2] - 2026-10-12
 
 Version number only. Everything new since the last Nexus release (0.1.0) is listed under 0.1.1 below.

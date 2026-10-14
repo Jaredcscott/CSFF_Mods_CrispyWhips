@@ -11,7 +11,7 @@ internal class Plugin : BaseUnityPlugin
 {
     private const string PluginGuid = "crispywhips.utility_belt";
     private const string PluginName = "Utility Belt";
-    private const string PluginVersion = "0.1.2";
+    private const string PluginVersion = "0.1.3";
 
     internal new static ManualLogSource Logger;
 
@@ -31,6 +31,11 @@ internal class Plugin : BaseUnityPlugin
     internal static ConfigEntry<bool> StoreProductsIn { get; private set; }
     internal static ConfigEntry<bool> EquipSpareToolOnBreak { get; private set; }
     internal static ConfigEntry<UnityEngine.KeyCode> StoreContainerKey { get; private set; }
+    internal static ConfigEntry<CardRowLayout>[] CardRowLayouts { get; private set; }
+    internal static ConfigEntry<int> CrowdedAbove { get; private set; }
+    internal static ConfigEntry<float> SmallerSize { get; private set; }
+    internal static ConfigEntry<int> ExtraHandSlots { get; private set; }
+    internal static ConfigEntry<int> ExtraCarryWeight { get; private set; }
 
     private Harmony _harmony;
 
@@ -146,6 +151,42 @@ internal class Plugin : BaseUnityPlugin
             UnityEngine.KeyCode.V,
             "With Store Products In on, hover a container (a chest on the ground, a bag you carry) and press this key to make it the place Repeat Action puts what it makes; press it again on the same container to stop. Does nothing while Store Products In is off. None turns the key off. Ignored while typing in a text field.");
 
+        // Card Size replaces Card Size Reduce (and with it the ModCore dependency). Every row defaults to Normal.
+        CardRowLayouts = new ConfigEntry<CardRowLayout>[CardSize.RowKeys.Length];
+        for (var i = 0; i < CardSize.RowKeys.Length; i++)
+        {
+            CardRowLayouts[i] = Config.Bind(
+                "Card Size",
+                CardSize.RowKeys[i],
+                CardRowLayout.Normal,
+                $"{CardSize.RowDescriptions[i]} Normal (the game's own layout), Smaller (one row of smaller cards, so more fit across), TwoRows (two rows of half-size cards) or TwoRowsWhenCrowded (normal until the row holds more cards than Crowded Above, then two rows). Display only. Takes effect within a frame of changing it. Stays off while Card Size Reduce is installed.");
+        }
+
+        CrowdedAbove = Config.Bind(
+            "Card Size",
+            "Crowded Above",
+            9,
+            new ConfigDescription("A row set to TwoRowsWhenCrowded switches to two rows while it holds more cards than this.", new AcceptableValueRange<int>(1, 50)));
+
+        SmallerSize = Config.Bind(
+            "Card Size",
+            "Smaller Size",
+            0.7f,
+            new ConfigDescription("How big cards are drawn in a row set to Smaller, as a fraction of their normal size.", new AcceptableValueRange<float>(0.4f, 0.95f)));
+
+        ExtraHandSlots = Config.Bind(
+            "Capacity",
+            "Extra Hand Slots",
+            0,
+            new ConfigDescription("Adds 3, 6 or 9 slots to your item bar (0 for none). Takes effect the next time you load a save or start a run. Empty your extra slots before lowering it. Stays off while Card Size Reduce is installed.", new AcceptableValueList<int>(0, 3, 6, 9)));
+
+        ExtraCarryWeight = Config.Bind(
+            "Capacity",
+            "Extra Carry Weight",
+            0,
+            new ConfigDescription("Raises the most weight you can carry by 3000, 6000 or 9000 (0 for none; the game's base limit is 4000). Applies to the run in play within a frame of changing it, and to every run you start or load. Nothing is written to your save. Stays off while Card Size Reduce is installed.", new AcceptableValueList<int>(0, 3000, 6000, 9000)));
+        ExtraCarryWeight.SettingChanged += (_, _) => Capacity.ApplyCarryWeight();
+
         _harmony = new Harmony(PluginGuid);
         // One try per patch, so a throw in one never skips the ones after it.
         void Apply(string name, Action<Harmony> apply)
@@ -159,9 +200,11 @@ internal class Plugin : BaseUnityPlugin
         Apply("InspectionReadoutPatch", Patcher.InspectionReadoutPatch.ApplyPatch);
         Apply("QuickswapEquipPatch", Patcher.QuickswapEquipPatch.ApplyPatch);
         Apply("CharacterRandomiserPatch", Patcher.CharacterRandomiserPatch.ApplyPatch);
+        Apply("CardSizePatch", Patcher.CardSizePatch.ApplyPatch);
 
-        // A static event that fires once per run start; subscribed once per process.
+        // Static events that fire once per run start; each subscribed once per process.
         GameManager.OnGMInitialized += Locks.ItemLocks.OnRunStarted;
+        GameManager.OnGMInitialized += Capacity.OnRunStarted;
 
         // The one Info line a mod prints at startup (CLAUDE.md "Mod Logging Norms").
         Logger.LogInfo($"{PluginName} v{PluginVersion} loaded.");
@@ -170,6 +213,7 @@ internal class Plugin : BaseUnityPlugin
     private void OnDestroy()
     {
         GameManager.OnGMInitialized -= Locks.ItemLocks.OnRunStarted;
+        GameManager.OnGMInitialized -= Capacity.OnRunStarted;
         ModuleSeams.Unsubscribe();
         _harmony?.UnpatchSelf();
     }
@@ -180,6 +224,7 @@ internal class Plugin : BaseUnityPlugin
         Locks.ItemLocks.Tick();
         SortContainer.Tick();
         SealedMark.Tick();
+        CardSize.Tick();
         // Resolves Repeat Action's and Quick Transfer's seams on the first frame (never Awake: plan W0.1d), then keeps
         // the requirements-unmet subscription in step with the option.
         AutoPull.Tick();

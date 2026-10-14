@@ -1,6 +1,6 @@
 # Utility Belt
 
-**Version:** 0.1.2
+**Version:** 0.1.3
 **Author:** Jared (crispywhips)
 **For:** Card Survival: Fantasy Forest (EA 0.68b)
 **Requires:** BepInEx 5 (Quick Transfer and Skill Speed Boost also need CSFF Mod Framework)
@@ -18,7 +18,7 @@ Those three still ship as separate mods. Install Utility Belt if you would rathe
 | Repeat Action 2.2.2 (included) | Repeat last action, adjustable count, travel repeat, safety stops, spare tool, pinned action, pause and resume |
 | Quick Transfer 1.9.1 (included) | Modifier + right-click bulk transfer, adjustable amounts, tag filter, undo, transfer hotkey |
 | Skill Speed Boost 1.11.1 (included) | Area Familiarity (on), XP multipliers, staleness, optional bonuses, difficulty profiles |
-| Utility Belt itself | Hide rain and snow, 12-hour clock, worn-bag hotkeys, item lock, container sorting, capacity and warmth readouts, quickswap, sealed mark, character randomiser, and three Repeat Action helpers (fetch a card, store products, wear a spare tool) |
+| Utility Belt itself | Hide rain and snow, 12-hour clock, worn-bag hotkeys, item lock, container sorting, capacity and warmth readouts, quickswap, sealed mark, character randomiser, card size and two-row card rows, extra hand slots, extra carry weight, and three Repeat Action helpers (fetch a card, store products, wear a spare tool) |
 
 ## Included mods
 
@@ -130,6 +130,18 @@ Settings and familiarity records (`BepInEx/config/SkillSpeedBoost/`) are shared 
   - It puts on one spare per missing tool, then the repeat tries once more. If nothing suitable is found, the run stops as it does without Utility Belt.
   - Needs the included Repeat Action.
 
+- **Card Size** (every row `Normal` by default): fit more cards on screen. Each of eight rows has its own setting: the location row at the top, the base row of cards on the ground, your hand, the blueprint row, an open container, the equipment row in the character window, and the trade window's inventory and offer rows.
+  - `Smaller` draws one row of smaller cards (Smaller Size, 0.7 by default), so more fit across.
+  - `TwoRows` stacks half-size cards in two rows, using the game's own multi-row layout (the one its zoom button uses).
+  - `TwoRowsWhenCrowded` stays normal until the row holds more cards than Crowded Above (9), then switches to two rows, and back to one once it holds that many or fewer.
+  - Display only: no card moves. A row set back to `Normal` returns to exactly how the game drew it, and changes apply within a frame.
+  - A row the game's own zoom button also controls follows the button again whenever its setting is `Normal`.
+  - This replaces the Card Size Reduce mod, with no ModCore needed.
+
+- **Extra Hand Slots** (Capacity, 0 by default): adds 3, 6 or 9 slots to your item bar. Takes effect the next time you load a save or start a run. Empty the extra slots before lowering it.
+
+- **Extra Carry Weight** (Capacity, 0 by default): raises the most weight you can carry by 3000, 6000 or 9000 (the base limit is 4000). Applies to the run in play as soon as you change it, and to every run you start or load. Nothing is written to your save, so turning it off or removing Utility Belt puts the limit back.
+
 ## Installation
 
 Install [BepInEx 5.x](https://github.com/BepInEx/BepInEx/releases) for Card Survival: Fantasy Forest. Quick Transfer and Skill Speed Boost also need CSFF Mod Framework (`CSFF_Mod_Framework`); Repeat Action does not. No other mod is needed.
@@ -229,6 +241,21 @@ Utility Belt's own config file is `BepInEx/config/crispywhips.utility_belt.cfg`:
 | Show Sealed Mark | false | Draws a small red wax seal on a sealed container's card. Display only. Works while playing |
 | Sealed Cards | the three sealed card IDs | Comma-separated card IDs that get the sealed mark: the Sealed Storage Pot, the placed Sealed Storage Pot and the Sealed Fermentation Bin by default. Add a modded container's ID to mark it too |
 
+**Card Size**
+
+| Setting | Default | Description |
+|---------|---------|-------------|
+| Location Row, Base Row, Hand Row, Blueprint Row, Container Row, Equipment Row, Trade Inventory Row, Trade Offer Row | Normal | `Normal`, `Smaller` (one row of smaller cards), `TwoRows` (two rows of half-size cards) or `TwoRowsWhenCrowded` (two rows only while the row holds more cards than Crowded Above). Display only. Works while playing |
+| Crowded Above | 9 | A `TwoRowsWhenCrowded` row switches to two rows while it holds more cards than this (1 to 50) |
+| Smaller Size | 0.7 | How big cards are drawn in a `Smaller` row, as a fraction of normal (0.4 to 0.95) |
+
+**Capacity**
+
+| Setting | Default | Description |
+|---------|---------|-------------|
+| Extra Hand Slots | 0 | Slots added to your item bar: 0, 3, 6 or 9. Applies the next time you load a save or start a run |
+| Extra Carry Weight | 0 | Added to the most weight you can carry: 0, 3000, 6000 or 9000. Works while playing; nothing is saved |
+
 **Character**
 
 | Setting | Default | Description |
@@ -274,12 +301,14 @@ With it on, `BepInEx/LogOutput.log` gains one line per mod: `<name> <version> fr
 - Card Survival: Fantasy Forest, BepInEx 5.4.23.4 or later. Only the included Quick Transfer and Skill Speed Boost need CSFF Mod Framework.
 - Each included mod carries its standalone's name and settings. If you install both the standalone and the included copy, only the newer one runs, and BepInEx logs a harmless `Skipping ... because a newer version exists` warning each boot. At equal versions BepInEx picks by file order. Install one or the other.
 - To drop an included mod, delete its DLL from `Utility_Belt/`.
+- Card Size, Extra Hand Slots and Extra Carry Weight replace Pikachu's Card Size Reduce. While Card Size Reduce is installed they stay off, so the two never shrink one row twice, and the log says so once. Remove Card Size Reduce (and ModCore, if nothing else of yours needs it) to use them. Card Size Reduce's own perks are not carried over: set the two Capacity options instead.
 - Auto-Pull Materials, Store Products In and Equip Spare Tool On Break work through small public hooks that Repeat Action 2.2.1 and Quick Transfer 1.9.0 and later carry. Utility Belt finds them at run time on whichever copy BepInEx loaded, so none of these mods depends on another. With an older copy the option stays off and the log says so once.
 
 ## Version history
 
 Full notes are in `CHANGELOG.md`.
 
+- **0.1.3**: Card Size (smaller or two-row card rows), Extra Hand Slots and Extra Carry Weight, replacing Card Size Reduce.
 - **0.1.2**: version number only.
 - **0.1.1**: Quick Transfer and Skill Speed Boost included, plus every Utility Belt feature above.
 - **0.1.0**: Repeat Action included; the plugin loads.
